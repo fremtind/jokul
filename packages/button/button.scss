@@ -43,10 +43,9 @@ a.jkl-button {
     box-sizing: border-box;
     justify-content: center;
 
-    @include jkl.text-style("body") {
-        line-height: $_button-height;
-        font-weight: jkl.$typography-weight-bold;
-    }
+    @include jkl.text-style("body");
+    font-weight: jkl.$typography-weight-bold;
+    line-height: $_button-height;
 
     height: $_button-height;
     min-width: $_button-min-width;
@@ -225,13 +224,14 @@ a.jkl-button {
 
     @include jkl.small-device {
         $_mobile-button-height: jkl.rem(44px);
-        line-height: $_mobile-button-height;
 
         &.jkl-button--primary,
         &.jkl-button--secondary,
-        &.jkl-button--tertiary,
-        & .jkl-button__content,
-        & .jkl-button__slider,
+        &.jkl-button--tertiary {
+            line-height: $_mobile-button-height;
+            height: $_mobile-button-height;
+        }
+
         & .jkl-button__loader {
             height: $_mobile-button-height;
         }
