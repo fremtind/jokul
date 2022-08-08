@@ -135,24 +135,25 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
         .jkl-message-box__icon {
             height: jkl.rem(12px);
-            left: jkl.rem(15px);
-            top: jkl.rem(19.2px);
+            left: jkl.rem(9px);
+            top: jkl.rem(11px);
         }
 
         .jkl-message-box__title {
             @include jkl.text-style("heading-5") {
                 line-height: jkl.rem(20.8px);
             }
+            margin-bottom: jkl.$spacing-2xs;
         }
 
         .jkl-message-box__content {
-            padding: jkl.$spacing-xs;
+            padding: 0;
         }
 
         .jkl-message-box__dismiss-button {
             width: jkl.rem(32px);
             height: jkl.rem(32px);
-            margin: jkl.rem(2.5px) 0 -#{jkl.rem(4.5px)} auto;
+            margin: jkl.rem(-4px) jkl.rem(-4px) jkl.rem(-4.5px) auto;
         }
 
         .jkl-message-box__message {
