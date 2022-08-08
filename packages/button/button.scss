@@ -42,18 +42,18 @@ a.jkl-button {
     display: inline-flex;
     box-sizing: border-box;
     justify-content: center;
-    @include jkl.text-style("body/small-screen");
-    font-weight: jkl.$typography-weight-bold;
+
+    @include jkl.text-style("body") {
+        line-height: $_button-height;
+        font-weight: jkl.$typography-weight-bold;
+    }
+
     height: $_button-height;
     min-width: $_button-min-width;
-    line-height: $_button-height;
     cursor: pointer;
     user-select: none;
     overflow: visible;
     position: relative;
-
-    -moz-osx-font-smoothing: auto;
-    -webkit-font-smoothing: auto;
 
     @include jkl.motion;
     transform-origin: 50% 90%;
