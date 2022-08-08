@@ -223,6 +223,19 @@ a.jkl-button {
         }
     }
 
+    @include jkl.small-device {
+        $_mobile-button-height: jkl.rem(44px);
+        line-height: $_mobile-button-height;
+
+        &.jkl-button--primary,
+        &.jkl-button--secondary,
+        &.jkl-button--tertiary,
+        & .jkl-button__content,
+        & .jkl-button__loader {
+            height: $_mobile-button-height;
+        }
+    }
+
     @include jkl.compact-mode {
         $_compact-button-height: jkl.rem(24px);
 
