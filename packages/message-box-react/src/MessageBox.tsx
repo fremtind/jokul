@@ -141,6 +141,7 @@ function messageFactory(messageType: messageTypes) {
         return (
             <div
                 {...rest}
+                id={id}
                 ref={ref}
                 className={cn("jkl-message-box", "jkl-message-box--" + messageType, className, {
                     "jkl-message-box--full": fullWidth,
