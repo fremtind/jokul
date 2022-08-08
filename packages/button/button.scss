@@ -231,6 +231,7 @@ a.jkl-button {
         &.jkl-button--secondary,
         &.jkl-button--tertiary,
         & .jkl-button__content,
+        & .jkl-button__slider,
         & .jkl-button__loader {
             height: $_mobile-button-height;
         }
