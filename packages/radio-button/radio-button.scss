@@ -44,11 +44,14 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     display: flex;
     min-height: $_radio-button-height;
     color: var(--jkl-radio-button-color);
+    position: relative;
 
     &__input {
         // hide default radio button
         position: absolute;
         opacity: 0;
+        // Position the hidden input so that Cypress can hit it without it being obscured by the visual checkbox
+        top: -6px;
 
         // Checked state
         &:checked {

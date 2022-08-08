@@ -53,11 +53,14 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
     flex-wrap: wrap;
     min-height: $_checkbox-height;
     color: var(--jkl-checkbox-color);
+    position: relative;
 
     &__input {
         // Hide native checkbox
         opacity: 0;
         position: absolute;
+        // Position the hidden input so that Cypress can hit it without it being obscured by the visual checkbox
+        top: -6px;
 
         // Checked state:
         &:checked {
