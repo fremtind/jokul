@@ -245,7 +245,7 @@ a.jkl-button {
     }
 
     @include jkl.compact-mode {
-        $_compact-button-height: jkl.rem(24px);
+        $_compact-button-height: jkl.rem(28px);
 
         @include jkl.text-style("heading-5") {
             line-height: $_compact-button-height;
