@@ -29,7 +29,6 @@ $_focus-ring-width: jkl.rem(2px);
     background-color: transparent;
     cursor: pointer;
     color: var(--jkl-expand-button-text-color);
-    display: inline-block;
     padding: 0;
     transition: transform $_animation-timing, border $_animation-timing;
     min-width: unset;
@@ -94,6 +93,11 @@ $_focus-ring-width: jkl.rem(2px);
 
         display: inline-block;
         margin-left: jkl.$spacing-xs;
+        margin-bottom: jkl.rem(-3px);
+
+        .jkl-expand-button--expanded & {
+            margin-bottom: 0;
+        }
 
         --jkl-icon-width: #{$_arrow-width};
 
