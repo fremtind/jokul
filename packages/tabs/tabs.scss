@@ -25,7 +25,7 @@
 
         & > [role="tablist"] > [role="tab"] {
             @include jkl.text-style("small");
-            padding: 0;
+            padding: jkl.$spacing-3xs 0;
             padding-right: jkl.rem(32px);
 
             &[aria-selected="true"] {
