@@ -154,6 +154,7 @@ a.jkl-button {
     &--secondary {
         background-color: var(--jkl-button-background-color);
         color: var(--jkl-button-text-color);
+        transition-property: box-shadow, transform, background-color;
 
         &:hover,
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
