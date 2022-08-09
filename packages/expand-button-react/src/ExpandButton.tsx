@@ -1,7 +1,6 @@
-import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import { ScreenReaderOnly, WithChildren } from "@fremtind/jkl-core";
-import { ArrowDown, ArrowUp } from "@fremtind/jkl-icons-react";
-import cn from "classnames";
+import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
+import cx from "classnames";
 import React from "react";
 
 export type ExpandDirection = "up" | "down";
@@ -50,14 +49,13 @@ export const ExpandButton = ({
     ...rest
 }: ExpandButtonProps): JSX.Element => {
     const ContentWrapper = hideLabel ? ScreenReaderOnly : React.Fragment;
-
+    const pointingDown = expandDirection === "down" ? !isExpanded : isExpanded;
     return (
         <button
             aria-expanded={isExpanded}
             data-testid="jkl-expand-button"
-            data-expand-direction={expandDirection}
             type="button"
-            className={cn("jkl-expand-button", className, {
+            className={cx("jkl-expand-button", className, {
                 "jkl-expand-button--expanded": isExpanded,
                 "jkl-expand-button--compact": compact || forceCompact,
                 "jkl-expand-button--icon-only": !children,
@@ -69,13 +67,7 @@ export const ExpandButton = ({
                     <span className="jkl-expand-button__text">{children}</span>
                 </ContentWrapper>
             )}
-            <ContentToggle
-                className="jkl-expand-button__arrow"
-                showSecondary={!isExpanded}
-                secondary={expandDirection === "down" ? <ArrowDown /> : <ArrowUp />}
-            >
-                {expandDirection === "down" ? <ArrowUp /> : <ArrowDown />}
-            </ContentToggle>
+            <ArrowVerticalAnimated className="jkl-expand-button__arrow" pointingDown={pointingDown} />
         </button>
     );
 };
