@@ -153,7 +153,9 @@
 
     @include jkl.compact-mode {
         .jkl-nav-card__link {
-            @include jkl.text-style("heading-4");
+            @include jkl.text-style("heading-4") {
+                font-weight: jkl.$typography-weight-normal;
+            }
         }
 
         .jkl-nav-card__content {
