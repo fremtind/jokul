@@ -14,7 +14,7 @@ $_left-arrow: "\2190"; // unicode left arrow
 $_north-east-arrow: "\2197"; // unicode north east arrow (up/right)
 
 $_link-underline-thickness: jkl.rem(1px);
-$_link-underline-thickness--hover: jkl.rem(2px);
+$_link-underline-thickness--focus: jkl.rem(2px);
 
 @include jkl.light-mode-variables {
     --jkl-link-color: #{jkl.$color-granitt};
@@ -29,36 +29,32 @@ $_link-underline-thickness--hover: jkl.rem(2px);
 
 .jkl-link {
     color: var(--jkl-link-color);
-
-    @include _underline-gradient(currentColor);
-    background-position: 0 calc(100% - (#{$_link-underline-thickness--hover} - #{$_link-underline-thickness}));
+    @include _underline-gradient(var(--jkl-link-color));
+    background-position: 0 calc(100% - (#{$_link-underline-thickness--focus} - #{$_link-underline-thickness}));
     background-size: $_link-underline-thickness $_link-underline-thickness;
     background-repeat: repeat-x;
     @include jkl.motion("standard", "energetic");
-    transition-property: background-size, background-position, color;
+    transition-property: color;
     outline: none;
     text-decoration: none;
 
     &:hover:not(:focus) {
         color: var(--jkl-link-hover-color);
         @include _underline-gradient(var(--jkl-link-hover-color));
-        background-position: 0 100%;
-        background-size: $_link-underline-thickness--hover $_link-underline-thickness--hover;
     }
 
-    &:hover &:focus {
-        color: var(--jkl-link-color);
-        @include _underline-gradient(var(--jkl-link-color));
+    &:hover {
+        @include _underline-gradient(var(--jkl-link-hover-color));
     }
 
     html:not([data-mousenavigation]) &:focus {
         @include jkl.no-grow-bold;
         @include _link-outline;
+        background-size: $_link-underline-thickness--focus $_link-underline-thickness--focus;
     }
 
     &:active {
-        background-position: 0 calc(100% - (#{$_link-underline-thickness--hover} - #{$_link-underline-thickness}));
-        background-size: $_link-underline-thickness $_link-underline-thickness;
+        background-position: 0 calc(100% - (#{$_link-underline-thickness--focus} - #{$_link-underline-thickness}));
     }
 
     /* Show arrow after external links, or links opening
