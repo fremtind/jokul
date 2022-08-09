@@ -1,95 +1,43 @@
 ---
 title: Sass mixins
 scss: core
-react: core
 group: util
 ---
 
-import { EasingTable, TimingTable } from "./Mixins/Motion";
+<Ingress>
+    Vi bruker Sass for å lage CSSen i Jøkul, og har etter hvert fått et større bibliotek med mixins og funksjoner.
+</Ingress>
 
-<Ingress>Vi tilbyr en rekke mixins og funksjoner i Sass for enklere bruk av stilarkene våre.</Ingress>
+Mange av disse hjelperne er generiske nok til å være nyttige også i egne applikasjoner. Hvis prosjektet ditt bruker Sass er det lurt å ta en nærmere titt på hva Jøkul har å tilby.
 
-Du kan importere alle mixins, eller kun de du trenger, fra `jkl-core`. Nøyaktig syntaks vil variere ut fra oppsettet i prosjektet ditt, men vil sannsynligvis likne på dette: `@import "~@fremtind/jkl-core/mixins/_all.scss;"`.
+Vi har for øvrig en guide for [Hvordan skrive Sass i Jøkul](/guider/sass) som kan være en inspirasjon til hvordan dere skriver Sass i egne prosjekter.
 
-## Bevegelse
+## Hvilke mixins finnes?
 
-`@import "~@fremtind/jkl-core/mixins/_motion.scss;"`
+For en fullstendig oversikt er det best å [se på kildekoden](https://github.com/fremtind/jokul/tree/main/packages/core/jkl).
 
-Du kan enkelt implementere bevegelse ved hjelp av mixin-en `motion()`, som setter CSS-egenskapene `transition-timing-function` og `transition-duration` ut fra valgene du gjør. For å bruke den må du spesifisere hvilken animasjonskurve og (valgfritt) hvilken varighet du ønsker på animasjonen. Husk også å spesifisere hvilke egenskaper du vil animere.
+Et utvalg av de mest brukte internt i Jøkul:
 
-```scss
-@include motion("standard", "productive");
-transition-property: transform, opacity;
-```
+-   Funksjonen `rem()` hjelper med å oversette et design i pixler til `rem`.
+-   Mixinene `small-screen` og `from-medium-screen` er nyttige for responsiv design.
+-   Det samme er `screen-from()`, `screen-to()`, og `screen-between()`.
+-   Mixen `motion()` hjelper deg med å få animert ting med samme easing og timing som Jøkul.
+-   `light-mode-variables` og `dark-mode-variables` hjelper med å støtte begge temaene.
 
-**NB!** _Ikke_ bruk verdiene under direkte, da de kan endre seg. Ved å bruke mixin-en sørger du for å holde koden din oppdatert mot verdiene i designsystemet.
+## Hvordan bruker jeg dem?
 
-<EasingTable />
-<TimingTable />
+Alle hjelperne finnes i `jkl`-modulen i `@fremtind/jkl-core`.
 
-## Screenreader
-
-`@import "~@fremtind/jkl-core/mixins/_screenreader.scss;"`
-
-Her finner du to mixins for å skjule noe visuelt, men fortsatt gjøre det synlig for skjermlesere. Du kan også gjøre elementet synlig ved fokus ved å bruke begge mixins.
+Om du har en editor med god code completion for Sass får du en oversikt over alt som er tilgjengelig etter å ha skrevet `jkl.`. Hvis du bruker Visual Studio Code er extensionen [Some Sass](https://marketplace.visualstudio.com/items?itemName=SomewhatStationery.some-sass) anbefalt. Med den får du code suggestions for moduler og visning av SassDoc ved hover, blant annet.
 
 ```scss
-// for kun å skjule:
-@include screenreader-only();
+@use "@fremtind/jkl-core/jkl";
 
-// for å skjule, men vise ved fokus:
-@include screnreader-only();
-@include screnreader-only-focusable();
-```
+.min-custom-ting {
+    min-width: jkl.rem(280px);
 
-Denne funksjonaliteten er også eksponert som utility-klassene `.jkl-sr-only` og `.jkl-sr-only--focusable`.
-
-## Fjerne outlines
-
-`@import "~@fremtind/jkl-core/mixins/_helpers.scss;"`
-
-Denne mixin-en hjelper deg med å fjerne outlines og fokusringer fra elementer som knapper og lenker. Den vil fjerne disse både fra elementet den brukes på og elementer som ligger inne i dette.
-
-`@include reset-outline();`
-
-## Konvertere pikselverdier til `rem`
-
-`@import "~@fremtind/jkl-core/_functions.scss;"`
-
-For å gjøre løsningene våre skalerbare og tilgjengelige ønsker vi å angi størrelser i `rem` fremfor å bruke pikselverdier. For å gjøre dette enklere har vi en funksjon som gjør om pikselverdier til riktig `rem`-verdi.
-
-```scss
-min-height: rem(48px); // 3rem
-```
-
-## Kompakt modus
-
-`@import "~@fremtind/jkl-core/mixins/_helpers.scss;"`
-
-Dette er en snarvei til selektoren for kompakt modus når du skal skrive nye komponenter til Jøkul. Du bruker denne mixin-en som en wrapper, det vil si at den skal ha innhold.
-
-```scss
-.jkl-your-component {
-    // regular styles
-    @include compact-mode {
-        // compact style overrides
-    }
-}
-```
-
-## Keyboard-navigasjon
-
-Når du setter opp initTabListner fra jkl-core, så settes det noen data-attributter på html-elementet som gjør at man kan sette opp en tydeligere focus state for tastaturbrukere eller egen stil for touchskjermer. Det er en mixin for å gjøre det enklere for klienter og knytte seg på denne funksjonaliteten.
-
-```scss
-@use '@fremtind/jkl-core/mixins/navigation';
-
-.my-component {
-    // pretty component
-    &:focus {
-        @include navigation.keyboard-navigation {
-            box-shadow: 0 0 0 2px $info;
-        }
+    @include jkl.screen-from(4096px) {
+        padding: jkl.$spacing-3xl;
     }
 }
 ```
