@@ -75,7 +75,7 @@ const components = {
     col: TableColumn,
     colgroup: TableColumnGroup,
     pre: CodeBlock,
-    inlineCode: InlineCode,
+    code: InlineCode,
     dl: DescriptionList,
     dt: DescriptionTerm,
     dd: DescriptionDetail,
