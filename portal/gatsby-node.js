@@ -78,7 +78,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
     const result = await graphql(`
         {
-            components: allMdx(filter: { fileAbsolutePath: { regex: "//.*react.*/documentation/.*.mdx$/" } }) {
+            components: allMdx(
+                filter: { internal: { contentFilePath: { regex: "//.*react.*/documentation/.*.mdx$/" } } }
+            ) {
                 edges {
                     node {
                         id
@@ -97,7 +99,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
-            core: allMdx(filter: { fileAbsolutePath: { regex: "//core/documentation/.*.mdx$/" } }) {
+            core: allMdx(filter: { internal: { contentFilePath: { regex: "//core/documentation/.*.mdx$/" } } }) {
                 edges {
                     node {
                         id
@@ -116,7 +118,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
-            utils: allMdx(filter: { fileAbsolutePath: { regex: "//.*util.*/documentation/.*.mdx$/" } }) {
+            utils: allMdx(filter: { internal: { contentFilePath: { regex: "//.*util.*/documentation/.*.mdx$/" } } }) {
                 edges {
                     node {
                         id
@@ -135,7 +137,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
-            docs: allMdx(filter: { fileAbsolutePath: { regex: "//portal/src/texts/.*.mdx$/" } }) {
+            docs: allMdx(filter: { internal: { contentFilePath: { regex: "//portal/src/texts/.*.mdx$/" } } }) {
                 edges {
                     node {
                         id

@@ -45,7 +45,9 @@ type NodeLink = [string, string];
 
 interface MDXNode {
     id: string;
-    slug: string;
+    fields: {
+        slug: string;
+    };
     frontmatter: {
         title: string;
         tags: TagType[];
@@ -63,10 +65,12 @@ export const UU: FC = () => {
         };
     }>(graphql`
         {
-            allMdx(filter: { fileAbsolutePath: { regex: "/.*/texts/uu/.*/" } }) {
+            allMdx(filter: { internal: { contentFilePath: { regex: "/.*/texts/uu/.*/" } } }) {
                 nodes {
                     id
-                    slug
+                    fields {
+                        slug
+                    }
                     frontmatter {
                         title
                         tags
@@ -102,7 +106,10 @@ export const UU: FC = () => {
         }, {} as { [key in TagType]: { checked: boolean } }),
     );
 
-    const [scrollToResults] = useScrollIntoView({ ref: resultWrapperRef, autoScroll: false });
+    const [scrollToResults] = useScrollIntoView({
+        ref: resultWrapperRef,
+        autoScroll: false,
+    });
 
     const handleClear = () => setSearch("");
 
@@ -214,9 +221,13 @@ export const UU: FC = () => {
                                     type: "tween",
                                     duration: 0.3,
                                 }}
-                                exit={{ y: prefersReducedMotion ? 0 : 40, opacity: 0, transition: { duration: 0.2 } }}
+                                exit={{
+                                    y: prefersReducedMotion ? 0 : 40,
+                                    opacity: 0,
+                                    transition: { duration: 0.2 },
+                                }}
                             >
-                                <GatsbyLink to={`#${node.slug}`} className="jkl-link">
+                                <GatsbyLink to={`#${node.fields.slug}`} className="jkl-link">
                                     {node.frontmatter.title}
                                 </GatsbyLink>
                             </motion.li>
@@ -226,7 +237,7 @@ export const UU: FC = () => {
                 {filteredNodes.map((node) => (
                     <article key={node.id} className="uu-article">
                         <header className="uu-article__header">
-                            <h3 className="uu-article__heading" id={node.slug}>
+                            <h3 className="uu-article__heading" id={node.fields.slug}>
                                 {node.frontmatter.title}
                             </h3>
                             <ul className="uu-article__tags" aria-label="Artikkel tags">

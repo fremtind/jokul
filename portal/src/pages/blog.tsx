@@ -69,7 +69,9 @@ export const pageQuery = graphql`
   query {
     allMdx(
       sort: { fields: [frontmatter___publishDate], order: DESC },
-      filter: { fileAbsolutePath: {regex: "/\\/portal\\/src\\/texts\\/blog\\/.*\\.mdx$/"} },
+      filter: { internal: {
+        contentFilePath: {regex: "/\\/portal\\/src\\/texts\\/blog\\/.*\\.mdx$/"}
+      } },
     ) {
       nodes {
         excerpt(pruneLength: 140)

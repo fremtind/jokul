@@ -29,7 +29,10 @@ module.exports = {
         "gatsby-plugin-image",
         "gatsby-plugin-sharp",
         "gatsby-transformer-sharp",
-        { resolve: "gatsby-source-filesystem", options: { path: "./static/assets" } },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: { path: "./static/assets" },
+        },
         {
             resolve: "gatsby-source-filesystem",
             options: {
@@ -93,7 +96,9 @@ module.exports = {
                         {
                             allMdx(
                                 sort: { fields: [frontmatter___publishDate], order: DESC },
-                                filter: { fileAbsolutePath: {regex: "/\/portal\/src\/texts\/blog\/.*\.mdx$/"} },
+                                filter: { internal: {
+                                    contentFilePath: {regex: "/\/portal\/src\/texts\/blog\/.*\.mdx$/"}
+                                } },
                             ) {
                                 nodes {
                                     excerpt(pruneLength: 280)
