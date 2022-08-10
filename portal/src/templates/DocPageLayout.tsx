@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { graphql, HeadProps } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import React, { FC, ReactNode, useContext } from "react";
 import type { ComponentDoc } from "react-docgen-typescript";
 import { APIDocumentation } from "../components";
@@ -10,9 +9,10 @@ import { Seo } from "../components/seo";
 import { a11yContext } from "../contexts/a11yContext";
 
 interface Props {
+    children: ReactNode;
     location: Location;
     data: {
-        page: { body: string & ReactNode; frontmatter: Frontmatter };
+        page: { frontmatter: Frontmatter };
     };
     pageContext: {
         title: string;
@@ -26,12 +26,14 @@ interface Props {
     };
 }
 
-export const Head: FC<HeadProps<object, { title: string }>> = ({ pageContext }) => <Seo title={pageContext.title} />;
+export const Head: FC<HeadProps<Record<string, unknown>, { title: string }>> = ({ pageContext }) => (
+    <Seo title={pageContext.title} />
+);
 
-export const DocPageLayout: FC<Props> = ({ location, data, pageContext }) => {
+export const DocPageLayout: FC<Props> = ({ location, data, pageContext, children }) => {
     const { prefersReducedMotion } = useContext(a11yContext);
 
-    const { body, frontmatter } = data.page; // Fra pageQuery
+    const { frontmatter } = data.page; // Fra pageQuery
     const { types } = pageContext; // Fra context i gatsby-node
     const isE2e = typeof window !== "undefined" ? window.location.search === "?mode=e2e" : false;
 
@@ -48,7 +50,7 @@ export const DocPageLayout: FC<Props> = ({ location, data, pageContext }) => {
         >
             <ComponentPageHeader {...frontmatter} versions={pageContext.versions} />
             <BlogPageHeader {...frontmatter} />
-            <MDXRenderer>{body}</MDXRenderer>
+            {children}
             {types && <APIDocumentation types={types} />}
         </motion.main>
     );
@@ -57,10 +59,9 @@ export const DocPageLayout: FC<Props> = ({ location, data, pageContext }) => {
 export default DocPageLayout;
 
 export const pageQuery = graphql`
-    query DocPageQuery($id: String!) {
+    query ($id: String!) {
         page: mdx(id: { eq: $id }) {
             id
-            body
             frontmatter {
                 title
                 react

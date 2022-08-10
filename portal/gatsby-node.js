@@ -91,6 +91,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             title
                             displayTypes
                         }
+                        internal {
+                            contentFilePath
+                        }
                     }
                 }
             }
@@ -106,6 +109,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             scss
                             title
                             displayTypes
+                        }
+                        internal {
+                            contentFilePath
                         }
                     }
                 }
@@ -123,6 +129,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             title
                             displayTypes
                         }
+                        internal {
+                            contentFilePath
+                        }
                     }
                 }
             }
@@ -136,6 +145,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         frontmatter {
                             path
                             title
+                        }
+                        internal {
+                            contentFilePath
                         }
                     }
                 }
@@ -263,7 +275,7 @@ ${JSON.stringify(result.errors, null, 2)}
 
         createPage({
             path: node.fields.path,
-            component: documentationTemplate,
+            component: `${documentationTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
             context: {
                 id: node.id,
                 types: pageTypes,
@@ -285,7 +297,7 @@ ${JSON.stringify(result.errors, null, 2)}
 
         createPage({
             path: node.fields.path,
-            component: documentationTemplate,
+            component: `${documentationTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
             context: {
                 id: node.id,
                 types: pageTypes,
@@ -306,7 +318,7 @@ ${JSON.stringify(result.errors, null, 2)}
 
         createPage({
             path: node.fields.path,
-            component: documentationTemplate,
+            component: `${documentationTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
             context: {
                 id: node.id,
                 types: pageTypes,
@@ -319,7 +331,7 @@ ${JSON.stringify(result.errors, null, 2)}
     result.data.docs.edges.forEach(({ node }) => {
         createPage({
             path: node.frontmatter.path || node.fields.path,
-            component: documentationTemplate,
+            component: `${documentationTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
             context: { id: node.id, title: node.frontmatter.title },
         });
     });
