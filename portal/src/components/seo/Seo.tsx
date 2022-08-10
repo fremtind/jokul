@@ -25,14 +25,14 @@ export const Seo: React.FC<Props> = ({ title }) => {
 
     return (
         <Fragment>
-            <title>{pageTitle}</title>
-            <meta name="description" content={metaDescription} />
-            <meta name="twitter:card" content="summary" />
-            <meta name="twitter:title" content={pageTitle} />
-            <meta name="twitter:description" content={metaDescription} />
-            <meta name="og:title" content={pageTitle} />
-            <meta name="og:description" content={metaDescription} />
-            <meta name="og:type" content="website" />
+            <title id="title">{pageTitle}</title>
+            <meta id="description" name="description" content={metaDescription} />
+            <meta id="twitter:card" name="twitter:card" content="summary" />
+            <meta id="twitter:title" name="twitter:title" content={pageTitle} />
+            <meta id="twitter:description" name="twitter:description" content={metaDescription} />
+            <meta id="og:title" name="og:title" content={pageTitle} />
+            <meta id="og:description" name="og:description" content={metaDescription} />
+            <meta id="og:type" name="og:type" content="website" />
         </Fragment>
     );
 };
