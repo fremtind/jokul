@@ -43,6 +43,7 @@
         "@fremtind/jkl-validators-util": "^2.4.2",
         "@fremtind/jkl-webfonts": "^2.0.1",
         "@mdx-js/react": "^2.1.2",
+        "@sindresorhus/slugify": "^1",
         "classnames": "^2.3.1",
         "focus-trap-react": "^9.0.2",
         "framer-motion": "^7.0.0",

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require("fs");
 const path = require("path");
+const slugify = require("@sindresorhus/slugify");
 const { createFilePath } = require("gatsby-source-filesystem");
 const docgen = require("react-docgen-typescript");
 const ts = require("typescript");
@@ -53,21 +54,27 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         const corePageMatch = filePath.match(/\/core\/documentation\/(.*)\//);
         const utilPageMatch = filePath.match(/\/.*util.*\/documentation\/(.*)\//);
 
-        let value = filePath;
+        let pathField = filePath;
         if (componentPageMatch) {
-            value = `/komponenter/${componentPageMatch[1].toLowerCase()}`;
+            pathField = `/komponenter/${componentPageMatch[1].toLowerCase()}`;
         }
         if (corePageMatch) {
-            value = `/komponenter/${corePageMatch[1].toLowerCase()}`;
+            pathField = `/komponenter/${corePageMatch[1].toLowerCase()}`;
         }
         if (utilPageMatch) {
-            value = `/komponenter/${utilPageMatch[1].toLowerCase()}`;
+            pathField = `/komponenter/${utilPageMatch[1].toLowerCase()}`;
         }
 
         createNodeField({
             name: "path",
             node,
-            value,
+            value: pathField,
+        });
+
+        createNodeField({
+            node,
+            name: "slug",
+            value: `/${slugify(node.frontmatter.title || pathField)}`,
         });
     }
 };
