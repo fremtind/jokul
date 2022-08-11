@@ -88,7 +88,6 @@ module.exports = {
                                     date: node.frontmatter.publishDate,
                                     url: site.siteMetadata.siteUrl + node.fields.path,
                                     guid: site.siteMetadata.siteUrl + node.fields.path,
-                                    custom_elements: [{ "content:encoded": node.html }],
                                 });
                             });
                         },
@@ -102,7 +101,6 @@ module.exports = {
                             ) {
                                 nodes {
                                     excerpt(pruneLength: 280)
-                                    html
                                     fields {
                                         path
                                     }
