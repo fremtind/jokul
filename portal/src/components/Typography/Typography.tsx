@@ -52,23 +52,11 @@ export const Paragraph: React.FC<{ className?: string } & WithChildren> = ({ chi
     </p>
 );
 
-export const Blockquote: React.FC<WithChildren> = ({ children, ...rest }) => {
-    const child: ReactElement = React.Children.only(children) as ReactElement;
-
-    if (!child.props) {
-        return (
-            <blockquote className="jkl-portal-blockquote" {...rest}>
-                {children}
-            </blockquote>
-        );
-    }
-
-    return (
-        <blockquote className="jkl-portal-blockquote" {...rest}>
-            {child.props.children}
-        </blockquote>
-    );
-};
+export const Blockquote: React.FC<WithChildren> = ({ children, ...rest }) => (
+    <blockquote className="jkl-portal-blockquote" {...rest}>
+        {children}
+    </blockquote>
+);
 
 export const InlineCode: React.FC<WithChildren> = ({ children, ...rest }) => (
     <code className="jkl-portal-inline-code" {...rest}>
