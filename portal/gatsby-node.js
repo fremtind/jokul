@@ -80,9 +80,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 };
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-    const { createPage } = actions;
-    const documentationTemplate = require.resolve("./src/templates/DocPageLayout.tsx");
-
     const result = await graphql(`
         {
             components: allMdx(
@@ -271,6 +268,9 @@ ${JSON.stringify(result.errors, null, 2)}
             return null;
         }
     }
+
+    const { createPage } = actions;
+    const documentationTemplate = require.resolve("./src/templates/DocPageLayout.tsx");
 
     result.data.components.edges.forEach(({ node }) => {
         const versions = {
