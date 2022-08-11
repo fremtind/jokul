@@ -26,6 +26,8 @@ $_sidebar-width: jkl.rem(375px);
 
 .jkl-portal {
     @include jkl.motion;
+    @include jkl.text-style("body");
+
     transition-property: color;
     transition-delay: jkl.timing("productive");
     color: var(--portal-text-color);
