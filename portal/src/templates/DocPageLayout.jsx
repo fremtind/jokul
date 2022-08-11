@@ -1,36 +1,14 @@
 import { motion } from "framer-motion";
-import { graphql, HeadProps } from "gatsby";
-import React, { FC, ReactNode, useContext } from "react";
-import type { ComponentDoc } from "react-docgen-typescript";
+import { graphql } from "gatsby";
+import React, { useContext } from "react";
 import { APIDocumentation } from "../components";
-import { Frontmatter } from "../components/Header/useNavigationLinks";
 import { BlogPageHeader, ComponentPageHeader } from "../components/Layout/components";
 import { Seo } from "../components/seo";
 import { a11yContext } from "../contexts/a11yContext";
 
-interface Props {
-    children: ReactNode;
-    location: Location;
-    data: {
-        page: { frontmatter: Frontmatter };
-    };
-    pageContext: {
-        title: string;
-        types: {
-            [x: string]: ComponentDoc;
-        };
-        versions?: {
-            react: string | null;
-            scss: string | null;
-        };
-    };
-}
+export const Head = ({ pageContext }) => <Seo title={pageContext.title} />;
 
-export const Head: FC<HeadProps<Record<string, unknown>, { title: string }>> = ({ pageContext }) => (
-    <Seo title={pageContext.title} />
-);
-
-export const DocPageLayout: FC<Props> = ({ location, data, pageContext, children }) => {
+export const DocPageLayout = ({ location, data, pageContext, children }) => {
     const { prefersReducedMotion } = useContext(a11yContext);
 
     const { frontmatter } = data.page; // Fra pageQuery

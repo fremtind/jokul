@@ -270,7 +270,7 @@ ${JSON.stringify(result.errors, null, 2)}
     }
 
     const { createPage } = actions;
-    const documentationTemplate = require.resolve("./src/templates/DocPageLayout.tsx");
+    const documentationTemplate = require.resolve("./src/templates/DocPageLayout.jsx");
 
     result.data.components.edges.forEach(({ node }) => {
         const versions = {
