@@ -1,8 +1,8 @@
 import cn from "classnames";
 import React, { FC } from "react";
-import { useLocation } from "../../contexts/locationContext";
-import { ContentLink } from "../ContentLink/ContentLink";
-import { useNavigationLinks, DocumentationPageInfo } from "../Header/useNavigationLinks";
+import { ContentLink } from "../header/ContentLink";
+import { useNavigationLinks, DocumentationPageInfo } from "../header/useNavigationLinks";
+import { useLocation } from "../locationContext";
 import { SidebarMenu } from "./SidebarMenu";
 import "./Sidebar.scss";
 

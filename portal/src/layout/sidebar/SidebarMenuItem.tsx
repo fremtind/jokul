@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import React, { FC } from "react";
-import { useLocation } from "../../contexts/locationContext";
+import { useLocation } from "../locationContext";
 
 interface SidebarMenuItemProps {
     path: string;

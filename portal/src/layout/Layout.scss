@@ -107,4 +107,22 @@ $_sidebar-width: jkl.rem(375px);
             display: none !important;
         }
     }
+
+    &__theme-bg {
+        z-index: jkl.$z-index--hidden;
+        width: 100vw;
+        height: 0;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: jkl.$color-svart;
+
+        @include jkl.motion("standard", "lazy");
+        transition-property: height;
+
+        [data-theme="dark"] & {
+            height: 100vh;
+        }
+    }
 }

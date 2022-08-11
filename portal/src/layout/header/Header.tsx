@@ -1,9 +1,9 @@
 import cx from "classnames";
 import { navigate } from "gatsby";
 import React, { useCallback, useRef, useEffect, FC } from "react";
-import { useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
-import { ContentLink } from "../ContentLink/ContentLink";
-import { MainMenu } from "./components/MainMenu";
+import { useFullscreenMenuContext } from "../../fullscreenMenuContext";
+import { ContentLink } from "./ContentLink";
+import { MainMenu } from "./MainMenu";
 import { useNavigationLinks } from "./useNavigationLinks";
 
 import "./header.scss";

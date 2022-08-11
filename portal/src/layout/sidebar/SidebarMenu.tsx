@@ -3,8 +3,8 @@ import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react"
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import React, { useContext, useState, ChangeEvent } from "react";
-import { a11yContext } from "../../contexts/a11yContext";
-import { DocumentationPageInfo } from "../Header/useNavigationLinks";
+import { a11yContext } from "../../a11yContext";
+import { DocumentationPageInfo } from "../header/useNavigationLinks";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 
 interface Props {

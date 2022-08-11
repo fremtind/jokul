@@ -2,7 +2,7 @@ import { WithOptionalChildren } from "@fremtind/jkl-core";
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import React, { useState, useRef, ReactNode, useContext, useEffect } from "react";
-import { a11yContext } from "../../../contexts/a11yContext";
+import { a11yContext } from "../../../a11yContext";
 
 import "./MediaBox.scss";
 

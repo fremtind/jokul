@@ -1,7 +1,7 @@
 import { motion, AnimationControls } from "framer-motion";
 import { Link } from "gatsby";
 import React from "react";
-import { isLeafItem, MenuItem } from "../../../contexts/fullscreenMenuContext";
+import { isLeafItem, MenuItem } from "../../fullscreenMenuContext";
 import "./FullScreenMenuItem.scss";
 
 interface Props {

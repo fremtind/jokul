@@ -1,5 +1,5 @@
 import React from "react";
-import { CodeBlock } from "../Typography/Typography";
+import { CodeBlock } from "../Typography";
 
 interface Props {
     code: string;

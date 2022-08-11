@@ -1,14 +1,14 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 import { AnimatePresence } from "framer-motion";
-import { HeadProps } from "gatsby";
+import type { HeadProps } from "gatsby";
 import React, { useEffect, useState } from "react";
-import { Header, Sidebar } from "..";
-import { useLocation } from "../../contexts/locationContext";
-import { PortalFooter } from "../portal-footer";
-import { Seo } from "../seo";
-import { FormatProvider } from "../Typography";
-import { ThemeBG } from "./components";
+import { Seo } from "../components/seo";
+import { FormatProvider } from "./FormatProvider";
+import { Header } from "./header";
+import { useLocation } from "./locationContext";
+import { PortalFooter } from "./portal-footer";
+import { Sidebar } from "./sidebar";
 import "./Layout.scss";
 
 interface Props extends WithChildren {
@@ -46,7 +46,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
             className="jkl jkl-portal"
             data-test-mode={hasMounted && window.location.search === "?mode=e2e" ? "e2e" : undefined}
         >
-            <ThemeBG />
+            <div className="jkl-portal__theme-bg" />
             <Header className="jkl-portal__header" />
             <AnimatePresence>{shouldShowSidebar && <Sidebar className="jkl-portal__sidebar" />}</AnimatePresence>
             <FormatProvider>

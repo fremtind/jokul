@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { Frontmatter } from "../../Header/useNavigationLinks";
 import { GitHubLinks } from "./GitHubLinks";
+import type { Frontmatter } from "./useNavigationLinks";
 
 type ComponentHeaderProps = Frontmatter & {
     versions?: {

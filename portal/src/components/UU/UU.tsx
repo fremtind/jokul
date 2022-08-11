@@ -6,11 +6,9 @@ import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Tag } from "@fremtind/jkl-tag-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { motion } from "framer-motion";
-import { graphql, useStaticQuery, Link as GatsbyLink } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { Link as GatsbyLink } from "gatsby";
 import React, { ChangeEvent, FC, useCallback, useContext, useMemo, useRef, useState } from "react";
-import { a11yContext } from "../../contexts/a11yContext";
-import { FormatProvider } from "../Typography";
+import { a11yContext } from "../../a11yContext";
 import { getCriteriaById } from "./wcag";
 import "./uu.scss";
 
@@ -59,30 +57,18 @@ interface MDXNode {
 }
 
 export const UU: FC = () => {
-    const data = useStaticQuery<{
+    const data: {
         allMdx: {
             nodes: MDXNode[];
         };
-    }>(graphql`
-        {
-            allMdx(filter: { internal: { contentFilePath: { regex: "/.*/texts/uu/.*/" } } }) {
-                nodes {
-                    id
-                    fields {
-                        slug
-                    }
-                    frontmatter {
-                        title
-                        tags
-                        wcagRules
-                        role
-                        links
-                    }
-                    body
-                }
-            }
-        }
-    `);
+    } = useMemo(
+        () => ({
+            allMdx: {
+                nodes: [],
+            },
+        }),
+        [],
+    );
 
     const availableTags: TagType[] = useMemo(() => {
         if (!data) {
@@ -248,9 +234,9 @@ export const UU: FC = () => {
                                 ))}
                             </ul>
                         </header>
-                        <FormatProvider>
+                        {/* <FormatProvider>
                             <MDXRenderer>{node.body}</MDXRenderer>
-                        </FormatProvider>
+                        </FormatProvider> */}
                         {(node.frontmatter.wcagRules?.length || node.frontmatter.links?.length) && (
                             <>
                                 <h4>Lenker</h4>

@@ -2,7 +2,7 @@ import { Hamburger } from "@fremtind/jkl-hamburger-react";
 import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { useEffect } from "react";
-import { isLeafItem, MenuItemList, RootItem, useFullscreenMenuContext } from "../../../contexts/fullscreenMenuContext";
+import { isLeafItem, MenuItemList, RootItem, useFullscreenMenuContext } from "../../fullscreenMenuContext";
 import { FullScreenMenuItem } from "./FullScreenMenuItem";
 import { MainMenuItem } from "./MainMenuItem";
 import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";

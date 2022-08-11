@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { graphql } from "gatsby";
 import React, { useContext } from "react";
-import { APIDocumentation } from "../components";
-import { BlogPageHeader, ComponentPageHeader } from "../components/Layout/components";
+import { a11yContext } from "../a11yContext";
+import { APIDocumentation } from "../components/APIDocumentation";
 import { Seo } from "../components/seo";
-import { a11yContext } from "../contexts/a11yContext";
+import { BlogPageHeader, ComponentPageHeader } from "../layout/header";
 
 export const Head = ({ pageContext }) => <Seo title={pageContext.title} />;
 

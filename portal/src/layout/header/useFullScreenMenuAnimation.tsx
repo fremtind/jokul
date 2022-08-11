@@ -1,6 +1,6 @@
 import { AnimationControls, useAnimation } from "framer-motion";
 import { useEffect, useCallback, useContext, useMemo } from "react";
-import { a11yContext } from "../../../contexts/a11yContext";
+import { a11yContext } from "../../a11yContext";
 
 interface Props {
     isOpen: boolean;

@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
-import { MenuItemList } from "../../contexts/fullscreenMenuContext";
+import { MenuItemList } from "../../fullscreenMenuContext";
 
 export interface FrontmatterTypeProp {
     name?: string;

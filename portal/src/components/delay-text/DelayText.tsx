@@ -1,7 +1,7 @@
-import classNames from "classnames";
+import cn from "classnames";
 import React, { useState, useEffect, useRef, useMemo, useContext } from "react";
+import { a11yContext } from "../../a11yContext";
 import "./delay-text.scss";
-import { a11yContext } from "../../contexts/a11yContext";
 
 const useInterval = (callback: () => void, delay: number | null) => {
     const savedCallback = useRef<typeof callback>();
@@ -87,7 +87,7 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay }) => {
         isRunning ? (lolRandom < 50 ? delay : lolRandom) : null,
     );
 
-    const textWrapperClass = classNames("jkl-portal-delay-text__content", {
+    const textWrapperClass = cn("jkl-portal-delay-text__content", {
         "jkl-portal-delay-text__content--done": !isRunning,
     });
 

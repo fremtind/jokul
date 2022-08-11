@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Frontmatter } from "../../Header/useNavigationLinks";
+import type { Frontmatter } from "./useNavigationLinks";
 
 export const BlogPageHeader: FC<Frontmatter> = ({ title, author, publishDate }) => {
     if (!author) {

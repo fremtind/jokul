@@ -29,6 +29,12 @@ module.exports = {
         "gatsby-plugin-typescript",
         "gatsby-plugin-image",
         "gatsby-plugin-sharp",
+        {
+            resolve: "gatsby-plugin-layout",
+            options: {
+                component: require.resolve("./src/layout/Layout.tsx"),
+            },
+        },
         "gatsby-transformer-sharp",
         {
             resolve: "gatsby-source-filesystem",
@@ -116,12 +122,6 @@ module.exports = {
                         output: "/blog/rss.xml",
                     },
                 ],
-            },
-        },
-        {
-            resolve: "gatsby-plugin-layout",
-            options: {
-                component: require.resolve("./src/components/Layout/Layout.tsx"),
             },
         },
     ],

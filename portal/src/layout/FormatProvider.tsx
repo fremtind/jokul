@@ -18,13 +18,13 @@ import {
 import { MDXProvider } from "@mdx-js/react";
 import cn from "classnames";
 import React, { FC } from "react";
-import { ComponentExample } from "../../../../doc-utils";
-import { CodeDemo } from "../CodeDemo/CodeDemo";
-import { DoDontExample } from "../DoDontExample";
-import { ExampleVideo } from "../ExampleVideo";
-import { Experimental } from "../Experimental/Experimental";
-import { Grid } from "../Grid";
-import { PortalImage } from "../portal-image";
+import { ComponentExample } from "../../../doc-utils";
+import { CodeDemo } from "../components/code-demo";
+import { DoDontExample } from "../components/DoDontExample";
+import { ExampleVideo } from "../components/ExampleVideo";
+import { Experimental } from "../components/Experimental/Experimental";
+import { Grid } from "../components/Grid";
+import { PortalImage } from "../components/portal-image";
 import {
     PageTitle,
     HeadingLarge,
@@ -38,7 +38,7 @@ import {
     ListItem,
     Anchor,
     Blockquote,
-} from "../Typography";
+} from "../components/Typography";
 
 interface WithClassNameProps {
     className?: string;
