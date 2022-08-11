@@ -1,0 +1,15 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-dropdown {
+    position: relative;
+
+    &__button {
+        background-color: #0f0;
+    }
+
+    &__content {
+        background-color: #f0f;
+        position: absolute;
+        top: 2rem;
+    }
+}
