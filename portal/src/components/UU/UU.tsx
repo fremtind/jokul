@@ -9,24 +9,11 @@ import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import React, { ChangeEvent, FC, useCallback, useContext, useMemo, useRef, useState } from "react";
 import { a11yContext } from "../../a11yContext";
+import { UUContent, uuContent, UUTagType } from "./uu-content";
 import { getCriteriaById } from "./wcag";
 import "./uu.scss";
 
-type Role = "developer" | "designer";
-
-type TagType =
-    | "skjema"
-    | "bilder"
-    | "tabell"
-    | "tekstinnhold"
-    | "media"
-    | "modal"
-    | "innlogging"
-    | "animasjon"
-    | "navigasjon"
-    | "liste";
-
-const tagMap: { [key in TagType]: string } = {
+const tagMap: { [key in UUTagType]: string } = {
     skjema: "Skjema",
     bilder: "Bilder",
     tabell: "Tabell",
@@ -39,47 +26,12 @@ const tagMap: { [key in TagType]: string } = {
     liste: "Lister",
 };
 
-type NodeLink = [string, string];
-
-interface MDXNode {
-    id: string;
-    fields: {
-        slug: string;
-    };
-    frontmatter: {
-        title: string;
-        tags: TagType[];
-        links?: NodeLink[];
-        wcagRules?: string[];
-        role?: Role[];
-    };
-    body: string;
-}
-
 export const UU: FC = () => {
-    const data: {
-        allMdx: {
-            nodes: MDXNode[];
-        };
-    } = useMemo(
-        () => ({
-            allMdx: {
-                nodes: [],
-            },
-        }),
-        [],
-    );
-
-    const availableTags: TagType[] = useMemo(() => {
-        if (!data) {
-            return [];
-        }
-
-        const tagsForFilter = data.allMdx.nodes.map((node) => node.frontmatter.tags);
-
+    const availableTags = useMemo(() => {
+        const tagsForFilter = uuContent.map((node) => node.tags);
         // create a unique array of tags
         return Array.from(new Set(tagsForFilter.flat()));
-    }, [data]);
+    }, []);
 
     const { prefersReducedMotion } = useContext(a11yContext);
     const resultWrapperRef = useRef<HTMLElement>(null);
@@ -89,7 +41,7 @@ export const UU: FC = () => {
         availableTags.reduce((obj, t) => {
             obj[t] = { checked: false };
             return obj;
-        }, {} as { [key in TagType]: { checked: boolean } }),
+        }, {} as { [key in UUTagType]: { checked: boolean } }),
     );
 
     const [scrollToResults] = useScrollIntoView({
@@ -103,7 +55,7 @@ export const UU: FC = () => {
 
     const onTagChange = (e: ChangeEvent<HTMLInputElement>) => {
         const _t = { ...tagFilter };
-        _t[e.target.value as TagType] = {
+        _t[e.target.value as UUTagType] = {
             checked: e.target.checked,
         };
 
@@ -111,10 +63,10 @@ export const UU: FC = () => {
     };
 
     const filterByTag = useCallback(
-        (node: MDXNode) => {
+        (node: UUContent) => {
             // find tags where checked is true, and make it into a tuple
             const checkedTags = Object.entries(tagFilter).filter(([, { checked }]) => checked) as [
-                TagType,
+                UUTagType,
                 { checked: boolean },
             ][];
 
@@ -124,20 +76,16 @@ export const UU: FC = () => {
             }
 
             // check if any checked tag matches a tag in the node
-            return node.frontmatter.tags.some((t) =>
-                checkedTags.find(([filterTag, { checked }]) => filterTag === t && checked),
-            );
+            return node.tags.some((t) => checkedTags.find(([filterTag, { checked }]) => filterTag === t && checked));
         },
         [tagFilter],
     );
 
     const filterBySearch = useCallback(
-        (node: MDXNode) => {
-            const bodyMatch = node.body.includes(search);
-            const titleMatch = node.frontmatter.title.toLowerCase().includes(search.toLowerCase());
-            const wcagMatch = node.frontmatter.wcagRules ? node.frontmatter.wcagRules.includes(search) : true;
-
-            return bodyMatch || titleMatch || wcagMatch;
+        (node: UUContent) => {
+            const titleMatch = node.title.toLowerCase().includes(search.toLowerCase());
+            const wcagMatch = node.wcagRules ? node.wcagRules.includes(search) : true;
+            return titleMatch || wcagMatch;
         },
         [search],
     );
@@ -151,16 +99,12 @@ export const UU: FC = () => {
     }, [search, tagFilter]);
 
     const filteredNodes = useMemo(() => {
-        if (!data) {
-            return [];
-        }
-
         if (!hasFilter) {
-            return data.allMdx.nodes;
+            return uuContent;
         }
 
-        return data.allMdx.nodes.filter(filterByTag).filter(filterBySearch);
-    }, [data, hasFilter, filterBySearch, filterByTag]);
+        return uuContent.filter(filterByTag).filter(filterBySearch);
+    }, [hasFilter, filterBySearch, filterByTag]);
 
     return (
         <section className="jkl-portal__uu">
@@ -168,7 +112,7 @@ export const UU: FC = () => {
                 <FieldGroup legend="Hva inneholder løsningen din?">
                     {Object.entries(tagFilter).map(([tag, { checked }]) => (
                         <Checkbox name="uu-area-tag" value={tag} key={tag} checked={checked} onChange={onTagChange}>
-                            {tagMap[tag as TagType]}
+                            {tagMap[tag as UUTagType]}
                         </Checkbox>
                     ))}
                 </FieldGroup>
@@ -213,8 +157,8 @@ export const UU: FC = () => {
                                     transition: { duration: 0.2 },
                                 }}
                             >
-                                <GatsbyLink to={`#${node.fields.slug}`} className="jkl-link">
-                                    {node.frontmatter.title}
+                                <GatsbyLink to={`#${node.id}`} className="jkl-link">
+                                    {node.title}
                                 </GatsbyLink>
                             </motion.li>
                         ))}
@@ -223,25 +167,23 @@ export const UU: FC = () => {
                 {filteredNodes.map((node) => (
                     <article key={node.id} className="uu-article">
                         <header className="uu-article__header">
-                            <h3 className="uu-article__heading" id={node.fields.slug}>
-                                {node.frontmatter.title}
+                            <h3 className="uu-article__heading" id={node.id}>
+                                {node.title}
                             </h3>
                             <ul className="uu-article__tags" aria-label="Artikkel tags">
-                                {node.frontmatter.tags.map((t) => (
+                                {node.tags.map((t) => (
                                     <li key={t} /* className="uu-article__header__tag" */>
                                         <Tag>{tagMap[t]}</Tag>
                                     </li>
                                 ))}
                             </ul>
                         </header>
-                        {/* <FormatProvider>
-                            <MDXRenderer>{node.body}</MDXRenderer>
-                        </FormatProvider> */}
-                        {(node.frontmatter.wcagRules?.length || node.frontmatter.links?.length) && (
+                        {node.body()}
+                        {(node.wcagRules?.length || node.links?.length) && (
                             <>
                                 <h4>Lenker</h4>
                                 <ul className="uu-article__links uu-article__links--wcag">
-                                    {node.frontmatter.wcagRules?.map((rule) => {
+                                    {node.wcagRules?.map((rule) => {
                                         const criteria = getCriteriaById(rule);
                                         return (
                                             <li key={rule}>
@@ -259,7 +201,7 @@ export const UU: FC = () => {
                                     })}
                                 </ul>
                                 <ul className="uu-article__links">
-                                    {node.frontmatter.links?.map(([label, url]) => (
+                                    {node.links?.map(([label, url]) => (
                                         <li key={url}>
                                             <Link href={url} external={!url.startsWith("/") && !url.startsWith("#")}>
                                                 {label}
