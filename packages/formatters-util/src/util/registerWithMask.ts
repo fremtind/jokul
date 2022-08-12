@@ -70,8 +70,8 @@ const registerWithMask =
 
         // save the caret position before the change occured
         const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
-            if (event.target.selectionStart !== null) {
-                onKeyDownCaretPosition = event.target.selectionStart;
+            if ((event.target as HTMLInputElement).selectionStart !== null) {
+                onKeyDownCaretPosition = (event.target as HTMLInputElement).selectionStart as number;
             }
             onKeyDownKeyPressed = event.key;
         };
