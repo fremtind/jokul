@@ -1,4 +1,4 @@
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, KeyboardEventHandler } from "react";
 import type { Path, PathValue, RegisterOptions, UseFormRegisterReturn, UseFormReturn } from "react-hook-form";
 import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer";
 import { formatKontonummer } from "../kontonummer/formatKontonummer";
@@ -22,21 +22,60 @@ export type RegisterWithMaskOptions<T> = Omit<RegisterOptions<T>, "setValueAs">;
 const registerWithMask =
     (formatter: Formatter) =>
     <T>(form: UseFormReturn<T>, name: Path<T>, options?: RegisterWithMaskOptions<T>) => {
+        let onKeyDownCaretPosition = 0;
+        let onKeyDownKeyPressed = "";
+
         const setValueAs = (value: string) => value.replace(/\s/g, "");
         const onChange = (event: ChangeEvent<HTMLInputElement>) => {
             options?.onChange?.(event);
-            form.setValue(
-                name as unknown as Path<T>,
-                formatters[formatter](event.target.value, { partial: true }) as PathValue<T, Path<T>>,
-            );
+            let onChangeCaretPosition = 0;
+            const inputLength = event.target.value.length;
+
+            if (event.target.selectionStart !== null) {
+                onChangeCaretPosition = event.target.selectionStart;
+            }
+
+            const formattedInput = formatters[formatter](event.target.value, { partial: true });
+
+            form.setValue(name as unknown as Path<T>, formattedInput as PathValue<T, Path<T>>);
+
+            let delta = 0;
+            let newPosition: number | null = null;
+
+            if (["Delete", "Backspace"].includes(onKeyDownKeyPressed)) {
+                delta = onKeyDownCaretPosition - onChangeCaretPosition;
+                newPosition = onKeyDownCaretPosition - delta;
+            }
+
+            if (newPosition !== null) {
+                event.target.setSelectionRange(newPosition, newPosition, undefined);
+            }
+
+            console.table({
+                input: event.target.value,
+                onKeyDownCaretPosition,
+                onChangeCaretPosition,
+                delta,
+                newPosition,
+                inputLength,
+                formattedStringLength: formattedInput.length,
+            });
         };
         const register = form.register(name, { ...options, setValueAs, onChange });
-        let extra = {};
+
+        const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
+            if (event.target.selectionStart !== null) {
+                onKeyDownCaretPosition = event.target.selectionStart;
+            }
+            onKeyDownKeyPressed = event.key;
+        };
+
+        const extra: Record<string, unknown> = {
+            onKeyDown,
+        };
 
         if (formatter === "number") {
-            extra = {
-                align: "right", // Se https://github.com/fremtind/jokul/pull/2898
-            };
+            extra.align = "right"; // Se https://github.com/fremtind/jokul/pull/2898
         }
 
         return Object.assign(register, extra);
