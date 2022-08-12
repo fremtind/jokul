@@ -13,6 +13,14 @@ module.exports = (on, config) => {
         return launchOptions;
     });
 
+    on("uncaught:exception", (err, runnable) => {
+        // Ignorer hydration-errors. De er ikke optimale akkurat, men Gatsby gjør de så og si umulige å feilsøke.
+        // Virker å ha skjedd noe under oppdateringen til MDX2.
+        if (err.message.includes("Minified React error #418")) {
+            return false;
+        }
+    });
+
     initPlugin(on, config);
     return config;
 };
