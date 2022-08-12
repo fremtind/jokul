@@ -28,41 +28,47 @@ const registerWithMask =
         const setValueAs = (value: string) => value.replace(/\s/g, "");
         const onChange = (event: ChangeEvent<HTMLInputElement>) => {
             options?.onChange?.(event);
+
+            // save some values before event.target.value change
             let onChangeCaretPosition = 0;
             const inputLength = event.target.value.length;
 
+            // type checking formalities
             if (event.target.selectionStart !== null) {
                 onChangeCaretPosition = event.target.selectionStart;
             }
 
-            const formattedInput = formatters[formatter](event.target.value, { partial: true });
+            form.setValue(
+                name as unknown as Path<T>,
+                formatters[formatter](event.target.value, { partial: true }) as PathValue<T, Path<T>>,
+            );
 
-            form.setValue(name as unknown as Path<T>, formattedInput as PathValue<T, Path<T>>);
-
-            let delta = 0;
             let newPosition: number | null = null;
 
             if (["Delete", "Backspace"].includes(onKeyDownKeyPressed)) {
-                delta = onKeyDownCaretPosition - onChangeCaretPosition;
+                // handle removing content
+                // calculate how much to move the caret, this also accounts for removing sections of text
+                const delta = onKeyDownCaretPosition - onChangeCaretPosition;
+
+                // calculate new caret position (- because we move backwards)
                 newPosition = onKeyDownCaretPosition - delta;
+            } else if (onChangeCaretPosition < event.target.value.length) {
+                // handle adding content from inside the string
+                // calculate how much to move the caret forwards
+                const delta = event.target.value.length - inputLength;
+
+                // calculate new caret position (+ because we move forwards)
+                newPosition = onChangeCaretPosition + delta;
             }
 
             if (newPosition !== null) {
                 event.target.setSelectionRange(newPosition, newPosition, undefined);
             }
-
-            console.table({
-                input: event.target.value,
-                onKeyDownCaretPosition,
-                onChangeCaretPosition,
-                delta,
-                newPosition,
-                inputLength,
-                formattedStringLength: formattedInput.length,
-            });
         };
+
         const register = form.register(name, { ...options, setValueAs, onChange });
 
+        // save the caret position before the change occured
         const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
             if (event.target.selectionStart !== null) {
                 onKeyDownCaretPosition = event.target.selectionStart;
@@ -70,6 +76,7 @@ const registerWithMask =
             onKeyDownKeyPressed = event.key;
         };
 
+        // add onKeyDown event handler to the registered input
         const extra: Record<string, unknown> = {
             onKeyDown,
         };
