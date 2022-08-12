@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.14 (2022-08-12)
+
+### Bug Fixes
+
+-   redesign hover og focus på select uten layout shift ([b891f94](https://github.com/fremtind/jokul/commit/b891f940b010a2bc8c659dcaed2a4367498043fc)), closes [#3001](https://github.com/fremtind/jokul/issues/3001)
+
 ## [10.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.10...@fremtind/jkl-select-react@10.0.11) (2022-07-28)
 
 ### Bug Fixes

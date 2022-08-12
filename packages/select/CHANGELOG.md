@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.12 (2022-08-12)
+
+### Bug Fixes
+
+-   redesign hover og focus på select uten layout shift ([b891f94](https://github.com/fremtind/jokul/commit/b891f940b010a2bc8c659dcaed2a4367498043fc)), closes [#3001](https://github.com/fremtind/jokul/issues/3001)
+
 ## 8.0.11 (2022-08-04)
 
 ### Bug Fixes
