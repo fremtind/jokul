@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.5.5 (2022-08-12)
+
+### Bug Fixes
+
+-   fix a bug where delete and backspace would reset caret position ([126fc51](https://github.com/fremtind/jokul/commit/126fc51c6207a0a19dd18d8380ee9499dd56e2b9))
+-   fix types for onKeyDown event handling ([bd1ccc5](https://github.com/fremtind/jokul/commit/bd1ccc506d8c0e5420cfe2c38de57d60d485872b))
+-   handle adding to masked text from inside the text itself ([1e834a8](https://github.com/fremtind/jokul/commit/1e834a8c231c478d5e0add799e92efb53d2e0b54))
+
 # 2.5.0 (2022-07-25)
 
 ### Features
