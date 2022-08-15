@@ -40,6 +40,19 @@ describe("Expand", () => {
         expect(contentToggle).toHaveProperty("hidden", true);
     });
 
+    it("should render the expand button expanded with the isExpanded prop set to true", () => {
+        render(
+            <ExpandSection title="Skjul seksjonen igjen" isExpanded={true}>
+                <h2>Skjult seksjon</h2>
+                <p>Her kommer det masse informasjon som er relevant, men ikke så relevant at vi alltid vil vise det.</p>
+            </ExpandSection>,
+        );
+        screen.getByText("Skjult seksjon");
+
+        const contentToggle = screen.getByTestId("jkl-expand-section__content-wrapper");
+        expect(contentToggle).toHaveProperty("hidden", false);
+    });
+
     it("should trigger onClick handler on click and expand the content", async () => {
         render(<ExpandSectionExample />);
 
