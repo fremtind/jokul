@@ -9,12 +9,11 @@ import React, { FC } from "react";
 import { ComponentExample } from "../../../../doc-utils";
 import { CodeBlock } from "../../../../doc-utils/CodeBlock";
 import { TagExample, tagExampleCode } from "../../../../packages/tag-react/documentation/TagExample";
-import { useNavigationLinks } from "../../components/Header/useNavigationLinks";
 import { Image } from "../../components/image";
 import { Seo } from "../../components/seo";
-import { HeadingLarge, Ingress, InlineCode, PageTitle, Paragraph } from "../../components/Typography";
-import { Strong } from "../../components/Typography/Typography";
-import { RootItem, useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
+import { HeadingLarge, Ingress, InlineCode, PageTitle, Paragraph, Strong } from "../../components/Typography";
+import { RootItem, useFullscreenMenuContext } from "../../fullscreenMenuContext";
+import { useNavigationLinks } from "../../layout/header/useNavigationLinks";
 
 const pageTitle = "Praktisk info for utviklere";
 
