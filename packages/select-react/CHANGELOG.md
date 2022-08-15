@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.15...@fremtind/jkl-select-react@10.0.16) (2022-08-15)
+
+### Bug Fixes
+
+-   reset search in select on blur ([a798f7e](https://github.com/fremtind/jokul/commit/a798f7e23701759bb3fb14a4aa360303ad7d9246))
+
 ## [10.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.14...@fremtind/jkl-select-react@10.0.15) (2022-08-15)
 
 ### Bug Fixes
