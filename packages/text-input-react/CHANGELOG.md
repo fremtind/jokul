@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.13 (2022-08-15)
+
+### Bug Fixes
+
+-   syntaksfeil i MDX etter oppgradering ([40740cd](https://github.com/fremtind/jokul/commit/40740cd3360189625d83e9203aafa12f2e5404e1))
+
 ## [10.0.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@10.0.4...@fremtind/jkl-text-input-react@10.0.5) (2022-06-13)
 
 ### Bug Fixes

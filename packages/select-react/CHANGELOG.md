@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.14...@fremtind/jkl-select-react@10.0.15) (2022-08-15)
+
+### Bug Fixes
+
+-   syntaksfeil i MDX etter oppgradering ([40740cd](https://github.com/fremtind/jokul/commit/40740cd3360189625d83e9203aafa12f2e5404e1))
+
 ## 10.0.14 (2022-08-12)
 
 ### Bug Fixes
