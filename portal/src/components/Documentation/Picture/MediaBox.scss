@@ -46,10 +46,7 @@
         max-width: 500px;
         padding: jkl.$spacing-xl;
         z-index: 1;
-
-        &--long-text {
-            bottom: -#{jkl.$spacing-3xl};
-        }
+        // bottom: -#{jkl.$spacing-3xl};
     }
 
     &--right {

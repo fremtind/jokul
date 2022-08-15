@@ -7,11 +7,8 @@ publishDate: "2020.10.02"
 
 <Ingress>
     For å skrive kode trenger vi noe å skrive kode i, for de fleste av oss utviklere betyr det en IDE. Og i mitt
-    tilfelle har det vært{" "}
-    <a href="https://code.visualstudio.com/" className="jkl-link jkl-link--external">
-        VSCode
-    </a>{" "}
-    de siste ca 5 årene. I en Fremtindsk deleånd, skal jeg prøve å dele noe av det jeg gjør for å customize min VSCode.
+    tilfelle har det vært [VSCode](https://code.visualstudio.com/) de siste ca 5 årene. I en Fremtindsk deleånd, skal
+    jeg prøve å dele noe av det jeg gjør for å customize min VSCode.
 </Ingress>
 
 Litt bakgrunn først, VSCode er utviklet av et lite amerikansk firma Microsoft. Den startet livet sitt som en liten enkel editor for Azure, men etterhvert ble den såpass komplett at Microsoft stappet den inn i et Electron skall og begynte å shippe den som en desktop app også. Så i bunn så bygger den på webteknologi, typescript, html og css. Grunntanken er en lettvekst teksteditor med støtte for plugins for å bygge IDEen du trenger. Liten aside, VSCode er på god vei tilbake til weben, feks [CodeSanbox](https://codesandbox.io) bruker Monaco (grunnlaget til VSCode) og mye tyder på at Github Codespaces blir VSCode (med litt ekstra snacks) som skytjeneste.
@@ -39,7 +36,7 @@ Annet visuelt jeg har tweeket på er fonten, [Fira Code](https://github.com/tons
 "terminal.integrated.fontFamily": "Fira Code Retina",
 ```
 
- Ellers av opinionated ting jeg har gjort med utsenede er å flytte hele aktivitetsbaren til høyre. Jeg toggler den inn og ut (`ctrl + b`) hundrevis av ganger hver dag, og når den er der så flytter ikke koden på seg, imotsetning til når den er til venstre.
+Ellers av opinionated ting jeg har gjort med utsenede er å flytte hele aktivitetsbaren til høyre. Jeg toggler den inn og ut (`ctrl + b`) hundrevis av ganger hver dag, og når den er der så flytter ikke koden på seg, imotsetning til når den er til venstre.
 
 ```json
 "workbench.sideBar.location": "right"
@@ -48,7 +45,6 @@ Annet visuelt jeg har tweeket på er fonten, [Fira Code](https://github.com/tons
 Som en av de som lider av [bundlephobia](https://bundlephobia.com/) så har jeg [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost), som legger til størrelsen på importen i grønntekst etter importen. Desuten driver [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) å strør litt om seg i UIet med info om repositoryet. Den er også ganske fin til å visualisere git historiken iforhold til den innebygde i VSCode, dog ikke i nærheten av Intellij sin fantastiske git merge editor sak.
 
 > Prøv `ctrl + shift + p` og skriv `git` så ser du alle mulighetene GitLens tilbyr
-
 
 Jeg setter veldig pris på det minimalistiske utrykket, jeg vil at IDEen ikke skal være i veien for koden. Så aktivitetsbaren går vekk når den ikke trengs (`ctrl + b`), terminalen går vekk med `ctrl + shift \`. Og alt er modifisertbart, så om du kommer fra en annen IDE, så finnes det sannsynligvis en keymap som gjør at du kan bruke hurtigtastene du er vant med, eller du kan enkelt lage din egen. Vim og Emacs er støttet også om man er en sånn en, ellers så anbefaller jeg å skrive ut denne [VSCode Cheet Sheet](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) og begynne å bruke mest mulig at keyboardet isteden for musa. Og gå til innkjøp av et ordentlig keyboard (just saying, hvor mange ganger klikker du ikke på tastaturet ditt iløpet av en dag...).
 
@@ -67,6 +63,7 @@ Her kan du søke og åpne filer fra det åpne prosjektet ditt, og skriver du inn
 De fleste av oss jobber vel fort vekk med mer enn et prosjekt, så [Project Manager](https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager) er helt essensiell for meg. `alt + shift + p` gir meg en liste av mine prosjekter og kan enkelt hoppe mellom de. For de som sliter med å skille prosjekt fra hverandre, så kan det være smart å sette ulike themes per prosjekt, ved å sette i workspace settings.json isteden for den globale. Eventuel [Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock) løser samme problem på en litt annen måte.
 
 ### Snippets
+
 Snippets er forkortelser for ting du ofte skriver. Feks `imr` blir til `import React from 'react';`, skriv forkortelsen og tab eller enter for å ekspandere teksten. Du kan skrive disse selv, feks jeg har `jklhl` som lager `<h$1 className=\"jkl-title-large\">$2</h$1>`, `$1` er der cursoren starter, tab tar meg til `$2`. Hvis du vil ha min Jøkul snippets, så ligger de som en Gist på min [github](https://gist.github.com/lfbergee/b4c928728b1e736ca111a82ec064bc28), `ctrl + shift + p` `Configure User Snippets` og lag en ny snippets vil med det scopet du syns er fornuftig.
 
 ![](/assets/blog/ide/animation.gif)
@@ -75,7 +72,7 @@ Du kan også laste ned andres snippets, feks [denne](https://marketplace.visuals
 
 ### One more thing
 
-Vel egentlig så er det en haug flere ting. Eslint-integrasjon, Prettier som kodeformaterer, formater kun endra linjer(ny funksjonalitet i 1.49!!), Jest-integrasjon, fornuftig git-integrasjon, LiveShare, IntelliCode, Quokka.. 
+Vel egentlig så er det en haug flere ting. Eslint-integrasjon, Prettier som kodeformaterer, formater kun endra linjer(ny funksjonalitet i 1.49!!), Jest-integrasjon, fornuftig git-integrasjon, LiveShare, IntelliCode, Quokka..
 Men for å avslutte med en siste liten sak, [Code Spell Check](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker), med den så kan jeg lure de fleste med at jeg faktisk kan skrive på engelsk.
 
 ## Oppsummering

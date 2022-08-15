@@ -6,7 +6,6 @@ export interface UseIdOptions {
     generateSuffix?: boolean;
 }
 
-// @ts-ignore: wait for types to land in main
 const useReactId = React.useId;
 
 const defaultOptions: UseIdOptions = {

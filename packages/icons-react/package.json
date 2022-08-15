@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icons-react",
-    "version": "5.0.9",
+    "version": "5.0.10",
     "publishConfig": {
         "access": "public"
     },

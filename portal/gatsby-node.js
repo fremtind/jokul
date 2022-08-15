@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require("fs");
 const path = require("path");
+const slugify = require("@sindresorhus/slugify");
 const { createFilePath } = require("gatsby-source-filesystem");
 const docgen = require("react-docgen-typescript");
 const ts = require("typescript");
@@ -53,32 +54,37 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         const corePageMatch = filePath.match(/\/core\/documentation\/(.*)\//);
         const utilPageMatch = filePath.match(/\/.*util.*\/documentation\/(.*)\//);
 
-        let value = filePath;
+        let pathField = filePath;
         if (componentPageMatch) {
-            value = `/komponenter/${componentPageMatch[1].toLowerCase()}`;
+            pathField = `/komponenter/${componentPageMatch[1].toLowerCase()}`;
         }
         if (corePageMatch) {
-            value = `/komponenter/${corePageMatch[1].toLowerCase()}`;
+            pathField = `/komponenter/${corePageMatch[1].toLowerCase()}`;
         }
         if (utilPageMatch) {
-            value = `/komponenter/${utilPageMatch[1].toLowerCase()}`;
+            pathField = `/komponenter/${utilPageMatch[1].toLowerCase()}`;
         }
 
         createNodeField({
             name: "path",
             node,
-            value,
+            value: pathField,
+        });
+
+        createNodeField({
+            node,
+            name: "slug",
+            value: `/${slugify(node.frontmatter.title || pathField)}`,
         });
     }
 };
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-    const { createPage } = actions;
-    const documentationTemplate = require.resolve("./src/templates/DocPageLayout.tsx");
-
     const result = await graphql(`
         {
-            components: allMdx(filter: { fileAbsolutePath: { regex: "//.*react.*/documentation/.*.mdx$/" } }) {
+            components: allMdx(
+                filter: { internal: { contentFilePath: { regex: "//.*react.*/documentation/.*.mdx$/" } } }
+            ) {
                 edges {
                     node {
                         id
@@ -91,10 +97,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             title
                             displayTypes
                         }
+                        internal {
+                            contentFilePath
+                        }
                     }
                 }
             }
-            core: allMdx(filter: { fileAbsolutePath: { regex: "//core/documentation/.*.mdx$/" } }) {
+            core: allMdx(filter: { internal: { contentFilePath: { regex: "//core/documentation/.*.mdx$/" } } }) {
                 edges {
                     node {
                         id
@@ -107,10 +116,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             title
                             displayTypes
                         }
+                        internal {
+                            contentFilePath
+                        }
                     }
                 }
             }
-            utils: allMdx(filter: { fileAbsolutePath: { regex: "//.*util.*/documentation/.*.mdx$/" } }) {
+            utils: allMdx(filter: { internal: { contentFilePath: { regex: "//.*util.*/documentation/.*.mdx$/" } } }) {
                 edges {
                     node {
                         id
@@ -123,10 +135,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             title
                             displayTypes
                         }
+                        internal {
+                            contentFilePath
+                        }
                     }
                 }
             }
-            docs: allMdx(filter: { fileAbsolutePath: { regex: "//portal/src/texts/.*.mdx$/" } }) {
+            docs: allMdx(filter: { internal: { contentFilePath: { regex: "//portal/src/texts/.*.mdx$/" } } }) {
                 edges {
                     node {
                         id
@@ -136,6 +151,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         frontmatter {
                             path
                             title
+                        }
+                        internal {
+                            contentFilePath
                         }
                     }
                 }
@@ -251,6 +269,9 @@ ${JSON.stringify(result.errors, null, 2)}
         }
     }
 
+    const { createPage } = actions;
+    const documentationTemplate = require.resolve("./src/templates/DocPageLayout.jsx");
+
     result.data.components.edges.forEach(({ node }) => {
         const versions = {
             react: getPackageVersion(node.frontmatter.react),
@@ -263,7 +284,7 @@ ${JSON.stringify(result.errors, null, 2)}
 
         createPage({
             path: node.fields.path,
-            component: documentationTemplate,
+            component: `${documentationTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
             context: {
                 id: node.id,
                 types: pageTypes,
@@ -285,7 +306,7 @@ ${JSON.stringify(result.errors, null, 2)}
 
         createPage({
             path: node.fields.path,
-            component: documentationTemplate,
+            component: `${documentationTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
             context: {
                 id: node.id,
                 types: pageTypes,
@@ -306,7 +327,7 @@ ${JSON.stringify(result.errors, null, 2)}
 
         createPage({
             path: node.fields.path,
-            component: documentationTemplate,
+            component: `${documentationTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
             context: {
                 id: node.id,
                 types: pageTypes,
@@ -319,7 +340,7 @@ ${JSON.stringify(result.errors, null, 2)}
     result.data.docs.edges.forEach(({ node }) => {
         createPage({
             path: node.frontmatter.path || node.fields.path,
-            component: documentationTemplate,
+            component: `${documentationTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
             context: { id: node.id, title: node.frontmatter.title },
         });
     });
