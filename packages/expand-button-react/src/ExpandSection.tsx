@@ -39,8 +39,8 @@ export const ExpandSection = ({
     const [elementRef] = useAnimatedHeight<HTMLDivElement>(expanded, useAnimatedHeightOptions);
 
     useEffect(() => {
-        setIsExpanded(!expanded);
-    }, [setIsExpanded, expanded, isExpanded]);
+        setIsExpanded(isExpanded);
+    }, [isExpanded]);
 
     const onExpandButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         const nextValue = !expanded;
