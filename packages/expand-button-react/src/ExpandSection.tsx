@@ -1,6 +1,6 @@
 import { UseAnimatedHeightOptions, useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import type { ExpandButtonProps } from "./ExpandButton";
 import { ExpandButton } from "./ExpandButton";
 
@@ -37,6 +37,10 @@ export const ExpandSection = ({
     const contentId = useId("content");
     const [expanded, setIsExpanded] = useState(isExpanded);
     const [elementRef] = useAnimatedHeight<HTMLDivElement>(expanded, useAnimatedHeightOptions);
+
+    useEffect(() => {
+        setIsExpanded(isExpanded);
+    }, [isExpanded]);
 
     const onExpandButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         const nextValue = !expanded;
