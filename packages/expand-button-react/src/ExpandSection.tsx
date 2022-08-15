@@ -40,7 +40,7 @@ export const ExpandSection = ({
 
     useEffect(() => {
         setIsExpanded(!expanded);
-    }, [isExpanded]);
+    }, [setIsExpanded, expanded, isExpanded]);
 
     const onExpandButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         const nextValue = !expanded;
