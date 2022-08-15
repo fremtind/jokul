@@ -244,6 +244,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
             if (!nextFocusIsInsideComponent) {
                 if (onBlur) {
+                    if (isSearchable) {
+                        setSearchValue("");
+                    }
                     onBlur({ type: "blur", target: { name, value: selectedValue || "" } });
                     selectRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
                 }
@@ -251,7 +254,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 setShown(false);
             }
         },
-        [onBlur, setShown, name, selectedValue],
+        [onBlur, isSearchable, name, selectedValue],
     );
 
     const handleFocus = useCallback(() => {
