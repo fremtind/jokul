@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.40](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.39...@fremtind/portal@15.0.40) (2022-08-15)
+
+### Bug Fixes
+
+-   actually upgrade to MDX RC ([9ae88c5](https://github.com/fremtind/jokul/commit/9ae88c5f77a71fdc740d29fa571434dd03c7badc))
+-   add sindres slugs ([7a0127e](https://github.com/fremtind/jokul/commit/7a0127e55e1ba5e67bd807d1fba4784e760ef4c6))
+-   bruk next for all the things ([b7c8991](https://github.com/fremtind/jokul/commit/b7c8991780294c6d47f7fdffad6cbcd44f898b34))
+-   debug en feilmelding fra Gatsby om at style er string ([e48aeb6](https://github.com/fremtind/jokul/commit/e48aeb6757b0d0685fd30bf48f4073be2647dc7c))
+-   fjern workaround som ikke trengs lenger og skaper problemer ([1f881cd](https://github.com/fremtind/jokul/commit/1f881cdc270bf25c1f425583aecf4ca7c5b5facc))
+-   font i ingress, blockquote ([749eb19](https://github.com/fremtind/jokul/commit/749eb196844848fa8adb6882e2c341a19ccf1a42))
+-   html er ikke lenger tilgjengelig :( ([1cc9cfc](https://github.com/fremtind/jokul/commit/1cc9cfc92f4d92645d68be3d1469007b0f400bef))
+-   layout takler ikke TypeScript-syntaks ([b9dd810](https://github.com/fremtind/jokul/commit/b9dd810271d809bfb501da07fe19c0210e4c8b42))
+-   linjehøyde på delaytext etter at jkl får body-style ([5892986](https://github.com/fremtind/jokul/commit/58929862e66f49d0c569c729cd36a2b62e6938ed))
+-   nøst opp i noen sirkulære referanser ([3af2006](https://github.com/fremtind/jokul/commit/3af2006c5b5ea78066fd3adb0979d9b99da54bfa))
+-   regresjoner i portalen post-MDX-oppgradering ([5a78100](https://github.com/fremtind/jokul/commit/5a78100a05f5460ac1ac5f47031925db8d77bc0e))
+-   samme ID på server og klient ([41ec721](https://github.com/fremtind/jokul/commit/41ec721e724c59f4a47f3fa1868c8735df2b2983))
+-   syntaksfeil i MDX etter oppgradering ([40740cd](https://github.com/fremtind/jokul/commit/40740cd3360189625d83e9203aafa12f2e5404e1))
+
 ## [15.0.31](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.30...@fremtind/portal@15.0.31) (2022-08-02)
 
 ### Bug Fixes

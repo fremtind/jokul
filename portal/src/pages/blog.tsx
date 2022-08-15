@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { graphql, Link, PageProps } from "gatsby";
 import React, { FC } from "react";
 import { Seo } from "../components/seo";
-import "./blog.scss";
+import "../styles/blog.scss";
 
 export const Head: FC = () => <Seo title="Blogg" />;
 
@@ -69,7 +69,9 @@ export const pageQuery = graphql`
   query {
     allMdx(
       sort: { fields: [frontmatter___publishDate], order: DESC },
-      filter: { fileAbsolutePath: {regex: "/\\/portal\\/src\\/texts\\/blog\\/.*\\.mdx$/"} },
+      filter: { internal: {
+        contentFilePath: {regex: "/\\/portal\\/src\\/texts\\/blog\\/.*\\.mdx$/"}
+      } },
     ) {
       nodes {
         excerpt(pruneLength: 140)
