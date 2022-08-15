@@ -20,6 +20,7 @@ module.exports = {
         siteUrl: "https://jokul.fremtind.no",
     },
     flags: {
+        DEV_SSR: true,
         FAST_DEV: true,
         PARALLEL_SOURCING: true,
         PRESERVE_FILE_DOWNLOAD_CACHE: true,
@@ -28,8 +29,17 @@ module.exports = {
         "gatsby-plugin-typescript",
         "gatsby-plugin-image",
         "gatsby-plugin-sharp",
+        {
+            resolve: "gatsby-plugin-layout",
+            options: {
+                component: require.resolve("./src/layout/Layout.tsx"),
+            },
+        },
         "gatsby-transformer-sharp",
-        { resolve: "gatsby-source-filesystem", options: { path: "./static/assets" } },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: { path: "./static/assets" },
+        },
         {
             resolve: "gatsby-source-filesystem",
             options: {
@@ -85,7 +95,6 @@ module.exports = {
                                     date: node.frontmatter.publishDate,
                                     url: site.siteMetadata.siteUrl + node.fields.path,
                                     guid: site.siteMetadata.siteUrl + node.fields.path,
-                                    custom_elements: [{ "content:encoded": node.html }],
                                 });
                             });
                         },
@@ -93,11 +102,12 @@ module.exports = {
                         {
                             allMdx(
                                 sort: { fields: [frontmatter___publishDate], order: DESC },
-                                filter: { fileAbsolutePath: {regex: "/\/portal\/src\/texts\/blog\/.*\.mdx$/"} },
+                                filter: { internal: {
+                                    contentFilePath: {regex: "/\/portal\/src\/texts\/blog\/.*\.mdx$/"}
+                                } },
                             ) {
                                 nodes {
                                     excerpt(pruneLength: 280)
-                                    html
                                     fields {
                                         path
                                     }
@@ -112,12 +122,6 @@ module.exports = {
                         output: "/blog/rss.xml",
                     },
                 ],
-            },
-        },
-        {
-            resolve: "gatsby-plugin-layout",
-            options: {
-                component: require.resolve("./src/components/Layout/Layout.tsx"),
             },
         },
     ],

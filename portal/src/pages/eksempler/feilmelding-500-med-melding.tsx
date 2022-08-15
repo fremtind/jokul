@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link as InternalLink } from "gatsby";
 import React, { FC } from "react";
 
-const NotFoundPage: FC = () => (
+const NotFoundPageWithMessage: FC = () => (
     <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -34,4 +34,4 @@ const NotFoundPage: FC = () => (
     </motion.main>
 );
 
-export default NotFoundPage;
+export default NotFoundPageWithMessage;

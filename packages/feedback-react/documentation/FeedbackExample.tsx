@@ -68,14 +68,11 @@ export const FeedbackExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
 };
 
 export const feedbackCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-import { Feedback, PRESETS } from "@fremtind/jkl-feedback-react";
-
 <Feedback
-    {...PRESETS["${choiceValues?.["Forhåndsvalg"]}"]}
-    onSubmit={console.log}
-    followup={${
-        !!boolValues?.["Med oppfølgings-spørsmål"]
-            ? `[
+    {...PRESETS["${choiceValues?.["Forhåndsvalg"]}"]}${
+    !!boolValues?.["Med oppfølgings-spørsmål"]
+        ? `
+    followup={[
         {
             type: "radio",
             label: "Hvordan opplevde du å bestille forsikring på nett?",
@@ -102,21 +99,21 @@ import { Feedback, PRESETS } from "@fremtind/jkl-feedback-react";
             label: "Er det noe mer du vil legge til?",
             name: "annet",
         },
-    ]`
-            : undefined
-    }}
-    contactQuestion={${
-        !!boolValues?.["Med kontakt-spørsmål"]
-            ? `{
+    ]}`
+        : ""
+}${
+    !!boolValues?.["Med kontakt-spørsmål"]
+        ? `
+    contactQuestion={{
         withPhone: true,
         label: "Vil du være med å teste sidene våre?",
         children:
             "Vi gjennomfører jevnlig tester og intervjuer for å forbedre løsningene våre (ca. 30 minutter). Som takk for hjelpen får du et gavekort. Legg igjen din e-postadresse hvis du er interessert.",
         sendButtonLabel: "Skriv meg opp!",
         onSubmit: console.info,
-    }`
-            : undefined
-    }}
+    }}`
+        : ""
+}
     maxLength={250}
 />
 `;

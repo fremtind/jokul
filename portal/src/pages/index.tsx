@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import { Link, withPrefix } from "gatsby";
 import React, { useState, useMemo } from "react";
 import { CardList } from "../components/Card";
-import { DelayText } from "../components/Delaytext";
+import { DelayText } from "../components/delay-text";
 import { PrincipleDiamond } from "../components/PrincipleDiamond";
 import { Seo } from "../components/seo";
 import { VisibleDetector } from "../components/VisibleDetector";
-import "./style.scss";
-import "./index.scss";
+import "../styles/style.scss";
+import "../styles/index.scss";
 
 // TODO Try to use scrollY in stead of time when lerping diamonds
 // TODO Remove DelayText when it's done
