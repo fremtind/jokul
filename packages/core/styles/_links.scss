@@ -4,11 +4,8 @@
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
 }
 
-@mixin _border-gradient($color) {
-    border-width: #{$_link-underline-thickness};
-    border-style: solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(to bottom, $color 0%, $color 100%);
+@mixin _link-outline {
+    outline: jkl.rem(1px) solid var(--jkl-link-active-color);
 }
 
 $_right-arrow: "\2192"; // unicode right arrow
@@ -55,7 +52,7 @@ $_link-underline-thickness--hover: jkl.rem(2px);
 
     html:not([data-mousenavigation]) &:focus {
         @include jkl.no-grow-bold;
-        @include _border-gradient(var(--jkl-link-active-color));
+        @include _link-outline;
     }
 
     &:active {
@@ -107,8 +104,8 @@ $_link-underline-thickness--hover: jkl.rem(2px);
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include _border-gradient(var(--jkl-link-color));
         @include jkl.no-grow-bold;
+        @include _link-outline;
 
         &::after {
             padding-left: 0.7em;
