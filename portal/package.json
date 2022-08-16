@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "15.0.43",
+    "version": "15.0.44",
     "devDependencies": {
         "react-docgen-typescript": "^2.2.2"
     },
@@ -11,7 +11,7 @@
         "@fremtind/jkl-alert-message-react": "^8.0.11",
         "@fremtind/jkl-breadcrumb-react": "^2.0.9",
         "@fremtind/jkl-button-react": "^11.0.11",
-        "@fremtind/jkl-card-react": "^6.0.12",
+        "@fremtind/jkl-card-react": "^6.0.13",
         "@fremtind/jkl-checkbox-react": "^7.0.11",
         "@fremtind/jkl-constants-util": "^1.0.2",
         "@fremtind/jkl-content-toggle-react": "^3.0.9",
@@ -27,7 +27,7 @@
         "@fremtind/jkl-hamburger-react": "^9.0.11",
         "@fremtind/jkl-icon-button-react": "^1.0.11",
         "@fremtind/jkl-icons-react": "^5.0.10",
-        "@fremtind/jkl-image-react": "^3.0.11",
+        "@fremtind/jkl-image-react": "^3.0.12",
         "@fremtind/jkl-list-react": "^7.0.10",
         "@fremtind/jkl-loader-react": "^8.0.9",
         "@fremtind/jkl-message-box-react": "^7.0.11",

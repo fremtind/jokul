@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.0.13 (2022-08-16)
+
+### Bug Fixes
+
+-   la til loading og decoding på img ([b21371b](https://github.com/fremtind/jokul/commit/b21371b1752f93df91de4614175151f5f536a1eb)), closes [#2945](https://github.com/fremtind/jokul/issues/2945)
+
 ## [6.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@6.0.3...@fremtind/jkl-card-react@6.0.4) (2022-06-13)
 
 ### Bug Fixes
