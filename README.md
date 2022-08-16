@@ -153,6 +153,7 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
   <tr>
     <td align="center"><a href="https://github.com/mariusingjer"><img src="https://avatars.githubusercontent.com/u/65291983?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Marius Ingjer</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Amariusingjer" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/paulinfrancis"><img src="https://avatars.githubusercontent.com/u/2670325?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Francis Paulin</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=paulinfrancis" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/hegebjo"><img src="https://avatars.githubusercontent.com/u/111281400?v=4?s=100" width="100px;" alt=""/><br /><sub><b>hegebjo</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=hegebjo" title="Code">💻</a></td>
   </tr>
 </table>
 
