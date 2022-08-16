@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.44](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.43...@fremtind/portal@15.0.44) (2022-08-16)
+
+### Bug Fixes
+
+-   la til laoding og decoding i img ([95ae8bf](https://github.com/fremtind/jokul/commit/95ae8bf56ce3a720c2fcdae0c2fa178a8805c451)), closes [#2945](https://github.com/fremtind/jokul/issues/2945)
+
 ## [15.0.40](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.39...@fremtind/portal@15.0.40) (2022-08-15)
 
 ### Bug Fixes
