@@ -26,6 +26,7 @@ export const Image: FC<ImageProps> = ({ className, placeholder, alt, ...imagePro
                 "jkl-image--loading": !imageLoaded,
             })}
         >
+            {/* Placeholder er bevisst uten loading og decoding for å vises umiddelbart */}
             <img className="jkl-image__placeholder" alt={alt} src={placeholder || imageProperties.src} />
             <img
                 alt={alt}
@@ -34,6 +35,7 @@ export const Image: FC<ImageProps> = ({ className, placeholder, alt, ...imagePro
                 ref={imageRef}
                 sizes={`${dimensions.width}px`}
                 loading="lazy"
+                decoding="async"
                 {...imageProperties}
             />
         </div>
