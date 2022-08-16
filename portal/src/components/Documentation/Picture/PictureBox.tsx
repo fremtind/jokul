@@ -26,7 +26,12 @@ const Picture: React.FC<Props> = ({ asset, alt, ...rest }) => {
         (node.gatsbyImageData.images.fallback.src as string).includes(asset),
     );
 
-    return image ? <MediaBox media={<GatsbyImage image={image.gatsbyImageData} alt={alt} />} {...rest} /> : null;
+    return image ? (
+        <MediaBox
+            media={<GatsbyImage image={image.gatsbyImageData} alt={alt} loading="lazy" decoding="async" />}
+            {...rest}
+        />
+    ) : null;
 };
 
 export default Picture;
