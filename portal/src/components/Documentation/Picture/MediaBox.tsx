@@ -2,7 +2,7 @@ import { WithOptionalChildren } from "@fremtind/jkl-core";
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 import React, { useState, useRef, ReactNode, useContext, useEffect } from "react";
-import { a11yContext } from "../../../contexts/a11yContext";
+import { a11yContext } from "../../../a11yContext";
 
 import "./MediaBox.scss";
 
@@ -40,7 +40,6 @@ const MediaBox: React.FC<Props> = ({ media, rightAlign, caption, children }) => 
     const y = useTransform(scrollY, [elementTop, elementTop + 1], [0, -0.3], {
         clamp: false,
     });
-    const isLongText = (children?.toString() || "").length > 90;
 
     return (
         <div ref={ref} className={`jkl-portal-media-box ${rightAlign ? "jkl-portal-media-box--right" : ""}`}>
@@ -53,9 +52,9 @@ const MediaBox: React.FC<Props> = ({ media, rightAlign, caption, children }) => 
             </motion.figure>
             <motion.div
                 style={{ y: prefersReducedMotion ? 0 : y }}
-                className={`jkl-portal-media-box__card ${isLongText ? "jkl-portal-media-box__card--long-text" : ""}`}
+                className="jkl-portal-media-box__card jkl-portal-media-box__card--long-text"
             >
-                <p className={isLongText ? "jkl-body" : "jkl-heading-2"}>{children}</p>
+                <p className="jkl-body">{children}</p>
             </motion.div>
         </div>
     );

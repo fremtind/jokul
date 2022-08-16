@@ -29,12 +29,22 @@ export const AnimatedImage: FC<{ src: string; alt?: string }> = ({ src, alt, ...
         if (src?.startsWith("/")) {
             imgSrc = withPrefix(src);
         }
-        return <motion.img layout className="jkl-portal-image__img" src={imgSrc} alt={alt || ""} {...rest} />;
+        return (
+            <motion.img
+                layout
+                className="jkl-portal-image__img"
+                src={imgSrc}
+                alt={alt || ""}
+                {...rest}
+                loading="lazy"
+                decoding="async"
+            />
+        );
     }
 
     return (
         <motion.div layout className="jkl-portal-image__img">
-            <GatsbyImage image={image.gatsbyImageData} alt={alt || ""} {...rest} />
+            <GatsbyImage image={image.gatsbyImageData} alt={alt || ""} {...rest} loading="lazy" decoding="async" />
         </motion.div>
     );
 };

@@ -56,7 +56,9 @@ export const Card: FC<Props> = ({ title, children, className, media, action, dar
 
     return (
         <div data-testid="jkl-card" className={componentClassName}>
-            {media && <img className="jkl-card__media" src={media.src} alt={media.alt}></img>}
+            {media && (
+                <img className="jkl-card__media" src={media.src} alt={media.alt} loading="lazy" decoding="async"></img>
+            )}
             {title && (
                 <div data-testid="jkl-card__title" className="jkl-card__title jkl-h3">
                     {clickable ? (

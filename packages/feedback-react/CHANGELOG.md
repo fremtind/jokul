@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 13.0.17 (2022-08-15)
+
+### Bug Fixes
+
+-   samme ID på server og klient ([41ec721](https://github.com/fremtind/jokul/commit/41ec721e724c59f4a47f3fa1868c8735df2b2983))
+
 ## [13.0.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@13.0.4...@fremtind/jkl-feedback-react@13.0.5) (2022-06-13)
 
 ### Bug Fixes

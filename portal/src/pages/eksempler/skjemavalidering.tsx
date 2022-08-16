@@ -9,7 +9,7 @@ import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { motion } from "framer-motion";
-import { HeadProps } from "gatsby";
+import type { HeadProps } from "gatsby";
 import React, { useRef, FC } from "react";
 import { useForm } from "react-hook-form";
 import { Seo } from "../../components/seo";
@@ -58,111 +58,6 @@ const Skjemavalideringseksempel: FC = () => {
     const onSubmit = (valid: FormValues) => console.table(valid);
 
     return (
-        <form onSubmit={handleSubmit(onSubmit, onError)}>
-            <div
-                className="jkl-portal-scroll-anchor"
-                tabIndex={-1} // Negativ TabIndex trengs for å kunne flytte fokus til elementet, så neste Tab går til første skjemafelt
-                ref={scrollRef}
-            />
-            <FormErrorMessageBox
-                className="jkl-portal-paragraph"
-                errors={errors}
-                isSubmitted={isSubmitted}
-                isValid={isValid}
-            />
-            <p className="jkl-heading-4 jkl-spacing-m--bottom">Hvem er eier av forsikringen?</p>
-            <TextInput
-                {...register("fodselsnummer", {
-                    required: "Du må fylle ut eierens fødselsnummer",
-                    pattern: {
-                        value: /^\d{11}$/,
-                        message: "Fødselsnummeret må bestå av 11 siffer",
-                    },
-                })}
-                className="jkl-spacing-l--bottom"
-                label="Fødselsnummer"
-                errorLabel={formState.errors.fodselsnummer?.message}
-            />
-            <TextInput
-                {...register("fornavn", {
-                    required: "Du må fylle ut eierens fornavn",
-                })}
-                className="jkl-spacing-l--bottom"
-                autoComplete="given-name"
-                label="Fornavn"
-                errorLabel={formState.errors.fornavn?.message}
-            />
-            <TextInput
-                {...register("etternavn", {
-                    required: "Du må fylle ut eierens etternavn",
-                })}
-                className="jkl-spacing-l--bottom"
-                autoComplete="family-name"
-                label="Etternavn"
-                errorLabel={formState.errors.etternavn?.message}
-            />
-            <DatePicker
-                className="jkl-spacing-l--bottom"
-                disableAfterDate={formatInput(new Date())}
-                errorLabel={formState.errors.fodselsdato?.message}
-                label="Fødselsdato"
-                {...register("fodselsdato", {
-                    required: "Du må fylle ut fødselsdato",
-                    validate: {
-                        isCorrectFormat: (v) =>
-                            isCorrectFormat(v) ||
-                            `Datoen må være skrevet i formen ${formatDate(new Date())} eller kortformat`,
-                        withinUpperBound: (v) =>
-                            isWithinUpperBound(v, new Date()) || `Datoen må være før ${formatDate(new Date())}`,
-                    },
-                })}
-            />
-            <Select
-                {...register("stilling", { required: "Du må oppgi eierens stilling" })}
-                className="jkl-spacing-xl--bottom"
-                errorLabel={formState.errors.stilling?.message}
-                items={["Designer", "Utvikler", "Tester", "Leder", "Annet"]}
-                label="Stilling"
-                width="14rem"
-            />
-            <RadioButtonGroup
-                className="jkl-spacing-l--bottom"
-                labelProps={{ variant: "small" }}
-                legend="Under 23"
-                errorLabel={formState.errors.u23?.message}
-            >
-                <RadioButton
-                    {...register("u23", {
-                        required: "Du må oppgi om eier er under 23 år gammel",
-                    })}
-                    label="Ja"
-                    value="y"
-                />
-                <RadioButton
-                    {...register("u23", {
-                        required: "Du må oppgi om eier er under 23 år gammel",
-                    })}
-                    label="Nei"
-                    value="n"
-                />
-            </RadioButtonGroup>
-            <FieldGroup
-                legend="Er klient"
-                className="jkl-spacing-xl--bottom"
-                labelProps={{ variant: "small" }}
-                errorLabel={formState.errors.klient?.message}
-            >
-                <Checkbox {...register("klient")} value="ja">
-                    Ja
-                </Checkbox>
-            </FieldGroup>
-            <PrimaryButton type="submit">Gå videre</PrimaryButton>
-        </form>
-    );
-};
-
-export default function App() {
-    return (
         <motion.main
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -173,7 +68,108 @@ export default function App() {
             <div className=" jkl-spacing-2xl--bottom">
                 <h1 className="jkl-title jkl-spacing-xl--bottom">Skjema&shy;validerings&shy;eksempel</h1>
             </div>
-            <Skjemavalideringseksempel />
+            <form onSubmit={handleSubmit(onSubmit, onError)}>
+                <div
+                    className="jkl-portal-scroll-anchor"
+                    tabIndex={-1} // Negativ TabIndex trengs for å kunne flytte fokus til elementet, så neste Tab går til første skjemafelt
+                    ref={scrollRef}
+                />
+                <FormErrorMessageBox
+                    className="jkl-portal-paragraph"
+                    errors={errors}
+                    isSubmitted={isSubmitted}
+                    isValid={isValid}
+                />
+                <p className="jkl-heading-4 jkl-spacing-m--bottom">Hvem er eier av forsikringen?</p>
+                <TextInput
+                    {...register("fodselsnummer", {
+                        required: "Du må fylle ut eierens fødselsnummer",
+                        pattern: {
+                            value: /^\d{11}$/,
+                            message: "Fødselsnummeret må bestå av 11 siffer",
+                        },
+                    })}
+                    className="jkl-spacing-l--bottom"
+                    label="Fødselsnummer"
+                    errorLabel={formState.errors.fodselsnummer?.message}
+                />
+                <TextInput
+                    {...register("fornavn", {
+                        required: "Du må fylle ut eierens fornavn",
+                    })}
+                    className="jkl-spacing-l--bottom"
+                    autoComplete="given-name"
+                    label="Fornavn"
+                    errorLabel={formState.errors.fornavn?.message}
+                />
+                <TextInput
+                    {...register("etternavn", {
+                        required: "Du må fylle ut eierens etternavn",
+                    })}
+                    className="jkl-spacing-l--bottom"
+                    autoComplete="family-name"
+                    label="Etternavn"
+                    errorLabel={formState.errors.etternavn?.message}
+                />
+                <DatePicker
+                    className="jkl-spacing-l--bottom"
+                    disableAfterDate={formatInput(new Date())}
+                    errorLabel={formState.errors.fodselsdato?.message}
+                    label="Fødselsdato"
+                    {...register("fodselsdato", {
+                        required: "Du må fylle ut fødselsdato",
+                        validate: {
+                            isCorrectFormat: (v) =>
+                                isCorrectFormat(v) ||
+                                `Datoen må være skrevet i formen ${formatDate(new Date())} eller kortformat`,
+                            withinUpperBound: (v) =>
+                                isWithinUpperBound(v, new Date()) || `Datoen må være før ${formatDate(new Date())}`,
+                        },
+                    })}
+                />
+                <Select
+                    {...register("stilling", { required: "Du må oppgi eierens stilling" })}
+                    className="jkl-spacing-xl--bottom"
+                    errorLabel={formState.errors.stilling?.message}
+                    items={["Designer", "Utvikler", "Tester", "Leder", "Annet"]}
+                    label="Stilling"
+                    width="14rem"
+                />
+                <RadioButtonGroup
+                    className="jkl-spacing-l--bottom"
+                    labelProps={{ variant: "small" }}
+                    legend="Under 23"
+                    errorLabel={formState.errors.u23?.message}
+                >
+                    <RadioButton
+                        {...register("u23", {
+                            required: "Du må oppgi om eier er under 23 år gammel",
+                        })}
+                        label="Ja"
+                        value="y"
+                    />
+                    <RadioButton
+                        {...register("u23", {
+                            required: "Du må oppgi om eier er under 23 år gammel",
+                        })}
+                        label="Nei"
+                        value="n"
+                    />
+                </RadioButtonGroup>
+                <FieldGroup
+                    legend="Er klient"
+                    className="jkl-spacing-xl--bottom"
+                    labelProps={{ variant: "small" }}
+                    errorLabel={formState.errors.klient?.message}
+                >
+                    <Checkbox {...register("klient")} value="ja">
+                        Ja
+                    </Checkbox>
+                </FieldGroup>
+                <PrimaryButton type="submit">Gå videre</PrimaryButton>
+            </form>
         </motion.main>
     );
-}
+};
+
+export default Skjemavalideringseksempel;

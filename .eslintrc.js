@@ -14,10 +14,9 @@ module.exports = {
         },
     },
     parser: "@typescript-eslint/parser",
-    plugins: ["prettier", "jsx-a11y", "react-hooks", "import"],
+    plugins: ["@typescript-eslint", "prettier", "jsx-a11y", "react-hooks", "import"],
     extends: [
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
         "plugin:import/errors",
         "plugin:import/warnings",
         "plugin:import/typescript",
@@ -26,31 +25,10 @@ module.exports = {
     ],
     parserOptions: { ecmaVersion: 2018, sourceType: "module" },
     rules: {
-        "@typescript-eslint/no-empty-interface": [
-            "error",
-            { allowSingleExtends: true }, // In some case you want to extend an empty interface. Example:  "interface Props extends RouteComponentProps"
-        ],
-        "@typescript-eslint/explicit-function-return-type": 0, // Explicit function return type becomes very annoying for React Function Components
-        "@typescript-eslint/no-use-before-define": ["error", { functions: false }],
-        "@typescript-eslint/ban-ts-ignore": 0, // We use ts-ignore for modules that don't have type definition files
-        "@typescript-eslint/ban-ts-comment": [
-            1,
-            {
-                "ts-expect-error": "allow-with-description",
-                "ts-ignore": "allow-with-description",
-                "ts-nocheck": true,
-                "ts-check": false,
-                minimumDescriptionLength: 3,
-            },
-        ],
-        "react/prop-types": 0,
+        "react/prop-types": "off",
         "prettier/prettier": "error",
-        // check for correct use of react hooks:
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
-        // note you must disable the base rule as it can report incorrect errors
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": ["error"],
         "import/order": [
             "error",
             {
@@ -62,19 +40,5 @@ module.exports = {
             },
         ],
     },
-    overrides: [
-        {
-            files: ["**/*test.ts", "**/*test.tsx"],
-            rules: {
-                "@typescript-eslint/no-empty-function": "off",
-            },
-        },
-        {
-            files: ["**/*.js"],
-            rules: {
-                "@typescript-eslint/explicit-module-boundary-types": "off",
-            },
-        },
-        { files: ["**/*.spec.*"], extends: ["plugin:cypress/recommended"] },
-    ],
+    overrides: [{ files: ["**/*.spec.*"], extends: ["plugin:cypress/recommended"] }],
 };
