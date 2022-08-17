@@ -7,19 +7,8 @@ export interface SkeletonButtonProps extends Omit<SkeletonElementProps, "height"
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
 }
 
-export const SkeletonButton = ({ style, compact, forceCompact, ...rest }: SkeletonButtonProps) => {
-    return (
-        <SkeletonElement
-            {...rest}
-            height={compact || forceCompact ? 24 : 40}
-            style={{ borderRadius: "999px", ...style }}
-        />
-    );
+export const SkeletonButton = ({ style, compact, ...rest }: SkeletonButtonProps) => {
+    return <SkeletonElement {...rest} height={compact ? 24 : 40} style={{ borderRadius: "999px", ...style }} />;
 };

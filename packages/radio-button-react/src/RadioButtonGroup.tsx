@@ -26,12 +26,6 @@ export interface RadioButtonGroupProps extends Omit<FieldGroupProps, "onChange">
      * @default false
      */
     compact?: boolean;
-    /**
-     * Setter kompakt-modifieren på gruppen og alle RadioButton i den.
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
 }
 
 export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
@@ -42,7 +36,6 @@ export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
         errorLabel,
         inline = false,
         compact = false,
-        forceCompact = false,
         labelProps = { variant: "medium" },
         ...rest
     } = props;
@@ -56,14 +49,13 @@ export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
                 invalid: Boolean(errorLabel),
                 inline,
                 compact,
-                forceCompact: compact || forceCompact,
             }}
         >
             <FieldGroup
                 errorLabel={errorLabel}
-                labelProps={{ compact, forceCompact, ...labelProps }}
+                labelProps={{ compact, ...labelProps }}
                 data-testid="jkl-radio-button-group"
-                compact={compact || forceCompact}
+                compact={compact}
                 {...rest}
                 role="radiogroup"
                 aria-invalid={Boolean(errorLabel)}

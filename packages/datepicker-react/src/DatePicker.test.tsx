@@ -377,14 +377,14 @@ describe("Datepicker", () => {
         expect(label).toHaveClass("jkl-label--sr-only");
     });
 
-    it("should pass forceCompact to all compactable child components", () => {
+    it("should pass compact to all compactable child components", () => {
         const { getByTestId, getByText } = setup(
             <DatePicker
                 defaultValue="24.12.2019"
                 label="Hva er tid?" /* label skal være kompakt */
                 helpLabel="Tid er en flat sirkel" /* hjelpeteksten skal være kompakt */
                 extended /* extended for å vise inputfelt i kalenderen, som også skal være kompakte */
-                forceCompact
+                compact
             />,
         );
 

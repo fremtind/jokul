@@ -25,7 +25,7 @@ describe("TextInput", () => {
     });
 
     it("renders as compact when specified", () => {
-        render(<TextInput label="testing" forceCompact />);
+        render(<TextInput label="testing" compact />);
 
         const component = screen.getByTestId("jkl-text-input");
         expect(component).toHaveClass("jkl-text-input--compact");

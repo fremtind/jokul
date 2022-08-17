@@ -45,7 +45,7 @@ export interface DatePickerProps extends DataTestAutoId {
      *  />
      *  ```
      */
-    labelProps?: Omit<LabelProps, "children" | "forceCompact">;
+    labelProps?: Omit<LabelProps, "children">;
     /**
      * dd.mm.åååå
      *
@@ -101,10 +101,6 @@ export interface DatePickerProps extends DataTestAutoId {
      * Skal bare brukes i informasjonstette applikasjoner.
      */
     compact?: boolean;
-    /**
-     * @deprecated bruk compact
-     */
-    forceCompact?: boolean;
     /**
      * Vis et inputfelt og en select for å navigere mellom år og måneder, i stedet for piler frem og tilbake.
      * Kan være nyttig om brukeren forventes å hoppe langt frem eller tilbake i tid.

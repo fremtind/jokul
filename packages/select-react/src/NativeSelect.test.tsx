@@ -43,7 +43,7 @@ describe("NativeSelect", () => {
     });
 
     it("can be forced into compact mode", () => {
-        render(<NativeSelect items={["1", "2"]} label="test" forceCompact />);
+        render(<NativeSelect items={["1", "2"]} label="test" compact />);
 
         expect(screen.getByTestId("jkl-select")).toHaveClass("jkl-select--compact");
     });
@@ -71,7 +71,7 @@ describe("a11y", () => {
         const onChange = jest.fn();
         const { container } = render(
             <NativeSelect
-                forceCompact
+                compact
                 label="Select"
                 items={["1", "2"]}
                 value="1"

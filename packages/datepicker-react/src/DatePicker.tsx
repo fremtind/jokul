@@ -38,7 +38,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         errorLabel,
         invalid,
         compact,
-        forceCompact,
         extended,
         days,
         months,
@@ -269,13 +268,13 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             ref={datepickerRef}
             tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
         >
-            <Label standAlone {...labelProps} compact={compact || forceCompact} htmlFor={inputId}>
+            <Label standAlone {...labelProps} compact={compact} htmlFor={inputId}>
                 {label}
             </Label>
             <div
                 data-testid="jkl-datepicker__input-wrapper"
                 className={cn("jkl-datepicker__input-wrapper jkl-text-input__input-wrapper", {
-                    "jkl-text-input--compact": compact || forceCompact,
+                    "jkl-text-input--compact": compact,
                 })}
             >
                 <BaseInputField
@@ -300,7 +299,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 />
                 <IconButton
                     ref={iconButtonRef}
-                    compact={compact || forceCompact}
+                    compact={compact}
                     className="jkl-datepicker__action-button jkl-text-input__action-button"
                     iconType="calendar"
                     buttonTitle={showCalendar ? hideCalendarLabel : showCalendarLabel}
@@ -321,18 +320,13 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                         yearLabel={yearLabel}
                         hidden={!showCalendar}
                         extended={extended}
-                        compact={compact || forceCompact}
+                        compact={compact}
                         onDateSelected={handleClickCalendarDay}
                         onTabOutside={handleTabOutsideCalendar}
                     />
                 </div>
             </div>
-            <SupportLabel
-                compact={compact || forceCompact}
-                id={supportLabelId}
-                helpLabel={helpLabel}
-                errorLabel={errorLabel}
-            />
+            <SupportLabel compact={compact} id={supportLabelId} helpLabel={helpLabel} errorLabel={errorLabel} />
         </div>
     );
 });

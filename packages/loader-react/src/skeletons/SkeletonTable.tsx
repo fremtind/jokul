@@ -9,19 +9,14 @@ export interface SkeletonTableProps extends Pick<HTMLProps<HTMLDivElement>, "sty
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     width?: number;
 }
 
-export const SkeletonTable = ({ className, compact, forceCompact, width, style, ...rest }: SkeletonTableProps) => {
+export const SkeletonTable = ({ className, compact, width, style, ...rest }: SkeletonTableProps) => {
     return (
         <div
             className={cn("jkl-skeleton-table", className, {
-                "jkl-skeleton-table--compact": compact || forceCompact,
+                "jkl-skeleton-table--compact": compact,
             })}
             style={{ width, ...style }}
             {...rest}

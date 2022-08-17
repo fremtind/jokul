@@ -8,19 +8,8 @@ export interface SkeletonLabelProps extends Omit<SkeletonElementProps, "width" |
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
 }
 
-export const SkeletonLabel = ({ compact, forceCompact, ...rest }: SkeletonLabelProps) => {
-    return (
-        <SkeletonElement
-            {...rest}
-            width={compact || forceCompact ? 100 : 115}
-            height={compact || forceCompact ? 12 : 16}
-        />
-    );
+export const SkeletonLabel = ({ compact, ...rest }: SkeletonLabelProps) => {
+    return <SkeletonElement {...rest} width={compact ? 100 : 115} height={compact ? 12 : 16} />;
 };

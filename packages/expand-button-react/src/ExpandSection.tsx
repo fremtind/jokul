@@ -19,13 +19,8 @@ export interface ExpandSectionProps {
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>, isExpanded: boolean) => void;
-    expandButtonProps?: Omit<ExpandButtonProps, "id" | "forceCompact" | "isExpanded" | "onClick" | "hideLabel">;
+    expandButtonProps?: Omit<ExpandButtonProps, "id" | "isExpanded" | "onClick" | "hideLabel">;
     useAnimatedHeightOptions?: UseAnimatedHeightOptions;
     /** Om du ønsker å styre komponenten utenfra */
     isExpanded?: boolean;
@@ -37,7 +32,6 @@ export const ExpandSection = ({
     expandButtonProps,
     isExpanded = false,
     compact,
-    forceCompact,
     onClick,
     title,
     useAnimatedHeightOptions,
@@ -62,7 +56,7 @@ export const ExpandSection = ({
                 {...expandButtonProps}
                 id={buttonId}
                 aria-controls={contentId}
-                compact={compact || forceCompact}
+                compact={compact}
                 isExpanded={expanded}
                 onClick={onExpandButtonClick}
             >

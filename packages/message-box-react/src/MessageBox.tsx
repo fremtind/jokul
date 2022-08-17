@@ -13,10 +13,6 @@ export interface MessageBoxProps extends WithChildren {
      * @default false
      */
     compact?: boolean;
-    /**
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     className?: string;
     dismissed?: boolean;
     dismissAction?: {
@@ -124,7 +120,6 @@ function messageFactory(messageType: messageTypes) {
             title,
             fullWidth,
             compact,
-            forceCompact,
             className = "",
             dismissed,
             dismissAction,
@@ -145,12 +140,12 @@ function messageFactory(messageType: messageTypes) {
                 ref={ref}
                 className={cn("jkl-message-box", "jkl-message-box--" + messageType, className, {
                     "jkl-message-box--full": fullWidth,
-                    "jkl-message-box--compact": compact || forceCompact,
+                    "jkl-message-box--compact": compact,
                     "jkl-message-box--dismissed": dismissed,
                 })}
                 role={role || getRole(messageType)}
                 data-theme="light"
-                data-compactlayout={compact || forceCompact ? "true" : undefined}
+                data-compactlayout={compact ? "true" : undefined}
             >
                 {getIcon(messageType)}
                 <div className="jkl-message-box__content">
