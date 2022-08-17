@@ -17,11 +17,6 @@ export interface FieldGroupProps extends DataTestAutoId, FieldsetHTMLAttributes<
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
 }
 
 export const FieldGroup: FC<FieldGroupProps> = ({
@@ -34,7 +29,6 @@ export const FieldGroup: FC<FieldGroupProps> = ({
     errorLabel,
     variant,
     compact,
-    forceCompact,
     "data-testautoid": testAutoId,
     ...rest
 }) => {
@@ -50,7 +44,7 @@ export const FieldGroup: FC<FieldGroupProps> = ({
             data-testautoid={testAutoId}
             {...rest}
             aria-describedby={describedBy}
-            data-compactlayout={compact || forceCompact ? "true" : undefined}
+            data-compactlayout={compact ? "true" : undefined}
         >
             <legend className="jkl-field-group__legend">
                 <Label variant={variant} {...labelProps}>
@@ -59,12 +53,7 @@ export const FieldGroup: FC<FieldGroupProps> = ({
             </legend>
             {children}
             {(helpLabel || errorLabel) && (
-                <SupportLabel
-                    id={supportId}
-                    forceCompact={forceCompact}
-                    helpLabel={helpLabel}
-                    errorLabel={errorLabel}
-                />
+                <SupportLabel id={supportId} compact={compact} helpLabel={helpLabel} errorLabel={errorLabel} />
             )}
         </fieldset>
     );

@@ -10,11 +10,6 @@ export interface SkeletonRadioButtonGroupProps {
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     labelProps?: SkeletonLabelProps;
     inputProps?: SkeletonElementProps;
     radioButtons: number;
@@ -24,7 +19,6 @@ export const SkeletonRadioButtonGroup = ({
     className,
     radioButtons,
     compact,
-    forceCompact,
     labelProps,
     inputProps,
     ...rest
@@ -32,23 +26,19 @@ export const SkeletonRadioButtonGroup = ({
     return (
         <div
             className={cn("jkl-skeleton-input", className, {
-                "jkl-skeleton-input--compact": compact || forceCompact,
+                "jkl-skeleton-input--compact": compact,
             })}
             {...rest}
         >
-            <SkeletonLabel compact={compact || forceCompact} {...labelProps} />
+            <SkeletonLabel compact={compact} {...labelProps} />
             {Array.from(Array(radioButtons)).map((_, index) => (
                 <div key={`jkl-skeleton-checkbox-${index}`} className="jkl-skeleton-input__checkbox">
                     <SkeletonElement
-                        width={compact || forceCompact ? 22 : 24}
-                        height={compact || forceCompact ? 22 : 24}
+                        width={compact ? 22 : 24}
+                        height={compact ? 22 : 24}
                         style={{ borderRadius: "50%" }}
                     />
-                    <SkeletonElement
-                        width={compact || forceCompact ? 201 : 216}
-                        height={compact || forceCompact ? 22 : 24}
-                        {...inputProps}
-                    />
+                    <SkeletonElement width={compact ? 201 : 216} height={compact ? 22 : 24} {...inputProps} />
                 </div>
             ))}
         </div>

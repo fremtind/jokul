@@ -60,7 +60,7 @@ describe("a11y", () => {
     });
 
     it("compact field group should be a11y compliant", async () => {
-        const { container } = render(<FieldGroup legend="hello" forceCompact></FieldGroup>);
+        const { container } = render(<FieldGroup legend="hello" compact></FieldGroup>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();

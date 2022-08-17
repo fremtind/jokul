@@ -6,10 +6,10 @@ import { BaseButton } from "./BaseButton";
 import { Props, ValidButtons } from "./types";
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-        const { children, className, compact, forceCompact, onClick, onTouchStart, loader, arrow, ...rest } = props;
+        const { children, className, compact, onClick, onTouchStart, loader, arrow, ...rest } = props;
 
         const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, className, {
-            "jkl-button--compact": compact || forceCompact,
+            "jkl-button--compact": compact,
         });
 
         const handleTouch = (event: TouchEvent<HTMLButtonElement>) => {
@@ -38,7 +38,7 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
             >
                 <div
                     className={classNames("jkl-button__content", {
-                        "jkl-button__content--compact": compact || forceCompact,
+                        "jkl-button__content--compact": compact,
                     })}
                 >
                     <div

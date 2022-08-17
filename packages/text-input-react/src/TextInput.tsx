@@ -13,7 +13,7 @@ export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>,
 
 export interface Props extends BaseProps {
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "compact" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "compact" | "standAlone">;
     helpLabel?: string;
     errorLabel?: string;
     /** @deprecated Bruk `labelProps.variant`  */
@@ -24,10 +24,6 @@ export interface Props extends BaseProps {
      * @default false
      */
     compact?: boolean;
-    /**
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     inline?: boolean;
     action?: Action;
     inputClassName?: string;
@@ -44,7 +40,6 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
         variant,
         inline,
         compact,
-        forceCompact,
         action,
         "data-testautoid": testAutoId,
         inputClassName,
@@ -61,7 +56,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             data-testid="jkl-text-input"
             className={cn("jkl-text-input", className, {
                 "jkl-text-input--inline": inline,
-                "jkl-text-input--compact": compact || forceCompact,
+                "jkl-text-input--compact": compact,
                 "jkl-text-input--action": action,
             })}
         >
@@ -70,7 +65,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 {...labelProps}
                 srOnly={inline || labelProps?.srOnly}
                 standAlone
-                compact={compact || forceCompact}
+                compact={compact}
                 htmlFor={uid}
             >
                 {label}
@@ -88,7 +83,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 {action && (
                     <IconButton
                         className="jkl-text-input__action-button"
-                        compact={compact || forceCompact}
+                        compact={compact}
                         iconType={action.icon}
                         buttonTitle={action.label}
                         onClick={action.onClick}
@@ -101,7 +96,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 id={supportId}
                 helpLabel={helpLabel}
                 errorLabel={errorLabel}
-                compact={compact || forceCompact}
+                compact={compact}
                 srOnly={inline}
             />
         </div>

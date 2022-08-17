@@ -12,8 +12,8 @@ describe("Label", () => {
         });
     });
 
-    it("renders the expected class for forceCompact", () => {
-        render(<Label forceCompact>Hello</Label>);
+    it("renders the expected class for compact", () => {
+        render(<Label compact>Hello</Label>);
         expect(screen.getByText("Hello")).toHaveClass("jkl-label--compact");
     });
 

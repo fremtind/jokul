@@ -27,7 +27,7 @@ export interface SupportLabelProps {
      *        id={supportId}
      *        helpLabel={helpLabel}
      *        errorLabel={errorLabel}
-     *        forceCompact={forceCompact}
+     *        compact={compact}
      *      />
      *    </div>
      *  );
@@ -41,11 +41,6 @@ export interface SupportLabelProps {
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     className?: string;
     srOnly?: boolean;
 }
@@ -55,7 +50,6 @@ export const SupportLabel: FC<SupportLabelProps> = ({
     helpLabel,
     errorLabel,
     compact,
-    forceCompact,
     className,
     srOnly,
     ...rest
@@ -64,7 +58,7 @@ export const SupportLabel: FC<SupportLabelProps> = ({
 
     const componentClassName = hasLabel
         ? cn("jkl-form-support-label", className, {
-              "jkl-form-support-label--compact": compact || forceCompact,
+              "jkl-form-support-label--compact": compact,
               "jkl-form-support-label--error": errorLabel,
               "jkl-form-support-label--help": !errorLabel,
               "jkl-form-support-label--sr-only": srOnly,

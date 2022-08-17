@@ -10,36 +10,20 @@ export interface SkeletonInputProps {
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     labelProps?: SkeletonLabelProps;
     inputProps?: SkeletonElementProps;
 }
 
-export const SkeletonInput = ({
-    className,
-    compact,
-    forceCompact,
-    labelProps,
-    inputProps,
-    ...rest
-}: SkeletonInputProps) => {
+export const SkeletonInput = ({ className, compact, labelProps, inputProps, ...rest }: SkeletonInputProps) => {
     return (
         <div
             className={cn("jkl-skeleton-input", className, {
-                "jkl-skeleton-input--compact": compact || forceCompact,
+                "jkl-skeleton-input--compact": compact,
             })}
             {...rest}
         >
-            <SkeletonLabel compact={compact || forceCompact} {...labelProps} />
-            <SkeletonElement
-                width={compact || forceCompact ? 301 : 316}
-                height={compact || forceCompact ? 32 : 48}
-                {...inputProps}
-            />
+            <SkeletonLabel compact={compact} {...labelProps} />
+            <SkeletonElement width={compact ? 301 : 316} height={compact ? 32 : 48} {...inputProps} />
         </div>
     );
 };

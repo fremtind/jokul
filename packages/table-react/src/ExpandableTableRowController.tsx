@@ -40,7 +40,7 @@ const ExpandableTableRowController = forwardRef<HTMLTableCellElement, Expandable
                         ["jkl-table-row-expand-button--expanded"]: isOpen,
                     })}
                     id={id}
-                    forceCompact={compact}
+                    compact={compact}
                     isExpanded={isOpen}
                     aria-controls={ariaControls}
                     onClick={(e) => {

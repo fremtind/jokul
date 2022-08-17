@@ -8,7 +8,7 @@ export interface NativeSelectProps {
     id?: string;
     name?: string;
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "standAlone">;
     items: Array<string | ValuePair>;
     className?: string;
     selectClassName?: string;
@@ -24,10 +24,6 @@ export interface NativeSelectProps {
      * @default false
      */
     compact?: boolean;
-    /**
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     width?: string;
     onChange?: ChangeEventHandler<HTMLSelectElement>;
     onFocus?: FocusEventHandler<HTMLSelectElement>;
@@ -55,7 +51,6 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             placeholder,
             value,
             compact,
-            forceCompact,
             width,
             selectClassName,
             ...rest
@@ -72,11 +67,11 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                 data-testid="jkl-select"
                 className={cn("jkl-select", className, {
                     "jkl-select--inline": inline,
-                    "jkl-select--compact": compact || forceCompact,
+                    "jkl-select--compact": compact,
                     "jkl-select--invalid": !!errorLabel || invalid,
                 })}
             >
-                <Label variant={variant} {...labelProps} standAlone htmlFor={uid} compact={compact || forceCompact}>
+                <Label variant={variant} {...labelProps} standAlone htmlFor={uid} compact={compact}>
                     {label}
                 </Label>
                 <div className="jkl-select__outer-wrapper" style={{ width }}>
@@ -108,12 +103,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                     </select>
                     <ExpandArrow />
                 </div>
-                <SupportLabel
-                    id={supportId}
-                    helpLabel={helpLabel}
-                    errorLabel={errorLabel}
-                    compact={compact || forceCompact}
-                />
+                <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} compact={compact} />
             </div>
         );
     },

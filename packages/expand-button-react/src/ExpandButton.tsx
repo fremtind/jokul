@@ -26,11 +26,6 @@ export interface ExpandButtonProps extends WithChildren {
      */
     compact?: boolean;
     /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
-    /**
      * Skjul knappeteksten visuelt.
      *
      * @default false
@@ -42,7 +37,6 @@ export const ExpandButton = ({
     className,
     children,
     compact,
-    forceCompact = false,
     expandDirection = "down",
     isExpanded = false,
     hideLabel = false,
@@ -57,7 +51,7 @@ export const ExpandButton = ({
             type="button"
             className={cx("jkl-expand-button", className, {
                 "jkl-expand-button--expanded": isExpanded,
-                "jkl-expand-button--compact": compact || forceCompact,
+                "jkl-expand-button--compact": compact,
                 "jkl-expand-button--icon-only": !children,
             })}
             {...rest}

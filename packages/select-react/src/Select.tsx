@@ -47,7 +47,7 @@ export interface SelectProps extends DataTestAutoId {
     id?: string;
     name: string;
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "standAlone">;
     items: Array<string | ValuePair>;
     /**
      * @default false
@@ -72,11 +72,6 @@ export interface SelectProps extends DataTestAutoId {
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     width?: string;
     onChange?: ChangeEventHandler;
     onBlur?: ChangeEventHandler;
@@ -112,7 +107,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         defaultPrompt = "Velg",
         variant,
         compact,
-        forceCompact,
         width,
         ...rest
     } = props;
@@ -403,7 +397,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             data-testid="jkl-select"
             className={cn("jkl-select", className, {
                 "jkl-select--inline": inline,
-                "jkl-select--compact": compact || forceCompact,
+                "jkl-select--compact": compact,
                 "jkl-select--open": dropdownIsShown,
                 "jkl-select--no-value": !hasSelectedValue,
                 "jkl-select--invalid": !!errorLabel || invalid,
@@ -418,7 +412,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
                 htmlFor={isSearchable ? searchInputId : labelProps?.htmlFor}
                 srOnly={inline || labelProps?.srOnly}
-                compact={compact || forceCompact}
+                compact={compact}
             >
                 {label}
             </Label>
@@ -534,12 +528,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 </div>
                 <ExpandArrow expanded={dropdownIsShown} />
             </div>
-            <SupportLabel
-                id={supportId}
-                helpLabel={helpLabel}
-                errorLabel={errorLabel}
-                compact={compact || forceCompact}
-            />
+            <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} compact={compact} />
         </div>
     );
 });

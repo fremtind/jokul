@@ -10,11 +10,6 @@ export interface SkeletonAnimationProps extends Pick<HTMLProps<HTMLDivElement>, 
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     /** @default "Vennligst vent" */
     textDescription?: string;
     politeness?: "polite" | "assertive";
@@ -30,7 +25,6 @@ export const SkeletonAnimation = ({
     className,
     delay = 0,
     compact,
-    forceCompact,
     politeness = "polite",
     textDescription = "Vennligst vent",
     ...rest
@@ -44,7 +38,7 @@ export const SkeletonAnimation = ({
     return (
         <div
             className={cn("jkl-skeleton-animation", className, {
-                "jkl-skeleton-animation--compact": compact || forceCompact,
+                "jkl-skeleton-animation--compact": compact,
             })}
             aria-busy="true"
             aria-label={textDescription}

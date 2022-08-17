@@ -11,11 +11,6 @@ export interface LabelProps extends WithChildren {
      * @default false
      */
     compact?: boolean;
-    /**
-     * @default false
-     * @deprecated Bruk compact
-     */
-    forceCompact?: boolean;
     srOnly?: boolean;
     standAlone?: boolean;
     htmlFor?: string;
@@ -25,7 +20,6 @@ export interface LabelProps extends WithChildren {
 export const Label: FC<LabelProps> = ({
     variant = "small",
     compact,
-    forceCompact,
     srOnly,
     children,
     standAlone,
@@ -35,7 +29,7 @@ export const Label: FC<LabelProps> = ({
 }) => {
     const labelClassNames = classNames("jkl-label", className, {
         [`jkl-label--${variant}`]: variant,
-        "jkl-label--compact": compact || forceCompact,
+        "jkl-label--compact": compact,
         "jkl-label--sr-only": srOnly,
     });
 
