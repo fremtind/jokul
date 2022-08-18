@@ -41,6 +41,7 @@
     "packageManager": "yarn@1.22.17",
     "resolutions": {
         "**/@graphql-tools/url-loader/ws": "^7.4.6",
+        "**/@types/eslint": "^7.29.0",
         "**/cypress-plugin-snapshots/jimp": "^0.16.1",
         "**/diff2html/merge": "^2.1.1",
         "**/gatsby/multer": "v1.4.5-lts.1",
