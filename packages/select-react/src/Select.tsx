@@ -243,10 +243,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             const nextFocusIsInsideComponent =
                 componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
             if (!nextFocusIsInsideComponent) {
+                if (isSearchable) {
+                    setSearchValue("");
+                }
                 if (onBlur) {
-                    if (isSearchable) {
-                        setSearchValue("");
-                    }
                     onBlur({ type: "blur", target: { name, value: selectedValue || "" } });
                     selectRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
                 }
