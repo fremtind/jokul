@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@10.0.10...@fremtind/jkl-core@10.0.11) (2022-08-18)
+
+### Bug Fixes
+
+-   legg til offset på fokusring for bedre lesbarhet ([56bc228](https://github.com/fremtind/jokul/commit/56bc22895dc6c8a3104874d6854ac2ee5d3e76a8))
+
 ## [10.0.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@10.0.7...@fremtind/jkl-core@10.0.8) (2022-07-28)
 
 ### Bug Fixes
