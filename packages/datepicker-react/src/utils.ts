@@ -55,13 +55,8 @@ export function isBlurTargetOutside(e: React.FocusEvent<HTMLButtonElement | HTML
         return true;
     }
 
-    let targetRoot = <HTMLElement>e.target;
-    while (!targetRoot.classList.contains("jkl-datepicker__input-wrapper")) {
-        if (targetRoot.parentElement) {
-            targetRoot = targetRoot.parentElement;
-        } else {
-            break;
-        }
-    }
-    return !targetRoot.contains(e.relatedTarget);
+    const targetRoot = e.target.closest(".jkl-datepicker__input-wrapper");
+    const relatedTargetRoot = e.relatedTarget.closest(".jkl-datepicker__input-wrapper");
+
+    return relatedTargetRoot !== targetRoot;
 }
