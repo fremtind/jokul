@@ -492,6 +492,24 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "paulinfrancis",
+      "name": "Francis Paulin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2670325?v=4",
+      "profile": "https://github.com/paulinfrancis",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "hegebjo",
+      "name": "hegebjo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/111281400?v=4",
+      "profile": "https://github.com/hegebjo",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

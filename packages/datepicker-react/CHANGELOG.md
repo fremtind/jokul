@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@11.0.19...@fremtind/jkl-datepicker-react@11.0.20) (2022-08-15)
+
+### Bug Fixes
+
+-   use input wrapper div as onBlur root ([5fee636](https://github.com/fremtind/jokul/commit/5fee636a9c170d4df64d6f5cab0950b19bc34bd6)), closes [#3010](https://github.com/fremtind/jokul/issues/3010)
+
+## 11.0.17 (2022-08-10)
+
+### Bug Fixes
+
+-   legg til date-fns som en dependency i datepicker-react ([2199aed](https://github.com/fremtind/jokul/commit/2199aedc3a703b75bc9ce6375d4265a2880970b0)), closes [#2988](https://github.com/fremtind/jokul/issues/2988)
+
 ## [11.0.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@11.0.15...@fremtind/jkl-datepicker-react@11.0.16) (2022-08-05)
 
 ### Bug Fixes

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.18](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.17...@fremtind/jkl-select-react@10.0.18) (2022-08-17)
+
+### Bug Fixes
+
+-   always remove searchvalue onBlur ([e06e455](https://github.com/fremtind/jokul/commit/e06e455adefc0e54e6106333d7785e0b0f604851))
+
+## [10.0.16](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.15...@fremtind/jkl-select-react@10.0.16) (2022-08-15)
+
+### Bug Fixes
+
+-   reset search in select on blur ([a798f7e](https://github.com/fremtind/jokul/commit/a798f7e23701759bb3fb14a4aa360303ad7d9246))
+
+## [10.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.14...@fremtind/jkl-select-react@10.0.15) (2022-08-15)
+
+### Bug Fixes
+
+-   syntaksfeil i MDX etter oppgradering ([40740cd](https://github.com/fremtind/jokul/commit/40740cd3360189625d83e9203aafa12f2e5404e1))
+
+## 10.0.14 (2022-08-12)
+
+### Bug Fixes
+
+-   redesign hover og focus på select uten layout shift ([b891f94](https://github.com/fremtind/jokul/commit/b891f940b010a2bc8c659dcaed2a4367498043fc)), closes [#3001](https://github.com/fremtind/jokul/issues/3001)
+
 ## [10.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.10...@fremtind/jkl-select-react@10.0.11) (2022-07-28)
 
 ### Bug Fixes

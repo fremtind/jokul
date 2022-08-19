@@ -32,9 +32,10 @@ jobs:
                       ## Fremgangsmåte
 
                       🧑‍💻 Oppdater `main` og lag en ny branch.
+                      🧑‍💻 Kjør `yarn upgrade` på rotnivå i prosjektet.
                       🧑‍💻 Kjør `yarn outdated` på rotnivå i prosjektet.
 
-                      Output fra `yarn outdated` vil vise deg hvilke pakker som trenger å oppdateres, men også noen som ikke _kan_ oppdateres. Noen ganger har vi avhengigheter som trenger en eldre majorversjon av en pakke, for eksempel `gatsby` som trenger en eldre `mdx-js` og `got`.
+                      Output fra `yarn outdated` vil vise deg hvilke pakker som trenger å oppdateres manuelt, men også noen som ikke _kan_ oppdateres. Noen ganger har vi avhengigheter som trenger en eldre majorversjon av en pakke, for eksempel `gatsby` som trenger en eldre `mdx-js` og `got`.
 
                       Du kan sannsynligvis trygt ignorere `resolutionDependencies` med mindre noe brekker senere.
 
@@ -47,6 +48,10 @@ jobs:
                       🧑‍💻 Kjør `yarn --force`.
 
                       Du skal få en oppdatert `yarn.lock`. Ta en titt på diffen og se at det virker fornuftig.
+
+                      🧑‍💻 Kjør `yarn audit` på rotnivå i prosjektet.
+
+                      Hvis det er audit-problemer etter oppdateringen din kan det hende du må legge til noen overstyringer i `resolutions` i `package.json`. Se [Yarn-dokumentasjonen](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) om du ikke har gjort dette før, eller spør en kollega om hjelp.
 
                       🧑‍💻 Lag eventuelle nye patcher.
 
@@ -62,13 +67,6 @@ jobs:
 
                       Snart klar for en pull request!
 
-                      🧑‍💻 Kjør `yarn audit` på rotnivå i prosjektet.
-
-                      Hvis det er audit-problemer etter oppdateringen din kan det hende du må legge til noen overstyringer i `resolutions` i `package.json`. Se [Yarn-dokumentasjonen](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) om du ikke har gjort dette før, eller spør en kollega om hjelp.
-
-                      Gjenta stegene fra `yarn --force` og nedover til du har fikset de problemene du klarer.
-
                       🧑‍💻 Push endringene dine og åpne en pull request.
-
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

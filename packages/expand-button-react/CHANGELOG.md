@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.12 (2022-08-15)
+
+### Bug Fixes
+
+-   legg til manglende dependencies i effekt ([56a1f8d](https://github.com/fremtind/jokul/commit/56a1f8d41ddc4171036cddef9e75db52a9d00a43))
+
 ## [3.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button-react@3.0.3...@fremtind/jkl-expand-button-react@3.0.4) (2022-06-13)
 
 ### Bug Fixes

@@ -34,7 +34,8 @@ $_select-search-input-selection-color--inverted: color.scale(
     --jkl-select-focus-color: #{$_select-focus-color};
     --jkl-select-error-background-color: #{colors.varslingsfarge("feil")};
     --jkl-select-error-text-color: #{jkl.$color-granitt};
-    --jkl-select-hover-option-color: #{jkl.$color-stein};
+    --jkl-select-hover-option-color: #{jkl.$color-granitt};
+    --jkl-select-hover-option-background-color: #{jkl.$color-varde};
     --jkl-select-search-input-selection-color: #{$_select-search-input-selection-color};
     --jkl-select-search-input-error-selection-color: #{$_select-search-input-selection-color};
 }
@@ -48,7 +49,8 @@ $_select-search-input-selection-color--inverted: color.scale(
     --jkl-select-focus-color: #{$_select-focus-color--inverted};
     --jkl-select-error-background-color: #{colors.varslingsfarge("feil")};
     --jkl-select-error-text-color: #{jkl.$color-granitt};
-    --jkl-select-hover-option-color: #{jkl.$color-svaberg};
+    --jkl-select-hover-option-color: #{jkl.$color-snohvit};
+    --jkl-select-hover-option-background-color: #{jkl.$color-stein};
     --jkl-select-search-input-selection-color: #{$_select-search-input-selection-color--inverted};
     --jkl-select-search-input-error-selection-color: #{$_select-search-input-selection-color};
 }
@@ -251,23 +253,10 @@ $_select-search-input-selection-color--inverted: color.scale(
         padding: $_select-padding;
         cursor: pointer;
 
-        &::before {
-            content: "";
-        }
-
-        &:focus {
-            &::before {
-                @include jkl.decorative($content: "→ ");
-                padding-right: jkl.$spacing-xs;
-            }
-        }
-
-        &[aria-selected="true"]:not(:focus) {
-            padding-right: jkl.$spacing-l;
-        }
-
+        &:focus,
         &:hover {
             color: var(--jkl-select-hover-option-color);
+            background-color: var(--jkl-select-hover-option-background-color);
         }
     }
 

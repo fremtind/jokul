@@ -1,0 +1,129 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@include jkl.light-mode-variables {
+    --portal-bg: #{jkl.$color-snohvit};
+    --portal-text-color: #{jkl.$color-granitt};
+    --portal-subdued-text-color: #{jkl.$color-stein};
+}
+
+@include jkl.dark-mode-variables {
+    --portal-bg: #{jkl.$color-granitt};
+    --portal-text-color: #{jkl.$color-snohvit};
+    --portal-subdued-text-color: #{jkl.$color-svaberg};
+}
+
+$_sidebar-width: jkl.rem(375px);
+
+/**
+ * [1]: https://github.com/reach/router/issues/63#issuecomment-695953011
+ * [2]: https://github.com/gatsbyjs/gatsby/issues/7310
+ * [3]: https://github.com/gatsbyjs/gatsby/issues/29037
+ */
+/* stylelint-disable selector-max-id, selector-max-specificity */
+#gatsby-focus-wrapper {
+    display: contents; // Fikser en Safari-bug med useClickOutside og useFocusOutside i @reach/router via Gatsby ([1], [2], [3])
+}
+
+.jkl-portal {
+    @include jkl.motion;
+    @include jkl.text-style("body");
+
+    transition-property: color;
+    transition-delay: jkl.timing("productive");
+    color: var(--portal-text-color);
+
+    &__sidebar {
+        display: none;
+    }
+
+    &__main {
+        padding: jkl.$spacing-m;
+        padding-top: jkl.$spacing-2xl;
+    }
+
+    @include jkl.medium-device {
+        &__main {
+            padding: jkl.$spacing-xl;
+            padding-top: jkl.$spacing-2xl;
+        }
+    }
+
+    @include jkl.small-device {
+        &__main {
+            > h1 {
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    @include jkl.from-large-device {
+        display: grid;
+        grid-template:
+            "header header header" 96px
+            "sidebar main main" minmax(calc(100vh - 96px), auto)
+            "footer footer footer" auto / $_sidebar-width 1fr;
+
+        &__header {
+            grid-area: header;
+        }
+
+        &__sidebar {
+            grid-area: sidebar;
+            display: unset;
+        }
+
+        &__main {
+            grid-area: main;
+            padding-top: jkl.$spacing-2xl;
+            padding-right: jkl.$spacing-3xl;
+            padding-left: jkl.$spacing-xl;
+
+            &--frontpage {
+                grid-column: sidebar / span 2;
+            }
+        }
+    }
+
+    &__main--no-margin {
+        padding-top: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        @include jkl.small-device {
+            padding-left: 0;
+        }
+        @include jkl.medium-device {
+            padding-left: 0;
+        }
+    }
+
+    &[data-theme="dark"] {
+        color: jkl.$color-snohvit;
+    }
+
+    &[data-test-mode="e2e"] {
+        .jkl-portal__sidebar,
+        .jkl-portal__header,
+        .jkl-portal__footer {
+            display: none !important;
+        }
+    }
+
+    &__theme-bg {
+        z-index: jkl.$z-index--hidden;
+        width: 100vw;
+        height: 0;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: jkl.$color-svart;
+
+        @include jkl.motion("standard", "lazy");
+        transition-property: height;
+
+        [data-theme="dark"] & {
+            height: 100vh;
+        }
+    }
+}

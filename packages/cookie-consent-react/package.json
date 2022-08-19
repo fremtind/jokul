@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-cookie-consent-react",
-    "version": "6.0.12",
+    "version": "6.0.15",
     "publishConfig": {
         "access": "public"
     },
@@ -38,10 +38,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button-react": "^11.0.10",
-        "@fremtind/jkl-cookie-consent": "^8.0.8",
-        "@fremtind/jkl-list-react": "^7.0.10",
-        "@fremtind/jkl-react-hooks": "^9.1.5",
+        "@fremtind/jkl-button-react": "^11.0.13",
+        "@fremtind/jkl-cookie-consent": "^8.0.10",
+        "@fremtind/jkl-list-react": "^7.0.12",
+        "@fremtind/jkl-react-hooks": "^9.1.8",
         "classnames": "^2.2.6",
         "react-a11y-dialog": "^6.1.5"
     },

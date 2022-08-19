@@ -4,11 +4,9 @@
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
 }
 
-@mixin _border-gradient($color) {
-    border-width: #{$_link-underline-thickness};
-    border-style: solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(to bottom, $color 0%, $color 100%);
+@mixin _link-outline {
+    outline: jkl.rem(1px) solid var(--jkl-link-active-color);
+    outline-offset: jkl.rem(2px);
 }
 
 $_right-arrow: "\2192"; // unicode right arrow
@@ -32,7 +30,6 @@ $_link-underline-thickness--hover: jkl.rem(2px);
 .jkl-link {
     color: var(--jkl-link-color);
     @include _underline-gradient(var(--jkl-link-color));
-    @include _border-gradient(transparent);
     background-position: 0 calc(100% - (#{$_link-underline-thickness--hover} - #{$_link-underline-thickness}));
     background-size: $_link-underline-thickness $_link-underline-thickness;
     background-repeat: repeat-x;
@@ -51,7 +48,8 @@ $_link-underline-thickness--hover: jkl.rem(2px);
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include _border-gradient(var(--jkl-link-active-color));
+        @include jkl.no-grow-bold;
+        @include _link-outline;
         background-position: 0 100%;
         background-size: $_link-underline-thickness $_link-underline-thickness;
     }
@@ -100,8 +98,8 @@ $_link-underline-thickness--hover: jkl.rem(2px);
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include _border-gradient(var(--jkl-link-color));
         @include jkl.no-grow-bold;
+        @include _link-outline;
 
         &::after {
             padding-left: 0.7em;

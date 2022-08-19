@@ -7,12 +7,11 @@ import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
 import { FigmaLogo } from "../../components/figma-logo";
 import { Grid } from "../../components/Grid";
-import { useNavigationLinks } from "../../components/Header/useNavigationLinks";
 import { Image } from "../../components/image";
 import { Seo } from "../../components/seo";
-import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
-import { KeyboardShortcut } from "../../components/Typography/Typography";
-import { RootItem, useFullscreenMenuContext } from "../../contexts/fullscreenMenuContext";
+import { HeadingLarge, Ingress, KeyboardShortcut, PageTitle, Paragraph } from "../../components/Typography";
+import { RootItem, useFullscreenMenuContext } from "../../fullscreenMenuContext";
+import { useNavigationLinks } from "../../layout/header/useNavigationLinks";
 
 const pageTitle = "Praktisk i designhverdagen";
 

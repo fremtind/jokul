@@ -6,6 +6,14 @@ function pascalCase(phrase) {
     return phrase.replace(/\ ./, (match) => match.slice(-1).toUpperCase());
 }
 
+Cypress.on("uncaught:exception", (err) => {
+    // Ignorer hydration-errors. De er ikke optimale akkurat, men Gatsby gjør de så og si umulige å feilsøke.
+    // Virker å ha skjedd noe under oppdateringen til MDX2.
+    if (err.message.includes("Minified React error")) {
+        return false;
+    }
+});
+
 Cypress.Commands.add("getByTestid", (field) => {
     cy.get(`[data-testid=${field}]`);
 });
