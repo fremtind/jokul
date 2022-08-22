@@ -217,3 +217,21 @@ $_text-styles: (
     font-weight: $typography-weight-bold;
     letter-spacing: -0.014em;
 }
+
+:root {
+    @each $level, $values in $_text-styles {
+        $variants: map.get($_text-styles, $level);
+        @each $property, $value in map.get($variants, "small-screen") {
+            --jkl-#{$level}-#{$property}: #{$value};
+        }
+    }
+
+    @include screens.from-medium-device {
+        @each $level, $values in $_text-styles {
+            $variants: map.get($_text-styles, $level);
+            @each $property, $value in map.get($variants, "large-screen") {
+                --jkl-#{$level}-#{$property}: #{$value};
+            }
+        }
+    }
+}

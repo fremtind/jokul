@@ -36,8 +36,24 @@
     }
 }
 
-/// Brukes til CSS som skal gjelde i kompakt modus, enten via en `--compact` modifier eller med [data-compactlayout]
-/// @content Innholdet plasseres i en `&--compact` selector og `*[data-compactlayout] &`-selector
+/// Brukes til å sette CSS-variabler som skal gjelde i vanlig (ukompakt) modus.
+/// @content Settes på :root og [data-compact="false"]
+@mixin regular-variant-variables {
+    :root,
+    [data-compact="false"] {
+        @content;
+    }
+}
+
+/// Brukes til å sette CSS-variabler som skal gjelde i kompakt modus.
+/// @content Settes på [data-compactlayout], og på [data-compact="true"]
+@mixin compact-variant-variables {
+    [data-compactlayout],
+    [data-compact="true"] {
+        @content;
+    }
+}
+
 @mixin compact-mode {
     &--compact,
     [data-compactlayout] & {
