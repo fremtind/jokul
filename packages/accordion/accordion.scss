@@ -12,6 +12,30 @@
     --jkl-accordion-expanded-background: #{jkl.$color-svart};
 }
 
+@include jkl.regular-variant-variables {
+    --jkl-accordion-title-padding: #{jkl.$spacing-m};
+    --jkl-accordion-title-text-margin-left: #{jkl.rem(34px)};
+    --jkl-accordion-title-font-size: var(--jkl-body-font-size);
+    --jkl-accordion-title-line-height: var(--jkl-body-line-height);
+    --jkl-accordion-title-font-weight: var(--jkl-body-font-weight);
+    --jkl-accordion-content-padding: #{jkl.$spacing-m};
+    --jkl-accordion-content-font-size: var(--jkl-body-font-size);
+    --jkl-accordion-content-line-height: var(--jkl-body-line-height);
+    --jkl-accordion-content-font-weight: var(--jkl-body-font-weight);
+}
+
+@include jkl.compact-variant-variables {
+    --jkl-accordion-title-padding: #{jkl.$spacing-xs jkl.$spacing-s};
+    --jkl-accordion-title-text-margin-left: #{jkl.$spacing-l};
+    --jkl-accordion-title-font-size: var(--jkl-small-font-size);
+    --jkl-accordion-title-line-height: var(--jkl-small-line-height);
+    --jkl-accordion-title-font-weight: var(--jkl-small-font-weight);
+    --jkl-accordion-content-padding: #{jkl.$spacing-xs jkl.$spacing-s};
+    --jkl-accordion-content-font-size: var(--jkl-small-font-size);
+    --jkl-accordion-content-line-height: var(--jkl-small-line-height);
+    --jkl-accordion-content-font-weight: var(--jkl-small-font-weight);
+}
+
 .jkl-accordion {
     width: 100%;
 }
@@ -55,7 +79,7 @@
         color: inherit;
         background-color: transparent;
         position: relative;
-        padding: jkl.$spacing-m;
+        padding: var(--jkl-accordion-title-padding);
         text-align: left;
         width: 100%;
 
@@ -130,10 +154,11 @@
     }
 
     &__title-text {
-        @include jkl.text-style("body");
-
+        font-size: var(--jkl-accordion-title-font-size);
+        line-height: var(--jkl-accordion-title-line-height);
+        font-weight: var(--jkl-accordion-title-font-weight);
         display: block;
-        margin-left: jkl.rem(34px);
+        margin-left: var(--jkl-accordion-title-text-margin-left);
     }
 
     &__content-wrapper {
@@ -142,30 +167,12 @@
     }
 
     &__content {
-        @include jkl.text-style("body");
+        font-size: var(--jkl-accordion-content-font-size);
+        line-height: var(--jkl-accordion-content-line-height);
+        font-weight: var(--jkl-accordion-content-font-weight);
         color: inherit;
         height: auto;
-        padding: jkl.$spacing-m;
-    }
-
-    @include jkl.compact-mode {
-        .jkl-accordion-item__title {
-            padding: jkl.$spacing-xs jkl.$spacing-s;
-        }
-
-        .jkl-accordion-item__title-text {
-            @include jkl.text-style("small");
-            margin-left: jkl.$spacing-l;
-        }
-
-        &.jkl-accordion-item--expanded .jkl-accordion-item__title-text {
-            @include jkl.no-grow-bold;
-        }
-
-        .jkl-accordion-item__content {
-            @include jkl.text-style("small");
-            padding: jkl.$spacing-xs jkl.$spacing-s;
-        }
+        padding: var(--jkl-accordion-content-padding);
     }
 
     @include jkl.forced-colors-mode {
