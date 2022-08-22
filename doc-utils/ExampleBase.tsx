@@ -1,5 +1,4 @@
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { ExpandSection } from "@fremtind/jkl-expand-button-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { useId } from "@fremtind/jkl-react-hooks";
@@ -7,6 +6,7 @@ import { Select } from "@fremtind/jkl-select-react";
 import cn from "classnames";
 import React, { useState, FC, useMemo } from "react";
 import { CodeBlock } from "./CodeBlock";
+import { CodeSection } from "./CodeSection";
 import { hyphenate } from "./internal/hypenate";
 import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from "./";
 
@@ -23,7 +23,6 @@ export interface Props {
 
 export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable }) => {
     const uid = useId("example");
-    const [showCodeText, setShowCodeText] = useState("Vis kode");
     const [theme, setTheme] = useState<"light" | "dark">("light");
 
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>(
@@ -140,17 +139,13 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                 </aside>
             </section>
             {codeExample && (
-                <ExpandSection
-                    className="jkl-spacing-m--top"
-                    title={showCodeText}
-                    onClick={(e, expanded) => setShowCodeText(expanded ? "Skjul kode" : "Vis kode")}
-                >
+                <CodeSection className="jkl-spacing-m--top">
                     <CodeBlock language="tsx">
                         {typeof codeExample === "string"
                             ? codeExample.trim()
                             : codeExample({ boolValues, choiceValues }).trim()}
                     </CodeBlock>
-                </ExpandSection>
+                </CodeSection>
             )}
         </div>
     );
