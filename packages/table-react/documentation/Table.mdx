@@ -6,6 +6,7 @@ group: annet
 ---
 
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
+import { CodeSection } from "../../../doc-utils/CodeSection";
 import { Table, TableCaption, TableHead, TableHeader, TableRow, TableBody, TableCell } from "../src";
 import TableExamples, { tableExamplesCode, tableExamplesProps } from "./TableExamples";
 import DataTableExample, { dataTableExampleCode, dataTableExampleKnobs } from "./DataTableExample";
@@ -221,6 +222,28 @@ Og her ser du et eksempel på en tabell som gjøres om til en listevisning.
     knobs={mobileListTableExampleKnobs}
     codeExample={mobileListTableExampleCode}
 />
+
+### Styr når tabellen blir en liste
+
+Listevisningen skrus på automatisk på for det vi anser som små skjermer. Se Medium-breakpointet under [Responsivt design](/universell-utforming/responsivt-design) for pixelverdi. Alt under den verdien anses som en liten skjerm.
+
+Om du trenger at listevisningen skrus på _før_ dette må du bruke JavaScript for å legge på attributtet `[data-collapse]`. Hooksene [useScreen](/komponenter/screen) og [useElementDimensions](/komponenter/elementdimensions) kan være til hjelp her.
+
+<CodeSection>
+
+```tsx
+const [elementRef, dimensions] = useElementDimensions<HTMLTableElement>(350);
+
+const collapse = dimensions.width <= 1200;
+
+return (
+    <Table collapseToList data-collapse={collapse ? "true" : undefined}>
+        {/* Tabellinnhold */}
+    </Table>
+);
+```
+
+</CodeSection>
 
 ## Typografi
 
