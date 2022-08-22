@@ -57,7 +57,8 @@ $typography-line-height-5: ru.rem(44px);
 /// @type Number
 $typography-line-height-6: ru.rem(64px);
 
-$_text-styles: (
+/// @access private - forwardes ikke ut av modulen, men er tilgjengelig ved direkteimport. KUN FOR INTERN BRUK I JØKUL.
+$text-styles: (
     "title": (
         "small-screen": (
             "font-size": $typography-font-size-9,
@@ -194,8 +195,8 @@ $_text-styles: (
     $style: string.slice($style-name, 0, $start-index - 1);
     $variant: string.slice($style-name, $end-index + 1);
 
-    @if map.has-key($_text-styles, $style) {
-        $variants: map.get($_text-styles, $style);
+    @if map.has-key($text-styles, $style) {
+        $variants: map.get($text-styles, $style);
 
         @if string.length($variant) == 0 {
             @each $property, $value in map.get($variants, "small-screen") {
@@ -232,24 +233,6 @@ $_text-styles: (
 @mixin no-grow-bold {
     font-weight: $typography-weight-bold;
     letter-spacing: -0.014em;
-}
-
-:root {
-    @each $level, $values in $_text-styles {
-        $variants: map.get($_text-styles, $level);
-        @each $property, $value in map.get($variants, "small-screen") {
-            --jkl-#{$level}-#{$property}: #{$value};
-        }
-    }
-
-    @include screens.from-medium-device {
-        @each $level, $values in $_text-styles {
-            $variants: map.get($_text-styles, $level);
-            @each $property, $value in map.get($variants, "large-screen") {
-                --jkl-#{$level}-#{$property}: #{$value};
-            }
-        }
-    }
 }
 
 /// Definer egne variabler for fontstørrelse basert på design tokens fra :root. Kan enkelt brukes med `use-font-variables`.
