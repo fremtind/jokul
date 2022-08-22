@@ -40,6 +40,7 @@
 /// @content Settes på :root og [data-compact="false"]
 @mixin regular-variant-variables {
     :root,
+    [data-compactlayout="false"],
     [data-compact="false"] {
         @content;
     }
@@ -48,7 +49,7 @@
 /// Brukes til å sette CSS-variabler som skal gjelde i kompakt modus.
 /// @content Settes på [data-compactlayout], og på [data-compact="true"]
 @mixin compact-variant-variables {
-    [data-compactlayout],
+    [data-compactlayout="true"],
     [data-compact="true"] {
         @content;
     }
