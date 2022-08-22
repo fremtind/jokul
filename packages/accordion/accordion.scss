@@ -15,25 +15,17 @@
 @include jkl.regular-variant-variables {
     --jkl-accordion-title-padding: #{jkl.$spacing-m};
     --jkl-accordion-title-text-margin-left: #{jkl.rem(34px)};
-    --jkl-accordion-title-font-size: var(--jkl-body-font-size);
-    --jkl-accordion-title-line-height: var(--jkl-body-line-height);
-    --jkl-accordion-title-font-weight: var(--jkl-body-font-weight);
     --jkl-accordion-content-padding: #{jkl.$spacing-m};
-    --jkl-accordion-content-font-size: var(--jkl-body-font-size);
-    --jkl-accordion-content-line-height: var(--jkl-body-line-height);
-    --jkl-accordion-content-font-weight: var(--jkl-body-font-weight);
+    @include jkl.declare-font-variables("accordion-title", "body");
+    @include jkl.declare-font-variables("accordion-content", "body");
 }
 
 @include jkl.compact-variant-variables {
     --jkl-accordion-title-padding: #{jkl.$spacing-xs jkl.$spacing-s};
     --jkl-accordion-title-text-margin-left: #{jkl.$spacing-l};
-    --jkl-accordion-title-font-size: var(--jkl-small-font-size);
-    --jkl-accordion-title-line-height: var(--jkl-small-line-height);
-    --jkl-accordion-title-font-weight: var(--jkl-small-font-weight);
     --jkl-accordion-content-padding: #{jkl.$spacing-xs jkl.$spacing-s};
-    --jkl-accordion-content-font-size: var(--jkl-small-font-size);
-    --jkl-accordion-content-line-height: var(--jkl-small-line-height);
-    --jkl-accordion-content-font-weight: var(--jkl-small-font-weight);
+    @include jkl.declare-font-variables("accordion-title", "small");
+    @include jkl.declare-font-variables("accordion-content", "small");
 }
 
 .jkl-accordion {
@@ -154,9 +146,7 @@
     }
 
     &__title-text {
-        font-size: var(--jkl-accordion-title-font-size);
-        line-height: var(--jkl-accordion-title-line-height);
-        font-weight: var(--jkl-accordion-title-font-weight);
+        @include jkl.use-font-variables("accordion-title");
         display: block;
         margin-left: var(--jkl-accordion-title-text-margin-left);
     }
@@ -167,9 +157,7 @@
     }
 
     &__content {
-        font-size: var(--jkl-accordion-content-font-size);
-        line-height: var(--jkl-accordion-content-line-height);
-        font-weight: var(--jkl-accordion-content-font-weight);
+        @include jkl.use-font-variables("accordion-title");
         color: inherit;
         height: auto;
         padding: var(--jkl-accordion-content-padding);
