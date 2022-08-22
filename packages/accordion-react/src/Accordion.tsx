@@ -1,4 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
+import { getCompactValue } from "@fremtind/jkl-core/src/utils/compact";
 import cn from "classnames";
 import React, { FC } from "react";
 
@@ -10,12 +11,12 @@ export interface AccordionProps extends WithChildren {
     compact?: boolean;
 }
 
-export const Accordion: FC<AccordionProps> = ({ className, compact = false, ...rest }) => {
+export const Accordion: FC<AccordionProps> = ({ className, compact, ...rest }) => {
     return (
         <div
             data-testid="jkl-accordion"
             className={cn("jkl-accordion", className)}
-            data-compactlayout={compact ? "true" : undefined}
+            data-compact={getCompactValue(compact)}
             {...rest}
         />
     );
