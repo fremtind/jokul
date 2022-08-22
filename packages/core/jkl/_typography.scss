@@ -235,3 +235,32 @@ $_text-styles: (
         }
     }
 }
+
+/// Definer egne variabler for fontstørrelse basert på design tokens fra :root. Kan enkelt brukes med `use-font-variables`.
+/// @param {String} $name - Navn på variablen. Prefikses med `--jkl` og postfixes med `-font-size`, `-line-height`, og `-font-weight`
+/// @param {"title" | "heading-1" | "heading-2" | "heading-3" | "heading-4" | "heading-5" | "body" | "small"} $level - Nivå i fontskalaen
+/// @output - CSS-variabler fro font-size, line-height, og font-weight
+/// @see use-font-variables
+/// @example
+///     @include jkl.declare-font-variables("accordion-title", "body");
+/// @example
+///     @include jkl.use-font-variables("accordion-title");
+@mixin declare-font-variables($name, $level) {
+    --jkl-#{$name}-font-size: var(--jkl-#{$level}-font-size);
+    --jkl-#{$name}-line-height: var(--jkl-#{$level}-line-height);
+    --jkl-#{$name}-font-weight: var(--jkl-#{$level}-font-weight);
+}
+
+/// Ta i bruk variabler du har laget med  `declare-font-variables`.
+/// @param {String} $name - Navn på variablen. Prefikses med `--jkl` og postfixes med `-font-size`, `-line-height`, og `-font-weight`
+/// @output - CSS som setter font-size, line-height, og font-weight basert på CSS-variabler som følger standard format fra  `declare-font-variables`
+/// @see declare-font-variables
+/// @example
+///     @include jkl.use-font-variables("accordion-title");
+/// @example
+///     @include jkl.declare-font-variables("accordion-title", "body");
+@mixin use-font-variables($name) {
+    font-size: var(--jkl-#{$name}-font-size);
+    line-height: var(--jkl-#{$name}-line-height);
+    font-weight: var(--jkl-#{$name}-font-weight);
+}
