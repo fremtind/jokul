@@ -1,31 +1,61 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-varde};
-    --jkl-accordion-focus: #{jkl.$color-focus-color};
-    --jkl-accordion-expanded-background: #{jkl.$color-hvit};
-}
+// @include jkl.light-mode-variables {
+//     --jkl-accordion-border: #{jkl.$color-varde};
+//     --jkl-accordion-focus: #{jkl.$color-focus-color};
+//     --jkl-accordion-expanded-background: #{jkl.$color-hvit};
+// }
 
-@include jkl.dark-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-stein};
-    --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
-    --jkl-accordion-expanded-background: #{jkl.$color-svart};
-}
+// @include jkl.dark-mode-variables {
+//     --jkl-accordion-border: #{jkl.$color-stein};
+//     --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
+//     --jkl-accordion-expanded-background: #{jkl.$color-svart};
+// }
 
-@include jkl.regular-variant-variables {
-    --jkl-accordion-title-padding: #{jkl.$spacing-m};
-    --jkl-accordion-title-text-margin-left: #{jkl.rem(34px)};
-    --jkl-accordion-content-padding: #{jkl.$spacing-m};
-    @include jkl.declare-font-variables("accordion-title", "body");
-    @include jkl.declare-font-variables("accordion-content", "body");
-}
+// @include jkl.regular-variant-variables {
+//     --jkl-accordion-title-padding: #{jkl.$spacing-m};
+//     --jkl-accordion-title-text-margin-left: #{jkl.rem(34px)};
+//     --jkl-accordion-content-padding: #{jkl.$spacing-m};
+//     @include jkl.declare-font-variables("accordion-title", "body");
+//     @include jkl.declare-font-variables("accordion-content", "body");
+// }
 
-@include jkl.compact-variant-variables {
-    --jkl-accordion-title-padding: #{jkl.$spacing-xs jkl.$spacing-s};
-    --jkl-accordion-title-text-margin-left: #{jkl.$spacing-l};
-    --jkl-accordion-content-padding: #{jkl.$spacing-xs jkl.$spacing-s};
-    @include jkl.declare-font-variables("accordion-title", "small");
-    @include jkl.declare-font-variables("accordion-content", "small");
+// @include jkl.compact-variant-variables {
+//     --jkl-accordion-title-padding: #{jkl.$spacing-xs jkl.$spacing-s};
+//     --jkl-accordion-title-text-margin-left: #{jkl.$spacing-l};
+//     --jkl-accordion-content-padding: #{jkl.$spacing-xs jkl.$spacing-s};
+//     @include jkl.declare-font-variables("accordion-title", "small");
+//     @include jkl.declare-font-variables("accordion-content", "small");
+// }
+
+@include jkl.component-variables using ($type) {
+    @if $type == light {
+        --jkl-accordion-border: #{jkl.$color-varde};
+        --jkl-accordion-focus: #{jkl.$color-focus-color};
+        --jkl-accordion-expanded-background: #{jkl.$color-hvit};
+    }
+
+    @if $type == dark {
+        --jkl-accordion-border: #{jkl.$color-stein};
+        --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
+        --jkl-accordion-expanded-background: #{jkl.$color-svart};
+    }
+
+    @if $type == regular {
+        --jkl-accordion-title-padding: #{jkl.$spacing-m};
+        --jkl-accordion-title-text-margin-left: #{jkl.rem(34px)};
+        --jkl-accordion-content-padding: #{jkl.$spacing-m};
+        @include jkl.declare-font-variables("accordion-title", "body");
+        @include jkl.declare-font-variables("accordion-content", "body");
+    }
+
+    @if $type == compact {
+        --jkl-accordion-title-padding: #{jkl.$spacing-xs jkl.$spacing-s};
+        --jkl-accordion-title-text-margin-left: #{jkl.$spacing-l};
+        --jkl-accordion-content-padding: #{jkl.$spacing-xs jkl.$spacing-s};
+        @include jkl.declare-font-variables("accordion-title", "small");
+        @include jkl.declare-font-variables("accordion-content", "small");
+    }
 }
 
 .jkl-accordion {
