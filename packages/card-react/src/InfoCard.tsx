@@ -1,4 +1,4 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren, getCompactValue } from "@fremtind/jkl-core";
 import { Image, ImageProps } from "@fremtind/jkl-image-react";
 import cn from "classnames";
 import React, { FC } from "react";
@@ -26,7 +26,7 @@ export const InfoCard: FC<InfoCardProps> = ({ title, image, children, compact, c
         className={cn("jkl-info-card", className, {
             "jkl-info-card--compact": compact,
         })}
-        data-compactlayout={compact ? "true" : undefined}
+        data-compact={getCompactValue}
     >
         {image && <Image className="jkl-info-card__image" {...image} />}
         <div className={cn("jkl-info-card__content-wrapper", getSpacingClasses(padding))}>
