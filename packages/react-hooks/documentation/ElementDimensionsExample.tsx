@@ -1,5 +1,5 @@
 import React from "react";
-import { useElementDimensions } from "../../src/useElementDimensions";
+import { useElementDimensions } from "../src/useElementDimensions";
 import "./element-dimensions-example.scss";
 
 export const ElementDimensionsExample = () => {
