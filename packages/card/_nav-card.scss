@@ -14,14 +14,14 @@
     --jkl-nav-card-info-border-color: #{jkl.$color-stein};
 }
 
-@include jkl.regular-variant-variables {
+@include jkl.comfortable-density-variables {
     --jkl-nav-card-content-wrapper-gap: #{jkl.$spacing-m};
     --jkl-nav-card-info-padding: #{jkl.$spacing-l} 0 0 0;
     @include jkl.declare-font-variables("jkl-nav-card-link", "heading-2");
     @include jkl.declare-font-variables("jkl-nav-card-content", "body");
 }
 
-@include jkl.compact-variant-variables {
+@include jkl.compact-density-variables {
     --jkl-nav-card-content-wrapper-gap: #{jkl.$spacing-s};
     --jkl-nav-card-info-padding: #{jkl.$spacing-s} 0 0 0;
     --jkl-nav-card-link-font-size: var(--jkl-heading-4-font-size);

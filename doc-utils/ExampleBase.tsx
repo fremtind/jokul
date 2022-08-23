@@ -1,4 +1,5 @@
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
+import { Density } from "@fremtind/jkl-core";
 import { ExpandSection } from "@fremtind/jkl-expand-button-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
@@ -25,7 +26,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
     const uid = useId("example");
     const [showCodeText, setShowCodeText] = useState("Vis kode");
     const [theme, setTheme] = useState<"light" | "dark">("light");
-    const [size, setSize] = useState<"default" | "compact">("default");
+    const [density, setDensity] = useState<Density>("comfortable");
 
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>(
         knobs?.boolProps?.reduce((acc, boolProp) => {
@@ -56,26 +57,26 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
 
     const example = useMemo(() => {
         const C = component;
-        return <C boolValues={boolValues} choiceValues={choiceValues} displayValues={{ size, theme }} />;
-    }, [component, boolValues, choiceValues, size, theme]);
+        return <C boolValues={boolValues} choiceValues={choiceValues} displayValues={{ density, theme }} />;
+    }, [component, boolValues, choiceValues, density, theme]);
 
     return (
         <div className="jkl-spacing-2xl--bottom">
             <section className="jkl-portal-component-example">
                 <div
-                    data-compactlayout={size === "compact" ? "true" : undefined}
+                    data-layout-density={density}
                     data-theme={theme}
                     data-example-text={title}
                     className={cn("jkl", "jkl-portal-component-example__example-wrapper", {
                         "jkl-portal-component-example__example-wrapper--dark": theme === "dark",
                         "jkl-portal-component-example__example-wrapper--scrollable": scrollable,
-                        "jkl-body": size === "default",
-                        "jkl-small": size === "compact",
+                        "jkl-body": density === "comfortable",
+                        "jkl-small": density === "compact",
                     })}
                 >
                     {example}
                 </div>
-                <aside data-compactlayout="true" className="jkl-portal-component-example__example-options">
+                <aside data-layout-density="compact" className="jkl-portal-component-example__example-options">
                     {knobs?.boolProps && (
                         <FieldGroup
                             legend="Egenskaper"
@@ -148,6 +149,18 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                         >
                             Compact
                         </Checkbox>
+                        <RadioButtonGroup
+                            className="jkl-portal-component-example__example-options-header"
+                            variant="small"
+                            name={`${uid}-density`}
+                            legend="Density"
+                            value={density}
+                            labelProps={{ variant: "small" }}
+                            onChange={(e) => setDensity(e.target.value)}
+                        >
+                            <RadioButton label="Comfortable" value="comfortable" />
+                            <RadioButton label="Compact" value="compact" />
+                        </RadioButtonGroup>
                     </FieldGroup>
                 </aside>
             </section>

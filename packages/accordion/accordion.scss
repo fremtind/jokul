@@ -12,7 +12,7 @@
     --jkl-accordion-expanded-background: #{jkl.$color-svart};
 }
 
-@include jkl.regular-variant-variables {
+@include jkl.comfortable-density-variables {
     --jkl-accordion-title-padding: #{jkl.$spacing-m};
     --jkl-accordion-title-text-margin-left: #{jkl.rem(34px)};
     --jkl-accordion-content-padding: #{jkl.$spacing-m};
@@ -20,7 +20,7 @@
     @include jkl.declare-font-variables("jkl-accordion-content", "body");
 }
 
-@include jkl.compact-variant-variables {
+@include jkl.compact-density-variables {
     --jkl-accordion-title-padding: #{jkl.$spacing-xs jkl.$spacing-s};
     --jkl-accordion-title-text-margin-left: #{jkl.$spacing-l};
     --jkl-accordion-content-padding: #{jkl.$spacing-xs jkl.$spacing-s};

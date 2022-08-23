@@ -1,3 +1,5 @@
+import { Density } from "@fremtind/jkl-core";
+
 export { ComponentExample } from "./ComponentExample";
 export { DevExample } from "./DevExample";
 
@@ -12,7 +14,7 @@ export interface ExampleComponentProps {
 }
 
 export interface DisplayValues {
-    size: "default" | "compact";
+    density: Density;
     theme: "light" | "dark";
 }
 

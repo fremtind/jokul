@@ -1,4 +1,4 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { Density, WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { useState, Fragment, useRef, FC } from "react";
@@ -10,11 +10,7 @@ interface Props extends WithChildren {
     defaultValue?: string;
     className?: string;
     hideLegend?: boolean;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
 }
 
 export const ToggleSlider: FC<Props> = ({
@@ -24,7 +20,7 @@ export const ToggleSlider: FC<Props> = ({
     onToggle,
     defaultValue,
     hideLegend = false,
-    compact,
+    density,
     ...rest
 }) => {
     const [currentLabel, setCurrentLabel] = useState(defaultValue || labels[0]);
@@ -33,7 +29,7 @@ export const ToggleSlider: FC<Props> = ({
     const activeRef = useRef<HTMLLabelElement>(null);
 
     const shouldTransform = currentLabel === labels[1];
-    const pillStyles = usePillStyles(activeRef, shouldTransform, [compact]);
+    const pillStyles = usePillStyles(activeRef, shouldTransform, [density]);
 
     const handleChange = (value: string) => {
         setCurrentLabel(value);
@@ -50,11 +46,10 @@ export const ToggleSlider: FC<Props> = ({
     return (
         <fieldset
             {...rest}
-            className={cn("jkl-toggle-slider", className, {
-                "jkl-toggle-slider--compact": compact,
-            })}
+            className={cn("jkl-toggle-slider", className)}
             aria-labelledby={legendId}
             data-testid="jkl-toggle-slider"
+            data-density={density}
         >
             <div
                 id={legendId}
