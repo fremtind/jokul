@@ -15,16 +15,14 @@
 
 :root {
     @each $level, $values in typography.$text-styles {
-        $variants: map.get(typography.$text-styles, $level);
-        @each $property, $value in map.get($variants, "small-screen") {
+        @each $property, $value in map.get(typography.$text-styles, $level, "small-screen") {
             --jkl-#{$level}-#{$property}: #{$value};
         }
     }
 
     @include jkl.from-medium-device {
         @each $level, $values in typography.$text-styles {
-            $variants: map.get(typography.$text-styles, $level);
-            @each $property, $value in map.get($variants, "large-screen") {
+            @each $property, $value in map.get(typography.$text-styles, $level, "large-screen") {
                 --jkl-#{$level}-#{$property}: #{$value};
             }
         }
