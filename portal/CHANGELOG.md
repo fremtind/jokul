@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.0.51](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.50...@fremtind/portal@15.0.51) (2022-08-23)
+
+### Bug Fixes
+
+-   finjustert på timing i meny ([bcd03f0](https://github.com/fremtind/jokul/commit/bcd03f0ed924c465744f8a5966e67fb4b75e7923))
+-   kortet ned animasjon på meny ([5b5738a](https://github.com/fremtind/jokul/commit/5b5738a1d5dbfe6db669c36b9a38cb8ffbd9fccf)), closes [#2944](https://github.com/fremtind/jokul/issues/2944)
+
 ## [15.0.44](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.43...@fremtind/portal@15.0.44) (2022-08-16)
 
 ### Bug Fixes
