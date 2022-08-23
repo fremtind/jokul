@@ -1,5 +1,5 @@
 import { unicode } from "@fremtind/jkl-constants-util";
-import { getCompactValue } from "@fremtind/jkl-core/src/utils/compact";
+import { getCompactValue } from "@fremtind/jkl-core";
 import { Loader } from "@fremtind/jkl-loader-react";
 import cn from "classnames";
 import React, { forwardRef, TouchEvent, useCallback } from "react";
