@@ -162,6 +162,10 @@ export function useNavigationLinks(): NavigationLinks {
             path: "/kom-i-gang/utvikling",
             title: "For Utviklere",
         },
+        {
+            path: "/kom-i-gang/lekegrind",
+            title: "Lekegrind",
+        },
     ];
 
     const menuItems: MenuItemList = [
