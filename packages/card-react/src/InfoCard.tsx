@@ -26,7 +26,7 @@ export const InfoCard: FC<InfoCardProps> = ({ title, image, children, compact, c
         className={cn("jkl-info-card", className, {
             "jkl-info-card--compact": compact,
         })}
-        data-compact={getCompactValue}
+        data-compact={getCompactValue(compact)}
     >
         {image && <Image className="jkl-info-card__image" {...image} />}
         <div className={cn("jkl-info-card__content-wrapper", getSpacingClasses(padding))}>

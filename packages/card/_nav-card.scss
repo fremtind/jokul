@@ -14,6 +14,22 @@
     --jkl-nav-card-info-border-color: #{jkl.$color-stein};
 }
 
+@include jkl.regular-variant-variables {
+    --jkl-nav-card-content-wrapper-gap: #{jkl.$spacing-m};
+    --jkl-nav-card-info-padding: #{jkl.$spacing-l} 0 0 0;
+    @include jkl.declare-font-variables("jkl-nav-card-link", "heading-2");
+    @include jkl.declare-font-variables("jkl-nav-card-content", "body");
+}
+
+@include jkl.compact-variant-variables {
+    --jkl-nav-card-content-wrapper-gap: #{jkl.$spacing-s};
+    --jkl-nav-card-info-padding: #{jkl.$spacing-s} 0 0 0;
+    --jkl-nav-card-link-font-size: var(--jkl-heading-4-font-size);
+    --jkl-nav-card-link-line-height: var(--jkl-heading-4-line-height);
+    --jkl-nav-card-link-font-weight: #{jkl.$typography-weight-normal};
+    @include jkl.declare-font-variables("jkl-nav-card-content", "small");
+}
+
 .jkl-nav-card {
     box-sizing: border-box;
     display: flex;
@@ -40,11 +56,12 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: jkl.$spacing-l;
+        gap: var(--jkl-nav-card-content-wrapper-gap);
+        @include jkl.use-font-variables("jkl-nav-card-content");
     }
 
     &__link {
-        @include jkl.text-style("heading-2");
+        @include jkl.use-font-variables("jkl-nav-card-link");
 
         .jkl-nav-card:hover:focus &::after,
         .jkl-nav-card:hover:not(:focus) &::after {
@@ -64,7 +81,7 @@
 
     &__info {
         border-top: jkl.rem(1px) solid var(--jkl-nav-card-info-border-color);
-        padding-top: jkl.$spacing-l;
+        padding: var(--jkl-nav-card-info-padding);
         @include jkl.text-style("small");
         width: 100%;
     }
@@ -77,23 +94,6 @@
     @include jkl.keyboard-navigation {
         &:focus {
             outline: jkl.rem(2px) solid var(--jkl-color);
-        }
-    }
-
-    @include jkl.compact-mode {
-        .jkl-nav-card__link {
-            @include jkl.text-style("heading-4") {
-                font-weight: jkl.$typography-weight-normal;
-            }
-        }
-
-        .jkl-nav-card__content {
-            @include jkl.text-style("small");
-            gap: jkl.$spacing-s;
-        }
-
-        .jkl-nav-card__info {
-            padding-top: jkl.$spacing-s;
         }
     }
 
