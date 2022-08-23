@@ -1,4 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
+import { getCompactValue } from "@fremtind/jkl-core/src/utils/compact";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React from "react";
@@ -46,9 +47,9 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
                 {...rest}
                 id={alertId}
                 className={cn("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
-                    "jkl-alert-message--compact": compact,
                     "jkl-alert-message--dismissed": dismissed,
                 })}
+                data-compact={getCompactValue(compact)}
                 data-theme="light"
             >
                 <div

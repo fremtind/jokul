@@ -13,6 +13,26 @@ $_bg-color--feil: colors.varslingsfarge("feil");
 $_bg-color--info: colors.varslingsfarge("info");
 $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
+@include jkl.regular-variant-variables {
+    --jkl-alert-message-icon-height: #{jkl.rem(18px)};
+    --jkl-alert-message-icon-padding: #{jkl.rem(7px)} 0 0 0;
+    --jkl-alert-message-content-padding: #{jkl.$spacing-m};
+    --jkl-alert-message-dismiss-button-size: #{jkl.rem(44px)};
+    --jkl-alert-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(12px)} -#{jkl.rem(6.5px)} auto;
+    --jkl-alert-message-message-margin: 0 #{jkl.$spacing-m};
+    @include jkl.declare-font-variables("jkl-alert-message-message", "body");
+}
+
+@include jkl.compact-variant-variables {
+    --jkl-alert-message-icon-height: #{jkl.rem(12px)};
+    --jkl-alert-message-icon-padding: #{jkl.rem(5px)} 0 0 #{jkl.rem(2px)};
+    --jkl-alert-message-content-padding: #{jkl.$spacing-xs};
+    --jkl-alert-message-dismiss-button-size: #{jkl.rem(32px)};
+    --jkl-alert-message-dismiss-button-margin: -#{jkl.rem(4.5px)} -#{jkl.rem(8px)} -#{jkl.rem(4.5px)} auto;
+    --jkl-alert-message-message-margin: 0 #{jkl.$spacing-s};
+    @include jkl.declare-font-variables("jkl-alert-message-message", "small");
+}
+
 .jkl-alert-message {
     width: 100%;
     background-color: $_bg-color--default;
@@ -21,7 +41,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__content {
         box-sizing: border-box;
-        padding: jkl.$spacing-m;
+        padding: var(--jkl-alert-message-content-padding);
         display: flex;
         align-items: flex-start;
         width: 100%;
@@ -30,17 +50,16 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__icon {
         align-self: flex-start;
-        padding-top: jkl.rem(7px);
-        height: jkl.rem(18px);
+        height: var(--jkl-alert-message-icon-height);
+        padding: var(--jkl-alert-message-icon-padding);
         flex-shrink: 0;
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
 
     &__message {
-        @include jkl.text-style("body");
-        margin-left: jkl.$spacing-m;
-        margin-right: jkl.$spacing-m;
+        @include jkl.use-font-variables("jkl-alert-message-message");
+        margin: var(--jkl-alert-message-message-margin);
     }
 
     &__dismiss-button {
@@ -51,9 +70,9 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         cursor: pointer;
 
         // Sørg for å ha en stor nok touch target.
-        width: jkl.rem(44px);
-        height: jkl.rem(44px);
-        margin: -#{jkl.rem(6.5px)} -#{jkl.rem(12px)} -#{jkl.rem(6.5px)} auto;
+        width: var(--jkl-alert-message-dismiss-button-size);
+        height: var(--jkl-alert-message-dismiss-button-size);
+        margin: var(--jkl-alert-message-dismiss-button-margin);
 
         color: inherit;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
@@ -106,30 +125,6 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &--success {
         background-color: $_bg-color--suksess;
-    }
-
-    @include jkl.compact-mode {
-        .jkl-alert-message__icon {
-            height: jkl.rem(12px);
-            padding-top: jkl.rem(5px);
-            padding-left: jkl.rem(2px);
-        }
-
-        .jkl-alert-message__content {
-            padding: jkl.$spacing-xs;
-        }
-
-        .jkl-alert-message__dismiss-button {
-            width: jkl.rem(32px);
-            height: jkl.rem(32px);
-            margin: -#{jkl.rem(4.5px)} -#{jkl.rem(8px)} -#{jkl.rem(4.5px)} auto;
-        }
-
-        .jkl-alert-message__message {
-            @include jkl.text-style("small");
-            margin-left: jkl.$spacing-s;
-            margin-right: jkl.$spacing-s;
-        }
     }
 
     @include jkl.forced-colors-mode {
