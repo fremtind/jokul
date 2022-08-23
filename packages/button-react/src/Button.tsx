@@ -1,7 +1,7 @@
 import { unicode } from "@fremtind/jkl-constants-util";
 import { Loader } from "@fremtind/jkl-loader-react";
 import classNames from "classnames";
-import React, { forwardRef, TouchEvent } from "react";
+import React, { forwardRef, TouchEvent, useCallback } from "react";
 import { BaseButton } from "./BaseButton";
 import { Props, ValidButtons } from "./types";
 const makeButtonComponent = (buttonType: ValidButtons) => {
@@ -12,19 +12,22 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
             "jkl-button--compact": compact,
         });
 
-        const handleTouch = (event: TouchEvent<HTMLButtonElement>) => {
-            onTouchStart && onTouchStart(event);
+        const handleTouch = useCallback(
+            (event: TouchEvent<HTMLButtonElement>) => {
+                onTouchStart && onTouchStart(event);
 
-            const target = event.target as HTMLButtonElement;
-            if (target && event.targetTouches.length) {
-                const Xcoord = event.targetTouches[0].clientX - target.getBoundingClientRect().x;
-                const Ycoord = event.targetTouches[0].clientY - target.getBoundingClientRect().y;
-                target.style.setProperty("--jkl-touch-xcoord", Xcoord.toPrecision(4) + "px");
-                target.style.setProperty("--jkl-touch-ycoord", Ycoord.toPrecision(4) + "px");
-                target.classList.add("jkl-button--pressed");
-                setTimeout(() => target.classList.remove("jkl-button--pressed"), 400);
-            }
-        };
+                const target = event.target as HTMLButtonElement;
+                if (target && event.targetTouches.length) {
+                    const Xcoord = event.targetTouches[0].clientX - target.getBoundingClientRect().x;
+                    const Ycoord = event.targetTouches[0].clientY - target.getBoundingClientRect().y;
+                    target.style.setProperty("--jkl-touch-xcoord", Xcoord.toPrecision(4) + "px");
+                    target.style.setProperty("--jkl-touch-ycoord", Ycoord.toPrecision(4) + "px");
+                    target.classList.add("jkl-button--pressed");
+                    setTimeout(() => target.classList.remove("jkl-button--pressed"), 400);
+                }
+            },
+            [onTouchStart],
+        );
 
         return (
             <BaseButton
