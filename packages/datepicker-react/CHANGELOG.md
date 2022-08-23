@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.25](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@11.0.24...@fremtind/jkl-datepicker-react@11.0.25) (2022-08-19)
+
+### Bug Fixes
+
+-   fix isBlurTargetOutside for safari ([0653826](https://github.com/fremtind/jokul/commit/06538265b1963d2bb919547bb1c9bfc435f0d1b9))
+
 ## [11.0.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@11.0.19...@fremtind/jkl-datepicker-react@11.0.20) (2022-08-15)
 
 ### Bug Fixes

@@ -6,6 +6,7 @@
 
 @mixin _link-outline {
     outline: jkl.rem(1px) solid var(--jkl-link-active-color);
+    outline-offset: jkl.rem(2px);
 }
 
 $_right-arrow: "\2192"; // unicode right arrow

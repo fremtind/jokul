@@ -157,6 +157,12 @@ Hver mappe med Sass skal ha en `_index.scss` hvor det listes opp `@forward` for 
 
 For eksempel, hvis du har en mappe med to partials `_one.scss` og `_two.scss` må den samme mappen ha en `_index.scss` som ser slik ut:
 
+```scss
+// _index.scss
+@forward "one";
+@forward "two";
+```
+
 Et unntak er på rotnivå i komponentpakkene. Her skal `_index.scss` ha én `@forward` som peker på hovedfila (for eksempel `table.scss`), og så har _den_ fila ansvaret for å hente inn alt som skal være med.
 
 ```scss
