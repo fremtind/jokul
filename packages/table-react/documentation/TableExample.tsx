@@ -13,7 +13,7 @@ const rows = [
 const TableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const headless = boolValues?.["Skjul overskrift"];
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
 
     return (
         <Table fullWidth {...props}>
@@ -21,7 +21,7 @@ const TableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) =
             <TableHead srOnly={headless}>
                 <TableRow>
                     {columns.map((column, index) => (
-                        <TableHeader key={index} compact bold>
+                        <TableHeader key={index} density="compact" bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -54,7 +54,7 @@ export const tableExampleCode = ({ boolValues, choiceValues }: ExampleComponentP
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>
             {columns.map((header, index) => (
-                <TableHeader key={index} compact bold>
+                <TableHeader key={index} density="compact" bold>
                     {header}
                 </TableHeader>
             ))}

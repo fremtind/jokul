@@ -1,19 +1,29 @@
 @use "~@fremtind/jkl-core/jkl";
 
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-table-header", "body");
+
+    --jkl-table-header-padding: 0 #{jkl.$spacing-xs} #{jkl.rem(7px)} #{jkl.$spacing-xs};
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-table-header", "small");
+
+    --jkl-table-header-padding: 0 #{jkl.$spacing-xs} #{jkl.rem(3px)} #{jkl.$spacing-xs};
+}
+
 .jkl-table-header {
     @include jkl.text-style("body");
+    padding: var(--jkl-table-header-padding);
     text-align: left;
     white-space: nowrap;
-    padding-left: jkl.$spacing-xs;
-    padding-right: jkl.$spacing-xs;
-    padding-bottom: jkl.$spacing-xs - jkl.rem(1px);
 
     &--align-right {
         text-align: right;
     }
 
     &--bold {
-        @include jkl.text-style("heading-4");
+        font-weight: jkl.$typography-weight-bold;
     }
 
     &--sr-only {
@@ -32,16 +42,5 @@
 
     .jkl-table--collapse-to-list[data-collapse] & {
         @include _responsive-table-header;
-    }
-
-    @include jkl.compact-mode {
-        @include jkl.text-style("small");
-        padding-left: jkl.$spacing-xs;
-        padding-right: jkl.$spacing-xs;
-        padding-bottom: jkl.$spacing-2xs - jkl.rem(1px);
-
-        &.jkl-table-header--bold {
-            @include jkl.text-style("heading-5");
-        }
     }
 }

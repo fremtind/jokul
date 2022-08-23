@@ -1,7 +1,13 @@
+import { ColorScheme } from "@fremtind/jkl-core";
 import { Reducer, useEffect, useReducer, useState } from "react";
 import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
 
-export type ColorScheme = "light" | "dark";
+export type {
+    /**
+     * @deprecated Importer typen fra `@fremtind/jkl-core` i stedet
+     */
+    ColorScheme,
+};
 
 type BrowserPreferences = {
     prefersReducedMotion: boolean;

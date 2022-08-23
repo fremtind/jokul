@@ -2,28 +2,14 @@
 
 .jkl-body {
     @include jkl.text-style("body");
-
-    *[data-compactlayout] & {
-        @include jkl.text-style("body/small-screen");
-    }
 }
 
 .jkl-bold {
     @include jkl.text-style("body") {
         @include jkl.no-grow-bold;
     }
-
-    *[data-compactlayout] & {
-        @include jkl.text-style("body/small-screen") {
-            @include jkl.no-grow-bold;
-        }
-    }
 }
 
 .jkl-small {
     @include jkl.text-style("small");
-
-    *[data-compactlayout] & {
-        @include jkl.text-style("small/small-screen");
-    }
 }

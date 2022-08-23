@@ -1,4 +1,4 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { Density, WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { AriaRole, forwardRef } from "react";
@@ -8,11 +8,7 @@ export interface MessageBoxProps extends WithChildren {
     id?: string;
     title?: string;
     fullWidth?: boolean;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     className?: string;
     dismissed?: boolean;
     dismissAction?: {
@@ -119,7 +115,7 @@ function messageFactory(messageType: messageTypes) {
             id,
             title,
             fullWidth,
-            compact,
+            density,
             className = "",
             dismissed,
             dismissAction,
@@ -140,12 +136,11 @@ function messageFactory(messageType: messageTypes) {
                 ref={ref}
                 className={cn("jkl-message-box", "jkl-message-box--" + messageType, className, {
                     "jkl-message-box--full": fullWidth,
-                    "jkl-message-box--compact": compact,
                     "jkl-message-box--dismissed": dismissed,
                 })}
                 role={role || getRole(messageType)}
                 data-theme="light"
-                data-compactlayout={compact ? "true" : undefined}
+                data-density={density}
             >
                 {getIcon(messageType)}
                 <div className="jkl-message-box__content">

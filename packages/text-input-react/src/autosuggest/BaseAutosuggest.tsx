@@ -26,7 +26,7 @@ function BaseAutosuggest<T>({
     leadText,
     errorLabel,
     helpLabel,
-    compact,
+    density,
     variant = "small",
     noHitsMessage,
     maxNumberOfHits,
@@ -65,11 +65,11 @@ function BaseAutosuggest<T>({
                 clearSelection,
             }) => {
                 return (
-                    <div className={cn("jkl-autosuggest", className, { "jkl-autosuggest--compact": compact })}>
+                    <div className={cn("jkl-autosuggest", className)} data-density={density}>
                         {label && (
                             <Label
                                 variant={variant}
-                                compact={compact}
+                                density={density}
                                 {...labelProps}
                                 {...getLabelProps({
                                     id: lid,
@@ -80,7 +80,12 @@ function BaseAutosuggest<T>({
                             </Label>
                         )}
                         {leadText && (
-                            <p className={cn("jkl-spacing-l--bottom", { "jkl-body": !compact, "jkl-small": compact })}>
+                            <p
+                                className={cn("jkl-spacing-l--bottom", {
+                                    "jkl-body": density !== "compact",
+                                    "jkl-small": density === "compact",
+                                })}
+                            >
                                 {leadText}
                             </p>
                         )}
@@ -125,7 +130,7 @@ function BaseAutosuggest<T>({
                                 maxNumberOfHits={maxNumberOfHits}
                             />
                         )}
-                        <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} compact={compact} />
+                        <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} density={density} />
                     </div>
                 );
             }}

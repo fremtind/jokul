@@ -23,7 +23,7 @@ export interface InjectedProps {
 export const TabList = ({ children, className, ...injected }: TabListProps) => {
     // props injected by Tabs
     const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...rest } = injected as TabListProps & InjectedProps;
-    const { compact } = useTabsContext();
+    const { density } = useTabsContext();
 
     const [tabsRect, setTabsRect] = useState<DOMRect>();
     const [activeRect, setActiveRect] = useState<DOMRect>();
@@ -38,7 +38,7 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
         if (activeRef.current) {
             setActiveRect(activeRef.current.getBoundingClientRect());
         }
-    }, [activeIndex, compact]);
+    }, [activeIndex, density]);
 
     const keyDownHandler = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
         if (event.key === "ArrowLeft") {
@@ -88,7 +88,7 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
                 style={{
                     left: (activeRect?.left || 0) - (tabsRect?.left || 0),
                     bottom: -1,
-                    width: (activeRect?.width || 0) - (compact ? 32 : 38),
+                    width: (activeRect?.width || 0) - (density === "compact" ? 32 : 38),
                 }}
             />
         </div>

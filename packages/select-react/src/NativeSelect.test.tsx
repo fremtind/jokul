@@ -43,9 +43,9 @@ describe("NativeSelect", () => {
     });
 
     it("can be forced into compact mode", () => {
-        render(<NativeSelect items={["1", "2"]} label="test" compact />);
+        render(<NativeSelect items={["1", "2"]} label="test" density="compact" />);
 
-        expect(screen.getByTestId("jkl-select")).toHaveClass("jkl-select--compact");
+        expect(screen.getByTestId("jkl-select")).toHaveAttribute("data-density", "compact");
     });
 
     it("supports labels only for screen readers", () => {
@@ -71,7 +71,7 @@ describe("a11y", () => {
         const onChange = jest.fn();
         const { container } = render(
             <NativeSelect
-                compact
+                density="compact"
                 label="Select"
                 items={["1", "2"]}
                 value="1"

@@ -1,13 +1,13 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { Density, WithChildren } from "@fremtind/jkl-core";
 import React, { createContext, useContext } from "react";
 
 type TableContext = {
-    compact: boolean;
+    density?: Density;
     collapseToList: boolean;
 };
 
 const tableContext = createContext<TableContext>({
-    compact: false,
+    density: undefined,
     collapseToList: false,
 });
 

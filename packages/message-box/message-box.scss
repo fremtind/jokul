@@ -17,12 +17,39 @@ $_bg-color--feil: colors.varslingsfarge("feil");
 $_bg-color--info: colors.varslingsfarge("info");
 $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-message-box-message", "body");
+    @include jkl.declare-font-variables("jkl-message-box-title", "heading-4");
+
+    --jkl-message-box-padding: #{jkl.$spacing-l} #{jkl.$spacing-l} #{jkl.$spacing-l} #{jkl.rem(56px)};
+    --jkl-message-box-icon-size: #{jkl.rem(18px)};
+    --jkl-message-box-icon-left: #{jkl.rem(20.8px)};
+    --jkl-message-box-icon-top: #{jkl.rem(27.2px)};
+    --jkl-message-box-title-margin: 0 0 #{jkl.$spacing-xs} 0;
+    --jkl-message-box-dismiss-button-size: #{jkl.rem(44px)};
+    --jkl-message-box-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(12px)} -#{jkl.rem(6.5px)} auto;
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-message-box-message", "small");
+
+    --jkl-message-box-title-font-size: var(--jkl-heading-5-font-size);
+    --jkl-message-box-title-font-weight: var(--jkl-heading-5-font-weight);
+    --jkl-message-box-title-line-height: #{jkl.rem(20.8px)};
+    --jkl-message-box-padding: #{jkl.$spacing-xs} #{jkl.$spacing-xs} #{jkl.$spacing-xs} #{jkl.rem(32px)};
+    --jkl-message-box-icon-size: #{jkl.rem(12px)};
+    --jkl-message-box-icon-left: #{jkl.rem(9px)};
+    --jkl-message-box-icon-top: #{jkl.rem(11px)};
+    --jkl-message-box-title-margin: 0 0 #{jkl.$spacing-2xs} 0;
+    --jkl-message-box-dismiss-button-size: #{jkl.rem(32px)};
+    --jkl-message-box-dismiss-button-margin: #{jkl.rem(-4px)} #{jkl.rem(-4px)} #{jkl.rem(-4.5px)} auto;
+}
+
 .jkl-message-box {
     position: relative;
     width: 100%;
     max-width: $_message-width;
-    padding: jkl.$spacing-l;
-    padding-left: jkl.rem(56px);
+    padding: var(--jkl-message-box-padding);
     background-color: $_bg-color--default;
     color: $_text-color;
     border-radius: jkl.rem(4px);
@@ -32,9 +59,9 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__icon {
         position: absolute;
-        left: jkl.rem(20.8px);
-        top: jkl.rem(27.2px);
-        height: jkl.rem(18px);
+        left: var(--jkl-message-box-icon-left);
+        top: var(--jkl-message-box-icon-top);
+        height: var(--jkl-message-box-icon-size);
         flex-shrink: 0;
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
@@ -56,13 +83,12 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &__message {
-        @include jkl.text-style("body");
+        @include jkl.use-font-variables("jkl-message-box-message");
     }
 
     &__title {
-        margin-bottom: jkl.$spacing-xs;
-
-        @include jkl.text-style("heading-4");
+        @include jkl.use-font-variables("jkl-message-box-title");
+        margin-bottom: var(--jkl-message-box-title-margin);
     }
 
     &__dismiss-button {
@@ -73,9 +99,9 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         cursor: pointer;
 
         // Sørg for å ha en stor nok touch target.
-        width: jkl.rem(44px);
-        height: jkl.rem(44px);
-        margin: -#{jkl.rem(6.5px)} -#{jkl.rem(12px)} -#{jkl.rem(6.5px)} auto;
+        width: var(--jkl-message-box-dismiss-button-size);
+        height: var(--jkl-message-box-dismiss-button-size);
+        margin: var(--jkl-message-box-dismiss-button-margin);
 
         color: inherit;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
@@ -129,38 +155,6 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         visibility: hidden;
     }
 
-    @include jkl.compact-mode {
-        padding: jkl.$spacing-xs;
-        padding-left: jkl.rem(32px);
-
-        .jkl-message-box__icon {
-            height: jkl.rem(12px);
-            left: jkl.rem(9px);
-            top: jkl.rem(11px);
-        }
-
-        .jkl-message-box__title {
-            @include jkl.text-style("heading-5") {
-                line-height: jkl.rem(20.8px);
-            }
-            margin-bottom: jkl.$spacing-2xs;
-        }
-
-        .jkl-message-box__content {
-            padding: 0;
-        }
-
-        .jkl-message-box__dismiss-button {
-            width: jkl.rem(32px);
-            height: jkl.rem(32px);
-            margin: jkl.rem(-4px) jkl.rem(-4px) jkl.rem(-4.5px) auto;
-        }
-
-        .jkl-message-box__message {
-            @include jkl.text-style("small");
-        }
-    }
-
     @include jkl.forced-colors-mode {
         border: 2px solid CanvasText;
 
@@ -177,10 +171,6 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
             border-width: 4px;
         }
     }
-
-    @include jkl.small-device {
-        width: 100%;
-    }
 }
 
 @keyframes #{$_dismiss-animation-name} {
@@ -196,7 +186,5 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 }
 
 .jkl-form-error-message-box {
-    @include jkl.text-style("body");
-
     padding-bottom: jkl.$spacing-xl;
 }

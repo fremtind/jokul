@@ -25,7 +25,7 @@ const rows = [
 const ActionTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const headless = boolValues?.["Skjul overskrift"];
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
 
     return (
         <Table fullWidth {...props}>
@@ -33,7 +33,7 @@ const ActionTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
             <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (
-                        <TableHeader key={column} compact bold>
+                        <TableHeader key={column} density="compact" bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -71,7 +71,7 @@ export const actionTableExampleCode = ({ boolValues, choiceValues }: ExampleComp
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>
             {headings.map((column) => (
-                <TableHeader key={column} compact bold>
+                <TableHeader key={column} density="compact" bold>
                     {column}
                 </TableHeader>
             ))}

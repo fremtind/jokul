@@ -23,7 +23,7 @@ const rows = [
 
 const HeadlessTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const type = choiceValues ? choiceValues["Mobilvisning"] : "";
-    const props = type === "Liste" ? { "data-collapse": "true", compact: true, collapseToList: true } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
     return (
         <Table {...props} fullWidth>
             <TableCaption srOnly>Tabell uten synlig header</TableCaption>

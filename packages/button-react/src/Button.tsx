@@ -1,5 +1,4 @@
 import { unicode } from "@fremtind/jkl-constants-util";
-import { getCompactValue } from "@fremtind/jkl-core";
 import { Loader } from "@fremtind/jkl-loader-react";
 import cn from "classnames";
 import React, { forwardRef, TouchEvent, useCallback } from "react";
@@ -7,7 +6,7 @@ import { BaseButton } from "./BaseButton";
 import { Props, ValidButtons } from "./types";
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-        const { children, className, compact, onClick, onTouchStart, loader, arrow, ...rest } = props;
+        const { children, className, density, onClick, onTouchStart, loader, arrow, ...rest } = props;
 
         const handleTouch = useCallback(
             (event: TouchEvent<HTMLButtonElement>) => {
@@ -29,7 +28,7 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
         return (
             <BaseButton
                 aria-live="polite"
-                data-compact={getCompactValue(compact)}
+                data-density={density}
                 className={cn("jkl-button", "jkl-button--" + buttonType, className)}
                 disabled={loader?.showLoader}
                 onClick={onClick}

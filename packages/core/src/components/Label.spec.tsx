@@ -12,9 +12,9 @@ describe("Label", () => {
         });
     });
 
-    it("renders the expected class for compact", () => {
-        render(<Label compact>Hello</Label>);
-        expect(screen.getByText("Hello")).toHaveClass("jkl-label--compact");
+    it("renders the expected result for compact", () => {
+        render(<Label density="compact">Hello</Label>);
+        expect(screen.getByText("Hello")).toHaveAttribute("data-density", "compact");
     });
 
     it("renders the expected class for srOnly", () => {

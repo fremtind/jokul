@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import cx from "classnames";
 import React, { DetailedHTMLProps, forwardRef, ThHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
@@ -5,7 +6,7 @@ import { useTableContext } from "./tableContext";
 export interface TableHeaderProps
     extends DetailedHTMLProps<ThHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
     bold?: boolean;
-    compact?: boolean;
+    density?: Density;
     /**
      * Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal header følge innholdet i radene.
      * @default "left"
@@ -20,18 +21,18 @@ export interface TableHeaderProps
 }
 
 const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
-    ({ bold = true, compact, className, scope = "col", srOnly, align = "left", ...rest }, ref) => {
-        const { compact: contextCompact } = useTableContext();
+    ({ bold = true, density, className, scope = "col", srOnly, align = "left", ...rest }, ref) => {
+        const { density: contextDensity } = useTableContext();
         return (
             <th
                 className={cx("jkl-table-header", className, {
                     ["jkl-table-header--bold"]: bold,
-                    ["jkl-table-header--compact"]: typeof compact === "undefined" ? contextCompact : compact,
                     ["jkl-table-header--align-right"]: align === "right",
                     ["jkl-table-header--sr-only"]: srOnly,
                 })}
                 scope={scope}
                 {...rest}
+                data-density={density || contextDensity}
                 ref={ref}
             />
         );

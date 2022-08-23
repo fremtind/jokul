@@ -1,13 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 
-$_bounding-touch-size: jkl.rem(48px);
 $_hamburger-line-height: jkl.rem(2px);
-$_hamburger-icon-width: jkl.rem(35px);
-$_hamburger-line-spacing: jkl.rem(-8px);
-
-$_compact-bounding-touch-size: jkl.rem(44px);
-$_compact-hamburger-icon-width: jkl.rem(24px);
-$_compact-hamburger-line-spacing: jkl.rem(-6px);
 
 @include jkl.light-mode-variables {
     --jkl-hamburger-color: #{jkl.$color-granitt};
@@ -19,12 +12,37 @@ $_compact-hamburger-line-spacing: jkl.rem(-6px);
     --jkl-hamburger-focus-color: #{jkl.$color-svaberg};
 }
 
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-hamburger", "body");
+    $_hamburger-line-spacing: jkl.rem(-8px);
+
+    --jkl-hamburger-touch-size: #{jkl.rem(48px)};
+    --jkl-hamburger-toggle-height: #{jkl.rem(32px)};
+    --jkl-hamburger-icon-width: #{jkl.rem(35px)};
+    --jkl-hamburger-line-spacing: #{$_hamburger-line-spacing};
+    --jkl-hamburger-line-spacing-hover: #{$_hamburger-line-spacing * 1.5};
+    --jkl-hamburger-expanded-hover-scale: scale3d(1.25, 1, 1);
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-hamburger", "small");
+    $_hamburger-line-spacing: jkl.rem(-6px);
+
+    --jkl-hamburger-touch-size: #{jkl.rem(44px)};
+    --jkl-hamburger-toggle-height: #{jkl.rem(24px)};
+    --jkl-hamburger-icon-width: #{jkl.rem(24px)};
+    --jkl-hamburger-line-spacing: #{$_hamburger-line-spacing};
+    --jkl-hamburger-line-spacing-hover: #{$_hamburger-line-spacing * 1.3};
+    --jkl-hamburger-expanded-line-spacing: 0;
+    --jkl-hamburger-expanded-hover-scale: scale3d(1.1, 1, 1);
+}
+
 .jkl-hamburger {
     @include jkl.reset-outline;
     cursor: pointer;
     background-color: transparent;
-    height: $_bounding-touch-size;
-    min-width: $_bounding-touch-size;
+    height: var(--jkl-hamburger-touch-size);
+    min-width: var(--jkl-hamburger-touch-size);
     display: flex;
     flex-direction: row;
     padding: 0;
@@ -34,11 +52,11 @@ $_compact-hamburger-line-spacing: jkl.rem(-6px);
 
     color: var(--jkl-hamburger-color);
 
-    @include jkl.text-style("body");
+    @include jkl.use-font-variables("jkl-hamburger");
 
     &__label.jkl-content-toggle {
-        height: jkl.rem(32px);
         @include jkl.motion(standard, expressive);
+        height: var(--jkl-hamburger-toggle-height);
         transform-origin: left;
     }
 
@@ -55,18 +73,18 @@ $_compact-hamburger-line-spacing: jkl.rem(-6px);
         }
 
         &::before {
-            top: $_hamburger-line-spacing;
+            top: var(--jkl-hamburger-line-spacing);
         }
 
         &::after {
-            bottom: $_hamburger-line-spacing;
+            bottom: var(--jkl-hamburger-line-spacing);
         }
     }
 
     &__lines,
     &__lines::before,
     &__lines::after {
-        width: $_hamburger-icon-width;
+        width: var(--jkl-hamburger-icon-width);
         height: $_hamburger-line-height;
         background-color: currentColor;
 
@@ -82,11 +100,11 @@ $_compact-hamburger-line-spacing: jkl.rem(-6px);
     &:hover {
         .jkl-hamburger__lines {
             &::before {
-                top: calc(#{$_hamburger-line-spacing} * 1.5);
+                top: var(--jkl-hamburger-line-spacing-hover);
             }
 
             &::after {
-                bottom: calc(#{$_hamburger-line-spacing} * 1.5);
+                bottom: var(--jkl-hamburger-line-spacing-hover);
             }
         }
 
@@ -130,7 +148,7 @@ $_compact-hamburger-line-spacing: jkl.rem(-6px);
 
         & .jkl-hamburger__lines::before,
         & .jkl-hamburger__lines::after {
-            width: calc(#{$_hamburger-icon-width} - 3px);
+            width: calc(var(--jkl-hamburger-icon-width) - 3px);
         }
 
         & .jkl-hamburger__lines::before {
@@ -146,71 +164,12 @@ $_compact-hamburger-line-spacing: jkl.rem(-6px);
         &:hover {
             .jkl-hamburger__lines::before {
                 top: 0;
-                transform: rotate(-45deg) scale3d(1.25, 1, 1);
+                transform: rotate(-45deg) var(--jkl-hamburger-expanded-hover-scale);
             }
 
             .jkl-hamburger__lines::after {
                 bottom: 0;
-                transform: rotate(45deg) scale3d(1.25, 1, 1);
-            }
-        }
-    }
-
-    @include jkl.compact-mode {
-        @include jkl.text-style("small");
-        height: $_compact-bounding-touch-size;
-        min-width: $_compact-bounding-touch-size;
-
-        .jkl-hamburger__label.jkl-content-toggle {
-            height: jkl.rem(24px);
-        }
-
-        &:hover {
-            .jkl-hamburger__lines {
-                &::before {
-                    top: calc(#{$_compact-hamburger-line-spacing} * 1.3);
-                }
-
-                &::after {
-                    bottom: calc(#{$_compact-hamburger-line-spacing} * 1.3);
-                }
-            }
-        }
-
-        .jkl-hamburger__lines {
-            width: $_compact-hamburger-icon-width;
-
-            &::before {
-                top: $_compact-hamburger-line-spacing;
-                width: $_compact-hamburger-icon-width;
-            }
-
-            &::after {
-                bottom: $_compact-hamburger-line-spacing;
-                width: $_compact-hamburger-icon-width;
-            }
-        }
-
-        &[aria-expanded="true"] {
-            .jkl-hamburger__lines::before,
-            .jkl-hamburger__lines::after {
-                width: calc(#{$_compact-hamburger-icon-width} - 3px);
-            }
-
-            .jkl-hamburger__lines::before {
-                top: 0;
-
-                &:hover {
-                    transform: rotate(-45deg) scale3d(1.1, 1, 1);
-                }
-            }
-
-            .jkl-hamburger__lines::after {
-                bottom: 0;
-
-                &:hover {
-                    transform: rotate(45deg) scale3d(1.1, 1, 1);
-                }
+                transform: rotate(45deg) var(--jkl-hamburger-expanded-hover-scale);
             }
         }
     }

@@ -1,4 +1,4 @@
-import { Label, SupportLabel, LabelVariant, LabelProps } from "@fremtind/jkl-core";
+import { Label, SupportLabel, LabelVariant, LabelProps, Density } from "@fremtind/jkl-core";
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -13,17 +13,13 @@ export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>,
 
 export interface Props extends BaseProps {
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "compact" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "density" | "standAlone">;
     helpLabel?: string;
     errorLabel?: string;
     /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
     "data-testautoid"?: string;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     inline?: boolean;
     action?: Action;
     inputClassName?: string;
@@ -39,7 +35,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
         errorLabel,
         variant,
         inline,
-        compact,
+        density,
         action,
         "data-testautoid": testAutoId,
         inputClassName,
@@ -56,16 +52,16 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             data-testid="jkl-text-input"
             className={cn("jkl-text-input", className, {
                 "jkl-text-input--inline": inline,
-                "jkl-text-input--compact": compact,
                 "jkl-text-input--action": action,
             })}
+            data-density={density}
         >
             <Label
                 variant={variant}
                 {...labelProps}
                 srOnly={inline || labelProps?.srOnly}
                 standAlone
-                compact={compact}
+                density={density}
                 htmlFor={uid}
             >
                 {label}
@@ -83,7 +79,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 {action && (
                     <IconButton
                         className="jkl-text-input__action-button"
-                        compact={compact}
+                        density={density}
                         iconType={action.icon}
                         buttonTitle={action.label}
                         onClick={action.onClick}
@@ -96,7 +92,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 id={supportId}
                 helpLabel={helpLabel}
                 errorLabel={errorLabel}
-                compact={compact}
+                density={density}
                 srOnly={inline}
             />
         </div>

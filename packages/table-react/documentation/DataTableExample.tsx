@@ -23,7 +23,7 @@ const rows = [
 
 const DataTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
 
     return <DataTable caption="Saksliste" columns={columns} rows={rows} {...props} />;
 };

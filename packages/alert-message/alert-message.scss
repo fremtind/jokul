@@ -13,7 +13,7 @@ $_bg-color--feil: colors.varslingsfarge("feil");
 $_bg-color--info: colors.varslingsfarge("info");
 $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
-@include jkl.regular-variant-variables {
+@include jkl.comfortable-density-variables {
     --jkl-alert-message-icon-height: #{jkl.rem(18px)};
     --jkl-alert-message-icon-padding: #{jkl.rem(7px)} 0 0 0;
     --jkl-alert-message-content-padding: #{jkl.$spacing-m};
@@ -23,7 +23,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     @include jkl.declare-font-variables("jkl-alert-message-message", "body");
 }
 
-@include jkl.compact-variant-variables {
+@include jkl.compact-density-variables {
     --jkl-alert-message-icon-height: #{jkl.rem(12px)};
     --jkl-alert-message-icon-padding: #{jkl.rem(5px)} 0 0 #{jkl.rem(2px)};
     --jkl-alert-message-content-padding: #{jkl.$spacing-xs};

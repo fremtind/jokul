@@ -1,5 +1,6 @@
 import cn from "classnames";
 import React, { FC } from "react";
+import { Density } from "../utils";
 
 export interface SupportLabelProps {
     /**
@@ -27,7 +28,7 @@ export interface SupportLabelProps {
      *        id={supportId}
      *        helpLabel={helpLabel}
      *        errorLabel={errorLabel}
-     *        compact={compact}
+     *        density={density}
      *      />
      *    </div>
      *  );
@@ -36,11 +37,7 @@ export interface SupportLabelProps {
     id: string;
     helpLabel?: string;
     errorLabel?: string;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     className?: string;
     srOnly?: boolean;
 }
@@ -49,7 +46,7 @@ export const SupportLabel: FC<SupportLabelProps> = ({
     id,
     helpLabel,
     errorLabel,
-    compact,
+    density,
     className,
     srOnly,
     ...rest
@@ -58,7 +55,6 @@ export const SupportLabel: FC<SupportLabelProps> = ({
 
     const componentClassName = hasLabel
         ? cn("jkl-form-support-label", className, {
-              "jkl-form-support-label--compact": compact,
               "jkl-form-support-label--error": errorLabel,
               "jkl-form-support-label--help": !errorLabel,
               "jkl-form-support-label--sr-only": srOnly,
@@ -68,7 +64,7 @@ export const SupportLabel: FC<SupportLabelProps> = ({
     const restProps = hasLabel ? rest : {};
 
     return (
-        <span id={id} className={componentClassName} {...restProps}>
+        <span id={id} className={componentClassName} {...restProps} data-density={density}>
             <svg
                 className="jkl-form-support-label__icon"
                 aria-hidden

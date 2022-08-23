@@ -1,5 +1,19 @@
 @use "~@fremtind/jkl-core/jkl";
 
+@include jkl.comfortable-density-variables {
+    --jkl-info-card-content-wrapper-gap: #{jkl.$spacing-m};
+    @include jkl.declare-font-variables("jkl-info-card-title", "heading-2");
+    @include jkl.declare-font-variables("jkl-info-card-content", "body");
+}
+
+@include jkl.compact-density-variables {
+    --jkl-info-card-content-wrapper-gap: #{jkl.$spacing-s};
+    --jkl-info-card-title-font-size: var(--jkl-heading-4-font-size);
+    --jkl-info-card-title-line-height: var(--jkl-heading-4-line-height);
+    --jkl-info-card-title-font-weight: #{jkl.$typography-weight-normal};
+    @include jkl.declare-font-variables("jkl-info-card-content", "small");
+}
+
 .jkl-info-card {
     box-sizing: border-box;
     display: flex;
@@ -11,25 +25,15 @@
     }
 
     &__title {
-        @include jkl.text-style("heading-2");
+        @include jkl.use-font-variables("jkl-info-card-title");
     }
 
     &__content-wrapper {
+        @include jkl.use-font-variables("jkl-info-card-content");
+        gap: var(--jkl-info-card-content-wrapper-gap);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: jkl.$spacing-m;
-    }
-
-    @include jkl.compact-mode {
-        .jkl-info-card__title {
-            @include jkl.text-style("heading-4");
-        }
-
-        .jkl-info-card__content-wrapper {
-            @include jkl.text-style("small");
-            gap: jkl.$spacing-s;
-        }
     }
 
     @include jkl.forced-colors-mode {

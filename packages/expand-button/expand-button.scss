@@ -1,11 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-$_arrow-width: jkl.rem(16px);
-$_arrow-width--compact: jkl.rem(14px);
-
-$_animation-timing: jkl.timing("snappy") jkl.easing("focus");
-$_focus-ring-width: jkl.rem(2px);
-
 @include jkl.light-mode-variables {
     --jkl-expand-button-text-color: #{jkl.$color-granitt};
     --jkl-expand-button-focus-color: #{jkl.$color-granitt};
@@ -22,9 +16,24 @@ $_focus-ring-width: jkl.rem(2px);
     }
 }
 
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-expand-button", "body");
+
+    --jkl-expand-button-arrow-width: #{jkl.rem(16px)};
+}
+
+@include jkl.compact-mode {
+    @include jkl.declare-font-variables("jkl-expand-button", "small");
+
+    --jkl-expand-button-arrow-width: #{jkl.rem(14px)};
+}
+
 .jkl-expand-button {
+    $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
+    $_focus-ring-width: jkl.rem(2px);
+
     @include jkl.reset-outline;
-    @include jkl.text-style("body");
+    @include jkl.use-font-variables("jkl-expand-button");
 
     background-color: transparent;
     cursor: pointer;
@@ -61,18 +70,6 @@ $_focus-ring-width: jkl.rem(2px);
         color: var(--jkl-expand-button-focus-color);
     }
 
-    @include jkl.compact-mode {
-        @include jkl.text-style("small");
-
-        .jkl-expand-button__arrow {
-            --jkl-icon-width: #{$_arrow-width--compact};
-
-            .jkl-icon--small {
-                --jkl-icon-width: #{$_arrow-width--compact};
-            }
-        }
-    }
-
     &--expanded {
         @include _expanded-arrow(3px);
         @include jkl.no-grow-bold;
@@ -99,10 +96,10 @@ $_focus-ring-width: jkl.rem(2px);
             margin-bottom: 0;
         }
 
-        --jkl-icon-width: #{$_arrow-width};
+        --jkl-icon-width: var(--jkl-expand-button-arrow-width);
 
         .jkl-icon--small {
-            --jkl-icon-width: #{$_arrow-width};
+            --jkl-icon-width: var(--jkl-expand-button-arrow-width);
         }
 
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);

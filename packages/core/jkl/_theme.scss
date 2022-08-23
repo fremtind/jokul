@@ -37,27 +37,20 @@
 }
 
 /// Brukes til å sette CSS-variabler som skal gjelde i vanlig (ukompakt) modus.
-/// @content Settes på :root og [data-compact="false"]
-@mixin regular-variant-variables {
+/// @content Settes på :root, [data-density="comfortable"], og [data-layout-density="comfortable"]
+@mixin comfortable-density-variables {
     :root,
-    [data-compactlayout="false"],
-    [data-compact="false"] {
+    [data-layout-density="comfortable"],
+    [data-density="comfortable"] {
         @content;
     }
 }
 
 /// Brukes til å sette CSS-variabler som skal gjelde i kompakt modus.
-/// @content Settes på [data-compactlayout], og på [data-compact="true"]
-@mixin compact-variant-variables {
-    [data-compactlayout="true"],
-    [data-compact="true"] {
-        @content;
-    }
-}
-
-@mixin compact-mode {
-    &--compact,
-    [data-compactlayout] & {
+/// @content Settes på [data-density="compact"], og på [data-layout-density="compact"]
+@mixin compact-density-variables {
+    [data-layout-density="compact"],
+    [data-density="compact"] {
         @content;
     }
 }

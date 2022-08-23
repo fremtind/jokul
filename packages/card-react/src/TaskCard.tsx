@@ -1,4 +1,4 @@
-import { WithChildren, getCompactValue } from "@fremtind/jkl-core";
+import { Density, WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { FC } from "react";
 import { PaddingOptions } from "./types";
@@ -16,10 +16,7 @@ export interface TaskCardProps extends PaddingOptions, WithChildren {
      */
     withShadow?: boolean;
     className?: string;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     */
-    compact?: boolean;
+    density?: Density;
 }
 
 export const TaskCard: FC<TaskCardProps> = ({
@@ -28,14 +25,14 @@ export const TaskCard: FC<TaskCardProps> = ({
     padding = "l",
     className,
     children,
-    compact,
+    density,
     ...rest
 }) => (
     <div
         className={cn("jkl-task-card", `jkl-task-card--${bgColor}`, className, {
             "jkl-task-card--with-shadow": withShadow,
         })}
-        data-compact={getCompactValue(compact)}
+        data-density={density}
         {...rest}
     >
         <div className={cn("jkl-task-card__content-wrapper", getSpacingClasses(padding))}>{children}</div>

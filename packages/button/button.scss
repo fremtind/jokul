@@ -28,7 +28,7 @@ $_button-border-width: jkl.rem(1px);
 $_focus-ring-distance: jkl.rem(4px);
 $_focus-ring-width: jkl.rem(2px);
 
-@include jkl.regular-variant-variables {
+@include jkl.comfortable-density-variables {
     --jkl-button-font-size: var(--jkl-body-font-size);
     --jkl-button-line-height: #{jkl.rem(48px)};
     --jkl-button-font-weight: #{jkl.$typography-weight-bold};
@@ -42,7 +42,7 @@ $_focus-ring-width: jkl.rem(2px);
     }
 }
 
-@include jkl.compact-variant-variables {
+@include jkl.compact-density-variables {
     --jkl-button-font-size: var(--jkl-small-font-size);
     --jkl-button-line-height: #{jkl.rem(28px)};
     --jkl-button-font-weight: #{jkl.$typography-weight-bold};

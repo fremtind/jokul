@@ -1,4 +1,4 @@
-import { WithChildren, getCompactValue } from "@fremtind/jkl-core";
+import { Density, WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React from "react";
@@ -10,10 +10,7 @@ type messageTypes = "info" | "error" | "success" | "warning";
 interface Props extends WithChildren {
     id?: string;
     className?: string;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     */
-    compact?: boolean;
+    density?: Density;
     maxContentWidth?: string;
     paddingLeft?: string;
     /** Overstyr standardrollen til meldingen. Om du ønsker å "skru av" rollen kan du bruke verdien `none presentation`. */
@@ -29,7 +26,7 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
     const AlertMessage: React.FC<Props> = ({
         id,
         className,
-        compact,
+        density,
         maxContentWidth,
         paddingLeft,
         role = "status",
@@ -48,7 +45,7 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
                 className={cn("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
                     "jkl-alert-message--dismissed": dismissed,
                 })}
-                data-compact={getCompactValue(compact)}
+                data-density={density}
                 data-theme="light"
             >
                 <div

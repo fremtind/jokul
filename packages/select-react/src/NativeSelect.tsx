@@ -1,4 +1,4 @@
-import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps } from "@fremtind/jkl-core";
+import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps, Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
@@ -19,11 +19,7 @@ export interface NativeSelectProps {
     variant?: LabelVariant;
     placeholder?: string;
     value?: string;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     width?: string;
     onChange?: ChangeEventHandler<HTMLSelectElement>;
     onFocus?: FocusEventHandler<HTMLSelectElement>;
@@ -50,7 +46,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             variant,
             placeholder,
             value,
-            compact,
+            density,
             width,
             selectClassName,
             ...rest
@@ -67,11 +63,11 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                 data-testid="jkl-select"
                 className={cn("jkl-select", className, {
                     "jkl-select--inline": inline,
-                    "jkl-select--compact": compact,
                     "jkl-select--invalid": !!errorLabel || invalid,
                 })}
+                data-density={density}
             >
-                <Label variant={variant} {...labelProps} standAlone htmlFor={uid} compact={compact}>
+                <Label variant={variant} {...labelProps} standAlone htmlFor={uid} density={density}>
                     {label}
                 </Label>
                 <div className="jkl-select__outer-wrapper" style={{ width }}>
@@ -103,7 +99,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                     </select>
                     <ExpandArrow />
                 </div>
-                <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} compact={compact} />
+                <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} density={density} />
             </div>
         );
     },

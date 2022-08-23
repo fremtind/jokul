@@ -52,7 +52,7 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                 variant="small"
                 label="Filtrér"
                 value={filter}
-                compact
+                density="compact"
                 onChange={filterLinks}
                 action={filter ? { icon: "clear", label: "Nullstill filter", onClick: () => setFilter("") } : undefined}
                 className="jkl-portal-sidebar-menu__filter"
@@ -62,7 +62,7 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                 <RadioButtonGroup
                     className="jkl-portal-sidebar-menu__meta"
                     legend="Vis"
-                    compact
+                    density="compact"
                     name="filter-radio"
                     value={selectedGroup}
                     onChange={(e) => setSelectedGroup(e.target.value)}

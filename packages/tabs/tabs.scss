@@ -14,25 +14,16 @@
     --jkl-tab-focus-border-color: #{jkl.$color-snohvit};
 }
 
-.jkl-tabs {
-    @include jkl.compact-mode {
-        @include jkl.text-style("small");
-        padding: 0;
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-tab", "body");
 
-        & > [role="tablist"] {
-            padding: 0;
-        }
+    --jkl-tab-padding: #{jkl.$spacing-xs} #{jkl.$spacing-xl} #{jkl.$spacing-xs} #{jkl.$spacing-3xs};
+}
 
-        & > [role="tablist"] > [role="tab"] {
-            @include jkl.text-style("small");
-            padding: jkl.$spacing-3xs 0;
-            padding-right: jkl.rem(32px);
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-tab", "small");
 
-            &[aria-selected="true"] {
-                @include jkl.no-grow-bold;
-            }
-        }
-    }
+    --jkl-tab-padding: #{jkl.$spacing-3xs} #{jkl.rem(32px)} #{jkl.$spacing-3xs} 0;
 }
 
 .jkl-tablist {
@@ -63,13 +54,12 @@
 }
 
 .jkl-tab {
-    @include jkl.text-style("body");
+    @include jkl.use-font-variables("jkl-tab");
+    color: var(--jkl-tab-text-color);
+    padding: var(--jkl-tab-padding);
     border: none;
     background-color: transparent;
-    padding: jkl.$spacing-xs jkl.$spacing-3xs;
-    padding-right: jkl.$spacing-xl;
     cursor: pointer;
-    color: var(--jkl-tab-text-color);
 
     &:hover {
         color: var(--jkl-tab-hover-color);

@@ -1,4 +1,4 @@
-import { SupportLabel, WithChildren } from "@fremtind/jkl-core";
+import { Density, SupportLabel, WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { MouseEventHandler, FC } from "react";
@@ -10,11 +10,7 @@ interface ToggleSwitchProps extends WithChildren {
     onClick?: MouseEventHandler<HTMLButtonElement>;
     disabled?: boolean;
     helpLabel?: string;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
 }
 
 export const ToggleSwitch: FC<ToggleSwitchProps> = ({
@@ -25,7 +21,7 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = ({
     className,
     disabled,
     helpLabel,
-    compact,
+    density,
     ...rest
 }) => {
     const uid = useId(id || "jkl-toggle-switch", { generateSuffix: !id });
@@ -39,10 +35,9 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = ({
                 aria-pressed={!!pressed}
                 aria-describedby={describedBy}
                 disabled={disabled}
-                className={cn("jkl-toggle-switch", className, {
-                    "jkl-toggle-switch--compact": compact,
-                })}
+                className={cn("jkl-toggle-switch", className)}
                 onClick={onClick}
+                data-density={density}
             >
                 <span className="jkl-toggle-switch__slider">
                     <span className="jkl-toggle-switch__expanding-pill"></span>
@@ -53,7 +48,7 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = ({
                 <SupportLabel
                     id={supportId}
                     className="jkl-toggle-switch__help-label"
-                    compact={compact}
+                    density={density}
                     helpLabel={helpLabel}
                 />
             )}

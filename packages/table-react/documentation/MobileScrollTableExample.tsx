@@ -17,12 +17,12 @@ const MobileScrollTableExample: FC = () => {
                 overflowX: "scroll",
             }}
         >
-            <Table fullWidth compact>
+            <Table fullWidth>
                 <TableCaption srOnly>Tabell som scroller horisontalt på mobil</TableCaption>
                 <TableHead>
                     <TableRow>
                         {columns.map((column, index) => (
-                            <TableHeader key={index} compact bold>
+                            <TableHeader key={index} density="compact" bold>
                                 {column}
                             </TableHeader>
                         ))}
@@ -57,12 +57,12 @@ export const mobileScrollTableExampleCode = `
             overflowX: "scroll",
         }}
     >
-        <Table fullWidth compact>
+        <Table fullWidth>
             <TableCaption srOnly>Tabell som scroller horisontalt på mobil</TableCaption>
             <TableHead>
                 <TableRow>
                     {columns.map((column, index) => (
-                        <TableHeader key={index} compact bold>
+                        <TableHeader key={index} density="compact" bold>
                             {column}
                         </TableHeader>
                     ))}

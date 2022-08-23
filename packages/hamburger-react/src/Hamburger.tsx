@@ -1,4 +1,5 @@
 import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
+import { Density } from "@fremtind/jkl-core";
 import classnames from "classnames";
 import React from "react";
 
@@ -16,11 +17,7 @@ export interface HamburgerProps {
     isOpen: boolean;
     onClick: (() => void) | ((evt: React.MouseEvent) => void);
     className?: string;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     /**
      * Vis en tekst før eller etter hamburgerikonet som varierer med åpnet og
      * lukket tilstand.
@@ -46,12 +43,11 @@ export const Hamburger = ({
     isOpen,
     onClick,
     className,
-    compact,
+    density,
     actionLabel,
     ...rest
 }: HamburgerProps): JSX.Element => {
     const componentClassname = classnames("jkl-hamburger", className, {
-        "jkl-hamburger--compact": compact,
         "jkl-hamburger--label-before": actionLabel?.position === "before",
         "jkl-hamburger--label-after": actionLabel && actionLabel.position !== "before",
     });
@@ -68,6 +64,7 @@ export const Hamburger = ({
             className={componentClassname}
             aria-expanded={isOpen}
             data-testid="jkl-hamburger"
+            data-density={density}
             {...rest}
         >
             <span className="jkl-hamburger__lines"></span>

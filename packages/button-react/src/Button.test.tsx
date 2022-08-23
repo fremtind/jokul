@@ -49,12 +49,12 @@ describe("Button", () => {
 
     it("applies compact mode", () => {
         render(
-            <PrimaryButton data-testid="test" compact onClick={() => {}}>
+            <PrimaryButton data-testid="test" density="compact" onClick={() => {}}>
                 test
             </PrimaryButton>,
         );
 
-        expect(screen.getByTestId("test")).toHaveClass("jkl-button--compact");
+        expect(screen.getByTestId("test")).toHaveAttribute("data-density", "compact");
     });
 
     test("button component does not unmount and remount when consumer component rerenders becaus of state change", async () => {
@@ -116,7 +116,7 @@ describe("a11y", () => {
         it(`${buttonVariant.name} should be a11y compliant in compact mode`, async () => {
             const { name, component: Button } = buttonVariant;
             const { container } = render(
-                <Button compact onClick={() => {}}>
+                <Button density="compact" onClick={() => {}}>
                     {name}
                 </Button>,
             );

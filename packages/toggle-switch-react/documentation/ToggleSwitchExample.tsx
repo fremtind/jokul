@@ -32,7 +32,7 @@ export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ displayVa
                 defaultValue="måned"
                 labels={["måned", "år"]}
                 onToggle={setValue}
-                compact={displayValues?.size === "compact"}
+                density={displayValues?.density}
             >
                 Pris per
             </ToggleSlider>
