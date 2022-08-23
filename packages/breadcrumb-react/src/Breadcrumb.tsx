@@ -1,5 +1,4 @@
-import { WithChildren } from "@fremtind/jkl-core";
-import { getCompactValue } from "@fremtind/jkl-core/src/utils/compact";
+import { WithChildren, getCompactValue } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React from "react";
 
