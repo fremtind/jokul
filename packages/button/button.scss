@@ -1,15 +1,6 @@
 @use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
 
-$_button-height: jkl.rem(48px);
-$_button-min-width: jkl.rem(104px);
-
-$_button-border-width: jkl.rem(1px);
-$_button-padding: jkl.$spacing-l;
-
-$_focus-ring-distance: jkl.rem(4px);
-$_focus-ring-width: jkl.rem(2px);
-
 $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
 $_flash-animation-name: jkl-flash-#{string.unique-id()};
 $_tertiary-flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
@@ -33,6 +24,34 @@ $_hover-elevation-distance: -0.25rem;
     --jkl-button-primary-background-color: #{jkl.$color-snohvit};
 }
 
+$_button-border-width: jkl.rem(1px);
+$_focus-ring-distance: jkl.rem(4px);
+$_focus-ring-width: jkl.rem(2px);
+
+@include jkl.regular-variant-variables {
+    --jkl-button-font-size: var(--jkl-body-font-size);
+    --jkl-button-line-height: #{jkl.rem(48px)};
+    --jkl-button-font-weight: #{jkl.$typography-weight-bold};
+    --jkl-button-min-width: #{jkl.rem(104px)};
+    --jkl-button-padding: 0 #{jkl.$spacing-l};
+    --jkl-button-tertiary-padding: 0 #{jkl.$spacing-xs};
+    --jkl-button-focus-ring-placement: -#{($_button-border-width + $_focus-ring-distance)};
+
+    @include jkl.small-device {
+        --jkl-button-line-height: #{jkl.rem(44px)};
+    }
+}
+
+@include jkl.compact-variant-variables {
+    --jkl-button-font-size: var(--jkl-small-font-size);
+    --jkl-button-line-height: #{jkl.rem(28px)};
+    --jkl-button-font-weight: #{jkl.$typography-weight-bold};
+    --jkl-button-min-width: revert;
+    --jkl-button-padding: 0 #{jkl.$spacing-xs};
+    --jkl-button-tertiary-padding: 0 #{jkl.$spacing-2xs};
+    --jkl-button-focus-ring-placement: -#{($_button-border-width + calc($_focus-ring-distance / 2))};
+}
+
 a.jkl-button {
     text-decoration: none;
 }
@@ -43,13 +62,10 @@ a.jkl-button {
     box-sizing: border-box;
     justify-content: center;
 
-    @include jkl.text-style("body") {
-        line-height: $_button-height;
-        font-weight: jkl.$typography-weight-bold;
-    }
+    @include jkl.use-font-variables("jkl-button");
 
-    height: $_button-height;
-    min-width: $_button-min-width;
+    height: var(--jkl-button-line-height);
+    min-width: var(--jkl-button-min-width);
     cursor: pointer;
     user-select: none;
     overflow: visible;
@@ -76,7 +92,7 @@ a.jkl-button {
     }
 
     &__content {
-        height: $_button-height;
+        height: var(--jkl-button-line-height);
         overflow: hidden;
     }
 
@@ -94,7 +110,7 @@ a.jkl-button {
         padding: 0;
         align-items: center;
         justify-content: center;
-        height: $_button-height;
+        height: var(--jkl-button-line-height);
     }
 
     // ********* VARIANTS *********
@@ -103,7 +119,7 @@ a.jkl-button {
     &--secondary {
         border: solid $_button-border-width var(--jkl-button-border-color);
         border-radius: 999px;
-        padding: 0 $_button-padding;
+        padding: var(--jkl-button-padding);
 
         &::after {
             border-radius: 99px;
@@ -112,10 +128,10 @@ a.jkl-button {
             transition: box-shadow $_animation-timing;
             content: "";
             position: absolute;
-            bottom: -($_button-border-width + $_focus-ring-distance);
-            left: -($_button-border-width + $_focus-ring-distance);
-            right: -($_button-border-width + $_focus-ring-distance);
-            top: -($_button-border-width + $_focus-ring-distance);
+            bottom: var(--jkl-button-focus-ring-placement);
+            left: var(--jkl-button-focus-ring-placement);
+            right: var(--jkl-button-focus-ring-placement);
+            top: var(--jkl-button-focus-ring-placement);
         }
 
         &::before {
@@ -168,7 +184,7 @@ a.jkl-button {
         border-top: solid $_button-border-width transparent;
         background-color: transparent;
         color: var(--jkl-button-text-color);
-        padding: 0 jkl.$spacing-xs;
+        padding: var(--jkl-button-tertiary-padding);
         transition: transform $_animation-timing, border $_animation-timing;
         min-width: unset;
 
@@ -221,58 +237,6 @@ a.jkl-button {
             border-bottom-color: var(--jkl-button-focus-color);
             border-bottom-width: $_focus-ring-width;
             color: var(--jkl-button-focus-color);
-        }
-    }
-
-    @include jkl.small-device {
-        $_mobile-button-height: jkl.rem(44px);
-
-        @include jkl.text-style("body") {
-            line-height: $_mobile-button-height;
-            font-weight: jkl.$typography-weight-bold;
-        }
-
-        &.jkl-button--primary,
-        &.jkl-button--secondary,
-        &.jkl-button--tertiary {
-            line-height: $_mobile-button-height;
-            height: $_mobile-button-height;
-        }
-
-        & .jkl-button__loader {
-            height: $_mobile-button-height;
-        }
-    }
-
-    @include jkl.compact-mode {
-        $_compact-button-height: jkl.rem(28px);
-
-        @include jkl.text-style("heading-5") {
-            line-height: $_compact-button-height;
-        }
-
-        &.jkl-button--primary,
-        &.jkl-button--secondary {
-            height: $_compact-button-height;
-            min-width: revert;
-            padding: 0 jkl.$spacing-xs;
-
-            &::after {
-                bottom: -($_button-border-width + calc($_focus-ring-distance / 2));
-                left: -($_button-border-width + calc($_focus-ring-distance / 2));
-                right: -($_button-border-width + calc($_focus-ring-distance / 2));
-                top: -($_button-border-width + calc($_focus-ring-distance / 2));
-            }
-        }
-
-        &.jkl-button--tertiary {
-            height: $_compact-button-height;
-            padding: 0 jkl.$spacing-2xs;
-        }
-
-        & .jkl-button__content,
-        & .jkl-button__loader {
-            height: $_compact-button-height;
         }
     }
 
