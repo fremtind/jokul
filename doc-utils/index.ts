@@ -1,4 +1,4 @@
-import { Density } from "@fremtind/jkl-core";
+import { ColorScheme, Density } from "@fremtind/jkl-core";
 
 export { ComponentExample } from "./ComponentExample";
 export { DevExample } from "./DevExample";
@@ -15,7 +15,7 @@ export interface ExampleComponentProps {
 
 export interface DisplayValues {
     density: Density;
-    theme: "light" | "dark";
+    theme: ColorScheme;
 }
 
 export interface ChoiceProp {

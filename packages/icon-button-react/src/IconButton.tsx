@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import { IconCalendar } from "./Icons/IconCalendar";
 import { IconClear } from "./Icons/IconClear";
@@ -8,7 +9,7 @@ export type IconVariant = "clear" | "search" | "calendar";
 export interface IconButtonProps extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     iconType?: IconVariant;
     buttonTitle: string;
-    compact?: boolean;
+    density?: Density;
 }
 
 function getIcon(iconType: IconVariant) {
@@ -25,14 +26,15 @@ function getIcon(iconType: IconVariant) {
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
-    const { iconType = "clear", buttonTitle, compact, ...rest } = props;
+    const { iconType = "clear", buttonTitle, density, ...rest } = props;
     return (
         <button
             ref={ref}
             type="button"
             title={buttonTitle}
+            className="jkl-icon-button"
             data-testid="jkl-icon-button"
-            className={`jkl-icon-button ${compact ? "jkl-icon-button--compact" : ""}`}
+            data-density={density}
             {...rest}
         >
             <span data-testid="jkl-action-icon" className="jkl-icon-button__icon">

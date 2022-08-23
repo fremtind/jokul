@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import cx from "classnames";
 import React, { ButtonHTMLAttributes, DetailedHTMLProps, FC, HTMLAttributes, MouseEventHandler } from "react";
@@ -8,11 +9,7 @@ export interface DismissAction extends Exclude<ButtonHTMLAttributes<HTMLButtonEl
 }
 
 export interface TagProps extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     dismissAction?: DismissAction;
 }
 
@@ -34,12 +31,11 @@ function getDisplayName(variant?: Variant) {
 }
 
 function tagFactory(variant?: Variant) {
-    const Tag: FC<TagProps> = ({ className, compact = false, dismissAction, children, ...rest }) => (
+    const Tag: FC<TagProps> = ({ className, density, dismissAction, children, ...rest }) => (
         <span
             className={cx(
                 "jkl-tag",
                 {
-                    "jkl-tag--compact": compact,
                     "jkl-tag--info": variant === "info",
                     "jkl-tag--error": variant === "error",
                     "jkl-tag--warning": variant === "warning",
@@ -47,6 +43,7 @@ function tagFactory(variant?: Variant) {
                 },
                 className,
             )}
+            data-density={density}
             {...rest}
         >
             {children}
@@ -54,6 +51,7 @@ function tagFactory(variant?: Variant) {
                 <IconButton
                     className="jkl-tag__dismiss-action"
                     iconType="clear"
+                    density={density}
                     buttonTitle={dismissAction.label}
                     onClick={dismissAction.onClick}
                     onFocus={dismissAction.onFocus}

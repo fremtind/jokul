@@ -1,5 +1,5 @@
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { Density } from "@fremtind/jkl-core";
+import { ColorScheme, Density } from "@fremtind/jkl-core";
 import { ExpandSection } from "@fremtind/jkl-expand-button-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
@@ -25,7 +25,7 @@ export interface Props {
 export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable }) => {
     const uid = useId("example");
     const [showCodeText, setShowCodeText] = useState("Vis kode");
-    const [theme, setTheme] = useState<"light" | "dark">("light");
+    const [theme, setTheme] = useState<ColorScheme>("light");
     const [density, setDensity] = useState<Density>("comfortable");
 
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>(
@@ -141,14 +141,18 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                         >
                             Dark mode
                         </Checkbox>
-                        <Checkbox
-                            name={`${uid}-compact`}
-                            value="Compact"
-                            checked={size === "compact"}
-                            onChange={(e) => setSize(e.target.checked ? "compact" : "default")}
+                        <RadioButtonGroup
+                            className="jkl-portal-component-example__example-options-header"
+                            variant="small"
+                            name={`${uid}-theme`}
+                            legend="Theme"
+                            value={theme}
+                            labelProps={{ variant: "small" }}
+                            onChange={(e) => setTheme(e.target.value as ColorScheme)}
                         >
-                            Compact
-                        </Checkbox>
+                            <RadioButton label="Light" value="light" />
+                            <RadioButton label="Dark" value="dark" />
+                        </RadioButtonGroup>
                         <RadioButtonGroup
                             className="jkl-portal-component-example__example-options-header"
                             variant="small"
@@ -156,7 +160,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                             legend="Density"
                             value={density}
                             labelProps={{ variant: "small" }}
-                            onChange={(e) => setDensity(e.target.value)}
+                            onChange={(e) => setDensity(e.target.value as Density)}
                         >
                             <RadioButton label="Comfortable" value="comfortable" />
                             <RadioButton label="Compact" value="compact" />
