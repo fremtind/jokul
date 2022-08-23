@@ -15,7 +15,9 @@ const NotFoundPageWithMessage: FC = () => (
             Huff da, nå har det skjedd en feil hos oss!
         </h1>
         <div className="jkl-portal-paragraph">
-            <ErrorMessageBox title="Feilmelding">Kunne ikke snakke med systemet</ErrorMessageBox>
+            <ErrorMessageBox title="Feilmelding" role="none presentation">
+                Kunne ikke snakke med systemet
+            </ErrorMessageBox>
         </div>
         <p className="jkl-portal-paragraph">Vi setter i gang med å fikse feilen. Imens kan du prøve å:</p>
         <ul className="jkl-portal-paragraph">
