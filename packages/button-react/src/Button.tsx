@@ -1,16 +1,13 @@
 import { unicode } from "@fremtind/jkl-constants-util";
+import { getCompactValue } from "@fremtind/jkl-core/src/utils/compact";
 import { Loader } from "@fremtind/jkl-loader-react";
-import classNames from "classnames";
+import cn from "classnames";
 import React, { forwardRef, TouchEvent, useCallback } from "react";
 import { BaseButton } from "./BaseButton";
 import { Props, ValidButtons } from "./types";
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
         const { children, className, compact, onClick, onTouchStart, loader, arrow, ...rest } = props;
-
-        const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, className, {
-            "jkl-button--compact": compact,
-        });
 
         const handleTouch = useCallback(
             (event: TouchEvent<HTMLButtonElement>) => {
@@ -32,20 +29,17 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
         return (
             <BaseButton
                 aria-live="polite"
-                className={componentClassName}
+                data-compact={getCompactValue(compact)}
+                className={cn("jkl-button", "jkl-button--" + buttonType, className)}
                 disabled={loader?.showLoader}
                 onClick={onClick}
                 onTouchStart={handleTouch}
                 {...rest}
                 ref={ref}
             >
-                <div
-                    className={classNames("jkl-button__content", {
-                        "jkl-button__content--compact": compact,
-                    })}
-                >
+                <div className="jkl-button__content">
                     <div
-                        className={classNames("jkl-button__slider", {
+                        className={cn("jkl-button__slider", {
                             "jkl-button__slider--show-loader": !!loader?.showLoader,
                         })}
                     >
