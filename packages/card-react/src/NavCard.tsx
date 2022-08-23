@@ -1,4 +1,4 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { WithChildren, getCompactValue } from "@fremtind/jkl-core";
 import { Image, ImageProps } from "@fremtind/jkl-image-react";
 import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "@fremtind/jkl-tag-react";
 import cn from "classnames";
@@ -35,7 +35,6 @@ export interface NavCardProps extends PaddingOptions, AnchorHTMLAttributes<HTMLA
     component?: ElementType;
     /**
      * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
      */
     compact?: boolean;
 }
@@ -75,15 +74,13 @@ export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, Nav
     return (
         <Component
             ref={ref}
-            className={cn("jkl-nav-card", className, {
-                "jkl-nav-card--compact": compact,
-            })}
-            data-compactlayout={compact ? "true" : undefined}
+            className={cn("jkl-nav-card", className)}
+            data-compact={getCompactValue(compact)}
             {...rest}
         >
             {image && <Image className="jkl-nav-card__image" {...image} />}
             <div className={cn("jkl-nav-card__content", getSpacingClasses(padding))}>
-                {tag && <CardTag>{tag.text}</CardTag>}
+                {tag && <CardTag compact={compact}>{tag.text}</CardTag>}
                 <div>
                     <p className="jkl-nav-link jkl-nav-card__link">{title}</p>
                     {description && <p className="jkl-nav-card__description jkl-spacing-xs--top">{description}</p>}

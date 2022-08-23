@@ -1,0 +1,104 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-nav-card-background: #{jkl.$color-hvit};
+    --jkl-nav-card-shadow: #{jkl.$shadow-navigation};
+    --jkl-nav-card-shadow--hover: #{jkl.$shadow-navigation--hover};
+    --jkl-nav-card-info-border-color: #{jkl.$color-svaberg};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-nav-card-background: #{jkl.$color-svart};
+    --jkl-nav-card-shadow: none;
+    --jkl-nav-card-shadow--hover: none;
+    --jkl-nav-card-info-border-color: #{jkl.$color-stein};
+}
+
+.jkl-nav-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    transform: translate3d(0, 0, 0);
+    text-decoration: none;
+    color: var(--jkl-color);
+    outline: 0;
+
+    border-radius: jkl.rem(4px);
+    overflow: hidden;
+    box-shadow: var(--jkl-nav-card-shadow);
+    background-color: var(--jkl-nav-card-background);
+
+    @include jkl.motion;
+    transition-property: box-shadow, transform;
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 3/2;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: jkl.$spacing-l;
+    }
+
+    &__link {
+        @include jkl.text-style("heading-2");
+
+        .jkl-nav-card:hover:focus &::after,
+        .jkl-nav-card:hover:not(:focus) &::after {
+            padding-left: 0.7em;
+            padding-right: 0;
+        }
+
+        &:hover:not(:focus),
+        &:focus:focus {
+            color: var(--jkl-color);
+        }
+    }
+
+    &__description {
+        @include jkl.text-style("small");
+    }
+
+    &__info {
+        border-top: jkl.rem(1px) solid var(--jkl-nav-card-info-border-color);
+        padding-top: jkl.$spacing-l;
+        @include jkl.text-style("small");
+        width: 100%;
+    }
+
+    &:hover {
+        box-shadow: var(--jkl-nav-card-shadow--hover);
+        transform: translate3d(0, jkl.rem(-4px), 0);
+    }
+
+    @include jkl.keyboard-navigation {
+        &:focus {
+            outline: jkl.rem(2px) solid var(--jkl-color);
+        }
+    }
+
+    @include jkl.compact-mode {
+        .jkl-nav-card__link {
+            @include jkl.text-style("heading-4") {
+                font-weight: jkl.$typography-weight-normal;
+            }
+        }
+
+        .jkl-nav-card__content {
+            @include jkl.text-style("small");
+            gap: jkl.$spacing-s;
+        }
+
+        .jkl-nav-card__info {
+            padding-top: jkl.$spacing-s;
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        outline: revert;
+        border: jkl.rem(2px) solid LinkText;
+    }
+}
