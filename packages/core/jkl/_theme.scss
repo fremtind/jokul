@@ -55,42 +55,6 @@
     }
 }
 
-/// Lar det bruke én mixin og if-tester for å definere variabler du trenger i stedet for de opp til fire individuelle.
-/// @content Content sender et parameter $type som må brukes i @if-tester for å definere variabler for henholdsvis "light", "dark", "regular" og "compact". Om du ikke trenger en av variantene kan du droppe if-testen for den typen.
-/// @output CSS-variabler definert på samme måte som de individuelle mixinene.
-/// @example
-///     @include jkl.component-variables using ($type) {
-///         @if $type == dark {
-///
-///         }
-///         @if $type == light {
-///
-///         }
-///         @if $type == compact {
-///
-///         }
-///         @if $type == regular {
-///
-///         }
-///     }
-@mixin component-variables {
-    @include dark-mode-variables {
-        @content ($type: dark);
-    }
-
-    @include light-mode-variables {
-        @content ($type: light);
-    }
-
-    @include compact-variant-variables {
-        @content ($type: compact);
-    }
-
-    @include regular-variant-variables {
-        @content ($type: regular);
-    }
-}
-
 @mixin compact-mode {
     &--compact,
     [data-compactlayout] & {
