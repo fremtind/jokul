@@ -7,6 +7,7 @@ export const Experimental: React.FC<WithChildren> = ({ children }) => {
         <WarningMessageBox
             className="jkl-portal-paragraph jkl-spacing-xl--top jkl-spacing-xl--bottom"
             title="Eksperimentell komponent"
+            role="none presentation"
         >
             {children}
         </WarningMessageBox>

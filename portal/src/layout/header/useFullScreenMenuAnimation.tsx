@@ -24,7 +24,7 @@ export const useFullScreenMenuAnimaiton = ({ isOpen }: Props): AnimationControls
         () => ({
             opacity: 1,
             clipPath: prefersReducedMotion ? "" : "inset(0 -3ch 100% 0)",
-            transition: { duration: 0.25, delay: 0.1 },
+            transition: { duration: 0.15, delay: 0 },
             y: prefersReducedMotion ? 0 : "100%",
         }),
         [prefersReducedMotion],
@@ -33,7 +33,7 @@ export const useFullScreenMenuAnimaiton = ({ isOpen }: Props): AnimationControls
     const animate = useCallback(
         (idx: number) => ({
             clipPath: prefersReducedMotion ? "" : "inset(0 -3ch 0% 0)",
-            transition: { duration: 0.35, delay: prefersReducedMotion ? 0 : 0.03 * idx },
+            transition: { duration: 0.25, ease: "easeInOut", delay: prefersReducedMotion ? 0 : 0.02 * idx },
             y: 0,
         }),
         [prefersReducedMotion],
