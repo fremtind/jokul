@@ -2,6 +2,9 @@ import { NavCard } from "@fremtind/jkl-card-react";
 import { motion } from "framer-motion";
 import { Link } from "gatsby";
 import React, { FC } from "react";
+import feilmeldingMedMelding from "../../static/assets/demoer/feilmelding-med-melding.png";
+import feilmelding from "../../static/assets/demoer/feilmelding.png";
+import skjemavalidering from "../../static/assets/demoer/skjemavalidering.png";
 import { Seo } from "../components/seo";
 import "../styles/demoer.scss";
 
@@ -27,7 +30,7 @@ const DemoPage: FC = () => (
                     padding="l"
                     to="/demoer/skjemavalidering"
                     title="Skjemavalidering"
-                    image={{ src: "/assets/demoer/skjemavalidering.png", alt: "" }}
+                    image={{ src: skjemavalidering, alt: "" }}
                     description="Viser et helt skjema med valideringsfeil hvis du ikke fyller ut noe."
                 />
             </li>
@@ -37,7 +40,7 @@ const DemoPage: FC = () => (
                     padding="l"
                     to="/demoer/feilmelding-500"
                     title="Feilmelding"
-                    image={{ src: "/assets/demoer/feilmelding.png", alt: "" }}
+                    image={{ src: feilmelding, alt: "" }}
                     description="Viser at noe er galt om siden du prøver å besøke ikke fungerer."
                 />
             </li>
@@ -47,7 +50,7 @@ const DemoPage: FC = () => (
                     padding="l"
                     to="/demoer/feilmelding-500-med-melding"
                     title="Feilmelding med melding"
-                    image={{ src: "/assets/demoer/feilmelding-med-melding.png", alt: "" }}
+                    image={{ src: feilmeldingMedMelding, alt: "" }}
                     description="Viser at noe er galt, med feilmelding, om siden du prøver å besøke ikke fungerer."
                 />
             </li>
