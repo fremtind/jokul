@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { ChangeEventHandler, forwardRef } from "react";
@@ -5,27 +6,23 @@ import { RadioButtonProps } from "./RadioButton";
 
 export interface BaseRadioButtonProps extends RadioButtonProps {
     inline?: boolean;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     invalid?: boolean;
     onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 export const BaseRadioButton = forwardRef<HTMLInputElement, BaseRadioButtonProps>((props, ref) => {
-    const { id, className, checked, children, label, compact, inline, invalid, name, value, onChange, ...rest } = props;
+    const { id, className, checked, children, label, density, inline, invalid, name, value, onChange, ...rest } = props;
 
     const inputId = useId(id || "jkl-radio-button", { generateSuffix: !id });
 
     return (
         <div
             className={cn("jkl-radio-button", className, {
-                "jkl-radio-button--compact": compact,
                 "jkl-radio-button--inline": inline,
                 "jkl-radio-button--error": invalid,
             })}
+            data-density={density}
         >
             <input
                 name={name}

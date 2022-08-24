@@ -18,7 +18,7 @@ const ExpandableTableRowController = forwardRef<HTMLTableCellElement, Expandable
             throw new Error("ExpandableTableRowController must have ExpandableTableRow as parent");
         }
 
-        const { compact, collapseToList } = useTableContext();
+        const { density, collapseToList } = useTableContext();
 
         // pick text from data-th if possible, but only if it's a list
         const showTextFromTh: string | undefined = collapseToList
@@ -40,7 +40,7 @@ const ExpandableTableRowController = forwardRef<HTMLTableCellElement, Expandable
                         ["jkl-table-row-expand-button--expanded"]: isOpen,
                     })}
                     id={id}
-                    compact={compact}
+                    density={density}
                     isExpanded={isOpen}
                     aria-controls={ariaControls}
                     onClick={(e) => {

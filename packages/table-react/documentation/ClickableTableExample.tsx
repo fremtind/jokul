@@ -25,7 +25,7 @@ const ClickableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceVa
     const headless = boolValues?.["Skjul overskrift"];
     const markClickedRows = boolValues?.["Markér v/ klikk"];
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
 
     return (
         <Table fullWidth {...props}>
@@ -33,7 +33,7 @@ const ClickableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceVa
             <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (
-                        <TableHeader key={column} compact bold>
+                        <TableHeader key={column} density="compact" bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -66,7 +66,7 @@ export const clickableTableExampleCode = ({ boolValues, choiceValues }: ExampleC
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>
             {headings.map((column) => (
-                <TableHeader key={column} compact bold>{column}</TableHeader>
+                <TableHeader key={column} density="compact" bold>{column}</TableHeader>
             ))}
         </TableRow>
     </TableHead>

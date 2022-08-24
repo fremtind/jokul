@@ -56,7 +56,6 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues
                 noHitsMessage={boolValues?.["Ingen treff"] ? "Fant ingen land, men du kan skrive ferdig" : undefined}
                 maxNumberOfHits={boolValues?.["Mis maks 3 treff"] ? 3 : undefined}
                 variant={(choiceValues?.Variant as "small" | "medium" | "large") || "medium"}
-                compact={boolValues?.Compact}
             />
             <p className="jkl-body jkl-spacing-m--top">Du har valgt: {value}</p>
         </div>

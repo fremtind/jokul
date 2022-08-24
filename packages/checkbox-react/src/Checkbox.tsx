@@ -1,4 +1,4 @@
-import { DataTestAutoId } from "@fremtind/jkl-core";
+import { DataTestAutoId, Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { ReactNode, forwardRef, ChangeEventHandler, FocusEventHandler, InputHTMLAttributes } from "react";
@@ -10,11 +10,7 @@ export interface CheckboxProps extends DataTestAutoId, InputHTMLAttributes<HTMLI
     checked?: boolean;
     inline?: boolean;
     className?: string;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     invalid?: boolean;
     onChange?: ChangeEventHandler<HTMLInputElement>;
     onFocus?: FocusEventHandler<HTMLInputElement>;
@@ -22,17 +18,17 @@ export interface CheckboxProps extends DataTestAutoId, InputHTMLAttributes<HTMLI
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
-    const { id, children, invalid, className, inline = false, compact, "data-testautoid": testAutoId, ...rest } = props;
+    const { id, children, invalid, className, inline = false, density, "data-testautoid": testAutoId, ...rest } = props;
 
     const inputId = useId(id || "jkl-checkbox", { generateSuffix: !id });
 
     return (
         <div
             className={cn("jkl-checkbox", className, {
-                "jkl-checkbox--compact": compact,
                 "jkl-checkbox--inline": inline,
                 "jkl-checkbox--error": invalid,
             })}
+            data-density={density}
         >
             <input
                 id={inputId}

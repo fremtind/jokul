@@ -1,25 +1,21 @@
+import { Density } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { HTMLProps, ReactNode } from "react";
 
 export interface SkeletonTableProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;
     children: ReactNode;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     width?: number;
 }
 
-export const SkeletonTable = ({ className, compact, width, style, ...rest }: SkeletonTableProps) => {
+export const SkeletonTable = ({ className, density, width, style, ...rest }: SkeletonTableProps) => {
     return (
         <div
-            className={cn("jkl-skeleton-table", className, {
-                "jkl-skeleton-table--compact": compact,
-            })}
+            className={cn("jkl-skeleton-table", className)}
             style={{ width, ...style }}
             {...rest}
+            data-density={density}
         />
     );
 };

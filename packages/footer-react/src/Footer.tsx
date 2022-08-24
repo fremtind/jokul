@@ -1,4 +1,4 @@
-import { DataTestAutoId, Link, WithChildren } from "@fremtind/jkl-core";
+import { DataTestAutoId, Density, Link, WithChildren } from "@fremtind/jkl-core";
 import { formatNumber } from "@fremtind/jkl-formatters-util";
 import { Logo } from "@fremtind/jkl-logo-react";
 import cn from "classnames";
@@ -35,11 +35,7 @@ export interface FooterLink<T = HTMLAnchorElement> {
 export interface FooterProps extends DataTestAutoId, DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
     links?: Array<FooterLink>;
     address?: FooterAddress;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
 }
 
 const AddressLine: FC<WithChildren> = ({ children }) => (
@@ -49,15 +45,9 @@ const AddressLine: FC<WithChildren> = ({ children }) => (
     </>
 );
 
-export const Footer: FC<FooterProps> = ({ className, address, links, compact, ...rest }) => {
+export const Footer: FC<FooterProps> = ({ className, address, links, density, ...rest }) => {
     return (
-        <footer
-            className={cn("jkl-footer", className, {
-                "jkl-footer--compact": compact,
-            })}
-            data-compactlayout={compact ? "true" : undefined}
-            {...rest}
-        >
+        <footer className={cn("jkl-footer", className)} data-density={density} {...rest}>
             <div>
                 <div className="jkl-footer__logo">
                     <Logo />

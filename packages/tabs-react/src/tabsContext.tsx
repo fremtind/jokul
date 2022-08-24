@@ -1,16 +1,12 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { Density, WithChildren } from "@fremtind/jkl-core";
 import React, { createContext, useContext } from "react";
 
 type TabsContext = {
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact: boolean;
+    density?: Density;
 };
 
 const tabsContext = createContext<TabsContext>({
-    compact: false,
+    density: undefined,
 });
 
 export const useTabsContext = (): TabsContext => useContext(tabsContext);

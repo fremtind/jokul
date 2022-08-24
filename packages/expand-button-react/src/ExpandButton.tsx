@@ -1,4 +1,4 @@
-import { ScreenReaderOnly, WithChildren } from "@fremtind/jkl-core";
+import { Density, ScreenReaderOnly, WithChildren } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import cx from "classnames";
 import React from "react";
@@ -20,11 +20,7 @@ export interface ExpandButtonProps extends WithChildren {
     isExpanded?: boolean;
     /** @default "down" */
     expandDirection?: ExpandDirection;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     /**
      * Skjul knappeteksten visuelt.
      *
@@ -36,7 +32,7 @@ export interface ExpandButtonProps extends WithChildren {
 export const ExpandButton = ({
     className,
     children,
-    compact,
+    density,
     expandDirection = "down",
     isExpanded = false,
     hideLabel = false,
@@ -51,10 +47,10 @@ export const ExpandButton = ({
             type="button"
             className={cx("jkl-expand-button", className, {
                 "jkl-expand-button--expanded": isExpanded,
-                "jkl-expand-button--compact": compact,
                 "jkl-expand-button--icon-only": !children,
             })}
             {...rest}
+            data-density={density}
         >
             {children && (
                 <ContentWrapper>

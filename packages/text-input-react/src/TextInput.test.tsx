@@ -25,10 +25,10 @@ describe("TextInput", () => {
     });
 
     it("renders as compact when specified", () => {
-        render(<TextInput label="testing" compact />);
+        render(<TextInput label="testing" density="compact" />);
 
         const component = screen.getByTestId("jkl-text-input");
-        expect(component).toHaveClass("jkl-text-input--compact");
+        expect(component).toHaveAttribute("data-density", "compact");
     });
 
     it("has the placeholder given", () => {

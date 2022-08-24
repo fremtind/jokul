@@ -1,4 +1,4 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { Density, WithChildren } from "@fremtind/jkl-core";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import { nanoid } from "nanoid";
@@ -7,11 +7,7 @@ import { TabsContextProvider } from "./tabsContext";
 
 export interface TabsProps extends WithChildren {
     className?: string;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     onChange?: (tabIndex: number) => void;
     defaultTab?: number;
 }
@@ -22,7 +18,7 @@ export interface TabsProps extends WithChildren {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tabs = ({ onChange, defaultTab, compact = false, ...props }: TabsProps) => {
+export const Tabs = ({ onChange, defaultTab, density, ...props }: TabsProps) => {
     const [activeIndex, setActiveIndex] = useState(defaultTab ?? 0);
 
     const previousTabIndex = usePreviousValue(activeIndex);
@@ -82,13 +78,8 @@ export const Tabs = ({ onChange, defaultTab, compact = false, ...props }: TabsPr
     }, [resolveIDs]);
 
     return (
-        <TabsContextProvider state={{ compact }}>
-            <div
-                {...props}
-                className={cn("jkl-tabs", props.className, {
-                    "jkl-tabs--compact": compact,
-                })}
-            >
+        <TabsContextProvider state={{ density }}>
+            <div {...props} className={cn("jkl-tabs", props.className)} data-density={density}>
                 {renderTabList()}
                 {renderTabPanels()}
             </div>

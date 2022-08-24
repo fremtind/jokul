@@ -1,4 +1,4 @@
-import type { LabelProps } from "@fremtind/jkl-core";
+import type { Density, LabelProps } from "@fremtind/jkl-core";
 import { Label, SupportLabel, LabelVariant, DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -12,11 +12,7 @@ export interface FieldGroupProps extends DataTestAutoId, FieldsetHTMLAttributes<
     errorLabel?: string;
     /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
 }
 
 export const FieldGroup: FC<FieldGroupProps> = ({
@@ -28,7 +24,7 @@ export const FieldGroup: FC<FieldGroupProps> = ({
     helpLabel,
     errorLabel,
     variant,
-    compact,
+    density,
     "data-testautoid": testAutoId,
     ...rest
 }) => {
@@ -44,16 +40,16 @@ export const FieldGroup: FC<FieldGroupProps> = ({
             data-testautoid={testAutoId}
             {...rest}
             aria-describedby={describedBy}
-            data-compactlayout={compact ? "true" : undefined}
+            data-density={density}
         >
             <legend className="jkl-field-group__legend">
-                <Label variant={variant} {...labelProps}>
+                <Label variant={variant} density={density} {...labelProps}>
                     {legend}
                 </Label>
             </legend>
             {children}
             {(helpLabel || errorLabel) && (
-                <SupportLabel id={supportId} compact={compact} helpLabel={helpLabel} errorLabel={errorLabel} />
+                <SupportLabel id={supportId} density={density} helpLabel={helpLabel} errorLabel={errorLabel} />
             )}
         </fieldset>
     );

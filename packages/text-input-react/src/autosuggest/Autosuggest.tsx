@@ -1,4 +1,4 @@
-import { LabelProps } from "@fremtind/jkl-core";
+import { Density, LabelProps } from "@fremtind/jkl-core";
 import { StateChangeOptions } from "downshift";
 import React, { ReactNode, useEffect, useState } from "react";
 import BaseAutosuggest from "./BaseAutosuggest";
@@ -25,11 +25,7 @@ export type CommonProps = (
     errorLabel?: string;
     helpLabel?: string;
     variant?: "large" | "medium" | "small";
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     placeholder?: string;
     noHitsMessage?: ReactNode;
     maxNumberOfHits?: number;

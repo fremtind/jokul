@@ -76,7 +76,7 @@ const Skjemavalideringseksempel: FC = () => {
                     Velg variant
                 </ToggleSlider>
             </div>
-            <div data-compactlayout={value === "Kompakt" ? "true" : undefined}>
+            <div data-layout-density={value === "Kompakt" ? "compact" : undefined}>
                 <form onSubmit={handleSubmit(onSubmit, onError)}>
                     <div
                         className="jkl-portal-scroll-anchor"

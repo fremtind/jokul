@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React from "react";
 import { SkeletonElement, SkeletonElementProps } from "./SkeletonElement";
@@ -5,11 +6,7 @@ import { SkeletonLabel, SkeletonLabelProps } from "./SkeletonLabel";
 
 export interface SkeletonRadioButtonGroupProps {
     className?: string;
-    /**
-     * Skal bare brukes i informasjonstette applikasjoner.
-     * @default false
-     */
-    compact?: boolean;
+    density?: Density;
     labelProps?: SkeletonLabelProps;
     inputProps?: SkeletonElementProps;
     radioButtons: number;
@@ -18,19 +15,15 @@ export interface SkeletonRadioButtonGroupProps {
 export const SkeletonRadioButtonGroup = ({
     className,
     radioButtons,
-    compact,
+    density,
     labelProps,
     inputProps,
     ...rest
 }: SkeletonRadioButtonGroupProps) => {
+    const compact = density === "compact";
     return (
-        <div
-            className={cn("jkl-skeleton-input", className, {
-                "jkl-skeleton-input--compact": compact,
-            })}
-            {...rest}
-        >
-            <SkeletonLabel compact={compact} {...labelProps} />
+        <div className={cn("jkl-skeleton-input", className)} {...rest}>
+            <SkeletonLabel density={density} {...labelProps} />
             {Array.from(Array(radioButtons)).map((_, index) => (
                 <div key={`jkl-skeleton-checkbox-${index}`} className="jkl-skeleton-input__checkbox">
                     <SkeletonElement
