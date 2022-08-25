@@ -318,7 +318,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
 
                 const listElement = dropdownRef.current;
                 if (listElement) {
-                    focusSelected(listElement, selectedValue);
+                    if (isSearchable) {
+                        // Flytt fokus til det første elementet i listen, ikke det forrige valgte.
+                        // Ved endring i filter er det ikke gitt at vi ønsker å ta utgangspunkt i
+                        // den valgte verdien.
+                        focusSelected(listElement, undefined);
+                    } else {
+                        focusSelected(listElement, selectedValue);
+                    }
                 }
             } else if (e.key === "Escape") {
                 e.preventDefault();
@@ -333,7 +340,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 }
             }
         },
-        [setShown, dropdownRef, selectedValue],
+        [setShown, dropdownRef, selectedValue, isSearchable],
     );
 
     // onKeyDown so this Tab listener isn't triggered by tabbing from search field to option
