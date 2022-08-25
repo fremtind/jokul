@@ -318,7 +318,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
 
                 const listElement = dropdownRef.current;
                 if (listElement) {
-                    focusSelected(listElement, selectedValue);
+                    if (isSearchable) {
+                        // Flytt fokus til det første elementet i listen, ikke det forrige valgte.
+                        // Ved endring i filter er det ikke gitt at vi ønsker å ta utgangspunkt i
+                        // den valgte verdien.
+                        focusSelected(listElement, undefined);
+                    } else {
+                        focusSelected(listElement, selectedValue);
+                    }
                 }
             } else if (e.key === "Escape") {
                 e.preventDefault();
@@ -333,7 +340,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 }
             }
         },
-        [setShown, dropdownRef, selectedValue],
+        [setShown, dropdownRef, selectedValue, isSearchable],
     );
 
     // onKeyDown so this Tab listener isn't triggered by tabbing from search field to option
@@ -484,29 +491,36 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     aria-labelledby={labelId}
                     tabIndex={-1}
                 >
-                    {visibleItems.map((item, i) => (
-                        <button
-                            key={`${listId}-${item.value}`}
-                            hidden={!item.visible}
-                            type="button"
-                            id={`${listId}__${toLower(item.value)}`}
-                            className="jkl-select__option"
-                            data-testid="jkl-select__option"
-                            aria-selected={item.value === selectedValue}
-                            role="option"
-                            value={item.value}
-                            data-testautoid={`jkl-select__option-${i}`}
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
-                            onKeyDown={handleOptionOnKeyDown}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                selectOption(item);
-                            }}
-                        >
-                            {item.label}
-                        </button>
-                    ))}
+                    {visibleItems.map((item, i) =>
+                        // Det er viktig at vi _fjerner_ elementer som ikke er synlige fra DOMen for at tastaturnavigasjon skal fungere.
+                        // For eksempel, hvis vi har elementene Apple, Samsung og LG i den rekkefølgen og søker etter "l"
+                        // vil Samsung ikke synes. Om vi bare setter hidden-attributtet på Samsung vil ArrowDown fra Apple ikke fungere.
+                        // Dette lar seg ikke gjenskape i en enhetstest med JSDOM + user-events, og Cypress lukker Select
+                        // ved første {downArrow} ¯\_(ツ)_/¯. Så please test scenariet over manuelt om dette skaper trøbbel for deg.
+                        item.visible ? (
+                            <button
+                                key={`${listId}-${item.value}`}
+                                hidden={!item.visible}
+                                type="button"
+                                id={`${listId}__${toLower(item.value)}`}
+                                className="jkl-select__option"
+                                data-testid="jkl-select__option"
+                                aria-selected={item.value === selectedValue}
+                                role="option"
+                                value={item.value}
+                                data-testautoid={`jkl-select__option-${i}`}
+                                onBlur={handleBlur}
+                                onFocus={handleFocus}
+                                onKeyDown={handleOptionOnKeyDown}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    selectOption(item);
+                                }}
+                            >
+                                {item.label}
+                            </button>
+                        ) : null,
+                    )}
                 </div>
                 <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
             </div>
