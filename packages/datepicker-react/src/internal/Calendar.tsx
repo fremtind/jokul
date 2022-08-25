@@ -1,4 +1,3 @@
-import { Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { NativeSelect } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
@@ -20,7 +19,6 @@ interface CalendarProps
     monthLabel?: string;
     yearLabel?: string;
     extended?: boolean;
-    density?: Density;
     onTabOutside: React.KeyboardEventHandler;
 }
 
@@ -44,7 +42,6 @@ const defaultDays = ["man", "tir", "ons", "tor", "fre", "lør", "søn"];
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) => {
     const {
         extended,
-        density,
         hidden,
         date,
         defaultSelected,
@@ -297,7 +294,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             variant="small"
                             onChange={handleYearChange}
                             value={extendedYear}
-                            density={density}
                         />
                         <NativeSelect
                             className="jkl-calendar__month-selector"
@@ -310,7 +306,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             variant="small"
                             value={extendedMonth}
                             onChange={handleMonthChange}
-                            density={density}
                             width="auto"
                         />
                     </div>
