@@ -22,7 +22,7 @@
     --jkl-expand-button-arrow-width: #{jkl.rem(16px)};
 }
 
-@include jkl.compact-mode {
+@include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-expand-button", "small");
 
     --jkl-expand-button-arrow-width: #{jkl.rem(14px)};
