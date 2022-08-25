@@ -12,6 +12,20 @@ $_tag-background-color--error: colors.varslingsfarge("feil");
 $_tag-background-color--info: colors.varslingsfarge("info");
 $_tag-background-color--warning: colors.varslingsfarge("advarsel");
 
+@include jkl.comfortable-density-variables {
+    --jkl-tag-padding: #{jkl.$spacing-3xs} #{jkl.rem(6px)};
+    --jkl-tag-dismiss-margin: #{jkl.rem(1px)} #{jkl.rem(-4px)} 0 0;
+
+    @include jkl.from-medium-device {
+        --jkl-tag-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-xs};
+        --jkl-tag-dismiss-margin: #{jkl.rem(1px)} #{jkl.rem(-4px)} 0 #{jkl.$spacing-2xs};
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-tag-padding: 0 #{jkl.$spacing-3xs};
+}
+
 .jkl-tag {
     @include jkl.text-style("heading-5");
     background-color: $_tag-background-color;
@@ -66,9 +80,6 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
         background-color: transparent;
         cursor: pointer;
         color: inherit;
-        margin-left: 0;
-        margin-right: jkl.rem(-4px);
-        margin-top: jkl.rem(1px);
 
         & > .jkl-icon-button__icon {
             @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
@@ -107,17 +118,5 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
             border: revert;
             background-color: revert;
         }
-    }
-
-    @include jkl.from-medium-device {
-        padding: jkl.$spacing-2xs jkl.$spacing-xs;
-
-        .jkl-tag__dismiss-action {
-            margin-left: jkl.$spacing-2xs;
-        }
-    }
-
-    @include jkl.compact-mode {
-        padding: 0 jkl.$spacing-3xs;
     }
 }
