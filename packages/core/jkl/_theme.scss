@@ -55,14 +55,6 @@
     }
 }
 
-@mixin compact-mode {
-    &--compact,
-    &[data-density="compact"],
-    [data-layout-density="compact"] & {
-        @content;
-    }
-}
-
 /// Brukes til å overstyre stiler for bruk i Forced Colors-modus.
 /// Her vil du typisk legge til fallbacks for manglende box-shadow,
 /// som for eksempel `outline: revert;` og `border: revert;`,
