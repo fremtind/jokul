@@ -319,7 +319,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                         yearLabel={yearLabel}
                         hidden={!showCalendar}
                         extended={extended}
-                        density={density}
                         onDateSelected={handleClickCalendarDay}
                         onTabOutside={handleTabOutsideCalendar}
                     />

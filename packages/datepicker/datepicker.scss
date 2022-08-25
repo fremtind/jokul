@@ -61,14 +61,8 @@
 
 $_date-width: jkl.rem(40px);
 $_date-spacing: jkl.rem(4px);
-$_compact-date-width: jkl.rem(26px);
-$_compact-date-spacing: jkl.rem(4px);
-
 $_calendar-padding: jkl.$spacing-l;
-$_compact-calendar-padding: jkl.$spacing-xs;
-
 $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-padding * 2);
-$_compact-calendar-width: ($_compact-date-width * 7) + ($_compact-date-spacing * 6) + ($_compact-calendar-padding * 2);
 
 @include jkl.light-mode-variables {
     --jkl-calendar-text-color: #{jkl.$color-granitt};
@@ -347,50 +341,6 @@ $_compact-calendar-width: ($_compact-date-width * 7) + ($_compact-date-spacing *
         @include jkl.keyboard-navigation {
             &:focus::before {
                 box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-calendar-focus-color);
-            }
-        }
-    }
-
-    @include jkl.compact-mode {
-        max-width: $_compact-calendar-width;
-
-        .jkl-calendar__year-navigation {
-            margin-bottom: jkl.$spacing-m;
-        }
-
-        .jkl-calendar__year-selector {
-            margin-right: jkl.$spacing-s;
-        }
-
-        .jkl-calendar__padding {
-            padding: $_compact-calendar-padding;
-        }
-
-        .jkl-calendar__month-button {
-            @include jkl.text-style("small");
-            width: jkl.rem(24px);
-        }
-
-        caption {
-            @include jkl.text-style("small");
-            margin-bottom: jkl.$spacing-m;
-        }
-
-        td + td,
-        th + th {
-            padding-left: jkl.$spacing-3xs; // space between columns
-        }
-
-        tr + tr > td {
-            padding-top: jkl.$spacing-3xs; // space between rows
-        }
-
-        td button {
-            height: $_compact-date-width;
-            width: $_compact-date-width;
-
-            @include jkl.text-style("small") {
-                line-height: $_compact-date-width;
             }
         }
     }
