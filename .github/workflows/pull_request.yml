@@ -276,7 +276,7 @@ jobs:
             PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
         steps:
             - name: Add a comment with a link to the preview
-              uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
+              uses: marocchino/sticky-pull-request-comment@39c5b5dc7717447d0cba270cd115037d32d28443
               with:
                   header: preview
                   GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
@@ -322,7 +322,7 @@ jobs:
                   yarn gh-pages --add --dist portal/public --dest ${{ env.PREVIEW_PATH }} --message "docs: preview #${{ github.event.number }}"
 
             - name: Add a comment with a link to the preview
-              uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
+              uses: marocchino/sticky-pull-request-comment@39c5b5dc7717447d0cba270cd115037d32d28443
               with:
                   header: preview
                   GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
