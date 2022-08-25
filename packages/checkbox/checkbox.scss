@@ -55,7 +55,7 @@
     }
 }
 
-@include jkl.compact-mode {
+@include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-checkbox", "small");
 
     $_checkbox-height--compact: jkl.rem(28px);
