@@ -47,10 +47,10 @@ context("Radio button", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.setCompact();
+                cy.setDensity("compact");
             },
             teardown: () => {
-                cy.resetCompact();
+                cy.setDensity("comfortable");
             },
             eq: fantDuFram,
         });

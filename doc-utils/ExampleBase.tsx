@@ -133,19 +133,11 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                         variant="small"
                         className="jkl-portal-component-example__example-options-header"
                     >
-                        <Checkbox
-                            name={`${uid}-dark-mode`}
-                            value="Dark mode"
-                            checked={theme === "dark"}
-                            onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-                        >
-                            Dark mode
-                        </Checkbox>
                         <RadioButtonGroup
                             className="jkl-portal-component-example__example-options-header"
                             variant="small"
                             name={`${uid}-theme`}
-                            legend="Theme"
+                            legend="Tema"
                             value={theme}
                             labelProps={{ variant: "small" }}
                             onChange={(e) => setTheme(e.target.value as ColorScheme)}
@@ -157,7 +149,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                             className="jkl-portal-component-example__example-options-header"
                             variant="small"
                             name={`${uid}-density`}
-                            legend="Density"
+                            legend="Tetthet"
                             value={density}
                             labelProps={{ variant: "small" }}
                             onChange={(e) => setDensity(e.target.value as Density)}
