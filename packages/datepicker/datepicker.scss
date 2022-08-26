@@ -139,7 +139,7 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
 
     @include jkl.small-device {
         &__padding {
-            padding: $_calendar-padding $_compact-calendar-padding;
+            padding: $_calendar-padding jkl.$spacing-xs;
         }
     }
 
@@ -307,8 +307,8 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
 
         &[data-adjacent="true"] {
             padding: 0; // reset vertical alignment of text
-            @include jkl.text-style("small") {
-                line-height: $_compact-date-width;
+            @include jkl.text-style("small/large-screen") {
+                line-height: jkl.rem(40px);
             }
             color: var(--jkl-calendar-adjacent-month-color);
         }
