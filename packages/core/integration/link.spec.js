@@ -17,10 +17,10 @@ describe("Link", () => {
 
             cy.takeSnapshots({
                 setup: () => {
-                    cy.setCompact();
+                    cy.setDensity("compact");
                 },
                 teardown: () => {
-                    cy.resetCompact();
+                    cy.setDensity("comfortable");
                 },
                 eq: component,
             });
@@ -38,11 +38,11 @@ describe("Link", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.setCompact();
+                cy.setDensity("compact");
                 cy.get('input[value="Back"]').check();
             },
             teardown: () => {
-                cy.resetCompact();
+                cy.setDensity("comfortable");
                 cy.get('input[value="Back"]').uncheck();
             },
             eq: navLink,

@@ -38,11 +38,11 @@ describe("Checkbox", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.setCompact();
+                cy.setDensity("compact");
                 cy.checkInput("checklist");
             },
             teardown: () => {
-                cy.resetCompact();
+                cy.setDensity("comfortable");
             },
         });
     });
