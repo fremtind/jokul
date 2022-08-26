@@ -3,6 +3,7 @@ import * as alertMessageReact from "@fremtind/jkl-alert-message-react";
 import * as breadcrumbReact from "@fremtind/jkl-breadcrumb-react";
 import * as buttonReact from "@fremtind/jkl-button-react";
 import * as cardReact from "@fremtind/jkl-card-react";
+import { NavCard } from "@fremtind/jkl-card-react";
 import * as checkboxReact from "@fremtind/jkl-checkbox-react";
 import * as contentToggleReact from "@fremtind/jkl-content-toggle-react";
 import * as coockieConsentReact from "@fremtind/jkl-cookie-consent-react";
@@ -70,14 +71,11 @@ const scope = {
     ...buttonReact,
 };
 
-const defaultCode = `<PrimaryButton
-                        forceCompact={false}
-                        loader={false}
-                        className="jkl-spacing-l--right"
-
-                    >
-                        Lagre og send inn
-                    </PrimaryButton>`;
+const defaultCode = `
+    <h2 className="jkl-heading-2 jkl-spacing-s--bottom">Velkommen hit</h2>
+    <p>Her kan du teste Jøkuls komponenter direkte i nettleseren.</p>
+    <p>Bare finn komponenten du vil teste blant Jøkuls komponenter, og lim inn koden i tekstfeltet.</p>
+`;
 
 export const Head: FC = () => <Seo title={pageTitle} />;
 
@@ -87,6 +85,11 @@ const Lekegrind: FC = () => {
     const handleChange = (newCode: string) => {
         setCode(newCode);
     };
+
+    const transformCode = (code: string) => {
+        return `<div data-hallo>${code}</div>`;
+    };
+
     return (
         <motion.main
             initial={{ opacity: 0 }}
@@ -97,11 +100,16 @@ const Lekegrind: FC = () => {
         >
             <PageTitle>{pageTitle}</PageTitle>
 
-            <LiveProvider code={code?.trim()} scope={scope}>
-                <LiveEditor onChange={handleChange} />
+            <LiveProvider code={code?.trim()} scope={scope} transformCode={transformCode}>
+                <div className="jkl-spacing-l--bottom">
+                    <LiveEditor onChange={handleChange} />
+                </div>
                 <LiveError />
-                <LivePreview />
+                <div className="jkl-spacing-2xl--bottom">
+                    <LivePreview />
+                </div>
             </LiveProvider>
+            <NavCard href="/komponenter/card" padding="l" target="_blank" title="Jøkul-komponenter" />
         </motion.main>
     );
 };
