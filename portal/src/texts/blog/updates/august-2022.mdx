@@ -1,0 +1,77 @@
+---
+title: Høydepunkter fra august 2022
+author: William Killerud
+publishDate: "2022.08.26"
+---
+
+<Ingress>Her er høydepunktene fra Jøkul i august.</Ingress>
+
+-   Figma-biblioteket er bygget opp fra bunnen av med rykende ferske Figma-features
+-   Select har fått et oppdatert design basert på farger, uten ikoner
+-   Animasjonsverdier (easingkurver og varigheter) er dokumentert i Figma
+-   Fokusringen rundt lenker for tastaturbrukere har blitt litt mer luftig
+
+Og en drøss med mindre forbedringer og feilrettinger.
+
+Ellers jobber Jøkul-teamet med å lande nytt design for kompakte varianter av komponenter i kode. Et førsteutkast er allerede ute i Figma-verden, så det er muligheter for å bli med på designfinpussen om du vil.
+
+## Nytt Figma-bibliotek
+
+![Skjermbilde fra Figma-området for det nye Jøkul-biblioteket. Fire Figma-filer er synlige: Patterns, Components, Assets og Docs. Ikke synlig er to Figma-filer: Core og Team Kits.](/assets/blog/updates/august-2022/aug22-figboost.png)
+
+August startet med [store Figma-nyheter](/blog/figboost/). Vi lanserte et flunkende nytt bibliotek som har vært underveis lenge. Det nye biblioteket bygger opp kopmonenter og mønstre fra bunnen av. [Component properties](https://help.figma.com/hc/en-us/articles/5579474826519-Create-and-use-component-properties) og [slot components](https://twitter.com/Ridderingand/status/1527393687960842253) er tatt i bruk for å forbedre brukeropplevelsen og gjøre det enklere å vedlikeholde Figma-biblioteket.
+
+### Si ifra om noe ikke funker
+
+Biblioteket har blitt noen uker gammelt, men siden det er bygget på nytt fra bunnen av kan det hende noen ting ikke fungerer helt som det skal.
+
+Det er viktig at du sier ifra enten direkte til Øyvind Nordbø, eller i kanalen Support Designsystem på Teams, hvis du finner feil.
+
+## Oppdatert Select-design
+
+![Skjermopptak som viser designendringene i Select. I opptaket åpnes en Select-komponent, og det navigeres med piltaster for å markere tre ulike elementer. Det markerte elementet får en annen bakgrunnsfarge.](/assets/blog/updates/august-2022/aug22-select-design-changes.gif)
+
+Select fikk et oppdatert design i august. Pila i komponenten var årsaken til [en bug](https://github.com/fremtind/jokul/issues/3001), som gjorde at vi ønsket å fjerne den. Tidligere hadde også [checkmark skapt problemer](https://github.com/fremtind/jokul/pull/2995). Derfor ville vi heller bruke Fremtind-farger for å vise tilstanden i komponenten.
+
+Du kan teste det nye designet på [Select-siden under Komponenter](https://jokul.fremtind.no/komponenter/select).
+
+## Animasjonsverdier
+
+De ulike easingkurvene og varighetene vi bruker i animasjoner i Jøkul er blitt dokumentert i Figma. Du finner dem i [Core-fila](https://www.figma.com/file/F65UrpWc7JsWYhDJgMD8F8/Core?node-id=0%3A1) på siden Design Tokens, under overskriften Animasjon.
+
+## Diverse bugfikser og forbedringer
+
+### Figma
+
+-   Fikset TaskCard sin auto-layout så innholdskomponenter wrapper både i bredden og høyden.
+-   Table/Table Cell har fått en egen slot component.
+-   Checkbox sin Check er nå en frittstående koponent du kan bruke i slots og liknende.
+
+### GitHub
+
+-   Ryddet opp installasjons- og bruksveiledninger i READMEs ([#2979](https://github.com/fremtind/jokul/pull/2979)).
+-   Gjør tabelloverskrifter u-sticky som utgangspunkt ([#2990](https://github.com/fremtind/jokul/pull/2990)).
+-   Endre metode for å finne ut om relatedTarget er utenfor datovelgeren ([#2998](https://github.com/fremtind/jokul/pull/2998), [#3012](https://github.com/fremtind/jokul/pull/3012), [#3024](https://github.com/fremtind/jokul/pull/3024)).
+-   La til `date-fns` som avhengighet i DatePicker ([#3003](https://github.com/fremtind/jokul/pull/3003)).
+-   Forbedret opplevelsen ved sletting av innhold i inputfelt med maske ([#3007](https://github.com/fremtind/jokul/pull/3007)).
+-   Oppdater intern state i ExpandButton ved endring av prop ([#3009](https://github.com/fremtind/jokul/pull/3009)).
+-   Tilbakestiller søketekst ved valg i Select ([#3013](https://github.com/fremtind/jokul/pull/3013), [#3017](https://github.com/fremtind/jokul/pull/3017)).
+-   La til `loading="lazy"` og `decoding="async"` på bilder ([#3014](https://github.com/fremtind/jokul/pull/3014)).
+-   Endret fokusring rundt lenker til outline med litt avstand ([#3015](https://github.com/fremtind/jokul/pull/3015), [#3018](https://github.com/fremtind/jokul/pull/3018)).
+-   Kortet ned animasjonstiden i hovedmenyen ([#3021](https://github.com/fremtind/jokul/pull/3021)).
+-   Dokumenter hvordan få listevisning av tabell på egendefinert skjermbredde ([#3030](https://github.com/fremtind/jokul/pull/3030)).
+-   Fiks navigasjon med piltaster forbi skjulte elementer i søkbar Select ([#3034](https://github.com/fremtind/jokul/pull/3034)).
+
+## Takk
+
+Takk til alle bidragsytere, både på GitHub og i Figma!
+
+-   JoMs
+-   daa1
+-   kennidenni
+-   paulinfrancis
+-   hegebjo
+-   Sven Håkon
+-   Joachim
+
+En stor takk også til alle som er med på designsystemforum!
