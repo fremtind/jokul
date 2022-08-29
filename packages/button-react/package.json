@@ -42,7 +42,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-button": "^8.0.11",
-        "@fremtind/jkl-constants-util": "^1.0.2",
+        "@fremtind/jkl-icons-react": "^5.0.12",
         "@fremtind/jkl-loader-react": "^8.0.11",
         "classnames": "^2.2.6"
     },

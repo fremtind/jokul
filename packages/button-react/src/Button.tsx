@@ -1,4 +1,4 @@
-import { unicode } from "@fremtind/jkl-constants-util";
+import { ArrowLeft, ArrowRight } from "@fremtind/jkl-icons-react";
 import { Loader } from "@fremtind/jkl-loader-react";
 import cn from "classnames";
 import React, { forwardRef, TouchEvent, useCallback } from "react";
@@ -29,7 +29,10 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
             <BaseButton
                 aria-live="polite"
                 data-density={density}
-                className={cn("jkl-button", "jkl-button--" + buttonType, className)}
+                className={cn("jkl-button", "jkl-button--" + buttonType, className, {
+                    "jkl-button--left-arrow": arrow === "left",
+                    "jkl-button--right-arrow": arrow === "right",
+                })}
                 disabled={loader?.showLoader}
                 onClick={onClick}
                 onTouchStart={handleTouch}
@@ -42,9 +45,9 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                             "jkl-button__slider--show-loader": !!loader?.showLoader,
                         })}
                     >
-                        {arrow === "left" && <span aria-hidden>{unicode.LEFTWARDS_ARROW} </span>}
-                        {children}
-                        {arrow === "right" && <span aria-hidden> {unicode.RIGHTWARDS_ARROW}</span>}
+                        {arrow === "left" && <ArrowLeft className="jkl-button__arrow" bold />}
+                        <span className="jkl-button__children">{children}</span>
+                        {arrow === "right" && <ArrowRight className="jkl-button__arrow" bold />}
 
                         {loader && (
                             <div className="jkl-button__loader">
