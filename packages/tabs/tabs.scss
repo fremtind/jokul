@@ -17,13 +17,13 @@
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-tab", "body");
 
-    --jkl-tab-padding: #{jkl.$spacing-xs} #{jkl.$spacing-xl} #{jkl.$spacing-xs} #{jkl.$spacing-3xs};
+    --jkl-tab-padding: #{jkl.$spacing-xs} #{jkl.$spacing-xl} #{jkl.$spacing-s} #{jkl.$spacing-3xs};
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-tab", "small");
 
-    --jkl-tab-padding: #{jkl.$spacing-3xs} #{jkl.rem(32px)} #{jkl.$spacing-3xs} 0;
+    --jkl-tab-padding: #{jkl.$spacing-3xs} #{jkl.rem(32px)} #{jkl.$spacing-2xs} 0;
 }
 
 .jkl-tablist {

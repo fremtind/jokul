@@ -7,8 +7,8 @@
 $_text-input-height: jkl.rem(48px);
 $_text-input-height--mobile: jkl.rem(44px);
 $_text-input-height--compact: jkl.rem(32px);
-$_text-input-padding: jkl.$spacing-xs jkl.$spacing-s;
-$_text-input-padding--compact: jkl.rem(3px) jkl.rem(4px);
+$_text-input-padding: jkl.$spacing-xs jkl.$spacing-xs jkl.$spacing-xs jkl.$spacing-s;
+$_text-input-padding--compact: jkl.$spacing-2xs jkl.$spacing-2xs jkl.$spacing-2xs jkl.rem(6px);
 
 $_action-button-size: jkl.rem(48px);
 $_action-button-size--mobile: jkl.rem(44px);

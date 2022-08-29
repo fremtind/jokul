@@ -16,9 +16,9 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 @include jkl.comfortable-density-variables {
     --jkl-alert-message-icon-height: #{jkl.rem(18px)};
     --jkl-alert-message-icon-padding: #{jkl.rem(7px)} 0 0 0;
-    --jkl-alert-message-content-padding: #{jkl.$spacing-m};
+    --jkl-alert-message-content-padding: #{jkl.$spacing-l};
     --jkl-alert-message-dismiss-button-size: #{jkl.rem(44px)};
-    --jkl-alert-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(12px)} -#{jkl.rem(6.5px)} auto;
+    --jkl-alert-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)} auto;
     --jkl-alert-message-message-margin: 0 #{jkl.$spacing-m};
     @include jkl.declare-font-variables("jkl-alert-message-message", "body");
 }
@@ -28,7 +28,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     --jkl-alert-message-icon-padding: #{jkl.rem(5px)} 0 0 #{jkl.rem(2px)};
     --jkl-alert-message-content-padding: #{jkl.$spacing-xs};
     --jkl-alert-message-dismiss-button-size: #{jkl.rem(32px)};
-    --jkl-alert-message-dismiss-button-margin: -#{jkl.rem(4.5px)} -#{jkl.rem(8px)} -#{jkl.rem(4.5px)} auto;
+    --jkl-alert-message-dismiss-button-margin: -#{jkl.rem(3px)} -#{jkl.rem(6px)} -#{jkl.rem(4.5px)} auto;
     --jkl-alert-message-message-margin: 0 #{jkl.$spacing-s};
     @include jkl.declare-font-variables("jkl-alert-message-message", "small");
 }

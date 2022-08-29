@@ -12,18 +12,24 @@ export const TabsExample: FC<ExampleComponentProps> = () => {
                 <Tab>Bedriftansvarlige</Tab>
                 <Tab>Rådgivere</Tab>
             </TabList>
-            <TabPanel>Innhold for Bedrifter</TabPanel>
-            <TabPanel>Innhold for Bedriftansvarlige</TabPanel>
             <TabPanel>
-                Innhold for Rådgivere
-                <Tabs>
-                    <TabList aria-label="subtabs">
-                        <Tab>Bedrift AS</Tab>
-                        <Tab>Alternativ AS</Tab>
-                    </TabList>
-                    <TabPanel className="jkl-spacing-m--all">Innhold for Bedrift AS</TabPanel>
-                    <TabPanel className="jkl-spacing-m--all">Innhold for Alternativ AS</TabPanel>
-                </Tabs>
+                <div className="jkl-spacing-m--all">Innhold for Bedrifter</div>
+            </TabPanel>
+            <TabPanel>
+                <div className="jkl-spacing-m--all">Innhold for Bedriftansvarlige</div>
+            </TabPanel>
+            <TabPanel>
+                <div className="jkl-spacing-m--all">
+                    Innhold for Rådgivere
+                    <Tabs>
+                        <TabList aria-label="subtabs">
+                            <Tab>Bedrift AS</Tab>
+                            <Tab>Alternativ AS</Tab>
+                        </TabList>
+                        <TabPanel className="jkl-spacing-m--all">Innhold for Bedrift AS</TabPanel>
+                        <TabPanel className="jkl-spacing-m--all">Innhold for Alternativ AS</TabPanel>
+                    </Tabs>
+                </div>
             </TabPanel>
         </Tabs>
     );

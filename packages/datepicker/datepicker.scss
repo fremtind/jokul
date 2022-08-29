@@ -59,11 +59,6 @@
 
 // CALENDAR STYLES
 
-$_date-width: jkl.rem(40px);
-$_date-spacing: jkl.rem(4px);
-$_calendar-padding: jkl.$spacing-l;
-$_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-padding * 2);
-
 @include jkl.light-mode-variables {
     --jkl-calendar-text-color: #{jkl.$color-granitt};
     --jkl-calendar-background-color: #{jkl.$color-hvit};
@@ -90,13 +85,47 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
     --jkl-calendar-selected-date-background-color: #{jkl.$color-snohvit};
 }
 
+@include jkl.comfortable-density-variables {
+    --jkl-calendar-date-size: #{jkl.rem(38px)};
+    --jkl-calendar-date-spacing: #{jkl.$spacing-2xs};
+    --jkl-calendar-padding: #{jkl.$spacing-l};
+    --jkl-calendar-max-width: calc(
+        calc(var(--jkl-calendar-date-size) * 7) + calc(var(--jkl-calendar-date-spacing) * 6) +
+            calc(var(--jkl-calendar-padding) * 2)
+    );
+    --jkl-calendar-date-font-size: var(--jkl-body-font-size);
+    --jkl-calendar-date-font-weight: var(--jkl-body-font-weight);
+    --jkl-calendar-date-line-height: var(--jkl-calendar-date-size);
+    --jkl-calendar-adjacent-date-font-size: var(--jkl-small-font-size);
+    --jkl-calendar-adjacent-date-font-weight: var(--jkl-small-font-weight);
+    --jkl-calendar-adjacent-date-line-height: var(--jkl-calendar-date-size);
+
+    @include jkl.small-device {
+        --jkl-calendar-date-size: #{jkl.rem(36px)};
+        --jkl-calendar-padding: #{jkl.$spacing-m};
+    }
+
+    // Custom tweaks for iPhone SE
+    @include jkl.screen-to(375px) {
+        --jkl-calendar-date-size: #{jkl.rem(32px)};
+        --jkl-calendar-padding: #{jkl.$spacing-s};
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-calendar-date-size: #{jkl.rem(32px)};
+    --jkl-calendar-padding: #{jkl.$spacing-m};
+    --jkl-calendar-date-font-size: var(--jkl-small-font-size);
+    --jkl-calendar-date-font-weight: var(--jkl-small-font-weight);
+}
+
 .jkl-calendar {
     // hard code for CSP blocking inline styling
     display: block;
 
     justify-content: center;
     flex-direction: column;
-    max-width: $_calendar-width;
+    max-width: var(--jkl-calendar-max-width);
     background-color: var(--jkl-calendar-background-color);
     color: var(--jkl-calendar-text-color);
     border-radius: 3px;
@@ -129,23 +158,12 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
     }
 
     &__padding {
-        padding: $_calendar-padding;
+        padding: var(--jkl-calendar-padding);
         box-sizing: border-box;
 
         @include jkl.forced-colors-mode {
             border: 1px solid CanvasText;
         }
-    }
-
-    @include jkl.small-device {
-        &__padding {
-            padding: $_calendar-padding jkl.$spacing-xs;
-        }
-    }
-
-    // Custom tweaks for iPhone SE
-    @include jkl.screen-to(375px) {
-        max-width: 19.5rem;
     }
 
     // Navigation in normal non-extended mode
@@ -272,6 +290,7 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
     }
 
     td button {
+        @include jkl.use-font-variables("jkl-calendar-date");
         @include jkl.reset-outline;
         appearance: none;
         position: relative;
@@ -280,15 +299,12 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        height: $_date-width;
-        width: $_date-width;
+        height: var(--jkl-calendar-date-size);
+        width: var(--jkl-calendar-date-size);
         border-radius: 50%;
         background-color: transparent;
         color: var(--jkl-calendar-text-color);
 
-        @include jkl.text-style("body") {
-            line-height: jkl.rem(40px);
-        }
         padding: 0;
         padding-top: jkl.$spacing-3xs; // adjust visual alignment of text
         @include jkl.motion("entrance", "energetic");
@@ -306,10 +322,8 @@ $_calendar-width: ($_date-width * 7) + ($_date-spacing * 6) + ($_calendar-paddin
         }
 
         &[data-adjacent="true"] {
+            @include jkl.use-font-variables("jkl-calendar-adjacent-date");
             padding: 0; // reset vertical alignment of text
-            @include jkl.text-style("small/large-screen") {
-                line-height: jkl.rem(40px);
-            }
             color: var(--jkl-calendar-adjacent-month-color);
         }
 
