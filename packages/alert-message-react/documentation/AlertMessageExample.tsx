@@ -43,7 +43,8 @@ export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValue
         : undefined;
 
     return (
-        <C dismissed={dismissed} dismissAction={dismissAction}>
+        // Role beregnes vanligvis av komponenten, men er overstyrt her i eksempelet for å unngå at beskjeden leses opp utenfor konteksten av eksempelet.
+        <C dismissed={dismissed} dismissAction={dismissAction} role="none presentation">
             Hei, jeg er en varslingsmelding av typen {choiceValues ? choiceValues["Variant"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
             <NavLink href="/komponenter/alertmessage">en navlink</NavLink>
         </C>

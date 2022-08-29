@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.20 (2022-08-25)
+
+### Bug Fixes
+
+-   ikke flytt fokus til forrige valgte ved pil ned i søkbar select ([51eaad7](https://github.com/fremtind/jokul/commit/51eaad7e0a311a40d9d812a5127809755e9bbef5))
+-   navigasjon med piltast forbi skjulte elementer ([89375e1](https://github.com/fremtind/jokul/commit/89375e135b39038a755babae4bb7493d0a98ff47))
+
 ## [10.0.18](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.17...@fremtind/jkl-select-react@10.0.18) (2022-08-17)
 
 ### Bug Fixes

@@ -47,6 +47,8 @@ export const MessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues,
             title={!boolValues?.["No title"] ? choiceValues?.["Variant"] : undefined}
             dismissed={dismissed}
             dismissAction={dismissAction}
+            // Role beregnes vanligvis av komponenten, men er overstyrt her i eksempelet for å unngå at beskjeden leses opp utenfor konteksten av eksempelet.
+            role="none presentation"
         >
             <p>
                 Hei, jeg er en melding av typen {choiceValues?.["Variant"]} med{" "}

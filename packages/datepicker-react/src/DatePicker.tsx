@@ -266,7 +266,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             })}
             {...rest}
             ref={datepickerRef}
-            tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
         >
             <Label standAlone {...labelProps} density={density} htmlFor={inputId}>
                 {label}
@@ -275,6 +274,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 data-testid="jkl-datepicker__input-wrapper"
                 className={cn("jkl-datepicker__input-wrapper jkl-text-input__input-wrapper")}
                 data-density={density}
+                tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
             >
                 <BaseInputField
                     ref={unifiedInputRef}
