@@ -1,5 +1,9 @@
 export type IconVariant = "inherit" | "small" | "medium" | "large";
 
+export interface ArrowIconProps extends IconProps {
+    bold?: boolean;
+}
+
 export interface IconProps {
     className?: string;
     variant?: IconVariant;
