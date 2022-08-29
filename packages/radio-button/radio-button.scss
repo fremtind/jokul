@@ -37,7 +37,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     --jkl-radio-button-size: #{$_radio-button-size};
     --jkl-radio-button-text-margin: #{(($_radio-button-height - $_radio-button-line-height) * 0.5)} 0;
     --jkl-radio-button-text-transform: translate3d(0, #{jkl.rem(1px)}, 0);
-    --jkl-radio-button-dot-margin: #{(($_radio-button-height - $_radio-button-size) * 0.5)} jkl.$spacing-xs #{(
+    --jkl-radio-button-dot-margin: #{(($_radio-button-height - $_radio-button-size) * 0.5)} #{jkl.$spacing-xs} #{(
             ($_radio-button-height - $_radio-button-size) * 0.5
         )} 0;
     --jkl-radio-button-dot-size: #{$_radio-button-size - (2 * $_radio-button-dot-padding)};
@@ -52,8 +52,8 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         --jkl-radio-button-size: #{$_mobile-radio-button-size};
         --jkl-radio-button-text-margin: #{(($_mobile-radio-button-height - $_mobile-radio-button-line-height) * 0.5)} 0;
         --jkl-radio-button-text-transform: translate3d(0, 0, 0);
-        --jkl-radio-button-dot-margin: #{(($_mobile-radio-button-height - $_mobile-radio-button-size) * 0.5)}
-            jkl.$spacing-xs #{(($_mobile-radio-button-height - $_mobile-radio-button-size) * 0.5)} 0;
+        --jkl-radio-button-dot-margin: #{(($_mobile-radio-button-height - $_mobile-radio-button-size) * 0.5)} #{jkl.$spacing-xs}
+            #{(($_mobile-radio-button-height - $_mobile-radio-button-size) * 0.5)} 0;
         --jkl-radio-button-dot-size: #{$_mobile-radio-button-size - (2 * $_radio-button-dot-padding)};
     }
 }
@@ -70,8 +70,8 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     --jkl-radio-button-size: #{$_compact-radio-button-size};
     --jkl-radio-button-text-margin: #{(($_compact-radio-button-height - $_compact-radio-button-line-height) * 0.5)} 0;
     --jkl-radio-button-text-transform: translate3d(0, 0, 0);
-    --jkl-radio-button-dot-margin: #{(($_compact-radio-button-height - $_compact-radio-button-size) * 0.5)}
-        jkl.$spacing-xs #{(($_compact-radio-button-height - $_compact-radio-button-size) * 0.5)} 0;
+    --jkl-radio-button-dot-margin: #{(($_compact-radio-button-height - $_compact-radio-button-size) * 0.5)} #{jkl.$spacing-xs}
+        #{(($_compact-radio-button-height - $_compact-radio-button-size) * 0.5)} 0;
     --jkl-radio-button-dot-size: #{$_compact-radio-button-size - (2 * $_radio-button-dot-padding)};
 }
 
