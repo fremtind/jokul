@@ -14,16 +14,15 @@
 
 @include jkl.comfortable-density-variables {
     --jkl-accordion-title-padding: #{jkl.$spacing-m};
-    --jkl-accordion-title-text-margin-left: #{jkl.rem(34px)};
+    --jkl-accordion-title-text-margin-left: #{jkl.rem(18px)};
     --jkl-accordion-content-padding: #{jkl.$spacing-m};
     @include jkl.declare-font-variables("jkl-accordion-title", "body");
     @include jkl.declare-font-variables("jkl-accordion-content", "body");
 }
 
 @include jkl.compact-density-variables {
-    --jkl-accordion-title-padding: #{jkl.$spacing-xs jkl.$spacing-s};
-    --jkl-accordion-title-text-margin-left: #{jkl.$spacing-l};
-    --jkl-accordion-content-padding: #{jkl.$spacing-xs jkl.$spacing-s};
+    --jkl-accordion-title-padding: #{jkl.$spacing-xs jkl.$spacing-m};
+    --jkl-accordion-content-padding: #{jkl.$spacing-xs jkl.$spacing-m};
     @include jkl.declare-font-variables("jkl-accordion-title", "small");
     @include jkl.declare-font-variables("jkl-accordion-content", "small");
 }
@@ -93,7 +92,7 @@
 
     &__arrow {
         position: absolute;
-        left: jkl.$spacing-s;
+        left: jkl.rem(10px);
         top: 50%;
         transform: translateY(-50%);
         color: inherit;
