@@ -1,13 +1,13 @@
 @use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
 
-$_loader-dot-size--large: jkl.rem(18px);
-$_loader-dot-size--medium: jkl.rem(7px);
-$_loader-dot-size--small: jkl.rem(5px);
+$_loader-dot-size--large: 0.9em;
+$_loader-dot-size--medium: 0.35em;
+$_loader-dot-size--small: 0.25em;
 
-$_loader-spacing--large: jkl.$spacing-xl;
-$_loader-spacing--medium: jkl.$spacing-s;
-$_loader-spacing--small: jkl.$spacing-xs;
+$_loader-spacing--large: 1.9em;
+$_loader-spacing--medium: 0.65em;
+$_loader-spacing--small: 0.3em;
 
 $_loader-animation-properties: 2500ms linear infinite;
 $_loader-left-animation-name: jkl-loader-left-spin-#{string.unique-id()};
