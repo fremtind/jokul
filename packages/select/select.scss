@@ -70,9 +70,9 @@ $_select-search-input-selection-color--inverted: color.scale(
     --jkl-select-line-height: #{jkl.rem(18px)};
     --jkl-select-input-height: #{jkl.rem(32px)};
     --jkl-select-arrow-right: #{jkl.$spacing-2xs};
-    --jkl-select-button-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-xs} #{jkl.$spacing-xs};
+    --jkl-select-button-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} #{jkl.$spacing-xs};
     --jkl-select-search-input-padding: #{jkl.$spacing-xs} #{jkl.$spacing-3xs};
-    --jkl-select-native-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} 0;
+    --jkl-select-native-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} #{jkl.$spacing-2xs};
     --jkl-select-option-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-3xs};
 }
 
