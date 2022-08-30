@@ -120,6 +120,10 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             + .jkl-radio-button__label {
                 color: var(--jkl-radio-button-focus-color);
 
+                & > .jkl-radio-button__dot {
+                    background-color: var(--jkl-radio-button-focus-background-color);
+                }
+
                 & > .jkl-radio-button__dot::before {
                     box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-radio-button-focus-color);
 
