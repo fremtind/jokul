@@ -14,7 +14,7 @@ import {
 } from "../src";
 
 export const FormattersExample: FC<ExampleComponentProps> = () => (
-    <DescriptionList className="jkl-body">
+    <DescriptionList>
         <DescriptionTerm>Fødselsnummer</DescriptionTerm>
         <DescriptionDetail>{formatFodselsnummer("01065100203")}</DescriptionDetail>
         <DescriptionTerm>Kortnummer</DescriptionTerm>
@@ -82,7 +82,7 @@ export const formattersExampleCode: CodeExample = `
     <DescriptionDetail>{formatNumber("1234567")}</DescriptionDetail>
     <DescriptionDetail>{formatNumber("12345,67")}</DescriptionDetail>
     <DescriptionTerm>Dato</DescriptionTerm>
-    <DescriptionDetail>{formatDate(new Date())}</DescriptionDetail>        
+    <DescriptionDetail>{formatDate(new Date())}</DescriptionDetail>
     <DescriptionTerm>Organisasjonsnummer</DescriptionTerm>
     <DescriptionDetail>{formatOrganisasjonsnummer("915651232")}</DescriptionDetail>
 </DescriptionList>
