@@ -11,7 +11,7 @@ export interface Props {
 
 export const SummaryTable: FC<Props> = ({ className, caption, header, body, footer, ...rest }) => {
     return (
-        <table {...rest} className={cn("jkl-summary-table", "jkl-body", className)}>
+        <table {...rest} className={cn("jkl-summary-table", className)}>
             {caption && <caption className="jkl-sr-only">{caption}</caption>}
 
             <thead className="jkl-sr-only">
