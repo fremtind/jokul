@@ -73,7 +73,7 @@ $_select-search-input-selection-color--inverted: color.scale(
     --jkl-select-button-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} #{jkl.$spacing-xs};
     --jkl-select-search-input-padding: #{jkl.$spacing-xs} #{jkl.$spacing-3xs};
     --jkl-select-native-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} #{jkl.$spacing-2xs};
-    --jkl-select-option-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-3xs};
+    --jkl-select-option-padding: #{jkl.$spacing-xs};
 }
 
 .jkl-select {
