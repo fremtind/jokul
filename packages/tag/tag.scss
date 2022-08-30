@@ -31,7 +31,7 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
     background-color: $_tag-background-color;
     border-radius: jkl.rem(4px);
     color: $_tag-text-color;
-    padding: jkl.$spacing-3xs jkl.rem(6px);
+    padding: var(--jkl-tag-padding);
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
@@ -80,6 +80,7 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
         background-color: transparent;
         cursor: pointer;
         color: inherit;
+        margin: var(--jkl-tag-dismiss-margin);
 
         & > .jkl-icon-button__icon {
             @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
