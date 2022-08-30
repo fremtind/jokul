@@ -111,6 +111,11 @@ $_slider-rounded: jkl.rem(100px);
     @include jkl.from-medium-device {
         flex-direction: row;
         align-items: center;
+
+        &__legend {
+            margin-bottom: 0;
+            margin-right: 1.2em;
+        }
     }
 
     @include jkl.forced-colors-mode {
