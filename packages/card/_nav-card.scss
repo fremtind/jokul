@@ -22,12 +22,7 @@
 }
 
 @include jkl.compact-density-variables {
-    --jkl-nav-card-content-wrapper-gap: #{jkl.$spacing-s};
     --jkl-nav-card-info-padding: #{jkl.$spacing-s} 0 0 0;
-    --jkl-nav-card-link-font-size: var(--jkl-heading-4-font-size);
-    --jkl-nav-card-link-line-height: var(--jkl-heading-4-line-height);
-    --jkl-nav-card-link-font-weight: #{jkl.$typography-weight-normal};
-    @include jkl.declare-font-variables("jkl-nav-card-content", "small");
 }
 
 .jkl-nav-card {
