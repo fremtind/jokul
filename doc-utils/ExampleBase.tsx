@@ -5,7 +5,7 @@ import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react"
 import { useId } from "@fremtind/jkl-react-hooks";
 import { Select } from "@fremtind/jkl-select-react";
 import cn from "classnames";
-import React, { useState, FC, useMemo } from "react";
+import React, { useState, FC, useMemo, useEffect } from "react";
 import { CodeBlock } from "./CodeBlock";
 import { CodeSection } from "./CodeSection";
 import { hyphenate } from "./internal/hypenate";
@@ -22,10 +22,35 @@ export interface Props {
     codeExample?: CodeExample;
 }
 
+function useLocalStorage<T>(key: string, defaultValue: T): [T, (newValue: T) => void] {
+    const [state, setState] = useState<T>(defaultValue);
+
+    useEffect(() => {
+        if (!localStorage) {
+            return;
+        }
+        const storedValue = localStorage.getItem(key);
+        if (storedValue) {
+            setState(JSON.parse(storedValue));
+        }
+        // Kjøres bare én gang ved oppstart
+    }, [key]);
+
+    useEffect(() => {
+        if (!localStorage) {
+            return;
+        }
+
+        localStorage.setItem(key, JSON.stringify(state));
+    }, [key, state]);
+
+    return [state, setState];
+}
+
 export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable }) => {
     const uid = useId("example");
-    const [theme, setTheme] = useState<ColorScheme>("light");
-    const [density, setDensity] = useState<Density>("comfortable");
+    const [theme, setTheme] = useLocalStorage<ColorScheme>("jkl-example-theme", "light");
+    const [density, setDensity] = useLocalStorage<Density>("jkl-example-density", "comfortable");
 
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>(
         knobs?.boolProps?.reduce((acc, boolProp) => {
