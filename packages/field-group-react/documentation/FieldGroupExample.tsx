@@ -23,7 +23,7 @@ export const FieldGroupExample: FC<ExampleComponentProps> = ({ boolValues, choic
             errorLabel={boolValues?.["Med feil"] ? "Feilmelding for feltene samlet" : undefined}
             className="jkl-spacing-2xl--bottom"
         >
-            <p className="jkl-body">her kan du sette inn innhold og felter</p>
+            <p>her kan du sette inn innhold og felter</p>
         </FieldGroup>
     );
 };
@@ -36,6 +36,6 @@ export const fieldGroupExampleCode: CodeExample = ({ boolValues, choiceValues })
     errorLabel=${boolValues?.["Med feil"] ? `"Feilmelding for feltene samlet"` : `{undefined}`}
     className="jkl-spacing-2xl--bottom"
 >
-    <p className="jkl-body">her kan du sette inn innhold og felter</p>
+    <p>her kan du sette inn innhold og felter</p>
 </FieldGroup>
 `;
