@@ -5,7 +5,7 @@
 }
 
 @mixin _link-outline {
-    outline: jkl.rem(1px) solid var(--jkl-link-active-color);
+    outline: jkl.rem(2px) solid var(--jkl-link-active-color);
     outline-offset: jkl.rem(2px);
 }
 
