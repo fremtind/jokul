@@ -46,14 +46,11 @@
     }
 
     &__address {
-        @include jkl.text-style("body");
         font-style: normal; // address får vanligvis italic font
         margin-top: jkl.$spacing-l;
     }
 
     &__links {
-        @include jkl.text-style("body");
-
         color: inherit;
 
         & ul {
