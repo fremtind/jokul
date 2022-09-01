@@ -37,6 +37,7 @@ export const NormalExample: FC = () => (
             <th className="jkl-typography-example-table__header">Utility-klasse</th>
         </tr>
         <ExampleRow text="Title" level="title" />
+        <ExampleRow text="Title Small" level="title-small" />
         <ExampleRow text="Heading 1" level="heading-1" />
         <ExampleRow text="Heading 2" level="heading-2" />
         <ExampleRow text="Heading 3" level="heading-3" />
@@ -54,6 +55,7 @@ export const SmallExample: FC = () => (
             <th className="jkl-typography-example-table__header">Mixin</th>
         </tr>
         <ExampleRow text="Title" level="title" type="small-screen" />
+        <ExampleRow text="Title Small" level="title-small" type="small-screen" />
         <ExampleRow text="Heading 1" level="heading-1" type="small-screen" />
         <ExampleRow text="Heading 2" level="heading-2" type="small-screen" />
         <ExampleRow text="Heading 3" level="heading-3" type="small-screen" />
@@ -71,6 +73,7 @@ export const LargeExample: FC = () => (
             <th className="jkl-typography-example-table__header">Mixin</th>
         </tr>
         <ExampleRow text="Title" level="title" type="large-screen" />
+        <ExampleRow text="Title Small" level="title-small" type="large-screen" />
         <ExampleRow text="Heading 1" level="heading-1" type="large-screen" />
         <ExampleRow text="Heading 2" level="heading-2" type="large-screen" />
         <ExampleRow text="Heading 3" level="heading-3" type="large-screen" />
