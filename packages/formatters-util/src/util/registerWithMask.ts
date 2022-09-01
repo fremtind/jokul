@@ -1,5 +1,12 @@
 import type { ChangeEvent, KeyboardEventHandler } from "react";
-import type { Path, PathValue, RegisterOptions, UseFormRegisterReturn, UseFormReturn } from "react-hook-form";
+import type {
+    FieldValues,
+    Path,
+    PathValue,
+    RegisterOptions,
+    UseFormRegisterReturn,
+    UseFormReturn,
+} from "react-hook-form";
 import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer";
 import { formatKontonummer } from "../kontonummer/formatKontonummer";
 import { formatKortnummer } from "../kortnummer/formatKortnummer";
@@ -17,11 +24,11 @@ const formatters = {
 };
 export type Formatter = keyof typeof formatters;
 
-export type RegisterWithMaskOptions<T> = Omit<RegisterOptions<T>, "setValueAs">;
+export type RegisterWithMaskOptions<T extends FieldValues> = Omit<RegisterOptions<T>, "setValueAs">;
 
 const registerWithMask =
     (formatter: Formatter) =>
-    <T>(form: UseFormReturn<T>, name: Path<T>, options?: RegisterWithMaskOptions<T>) => {
+    <T extends FieldValues>(form: UseFormReturn<T>, name: Path<T>, options?: RegisterWithMaskOptions<T>) => {
         let onKeyDownCaretPosition = 0;
         let onKeyDownKeyPressed = "";
 
@@ -97,22 +104,22 @@ export const registerWithKontonummerMask = registerWithMask("kontonummer");
 /** @deprecated Bruk `registerWithMasks` i stedet */
 export const registerWithTelefonnummerMask = registerWithMask("telefonnummer");
 
-export const registerWithMasks = <T>(form: UseFormReturn<T>) => ({
+export const registerWithMasks = <T extends FieldValues>(form: UseFormReturn<T>) => ({
     registerWithFodselsnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("fodselsnummer")(form, name, options),
+        registerWithMask("fodselsnummer")<T>(form, name, options),
     registerWithKortnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("kortnummer")(form, name, options),
+        registerWithMask("kortnummer")<T>(form, name, options),
     registerWithKontonummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("kontonummer")(form, name, options),
+        registerWithMask("kontonummer")<T>(form, name, options),
     registerWithTelefonnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("telefonnummer")(form, name, options),
+        registerWithMask("telefonnummer")<T>(form, name, options),
     registerWithOrganisasjonsnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("organisasjonsnummer")(form, name, options),
+        registerWithMask("organisasjonsnummer")<T>(form, name, options),
     registerWithNumber: (
         name: Path<T>,
         options?: RegisterWithMaskOptions<T>,
     ): UseFormRegisterReturn & { align: "right" } =>
-        registerWithMask("number")(form, name, options) as unknown as UseFormRegisterReturn & {
+        registerWithMask("number")<T>(form, name, options) as unknown as UseFormRegisterReturn & {
             align: "right";
         },
 });

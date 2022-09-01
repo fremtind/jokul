@@ -1,7 +1,7 @@
 import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
 import React, { forwardRef, useState } from "react";
-import { ExpandableTableRowController } from "./ExpandableTableRowController";
+import { ExpandableTableRowController, ExpandableTableRowControllerProps } from "./ExpandableTableRowController";
 import type { TableRowProps } from "./TableRow";
 import { TableRow } from "./TableRow";
 
@@ -54,8 +54,11 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
                     ref={ref}
                 >
                     {React.Children.map(children, (child) => {
-                        if (React.isValidElement(child) && child.type == ExpandableTableRowController) {
-                            return React.cloneElement(child, {
+                        if (
+                            React.isValidElement<ExpandableTableRowControllerProps>(child) &&
+                            child.type == ExpandableTableRowController
+                        ) {
+                            return React.cloneElement<ExpandableTableRowControllerProps>(child, {
                                 isOpen,
                                 onClick: () => toggleOpen(),
                                 "aria-controls": tableRowId,

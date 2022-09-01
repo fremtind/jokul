@@ -7,7 +7,7 @@ export interface TabListProps extends WithChildren {
     className?: string;
 }
 
-interface InjectedProps {
+export interface InjectedProps {
     activeIndex: number;
     setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
     tabIDs: string[];
@@ -71,7 +71,7 @@ export const TabList = ({ children, ...injected }: TabListProps) => {
                 const isActive = activeIndex === tabIndex;
 
                 return React.isValidElement(tab)
-                    ? React.cloneElement(tab, {
+                    ? React.cloneElement<any>(tab, {
                           onKeyDown: keyDownHandler,
                           tabIndex: isActive ? undefined : -1,
                           ref: isActive ? activeRef : undefined,

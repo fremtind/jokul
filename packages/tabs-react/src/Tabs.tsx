@@ -3,6 +3,8 @@ import { usePreviousValue } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
 import { nanoid } from "nanoid";
 import React, { useState, useCallback, useEffect } from "react";
+import { InjectedProps, TabListProps } from "./TabList";
+import { TabPanelProps } from "./TabPanel";
 
 export interface TabsProps extends WithChildren {
     className?: string;
@@ -46,9 +48,9 @@ export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
     const renderTabList = () => {
         const tabList = React.Children.toArray(props.children)[0];
 
-        if (!React.isValidElement(tabList)) return;
+        if (!React.isValidElement<TabListProps & InjectedProps>(tabList)) return;
 
-        return React.cloneElement(tabList, {
+        return React.cloneElement<TabListProps & InjectedProps>(tabList, {
             activeIndex,
             setActiveIndex,
             tabIDs,
@@ -58,12 +60,13 @@ export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
 
     const renderTabPanels = () => {
         return React.Children.map(props.children, (child, childIndex) => {
-            if (!React.isValidElement(child) || childIndex === 0) return;
+            if (!React.isValidElement<TabPanelProps & React.HTMLAttributes<HTMLDivElement>>(child) || childIndex === 0)
+                return;
 
             const tabPanelIndex = childIndex - 1;
 
             return tabPanelIndex === activeIndex
-                ? React.cloneElement(child, {
+                ? React.cloneElement<TabPanelProps & React.HTMLAttributes<HTMLDivElement>>(child, {
                       "aria-labelledby": tabIDs[tabPanelIndex],
                       id: tabPanelIDs[tabPanelIndex],
                   })
