@@ -88,10 +88,11 @@
 @include jkl.comfortable-density-variables {
     --jkl-calendar-date-size: #{jkl.rem(38px)};
     --jkl-calendar-date-spacing: #{jkl.$spacing-2xs};
+    --jkl-calendar-date-margin: #{jkl.rem(1px)};
     --jkl-calendar-padding: #{jkl.$spacing-l};
     --jkl-calendar-max-width: calc(
         calc(var(--jkl-calendar-date-size) * 7) + calc(var(--jkl-calendar-date-spacing) * 6) +
-            calc(var(--jkl-calendar-padding) * 2)
+            calc(var(--jkl-calendar-date-margin) * 14) + calc(var(--jkl-calendar-padding) * 2)
     );
     --jkl-calendar-date-font-size: var(--jkl-body-font-size);
     --jkl-calendar-date-font-weight: var(--jkl-body-font-weight);
@@ -304,6 +305,8 @@
         border-radius: 50%;
         background-color: transparent;
         color: var(--jkl-calendar-text-color);
+
+        margin: var(--jkl-calendar-date-margin);
 
         padding: 0;
         padding-top: jkl.$spacing-3xs; // adjust visual alignment of text
