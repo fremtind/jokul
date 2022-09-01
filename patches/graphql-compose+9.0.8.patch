@@ -1,3 +1,16 @@
+diff --git a/node_modules/graphql-compose/lib/ObjectTypeComposer.d.ts b/node_modules/graphql-compose/lib/ObjectTypeComposer.d.ts
+index cf66395..144478f 100644
+--- a/node_modules/graphql-compose/lib/ObjectTypeComposer.d.ts
++++ b/node_modules/graphql-compose/lib/ObjectTypeComposer.d.ts
+@@ -89,7 +89,7 @@ export declare type ObjectTypeComposerRelationOptsWithResolver<TRelationSource,
+     directives?: Directive[];
+ };
+ export declare type ObjectTypeComposerRelationArgsMapperFn<TSource, TContext, TArgs = Record<string, any>> = (source: TSource, args: TArgs, context: TContext, info: GraphQLResolveInfo) => any;
+-export declare type ObjectTypeComposerRelationArgsMapper<TSource, TContext, TArgs extends Record<string, any> = Record<string, any>> = {
++export declare type ObjectTypeComposerRelationArgsMapper<TSource, TContext, TArgs = Record<string, any>> = {
+     [argName in keyof TArgs]: {
+         [key: string]: any;
+     } | ObjectTypeComposerRelationArgsMapperFn<TSource, TContext, TArgs> | null | void | string | number | any[];
 diff --git a/node_modules/graphql-compose/lib/type/buffer.d.ts b/node_modules/graphql-compose/lib/type/buffer.d.ts
 index 3aba5ae..dee31d1 100644
 --- a/node_modules/graphql-compose/lib/type/buffer.d.ts
