@@ -14,12 +14,60 @@ publishDate: "2022.08.31"
 Og en drøss med mindre forbedringer og feilrettinger.
 
 Ellers jobber Jøkul-teamet med å lande nytt design for kompakte varianter av komponenter i kode. Et førsteutkast er allerede ute i Figma-verden, så det er muligheter for å bli med på designfinpussen om du vil.
+# Nytt Figma bibliotek
 
-## Nytt Figma-bibliotek
+Etter flere år med utvikling av Jøkul i design og kode har mye endret seg. Valg som ble tatt tidligere har blitt endret på, noen ting har blitt fjernet og andre ting har blitt lagt til eller slått sammen på systemnivå. Figma-biblioteket har gått gjennom en rekke iterasjoner, og over tid har kvaliteten og kontinuiteten fra komponent til komponent forvitret, og biblioteket har ikke holdt tritt med dets ekvivalent i kode. Det var rett og slett på tide å “rydde i Figma boden”
 
-![Skjermbilde fra Figma-området for det nye Jøkul-biblioteket. Fire Figma-filer er synlige: Patterns, Components, Assets og Docs. Ikke synlig er to Figma-filer: Core og Team Kits.](/assets/blog/updates/august-2022/aug22-figboost.png)
+## Hvorfor?
 
-August startet med [store Figma-nyheter](/blog/figboost/). Vi lanserte et flunkende nytt bibliotek som bygger opp komponenter og mønstre fra bunnen av. [Component properties](https://help.figma.com/hc/en-us/articles/5579474826519-Create-and-use-component-properties) og [slot components](https://twitter.com/Ridderingand/status/1527393687960842253) er tatt i bruk for å forbedre brukeropplevelsen og gjøre det enklere å vedlikeholde Figma-biblioteket.
+Vi begynte å spekulere i en gjenoppbygning av biblioteket allerede i Februar, og i sommer slapp Figma en flunka ny versjon av Auto-Layout og Component Properties. Siden arbeidet med å rydde opp i gammalt rot og slurv allerede var i gang, var det naturlig å gjøre dette nå. Da fikk vi muligheten til å speile komponentenes adferd i kode enda mer presist, gjøre det enklere og raskere (for alle) å endre på, oppdatere og utvide designsystemet, samtidig som vi rigger oss for langsiktig vekst.
+
+## Hva er nytt?
+
+På overflaten er det ikke veldig mye som egentlig er nytt. De aller fleste komponentene heter det samme som før, og skal stort sett se like ut som før. Under panseret er derimot alt nytt. Alle komponentene følger nå [spacingskalaen](https://jokul.fremtind.no/komponenter/spacing#skala) *(med noen få særskilte unntak)*, og komponetene er nå konsekvente i bruk av stilsettene og design tokens på tvers av states. Når dette ikke har vært tilfellet frem til nå, kan komponenter man har blitt vant til å se på over tid oppleves annerledes i formen, siden de har blitt oppdatert til å følge form og adferd slik de gjør i koden.
+
+#### Bibliotekets struktur
+
+De forskjellige delene av biblioteket er nå delt opp i egne filer som snakker med hverandre for å unngå rot og misforståelser om hva som er hva, og vi unngår massivt tunge filer som laster tregt. På denne måten gjør vi det også enkelt for oss selv å utvide designsystemet med flere verktøy og funksjoner. I tillegg kan man nå velge selv hvilke deler av designsystemet man vil ha påskrudd, i stedet for å få absolutt alt lastet inn hele tiden.
+
+Filene er delt opp i Assets (Statiske ressurser som ikoner, o.l.), Components (Det dere til nå har kjent som komponenter), Core (Kjernefunksjoner som design tokens og stilsett, farger, skygger, m.m.) og Patterns (Sammensatte komponenter som brukes ofte i samme form, også kjent som ‘Mønstre’).
+
+#### “Ny” modell for Compact
+
+Originalideen til ‘Compact’ var at de skulle brukes i informasjonstette løsninger (fagsystemer, interne løsninger, etc.) Siden vi manglet noe som het “Mobil” i biblioteket har Compact endt opp med å bli en slags krykke for mobilskisser der man har følt at det har vært for trangt til “vanlige” komponenter, i stedet for det de var laget for. Typografiskalaen for Compact har vært litt hummer og kanari. Nå bruker den konsekvent den samme skalaen over hele linja (Desktop). Compact har heller ikke vært konsekvent tilgjengelig for alle komponenter, og de har ikke kunnet blitt brukt av de som trenger de, slik de var tiltenkt. Nå kan man det.
+
+De nye prinsippene vi presenterte for Compact før sommeren er som følger:
+-   Compact er laget og optimalisert for desktop-løsninger.
+-   Compact skal ha minst mulig padding. Målet er funksjonell plassbesparelse.
+-   Hovedregelen for Compact padding er halvparten av desktop.
+-   Tekst i Compact følger desktop-typografiskala. Komponentene er tiltenkt for løsninger hvor brukerne sitter på enheter med litt avstand, lenge, over tid. Da må de være lesbare.
+-   Compact komponenter i Figma tilbys som en ‘Size’-variant på lik linje som desktop og mobil.
+
+Bruk av compact styres av hvor mye luft en komponent behøver uavhengig av skjermstørrelse, og skal bare brukes i interne systemer og løsninger med høy informasjonstetthet. For eksempel; styr unna compact hvis du trenger å støtte touch skjermer.
+
+#### Components Properties
+
+Noen steder bruker vi Component Properties i stedet for Variants i Figma (Ny funksjon, fra sommeren). Det er i hovedsak en måte å tilgjenggeliggjøre innstillinger for å skjule/vise deler av en komponent, knytte mange tekstelementer til samme tekstverdi så det er lettere å endre flere steder samtidig, eller for å tilgjengeliggjøre muligheten for Slot Components (se nedenfor).
+
+#### Slot components
+
+Noen steder vil dere se at en komponent har en rosa boks hvor det står <Erstatt meg>, dette er komponenter med fleksibelt innhold, også kjent som ‘Slot Components’. Siden vi har både mønstre og komponenter som potensielt kan (eller skal) holde andre komponenter, har vi løst dette ved å la brukerne selv legge inn de komponentene de ønsker å bruke der hvor en slot er tilgjengelig. Du kan enten bruke andre ferdigbygde Jøkul komponenter, eller sette sammen dine egne komponenter og bruke de i en slot.
+
+Et eksempel på dette er TaskCard; hvor innholdet vil variere utifra case og behov, men det er noen fellesnevnere som bakgrunnsfarge, padding og skygge. Da tilbyr vi en grunnkomponent som designere kan bygge innhold på toppen av. Et annet eksempel er tabeller; som også har fått ‘slots’ slik at man kan sette sammen celler med interaktivt innhold utover tekst. Dette gjør at alle teamene våre kan ta i bruk flere deler av designsystemet, og dra nytte av den kollektive intelligensen vi samler på tvers av teamene.
+ 
+
+### FAQ
+**Noe er herpa eller fungerer ikke som det skal! Hvor sier jeg fra?**
+Send melding på Teams, ta det opp i forum/office-hours, eller [legg det inn her](https://github.com/fremtind/jokul/issues/new?assignees=&labels=%F0%9F%90%9D%20bug&template=feilmelding.md&title=Feil:%20).
+
+**Jeg skjønner ikke hva som skjer! Hjelp meg!**
+Send melding på Teams, ta det opp i forum/office-hours, eller [legg det inn her](https://github.com/fremtind/jokul/discussions/new?category=sp%C3%B8rsm%C3%A5l-og-svar).
+
+**Jeg har funnet noe som ikke stemmer overens med det dere har skrevet over!**
+Bra catch. Send melding på Teams, ta det opp i forum/office-hours, eller [legg det inn her](https://github.com/fremtind/jokul/issues/new?assignees=&labels=%F0%9F%90%9D%20bug&template=feilmelding.md&title=Feil:%20).
+
+**Jeg er uenig i hvordan dere har løst [ting]!**
+Fair. Send melding på Teams, ta det opp i forum/office-hours, eller [legg det inn her](https://github.com/fremtind/jokul/discussions/new?category=ideer).
 
 ### Si ifra om noe ikke funker
 
