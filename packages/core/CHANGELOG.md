@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.1.0 (2022-09-01)
+
+### Features
+
+-   legg til nytt typografinivå Title Small ([decd931](https://github.com/fremtind/jokul/commit/decd931791b93beac18c21b8614bff842301bdc5)), closes [#3045](https://github.com/fremtind/jokul/issues/3045)
+
 ## [10.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@10.0.10...@fremtind/jkl-core@10.0.11) (2022-08-18)
 
 ### Bug Fixes

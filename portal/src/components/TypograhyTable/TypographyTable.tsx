@@ -5,6 +5,7 @@ import { TypographyTableRow, TypographyLevels } from "./TypographyTableRow";
 
 const levels: TypographyLevels[] = [
     "Title",
+    "Title Small",
     "Heading 1",
     "Heading 2",
     "Heading 3",
