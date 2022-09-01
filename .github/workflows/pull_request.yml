@@ -24,6 +24,7 @@ jobs:
     build:
         outputs:
             visual: ${{ steps.changes.outputs.visual }}
+            preview: ${{ steps.changes.outputs.preview }}
             testlint: ${{ steps.changes.outputs.testlint }}
         runs-on: ubuntu-latest
         permissions:
@@ -54,6 +55,8 @@ jobs:
                         - "**/!(*.d|*.test).ts"
                         - "**/!(*.test).tsx"
                         - "yarn.lock"
+                      preview:
+                        - "portal/src/texts/**"
 
             - name: Setup Node
               uses: actions/setup-node@v3
@@ -266,7 +269,7 @@ jobs:
 
     preview:
         needs: [build]
-        if: needs.build.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+        if: (needs.build.outputs.visual == 'true' || needs.build.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
         runs-on: ubuntu-latest
         permissions:
             actions: write
