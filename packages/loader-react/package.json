@@ -38,7 +38,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-loader": "^8.0.12",
+        "@fremtind/jkl-loader": "^9.0.0-alpha",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

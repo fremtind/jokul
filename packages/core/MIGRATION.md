@@ -1,5 +1,9 @@
 # Migrasjonsguide
 
+## Til `jkl-core@11.0.0` – Compact Reboot
+
+**NB: Om du _ikke_ bruker compact er det _ingen breaking changes_!**
+
 ## Til `jkl-core@10.0.0`
 
 **NB:** Denne versjonen av core gjør bare navneendringer i Sass-kode, CSS-variabler, og CSS-animasjoner.

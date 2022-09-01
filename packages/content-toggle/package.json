@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-content-toggle",
-    "version": "3.0.12",
+    "version": "4.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },

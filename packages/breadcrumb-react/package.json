@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-breadcrumb-react",
-    "version": "2.0.13",
+    "version": "3.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
@@ -37,7 +37,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-breadcrumb": "^2.0.12",
+        "@fremtind/jkl-breadcrumb": "^3.0.0-alpha",
         "@fremtind/jkl-core": "^10.1.0",
         "classnames": "^2.2.6"
     },
