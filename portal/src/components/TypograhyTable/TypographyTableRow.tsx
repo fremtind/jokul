@@ -5,6 +5,7 @@ import { getComputedProperty } from "../../utils/getComputedProperty";
 
 export type TypographyLevels =
     | "Title"
+    | "Title Small"
     | "Heading 1"
     | "Heading 2"
     | "Heading 3"

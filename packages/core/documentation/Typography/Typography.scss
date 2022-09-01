@@ -64,6 +64,10 @@
             @include jkl.text-style("title/#{$variant}");
         }
 
+        .jkl-title-small {
+            @include jkl.text-style("title-small/#{$variant}");
+        }
+
         .jkl-heading-1 {
             @include jkl.text-style("heading-1/#{$variant}");
         }

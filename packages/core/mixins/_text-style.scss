@@ -1,6 +1,7 @@
 @use "sass:string";
 @use "sass:map";
 @use "../variables";
+@use "../functions";
 @use "screens";
 
 $_text-styles: (
@@ -13,6 +14,22 @@ $_text-styles: (
         "large-screen": (
             "font-size": variables.$typography-font-size-10,
             "line-height": variables.$typography-line-height-6,
+            "font-weight": variables.$typography-weight-normal,
+        ),
+    ),
+    "title-small": (
+        // Legger til ny fontstørrelse her direkte uten variabler i påvente av en større omstrukturering med design tokens.
+        // Vi har to fontstørrelser her som ellers ville måtte bli skvist inn mellom det eksisterende nivå 8, 9 og 10
+        // i typografivariablene våre. Det samme problemet gjelder linjehøyden.
+        "small-screen":
+            (
+                "font-size": functions.rem(30px),
+                "line-height": functions.rem(36px),
+                "font-weight": variables.$typography-weight-normal,
+            ),
+        "large-screen": (
+            "font-size": functions.rem(44px),
+            "line-height": functions.rem(52px),
             "font-weight": variables.$typography-weight-normal,
         ),
     ),

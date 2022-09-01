@@ -8,6 +8,14 @@
     }
 }
 
+.jkl-title-small {
+    @include mixins.text-style("title-small");
+
+    *[data-compactlayout] & {
+        @include mixins.text-style("title-small/small-screen");
+    }
+}
+
 .jkl-heading-1 {
     @include mixins.text-style("heading-1");
 
