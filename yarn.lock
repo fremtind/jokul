@@ -10430,9 +10430,9 @@ gatsby-plugin-page-creator@^4.21.0:
     lodash "^4.17.21"
 
 gatsby-plugin-sass@^5.21.0:
-  version "5.21.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-5.21.0.tgz#465fe6cc200ec2a8c340699bc2e153bd7c600d67"
-  integrity sha512-cx3CW76wWY/628sHetZCJSAK+L/5y2rrOizLbvfd2Qk7AWqpECkA951BMIYleblxu0az8tjxuaabbt0TERvA6A==
+  version "5.22.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-5.22.0.tgz#a3dd0279dedc829c7d6a88c6241435c963c34331"
+  integrity sha512-Wp0ldsiCD3BJRyTIkCG3nrf2M04/owk5gftpJUjtejzd+9H+vkP2cddnykSgacoon8pLefOogFlirxqSDTZHZA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     resolve-url-loader "^3.1.4"
