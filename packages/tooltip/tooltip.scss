@@ -1,0 +1,90 @@
+@use "~@fremtind/jkl-core/jkl";
+
+$_tooltip-border-width: jkl.rem(1px);
+$_tooltip-arrow-height: jkl.rem(8px);
+$_focus-ring-distance: jkl.rem(2px);
+$_focus-ring-width: jkl.rem(2px);
+
+@include jkl.light-mode-variables {
+    --jkl-tooltip-bg-color: #{jkl.$color-granitt};
+    --jkl-tooltip-button-color: #{jkl.$color-granitt};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-tooltip-bg-color: #{jkl.$color-svart};
+    --jkl-tooltip-button-color: #{jkl.$color-snohvit};
+}
+
+.jkl-tooltip {
+    &__button {
+        @include jkl.reset-outline;
+        background-color: transparent;
+        border: $_tooltip-border-width solid var(--jkl-tooltip-button-color);
+        border-radius: 50%;
+        color: var(--jkl-tooltip-button-color);
+        cursor: pointer;
+        display: inline-block;
+        font-size: 1rem;
+        height: 1.5rem;
+        position: relative;
+        vertical-align: inherit;
+        width: 1.5rem;
+
+        &:hover {
+            box-shadow: 0 0 0 1px var(--jkl-tooltip-button-color);
+        }
+
+        &:focus {
+            @include jkl.keyboard-navigation {
+                color: var(--jkl-tooltip-button-color);
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -($_tooltip-border-width + $_focus-ring-distance);
+                    right: -($_tooltip-border-width + $_focus-ring-distance);
+                    bottom: -($_tooltip-border-width + $_focus-ring-distance);
+                    left: -($_tooltip-border-width + $_focus-ring-distance);
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 $_focus-ring-width var(--jkl-tooltip-button-color);
+                }
+            }
+        }
+    }
+
+    &__content {
+        background-color: var(--jkl-tooltip-bg-color);
+        color: jkl.$color-snohvit;
+        display: inline-block;
+        max-width: 306px;
+        padding: jkl.$spacing-m;
+        position: absolute;
+        z-index: 1;
+
+        &[data-placement^="top"] > .jkl-tooltip__arrow {
+            bottom: -#{$_tooltip-arrow-height};
+        }
+
+        &[data-placement^="bottom"] > .jkl-tooltip__arrow {
+            top: -#{$_tooltip-arrow-height};
+        }
+
+        &[data-placement^="left"] > .jkl-tooltip__arrow {
+            right: -#{$_tooltip-arrow-height};
+        }
+
+        &[data-placement^="right"] > .jkl-tooltip__arrow {
+            left: -#{$_tooltip-arrow-height};
+        }
+    }
+
+    &__arrow {
+        overflow: hidden;
+        position: absolute;
+        background-color: var(--jkl-tooltip-bg-color);
+        transform: rotate(45deg);
+        height: $_tooltip-arrow-height * 2;
+        width: $_tooltip-arrow-height * 2;
+    }
+}
