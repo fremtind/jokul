@@ -18,7 +18,7 @@ export const LiveEditor = ({ onChange, ...props }: LiveEditorProps) => {
 
     return (
         <ReactLiveEditor
-            theme={prefersColorScheme === "dark" ? themeDark : themeLight}
+            theme={prefersColorScheme === "light" ? themeLight : themeDark}
             style={{ overflow: "scroll", height: "100%", maxHeight: "400px" }}
             {...(onChange ? { onChange } : {})}
         />
