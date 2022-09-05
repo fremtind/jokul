@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "15.0.54",
+    "version": "15.1.0",
     "devDependencies": {
         "react-docgen-typescript": "^2.2.2"
     },
@@ -62,7 +62,8 @@
         "gatsby-transformer-sharp": "^4.21.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-hook-form": "^7.34.0"
+        "react-hook-form": "^7.34.0",
+        "react-live": "^2.4.1"
     },
     "browserslist": [
         ">0.2% in no",
