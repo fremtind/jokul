@@ -1,6 +1,7 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React from "react";
+import { BreadcrumbItemProps } from "./BreadcrumbItem";
 
 export interface BreadcrumbProps extends WithChildren {
     className?: string;
@@ -15,8 +16,8 @@ export const Breadcrumb = ({ className, children, ...rest }: BreadcrumbProps): J
                     const isLastElement = index + 1 === numberOfChildren;
                     return (
                         <>
-                            {React.isValidElement(child)
-                                ? React.cloneElement(child, {
+                            {React.isValidElement<BreadcrumbItemProps>(child)
+                                ? React.cloneElement<BreadcrumbItemProps>(child, {
                                       isLastElement,
                                   })
                                 : child}
