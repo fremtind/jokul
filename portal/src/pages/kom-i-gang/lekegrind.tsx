@@ -1,4 +1,3 @@
-import { NavCard } from "@fremtind/jkl-card-react";
 import { motion } from "framer-motion";
 import React, { FC, useState } from "react";
 import { LivePreview, LiveError } from "react-live";
@@ -10,9 +9,10 @@ import { PageTitle } from "../../components/Typography";
 const pageTitle = "Lekegrind";
 
 const defaultCode = `
-    <h2 className="jkl-heading-2 jkl-spacing-s--bottom">Velkommen hit</h2>
-    <p>Her kan du teste Jøkuls komponenter direkte i nettleseren.</p>
-    <p>Bare finn komponenten du vil teste blant Jøkuls komponenter, og lim inn koden i tekstfeltet.</p>
+<h2 className="jkl-heading-2 jkl-spacing-s--bottom">Velkommen hit</h2>
+<p>Her kan du teste Jøkuls komponenter direkte i nettleseren.</p>
+<p>Bare finn komponenten du vil teste blant Jøkuls komponenter, og lim inn koden i tekstfeltet.</p>
+<NavCard href="/komponenter/card" padding="l" target="_blank" title="Jøkul-komponenter" />
 `;
 
 export const Head: FC = () => <Seo title={pageTitle} />;
@@ -43,7 +43,6 @@ const Lekegrind: FC = () => {
                     <LivePreview />
                 </div>
             </LiveProvider>
-            <NavCard href="/komponenter/card" padding="l" target="_blank" title="Jøkul-komponenter" />
         </motion.main>
     );
 };
