@@ -1,3 +1,6 @@
-export {};
+import React from "react";
+import { LiveError as ReactLiveError } from "react-live";
 
-//kun for å gjere fila om til en module - feilmelding ved commit
+export const LiveError = () => {
+    return <ReactLiveError />;
+};

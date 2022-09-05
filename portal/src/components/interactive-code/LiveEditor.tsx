@@ -9,12 +9,7 @@ type LiveEditorProps = {
 };
 
 export const LiveEditor = ({ onChange, ...props }: LiveEditorProps) => {
-    // const liveContext = useContext(LiveContext);
     const { prefersColorScheme } = useBrowserPreferences();
-
-    // if (!liveContext.code) {
-    //     return null;
-    // }
 
     return (
         <ReactLiveEditor
