@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.54...@fremtind/portal@15.1.0) (2022-09-05)
+
+### Features
+
+-   nyoppretta lekegrind i portalen ([7779213](https://github.com/fremtind/jokul/commit/77792134b80d4dd9584e3e19731a5b1a77212bb4))
+-   nyopprettet lekegrind ([f62fa6a](https://github.com/fremtind/jokul/commit/f62fa6a67bd5722d25a4b269736707c0b1616316))
+-   nyopprettet lekegrind ([805958b](https://github.com/fremtind/jokul/commit/805958bb7ac0363ff07182b4b206cee73005e434))
+-   nyopprettet lekegrind ([d714866](https://github.com/fremtind/jokul/commit/d7148667b2b8e2ef319826ea47e7ec1034c5967b))
+-   nyopprettet lekegrind i portalen ([b4a65b7](https://github.com/fremtind/jokul/commit/b4a65b7c42cc756b5283d212ae43508b07521eb8))
+-   nyopprettet lekegrind i portalen ([5b95649](https://github.com/fremtind/jokul/commit/5b95649d01e5d4598a5cae9eb0f273670abdab5e))
+-   nyopprettet lekegrind i portalen ([755ba47](https://github.com/fremtind/jokul/commit/755ba47b7e94fcf492b65b343976a9fa029f17de))
+-   nyopprettet lekegrind i portalen ([429a664](https://github.com/fremtind/jokul/commit/429a664eafe3852e459ece68f544b25240a24351))
+
 ## [15.0.51](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.50...@fremtind/portal@15.0.51) (2022-08-23)
 
 ### Bug Fixes
