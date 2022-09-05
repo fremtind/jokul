@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tabs-react",
-    "version": "2.1.10",
+    "version": "2.1.11",
     "publishConfig": {
         "access": "public"
     },

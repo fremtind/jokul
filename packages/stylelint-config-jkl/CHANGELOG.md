@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2022-09-05)
+
+### chore
+
+-   oppdater stylelint-config-standard ([71ffcdb](https://github.com/fremtind/jokul/commit/71ffcdbfb44a12cdb332c7a1644ea2a8db3bc174))
+
+### BREAKING CHANGES
+
+-   Oppdaterer til ny major av stylelint-config-standard
+
 # 4.0.0 (2022-08-18)
 
 ### chore
