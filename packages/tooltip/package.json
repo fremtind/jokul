@@ -21,7 +21,7 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "echo \"Error: run dev from tag-react\" && exit 1"
+        "dev": "echo \"Error: run dev from tooltip-react\" && exit 1"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^10.1.0"
