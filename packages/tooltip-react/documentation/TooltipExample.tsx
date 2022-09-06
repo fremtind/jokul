@@ -2,21 +2,25 @@
 import { Placement } from "@floating-ui/core/src/types";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { formatValuta } from "../../formatters-util/src";
 import { Tooltip } from "../src/Tooltip";
 
 export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     let initialPlacement: Placement = "top";
-    if (choiceValues && choiceValues["initialPlacement"]) {
-        initialPlacement = choiceValues["initialPlacement"] as Placement;
+    if (choiceValues && choiceValues["Plassering"]) {
+        initialPlacement = choiceValues["Plassering"] as Placement;
     }
 
     return (
         <>
             <p>
-                Peekaboo
+                Du betaler 348 kr/mnd
                 <Tooltip
                     content={
-                        "The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps."
+                        <span>
+                            Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
+                            <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
+                        </span>
                     }
                     buttonClassName="jkl-spacing-s--left"
                     {...(initialPlacement && { initialPlacement })}
@@ -29,7 +33,7 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
 export const tooltipExampleKnobs: ExampleKnobsProps = {
     choiceProps: [
         {
-            name: "initialPlacement",
+            name: "Plassering",
             values: [
                 "top",
                 "right",
