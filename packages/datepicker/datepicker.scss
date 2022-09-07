@@ -86,6 +86,9 @@
 }
 
 @include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-calendar-caption", "body");
+
+    --jkl-calendar-caption-margin: #{jkl.$spacing-l};
     --jkl-calendar-date-size: #{jkl.rem(38px)};
     --jkl-calendar-date-spacing: #{jkl.$spacing-2xs};
     --jkl-calendar-date-margin: #{jkl.rem(1px)};
@@ -114,6 +117,10 @@
 }
 
 @include jkl.compact-density-variables {
+    --jkl-calendar-caption-font-size: var(--jkl-small-font-size);
+    --jkl-calendar-caption-font-weight: var(--jkl-small-font-weight);
+    --jkl-calendar-caption-line-height: var(--jkl-body-line-height);
+    --jkl-calendar-caption-margin: #{jkl.$spacing-m};
     --jkl-calendar-date-size: #{jkl.rem(32px)};
     --jkl-calendar-padding: #{jkl.$spacing-m};
     --jkl-calendar-date-font-size: var(--jkl-small-font-size);
@@ -261,8 +268,8 @@
     // =======================================
 
     caption {
-        @include jkl.text-style("body");
-        margin-bottom: jkl.$spacing-l;
+        @include jkl.use-font-variables("jkl-calendar-caption");
+        margin-bottom: var(--jkl-calendar-caption-margin);
         text-transform: capitalize;
     }
 
