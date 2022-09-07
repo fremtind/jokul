@@ -7,7 +7,6 @@ assignees: ''
 
 ---
 
-## Feilbeskrivelse
 <!-- Gi en kort og klar beskrivelse av feilen, legg gjerne ved screenshots eller andre visuelle eksempler -->
 
 
