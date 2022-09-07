@@ -3,9 +3,6 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/jkl/colors";
 
-$_arrow-height: jkl.rem(16px);
-$_arrow-width: jkl.rem(13px);
-
 $_select-focus-color: jkl.$color-granitt;
 $_select-search-input-selection-color: color.scale(
     $color: $_select-focus-color,
@@ -52,6 +49,8 @@ $_select-search-input-selection-color--inverted: color.scale(
     @include jkl.declare-font-variables("jkl-select", "body");
 
     --jkl-select-input-height: #{jkl.rem(48px)};
+    --jkl-select-arrow-height: #{jkl.rem(16px)};
+    --jkl-select-arrow-width: #{jkl.rem(13px)};
     --jkl-select-arrow-right: #{jkl.$spacing-m};
     --jkl-select-button-padding: #{jkl.$spacing-xs} #{jkl.rem(32px)} #{jkl.$spacing-xs} #{jkl.$spacing-s};
     --jkl-select-search-input-padding: var(--jkl-select-button-padding);
@@ -69,7 +68,9 @@ $_select-search-input-selection-color--inverted: color.scale(
     --jkl-select-font-weight: var(--jkl-small-font-weight);
     --jkl-select-line-height: #{jkl.rem(18px)};
     --jkl-select-input-height: #{jkl.rem(32px)};
-    --jkl-select-arrow-right: #{jkl.$spacing-xs};
+    --jkl-select-arrow-height: #{jkl.rem(13px)};
+    --jkl-select-arrow-width: #{jkl.rem(10px)};
+    --jkl-select-arrow-right: #{jkl.rem(11px)};
     --jkl-select-button-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} #{jkl.$spacing-xs};
     --jkl-select-search-input-padding: #{jkl.$spacing-xs} #{jkl.$spacing-3xs};
     --jkl-select-native-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} #{jkl.$spacing-2xs};
@@ -188,8 +189,8 @@ $_select-search-input-selection-color--inverted: color.scale(
         transform: translateY(-50%);
         color: inherit;
 
-        height: $_arrow-height;
-        width: $_arrow-width;
+        height: var(--jkl-select-arrow-height);
+        width: var(--jkl-select-arrow-width);
         clip: rect(auto, auto, auto, auto);
         clip-path: inset(0 0 0 0);
 
@@ -205,8 +206,8 @@ $_select-search-input-selection-color--inverted: color.scale(
             display: inline-block;
             position: absolute;
             left: 0;
-            height: $_arrow-height;
-            width: $_arrow-width;
+            height: var(--jkl-select-arrow-height);
+            width: var(--jkl-select-arrow-width);
             @include jkl.motion;
             transition-property: transform;
         }
@@ -220,8 +221,8 @@ $_select-search-input-selection-color--inverted: color.scale(
         }
 
         &--expanded {
-            .jkl-select-expand-arrow__up,
-            .jkl-select-expand-arrow__down {
+            .jkl-select__arrow-up,
+            .jkl-select__arrow-down {
                 @include jkl.motion("standard", "expressive");
                 transform: translate(0, -100%);
             }
