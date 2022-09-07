@@ -12,21 +12,19 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     }
 
     return (
-        <>
-            <p>
-                Du betaler 348 kr/mnd
-                <Tooltip
-                    content={
-                        <span>
-                            Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
-                            <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
-                        </span>
-                    }
-                    buttonClassName="jkl-spacing-s--left"
-                    {...(initialPlacement && { initialPlacement })}
-                />
-            </p>
-        </>
+        <p className="jkl-body">
+            Du betaler 348 kr/mnd
+            <Tooltip
+                content={
+                    <span>
+                        Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
+                        <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
+                    </span>
+                }
+                className="jkl-spacing-s--left"
+                {...(initialPlacement && { initialPlacement })}
+            />
+        </p>
     );
 };
 
