@@ -18,12 +18,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import React, { ReactNode, useRef, useState } from "react";
 
 interface TooltipProps {
-    content: ReactNode;
+    className?: string;
     initialPlacement?: Placement;
-    buttonClassName?: string;
+    content: ReactNode;
 }
 
-export const Tooltip = ({ content, initialPlacement = "top", buttonClassName }: TooltipProps) => {
+export const Tooltip = ({ content, initialPlacement = "top", className }: TooltipProps) => {
     const [open, setOpen] = useState(false);
     const arrowElement = useRef<HTMLDivElement>(null);
     const {
@@ -51,13 +51,10 @@ export const Tooltip = ({ content, initialPlacement = "top", buttonClassName }: 
     ]);
 
     return (
-        <>
-            <button
-                type="button"
-                className={cn("jkl-tooltip__button", buttonClassName)}
-                {...getReferenceProps({ ref: reference })}
-            >
-                ?<span className="jkl-sr-only">Se hjelpetekst</span>
+        <span className={cn("jkl-tooltip", className)}>
+            <button type="button" className="jkl-tooltip__button" {...getReferenceProps({ ref: reference })}>
+                <span aria-hidden="true">?</span>
+                <span className="jkl-sr-only">Se hjelpetekst</span>
             </button>
             <AnimatePresence>
                 {open && (
@@ -89,6 +86,6 @@ export const Tooltip = ({ content, initialPlacement = "top", buttonClassName }: 
                     </motion.span>
                 )}
             </AnimatePresence>
-        </>
+        </span>
     );
 };

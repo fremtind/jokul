@@ -16,19 +16,22 @@ $_focus-ring-width: jkl.rem(2px);
 }
 
 .jkl-tooltip {
+    display: inline-block;
+    position: relative;
+
     &__button {
         @include jkl.reset-outline;
+        @include jkl.text-style("body") {
+            line-height: 1.8rem;
+        }
+        height: 1.5em;
+        width: 1.5em;
+        vertical-align: top;
         background-color: transparent;
         border: $_tooltip-border-width solid var(--jkl-tooltip-button-color);
         border-radius: 50%;
         color: var(--jkl-tooltip-button-color);
         cursor: pointer;
-        display: inline-block;
-        font-size: 1rem;
-        height: 1.5rem;
-        position: relative;
-        vertical-align: inherit;
-        width: 1.5rem;
 
         &:hover {
             box-shadow: 0 0 0 1px var(--jkl-tooltip-button-color);
@@ -54,13 +57,14 @@ $_focus-ring-width: jkl.rem(2px);
     }
 
     &__content {
+        @include jkl.text-style("small");
         background-color: var(--jkl-tooltip-bg-color);
         color: jkl.$color-snohvit;
         display: inline-block;
-        max-width: 306px;
+        max-width: 310px; // 10px mindre enn smaleste støttede skjerm
         padding: jkl.$spacing-m;
         position: absolute;
-        z-index: 1;
+        z-index: jkl.$z-index--floating;
 
         &[data-placement^="top"] > .jkl-tooltip__arrow {
             bottom: -#{$_tooltip-arrow-height};
