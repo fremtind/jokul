@@ -24,6 +24,12 @@ Det er også noen nye features:
 
 I tillegg har CSS-klassen `.jkl-expand-arrow` fra `select.css` og `accordion.css` har blitt til henholdsvis `.jkl-select__arrow` og `.jkl-accordion-item__arrow`.
 
+### Si ifra om noe ser rart ut
+
+Det har vært store endringer under panseret for å få til dette nye designet og APIet.
+
+Om du finner bugs er det en stor hjelp om du [lager et issue](https://github.com/fremtind/jokul/issues/new/choose) på det.
+
 ## Til `jkl-core@10.0.0`
 
 **NB:** Denne versjonen av core gjør bare navneendringer i Sass-kode, CSS-variabler, og CSS-animasjoner.
