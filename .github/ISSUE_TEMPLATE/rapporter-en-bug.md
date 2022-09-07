@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-<!-- Gi en kort og klar beskrivelse av feilen, legg gjerne ved screenshots eller andre visuelle eksempler -->
+<!-- Gi en kort beskrivelse av feilen. Legg gjerne ved screenshots eller andre visuelle eksempler. -->
 
 
 ## Steg for å gjenskape
