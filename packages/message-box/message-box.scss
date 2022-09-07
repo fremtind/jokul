@@ -32,17 +32,15 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-message-box-message", "small");
+    @include jkl.declare-font-variables("jkl-message-box-title", "heading-5");
 
-    --jkl-message-box-title-font-size: var(--jkl-heading-5-font-size);
-    --jkl-message-box-title-font-weight: var(--jkl-heading-5-font-weight);
-    --jkl-message-box-title-line-height: #{jkl.rem(20.8px)};
     --jkl-message-box-padding: #{jkl.$spacing-s} #{jkl.$spacing-xs} #{jkl.$spacing-s} #{jkl.rem(32px)};
     --jkl-message-box-icon-size: #{jkl.rem(12px)};
-    --jkl-message-box-icon-left: #{jkl.rem(9px)};
-    --jkl-message-box-icon-top: #{jkl.rem(15px)};
-    --jkl-message-box-title-margin: 0 0 #{jkl.$spacing-2xs} 0;
+    --jkl-message-box-icon-left: #{jkl.rem(10px)};
+    --jkl-message-box-icon-top: #{jkl.rem(17px)};
+    --jkl-message-box-title-margin: 0;
     --jkl-message-box-dismiss-button-size: #{jkl.rem(32px)};
-    --jkl-message-box-dismiss-button-margin: #{jkl.rem(-4px)} #{jkl.rem(-4px)} #{jkl.rem(-4.5px)} auto;
+    --jkl-message-box-dismiss-button-margin: #{jkl.rem(-6px)} #{jkl.rem(-2px)} #{jkl.rem(-6.5px)} auto;
 }
 
 .jkl-message-box {
@@ -67,28 +65,13 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
 
-    &__content {
-        & > :not(.jkl-message-box__title) {
-            margin-top: -#{jkl.$spacing-3xs};
-        }
-
-        & > * + * {
-            margin-top: jkl.$spacing-xs;
-        }
-
-        /* Hvis Dismissable, gi plass mellom tekst og Lukk-knapp. */
-        &:not(:last-child) {
-            margin-right: jkl.$spacing-m;
-        }
-    }
-
     &__message {
         @include jkl.use-font-variables("jkl-message-box-message");
     }
 
     &__title {
         @include jkl.use-font-variables("jkl-message-box-title");
-        margin-bottom: var(--jkl-message-box-title-margin);
+        margin: var(--jkl-message-box-title-margin);
     }
 
     &__dismiss-button {
