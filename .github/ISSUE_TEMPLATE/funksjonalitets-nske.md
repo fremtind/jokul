@@ -1,9 +1,11 @@
 ---
 name: Nytt bidrag
-about: Du har diskutert og bekreftet behovet for et bidrag til Jøkul, og skal begynne det praktiske arbeidet
-title: ""
+about: Du har diskutert og bekreftet behovet for et bidrag til Jøkul, og skal begynne
+  det praktiske arbeidet
+title: ''
 labels: "✨ enhancement"
-assignees: ""
+assignees: ''
+
 ---
 
 <!-- Oppsummer kort hva som skal gjøres -->

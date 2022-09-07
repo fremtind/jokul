@@ -1,9 +1,10 @@
 ---
 name: Feilmelding
 about: Si fra om noe som er feil
-title: "Feil: "
+title: 'Feil: '
 labels: "\U0001F41D bug"
-assignees: ""
+assignees: ''
+
 ---
 
 ## Feilbeskrivelse
