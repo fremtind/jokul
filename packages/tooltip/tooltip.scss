@@ -61,7 +61,8 @@ $_focus-ring-width: jkl.rem(2px);
         background-color: var(--jkl-tooltip-bg-color);
         color: jkl.$color-snohvit;
         display: inline-block;
-        max-width: 310px; // 10px mindre enn smaleste støttede skjerm
+        min-width: jkl.rem(200px);
+        max-width: jkl.rem(310px); // 10px mindre enn smaleste støttede skjerm
         padding: jkl.$spacing-m;
         position: absolute;
         z-index: jkl.$z-index--floating;
