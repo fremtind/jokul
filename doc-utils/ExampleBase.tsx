@@ -104,7 +104,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                     {knobs?.boolProps && (
                         <FieldGroup
                             legend="Egenskaper"
-                            variant="small"
+                            variant="medium"
                             className="jkl-portal-component-example__example-options-header"
                         >
                             {Object.entries(boolValues).map(([key, value]) => (
@@ -125,7 +125,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                             {Object.entries(choiceValues).map(([key, value]) =>
                                 choices[key].length < 4 ? (
                                     <RadioButtonGroup
-                                        className="jkl-portal-component-example__example-options-header"
+                                        className="jkl-spacing-xs--top"
                                         variant="small"
                                         name={`${uid}-${hyphenate(key)}`}
                                         key={`${uid}-${hyphenate(key)}`}
@@ -140,7 +140,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                                     </RadioButtonGroup>
                                 ) : (
                                     <Select
-                                        className="jkl-portal-component-example__select"
+                                        className="jkl-spacing-xs--top"
                                         value={value}
                                         onChange={(e) => setChoiceValue(key, e.target.value)}
                                         label={key}
@@ -154,11 +154,10 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                     )}
                     <FieldGroup
                         legend="Visning"
-                        variant="small"
+                        variant="medium"
                         className="jkl-portal-component-example__example-options-header"
                     >
                         <RadioButtonGroup
-                            className="jkl-portal-component-example__example-options-header"
                             variant="small"
                             name={`${uid}-theme`}
                             legend="Tema"
@@ -170,7 +169,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                             <RadioButton label="Dark" value="dark" />
                         </RadioButtonGroup>
                         <RadioButtonGroup
-                            className="jkl-portal-component-example__example-options-header"
+                            className="jkl-spacing-xs--top"
                             variant="small"
                             name={`${uid}-density`}
                             legend="Tetthet"
