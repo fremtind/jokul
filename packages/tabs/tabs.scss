@@ -60,14 +60,24 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+    position: relative;
 
     &:hover {
         color: var(--jkl-tab-hover-color);
     }
 
     &:focus-visible {
-        outline: var(--jkl-tab-focus-border-color) solid 2px;
-        outline-offset: -1px;
+        @include jkl.reset-outline;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: jkl.rem(2px);
+            right: jkl.rem(6px); // Hold avstand til neste fane
+            bottom: jkl.rem(1px);
+            left: jkl.rem(-2px);
+            box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-tab-focus-border-color);
+        }
     }
 
     &[aria-selected="true"] {
