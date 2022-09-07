@@ -310,6 +310,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     <Calendar
                         ref={calendarRef}
                         defaultSelected={defaultSelectedInCalendar}
+                        density={density}
                         date={date}
                         minDate={minDate}
                         maxDate={maxDate}

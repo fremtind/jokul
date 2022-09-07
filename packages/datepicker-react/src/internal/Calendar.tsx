@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { NativeSelect } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
@@ -12,6 +13,7 @@ import { addMonth, subtractMonth, isBackDisabled, isForwardDisabled } from "./ut
 interface CalendarProps
     extends Omit<UseCalendarProps, "date" | "onOffsetChanged" | "offset" | "firstDayOfWeek" | "selected"> {
     date: Date | null;
+    density?: Density;
     defaultSelected?: Date;
     hidden?: boolean;
     days?: string[];
@@ -45,6 +47,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         hidden,
         date,
         defaultSelected,
+        density,
         minDate,
         maxDate,
         days = defaultDays,
@@ -287,6 +290,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                     <div className="jkl-calendar__navigation">
                         <TextInput
                             label={yearLabel}
+                            density={density}
                             type="number"
                             className="jkl-calendar__year-selector"
                             inputClassName="jkl-calendar__year-selector-input"
@@ -299,6 +303,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             className="jkl-calendar__month-selector"
                             selectClassName="jkl-calendar__month-selector-select"
                             label={monthLabel}
+                            density={density}
                             items={months.map((name: string, i: number) => ({
                                 value: String(i),
                                 label: name,
