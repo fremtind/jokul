@@ -7,7 +7,7 @@ describe("Tooltip", () => {
     test("should render button for showing tooltip", () => {
         render(<Tooltip content={<p className="jkl-small">Dette er en tooltip</p>} />);
 
-        const tooltipButton = screen.getByRole("button", { name: /Se hjelpetekst/ });
+        const tooltipButton = screen.getByRole("button", { name: /Hjelpetekst/ });
         expect(tooltipButton).toBeInTheDocument();
     });
 
@@ -22,7 +22,7 @@ describe("Tooltip", () => {
         render(<Tooltip content={<p className="jkl-small">Dette er en tooltip</p>} />);
         const user = userEvent.setup();
 
-        const tooltipButton = screen.getByRole("button", { name: /Se hjelpetekst/ });
+        const tooltipButton = screen.getByRole("button", { name: /Hjelpetekst/ });
         await user.hover(tooltipButton);
         expect(screen.getByText(/Dette er en tooltip/)).toBeInTheDocument();
     });
@@ -30,7 +30,7 @@ describe("Tooltip", () => {
     test("should render tooltip text when tooltip is FOCUSED", () => {
         render(<Tooltip content={<p className="jkl-small">Dette er en tooltip</p>} />);
 
-        const tooltipButton = screen.getByRole("button", { name: /Se hjelpetekst/ });
+        const tooltipButton = screen.getByRole("button", { name: /Hjelpetekst/ });
         fireEvent.focus(tooltipButton);
         expect(screen.getByText(/Dette er en tooltip/)).toBeInTheDocument();
     });
@@ -39,7 +39,7 @@ describe("Tooltip", () => {
         render(<Tooltip content={<p className="jkl-small">Dette er en tooltip</p>} />);
         const user = userEvent.setup();
 
-        const tooltipButton = screen.getByRole("button", { name: /Se hjelpetekst/ });
+        const tooltipButton = screen.getByRole("button", { name: /Hjelpetekst/ });
         await user.click(tooltipButton);
         expect(screen.getByText(/Dette er en tooltip/)).toBeInTheDocument();
     });

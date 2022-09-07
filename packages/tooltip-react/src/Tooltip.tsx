@@ -51,10 +51,10 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
     ]);
 
     return (
-        <span className={cn("jkl-tooltip", className)}>
+        <span className={cn("jkl-tooltip", className)} aria-live="polite">
             <button type="button" className="jkl-tooltip__button" {...getReferenceProps({ ref: reference })}>
                 <span aria-hidden="true">?</span>
-                <span className="jkl-sr-only">Se hjelpetekst</span>
+                <span className="jkl-sr-only">Hjelpetekst</span>
             </button>
             <AnimatePresence>
                 {open && (
