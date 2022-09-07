@@ -32,11 +32,11 @@
         display: inline-block;
         width: var(--jkl-icon-button-icon-width);
         height: var(--jkl-icon-button-icon-width);
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 
     &:hover {
         color: var(--jkl-icon-button-focus-color);
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 
     &::after {
@@ -68,6 +68,4 @@
         border: revert;
         background-color: revert;
     }
-
-    @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
 }
