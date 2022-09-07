@@ -3,6 +3,7 @@
 .jkl-breadcrumb {
     a[aria-current] {
         text-decoration: none;
+        background-image: none;
         color: var(--jkl-color);
     }
 

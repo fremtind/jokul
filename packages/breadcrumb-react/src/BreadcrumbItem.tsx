@@ -18,7 +18,7 @@ export const BreadcrumbItem = ({ className, children, isLastElement, ...rest }: 
                 if (React.isValidElement<AnchorHTMLAttributes<HTMLAnchorElement>>(child)) {
                     return React.cloneElement<AnchorHTMLAttributes<HTMLAnchorElement>>(child, {
                         "aria-current": isLastElement ? "page" : undefined,
-                        className: !isLastElement ? "jkl-link" : undefined,
+                        className: "jkl-link",
                     });
                 } else {
                     return child;
