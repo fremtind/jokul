@@ -15,6 +15,14 @@ $_focus-ring-width: jkl.rem(2px);
     --jkl-tooltip-button-color: #{jkl.$color-snohvit};
 }
 
+@include jkl.comfortable-density-variables {
+    --jkl-tooltip-padding: #{jkl.$spacing-m};
+}
+
+@include jkl.compact-density-variables {
+    --jkl-tooltip-padding: #{jkl.$spacing-m};
+}
+
 .jkl-tooltip {
     display: inline-block;
     position: relative;
@@ -63,7 +71,7 @@ $_focus-ring-width: jkl.rem(2px);
         display: inline-block;
         min-width: jkl.rem(200px);
         max-width: jkl.rem(310px); // 10px mindre enn smaleste støttede skjerm
-        padding: jkl.$spacing-m;
+        padding: var(--jkl-tooltip-padding);
         position: absolute;
         z-index: jkl.$z-index--floating;
 
