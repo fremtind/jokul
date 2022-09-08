@@ -45,7 +45,7 @@ export interface DocumentationPageInfo extends Frontmatter {
     path: string;
 }
 
-enum PageType {
+export enum PageType {
     KOMIGANG = "kom-i-gang",
     PROFIL = "profil",
     KOMPONENTER = "komponenter",
@@ -53,6 +53,15 @@ enum PageType {
     GUIDER = "guider",
     BLOG = "blog",
 }
+
+export const pageNames = {
+    [PageType.KOMIGANG]: "Kom i gang",
+    [PageType.PROFIL]: "Profil",
+    [PageType.KOMPONENTER]: "Komponenter",
+    [PageType.UU]: "Universell utforming",
+    [PageType.GUIDER]: "Guider",
+    [PageType.BLOG]: "Blogg",
+};
 
 type NavigationLinks = {
     profileDocPages: DocumentationPageInfo[];
@@ -170,7 +179,7 @@ export function useNavigationLinks(): NavigationLinks {
 
     const menuItems: MenuItemList = [
         {
-            linkText: "Kom i gang",
+            linkText: pageNames[PageType.KOMIGANG],
             content: [
                 ...getStartedDocPages.map((page) => ({
                     linkText: page.title,
@@ -181,7 +190,7 @@ export function useNavigationLinks(): NavigationLinks {
             basePath: PageType.KOMIGANG,
         },
         {
-            linkText: "Profil",
+            linkText: pageNames[PageType.PROFIL],
             content: profileDocPages.map((page) => ({
                 linkText: page.title,
                 content: page.path,
@@ -190,7 +199,7 @@ export function useNavigationLinks(): NavigationLinks {
             basePath: PageType.PROFIL,
         },
         {
-            linkText: "Komponenter",
+            linkText: pageNames[PageType.KOMPONENTER],
             content: [
                 ...componentDocPages
                     .filter((page) => page.group !== "hooks")
@@ -200,7 +209,7 @@ export function useNavigationLinks(): NavigationLinks {
                         basePath: PageType.KOMPONENTER,
                     })),
                 {
-                    linkText: "React Hooks",
+                    linkText: pageNames[PageType.KOMPONENTER],
                     content: componentDocPages
                         .filter((page) => page.group === "hooks")
                         .map((page) => ({
@@ -214,7 +223,7 @@ export function useNavigationLinks(): NavigationLinks {
             basePath: PageType.KOMPONENTER,
         },
         {
-            linkText: "Universell utforming",
+            linkText: pageNames[PageType.UU],
             content: [
                 ...uuDocPages.map((page) => ({
                     linkText: page.title,
@@ -225,7 +234,7 @@ export function useNavigationLinks(): NavigationLinks {
             basePath: PageType.UU,
         },
         {
-            linkText: "Guider",
+            linkText: pageNames[PageType.GUIDER],
             content: [
                 ...guiderDocPages.map((page) => ({
                     linkText: page.title,
@@ -236,7 +245,7 @@ export function useNavigationLinks(): NavigationLinks {
             basePath: PageType.GUIDER,
         },
         {
-            linkText: "Blogg",
+            linkText: pageNames[PageType.BLOG],
             content: blogPages.map((page) => ({
                 linkText: page.title,
                 content: page.path,
