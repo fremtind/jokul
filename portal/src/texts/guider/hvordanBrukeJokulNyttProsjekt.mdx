@@ -78,14 +78,25 @@ import { initTabListener } from "@fremtind/jkl-core";
 initTabListener();
 ```
 
-## Fonter
+## Klassen `jkl`
 
-For at blant annet fonter skal bli riktige må du sette `jkl`-klassen på rotnivå i appen din, for eksempel på `<body>` eller `<div>`-en hvor appen din rendres.
+For at CSSen i Jøkul skal fungere som forventet må du sette klassen `jkl` på rotnivå i applikasjonen din.
 
-```html
-<div class="jkl" id="app">
-    <!-- app rendres her -->
-</div>
+Vi bruker `jkl`-klassen til å blant annet:
+
+-   Sette riktige fonter.
+-   Gi standardfarger til tekst og bakgrunn.
+-   Noen CSS resets.
+
+Du har kanskje en komponent som heter `Layout` eller `App` hvor du kan sette denne klassen? Om du er usikker, sett klassen på `body`.
+
+```tsx
+import React, { FC } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
+
+export const Layout: FC<WithChildren> = ({ children }) => {
+    return <div className="jkl">{children}</div>;
+};
 ```
 
 ### Bruk med Sass
