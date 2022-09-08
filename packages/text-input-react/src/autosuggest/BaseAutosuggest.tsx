@@ -2,7 +2,7 @@ import { Label, SupportLabel } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import Downshift, { DownshiftProps } from "downshift";
-import React from "react";
+import React, { ReactNode } from "react";
 import { CommonProps } from "./Autosuggest";
 import ControllerButton from "./ControllerButton";
 import Menu from "./Menu";
@@ -15,6 +15,7 @@ type BaseAutosuggestProps<T> = CommonProps & {
     downshiftProps: DownshiftProps<T>;
     showDropdownControllerButton?: boolean;
     onConfirm?: () => void;
+    noHits?: { text: ReactNode; items: T[] };
 };
 
 function BaseAutosuggest<T>({
@@ -38,6 +39,7 @@ function BaseAutosuggest<T>({
     onConfirm = () => {
         /* noop */
     },
+    noHits,
 }: BaseAutosuggestProps<T>): JSX.Element {
     const uid = useId(inputId || "jkl-text-input", { generateSuffix: !inputId });
     const lid = useId(labelId || "jkl-label", { generateSuffix: !labelId });
@@ -128,6 +130,7 @@ function BaseAutosuggest<T>({
                                 itemToString={itemToString}
                                 noHitsMessage={noHitsMessage}
                                 maxNumberOfHits={maxNumberOfHits}
+                                noHits={noHits}
                             />
                         )}
                         <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} density={density} />
