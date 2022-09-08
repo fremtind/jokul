@@ -9,7 +9,7 @@
         "build:docs": "turbo run build:docs --scope=\"@fremtind/portal\" --include-dependencies --cache-dir=\".turbo\"",
         "commit": "git-cz",
         "predeploy:docs": "yarn run build:docs",
-        "deploy:docs": "gh-pages -f --no-history --add --dist portal/public",
+        "deploy:docs": "gh-pages -f --no-history --remove '[\".\", \"!preview\"]' --dist portal/public",
         "typecheck": "tsc --noEmit",
         "lint": "run-p lint:eslint lint:stylelint",
         "lint:eslint": "eslint '**/*.{js,jsx,ts,tsx}'",
