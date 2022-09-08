@@ -1,0 +1,113 @@
+---
+title: Kompaktvarianter har landet
+author: William Killerud
+description: Både Figma og kode har fått oppdaterte kompaktvarianter denne uka.
+publishDate: "2022.09.08"
+---
+
+<Ingress>Både Figma og kode har fått oppdaterte kompaktvarianter denne uka. La oss ta en titt på detaljene.</Ingress>
+
+Tidligere har kompakt gjerne vært som å si "tving mobilstørrelse på desktop". Vi ble enige før sommeren om et [nytt rendyrket konsept for Compact](/blog/updates/august-2022/#:~:text=Rendyrking%20av%20Compact). I august kom Mobile-størrelsene i Figma, og nå er nye Compact ute i både Figma og kode.
+
+## Kult, hvordan bruker jeg de nye variantene?
+
+For Figma-brukerne våre er det en Size-prop for hver komponent som nå har tre valg:
+
+-   Desktop
+-   Mobile
+-   Compact
+
+Desktop og mobile brukes for de respektive skjermstørrelsene, og er hovedsakelig like med unntak av typografi.
+
+![Skjermbilde fra Figma som viser hvor du finner Compact-varianten.](/assets/blog/compact-reboot-component-prop.png)
+
+Compact brukes i informasjonstette skjermbilder. Hovedsakelig vil dette gjelde for interne verktøy for proffe brukere.
+
+## Og hvis jeg er utvikler?
+
+Som utvikler har du to metoder for å styre om komponenter skal være kompakte eller ikke.
+
+### Gjør hele seksjoner av sider kompakte
+
+Tidligere har du kunnet sette attributtet `data-compactlayout` på et element i DOMen for å gjøre alle children kompakte. Det samme prinsippet kan fortsatt brukes, men det har fått et nytt navn.
+
+```diff
+- <div data-compactlayout>
++ <div data-layout-density="compact">
+```
+
+#### Reverser for deler av siden
+
+Nytt fra `@fremtind/jkl-core@11.0.0` og nyere er at du også kan **reversere** dette.
+
+```html
+<div data-layout-density="compact">
+    <!-- Alle Jøkul-komponenter inni her blir kompakte. -->
+
+    <div data-layout-density="comfortable">
+        <!-- Alle Jøkul-komponenter inni her får standardstørrelsen. -->
+    </div>
+</div>
+```
+
+Dette kan nøstes så mange nivåer du bare vil, men bruk med omhu.
+
+```html
+<div data-layout-density="compact">
+    <!-- Alle Jøkul-komponenter inni her blir kompakte. -->
+
+    <div data-layout-density="comfortable">
+        <!-- Alle Jøkul-komponenter inni her får standardstørrelsen. -->
+
+        <div data-layout-density="compact">
+            <!-- Hmm? -->
+
+            <div data-layout-density="comfortable">
+                <!-- Send hjelp! -->
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+### Gjør enkeltkomponenter kompakte
+
+Alle komponenter med en kompaktvariant (skal være alle med unntak av Logo) kan styres individuelt med propen `density`.
+
+For eksempel:
+
+```tsx
+<SecondaryButton density="compact">Hent på nytt</SecondaryButton>
+```
+
+Om du ikke bruker React-komponentene kan du oppnå det samme med å sette attributtet `data-density`.
+
+```html
+<button data-density="compact" class="jkl-button jkl-button--primary">
+    <div class="jkl-button__content">
+        <div class="jkl-button__slider">
+            <span className="jkl-button__children">Lagre</span>
+            <!-- Forenklet uten loader for eksempelets skyld -->
+        </div>
+    </div>
+</button>
+```
+
+#### Reverser for en enkeltkomponent
+
+Hvis du er i en seksjon av siden med `data-layout-density="compact"` vil du kanskje gjøre så en enkeltkomponent får sin vanlige størrelse:
+
+```tsx
+<PrimaryButton density="comfortable">Lagre</PrimaryButton>
+```
+
+## Kult, men noe ser litt rart ut her
+
+Det har vært store endringer på tvers av hele biblioteket så sjansen er der for at noe enten ikke fungerer helt optimalt, eller rett og slett er feil.
+
+Det er viktig at du sier i fra om ting du finner etter hvert som du tar i bruk nye Compact. Du kan gi tilbakemelding på et par måter:
+
+-   Dele noe på Teams i Support Designsystem.
+-   [Åpne et issue på GitHub](https://github.com/fremtind/jokul/issues/new/choose).
+
+Takk for at du er med på å forbedre Jøkul for alle sammen!
