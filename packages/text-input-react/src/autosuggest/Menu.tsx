@@ -33,9 +33,9 @@ function Menu<T>({
         <div data-testid="autosuggest__menu" style={{ position: "relative" }}>
             <div className="jkl-autosuggest__menu">
                 {(noHitsMessage || noHits) && visibleItems.length === 0 && (
-                <div className="jkl-autosuggest__no-hits-message" aria-live="polite">
-                    {noHitsMessage || noHits?.text}
-                </div>
+                    <div className="jkl-autosuggest__no-hits-message" aria-live="polite">
+                        {noHitsMessage || noHits?.text}
+                    </div>
                 )}
 
                 {itemList.length > 0 && (
