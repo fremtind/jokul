@@ -33,6 +33,27 @@ import "@fremtind/jkl-core/core.min.css";
 
 ## Bruk
 
+### Klassen `jkl`
+
+For at CSSen i Jøkul skal fungere som forventet må du sette klassen `jkl` på rotnivå i applikasjonen din.
+
+Vi bruker `jkl`-klassen til å blant annet:
+
+-   Sette riktige fonter.
+-   Gi standardfarger til tekst og bakgrunn.
+-   Noen CSS resets.
+
+Du har kanskje en komponent som heter `Layout` eller `App` hvor du kan sette denne klassen? Om du er usikker, sett klassen på `body`.
+
+```tsx
+import React, { FC } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
+
+export const Layout: FC<WithChildren> = ({ children }) => {
+    return <div className="jkl">{children}</div>;
+};
+```
+
 ### `initTabListener()`
 
 Av tilgjengelighetshensyn viser vi fokusomriss på interaktive elementer når man navigerer en løsning ved hjelp av tastaturet. Normalt blir disse omrissene også vist når man bruker musen for navigasjon, noe vi ikke ønsker.
