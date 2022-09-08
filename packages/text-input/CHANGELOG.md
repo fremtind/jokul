@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.0.0...@fremtind/jkl-text-input@9.1.0) (2022-09-08)
+
+### Features
+
+-   support fallback items on non-matching search ([1b7b431](https://github.com/fremtind/jokul/commit/1b7b4311cc16b00ee312ef5ca8ba692b71b16299)), closes [#3062](https://github.com/fremtind/jokul/issues/3062)
+
 # 9.0.0 (2022-09-08)
 
 ### Bug Fixes

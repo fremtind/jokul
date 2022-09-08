@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.0.0...@fremtind/jkl-text-input-react@11.1.0) (2022-09-08)
+
+### Bug Fixes
+
+-   added wrapper to avoid jumping in autosuggest ([680c8bb](https://github.com/fremtind/jokul/commit/680c8bb50c009cf3b611f415aa6b1acd56739375))
+-   lintfeil etter bom på indent i forslag på GitHub ([e583260](https://github.com/fremtind/jokul/commit/e583260136bb83e3adcc3ad963e6c329b3a66e4e))
+
+### Features
+
+-   support fallback items on non-matching search ([1b7b431](https://github.com/fremtind/jokul/commit/1b7b4311cc16b00ee312ef5ca8ba692b71b16299)), closes [#3062](https://github.com/fremtind/jokul/issues/3062)
+
 # 11.0.0 (2022-09-08)
 
 ### chore

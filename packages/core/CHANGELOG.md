@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@11.0.0...@fremtind/jkl-core@11.0.1) (2022-09-08)
+
+### Bug Fixes
+
+-   rydd opp noen etternølere etter compact reboot ([3ea49aa](https://github.com/fremtind/jokul/commit/3ea49aa11dc51c7e72ee78c9405fc0fb8bea695e))
+
 # 11.0.0 (2022-09-08)
 
 ### Bug Fixes
