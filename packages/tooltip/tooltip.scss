@@ -11,16 +11,25 @@ $_focus-ring-width: jkl.rem(2px);
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-tooltip-bg-color: #{jkl.$color-svart};
+    --jkl-tooltip-bg-color: #{jkl.$color-stein};
     --jkl-tooltip-button-color: #{jkl.$color-snohvit};
 }
 
 @include jkl.comfortable-density-variables {
-    --jkl-tooltip-padding: #{jkl.$spacing-m};
+    --jkl-tooltip-size: #{jkl.rem(24px)};
+    --jkl-tooltip-margin: #{jkl.$spacing-3xs} 0 0 #{jkl.$spacing-s};
+    --jkl-tooltip-content-padding: #{jkl.$spacing-m};
+
+    @include jkl.small-device {
+        --jkl-tooltip-size: #{jkl.rem(20px)};
+        --jkl-tooltip-content-padding: #{jkl.$spacing-s};
+    }
 }
 
 @include jkl.compact-density-variables {
-    --jkl-tooltip-padding: #{jkl.$spacing-m};
+    --jkl-tooltip-size: #{jkl.rem(20px)};
+    --jkl-tooltip-margin: #{jkl.rem(1px)} 0 0 #{jkl.$spacing-xs};
+    --jkl-tooltip-content-padding: #{jkl.$spacing-s};
 }
 
 .jkl-tooltip {
@@ -29,17 +38,31 @@ $_focus-ring-width: jkl.rem(2px);
 
     &__button {
         @include jkl.reset-outline;
-        @include jkl.text-style("body") {
-            line-height: 1.8rem;
-        }
-        height: 1.5em;
-        width: 1.5em;
-        vertical-align: top;
+        @include jkl.text-style("small");
+        height: var(--jkl-tooltip-size);
+        width: var(--jkl-tooltip-size);
         background-color: transparent;
         border: $_tooltip-border-width solid var(--jkl-tooltip-button-color);
         border-radius: 50%;
         color: var(--jkl-tooltip-button-color);
         cursor: pointer;
+
+        /* Plasser knappen i forhold til teksten */
+        vertical-align: text-top;
+        margin: var(--jkl-tooltip-margin);
+
+        /* Plasser knappen i forhold til teksten */
+
+        /* Visuelt sentrer spørsmålstegn */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        & > span {
+            margin-top: jkl.$spacing-3xs;
+        }
+
+        /* Visuelt sentrer spørsmålstegn */
 
         &:hover {
             box-shadow: 0 0 0 1px var(--jkl-tooltip-button-color);
@@ -71,7 +94,7 @@ $_focus-ring-width: jkl.rem(2px);
         display: inline-block;
         min-width: jkl.rem(200px);
         max-width: jkl.rem(310px); // 10px mindre enn smaleste støttede skjerm
-        padding: var(--jkl-tooltip-padding);
+        padding: var(--jkl-tooltip-content-padding);
         position: absolute;
         z-index: jkl.$z-index--floating;
 
