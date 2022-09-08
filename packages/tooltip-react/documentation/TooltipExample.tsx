@@ -12,7 +12,7 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     }
 
     return (
-        <p className="jkl-body">
+        <p>
             Du betaler 348 kr/mnd
             <Tooltip
                 content={
@@ -21,7 +21,6 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
                         <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
                     </span>
                 }
-                className="jkl-spacing-s--left"
                 {...(initialPlacement && { initialPlacement })}
             />
         </p>
