@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   bruk ny compact prop overalt i Button ([b8c3dec](https://github.com/fremtind/jokul/commit/b8c3decb4b21a4d7f39a4ffb21bd18dc6c6295d0))
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt design for kompakte knapper ([86cfcf8](https://github.com/fremtind/jokul/commit/86cfcf8f0ddca7269d5550b450da71593e160fd6))
+
+### Performance Improvements
+
+-   bruk useCallback for intern metode i Button ([efc5ede](https://github.com/fremtind/jokul/commit/efc5eded52becc6be64415b6ed4d065bf5854cd5))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 ## [11.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@11.0.3...@fremtind/jkl-button-react@11.0.4) (2022-06-13)
 
 ### Bug Fixes

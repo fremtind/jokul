@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   unbold navcard-link i kompaktmodus ([e12d63b](https://github.com/fremtind/jokul/commit/e12d63b167f04d725519f3bb82d88b2b3b0c854c))
+
+### Code Refactoring
+
+-   flytt det gamle kortet til en egen fil ([e1ec9f5](https://github.com/fremtind/jokul/commit/e1ec9f5983b7e661e2cb348b259dc3e68dcc1ee8))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   kompaktvarianter av NavCard, InfoCard, TaskCard ([6d0f260](https://github.com/fremtind/jokul/commit/6d0f260f3cf18a3efe6ad19c1067e11c5cbb85c3))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   Bundler ikke lenger CSSen til button i card. Inkluder button-cssen selv.
+
 # [6.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@5.1.11...@fremtind/jkl-card@6.0.0) (2022-06-07)
 
 ### Bug Fixes

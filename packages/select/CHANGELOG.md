@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   juster padding for compact og native ([a943295](https://github.com/fremtind/jokul/commit/a9432954269fbfccdb803b39fc74256b767cbdeb))
+-   padding på compact options ([a6bcc17](https://github.com/fremtind/jokul/commit/a6bcc17fc8c1508eeb450acb8a4a4ef07aa64c7d))
+-   pila overlapper ikke lenger lange verdier ([29f446f](https://github.com/fremtind/jokul/commit/29f446fdc7750df4e7797b750d2b70e0fb2bb236))
+-   pilbugs i select ([249cad0](https://github.com/fremtind/jokul/commit/249cad06462564c6c7cbff09344c176a213bef59))
+-   plassering av innhold mellom native og ikke ([7946a47](https://github.com/fremtind/jokul/commit/7946a472464e081e7a3e4739db6ef31fccd456a5))
+-   plasseringen av pila i compact ([1be7b84](https://github.com/fremtind/jokul/commit/1be7b846e960d59663de5e51b85045e52042fca5))
+-   unngå navnekollisjon med accordion sin expand-arrow ([1a6a9dc](https://github.com/fremtind/jokul/commit/1a6a9dc95aaa3f220c731ee124bde06c44c46ce6))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt kompaktdesign for Select ([a958df2](https://github.com/fremtind/jokul/commit/a958df2d22264204002ba0f6341c26549a4f3f86))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   jkl-select-expand-arrow er nå jkl-select\_\_arrow
+-   jkl-expand-arrow er nå jkl-select-expand-arrow
+
 ## 8.0.12 (2022-08-12)
 
 ### Bug Fixes

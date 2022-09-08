@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.0.0 (2022-09-08)
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt kompaktdesign for ToggleSwitch og ToggleSlider ([69c1296](https://github.com/fremtind/jokul/commit/69c1296d6ebbe3658d2715c3f7845fc5e5bd9a56))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## 9.0.5 (2022-07-21)
 
 ### Bug Fixes

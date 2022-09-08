@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   fiks rekkefølge mobil og kompakt ([45db6c2](https://github.com/fremtind/jokul/commit/45db6c2514acd2245cecf729deba78ae855ca3d3))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt design for kompakt checkbox ([b97880e](https://github.com/fremtind/jokul/commit/b97880e7e58f264fc107d53ea7a5702114f37c9a))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 # [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@6.0.13...@fremtind/jkl-checkbox@7.0.0) (2022-06-07)
 
 ### Code Refactoring

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@8.0.17...@fremtind/jkl-table-react@9.0.0) (2022-09-08)
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 ## [8.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@8.0.3...@fremtind/jkl-table-react@8.0.4) (2022-06-13)
 
 ### Bug Fixes

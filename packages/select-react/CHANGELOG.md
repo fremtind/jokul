@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   fixup native select etter endring av kompaktdesign ([2ecf367](https://github.com/fremtind/jokul/commit/2ecf36706117bb94a8acdadc654e64cb8d2be701))
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   implementer nytt kompaktdesign for Select ([ae8e84f](https://github.com/fremtind/jokul/commit/ae8e84fa5533ff2270c2c25163c4132f435673db))
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 ## 10.0.20 (2022-08-25)
 
 ### Bug Fixes

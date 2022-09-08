@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.1.2...@fremtind/portal@16.0.0) (2022-09-08)
+
+### Bug Fixes
+
+-   skjul tømmeknapp fram til vi har et filter ([47bf5be](https://github.com/fremtind/jokul/commit/47bf5bea84342a8739cd9d7cc2561e1f4f830004))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 # [15.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.54...@fremtind/portal@15.1.0) (2022-09-05)
 
 ### Features

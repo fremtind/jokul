@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 6.0.0 (2022-09-08)
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   legg til bold varianter av pilikoner ([0244f5d](https://github.com/fremtind/jokul/commit/0244f5d7b9ff25654324adb372b071237c62a63c))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 ## [5.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@5.0.2...@fremtind/jkl-icons-react@5.0.3) (2022-06-13)
 
 ### Bug Fixes
