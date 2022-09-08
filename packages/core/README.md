@@ -68,9 +68,9 @@ initTabListener();
 
 ### Kompakt modus
 
-Noen løsninger, spesielt rådgiverløsninger, har behov for å vise veldig mye informasjon på skjermen samtidig. Derfor ønsker vi å tilby kompakte versjoner av komponentene til dette formålet. Vi bruker BEM-modifieren `--compact` for å markere kompakt variant av en komponent.
+Noen løsninger, spesielt rådgiverløsninger, har behov for å vise veldig mye informasjon på skjermen samtidig. Derfor ønsker vi å tilby kompakte versjoner av komponentene til dette formålet.
 
-For å gjøre det enklere å ha kompakt modus på en hel løsning tillater vi å sette en attributt `data-compactlayout` på `<body>` (eller et annet element) slik at alle komponenter inne i dette elementet blir kompakte.
+For å gjøre det enklere å ha kompakt modus på en hel løsning tillater vi å sette en attributt `data-layout-density="compact"` på `<body>` (eller et annet element) slik at alle komponenter inne i dette elementet blir kompakte.
 
 ### `getValuePair()`
 
