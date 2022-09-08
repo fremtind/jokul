@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   juster høyden til text-input på mobil ([9bef706](https://github.com/fremtind/jokul/commit/9bef7067375c347a5bdac457f4da7ae0f36e1821))
+-   kompakt datepicker via data-compactlayout ([f175814](https://github.com/fremtind/jokul/commit/f1758148cad4d3e9da9a99116944405ebb965c0b))
+-   legg til kompakt tekstfelt for autosuggest, datepicker--compact ([e65e48b](https://github.com/fremtind/jokul/commit/e65e48bd2d403b279bce7dcccb5b09c223083569))
+-   størrelse på handlingsikon ved kompakt ([b63bb6e](https://github.com/fremtind/jokul/commit/b63bb6e0409635b1edbd2d031cd2c3a7a9ec1951))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt kompakt design for TextInput, TextArea, Autosuggest ([8ccac05](https://github.com/fremtind/jokul/commit/8ccac0564e62d43cfe3110da5d15af1cbc1fb04c))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## [8.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@8.0.10...@fremtind/jkl-text-input@8.0.11) (2022-07-29)
 
 ### Bug Fixes

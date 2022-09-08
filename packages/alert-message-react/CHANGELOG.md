@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2022-09-08)
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   kompakt alert message ([33e249d](https://github.com/fremtind/jokul/commit/33e249d3c99cfa97333d25d50bedff9e36ef29e9))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## [8.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message-react@8.0.3...@fremtind/jkl-alert-message-react@8.0.4) (2022-06-13)
 
 ### Bug Fixes

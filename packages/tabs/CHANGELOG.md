@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   juster plassering av fokusring i faneliste ([6110217](https://github.com/fremtind/jokul/commit/61102177f2308e82e2f3b4fc5967cd8750fa9d76))
+-   legg til litt padding på compact tabs ([ebb838e](https://github.com/fremtind/jokul/commit/ebb838e564c26010c7e26bbd378c8da1a86e6535))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt kompaktdesign for tabs ([eee6e72](https://github.com/fremtind/jokul/commit/eee6e726c5a45ccd666d18915c90ecba9130b5b2))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tabs@1.2.20...@fremtind/jkl-tabs@2.0.0) (2022-06-07)
 
 ### Code Refactoring

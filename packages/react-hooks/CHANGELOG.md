@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   easing og timing options i useAnimatedHeight brukes nå for oppslag, ikke rett som verdier ([07bdb8e](https://github.com/fremtind/jokul/commit/07bdb8e2f9d6afb806518c88e0ecfc2a349f8d54))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## 9.1.6 (2022-08-15)
 
 ### Bug Fixes

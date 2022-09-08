@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.0.0 (2022-09-08)
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt kompakt design for TextInput, TextArea, Autosuggest ([8ccac05](https://github.com/fremtind/jokul/commit/8ccac0564e62d43cfe3110da5d15af1cbc1fb04c))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 ## 10.0.13 (2022-08-15)
 
 ### Bug Fixes

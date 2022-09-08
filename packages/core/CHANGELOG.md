@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   bruk samme tykkelse på outline som rundt checbox, radio ([245bcc6](https://github.com/fremtind/jokul/commit/245bcc63c07ed495b36c8f0a7fadf39ea64b6a72))
+-   eksporter getCompactValue fra rotnivå ([f10156c](https://github.com/fremtind/jokul/commit/f10156cf40b14e6e696224c4ce10bc07fdd6a27c))
+-   fjern jkl-prefix fra public mixin ([2c580da](https://github.com/fremtind/jokul/commit/2c580dac204555ecf4caa144288636b391563483))
+-   ikke inkluder CSS i jkl-namespace ([651ff2d](https://github.com/fremtind/jokul/commit/651ff2d6e0d78bf89fc985133aeb03592cc76450))
+-   la brukerne nøste hele trær med data-compactlayout ([7427b7a](https://github.com/fremtind/jokul/commit/7427b7ae274a0919866964378c331604138afc37))
+-   legg til manglende easing og timing i motion.ts ([3ba5ffd](https://github.com/fremtind/jokul/commit/3ba5ffd81b1fd9d48211f1422665efc4154f3917))
+-   sync linkdesign med Figma ([16eb235](https://github.com/fremtind/jokul/commit/16eb235a752806ff36e196d1638b5f1e7f36fb02))
+-   visuell justering ved tastaturfokus ([126a50a](https://github.com/fremtind/jokul/commit/126a50a4b5818d9d95c120fffe85e719a4089c93))
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   eksponer variabler for typografi på rotnivå ([ab5ba30](https://github.com/fremtind/jokul/commit/ab5ba30aadd91357ddc4ce0487fb75eb9b2df246))
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   legg til nytt compact-API og deprecate det eksisterende ([47c0f5d](https://github.com/fremtind/jokul/commit/47c0f5dd1a0a9221aa79854809e7877c9977b553))
+
+### Performance Improvements
+
+-   dropp å generer en media query med likt innhold for text-style small ([b8293db](https://github.com/fremtind/jokul/commit/b8293dbc516d69c763f89ac9ed027bba235e69a5))
+-   fjern unødvendig \* selector ([10f51a5](https://github.com/fremtind/jokul/commit/10f51a5f8c7fa4b6f1dabf4ef6258aba20704b0f))
+-   som for small, unngå å generere media query med duplikat stil ([f45f6c7](https://github.com/fremtind/jokul/commit/f45f6c79416043d0ccff73ebde59eeba6aee6c9d))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   data-compactlayout krever nå en verdi true eller false
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 # 10.1.0 (2022-09-01)
 
 ### Features

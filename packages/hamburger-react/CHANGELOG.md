@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.0.0 (2022-09-08)
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   kompaktversjon av hamburger ([ddbcc31](https://github.com/fremtind/jokul/commit/ddbcc312e7cd84617b5c56a961948b7547e686fd))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## [9.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-hamburger-react@9.0.3...@fremtind/jkl-hamburger-react@9.0.4) (2022-06-13)
 
 ### Bug Fixes

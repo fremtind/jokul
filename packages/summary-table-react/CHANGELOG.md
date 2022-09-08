@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   fjern jkl-body fra SummaryTable ([5b07902](https://github.com/fremtind/jokul/commit/5b0790250b288c8195202cb3202bcaab0b79d66d))
+
 ## [7.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-summary-table-react@7.0.2...@fremtind/jkl-summary-table-react@7.0.3) (2022-06-13)
 
 ### Bug Fixes

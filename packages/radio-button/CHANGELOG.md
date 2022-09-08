@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   gi fokusert radioknapp bakgrunnsfarge ([0511be4](https://github.com/fremtind/jokul/commit/0511be4e2bf5e9e705031e002b71392f55a0d11e))
+-   margin-variabelsyntaks ([9462167](https://github.com/fremtind/jokul/commit/946216756c6ebd7bc67b0671be1174f224e4dffc))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   redesign kompakt modus ([91181e9](https://github.com/fremtind/jokul/commit/91181e9e12eaf403c67804e4355f1d5b47a4dcbd))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 # [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@6.0.13...@fremtind/jkl-radio-button@7.0.0) (2022-06-07)
 
 ### Code Refactoring

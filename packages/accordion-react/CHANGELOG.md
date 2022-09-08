@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   plassering av pila i flere kontekster ([6cc2831](https://github.com/fremtind/jokul/commit/6cc28313f394dbf842e627c8910fed5744a72e98))
+
+### Features
+
+-   compact-variant av Accordion ([61a3647](https://github.com/fremtind/jokul/commit/61a364770e2a225b00e55b149ac089cc8ee44769))
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   kompakt alert message ([33e249d](https://github.com/fremtind/jokul/commit/33e249d3c99cfa97333d25d50bedff9e36ef29e9))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## [7.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@7.0.3...@fremtind/jkl-accordion-react@7.0.4) (2022-06-13)
 
 ### Bug Fixes

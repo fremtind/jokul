@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2022-09-08)
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt kompaktdesign for Tag ([e2b0165](https://github.com/fremtind/jokul/commit/e2b01650b6349fa463d852f121e4b2dcd3c71411))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 # 2.1.0 (2022-07-26)
 
 ### Bug Fixes

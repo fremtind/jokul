@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   legg til spesialhåndtering av loader i kompakt knapp ([4fb9578](https://github.com/fremtind/jokul/commit/4fb9578975bf234d0bd9996f8b4071667cbda47b))
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader@7.2.0...@fremtind/jkl-loader@8.0.0) (2022-06-07)
 
 ### Code Refactoring

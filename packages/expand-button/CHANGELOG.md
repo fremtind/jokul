@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   expand-button funker nå med data-compactlayout ([2ec2a16](https://github.com/fremtind/jokul/commit/2ec2a1637f1092e346fe02ccaa627f17c4439e1a))
+-   expand-section legger seg ikke opp i tekststørrelse på innholdet ([d797b5e](https://github.com/fremtind/jokul/commit/d797b5ee995482a33a23ebf7491eb56997ea75bd))
+-   finjuster vertikal align på ExpandButton ([203c2d3](https://github.com/fremtind/jokul/commit/203c2d3fb492f29c02b97b05ebefff687a3e1da5))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### Reverts
+
+-   Revert "refactor: bruk ContentToggle for pilene i ExpandButton" ([126894f](https://github.com/fremtind/jokul/commit/126894f1ca3f04c4e556292a1eaa587237dcec59))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@1.2.14...@fremtind/jkl-expand-button@2.0.0) (2022-06-07)
 
 ### Code Refactoring

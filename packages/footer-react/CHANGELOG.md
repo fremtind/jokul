@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-footer-react@2.0.21...@fremtind/jkl-footer-react@3.0.0) (2022-09-08)
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   legg til compact-prop på Footer-komponenten ([d574077](https://github.com/fremtind/jokul/commit/d574077dfeb823cc953b32880f719aefa39a2ce0))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## [2.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-footer-react@2.0.3...@fremtind/jkl-footer-react@2.0.4) (2022-06-13)
 
 ### Bug Fixes
