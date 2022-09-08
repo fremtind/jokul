@@ -27,10 +27,12 @@ export type CommonProps = (
     variant?: "large" | "medium" | "small";
     density?: Density;
     placeholder?: string;
+    /** @deprecated Bruk noHits med text og evt. defaultverdier for items */
     noHitsMessage?: ReactNode;
     maxNumberOfHits?: number;
     showDropdownControllerButton?: boolean;
     onInputValueChange?: (inputValue: string) => void;
+    noHits?: { items: string[]; text: ReactNode };
 };
 
 export interface AutosuggestStringItemProps {
