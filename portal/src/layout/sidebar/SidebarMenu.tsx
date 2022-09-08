@@ -4,7 +4,7 @@ import { TextInput } from "@fremtind/jkl-text-input-react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import React, { useContext, useState, ChangeEvent } from "react";
 import { a11yContext } from "../../a11yContext";
-import { DocumentationPageInfo } from "../header/useNavigationLinks";
+import { DocumentationPageInfo, pageNames, PageType } from "../header/useNavigationLinks";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 
 interface Props {
@@ -90,7 +90,9 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                         <p className="jkl-small">
                             {filter && (
                                 <>
-                                    <span style={{ fontWeight: "bold" }}>{filter} </span>er ikke i biblioteket <br />
+                                    Fant ingen <span style={{ fontWeight: "bold" }}>{filter} </span> i{" "}
+                                    {pageNames[currentSection as PageType]}
+                                    <br />
                                     <br />
                                 </>
                             )}

@@ -1,17 +1,17 @@
-name: Issue triage
+name: Add to project
 
 on:
     issues:
-        types: ["labelled"]
+        types:
+            - opened
 
 jobs:
-    assign_enhancement_issue:
-        name: Assign enhancement issue
+    add-to-project:
+        name: Add issue to Jøkul project
         runs-on: ubuntu-latest
-        if: ${{ github.event.label == "✨ enhancement" }}
-        permissions:
-            issues: write
         steps:
-            - run: gh api --method POST /repos/fremtind/jokul/issues/${{ github.event.issue.number }}/assignees -F assignees='[${{ github.event.sender.login }}]'
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - uses: actions/add-to-project@v0.3.0
+              with:
+                  # Jøkul-prosjektet
+                  project-url: https://github.com/orgs/fremtind/projects/22
+                  github-token: ${{ secrets.FREMTINDBOT_PROJECT_PAT }}
