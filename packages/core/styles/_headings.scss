@@ -2,56 +2,28 @@
 
 .jkl-title {
     @include jkl.text-style("title");
-
-    *[data-compactlayout] & {
-        @include jkl.text-style("title/small-screen");
-    }
 }
 
 .jkl-title-small {
     @include jkl.text-style("title-small");
-
-    *[data-compactlayout] & {
-        @include jkl.text-style("title-small/small-screen");
-    }
 }
 
 .jkl-heading-1 {
     @include jkl.text-style("heading-1");
-
-    *[data-compactlayout] & {
-        @include jkl.text-style("heading-1/small-screen");
-    }
 }
 
 .jkl-heading-2 {
     @include jkl.text-style("heading-2");
-
-    *[data-compactlayout] & {
-        @include jkl.text-style("heading-2/small-screen");
-    }
 }
 
 .jkl-heading-3 {
     @include jkl.text-style("heading-3");
-
-    *[data-compactlayout] & {
-        @include jkl.text-style("heading-3/small-screen");
-    }
 }
 
 .jkl-heading-4 {
     @include jkl.text-style("heading-4");
-
-    *[data-compactlayout] & {
-        @include jkl.text-style("heading-4/small-screen");
-    }
 }
 
 .jkl-heading-5 {
     @include jkl.text-style("heading-5");
-
-    *[data-compactlayout] & {
-        @include jkl.text-style("heading-5/small-screen");
-    }
 }
