@@ -209,7 +209,7 @@ export function useNavigationLinks(): NavigationLinks {
                         basePath: PageType.KOMPONENTER,
                     })),
                 {
-                    linkText: pageNames[PageType.KOMPONENTER],
+                    linkText: "React Hooks",
                     content: componentDocPages
                         .filter((page) => page.group === "hooks")
                         .map((page) => ({
