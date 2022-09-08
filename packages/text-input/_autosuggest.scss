@@ -128,7 +128,6 @@
         border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
         box-sizing: border-box;
         color: var(--jkl-autosuggest-text-color);
-        list-style-type: none;
         position: absolute;
         top: 0;
         left: -#{jkl.rem(1px)};
@@ -137,8 +136,15 @@
         max-height: 60vh;
         overflow-y: auto;
         padding: var(--jkl-autosuggest-menu-padding);
+        width: calc(100% + jkl.rem(2px));
         z-index: jkl.$z-index--dropdown;
         -webkit-overflow-scrolling: touch;
+    }
+
+    &__item-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
 
     &__item {

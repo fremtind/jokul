@@ -78,4 +78,39 @@ describe("Autosuggest", () => {
         const label = getByText("Velg land");
         expect(label).toHaveClass("jkl-label--sr-only");
     });
+
+    it("shows no hits message and fallback options", () => {
+        const { getByTestId, queryAllByTestId, getByText } = renderMount({
+            noHits: {
+                text: <p className="jkl-body">No countries found, do you want one of these</p>,
+                items: ["Norway", "Sweden", "Denmark"],
+            },
+        });
+
+        const input = getByTestId("autosuggest__input");
+        fireEvent.change(input, { target: { value: "gibberish" } });
+
+        expect(getByText("No countries found, do you want one of these")).toBeInTheDocument();
+
+        const items = queryAllByTestId("autosuggest__item");
+        expect(queryAllByTestId("autosuggest__item")).toHaveLength(3);
+        expect(items[0]).toHaveTextContent("Norway");
+        expect(items[1]).toHaveTextContent("Sweden");
+        expect(items[2]).toHaveTextContent("Denmark");
+    });
+
+    it("shows no hits message without fallback options", () => {
+        const { getByTestId, queryAllByTestId, getByText } = renderMount({
+            noHits: {
+                text: <p className="jkl-body">No countries found</p>,
+                items: [],
+            },
+        });
+
+        const input = getByTestId("autosuggest__input");
+        fireEvent.change(input, { target: { value: "gibberish" } });
+
+        expect(getByText("No countries found")).toBeInTheDocument();
+        expect(queryAllByTestId("autosuggest__item")).toHaveLength(0);
+    });
 });
