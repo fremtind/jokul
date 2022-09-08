@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React from "react";
 import { SkeletonElement, SkeletonElementProps } from "./SkeletonElement";
@@ -5,7 +6,7 @@ import { SkeletonLabel, SkeletonLabelProps } from "./SkeletonLabel";
 
 export interface SkeletonRadioButtonGroupProps {
     className?: string;
-    forceCompact?: boolean;
+    density?: Density;
     labelProps?: SkeletonLabelProps;
     inputProps?: SkeletonElementProps;
     radioButtons: number;
@@ -14,27 +15,23 @@ export interface SkeletonRadioButtonGroupProps {
 export const SkeletonRadioButtonGroup = ({
     className,
     radioButtons,
-    forceCompact,
+    density,
     labelProps,
     inputProps,
     ...rest
 }: SkeletonRadioButtonGroupProps) => {
+    const compact = density === "compact";
     return (
-        <div
-            className={cn("jkl-skeleton-input", className, {
-                "jkl-skeleton-input--compact": forceCompact,
-            })}
-            {...rest}
-        >
-            <SkeletonLabel forceCompact={forceCompact} {...labelProps} />
+        <div className={cn("jkl-skeleton-input", className)} {...rest}>
+            <SkeletonLabel density={density} {...labelProps} />
             {Array.from(Array(radioButtons)).map((_, index) => (
                 <div key={`jkl-skeleton-checkbox-${index}`} className="jkl-skeleton-input__checkbox">
                     <SkeletonElement
-                        width={forceCompact ? 22 : 24}
-                        height={forceCompact ? 22 : 24}
+                        width={compact ? 22 : 24}
+                        height={compact ? 22 : 24}
                         style={{ borderRadius: "50%" }}
                     />
-                    <SkeletonElement width={forceCompact ? 201 : 216} height={forceCompact ? 22 : 24} {...inputProps} />
+                    <SkeletonElement width={compact ? 201 : 216} height={compact ? 22 : 24} {...inputProps} />
                 </div>
             ))}
         </div>

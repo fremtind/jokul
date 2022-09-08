@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 import { IconCalendar } from "./Icons/IconCalendar";
 import { IconClear } from "./Icons/IconClear";
@@ -8,6 +9,7 @@ export type IconVariant = "clear" | "search" | "calendar";
 export interface IconButtonProps extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     iconType?: IconVariant;
     buttonTitle: string;
+    density?: Density;
 }
 
 function getIcon(iconType: IconVariant) {
@@ -23,24 +25,24 @@ function getIcon(iconType: IconVariant) {
     }
 }
 
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-    ({ iconType = "clear", buttonTitle, ...rest }, ref) => {
-        return (
-            <button
-                ref={ref}
-                type="button"
-                title={buttonTitle}
-                data-testid="jkl-icon-button"
-                className="jkl-icon-button"
-                {...rest}
-            >
-                <span data-testid="jkl-action-icon" className="jkl-icon-button__icon">
-                    {getIcon(iconType)}
-                </span>
-                <span className="jkl-sr-only">{buttonTitle}</span>
-            </button>
-        );
-    },
-);
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
+    const { iconType = "clear", buttonTitle, density, ...rest } = props;
+    return (
+        <button
+            ref={ref}
+            type="button"
+            title={buttonTitle}
+            className="jkl-icon-button"
+            data-testid="jkl-icon-button"
+            data-density={density}
+            {...rest}
+        >
+            <span data-testid="jkl-action-icon" className="jkl-icon-button__icon">
+                {getIcon(iconType)}
+            </span>
+            <span className="jkl-sr-only">{buttonTitle}</span>
+        </button>
+    );
+});
 
 IconButton.displayName = "IconButton";

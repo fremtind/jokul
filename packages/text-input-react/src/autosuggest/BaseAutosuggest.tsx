@@ -26,6 +26,7 @@ function BaseAutosuggest<T>({
     leadText,
     errorLabel,
     helpLabel,
+    density,
     variant = "small",
     noHitsMessage,
     maxNumberOfHits,
@@ -64,10 +65,11 @@ function BaseAutosuggest<T>({
                 clearSelection,
             }) => {
                 return (
-                    <div className={`jkl-autosuggest ${className}`}>
+                    <div className={cn("jkl-autosuggest", className)} data-density={density}>
                         {label && (
                             <Label
                                 variant={variant}
+                                density={density}
                                 {...labelProps}
                                 {...getLabelProps({
                                     id: lid,
@@ -77,7 +79,16 @@ function BaseAutosuggest<T>({
                                 {label}
                             </Label>
                         )}
-                        {leadText && <p className="jkl-body jkl-spacing-l--bottom">{leadText}</p>}
+                        {leadText && (
+                            <p
+                                className={cn("jkl-spacing-l--bottom", {
+                                    "jkl-body": density !== "compact",
+                                    "jkl-small": density === "compact",
+                                })}
+                            >
+                                {leadText}
+                            </p>
+                        )}
                         <div
                             className={cn("jkl-autosuggest__input-group", {
                                 "jkl-autosuggest__input-group--open": isOpen && items.length !== 0,
@@ -119,7 +130,7 @@ function BaseAutosuggest<T>({
                                 maxNumberOfHits={maxNumberOfHits}
                             />
                         )}
-                        <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} />
+                        <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} density={density} />
                     </div>
                 );
             }}

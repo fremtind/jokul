@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
 import { ToggleSlider, ToggleSwitch } from "../src";
 
@@ -22,15 +22,21 @@ export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValue
     );
 };
 
-export const ToggleSliderExample: React.FC<ExampleComponentProps> = () => {
-    const [value, setValue] = useState("måned");
+export const toggleSliderExampleKnobs: ExampleKnobsProps = {};
 
+export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ displayValues }) => {
+    const [value, setValue] = useState("måned");
     return (
         <section style={{ width: "100%" }}>
-            <ToggleSlider defaultValue="måned" labels={["måned", "år"]} onToggle={setValue}>
+            <ToggleSlider
+                defaultValue="måned"
+                labels={["måned", "år"]}
+                onToggle={setValue}
+                density={displayValues?.density}
+            >
                 Pris per
             </ToggleSlider>
-            <p className="jkl-heading-5 jkl-spacing-l--top">100 kr/{value === "år" ? value : "mnd"}</p>
+            <p className="jkl-spacing-l--top jkl-bold">100 kr/{value === "år" ? value : "mnd"}</p>
         </section>
     );
 };
@@ -42,7 +48,7 @@ export const toggleSwitchCodeExample = ({ boolValues }: ExampleComponentProps): 
     />
 `;
 
-export const toggleSliderCodeExample = (): string => `
+export const toggleSliderCodeExample: CodeExample = (): string => `
     <ToggleSlider
         defaultValue="måned"
         labels={["måned", "år"]}

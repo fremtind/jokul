@@ -26,7 +26,7 @@
     padding: jkl.$spacing-s;
     display: flex;
     flex-direction: row;
-    max-width: min(#{jkl.rem(750px)}, 50vw);
+    max-width: jkl.rem(740px);
     min-height: jkl.rem(208px);
 
     &__example-wrapper {
@@ -39,7 +39,8 @@
         position: relative;
         padding: jkl.$spacing-2xl jkl.$spacing-m;
 
-        &::before {
+        // Unngå at endring av tittel knekker visuell regresjonstest ved å skjule den
+        :not([data-test-mode="e2e"]) &::before {
             @include jkl.text-style("small");
             color: var(--component-example-header-color);
             position: absolute;
@@ -56,7 +57,7 @@
     &__example-options {
         display: block;
         padding: jkl.$spacing-s jkl.$spacing-l;
-        min-width: jkl.rem(180px);
+        min-width: jkl.rem(150px);
     }
 
     &__example-options-header {
@@ -77,10 +78,8 @@
         }
     }
 
-    @include jkl.small-device {
-        width: calc(100% - #{jkl.$spacing-xl});
-        max-width: 100%;
-        min-width: initial;
+    @include jkl.screen-to(870px) {
+        width: 100%;
         flex-direction: column;
 
         &__example-wrapper {

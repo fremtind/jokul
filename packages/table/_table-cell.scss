@@ -6,11 +6,21 @@
     }
 }
 
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-table-cell", "body");
+
+    --jkl-table-cell-padding: #{jkl.rem(11px)} #{jkl.$spacing-xs};
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-table-cell", "small");
+
+    --jkl-table-cell-padding: #{jkl.rem(5px)} #{jkl.$spacing-xs};
+}
+
 .jkl-table-cell {
-    @include jkl.text-style("body");
-    padding: jkl.$spacing-s jkl.$spacing-xs;
-    padding-top: jkl.$spacing-s - jkl.rem(1px);
-    padding-bottom: jkl.$spacing-s - jkl.rem(1px);
+    @include jkl.use-font-variables("jkl-table-cell");
+    padding: var(--jkl-table-cell-padding);
     position: relative;
     text-align: left;
     vertical-align: top;
@@ -31,14 +41,6 @@
 
     .jkl-table--collapse-to-list[data-collapse] &--align-right {
         text-align: unset;
-    }
-
-    *[data-compactlayout] &,
-    &--compact {
-        @include jkl.text-style("small");
-        padding: jkl.$spacing-xs;
-        padding-top: jkl.$spacing-xs - jkl.rem(1px);
-        padding-bottom: jkl.$spacing-xs - jkl.rem(1px);
     }
 
     @mixin _responsive-table-header {

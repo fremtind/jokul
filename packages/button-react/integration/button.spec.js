@@ -26,20 +26,20 @@ describe("Buttons", () => {
 
             cy.takeSnapshots({
                 setup: () => {
-                    cy.setCompact();
+                    cy.setDensity("compact");
                 },
                 teardown: () => {
-                    cy.resetCompact();
+                    cy.setDensity("comfortable");
                 },
                 eq: component,
             });
 
             cy.takeSnapshots({
                 setup: () => {
-                    cy.setCompact().setwithLoader().setisLoading();
+                    cy.setDensity("compact").setwithLoader().setisLoading();
                 },
                 teardown: () => {
-                    cy.resetCompact().resetwithLoader().resetisLoading();
+                    cy.setDensity("comfortable").resetwithLoader().resetisLoading();
                 },
                 eq: component,
             });

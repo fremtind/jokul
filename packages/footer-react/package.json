@@ -38,9 +38,9 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^10.1.0",
-        "@fremtind/jkl-footer": "^2.0.13",
-        "@fremtind/jkl-formatters-util": "^2.5.9",
-        "@fremtind/jkl-logo-react": "^10.0.14"
+        "@fremtind/jkl-footer": "^3.0.0-alpha",
+        "@fremtind/jkl-formatters-util": "^3.0.0-alpha.0",
+        "@fremtind/jkl-logo-react": "^11.0.0-alpha.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

@@ -5,7 +5,7 @@ import { TextInput } from "../src";
 import { Action } from "../src/TextInput";
 
 export const textInputExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact", "Med hjelpetekst", "Med feil", "Med handling", "Inline"],
+    boolProps: ["Med hjelpetekst", "Med feil", "Med handling", "Inline"],
     choiceProps: [
         {
             name: "Variant",
@@ -22,7 +22,6 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
     const helpLabel = boolValues?.["Med hjelpetekst"] ? "Fødselsnummer består av 11 siffer" : undefined;
     const errorLabel = boolValues?.["Med feil"] ? "Du må fylle ut fødselsnummer, 11 siffer" : undefined;
 
-    const compact = boolValues?.["Compact"];
     const inline = boolValues?.["Inline"];
     const variant = choiceValues?.["Variant"] as LabelVariant;
     const action = boolValues?.["Med handling"]
@@ -51,7 +50,6 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
             onChange={handleChange}
             onKeyDown={() => console.log("onKeyDown event")}
             inline={inline}
-            forceCompact={compact}
             variant={variant}
             action={action}
         />
@@ -76,7 +74,6 @@ export const textInputExampleCode = ({ choiceValues, boolValues }: ExampleCompon
     name="fodselsnummer"
     helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Fødselsnummer består av 11 siffer"` : `{undefined}`}
     errorLabel=${boolValues?.["Med feil"] ? `"Du må fylle ut fødselsnummer, 11 siffer."` : `{undefined}`}
-    forceCompact={${boolValues?.["Compact"]}}
     variant={${choiceValues?.["Variant"]}}
     action={${
         boolValues?.["Med handling"]

@@ -40,7 +40,7 @@
         "url": "git+https://github.com/fremtind/jokul.git"
     },
     "dependencies": {
-        "@fremtind/jkl-field-group": "^5.0.12",
+        "@fremtind/jkl-field-group": "^6.0.0-alpha",
         "@fremtind/jkl-react-hooks": "^9.1.9",
         "classnames": "^2.2.6"
     },

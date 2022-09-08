@@ -6,6 +6,7 @@ import {
     getValuePair,
     DataTestAutoId,
     LabelProps,
+    Density,
 } from "@fremtind/jkl-core";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -47,7 +48,7 @@ export interface SelectProps extends DataTestAutoId {
     id?: string;
     name: string;
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "standAlone">;
     items: Array<string | ValuePair>;
     /**
      * @default false
@@ -67,7 +68,7 @@ export interface SelectProps extends DataTestAutoId {
      * @default false
      */
     searchable?: boolean | ((searchValue: string, searchItem: string | ValuePair) => boolean);
-    forceCompact?: boolean;
+    density?: Density;
     width?: string;
     onChange?: ChangeEventHandler;
     onBlur?: ChangeEventHandler;
@@ -102,7 +103,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         inline = false,
         defaultPrompt = "Velg",
         variant,
-        forceCompact,
+        density,
         width,
         ...rest
     } = props;
@@ -393,13 +394,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             data-testid="jkl-select"
             className={cn("jkl-select", className, {
                 "jkl-select--inline": inline,
-                "jkl-select--compact": forceCompact,
                 "jkl-select--open": dropdownIsShown,
                 "jkl-select--no-value": !hasSelectedValue,
                 "jkl-select--invalid": !!errorLabel || invalid,
             })}
             ref={componentRootElementRef}
             {...rest}
+            data-density={density}
         >
             <Label
                 id={labelId}
@@ -408,7 +409,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
                 htmlFor={isSearchable ? searchInputId : labelProps?.htmlFor}
                 srOnly={inline || labelProps?.srOnly}
-                forceCompact={forceCompact}
+                density={density}
             >
                 {label}
             </Label>
@@ -522,9 +523,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                         ) : null,
                     )}
                 </div>
-                <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
+                <ExpandArrow expanded={dropdownIsShown} />
             </div>
-            <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+            <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} density={density} />
         </div>
     );
 });

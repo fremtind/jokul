@@ -1,12 +1,12 @@
 import classNames from "classnames";
 import React, { FC } from "react";
-import { LabelVariant } from "../index";
+import { Density, LabelVariant } from "../index";
 import { WithChildren } from "../types";
 
 export interface LabelProps extends WithChildren {
     id?: string;
     variant?: LabelVariant;
-    forceCompact?: boolean;
+    density?: Density;
     srOnly?: boolean;
     standAlone?: boolean;
     htmlFor?: string;
@@ -15,7 +15,7 @@ export interface LabelProps extends WithChildren {
 
 export const Label: FC<LabelProps> = ({
     variant = "small",
-    forceCompact,
+    density,
     srOnly,
     children,
     standAlone,
@@ -25,7 +25,6 @@ export const Label: FC<LabelProps> = ({
 }) => {
     const labelClassNames = classNames("jkl-label", className, {
         [`jkl-label--${variant}`]: variant,
-        "jkl-label--compact": forceCompact,
         "jkl-label--sr-only": srOnly,
     });
 
@@ -41,7 +40,7 @@ export const Label: FC<LabelProps> = ({
     }
 
     return (
-        <C {...rest} className={labelClassNames} htmlFor={htmlFor}>
+        <C {...rest} className={labelClassNames} htmlFor={htmlFor} data-density={density}>
             {children}
         </C>
     );

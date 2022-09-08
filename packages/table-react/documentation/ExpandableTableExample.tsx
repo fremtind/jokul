@@ -13,7 +13,7 @@ import {
 } from "../src";
 
 export const expandableTableExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact", "Markér v/ klikk", "Tekst i ekspandérknapp"],
+    boolProps: ["Markér v/ klikk", "Tekst i ekspandérknapp"],
     choiceProps: [
         {
             name: "Mobilvisning",
@@ -32,20 +32,19 @@ const rows = [
 ];
 
 const ExpandableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues?.["Compact"];
     const headless = boolValues?.["Skjul overskrift"];
     const markClickedRows = boolValues?.["Markér v/ klikk"];
     const extraText = boolValues?.["Tekst i ekspandérknapp"];
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
 
     return (
-        <Table compact={compact} fullWidth {...props}>
+        <Table fullWidth {...props}>
             <TableCaption srOnly>Tabell med ekspanderbare rader</TableCaption>
             <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (
-                        <TableHeader key={column} compact bold>
+                        <TableHeader key={column} density="compact" bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -89,11 +88,7 @@ const ExpandableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
                                 {cell}
                             </TableCell>
                         ))}
-                        <ExpandableTableRowController
-                            data-th="Mer informasjon"
-                            verticalAlign="center"
-                            compact={compact}
-                        >
+                        <ExpandableTableRowController data-th="Mer informasjon" verticalAlign="center">
                             {extraText ? "Mer informasjon" : null}
                         </ExpandableTableRowController>
                     </ExpandableTableRow>
@@ -111,7 +106,7 @@ export const expandableTableExampleCode = ({ choiceValues, boolValues }: Example
     <TableHead srOnly={headless}>
         <TableRow>
             {headings.map((column) => (
-                <TableHeader key={column} compact bold>
+                <TableHeader key={column} density="compact" bold>
                     {column}
                 </TableHeader>
             ))}

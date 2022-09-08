@@ -53,7 +53,8 @@ Cypress.Commands.add("focusTextArea", (inputName) => {
 });
 
 Cypress.Commands.add("getComponent", () => {
-    cy.get(".jkl-portal-component-example");
+    // Unngå at endring av knobs knekker visuelle regresjonstester ved å bare hente ut selve innholdet i eksempelet
+    cy.get(".jkl-portal-component-example__example-wrapper");
 });
 
 const setMode = (action, reset) => () => {
@@ -67,6 +68,14 @@ Cypress.Commands.add("setChoice", (choice, value) =>
     cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).click({ multiple: true }),
 );
 
+Cypress.Commands.add("setTheme", (value) => {
+    cy.get(`input[name$="theme"][value="${value}"]`).click({ multiple: true });
+});
+
+Cypress.Commands.add("setDensity", (value) => {
+    cy.get(`input[name$="density"][value="${value}"]`).click({ multiple: true });
+});
+
 Cypress.Commands.add("setSelectChoice", (choice, value) => {
     cy.toggleSelectMenu(choice);
     cy.selectValue(value);
@@ -77,18 +86,9 @@ const setModeFactory = (knob) => {
     Cypress.Commands.add(`reset${pascalCase(knob)}`, setMode(knob, true));
 };
 
-[
-    "Compact",
-    "Inline",
-    "Med feil",
-    "Utvidet velger",
-    "Med hjelpetekst",
-    "Dark mode",
-    "Bytt verdi",
-    "withLoader",
-    "isLoading",
-    "Dismissable",
-].map((knob) => setModeFactory(knob));
+["Inline", "Med feil", "Utvidet velger", "Med hjelpetekst", "Bytt verdi", "withLoader", "isLoading", "Dismissable"].map(
+    (knob) => setModeFactory(knob),
+);
 
 Cypress.Commands.add("takeSnapshots", (options = {}) => {
     const pause = options.pause || false;
@@ -104,9 +104,9 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
             return;
         }
 
-        cy.setDarkMode();
+        cy.setTheme("dark");
         doSnapshot(options, variant, variantsChoiceType);
-        cy.resetDarkMode();
+        cy.setTheme("light");
     });
 
     function doSnapshot(options, variant, variantsChoiceType) {

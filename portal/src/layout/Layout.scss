@@ -43,9 +43,8 @@ $_sidebar-width: jkl.rem(375px);
 
     @include jkl.medium-device {
         &__main {
+            padding: jkl.$spacing-xl;
             padding-top: jkl.$spacing-2xl;
-            padding-right: jkl.$spacing-3xl;
-            padding-left: jkl.$spacing-xl;
         }
     }
 

@@ -24,4 +24,4 @@ export { ArrowHorizontalAnimated } from "./animated-icons/ArrowHorizontalAnimate
 export { PlusRemoveAnimated } from "./animated-icons/PlusRemoveAnimated";
 export { HamburgerCloseAnimated } from "./animated-icons/HamburgerCloseAnimated";
 
-export type { IconProps, IconVariant } from "./icons/types";
+export type { IconProps, IconVariant, ArrowIconProps } from "./icons/types";

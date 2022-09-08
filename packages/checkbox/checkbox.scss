@@ -1,16 +1,6 @@
 @use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/variables/colors";
-
-$_checkbox-height: jkl.rem(48px);
-$_checkbox-box-size: jkl.rem(24px);
-$_checkbox-line-height: jkl.rem(32px);
-
-$_checkbox-height--compact: jkl.rem(40px);
-$_checkbox-box-size--compact: jkl.rem(18px);
-$_checkbox-line-height--compact: jkl.rem(28px);
-
-$_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
+@use "~@fremtind/jkl-core/jkl/colors";
 
 @include jkl.light-mode-variables {
     --jkl-checkbox-color: #{jkl.$color-granitt};
@@ -34,6 +24,55 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
     --jkl-checkbox-box-default-color: #{jkl.$color-svaberg};
 }
 
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-checkbox", "body");
+
+    $_checkbox-height: jkl.rem(48px);
+    $_checkbox-box-size: jkl.rem(24px);
+    $_checkbox-line-height: jkl.rem(32px);
+
+    --jkl-checkbox-height: #{$_checkbox-height};
+    --jkl-checkbox-box-size: #{$_checkbox-box-size};
+    --jkl-checkbox-line-height: #{$_checkbox-line-height};
+    --jkl-checkbox-check-mark-margin: #{(($_checkbox-height - $_checkbox-box-size) * 0.5)} #{jkl.$spacing-xs} #{(
+            ($_checkbox-height - $_checkbox-box-size) * 0.5
+        )} 0;
+    --jkl-checkbox-check-text-translate: translate3d(0, #{jkl.rem(1px)}, 0);
+    --jkl-checkbox-check-text-margin: #{(($_checkbox-height - $_checkbox-line-height) * 0.5)} 0;
+
+    @include jkl.small-device {
+        $_checkbox-height--mobile: jkl.rem(40px);
+        $_checkbox-box-size--mobile: jkl.rem(24px);
+        $_checkbox-line-height--mobile: jkl.rem(28px);
+
+        --jkl-checkbox-height: #{$_checkbox-height--mobile};
+        --jkl-checkbox-box-size: #{$_checkbox-box-size--mobile};
+        --jkl-checkbox-line-height: #{$_checkbox-line-height--mobile};
+        --jkl-checkbox-check-mark-margin: #{(($_checkbox-height--mobile - $_checkbox-box-size--mobile) * 0.5)} #{jkl.$spacing-xs}
+            #{(($_checkbox-height--mobile - $_checkbox-box-size--mobile) * 0.5)} 0;
+        --jkl-checkbox-check-text-translate: translate3d(0, 0, 0);
+        --jkl-checkbox-check-text-margin: #{(($_checkbox-height--mobile - $_checkbox-line-height--mobile) * 0.5)} 0;
+    }
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-checkbox", "small");
+
+    $_checkbox-height--compact: jkl.rem(28px);
+    $_checkbox-box-size--compact: jkl.rem(18px);
+    $_checkbox-line-height--compact: jkl.rem(24px);
+
+    --jkl-checkbox-height: #{$_checkbox-height--compact};
+    --jkl-checkbox-box-size: #{$_checkbox-box-size--compact};
+    --jkl-checkbox-line-height: #{$_checkbox-line-height--compact};
+    --jkl-checkbox-check-mark-margin: #{(($_checkbox-height--compact - $_checkbox-box-size--compact) * 0.5)} #{jkl.$spacing-xs}
+        #{(($_checkbox-height--compact - $_checkbox-box-size--compact) * 0.5)} 0;
+    --jkl-checkbox-check-text-translate: translate3d(0, 0, 0);
+    --jkl-checkbox-check-text-margin: #{(($_checkbox-height--compact - $_checkbox-line-height--compact) * 0.5)} 0;
+}
+
+$_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
+
 @keyframes #{$_checkbox-checked-animation-name} {
     0% {
         width: 0;
@@ -51,33 +90,21 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
     }
 }
 
-@mixin _compact-design {
-    min-height: $_checkbox-height--compact;
-
-    .jkl-checkbox__check-mark {
-        height: $_checkbox-box-size--compact;
-        width: $_checkbox-box-size--compact;
-        margin: (($_checkbox-height--compact - $_checkbox-box-size--compact) * 0.5) 0;
-        margin-right: jkl.$spacing-xs;
-    }
-
-    .jkl-checkbox__check-text {
-        margin: (($_checkbox-height--compact - $_checkbox-line-height--compact) * 0.5) 0;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
 .jkl-checkbox {
-    @include jkl.text-style("body");
+    @include jkl.use-font-variables("jkl-checkbox");
+
     display: flex;
     flex-wrap: wrap;
-    min-height: $_checkbox-height;
+    min-height: var(--jkl-checkbox-height);
     color: var(--jkl-checkbox-color);
+    position: relative;
 
     &__input {
         // Hide native checkbox
         opacity: 0;
         position: absolute;
+        // Position the hidden input so that Cypress can hit it without it being obscured by the visual checkbox
+        top: -6px;
 
         // Checked state:
         &:checked {
@@ -151,8 +178,8 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
     }
 
     &__check-text {
-        margin: (($_checkbox-height - $_checkbox-line-height) * 0.5) 0;
-        transform: translate3d(0, jkl.rem(1px), 0);
+        margin: var(--jkl-checkbox-check-text-margin);
+        transform: var(--jkl-checkbox-check-text-translate);
 
         @include jkl.motion;
         transition-property: color;
@@ -161,11 +188,10 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
     &__check-mark {
         box-sizing: border-box;
         position: relative;
-        height: $_checkbox-box-size;
-        width: $_checkbox-box-size;
+        height: var(--jkl-checkbox-box-size);
+        width: var(--jkl-checkbox-box-size);
 
-        margin: (($_checkbox-height - $_checkbox-box-size) * 0.5) 0;
-        margin-right: jkl.$spacing-xs;
+        margin: var(--jkl-checkbox-check-mark-margin);
         vertical-align: middle;
         flex-shrink: 0; // Don't allow the check-mark to shrink in case of really long text
 
@@ -241,14 +267,5 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
         .jkl-checkbox__check-mark::after {
             border-color: var(--jkl-checkbox-error-check-color);
         }
-    }
-
-    @include jkl.compact-mode {
-        @include jkl.text-style("body/small-screen");
-        @include _compact-design;
-    }
-
-    @include jkl.small-device {
-        @include _compact-design;
     }
 }

@@ -1,0 +1,7 @@
+@use "@fremtind/jkl-core/jkl";
+
+[data-simulate-mobile] > .jkl-footer {
+    gap: jkl.$spacing-l;
+    flex-direction: column;
+    padding: jkl.$spacing-l;
+}

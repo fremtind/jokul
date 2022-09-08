@@ -17,7 +17,6 @@ export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues, choiceV
 
     return (
         <SecondaryButton
-            forceCompact={boolValues && boolValues["Compact"]}
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
@@ -30,7 +29,6 @@ export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues, choiceV
 
 export const secondaryCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
 <SecondaryButton
-    forceCompact={${!!boolValues?.["Compact"]}}
     loader={${
         !!boolValues?.["withLoader"]
             ? `{

@@ -23,6 +23,9 @@ describe("ToggleSwitch", () => {
             setup: () => {
                 cy.get(".jkl-toggle-switch").first().click();
             },
+            teardown: () => {
+                cy.get(".jkl-toggle-switch").first().click();
+            },
             eq: toggleSwitch,
         });
 
@@ -37,6 +40,9 @@ describe("ToggleSwitch", () => {
 
         cy.takeSnapshots({
             setup: () => {
+                cy.getByTestid("jkl-toggle-slider").find("label").first().click();
+            },
+            teardown: () => {
                 cy.getByTestid("jkl-toggle-slider").find("label").first().click();
             },
             eq: toggleSlider,

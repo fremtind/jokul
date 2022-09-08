@@ -1,0 +1,57 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-task-card-background--hvit: #{jkl.$color-hvit};
+    --jkl-task-card-background--snohvit: #{jkl.$color-snohvit};
+    --jkl-task-card-background--sand: #{jkl.$color-sand};
+    --jkl-task-card-background--dis: #{jkl.$color-dis};
+    --jkl-task-card-shadow: #{jkl.$shadow-task-card};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-task-card-background--hvit: #{jkl.$color-svart};
+    --jkl-task-card-background--snohvit: #{jkl.$color-granitt};
+    --jkl-task-card-background--sand: #{jkl.$color-skifer};
+    --jkl-task-card-background--dis: #{jkl.$color-fjellgra};
+    --jkl-task-card-shadow: none;
+}
+
+.jkl-task-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border-radius: jkl.rem(4px);
+
+    @include jkl.motion;
+    transition-property: background-color;
+
+    &__content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &--hvit {
+        background-color: var(--jkl-task-card-background--hvit);
+    }
+
+    &--snohvit {
+        background-color: var(--jkl-task-card-background--snohvit);
+    }
+
+    &--sand {
+        background-color: var(--jkl-task-card-background--sand);
+    }
+
+    &--dis {
+        background-color: var(--jkl-task-card-background--dis);
+    }
+
+    &--with-shadow {
+        box-shadow: var(--jkl-task-card-shadow);
+    }
+
+    @include jkl.forced-colors-mode {
+        border: jkl.rem(2px) solid CanvasText;
+    }
+}

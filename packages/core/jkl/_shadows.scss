@@ -1,0 +1,25 @@
+@use "responsive-units" as ru;
+
+/// Skygge som indikerer at noe er klikkbart og vil ta deg til et annet sted
+/// @type List
+$shadow-navigation: 0 ru.rem(4px) ru.rem(15px) rgb(37 42 49 / 10%);
+
+/// Skygge som indikerer at pekeren er over noe sin er klikkbart og vil ta deg til et annet sted
+/// @type List
+$shadow-navigation--hover: 0 ru.rem(6px) ru.rem(25px) rgb(37 42 49 / 12%);
+
+/// Skygge som indikerer at noe er klikkbart og at klikk vil gjøre en endring på nåværende side
+/// @type List
+$shadow-task-card: 0 ru.rem(4px) ru.rem(12px) rgb(37 42 49 / 3%);
+
+/// @type List
+/// @deprecated Se tilgjengelige skygger i _shadows.scss
+$drop-shadow--small: 0 ru.rem(4px) ru.rem(8px) rgb(0 0 0 / 8%);
+
+/// @type List
+/// @deprecated Se tilgjengelige skygger i _shadows.scss
+$drop-shadow--medium: ru.rem(4px) ru.rem(4px) ru.rem(8px) rgb(0 0 0 / 8%);
+
+/// @type List
+/// @deprecated Se tilgjengelige skygger i _shadows.scss
+$drop-shadow--large: ru.rem(4px) ru.rem(6px) ru.rem(16px) rgb(0 0 0 / 15%);

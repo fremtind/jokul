@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React from "react";
 import { SkeletonElement, SkeletonElementProps } from "./SkeletonElement";
@@ -7,25 +8,15 @@ export interface SkeletonTextAreaProps {
     className?: string;
     labelProps?: SkeletonLabelProps;
     inputProps?: SkeletonElementProps;
-    forceCompact?: boolean;
+    density?: Density;
 }
 
-export const SkeletonTextArea = ({
-    className,
-    forceCompact,
-    labelProps,
-    inputProps,
-    ...rest
-}: SkeletonTextAreaProps) => {
+export const SkeletonTextArea = ({ className, density, labelProps, inputProps, ...rest }: SkeletonTextAreaProps) => {
+    const compact = density === "compact";
     return (
-        <div
-            className={cn("jkl-skeleton-input", className, {
-                "jkl-skeleton-input--compact": forceCompact,
-            })}
-            {...rest}
-        >
-            <SkeletonLabel forceCompact={forceCompact} {...labelProps} />
-            <SkeletonElement width={forceCompact ? 301 : 316} height={forceCompact ? 148 : 168} {...inputProps} />
+        <div className={cn("jkl-skeleton-input", className)} {...rest} data-density={density}>
+            <SkeletonLabel density={density} {...labelProps} />
+            <SkeletonElement width={compact ? 301 : 316} height={compact ? 148 : 168} {...inputProps} />
         </div>
     );
 };

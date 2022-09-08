@@ -9,7 +9,7 @@ export interface ListProps extends WithChildren {
 type ValidLists = "unordered" | "ordered";
 
 function makeListComponent(listType: ValidLists): FC<ListProps> {
-    const BaseList: FC<ListProps> = ({ children, className = "jkl-body", ...rest }) => {
+    const BaseList: FC<ListProps> = ({ children, className, ...rest }) => {
         const C = listType === "ordered" ? "ol" : "ul";
 
         return (

@@ -74,7 +74,7 @@ const PraktiskInfoUtviklere: FC = () => {
                 layouten i prosjektet ditt etter egne behov.
             </Paragraph>
             <div className="jkl-portal-paragraph">
-                <Table fullWidth compact>
+                <Table fullWidth>
                     <TableHead>
                         <TableRow>
                             <TableHeader>Størrelse</TableHeader>

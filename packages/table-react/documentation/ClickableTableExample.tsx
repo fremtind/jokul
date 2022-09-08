@@ -3,7 +3,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Table, TableCaption, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../src";
 
 export const clickableTableExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact", "Markér v/ klikk"],
+    boolProps: ["Markér v/ klikk"],
     choiceProps: [
         {
             name: "Mobilvisning",
@@ -22,19 +22,18 @@ const rows = [
 ];
 
 const ClickableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues?.["Compact"];
     const headless = boolValues?.["Skjul overskrift"];
     const markClickedRows = boolValues?.["Markér v/ klikk"];
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
 
     return (
-        <Table compact={compact} fullWidth {...props}>
+        <Table fullWidth {...props}>
             <TableCaption srOnly>Tabell med klikkbare rader</TableCaption>
             <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (
-                        <TableHeader key={column} compact bold>
+                        <TableHeader key={column} density="compact" bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -62,12 +61,12 @@ const ClickableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceVa
 export default ClickableTableExample;
 
 export const clickableTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-<Table fullWidth compact={${boolValues?.["Compact"]}} collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell med klikkbare rader</TableCaption>
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>
             {headings.map((column) => (
-                <TableHeader key={column} compact bold>{column}</TableHeader>
+                <TableHeader key={column} density="compact" bold>{column}</TableHeader>
             ))}
         </TableRow>
     </TableHead>

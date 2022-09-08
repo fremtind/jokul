@@ -1,12 +1,9 @@
 @use "~@fremtind/jkl-core/jkl";
 
 .jkl-breadcrumb {
-    a {
-        @include jkl.text-style("small");
-    }
-
     a[aria-current] {
         text-decoration: none;
+        background-image: none;
         color: var(--jkl-color);
     }
 
@@ -24,7 +21,6 @@
     }
 
     &__item-separator {
-        @include jkl.text-style("small");
         padding-left: jkl.$spacing-xs;
         padding-right: jkl.$spacing-xs;
     }

@@ -18,7 +18,7 @@ export interface TableRowProps extends DetailedHTMLProps<HTMLAttributes<HTMLTabl
 }
 
 const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(({ className, clickable, children, ...rest }, ref) => {
-    const { compact } = useTableContext();
+    const { density } = useTableContext();
     const { isTableBody } = useTableSectionContext();
 
     const [clicked, setClicked] = useState(clickable?.isClicked || false);
@@ -38,13 +38,13 @@ const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(({ className, cl
                     }
                 }}
                 className={cx("jkl-table-row", "jkl-table-row--clickable", className, {
-                    ["jkl-table-row--compact"]: compact,
                     ["jkl-table-row--clicked"]: clickable?.markClickedRows && clicked,
                 })}
                 aria-label="Klikkbar rad"
                 aria-pressed={clickable?.markClickedRows ? (clicked ? "true" : "false") : undefined}
                 tabIndex={0}
                 {...rest}
+                data-density={density}
                 ref={ref}
             >
                 {children}
@@ -53,13 +53,7 @@ const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(({ className, cl
     }
 
     return (
-        <tr
-            className={cx("jkl-table-row", className, {
-                ["jkl-table-row--compact"]: compact,
-            })}
-            {...rest}
-            ref={ref}
-        >
+        <tr className={cx("jkl-table-row", className)} {...rest} ref={ref} data-density={density}>
             {children}
         </tr>
     );
