@@ -3,25 +3,19 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../../doc-utils"
 import { NavLink } from "../../src";
 
 export const navLinkExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Aktiv", "Back", "Compact"],
+    boolProps: ["Aktiv", "Back"],
 };
 
 export const NavLinkExample: FC<ExampleComponentProps> = ({ boolValues }) => (
-    <div>
-        <NavLink
-            className={boolValues?.["Compact"] ? "jkl-small" : "jkl-body"}
-            href="#"
-            active={boolValues?.["Aktiv"]}
-            back={boolValues?.["Back"]}
-        >
+    <p>
+        <NavLink href="#" active={boolValues?.["Aktiv"]} back={boolValues?.["Back"]}>
             Gå til forsiden
         </NavLink>
-    </div>
+    </p>
 );
 
 export const navLinkExampleCode = ({ boolValues }: ExampleComponentProps): string => `
 <NavLink
-    className="${boolValues?.["Compact"] ? "jkl-small" : "jkl-body"}"
     href="#"
     active={${boolValues?.["Aktiv"]}}
     back={${boolValues?.["Back"]}}

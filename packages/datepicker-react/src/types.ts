@@ -1,4 +1,4 @@
-import { DataTestAutoId, LabelProps } from "@fremtind/jkl-core";
+import { DataTestAutoId, Density, LabelProps } from "@fremtind/jkl-core";
 import { ChangeEvent, KeyboardEvent, FocusEvent, ButtonHTMLAttributes } from "react";
 
 export type DateValidationError = "WRONG_FORMAT" | "OUTSIDE_LOWER_BOUND" | "OUTSIDE_UPPER_BOUND";
@@ -45,7 +45,7 @@ export interface DatePickerProps extends DataTestAutoId {
      *  />
      *  ```
      */
-    labelProps?: Omit<LabelProps, "children" | "forceCompact">;
+    labelProps?: Omit<LabelProps, "children">;
     /**
      * dd.mm.åååå
      *
@@ -97,10 +97,7 @@ export interface DatePickerProps extends DataTestAutoId {
      * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
      */
     invalid?: boolean;
-    /**
-     * Bruk kompakt layout på skjemafeltet.
-     */
-    forceCompact?: boolean;
+    density?: Density;
     /**
      * Vis et inputfelt og en select for å navigere mellom år og måneder, i stedet for piler frem og tilbake.
      * Kan være nyttig om brukeren forventes å hoppe langt frem eller tilbake i tid.

@@ -1,0 +1,15 @@
+@use "@fremtind/jkl-core/jkl";
+
+$_levels: ("title", "heading-1", "heading-2", "heading-3", "heading-4", "heading-5", "body", "small");
+
+.jkl-portal-ttr__example {
+    @each $_level in $_levels {
+        &--#{$_level}.jkl-portal-ttr__example--desktop {
+            @include jkl.text-style("#{$_level}/large-screen");
+        }
+
+        &--#{$_level}.jkl-portal-ttr__example--mobile {
+            @include jkl.text-style("#{$_level}/small-screen");
+        }
+    }
+}

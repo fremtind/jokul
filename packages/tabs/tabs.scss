@@ -14,6 +14,18 @@
     --jkl-tab-focus-border-color: #{jkl.$color-snohvit};
 }
 
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-tab", "body");
+
+    --jkl-tab-padding: #{jkl.$spacing-xs} #{jkl.$spacing-xl} #{jkl.$spacing-s} #{jkl.$spacing-3xs};
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-tab", "small");
+
+    --jkl-tab-padding: #{jkl.$spacing-3xs} #{jkl.rem(32px)} #{jkl.$spacing-2xs} 0;
+}
+
 .jkl-tablist {
     position: relative;
     display: flex;
@@ -42,21 +54,30 @@
 }
 
 .jkl-tab {
-    @include jkl.text-style("body");
+    @include jkl.use-font-variables("jkl-tab");
+    color: var(--jkl-tab-text-color);
+    padding: var(--jkl-tab-padding);
     border: none;
     background-color: transparent;
-    padding: jkl.$spacing-xs jkl.$spacing-3xs;
-    padding-right: jkl.$spacing-xl;
     cursor: pointer;
-    color: var(--jkl-tab-text-color);
+    position: relative;
 
     &:hover {
         color: var(--jkl-tab-hover-color);
     }
 
     &:focus-visible {
-        outline: var(--jkl-tab-focus-border-color) solid 2px;
-        outline-offset: -1px;
+        @include jkl.reset-outline;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: jkl.rem(2px);
+            right: jkl.rem(6px); // Hold avstand til neste fane
+            bottom: jkl.rem(1px);
+            left: jkl.rem(-2px);
+            box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-tab-focus-border-color);
+        }
     }
 
     &[aria-selected="true"] {

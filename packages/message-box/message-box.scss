@@ -1,6 +1,6 @@
 @use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/variables/colors";
+@use "~@fremtind/jkl-core/jkl/colors";
 
 $_dismiss-animation-duration: jkl.timing("lazy");
 $_message-width: jkl.rem(560px);
@@ -17,12 +17,37 @@ $_bg-color--feil: colors.varslingsfarge("feil");
 $_bg-color--info: colors.varslingsfarge("info");
 $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-message-box-message", "body");
+    @include jkl.declare-font-variables("jkl-message-box-title", "heading-4");
+
+    --jkl-message-box-padding: #{jkl.$spacing-l} #{jkl.$spacing-l} #{jkl.$spacing-l} #{jkl.rem(56px)};
+    --jkl-message-box-icon-size: #{jkl.rem(18px)};
+    --jkl-message-box-icon-left: #{jkl.rem(20.8px)};
+    --jkl-message-box-icon-top: #{jkl.rem(27.2px)};
+    --jkl-message-box-title-margin: 0 0 #{jkl.$spacing-xs} 0;
+    --jkl-message-box-dismiss-button-size: #{jkl.rem(44px)};
+    --jkl-message-box-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(12px)} -#{jkl.rem(6.5px)} auto;
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-message-box-message", "small");
+    @include jkl.declare-font-variables("jkl-message-box-title", "heading-5");
+
+    --jkl-message-box-padding: #{jkl.$spacing-s} #{jkl.$spacing-xs} #{jkl.$spacing-s} #{jkl.rem(32px)};
+    --jkl-message-box-icon-size: #{jkl.rem(12px)};
+    --jkl-message-box-icon-left: #{jkl.rem(10px)};
+    --jkl-message-box-icon-top: #{jkl.rem(17px)};
+    --jkl-message-box-title-margin: 0;
+    --jkl-message-box-dismiss-button-size: #{jkl.rem(32px)};
+    --jkl-message-box-dismiss-button-margin: #{jkl.rem(-6px)} #{jkl.rem(-2px)} #{jkl.rem(-6.5px)} auto;
+}
+
 .jkl-message-box {
     position: relative;
     width: 100%;
     max-width: $_message-width;
-    padding: jkl.$spacing-l;
-    padding-left: jkl.rem(56px);
+    padding: var(--jkl-message-box-padding);
     background-color: $_bg-color--default;
     color: $_text-color;
     border-radius: jkl.rem(4px);
@@ -32,55 +57,43 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__icon {
         position: absolute;
-        left: jkl.$spacing-m;
-        height: jkl.rem(24px);
+        left: var(--jkl-message-box-icon-left);
+        top: var(--jkl-message-box-icon-top);
+        height: var(--jkl-message-box-icon-size);
+        flex-shrink: 0;
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
 
-    &__content {
-        & > :not(.jkl-message-box__title) {
-            margin-top: -#{jkl.$spacing-3xs};
-        }
-
-        & > * + * {
-            margin-top: jkl.$spacing-xs;
-        }
-
-        /* Hvis Dismissable, gi plass mellom tekst og Lukk-knapp. */
-        &:not(:last-child) {
-            margin-right: jkl.$spacing-m;
-        }
+    &__message {
+        @include jkl.use-font-variables("jkl-message-box-message");
     }
 
     &__title {
-        margin-bottom: jkl.$spacing-xs;
-
-        @include jkl.text-style("heading-4");
+        @include jkl.use-font-variables("jkl-message-box-title");
+        margin: var(--jkl-message-box-title-margin);
     }
 
     &__dismiss-button {
         @include jkl.reset-outline;
         background-color: transparent;
+        border-radius: jkl.rem(3px);
         padding: 0;
-        margin-left: auto;
-        margin-top: jkl.$spacing-3xs;
-        color: inherit;
         cursor: pointer;
-        width: jkl.rem(20px);
-        height: jkl.rem(20px);
 
-        align-self: flex-start;
-        flex-shrink: 0;
+        // Sørg for å ha en stor nok touch target.
+        width: var(--jkl-message-box-dismiss-button-size);
+        height: var(--jkl-message-box-dismiss-button-size);
+        margin: var(--jkl-message-box-dismiss-button-margin);
 
+        color: inherit;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         @include jkl.forced-colors-mode {
             background-color: ButtonFace;
-            margin-top: jkl.rem(-1px);
-            width: jkl.rem(32px);
-            height: jkl.rem(32px);
-            padding: jkl.rem(4px);
         }
+
+        align-self: flex-start;
+        flex-shrink: 0;
 
         &:hover {
             color: $_dismiss-hover-color;
@@ -89,47 +102,13 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
         &:focus {
             @include jkl.keyboard-navigation {
-                position: relative;
+                outline: 2px solid $_dismiss-focus-border-color;
 
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: jkl.rem(-2px);
-                    right: jkl.rem(-2px);
-                    bottom: jkl.rem(-2px);
-                    left: jkl.rem(-2px);
-                    box-shadow: 0 0 0 jkl.rem(2px) $_dismiss-focus-border-color;
+                @include jkl.forced-colors-mode {
+                    outline: 2px solid ButtonText;
+                    outline-offset: 2px;
                 }
             }
-        }
-    }
-
-    &--compact {
-        padding: jkl.$spacing-m;
-        padding-left: jkl.rem(48px);
-        max-width: $_message-width--compact;
-
-        .jkl-message-box__content {
-            @include jkl.text-style("small");
-
-            & > :not(.jkl-message-box__title) {
-                margin-top: 0;
-            }
-
-            /* Hvis Dismissable, gi plass mellom tekst og Lukk-knapp. */
-            &:not(:last-child) {
-                margin-right: jkl.$spacing-s;
-            }
-        }
-
-        .jkl-message-box__icon {
-            left: jkl.$spacing-s;
-        }
-
-        .jkl-message-box__title {
-            margin-bottom: jkl.$spacing-3xs;
-
-            @include jkl.text-style("heading-5");
         }
     }
 
@@ -175,10 +154,6 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
             border-width: 4px;
         }
     }
-
-    @include jkl.small-device {
-        width: 100%;
-    }
 }
 
 @keyframes #{$_dismiss-animation-name} {
@@ -194,7 +169,5 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 }
 
 .jkl-form-error-message-box {
-    @include jkl.text-style("body");
-
     padding-bottom: jkl.$spacing-xl;
 }

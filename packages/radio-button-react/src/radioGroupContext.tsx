@@ -1,11 +1,11 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { Density, WithChildren } from "@fremtind/jkl-core";
 import React, { createContext, useContext, ChangeEventHandler } from "react";
 
 type RadioGroupContext = {
     name: string | undefined;
     value: string | undefined;
     inline: boolean;
-    forceCompact: boolean;
+    density?: Density;
     invalid: boolean;
     onChange: ChangeEventHandler<HTMLInputElement> | undefined;
 };
@@ -17,7 +17,7 @@ const radioGroupContext = createContext<RadioGroupContext>({
         return;
     },
     inline: false,
-    forceCompact: false,
+    density: undefined,
     invalid: false,
 });
 

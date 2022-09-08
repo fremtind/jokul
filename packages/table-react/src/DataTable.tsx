@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import React, { DetailedHTMLProps, forwardRef, TableHTMLAttributes } from "react";
 import { Table } from "./Table";
 import { TableBody } from "./TableBody";
@@ -10,7 +11,7 @@ import { TableRow } from "./TableRow";
 export interface DataTableProps extends DetailedHTMLProps<TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> {
     /** Beskrivelse av tabellen for skjermlesere */
     caption?: string;
-    compact?: boolean;
+    density?: Density;
     collapseToList?: boolean;
     rows: React.ReactNode[][];
     columns: string[];
@@ -30,7 +31,7 @@ const DataTable = forwardRef<HTMLTableElement, DataTableProps>(
                 <TableHead>
                     <TableRow>
                         {columns.map((column, index) => (
-                            <TableHeader key={index} compact bold>
+                            <TableHeader key={index} density="compact" bold>
                                 {column}
                             </TableHeader>
                         ))}

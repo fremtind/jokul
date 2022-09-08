@@ -1,6 +1,7 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import cx from "classnames";
+import cn from "classnames";
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useTabsContext } from "./tabsContext";
 
 export interface TabListProps extends WithChildren {
     "aria-label": string;
@@ -19,9 +20,10 @@ export interface InjectedProps {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const TabList = ({ children, ...injected }: TabListProps) => {
+export const TabList = ({ children, className, ...injected }: TabListProps) => {
     // props injected by Tabs
-    const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...props } = injected as TabListProps & InjectedProps;
+    const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...rest } = injected as TabListProps & InjectedProps;
+    const { density } = useTabsContext();
 
     const [tabsRect, setTabsRect] = useState<DOMRect>();
     const [activeRect, setActiveRect] = useState<DOMRect>();
@@ -36,7 +38,7 @@ export const TabList = ({ children, ...injected }: TabListProps) => {
         if (activeRef.current) {
             setActiveRect(activeRef.current.getBoundingClientRect());
         }
-    }, [activeIndex]);
+    }, [activeIndex, density]);
 
     const keyDownHandler = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
         if (event.key === "ArrowLeft") {
@@ -63,10 +65,8 @@ export const TabList = ({ children, ...injected }: TabListProps) => {
         }
     }, []);
 
-    const classes = cx("jkl-tablist", props.className);
-
     return (
-        <div role="tablist" ref={tabsRef} {...props} className={classes}>
+        <div role="tablist" ref={tabsRef} {...rest} className={cn("jkl-tablist", className)}>
             {React.Children.map(children, (tab, tabIndex) => {
                 const isActive = activeIndex === tabIndex;
 
@@ -88,7 +88,7 @@ export const TabList = ({ children, ...injected }: TabListProps) => {
                 style={{
                     left: (activeRect?.left || 0) - (tabsRect?.left || 0),
                     bottom: -1,
-                    width: (activeRect?.width || 0) - 38,
+                    width: (activeRect?.width || 0) - (density === "compact" ? 32 : 38),
                 }}
             />
         </div>

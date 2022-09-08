@@ -1,12 +1,14 @@
-import { WithChildren } from "@fremtind/jkl-core";
-import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { Density, WithChildren } from "@fremtind/jkl-core";
+import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { AriaRole, forwardRef } from "react";
+import { DismissButton } from "./DismissButton";
 
 export interface MessageBoxProps extends WithChildren {
+    id?: string;
     title?: string;
     fullWidth?: boolean;
-    forceCompact?: boolean;
+    density?: Density;
     className?: string;
     dismissed?: boolean;
     dismissAction?: {
@@ -110,9 +112,10 @@ const getRole = (messageType: messageTypes) => {
 function messageFactory(messageType: messageTypes) {
     const MessageBox = forwardRef<HTMLDivElement, MessageBoxProps>((props, ref) => {
         const {
+            id,
             title,
             fullWidth,
-            forceCompact,
+            density,
             className = "",
             dismissed,
             dismissAction,
@@ -121,34 +124,34 @@ function messageFactory(messageType: messageTypes) {
             ...rest
         } = props;
 
-        const componentClassName = cn("jkl-message-box", "jkl-message-box--" + messageType, className, {
-            "jkl-message-box--full": fullWidth,
-            "jkl-message-box--compact": forceCompact,
-            "jkl-message-box--dismissed": dismissed,
-        });
+        const boxId = useId(id || "jkl-message-box", { generateSuffix: !id });
 
         const hasStringChild = React.Children.map(children, (child) => typeof child === "string");
-
-        const newChildren = hasStringChild?.[0] ? <p className="jkl-body">{children}</p> : children;
+        const newChildren = hasStringChild?.[0] ? <p>{children}</p> : children;
 
         return (
             <div
                 {...rest}
+                id={id}
                 ref={ref}
-                className={componentClassName}
+                className={cn("jkl-message-box", "jkl-message-box--" + messageType, className, {
+                    "jkl-message-box--full": fullWidth,
+                    "jkl-message-box--dismissed": dismissed,
+                })}
                 role={role || getRole(messageType)}
                 data-theme="light"
+                data-density={density}
             >
                 {getIcon(messageType)}
                 <div className="jkl-message-box__content">
                     {title !== undefined && <p className="jkl-message-box__title">{title}</p>}
-                    {newChildren}
+                    <div className="jkl-message-box__message">{newChildren}</div>
                 </div>
                 {dismissAction?.handleDismiss && (
-                    <IconButton
+                    <DismissButton
+                        aria-controls={boxId}
                         className="jkl-message-box__dismiss-button"
-                        iconType="clear"
-                        buttonTitle={dismissAction.buttonTitle || "Lukk"}
+                        label={dismissAction.buttonTitle || "Lukk"}
                         onClick={dismissAction.handleDismiss}
                     />
                 )}

@@ -15,23 +15,21 @@ import {
 
 import "./styles.scss";
 
-export const skeletonLoaderExampleKnobs: ExampleKnobsProps = { boolProps: ["Compact"] };
+export const skeletonLoaderExampleKnobs: ExampleKnobsProps = {};
 
-export const SkeletonLoaderExample: FC<ExampleComponentProps> = ({ boolValues }) => {
-    const forceCompact = boolValues?.["Compact"];
+export const SkeletonLoaderExample: FC<ExampleComponentProps> = () => {
     return (
         <SkeletonAnimation
             role="none presentation" // Kun for eksempelet, ellers blir det mange alerts på siden
-            forceCompact={forceCompact}
         >
             <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
                 <SkeletonElement width={350} height={32} />
-                <SkeletonInput forceCompact={forceCompact} />
-                <SkeletonTextArea forceCompact={forceCompact} />
-                <SkeletonCheckboxGroup checkboxes={3} forceCompact={forceCompact} />
-                <SkeletonRadioButtonGroup radioButtons={3} forceCompact={forceCompact} />
-                <SkeletonButton width={225} forceCompact={forceCompact} />
-                <SkeletonTable forceCompact={forceCompact}>
+                <SkeletonInput />
+                <SkeletonTextArea />
+                <SkeletonCheckboxGroup checkboxes={3} />
+                <SkeletonRadioButtonGroup radioButtons={3} />
+                <SkeletonButton width={225} />
+                <SkeletonTable>
                     <SkeletonTableHeader>
                         <div style={{ width: 215 }}>
                             <SkeletonElement width={115} height={16} />
@@ -56,20 +54,18 @@ export const SkeletonLoaderExample: FC<ExampleComponentProps> = ({ boolValues })
     );
 };
 
-export const skeletonLoaderExampleCode: CodeExample = ({ boolValues }) => {
-    const forceCompact = boolValues?.["Compact"];
+export const skeletonLoaderExampleCode: CodeExample = () => {
     return `<SkeletonAnimation
     role="none presentation" // Kun for eksempelet, ellers blir det mange alerts på siden
-    forceCompact={${forceCompact}}
 >
     <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
         <SkeletonElement width={350} height={32} />
-        <SkeletonInput forceCompact={${forceCompact} /}>
-        <SkeletonTextArea forceCompact={${forceCompact} /}>
-        <SkeletonCheckboxGroup checkboxes={3} forceCompact={${forceCompact} /}>
-        <SkeletonRadioButtonGroup radioButtons={3} forceCompact={${forceCompact} /}>
-        <SkeletonButton width={225} forceCompact={${forceCompact} /}>
-        <SkeletonTable forceCompact={${forceCompact}}>
+        <SkeletonInput />
+        <SkeletonTextArea />
+        <SkeletonCheckboxGroup checkboxes={3} />
+        <SkeletonRadioButtonGroup radioButtons={3} />
+        <SkeletonButton width={225} />
+        <SkeletonTable>
             <SkeletonTableHeader>
                 <div style={{ width: 215 }}>
                     <SkeletonElement width={115} height={16} />

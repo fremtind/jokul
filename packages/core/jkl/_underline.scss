@@ -1,16 +1,16 @@
-@use "../functions";
+@use "responsive-units" as ru;
 
 /// Gir deg en understrek-effekt med box-shadow
 /// @param {Color} $color - Standardfarge, og farge ved hover
 /// @param {Color} $focus-color - Farge ved tastaturfokus
 @mixin underline-color($color, $focus-color) {
-    box-shadow: inset 0 functions.rem(-2px) 0 0 $color;
+    box-shadow: inset 0 ru.rem(-2px) 0 0 $color;
 
     html:not([data-mousenavigation]) &:focus {
-        box-shadow: inset 0 functions.rem(-4px) 0 0 $focus-color;
+        box-shadow: inset 0 ru.rem(-4px) 0 0 $focus-color;
     }
 
     &:hover {
-        box-shadow: inset 0 functions.rem(-4px) 0 0 $color;
+        box-shadow: inset 0 ru.rem(-4px) 0 0 $color;
     }
 }

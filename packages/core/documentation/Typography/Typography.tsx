@@ -49,7 +49,7 @@ export const NormalExample: FC = () => (
 );
 
 export const SmallExample: FC = () => (
-    <table className="jkl-typography-example-table" data-compactlayout>
+    <table className="jkl-typography-example-table" data-layout-density="compact">
         <tr>
             <th className="jkl-typography-example-table__header">Stilnavn</th>
             <th className="jkl-typography-example-table__header">Mixin</th>
@@ -67,7 +67,7 @@ export const SmallExample: FC = () => (
 );
 
 export const LargeExample: FC = () => (
-    <table className="jkl-typography-example-table" data-compactlayout>
+    <table className="jkl-typography-example-table" data-layout-density="compact">
         <tr>
             <th className="jkl-typography-example-table__header">Stilnavn</th>
             <th className="jkl-typography-example-table__header">Mixin</th>

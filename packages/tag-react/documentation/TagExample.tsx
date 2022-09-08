@@ -3,12 +3,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Tag, InfoTag, SuccessTag, WarningTag, ErrorTag } from "../src";
 
 export const tagExampleKnobs: ExampleKnobsProps = {
-    boolProps: [
-        {
-            defaultValue: false,
-            prop: "Dismissable",
-        },
-    ],
+    boolProps: ["Dismissable"],
 };
 
 type TagType = "Info" | "Success" | "Warning" | "Error";

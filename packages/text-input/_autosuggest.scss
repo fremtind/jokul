@@ -1,10 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-$_controller-button-padding: jkl.$spacing-s;
-
-$_autosuggest-item-height: jkl.rem(28px);
-$_autosuggest-item-font-size: jkl.rem(18px);
-
 @include jkl.light-mode-variables {
     --jkl-autosuggest-text-color: #{jkl.$color-granitt};
     --jkl-autosuggest-menu-background-color: #{jkl.$color-hvit};
@@ -19,6 +14,26 @@ $_autosuggest-item-font-size: jkl.rem(18px);
     --jkl-autosuggest-focus-color: #{jkl.$color-snohvit};
     --jkl-autosuggest-error-text-color: #{jkl.$color-granitt};
     --jkl-autosuggest-error-placeholder-color: #{jkl.$color-stein};
+}
+
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-autosuggest-item", "body");
+
+    --jkl-autosuggest-menu-padding: 1rem 0.5rem 0;
+    --jkl-autosuggest-controller-button-width: auto;
+    --jkl-autosuggest-controller-button-padding: 0 #{jkl.$spacing-s};
+    --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
+    --jkl-autosuggest-item-margin: 0 0 #{jkl.$spacing-m} 0;
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-autosuggest-item", "small");
+
+    --jkl-autosuggest-menu-padding: #{jkl.$spacing-2xs};
+    --jkl-autosuggest-controller-button-width: #{jkl.rem(24px)};
+    --jkl-autosuggest-controller-button-padding: 0;
+    --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(18px)};
+    --jkl-autosuggest-item-margin: 0 0 #{jkl.rem(1px)} 0;
 }
 
 .jkl-autosuggest {
@@ -70,11 +85,16 @@ $_autosuggest-item-font-size: jkl.rem(18px);
         display: flex;
         flex-flow: column;
         height: 100%;
-        padding: 0 $_controller-button-padding;
         position: absolute;
         right: 0;
         top: 0;
+        padding: var(--jkl-autosuggest-controller-button-padding);
         color: var(--jkl-autosuggest-text-color);
+        width: var(--jkl-autosuggest-controller-button-width);
+
+        .jkl-icon--small {
+            --jkl-icon-width: var(--jkl-autosuggest-controller-button-icon-size);
+        }
 
         &:focus {
             @include jkl.keyboard-navigation {
@@ -116,7 +136,7 @@ $_autosuggest-item-font-size: jkl.rem(18px);
         margin: 0;
         max-height: 60vh;
         overflow-y: auto;
-        padding: 1rem 0.5rem 0;
+        padding: var(--jkl-autosuggest-menu-padding);
         z-index: jkl.$z-index--dropdown;
         -webkit-overflow-scrolling: touch;
     }
@@ -125,9 +145,9 @@ $_autosuggest-item-font-size: jkl.rem(18px);
         border-bottom: 1px solid transparent;
         cursor: pointer;
         display: block;
-        line-height: $_autosuggest-item-height;
-        font-size: $_autosuggest-item-font-size;
-        margin-bottom: jkl.$spacing-m;
+
+        @include jkl.use-font-variables("jkl-autosuggest-item");
+        margin: var(--jkl-autosuggest-item-margin);
 
         &--active {
             @include jkl.no-grow-bold;

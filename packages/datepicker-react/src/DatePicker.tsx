@@ -37,7 +37,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         helpLabel,
         errorLabel,
         invalid,
-        forceCompact,
+        density,
         extended,
         days,
         months,
@@ -267,14 +267,13 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             {...rest}
             ref={datepickerRef}
         >
-            <Label standAlone {...labelProps} forceCompact={forceCompact} htmlFor={inputId}>
+            <Label standAlone {...labelProps} density={density} htmlFor={inputId}>
                 {label}
             </Label>
             <div
                 data-testid="jkl-datepicker__input-wrapper"
-                className={cn("jkl-datepicker__input-wrapper jkl-text-input__input-wrapper", {
-                    "jkl-text-input--compact": forceCompact,
-                })}
+                className={cn("jkl-datepicker__input-wrapper jkl-text-input__input-wrapper")}
+                data-density={density}
                 tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
             >
                 <BaseInputField
@@ -299,6 +298,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 />
                 <IconButton
                     ref={iconButtonRef}
+                    density={density}
                     className="jkl-datepicker__action-button jkl-text-input__action-button"
                     iconType="calendar"
                     buttonTitle={showCalendar ? hideCalendarLabel : showCalendarLabel}
@@ -310,6 +310,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     <Calendar
                         ref={calendarRef}
                         defaultSelected={defaultSelectedInCalendar}
+                        density={density}
                         date={date}
                         minDate={minDate}
                         maxDate={maxDate}
@@ -319,18 +320,12 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                         yearLabel={yearLabel}
                         hidden={!showCalendar}
                         extended={extended}
-                        forceCompact={forceCompact}
                         onDateSelected={handleClickCalendarDay}
                         onTabOutside={handleTabOutsideCalendar}
                     />
                 </div>
             </div>
-            <SupportLabel
-                forceCompact={forceCompact}
-                id={supportLabelId}
-                helpLabel={helpLabel}
-                errorLabel={errorLabel}
-            />
+            <SupportLabel density={density} id={supportLabelId} helpLabel={helpLabel} errorLabel={errorLabel} />
         </div>
     );
 });

@@ -31,8 +31,8 @@ declare namespace Cypress {
         focusTextArea: (inputName: string) => Chainable<Subject>;
         /** Gir deg alle komponenteksempler på siden. Om du har flere, bruk `.eq(index)` for å plukke riktig komponent. */
         getComponent: () => Chainable<Subject>;
-        setCompact: () => Chainable<Subject>;
-        resetCompact: () => Chainable<Subject>;
+        setTheme: (theme: "light" | "dark") => Chainable<Subject>;
+        setDensity: (density: "compact" | "comfortable") => Chainable<Subject>;
         setInline: () => Chainable<Subject>;
         resetInline: () => Chainable<Subject>;
         setMedFeil: () => Chainable<Subject>;
@@ -41,8 +41,6 @@ declare namespace Cypress {
         resetUtvidetVelger: () => Chainable<Subject>;
         setMedHjelpetekst: () => Chainable<Subject>;
         resetMedHjelpetekst: () => Chainable<Subject>;
-        setDarkMode: () => Chainable<Subject>;
-        resetDarkMode: () => Chainable<Subject>;
         setByttVerdi: () => Chainable<Subject>;
         resetByttVerdi: () => Chainable<Subject>;
         setwithLoader: () => Chainable<Subject>;

@@ -5,14 +5,19 @@ scss: "accordion"
 group: layout
 ---
 
-import { AccordionExample, accordionExampleCode } from "./AccordionExample";
+import { AccordionExample, accordionExampleCode, accordionExampleKnobs } from "./AccordionExample";
 
 <Ingress>
     Med trekkspillister kan vi presentere mye innhold på liten plass. En trekkspilliste har én eller flere rader, som
     brukeren kan klikke på for å vise eller skjule informasjon.
 </Ingress>
 
-<ComponentExample title="Accordion" component={AccordionExample} codeExample={accordionExampleCode} />
+<ComponentExample
+    title="Accordion"
+    component={AccordionExample}
+    knobs={accordionExampleKnobs}
+    codeExample={accordionExampleCode}
+/>
 
 En trekkspilliste med én rad fungerer ikke alltid like bra. Hvis du ønsker et alternativ kan du vurdere å ta i bruk [ExpandButton](/komponenter/expandbutton).
 

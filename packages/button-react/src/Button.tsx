@@ -1,17 +1,15 @@
-import { unicode } from "@fremtind/jkl-constants-util";
+import { ArrowLeft, ArrowRight } from "@fremtind/jkl-icons-react";
 import { Loader } from "@fremtind/jkl-loader-react";
-import classNames from "classnames";
-import React, { forwardRef, TouchEvent } from "react";
+import cn from "classnames";
+import React, { forwardRef, TouchEvent, useCallback } from "react";
 import { BaseButton } from "./BaseButton";
 import { Props, ValidButtons } from "./types";
 const makeButtonComponent = (buttonType: ValidButtons) => {
-    const Button = forwardRef<HTMLButtonElement, Props>(
-        ({ children, className, forceCompact, onClick, onTouchStart, loader, arrow, ...rest }, ref) => {
-            const componentClassName = classNames("jkl-button", "jkl-button--" + buttonType, className, {
-                "jkl-button--compact": forceCompact,
-            });
+    const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
+        const { children, className, density, onClick, onTouchStart, loader, arrow, ...rest } = props;
 
-            const handleTouch = (event: TouchEvent<HTMLButtonElement>) => {
+        const handleTouch = useCallback(
+            (event: TouchEvent<HTMLButtonElement>) => {
                 onTouchStart && onTouchStart(event);
 
                 const target = event.target as HTMLButtonElement;
@@ -23,47 +21,44 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                     target.classList.add("jkl-button--pressed");
                     setTimeout(() => target.classList.remove("jkl-button--pressed"), 400);
                 }
-            };
+            },
+            [onTouchStart],
+        );
 
-            return (
-                <BaseButton
-                    aria-live="polite"
-                    className={componentClassName}
-                    disabled={loader?.showLoader}
-                    onClick={onClick}
-                    onTouchStart={handleTouch}
-                    {...rest}
-                    ref={ref}
-                >
+        return (
+            <BaseButton
+                aria-live="polite"
+                data-density={density}
+                className={cn("jkl-button", "jkl-button--" + buttonType, className, {
+                    "jkl-button--left-arrow": arrow === "left",
+                    "jkl-button--right-arrow": arrow === "right",
+                })}
+                disabled={loader?.showLoader}
+                onClick={onClick}
+                onTouchStart={handleTouch}
+                {...rest}
+                ref={ref}
+            >
+                <div className="jkl-button__content">
                     <div
-                        className={classNames("jkl-button__content", {
-                            "jkl-button__content--compact": forceCompact,
+                        className={cn("jkl-button__slider", {
+                            "jkl-button__slider--show-loader": !!loader?.showLoader,
                         })}
                     >
-                        <div
-                            className={classNames("jkl-button__slider", {
-                                "jkl-button__slider--show-loader": !!loader?.showLoader,
-                            })}
-                        >
-                            {arrow === "left" && <span aria-hidden>{unicode.LEFTWARDS_ARROW} </span>}
-                            {children}
-                            {arrow === "right" && <span aria-hidden> {unicode.RIGHTWARDS_ARROW}</span>}
+                        {arrow === "left" && <ArrowLeft className="jkl-button__arrow" bold />}
+                        <span className="jkl-button__children">{children}</span>
+                        {arrow === "right" && <ArrowRight className="jkl-button__arrow" bold />}
 
-                            {loader && (
-                                <div className="jkl-button__loader">
-                                    <Loader
-                                        textDescription={loader.textDescription}
-                                        aria-hidden={!loader.showLoader}
-                                        variant={forceCompact ? "small" : "medium"}
-                                    />
-                                </div>
-                            )}
-                        </div>
+                        {loader && (
+                            <div className="jkl-button__loader">
+                                <Loader textDescription={loader.textDescription} aria-hidden={!loader.showLoader} />
+                            </div>
+                        )}
                     </div>
-                </BaseButton>
-            );
-        },
-    );
+                </div>
+            </BaseButton>
+        );
+    });
     Button.displayName = "BaseButton";
     return Button;
 };

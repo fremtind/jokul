@@ -1,4 +1,4 @@
-@use "../functions";
+@use "motion";
 
 @mixin chevron($size, $color, $weight: 0.125rem, $rotate: 0, $state: closed) {
     box-sizing: border-box;
@@ -10,7 +10,7 @@
 
     border-left: $weight solid $color;
     border-bottom: $weight solid $color;
-    transition: transform functions.timing("lazy") ease;
+    transition: transform motion.timing("lazy") ease;
 }
 
 @mixin decorative($content) {

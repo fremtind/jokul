@@ -1,4 +1,4 @@
-import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps } from "@fremtind/jkl-core";
+import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps, Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
@@ -8,7 +8,7 @@ export interface NativeSelectProps {
     id?: string;
     name?: string;
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "standAlone">;
     items: Array<string | ValuePair>;
     className?: string;
     selectClassName?: string;
@@ -19,7 +19,7 @@ export interface NativeSelectProps {
     variant?: LabelVariant;
     placeholder?: string;
     value?: string;
-    forceCompact?: boolean;
+    density?: Density;
     width?: string;
     onChange?: ChangeEventHandler<HTMLSelectElement>;
     onFocus?: FocusEventHandler<HTMLSelectElement>;
@@ -46,7 +46,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             variant,
             placeholder,
             value,
-            forceCompact,
+            density,
             width,
             selectClassName,
             ...rest
@@ -63,11 +63,11 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                 data-testid="jkl-select"
                 className={cn("jkl-select", className, {
                     "jkl-select--inline": inline,
-                    "jkl-select--compact": forceCompact,
                     "jkl-select--invalid": !!errorLabel || invalid,
                 })}
+                data-density={density}
             >
-                <Label variant={variant} {...labelProps} standAlone htmlFor={uid} forceCompact={forceCompact}>
+                <Label variant={variant} {...labelProps} standAlone htmlFor={uid} density={density}>
                     {label}
                 </Label>
                 <div className="jkl-select__outer-wrapper" style={{ width }}>
@@ -97,14 +97,9 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                             </option>
                         ))}
                     </select>
-                    <ExpandArrow className="jkl-select__arrow" />
+                    <ExpandArrow />
                 </div>
-                <SupportLabel
-                    id={supportId}
-                    helpLabel={helpLabel}
-                    errorLabel={errorLabel}
-                    forceCompact={forceCompact}
-                />
+                <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} density={density} />
             </div>
         );
     },

@@ -1,13 +1,16 @@
-import { WithChildren } from "@fremtind/jkl-core";
-import { IconButton } from "@fremtind/jkl-icon-button-react";
-import classNames from "classnames";
+import { Density, WithChildren } from "@fremtind/jkl-core";
+import { useId } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
 import React from "react";
+import { DismissButton } from "./common/DismissButton";
 import { MessageIcon } from "./common/MessageIcon";
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
 interface Props extends WithChildren {
+    id?: string;
     className?: string;
+    density?: Density;
     maxContentWidth?: string;
     paddingLeft?: string;
     /** Overstyr standardrollen til meldingen. Om du ønsker å "skru av" rollen kan du bruke verdien `none presentation`. */
@@ -21,7 +24,9 @@ interface Props extends WithChildren {
 
 function alertFactory(messageType: messageTypes): React.FC<Props> {
     const AlertMessage: React.FC<Props> = ({
-        className = "",
+        id,
+        className,
+        density,
         maxContentWidth,
         paddingLeft,
         role = "status",
@@ -30,27 +35,34 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
         children,
         ...rest
     }) => {
-        const componentClassName = classNames("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
-            "jkl-alert-message--dismissed": dismissed,
-        });
-
-        const styles = {
-            maxWidth: maxContentWidth,
-            paddingLeft,
-        };
+        const alertId = useId(id || "jkl-alert-message", { generateSuffix: !id });
 
         return (
-            <div role={role} {...rest} className={componentClassName} data-theme="light">
-                <div className="jkl-alert-message__content" data-testid="alert-message-content" style={{ ...styles }}>
-                    <div aria-hidden className="jkl-alert-message__icon">
-                        <MessageIcon messageType={messageType} />
-                    </div>
-                    <span className="jkl-alert-message__message jkl-body">{children}</span>
+            <div
+                role={role}
+                {...rest}
+                id={alertId}
+                className={cn("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
+                    "jkl-alert-message--dismissed": dismissed,
+                })}
+                data-density={density}
+                data-theme="light"
+            >
+                <div
+                    className="jkl-alert-message__content"
+                    data-testid="alert-message-content"
+                    style={{
+                        maxWidth: maxContentWidth,
+                        paddingLeft,
+                    }}
+                >
+                    <MessageIcon messageType={messageType} />
+                    <span className="jkl-alert-message__message">{children}</span>
                     {dismissAction?.handleDismiss && (
-                        <IconButton
+                        <DismissButton
+                            aria-controls={alertId}
                             className="jkl-alert-message__dismiss-button"
-                            iconType="clear"
-                            buttonTitle={dismissAction.buttonTitle || "Lukk"}
+                            label={dismissAction.buttonTitle || "Lukk"}
                             onClick={dismissAction.handleDismiss}
                         />
                     )}

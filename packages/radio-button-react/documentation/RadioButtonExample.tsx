@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { RadioButtonGroup, RadioButton } from "../src";
 
 export const radioButtonExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact", "Med feil"],
+    boolProps: ["Med feil"],
     choiceProps: [
         {
             name: "Variant",
@@ -27,7 +27,6 @@ export const RadioButtonExample: FC<ExampleComponentProps> = ({ boolValues, choi
         <RadioButtonGroup
             legend="Hvordan vil du bli kontaktet?"
             name="kontaktmetode"
-            forceCompact={boolValues && boolValues["Compact"]}
             labelProps={{ variant }}
             helpLabel="Ved å velge e-post får du beskjed raskest mulig"
             errorLabel={errorLabel}
@@ -47,7 +46,6 @@ export const radioButtonExampleCode = ({ boolValues, choiceValues }: ExampleComp
 <RadioButtonGroup
     legend="Hvordan vil du bli kontaktet?"
     name="kontaktmetode"
-    forceCompact={${!!boolValues?.["Compact"]}}
     labelProps={{ variant: "${choiceValues?.["Variant"] || "medium"}" }}
     helpLabel="Hjelpetekst"${
         boolValues?.["Med feil"]

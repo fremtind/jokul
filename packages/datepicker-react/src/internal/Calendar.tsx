@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { NativeSelect } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
@@ -12,6 +13,7 @@ import { addMonth, subtractMonth, isBackDisabled, isForwardDisabled } from "./ut
 interface CalendarProps
     extends Omit<UseCalendarProps, "date" | "onOffsetChanged" | "offset" | "firstDayOfWeek" | "selected"> {
     date: Date | null;
+    density?: Density;
     defaultSelected?: Date;
     hidden?: boolean;
     days?: string[];
@@ -19,7 +21,6 @@ interface CalendarProps
     monthLabel?: string;
     yearLabel?: string;
     extended?: boolean;
-    forceCompact?: boolean;
     onTabOutside: React.KeyboardEventHandler;
 }
 
@@ -43,10 +44,10 @@ const defaultDays = ["man", "tir", "ons", "tor", "fre", "lør", "søn"];
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) => {
     const {
         extended,
-        forceCompact,
         hidden,
         date,
         defaultSelected,
+        density,
         minDate,
         maxDate,
         days = defaultDays,
@@ -289,6 +290,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                     <div className="jkl-calendar__navigation">
                         <TextInput
                             label={yearLabel}
+                            density={density}
                             type="number"
                             className="jkl-calendar__year-selector"
                             inputClassName="jkl-calendar__year-selector-input"
@@ -296,12 +298,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             variant="small"
                             onChange={handleYearChange}
                             value={extendedYear}
-                            forceCompact={forceCompact}
                         />
                         <NativeSelect
                             className="jkl-calendar__month-selector"
                             selectClassName="jkl-calendar__month-selector-select"
                             label={monthLabel}
+                            density={density}
                             items={months.map((name: string, i: number) => ({
                                 value: String(i),
                                 label: name,
@@ -309,7 +311,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             variant="small"
                             value={extendedMonth}
                             onChange={handleMonthChange}
-                            forceCompact={forceCompact}
                             width="auto"
                         />
                     </div>

@@ -72,14 +72,15 @@ I Jøkul skal disse starte med `jkl` for å synliggjøre hvor CSSen kommer fra o
 
 ```scss
 @include jkl.light-mode-variables {
-    --jkl-color: #{jkl.$color-granitt};
+    --jkl-link-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-color: #{jkl.$color-snohvit};
+    --jkl-link-color: #{jkl.$color-snohvit};
 }
 
 .jkl-link {
+    --_jkl-link-private: #{jkl.$color-stein};
     color: var(--jkl-color);
 }
 ```
@@ -255,6 +256,8 @@ Vi bruker CSS-variabler for verdier som kan tenkes å endres når brukeren ser p
 
 Alle CSS-variabler prefixes med `jkl` for å synliggjøre at en variabel kommer fra Jøkul og for å unngå navnekollisjoner.
 
+Noen ganger trengs CSS-variabler internt i komponenten, uten intensjon om at de skal kunne endres utenfra. Om navnet starter med underscore betyr det at variabelen er privat. Disse er ikke en del av APIet og kan endres uten forvarsel.
+
 ```scss
 @use "~@fremtind/jkl-core/jkl";
 
@@ -267,6 +270,7 @@ Alle CSS-variabler prefixes med `jkl` for å synliggjøre at en variabel kommer 
 }
 
 .jkl-table-row {
+    --_jkl-table-secret: "jeg kan endres uten forvarsel siden jeg starter med _";
     border-color: var(--jkl-table-row-border-color);
 }
 ```

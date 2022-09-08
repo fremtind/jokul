@@ -24,12 +24,12 @@ const MobileListTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => 
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true" } : {};
     return (
-        <Table {...props} compact collapseToList fullWidth>
+        <Table {...props} collapseToList fullWidth>
             <TableCaption srOnly>Tabell som vises som liste på mobil</TableCaption>
             <TableHead>
                 <TableRow>
                     {columns.map((column, index) => (
-                        <TableHeader key={index} bold>
+                        <TableHeader key={index} density="compact" bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -57,12 +57,12 @@ const MobileListTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => 
 export default MobileListTableExample;
 
 export const mobileListTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
-<Table compact fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell som vises som liste på mobil</TableCaption>
     <TableHead>
         <TableRow>
             {columns.map((column, index) => (
-                <TableHeader key={index} bold>
+                <TableHeader key={index} density="compact" bold>
                     {column}
                 </TableHeader>
             ))}

@@ -34,7 +34,7 @@
     @for $i from if($minus, 2, 1) through str-length($value) {
         $character: string.slice($value, $i, $i);
 
-        @if not(index(map-keys($numbers), $character) or $character == ".") {
+        @if not(index(map.keys($numbers), $character) or $character == ".") {
             @return to-length(if($minus, -$result, $result), string.slice($value, $i));
         }
 
@@ -74,7 +74,7 @@
         "vmax": 1vmax,
     );
 
-    @if not index(map-keys($units), $unit) {
+    @if not index(map.keys($units), $unit) {
         $_: log("Invalid unit `#{$unit}`.");
     }
 

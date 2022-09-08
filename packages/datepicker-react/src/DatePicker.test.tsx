@@ -377,33 +377,33 @@ describe("Datepicker", () => {
         expect(label).toHaveClass("jkl-label--sr-only");
     });
 
-    it("should pass forceCompact to all compactable child components", () => {
+    it("should pass density compact to all compactable child components", () => {
         const { getByTestId, getByText } = setup(
             <DatePicker
                 defaultValue="24.12.2019"
                 label="Hva er tid?" /* label skal være kompakt */
                 helpLabel="Tid er en flat sirkel" /* hjelpeteksten skal være kompakt */
                 extended /* extended for å vise inputfelt i kalenderen, som også skal være kompakte */
-                forceCompact
+                density="compact"
             />,
         );
 
         const label = getByText("Hva er tid?");
-        expect(label).toHaveClass("jkl-label--compact");
+        expect(label).toHaveAttribute("data-density", "compact");
 
         const inputWrapper = getByTestId("jkl-datepicker__input-wrapper");
-        expect(inputWrapper).toHaveClass("jkl-text-input--compact");
+        expect(inputWrapper).toHaveAttribute("data-density", "compact");
 
         const helpText = getByText("Tid er en flat sirkel");
-        expect(helpText).toHaveClass("jkl-form-support-label--compact");
+        expect(helpText).toHaveAttribute("data-density", "compact");
 
         const calendarYear = getByTestId("jkl-text-input");
         expect(within(calendarYear).getByLabelText("År")).toBeInTheDocument(); // bekreft at vi tester på riktig element
-        expect(calendarYear).toHaveClass("jkl-text-input--compact");
+        expect(calendarYear).toHaveAttribute("data-density", "compact");
 
         const calendarMonth = getByTestId("jkl-select");
         expect(within(calendarMonth).getByLabelText("Måned")).toBeInTheDocument(); // bekreft at vi tester på riktig element
-        expect(calendarMonth).toHaveClass("jkl-select--compact");
+        expect(calendarMonth).toHaveAttribute("data-density", "compact");
     });
 
     describe("after user types string", () => {

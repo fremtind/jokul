@@ -1,10 +1,11 @@
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
+import { ColorScheme, Density } from "@fremtind/jkl-core";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { Select } from "@fremtind/jkl-select-react";
 import cn from "classnames";
-import React, { useState, FC, useMemo } from "react";
+import React, { useState, FC, useMemo, useEffect } from "react";
 import { CodeBlock } from "./CodeBlock";
 import { CodeSection } from "./CodeSection";
 import { hyphenate } from "./internal/hypenate";
@@ -21,9 +22,35 @@ export interface Props {
     codeExample?: CodeExample;
 }
 
+function useLocalStorage<T>(key: string, defaultValue: T): [T, (newValue: T) => void] {
+    const [state, setState] = useState<T>(defaultValue);
+
+    useEffect(() => {
+        if (!localStorage) {
+            return;
+        }
+        const storedValue = localStorage.getItem(key);
+        if (storedValue) {
+            setState(JSON.parse(storedValue));
+        }
+        // Kjøres bare én gang ved oppstart
+    }, [key]);
+
+    useEffect(() => {
+        if (!localStorage) {
+            return;
+        }
+
+        localStorage.setItem(key, JSON.stringify(state));
+    }, [key, state]);
+
+    return [state, setState];
+}
+
 export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable }) => {
     const uid = useId("example");
-    const [theme, setTheme] = useState<"light" | "dark">("light");
+    const [theme, setTheme] = useLocalStorage<ColorScheme>("jkl-example-theme", "light");
+    const [density, setDensity] = useLocalStorage<Density>("jkl-example-density", "comfortable");
 
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>(
         knobs?.boolProps?.reduce((acc, boolProp) => {
@@ -54,27 +81,30 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
 
     const example = useMemo(() => {
         const C = component;
-        return <C boolValues={boolValues} choiceValues={choiceValues} />;
-    }, [component, boolValues, choiceValues]);
+        return <C boolValues={boolValues} choiceValues={choiceValues} displayValues={{ density, theme }} />;
+    }, [component, boolValues, choiceValues, density, theme]);
 
     return (
         <div className="jkl-spacing-2xl--bottom">
             <section className="jkl-portal-component-example">
                 <div
+                    data-layout-density={density}
                     data-theme={theme}
                     data-example-text={title}
                     className={cn("jkl", "jkl-portal-component-example__example-wrapper", {
                         "jkl-portal-component-example__example-wrapper--dark": theme === "dark",
                         "jkl-portal-component-example__example-wrapper--scrollable": scrollable,
+                        "jkl-body": density === "comfortable",
+                        "jkl-small": density === "compact",
                     })}
                 >
                     {example}
                 </div>
-                <aside data-compactlayout={true} className="jkl-portal-component-example__example-options">
+                <aside data-layout-density="compact" className="jkl-portal-component-example__example-options">
                     {knobs?.boolProps && (
                         <FieldGroup
                             legend="Egenskaper"
-                            variant="small"
+                            variant="medium"
                             className="jkl-portal-component-example__example-options-header"
                         >
                             {Object.entries(boolValues).map(([key, value]) => (
@@ -95,7 +125,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                             {Object.entries(choiceValues).map(([key, value]) =>
                                 choices[key].length < 4 ? (
                                     <RadioButtonGroup
-                                        className="jkl-portal-component-example__example-options-header"
+                                        className="jkl-spacing-xs--top"
                                         variant="small"
                                         name={`${uid}-${hyphenate(key)}`}
                                         key={`${uid}-${hyphenate(key)}`}
@@ -110,7 +140,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                                     </RadioButtonGroup>
                                 ) : (
                                     <Select
-                                        className="jkl-portal-component-example__select"
+                                        className="jkl-spacing-xs--top"
                                         value={value}
                                         onChange={(e) => setChoiceValue(key, e.target.value)}
                                         label={key}
@@ -124,17 +154,32 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                     )}
                     <FieldGroup
                         legend="Visning"
-                        variant="small"
+                        variant="medium"
                         className="jkl-portal-component-example__example-options-header"
                     >
-                        <Checkbox
-                            name={`${uid}-dark-mode`}
-                            value="Dark mode"
-                            checked={theme === "dark"}
-                            onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+                        <RadioButtonGroup
+                            variant="small"
+                            name={`${uid}-theme`}
+                            legend="Tema"
+                            value={theme}
+                            labelProps={{ variant: "small" }}
+                            onChange={(e) => setTheme(e.target.value as ColorScheme)}
                         >
-                            Dark mode
-                        </Checkbox>
+                            <RadioButton label="Light" value="light" />
+                            <RadioButton label="Dark" value="dark" />
+                        </RadioButtonGroup>
+                        <RadioButtonGroup
+                            className="jkl-spacing-xs--top"
+                            variant="small"
+                            name={`${uid}-density`}
+                            legend="Tetthet"
+                            value={density}
+                            labelProps={{ variant: "small" }}
+                            onChange={(e) => setDensity(e.target.value as Density)}
+                        >
+                            <RadioButton label="Comfortable" value="comfortable" />
+                            <RadioButton label="Compact" value="compact" />
+                        </RadioButtonGroup>
                     </FieldGroup>
                 </aside>
             </section>

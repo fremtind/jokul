@@ -11,7 +11,6 @@ export const RadioButtonPreselectedExample: FC<ExampleComponentProps> = ({ boolV
             legend="Velg prisvisning"
             name="prisvisning"
             inline={boolValues && boolValues["Inline"]}
-            forceCompact={boolValues && boolValues["Compact"]}
             labelProps={{ srOnly: true }}
             value={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
@@ -30,7 +29,6 @@ export const radioButtonPreselectedExampleCode = ({ boolValues }: ExampleCompone
     legend="Velg prisvisning"
     name="prisvisning"
     inline={${!!boolValues?.["Inline"]}}
-    forceCompact={${!!boolValues?.["Compact"]}}
     labelProps={{ srOnly: true }}
     value={selectedValue}
     onChange={(e) => setSelectedValue(e.target.value)}

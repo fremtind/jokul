@@ -1,5 +1,35 @@
 # Migrasjonsguide
 
+## Til `jkl-core@11.0.0` – Compact Reboot
+
+Denne majoren av Core har noen breaking changes for brukerne av **compact** og de som måtte bruke **kun CSS** av Select og Accordion.
+
+Denne versjonen av Core har **ingen breaking changes** om du bruker React-komponentene og _ikke_ brukte kompakte varianter.
+
+Gjennom våren og sommeren har vi jobbet med å redesigne _compact_ i Jøkul. Det er shippet allerede i Figma, og med denne versjonen av Core blir de nye kompaktvariantene også tilgjengelig i kode.
+
+For dere som har brukt kompaktvarianter tidligere er det noen _breaking changes_:
+
+-   HTML-attributtet `data-compactlayout` er nå `data-layout-density="compact"`.
+-   React-propen `forceCompact`/`forceCompact={true}` er nå `density="compact"`.
+-   Alle `--compact` CSS-klasser er fjernet til fordel for attributtet `data-density="compact"`.
+
+Det er også noen nye features:
+
+-   Det er kompaktvarianter av alle komponenter og de er faktisk **kompakte**, ikke bare "mobil på desktop".
+-   Du kan skru _av_ igjen compact for deler av DOMen med:
+    -   HTML-attributtet `data-layout-density="comfortable"`.
+    -   React-propen `density="comfortable"` (gjelder kun komponenten, ikke children).
+    -   HTML-attributtet `data-density="comfortable"` (samme som React-propen).
+
+I tillegg har CSS-klassen `.jkl-expand-arrow` fra `select.css` og `accordion.css` har blitt til henholdsvis `.jkl-select__arrow` og `.jkl-accordion-item__arrow`.
+
+### Si ifra om noe ser rart ut
+
+Det har vært store endringer under panseret for å få til dette nye designet og APIet.
+
+Om du finner bugs er det en stor hjelp om du [lager et issue](https://github.com/fremtind/jokul/issues/new/choose) på det.
+
 ## Til `jkl-core@10.0.0`
 
 **NB:** Denne versjonen av core gjør bare navneendringer i Sass-kode, CSS-variabler, og CSS-animasjoner.

@@ -59,7 +59,7 @@ export const FormFieldAnatomy: FC = () => {
                         />
                     </form>
                 </div>
-                <aside data-compactlayout={true} className="jkl-portal-component-example__example-options">
+                <aside className="jkl-portal-component-example__example-options">
                     <OrderedList>
                         <ListItem>Ledetekst</ListItem>
                         <ListItem>Overskrift</ListItem>

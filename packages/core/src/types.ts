@@ -7,6 +7,8 @@ export interface DataTestAutoId {
 
 export type LabelVariant = "small" | "medium" | "large";
 
+export type ColorScheme = "light" | "dark";
+
 export type ValuePair = {
     value: string;
     label: string;
