@@ -22,13 +22,34 @@ Enten prosjektet ditt bruker Yarn slik som vi gjør i Jøkul, eller om du bruker
 -   Kjør `yarn link` eller `npm link` fra mappen til pakka du skal teste
 -   Kjør `yarn link <pakkenavn>` eller `npm link <pakkenavn>` i ditt eget prosjekt
 
-**NB:** hvis du bruker NPM og skal teste flere pakker (for eksempel både React og CSS av en komponent) så **må** du kjøre én kommando med alle pakkenavn!
+**NB:** hvis du bruker NPM og skal teste flere pakker (for eksempel både React og CSS av en komponent) så **må** du kjøre én kommando med alle pakkenavn! Du kan også bruke scriptet `yarn linker` fra toppnivå i Jøkul.
 
 ```
 npm link @fremtind/jkl-summary-table @fremtind/jkl-summary-table-react
 ```
 
 Om du bruker Yarn kan du kjøre en `link`-kommando per pakke hvis du vil, men den samme kommandoen som over vil også fungere med `yarn` i stedet for `npm`.
+
+### Hjelpeverktøy for å linke hele Jøkul
+
+Om du skal teste mer enn én pakke kan det være like greit å linke opp hele Jøkul. For å gjøre det enklere har vi et ferdig script som automatiserer dette.
+
+```
+yarn linker
+```
+
+Scriptet vil be deg om en filsti, men ellers skal resten gå av seg selv. Filstien kan være absolutt eller relativ til Jøkul sin `package.json`. Scriptet finner automatisk ut av om du bruker `yarn` eller `npm` i prosjektet ditt.
+
+Her er et eksempel på hvordan det kan se ut om du har et prosjekt i samme mappe som Jøkul-repositoriet.
+
+```
+> $ yarn linker
+yarn run v1.22.18
+$ node scripts/linker.js
+prompt: Hva er filstien til prosjektet hvor du vil teste?:  ../wllm-importkalkulator
+Fant package-lock.json. Fortsetter med npm.
+Gjør klar pakker for linking...
+```
 
 ### Linking steg for steg
 
