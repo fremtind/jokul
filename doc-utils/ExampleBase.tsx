@@ -102,63 +102,62 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                 </div>
                 <aside data-layout-density="compact" className="jkl-portal-component-example__example-options">
                     <>
-                        {knobs?.boolProps ||
-                            (knobs?.choiceProps && (
-                                <FieldGroup
-                                    legend="Egenskaper"
-                                    variant="medium"
-                                    className="jkl-portal-component-example__example-options-header"
-                                >
-                                    {knobs?.boolProps && (
-                                        <>
-                                            {Object.entries(boolValues).map(([key, value]) => (
-                                                <Checkbox
-                                                    key={`${uid}-${hyphenate(key)}`}
+                        {(knobs?.boolProps || knobs?.choiceProps) && (
+                            <FieldGroup
+                                legend="Egenskaper"
+                                variant="medium"
+                                className="jkl-portal-component-example__example-options-header"
+                            >
+                                {knobs?.boolProps && (
+                                    <>
+                                        {Object.entries(boolValues).map(([key, value]) => (
+                                            <Checkbox
+                                                key={`${uid}-${hyphenate(key)}`}
+                                                name={`${uid}-${hyphenate(key)}`}
+                                                value={key}
+                                                checked={value}
+                                                onChange={(e) => setBoolValue(key, e.target.checked)}
+                                            >
+                                                {key}
+                                            </Checkbox>
+                                        ))}
+                                    </>
+                                )}
+                                {knobs?.choiceProps && (
+                                    <>
+                                        {Object.entries(choiceValues).map(([key, value]) =>
+                                            choices[key].length < 4 ? (
+                                                <RadioButtonGroup
+                                                    className="jkl-spacing-xs--top"
+                                                    variant="small"
                                                     name={`${uid}-${hyphenate(key)}`}
-                                                    value={key}
-                                                    checked={value}
-                                                    onChange={(e) => setBoolValue(key, e.target.checked)}
+                                                    key={`${uid}-${hyphenate(key)}`}
+                                                    legend={key}
+                                                    value={value}
+                                                    labelProps={{ variant: "small" }}
+                                                    onChange={(e) => setChoiceValue(key, e.target.value)}
                                                 >
-                                                    {key}
-                                                </Checkbox>
-                                            ))}
-                                        </>
-                                    )}
-                                    {knobs?.choiceProps && (
-                                        <>
-                                            {Object.entries(choiceValues).map(([key, value]) =>
-                                                choices[key].length < 4 ? (
-                                                    <RadioButtonGroup
-                                                        className="jkl-spacing-xs--top"
-                                                        variant="small"
-                                                        name={`${uid}-${hyphenate(key)}`}
-                                                        key={`${uid}-${hyphenate(key)}`}
-                                                        legend={key}
-                                                        value={value}
-                                                        labelProps={{ variant: "small" }}
-                                                        onChange={(e) => setChoiceValue(key, e.target.value)}
-                                                    >
-                                                        {choices[key]?.map((choice) => (
-                                                            <RadioButton key={choice} label={choice} value={choice} />
-                                                        ))}
-                                                    </RadioButtonGroup>
-                                                ) : (
-                                                    <Select
-                                                        className="jkl-spacing-xs--top"
-                                                        value={value}
-                                                        onChange={(e) => setChoiceValue(key, e.target.value)}
-                                                        label={key}
-                                                        width="100%"
-                                                        key={`${uid}-${hyphenate(key)}`}
-                                                        name={key}
-                                                        items={choices[key]}
-                                                    />
-                                                ),
-                                            )}
-                                        </>
-                                    )}
-                                </FieldGroup>
-                            ))}
+                                                    {choices[key]?.map((choice) => (
+                                                        <RadioButton key={choice} label={choice} value={choice} />
+                                                    ))}
+                                                </RadioButtonGroup>
+                                            ) : (
+                                                <Select
+                                                    className="jkl-spacing-xs--top"
+                                                    value={value}
+                                                    onChange={(e) => setChoiceValue(key, e.target.value)}
+                                                    label={key}
+                                                    width="100%"
+                                                    key={`${uid}-${hyphenate(key)}`}
+                                                    name={key}
+                                                    items={choices[key]}
+                                                />
+                                            ),
+                                        )}
+                                    </>
+                                )}
+                            </FieldGroup>
+                        )}
                         <FieldGroup
                             legend="Visning"
                             variant="medium"
