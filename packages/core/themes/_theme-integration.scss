@@ -1,38 +1,59 @@
+@use "sass:color";
+@use "sass:meta";
+@use "../jkl";
+@use "../variables/colors";
+@use "fallback";
+
+// Her vil det sikkert være nyttig å sortere tokens etter type (f.eks. farge eller spacing)
+// eller etter bruksområde (sidestil, typografielementer, etc.)
+@include jkl.light-mode-variables {
+    --jkl-semantic-color-bg: var(--jkl-theme-color-bg, #{fallback.$color-bg});
+    --jkl-semantic-color-bg-none: var(--jkl-theme-color-bg-none, #{fallback.$color-bg-none});
+    --jkl-semantic-color-bg-highlighted: var(--jkl-theme-color-bg-highlighted, #{fallback.$color-bg-highlighted});
+    --jkl-semantic-color-border: var(--jkl-theme-color-border, #{fallback.$color-border});
+    --jkl-semantic-color-border-subdued: var(--jkl-theme-color-border-subdued, #{fallback.$color-border-subdued});
+    --jkl-semantic-color-focus: var(--jkl-theme-color-focus, #{fallback.$color-focus});
+    --jkl-semantic-color-text: var(--jkl-theme-color-text, #{fallback.$color-text});
+    --jkl-semantic-color-text-subdued: var(--jkl-theme-color-text-subdued, #{fallback.$color-text-subdued});
+    --jkl-semantic-color-text-selection: var(--jkl-theme-color-text-selection, #{fallback.$color-text-selection});
+    --jkl-semantic-color-secondary-info: var(--jkl-theme-color-secondary-info, #{fallback.$color-secondary-info});
+    --jkl-semantic-shadow-shallow: var(--jkl-theme-shadow-shallow, #{fallback.$shadow-shallow});
+    --jkl-semantic-shadow-deep: var(--jkl-theme-shadow-deep, #{fallback.$shadow-deep});
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-semantic-color-bg: var(--jkl-theme-color-bg, #{fallback.$color-bg--dark});
+    --jkl-semantic-color-bg-none: var(--jkl-theme-color-bg-none, #{fallback.$color-bg-none--dark});
+    --jkl-semantic-color-bg-highlighted: var(--jkl-theme-color-bg-highlighted, #{fallback.$color-bg-highlighted--dark});
+    --jkl-semantic-color-border: var(--jkl-theme-color-border, #{fallback.$color-border--dark});
+    --jkl-semantic-color-border-subdued: var(--jkl-theme-color-border-subdued, #{fallback.$color-border-subdued--dark});
+    --jkl-semantic-color-focus: var(--jkl-theme-color-focus, #{fallback.$color-focus--dark});
+    --jkl-semantic-color-text: var(--jkl-theme-color-text, #{fallback.$color-text--dark});
+    --jkl-semantic-color-text-subdued: var(--jkl-theme-color-text-subdued, #{fallback.$color-text-subdued--dark});
+    --jkl-semantic-color-text-selection: var(--jkl-theme-color-text-selection, #{fallback.$color-text-selection--dark});
+    --jkl-semantic-color-secondary-info: var(--jkl-theme-color-secondary-info, #{fallback.$color-secondary-info--dark});
+    --jkl-semantic-shadow-shallow: var(--jkl-theme-shadow-shallow, #{fallback.$shadow-shallow--dark});
+    --jkl-semantic-shadow-deep: var(--jkl-theme-shadow-deep, #{fallback.$shadow-deep--dark}); // samme
+}
+
+@include jkl.compact-layout-variables {
+    @include jkl.typo-define-semantic-text-style("page-title", 8, 3, "regular", true);
+    @include jkl.typo-define-semantic-text-style("ingress", 2, 2, "regular", true);
+}
+
+@include jkl.regular-layout-variables {
+    @include jkl.typo-define-semantic-text-style("page-title", 10, 3, "regular", true);
+    @include jkl.typo-define-semantic-text-style("ingress", 4, 2, "regular", true);
+}
+
 :root {
-    --jkl-semantic-color-bg: var(--jkl-theme-color-bg, var(--jkl-fallback-color-bg));
-    --jkl-semantic-color-bg-none: var(--jkl-theme-color-bg-none, var(--jkl-fallback-color-bg-none));
-    --jkl-semantic-color-bg-highlighted: var(
-        --jkl-theme-color-bg-highlighted,
-        var(--jkl-fallback-color-bg-highlighted)
-    );
-    --jkl-semantic-color-border: var(--jkl-theme-color-border, var(--jkl-fallback-color-border));
-    --jkl-semantic-color-border-subdued: var(
-        --jkl-theme-color-border-subdued,
-        var(--jkl-fallback-color-border-subdued)
-    );
-    --jkl-semantic-color-focus: var(--jkl-theme-color-focus, var(--jkl-fallback-color-focus));
-    --jkl-semantic-color-text: var(--jkl-theme-color-text, var(--jkl-fallback-color-text));
-    --jkl-semantic-color-text-subdued: var(--jkl-theme-color-text-subdued, var(--jkl-fallback-color-text-subdued));
-    --jkl-semantic-color-text-selection: var(
-        --jkl-theme-color-text-selection,
-        var(--jkl-fallback-color-text-selection)
-    );
-    --jkl-semantic-color-secondary-info: var(
-        --jkl-theme-color-secondary-info,
-        var(--jkl-fallback-color-secondary-info)
-    );
-    --jkl-semantic-shadow-shallow: var(--jkl-theme-shadow-shallow, var(--jkl-fallback-shadow-shallow));
-    --jkl-semantic-shadow-deep: var(--jkl-theme-shadow-deep, var(--jkl-fallback-shadow-deep));
-    --jkl-semantic-content-spacing-m: var(--jkl-theme-content-spacing-m, var(--jkl-fallback-content-spacing-m));
-    --jkl-semantic-border-thickness-focus: var(
-        --jkl-theme-border-thickness-focus,
-        var(--jkl-fallback-border-thickness-focus)
-    );
-    --jkl-semantic-border-radius-rounded-container: var(
-        --jkl-theme-border-radius-rounded-container,
-        var(--jkl-fallback-border-radius-rounded-container)
-    );
-    --jkl-semantic-color-error: var(--jkl-theme-color-error, var(--jkl-fallback-color-error));
-    --jkl-semantic-color-text-on-light: var(--jkl-theme-color-text-on-light, var(--jkl-fallback-color-text-on-light));
-    --jkl-semantic-color-text-on-dark: var(--jkl-theme-color-text-on-dark, var(--jkl-fallback-color-text-on-dark));
+    --jkl-semantic-content-spacing-m: var(
+        --jkl-theme-content-spacing-m,
+        #{jkl.$spacing-l}
+    ); // kanskje tall i stedet for skjortestørrelser på base?
+    --jkl-semantic-border-thickness-focus: var(--jkl-theme-border-thickness-focus, #{jkl.rem(2px)});
+    --jkl-semantic-border-radius-rounded-container: var(--jkl-theme-border-radius-rounded-container, #{jkl.rem(4px)});
+    --jkl-semantic-color-error: var(--jkl-theme-color-error, #{colors.varslingsfarge("feil")});
+    --jkl-semantic-color-text-on-light: var(--jkl-theme-color-text-on-light, #{jkl.$color-granitt});
+    --jkl-semantic-color-text-on-dark: var(--jkl-theme-color-text-on-dark, #{jkl.$color-snohvit});
 }

@@ -8,10 +8,10 @@
 ///
 /// @param {Number} $minSize - Minimum fontsørrelse i rem
 /// @param {Number} $maxSize - Maksimum fontstørrelse i rem
-/// @param {Number} $smallScreen [500px] - Minste skjermbredde i piksler for flytende størrelse
+/// @param {Number} $smallScreen [400px] - Minste skjermbredde i piksler for flytende størrelse
 /// @param {Number} $largeScreen [1200px] - Største skjermbredde i piksler for flytende størrelse
 /// @return {Map} - ("vw": antall vw, "rem": fastledd i rem)
-@function _getFontScalingParameters($minSize, $maxSize, $smallScreen: 500px, $largeScreen: 1200px) {
+@function _getFontScalingParameters($minSize, $maxSize, $smallScreen: 400px, $largeScreen: 1200px) {
     $_smScrRem: functions.rem($smallScreen);
     $_lgScrRem: functions.rem($largeScreen);
 
@@ -20,15 +20,11 @@
     // For å finne riktig statisk tillegg:
     $_rem: math.div(($_smScrRem * $maxSize - $_lgScrRem * $minSize), ($_smScrRem - $_lgScrRem));
 
-    $_params: (
-        "vw": $_vw,
-        "rem": $_rem,
-    );
-
-    @return $_params;
+    @return ("vw": $_vw, "rem": $_rem);
 }
 
 // VEKTER:
+// Her er det sikkert enklere å bare bruke referanse-/bibliotek-tokens direkte
 $_font-weights: (
     "regular": 400,
     "bold": 700,
@@ -43,11 +39,14 @@ $_font-weights: (
 }
 
 // LINJEHØYDER:
+// Jeg har litt lyst til å utfordre 8-gangeren på linjehøyde. "Alle" som snakker om linjehøyde anbefaler å bruke tall uten enhet,
+// samtidig bruker f.eks. Material spesifikke verdier i dp/px. Men enhetsløse tall gir også mer fleksibilitet i å sette sammen
+// typografgiske stiler. Må i så fall utforske litt hva det _faktisk_ gjør med layout at ting ikke nødvendigvis går opp i åtte.
 $_line-heights: (
     1: 1,
-    2: 1.1,
-    3: 1.2,
-    4: 1.4,
+    2: 1.2,
+    3: 1.4,
+    4: 1.6,
     5: 1.8,
     6: 2,
 );
@@ -59,7 +58,7 @@ $_line-heights: (
 /// @return {Number} - Verdien for valgt steg i skalaen
 @function line-height($step) {
     @if not math.is-unitless($step) {
-        @error "Parameteret #{$step} må være et heltall uten enhet.";
+        @error "Steget må være et heltall uten enhet.";
     }
     @if not map.has-key($_line-heights, $step) {
         @error "Det finnes ingen linjehøyde med steg #{$step}.";
@@ -68,23 +67,28 @@ $_line-heights: (
     @return map.get($_line-heights, $step);
 }
 
-/// Multiplikator for fontskala
-$_font-scale-multiplier: 1.2;
+// KONSTANTER FOR FONTSTØRRELSER:
+$_BASE_FONT_SIZE: 14; // Basisstørrelse i piksler (steg 0 i skalaen)
+$_FONT_SCALE_MULTIPLIER: 1.2; // Multiplikator for fontskala (Major second)
+$_SMALL_FONT_SCALE_MULTIPLIER: 1.125; // Multiplikator for fontskala (Major second)
+$_MIN_FONT_SCALE_STEP: -2; // Minste tillatte steg i fontskalaen
+$_FLUID_STEP_VARIANCE: 2; // Variasjon i størrelse for flytende fontstørrelser (målt i steg i skalaen)
+$_MIN_FLUID_STEP: 2; // Minimumssteg for flytende fontstørrelse (Steg 2: 20px)
 
 /// Henter verdien til et steg i fontskalaen. Steg 0 er baseverdien (1rem),
 /// og stegene over eller under null regnes ut fra multiplikatoren
 ///
 /// @param {Number} $step - Et steg i fontskalaen, minimum -3
 /// @return {Number} - Fontstørrelsen for valgt steg i skalaen
-@function font-size($step) {
+@function harmonic-scale-step($step, $multiplier: 1.2, $base: 14) {
     @if not math.is-unitless($step) {
-        @error "Parameteret #{$step} må være et heltall uten enhet.";
+        @error "Parameteret $step må være et heltall uten enhet. Du sendte inn #{$step}";
     }
-    @if $step < -3 {
-        @error "Steg under -3 blir for små. Bruk en høyere verdi.";
+    @if $step < $_MIN_FONT_SCALE_STEP {
+        @error "Steg under #{$_MIN_FONT_SCALE_STEP} blir for små. Bruk en høyere verdi.";
     }
 
-    @return 1 * math.pow($_font-scale-multiplier, $step) * 1rem;
+    @return functions.rem(math.round(math.pow($multiplier, $step) * $base) * 1px);
 }
 
 /// Henter en flytende fontstørrelse basert på et steg i fontskalaen.
@@ -101,12 +105,15 @@ $_font-scale-multiplier: 1.2;
     @if not math.is-unitless($step) {
         @error "Parameteret #{$step} må være et heltall uten enhet.";
     }
-    @if $step < 6 {
-        @error "Flytende størrelse skal kun brukes for overskrifter. Velg steg 6 eller høyere.";
-    }
+    /* @if $step <= $_MIN_FLUID_STEP {
+        @warn "Steg under #{$_MIN_FLUID_STEP + 1} vil ikke opptre flytende for å bevare lesbarhet";
+        @return font-size($step);
+    } */
 
-    $_min: font-size($step - 2);
-    $_max: font-size($step);
+    $_min: harmonic-scale-step($step, $_SMALL_FONT_SCALE_MULTIPLIER, $_BASE_FONT_SIZE);
+    $_max: harmonic-scale-step($step, $_FONT_SCALE_MULTIPLIER, $_BASE_FONT_SIZE);
+    /* $_min: font-size(math.max(($step - $_FLUID_STEP_VARIANCE), $_MIN_FLUID_STEP));
+    $_max: font-size(math.max($step, $_MIN_FLUID_STEP)); */
     $_params: _getFontScalingParameters($_min, $_max, $minScreen, $maxScreen);
 
     @return clamp(#{$_min}, #{map.get($_params, "vw")}vw + #{map.get($_params, "rem")}, #{$_max});
@@ -116,26 +123,28 @@ $_font-scale-multiplier: 1.2;
     @if $fluid {
         font-size: fluid-font-size($fontStep);
     } @else {
-        font-size: font-size($fontStep);
+        font-size: harmonic-scale-step($fontStep);
     }
     line-height: line-height($lineHeight);
     font-weight: font-weight($weight);
+    @content;
 }
 
-@mixin define-theme-text-style($name, $fontStep, $lineHeight, $weight: "regular", $fluid: false) {
+@mixin define-semantic-text-style($name, $fontStep, $lineHeight, $weight: "regular", $fluid: false) {
     @if $fluid {
-        --jkl-theme-#{$name}-font-size: #{fluid-font-size($fontStep)};
+        --jkl-semantic-#{$name}-font-size: #{fluid-font-size($fontStep)};
     } @else {
-        --jkl-theme-#{$name}-font-size: #{font-size($fontStep)};
+        --jkl-semantic-#{$name}-font-size: #{harmonic-scale-step($fontStep)};
     }
-    --jkl-theme-#{$name}-line-height: #{line-height($lineHeight)};
-    --jkl-theme-#{$name}-font-weight: #{font-weight($weight)};
+    --jkl-semantic-#{$name}-line-height: #{line-height($lineHeight)};
+    --jkl-semantic-#{$name}-font-weight: #{font-weight($weight)};
 }
 
-@mixin use-theme-text-style($name) {
-    font-size: var(--jkl-theme-#{$name}-font-size);
-    line-height: var(--jkl-theme-#{$name}-line-height);
-    font-weight: var(--jkl-theme-#{$name}-font-weight);
+@mixin use-semantic-text-style($name) {
+    font-size: var(--jkl-semantic-#{$name}-font-size);
+    line-height: var(--jkl-semantic-#{$name}-line-height);
+    font-weight: var(--jkl-semantic-#{$name}-font-weight);
+    @content;
 }
 
 $auto-font-size-test: fluid-font-size(10);

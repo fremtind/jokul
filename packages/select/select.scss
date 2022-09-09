@@ -13,17 +13,19 @@ $_arrow-width: jkl.rem(13px);
 $_select-padding: jkl.$spacing-xs jkl.$spacing-s;
 
 .jkl-select {
-    // DESIGN TOKENS (STIL-API):
-    --jkl-select-border-color: var(--jkl-semantic-color-border-subdued);
-    --jkl-select-text-color: var(--jkl-semantic-color-text);
-    --jkl-select-text-disabled-color: var(--jkl-semantic-color-text-subdued);
-    --jkl-select-background-color: var(--jkl-semantic-color-bg-none);
-    --jkl-select-open-background-color: var(--jkl-semantic-color-bg-highlighted);
-    --jkl-select-focus-color: var(--jkl-semantic-color-focus);
-    --jkl-select-error-background-color: var(--jkl-semantic-color-error);
-    --jkl-select-error-text-color: var(--jkl-semantic-color-text-on-light);
-    --jkl-select-hover-option-color: var(--jkl-semantic-color-secondary-info);
-    --jkl-select-search-input-selection-color: var(--jkl-semantic-color-text-selection);
+    // DESIGN TOKENS (STIL-API)
+    // ------------------------
+    --jkl-select-border-color: var(--jkl-system-color-outline);
+    --jkl-select-text-color: var(--jkl-system-color-on-surface);
+    --jkl-select-text-disabled-color: var(--jkl-system-color-outline);
+    --jkl-select-background-color: var(--jkl-system-color-none);
+    --jkl-select-open-background-color: var(--jkl-system-color-surface-bright);
+    --jkl-select-focus-color: var(--jkl-system-color-interactive);
+    --jkl-select-error-background-color: var(--jkl-system-color-error);
+    --jkl-select-error-text-color: var(--jkl-system-color-on-message);
+    --jkl-select-hover-option-color: var(--jkl-system-color-interactive);
+    --jkl-select-search-input-selection-color: var(--jkl-system-color-selection);
+    // ------------------------
 
     @include jkl.reset-outline;
     display: block;
@@ -239,7 +241,7 @@ $_select-padding: jkl.$spacing-xs jkl.$spacing-s;
         }
     }
 
-    &--invalid {
+    &--invalid:not(&--open) {
         .jkl-select__search-input,
         .jkl-select__button {
             background-color: var(--jkl-select-error-background-color);

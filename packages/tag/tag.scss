@@ -1,37 +1,41 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/variables/colors";
 
-$_tag-background-color: jkl.$color-varde;
-$_tag-color: jkl.$color-granitt;
-
-$_tag-background-color--success: colors.varslingsfarge("suksess");
-$_tag-background-color--error: colors.varslingsfarge("feil");
-$_tag-background-color--info: colors.varslingsfarge("info");
-$_tag-background-color--warning: colors.varslingsfarge("advarsel");
-
 .jkl-tag {
+    --tag-background-color: var(--jkl-system-color-surface-variant);
+    --tag-text-color: var(--jkl-system-color-on-surface-variant);
+    --tag-border-color: var(--jkl-system-color-outline);
+
     @include jkl.text-style("heading-5");
-    background-color: $_tag-background-color;
     border-radius: jkl.rem(4px);
-    color: $_tag-color;
+    border: jkl.rem(1px) solid var(--tag-border-color);
+    background-color: var(--tag-background-color);
+    color: var(--tag-text-color);
     display: inline-block;
     padding: jkl.$spacing-3xs jkl.$spacing-xs;
     white-space: nowrap;
 
+    &--info,
+    &--warning,
+    &--error,
+    &--success {
+        --tag-text-color: var(--jkl-system-color-on-message);
+    }
+
     &--info {
-        background-color: $_tag-background-color--info;
+        --tag-background-color: var(--jkl-system-color-info);
     }
 
     &--warning {
-        background-color: $_tag-background-color--warning;
+        --tag-background-color: var(--jkl-system-color-warning);
     }
 
     &--error {
-        background-color: $_tag-background-color--error;
+        --tag-background-color: var(--jkl-system-color-error);
     }
 
     &--success {
-        background-color: $_tag-background-color--success;
+        --tag-background-color: var(--jkl-system-color-success);
     }
 
     @include jkl.forced-colors-mode {

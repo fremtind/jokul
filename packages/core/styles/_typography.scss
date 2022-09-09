@@ -1,0 +1,79 @@
+@use "../mixins";
+@use "../reference";
+
+@include mixins.regular-layout-variables {
+    /// Mulig disse burde skrives ut (i stedet for å bruke mixin) slik at
+    /// det blir tydeligere hva de forskjellige verdiene som genereres er?
+    /// Dette er jo tross alt verdiene som skal brukes i løsningene.
+    ///
+    /// @example
+    /// --jkl-system-fontscale-headline-m-font-size: reference.font-size(7);
+    /// --jkl-system-fontscale-headline-m-line-height: reference.line-height(3);
+    /// --jkl-system-fontscale-headline-m-font-weight: reference.font-weight("regular");
+    @include reference.define-system-text-style("display-2xl", 14, 2, "regular");
+    @include reference.define-system-text-style("display-xl", 13, 2, "regular");
+    @include reference.define-system-text-style("display-l", 12, 2, "regular");
+    @include reference.define-system-text-style("display-m", 11, 2, "regular");
+    @include reference.define-system-text-style("display-s", 10, 2, "regular");
+
+    @include reference.define-system-text-style("headline-xl", 9, 2, "regular");
+    @include reference.define-system-text-style("headline-l", 8, 2, "regular");
+    @include reference.define-system-text-style("headline-m", 7, 2, "regular");
+    @include reference.define-system-text-style("headline-s", 6, 2, "bold");
+
+    @include reference.define-system-text-style("label-l", 7, 2, "regular");
+    @include reference.define-system-text-style("label-m", 6, 2, "regular");
+    @include reference.define-system-text-style("label-s", 4, 2, "regular");
+
+    @include reference.define-system-text-style("body-l", 6, 3, "regular");
+    @include reference.define-system-text-style("body-m", 5, 4, "regular");
+    @include reference.define-system-text-style("body-s", 4, 4, "regular");
+
+    //---------------------
+
+    @include reference.define-system-text-style("page-title", 11, 2, "regular");
+    @include reference.define-system-text-style("page-title-small", 10, 2, "regular");
+
+    @include reference.define-system-text-style("headline-large", 8, 2, "regular");
+    @include reference.define-system-text-style("headline-medium", 7, 2, "regular");
+    @include reference.define-system-text-style("headline-small", 6, 2, "bold");
+
+    @include reference.define-system-text-style("ingress", 7, 3, "regular");
+    @include reference.define-system-text-style("body-large", 6, 3, "regular");
+    @include reference.define-system-text-style("body", 5, 4, "regular");
+    @include reference.define-system-text-style("small", 4, 4, "regular");
+}
+
+@include mixins.compact-layout-variables {
+    @include reference.define-system-text-style("display-2xl", 13, 2, "regular");
+    @include reference.define-system-text-style("display-xl", 12, 2, "regular");
+    @include reference.define-system-text-style("display-l", 11, 2, "regular");
+    @include reference.define-system-text-style("display-m", 10, 2, "regular");
+    @include reference.define-system-text-style("display-s", 9, 2, "regular");
+
+    @include reference.define-system-text-style("headline-xl", 8, 2, "regular");
+    @include reference.define-system-text-style("headline-l", 7, 2, "regular");
+    @include reference.define-system-text-style("headline-m", 6, 2, "regular");
+    @include reference.define-system-text-style("headline-s", 5, 2, "bold");
+
+    @include reference.define-system-text-style("label-l", 6, 2, "regular");
+    @include reference.define-system-text-style("label-m", 5, 2, "regular");
+    @include reference.define-system-text-style("label-s", 3, 2, "regular");
+
+    @include reference.define-system-text-style("body-l", 5, 3, "regular");
+    @include reference.define-system-text-style("body-m", 4, 4, "regular");
+    @include reference.define-system-text-style("body-s", 3, 4, "regular");
+
+    //---------------------
+
+    @include reference.define-system-text-style("page-title", 10, 2, "regular", "static");
+
+    @include reference.define-system-text-style("headline-large", 8, 2, "regular", "static");
+    @include reference.define-system-text-style("headline-medium", 7, 2, "regular", "static");
+    @include reference.define-system-text-style("headline-small", 6, 2, "bold", "static");
+
+    @include reference.define-system-text-style("ingress", 6, 3, "regular", "static");
+    @include reference.define-system-text-style("body-large", 5, 3, "regular", "static");
+    @include reference.define-system-text-style("body", 4, 4, "regular", "static");
+    @include reference.define-system-text-style("small", 3, 3, "regular", "static");
+}

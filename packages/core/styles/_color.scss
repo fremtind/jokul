@@ -1,0 +1,58 @@
+@use "sass:color";
+@use "../mixins";
+@use "../reference";
+
+/// STANDARD FARGEVERDIER FOR JØKUL-TEMA. KUN REFERANSEVERDIER SKAL BRUKES,
+/// INGEN DIREKTE SPESIFISERING AV VERDIER!
+
+@include mixins.light-mode-variables {
+    // Overflater og tekst-/ikonfarge for overflater
+    --jkl-system-color-surface: #{reference.color("neutral", 99)};
+    --jkl-system-color-surface-bright: #{reference.color("neutral", 100)};
+    --jkl-system-color-on-surface: #{reference.color("neutral", 20)};
+    --jkl-system-color-surface-variant: #{reference.color("neutral-variant", 95)};
+    --jkl-system-color-on-surface-variant: #{reference.color("neutral-variant", 20)};
+    --jkl-system-color-surface-contrast: #{reference.color("neutral", 0)};
+    --jkl-system-color-on-surface-contrast: #{reference.color("neutral", 99)};
+
+    // Interaktive elementer
+    --jkl-system-color-interactive: #{reference.color("primary", 20)};
+    --jkl-system-color-interactive-variant: #{reference.color("primary", 50)};
+    --jkl-system-color-on-interactive: #{reference.color("primary", 99)};
+
+    // Andre roller
+    --jkl-system-color-outline: #{reference.color("neutral-variant", 40)};
+    --jkl-system-color-outline-variant: #{reference.color("neutral-variant", 80)};
+    --jkl-system-color-selection: #{color.scale($color: reference.color("neutral", 20), $alpha: -80%)};
+}
+
+@include mixins.dark-mode-variables {
+    // Overflater og tekst-/ikonfarge for overflater
+    --jkl-system-color-surface: #{reference.color("neutral", 10)};
+    --jkl-system-color-surface-bright: #{reference.color("neutral", 0)};
+    --jkl-system-color-on-surface: #{reference.color("neutral", 99)};
+    --jkl-system-color-surface-variant: #{reference.color("neutral-variant", 20)};
+    --jkl-system-color-on-surface-variant: #{reference.color("neutral-variant", 95)};
+    --jkl-system-color-surface-contrast: #{reference.color("neutral", 30)};
+    --jkl-system-color-on-surface-contrast: #{reference.color("neutral", 99)};
+
+    // Interaktive elementer
+    --jkl-system-color-interactive: #{reference.color("primary", 95)};
+    --jkl-system-color-interactive-variant: #{reference.color("primary", 70)};
+    --jkl-system-color-on-interactive: #{reference.color("primary", 10)};
+
+    // Andre roller
+    --jkl-system-color-outline: #{reference.color("neutral-variant", 70)};
+    --jkl-system-color-outline-variant: #{reference.color("neutral-variant", 50)};
+    --jkl-system-color-selection: #{color.scale($color: reference.color("neutral", 99), $alpha: -75%)};
+}
+
+:root {
+    --jkl-system-color-warning: #{reference.color("message", "advarsel")};
+    --jkl-system-color-error: #{reference.color("message", "feil")};
+    --jkl-system-color-info: #{reference.color("message", "info")};
+    --jkl-system-color-success: #{reference.color("message", "suksess")};
+    --jkl-system-color-on-message: #{reference.color("neutral", 10)};
+    --jkl-system-color-shadow: #{reference.color("neutral", 0)};
+    --jkl-system-color-none: transparent;
+}

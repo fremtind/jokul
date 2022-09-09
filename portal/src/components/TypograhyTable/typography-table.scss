@@ -1,0 +1,17 @@
+@use "~@fremtind/jkl-core/jkl";
+
+:root {
+    @for $step from -2 through 14 {
+        @include jkl.typo-define-semantic-text-style("step-#{$step}", $step, 1, "regular", false);
+        @include jkl.typo-define-semantic-text-style("step-#{$step}-fluid", $step, 1, "regular", true);
+    }
+}
+
+@for $step from -2 through 14 {
+    .jkl-portal-typo-table-scale-#{$step} {
+        @include jkl.typo-use-semantic-text-style("step-#{$step}");
+    }
+    .jkl-portal-typo-table-scale-#{$step}-fluid {
+        @include jkl.typo-use-semantic-text-style("step-#{$step}-fluid");
+    }
+}

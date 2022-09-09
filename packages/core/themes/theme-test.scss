@@ -3,6 +3,13 @@
 // Alle verdier som IKKE er spesifisert i temaet bruker fallback-verdier
 
 :root {
-    @include jkl.typo-define-theme-text-style("page-title", 10, 3, "regular", true);
-    @include jkl.typo-define-theme-text-style("ingress", 4, 3, "regular", true);
+    @include jkl.typo-define-semantic-text-style("page-title", 9, 2, "regular", true);
+
+    @include jkl.typo-define-semantic-text-style("headline-large", 6, 2, "regular", true);
+    @include jkl.typo-define-semantic-text-style("headline-medium", 5, 2, "regular", true);
+    @include jkl.typo-define-semantic-text-style("headline-small", 4, 2, "bold", true);
+
+    @include jkl.typo-define-semantic-text-style("ingress", 3, 3, "regular", true);
+    @include jkl.typo-define-semantic-text-style("body", 2, 4, "regular", true);
+    @include jkl.typo-define-semantic-text-style("small", 1, 4, "regular", true);
 }

@@ -24,7 +24,9 @@ $_paragraph-max-width: jkl.rem(750px);
 .jkl-portal-paragraph {
     max-width: $_paragraph-max-width;
 
-    @include jkl.text-style("body");
+    // @include jkl.text-style("body");
+    // @include jkl.typo-use-semantic-text-style("body");
+    @include jkl.use-system-text-style("body");
 }
 
 .jkl-portal-ul,
@@ -66,38 +68,46 @@ $_paragraph-max-width: jkl.rem(750px);
 .jkl-portal-ingress {
     max-width: $_title-max-width;
 
-    @include jkl.text-style("heading-2");
+    // @include jkl.text-style("heading-2");
+    // @include jkl.typo-use-semantic-text-style("ingress");
+    @include jkl.use-system-text-style("ingress");
 
     &:not(:last-child) {
-        margin-bottom: jkl.$spacing-2xl;
+        // margin-bottom: jkl.$spacing-2xl;
+        margin-bottom: var(--jkl-system-spacing-2xl);
     }
 }
 
 .jkl-portal-huge-title {
-    font-weight: 400;
+    /* font-weight: 400;
     font-style: normal;
 
     line-height: jkl.rem(84px);
-    font-size: jkl.rem(64px);
+    font-size: jkl.rem(64px); */
+    @include jkl.use-system-text-style("display-2xl");
     max-width: $_title-max-width;
     margin-bottom: jkl.$spacing-l;
 
-    @include jkl.from-medium-device {
+    /* @include jkl.from-medium-device {
         line-height: jkl.rem(130px);
         font-size: jkl.rem(104px);
         max-width: jkl.rem(860px);
-    }
+    } */
 }
 
 .jkl-portal-page-title {
     max-width: $_title-max-width;
     margin-bottom: jkl.$spacing-xl;
 
-    @include jkl.text-style("title");
+    // @include jkl.text-style("title");
+    // @include jkl.typo-use-semantic-text-style("page-title");
+    @include jkl.use-system-text-style("page-title");
 }
 
 .jkl-portal-heading-large {
-    @include jkl.text-style("heading-1");
+    // @include jkl.text-style("heading-1");
+    // @include jkl.typo-use-semantic-text-style("headline-large");
+    @include jkl.use-system-text-style("headline-large");
 
     &:not(:first-child) {
         margin-top: jkl.$spacing-2xl;
@@ -109,7 +119,9 @@ $_paragraph-max-width: jkl.rem(750px);
 }
 
 .jkl-portal-heading-medium {
-    @include jkl.text-style("heading-3");
+    //@include jkl.text-style("heading-3");
+    // @include jkl.typo-use-semantic-text-style("headline-medium");
+    @include jkl.use-system-text-style("headline-medium");
 
     &:not(:first-child) {
         margin-top: jkl.$spacing-xl;
@@ -121,10 +133,13 @@ $_paragraph-max-width: jkl.rem(750px);
 }
 
 .jkl-portal-heading-small {
-    @include jkl.text-style("heading-4");
+    //@include jkl.text-style("heading-4");
+    // @include jkl.typo-use-semantic-text-style("headline-small");
+    @include jkl.use-system-text-style("headline-small");
 
     &:not(:first-child) {
-        margin-top: jkl.$spacing-xl;
+        // margin-top: jkl.$spacing-xl;
+        margin-bottom: var(--jkl-system-spacing-2xl);
     }
 
     &:not(:last-child) {

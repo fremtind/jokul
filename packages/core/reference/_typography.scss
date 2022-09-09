@@ -1,0 +1,83 @@
+@use "sass:math";
+@use "sass:map";
+@use "../functions";
+
+$_font-weights: (
+    "regular": 400,
+    "bold": 700,
+);
+
+/// Returnerer en verdi for en fontvekt i typografisystemet vårt.
+///
+/// @param {"regular" | "bold"} $weight - En av fontvektene våre
+/// @return {Number} - Verdien for valgt vekt
+@function font-weight($weight) {
+    @if not map.has-key($_font-weights, $weight) {
+        @error "Fontvekten må være en av #{map.keys($_font-weights)}";
+    }
+
+    @return map.get($_font-weights, $weight);
+}
+
+$_line-heights: (
+    1: 1,
+    2: 1.2,
+    3: 1.4,
+    4: 1.6,
+    5: 1.8,
+    6: 2,
+);
+
+/// Henter verdien til et steg i skalaen for linjehøyde. Verdiene er
+/// enhetsløse, slik at de også fungerer med flytende skriftstørrelser
+///
+/// @param {Number} $step - Et steg i skalaen for linjehøyde [1 - 6]
+/// @return {Number} - Verdien for valgt steg i skalaen
+@function line-height($step) {
+    @if not math.is-unitless($step) {
+        @error "Steget må være et heltall uten enhet.";
+    }
+    @if not map.has-key($_line-heights, $step) {
+        @error "Det finnes ingen linjehøyde med steg #{$step}.";
+    }
+
+    @return map.get($_line-heights, $step);
+}
+
+// KONSTANTER FOR FONTSTØRRELSER:
+$_BASE_FONT_SIZE: 14; // Basisstørrelse i piksler (14 og 16 gir gode verdier)
+$_FONT_SCALE_MULTIPLIER: 1.2; // Multiplikator for fontskala på store skjermer (Minor third)
+$_SMALL_FONT_SCALE_MULTIPLIER: 1.125; // Multiplikator for fontskala på små skjermer (Major second)
+$_MIN_FONT_SCALE_STEP: -2; // Minste steg i fontskalaen (-2 eller -3 gir veldig liten, men lesbar, størrelse)
+
+/// Henter en fontstørrelse basert på et steg i fontskalaen.
+/// Størrelsen vil variere mellom to harmoniske skalaer, slik at man får større kontrast
+/// mellom stegene på store skjermer, og mindre på små skjermer
+///
+/// @param {Number} $step - Et steg i fontskalaen
+/// @param {"fluid" | "static"} $type ["fluid"] - Angi om størrelsen skal være flytende eller statisk;
+/// @return {Number} - Flytende eller statisk fontstørrelse i rem, basert på valgt steg i skalaen
+@function font-size($step, $type: "fluid") {
+    @if not math.is-unitless($step) {
+        @error "Parameteret #{$step} må være et heltall uten enhet";
+    } @else if $step < 1 {
+        @error "Fontskalaen starter på steg 1";
+    }
+
+    @if type == "static" {
+        @return functions.harmonic-scale-step($step - $_scale-offset, $_SMALL_FONT_SCALE_MULTIPLIER, $_BASE_FONT_SIZE);
+    }
+
+    $_scale-offset: ($_MIN_FONT_SCALE_STEP * -1) + 1;
+    $_min: functions.harmonic-scale-step($step - $_scale-offset, $_SMALL_FONT_SCALE_MULTIPLIER, $_BASE_FONT_SIZE);
+    $_max: functions.harmonic-scale-step($step - $_scale-offset, $_FONT_SCALE_MULTIPLIER, $_BASE_FONT_SIZE);
+    $_params: functions.getScalingParameters($_min, $_max);
+
+    @return clamp(#{$_min}, #{map.get($_params, "vw")}vw + #{map.get($_params, "rem")}, #{$_max});
+}
+
+@mixin define-system-text-style($name, $font-size, $line-height, $font-weight: "regular", $type: "fluid") {
+    --jkl-system-typescale-#{$name}-font-size: #{font-size($font-size, $type)};
+    --jkl-system-typescale-#{$name}-line-height: #{line-height($line-height)};
+    --jkl-system-typescale-#{$name}-font-weight: #{font-weight($font-weight)};
+}

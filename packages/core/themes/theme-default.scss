@@ -45,9 +45,5 @@
 
     --jkl-font-size-test: #{jkl.$typo-auto-font-size-test};
 
-    @include jkl.typo-define-theme-text-style("page-title", 8, 3, "regular", false);
+    @include jkl.typo-define-semantic-text-style("page-title", 8, 3, "regular", false);
 }
-
-/* @mixin text-style-page-title {
-    @include jkl.typo-text-style(8, 3, "regular", false);
-} */

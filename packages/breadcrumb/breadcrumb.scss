@@ -1,31 +1,33 @@
 @use "~@fremtind/jkl-core/jkl";
 
 .jkl-breadcrumb {
+    --jkl-breadcrumb-spacing: #{jkl.$spacing-xs};
+    --jkl-breadcrumb-color-current: var(--jkl-system-color-on-surface);
+    @include jkl.create-text-style-variables("small", "breadcrumb-link");
+
     a {
-        @include jkl.text-style("small");
+        @include jkl.use-text-style-variables("breadcrumb-list");
     }
 
     a[aria-current] {
         text-decoration: none;
-        color: var(--jkl-color);
+        color: var(--jkl-breadcrumb-color-current);
     }
 
     &__list {
         display: flex;
         flex-wrap: wrap;
         list-style: none;
+        gap: var(--jkl-breadcrumb-spacing);
         margin: 0;
         padding-inline-start: 0;
     }
 
     &__item {
-        margin-bottom: jkl.$spacing-xs;
         white-space: nowrap;
     }
 
     &__item-separator {
-        @include jkl.text-style("small");
-        padding-left: jkl.$spacing-xs;
-        padding-right: jkl.$spacing-xs;
+        @include jkl.use-text-style-variables("breadcrumb-list");
     }
 }

@@ -1,0 +1,17 @@
+@mixin create-text-style-variables($system-style, $local-name) {
+    --#{$local-name}-font-size: var(--jkl-system-typescale-#{$system-style}-font-size);
+    --#{$local-name}-line-height: var(--jkl-system-typescale-#{$system-style}-line-height);
+    --#{$local-name}-font-weight: var(--jkl-system-typescale-#{$system-style}-font-weight);
+}
+
+@mixin use-text-style-variables($local-name) {
+    font-size: var(--#{$local-name}-font-size);
+    line-height: var(--#{$local-name}-line-height);
+    font-weight: var(--#{$local-name}-font-weight);
+}
+
+@mixin use-system-text-style($system-style) {
+    font-size: var(--jkl-system-typescale-#{$system-style}-font-size);
+    line-height: var(--jkl-system-typescale-#{$system-style}-line-height);
+    font-weight: var(--jkl-system-typescale-#{$system-style}-font-weight);
+}

@@ -140,6 +140,21 @@ $_valid-forced-colors-text-values: (
     }
 }
 
+@mixin compact-layout-variables {
+    [data-compact="true"],
+    [data-compactlayout="true"] {
+        @content;
+    }
+}
+
+@mixin regular-layout-variables {
+    :root,
+    [data-compact="false"],
+    [data-compactlayout="false"] {
+        @content;
+    }
+}
+
 /// En omfattende reset for alt av outlines og borders på interaktive elementer
 @mixin reset-outline {
     outline: 0;

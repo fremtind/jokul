@@ -43,9 +43,3 @@ $border-radius-rounded-container: #{jkl.rem(4px)};
 $color-error: #{colors.varslingsfarge("feil")};
 $color-text-on-light: #{jkl.$color-granitt};
 $color-text-on-dark: #{jkl.$color-snohvit};
-
-$jkl-font-size-test: #{jkl.$typo-auto-font-size-test};
-
-/* @mixin text-style-page-title {
-    @include jkl.typo-text-style($fontStep: 10, $lineHeight: 3, $weight: "regular", $fluid: true);
-} */

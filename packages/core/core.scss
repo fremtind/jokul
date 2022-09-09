@@ -1,15 +1,19 @@
 @use "jkl";
 @use "styles";
-@use "./themes/theme-test" as theme;
-@use "./themes/theme-integration-two";
+
+$HUE: 32;
 
 .jkl {
     font-family: "Fremtind Grotesk", Calibri, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    background-color: var(--jkl-semantic-color-bg);
-    color: var(--jkl-semantic-color-text);
+    background-color: var(--jkl-system-color-surface);
+    color: var(--jkl-system-color-on-surface);
+}
+
+:root {
+    --jkl-reference-hue: #{$HUE};
 }
 
 @include jkl.prefers-reduced-motion {

@@ -1,0 +1,69 @@
+@use "sass:map";
+
+$jkl-hue: 32 !default; // Fargetone for temaet, basert på Varde
+
+$_color: (
+    // Nøytral palett av gråtoner
+    "neutral":
+        (
+            0: hsla(0, 0%, 0%, 1),
+            10: hsla(0, 0%, 8%, 1),
+            20: hsla(0, 0%, 17%, 1),
+            30: hsla(0, 0%, 25%, 1),
+            40: hsla(0, 0%, 33%, 1),
+            50: hsla(0, 0%, 42%, 1),
+            60: hsla(0, 0%, 50%, 1),
+            70: hsla(0, 0%, 58%, 1),
+            80: hsla(0, 0%, 68%, 1),
+            90: hsla(0, 0%, 79%, 1),
+            95: hsla(0, 0%, 88%, 1),
+            99: hsla(0, 0%, 97%, 1),
+            100: hsla(0, 0%, 100%, 1),
+        ),
+    // Nøytral variant med svakt innslag av fargetone
+    "neutral-variant":
+        (
+            0: hsla(var(--jkl-reference-hue, $jkl-hue), 0%, 0%, 1),
+            10: hsla(var(--jkl-reference-hue, $jkl-hue), 10%, 8%, 1),
+            20: hsla(var(--jkl-reference-hue, $jkl-hue), 8%, 17%, 1),
+            30: hsla(var(--jkl-reference-hue, $jkl-hue), 5%, 25%, 1),
+            40: hsla(var(--jkl-reference-hue, $jkl-hue), 4%, 33%, 1),
+            50: hsla(var(--jkl-reference-hue, $jkl-hue), 3%, 42%, 1),
+            60: hsla(var(--jkl-reference-hue, $jkl-hue), 3%, 50%, 1),
+            70: hsla(var(--jkl-reference-hue, $jkl-hue), 4%, 58%, 1),
+            80: hsla(var(--jkl-reference-hue, $jkl-hue), 6%, 68%, 1),
+            90: hsla(var(--jkl-reference-hue, $jkl-hue), 8%, 79%, 1),
+            95: hsla(var(--jkl-reference-hue, $jkl-hue), 10%, 87%, 1),
+            99: hsla(var(--jkl-reference-hue, $jkl-hue), 15%, 97%, 1),
+            100: hsla(var(--jkl-reference-hue, $jkl-hue), 0%, 100%, 1),
+        ),
+    // Primærfargepalett basert på fargetone
+    "primary":
+        (
+            0: hsla(var(--jkl-reference-hue, $jkl-hue), 0%, 0%, 1),
+            10: hsla(var(--jkl-reference-hue, $jkl-hue), 30%, 8%, 1),
+            20: hsla(var(--jkl-reference-hue, $jkl-hue), 25%, 17%, 1),
+            30: hsla(var(--jkl-reference-hue, $jkl-hue), 22%, 25%, 1),
+            40: hsla(var(--jkl-reference-hue, $jkl-hue), 18%, 35%, 1),
+            50: hsla(var(--jkl-reference-hue, $jkl-hue), 13%, 42%, 1),
+            60: hsla(var(--jkl-reference-hue, $jkl-hue), 10%, 50%, 1),
+            70: hsla(var(--jkl-reference-hue, $jkl-hue), 13%, 58%, 1),
+            80: hsla(var(--jkl-reference-hue, $jkl-hue), 18%, 68%, 1),
+            90: hsla(var(--jkl-reference-hue, $jkl-hue), 22%, 80%, 1),
+            95: hsla(var(--jkl-reference-hue, $jkl-hue), 25%, 88%, 1),
+            99: hsla(var(--jkl-reference-hue, $jkl-hue), 30%, 96%, 1),
+            100: hsla(var(--jkl-reference-hue, $jkl-hue), 0%, 100%, 1),
+        ),
+    // Meldingsfarger
+    "message":
+        (
+            "advarsel": #fdeab9,
+            "feil": #ffc9b2,
+            "info": #d9ddff,
+            "suksess": #c8ecd2,
+        )
+);
+
+@function color($palette, $step) {
+    @return map.get($_color, $palette, $step);
+}

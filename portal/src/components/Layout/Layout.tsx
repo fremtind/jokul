@@ -58,6 +58,9 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
                 htmlAttributes={{
                     lang: "no",
                 }}
+                bodyAttributes={{
+                    class: "jkl",
+                }}
                 title={pageTitle || siteTitle}
                 titleTemplate={pageTitle && siteTitle ? `%s | ${siteTitle}` : undefined}
                 meta={[

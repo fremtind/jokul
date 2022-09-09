@@ -1,15 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --portal-bg: #{jkl.$color-snohvit};
-    --portal-text-color: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --portal-bg: #{jkl.$color-granitt};
-    --portal-text-color: #{jkl.$color-snohvit};
-}
-
 $_sidebar-width: jkl.rem(375px);
 
 /**
@@ -26,7 +16,6 @@ $_sidebar-width: jkl.rem(375px);
     @include jkl.motion;
     transition-property: color;
     transition-delay: jkl.timing("productive");
-    color: var(--portal-text-color);
 
     &__sidebar {
         display: none;
@@ -40,8 +29,8 @@ $_sidebar-width: jkl.rem(375px);
     @include jkl.medium-device {
         &__main {
             padding-top: jkl.$spacing-2xl;
-            padding-right: jkl.$spacing-3xl;
-            padding-left: jkl.$spacing-xl;
+            padding-right: max(jkl.$spacing-3xl, env(safe-area-inset-right));
+            padding-left: max(jkl.$spacing-xl, env(safe-area-inset-left));
         }
     }
 
@@ -68,12 +57,14 @@ $_sidebar-width: jkl.rem(375px);
         &__sidebar {
             grid-area: sidebar;
             display: unset;
+            padding-left: max(jkl.$spacing-xl, env(safe-area-inset-left));
+            padding-top: jkl.$spacing-2xl;
         }
 
         &__main {
             grid-area: main;
             padding-top: jkl.$spacing-2xl;
-            padding-right: jkl.$spacing-3xl;
+            padding-right: max(jkl.$spacing-3xl, env(safe-area-inset-right));
             padding-left: jkl.$spacing-xl;
 
             &--frontpage {
@@ -105,4 +96,19 @@ $_sidebar-width: jkl.rem(375px);
             display: none !important;
         }
     }
+}
+
+.jkl-text-style-page-title {
+    @include jkl.use-system-text-style("page-title");
+    // Manuelt:
+    /* font-size: var(--jkl-system-typescale-page-title-font-size);
+    line-height: var(--jkl-system-typescale-page-title-line-height);
+    font-weight: var(--jkl-system-typescale-page-title-font-weight); */
+}
+.jkl-text-style-ingress {
+    @include jkl.use-system-text-style("ingress");
+    // Manuelt:
+    /* font-size: var(--jkl-system-typescale-ingress-font-size);
+    line-height: var(--jkl-system-typescale-ingress-line-height);
+    font-weight: var(--jkl-system-typescale-ingress-font-weight); */
 }

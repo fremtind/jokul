@@ -1,20 +1,10 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-svaberg};
-    --jkl-accordion-accent: #{jkl.$color-stein};
-    --jkl-accordion-focus: #{jkl.$color-focus-color};
-    --jkl-accordion-expanded-background: #{jkl.$color-hvit};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-stein};
-    --jkl-accordion-accent: #{jkl.$color-svaberg};
-    --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
-    --jkl-accordion-expanded-background: #{jkl.$color-svart};
-}
-
 .jkl-accordion {
+    --jkl-accordion-border-color: var(--jkl-system-color-outline-variant);
+    --jkl-accordion-focus-color: var(--jkl-system-color-interactive);
+    --jkl-accordion-expanded-background: var(--jkl-system-color-surface-bright);
+
     width: 100%;
 }
 
@@ -22,22 +12,22 @@
     @include jkl.reset-outline;
 
     &:nth-child(n) {
-        border-top: jkl.rem(1px) solid var(--jkl-accordion-border);
+        border-top: jkl.rem(1px) solid var(--jkl-accordion-border-color);
 
         &:hover {
-            border-top: jkl.rem(1px) solid var(--jkl-accordion-focus);
+            border-top: jkl.rem(1px) solid var(--jkl-accordion-focus-color);
 
             + .jkl-accordion-item {
-                border-top: jkl.rem(1px) solid var(--jkl-accordion-focus);
+                border-top: jkl.rem(1px) solid var(--jkl-accordion-focus-color);
             }
         }
     }
 
     &:last-child {
-        border-bottom: jkl.rem(1px) solid var(--jkl-accordion-border);
+        border-bottom: jkl.rem(1px) solid var(--jkl-accordion-border-color);
 
         &:hover {
-            border-bottom: jkl.rem(1px) solid var(--jkl-accordion-focus);
+            border-bottom: jkl.rem(1px) solid var(--jkl-accordion-focus-color);
         }
     }
 
@@ -74,7 +64,7 @@
         }
 
         html:not([data-mousenavigation]) &:focus {
-            box-shadow: inset 0 0 0 2px var(--jkl-accordion-focus);
+            box-shadow: inset 0 0 0 2px var(--jkl-accordion-focus-color);
         }
     }
 

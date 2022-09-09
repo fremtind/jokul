@@ -1,14 +1,16 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
+/* @include jkl.light-mode-variables {
     --full-screen-menu-bg-color: #{jkl.$color-varde};
 }
 
 @include jkl.dark-mode-variables {
     --full-screen-menu-bg-color: #{jkl.$color-skifer};
-}
+} */
 
 .jkl-portal-main-menu {
+    --full-screen-menu-bg-color: var(--jkl-system-color-surface-variant);
+
     display: inline-flex;
     align-items: center;
 
@@ -69,7 +71,8 @@
         overflow-x: scroll;
         height: 0;
 
-        background-color: var(--full-screen-menu-bg-color);
+        // background-color: var(--full-screen-menu-bg-color);
+        background-color: var(--jkl-system-color-surface-variant);
         @include jkl.motion("standard", "lazy");
         transition-property: height;
 

@@ -1,32 +1,25 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-tab-text-color: #{jkl.$color-granitt};
-    --jkl-tab-indicator-color: #{jkl.$color-granitt};
-    --jkl-tab-hover-color: #{jkl.$color-stein};
-    --jkl-tab-focus-border-color: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-tab-text-color: #{jkl.$color-snohvit};
-    --jkl-tab-indicator-color: #{jkl.$color-snohvit};
-    --jkl-tab-hover-color: #{jkl.$color-svaberg};
-    --jkl-tab-focus-border-color: #{jkl.$color-snohvit};
-}
-
 .jkl-tablist {
+    // Vi trenger egentlig ikke namespacing når vi definerer variabelen inne i klassen
+    --text-color: var(--jkl-system-color-interactive);
+    --indicator-color: var(--jkl-system-color-interactive);
+    --line-color: var(--jkl-system-color-outline);
+    --hover-color: var(--jkl-system-color-outline);
+    --focus-border-color: var(--jkl-system-color-interactive);
+
     position: relative;
     display: flex;
     flex-direction: row;
     padding: 0;
     margin: 0;
-    border-bottom: 1px jkl.$color-svaberg solid;
+    border-bottom: jkl.rem(1px) var(--line-color) solid;
     width: 100%;
 
     &__indicator {
         position: absolute;
         height: 2px;
-        background-color: var(--jkl-tab-indicator-color);
+        background-color: var(--indicator-color);
         @include jkl.motion("standard", "lazy");
         transition-property: left, width;
         will-change: left, width;
@@ -48,14 +41,14 @@
     padding: jkl.$spacing-xs jkl.$spacing-3xs;
     padding-right: jkl.$spacing-xl;
     cursor: pointer;
-    color: var(--jkl-tab-text-color);
+    color: var(--text-color);
 
     &:hover {
-        color: var(--jkl-tab-hover-color);
+        color: var(--hover-color);
     }
 
     &:focus-visible {
-        outline: var(--jkl-tab-focus-border-color) solid 2px;
+        outline: var(--focus-border-color) solid 2px;
         outline-offset: -1px;
     }
 

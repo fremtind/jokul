@@ -28,3 +28,24 @@
 
     @return min(#{$hor-size}, #{$ver-size});
 }
+
+/// Finner riktige verdier å bruke i en CSS clamp-funksjon for flytende størrelse
+/// gitt minimum og maksimum størrelse, og minimum og maksimum skjermbredde
+/// https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/
+///
+/// @param {Number} $minSize - Minimum fontsørrelse i rem
+/// @param {Number} $maxSize - Maksimum fontstørrelse i rem
+/// @param {Number} $smallScreen [400px] - Minste skjermbredde i piksler for flytende størrelse
+/// @param {Number} $largeScreen [1200px] - Største skjermbredde i piksler for flytende størrelse
+/// @return {Map} - ("vw": antall vw, "rem": fastledd i rem)
+@function getScalingParameters($minSize, $maxSize, $smallScreen: 500px, $largeScreen: 1200px) {
+    $_smScrRem: rem($smallScreen);
+    $_lgScrRem: rem($largeScreen);
+
+    // For å finne riktig vw:
+    $_vw: math.div(100 * ($maxSize - $minSize), $_lgScrRem - $_smScrRem);
+    // For å finne riktig statisk tillegg:
+    $_rem: math.div(($_smScrRem * $maxSize - $_lgScrRem * $minSize), ($_smScrRem - $_lgScrRem));
+
+    @return ("vw": $_vw, "rem": $_rem);
+}

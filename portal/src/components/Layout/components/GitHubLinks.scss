@@ -2,7 +2,8 @@
 
 .jkl-portal-github-links {
     @include jkl.text-style("body");
-    margin-bottom: jkl.$spacing-2xl;
+    // margin-bottom: jkl.$spacing-2xl;
+    margin-bottom: var(--jkl-system-spacing-2xl);
 
     &__link {
         &::after {

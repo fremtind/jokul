@@ -1,5 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-button";
+// @use "~@fremtind/jkl-button";
 
 /// @deprecated Bruk heller .jkl-nav-card, .jkl-task-card eller .jkl-info-card
 .jkl-card {
@@ -73,28 +73,36 @@
 
 .jkl-nav-card {
     // DESIGN TOKENS (STIL-API):
-    --border-radius: var(--jkl-semantic-border-radius-rounded-container);
-    --color-bg: var(--jkl-semantic-color-bg-highlighted);
-    --color-text: var(--jkl-semantic-color-text);
-    --color-info-border: var(--jkl-semantic-color-secondary-info);
-    --content-spacing: var(--jkl-semantic-content-spacing-m);
-    --outline-thickness: var(--jkl-semantic-border-thickness-focus);
-    --shadow: var(--jkl-semantic-shadow-shallow);
-    --shadow--hover: var(--jkl-semantic-shadow-deep);
-    // TODO: Finn ut hva man gjør med tekststiler
+    // -------------------------
+    --jkl-nav-card-color-bg: var(--jkl-system-color-surface);
+    --jkl-nav-card-color-text: var(--jkl-system-color-on-surface);
+    --jkl-nav-card-color-info-border: var(--jkl-system-color-outline-variant);
+    --jkl-nav-card-color-focus: var(--jkl-system-color-interactive);
+    --jkl-nav-card-shadow: var(--jkl-system-shadow-elevation-1);
+    --jkl-nav-card-shadow--hover: var(--jkl-system-shadow-elevation-2);
+    --jkl-nav-card-content-spacing: var(--jkl-system-spacing-s);
+
+    @include jkl.create-text-style-variables("ingress", "jkl-nav-card-header");
+    @include jkl.create-text-style-variables("small", "jkl-nav-card-description");
+    @include jkl.create-text-style-variables("small", "jkl-nav-card-info");
+
+    // ikke ennå i det nye systemet:
+    --jkl-nav-card-outline-thickness: #{jkl.rem(2px)};
+    --jkl-nav-card-border-radius: #{jkl.rem(4px)};
+    // -------------------------
 
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     transform: translate3d(0, 0, 0);
     text-decoration: none;
-    color: var(--color-text);
+    color: var(--jkl-nav-card-color-text);
     outline: 0;
 
-    border-radius: var(--border-radius);
+    border-radius: var(--jkl-nav-card-border-radius);
     overflow: hidden;
-    box-shadow: var(--shadow);
-    background-color: var(--color-bg);
+    @include jkl.elevation(1);
+    background-color: var(--jkl-nav-card-color-bg);
 
     @include jkl.motion;
     transition-property: box-shadow, transform;
@@ -108,11 +116,11 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--content-spacing);
+        gap: var(--jkl-nav-card-content-spacing);
     }
 
     &__link {
-        @include jkl.text-style("heading-2");
+        @include jkl.use-text-style-variables("jkl-nav-card-header");
 
         .jkl-nav-card:focus &::after,
         .jkl-nav-card:hover:not(:focus) &::after {
@@ -127,50 +135,51 @@
     }
 
     &__description {
-        @include jkl.text-style("small");
+        @include jkl.use-text-style-variables("jkl-nav-card-description");
     }
 
     &__info {
-        border-top: jkl.rem(1px) solid var(--color-info-border);
-        padding-top: var(--content-spacing);
-        @include jkl.text-style("small");
+        border-top: jkl.rem(1px) solid var(--jkl-nav-card-color-info-border);
+        padding-top: var(--jkl-nav-card-content-spacing);
+        @include jkl.use-text-style-variables("jkl-nav-card-info");
         width: 100%;
     }
 
     &:hover {
-        box-shadow: var(--shadow--hover);
+        @include jkl.elevation(2);
         transform: translate3d(0, jkl.rem(-4px), 0);
     }
 
     @include jkl.keyboard-navigation {
         &:focus {
-            outline: var(--outline-thickness) solid var(--color-text);
+            outline: var(--jkl-nav-card-outline-thickness) solid var(--jkl-nav-card-color-focus);
         }
     }
 
     @include jkl.forced-colors-mode {
         outline: revert;
-        border: var(--outline-thickness) solid LinkText;
+        border: var(--jkl-nav-card-outline-thickness) solid LinkText;
     }
 }
 
 @include jkl.light-mode-variables {
-    --jkl-task-card-background--hvit: #{jkl.$color-hvit};
     --jkl-task-card-background--snohvit: #{jkl.$color-snohvit};
     --jkl-task-card-background--sand: #{jkl.$color-sand};
-    --jkl-task-card-background--dis: #{jkl.$color-dis};
-    --jkl-task-card-shadow: #{jkl.$shadow-task-card};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-task-card-background--hvit: #{jkl.$color-svart};
     --jkl-task-card-background--snohvit: #{jkl.$color-granitt};
     --jkl-task-card-background--sand: #{jkl.$color-skifer};
-    --jkl-task-card-background--dis: #{jkl.$color-fjellgra};
-    --jkl-task-card-shadow: none;
 }
 
 .jkl-task-card {
+    // DESIGN TOKENS (STIL-API):
+    // -------------------------
+    --jkl-task-card-color-bg: var(--jkl-system-color-surface);
+    --jkl-task-card-color-bg--muted: var(--jkl-system-color-surface-variant);
+    --jkl-task-card-color-text: var(--jkl-system-color-on-surface);
+    // -------------------------
+
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -186,7 +195,7 @@
     }
 
     &--hvit {
-        background-color: var(--jkl-task-card-background--hvit);
+        background-color: var(--jkl-task-card-color-bg);
     }
 
     &--snohvit {
@@ -198,11 +207,11 @@
     }
 
     &--dis {
-        background-color: var(--jkl-task-card-background--dis);
+        background-color: var(--jkl-task-card-color-bg--muted);
     }
 
     &--with-shadow {
-        box-shadow: var(--jkl-task-card-shadow);
+        @include jkl.elevation(1);
     }
 
     @include jkl.forced-colors-mode {

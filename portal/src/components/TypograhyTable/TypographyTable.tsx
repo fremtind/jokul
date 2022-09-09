@@ -1,50 +1,33 @@
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@fremtind/jkl-table-react";
 import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
 import React, { FC, useState } from "react";
-import { TypographyTableRow, TypographyLevels } from "./TypographyTableRow";
+import { TypographyTableRow, SAMPLE_TYPOGRAPHY_LEVELS } from "./TypographyTableRow";
 
-const levels: TypographyLevels[] = [
-    "Title",
-    "Heading 1",
-    "Heading 2",
-    "Heading 3",
-    "Heading 4",
-    "Heading 5",
-    "Body",
-    "Bold",
-    "Small",
-];
+import "./typography-table.scss";
 
 export const TypographyTable: FC = () => {
-    const [isMobile, setIsMobile] = useState(false);
-    const toggleMobile = () => setIsMobile(!isMobile);
+    const [isFluid, setIsFluid] = useState(false);
+    const toggleFluid = () => setIsFluid((prevValue) => !prevValue);
 
     return (
         <div className="jkl-portal-paragraph">
-            <Table
-                className="jkl-spacing-xl--top"
-                collapseToList
-                fullWidth
-                {...(isMobile ? { "data-compactlayout": true } : {})}
-            >
+            <ToggleSwitch className="jkl-spacing-2xl--top" pressed={isFluid} onClick={toggleFluid}>
+                Flytende fontstørrelse
+            </ToggleSwitch>
+            <Table className="jkl-spacing-xl--top" collapseToList fullWidth>
                 <TableHead>
                     <TableRow>
+                        <TableHeader>Nivå</TableHeader>
                         <TableHeader srOnly>Illustrasjonstekst</TableHeader>
-                        <TableHeader>Stilnavn</TableHeader>
-                        <TableHeader>Vekt</TableHeader>
                         <TableHeader>Størrelse</TableHeader>
-                        <TableHeader>Linjeavstand</TableHeader>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {levels.map((level) => (
-                        <TypographyTableRow key={level} level={level} />
+                    {SAMPLE_TYPOGRAPHY_LEVELS.map((level) => (
+                        <TypographyTableRow key={level} level={level} fluid={isFluid} />
                     ))}
                 </TableBody>
             </Table>
-            <ToggleSwitch className="jkl-spacing-2xl--top" pressed={isMobile} onClick={toggleMobile}>
-                Mobil
-            </ToggleSwitch>
         </div>
     );
 };

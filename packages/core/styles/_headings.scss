@@ -1,11 +1,8 @@
 @use "../mixins";
+@use "../system/typography";
 
 .jkl-title {
-    @include mixins.text-style("title");
-
-    *[data-compactlayout] & {
-        @include mixins.text-style("title/small-screen");
-    }
+    @include typography.use-system-text-style("title-l");
 }
 
 .jkl-heading-1 {

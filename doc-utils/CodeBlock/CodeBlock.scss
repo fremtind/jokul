@@ -1,22 +1,12 @@
 @use "../../packages/core/jkl";
 
-@include jkl.light-mode-variables {
-    --code-block-border-color: #{jkl.$color-svaberg};
-    --code-block-bg-color: #{jkl.$color-sand};
-    --code-block-focus-color: #{jkl.$color-granitt};
-    --language-tag-bg-color: #{jkl.$color-varde};
-    --language-tag-text-color: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --code-block-border-color: #{jkl.$color-stein};
-    --code-block-bg-color: #{jkl.$color-svart};
-    --code-block-focus-color: #{jkl.$color-snohvit};
-    --language-tag-bg-color: #{jkl.$color-fjellgra};
-    --language-tag-text-color: #{jkl.$color-snohvit};
-}
-
 .jkl-portal-code-block {
+    --code-block-bg-color: var(--jkl-system-color-surface);
+    --code-block-border-color: var(--jkl-system-color-outline-variant);
+    --code-block-focuscolor: var(--jkl-system-color-interactive);
+    --language-tag-bg-color: var(--jkl-system-color-surface-variant);
+    --language-tag-text-color: var(--jkl-system-color-on-surface);
+
     position: relative;
     background-color: var(--code-block-bg-color);
     box-sizing: border-box;
@@ -24,13 +14,14 @@
     border-radius: jkl.rem(2px);
     width: 100%;
     padding: jkl.$spacing-s;
-    max-width: min(#{jkl.rem(750px)}, 50vw);
     @include jkl.text-style("small");
 
-    @include jkl.small-device {
-        width: calc(100% - #{jkl.$spacing-xl});
-        max-width: 100%;
-        min-width: initial;
+    width: calc(100% - #{jkl.$spacing-xl});
+    max-width: 100%;
+    min-width: initial;
+
+    @include jkl.from-large-device {
+        max-width: min(#{jkl.rem(750px)}, 50vw);
     }
 
     &[data-language]::before {

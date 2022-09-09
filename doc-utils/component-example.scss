@@ -1,44 +1,42 @@
 @use "../packages/core/jkl";
 
-@include jkl.light-mode-variables {
-    --component-example-bg: #{jkl.$color-dis};
-    --component-example-header-color: #{jkl.$color-stein};
-}
-
-@include jkl.dark-mode-variables {
-    --component-example-bg: #{jkl.$color-skifer};
-    --component-example-header-color: #{jkl.$color-svaberg};
-}
-
-.jkl-portal-code-example {
-    max-width: min(#{jkl.rem(750px)}, 50vw);
-
-    @include jkl.small-device {
-        width: calc(100% - #{jkl.$spacing-xl});
-        max-width: 100%;
-        min-width: initial;
-    }
-}
-
 .jkl-portal-component-example {
+    --component-example-bg: var(--jkl-system-color-surface-variant);
+    --component-example-text-color: var(--jkl-system-color-on-surface-variant);
+    --component-example-header-color: var(--jkl-system-color-outline);
+    @include jkl.create-text-style-variables("small", "header-text");
+
     box-sizing: border-box;
     background-color: var(--component-example-bg);
+    color: var(--component-example-text-color);
     padding: jkl.$spacing-s;
     display: flex;
-    flex-direction: row;
-    max-width: min(#{jkl.rem(750px)}, 50vw);
+    flex-direction: column;
     min-height: jkl.rem(208px);
+    width: calc(100% - #{jkl.$spacing-xl});
+    max-width: 100%;
+    min-width: initial;
+
+    @include jkl.from-medium-device {
+        flex-direction: row;
+    }
+    @include jkl.from-large-device {
+        max-width: min(#{jkl.rem(750px)}, 50vw);
+    }
 
     &__example-wrapper {
-        width: 100%;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         position: relative;
         padding: jkl.$spacing-2xl jkl.$spacing-m;
 
+        @include jkl.from-medium-device {
+            width: 100%;
+        }
+
         &::before {
-            @include jkl.text-style("small");
+            @include jkl.use-text-style-variables("header-text");
             color: var(--component-example-header-color);
             position: absolute;
             top: jkl.$spacing-s;
@@ -53,16 +51,20 @@
 
     &__example-options {
         display: block;
-        padding: jkl.$spacing-s jkl.$spacing-l;
+        padding: 0;
+        padding-top: jkl.$spacing-s;
         min-width: jkl.rem(180px);
+
+        @include jkl.from-medium-device {
+            padding: jkl.$spacing-s jkl.$spacing-l;
+        }
     }
 
     &__example-options-header {
         &:not(:first-child) {
             margin-top: jkl.$spacing-l;
         }
-        @include jkl.text-style("small");
-        color: jkl.$color-fjellgra;
+        @include jkl.use-text-style-variables("header-text");
         margin-bottom: jkl.$spacing-s;
     }
 
@@ -70,24 +72,7 @@
         margin-top: jkl.$spacing-l;
 
         & .jkl-label.jkl-label--small {
-            @include jkl.text-style("small");
-            color: jkl.$color-fjellgra;
-        }
-    }
-
-    @include jkl.small-device {
-        width: calc(100% - #{jkl.$spacing-xl});
-        max-width: 100%;
-        min-width: initial;
-        flex-direction: column;
-
-        &__example-wrapper {
-            width: initial;
-        }
-
-        &__example-options {
-            padding: 0;
-            padding-top: jkl.$spacing-s;
+            @include jkl.use-text-style-variables("header-text");
         }
     }
 }

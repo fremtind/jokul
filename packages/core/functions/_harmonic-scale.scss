@@ -1,0 +1,10 @@
+@use "sass:math";
+@use "responsive-units";
+
+@function harmonic-scale-step($step, $multiplier: 1.2, $base: 14) {
+    @if not math.is-unitless($step) {
+        @error "Parameteret $step må være et heltall uten enhet. Du sendte inn #{$step}";
+    }
+
+    @return responsive-units.rem(math.round(math.pow($multiplier, $step) * $base) * 1px);
+}

@@ -1,4 +1,21 @@
+@use "../mixins";
+@use "../reference";
 @use "../variables/spacing";
+
+@include mixins.regular-layout-variables {
+    @each $step, $_ in reference.$spacing-steps {
+        --jkl-system-spacing-#{$step}: #{reference.spacing($step)};
+    }
+
+    // Eksempel på spacingpar med ett stegs forskjell
+    --jkl-system-spacing-2xl-3xl: #{reference.spacing("2xl", "3xl")};
+}
+
+@include mixins.compact-layout-variables {
+    @each $step, $_ in reference.$spacing-steps {
+        --jkl-system-spacing-#{$step}: #{reference.spacing-step-from-base($step, reference.$spacing-base-small-screen)};
+    }
+}
 
 $_positions: (top, bottom, left, right);
 

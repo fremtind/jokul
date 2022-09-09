@@ -3,9 +3,6 @@
 $animation-timing: jkl.timing("expressive") jkl.easing("exit") both;
 
 .jkl-portal-sidebar-menu {
-    padding-left: jkl.$spacing-xl;
-    padding-top: jkl.$spacing-2xl;
-
     &__filter {
         margin-bottom: jkl.$spacing-xl;
     }

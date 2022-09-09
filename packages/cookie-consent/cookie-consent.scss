@@ -5,6 +5,8 @@ $_container-width: jkl.rem(660px);
 $_container-width--compact: jkl.rem(320px);
 
 .jkl-cookie-consent-modal {
+    --jkl-cookie-consent-background: var(--jkl-system-color-surface);
+
     &[aria-hidden="true"] {
         display: none;
     }
@@ -35,8 +37,9 @@ $_container-width--compact: jkl.rem(320px);
         padding: jkl.$spacing-xl jkl.$spacing-xl jkl.rem(30px) jkl.$spacing-xl;
         min-width: $_container-width--compact;
         max-width: $_container-width;
-        background-color: var(--jkl-background-color);
-        box-shadow: jkl.$drop-shadow--large;
+        background-color: var(--jkl-cookie-consent-background);
+        @include jkl.elevation(3);
+        // box-shadow: jkl.$drop-shadow--large;
         transition: 0.2s;
 
         @include jkl.small-device {

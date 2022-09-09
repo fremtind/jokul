@@ -1,0 +1,145 @@
+```json
+"jkl": {
+    "ref": {
+        "palette": {
+            "brand": {
+                "0": "000000",
+                "10": "1B1917",
+                // ...
+                "90": "F9F9F9",
+                "100": "FFFFFF"
+            },
+            "error": {
+                //...
+            },
+            "info": {
+                //...
+            },
+            "success": {
+                //...
+            },
+            "warning": {
+                //...
+            }
+        },
+        "shape": {
+            "corner": {
+                "none": "0",
+                "xs": "2",
+                "s": "4",
+                "m": "8",
+                "l": "16",
+                "xl": "24",
+                "full": "9999999",
+            }
+        },
+        "typeface": {
+            "brand": "Fremtind Grotesk",
+            "display": "Fremtind Grotesk Display",
+            "contrast": "Fremtind Grotesk Mono",
+            "weight-normal": "400",
+            "weight-bold": "700",
+        }
+    },
+    "sys": {
+        "color": {
+            "background": "ref.palette.brand.90",
+            "on-background": "ref.palette.brand.10",
+            "surface": "ref.palette.brand.90",
+            "on-surface": "ref.palette.brand.10",
+            "surface-variant": "ref.palette.brand.70",
+            "on-surface-variant": "ref.palette.brand.10",
+        },
+        "text-style": {
+            "page-title": {
+                "font-size": "ref.typescale.size.8",
+                "line-height": "ref.typescale.line-height.2",
+                "font-weight": "ref.typeface.weight-normal",
+            }
+        }
+    }
+}
+```
+
+## Potensiell implementasjon via Sass.
+
+Hvis alle tokens i temaet er definert i en JSON som ovenfor (kun delen under `sys`), kan det kompileres om til et `map` i Sass. Man kan deretter lage sitt eget tema som et map i en egen Sass-fil, og bruke det til å overstyre/utvide default tema:
+
+```scss
+// kompilert temafil
+
+$DEFAULT_THEME: (
+    "color": (
+        "background": (
+            "light": #f9f9f9,
+            "dark": #1b1917,
+        ),
+    ),
+    "text-style": (
+        "page-title": (
+            "compact": (
+                "font-size": 3rem,
+                "line-height": 1.2,
+                "font-weight": 700,
+            ),
+            "default": (
+                "font-size": 4rem,
+                "line-height": 1.2,
+                "font-weight": 400,
+            ),
+        ),
+    ),
+);
+```
+
+I core hentes default tema fra den kompilerte filen, og brukeren gis mulighet til å sende inn sitt eget tema med en `!default` variabel:
+
+```scss
+// core
+
+@use sass: map;
+@use "./theme"; // kompilert temafil
+$USER_THEME: () !default;
+
+$_consolidated-theme: map.deep-merge(theme.$DEFAULT_THEME, $USER_THEME);
+
+// Her kommer kode for å rendre ut tokens fra temaet
+```
+
+Sluttbruker lager sin egen temafil med de verdiene man vil overstyre eller legge til, og bruker denne når core tas i bruk:
+
+```scss
+// egen temafil
+
+$MITT_TEMA: (
+    "color": (
+        "background": (
+            "light": #ece9e5,
+            "dark": #444141,
+        ),
+    ),
+    "text-style": (
+        "label-large": (
+            "compact": (
+                "font-size": 1rem,
+                "line-height": 1,
+                "font-weight": 700,
+            ),
+            "default": (
+                "font-size": 1.5rem,
+                "line-height": 1,
+                "font-weight": 400,
+            ),
+        ),
+    ),
+);
+```
+
+```scss
+// index.scss hos sluttbruker
+
+@use "./mitt-tema";
+@use "@fremtind/jkl-core/" with (
+    $USER_THEME: mitt-tema.$MITT_TEMA
+);
+```

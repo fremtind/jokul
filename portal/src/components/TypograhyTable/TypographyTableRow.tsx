@@ -1,48 +1,33 @@
-import { unicode } from "@fremtind/jkl-constants-util";
 import { TableCell, TableRow } from "@fremtind/jkl-table-react";
 import React, { useState } from "react";
 import { getComputedProperty } from "../../utils/getComputedProperty";
 
-export type TypographyLevels =
-    | "Title"
-    | "Heading 1"
-    | "Heading 2"
-    | "Heading 3"
-    | "Heading 4"
-    | "Heading 5"
-    | "Body"
-    | "Bold"
-    | "Small";
+export const SAMPLE_TYPOGRAPHY_LEVELS = [
+    /* 18, 17, 16, 15, 14, 13, */ 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2,
+] as const;
+export type SampleTypoGraphyLevels = typeof SAMPLE_TYPOGRAPHY_LEVELS[number];
 
-interface Props {
-    level: TypographyLevels;
+interface TypoTableRowProps {
+    level: SampleTypoGraphyLevels;
+    fluid?: boolean;
 }
 
-export const TypographyTableRow: React.FC<Props> = ({ level }) => {
-    const [fontWeight, setFontWeight] = useState("N/A");
+export const TypographyTableRow: React.FC<TypoTableRowProps> = ({ level, fluid = false }) => {
     const [fontSize, setFontSize] = useState("N/A");
-    const [lineHeight, setLineHeight] = useState("N/A");
     const ref = (node: HTMLParagraphElement | null) => {
-        setFontWeight(getComputedProperty(node, "font-weight"));
         setFontSize(getComputedProperty(node, "font-size"));
-        setLineHeight(getComputedProperty(node, "line-height"));
     };
+
     return (
         <TableRow>
+            <TableCell data-th="Nivå">{level}</TableCell>
             <TableCell>
-                <p className={`jkl-${level.toLowerCase().replace(/ /g, "-")}`} ref={ref}>
+                <p className={`jkl-portal-typo-table-scale-${level}${fluid ? "-fluid" : ""}`} ref={ref}>
                     Eksempel
                 </p>
             </TableCell>
-            <TableCell data-th="Stilnavn">{level.replace(" ", unicode.nbsp)}</TableCell>
-            <TableCell data-th="Vekt" align="right">
-                {fontWeight}
-            </TableCell>
             <TableCell data-th="Størrelse" align="right">
                 {fontSize}
-            </TableCell>
-            <TableCell data-th="Linjeavstand" align="right">
-                {lineHeight}
             </TableCell>
         </TableRow>
     );

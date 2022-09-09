@@ -6,6 +6,8 @@ export interface BreadcrumbProps extends WithChildren {
     className?: string;
 }
 
+const breadcrumbSeparator = "\u203a";
+
 export const Breadcrumb = ({ className, children, ...rest }: BreadcrumbProps): JSX.Element => {
     const numberOfChildren = React.Children.count(children);
     return (
@@ -22,7 +24,7 @@ export const Breadcrumb = ({ className, children, ...rest }: BreadcrumbProps): J
                                 : child}
                             {!isLastElement && (
                                 <span className="jkl-breadcrumb__item-separator" aria-hidden="true">
-                                    ›
+                                    {breadcrumbSeparator}
                                 </span>
                             )}
                         </>

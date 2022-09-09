@@ -1,0 +1,41 @@
+@use "sass:math";
+@use "sass:map";
+@use "../functions";
+
+$spacing-base-small-screen: 12; /* functions.rem(12px); */
+$spacing-base-large-screen: 16; /* functions.rem(16px); */
+
+$spacing-steps: (
+    "4xs": 0.125,
+    "3xs": 0.25,
+    "2xs": 0.5,
+    "xs": 0.75,
+    "s": 1,
+    "m": 1.5,
+    "l": 2,
+    "xl": 3,
+    "2xl": 4,
+    "3xl": 6,
+    "4xl": 8,
+);
+
+@function spacing-step-from-base($step, $base: $spacing-base-large-screen) {
+    @if not map.has-key($spacing-steps, $step) {
+        @error "#{$step} er ikke et steg i spacing-skalaen";
+    }
+
+    @return functions.rem(math.round($base * map.get($spacing-steps, $step)) * 1px);
+}
+
+@function spacing($from, $to: null) {
+    $_min: spacing-step-from-base($from, $spacing-base-small-screen);
+    $_max: spacing-step-from-base($from, $spacing-base-large-screen);
+
+    @if $to != null {
+        $_max: spacing-step-from-base($to, $spacing-base-large-screen);
+    }
+
+    $_params: functions.getScalingParameters($_min, $_max);
+
+    @return clamp(#{$_min}, #{map.get($_params, "vw")}vw + #{map.get($_params, "rem")}, #{$_max});
+}

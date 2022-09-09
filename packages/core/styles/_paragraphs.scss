@@ -1,11 +1,8 @@
 @use "../mixins";
+@use "../system/typography";
 
 .jkl-body {
-    @include mixins.text-style("body");
-
-    *[data-compactlayout] & {
-        @include mixins.text-style("body/small-screen");
-    }
+    @include typography.use-system-text-style("body");
 }
 
 .jkl-bold {
