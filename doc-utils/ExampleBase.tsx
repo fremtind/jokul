@@ -148,6 +148,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                                                         value={value}
                                                         onChange={(e) => setChoiceValue(key, e.target.value)}
                                                         label={key}
+                                                        width="100%"
                                                         key={`${uid}-${hyphenate(key)}`}
                                                         name={key}
                                                         items={choices[key]}
