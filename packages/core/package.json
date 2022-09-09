@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "11.0.1",
+    "version": "11.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -26,15 +26,6 @@
     "directories": {
         "lib": "build"
     },
-    "files": [
-        "build",
-        "functions",
-        "mixins",
-        "styles",
-        "variables",
-        "*.css",
-        "*.scss"
-    ],
     "scripts": {
         "clean": "rimraf .turbo/ build/ node_modules/ **/*.css",
         "build": "run-s build:*",
