@@ -11,6 +11,7 @@
         "predeploy:docs": "yarn run build:docs",
         "deploy:docs": "gh-pages -f --no-history --remove '[\".\", \"!preview\"]' --dist portal/public",
         "typecheck": "tsc --noEmit",
+        "linker": "node scripts/linker.js",
         "lint": "run-p lint:eslint lint:stylelint",
         "lint:eslint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint:stylelint": "stylelint --config=packages/stylelint-config-jkl/index.js '**/*.scss'",
