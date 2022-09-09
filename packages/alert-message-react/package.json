@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message-react",
-    "version": "9.0.1",
+    "version": "9.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -39,12 +39,12 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-alert-message": "^7.0.1",
-        "@fremtind/jkl-react-hooks": "^10.0.1",
+        "@fremtind/jkl-alert-message": "^7.0.2",
+        "@fremtind/jkl-react-hooks": "^10.0.2",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-core": "^11.0.1"
+        "@fremtind/jkl-core": "^11.0.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
