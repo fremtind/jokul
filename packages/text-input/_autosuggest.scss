@@ -6,6 +6,8 @@
     --jkl-autosuggest-focus-color: #{jkl.$color-granitt};
     --jkl-autosuggest-error-text-color: #{jkl.$color-granitt};
     --jkl-autosuggest-error-placeholder-color: #{jkl.$color-stein};
+    --jkl-autosuggest-hover-option-color: #{jkl.$color-granitt};
+    --jkl-autosuggest-hover-option-background-color: #{jkl.$color-varde};
 }
 
 @include jkl.dark-mode-variables {
@@ -14,6 +16,8 @@
     --jkl-autosuggest-focus-color: #{jkl.$color-snohvit};
     --jkl-autosuggest-error-text-color: #{jkl.$color-granitt};
     --jkl-autosuggest-error-placeholder-color: #{jkl.$color-stein};
+    --jkl-autosuggest-hover-option-color: #{jkl.$color-snohvit};
+    --jkl-autosuggest-hover-option-background-color: #{jkl.$color-stein};
 }
 
 @include jkl.comfortable-density-variables {
@@ -24,6 +28,8 @@
     --jkl-autosuggest-controller-button-padding: 0 #{jkl.$spacing-s};
     --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
     --jkl-autosuggest-item-margin: 0 0 #{jkl.$spacing-m} 0;
+    --jkl-autosuggest-option-padding: #{jkl.$spacing-xs} #{jkl.$spacing-s};
+    --jkl-autosuggest-input-height: #{jkl.rem(48px)};
 }
 
 @include jkl.compact-density-variables {
@@ -34,6 +40,8 @@
     --jkl-autosuggest-controller-button-padding: 0;
     --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(18px)};
     --jkl-autosuggest-item-margin: 0 0 #{jkl.rem(1px)} 0;
+    --jkl-autosuggest-no-hits-message-font-size: var(--jkl-small-font-size);
+    --jkl-autosuggest-option-padding: #{jkl.$spacing-xs};
 }
 
 .jkl-autosuggest {
@@ -73,7 +81,8 @@
     }
 
     &__no-hits-message {
-        margin-bottom: jkl.$spacing-m;
+        font-size: var(--jkl-autosuggest-no-hits-message-font-size);
+        padding: var(--jkl-autosuggest-option-padding);
     }
 
     &__controller-button {
@@ -135,7 +144,6 @@
         margin: 0;
         max-height: 60vh;
         overflow-y: auto;
-        padding: var(--jkl-autosuggest-menu-padding);
         width: calc(100% + jkl.rem(2px));
         z-index: jkl.$z-index--dropdown;
         -webkit-overflow-scrolling: touch;
@@ -148,28 +156,25 @@
     }
 
     &__item {
-        border-bottom: 1px solid transparent;
-        cursor: pointer;
-        display: block;
-
         @include jkl.use-font-variables("jkl-autosuggest-item");
-        margin: var(--jkl-autosuggest-item-margin);
+        color: unset;
+        display: flex; // avoids wrapping long names "under" the focus arrow
+        align-items: center;
+        border: 0; // removes native styling
+        width: 100%;
+        background-color: inherit;
+        min-height: var(--jkl-autosuggest-input-height);
+        text-align: left;
+        @include jkl.motion;
+        transition-property: color, background-color;
+        position: relative;
+        padding: var(--jkl-autosuggest-option-padding);
+        cursor: pointer;
 
-        &--active {
-            @include jkl.no-grow-bold;
-        }
-
-        @include jkl.forced-colors-mode {
-            border-top: 1px solid Canvas;
-            border-bottom: 1px solid Canvas;
-
-            &--active,
-            &:hover,
-            &:focus {
-                @include jkl.no-grow-bold;
-                border-top: 1px solid Highlight;
-                border-bottom: 1px solid Highlight;
-            }
+        &:focus,
+        &:hover {
+            color: var(--jkl-autosuggest-hover-option-color);
+            background-color: var(--jkl-autosuggest-hover-option-background-color);
         }
     }
 }
