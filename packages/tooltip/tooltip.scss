@@ -17,7 +17,6 @@ $_focus-ring-width: jkl.rem(2px);
 
 @include jkl.comfortable-density-variables {
     --jkl-tooltip-size: #{jkl.rem(24px)};
-    --jkl-tooltip-margin: #{jkl.$spacing-3xs} 0 0 #{jkl.$spacing-s};
     --jkl-tooltip-content-padding: #{jkl.$spacing-m};
 
     @include jkl.small-device {
@@ -28,13 +27,25 @@ $_focus-ring-width: jkl.rem(2px);
 
 @include jkl.compact-density-variables {
     --jkl-tooltip-size: #{jkl.rem(20px)};
-    --jkl-tooltip-margin: #{jkl.rem(1px)} 0 0 #{jkl.$spacing-xs};
     --jkl-tooltip-content-padding: #{jkl.$spacing-s};
 }
 
 .jkl-tooltip {
-    display: inline-block;
     position: relative;
+
+    /* Plasser knappen i forhold til teksten */
+    display: inline-block;
+    vertical-align: middle;
+    height: 1em;
+    margin-top: max(-0.16em, jkl.rem(-4px)); // Cap på -4px margin
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1em;
+        vertical-align: middle;
+    }
 
     &__button {
         @include jkl.reset-outline;
@@ -48,13 +59,9 @@ $_focus-ring-width: jkl.rem(2px);
         cursor: pointer;
 
         /* Plasser knappen i forhold til teksten */
-        vertical-align: text-top;
-        margin: var(--jkl-tooltip-margin);
-
-        /* Plasser knappen i forhold til teksten */
 
         /* Visuelt sentrer spørsmålstegn */
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: center;
 

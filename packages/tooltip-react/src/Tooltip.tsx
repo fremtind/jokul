@@ -52,40 +52,42 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
 
     return (
         <span className={cn("jkl-tooltip", className)} aria-live="polite">
-            <button type="button" className="jkl-tooltip__button" {...getReferenceProps({ ref: reference })}>
-                <span aria-hidden="true">?</span>
-                <span className="jkl-sr-only">Hjelpetekst</span>
-            </button>
-            <AnimatePresence>
-                {open && (
-                    <motion.span
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ ease: "easeInOut", duration: 0.25 }}
-                        data-placement={placement}
-                        className="jkl-tooltip__content"
-                        {...getFloatingProps({
-                            ref: floating,
-                            style: {
-                                position: strategy,
-                                top: y ?? "",
-                                left: x ?? "",
-                            },
-                        })}
-                    >
-                        {content}
-                        <span
-                            className="jkl-tooltip__arrow"
-                            ref={arrowElement}
-                            style={{
-                                left: arrowX != null ? `${arrowX}px` : "",
-                                top: arrowY != null ? `${arrowY}px` : "",
-                            }}
-                        />
-                    </motion.span>
-                )}
-            </AnimatePresence>
+            <span className="jkl-tooltip__wrapper">
+                <button type="button" className="jkl-tooltip__button" {...getReferenceProps({ ref: reference })}>
+                    <span aria-hidden="true">?</span>
+                    <span className="jkl-sr-only">Hjelpetekst</span>
+                </button>
+                <AnimatePresence>
+                    {open && (
+                        <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ ease: "easeInOut", duration: 0.25 }}
+                            data-placement={placement}
+                            className="jkl-tooltip__content"
+                            {...getFloatingProps({
+                                ref: floating,
+                                style: {
+                                    position: strategy,
+                                    top: y ?? "",
+                                    left: x ?? "",
+                                },
+                            })}
+                        >
+                            {content}
+                            <span
+                                className="jkl-tooltip__arrow"
+                                ref={arrowElement}
+                                style={{
+                                    left: arrowX != null ? `${arrowX}px` : "",
+                                    top: arrowY != null ? `${arrowY}px` : "",
+                                }}
+                            />
+                        </motion.span>
+                    )}
+                </AnimatePresence>
+            </span>
         </span>
     );
 };
