@@ -1,11 +1,11 @@
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { ColorScheme, Density } from "@fremtind/jkl-core";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
-import { useId } from "@fremtind/jkl-react-hooks";
-import { Select } from "@fremtind/jkl-select-react";
 import cn from "classnames";
 import React, { useState, FC, useMemo, useEffect } from "react";
+import { Checkbox } from "../packages/checkbox-react";
+import { ColorScheme, Density } from "../packages/core";
+import { FieldGroup } from "../packages/field-group-react";
+import { RadioButton, RadioButtonGroup } from "../packages/radio-button-react";
+import { useId } from "../packages/react-hooks";
+import { Select } from "../packages/select-react";
 import { CodeBlock } from "./CodeBlock";
 import { CodeSection } from "./CodeSection";
 import { hyphenate } from "./internal/hypenate";
@@ -101,86 +101,93 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                     {example}
                 </div>
                 <aside data-layout-density="compact" className="jkl-portal-component-example__example-options">
-                    {knobs?.boolProps && (
+                    <>
+                        {(knobs?.boolProps || knobs?.choiceProps) && (
+                            <FieldGroup
+                                legend="Egenskaper"
+                                variant="medium"
+                                className="jkl-portal-component-example__example-options-header"
+                            >
+                                {knobs?.boolProps && (
+                                    <>
+                                        {Object.entries(boolValues).map(([key, value]) => (
+                                            <Checkbox
+                                                key={`${uid}-${hyphenate(key)}`}
+                                                name={`${uid}-${hyphenate(key)}`}
+                                                value={key}
+                                                checked={value}
+                                                onChange={(e) => setBoolValue(key, e.target.checked)}
+                                            >
+                                                {key}
+                                            </Checkbox>
+                                        ))}
+                                    </>
+                                )}
+                                {knobs?.choiceProps && (
+                                    <>
+                                        {Object.entries(choiceValues).map(([key, value]) =>
+                                            choices[key].length < 4 ? (
+                                                <RadioButtonGroup
+                                                    className="jkl-spacing-xs--top"
+                                                    variant="small"
+                                                    name={`${uid}-${hyphenate(key)}`}
+                                                    key={`${uid}-${hyphenate(key)}`}
+                                                    legend={key}
+                                                    value={value}
+                                                    labelProps={{ variant: "small" }}
+                                                    onChange={(e) => setChoiceValue(key, e.target.value)}
+                                                >
+                                                    {choices[key]?.map((choice) => (
+                                                        <RadioButton key={choice} label={choice} value={choice} />
+                                                    ))}
+                                                </RadioButtonGroup>
+                                            ) : (
+                                                <Select
+                                                    className="jkl-spacing-xs--top"
+                                                    value={value}
+                                                    onChange={(e) => setChoiceValue(key, e.target.value)}
+                                                    label={key}
+                                                    width="100%"
+                                                    key={`${uid}-${hyphenate(key)}`}
+                                                    name={key}
+                                                    items={choices[key]}
+                                                />
+                                            ),
+                                        )}
+                                    </>
+                                )}
+                            </FieldGroup>
+                        )}
                         <FieldGroup
-                            legend="Egenskaper"
+                            legend="Visning"
                             variant="medium"
                             className="jkl-portal-component-example__example-options-header"
                         >
-                            {Object.entries(boolValues).map(([key, value]) => (
-                                <Checkbox
-                                    key={`${uid}-${hyphenate(key)}`}
-                                    name={`${uid}-${hyphenate(key)}`}
-                                    value={key}
-                                    checked={value}
-                                    onChange={(e) => setBoolValue(key, e.target.checked)}
-                                >
-                                    {key}
-                                </Checkbox>
-                            ))}
+                            <RadioButtonGroup
+                                variant="small"
+                                name={`${uid}-theme`}
+                                legend="Tema"
+                                value={theme}
+                                labelProps={{ variant: "small" }}
+                                onChange={(e) => setTheme(e.target.value as ColorScheme)}
+                            >
+                                <RadioButton label="Light" value="light" />
+                                <RadioButton label="Dark" value="dark" />
+                            </RadioButtonGroup>
+                            <RadioButtonGroup
+                                className="jkl-spacing-xs--top"
+                                variant="small"
+                                name={`${uid}-density`}
+                                legend="Tetthet"
+                                value={density}
+                                labelProps={{ variant: "small" }}
+                                onChange={(e) => setDensity(e.target.value as Density)}
+                            >
+                                <RadioButton label="Comfortable" value="comfortable" />
+                                <RadioButton label="Compact" value="compact" />
+                            </RadioButtonGroup>
                         </FieldGroup>
-                    )}
-                    {knobs?.choiceProps && (
-                        <>
-                            {Object.entries(choiceValues).map(([key, value]) =>
-                                choices[key].length < 4 ? (
-                                    <RadioButtonGroup
-                                        className="jkl-spacing-xs--top"
-                                        variant="small"
-                                        name={`${uid}-${hyphenate(key)}`}
-                                        key={`${uid}-${hyphenate(key)}`}
-                                        legend={key}
-                                        value={value}
-                                        labelProps={{ variant: "small" }}
-                                        onChange={(e) => setChoiceValue(key, e.target.value)}
-                                    >
-                                        {choices[key]?.map((choice) => (
-                                            <RadioButton key={choice} label={choice} value={choice} />
-                                        ))}
-                                    </RadioButtonGroup>
-                                ) : (
-                                    <Select
-                                        className="jkl-spacing-xs--top"
-                                        value={value}
-                                        onChange={(e) => setChoiceValue(key, e.target.value)}
-                                        label={key}
-                                        key={`${uid}-${hyphenate(key)}`}
-                                        name={key}
-                                        items={choices[key]}
-                                    />
-                                ),
-                            )}
-                        </>
-                    )}
-                    <FieldGroup
-                        legend="Visning"
-                        variant="medium"
-                        className="jkl-portal-component-example__example-options-header"
-                    >
-                        <RadioButtonGroup
-                            variant="small"
-                            name={`${uid}-theme`}
-                            legend="Tema"
-                            value={theme}
-                            labelProps={{ variant: "small" }}
-                            onChange={(e) => setTheme(e.target.value as ColorScheme)}
-                        >
-                            <RadioButton label="Light" value="light" />
-                            <RadioButton label="Dark" value="dark" />
-                        </RadioButtonGroup>
-                        <RadioButtonGroup
-                            className="jkl-spacing-xs--top"
-                            variant="small"
-                            name={`${uid}-density`}
-                            legend="Tetthet"
-                            value={density}
-                            labelProps={{ variant: "small" }}
-                            onChange={(e) => setDensity(e.target.value as Density)}
-                        >
-                            <RadioButton label="Comfortable" value="comfortable" />
-                            <RadioButton label="Compact" value="compact" />
-                        </RadioButtonGroup>
-                    </FieldGroup>
+                    </>
                 </aside>
             </section>
             {codeExample && (
