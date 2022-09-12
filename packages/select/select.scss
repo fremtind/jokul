@@ -281,6 +281,13 @@ $_select-search-input-selection-color--inverted: color.scale(
             color: var(--jkl-select-hover-option-color);
             background-color: var(--jkl-select-hover-option-background-color);
         }
+
+        &[aria-selected="true"] {
+            &::before {
+                display: inline;
+                content: "→\00a0";
+            }
+        }
     }
 
     /* --------
