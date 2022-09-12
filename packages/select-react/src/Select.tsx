@@ -21,6 +21,7 @@ import React, {
     useCallback,
     useMemo,
     RefObject,
+    MouseEvent,
 } from "react";
 import { ExpandArrow } from "./ExpandArrow";
 import { toLower, focusSelected } from "./select-utils";
@@ -82,6 +83,12 @@ export interface SelectProps extends DataTestAutoId {
 
 const noop = () => {
     return;
+};
+
+const handleMouseOver = (e: MouseEvent<HTMLButtonElement>) => {
+    // Ved mouseOver på options flytter vi fokus til dem for å unngå "dobbel fokus"
+    // der det ser ut som to forskjellige elementer er fokusert/hovered samtidig
+    (e.target as HTMLButtonElement).focus();
 };
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forwardedSelectRef) => {
@@ -517,6 +524,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                                     e.preventDefault();
                                     selectOption(item);
                                 }}
+                                onMouseOver={handleMouseOver}
                             >
                                 {item.label}
                             </button>

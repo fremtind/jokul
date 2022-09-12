@@ -277,8 +277,7 @@ $_select-search-input-selection-color--inverted: color.scale(
         padding: var(--jkl-select-option-padding);
         cursor: pointer;
 
-        &:focus,
-        &:hover {
+        &:focus {
             color: var(--jkl-select-hover-option-color);
             background-color: var(--jkl-select-hover-option-background-color);
         }
