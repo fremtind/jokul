@@ -308,7 +308,8 @@ $_select-search-input-selection-color--inverted: color.scale(
         }
     }
 
-    &--invalid {
+    /* stylelint-disable-next-line selector-not-notation -- dette er faktisk en simple :not-selector */
+    &--invalid:not(&--open) {
         .jkl-select__search-input,
         .jkl-select__button {
             background-color: var(--jkl-select-error-background-color);
