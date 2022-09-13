@@ -34,7 +34,7 @@ function handleMouseDown() {
 }
 
 function handleKeydown(event: KeyboardEvent) {
-    if (event.key === "Tab" || ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
+    if (event.key === "Tab") {
         const htmlElement = document.querySelector("html");
         removeAllListeners();
         htmlElement?.removeAttribute("data-mousenavigation");
