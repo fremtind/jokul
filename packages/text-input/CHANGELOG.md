@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.1.1...@fremtind/jkl-text-input@9.1.2) (2022-09-13)
+
+### Bug Fixes
+
+-   høyde på option lik Select ([4f50b31](https://github.com/fremtind/jokul/commit/4f50b31561bad7990da813e14fce1948dfcb98aa))
+
 # [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.0.0...@fremtind/jkl-text-input@9.1.0) (2022-09-08)
 
 ### Features
