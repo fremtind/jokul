@@ -28,7 +28,7 @@
     --jkl-autosuggest-controller-button-padding: 0 #{jkl.$spacing-s};
     --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
     --jkl-autosuggest-item-margin: 0 0 #{jkl.$spacing-m} 0;
-    --jkl-autosuggest-option-padding: #{jkl.$spacing-xs} #{jkl.$spacing-s};
+    --jkl-autosuggest-option-padding: 0 #{jkl.$spacing-s};
     --jkl-autosuggest-option-height: #{jkl.rem(48px)};
 }
 
@@ -41,7 +41,7 @@
     --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(18px)};
     --jkl-autosuggest-item-margin: 0 0 #{jkl.rem(1px)} 0;
     --jkl-autosuggest-no-hits-message-font-size: var(--jkl-small-font-size);
-    --jkl-autosuggest-option-padding: #{jkl.$spacing-xs};
+    --jkl-autosuggest-option-padding: 0 #{jkl.$spacing-xs};
     --jkl-autosuggest-option-height: #{jkl.rem(32px)};
 }
 
