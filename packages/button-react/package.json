@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-button-react",
-    "version": "12.0.2",
+    "version": "12.0.3",
     "publishConfig": {
         "access": "public"
     },
@@ -42,8 +42,8 @@
     },
     "dependencies": {
         "@fremtind/jkl-button": "^9.0.2",
-        "@fremtind/jkl-icons-react": "^6.0.2",
-        "@fremtind/jkl-loader-react": "^9.0.2",
+        "@fremtind/jkl-icons-react": "^6.0.3",
+        "@fremtind/jkl-loader-react": "^9.0.3",
         "classnames": "^2.2.6"
     },
     "devDependencies": {
