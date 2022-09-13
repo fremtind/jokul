@@ -60,7 +60,7 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues
                 noHits={
                     boolValues?.["Ingen treff med valg"]
                         ? {
-                              text: <p className="jkl-body">Fant ingen land. Vil du velge et av disse:</p>,
+                              text: <p>Fant ingen land. Vil du velge et av disse:</p>,
                               items: ["Norge", "Sverige", "Danmark"],
                           }
                         : undefined
