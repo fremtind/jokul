@@ -29,7 +29,7 @@
     --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
     --jkl-autosuggest-item-margin: 0 0 #{jkl.$spacing-m} 0;
     --jkl-autosuggest-option-padding: #{jkl.$spacing-xs} #{jkl.$spacing-s};
-    --jkl-autosuggest-input-height: #{jkl.rem(48px)};
+    --jkl-autosuggest-option-height: #{jkl.rem(48px)};
 }
 
 @include jkl.compact-density-variables {
@@ -42,6 +42,7 @@
     --jkl-autosuggest-item-margin: 0 0 #{jkl.rem(1px)} 0;
     --jkl-autosuggest-no-hits-message-font-size: var(--jkl-small-font-size);
     --jkl-autosuggest-option-padding: #{jkl.$spacing-xs};
+    --jkl-autosuggest-option-height: #{jkl.rem(32px)};
 }
 
 .jkl-autosuggest {
@@ -161,9 +162,8 @@
         display: flex; // avoids wrapping long names "under" the focus arrow
         align-items: center;
         border: 0; // removes native styling
-        width: 100%;
         background-color: inherit;
-        min-height: var(--jkl-autosuggest-input-height);
+        min-height: var(--jkl-autosuggest-option-height);
         text-align: left;
         @include jkl.motion;
         transition-property: color, background-color;
