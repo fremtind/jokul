@@ -172,6 +172,7 @@
         cursor: pointer;
 
         &:focus,
+        &--active,
         &:hover {
             color: var(--jkl-autosuggest-hover-option-color);
             background-color: var(--jkl-autosuggest-hover-option-background-color);
