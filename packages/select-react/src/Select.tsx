@@ -88,7 +88,7 @@ const noop = () => {
 const handleMouseOver = (e: MouseEvent<HTMLButtonElement>) => {
     // Ved mouseOver på options flytter vi fokus til dem for å unngå "dobbel fokus"
     // der det ser ut som to forskjellige elementer er fokusert/hovered samtidig
-    (e.target as HTMLButtonElement).focus();
+    (e.target as HTMLButtonElement).focus({ preventScroll: true });
 };
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forwardedSelectRef) => {
