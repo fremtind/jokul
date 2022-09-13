@@ -18,9 +18,9 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
     const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
 
     const values = [
-        { value: "google", label: "Google og noen flere" },
-        { value: "apple", label: "Apple" },
-        { value: "2", label: "Samsung" },
+        { value: "1", label: "Google og noen flere" },
+        { value: "2", label: "Apple" },
+        { value: "3", label: "Samsung" },
         { value: "4", label: "LG" },
     ];
     const [value, setValue] = useState<string>();
