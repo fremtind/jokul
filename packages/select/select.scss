@@ -64,9 +64,8 @@ $_select-search-input-selection-color--inverted: color.scale(
 }
 
 @include jkl.compact-density-variables {
-    --jkl-select-font-size: var(--jkl-small-font-size);
-    --jkl-select-font-weight: var(--jkl-small-font-weight);
-    --jkl-select-line-height: #{jkl.rem(18px)};
+    @include jkl.declare-font-variables("jkl-select", "small");
+
     --jkl-select-input-height: #{jkl.rem(32px)};
     --jkl-select-arrow-height: #{jkl.rem(13px)};
     --jkl-select-arrow-width: #{jkl.rem(10px)};
@@ -74,7 +73,7 @@ $_select-search-input-selection-color--inverted: color.scale(
     --jkl-select-button-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} #{jkl.$spacing-xs};
     --jkl-select-search-input-padding: #{jkl.$spacing-xs} #{jkl.$spacing-3xs};
     --jkl-select-native-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} #{jkl.$spacing-2xs};
-    --jkl-select-option-padding: #{jkl.$spacing-xs};
+    --jkl-select-option-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-xs};
 }
 
 .jkl-select {
