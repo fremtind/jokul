@@ -27,7 +27,6 @@
     --jkl-autosuggest-controller-button-width: auto;
     --jkl-autosuggest-controller-button-padding: 0 #{jkl.$spacing-s};
     --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
-    --jkl-autosuggest-item-margin: 0 0 #{jkl.$spacing-m} 0;
     --jkl-autosuggest-option-padding: 0 #{jkl.$spacing-s};
     --jkl-autosuggest-option-height: #{jkl.rem(48px)};
 }
@@ -39,7 +38,6 @@
     --jkl-autosuggest-controller-button-width: #{jkl.rem(24px)};
     --jkl-autosuggest-controller-button-padding: 0;
     --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(18px)};
-    --jkl-autosuggest-item-margin: 0 0 #{jkl.rem(1px)} 0;
     --jkl-autosuggest-no-hits-message-font-size: var(--jkl-small-font-size);
     --jkl-autosuggest-option-padding: 0 #{jkl.$spacing-xs};
     --jkl-autosuggest-option-height: #{jkl.rem(32px)};
@@ -143,6 +141,7 @@
         left: -#{jkl.rem(1px)};
         right: -#{jkl.rem(1px)};
         margin: 0;
+        padding: 0;
         max-height: 60vh;
         overflow-y: auto;
         width: calc(100% + jkl.rem(2px));
