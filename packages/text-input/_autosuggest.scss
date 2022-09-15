@@ -55,12 +55,10 @@
             width: 100%;
             padding-right: jkl.$spacing-xl; // to accomodate button
         }
+    }
 
-        &--open {
-            > input {
-                border-radius: jkl.rem(3px) jkl.rem(3px) 0 0;
-            }
-        }
+    &[aria-expanded="true"] &__input-group > input {
+        border-radius: jkl.rem(3px) jkl.rem(3px) 0 0;
     }
 
     &__input-group > input[aria-invalid="true"] {
