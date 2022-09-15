@@ -76,7 +76,7 @@ export const KeyboardShortcut: React.FC<WithChildren> = ({ children, ...rest }) 
     </kbd>
 );
 
-interface CodeBlockProps extends React.React.HTMLAttributes<HTMLPreElement> {
+interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
     language?: string;
 }
 
