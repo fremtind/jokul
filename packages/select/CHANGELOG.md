@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.3 (2022-09-15)
+
+### Bug Fixes
+
+-   bruk riktig padding på compact Select med søk ([952b17e](https://github.com/fremtind/jokul/commit/952b17e7e93964c1f95a5b9a8a2bac624505edcd))
+
 # 9.0.0 (2022-09-08)
 
 ### Bug Fixes
