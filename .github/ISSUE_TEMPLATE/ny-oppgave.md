@@ -1,6 +1,6 @@
 ---
-name: Ny Jøkul-oppgave
-about: Du har funnet noe som kan endres på eller legges til i designsystemet
+name: Ny oppgave
+about: Du har en idé til noe som kan endres på eller legges til i designsystemet
 title: ''
 labels: "✨ enhancement"
 assignees: ''
