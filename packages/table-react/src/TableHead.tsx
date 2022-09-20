@@ -1,9 +1,8 @@
 import cx from "classnames";
-import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
+import React, { forwardRef, HTMLAttributes } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext";
 
-export interface TableHeadProps
-    extends DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement> {
+export interface TableHeadProps extends HTMLAttributes<HTMLTableSectionElement> {
     srOnly?: boolean;
 }
 

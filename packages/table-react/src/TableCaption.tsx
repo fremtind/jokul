@@ -1,8 +1,7 @@
 import cx from "classnames";
-import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
+import React, { forwardRef, HTMLAttributes } from "react";
 
-export interface TableCaptionProps
-    extends DetailedHTMLProps<HTMLAttributes<HTMLTableCaptionElement>, HTMLTableCaptionElement> {
+export interface TableCaptionProps extends HTMLAttributes<HTMLTableCaptionElement> {
     /** Skjuler caption visuelt */
     srOnly?: boolean;
 }
