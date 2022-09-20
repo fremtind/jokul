@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { DetailedHTMLProps, forwardRef, HTMLAttributes, useState } from "react";
+import React, { forwardRef, HTMLAttributes, useState } from "react";
 import { useTableContext } from "./tableContext";
 import { useTableSectionContext } from "./tableSectionContext";
 
@@ -10,7 +10,7 @@ export interface ClickableRowProps {
     onClick: (e: React.MouseEvent<HTMLTableRowElement, MouseEvent> | React.KeyboardEvent<HTMLTableRowElement>) => void;
 }
 
-export interface TableRowProps extends DetailedHTMLProps<HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement> {
+export interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
     /**
      * Gir raden interaktivitet og en click-handler.
      */

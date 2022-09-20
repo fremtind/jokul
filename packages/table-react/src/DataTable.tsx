@@ -1,5 +1,5 @@
 import { Density } from "@fremtind/jkl-core";
-import React, { DetailedHTMLProps, forwardRef, TableHTMLAttributes } from "react";
+import React, { forwardRef, TableHTMLAttributes } from "react";
 import { Table } from "./Table";
 import { TableBody } from "./TableBody";
 import { TableCaption } from "./TableCaption";
@@ -8,7 +8,7 @@ import { TableHead } from "./TableHead";
 import { TableHeader } from "./TableHeader";
 import { TableRow } from "./TableRow";
 
-export interface DataTableProps extends DetailedHTMLProps<TableHTMLAttributes<HTMLTableElement>, HTMLTableElement> {
+export interface DataTableProps extends TableHTMLAttributes<HTMLTableElement> {
     /** Beskrivelse av tabellen for skjermlesere */
     caption?: string;
     density?: Density;
