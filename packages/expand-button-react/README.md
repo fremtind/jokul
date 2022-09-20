@@ -15,12 +15,12 @@ import { ExpandButton } from "@fremtind/jkl-expand-button-react";
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-expand-button/expand-button.min.css";
 
-// Ekspanderknappen bruker content toggle for å bytte mellom pilikonene.
-import "@fremtind/jkl-content-toggle/content-toggle.min.css";
+// Ekspanderknappen bruker icons-pakka for å animere pila
+import "@fremtind/jkl-icons/animated-icons.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-expand-button/expand-button";
-@use "@fremtind/jkl-content-toggle/content-toggle";
+@use "@fremtind/jkl-icons/animated-icons";
 ```
