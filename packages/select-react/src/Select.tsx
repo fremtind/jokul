@@ -85,12 +85,6 @@ const noop = () => {
     return;
 };
 
-const handleMouseOver = (e: MouseEvent<HTMLButtonElement>) => {
-    // Ved mouseOver på options flytter vi fokus til dem for å unngå "dobbel fokus"
-    // der det ser ut som to forskjellige elementer er fokusert/hovered samtidig
-    (e.target as HTMLButtonElement).focus({ preventScroll: true });
-};
-
 export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forwardedSelectRef) => {
     const {
         id,
@@ -273,6 +267,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             focusInsideRef.current = true;
         }
     }, [onFocus, selectedValue, name]);
+
+    const handleMouseOver = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+        // Ved mouseOver på options flytter vi fokus til dem for å unngå "dobbel fokus"
+        // der det ser ut som to forskjellige elementer er fokusert/hovered samtidig
+        (e.target as HTMLButtonElement).focus({ preventScroll: true });
+    }, []);
 
     // Handle focus and blur of hidden select element
     useEffect(() => {
@@ -498,6 +498,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     hidden={!dropdownIsShown}
                     aria-labelledby={labelId}
                     tabIndex={-1}
+                    data-focus="controlled" // lar oss styre markering av valg vha focus
                 >
                     {visibleItems.map((item, i) =>
                         // Det er viktig at vi _fjerner_ elementer som ikke er synlige fra DOMen for at tastaturnavigasjon skal fungere.
