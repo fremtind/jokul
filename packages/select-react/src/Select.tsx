@@ -21,6 +21,7 @@ import React, {
     useCallback,
     useMemo,
     RefObject,
+    MouseEvent,
 } from "react";
 import { ExpandArrow } from "./ExpandArrow";
 import { toLower, focusSelected } from "./select-utils";
@@ -267,6 +268,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         }
     }, [onFocus, selectedValue, name]);
 
+    const handleMouseOver = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+        // Ved mouseOver på options flytter vi fokus til dem for å unngå "dobbel fokus"
+        // der det ser ut som to forskjellige elementer er fokusert/hovered samtidig
+        (e.target as HTMLButtonElement).focus({ preventScroll: true });
+    }, []);
+
     // Handle focus and blur of hidden select element
     useEffect(() => {
         const select = selectRef.current;
@@ -491,6 +498,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     hidden={!dropdownIsShown}
                     aria-labelledby={labelId}
                     tabIndex={-1}
+                    data-focus="controlled" // lar oss styre markering av valg vha focus
                 >
                     {visibleItems.map((item, i) =>
                         // Det er viktig at vi _fjerner_ elementer som ikke er synlige fra DOMen for at tastaturnavigasjon skal fungere.
@@ -517,6 +525,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                                     e.preventDefault();
                                     selectOption(item);
                                 }}
+                                onMouseOver={handleMouseOver}
                             >
                                 {item.label}
                             </button>
