@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.4 (2022-09-20)
+
+### Bug Fixes
+
+-   forenkle arvede html-attributter for å unngå feil ([eab3b1c](https://github.com/fremtind/jokul/commit/eab3b1ca687a2d1d959cd79ff082c57675db1929)), closes [#3108](https://github.com/fremtind/jokul/issues/3108)
+
 # [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-footer-react@2.0.21...@fremtind/jkl-footer-react@3.0.0) (2022-09-08)
 
 ### Features
