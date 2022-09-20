@@ -2,7 +2,7 @@ import { DataTestAutoId, Density, Link, WithChildren } from "@fremtind/jkl-core"
 import { formatNumber } from "@fremtind/jkl-formatters-util";
 import { Logo } from "@fremtind/jkl-logo-react";
 import cn from "classnames";
-import React, { DetailedHTMLProps, HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
+import React, { HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
 
 export interface FooterAddress {
     /** @example "Postboks 778 Sentrum" */
@@ -32,7 +32,7 @@ export interface FooterLink<T = HTMLAnchorElement> {
     onClick?: MouseEventHandler<T>;
 }
 
-export interface FooterProps extends DataTestAutoId, DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
+export interface FooterProps extends DataTestAutoId, HTMLAttributes<HTMLElement> {
     links?: Array<FooterLink>;
     address?: FooterAddress;
     density?: Density;

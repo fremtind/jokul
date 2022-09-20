@@ -1,14 +1,14 @@
 import { Density } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import cx from "classnames";
-import React, { ButtonHTMLAttributes, DetailedHTMLProps, FC, HTMLAttributes, MouseEventHandler } from "react";
+import React, { ButtonHTMLAttributes, FC, HTMLAttributes, MouseEventHandler } from "react";
 
 export interface DismissAction extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     label: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface TagProps extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
+export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
     density?: Density;
     dismissAction?: DismissAction;
 }

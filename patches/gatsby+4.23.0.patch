@@ -1,8 +1,8 @@
 diff --git a/node_modules/gatsby/index.d.ts b/node_modules/gatsby/index.d.ts
-index 7fbb4c4..9d9f412 100644
+index 7b8c9ef..3c724c5 100644
 --- a/node_modules/gatsby/index.d.ts
 +++ b/node_modules/gatsby/index.d.ts
-@@ -926,7 +926,7 @@ export interface GatsbyGraphQLEnumType {
+@@ -928,7 +928,7 @@ export interface GatsbyGraphQLEnumType {
  
  export interface GatsbyGraphQLScalarType {
    kind: "SCALAR"
@@ -11,7 +11,7 @@ index 7fbb4c4..9d9f412 100644
  }
  
  export type GatsbyGraphQLType =
-@@ -951,7 +951,7 @@ export interface NodePluginSchema {
+@@ -953,7 +953,7 @@ export interface NodePluginSchema {
      config: ComposeInputObjectTypeConfig
    ): GatsbyGraphQLInputObjectType
    buildEnumType(config: ComposeEnumTypeConfig): GatsbyGraphQLEnumType
