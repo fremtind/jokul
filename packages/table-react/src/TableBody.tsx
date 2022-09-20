@@ -1,8 +1,7 @@
-import React, { DetailedHTMLProps, forwardRef, HTMLAttributes } from "react";
+import React, { forwardRef, HTMLAttributes } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext";
 
-export interface TableBodyProps
-    extends DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement> {}
+export interface TableBodyProps extends HTMLAttributes<HTMLTableSectionElement> {}
 
 const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>((props, ref) => {
     return (

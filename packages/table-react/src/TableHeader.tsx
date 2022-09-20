@@ -1,10 +1,9 @@
 import { Density } from "@fremtind/jkl-core";
 import cx from "classnames";
-import React, { DetailedHTMLProps, forwardRef, ThHTMLAttributes } from "react";
+import React, { forwardRef, ThHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 
-export interface TableHeaderProps
-    extends DetailedHTMLProps<ThHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
+export interface TableHeaderProps extends ThHTMLAttributes<HTMLTableCellElement> {
     bold?: boolean;
     density?: Density;
     /**

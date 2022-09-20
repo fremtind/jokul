@@ -1,10 +1,9 @@
 import { Density } from "@fremtind/jkl-core";
 import cx from "classnames";
-import React, { DetailedHTMLProps, forwardRef, TdHTMLAttributes } from "react";
+import React, { forwardRef, TdHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 
-export interface TableCellProps
-    extends DetailedHTMLProps<TdHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
+export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
     density?: Density;
     /**
      * Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal innholdet være venstrejustert, men for eksempel summer er høyrejustert.
