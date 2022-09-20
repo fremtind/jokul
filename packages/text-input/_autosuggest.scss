@@ -57,7 +57,8 @@
         }
     }
 
-    &[aria-expanded="true"] &__input-group > input {
+    &[aria-expanded="true"] &__input-group > input,
+    &__input-group--open > input {
         border-radius: jkl.rem(3px) jkl.rem(3px) 0 0;
     }
 
