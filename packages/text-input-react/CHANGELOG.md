@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.1.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.1.3...@fremtind/jkl-text-input-react@11.1.4) (2022-09-21)
+
+### Bug Fixes
+
+-   bedre håndtering av border på åpen autosuggest ([581b6fb](https://github.com/fremtind/jokul/commit/581b6fbf3765c2998adf5e921e7abdb0a1d48289))
+
 # [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.0.0...@fremtind/jkl-text-input-react@11.1.0) (2022-09-08)
 
 ### Bug Fixes

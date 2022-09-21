@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.1.2...@fremtind/jkl-text-input@9.1.3) (2022-09-21)
+
+### Bug Fixes
+
+-   bedre håndtering av border på åpen autosuggest ([581b6fb](https://github.com/fremtind/jokul/commit/581b6fbf3765c2998adf5e921e7abdb0a1d48289))
+-   bruk riktig padding på compact TextInput ([33bce75](https://github.com/fremtind/jokul/commit/33bce75abd1830b2a50ddf4008bd2b857645abfa))
+-   fjern unødvendig padding og ubrukt variabel ([fb9325e](https://github.com/fremtind/jokul/commit/fb9325ed963d33bd7e7b6f2a9ac46e7f12075c37))
+-   unngå breaking change for de som bare bruker stilpakken ([924b96c](https://github.com/fremtind/jokul/commit/924b96ca9e07ea3716d36d8ecd2c1e1b8810b2e0))
+
 ## [9.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.1.1...@fremtind/jkl-text-input@9.1.2) (2022-09-13)
 
 ### Bug Fixes
