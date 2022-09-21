@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@9.0.3...@fremtind/jkl-select@9.1.0) (2022-09-20)
+
+### Bug Fixes
+
+-   bruk et flagg for å kontrollere markering ved hover ([6a27ce5](https://github.com/fremtind/jokul/commit/6a27ce5db887dec6e11ee35be2b2b04f0df1d0bb))
+-   la valg i select bli markert ved hover ([a50d123](https://github.com/fremtind/jokul/commit/a50d1230120c918bb0deb8ab5d1965a52ec14cbc))
+
+### Features
+
+-   la kun ett valg være fokusert av gangen ([bf62cda](https://github.com/fremtind/jokul/commit/bf62cdab4de2e587a422ba5ff238d9c8833abdf4))
+-   legg til indikator for valgt element i select ([c130333](https://github.com/fremtind/jokul/commit/c1303330dfae36b6fdd3218515618e53d1abafa4)), closes [#3001](https://github.com/fremtind/jokul/issues/3001)
+
+### Reverts
+
+-   fjern markering av valgt element med pil ([619a1f9](https://github.com/fremtind/jokul/commit/619a1f9bedb093cacc308a51d54075cc53d78969))
+
 ## 9.0.3 (2022-09-15)
 
 ### Bug Fixes

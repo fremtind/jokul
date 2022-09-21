@@ -276,8 +276,11 @@ $_select-search-input-selection-color--inverted: color.scale(
         padding: var(--jkl-select-option-padding);
         cursor: pointer;
 
+        /* For å unngå "dobbel" markering skrur vi av markering på hover i React-
+        komponenten med data-focus="controlled". Uten dette satt vil valgene
+        markeres ved hover som normalt. */
         &:focus,
-        &:hover {
+        :not([data-focus="controlled"]) > &:hover {
             color: var(--jkl-select-hover-option-color);
             background-color: var(--jkl-select-hover-option-background-color);
         }

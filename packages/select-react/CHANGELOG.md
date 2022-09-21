@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@11.0.4...@fremtind/jkl-select-react@11.1.0) (2022-09-20)
+
+### Bug Fixes
+
+-   bruk et flagg for å kontrollere markering ved hover ([6a27ce5](https://github.com/fremtind/jokul/commit/6a27ce5db887dec6e11ee35be2b2b04f0df1d0bb))
+-   forhindre unødvendig scrolling ([3a2f532](https://github.com/fremtind/jokul/commit/3a2f532296c5fe21498d537ea09e57b094974ef2))
+
+### Features
+
+-   la kun ett valg være fokusert av gangen ([bf62cda](https://github.com/fremtind/jokul/commit/bf62cdab4de2e587a422ba5ff238d9c8833abdf4))
+
 # 11.0.0 (2022-09-08)
 
 ### Bug Fixes
