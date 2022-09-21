@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@9.1.0...@fremtind/jkl-select@9.1.1) (2022-09-21)
+
+### Bug Fixes
+
+-   sett riktig størrelse på valgene i compact select ([669eaae](https://github.com/fremtind/jokul/commit/669eaae91b69fded9344b43f334092c5438b9795)), closes [#3106](https://github.com/fremtind/jokul/issues/3106)
+
 # [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@9.0.3...@fremtind/jkl-select@9.1.0) (2022-09-20)
 
 ### Bug Fixes
