@@ -91,11 +91,7 @@ function BaseAutosuggest<T>({
                                 {leadText}
                             </p>
                         )}
-                        <div
-                            className={cn("jkl-autosuggest__input-group", {
-                                "jkl-autosuggest__input-group--open": isOpen && items.length !== 0,
-                            })}
-                        >
+                        <div className="jkl-autosuggest__input-group">
                             <input
                                 {...getInputProps({
                                     id: uid,
