@@ -23,6 +23,7 @@
 
 @include jkl.compact-density-variables {
     --jkl-nav-card-info-padding: #{jkl.$spacing-s} 0 0 0;
+    @include jkl.declare-font-variables("jkl-nav-card-content", "small");
 }
 
 .jkl-nav-card {
@@ -71,7 +72,7 @@
     }
 
     &__description {
-        @include jkl.text-style("small");
+        @include jkl.use-font-variables("jkl-nav-card-content");
     }
 
     &__info {
