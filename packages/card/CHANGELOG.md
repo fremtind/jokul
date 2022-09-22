@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.3 (2022-09-22)
+
+### Bug Fixes
+
+-   description har nå body stil ved comfortable og small ved compact ([a012265](https://github.com/fremtind/jokul/commit/a012265774ce8908b282a563ca9e3b8f7c6fd2e6)), closes [#3120](https://github.com/fremtind/jokul/issues/3120)
+
 # 7.0.0 (2022-09-08)
 
 ### Bug Fixes
