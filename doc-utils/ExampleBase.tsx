@@ -1,3 +1,4 @@
+import slugify from "@sindresorhus/slugify";
 import cn from "classnames";
 import React, { useState, FC, useMemo, useEffect } from "react";
 import { Checkbox } from "../packages/checkbox-react";
@@ -88,6 +89,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
         <div className="jkl-spacing-2xl--bottom">
             <section className="jkl-portal-component-example">
                 <div
+                    id={slugify(title)}
                     data-layout-density={density}
                     data-theme={theme}
                     data-example-text={title}
