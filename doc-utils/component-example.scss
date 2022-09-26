@@ -38,6 +38,7 @@
         background-color: var(--jkl-background-color);
         position: relative;
         padding: jkl.$spacing-2xl jkl.$spacing-m;
+        scroll-margin-top: jkl.$spacing-4xl;
 
         // Unngå at endring av tittel knekker visuell regresjonstest ved å skjule den
         :not([data-test-mode="e2e"]) &::before {
