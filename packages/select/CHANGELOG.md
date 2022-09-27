@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.2.0 (2022-09-27)
+
+### Features
+
+-   la listen i select scrolle ved mange valg ([7d76394](https://github.com/fremtind/jokul/commit/7d763943dedb92802e378cc3ff975aa04d88ea60))
+
 ## [9.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@9.1.0...@fremtind/jkl-select@9.1.1) (2022-09-21)
 
 ### Bug Fixes

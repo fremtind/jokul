@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.2.0 (2022-09-27)
+
+### Features
+
+-   la listen i select scrolle ved mange valg ([7d76394](https://github.com/fremtind/jokul/commit/7d763943dedb92802e378cc3ff975aa04d88ea60))
+
 # [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@11.0.4...@fremtind/jkl-select-react@11.1.0) (2022-09-20)
 
 ### Bug Fixes
