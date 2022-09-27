@@ -7,6 +7,11 @@ export const selectExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Native", "Med hjelpetekst", "Med feil", "Med søk"],
     choiceProps: [
         {
+            name: "Maks. viste valg",
+            values: ["3", "Default (5)", "8", "Mange"],
+            defaultValue: 1,
+        },
+        {
             name: "Variant",
             values: ["small", "medium", "large"],
             defaultValue: 0,
@@ -14,14 +19,35 @@ export const selectExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
+const getMaxChoices = (rawMaxChoices?: string) => {
+    switch (rawMaxChoices) {
+        case "3":
+            return 3;
+        case "Default (5)":
+            return 5;
+        case "8":
+            return 8;
+        case "Mange":
+            return 100;
+        default:
+            return undefined;
+    }
+};
+
 export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
 
     const values = [
-        { value: "1", label: "Google og noen flere" },
+        { value: "1", label: "Google Pixel" },
         { value: "2", label: "Apple" },
         { value: "3", label: "Samsung" },
         { value: "4", label: "LG" },
+        { value: "5", label: "Huawei" },
+        { value: "6", label: "OnePlus" },
+        { value: "7", label: "XiaoMi" },
+        { value: "8", label: "Nokia" },
+        { value: "9", label: "Sony" },
+        { value: "10", label: "Doro" },
     ];
     const [value, setValue] = useState<string>();
 
@@ -29,6 +55,7 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
     const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Prøv å søke på et tall" : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
     const searchAble = boolValues && boolValues["Med søk"];
+    const maxChoices = getMaxChoices(choiceValues?.["Maks. viste valg"]);
 
     return (
         <C
@@ -61,6 +88,7 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
             onBlur={(event) => {
                 console.log("Blur: ", event);
             }}
+            maxShownOptions={maxChoices}
         />
     );
 };
@@ -85,5 +113,6 @@ export const selectCode = ({ boolValues, choiceValues }: ExampleComponentProps):
     searchable={${!!boolValues?.["Med søk"]}}
     onFocus={onFocus}
     onBlur={onBlur}
+    maxShownOptions={${getMaxChoices(choiceValues?.["Maks. viste valg"])}}
 />
 `;
