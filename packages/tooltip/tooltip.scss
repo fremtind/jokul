@@ -2,17 +2,19 @@
 
 $_tooltip-border-width: jkl.rem(1px);
 $_tooltip-arrow-height: jkl.rem(8px);
-$_focus-ring-distance: jkl.rem(2px);
+$_focus-ring-distance: jkl.rem(-1px); // Negativ margin for å unngå subpixel mellomrom mellom border og box-shadow
 $_focus-ring-width: jkl.rem(2px);
 
 @include jkl.light-mode-variables {
+    --jkl-tooltip-button-color: #{jkl.$color-stein};
+    --jkl-tooltip-active-button-color: #{jkl.$color-skifer};
     --jkl-tooltip-bg-color: #{jkl.$color-granitt};
-    --jkl-tooltip-button-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
+    --jkl-tooltip-button-color: #{jkl.$color-svaberg};
+    --jkl-tooltip-active-button-color: #{jkl.$color-sand};
     --jkl-tooltip-bg-color: #{jkl.$color-stein};
-    --jkl-tooltip-button-color: #{jkl.$color-snohvit};
 }
 
 @include jkl.comfortable-density-variables {
@@ -27,7 +29,7 @@ $_focus-ring-width: jkl.rem(2px);
 
 @include jkl.compact-density-variables {
     --jkl-tooltip-size: #{jkl.rem(20px)};
-    --jkl-tooltip-content-padding: #{jkl.$spacing-s};
+    --jkl-tooltip-content-padding: #{jkl.$spacing-xs};
 }
 
 .jkl-tooltip {
@@ -72,12 +74,14 @@ $_focus-ring-width: jkl.rem(2px);
         /* Visuelt sentrer spørsmålstegn */
 
         &:hover {
-            box-shadow: 0 0 0 1px var(--jkl-tooltip-button-color);
+            border-color: var(--jkl-tooltip-active-button-color);
+            color: var(--jkl-tooltip-active-button-color);
         }
 
         &:focus {
             @include jkl.keyboard-navigation {
-                color: var(--jkl-tooltip-button-color);
+                border-color: var(--jkl-tooltip-active-button-color);
+                color: var(--jkl-tooltip-active-button-color);
                 position: relative;
 
                 &::after {
@@ -88,7 +92,7 @@ $_focus-ring-width: jkl.rem(2px);
                     bottom: -($_tooltip-border-width + $_focus-ring-distance);
                     left: -($_tooltip-border-width + $_focus-ring-distance);
                     border-radius: 50%;
-                    box-shadow: 0 0 0 $_focus-ring-width var(--jkl-tooltip-button-color);
+                    box-shadow: 0 0 0 $_focus-ring-width var(--jkl-tooltip-active-button-color);
                 }
             }
         }
