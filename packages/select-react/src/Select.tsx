@@ -22,6 +22,7 @@ import React, {
     useMemo,
     RefObject,
     MouseEvent,
+    CSSProperties,
 } from "react";
 import { ExpandArrow } from "./ExpandArrow";
 import { toLower, focusSelected } from "./select-utils";
@@ -79,6 +80,11 @@ export interface SelectProps extends DataTestAutoId {
      * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
      */
     invalid?: boolean;
+    /**
+     * Hvor mange valg skal vises i listen før den begynner å scrolle.
+     * @default 5
+     */
+    maxShownOptions?: number;
 }
 
 const noop = () => {
@@ -106,6 +112,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         variant,
         density,
         width,
+        maxShownOptions = 5,
         ...rest
     } = props;
 
@@ -406,8 +413,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 "jkl-select--invalid": !!errorLabel || invalid,
             })}
             ref={componentRootElementRef}
-            {...rest}
             data-density={density}
+            style={{ ["--jkl-select-max-shown-options"]: maxShownOptions } as CSSProperties}
+            {...rest}
         >
             <Label
                 id={labelId}

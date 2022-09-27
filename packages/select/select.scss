@@ -247,7 +247,8 @@ $_select-search-input-selection-color--inverted: color.scale(
         box-sizing: border-box;
 
         overflow-y: auto;
-        max-height: 60vh;
+        // Sett makshøyde på listen til høyden av (maxShownOptions + 0.5) ganger høyden på ett enlinjes valg
+        max-height: calc(calc(var(--jkl-select-max-shown-options, 5) + 0.5) * var(--jkl-select-input-height));
     }
 
     /* A wrapper for the list items (<ul>) */
