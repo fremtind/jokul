@@ -1,18 +1,29 @@
-// eslint-disable-next-line import/no-unresolved
-import { Placement } from "@floating-ui/core/src/types";
 import { NON_BREAKING_SPACE } from "@fremtind/jkl-constants-util/src/unicode";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { formatValuta } from "../../formatters-util/src";
-import { Tooltip } from "../src/Tooltip";
+import { Placement, Tooltip } from "../src";
+
+function getPlacement(choice?: string): Placement {
+    switch (choice) {
+        case "Right":
+            return "right";
+        case "Left":
+            return "left";
+        case "Top end":
+            return "top-end";
+        case "Top start":
+            return "top-start";
+        case "Top":
+        default:
+            return "top";
+    }
+}
 
 export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues, displayValues }) => {
-    let initialPlacement: Placement = "top";
-    if (choiceValues && choiceValues["Plassering"]) {
-        initialPlacement = choiceValues["Plassering"] as Placement;
-    }
+    const initialPlacement: Placement = getPlacement(choiceValues?.["Plassering"]);
+    const typo: string = displayValues?.density === "compact" ? "small" : "body";
 
-    const typo: string = displayValues?.density === "compact" ? "small" : choiceValues?.["Typografinivå"] || "body";
     return (
         <p className={`jkl-${typo.toLowerCase().replace(/ /g, "-")}`}>
             Du betaler 348 kr/mnd{NON_BREAKING_SPACE}
@@ -33,37 +44,8 @@ export const tooltipExampleKnobs: ExampleKnobsProps = {
     choiceProps: [
         {
             name: "Plassering",
-            values: [
-                "top",
-                "right",
-                "bottom",
-                "left",
-                "top-start",
-                "top-end",
-                "right-start",
-                "right-end",
-                "bottom-start",
-                "bottom-end",
-                "left-start",
-                "left-end",
-            ],
+            values: ["Top", "Top start", "Top end", "Left", "Right"],
             defaultValue: 0,
-        },
-        {
-            name: "Typografinivå",
-            values: [
-                "Title",
-                "Title Small",
-                "Heading 1",
-                "Heading 2",
-                "Heading 3",
-                "Heading 4",
-                "Heading 5",
-                "Body",
-                "Bold",
-                "Small",
-            ],
-            defaultValue: 7,
         },
     ],
 };

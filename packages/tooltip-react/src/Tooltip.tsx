@@ -1,5 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
-import { Placement } from "@floating-ui/core/src/types";
 import {
     useFloating,
     shift,
@@ -17,7 +15,9 @@ import cn from "classnames";
 import { motion, AnimatePresence } from "framer-motion";
 import React, { ReactNode, useRef, useState } from "react";
 
-interface TooltipProps {
+export type Placement = "top" | "left" | "right" | "top-end" | "top-start";
+
+export interface TooltipProps {
     className?: string;
     initialPlacement?: Placement;
     content: ReactNode;
