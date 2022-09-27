@@ -76,24 +76,17 @@ $_focus-ring-width: jkl.rem(2px);
         &:hover {
             border-color: var(--jkl-tooltip-active-button-color);
             color: var(--jkl-tooltip-active-button-color);
-        }
+            position: relative;
 
-        &:focus {
-            @include jkl.keyboard-navigation {
-                border-color: var(--jkl-tooltip-active-button-color);
-                color: var(--jkl-tooltip-active-button-color);
-                position: relative;
-
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: -($_tooltip-border-width + $_focus-ring-distance);
-                    right: -($_tooltip-border-width + $_focus-ring-distance);
-                    bottom: -($_tooltip-border-width + $_focus-ring-distance);
-                    left: -($_tooltip-border-width + $_focus-ring-distance);
-                    border-radius: 50%;
-                    box-shadow: 0 0 0 $_focus-ring-width var(--jkl-tooltip-active-button-color);
-                }
+            &::after {
+                content: "";
+                position: absolute;
+                top: -($_tooltip-border-width + $_focus-ring-distance);
+                right: -($_tooltip-border-width + $_focus-ring-distance);
+                bottom: -($_tooltip-border-width + $_focus-ring-distance);
+                left: -($_tooltip-border-width + $_focus-ring-distance);
+                border-radius: 50%;
+                box-shadow: 0 0 0 $_focus-ring-width var(--jkl-tooltip-active-button-color);
             }
         }
     }
