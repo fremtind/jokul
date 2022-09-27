@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select-react",
-    "version": "11.1.1",
+    "version": "11.2.0",
     "publishConfig": {
         "access": "public"
     },
@@ -42,7 +42,7 @@
     "dependencies": {
         "@fremtind/jkl-core": "^11.0.2",
         "@fremtind/jkl-react-hooks": "^10.0.2",
-        "@fremtind/jkl-select": "^9.1.1",
+        "@fremtind/jkl-select": "^9.2.0",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
