@@ -1,0 +1,22 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 1.0.0 (2022-09-28)
+
+### Bug Fixes
+
+-   animer inn aktiv-state på knappen ([49ae646](https://github.com/fremtind/jokul/commit/49ae6460cd74cbdb196773dd85b81f6bcbff0b01))
+-   farger i ulike tilstander ([47aa101](https://github.com/fremtind/jokul/commit/47aa101dcbc45c092b188a13140debc50fe4ce77))
+-   gi innholdet en minimumsbredde også ([bbcfca1](https://github.com/fremtind/jokul/commit/bbcfca1eb41b21b23ba6beedf1b38353b64d66a5))
+-   gjør tooltip-containeren synlig i forced-colors ([83de76c](https://github.com/fremtind/jokul/commit/83de76c80ee35c7cc887d7c30a11cf610d28f3d7))
+-   legg tilbake active state ved focus ([b25ae38](https://github.com/fremtind/jokul/commit/b25ae38300f18e532705a06224c62707b6193647))
+-   oppdater i henhold til Figma-branch ([5526d32](https://github.com/fremtind/jokul/commit/5526d32c0c206a2f7ea04133a155525766fa523c))
+-   plassering av tooltip med flere typografinivåer ([6b20f06](https://github.com/fremtind/jokul/commit/6b20f069d1c118c5c94cf5e261bc3e58e4b0ed14))
+-   sett aktiv state også på hover ([8582fd8](https://github.com/fremtind/jokul/commit/8582fd8afb74c9f0f97da9809af955c532a9373f))
+-   sett box shadow til transparent for animasjon ([3cc31fb](https://github.com/fremtind/jokul/commit/3cc31fb35b104dcc412fc02540e6818ec0a34e3c))
+
+### Features
+
+-   **tooltip:** add tooltip ([35a3bf8](https://github.com/fremtind/jokul/commit/35a3bf8ab49bc548d28dc32c68abfdaed25a0542))
