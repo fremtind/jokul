@@ -74,6 +74,7 @@ $_focus-ring-width: jkl.rem(2px);
             bottom: -($_tooltip-border-width + $_focus-ring-distance);
             left: -($_tooltip-border-width + $_focus-ring-distance);
             border-radius: 50%;
+            box-shadow: 0 0 0 $_focus-ring-width transparent;
         }
 
         /* Plasser knappen i forhold til teksten */
