@@ -1,6 +1,5 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
-import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
@@ -8,19 +7,14 @@ import { Grid } from "../../components/Grid";
 import { Image } from "../../components/image";
 import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
+import { MainContent } from "../../layout/MainContent";
 
 const pageTitle = "Jobb med Jøkul-teamet";
 
 export const Head: FC = () => <Seo title={pageTitle} />;
 
 const JobbMedTeamet: FC = () => (
-    <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.35 }}
-        className="jkl-portal__main"
-    >
+    <MainContent>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
             Jøkul-teamet skal gjøre arbeidsvherdagen enklere for leveranseteamene. Vi har mange måter å hjelpe på, delt
@@ -102,7 +96,7 @@ const JobbMedTeamet: FC = () => (
             title="Neste: Slik er Jøkul satt sammen"
             description="Et system er summen av dets deler i samspill. Ofte er det greit å ha en samlet oversikt over delene på ett sted."
         />
-    </motion.main>
+    </MainContent>
 );
 
 export default JobbMedTeamet;

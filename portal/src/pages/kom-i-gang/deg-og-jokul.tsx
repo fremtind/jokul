@@ -1,7 +1,6 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { Link } from "@fremtind/jkl-core";
 import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
-import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
@@ -9,19 +8,14 @@ import { Grid } from "../../components/Grid";
 import { Image } from "../../components/image";
 import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
+import { MainContent } from "../../layout/MainContent";
 
 const pageTitle = "Deg og Jøkul";
 
 export const Head: FC = () => <Seo title={pageTitle} />;
 
 const DegOgJokul: FC = () => (
-    <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.35 }}
-        className="jkl-portal__main"
-    >
+    <MainContent>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
             Litt som et samvirkelag, er Jøkul et produkt av en større felles innsats fra alle som bruker systemet.
@@ -110,7 +104,7 @@ const DegOgJokul: FC = () => (
             description="Vi har mange ressurser og arenaer å trekke på for å hjelpe hverandre med Jøkul i hverdagen."
             style={{ maxWidth: "29rem" }}
         />
-    </motion.main>
+    </MainContent>
 );
 
 export default DegOgJokul;

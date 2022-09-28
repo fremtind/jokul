@@ -1,22 +1,16 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { Link } from "@fremtind/jkl-core";
 import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
-import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import React, { FC } from "react";
 import { Seo } from "../../components/seo";
 import { HeadingLarge, Paragraph } from "../../components/Typography";
+import { MainContent } from "../../layout/MainContent";
 
 export const Head: FC = () => <Seo title="Introduksjon" />;
 
 const Introduksjon: FC = () => (
-    <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.35 }}
-        className="jkl-portal__main"
-    >
+    <MainContent>
         <h1 className="jkl-portal-huge-title">
             Jøkul
             <br />
@@ -66,7 +60,7 @@ const Introduksjon: FC = () => (
             description="Vi starter med det essensielle; hvordan du skal forholde deg til designsystemet."
             style={{ maxWidth: "25rem" }}
         />
-    </motion.main>
+    </MainContent>
 );
 
 export default Introduksjon;
