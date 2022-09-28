@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "16.0.12",
+    "version": "16.0.13",
     "devDependencies": {
         "react-docgen-typescript": "^2.2.2"
     },
