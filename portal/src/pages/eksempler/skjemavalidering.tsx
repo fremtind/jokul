@@ -9,11 +9,11 @@ import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { ToggleSlider } from "@fremtind/jkl-toggle-switch-react";
-import { motion } from "framer-motion";
 import { HeadProps } from "gatsby";
 import React, { useRef, FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Seo } from "../../components/seo";
+import { MainContent } from "../../layout/MainContent";
 
 type FormValues = {
     u23: undefined | string;
@@ -61,13 +61,7 @@ const Skjemavalideringseksempel: FC = () => {
     const onSubmit = (valid: FormValues) => console.table(valid);
 
     return (
-        <motion.main
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="jkl-portal__main jkl-spacing-xl--bottom"
-        >
+        <MainContent className="jkl-spacing-xl--bottom">
             <div className=" jkl-spacing-2xl--bottom">
                 <h1 className="jkl-title jkl-spacing-xl--bottom">Skjema&shy;validerings&shy;eksempel</h1>
             </div>
@@ -278,7 +272,7 @@ const Skjemavalideringseksempel: FC = () => {
                     <PrimaryButton type="submit">Gå videre</PrimaryButton>
                 </form>
             </div>
-        </motion.main>
+        </MainContent>
     );
 };
 

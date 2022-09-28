@@ -39,6 +39,7 @@ $_sidebar-width: jkl.rem(375px);
     &__main {
         padding: jkl.$spacing-m;
         padding-top: jkl.$spacing-2xl;
+        scroll-margin-block-start: jkl.rem(96px); // Unngå å skjule innhold bak header
     }
 
     @include jkl.medium-device {
