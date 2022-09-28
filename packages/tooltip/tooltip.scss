@@ -126,6 +126,10 @@ $_focus-ring-width: jkl.rem(2px);
         &[data-placement^="right"] > .jkl-tooltip__arrow {
             left: -#{$_tooltip-arrow-height};
         }
+
+        @include jkl.forced-colors-mode {
+            border: 1px solid CanvasText;
+        }
     }
 
     &__arrow {
@@ -135,5 +139,9 @@ $_focus-ring-width: jkl.rem(2px);
         transform: rotate(45deg);
         height: $_tooltip-arrow-height * 2;
         width: $_tooltip-arrow-height * 2;
+
+        @include jkl.forced-colors-mode {
+            background-color: CanvasText;
+        }
     }
 }
