@@ -1,16 +1,10 @@
 import { Link } from "@fremtind/jkl-core";
-import { motion } from "framer-motion";
 import { Link as InternalLink } from "gatsby";
 import React, { FC } from "react";
+import { MainContent } from "../layout/MainContent";
 
 const NotFoundPage: FC = () => (
-    <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.35 }}
-        className="jkl-portal__main"
-    >
+    <MainContent>
         <h1 className="jkl-title jkl-spacing-2xl--bottom jkl-spacing-2xl--top">Oj sann, der fikk du en blank side!</h1>
         <p className="jkl-portal-paragraph">
             Det beklager vi. Du kan prøve å:
@@ -30,7 +24,7 @@ const NotFoundPage: FC = () => (
                 </li>
             </ul>
         </p>
-    </motion.main>
+    </MainContent>
 );
 
 export default NotFoundPage;

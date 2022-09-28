@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import React, { FC, useState } from "react";
 import { LiveEditor } from "../../components/interactive-code/LiveEditor";
 import { LiveError } from "../../components/interactive-code/LiveError";
@@ -6,6 +5,7 @@ import { LivePreview } from "../../components/interactive-code/LivePreview";
 import { LiveProvider } from "../../components/interactive-code/LiveProvider";
 import { Seo } from "../../components/seo";
 import { PageTitle } from "../../components/Typography";
+import { MainContent } from "../../layout/MainContent";
 
 const pageTitle = "Lekegrind";
 
@@ -26,13 +26,7 @@ const Lekegrind: FC = () => {
     };
 
     return (
-        <motion.main
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="jkl-portal__main"
-        >
+        <MainContent>
             <PageTitle>{pageTitle}</PageTitle>
 
             <LiveProvider code={code?.trim()}>
@@ -44,7 +38,7 @@ const Lekegrind: FC = () => {
                     <LivePreview />
                 </div>
             </LiveProvider>
-        </motion.main>
+        </MainContent>
     );
 };
 

@@ -1,6 +1,5 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { useScreen, useBrowserPreferences } from "@fremtind/jkl-react-hooks";
-import { motion } from "framer-motion";
 import { Link, withPrefix } from "gatsby";
 import React, { useState, useMemo } from "react";
 import { CardList } from "../components/Card";
@@ -10,6 +9,7 @@ import { Seo } from "../components/seo";
 import { VisibleDetector } from "../components/VisibleDetector";
 import "../styles/style.scss";
 import "../styles/index.scss";
+import { MainContent } from "../layout/MainContent";
 
 // TODO Try to use scrollY in stead of time when lerping diamonds
 // TODO Remove DelayText when it's done
@@ -56,14 +56,7 @@ const IndexPage: React.FC = () => {
     const { isSmallDevice } = useScreen();
 
     return (
-        <motion.main
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="jkl-portal__main jkl-portal__main--frontpage"
-            id="innhold"
-        >
+        <MainContent className="jkl-portal__main--frontpage">
             {!isSmallDevice && <DelayText text="Jøkul Designsystem" delay={100} />}
             <div className="jkl-portal-frontpage">
                 <section className="jkl-portal-frontpage__section-intro">
@@ -195,7 +188,7 @@ const IndexPage: React.FC = () => {
                     </div>
                 </section>
             </div>
-        </motion.main>
+        </MainContent>
     );
 };
 
