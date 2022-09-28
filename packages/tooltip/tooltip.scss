@@ -73,7 +73,8 @@ $_focus-ring-width: jkl.rem(2px);
 
         /* Visuelt sentrer spørsmålstegn */
 
-        &:hover {
+        &:hover,
+        &:focus {
             border-color: var(--jkl-tooltip-active-button-color);
             color: var(--jkl-tooltip-active-button-color);
             position: relative;
