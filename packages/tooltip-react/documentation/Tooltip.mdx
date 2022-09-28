@@ -1,0 +1,48 @@
+---
+title: Tooltip
+react: tooltip-react
+scss: tooltip
+group: annet
+---
+
+import { TooltipExample, tooltipExampleCode, tooltipExampleKnobs } from "./TooltipExample";
+import "@fremtind/jkl-tooltip/tooltip.css";
+
+<Ingress>
+    En tooltip lar oss skjule informasjon på en måte som samtidig gjør den tilgjenglig i kontekst for de brukerne som
+    ser etter den.
+</Ingress>
+
+    Som hovedregel skal vi ikke skjule informasjon som kan være til hjelp for brukeren. Hvis det trengs en forklaring
+    bør den ofte være synlig. Likevel trenger vi noen ganger å vike fra det prinsippet. Der kommer Tooltip inn.
+
+<ComponentExample
+    title="Tooltip"
+    component={TooltipExample}
+    codeExample={tooltipExampleCode}
+    knobs={tooltipExampleKnobs}
+/>
+
+## Når bruker vi tooltip?
+
+En tooltip kan være nødvendig hvis:
+
+-   Vi bruker et begrep fra forsikringsdomenet som kan være nytt for kunder.
+-   Vi vil forklare mer om noe som et fåtall av kundene kanskje lurer på.
+-   Vi bruker en forkortelese i et internsystem som kan være ukjent for nye ansatte.
+
+Et tooltip bør begrenses til maksimalt to setninger. Om du har behov for mer tekst enn det kan det være riktigere å bruke for eksempel:
+
+-   [ExpandButton](/komponenter/expandbutton)
+-   [Accordion](/komponenter/accordion)
+
+En tooltip skal ikke ha lenker eller andre interaktive elementer i seg.
+
+En tooltip skal ikke ligge på en egen linje, men være tilknyttet tekst eller et interaktivt element. Bruk _non-breaking space_ eller andre metoder for å holde Tooltip på samme linje.
+
+## Eksempler på bruk
+
+<PortalImage
+    src="/assets/documentation/tooltip/tooltip-mndpris.png"
+    caption="Forklare for kunden hvorfor fakturaprisen kan være ulik den som blir vist her."
+/>
