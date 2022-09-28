@@ -52,6 +52,8 @@ $_focus-ring-width: jkl.rem(2px);
     &__button {
         @include jkl.reset-outline;
         @include jkl.text-style("small");
+        @include jkl.motion("exit", "snappy");
+        transition-property: border-color, color;
         height: var(--jkl-tooltip-size);
         width: var(--jkl-tooltip-size);
         background-color: transparent;
@@ -59,6 +61,20 @@ $_focus-ring-width: jkl.rem(2px);
         border-radius: 50%;
         color: var(--jkl-tooltip-button-color);
         cursor: pointer;
+        position: relative;
+
+        &::after {
+            @include jkl.motion("exit", "snappy");
+            transition-property: box-shadow;
+
+            content: "";
+            position: absolute;
+            top: -($_tooltip-border-width + $_focus-ring-distance);
+            right: -($_tooltip-border-width + $_focus-ring-distance);
+            bottom: -($_tooltip-border-width + $_focus-ring-distance);
+            left: -($_tooltip-border-width + $_focus-ring-distance);
+            border-radius: 50%;
+        }
 
         /* Plasser knappen i forhold til teksten */
 
@@ -77,16 +93,8 @@ $_focus-ring-width: jkl.rem(2px);
         &:focus {
             border-color: var(--jkl-tooltip-active-button-color);
             color: var(--jkl-tooltip-active-button-color);
-            position: relative;
 
             &::after {
-                content: "";
-                position: absolute;
-                top: -($_tooltip-border-width + $_focus-ring-distance);
-                right: -($_tooltip-border-width + $_focus-ring-distance);
-                bottom: -($_tooltip-border-width + $_focus-ring-distance);
-                left: -($_tooltip-border-width + $_focus-ring-distance);
-                border-radius: 50%;
                 box-shadow: 0 0 0 $_focus-ring-width var(--jkl-tooltip-active-button-color);
             }
         }
