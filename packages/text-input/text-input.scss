@@ -303,11 +303,9 @@ $_text-input-selection-color--inverted: color.scale(
 .jkl-text-input:not(.jkl-text-area) {
     .jkl-text-input__input {
         line-height: $_text-input-height; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
-        padding-bottom: jkl.rem(4px);
 
         @include jkl.small-device {
             line-height: $_text-input-height--mobile;
-            padding-bottom: jkl.rem(4px);
         }
     }
 }
