@@ -1,10 +1,11 @@
 import { Tab, TabList, TabPanel, Tabs } from "@fremtind/jkl-tabs-react";
 import React, { FC } from "react";
 import { MainContent } from "../../../layout/MainContent";
+import "../../../styles/skjemadesign.scss";
 
 const Skjemadesign: FC = () => (
     <MainContent>
-        <h1 className="jkl-title">Skjemadesign</h1>
+        <h1 className="jkl-title jkl-portal-skjemadesign__tittel">Skjemadesign</h1>
         <Tabs>
             <TabList aria-label="Seksjoner">
                 <Tab>Eksempler</Tab>

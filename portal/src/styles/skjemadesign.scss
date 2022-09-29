@@ -1,0 +1,8 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-portal-skjemadesign {
+    /* BEM-mønster klassenavn går her*/
+    &__tittel {
+        color: limegreen;
+    }
+}
