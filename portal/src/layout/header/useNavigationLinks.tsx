@@ -175,6 +175,10 @@ export function useNavigationLinks(): NavigationLinks {
             path: "/kom-i-gang/lekegrind",
             title: "Lekegrind",
         },
+        {
+            path: "/kom-i-gang/skjemadesign",
+            title: "WIP: Skjemadesign",
+        },
     ];
 
     const menuItems: MenuItemList = [

@@ -1,6 +1,6 @@
 import { Tab, TabList, TabPanel, Tabs } from "@fremtind/jkl-tabs-react";
 import React, { FC } from "react";
-import { MainContent } from "../../layout/MainContent";
+import { MainContent } from "../../../layout/MainContent";
 
 const Skjemadesign: FC = () => (
     <MainContent>
