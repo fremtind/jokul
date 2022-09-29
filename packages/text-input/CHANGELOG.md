@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.1.4 (2022-09-29)
+
+### Bug Fixes
+
+-   push tekst i text-input to pixler opp ([e51264f](https://github.com/fremtind/jokul/commit/e51264fe03a2e1edc217aa55fa6278f9ebf04b7f)), closes [#3131](https://github.com/fremtind/jokul/issues/3131)
+
 ## [9.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.1.2...@fremtind/jkl-text-input@9.1.3) (2022-09-21)
 
 ### Bug Fixes
