@@ -1,5 +1,4 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import { useAriaLiveRegion } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { ReactNode, FC, useState, useEffect } from "react";
 
@@ -14,7 +13,7 @@ export interface ContentToggleProps extends WithChildren {
 }
 
 export const ContentToggle: FC<ContentToggleProps> = ({
-    "aria-live": ariaLiveProp = "polite",
+    "aria-live": ariaLive = "polite",
     showSecondary,
     secondary,
     children,
@@ -22,6 +21,8 @@ export const ContentToggle: FC<ContentToggleProps> = ({
     variant = "flip",
     ...rest
 }) => {
+    const [announcements, setAnnouncements] = useState<ReactNode[]>([]);
+
     // this mechanism is to be able to prevent animating keyframes on the initial render.
     // looking for actual change and then enable animating prevents initial blinking and premature animations
     const [initialShowSecondary] = useState(showSecondary);
@@ -32,12 +33,26 @@ export const ContentToggle: FC<ContentToggleProps> = ({
         }
     }, [showSecondary, initialShowSecondary]);
 
-    const ariaLive = useAriaLiveRegion(showSecondary, { politeness: ariaLiveProp });
+    // Sørg for at innholdet annonseres ved endring
+    useEffect(() => {
+        if (initial) {
+            return;
+        }
+        if (showSecondary) {
+            setAnnouncements([...announcements, secondary]);
+        } else {
+            setAnnouncements([...announcements, children]);
+        }
+    }, [announcements, initial, showSecondary, secondary, children]);
 
     return (
         <span {...rest} className={cn("jkl-content-toggle", `jkl-content-toggle--${variant}`, className)}>
+            <div className="jkl-sr-only" aria-live={ariaLive}>
+                {announcements.map((announcement) => (
+                    <div key={String(announcement)}>{announcement}</div>
+                ))}
+            </div>
             <span
-                {...ariaLive}
                 className="jkl-content-toggle__slider"
                 data-show={showSecondary ? "second" : "first"}
                 data-initial={initial}
