@@ -1,5 +1,5 @@
 import { Label, SupportLabel, LabelVariant, LabelProps, Density } from "@fremtind/jkl-core";
-import { useAriaLiveRegion, useId } from "@fremtind/jkl-react-hooks";
+import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { forwardRef, FocusEvent, useRef, useState, useEffect, RefObject } from "react";
 import { BaseProps } from "./BaseInputField";
@@ -126,8 +126,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         overflowX: autoExpand ? "hidden" : undefined, // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
     } as React.CSSProperties;
 
-    const counterAriaLive = useAriaLiveRegion(counterCurrent);
-
     return (
         <div data-testid="jkl-text-area" className={componentClassName} data-density={density}>
             <Label
@@ -177,17 +175,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                             {...rest}
                         />
                     </div>
-                    <div className="jkl-text-area__counter">
-                        <span className="jkl-sr-only" {...counterAriaLive}>
-                            {counterCurrent} av ${counterTotal} tegn brukt
-                        </span>
-                        <div className="jkl-text-area__counter-count" aria-hidden="true">
+                    <div className="jkl-text-area__counter" aria-hidden="true">
+                        <div className="jkl-text-area__counter-count">
                             {counterCurrent}&nbsp;/&nbsp;{counterTotal}
                         </div>
                         {!counter.hideProgress && (
                             <div
                                 className="jkl-text-area__counter-progress"
-                                aria-hidden="true"
                                 style={{
                                     ["--progress-width" as string]: `${calculatePercentage(
                                         progressCurrent,
