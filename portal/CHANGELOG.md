@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.0.16](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.15...@fremtind/portal@16.0.16) (2022-09-30)
+
+### Bug Fixes
+
+-   legg til title-small i tabellen også på profil ([ec7949e](https://github.com/fremtind/jokul/commit/ec7949e4ab5d419b87684f57fdc8e6b83223b9b5))
+
 ## [16.0.13](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.12...@fremtind/portal@16.0.13) (2022-09-28)
 
 ### Bug Fixes
