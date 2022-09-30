@@ -51,7 +51,7 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
     ]);
 
     return (
-        <span className={cn("jkl-tooltip", className)} aria-live="polite">
+        <span className={cn("jkl-tooltip", className)}>
             <span className="jkl-tooltip__wrapper">
                 <button type="button" className="jkl-tooltip__button" {...getReferenceProps({ ref: reference })}>
                     <span aria-hidden="true">?</span>
@@ -63,6 +63,7 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
+                            aria-live="polite"
                             transition={{ ease: "easeIn", duration: 0.1 }}
                             data-placement={placement}
                             className="jkl-tooltip__content"
