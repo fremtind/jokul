@@ -15,7 +15,6 @@ export interface MessageBoxProps extends WithChildren {
         handleDismiss: () => void;
         buttonTitle?: string;
     };
-    /** Overstyr standardrollen til meldingen. Om du ønsker å "skru av" rollen kan du bruke verdien `none presentation`. */
     role?: AriaRole;
 }
 
@@ -96,19 +95,6 @@ const getIcon = (messageType: messageTypes) => {
     }
 };
 
-const getRole = (messageType: messageTypes) => {
-    switch (messageType) {
-        case "error":
-        case "warning":
-            return "alert";
-        case "info":
-        case "success":
-            return "status";
-        default:
-            return undefined;
-    }
-};
-
 function messageFactory(messageType: messageTypes) {
     const MessageBox = forwardRef<HTMLDivElement, MessageBoxProps>((props, ref) => {
         const {
@@ -138,7 +124,7 @@ function messageFactory(messageType: messageTypes) {
                     "jkl-message-box--full": fullWidth,
                     "jkl-message-box--dismissed": dismissed,
                 })}
-                role={role || getRole(messageType)}
+                role={role}
                 data-theme="light"
                 data-density={density}
             >
