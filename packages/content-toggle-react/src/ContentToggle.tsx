@@ -1,4 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
+import { useAriaLiveRegion } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { ReactNode, FC, useState, useEffect } from "react";
 
@@ -13,7 +14,7 @@ export interface ContentToggleProps extends WithChildren {
 }
 
 export const ContentToggle: FC<ContentToggleProps> = ({
-    "aria-live": ariaLive = "polite",
+    "aria-live": ariaLiveProp = "polite",
     showSecondary,
     secondary,
     children,
@@ -31,11 +32,13 @@ export const ContentToggle: FC<ContentToggleProps> = ({
         }
     }, [showSecondary, initialShowSecondary]);
 
+    const ariaLive = useAriaLiveRegion(showSecondary, { politeness: ariaLiveProp });
+
     return (
         <span {...rest} className={cn("jkl-content-toggle", `jkl-content-toggle--${variant}`, className)}>
             <span
+                {...ariaLive}
                 className="jkl-content-toggle__slider"
-                aria-live={ariaLive}
                 data-show={showSecondary ? "second" : "first"}
                 data-initial={initial}
             >
