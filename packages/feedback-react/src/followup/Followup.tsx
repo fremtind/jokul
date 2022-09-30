@@ -52,7 +52,7 @@ export const Followup: FC<Props> = ({ questions, successMessage = defaultSuccess
     return (
         <FollowUpProvider state={followupState}>
             {!followupStarted && (
-                <div className="jkl-feedback__fade-in">
+                <div className="jkl-feedback__fade-in" aria-live="polite">
                     <p className="jkl-heading-4 jkl-spacing-xl--top jkl-spacing-xs--bottom">
                         Har du tid til å svare på noen flere spørsmål?
                     </p>
@@ -66,7 +66,7 @@ export const Followup: FC<Props> = ({ questions, successMessage = defaultSuccess
                 </div>
             )}
             {!submitted && followupStarted && (
-                <form onSubmit={handleNext} className="jkl-feedback__fade-in">
+                <form onSubmit={handleNext} className="jkl-feedback__fade-in" aria-live="polite">
                     <p className="jkl-feedback__step-counter" ref={focusRef}>
                         Steg {step.number + 1} av {questions.length}
                     </p>

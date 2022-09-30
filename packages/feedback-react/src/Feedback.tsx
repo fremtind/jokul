@@ -1,4 +1,3 @@
-import { useAriaLiveRegion } from "@fremtind/jkl-react-hooks/src";
 import React, { ReactElement, ReactNode, useState, ComponentProps } from "react";
 import { FeedbackContextProvider } from "./feedbackContext";
 import { Followup } from "./followup/Followup";
@@ -49,10 +48,8 @@ export const Feedback = ({
     const [followupSubmitted, setFollowupSubmitted] = useState(false);
     const [contactSubmitted, setContactSubmitted] = useState(false);
 
-    const ariaLive = useAriaLiveRegion([followupStarted, followupSubmitted, contactSubmitted, feedbackSubmitted]);
-
     return (
-        <div className={`jkl-feedback ${className || ""}`} {...ariaLive}>
+        <div className={`jkl-feedback ${className || ""}`}>
             <FeedbackContextProvider
                 value={{
                     feedbackSubmitted,
