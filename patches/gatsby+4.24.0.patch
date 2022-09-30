@@ -1,5 +1,5 @@
 diff --git a/node_modules/gatsby/index.d.ts b/node_modules/gatsby/index.d.ts
-index 7b8c9ef..3c724c5 100644
+index 2cf04d3..6e8ff1c 100644
 --- a/node_modules/gatsby/index.d.ts
 +++ b/node_modules/gatsby/index.d.ts
 @@ -928,7 +928,7 @@ export interface GatsbyGraphQLEnumType {
