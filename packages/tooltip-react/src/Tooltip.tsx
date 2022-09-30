@@ -44,7 +44,7 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
 
     const { getReferenceProps, getFloatingProps } = useInteractions([
         useClick(context),
-        useDismiss(context, { referencePointerDown: false }),
+        useDismiss(context, { referencePress: false }),
         useHover(context),
         useFocus(context),
         useRole(context, { role: "tooltip" }),
