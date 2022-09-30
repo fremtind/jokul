@@ -1,0 +1,108 @@
+---
+title: Høydepunkter fra september 2022
+author: William Killerud
+publishDate: "2022.09.30"
+---
+
+import { NON_BREAKING_SPACE } from "@fremtind/jkl-constants-util/src/unicode";
+import { Tooltip } from "@fremtind/jkl-tooltip-react";
+
+<Ingress>
+    Nye varianter, nye komponenter, nytt typografinivå, og nye features. Her er høydepunktene fra Jøkul i september.
+</Ingress>
+
+-   Nye Compact er lansert!
+-   Vi har fått en ny komponent: Tooltip.
+-   Et nytt typografinivå har blitt etablert: _Title small_.
+-   Visuelle endringer i Select for å tydeliggjøre scrollmulighet.
+-   Autosuggest kan nå konfigureres til å gi forslag hvis det ikke er noen treff på søket til brukeren.
+-   Eksperimenter med Jøkul-kode i [lekegrinda](/kom-i-gang/lekegrind).
+
+Jøkul-teamet har også begynt å bruke GitHub Projects flittig.
+
+Under [Projects](https://github.com/orgs/fremtind/projects/22/views/3) kan du se hva vi jobber med for tiden. Designere er kanskje interesserte i vår [dedikerte visning for visuelle endringer](https://github.com/orgs/fremtind/projects/22/views/1).
+
+Håpet er at det skal bli mer synlig hva vi driver med, og enklere å gi tilbakemelding underveis.
+
+## Nye kompaktvarianter
+
+Vi skal ikke gjenta oss for mye, så les gjerne [Kompaktvarianter har landet](/blog/compact-reboot/) for detaljene om dette.
+
+<div className="jkl-portal-paragraph">
+    {/* prettier-ignore */}
+    <p className="jkl-bold">tl;dr{NON_BREAKING_SPACE}<Tooltip content="Too long; didn't read" /></p>
+</div>
+
+Konseptet vi ble enige om i sommer for kompakt modus er ute både i Figma og i kode. Kompakt er nå sin egen ting, ikke "mobil på desktop".
+
+## Tooltip
+
+Jøkul har fått en [tooltip](/komponenter/tooltip), som du kanskje så i aksjon over ([#3052](https://github.com/fremtind/jokul/issues/3052)).
+
+Første versjon av tooltip må alltid ha knappen med spørsmålstegn for å vises. Hvis det viser seg å bli et behov for
+det kan en fremtidig versjon gjøres tilgjengelig for bruk i andre kontekster. Meld fra om du har ønsker.
+
+Stor takk til alle som har vært involvert i å få landet denne i Jøkul!
+
+## Title Small
+
+Etter diskusjoner på forum (og litt graving i historiebøkene) kom vi fram til at det trengtes en ting mellom `title` og `heading-1`, siden spennet var såpass stort mellom de to nivåene ([#3045](https://github.com/fremtind/jokul/issues/3045)).
+
+Det nye nivået `title-small` fyller denne plassen i [typografiskalaen](/profil/typografi).
+
+## Designendringer i Select
+
+![Skjermopptak som viser at Select-komponenten åpnes. Fem ulike telefonprodusenter er synlige. En sjette produsent er delvis synlig, og hinter om at listen kan scrolles.](/assets/blog/updates/september-2022/select-scroll-hint.gif)
+
+Vi har bygget videre på den [visuelle endringen i Select fra august](/blog/updates/august-2022/#oppdatert-select-design) i september, med to endringer:
+
+-   Det skal bare være ett valg med aktiv-tilstand ([#3099](https://github.com/fremtind/jokul/issues/3099)).
+-   Visningen av valg er nå default "5,5 valg høy" ([#3130](https://github.com/fremtind/jokul/issues/3130)).
+
+Førstnevnte løser et problem der et element er valgt, men brukeren åpner listen igjen og hovrer over et annet element. Tidligere ville det valgte elementet beholde markeringen. Nå er det bare elementet som hovres over eller har tastaturfokus som markeres.
+
+Sistnevnte er for å tydeliggjøre at det går an å scrolle hvis det er flere enn fem elementer i listen. Du kan selv styre hvor mange elementer som skal være helt synlige. Standard er fem.
+
+## Forslag hvis søk ikke gir noen treff
+
+Det er nå mulig å foreslå noen vanlige valg fra en Autosuggest dersom brukeren input ikke gir noen kjente treff ([#3062](https://github.com/fremtind/jokul/issues/3062)).
+
+![Skjermopptak som viser at Autosuggest-komponenten kommer med forslag til land hvis vi ikke får noen treff på søket, som i dette tilfellet er Fantasiland.](/assets/blog/updates/september-2022/autosuggest-ingen-treff-valg.gif)
+
+## Lekegrind
+
+Den nye [lekegrinda](/kom-i-gang/lekegrind) lar deg teste en komponent uten å sette opp et utviklingsmiljø eller en CodeSandbox. Bare lim inn ett av kodeeksemplene våre og rediger i vei.
+
+## Diverse bugfikser og forbedringer
+
+### Figma
+
+-   Større kulepunkter for usorterte lister i Text/List ([#3069](https://github.com/fremtind/jokul/issues/3069)).
+-   Fiks feilen hvor ikoner tidvis flippet opp ned ved innsetting ([#3075](https://github.com/fremtind/jokul/issues/3075)).
+-   Legg inn egen linjehøyde for lister ([#3087](https://github.com/fremtind/jokul/issues/3087)).
+-   Legg til GroupTitle/Small for Text Input ([#3122](https://github.com/fremtind/jokul/issues/3122)).
+
+### GitHub
+
+-   Nevn `jkl` i dokumentasjonen til Core ([#3059](https://github.com/fremtind/jokul/issues/3059)).
+-   Legg til utility for å linke opp hele Jøkul for testing lokalt ([#3061](https://github.com/fremtind/jokul/issues/3061)).
+-   Portalens filter er mer bevisst på hva den sier ved null treff ([#3065](https://github.com/fremtind/jokul/issues/3065)).
+-   Sync Autosuggest og Select sitt utseende ([#3088](https://github.com/fremtind/jokul/issues/3088)).
+-   Finjuster størrelsen på valg i Select i compact ([#3106](https://github.com/fremtind/jokul/issues/3106)).
+-   Få Table sine props til å samarbeide i React 17 ([#3108](https://github.com/fremtind/jokul/issues/3108)).
+-   Henvis til riktig pakke i ExpandButton sin readme ([#3116](https://github.com/fremtind/jokul/issues/3116)).
+-   Fiks feil tekststørrelse i NavCard ([#3120](https://github.com/fremtind/jokul/issues/3120)).
+-   Fiks alignment av tekst i Input ([#3131](https://github.com/fremtind/jokul/issues/3131)).
+-   Sørg for at hopp til innhold fungerer som forventet ([#3137](https://github.com/fremtind/jokul/issues/3137)).
+
+## Takk
+
+Takk til alle bidragsytere, både på GitHub og i Figma!
+
+-   henrikhermansen
+-   daa1
+-   kennidenni
+-   Murstam
+-   hegebjo
+
+En stor takk også til alle som er med på designsystemforum!

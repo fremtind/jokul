@@ -1,6 +1,6 @@
 @use "@fremtind/jkl-core/jkl";
 
-$_levels: ("title", "heading-1", "heading-2", "heading-3", "heading-4", "heading-5", "body", "small");
+$_levels: ("title", "title-small", "heading-1", "heading-2", "heading-3", "heading-4", "heading-5", "body", "small");
 
 .jkl-portal-ttr__example {
     @each $_level in $_levels {
