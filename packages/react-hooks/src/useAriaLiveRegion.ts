@@ -14,13 +14,19 @@ export interface UseAriaLiveRegionOptions {
  * @param options Bestem om aria-live skal være polite, assertive eller off.
  * @returns
  */
-export function useAriaLiveRegion(watch: unknown, options?: UseAriaLiveRegionOptions) {
-    //
+export function useAriaLiveRegion(watch: unknown | unknown[], options?: UseAriaLiveRegionOptions) {
     const previousValue = usePreviousValue(watch);
 
     const [hasChanged, setHasChanged] = useState(false);
     useEffect(() => {
-        if (watch !== previousValue && !hasChanged) {
+        if (Array.isArray(watch) && Array.isArray(previousValue)) {
+            for (let i = 0; i < watch.length; i++) {
+                if (watch[i] !== previousValue[i] && !hasChanged) {
+                    setHasChanged(true);
+                    break;
+                }
+            }
+        } else if (previousValue && watch !== previousValue && !hasChanged) {
             setHasChanged(true);
         }
     }, [watch, previousValue, hasChanged]);
