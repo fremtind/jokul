@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { FC } from "react";
+import React, { type CSSProperties, type FC } from "react";
 import type { WithChildren, LabelVariant } from "../types";
 import type { Density } from "../utils";
 
@@ -11,6 +11,7 @@ export interface LabelProps extends WithChildren {
     standAlone?: boolean;
     htmlFor?: string;
     className?: string;
+    style?: CSSProperties;
 }
 
 export const Label: FC<LabelProps> = ({

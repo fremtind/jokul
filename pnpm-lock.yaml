@@ -599,6 +599,26 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
 
+  packages/input-group:
+    specifiers:
+      '@fremtind/jkl-core': ^11.0.0
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/input-group-react:
+    specifiers:
+      '@fremtind/jkl-core': ^11.0.0
+      '@fremtind/jkl-input-group': ^1.0.0-alpha.0
+      '@fremtind/jkl-react-hooks': ^10.2.7
+      '@fremtind/jkl-tooltip-react': ^1.0.22
+      classnames: ^2.3.2
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-input-group': link:../input-group
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      '@fremtind/jkl-tooltip-react': link:../tooltip-react
+      classnames: 2.3.2
+
   packages/list:
     specifiers:
       '@fremtind/jkl-core': ^11.3.0
@@ -898,6 +918,7 @@ importers:
       '@fremtind/jkl-icon-button-react': ^2.0.17
       '@fremtind/jkl-icons-react': ^6.0.10
       '@fremtind/jkl-image-react': ^4.0.12
+      '@fremtind/jkl-input-group-react': ^1.0.0-alpha.0
       '@fremtind/jkl-list-react': ^8.0.11
       '@fremtind/jkl-loader-react': ^10.0.11
       '@fremtind/jkl-logo-react': ^11.0.12
@@ -967,6 +988,7 @@ importers:
       '@fremtind/jkl-icon-button-react': link:../packages/icon-button-react
       '@fremtind/jkl-icons-react': link:../packages/icons-react
       '@fremtind/jkl-image-react': link:../packages/image-react
+      '@fremtind/jkl-input-group-react': link:../packages/input-group-react
       '@fremtind/jkl-list-react': link:../packages/list-react
       '@fremtind/jkl-loader-react': link:../packages/loader-react
       '@fremtind/jkl-logo-react': link:../packages/logo-react
