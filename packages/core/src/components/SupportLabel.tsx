@@ -1,6 +1,6 @@
 import cn from "classnames";
-import React, { FC, type ReactNode } from "react";
-import { Density } from "../utils";
+import React, { type FC, type ReactNode } from "react";
+import { type Density } from "../utils";
 
 export interface SupportLabelProps {
     /**
