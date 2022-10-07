@@ -20,7 +20,7 @@
         "ci:install": "yarn install --frozen-lockfile && yarn build",
         "ci:install-cypress": "yarn ci:install && yarn build:docs",
         "test": "yarn run test:unit",
-        "test:unit": "jest",
+        "test:unit": "jest --testMatch '**/*.test.+(ts|tsx|js)'",
         "test:watch": "jest --watch",
         "version:check": "lerna changed -l -a",
         "version": "lernacleanchangelog '**' && git add -A",
