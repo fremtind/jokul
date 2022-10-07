@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2022-10-07)
+
+### Bug Fixes
+
+-   fjern default role fra meldingsboks ([416d242](https://github.com/fremtind/jokul/commit/416d242c999483dfa3f85d94d9ac6e68440eb05f))
+
+### BREAKING CHANGES
+
+-   role blir ikke lenger satt automatisk. Om du trenger at innholdet annonseres som en status eller
+    alert må du selv sette role.
+
 # 8.0.0 (2022-09-08)
 
 ### Bug Fixes

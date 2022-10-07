@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@1.0.1...@fremtind/jkl-tooltip-react@1.0.2) (2022-10-07)
+
+### Bug Fixes
+
+-   fjern overflødig aria-live som ga dobbel opplesing ([c7d839d](https://github.com/fremtind/jokul/commit/c7d839d70bc7468e906569d0500d6bdf3137339a))
+-   flytt aria-live til selve popupen i tooltip, slik at hjelpetekst ikke leses opp ved sidenaviger ([ee35671](https://github.com/fremtind/jokul/commit/ee356715eb98f934046a8d51fd1eff28d9aa7f3c)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+
 # 1.0.0 (2022-09-28)
 
 ### Bug Fixes

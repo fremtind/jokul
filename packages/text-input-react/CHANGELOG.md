@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.1.7 (2022-10-07)
+
+### Bug Fixes
+
+-   bruk useAriaLiveRegion for å sette aria-live ([85d3a11](https://github.com/fremtind/jokul/commit/85d3a116477495a55e4849f70408fc4532ccc4a5)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+-   sett aria-hidden på telleren ([cba2a3e](https://github.com/fremtind/jokul/commit/cba2a3ed0ed8d69fa1abe3fa211b1e2685a0fe7c))
+
 ## [11.1.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.1.3...@fremtind/jkl-text-input-react@11.1.4) (2022-09-21)
 
 ### Bug Fixes

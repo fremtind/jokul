@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.0.0 (2022-10-07)
+
+### Bug Fixes
+
+-   fjern prematur annonsering av innhold ved sidebytte ([a5d28f3](https://github.com/fremtind/jokul/commit/a5d28f3bf805031ffb0c3d1ecf72a1c6ebdec6a1)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+
+### BREAKING CHANGES
+
+-   aria-live er fjernet fra loaderne. Om du trenger at loaderens tekst for skjermleser annonseres må du
+    selv sørge for å sette aria-live. Sørg for at meldingen ikke leses opp ved sidenavigering.
+
 # 9.0.0 (2022-09-08)
 
 ### chore
