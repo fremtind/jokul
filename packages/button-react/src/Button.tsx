@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight } from "@fremtind/jkl-icons-react";
 import { Loader } from "@fremtind/jkl-loader-react";
+import { useAriaLiveRegion } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { forwardRef, TouchEvent, useCallback } from "react";
 import { BaseButton } from "./BaseButton";
@@ -25,9 +26,11 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
             [onTouchStart],
         );
 
+        const ariaLive = useAriaLiveRegion(loader?.showLoader);
+
         return (
             <BaseButton
-                aria-live="polite"
+                {...ariaLive}
                 data-density={density}
                 className={cn("jkl-button", "jkl-button--" + buttonType, className, {
                     "jkl-button--left-arrow": arrow === "left",

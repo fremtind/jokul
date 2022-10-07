@@ -32,18 +32,25 @@ export const AddonQuestion: React.FC<Props> = ({
     const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => setMessage(e.target.value);
 
     return (
-        <TextArea
-            inline
-            startOpen
-            rows={4}
-            data-testid="jkl-feedback__open-question"
-            className="jkl-spacing-xl--bottom jkl-spacing-xl--top"
-            label={dynamicLabel}
-            placeholder={dynamicLabel}
-            helpLabel={helpLabel}
-            value={message || ""}
-            onChange={handleChange}
-            maxLength={maxLength}
-        />
+        <>
+            {context.currentValue !== undefined && (
+                <div className="jkl-sr-only" aria-live="polite">
+                    {dynamicLabel} {helpLabel}
+                </div>
+            )}
+            <TextArea
+                inline
+                startOpen
+                rows={4}
+                data-testid="jkl-feedback__open-question"
+                className="jkl-spacing-xl--bottom jkl-spacing-xl--top"
+                label={dynamicLabel}
+                placeholder={dynamicLabel}
+                helpLabel={helpLabel}
+                value={message || ""}
+                onChange={handleChange}
+                maxLength={maxLength}
+            />
+        </>
     );
 };

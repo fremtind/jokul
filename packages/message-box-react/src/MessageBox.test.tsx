@@ -27,23 +27,11 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("InfoMessageBox should have role `status` by default", async () => {
-        render(<InfoMessageBox title="info">Lorem Ipsum</InfoMessageBox>);
-        const message = screen.getByRole("status");
-        expect(message).toBeTruthy();
-    });
-
     it("ErrorMessageBox should be a11y compliant", async () => {
         const { container } = render(<ErrorMessageBox title="error">Lorem Ipsum</ErrorMessageBox>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
-    });
-
-    it("ErrorMessageBox should have role `alert` by default", async () => {
-        render(<ErrorMessageBox title="error">Lorem Ipsum</ErrorMessageBox>);
-        const message = screen.getByRole("alert");
-        expect(message).toBeTruthy();
     });
 
     it("WarningMessageBox should be a11y compliant", async () => {
@@ -53,23 +41,11 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("WarningMessageBox should have role `status` by default", async () => {
-        render(<WarningMessageBox title="warning">Lorem Ipsum</WarningMessageBox>);
-        const message = screen.getByRole("alert");
-        expect(message).toBeTruthy();
-    });
-
     it("SuccessMessageBox should be a11y compliant", async () => {
         const { container } = render(<SuccessMessageBox title="success">Lorem Ipsum</SuccessMessageBox>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
-    });
-
-    it("SuccessMessageBox should have role `status` by default", async () => {
-        render(<SuccessMessageBox title="success">Lorem Ipsum</SuccessMessageBox>);
-        const message = screen.getByRole("status");
-        expect(message).toBeTruthy();
     });
 
     it("should have a role equal to the given prop", async () => {

@@ -175,17 +175,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                             {...rest}
                         />
                     </div>
-                    <div className="jkl-text-area__counter">
-                        <span className="jkl-sr-only" aria-live="polite">
-                            {counterCurrent} av ${counterTotal} tegn brukt
-                        </span>
-                        <div className="jkl-text-area__counter-count" aria-hidden="true">
+                    <div className="jkl-text-area__counter" aria-hidden="true">
+                        <div className="jkl-text-area__counter-count">
                             {counterCurrent}&nbsp;/&nbsp;{counterTotal}
                         </div>
                         {!counter.hideProgress && (
                             <div
                                 className="jkl-text-area__counter-progress"
-                                aria-hidden="true"
                                 style={{
                                     ["--progress-width" as string]: `${calculatePercentage(
                                         progressCurrent,
