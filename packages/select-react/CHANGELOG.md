@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@11.2.1...@fremtind/jkl-select-react@11.2.2) (2022-10-04)
+
+### Bug Fixes
+
+-   sørg for at valgt alternativ vises når Select åpnes ([949da1a](https://github.com/fremtind/jokul/commit/949da1ab0bd52e46e6b9d27cf518b810410361e0)), closes [#3153](https://github.com/fremtind/jokul/issues/3153)
+
 # 11.2.0 (2022-09-27)
 
 ### Features

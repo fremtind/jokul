@@ -14,4 +14,6 @@ export function focusSelected(listEl: HTMLElement, selected: string | undefined)
         focusedItem = listEl.querySelector('[role="option"]');
     }
     focusedItem?.focus();
+    // Make sure the selected/focused item is visible in the list if it scrolls
+    listEl.scrollTop = focusedItem?.offsetTop || 0;
 }
