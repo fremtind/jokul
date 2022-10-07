@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.1.0 (2022-10-07)
+
+### Bug Fixes
+
+-   arraystøtte for useAriaLiveRegion ([e1b3b99](https://github.com/fremtind/jokul/commit/e1b3b99911696205fa8ac66ff16ca110bc125d7b))
+
+### Features
+
+-   legg til ny hook useAriaLiveRegion ([11c91f1](https://github.com/fremtind/jokul/commit/11c91f106151078729a1d6fa7bf7b47c402178af)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+
 # 10.0.0 (2022-09-08)
 
 ### Bug Fixes

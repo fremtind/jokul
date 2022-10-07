@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.4 (2022-10-07)
+
+### Bug Fixes
+
+-   bruk useAriaLiveRegion for å sette aria-live ([85d3a11](https://github.com/fremtind/jokul/commit/85d3a116477495a55e4849f70408fc4532ccc4a5)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+-   custom aria-live-håndtering for ContentToggle ([bd3b14f](https://github.com/fremtind/jokul/commit/bd3b14ff4f7d88b6cef5bdb4bc40271430b4ccab))
+-   fjern uendelig loop ved toggle ([e42dfd0](https://github.com/fremtind/jokul/commit/e42dfd0b8c3accd1c227cfa13f5323d199ee24ee))
+
 ## [3.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-content-toggle-react@3.0.2...@fremtind/jkl-content-toggle-react@3.0.3) (2022-06-13)
 
 ### Bug Fixes
