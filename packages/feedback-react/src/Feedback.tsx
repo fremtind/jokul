@@ -49,7 +49,7 @@ export const Feedback = ({
     const [contactSubmitted, setContactSubmitted] = useState(false);
 
     return (
-        <div className={`jkl-feedback ${className || ""}`}>
+        <div className={`jkl-feedback ${className || ""}`} data-testid="feedback">
             <FeedbackContextProvider
                 value={{
                     feedbackSubmitted,

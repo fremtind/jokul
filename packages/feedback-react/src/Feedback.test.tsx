@@ -48,7 +48,7 @@ describe("Feedback", () => {
 
         // use findBy to wait until element appears
         // https://testing-library.com/docs/dom-testing-library/api-async#findby-queries
-        await screen.findByRole("status");
+        await screen.findByTestId("feedback");
 
         expect(mockFn).toBeCalledTimes(1);
         expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", message: undefined });
@@ -63,7 +63,7 @@ describe("Feedback", () => {
             await userEvent.click(screen.getByText("Send"));
         });
 
-        await screen.findByRole("status");
+        await screen.findByTestId("feedback");
 
         expect(mockFn).toBeCalledTimes(1);
         expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", message: "This is very nice" });
@@ -78,7 +78,7 @@ describe("Feedback", () => {
             await userEvent.click(screen.getByText("Nei"));
             await userEvent.click(screen.getByText("Send"));
         });
-        await screen.findByRole("status");
+        await screen.findByTestId("feedback");
 
         expect(mockFn).toBeCalledTimes(1);
         expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "nei", message: "This is very nice" });
@@ -103,7 +103,7 @@ describe("Feedback", () => {
             await userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
             await userEvent.click(screen.getByText("Send"));
         });
-        await screen.findByRole("status");
+        await screen.findByTestId("feedback");
 
         expect(mockFn).toBeCalledTimes(1);
 
