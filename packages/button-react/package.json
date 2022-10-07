@@ -44,6 +44,7 @@
         "@fremtind/jkl-button": "^9.0.2",
         "@fremtind/jkl-icons-react": "^6.0.3",
         "@fremtind/jkl-loader-react": "^9.0.3",
+        "@fremtind/jkl-react-hooks": "^10.0.2",
         "classnames": "^2.2.6"
     },
     "devDependencies": {

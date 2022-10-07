@@ -35,14 +35,22 @@ export const ContentToggle: FC<ContentToggleProps> = ({
         <span {...rest} className={cn("jkl-content-toggle", `jkl-content-toggle--${variant}`, className)}>
             <span
                 className="jkl-content-toggle__slider"
-                aria-live={ariaLive}
                 data-show={showSecondary ? "second" : "first"}
                 data-initial={initial}
+                aria-live={ariaLive}
             >
-                <span className="jkl-content-toggle__first" aria-hidden={showSecondary}>
+                <span
+                    key={showSecondary + "children"}
+                    className="jkl-content-toggle__first"
+                    aria-hidden={showSecondary}
+                >
                     {children}
                 </span>
-                <span className="jkl-content-toggle__second" aria-hidden={!showSecondary}>
+                <span
+                    key={showSecondary + "secondary"}
+                    className="jkl-content-toggle__second"
+                    aria-hidden={!showSecondary}
+                >
                     {secondary}
                 </span>
             </span>
