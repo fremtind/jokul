@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.1.5 (2022-10-04)
+
+### Bug Fixes
+
+-   la brukeren scrolle i TextArea som starter åpent ([eba61ca](https://github.com/fremtind/jokul/commit/eba61caecef3282aaaf7fda56096c2600d12c008)), closes [#3140](https://github.com/fremtind/jokul/issues/3140)
+
 ## 9.1.4 (2022-09-29)
 
 ### Bug Fixes

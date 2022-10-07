@@ -408,7 +408,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             data-testid="jkl-select"
             className={cn("jkl-select", className, {
                 "jkl-select--inline": inline,
-                "jkl-select--open": dropdownIsShown,
+                "jkl-select--open": dropdownIsShown && visibleItems.some((item) => item.visible),
                 "jkl-select--no-value": !hasSelectedValue,
                 "jkl-select--invalid": !!errorLabel || invalid,
             })}
@@ -503,7 +503,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     ref={dropdownRef}
                     role="listbox"
                     className="jkl-select__options-menu"
-                    hidden={!dropdownIsShown}
+                    hidden={!dropdownIsShown || visibleItems.every((item) => !item.visible)}
                     aria-labelledby={labelId}
                     tabIndex={-1}
                     data-focus="controlled" // lar oss styre markering av valg vha focus
