@@ -17,7 +17,6 @@ module.exports = {
     roots: ["./packages", "./portal"],
     testEnvironment: "jsdom",
 
-    // testMatch: ["**/*.test.+(ts|tsx|js)"],
     setupFilesAfterEnv: ["./jest/setupTests.ts"],
     watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
 };
