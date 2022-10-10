@@ -1,6 +1,5 @@
 {
     "$schema": "https://turborepo.org/schema.json",
-    "baseBranch": "origin/main",
     "pipeline": {
         "clean": {
             "outputs": [],
@@ -11,7 +10,8 @@
             "outputs": ["build/**", "*.css"]
         },
         "build:docs": {
-            "dependsOn": ["build", "$PREVIEW_PATH"],
+            "dependsOn": ["build"],
+            "env": ["PREVIEW_PATH"],
             "outputs": ["public/**", ".cache/**"]
         },
         "serve": {

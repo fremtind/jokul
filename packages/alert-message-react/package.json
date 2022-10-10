@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message-react",
-    "version": "9.0.3",
+    "version": "9.0.4",
     "publishConfig": {
         "access": "public"
     },
@@ -40,7 +40,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-alert-message": "^7.0.2",
-        "@fremtind/jkl-react-hooks": "^10.0.2",
+        "@fremtind/jkl-react-hooks": "^10.1.0",
         "classnames": "^2.2.6"
     },
     "devDependencies": {

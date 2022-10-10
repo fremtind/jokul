@@ -1,5 +1,7 @@
 export type { UseAnimatedHeightOptions } from "./useAnimatedHeight";
 export { useAnimatedHeight } from "./useAnimatedHeight";
+export type { UseAriaLiveRegionOptions } from "./useAriaLiveRegion";
+export { useAriaLiveRegion } from "./useAriaLiveRegion";
 export { useClickOutside } from "./useClickOutside";
 export { useFocusOutside } from "./useFocusOutside";
 export { useKeyListener } from "./useKeyListener";

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-field-group-react",
-    "version": "7.0.3",
+    "version": "7.0.4",
     "publishConfig": {
         "access": "public"
     },
@@ -41,7 +41,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-field-group": "^6.0.2",
-        "@fremtind/jkl-react-hooks": "^10.0.2",
+        "@fremtind/jkl-react-hooks": "^10.1.0",
         "classnames": "^2.2.6"
     },
     "devDependencies": {

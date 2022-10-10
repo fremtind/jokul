@@ -122,7 +122,7 @@ export const ContactQuestion: FC<Props> = ({
     }
 
     return (
-        <form className="jkl-spacing-xl--top" onSubmit={handleSubmit} aria-live="off">
+        <form className="jkl-spacing-xl--top" onSubmit={handleSubmit}>
             <p className="jkl-heading-4 jkl-spacing-xs--bottom">{label}</p>
             {children && <ChildrenWrapper className="jkl-body">{children}</ChildrenWrapper>}
 

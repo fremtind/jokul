@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.0.8 (2022-10-07)
+
+### Bug Fixes
+
+-   bruk useAriaLiveRegion for å sette aria-live ([85d3a11](https://github.com/fremtind/jokul/commit/85d3a116477495a55e4849f70408fc4532ccc4a5)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+-   flere skjermleserjusteringer for feedback ([5a6496e](https://github.com/fremtind/jokul/commit/5a6496e162bc90a0f46c5dd2a11e400f7e385e23))
+-   juster aria-live oppførsel for feedback ([9f7a3ea](https://github.com/fremtind/jokul/commit/9f7a3ea7fb1112b23407478fc9e60a596646ce8f))
+
 ## 13.0.17 (2022-08-15)
 
 ### Bug Fixes
