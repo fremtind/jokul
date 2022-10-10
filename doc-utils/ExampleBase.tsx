@@ -185,7 +185,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                                 labelProps={{ variant: "small" }}
                                 onChange={(e) => setDensity(e.target.value as Density)}
                             >
-                                <RadioButton label="Comfortable" value="comfortable" />
+                                <RadioButton label="Default" value="comfortable" />
                                 <RadioButton label="Compact" value="compact" />
                             </RadioButtonGroup>
                         </FieldGroup>
