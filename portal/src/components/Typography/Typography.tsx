@@ -108,5 +108,5 @@ export const Anchor: React.FC<{ children: React.ReactNode; className?: string; h
         return <GatsbyLink to={href} className="jkl-link" {...restProps} />;
     }
 
-    return <Link external={!props.href.includes("jokul.fremtind.no")} {...props} />;
+    return <Link external={!props.href.includes("jokul.fremtind.no") && !props.href.startsWith("#")} {...props} />;
 };
