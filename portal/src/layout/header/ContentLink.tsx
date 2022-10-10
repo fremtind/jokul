@@ -3,7 +3,11 @@ import React, { FC } from "react";
 import "./style.scss";
 
 export const ContentLink: FC<WithChildren> = ({ children }) => (
-    <Link className="jkl-body jkl-sr-only jkl-sr-only--focusable jkl-portal__skip-to-content" href="#innhold">
+    <Link
+        id="content-skip-link"
+        className="jkl-body jkl-sr-only jkl-sr-only--focusable jkl-portal__skip-to-content"
+        href="#innhold"
+    >
         {children}
     </Link>
 );
