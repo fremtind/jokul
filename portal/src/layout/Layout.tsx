@@ -91,7 +91,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
             className="jkl jkl-portal"
             data-test-mode={hasMounted && window.location.search === "?mode=e2e" ? "e2e" : undefined}
         >
-            <div ref={announcerRef} className="jkl-sr-only" aria-live="assertive" aria-atomic="true"></div>
+            <div ref={announcerRef} className="jkl-sr-only" aria-live="polite" aria-atomic="true"></div>
             <div className="jkl-portal__theme-bg" />
             <Header className="jkl-portal__header" />
             <AnimatePresence>{shouldShowSidebar && <Sidebar className="jkl-portal__sidebar" />}</AnimatePresence>
