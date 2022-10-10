@@ -1,5 +1,6 @@
 @use "sass:string";
 @use "sass:map";
+@use "sass:list";
 @use "screens";
 @use "responsive-units" as ru;
 
@@ -262,4 +263,24 @@ $text-styles: (
     font-size: var(--#{$name}-font-size);
     line-height: var(--#{$name}-line-height);
     font-weight: var(--#{$name}-font-weight);
+}
+
+$_valid-font-family-values: ("Fremtind Grotesk", "Fremtind Grotesk Display", "Fremtind Grotesk Mono");
+
+/// Hjelper sette riktig remse med fallback-fonts for Fremtind Grotesk, Fremtind Grotesk Display, og Fremtind Grotesk Mono.
+/// @param {"Fremtind Grotesk" | "Fremtind Grotesk Mono" | "Fremtind Grotesk Display"} $font - Regular justerer seg automatisk til italic og bold basert på font-style og font-weight. Display og Mono er adskilte fontfamilier.
+/// @output - Ønsket fontfamilie med justert fallbackfont.
+@mixin use-font-family($font) {
+    @if not list.index($_valid-font-family-values, $font) {
+        @error "#{$font} will not be used for font-family. Valid options are: #{$_valid-font-family-values}.";
+    }
+
+    @if $font == "Fremtind Grotesk Mono" {
+        font-family: "Fremtind Grotesk Mono", "Adjusted Courier New Fallback", -apple-system, BlinkMacSystemFont,
+            monospace;
+    } @else if $font == "Fremtind Grotesk Display" {
+        font-family: "Fremtind Grotesk Display", "Adjusted Arial Display Fallback", Arial, sans-serif;
+    } @else {
+        font-family: "Fremtind Grotesk", "Adjusted Arial Fallback", Arial, sans-serif;
+    }
 }
