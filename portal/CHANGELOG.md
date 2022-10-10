@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.0.22](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.21...@fremtind/portal@16.0.22) (2022-10-10)
+
+### Bug Fixes
+
+-   flytt tastaturfokus ved sidenavigering ([6a210cc](https://github.com/fremtind/jokul/commit/6a210ccc12afc864ad7fa268994fa593847e90fa)), closes [#3138](https://github.com/fremtind/jokul/issues/3138)
+-   ikke merk interne bokmerker som eksterne lenker ([aa89e59](https://github.com/fremtind/jokul/commit/aa89e594dfb1caa5df37d33d6cab011196d7f7fd))
+-   overskriftsnivåer på landingssiden ([40c54bb](https://github.com/fremtind/jokul/commit/40c54bba1b0747e44d965959843b0b53053694b0))
+-   timing og språk på navigasjonaannonsering ([dedc94e](https://github.com/fremtind/jokul/commit/dedc94e7a280b7f48669f2c177bfe35ddeaa2bc9))
+-   vær høfflig med annonseringen ([628f485](https://github.com/fremtind/jokul/commit/628f4857c5a35b5d7b16c858fae9c37213bc0e77))
+
 ## [16.0.16](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.15...@fremtind/portal@16.0.16) (2022-09-30)
 
 ### Bug Fixes
