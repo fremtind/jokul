@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box-react",
-    "version": "9.0.0",
+    "version": "9.0.1",
     "publishConfig": {
         "access": "public"
     },

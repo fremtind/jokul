@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message-react",
-    "version": "9.0.4",
+    "version": "9.0.5",
     "publishConfig": {
         "access": "public"
     },

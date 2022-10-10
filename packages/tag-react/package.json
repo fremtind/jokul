@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tag-react",
-    "version": "3.0.5",
+    "version": "3.0.6",
     "publishConfig": {
         "access": "public"
     },
@@ -40,7 +40,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^11.0.2",
-        "@fremtind/jkl-icon-button-react": "^2.0.4",
+        "@fremtind/jkl-icon-button-react": "^2.0.5",
         "@fremtind/jkl-tag": "^3.0.2"
     },
     "peerDependencies": {
