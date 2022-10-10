@@ -1,5 +1,6 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import { useScreen } from "@fremtind/jkl-react-hooks";
+import { usePreviousValue } from "@fremtind/jkl-react-hooks/src";
 import { AnimatePresence } from "framer-motion";
 import type { HeadProps } from "gatsby";
 import React, { useEffect, useState } from "react";
@@ -34,7 +35,26 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
     const { setLocation, isFrontPage, currentSection } = useLocation();
     const screen = useScreen();
 
-    useEffect(() => setLocation(location), [location, setLocation]);
+    useEffect(() => {
+        setLocation(location);
+    }, [location, setLocation]);
+
+    const previous = usePreviousValue(location.pathname);
+
+    useEffect(() => {
+        if (previous && location.pathname !== previous) {
+            const mousenavigation = document.body.dataset.mousenavigation;
+            const touchnavigation = document.body.dataset.touchnavigation;
+            if (!mousenavigation && !touchnavigation) {
+                const skipLink = document.getElementById("content-skip-link");
+                if (skipLink) {
+                    skipLink.focus();
+                } else {
+                    document.body.focus();
+                }
+            }
+        }
+    }, [hasMounted, previous, location.pathname]);
 
     const pageTitle = pageContext.title;
     const isGettingStarted = currentSection === "kom-i-gang"; // Disse sidene overstyrer tittel
