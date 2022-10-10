@@ -60,10 +60,11 @@ const IndexPage: React.FC = () => {
             {!isSmallDevice && <DelayText text="Jøkul Designsystem" delay={100} />}
             <div className="jkl-portal-frontpage">
                 <section className="jkl-portal-frontpage__section-intro">
-                    <h2 className="jkl-heading-1" data-testid="front-page__tagline">
+                    <h1 className="jkl-sr-only">Jøkul Designsystem</h1>
+                    <p className="jkl-heading-1" data-testid="front-page__tagline">
                         Velkommen til Jøkul — design&shy;systemet til Fremtind. Her har vi samlet alt du trenger for å
                         lage løsninger i vår profil.
-                    </h2>
+                    </p>
                     <div className="jkl-portal-frontpage__section-intro--content">
                         <div className="jkl-portal-frontpage__section-intro--image-container">
                             <div
@@ -98,9 +99,10 @@ const IndexPage: React.FC = () => {
                 </section>
 
                 <section className="jkl-portal-frontpage__section-principles">
-                    <h2 className="jkl-heading-1 jkl-portal-frontpage__section-principles--heading">
+                    <h2 className="jkl-sr-only">Hovedprinsipper</h2>
+                    <p className="jkl-heading-1 jkl-portal-frontpage__section-principles--heading">
                         Hovedprinsipper du kan tenke på for å designe en løsning til vår profil på best mulig måte:
-                    </h2>
+                    </p>
                     <div className="jkl-portal-frontpage__section-principles__diamond-container">
                         <div className="jkl-portal-principle-diamond">
                             <PrincipleDiamond
@@ -128,9 +130,9 @@ const IndexPage: React.FC = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <h1 className="jkl-title" data-testid="title-elevasjon">
+                                        <p className="jkl-title" data-testid="title-elevasjon">
                                             Elevasjon
-                                        </h1>
+                                        </p>
                                         <p className="jkl-heading-2">
                                             Vi løfter det som er viktig og skaper et naturlig informasjonshierarki.
                                         </p>
@@ -144,9 +146,9 @@ const IndexPage: React.FC = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <h1 className="jkl-title" data-testid="title-bevegelse">
+                                        <p className="jkl-title" data-testid="title-bevegelse">
                                             Bevegelse
-                                        </h1>
+                                        </p>
                                         <p className="jkl-heading-2">
                                             Vi skal utforske, se fremover og være tilpasningsdyktige.
                                         </p>
@@ -160,9 +162,9 @@ const IndexPage: React.FC = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <h1 className="jkl-title" data-testid="title-klarhet">
+                                        <p className="jkl-title" data-testid="title-klarhet">
                                             Klarhet
-                                        </h1>
+                                        </p>
                                         <p className="jkl-heading-2">
                                             Vi skal fremstå som ærlig og klar, med en tydelig og varm stemme
                                         </p>
