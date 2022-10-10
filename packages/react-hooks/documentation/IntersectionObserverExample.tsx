@@ -15,11 +15,7 @@ const IntersectionObserverExample: FC = () => {
     useIntersectionObserver(targetRef, onIntersect, fallback, options);
 
     return (
-        <div
-            className={`jkl-intersection-example ${
-                isInViewport ? "jkl-intersection-example--visible" : "jkl-intersection-example--not-visible"
-            }`}
-        >
+        <div className="jkl jkl-intersection-example" data-theme={isInViewport ? "dark" : "light"}>
             <p className="jkl-body jkl-spacing-xl--all" style={{ height: "100vh" }}>
                 Scroll for å endre farge
             </p>
