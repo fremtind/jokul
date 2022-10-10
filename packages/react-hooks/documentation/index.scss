@@ -10,20 +10,11 @@
 }
 
 .jkl-intersection-example {
-    transition: jkl.timing("expressive") background-color ease-in-out;
+    @include jkl.motion("standard", "expressive");
+    transition-property: background-color, border-color;
     border-radius: jkl.rem(4px);
-}
-
-.jkl-intersection-example--visible {
-    background-color: jkl.$color-stein;
-
-    @include jkl.forced-colors-mode {
-        background-color: Highlight;
-    }
-}
-
-.jlk-intersection-example--not-visible {
-    background-color: Canvas;
+    border: jkl.rem(1px) solid;
+    border-color: currentColor;
 }
 
 .focus-outside-example {
