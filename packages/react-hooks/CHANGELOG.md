@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.2.0 (2022-10-10)
+
+### Features
+
+-   la useIntersectionObserver ta inn flere elementer ([be5ca18](https://github.com/fremtind/jokul/commit/be5ca18dc3ff23181ffd360513fcbbab49ac9582)), closes [#3182](https://github.com/fremtind/jokul/issues/3182)
+
 # 10.1.0 (2022-10-07)
 
 ### Bug Fixes
