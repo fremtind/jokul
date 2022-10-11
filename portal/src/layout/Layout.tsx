@@ -96,7 +96,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
             <Header className="jkl-portal__header" />
             <AnimatePresence>{shouldShowSidebar && <Sidebar className="jkl-portal__sidebar" />}</AnimatePresence>
             <FormatProvider>
-                <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>
+                <AnimatePresence mode="wait">{children}</AnimatePresence>
             </FormatProvider>
             <PortalFooter className="jkl-portal__footer" />
         </div>
