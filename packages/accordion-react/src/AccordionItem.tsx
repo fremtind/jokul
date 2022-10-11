@@ -49,7 +49,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
                     }
                 }}
             >
-                <span className="jkl-accordion-item__title-text">{title}</span>
+                {title}
                 <AccordionExpandArrow expanded={isOpen} />
             </button>
             <div
