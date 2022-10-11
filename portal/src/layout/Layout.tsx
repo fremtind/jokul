@@ -48,8 +48,9 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
     const announcerRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (previous && location.pathname !== previous) {
-            const mousenavigation = document.body.dataset.mousenavigation;
-            const touchnavigation = document.body.dataset.touchnavigation;
+            const root = document.querySelector("html") as HTMLHtmlElement;
+            const mousenavigation = root.dataset.mousenavigation;
+            const touchnavigation = root.dataset.touchnavigation;
             if (!mousenavigation && !touchnavigation) {
                 const skipLink = document.getElementById("content-skip-link");
                 if (skipLink) {
