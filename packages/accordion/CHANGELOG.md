@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@8.0.3...@fremtind/jkl-accordion@9.0.0) (2022-10-11)
+
+### Bug Fixes
+
+-   sync Accordion med oppdatert design fra Figma ([777fc21](https://github.com/fremtind/jokul/commit/777fc21e12cc2c27598d35466d968dc4fd6ef652)), closes [#3132](https://github.com/fremtind/jokul/issues/3132)
+
+### BREAKING CHANGES
+
+-   CSS-variabelen som setter venstremargin på tittelen er fjernet.
+
 # 8.0.0 (2022-09-08)
 
 ### Bug Fixes
