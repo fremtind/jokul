@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@8.0.6...@fremtind/jkl-accordion-react@8.0.7) (2022-10-11)
+
+### Bug Fixes
+
+-   sync designet på Accordion med Figma ([d7dd108](https://github.com/fremtind/jokul/commit/d7dd108fcd9501e5794a0925467e19af0dacc476)), closes [#3132](https://github.com/fremtind/jokul/issues/3132)
+
 # 8.0.0 (2022-09-08)
 
 ### Bug Fixes
