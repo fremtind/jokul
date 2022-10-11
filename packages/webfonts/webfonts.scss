@@ -9,6 +9,17 @@ $webfonts-dir: "/fonts" !default;
         url("#{$webfonts-dir}/FremtindGrotesk-Regular-Web.woff") format("woff");
 }
 @font-face {
+    font-family: "Adjusted Arial Fallback";
+    font-weight: 400;
+    font-style: normal;
+    src: local(arial);
+    size-adjust: 104%;
+    ascent-override: 82%;
+    descent-override: normal;
+    line-gap-override: 32%;
+}
+
+@font-face {
     font-family: "Fremtind Grotesk";
     font-display: fallback;
     font-weight: 700;
@@ -16,6 +27,17 @@ $webfonts-dir: "/fonts" !default;
     src: url("#{$webfonts-dir}/FremtindGrotesk-Bold-Web.woff2") format("woff2"),
         url("#{$webfonts-dir}/FremtindGrotesk-Bold-Web.woff") format("woff");
 }
+@font-face {
+    font-family: "Adjusted Arial Fallback";
+    font-weight: 700;
+    font-style: normal;
+    src: local(arial);
+    size-adjust: 108%;
+    ascent-override: 83%;
+    descent-override: normal;
+    line-gap-override: 28%;
+}
+
 @font-face {
     font-family: "Fremtind Grotesk";
     font-display: fallback;
@@ -25,6 +47,17 @@ $webfonts-dir: "/fonts" !default;
         url("#{$webfonts-dir}/FremtindGrotesk-Italic-Web.woff") format("woff");
 }
 @font-face {
+    font-family: "Adjusted Arial Fallback";
+    font-weight: 400;
+    font-style: italic;
+    src: local(arial);
+    size-adjust: 106%;
+    ascent-override: 83%;
+    descent-override: normal;
+    line-gap-override: 28%;
+}
+
+@font-face {
     font-family: "Fremtind Grotesk";
     font-display: fallback;
     font-weight: 700;
@@ -32,6 +65,17 @@ $webfonts-dir: "/fonts" !default;
     src: url("#{$webfonts-dir}/FremtindGrotesk-BoldItalic-Web.woff2") format("woff2"),
         url("#{$webfonts-dir}/FremtindGrotesk-BoldItalic-Web.woff") format("woff");
 }
+@font-face {
+    font-family: "Adjusted Arial Fallback";
+    font-weight: 700;
+    font-style: italic;
+    src: local(arial);
+    size-adjust: 108%;
+    ascent-override: 83%;
+    descent-override: normal;
+    line-gap-override: 28%;
+}
+
 @font-face {
     font-family: "Fremtind Grotesk Display";
     font-display: fallback;
@@ -41,10 +85,31 @@ $webfonts-dir: "/fonts" !default;
         url("#{$webfonts-dir}/FremtindGrotesk-Display-Web.woff") format("woff");
 }
 @font-face {
+    font-family: "Adjusted Arial Display Fallback";
+    font-weight: 400;
+    font-style: normal;
+    src: local(arial);
+    size-adjust: 102%;
+    ascent-override: 76%;
+    descent-override: normal;
+    line-gap-override: 40%;
+}
+
+@font-face {
     font-family: "Fremtind Grotesk Mono";
     font-display: fallback;
     font-weight: 400;
     font-style: normal;
     src: url("#{$webfonts-dir}/FremtindGroteskMono-Regular-Web.woff2") format("woff2"),
         url("#{$webfonts-dir}/FremtindGroteskMono-Regular-Web.woff") format("woff");
+}
+@font-face {
+    font-family: "Adjusted Courier New Fallback";
+    font-weight: 400;
+    font-style: normal;
+    src: local(courier new);
+    size-adjust: 100%;
+    ascent-override: 83%;
+    descent-override: normal;
+    line-gap-override: 27%;
 }
