@@ -43,6 +43,7 @@
     "resolutions": {
         "**/@graphql-tools/url-loader/ws": "^7.4.6",
         "**/@types/eslint": "^7.29.0",
+        "**/axios": "^0.21.2",
         "**/cypress-plugin-snapshots/jimp": "^0.16.1",
         "**/diff2html/merge": "^2.1.1",
         "**/gatsby/multer": "v1.4.5-lts.1",
@@ -66,6 +67,7 @@
     "dependencies": {
         "classnames": "^2.3.1",
         "jimp": "^0.16.1",
+        "minimist": "^1.2.6",
         "react": "^18.2.0",
         "react-dom": "^18.2.0"
     },
