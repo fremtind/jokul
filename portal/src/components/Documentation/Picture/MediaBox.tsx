@@ -1,6 +1,6 @@
 import { WithOptionalChildren } from "@fremtind/jkl-core";
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
-import { motion, useViewportScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useState, useRef, ReactNode, useContext, useEffect } from "react";
 import { a11yContext } from "../../../a11yContext";
 
@@ -18,7 +18,7 @@ const MediaBox: React.FC<Props> = ({ media, rightAlign, caption, children }) => 
     const [isInViewport, setIsInViewport] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
     const mediaRef = useRef<HTMLDivElement>(null);
-    const { scrollY } = useViewportScroll();
+    const { scrollY } = useScroll();
 
     useEffect(() => {
         const element = ref.current;
