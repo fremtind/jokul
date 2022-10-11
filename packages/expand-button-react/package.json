@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-expand-button-react",
-    "version": "4.0.5",
+    "version": "4.0.6",
     "publishConfig": {
         "access": "public"
     },
@@ -40,7 +40,7 @@
         "@fremtind/jkl-core": "^11.0.2",
         "@fremtind/jkl-expand-button": "^3.0.2",
         "@fremtind/jkl-icons-react": "^6.0.3",
-        "@fremtind/jkl-react-hooks": "^10.1.0"
+        "@fremtind/jkl-react-hooks": "^10.2.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

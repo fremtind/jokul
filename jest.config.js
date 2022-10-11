@@ -1,4 +1,8 @@
-module.exports = {
+// @ts-check
+/** @typedef {import('jest').Config} JestConfig **/
+
+/** @type JestConfig */
+const config = {
     coverageDirectory: "coverage",
     coverageReporters: ["text", "clover", "github-actions"],
     coverageThreshold: {
@@ -9,14 +13,17 @@ module.exports = {
             statements: 80,
         },
     },
-
+    transform: {
+        "^.+\\.tsx?$": "<rootDir>/esbuild.jest.js",
+    },
     moduleFileExtensions: ["ts", "tsx", "js"],
     moduleNameMapper: {
         "^nanoid$": require.resolve("nanoid"),
     },
     roots: ["./packages", "./portal"],
     testEnvironment: "jsdom",
-
     setupFilesAfterEnv: ["./jest/setupTests.ts"],
     watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
 };
+
+module.exports = config;
