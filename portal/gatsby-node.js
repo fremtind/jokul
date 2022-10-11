@@ -35,12 +35,26 @@ function parseFiles(fileNames) {
     return parser.parseWithProgramProvider(fileNames, () => program);
 }
 
-exports.onCreateWebpackConfig = ({ actions, stage }) => {
+exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
     if (stage === "build-javascript") {
         // Skru av source maps i produksjon. Sparer byggtid, artifact-størrelse.
         actions.setWebpackConfig({
             devtool: false,
         });
+    }
+
+    if (stage === "develop" || stage === "build-javascript") {
+        const config = getConfig();
+        const miniCssExtractPlugin = config.plugins.find((p) => p.constructor.name === "MiniCssExtractPlugin");
+        if (miniCssExtractPlugin) {
+            // På grunn av Gatsby internals får vi warnings om rekkefølgen på CSS-filer som er i konflikt.
+            // Rekkefølgen har ikke noe å si for oss når vi bruker BEM, så vi kan trygt ignorere dem.
+            // https://github.com/webpack-contrib/mini-css-extract-plugin#remove-order-warnings
+            // https://github.com/gatsbyjs/gatsby/discussions/30169
+            // https://github.com/gatsbyjs/gatsby/discussions/30083
+            miniCssExtractPlugin.options.ignoreOrder = true;
+            actions.replaceWebpackConfig(config);
+        }
     }
 };
 
