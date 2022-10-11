@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.0.25](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.24...@fremtind/portal@16.0.25) (2022-10-11)
+
+### Bug Fixes
+
+-   se etter attributtene på riktig plass ([a8ad4bd](https://github.com/fremtind/jokul/commit/a8ad4bdb9857ed9c13c4a3211d72b328f641ba6c)), closes [#3193](https://github.com/fremtind/jokul/issues/3193)
+
 ## [16.0.22](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.21...@fremtind/portal@16.0.22) (2022-10-10)
 
 ### Bug Fixes
