@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.1.0 (2022-10-11)
+
+### Features
+
+-   ny mixin use-font-family for å få fontfamilie mer riktig fallback ([4959663](https://github.com/fremtind/jokul/commit/49596634828fcc4e3651ef0a60ce1b81dcd4f386))
+
 ## [11.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@11.0.0...@fremtind/jkl-core@11.0.1) (2022-09-08)
 
 ### Bug Fixes

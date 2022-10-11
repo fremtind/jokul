@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tooltip",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -24,7 +24,7 @@
         "dev": "echo \"Error: run dev from tooltip-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.0.0"
+        "@fremtind/jkl-core": "^11.1.0"
     },
     "repository": {
         "type": "git",
