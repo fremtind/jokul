@@ -1,7 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-varde};
+    --jkl-accordion-border: #{jkl.$color-svaberg};
     --jkl-accordion-focus: #{jkl.$color-focus-color};
     --jkl-accordion-expanded-background: #{jkl.$color-hvit};
 }
@@ -13,16 +13,25 @@
 }
 
 @include jkl.comfortable-density-variables {
-    --jkl-accordion-title-padding: #{jkl.$spacing-m};
-    --jkl-accordion-title-text-margin-left: #{jkl.rem(18px)};
-    --jkl-accordion-content-padding: #{jkl.$spacing-m};
+    --jkl-accordion-title-padding: #{jkl.$spacing-m} #{jkl.rem(48px)} #{jkl.$spacing-m} #{jkl.$spacing-m};
+    --jkl-accordion-arrow-top: #{jkl.rem(25px)};
+    --jkl-accordion-arrow-right: #{jkl.$spacing-m};
+    --jkl-accordion-content-padding: #{jkl.$spacing-xs} #{jkl.$spacing-m} #{jkl.$spacing-m};
     @include jkl.declare-font-variables("jkl-accordion-title", "body");
     @include jkl.declare-font-variables("jkl-accordion-content", "body");
+
+    @include jkl.small-device {
+        --jkl-accordion-title-padding: #{jkl.$spacing-m} #{jkl.rem(44px)} #{jkl.$spacing-m} #{jkl.$spacing-s};
+        --jkl-accordion-content-padding: #{jkl.$spacing-xs} #{jkl.$spacing-s} #{jkl.$spacing-m} #{jkl.$spacing-s};
+        --jkl-accordion-arrow-top: #{jkl.rem(23px)};
+    }
 }
 
 @include jkl.compact-density-variables {
-    --jkl-accordion-title-padding: #{jkl.$spacing-xs jkl.$spacing-m};
-    --jkl-accordion-content-padding: #{jkl.$spacing-xs jkl.$spacing-m};
+    --jkl-accordion-title-padding: #{jkl.$spacing-xs} #{jkl.rem(32px)} #{jkl.$spacing-xs} #{jkl.$spacing-xs};
+    --jkl-accordion-arrow-top: #{jkl.rem(13px)};
+    --jkl-accordion-arrow-right: #{jkl.$spacing-xs};
+    --jkl-accordion-content-padding: #{jkl.$spacing-xs};
     @include jkl.declare-font-variables("jkl-accordion-title", "small");
     @include jkl.declare-font-variables("jkl-accordion-content", "small");
 }
@@ -33,24 +42,28 @@
 
 .jkl-accordion-item {
     @include jkl.reset-outline;
+    @include jkl.motion("exit", "snappy");
+    transition-property: border-top-color, border-bottom-color;
 
     &:nth-child(n) {
-        border-top: jkl.rem(1px) solid var(--jkl-accordion-border);
+        border-top: jkl.rem(1px) solid;
+        border-top-color: var(--jkl-accordion-border);
 
         &:hover {
-            border-top: jkl.rem(1px) solid var(--jkl-accordion-focus);
+            border-top-color: var(--jkl-accordion-focus);
 
             + .jkl-accordion-item {
-                border-top: jkl.rem(1px) solid var(--jkl-accordion-focus);
+                border-top-color: var(--jkl-accordion-focus);
             }
         }
     }
 
     &:last-child {
-        border-bottom: jkl.rem(1px) solid var(--jkl-accordion-border);
+        border-bottom: jkl.rem(1px) solid;
+        border-bottom-color: var(--jkl-accordion-border);
 
         &:hover {
-            border-bottom: jkl.rem(1px) solid var(--jkl-accordion-focus);
+            border-bottom-color: var(--jkl-accordion-focus);
         }
     }
 
@@ -58,13 +71,12 @@
         background-color: var(--jkl-accordion-expanded-background);
 
         .jkl-accordion-item__title {
-            &-text {
-                @include jkl.no-grow-bold;
-            }
+            @include jkl.no-grow-bold;
         }
     }
 
     &__title {
+        @include jkl.use-font-variables("jkl-accordion-title");
         @include jkl.reset-outline;
 
         color: inherit;
@@ -74,14 +86,15 @@
         text-align: left;
         width: 100%;
 
-        @include jkl.motion;
-        transition-property: transform, color;
-
         &:hover {
             cursor: pointer;
 
             .jkl-accordion-item__arrow {
-                transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
+                top: calc(var(--jkl-accordion-arrow-top) + #{jkl.rem(4px)});
+
+                .jkl-accordion-item--expanded & {
+                    top: calc(var(--jkl-accordion-arrow-top) - #{jkl.rem(4px)});
+                }
             }
         }
 
@@ -92,9 +105,8 @@
 
     &__arrow {
         position: absolute;
-        left: jkl.rem(10px);
-        top: 50%;
-        transform: translateY(-50%);
+        right: var(--jkl-accordion-arrow-right);
+        top: var(--jkl-accordion-arrow-top);
         color: inherit;
 
         $_arrow-height: jkl.rem(16px);
@@ -107,9 +119,8 @@
 
         pointer-events: none;
 
-        @include jkl.motion("exit", "productive");
-
-        transition-property: transform;
+        @include jkl.motion("exit", "snappy");
+        transition-property: top;
 
         &-up,
         &-down {
@@ -142,12 +153,6 @@
         }
 
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
-    }
-
-    &__title-text {
-        @include jkl.use-font-variables("jkl-accordion-title");
-        display: block;
-        margin-left: var(--jkl-accordion-title-text-margin-left);
     }
 
     &__content-wrapper {
