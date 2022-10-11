@@ -1,5 +1,5 @@
 diff --git a/node_modules/@jest/environment/build/index.d.ts b/node_modules/@jest/environment/build/index.d.ts
-index 8bc7bdc..fac14b9 100644
+index 22a1c27..5ba16c8 100644
 --- a/node_modules/@jest/environment/build/index.d.ts
 +++ b/node_modules/@jest/environment/build/index.d.ts
 @@ -331,6 +331,7 @@ export declare interface JestEnvironmentConfig {
