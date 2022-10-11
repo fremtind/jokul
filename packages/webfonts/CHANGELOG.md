@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0 (2022-10-11)
+
+### Features
+
+-   legg til justerte Arial fallbacks for fontene ([49e8225](https://github.com/fremtind/jokul/commit/49e82259e216dd0ab3f495e5c47efc1caa404490))
+
 # 2.0.0 (2022-06-07)
 
 ### Code Refactoring

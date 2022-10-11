@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-hamburger",
-    "version": "11.0.2",
+    "version": "11.0.3",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "echo \"Error: run dev from hamburger-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.0.2"
+        "@fremtind/jkl-core": "^11.1.0"
     },
     "repository": {
         "type": "git",
