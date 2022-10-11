@@ -30,7 +30,7 @@
 }
 
 .jkl {
-    font-family: "Fremtind Grotesk", Calibri, Arial, sans-serif;
+    @include jkl.use-font-family("Fremtind Grotesk");
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 

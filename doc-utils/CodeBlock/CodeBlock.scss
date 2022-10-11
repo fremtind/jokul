@@ -40,13 +40,14 @@
         padding: jkl.$spacing-xs;
         background-color: var(--language-tag-bg-color);
         color: var(--language-tag-text-color);
-        font-family: "Fremtind Grotesk", Calibri, Arial, sans-serif;
+        @include jkl.use-font-family("Fremtind Grotesk");
         @include jkl.text-style("small");
         text-transform: uppercase;
         content: attr(data-language);
     }
 
     &__code {
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
         display: block;
         padding: jkl.$spacing-l jkl.$spacing-m;
         overflow-x: auto;
