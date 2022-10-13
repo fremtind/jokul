@@ -64,7 +64,7 @@ jobs:
               run: yarn version:check
 
             - name: Check for changes to portal
-              uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
+              uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
               id: changes
               with:
                   filters: |
