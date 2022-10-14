@@ -132,6 +132,7 @@
         "replace-in-file": "^6.3.5",
         "rimraf": "^3.0.2",
         "sass-embedded": "^1.54.0",
+        "sass-true": "^6.1.0",
         "stylelint": "^14.9.1",
         "tiny-glob": "^0.2.9",
         "turbo": "^1.4.3",

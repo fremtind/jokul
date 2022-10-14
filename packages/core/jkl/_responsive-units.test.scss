@@ -1,0 +1,8 @@
+@use "../../../node_modules/sass-true" as *;
+@use "./responsive-units" as ru;
+
+@include describe("rem [function]") {
+    @include it("calculates the expected 1rem value from the base value 16px") {
+        @include assert-equal(ru.rem(16px), 1rem);
+    }
+}
