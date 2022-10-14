@@ -1,0 +1,34 @@
+@use "../../../node_modules/sass-true" as *;
+@use "./typography" as typ;
+
+@include describe("declare-font-variables [mixin]") {
+    @include it("generates the expected variables") {
+        @include assert {
+            @include output {
+                @include typ.declare-font-variables("test", "small");
+            }
+
+            @include expect {
+                --test-font-size: var(--jkl-small-font-size);
+                --test-line-height: var(--jkl-small-line-height);
+                --test-font-weight: var(--jkl-small-font-weight);
+            }
+        }
+    }
+}
+
+@include describe("use-font-variables [mixin]") {
+    @include it("generates the expected variable usage") {
+        @include assert {
+            @include output {
+                @include typ.use-font-variables("test");
+            }
+
+            @include expect {
+                font-size: var(--test-font-size);
+                line-height: var(--test-line-height);
+                font-weight: var(--test-font-weight);
+            }
+        }
+    }
+}
