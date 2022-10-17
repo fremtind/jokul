@@ -872,6 +872,20 @@ importers:
     devDependencies:
       '@fremtind/jkl-constants-util': link:../constants-util
 
+  packages/transitions:
+    specifiers:
+      '@fremtind/jkl-core': ^10.0.0
+    dependencies:
+      '@fremtind/jkl-core': 10.1.0
+
+  packages/transitions-react:
+    specifiers:
+      '@fremtind/jkl-core': ^10.0.0
+      '@fremtind/jkl-transitions': ^1.0.0-alpha.0
+    dependencies:
+      '@fremtind/jkl-core': 10.1.0
+      '@fremtind/jkl-transitions': link:../transitions
+
   packages/validators-util:
     specifiers: {}
 
@@ -2914,6 +2928,17 @@ packages:
       react-dom: '>=16.8.0'
     dependencies:
       '@floating-ui/dom': 1.0.7
+    dev: false
+
+  /@fremtind/jkl-core/10.1.0:
+    resolution: {integrity: sha512-SHqeTFPrUX1QVlCOx/e0OYl1B63dV8a0EHQ9ga1rMggK4IcrNpdSXKfmNWDQ2k5adusxlRBq30Kx35G9lvJCvQ==}
+    peerDependencies:
+      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
+      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
+    dependencies:
+      classnames: 2.3.2
     dev: false
 
   /@frsource/base64/1.0.4:

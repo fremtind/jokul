@@ -1,0 +1,35 @@
+{
+    "name": "@fremtind/jkl-transitions",
+    "version": "1.0.0-alpha.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul style for transitions",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/transitions",
+    "keywords": [
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf .turbo **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "echo \"Error: run dev from transitions-react\" && exit 1"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^10.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}
