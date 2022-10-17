@@ -65,6 +65,17 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
         }
     }, []);
 
+    const indicatorStyle =
+        // Unngå at indikatoren starter helt til venstre og animeres bort
+        // til valgt tab ved rerender
+        activeRect && tabsRect
+            ? {
+                  left: activeRect.left - tabsRect.left,
+                  bottom: -1,
+                  width: activeRect.width,
+              }
+            : undefined;
+
     return (
         <div role="tablist" ref={tabsRef} {...rest} className={cn("jkl-tablist", className)}>
             {React.Children.map(children, (tab, tabIndex) => {
@@ -83,14 +94,7 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
                     : null;
             })}
 
-            <span
-                className="jkl-tablist__indicator"
-                style={{
-                    left: (activeRect?.left || 0) - (tabsRect?.left || 0),
-                    bottom: -1,
-                    width: (activeRect?.width || 0) - (density === "compact" ? 32 : 38),
-                }}
-            />
+            <span className="jkl-tablist__indicator" style={indicatorStyle} />
         </div>
     );
 };

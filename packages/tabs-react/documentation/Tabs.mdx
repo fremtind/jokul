@@ -6,6 +6,7 @@ group: knapper
 ---
 
 import TabsExample, { tabsExampleCode, tabsExampleKnobs } from "./TabsExample";
+import TabNavigationExample, { tabNavigationExampleCode, tabNavigationExampleKnobs } from "./TabNavigationExample";
 import "@fremtind/jkl-tabs/tabs.css";
 
 <Ingress>
@@ -28,6 +29,19 @@ import "@fremtind/jkl-tabs/tabs.css";
 -   Bør ikke brukes når det er nødvendig å sammenligne eller se innholdet i de ulike fanene samtidig. Hvis dette er et behov, er det bedre å bruke accordion.
 -   Bør ikke brukes hvis man trenger å lese gjennom alt innholdet for å forstå en stegvis prosess.
 -   Skal ikke brukes for å sende brukeren til en ny side.
+
+## Bruk av tabs som sidenavigasjon
+
+Noen ganger vil det være naturlig å bruke tabs som undernavigasjon på en side, og i slike tilfeller vil det være ønskelig å kunne lenke til en spesifikk tab på siden. Vi tilbyr en hook, `useTabNavigation` som hjelper til med implementasjonen av dette. Den oppdaterer URLen når brukeren velger en tab, og bytter automatisk til eventuell tab som er angitt i URLen som lastes inn.
+
+<ComponentExample
+    title="TabNavigation"
+    component={TabNavigationExample}
+    knobs={tabNavigationExampleKnobs}
+    codeExample={tabNavigationExampleCode}
+/>
+
+Som standard bruker funksjonen standard Web API for å endre adressen når du klikker på en tab, men du kan også sende inn en egen funksjon for å navigere dersom du bruker rammeverk som Gatsby, Next.js eller Remix. I eksemplet over logger vi bare adressen til konsollen.
 
 ## Eksempler på bruk
 
