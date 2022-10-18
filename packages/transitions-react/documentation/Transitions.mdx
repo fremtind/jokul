@@ -2,34 +2,33 @@
 title: Transitions
 react: transitions-react
 scss: transitions
-group: edit me!
+group: Animasjoner
 ---
 
-import TransitionsExample, { transitionsExampleCode, transitionsExampleKnobs } from "./TransitionsExample";
+import FadeExample, { fadeExampleCode, fadeExampleKnobs } from "./FadeExample";
 
-<Ingress>Ingress med kort beskrivelse av komponenten</Ingress>
+<Ingress>
+    Under Transitions samler vi gjenbrukbare animasjoner som brukes internt i Jøkul, men som også kan brukes i apper for
+    å skape bevegelse.
+</Ingress>
 
-<ComponentExample component={TransitionsExample} codeExample={transitionsExampleCode} knobs={transitionsExampleKnobs} />
+## Fade
 
-Første eksempel må være synlig uten å scrolle og skal ha et kodeeksempel som oppdateres til å matche valgte parametere.
+<p>Fade er en enkel animasjon av gjennomsiktigheten til et element.</p>
+<ComponentExample title="Fade" component={FadeExample} codeExample={fadeExampleCode} knobs={fadeExampleKnobs} />
 
-Fyll på med mer utfyllende beskrivelse av komponenten her under eksempelet, for eksempel føringer for innhold. List opp de ulike variantene dersom komponenten har dem, sammen med beskrivelse av når den ene varianten bør brukes i stedet for en annen.
+### Når bruker jeg Fade?
 
-Dokumentér riktig og feil bruk av varianter visuelt med `DoDontExample`. Se for eksempel [Tag](/komponenter/tag) for inspirasjon.
+Animasjonen kan brukes når innhold på siden enten forsvinner eller lastes inn.
 
-## Tilgjengelighet
+Om du skal veksle mellom to tekster, se [Content Toggle](/komponenter/contenttoggle).
 
-Dokumenter spesielle hensyn for universell utforming. Eksempler kan være spesielle hensyn som må tas for brukere av skjermlesere, for fargeblinde, eller liknende.
+## Kode
 
-## Når bruker vi Transitions?
+Felles for alle transitions på denne siden er at de bruker [React Transition Group sin CSSTransition](https://reactcommunity.org/react-transition-group/css-transition) under panseret. Kort fortalt sørger React-komponenten for å legge til og fjerne CSS-klasser basert på en _lifecycle_. Utseendet på de ulike stadiene er definert i CSS.
 
-Før du bruker Transitions er det greit å ha tatt stilling til noen spørsmål:
+For å få satt klassene må hver transition få **én child som må kunne motta `ref`**. Bruk enten en wrapper `div/span`, eller en komponent som gjør en `forwardRef`.
 
--   Liste med kontrollspørsmål
--   Se [Message box](/komponenter/messagebox#når-bruker-vi-en-melding-) for eksempler
+### Tilgjengelighet
 
-Dokumentér riktig og feil bruk av komponenten visuelt med `DoDontExample`. Se for eksempel [Alert message](/komponenter/alertmessage#når-bruker-vi-en-varselmelding-) for inspirasjon.
-
-Om det er relevant, lenk direkte til andre komponenter som er riktig å bruke dersom denne komponenten ikke bør brukes i en gitt situasjon.
-
-Kontroller at Gatsby klarer å generere React API-dokumentasjon riktig i bunnen. Om komponenten din ikke dukker opp riktig, sørg for at den har et `displayName`. Om du får flere komponenter enn du ønsker i tabellen kan du bruke [`displayTypes` i frontmatter](https://github.com/fremtind/jokul/blob/60edb292a922eea69e539875359524e2c13eda3e/packages/core/documentation/Link.mdx?plain=1#L6-L8).
+Sørg for at innholdet som animeres inn leses opp av skjermlesere, og at innhold som er visuelt skjult også er skjult for skjermlesere og tastatur (fokus ved tab).

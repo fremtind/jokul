@@ -1,0 +1,35 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-fade {
+    --jkl-fade-enter-easing: #{jkl.easing("entrance")};
+    --jkl-fade-exit-easing: #{jkl.easing("exit")};
+    --jkl-fade-enter-timing: #{jkl.timing("productive")};
+    --jkl-fade-exit-timing: #{jkl.timing("productive")};
+}
+
+.jkl-fade-appear,
+.jkl-fade-enter {
+    opacity: 0;
+}
+
+.jkl-fade-entering {
+    transition: opacity var(--jkl-fade-enter-timing) var(--jkl-fade-enter-easing);
+}
+
+.jkl-fade-appear-active,
+.jkl-fade-enter-active,
+.jkl-fade-appear-done,
+.jkl-fade-enter-done {
+    opacity: 1;
+}
+
+.jkl-fade-exiting {
+    transition: opacity var(--jkl-fade-exit-timing) var(--jkl-fade-exit-easing);
+}
+
+.jkl-fade-exit,
+.jkl-fade-exit-active,
+.jkl-fade-exit-done,
+.jkl-fade-exited {
+    opacity: 0;
+}

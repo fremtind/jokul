@@ -874,17 +874,25 @@ importers:
 
   packages/transitions:
     specifiers:
-      '@fremtind/jkl-core': ^10.0.0
+      '@fremtind/jkl-core': ^11.0.0
     dependencies:
-      '@fremtind/jkl-core': 10.1.0
+      '@fremtind/jkl-core': link:../core
 
   packages/transitions-react:
     specifiers:
-      '@fremtind/jkl-core': ^10.0.0
+      '@fremtind/jkl-card-react': ^7.0.9
+      '@fremtind/jkl-core': ^11.0.0
+      '@fremtind/jkl-toggle-switch-react': ^10.0.6
       '@fremtind/jkl-transitions': ^1.0.0-alpha.0
+      '@types/react-transition-group': ^4.4.5
+      react-transition-group: ^4.4.5
     dependencies:
-      '@fremtind/jkl-core': 10.1.0
+      '@fremtind/jkl-card-react': link:../card-react
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-toggle-switch-react': link:../toggle-switch-react
       '@fremtind/jkl-transitions': link:../transitions
+      '@types/react-transition-group': 4.4.5
+      react-transition-group: 4.4.5
 
   packages/validators-util:
     specifiers: {}
@@ -2928,17 +2936,6 @@ packages:
       react-dom: '>=16.8.0'
     dependencies:
       '@floating-ui/dom': 1.0.7
-    dev: false
-
-  /@fremtind/jkl-core/10.1.0:
-    resolution: {integrity: sha512-SHqeTFPrUX1QVlCOx/e0OYl1B63dV8a0EHQ9ga1rMggK4IcrNpdSXKfmNWDQ2k5adusxlRBq30Kx35G9lvJCvQ==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      classnames: 2.3.2
     dev: false
 
   /@frsource/base64/1.0.4:
@@ -5955,7 +5952,7 @@ packages:
   /@types/reach__router/1.3.11:
     resolution: {integrity: sha512-j23ChnIEiW8aAP4KT8OVyTXOFr+Ri65BDnwzmfHFO9WHypXYevHFjeil1Cj7YH3emfCE924BwAmgW4hOv7Wg3g==}
     dependencies:
-      '@types/react': 18.0.25
+      '@types/react': 18.0.26
     dev: false
 
   /@types/react-dom/18.0.9:
@@ -5969,6 +5966,12 @@ packages:
     dependencies:
       '@types/react': 18.0.26
     dev: true
+
+  /@types/react-transition-group/4.4.5:
+    resolution: {integrity: sha512-juKD/eiSM3/xZYzjuzH6ZwpP+/lejltmiS3QEzV/vmb/Q8+HfDmxu+Baga8UEMGBqV88Nbg4l2hY/K2DkyaLLA==}
+    dependencies:
+      '@types/react': 18.0.26
+    dev: false
 
   /@types/react/18.0.25:
     resolution: {integrity: sha512-xD6c0KDT4m7n9uD4ZHi02lzskaiqcBxf4zi+tXZY98a04wvc0hi/TcCPC2FOESZi51Nd7tlUeOJY8RofL799/g==}
@@ -5984,7 +5987,6 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
       csstype: 3.1.1
-    dev: true
 
   /@types/responselike/1.0.0:
     resolution: {integrity: sha512-85Y2BjiufFzaMIlvJDvTTB8Fxl2xfLo4HgmHzVBz08w4wDePCTjYw66PdrolO0kzli3yam/YCgRufyo1DdQVTA==}
@@ -9561,6 +9563,13 @@ packages:
     resolution: {integrity: sha512-gd3ypIPfOMr9h5jIKq8E3sHOTCjeirnl0WK5ZdS1AW0Odt0b1PaWaHdJ4Qk4klv+YB9aJBS7mESXjFoDQPu6DA==}
     dependencies:
       utila: 0.4.0
+    dev: false
+
+  /dom-helpers/5.2.1:
+    resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
+    dependencies:
+      '@babel/runtime': 7.20.6
+      csstype: 3.1.1
     dev: false
 
   /dom-serializer/1.4.1:
@@ -19123,6 +19132,18 @@ packages:
       react: 18.2.0
       refractor: 3.6.0
     dev: true
+
+  /react-transition-group/4.4.5:
+    resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
+    peerDependencies:
+      react: '>=16.6.0'
+      react-dom: '>=16.6.0'
+    dependencies:
+      '@babel/runtime': 7.20.6
+      dom-helpers: 5.2.1
+      loose-envify: 1.4.0
+      prop-types: 15.8.1
+    dev: false
 
   /react-virtual/2.10.4_react@18.2.0:
     resolution: {integrity: sha512-Ir6+oPQZTVHfa6+JL9M7cvMILstFZH/H3jqeYeKI4MSUX+rIruVwFC6nGVXw9wqAw8L0Kg2KvfXxI85OvYQdpQ==}

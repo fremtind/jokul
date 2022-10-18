@@ -1,0 +1,12 @@
+@use "@fremtind/jkl-core/jkl";
+
+.jkl-portal-fade-example {
+    &__switch {
+        margin-bottom: jkl.$spacing-m;
+    }
+
+    &__info-card {
+        background-color: jkl.$color-svaberg;
+        color: jkl.$color-granitt;
+    }
+}
