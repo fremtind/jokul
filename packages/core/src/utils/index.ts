@@ -4,4 +4,4 @@ export { breakpoints } from "./breakpoints";
 export type { Density } from "./density";
 
 export type { Timing, Easing } from "./motion";
-export { timings, easings } from "./motion";
+export { timings, timingsMillis, easings } from "./motion";

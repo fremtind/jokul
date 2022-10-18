@@ -10,10 +10,18 @@ export const easings = Object.freeze({
 
 export type Timing = keyof typeof timings;
 
+export const timingsMillis = Object.freeze({
+    energetic: 75,
+    snappy: 100,
+    productive: 150,
+    expressive: 250,
+    lazy: 400,
+});
+
 export const timings = Object.freeze({
-    energetic: "75ms",
-    snappy: "100ms",
-    productive: "150ms",
-    expressive: "250ms",
-    lazy: "400ms",
+    energetic: `${timingsMillis.energetic}ms`,
+    snappy: `${timingsMillis.snappy}ms`,
+    productive: `${timingsMillis.productive}ms`,
+    expressive: `${timingsMillis.expressive}ms`,
+    lazy: `${timingsMillis.lazy}ms`,
 });
