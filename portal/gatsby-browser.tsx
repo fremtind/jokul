@@ -39,6 +39,7 @@ import "@fremtind/jkl-content-toggle/content-toggle.min.css";
 import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
 import "@fremtind/jkl-expand-button/expand-button.min.css";
 import "@fremtind/jkl-footer/footer.min.css";
+import "@fremtind/jkl-transitions/transitions.min.css";
 import "./src/components/Typography/typography.scss";
 
 initTabListener();
