@@ -5,6 +5,12 @@
         text-decoration: none;
         background-image: none;
         color: var(--jkl-color);
+
+        &:hover {
+            cursor: default;
+            color: var(--jkl-link-color);
+            background-image: none;
+        }
     }
 
     &__list {
