@@ -18,4 +18,5 @@ export { useProgressiveImg } from "./useProgressiveImg/useProgressiveImg";
 export { usePreviousValue } from "./usePreviousValue/usePreviousValue";
 export { useId } from "./useId";
 export { useElementDimensions } from "./useElementDimensions";
+export { useForwardedRef } from "./useForwardedRef";
 export type { Dimensions } from "./useElementDimensions";
