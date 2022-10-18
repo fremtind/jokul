@@ -1,6 +1,13 @@
 import { Label, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { useAnimatedHeight, useClickOutside, useFocusOutside, useId, useKeyListener } from "@fremtind/jkl-react-hooks";
+import {
+    useAnimatedHeight,
+    useClickOutside,
+    useFocusOutside,
+    useId,
+    useKeyListener,
+    useForwardedRef,
+} from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
 import startOfDay from "date-fns/startOfDay";
@@ -84,22 +91,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     /// Input events
 
     const iconButtonRef = useRef<HTMLButtonElement | null>(null);
-    const inputRef = useRef<HTMLInputElement | null>(null);
-
-    // Hjelper for å gjøre det enklere å både forwarde refen men også bruke den selv internt
-    const unifiedInputRef = useCallback(
-        (instance: HTMLInputElement | null) => {
-            inputRef.current = instance;
-            if (forwardedInputRef) {
-                if (typeof forwardedInputRef === "function") {
-                    forwardedInputRef(instance);
-                } else {
-                    forwardedInputRef.current = instance;
-                }
-            }
-        },
-        [inputRef, forwardedInputRef],
-    );
+    const [inputRef, setInputRef] = useForwardedRef<HTMLInputElement | null>(forwardedInputRef);
 
     const datepickerRef = useRef<HTMLDivElement>(null);
     const handleFocus = useCallback(
@@ -239,7 +231,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 }
             }
         },
-        [setShowCalendar, setDate, onChange],
+        [inputRef, setShowCalendar, setDate, onChange],
     );
 
     const handleTabOutsideCalendar = useCallback(
@@ -277,7 +269,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                 tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
             >
                 <BaseInputField
-                    ref={unifiedInputRef}
+                    ref={setInputRef}
                     data-testid="jkl-datepicker__input"
                     data-testautoid={testAutoId}
                     className="jkl-datepicker__input jkl-text-input__input"
