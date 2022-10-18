@@ -17,27 +17,30 @@
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-tab", "body");
 
-    --jkl-tab-padding: #{jkl.$spacing-xs} #{jkl.$spacing-xl} #{jkl.$spacing-s} #{jkl.$spacing-3xs};
+    --jkl-tab-padding: #{jkl.$spacing-xs} 0 #{jkl.$spacing-s};
+    --jkl-tab-gap: #{jkl.$spacing-xl};
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-tab", "small");
 
-    --jkl-tab-padding: #{jkl.$spacing-3xs} #{jkl.rem(32px)} #{jkl.$spacing-2xs} 0;
+    --jkl-tab-padding: #{jkl.$spacing-3xs} 0 #{jkl.$spacing-2xs};
+    --jkl-tab-gap: #{jkl.rem(32px)};
 }
 
 .jkl-tablist {
     position: relative;
     display: flex;
     flex-direction: row;
+    gap: var(--jkl-tab-gap);
     padding: 0;
     margin: 0;
-    border-bottom: 1px jkl.$color-svaberg solid;
+    border-bottom: jkl.rem(1px) jkl.$color-svaberg solid;
     width: 100%;
 
     &__indicator {
         position: absolute;
-        height: 2px;
+        height: jkl.rem(2px);
         background-color: var(--jkl-tab-indicator-color);
         @include jkl.motion("standard", "lazy");
         transition-property: left, width;
@@ -72,10 +75,7 @@
         &::after {
             content: "";
             position: absolute;
-            top: jkl.rem(2px);
-            right: jkl.rem(6px); // Hold avstand til neste fane
-            bottom: jkl.rem(1px);
-            left: jkl.rem(-2px);
+            inset: jkl.rem(0) jkl.rem(-2px) jkl.rem(1px);
             box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-tab-focus-border-color);
         }
     }
