@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.4 (2022-10-18)
+
+### Bug Fixes
+
+-   fjern hovereffekt fra siste brødsmule ([2516a7f](https://github.com/fremtind/jokul/commit/2516a7fddb5d86ed135cb384ac94ebca23738ebb)), closes [#3128](https://github.com/fremtind/jokul/issues/3128)
+
 # 3.0.0 (2022-09-08)
 
 ### Bug Fixes
