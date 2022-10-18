@@ -43,6 +43,8 @@ export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ displayVa
 
 export const toggleSwitchCodeExample = ({ boolValues }: ExampleComponentProps): string => `
     <ToggleSwitch
+        pressed={isOn}
+        onClick={() => setIsOn(!isOn)}
         helpLabel={${boolValues?.["Med hjelpetekst"] ? `"Veksle mellom lys og mørk grensesnitt"` : `undefined`}}
         disabled={${boolValues?.["Deaktivert"]}}
     />
