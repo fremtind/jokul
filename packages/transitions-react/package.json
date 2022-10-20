@@ -39,6 +39,7 @@
     "dependencies": {
         "@fremtind/jkl-card-react": "^7.0.9",
         "@fremtind/jkl-core": "^11.0.0",
+        "@fremtind/jkl-react-hooks": "^10.2.7",
         "@fremtind/jkl-toggle-switch-react": "^10.0.6",
         "@fremtind/jkl-transitions": "^1.0.0-alpha.0",
         "@types/react-transition-group": "^4.4.5",
