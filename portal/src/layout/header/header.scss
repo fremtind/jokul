@@ -24,27 +24,6 @@ $header-padding--mobile: 0 jkl.$spacing-m;
     @include jkl.motion("standard", "lazy");
     transition-property: height;
 
-    &__title {
-        @include jkl.reset-outline;
-        padding: 0;
-        background-color: transparent;
-        cursor: pointer;
-        @include jkl.text-style("heading-4") {
-            font-weight: jkl.$typography-weight-normal;
-        }
-        color: inherit;
-        text-decoration: none;
-
-        &:hover {
-            color: jkl.$color-stein;
-        }
-
-        html:not([data-mousenavigation]) &:focus {
-            color: jkl.$color-granitt;
-            font-weight: jkl.$typography-weight-bold;
-        }
-    }
-
     &__menu {
         height: 100%;
     }
