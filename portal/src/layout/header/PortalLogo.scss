@@ -1,0 +1,22 @@
+@use "@fremtind/jkl-core/jkl";
+
+.jkl-portal-logo {
+    @include jkl.reset-outline;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    @include jkl.text-style("heading-4") {
+        font-weight: jkl.$typography-weight-normal;
+    }
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        color: jkl.$color-stein;
+    }
+
+    html:not([data-mousenavigation]) &:focus {
+        color: jkl.$color-granitt;
+        font-weight: jkl.$typography-weight-bold;
+    }
+}

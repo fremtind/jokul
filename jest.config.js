@@ -19,6 +19,7 @@ const config = {
     moduleFileExtensions: ["ts", "tsx", "js"],
     moduleNameMapper: {
         "^nanoid$": require.resolve("nanoid"),
+        "^.+\\.(css|less|scss)$": "esbuild",
     },
     roots: ["./packages", "./portal"],
     testEnvironment: "jsdom",

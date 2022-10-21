@@ -4,8 +4,8 @@ import React, { useCallback, useRef, useEffect, FC } from "react";
 import { useFullscreenMenuContext } from "../../fullscreenMenuContext";
 import { ContentLink } from "./ContentLink";
 import { MainMenu } from "./MainMenu";
+import { PortalLogo } from "./PortalLogo";
 import { useNavigationLinks } from "./useNavigationLinks";
-
 import "./header.scss";
 
 type Props = {
@@ -34,17 +34,14 @@ export const Header: FC<Props> = ({ className }) => {
     return (
         <header ref={headerRef} className={componentClassName}>
             <ContentLink>Hopp til innhold</ContentLink>
-            <button
-                role="link"
-                className="jkl-portal-header__title"
-                onClick={() => {
+            <PortalLogo
+                onClick={(e) => {
+                    e.preventDefault();
                     setCurrentItem(null);
                     setIsOpen(false);
                     navigate("/");
                 }}
-            >
-                Jøkul
-            </button>
+            />
             <MainMenu className="jkl-portal-header__menu" items={menuItems} />
         </header>
     );
