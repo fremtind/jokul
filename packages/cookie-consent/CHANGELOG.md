@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.4 (2022-10-26)
+
+### Bug Fixes
+
+-   hindre automatisk scrolling når modal åpnes ([37da950](https://github.com/fremtind/jokul/commit/37da950cc980530f1ffdaa387568ba8e9d6ece57))
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent@6.0.15...@fremtind/jkl-cookie-consent@8.0.0) (2022-06-08)
 
 ### chore
