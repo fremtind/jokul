@@ -14,6 +14,8 @@ interface Props {
     type: "radio" | "smiley";
     /** Spørsmålet som stilles til brukeren */
     label: string;
+    /** Hjelpetekst til hovedspørsmålet */
+    helpLabel?: string;
     /** Svaralternativer til spørsmålet */
     options: FeedbackOption[];
     /** Dersom du vil stille et åpent spørsmål i tillegg kan du legge det til her */
