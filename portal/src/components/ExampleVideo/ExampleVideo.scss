@@ -1,61 +1,27 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@function _play($color) {
-    $c: jkl.urlencodecolor($color);
-
-    @return url("data:image/svg+xml,%3Csvg width='28' height='38' viewBox='0 0 28 38' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5615 1.05959L26.7806 18.1725C27.3652 18.5693 27.3652 19.4307 26.7806 19.8275L1.5615 36.9404C0.897525 37.391 0 36.9153 0 36.1129V1.88707C0 1.08465 0.897522 0.609033 1.5615 1.05959Z' fill='#{$color}'/%3E%3C/svg%3E%0A");
+@include jkl.light-mode-variables {
+    --example-video-outline: #{jkl.$color-focus-color};
 }
 
-@function _pause($color) {
-    $c: jkl.urlencodecolor($color);
-
-    @return url("data:image/svg+xml,%3Csvg width='28' height='37' viewBox='0 0 28 37' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='10' height='37' rx='1' fill='#{$color}'/%3E%3Crect x='18' width='10' height='37' rx='1' fill='#{$color}'/%3E%3C/svg%3E%0A");
+@include jkl.dark-mode-variables {
+    --example-video-outline: #{jkl.$color-focus-color--darkbg};
 }
 
 .example-video {
     position: relative;
 
-    &__button {
-        position: absolute;
-        bottom: jkl.$spacing-l;
-        left: jkl.$spacing-m;
-        width: 2rem;
-        height: 2.2rem;
-        border: none;
-        cursor: pointer;
+    @include jkl.reset-outline;
 
+    @include jkl.keyboard-navigation {
         &:focus {
-            outline: none;
-            @include jkl.keyboard-navigation {
-                box-shadow: 0 0 0 2px jkl.$color-granitt;
-            }
+            outline: jkl.rem(2px) solid var(--jkl-color);
         }
+    }
 
-        &--play {
-            background: _play(jkl.$color-granitt) no-repeat center;
-        }
-
-        &--pause {
-            background: _pause(jkl.$color-granitt) no-repeat center;
-        }
-
-        @include jkl.forced-colors-mode {
-            border: revert;
-            background-color: ButtonFace;
-            background-repeat: no-repeat;
-            background-position: center;
-
-            &:focus {
-                outline: revert;
-            }
-
-            &--play {
-                background-image: _play(ButtonText);
-            }
-
-            &--pause {
-                background-image: _pause(ButtonText);
-            }
-        }
+    &__loader {
+        position: absolute;
+        bottom: jkl.$spacing-xl;
+        left: jkl.$spacing-m;
     }
 }
