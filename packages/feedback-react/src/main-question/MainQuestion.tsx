@@ -19,6 +19,7 @@ const defaultSuccessMessage = {
 interface Props {
     type: "radio" | "smiley";
     label: string;
+    helpLabel?: string;
     options: FeedbackOption[];
     addOnQuestion?: {
         label: string;
@@ -37,6 +38,7 @@ export const MainQuestion: FC<Props> = ({
     type,
     addOnQuestion,
     successMessage = defaultSuccessMessage,
+    helpLabel,
     onSubmit,
 }) => {
     const mainQuestionState = useMainQuestion(onSubmit);
@@ -55,7 +57,7 @@ export const MainQuestion: FC<Props> = ({
         <>
             {!submitted && (
                 <MainQuestionContextProvider state={mainQuestionState}>
-                    <MainQuestionComp label={label} options={options} />
+                    <MainQuestionComp label={label} options={options} helpLabel={helpLabel} />
                     <div
                         ref={submitWrapperRef}
                         className={cn({
