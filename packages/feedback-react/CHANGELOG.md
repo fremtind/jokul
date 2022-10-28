@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [14.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@14.0.13...@fremtind/jkl-feedback-react@14.1.0) (2022-10-28)
+
+### Features
+
+-   legg til optional helplabel på hovedspørsmålet ([b2d0ef4](https://github.com/fremtind/jokul/commit/b2d0ef4154bef6e0354db14533529f6dd8ae0385))
+
 ## 14.0.8 (2022-10-07)
 
 ### Bug Fixes
