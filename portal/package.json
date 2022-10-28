@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "16.0.31",
+    "version": "16.0.32",
     "devDependencies": {
         "react-docgen-typescript": "^2.2.2"
     },
@@ -20,7 +20,7 @@
         "@fremtind/jkl-datepicker-react": "^12.0.16",
         "@fremtind/jkl-description-list-react": "^6.0.4",
         "@fremtind/jkl-expand-button-react": "^4.0.7",
-        "@fremtind/jkl-feedback-react": "^14.0.13",
+        "@fremtind/jkl-feedback-react": "^14.1.0",
         "@fremtind/jkl-field-group-react": "^7.0.7",
         "@fremtind/jkl-footer-react": "^3.0.8",
         "@fremtind/jkl-formatters-util": "^3.0.3",
