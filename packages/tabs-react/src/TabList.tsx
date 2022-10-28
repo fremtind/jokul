@@ -1,6 +1,6 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { type WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { type CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { useTabsContext } from "./tabsContext";
 
 export interface TabListProps extends WithChildren {
@@ -65,6 +65,11 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
         }
     }, []);
 
+    const indicatorStyle = {
+        "--indicator-x-pos": `${(activeRect?.left || 0) - (tabsRect?.left || 0)}px`,
+        "--indicator-width": (activeRect?.width || 0) - (density === "compact" ? 32 : 38),
+    } as CSSProperties;
+
     return (
         <div role="tablist" ref={tabsRef} {...rest} className={cn("jkl-tablist", className)}>
             {React.Children.map(children, (tab, tabIndex) => {
@@ -83,14 +88,7 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
                     : null;
             })}
 
-            <span
-                className="jkl-tablist__indicator"
-                style={{
-                    left: (activeRect?.left || 0) - (tabsRect?.left || 0),
-                    bottom: -1,
-                    width: (activeRect?.width || 0) - (density === "compact" ? 32 : 38),
-                }}
-            />
+            <span className="jkl-tablist__indicator" style={indicatorStyle} />
         </div>
     );
 };

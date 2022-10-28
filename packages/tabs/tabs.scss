@@ -37,11 +37,18 @@
 
     &__indicator {
         position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 1px;
         height: 2px;
         background-color: var(--jkl-tab-indicator-color);
+
         @include jkl.motion("standard", "lazy");
-        transition-property: left, width;
-        will-change: left, width;
+        transition-property: transform;
+        will-change: transform;
+
+        transform-origin: left;
+        transform: translate(var(--indicator-x-pos), 0) scale(var(--indicator-width), 1);
 
         @include jkl.forced-colors-mode {
             background-color: Highlight;
