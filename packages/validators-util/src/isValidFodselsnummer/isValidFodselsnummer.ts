@@ -40,7 +40,7 @@ export const getChecksumDigits = (fnr: string) => {
 };
 
 export const isValidFodselsnummer = (value: string): boolean => {
-    if (!value || value.length !== 11) {
+    if (!value || value.length !== 11 || value === "00000000000") {
         return false;
     }
 
