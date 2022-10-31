@@ -42,7 +42,7 @@
     "packageManager": "yarn@1.22.17",
     "resolutions": {
         "**/@graphql-tools/url-loader/ws": "^7.4.6",
-        "**/@types/eslint": "^7.29.0",
+        "**/@types/eslint": "^8.4.9",
         "**/axios": "^0.21.2",
         "**/cypress-plugin-snapshots/jimp": "^0.16.1",
         "**/diff2html/merge": "^2.1.1",
@@ -51,7 +51,7 @@
         "**/package-json/got": "^11.8.5",
         "**/parse-url": "^8.1.0",
         "**/unidiff/diff": "^3.5.0",
-        "ansi-html": "^0.0.8",
+        "ansi-html": "^0.0.9",
         "cross-fetch": "^3.1.5",
         "commitizen/minimist": "^1.2.6",
         "cz-lerna-changelog/shelljs": "^0.8.5",
