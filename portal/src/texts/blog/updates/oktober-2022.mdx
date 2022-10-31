@@ -1,0 +1,102 @@
+---
+title: Høydepunkter fra oktober 2022
+author: William Killerud
+publishDate: "2022.10.31"
+---
+
+<Ingress>
+    I oktober tok Jøkul-teamet et skippertak på et nytt konsept for dokumentasjonssider her i portalen. Samtidig har det
+    skjedd ting både i kode og Figma. Her er høydepunktene.
+</Ingress>
+
+-   Vi har byttet om på plasseringen av piler i Accordion.
+-   Feedback-modulen sitt hovedspørsmål kan få en hjelpetekst.
+-   Et utkast til InputGroup i Figma ble "sendt ut på høring".
+-   Det samme ble et forslag til teknisk løsning for mer teknisk avanserte animasjoner.
+-   Ny validator for skjemainputs `hasNoIllegalCharacters`, for å luke ut spesialtegn.
+-   Den siste lenken i Breadcrumb oppfører seg visuelt som tekst for "pekerbrukere".
+-   Fallback-fonter på web er justerte til å ligne Fremtind Grotesk mest mulig.
+
+I tillegg bød oktober på en bukett med bugfikser, både i kode og i Figma.
+
+Minner om at du under [Projects på GitHub](https://github.com/orgs/fremtind/projects/22/views/3) kan se hva vi jobber med for tiden. Designere er kanskje interesserte i vår [dedikerte visning for visuelle endringer](https://github.com/orgs/fremtind/projects/22/views/1). Håpet er at det skal bli mer synlig hva vi driver med, og enklere å gi tilbakemelding underveis.
+
+## Byttet plassering av pila på Accordion
+
+_By popular demand_ blant annet på Designsystemforum har pila i Accordion blitt flyttet fra venstre til høyre, og fått justert padding noe. [Detaljene finner du på GitHub-issuet](https://github.com/fremtind/jokul/issues/3132).
+
+## Hjelpetekst i Feedback
+
+SeOpp-teamet fant behov for å legge til en hjelpetekst under hovedspørsmålet i Feedback-modulen, og Bjørne sørget for å [legge dette til i Jøkul](https://github.com/fremtind/jokul/pull/3211).
+
+![Skjermbilde som viser et spørsmål om hvor fornøyd en besøkende er med behandling av en sak. Under spørsmålet er det en skala med seks radioknapper listet horisontalt, med verdier fra 1 til 6. Hjelpetekst vises under radioknappene som forklarer at 1 er svært misfornøyd, og 6 er svært fornøyd.](/assets/blog/updates/oktober-2022/feedback-helplabel.png)
+
+## InputGroup
+
+Det jobbes med å lande en praktisk og fleksibel måte å tilby skjemakomponenter i Figma. Mange typer input skal ofte ha en label og hjelpetekst eller feilmelding, og skal ha en viss type spacing mellom de ulike delene.
+
+Diskusjonen har gått på [issuet på GitHub](https://github.com/fremtind/jokul/issues/3136) og på Designsystemforum, og Jøkul-teamet kom med et [forslag til løsning i midten av oktober](https://github.com/fremtind/jokul/issues/3136#issuecomment-1281875307). Løsning er ikke landet helt ennå, så involver deg gjerne i diskusjonen på issuet.
+
+## Animasjoner
+
+[Framer Motion](https://www.framer.com/motion/) har en tendens til å snike seg inn i Jøkul fra tid til annen, sist i Tooltip-komponenten. Det er et flott og kraftig verktøy, men med den ulempen at det er en [ganske stor avhengighet målt i antall kB](https://bundlephobia.com/package/framer-motion@7.6.2).
+
+For å redusere bundlestørrelsen til de som bruker Jøkul ønsker vi unngå Framer i komponentene, i hvertfall på sikt. Jøkul-teamet kom med et [forslag basert på React Transition Group og CSS-baserte animasjoner](https://github.com/fremtind/jokul/pull/3202) som kan gjøre jobben Framer gjør i dag. Forslaget legger opp til at vi kan få et voksende bibliotek med gjenbrukbare animasjoner.
+
+![Skjermopptak som viser Tooltip-animasjonen med ny teknologi. Lik den gamle, men mindre bundlestørrelse.](/assets/blog/updates/oktober-2022/unframer-tooltip.gif)
+
+## Ny validator
+
+Kenneth har lagt til en ny valideringsfunksjon i `@fremtind/jkl-validators-util`: `hasNoIllegalCharacters`. Denne kan du bruke i skjemaene dine for å luke ut spesialtegn som vi typisk bare ser om noen har pølsefingre eller uærlige hensikter.
+
+Listen over tegn som får validatoren til å feile finner du [i pull requesten](https://github.com/fremtind/jokul/pull/3206/files#diff-91d447ff118490d9474c09d5698525dfa96cd988ed5b5102114df29c1d0bcf8c).
+
+## Breadcrumb
+
+[Brødsmulestien har fått noen justeringer](https://github.com/fremtind/jokul/issues/3128) i kode som gjør implementasjonen lik den som er i Figma. Kort fortalt:
+
+-   Det siste elementet (nåværende side) ser ut som tekst.
+-   Teknisk sett er det en lenke, av hensyn til skjermlesere som får annonsert det som nåværende side.
+-   Tastaturbrukere får fremdeles fokus-ring.
+-   Lenken er klikkbar, men gir ingen visuell endring ved hover.
+
+## Justerte fallback-fonter
+
+Sidene våre bruker Fremtind Grotesk, men nye besøkende vil kunne få en kort periode med _fallback-font_ før vår egen font er lastet ned. Siden ingen to fonter er like vil det resultere i noe som heter [_cumulative layout shift_](https://web.dev/cls/) (CLS). Høyder og bredder på tekster vil være forskjellige, og dermed høyden og bredden på alle elementer på siden.
+
+Hvis vi har en stor CLS vil det gi et rotete og potensielt frustrerende førsteinntrykk dersom for eksempel en knapp brukeren var i ferd med å trykke på plutselig rykker opp eller ned på siden.
+
+For å redusere CLS justerte vi fallback-fonter med CSS i oktober. Effekten synes når vi sammenligner _før_ og _etter_, som i [videoene i denne kommentaren på GitHub](https://github.com/fremtind/jokul/pull/3186#issuecomment-1273226269). Forskjellen er best synlig lengst ned på siden siden den akkumulerte forskjellen blir større jo lenger ut i tekstinnholdet man kommer.
+
+## Diverse bugfikser og forbedringer
+
+### Figma
+
+-   Slot Components kan få bedre hint om bruk ([#3076](https://github.com/fremtind/jokul/issues/3076)).
+-   Visuell sjekk av det nye biblioteket ([#3094](https://github.com/fremtind/jokul/issues/3094)).
+-   Justerte paddinger i Button ([#3169](https://github.com/fremtind/jokul/issues/3169)).
+-   Refactor fokus-markering for Tab ([#3171](https://github.com/fremtind/jokul/issues/3171)).
+-   Fjern absolute position for Radio og Checkbox ([#3173](https://github.com/fremtind/jokul/issues/3173)).
+
+### GitHub
+
+-   Fjernet dobbel bunnstrek og avrundet kanter i søkbar Select uten treff ([#3111](https://github.com/fremtind/jokul/issues/3111)).
+-   Hver React-pakke har nå sitt eget `test`-script ([#3135](https://github.com/fremtind/jokul/issues/3135)).
+-   Tastaturbrukere får fokus flyttet til skip-links ved sidebytte ([#3138](https://github.com/fremtind/jokul/issues/3138)).
+-   TextArea som starter åpnet kan scrolles igjen ([#3140](https://github.com/fremtind/jokul/issues/3140)).
+-   Rettet en regresjon i Select hvor den kuttt toppen av valget når den åpnet for andre gang ([#3153](https://github.com/fremtind/jokul/issues/3153)).
+-   Rettet opp i annonsering av sidetittel som var ett steg bak ([#3155](https://github.com/fremtind/jokul/issues/3155)).
+-   Omtaler Comfortable som Default i eksemplene i portalen ([#3170](https://github.com/fremtind/jokul/issues/3170)).
+-   `useIntersectionObserver` kan nå se på flere elementer samtidig ([#3182](https://github.com/fremtind/jokul/issues/3182)).
+-   CookieConsent scroller ikke lenger vinduet til bunnen ([#3208](https://github.com/fremtind/jokul/pull/3208)).
+-   `00000000000` anses ikke lenger som et gyldig fødselsnummer ([#3210](https://github.com/fremtind/jokul/pull/3210)).
+
+## Takk
+
+Takk til alle bidragsytere, både på GitHub og i Figma!
+
+-   BjorneOma
+-   hegebjo
+-   kennidenni
+
+En stor takk også til alle som er med på designsystemforum!
