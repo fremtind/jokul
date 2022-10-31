@@ -17,3 +17,4 @@ cypress/videos
 .yarnrc
 .stylelintcache
 .turbo
+.nx

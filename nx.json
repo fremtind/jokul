@@ -1,0 +1,21 @@
+{
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "nx/tasks-runners/default",
+            "options": {
+                "cacheableOperations": ["build", "build:docs"],
+                "cacheDirectory": ".nx"
+            }
+        }
+    },
+    "targetDefaults": {
+        "build": {
+            "dependsOn": ["^build"],
+            "outputs": ["{projectRoot}/build", "{projectRoot}/*.css"]
+        },
+        "build:docs": {
+            "dependsOn": ["^build:docs"],
+            "outputs": ["{workspaceRoot}/portal/public", "{workspaceRoot}/portal/.cache"]
+        }
+    }
+}
