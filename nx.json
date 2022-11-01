@@ -14,7 +14,8 @@
             "outputs": ["{projectRoot}/build", "{projectRoot}/*.css"]
         },
         "build:docs": {
-            "dependsOn": ["^build:docs"],
+            "inputs": [{ "env": "PREVIEW_PATH" }],
+            "dependsOn": ["build"],
             "outputs": ["{workspaceRoot}/portal/public", "{workspaceRoot}/portal/.cache"]
         }
     }
