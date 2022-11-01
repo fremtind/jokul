@@ -6,7 +6,7 @@ on:
             - main
 ##
 # Sjekker først om det er endringer som krever grundigere test.
-# Bygger i så fall pakkene og cacher dem via turborepo.
+# Bygger i så fall pakkene og cacher dem via Nx.
 # Bygger så portalen dersom det er visuelle endringer og cacher på samme måte.
 # Cachen lastes ned av tre jobber: testlint, cypress og preview.
 # Førstnevnte kjører enhetstester, ESLint, og TypeScript typesjekk.
@@ -62,18 +62,18 @@ jobs:
               uses: actions/setup-node@v3
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               with:
-                  node-version: "lts/*"
+                  node-version: 16
                   cache: "yarn"
 
-            - name: Turbo Cache
+            - name: Monorepo Runner Cache
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               uses: actions/cache@v3
-              id: turbo-cache
+              id: nx-cache
               with:
-                  path: .turbo
-                  key: turbo-${{ github.ref_name }}-${{ github.sha }}
+                  path: .nx
+                  key: nx-${{ github.ref_name }}-${{ github.sha }}
                   restore-keys: |
-                      turbo-${{ github.ref_name }}-
+                      nx-${{ github.ref_name }}-
 
             - name: Install dependencies and build packages
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
@@ -97,17 +97,17 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "lts/*"
+                  node-version: 16
                   cache: "yarn"
 
-            - name: Turbo Cache
-              id: turbo-cache
+            - name: Monorepo Runner Cache
               uses: actions/cache@v3
+              id: nx-cache
               with:
-                  path: .turbo
-                  key: turbo-${{ github.ref_name }}-${{ github.sha }}
+                  path: .nx
+                  key: nx-${{ github.ref_name }}-${{ github.sha }}
                   restore-keys: |
-                      turbo-${{ github.ref_name }}-
+                      nx-${{ github.ref_name }}-
 
             - name: Install dependencies
               run: yarn ci:install
@@ -136,17 +136,23 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "lts/*"
+                  node-version: 16
                   cache: "yarn"
 
-            - name: Turbo Cache
-              id: turbo-cache
+            - name: Monorepo Runner Cache
               uses: actions/cache@v3
+              id: nx-cache
               with:
-                  path: .turbo
-                  key: turbo-${{ github.ref_name }}-${{ github.sha }}
+                  path: .nx
+                  key: nx-${{ github.ref_name }}-${{ github.sha }}
                   restore-keys: |
-                      turbo-${{ github.ref_name }}-
+                      nx-${{ github.ref_name }}-
+
+            - name: Build packages
+              run: yarn ci:install
+
+            - name: Build site
+              run: yarn build:docs
 
             - name: Calculate which tests to run
               id: parallel
@@ -161,7 +167,9 @@ jobs:
             - name: Run Cypress
               uses: cypress-io/github-action@v4
               with:
-                  install-command: yarn ci:install-cypress
+                  # We install packages above
+                  install: false
+                  node-version: 16
                   browser: chrome
                   start: yarn serve
                   wait-on: "http://localhost:9000"
@@ -295,17 +303,17 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "lts/*"
+                  node-version: 16
                   cache: "yarn"
 
-            - name: Turbo Cache
-              id: turbo-cache
+            - name: Monorepo Runner Cache
               uses: actions/cache@v3
+              id: nx-cache
               with:
-                  path: .turbo
-                  key: turbo-${{ github.ref_name }}-${{ github.sha }}
+                  path: .nx
+                  key: nx-${{ github.ref_name }}-${{ github.sha }}
                   restore-keys: |
-                      turbo-${{ github.ref_name }}-
+                      nx-${{ github.ref_name }}-
 
             - name: Install dependencies
               run: yarn ci:install
