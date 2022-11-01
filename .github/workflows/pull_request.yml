@@ -148,6 +148,12 @@ jobs:
                   restore-keys: |
                       nx-${{ github.ref_name }}-
 
+            - name: Build packages
+              run: yarn ci:install
+
+            - name: Build site
+              run: yarn build:docs
+
             - name: Calculate which tests to run
               id: parallel
               uses: outsideopen/cypress-e2e-parallel-test-action@11345a74b311e33022c365f421cf6c906518838b
@@ -161,7 +167,8 @@ jobs:
             - name: Run Cypress
               uses: cypress-io/github-action@v4
               with:
-                  install-command: yarn ci:install-cypress
+                  # We install packages above
+                  install: false
                   browser: chrome
                   start: yarn serve
                   wait-on: "http://localhost:9000"
