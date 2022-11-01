@@ -42,12 +42,14 @@ jobs:
                   yarn install --frozen-lockfile
                   yarn patch
 
-            - name: Turbo Cache
-              id: turbo-cache
+            - name: Monorepo Runner Cache
               uses: actions/cache@v3
+              id: nx-cache
               with:
-                  path: node_modules/.cache/turbo
-                  key: turbo-${{ hashFiles('**/package.json') }}
+                  path: .nx
+                  key: nx-${{ github.ref_name }}-${{ github.sha }}
+                  restore-keys: |
+                      nx-${{ github.ref_name }}-
 
             - name: Authenticate with Registry
               run: |

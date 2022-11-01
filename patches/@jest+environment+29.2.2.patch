@@ -1,8 +1,8 @@
 diff --git a/node_modules/@jest/environment/build/index.d.ts b/node_modules/@jest/environment/build/index.d.ts
-index 22a1c27..5ba16c8 100644
+index 2ee0410..ccca885 100644
 --- a/node_modules/@jest/environment/build/index.d.ts
 +++ b/node_modules/@jest/environment/build/index.d.ts
-@@ -331,6 +331,7 @@ export declare interface JestEnvironmentConfig {
+@@ -336,6 +336,7 @@ export declare interface JestEnvironmentConfig {
    globalConfig: Config.GlobalConfig;
  }
  
