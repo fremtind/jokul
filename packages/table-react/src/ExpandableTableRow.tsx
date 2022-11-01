@@ -18,7 +18,15 @@ export interface ExpandableTableRowProps extends TableRowProps {
 const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowProps>(
     ({ className, clickable, children, expandedChildren, onToggle, colSpan = 100, ...rest }, ref) => {
         const [isOpen, setIsOpen] = useState(false);
-        const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
+        const [hidden, setHidden] = useState(true);
+        const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, {
+            onTransitionEnd: (isOpen) => {
+                // Sett hidden til true når animasjonen er ferdig, dersom raden lukkes
+                if (!isOpen) {
+                    setHidden(true);
+                }
+            },
+        });
 
         const toggleOpen = () => {
             const newIsOpen = !isOpen;
@@ -27,16 +35,13 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
                 onToggle(newIsOpen);
             }
 
+            // Sett hidden til false dersom raden er i ferd med å åpnes
+            if (newIsOpen) {
+                setHidden(false);
+            }
+
             setIsOpen(newIsOpen);
         };
-
-        const tableRowClassName = cx("jkl-table-row--expandable", className, {
-            ["jkl-table-row--expanded"]: isOpen,
-            ["jkl-expandable-table-row--clickable-external"]: clickable,
-        });
-        const childWrapperClassName = cx("jkl-expandable-table-row__expanded-row", {
-            ["jkl-expandable-table-row__expanded-row--expanded"]: isOpen,
-        });
 
         const tableRowId = useId("jkl-expandable-table-row");
         const expandableTableRowControllerId = useId("jkl-expandable-table-row-controller");
@@ -44,7 +49,10 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
         return (
             <>
                 <TableRow
-                    className={tableRowClassName}
+                    className={cx("jkl-table-row--expandable", className, {
+                        ["jkl-table-row--expanded"]: isOpen,
+                        ["jkl-expandable-table-row--clickable-external"]: clickable,
+                    })}
                     clickable={
                         clickable ?? {
                             onClick: () => toggleOpen(),
@@ -72,12 +80,14 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
                 {/*
                 Use a table row with a single as wide as possible cell to contain content. This allows
                 using useAnimatedHeight to animate the row height.
-            */}
-                <tr aria-hidden={!isOpen}>
+                */}
+                <tr aria-hidden={!isOpen} hidden={hidden}>
                     <td colSpan={colSpan}>
                         <div
                             ref={animationRef}
-                            className={childWrapperClassName}
+                            className={cx("jkl-expandable-table-row__expanded-row", {
+                                ["jkl-expandable-table-row__expanded-row--expanded"]: isOpen,
+                            })}
                             id={tableRowId}
                             aria-labelledby={expandableTableRowControllerId}
                             hidden={!isOpen}

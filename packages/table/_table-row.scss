@@ -18,33 +18,51 @@ $_focus-ring-width: jkl.rem(2px);
 }
 
 .jkl-table-row {
-    border-bottom: solid $_border-size var(--jkl-table-row-border-color);
+    --jkl-table-row-border: #{solid $_border-size var(--jkl-table-row-border-color)};
+    --jkl-table-row-border--hovered: #{double $_border-size var(--jkl-table-row-hover-border-color)};
+
+    border-top: solid $_border-size transparent; // Unngår vertikal shift ved hover i collapsed mobilvisning
+    border-bottom: var(--jkl-table-row-border);
 
     thead > & {
-        border-bottom: solid $_border-size var(--jkl-table-row-hover-border-color);
+        border-bottom: var(--jkl-table-row-border--hovered);
     }
 
-    :not(thead) > & {
-        border-top: solid $_border-size transparent; // Unngår vertikal shift ved hover i collapsed mobilvisning
+    @mixin _hover-styles {
+        /*
+        * Det er viktig at hover her har double border style i motsetning til default,
+        * ellers vinner ikke border-top "spesifisitetskampen" i border-collapse.
+        * Så lenge bredden er 1 eller 2 piksler vil rammen fortsatt vises som én strek.
+        *
+        * https://stackoverflow.com/a/36239151
+        * https://stackoverflow.com/a/4096554
+        * https://www.w3.org/TR/CSS2/tables.html#border-conflict-resolution
+        */
+        border-bottom: var(--jkl-table-row-border--hovered);
+
+        &:not(:first-child) {
+            border-top: var(--jkl-table-row-border--hovered);
+        }
+    }
+
+    :not(thead) > &:hover {
+        @include _hover-styles;
+    }
+
+    /* Vis toppstrek på øverste rad når tabellheader ikke finnes eller er skjult */
+    thead[class*="sr-only"] + tbody > &:first-child, // Etter visuelt skjult header
+    :not(thead) + tbody > &:first-child, // Etter caption eller andre elementer
+    tbody:first-child > &:first-child,
+    .jkl-table-row--expandable ~ & {
+        border-top: var(--jkl-table-row-border);
 
         &:hover {
-            /*
-            * Det er viktig at hover her har double border style i motsetning til default,
-            * ellers vinner ikke border-top "spesifisitetskampen" i border-collapse.
-            * Under testing i Chrome, Firefox og Safari på macOS ble border fremdeles
-            * rendret som solid. ¯\_(ツ)_/¯
-            *
-            * https://stackoverflow.com/a/36239151
-            * https://stackoverflow.com/a/4096554
-            * https://www.w3.org/TR/CSS2/tables.html#border-conflict-resolution
-            */
-            border-top: double $_border-size var(--jkl-table-row-hover-border-color);
-            border-bottom: double $_border-size var(--jkl-table-row-hover-border-color);
+            border-top: var(--jkl-table-row-border--hovered);
         }
     }
 
     @mixin _responsive-table-head {
-        border-bottom: solid $_border-size var(--jkl-table-row-border-color);
+        border-bottom: var(--jkl-table-row-border--hovered);
     }
 
     .jkl-table--collapse-to-list > thead > & {
@@ -133,8 +151,7 @@ $_focus-ring-width: jkl.rem(2px);
             cursor: pointer;
             background-color: var(--jkl-table-row-highlight-color);
 
-            border-top: double $_border-size var(--jkl-table-row-hover-border-color);
-            border-bottom: double $_border-size var(--jkl-table-row-hover-border-color);
+            @include _hover-styles;
         }
 
         .jkl-table--collapse-to-list :not(thead) > &:hover {
@@ -174,6 +191,7 @@ $_focus-ring-width: jkl.rem(2px);
     display: none;
     @include jkl.motion("exit", "expressive");
     transition-property: height;
+    margin: -$_border-size 0; // Unngå dobbel linje mellom ekspandert rad og innhold
 
     &--expanded {
         @include jkl.motion("entrance", "lazy");
