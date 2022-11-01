@@ -510,6 +510,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "matrund",
+      "name": "Mathias Rundgreen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55445268?v=4",
+      "profile": "https://github.com/matrund",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -517,5 +526,6 @@
   "projectOwner": "fremtind",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": false
+  "skipCi": false,
+  "commitConvention": "angular"
 }
