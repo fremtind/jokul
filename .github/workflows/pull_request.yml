@@ -62,7 +62,7 @@ jobs:
               uses: actions/setup-node@v3
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               with:
-                  node-version: "lts/*"
+                  node-version: 16
                   cache: "yarn"
 
             - name: Monorepo Runner Cache
@@ -97,7 +97,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "lts/*"
+                  node-version: 16
                   cache: "yarn"
 
             - name: Monorepo Runner Cache
@@ -136,7 +136,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "lts/*"
+                  node-version: 16
                   cache: "yarn"
 
             - name: Monorepo Runner Cache
@@ -169,6 +169,7 @@ jobs:
               with:
                   # We install packages above
                   install: false
+                  node-version: 16
                   browser: chrome
                   start: yarn serve
                   wait-on: "http://localhost:9000"
@@ -302,7 +303,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "lts/*"
+                  node-version: 16
                   cache: "yarn"
 
             - name: Monorepo Runner Cache
