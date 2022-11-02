@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.3 (2022-11-02)
+
+### Bug Fixes
+
+-   **loader-react:** add missing className prop in SkeletonElement ([bae791f](https://github.com/fremtind/jokul/commit/bae791fff61e5a25fa741320061cfff3a6f36a09))
+
 # 10.0.0 (2022-10-07)
 
 ### Bug Fixes
