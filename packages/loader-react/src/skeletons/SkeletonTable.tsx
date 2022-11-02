@@ -6,7 +6,7 @@ export interface SkeletonTableProps extends Pick<HTMLProps<HTMLDivElement>, "sty
     className?: string;
     children: ReactNode;
     density?: Density;
-    width?: number;
+    width?: number | string;
 }
 
 export const SkeletonTable = ({ className, density, width, style, ...rest }: SkeletonTableProps) => {

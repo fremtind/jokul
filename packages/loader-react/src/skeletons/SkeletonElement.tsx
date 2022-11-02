@@ -4,8 +4,8 @@ import React, { HTMLProps } from "react";
 export interface SkeletonElementProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;
     shape?: "rect" | "circle";
-    width: number;
-    height: number;
+    width: number | string;
+    height: number | string;
 }
 
 export const SkeletonElement = ({ shape = "rect", width, height, style, ...rest }: SkeletonElementProps) => {
