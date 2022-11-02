@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader-react@10.0.3...@fremtind/jkl-loader-react@10.0.4) (2022-11-02)
+
+### Bug Fixes
+
+-   **loader-react:** size props can also be string to allow percent values ([d961f48](https://github.com/fremtind/jokul/commit/d961f4869bfc14f902129dd061cdd94fad6568fe))
+
 ## 10.0.3 (2022-11-02)
 
 ### Bug Fixes
