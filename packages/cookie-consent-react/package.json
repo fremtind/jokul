@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-cookie-consent-react",
-    "version": "7.0.8",
+    "version": "7.0.9",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button-react": "^12.0.7",
+        "@fremtind/jkl-button-react": "^12.0.8",
         "@fremtind/jkl-cookie-consent": "^9.0.4",
         "@fremtind/jkl-list-react": "^8.0.5",
         "@fremtind/jkl-react-hooks": "^10.2.1",
