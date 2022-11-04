@@ -658,6 +658,7 @@ importers:
 
   packages/select-react:
     specifiers:
+      '@fremtind/jkl-accordion-react': ^8.0.7
       '@fremtind/jkl-core': ^11.1.0
       '@fremtind/jkl-react-hooks': ^10.2.1
       '@fremtind/jkl-select': ^9.2.1
@@ -667,6 +668,8 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-select': link:../select
       classnames: 2.3.2
+    devDependencies:
+      '@fremtind/jkl-accordion-react': link:../accordion-react
 
   packages/stylelint-config-jkl:
     specifiers:

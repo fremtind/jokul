@@ -45,6 +45,9 @@
         "@fremtind/jkl-select": "^9.2.1",
         "classnames": "^2.2.6"
     },
+    "devDependencies": {
+        "@fremtind/jkl-accordion-react": "^8.0.7"
+    },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
         "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
