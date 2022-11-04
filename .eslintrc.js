@@ -29,6 +29,7 @@ module.exports = {
         "prettier/prettier": "error",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
+        "import/no-unresolved": "off",
         "import/order": [
             "error",
             {
