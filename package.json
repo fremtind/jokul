@@ -12,7 +12,7 @@
         "deploy:docs": "gh-pages -f --no-history --remove '[\".\", \"!preview\"]' --dist portal/public",
         "typecheck": "tsc --noEmit",
         "linker": "node scripts/linker.js",
-        "lint": "run-p lint:eslint lint:stylelint",
+        "lint": "run-p \"lint:eslint\" \"lint:stylelint\"",
         "lint:eslint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "lint:stylelint": "stylelint --config=packages/stylelint-config-jkl/index.js '**/*.scss'",
         "lint:fix": "pnpm lint:eslint --fix && pnpm lint:stylelint --fix",
@@ -145,11 +145,6 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-lerna-changelog"
-        }
-    },
     "lint-staged": {
         "*.{scss,css,html,json,md,mdx}": [
             "prettier --write"
