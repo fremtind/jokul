@@ -41,6 +41,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
+        "@fremtind/jkl-core": "^11.1.0",
         "@fremtind/jkl-button": "^9.0.3",
         "@fremtind/jkl-icons-react": "^6.0.4",
         "@fremtind/jkl-loader-react": "^10.0.4",

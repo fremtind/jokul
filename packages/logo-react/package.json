@@ -38,6 +38,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
+        "@fremtind/jkl-core": "^11.1.0",
         "@fremtind/jkl-logo": "^9.0.3",
         "@fremtind/jkl-react-hooks": "^10.2.1",
         "classnames": "^2.2.6"
