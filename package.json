@@ -145,11 +145,6 @@
     "browserslist": [
         "extends @fremtind/browserslist-config-jkl"
     ],
-    "workspaces": [
-        "actions/*",
-        "packages/*",
-        "portal"
-    ],
     "config": {
         "commitizen": {
             "path": "./node_modules/cz-lerna-changelog"
