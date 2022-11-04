@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/cooki
 
 **Tips:** [stilpakken](../cookie-consent/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-cookie-consent-react` eller `npm i @fremtind/jkl-cookie-consent-react`.
+1. `npm i @fremtind/jkl-cookie-consent-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

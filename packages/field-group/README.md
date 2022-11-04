@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/field
 
 **Tips:** om du bruker [React-pakken](../field-group-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-field-group` eller `npm i @fremtind/jkl-field-group`.
+1. `npm i @fremtind/jkl-field-group`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

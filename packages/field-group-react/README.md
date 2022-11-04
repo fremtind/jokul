@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/field
 
 **Tips:** [stilpakken](../field-group/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-field-group-react` eller `npm i @fremtind/jkl-field-group-react`.
+1. `npm i @fremtind/jkl-field-group-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

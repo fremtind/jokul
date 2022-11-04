@@ -6,4 +6,4 @@
 
 -   [ ] Nye features er dokumentert (sjekk [Contributing](https://github.com/fremtind/jokul/blob/main/CONTRIBUTING.md) om du er usikker på hva som trengs av dokumentasjon)
 -   [ ] Testet [responsivitet](https://jokul.fremtind.no/universell-utforming/responsivt-design) og [UU](https://jokul.fremtind.no/universell-utforming/testguide) ([tastaturnavigasjon](https://jokul.fremtind.no/universell-utforming/tastatur), [skjermleser](https://jokul.fremtind.no/universell-utforming/skjermleser))
--   [ ] `yarn build` og `yarn ci:test` gir ingen feil
+-   [ ] `pnpm build` og `pnpm ci:test` gir ingen feil

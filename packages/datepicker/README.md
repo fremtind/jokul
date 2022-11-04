@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/datep
 
 **Tips:** om du bruker [React-pakken](../datepicker-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-datepicker` eller `npm i @fremtind/jkl-datepicker`.
+1. `npm i @fremtind/jkl-datepicker`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

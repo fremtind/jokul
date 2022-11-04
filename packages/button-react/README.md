@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/butto
 
 **Tips:** [stilpakken](../button/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-button-react` eller `npm i @fremtind/jkl-button-react`.
+1. `npm i @fremtind/jkl-button-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

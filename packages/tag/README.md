@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/tag).
 
 **Tips:** Om du bruker [React-pakken](../tag-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-tag` eller `npm i @fremtind/jkl-tag`.
+1. `npm i @fremtind/jkl-tag`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

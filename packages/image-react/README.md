@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/image
 
 **Tips:** [stilpakken](../image/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-image-react` eller `npm i @fremtind/jkl-image-react`.
+1. `npm i @fremtind/jkl-image-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

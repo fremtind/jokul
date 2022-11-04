@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/texti
 
 **Tips:** [stilpakken](../text-input/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-text-input-react` eller `npm i @fremtind/jkl-text-input-react`.
+1. `npm i @fremtind/jkl-text-input-react`.
 2. Importer _både_ React-pakken (velg komponenten(e) du trenger) og stil-pakken i prosjektet ditt:
 
 ```js

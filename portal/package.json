@@ -81,7 +81,7 @@
         "build:docs": "gatsby build",
         "build:test": "gatsby build && gatsby serve",
         "dev": "gatsby develop --host 0.0.0.0",
-        "start": "yarn dev",
+        "start": "pnpm dev",
         "serve": "gatsby serve"
     },
     "repository": {

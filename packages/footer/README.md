@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/foote
 
 **Tips:** om du bruker [React-pakken](../footer-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-footer` eller `npm i @fremtind/jkl-footer`.
+1. `npm i @fremtind/jkl-footer`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

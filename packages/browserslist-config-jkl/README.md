@@ -7,8 +7,7 @@ Om konfigurasjonen _ikke passer_ til ditt bruk bør det være et tegn på at det
 ## Installasjon
 
 ```bash
-$ npm i --save-dev @fremtind/browserslist-config-jkl
-$ yarn add -D @fremtind/browserslist-config-jkl
+npm i @fremtind/browserslist-config-jkl
 ```
 
 ## Bruk
