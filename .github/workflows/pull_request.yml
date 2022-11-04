@@ -58,6 +58,12 @@ jobs:
                       preview:
                         - "portal/src/texts/**"
 
+            - name: Setup pnpm
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
+
             - name: Setup Node
               uses: actions/setup-node@v3
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
@@ -93,6 +99,11 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v3
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
 
             - name: Setup Node
               uses: actions/setup-node@v3
@@ -132,6 +143,11 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v3
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
 
             - name: Setup Node
               uses: actions/setup-node@v3
@@ -299,6 +315,11 @@ jobs:
               uses: actions/checkout@v3
               with:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
 
             - name: Setup Node
               uses: actions/setup-node@v3
