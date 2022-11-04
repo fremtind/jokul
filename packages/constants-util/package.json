@@ -21,6 +21,9 @@
     "files": [
         "build"
     ],
+    "devDependencies": {
+        "@fremtind/jkl-core": "^11.1.0"
+    },
     "scripts": {
         "clean": "rimraf .turbo/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",

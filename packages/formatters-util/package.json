@@ -41,6 +41,8 @@
         "@fremtind/jkl-core": "^11.1.0"
     },
     "devDependencies": {
+        "@fremtind/jkl-button": "^9.0.3",
+        "@fremtind/jkl-text-input": "^9.1.6",
         "react-hook-form": "^7.34.0"
     },
     "peerDependencies": {
