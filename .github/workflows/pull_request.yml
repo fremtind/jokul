@@ -194,8 +194,8 @@ jobs:
                   group: ${{ matrix.group }}
                   groups: ${{ matrix.groups }}
                   test-pattern: |
-                      packages/**/*.spec.js
-                      portal/**/*.spec.js
+                      packages/*/integration/**/*.spec.js
+                      portal/integration/**/*.spec.js
 
             - name: Run Cypress
               uses: cypress-io/github-action@v4
