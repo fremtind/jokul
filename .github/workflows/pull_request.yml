@@ -75,7 +75,7 @@ jobs:
               uses: actions/cache@v3
               id: cypress-cache
               with:
-                  path: "~/.cache/Cypress"
+                  path: "/home/runner/setup-pnpm/.cache/Cypress"
                   key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
 
             - name: Monorepo Runner Cache
@@ -166,7 +166,7 @@ jobs:
               uses: actions/cache@v3
               id: cypress-cache
               with:
-                  path: "~/.cache/Cypress"
+                  path: "/home/runner/setup-pnpm/.cache/Cypress"
                   key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
 
             - name: Monorepo Runner Cache
@@ -180,6 +180,9 @@ jobs:
 
             - name: Build packages
               run: pnpm ci:install
+
+            - name: Cypress binary install
+              run: pnpm cypress install
 
             - name: Build site
               run: pnpm build:docs
