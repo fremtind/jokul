@@ -53,6 +53,7 @@
         "match-sorter": "^6.3.0"
     },
     "devDependencies": {
+        "@fremtind/jkl-internal-doc-utils": "^1.0.0",
         "@types/match-sorter": "^6.0.0"
     },
     "peerDependencies": {

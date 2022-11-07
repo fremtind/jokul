@@ -46,7 +46,8 @@
         "framer-motion": "^7.0.0"
     },
     "devDependencies": {
-        "@fremtind/jkl-constants-util": "^1.0.2"
+        "@fremtind/jkl-constants-util": "^1.0.2",
+        "@fremtind/jkl-internal-doc-utils": "^1.0.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

@@ -7,7 +7,7 @@ import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
-import { BoolProp, ExampleComponentProps } from "../../../../doc-utils";
+import { BoolProp, ExampleComponentProps } from "../@fremtind/jkl-internal-doc-utils";
 
 export const formComponentsExampleBoolProps: BoolProp[] = [
     { prop: "Radioknapper", defaultValue: true },

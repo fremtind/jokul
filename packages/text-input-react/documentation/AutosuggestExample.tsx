@@ -1,5 +1,5 @@
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { useState } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Autosuggest } from "../src";
 
 export const autosuggestExampleKnobs: ExampleKnobsProps = {

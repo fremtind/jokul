@@ -1,5 +1,5 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC, useState } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Tag, InfoTag, SuccessTag, WarningTag, ErrorTag } from "../src";
 
 export const tagExampleKnobs: ExampleKnobsProps = {

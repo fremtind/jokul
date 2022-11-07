@@ -1,6 +1,6 @@
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import React from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Accordion, AccordionItem } from "../src";
 
 export const accordionExampleKnobs: ExampleKnobsProps = {};

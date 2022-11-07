@@ -1,6 +1,6 @@
 import { NavLink } from "@fremtind/jkl-core";
+import { ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { useState } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage } from "../src";
 
 export const alertMessageKnobs: ExampleKnobsProps = {

@@ -47,6 +47,9 @@
         "classnames": "^2.2.6",
         "react-a11y-dialog": "^6.1.5"
     },
+    "devDependencies": {
+        "@fremtind/jkl-internal-doc-utils": "^1.0.0"
+    },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
         "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",

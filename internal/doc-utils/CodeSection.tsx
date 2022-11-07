@@ -1,6 +1,6 @@
+import { WithChildren } from "@fremtind/jkl-core";
+import { ExpandSection } from "@fremtind/jkl-expand-button-react";
 import React, { useState, FC } from "react";
-import { WithChildren } from "../packages/core";
-import { ExpandSection } from "../packages/expand-button-react";
 
 export interface CodeSectionProps extends WithChildren {
     className?: string;

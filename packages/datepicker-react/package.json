@@ -48,6 +48,7 @@
         "date-fns": "^2.0.0"
     },
     "devDependencies": {
+        "@fremtind/jkl-internal-doc-utils": "^1.0.0",
         "@jest/globals": "^29.2.2"
     },
     "peerDependencies": {

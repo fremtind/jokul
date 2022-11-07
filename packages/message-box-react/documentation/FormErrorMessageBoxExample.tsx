@@ -1,5 +1,5 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { FormErrorMessageBox } from "../src";
 
 export const formErrorMessageBoxKnobs: ExampleKnobsProps = {

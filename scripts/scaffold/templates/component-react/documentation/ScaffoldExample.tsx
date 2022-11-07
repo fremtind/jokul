@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "@fremtind/jkl-internal-doc-utils";
 import { Scaffold } from "../src";
 
 export const scaffoldExampleKnobs: ExampleKnobsProps = {};

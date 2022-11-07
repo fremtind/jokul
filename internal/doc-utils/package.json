@@ -1,0 +1,30 @@
+{
+    "name": "@fremtind/jkl-internal-doc-utils",
+    "private": true,
+    "description": "Documentation utils for internal use in Jøkul",
+    "version": "1.0.0",
+    "license": "MIT",
+    "files": [
+        "**/*.tsx",
+        "**/*.ts",
+        "**/*.scss"
+    ],
+    "scripts": {},
+    "dependencies": {
+        "@fremtind/jkl-checkbox-react": "^8.0.6",
+        "@fremtind/jkl-core": "^11.1.0",
+        "@fremtind/jkl-expand-button-react": "^4.0.7",
+        "@fremtind/jkl-field-group-react": "^7.0.7",
+        "@fremtind/jkl-icons-react": "^6.0.4",
+        "@fremtind/jkl-radio-button-react": "^8.0.7",
+        "@fremtind/jkl-react-hooks": "^10.2.1",
+        "@fremtind/jkl-select-react": "^11.2.6",
+        "@fremtind/jkl-webfonts": "^2.1.0",
+        "@sindresorhus/slugify": "^1.1.2",
+        "express": "^4.18.1",
+        "get-port": "^6.1.2"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.13"
+    }
+}

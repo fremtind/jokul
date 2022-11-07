@@ -1,6 +1,6 @@
 import { NON_BREAKING_SPACE } from "@fremtind/jkl-constants-util/src/unicode";
+import { ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { formatValuta } from "../../formatters-util/src";
 import { Placement, Tooltip } from "../src";
 

@@ -1,6 +1,6 @@
 import { TertiaryButton } from "@fremtind/jkl-button-react";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { useEffect, useState, FC } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
 import { useCookieConsentState } from "../src/CookieConsentContext";
 import { setConsentCookie } from "../src/cookieConsentUtils";

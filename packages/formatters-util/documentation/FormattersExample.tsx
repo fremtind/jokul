@@ -1,5 +1,5 @@
+import { ExampleComponentProps, CodeExample } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
-import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
 import { DescriptionList, DescriptionTerm, DescriptionDetail } from "../../description-list-react/src";
 import {
     formatAvstand,

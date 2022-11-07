@@ -1,5 +1,5 @@
+import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
-import { DevExample } from "../../../doc-utils";
 import { FieldGroupExample, fieldGroupExampleCode, fieldGroupExampleKnobs } from "./FieldGroupExample";
 import "../../field-group/field-group.scss";
 

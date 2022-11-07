@@ -1,5 +1,5 @@
+import { CodeExample, ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { useState } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { ArrowUpRight, ArrowUp, ArrowDown, ArrowRight, ArrowLeft } from "../src";
 import { IconVariant } from "../src/icons/types";
 import { IconExample } from "./internal/IconExample";

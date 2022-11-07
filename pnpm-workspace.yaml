@@ -1,4 +1,5 @@
 packages:
     - "actions/*"
+    - "internal/*"
     - "packages/*"
     - "portal"

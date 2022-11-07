@@ -1,5 +1,5 @@
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { LogoStamp } from "../src";
 import * as logoStampTextPaths from "../src/text-paths";
 import "./LogoExample.scss";

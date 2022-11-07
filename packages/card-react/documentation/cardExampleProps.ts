@@ -1,4 +1,4 @@
-import { ExampleKnobsProps } from "../../../doc-utils";
+import { ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import { PaddingShorthand } from "../src/types";
 
 export const baseCardExampleProps = {

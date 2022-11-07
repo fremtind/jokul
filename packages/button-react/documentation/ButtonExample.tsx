@@ -1,5 +1,5 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Primary } from "./Primary";
 import { Secondary } from "./Secondary";
 import { Tertiary } from "./Tertiary";

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../doc-utils";
 import { NavLink } from "../../src";
+import { ExampleComponentProps, ExampleKnobsProps } from "../@fremtind/jkl-internal-doc-utils";
 
 export const navLinkExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Aktiv", "Back"],

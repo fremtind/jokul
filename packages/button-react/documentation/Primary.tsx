@@ -1,5 +1,5 @@
+import { ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { useState } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
 import { PrimaryButton } from "../src";
 
 export const Primary: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {

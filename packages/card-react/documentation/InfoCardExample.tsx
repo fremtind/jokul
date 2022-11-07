@@ -1,6 +1,6 @@
 import { unicode } from "@fremtind/jkl-constants-util";
+import { ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
 import { InfoCard } from "../src/InfoCard";
 import { mixedPadding } from "./cardExampleProps";
 import car1200 from "./img/car-1200.jpg";

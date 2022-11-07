@@ -1,6 +1,6 @@
+import { ExampleComponentProps, CodeExample } from "@fremtind/jkl-internal-doc-utils";
 import React, { Fragment, useState, FC } from "react";
 import { useForm } from "react-hook-form";
-import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
 import { PrimaryButton } from "../../../packages/button-react/src";
 import { DescriptionList, DescriptionTerm, DescriptionDetail } from "../../../packages/description-list-react/src";
 import { TextInput } from "../../../packages/text-input-react/src";

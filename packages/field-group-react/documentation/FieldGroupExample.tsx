@@ -1,6 +1,6 @@
 import { LabelVariant } from "@fremtind/jkl-core";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { FieldGroup } from "../src/index";
 
 export const fieldGroupExampleKnobs: ExampleKnobsProps = {

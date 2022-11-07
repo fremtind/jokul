@@ -1,5 +1,5 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { DataTable } from "../src";
 
 export const dataTableExampleKnobs: ExampleKnobsProps = {

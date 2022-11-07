@@ -1,5 +1,5 @@
+import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
-import { DevExample } from "../../../doc-utils";
 import { TooltipExample, tooltipExampleCode, tooltipExampleKnobs } from "./TooltipExample";
 import "../../tooltip/tooltip.scss";
 

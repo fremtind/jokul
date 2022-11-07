@@ -1,5 +1,5 @@
+import { CodeExample, ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { useState } from "react";
-import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import {
     Close,
     CheckMark,

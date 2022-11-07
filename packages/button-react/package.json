@@ -49,6 +49,7 @@
         "classnames": "^2.2.6"
     },
     "devDependencies": {
+        "@fremtind/jkl-internal-doc-utils": "^1.0.0",
         "@fremtind/jkl-toggle-switch-react": "^10.0.6"
     },
     "peerDependencies": {

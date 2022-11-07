@@ -1,6 +1,6 @@
 import { LabelVariant } from "@fremtind/jkl-core";
+import { ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
 import { RadioButtonGroup, RadioButton } from "../src";
 
 export const RadioButtonInputRequiredExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {

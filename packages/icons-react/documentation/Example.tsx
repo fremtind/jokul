@@ -1,5 +1,5 @@
+import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
-import { DevExample } from "../../../doc-utils";
 import { AnimatedIconsExample, choiceProps as animatedIconsChoiceProps } from "./AnimatedIconsExample";
 import { IconsExample, choiceProps as iconsChoiceProps } from "./IconsExample";
 import "../../icons/animated-icons.scss";

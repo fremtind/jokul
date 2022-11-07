@@ -1,5 +1,5 @@
+import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
-import { DevExample } from "../../../doc-utils";
 import { DatepickerExample, datepickerExampleKnobs, datepickerExampleCode } from "./DatepickerExample";
 import "../../core/core.scss";
 import "../../datepicker/datepicker.scss";

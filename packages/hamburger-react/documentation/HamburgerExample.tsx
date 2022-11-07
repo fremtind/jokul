@@ -1,5 +1,5 @@
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC, useState } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Hamburger } from "../src";
 
 export const hamburgerExampleKnobs: ExampleKnobsProps = {

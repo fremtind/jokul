@@ -1,5 +1,5 @@
+import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
-import { DevExample } from "../../../doc-utils";
 import { RadioButtonExample, radioButtonExampleCode, radioButtonExampleKnobs } from "./RadioButtonExample";
 import "../../radio-button/radio-button.scss";
 
