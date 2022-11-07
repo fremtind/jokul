@@ -82,7 +82,7 @@ jobs:
                         - "**/*.ts"
                         - "**/*.tsx"
                         - "portal/static/**"
-                        - "pnpm.lock"
+                        - "pnpm-lock.yaml"
 
             - name: Publish packages to NPM
               if: steps.lerna_changed.outcome == 'success' # only run if there are changes to publish
