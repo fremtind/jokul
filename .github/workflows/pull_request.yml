@@ -75,7 +75,7 @@ jobs:
               uses: actions/cache@v3
               id: cypress-cache
               with:
-                  path: "/home/runner/setup-pnpm/.cache/Cypress"
+                  path: /home/runner/.cache/Cypress
                   key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
 
             - name: Monorepo Runner Cache
@@ -91,6 +91,13 @@ jobs:
             - name: Install dependencies and build packages
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               run: pnpm ci:install
+
+            - name: Cypress binary install
+              run: pnpm cypress install
+
+            # Installeringen printer ikke hvor den ligger første gang, men gjør det på n+1
+            - name: Cypress binary install debug
+              run: pnpm cypress install
 
             - name: Build site
               if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
@@ -166,7 +173,7 @@ jobs:
               uses: actions/cache@v3
               id: cypress-cache
               with:
-                  path: "/home/runner/setup-pnpm/.cache/Cypress"
+                  path: /home/runner/.cache/Cypress
                   key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
 
             - name: Monorepo Runner Cache
@@ -180,13 +187,6 @@ jobs:
 
             - name: Build packages
               run: pnpm ci:install
-
-            - name: Cypress binary install
-              run: pnpm cypress install
-
-            # Installeringen printer ikke hvor den ligger første gang, men gjør det på n+1
-            - name: Cypress binary install debug
-              run: pnpm cypress install
 
             - name: Build site
               run: pnpm build:docs
