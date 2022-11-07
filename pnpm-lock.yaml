@@ -201,6 +201,7 @@ importers:
     specifiers:
       '@fremtind/jkl-accordion': ^9.0.0
       '@fremtind/jkl-core': ^11.1.0
+      '@fremtind/jkl-list-react': ^8.0.5
       '@fremtind/jkl-react-hooks': ^10.2.1
       classnames: ^2.2.6
     dependencies:
@@ -208,6 +209,8 @@ importers:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
+    devDependencies:
+      '@fremtind/jkl-list-react': link:../list-react
 
   packages/alert-message:
     specifiers:
@@ -282,6 +285,7 @@ importers:
     specifiers:
       '@fremtind/jkl-button-react': ^12.0.9
       '@fremtind/jkl-card': ^7.0.4
+      '@fremtind/jkl-constants-util': ^1.0.2
       '@fremtind/jkl-core': ^11.1.0
       '@fremtind/jkl-image-react': ^4.0.6
       '@fremtind/jkl-tag-react': ^3.0.8
@@ -293,6 +297,8 @@ importers:
       '@fremtind/jkl-image-react': link:../image-react
       '@fremtind/jkl-tag-react': link:../tag-react
       classnames: 2.3.2
+    devDependencies:
+      '@fremtind/jkl-constants-util': link:../constants-util
 
   packages/checkbox:
     specifiers:
@@ -304,6 +310,7 @@ importers:
     specifiers:
       '@fremtind/jkl-checkbox': ^8.0.3
       '@fremtind/jkl-core': ^11.1.0
+      '@fremtind/jkl-field-group-react': ^7.0.7
       '@fremtind/jkl-react-hooks': ^10.2.1
       classnames: ^2.2.6
     dependencies:
@@ -311,12 +318,16 @@ importers:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
+    devDependencies:
+      '@fremtind/jkl-field-group-react': link:../field-group-react
 
   packages/constants-util:
     specifiers:
       '@fremtind/jkl-core': ^11.1.0
+      '@fremtind/jkl-table-react': ^9.0.8
     devDependencies:
       '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-table-react': link:../table-react
 
   packages/content-toggle:
     specifiers:
@@ -382,6 +393,7 @@ importers:
       '@fremtind/jkl-react-hooks': ^10.2.1
       '@fremtind/jkl-select-react': ^11.2.6
       '@fremtind/jkl-text-input-react': ^11.1.11
+      '@jest/globals': ^29.2.2
       classnames: ^2.2.6
       date-fns: ^2.0.0
     dependencies:
@@ -393,6 +405,8 @@ importers:
       '@fremtind/jkl-text-input-react': link:../text-input-react
       classnames: 2.3.2
       date-fns: 2.29.3
+    devDependencies:
+      '@jest/globals': 29.2.2
 
   packages/description-list:
     specifiers:
@@ -838,6 +852,7 @@ importers:
     specifiers:
       '@floating-ui/react-dom': ^1.0.0
       '@floating-ui/react-dom-interactions': ^0.10.1
+      '@fremtind/jkl-constants-util': ^1.0.2
       '@fremtind/jkl-core': ^11.1.0
       '@fremtind/jkl-tooltip': ^1.0.1
       classnames: ^2.2.6
@@ -849,6 +864,8 @@ importers:
       '@fremtind/jkl-tooltip': link:../tooltip
       classnames: 2.3.2
       framer-motion: 7.6.4
+    devDependencies:
+      '@fremtind/jkl-constants-util': link:../constants-util
 
   packages/validators-util:
     specifiers: {}
