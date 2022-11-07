@@ -80,7 +80,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf .turbo/ .cache/ public/",
+        "clean": "rimraf node_modules/ .cache/ public/",
         "clean:portal": "gatsby clean",
         "build:docs": "gatsby build",
         "build:test": "gatsby build && gatsby serve",

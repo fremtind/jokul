@@ -27,7 +27,7 @@
         "lib": "build"
     },
     "scripts": {
-        "clean": "rimraf .turbo/ build/ node_modules/ **/*.css",
+        "clean": "rimraf node_modules/ build/ node_modules/ **/*.css",
         "build": "run-s build:*",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",

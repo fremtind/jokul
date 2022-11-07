@@ -17,7 +17,7 @@
         "rules/"
     ],
     "scripts": {
-        "clean": "rimraf .turbo/ node_modules/ .stylelintcache",
+        "clean": "rimraf node_modules/ node_modules/ .stylelintcache",
         "lint": "stylelint --config=index.js 'examples/**/*.{css,scss,sass}' --cache",
         "test": "npm run lint"
     },
