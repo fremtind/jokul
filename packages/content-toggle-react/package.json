@@ -39,7 +39,8 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^11.1.0",
-        "@fremtind/jkl-content-toggle": "^4.0.3"
+        "@fremtind/jkl-content-toggle": "^4.0.3",
+        "classnames": "^2.2.6"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

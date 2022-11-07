@@ -39,7 +39,8 @@
         "@fremtind/jkl-core": "^11.1.0",
         "@fremtind/jkl-footer": "^3.0.3",
         "@fremtind/jkl-formatters-util": "^3.0.3",
-        "@fremtind/jkl-logo-react": "^11.0.6"
+        "@fremtind/jkl-logo-react": "^11.0.6",
+        "classnames": "^2.2.6"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

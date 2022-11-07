@@ -40,7 +40,8 @@
     "dependencies": {
         "@fremtind/jkl-core": "^11.1.0",
         "@fremtind/jkl-icon-button-react": "^2.0.7",
-        "@fremtind/jkl-tag": "^3.0.3"
+        "@fremtind/jkl-tag": "^3.0.3",
+        "classnames": "^2.2.6"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
