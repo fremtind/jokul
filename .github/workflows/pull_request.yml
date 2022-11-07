@@ -184,6 +184,10 @@ jobs:
             - name: Cypress binary install
               run: pnpm cypress install
 
+            # Installeringen printer ikke hvor den ligger første gang, men gjør det på n+1
+            - name: Cypress binary install debug
+              run: pnpm cypress install
+
             - name: Build site
               run: pnpm build:docs
 
