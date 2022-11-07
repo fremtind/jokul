@@ -56,9 +56,10 @@ $_focus-ring-width: jkl.rem(2px);
         transition-property: border-color, color;
         height: var(--jkl-tooltip-size);
         width: var(--jkl-tooltip-size);
+        padding: 0;
         background-color: transparent;
         border: $_tooltip-border-width solid var(--jkl-tooltip-button-color);
-        border-radius: 50%;
+        border-radius: 9999px;
         color: var(--jkl-tooltip-button-color);
         cursor: pointer;
         position: relative;
@@ -73,7 +74,7 @@ $_focus-ring-width: jkl.rem(2px);
             right: -($_tooltip-border-width + $_focus-ring-distance);
             bottom: -($_tooltip-border-width + $_focus-ring-distance);
             left: -($_tooltip-border-width + $_focus-ring-distance);
-            border-radius: 50%;
+            border-radius: 9999px;
             box-shadow: 0 0 0 $_focus-ring-width transparent;
         }
 
