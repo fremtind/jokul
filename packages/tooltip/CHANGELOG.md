@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.2 (2022-11-07)
+
+### Bug Fixes
+
+-   sørg for at toltip-ikonet ikke strekkes i Safari Mobile ([8f9613a](https://github.com/fremtind/jokul/commit/8f9613a6ee605364a323b41d77a72c09a26f0c15)), closes [#3223](https://github.com/fremtind/jokul/issues/3223)
+
 # 1.0.0 (2022-09-28)
 
 ### Bug Fixes
