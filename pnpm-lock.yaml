@@ -8,6 +8,7 @@ overrides:
   diff2html>merge: ^2.1.1
   gatsby>multer: v1.4.5-lts.1
   got: ^11.8.5
+  graphql-compose: 9.0.4
   parse-url: ^8.1.0
   unidiff>diff: ^3.5.0
   ansi-html: ^0.0.9
@@ -47,6 +48,7 @@ importers:
       '@types/react-dom': ^18.0.6
       '@types/react-syntax-highlighter': ^15.5.4
       '@types/sass': ^1.43.1
+      '@types/testing-library__jest-dom': ^5.14.5
       '@typescript-eslint/eslint-plugin': ^5.33.0
       '@typescript-eslint/parser': ^5.33.0
       autoprefixer: ^10.4.8
@@ -123,6 +125,7 @@ importers:
       '@types/react-dom': 18.0.8
       '@types/react-syntax-highlighter': 15.5.5
       '@types/sass': 1.43.1
+      '@types/testing-library__jest-dom': 5.14.5
       '@typescript-eslint/eslint-plugin': 5.42.0_6xw5wg2354iw4zujk2f3vyfrzu
       '@typescript-eslint/parser': 5.42.0_wyqvi574yv7oiwfeinomdzmc3m
       autoprefixer: 10.4.13_postcss@8.4.18
@@ -994,7 +997,7 @@ packages:
     dev: false
 
   /@actions/http-client/2.0.1:
-    resolution: {integrity: sha512-PIXiMVtz6VvyaRsGY268qvj57hXQEpsYogYOu2nrQhlf+XCGmZstmuZBbAybUl1nQGnvS1k1eEsQ69ZoD7xlSw==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-PIXiMVtz6VvyaRsGY268qvj57hXQEpsYogYOu2nrQhlf+XCGmZstmuZBbAybUl1nQGnvS1k1eEsQ69ZoD7xlSw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@actions/http-client/-/http-client-2.0.1.tgz}
     dependencies:
       tunnel: 0.0.6
     dev: false
@@ -5533,7 +5536,7 @@ packages:
     dev: true
 
   /@types/braces/3.0.1:
-    resolution: {integrity: sha512-+euflG6ygo4bn0JHtn4pYqcXwRtLvElQ7/nnjDu7iYG56H0+OhCd7d6Ug0IE3WcFpZozBKW2+80FUbv5QGk5AQ==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-+euflG6ygo4bn0JHtn4pYqcXwRtLvElQ7/nnjDu7iYG56H0+OhCd7d6Ug0IE3WcFpZozBKW2+80FUbv5QGk5AQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/@types/braces/-/braces-3.0.1.tgz}
     dev: true
 
   /@types/cacheable-request/6.0.2:
@@ -5783,6 +5786,10 @@ packages:
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
+
+  /@types/object-path/0.11.1:
+    resolution: {integrity: sha512-219LSCO9HPcoXcRTC6DbCs0FRhZgBnEMzf16RRqkT40WbkKx3mOeQuz3e2XqbfhOz/AHfbru0kzB1n1RCAsIIg==}
+    dev: false
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
@@ -11892,7 +11899,7 @@ packages:
       gatsby-core-utils: 3.24.0
       gatsby-sharp: 0.18.0
       graphql: 15.8.0
-      graphql-compose: 9.0.10_graphql@15.8.0
+      graphql-compose: 9.0.4_graphql@15.8.0
       import-from: 4.0.0
       joi: 17.7.0
       mime: 3.0.0
@@ -11914,7 +11921,7 @@ packages:
       gatsby: 4.24.7_biqbaboplfbrettd7655fr4n2y
       gatsby-core-utils: 3.24.0
       gatsby-sharp: 0.18.0
-      graphql-compose: 9.0.10
+      graphql-compose: 9.0.4
       import-from: 4.0.0
       joi: 17.7.0
       mime: 3.0.0
@@ -12155,7 +12162,7 @@ packages:
       globby: 11.1.0
       got: 11.8.5
       graphql: 15.8.0
-      graphql-compose: 9.0.10_graphql@15.8.0
+      graphql-compose: 9.0.4_graphql@15.8.0
       graphql-playground-middleware-express: 1.7.23_express@4.18.2
       graphql-tag: 2.12.6_graphql@15.8.0
       hasha: 5.2.2
@@ -12663,20 +12670,25 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /graphql-compose/9.0.10:
-    resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
+  /graphql-compose/9.0.4:
+    resolution: {integrity: sha512-Cvu+efr6qB6Q7XRoXvTShsFNptW9UWG6XW1fPBIa95BCyi/8lH7ZLVPJTy+vKTLhViJZ7uw/MoJ1FPkUGu+S4Q==}
+    peerDependencies:
+      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
+      '@types/object-path': 0.11.1
       graphql-type-json: 0.3.2
-    transitivePeerDependencies:
-      - graphql
+      object-path: 0.11.8
     dev: false
 
-  /graphql-compose/9.0.10_graphql@15.8.0:
-    resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
+  /graphql-compose/9.0.4_graphql@15.8.0:
+    resolution: {integrity: sha512-Cvu+efr6qB6Q7XRoXvTShsFNptW9UWG6XW1fPBIa95BCyi/8lH7ZLVPJTy+vKTLhViJZ7uw/MoJ1FPkUGu+S4Q==}
+    peerDependencies:
+      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
+      '@types/object-path': 0.11.1
+      graphql: 15.8.0
       graphql-type-json: 0.3.2_graphql@15.8.0
-    transitivePeerDependencies:
-      - graphql
+      object-path: 0.11.8
     dev: false
 
   /graphql-playground-html/1.6.30:
@@ -16830,6 +16842,11 @@ packages:
     resolution: {integrity: sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==}
     engines: {node: '>= 0.4'}
 
+  /object-path/0.11.8:
+    resolution: {integrity: sha512-YJjNZrlXJFM42wTBn6zgOJVar9KFJvzx6sTWDte8sWZF//cnjl0BxHNpfZx+ZffXX63A9q0b1zsFiBX4g4X5KA==}
+    engines: {node: '>= 10.12.0'}
+    dev: false
+
   /object-visit/1.0.1:
     resolution: {integrity: sha512-GBaMwwAVK9qbQN3Scdo0OyvgPW7l3lnaVMj84uTOZlswkX0KpF6fyDBJhtTthf7pymztoN36/KEr1DyhF96zEA==}
     engines: {node: '>=0.10.0'}
@@ -20940,7 +20957,7 @@ packages:
       safe-buffer: 5.2.1
 
   /tunnel/0.0.6:
-    resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==, registry: https://registry.yarnpkg.com/}
+    resolution: {integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.yarnpkg.com/tunnel/-/tunnel-0.0.6.tgz}
     engines: {node: '>=0.6.11 <=0.7.0 || >=0.7.3'}
     dev: false
 
