@@ -3,8 +3,13 @@
  * Felles håndtering av vanlige plugins og loaders.
  * Importeres av de enkelte pakkenes byggscript.
  */
+import path from "path";
+import { fileURLToPath, pathToFileURL } from "url";
 import esbuild from "esbuild";
 import { sassPlugin } from "esbuild-sass-plugin";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /**
  * @param {{ entryPoints: string[], outdir: string } | Array<{ entryPoints: string[], outdir: string }>} options - Send entrypoints til esbuild
@@ -23,7 +28,21 @@ export async function build(options) {
                 sourcemap: true,
                 watch: process.env.ESBUILD_WATCH === "true",
                 loader: { ".woff": "file", ".woff2": "file", ".jpg": "file", ".png": "file" },
-                plugins: [sassPlugin()],
+                plugins: [
+                    sassPlugin({
+                        importers: [
+                            {
+                                findFileUrl(url) {
+                                    if (!url.startsWith("~")) return null;
+                                    // Piggypack off the fact portal has them all
+                                    const base = path.join(__dirname, "portal", "node_modules", "/"); // base must end in /, otherwise node_modules/ is discarded from the URL.
+                                    const resolved = new URL(url.substring(1), pathToFileURL(base));
+                                    return resolved;
+                                },
+                            },
+                        ],
+                    }),
+                ],
                 ...o,
             }),
         ),
