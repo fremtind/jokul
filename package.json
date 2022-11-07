@@ -48,7 +48,6 @@
             "diff2html>merge": "^2.1.1",
             "gatsby>multer": "v1.4.5-lts.1",
             "got": "^11.8.5",
-            "graphql-compose": "9.0.4",
             "parse-url": "^8.1.0",
             "unidiff>diff": "^3.5.0",
             "ansi-html": "^0.0.9",
