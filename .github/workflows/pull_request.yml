@@ -71,6 +71,13 @@ jobs:
                   node-version: 16
                   cache: "pnpm"
 
+            - name: Cypress binary cache
+              uses: actions/cache@v3
+              id: cypress-cache
+              with:
+                  path: "~/.cache/Cypress"
+                  key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
+
             - name: Monorepo Runner Cache
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               uses: actions/cache@v3
@@ -154,6 +161,13 @@ jobs:
               with:
                   node-version: 16
                   cache: "pnpm"
+
+            - name: Cypress binary cache
+              uses: actions/cache@v3
+              id: cypress-cache
+              with:
+                  path: "~/.cache/Cypress"
+                  key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
 
             - name: Monorepo Runner Cache
               uses: actions/cache@v3
