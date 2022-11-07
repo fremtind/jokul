@@ -44,6 +44,9 @@
         "@fremtind/jkl-react-hooks": "^10.2.1",
         "classnames": "^2.2.6"
     },
+    "devDependencies": {
+        "@fremtind/jkl-field-group-react": "^7.0.7"
+    },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
         "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",

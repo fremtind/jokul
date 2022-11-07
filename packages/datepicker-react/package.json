@@ -47,6 +47,9 @@
         "classnames": "^2.2.6",
         "date-fns": "^2.0.0"
     },
+    "devDependencies": {
+        "@jest/globals": "^29.2.2"
+    },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
         "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
