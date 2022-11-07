@@ -1,4 +1,3 @@
-import cn from "classnames";
 import React, { useState, FC, useMemo, useEffect } from "react";
 import { Checkbox } from "../packages/checkbox-react";
 import { ColorScheme, Density } from "../packages/core";
@@ -92,12 +91,11 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                     data-layout-density={density}
                     data-theme={theme}
                     data-example-text={title}
-                    className={cn("jkl", "jkl-portal-component-example__example-wrapper", {
-                        "jkl-portal-component-example__example-wrapper--dark": theme === "dark",
-                        "jkl-portal-component-example__example-wrapper--scrollable": scrollable,
-                        "jkl-body": density === "comfortable",
-                        "jkl-small": density === "compact",
-                    })}
+                    className={`jkl jkl-portal-component-example__example-wrapper ${
+                        theme === "dark" ? "jkl-portal-component-example__example-wrapper--dark" : ""
+                    } ${scrollable ? "jkl-portal-component-example__example-wrapper--scrollable" : ""} ${
+                        density === "comfortable" ? "jkl-body" : ""
+                    } ${density === "compact" ? "jkl-small" : ""}`.trim()}
                 >
                     {example}
                 </div>
