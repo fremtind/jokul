@@ -1,5 +1,5 @@
-import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { DevExample } from "../../../doc-utils";
 import "../../cookie-consent/cookie-consent.scss";
 import "../../button/button.scss";
 import "../../list/list.scss";

@@ -1,5 +1,5 @@
-import { ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { Feedback, PRESETS } from "../src";
 import { FollowupQuestion } from "../src/types";
 

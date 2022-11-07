@@ -1,5 +1,5 @@
-import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { DevExample } from "../../../doc-utils";
 import { ContentToggleExample, contentToggleExampleCode, contentToggleExampleKnobs } from "./ContentToggleExample";
 import "../../content-toggle/content-toggle.scss";
 

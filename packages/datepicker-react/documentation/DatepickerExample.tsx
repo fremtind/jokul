@@ -1,6 +1,6 @@
 import { LabelVariant } from "@fremtind/jkl-core";
-import { ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { useState, FC } from "react";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { DatePicker, formatInput, isBlurTargetOutside } from "../src";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {

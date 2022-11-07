@@ -1,5 +1,5 @@
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { ContentToggle } from "../src";
 
 export const contentToggleExampleKnobs: ExampleKnobsProps = {

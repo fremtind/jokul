@@ -1,6 +1,6 @@
-import { ExampleComponentProps, CodeExample } from "@fremtind/jkl-internal-doc-utils";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import React, { forwardRef, useState } from "react";
+import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
 import { ExpandButton } from "../src";
 
 const ExpandSection = forwardRef<HTMLDivElement, { id: string; "aria-labelledby": string; hidden: boolean }>(

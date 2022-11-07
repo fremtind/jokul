@@ -1,5 +1,5 @@
 import React from "react";
-import { DevExample } from "@fremtind/jkl-internal-doc-utils";
+import { DevExample } from "../../../doc-utils";
 import { ScaffoldExample, scaffoldExampleCode, scaffoldExampleKnobs } from "./ScaffoldExample";
 import "../../scaffold/scaffold.scss";
 

@@ -1,5 +1,5 @@
-import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { DevExample } from "../../../doc-utils";
 import { LoaderExample, loaderExampleCode, loaderExampleKnobs } from "./LoaderExample";
 import { SkeletonLoaderExample, skeletonLoaderExampleCode, skeletonLoaderExampleKnobs } from "./SkeletonLoaderExample";
 import "../../loader/skeleton-loader.scss";

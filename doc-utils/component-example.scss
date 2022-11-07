@@ -1,4 +1,4 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "../packages/core/jkl";
 
 @include jkl.light-mode-variables {
     --component-example-bg: #{jkl.$color-dis};

@@ -1,5 +1,5 @@
-import { hydrateClient } from "@fremtind/jkl-internal-doc-utils/DevClient";
 import React from "react";
+import { hydrateClient } from "../../../doc-utils/DevClient";
 import Example from "./Example";
 
 hydrateClient(<Example />);

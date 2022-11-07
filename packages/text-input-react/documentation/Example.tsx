@@ -1,5 +1,5 @@
-import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { DevExample } from "../../../doc-utils";
 import { AutosuggestExample, autosuggestExampleCode, autosuggestExampleKnobs } from "./AutosuggestExample";
 import { TextAreaExample, textAreaExampleCode, textAreaExampleKnobs } from "./TextAreaExample";
 import { TextInputExample, textInputExampleCode, textInputExampleKnobs } from "./TextInputExample";

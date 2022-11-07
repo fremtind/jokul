@@ -1,5 +1,5 @@
-import { ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../src";
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Milepæl", "Følger saken"];

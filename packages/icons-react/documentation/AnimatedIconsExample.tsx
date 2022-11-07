@@ -1,5 +1,5 @@
-import { CodeExample, ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { ArrowVerticalAnimated, PlusRemoveAnimated, ArrowHorizontalAnimated, HamburgerCloseAnimated } from "../src";
 import { IconVariant } from "../src/icons/types";
 import { AnimatedIcon } from "./internal/AnimatedIcon";

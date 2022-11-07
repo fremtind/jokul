@@ -1,5 +1,5 @@
-import { CodeExample, ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { InfoBlock, NavCard } from "../src";
 import { mixedPadding } from "./cardExampleProps";
 

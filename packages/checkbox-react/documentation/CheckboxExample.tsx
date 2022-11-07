@@ -1,6 +1,6 @@
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Checkbox } from "../src";
 
 export const checkboxExampleKnobs: ExampleKnobsProps = {

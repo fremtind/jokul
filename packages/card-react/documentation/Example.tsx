@@ -1,5 +1,5 @@
-import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { DevExample } from "../../../doc-utils";
 import { infoCardExampleProps, navCardExampleProps, taskCardExampleProps } from "./cardExampleProps";
 import { InfoCardExample } from "./InfoCardExample";
 import { NavCardExample, navCardExampleCode } from "./NavCardExample";

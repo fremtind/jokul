@@ -41,9 +41,6 @@
         "@fremtind/jkl-core": "^11.1.0",
         "classnames": "^2.2.6"
     },
-    "devDependencies": {
-        "@fremtind/jkl-internal-doc-utils": "^1.0.0"
-    },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
         "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",

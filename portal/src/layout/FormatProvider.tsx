@@ -1,7 +1,6 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
-import { ComponentExample } from "@fremtind/jkl-internal-doc-utils";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
 import { InfoMessageBox, WarningMessageBox } from "@fremtind/jkl-message-box-react";
 import {
@@ -19,6 +18,7 @@ import {
 import { MDXProvider } from "@mdx-js/react";
 import cn from "classnames";
 import React, { FC } from "react";
+import { ComponentExample } from "../../../doc-utils";
 import { CodeDemo } from "../components/code-demo";
 import { DoDontExample } from "../components/DoDontExample";
 import { ExampleVideo } from "../components/ExampleVideo";

@@ -1,5 +1,5 @@
-import { CodeExample, ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { useState } from "react";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { Image } from "../src";
 import dog1200 from "./assets/dog-1200.jpg";
 import dog1920 from "./assets/dog-1920.jpg";
@@ -79,7 +79,7 @@ import dog400 from "./assets/dog-400.jpg";
 import dog800 from "./assets/dog-800.jpg";
 import dog1200 from "./assets/dog-1200.jpg";
 import dog1920 from "./assets/dog-1920.jpg";
-import thumbnail from "./assets/thumbnail.jpg";
+import thumbnail from "./assets/thumbnail.jpg"; 
 
 // Du kan få disse verdiene automatisk ved å bruke f.eks. responsive-loader i webpack
 const imageSource = {

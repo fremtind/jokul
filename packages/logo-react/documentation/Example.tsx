@@ -1,5 +1,5 @@
-import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { DevExample } from "../../../doc-utils";
 import { LogoExample, logoExampleCode, logoExampleKnobs } from "./LogoExample";
 import { LogoStampExample, logoStampExampleCode, logoStampExampleKnobs } from "./LogoStampExample";
 import "../../logo/logo.scss";

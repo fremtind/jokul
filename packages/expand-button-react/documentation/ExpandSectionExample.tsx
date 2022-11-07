@@ -1,5 +1,5 @@
-import { ExampleComponentProps, CodeExample } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC, useState } from "react";
+import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
 import { ExpandSection } from "../src";
 
 export const ExpandSectionExample: FC<ExampleComponentProps> = () => {

@@ -1,5 +1,5 @@
-import { ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import "./style.scss";
 
 export const Anchors: React.FC<ExampleComponentProps> = () => {

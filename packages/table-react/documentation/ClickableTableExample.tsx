@@ -1,5 +1,5 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Table, TableCaption, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../src";
 
 export const clickableTableExampleKnobs: ExampleKnobsProps = {

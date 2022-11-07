@@ -1,5 +1,5 @@
-import { ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { useState } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { Checkbox } from "../../checkbox-react/src";
 import { FieldGroup } from "../../field-group-react/src";
 import { useAnimatedHeight } from "../../react-hooks";

@@ -1,5 +1,5 @@
-import { ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { useState } from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { TertiaryButton } from "../src";
 
 export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {

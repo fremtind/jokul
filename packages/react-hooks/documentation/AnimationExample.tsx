@@ -1,5 +1,5 @@
-import { CodeExample } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC, useState } from "react";
+import { CodeExample } from "../../../doc-utils";
 import { useAnimatedHeight } from "../src";
 import "./index.scss";
 

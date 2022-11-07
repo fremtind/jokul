@@ -1,5 +1,5 @@
-import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
+import { DevExample } from "../../../doc-utils";
 import "../core.scss";
 import "./style.scss";
 import { LinkExample, linkExampleCode, linkExampleKnobs } from "./Link/LinkExample";

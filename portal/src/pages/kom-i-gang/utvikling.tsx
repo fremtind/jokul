@@ -5,6 +5,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { HeadProps, Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
+import { ComponentExample } from "../../../../doc-utils";
+import { CodeBlock } from "../../../../doc-utils/CodeBlock";
 import { TagExample, tagExampleCode } from "../../../../packages/tag-react/documentation/TagExample";
 import { Image } from "../../components/image";
 import { Seo } from "../../components/seo";
@@ -12,8 +14,6 @@ import { HeadingLarge, Ingress, InlineCode, PageTitle, Paragraph, Strong } from 
 import { RootItem, useFullscreenMenuContext } from "../../fullscreenMenuContext";
 import { useNavigationLinks } from "../../layout/header/useNavigationLinks";
 import { MainContent } from "../../layout/MainContent";
-import { ComponentExample } from "../@fremtind/jkl-internal-doc-utils";
-import { CodeBlock } from "../@fremtind/jkl-internal-doc-utils/CodeBlock";
 
 const pageTitle = "Praktisk info for utviklere";
 

@@ -1,5 +1,5 @@
-import { CodeExample, ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { mockProps } from "../mocks";
 import { SummaryTable } from "../src";
 import "./summary-table-example.scss";

@@ -1,5 +1,5 @@
-import { ExampleComponentProps } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { ExampleComponentProps } from "../../../doc-utils";
 import { NavCard, InfoBlock } from "../src/NavCard";
 import type { NavCardProps } from "../src/NavCard";
 import { mixedPadding } from "./cardExampleProps";

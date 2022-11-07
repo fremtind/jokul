@@ -1,16 +1,16 @@
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { ColorScheme, Density } from "@fremtind/jkl-core";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
-import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
-import { useId } from "@fremtind/jkl-react-hooks";
-import { Select } from "@fremtind/jkl-select-react";
 import slugify from "@sindresorhus/slugify";
 import cn from "classnames";
 import React, { useState, FC, useMemo, useEffect } from "react";
+import { Checkbox } from "../packages/checkbox-react";
+import { ColorScheme, Density } from "../packages/core";
+import { FieldGroup } from "../packages/field-group-react";
+import { RadioButton, RadioButtonGroup } from "../packages/radio-button-react";
+import { useId } from "../packages/react-hooks";
+import { Select } from "../packages/select-react";
 import { CodeBlock } from "./CodeBlock";
 import { CodeSection } from "./CodeSection";
 import { hyphenate } from "./internal/hypenate";
-import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from ".";
+import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from "./";
 
 export interface Props {
     component: FC<ExampleComponentProps>;

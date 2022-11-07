@@ -1,5 +1,5 @@
-import { ExampleComponentProps, CodeExample, ExampleKnobsProps } from "@fremtind/jkl-internal-doc-utils";
 import React, { FC } from "react";
+import { ExampleComponentProps, CodeExample, ExampleKnobsProps } from "../../../doc-utils";
 import { Footer } from "../src";
 import "./footer-example.scss";
 

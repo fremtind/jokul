@@ -1,5 +1,5 @@
-import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { DevExample } from "../../../doc-utils";
 import { ImageExample } from "./ImageExample";
 import { choiceProps } from "./internal/props";
 import "../../image/image.scss";

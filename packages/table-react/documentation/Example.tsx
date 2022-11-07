@@ -1,5 +1,5 @@
-import { DevExample } from "@fremtind/jkl-internal-doc-utils";
 import React from "react";
+import { DevExample } from "../../../doc-utils";
 import ActionTableExample, { actionTableExampleCode, actionTableExampleKnobs } from "./ActionTableExample";
 import ClickableTableExample, { clickableTableExampleCode, clickableTableExampleKnobs } from "./ClickableTableExample";
 import DataTableExample, { dataTableExampleCode, dataTableExampleKnobs } from "./DataTableExample";
