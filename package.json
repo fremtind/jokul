@@ -38,7 +38,7 @@
         "prepare": "husky install",
         "scaffold": "node './scripts/scaffold'"
     },
-    "packageManager": "pnpm@1.22.17",
+    "packageManager": "pnpm@7.14.2",
     "pnpm": {
         "overrides": {
             "@graphql-tools/url-loader>ws": "^7.4.6",
