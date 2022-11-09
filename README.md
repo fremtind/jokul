@@ -156,6 +156,7 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
       <td align="center"><a href="https://github.com/paulinfrancis"><img src="https://avatars.githubusercontent.com/u/2670325?v=4?s=100" width="100px;" alt="Francis Paulin"/><br /><sub><b>Francis Paulin</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=paulinfrancis" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/hegebjo"><img src="https://avatars.githubusercontent.com/u/111281400?v=4?s=100" width="100px;" alt="hegebjo"/><br /><sub><b>hegebjo</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=hegebjo" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/matrund"><img src="https://avatars.githubusercontent.com/u/55445268?v=4?s=100" width="100px;" alt="Mathias Rundgreen"/><br /><sub><b>Mathias Rundgreen</b></sub></a><br /><a href="https://github.com/fremtind/jokul/issues?q=author%3Amatrund" title="Bug reports">🐛</a></td>
+      <td align="center"><a href="https://github.com/fremtindelise"><img src="https://avatars.githubusercontent.com/u/117173936?v=4?s=100" width="100px;" alt="Elise Brenna"/><br /><sub><b>Elise Brenna</b></sub></a><br /><a href="https://github.com/fremtind/jokul/commits?author=fremtindelise" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
