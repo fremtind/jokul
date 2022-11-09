@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/iconb
 
 **Tips:** om du bruker [React-pakken](../icon-button-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-icon-button` eller `npm i @fremtind/jkl-icon-button`.
+1. `npm i @fremtind/jkl-icon-button`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/toolt
 
 **Tips:** Om du bruker [React-pakken](../tooltip-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-tooltip` eller `npm i @fremtind/jkl-tooltip`.
+1. `npm i @fremtind/jkl-tooltip`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

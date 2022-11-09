@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React, { FC } from "react";
 import { DevExample } from "../../../doc-utils";
 import "../core.scss";
@@ -15,11 +14,6 @@ interface BoxProps {
 }
 
 const Box = ({ type, number }: BoxProps) => <div className={`demo-${type}--${number + 1}`} />;
-
-Box.propTypes = {
-    type: PropTypes.string,
-    number: PropTypes.number,
-};
 
 export const Typo: FC = () => (
     <section className="jkl-spacing-2xl--top jkl-spacing-2xl--bottom">

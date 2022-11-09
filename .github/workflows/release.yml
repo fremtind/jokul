@@ -31,16 +31,21 @@ jobs:
                   git config --global user.email 'fremtind-bot@users.noreply.github.com'
                   git remote set-url origin https://fremtind-bot:$BOT_PUBLISH_TOKEN@github.com/fremtind/jokul
 
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
+
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
                   node-version: "lts/*"
-                  cache: "yarn"
+                  cache: "pnpm"
 
             - name: Install Packages
               run: |
-                  yarn install --frozen-lockfile
-                  yarn patch
+                  pnpm install --frozen-lockfile
+                  pnpm patch-package
 
             - name: Monorepo Runner Cache
               uses: actions/cache@v3
@@ -53,7 +58,7 @@ jobs:
 
             - name: Authenticate with Registry
               run: |
-                  yarn logout
+                  npm logout
                   echo "registry=http://registry.npmjs.org/" >> .npmrc
                   echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
                   npm whoami
@@ -63,7 +68,7 @@ jobs:
             - name: Verify release is needed
               id: lerna_changed
               continue-on-error: true
-              run: yarn version:check
+              run: pnpm version:check
 
             - name: Check for changes to portal
               uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
@@ -77,11 +82,11 @@ jobs:
                         - "**/*.ts"
                         - "**/*.tsx"
                         - "portal/static/**"
-                        - "yarn.lock"
+                        - "pnpm-lock.yaml"
 
             - name: Publish packages to NPM
               if: steps.lerna_changed.outcome == 'success' # only run if there are changes to publish
-              run: yarn release --yes
+              run: pnpm release --yes
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   GITHUB_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
@@ -90,7 +95,7 @@ jobs:
             - name: Ensure build
               # Publish-step will do a build, but if there's nothing to publish we still need a build if there are portal changes
               if: steps.changes.outputs.portal == 'true' && steps.lerna_changed.outcome != 'success'
-              run: yarn build
+              run: pnpm build
 
             - name: Switch registry
               if: steps.lerna_changed.outcome == 'success'
@@ -102,7 +107,7 @@ jobs:
 
             - name: Publish packages to GitHub Packages
               if: steps.lerna_changed.outcome == 'success'
-              run: yarn release-gh --yes
+              run: pnpm release-gh --yes
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -126,7 +131,7 @@ jobs:
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"
                   git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
-                  yarn deploy:docs
+                  pnpm deploy:docs
 
     main-to-external:
         name: Merge main to external-contributions

@@ -8,7 +8,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/mixin
 
 ## Installasjon
 
-1. `yarn add @fremtind/jkl-core` eller `npm i @fremtind/jkl-core`.
+1. `npm i @fremtind/jkl-core`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

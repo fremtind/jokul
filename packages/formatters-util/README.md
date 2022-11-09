@@ -6,7 +6,7 @@ Det er også mulig å bruke formateringsfunksjonene for å lage inputmasker. Pak
 
 ## Installasjon
 
-1. `yarn add @fremtind/jkl-formatters-util` eller `npm i @fremtind/jkl-formatters-util`.
+1. `npm i @fremtind/jkl-formatters-util`.
 2. Importér formateringsfunksjonene du trenger.
 
 ```js

@@ -10,8 +10,7 @@ Based on the following rulesets:
 ## Installing
 
 ```bash
-$ npm i --save stylelint @fremtind/stylelint-config-jkl
-$ yarn add -D stylelint @fremtind/stylelint-config-jkl
+npm i stylelint @fremtind/stylelint-config-jkl
 ```
 
 ## Usage

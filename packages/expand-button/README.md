@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/expan
 
 **Tips:** om du bruker [React-pakken](../expand-button-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-expand-button` eller `npm i @fremtind/jkl-expand-button`.
+1. `npm i @fremtind/jkl-expand-button`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

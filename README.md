@@ -23,7 +23,7 @@ Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre J�
 
 #### Eksempel på bruk av React-pakker
 
-Installer React-pakken, for eksempel `yarn add @fremtind/jkl-button-react`. Den sørger for å laste ned CSS-pakken, men du må selv sørge for at CSSen faktisk blir brukt i prosjektet ditt.
+Installer React-pakken, for eksempel `npm i @fremtind/jkl-button-react`. Den sørger for å laste ned CSS-pakken, men du må selv sørge for at CSSen faktisk blir brukt i prosjektet ditt.
 
 ```tsx
 import { PrimaryButton } from "@fremtind/jkl-button-react";
@@ -39,7 +39,7 @@ Noen ganger må du også importere stilarkene til avhengigheter av komponenten d
 
 Hvis du ikke vil bruke React-komponentene kan du bruke stilarkene direkte. Pakkene med stilark publiseres både med ferdig kompilert og prefikset CSS i minifisert og uminifisert variant, i tillegg til SCSS-kildekoden.
 
-`yarn add @fremtind/jkl-button`
+`npm i @fremtind/jkl-button`
 
 ```tsx
 import "@fremtind/jkl-button/button.min.css";
@@ -168,4 +168,4 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
 
 Dette prosjektet følger retningslinjene i spesifikasjonen [all-contributors](https://github.com/all-contributors/all-contributors). Vi setter pris på alle bidrag!
 
-[^windows]: På grunn av en bug i patch-package på Windows vil denne kommandoen feile. Enten må du sjekke ut repoet med _UNIX-style line endings_, eller så må du først gjøre `yarn install` (som vil feile på `postinstall`), så manuelt legge til [denne endringen](https://github.com/ds300/patch-package/pull/301/files) i `node_modules/patch-package/dist/patch/parse.js` på linje 53. Deretter kan du kjøre `yarn postinstall` igjen, og så `yarn build`.
+[^windows]: På grunn av en bug i patch-package på Windows vil denne kommandoen feile. Enten må du sjekke ut repoet med _UNIX-style line endings_, eller så må du først gjøre `pnpm install` (som vil feile på `postinstall`), så manuelt legge til [denne endringen](https://github.com/ds300/patch-package/pull/301/files) i `node_modules/patch-package/dist/patch/parse.js` på linje 53. Deretter kan du kjøre `pnpm postinstall` igjen, og så `pnpm build`.

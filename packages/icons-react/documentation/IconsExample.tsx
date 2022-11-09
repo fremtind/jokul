@@ -1,4 +1,3 @@
-import { TextInput } from "@fremtind/jkl-text-input-react";
 import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import {
@@ -63,13 +62,14 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues }) 
     return (
         <div style={{ width: "100%" }}>
             {variant === "inherit" && (
-                <TextInput
-                    label="Sett fontstørrelse"
-                    variant="small"
-                    className="jkl-spacing-l--top jkl-spacing-l--bottom"
-                    value={fontSize}
-                    onChange={(e) => setFontSize(e.target.value)}
-                />
+                <label>
+                    Sett fontstørrelse
+                    <input
+                        className="jkl-spacing-l--top jkl-spacing-l--bottom"
+                        value={fontSize}
+                        onChange={(e) => setFontSize(e.target.value)}
+                    />
+                </label>
             )}
             <IconsExampleGrid style={{ fontSize }} columns="four" color={color}>
                 {allIcons.map((Ico) => (

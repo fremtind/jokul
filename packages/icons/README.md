@@ -8,7 +8,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/icons
 
 **Tips:** om du bruker [React-pakken](../icons-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-icons` eller `npm i @fremtind/jkl-icons`.
+1. `npm i @fremtind/jkl-icons`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

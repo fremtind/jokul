@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/messa
 
 **Tips:** [stilpakken](../message-box/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-message-box-react` eller `npm i @fremtind/jkl-message-box-react`.
+1. `npm i @fremtind/jkl-message-box-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

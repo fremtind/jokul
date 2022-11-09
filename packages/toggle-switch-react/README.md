@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/toggl
 
 **Tips:** [stilpakken](../toggle-switch/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-toggle-switch-react` eller `npm i @fremtind/jkl-toggle-switch-react`.
+1. `npm i @fremtind/jkl-toggle-switch-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

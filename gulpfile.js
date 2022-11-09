@@ -26,11 +26,10 @@ module.exports = function (gulp) {
                 sass({
                     importers: [
                         {
-                            // An importer that redirects relative URLs starting with "~" to
-                            // the monorepo `node_modules`.
                             findFileUrl(url) {
                                 if (!url.startsWith("~")) return null;
-                                const base = path.join(__dirname, "node_modules", "/"); // base must end in /, otherwise node_modules/ is discarded from the URL.
+                                // Point to the packages node_modules (gulp is invoked in each individual package)
+                                const base = path.join(process.cwd(), "node_modules", "/"); // base must end in /, otherwise node_modules/ is discarded from the URL.
                                 const resolved = new URL(url.substring(1), pathToFileURL(base));
                                 return resolved;
                             },

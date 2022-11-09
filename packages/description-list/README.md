@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/descr
 
 **Tips:** om du bruker [React-pakken](../description-list-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-description-list` eller `npm i @fremtind/jkl-description-list`.
+1. `npm i @fremtind/jkl-description-list`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

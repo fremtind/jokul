@@ -2,13 +2,13 @@
     "packages": ["packages/*"],
     "version": "independent",
     "useWorkspaces": true,
-    "npmClient": "yarn",
+    "npmClient": "pnpm",
     "command": {
         "publish": {
             "conventionalCommits": true,
             "registry": "https://registry.npmjs.org/",
             "access": "public",
-            "npmClient": "yarn",
+            "npmClient": "pnpm",
             "allowBranch": ["main", "release"],
             "ignoreChanges": [
                 ".eslintrc",

@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/tabs)
 
 **Tips:** [stilpakken](../tabs/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-tabs-react` eller `npm i @fremtind/jkl-tabs-react`.
+1. `npm i @fremtind/jkl-tabs-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
