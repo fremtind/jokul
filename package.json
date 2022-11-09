@@ -31,9 +31,8 @@
         "start": "pnpm dev",
         "serve": "lerna run serve --scope=@fremtind/portal",
         "postinstall": "pnpm patch-package",
-        "boot": "pnpm install && pnpm build",
+        "boot": "pnpm install && husky install && pnpm build",
         "reboot": "pnpm clean && pnpm boot",
-        "prepare": "husky install",
         "scaffold": "node './scripts/scaffold'"
     },
     "packageManager": "pnpm@7.14.2",
