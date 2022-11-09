@@ -858,7 +858,7 @@ importers:
       '@floating-ui/react-dom-interactions': ^0.10.1
       '@fremtind/jkl-constants-util': ^1.0.2
       '@fremtind/jkl-core': ^11.1.0
-      '@fremtind/jkl-tooltip': ^1.0.1
+      '@fremtind/jkl-tooltip': ^1.0.2
       classnames: ^2.2.6
       framer-motion: ^7.0.0
     dependencies:
@@ -913,7 +913,7 @@ importers:
       '@fremtind/jkl-tag-react': ^3.0.8
       '@fremtind/jkl-text-input-react': ^11.1.11
       '@fremtind/jkl-toggle-switch-react': ^10.0.6
-      '@fremtind/jkl-tooltip-react': ^1.0.4
+      '@fremtind/jkl-tooltip-react': ^1.0.5
       '@fremtind/jkl-validators-util': ^2.5.1
       '@fremtind/jkl-webfonts': ^2.1.0
       '@jest/globals': ^29.2.2
