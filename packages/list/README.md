@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/list)
 
 **Tips:** om du bruker [React-pakken](../list-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-list` eller `npm i @fremtind/jkl-list`.
+1. `npm i @fremtind/jkl-list`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

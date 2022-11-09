@@ -26,6 +26,7 @@ module.exports = {
         PRESERVE_FILE_DOWNLOAD_CACHE: true,
     },
     plugins: [
+        "gatsby-plugin-pnpm",
         "gatsby-plugin-typescript",
         "gatsby-plugin-image",
         "gatsby-plugin-sharp",

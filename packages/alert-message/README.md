@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/alert
 
 **Tips:** om du bruker [React-pakken](../alert-message-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-alert-message` eller `npm i @fremtind/jkl-alert-message`.
+1. `npm i @fremtind/jkl-alert-message`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

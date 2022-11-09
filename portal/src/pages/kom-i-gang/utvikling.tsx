@@ -36,7 +36,7 @@ const PraktiskInfoUtviklere: FC = () => {
                 React. Du installerer og oppgraderer Jøkul-pakker på akkurat samme måte. Jøkul er open source og
                 offentlig tilgjengelig, så du trenger ikke sette opp noe eget for å få tilgang – det bare funker.
             </Paragraph>
-            <CodeBlock>~ $ yarn add @fremtind/jkl-core @fremtind/jkl-webfonts</CodeBlock>
+            <CodeBlock>~ $ npm i @fremtind/jkl-core @fremtind/jkl-webfonts</CodeBlock>
 
             <HeadingLarge>Se hvilke pakker som finnes</HeadingLarge>
             <Paragraph>

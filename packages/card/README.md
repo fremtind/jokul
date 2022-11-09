@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/card)
 
 **Tips:** om du bruker [React-pakken](../card-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-card` eller `npm i @fremtind/jkl-card`.
+1. `npm i @fremtind/jkl-card`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

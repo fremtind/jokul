@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/cooki
 
 **Tips:** om du bruker [React-pakken](../cookie-consent-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-cookie-consent` eller `npm i @fremtind/jkl-cookie-consent`.
+1. `npm i @fremtind/jkl-cookie-consent`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

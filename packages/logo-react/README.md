@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/logo)
 
 **Tips:** [stilpakken](../logo/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-logo-react` eller `npm i @fremtind/jkl-logo-react`.
+1. `npm i @fremtind/jkl-logo-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

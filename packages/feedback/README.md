@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/feedb
 
 **Tips:** om du bruker [React-pakken](../feedback-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-feedback` eller `npm i @fremtind/jkl-feedback`.
+1. `npm i @fremtind/jkl-feedback`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

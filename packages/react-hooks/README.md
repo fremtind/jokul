@@ -4,7 +4,7 @@ Se portalen for [en oversikt over hvilke hooks som finnes](https://jokul.fremtin
 
 ## Installasjon
 
-1. `yarn add @fremtind/jkl-react-hooks` eller `npm i @fremtind/jkl-react-hooks`.
+1. `npm i @fremtind/jkl-react-hooks`.
 2. Importer hooksene du trenger.
 
 ```js

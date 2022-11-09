@@ -8,7 +8,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/typog
 
 ## Installasjon
 
-1. `yarn add @fremtind/jkl-webfonts` eller `npm i @fremtind/jkl-webfonts`.
+1. `npm i @fremtind/jkl-webfonts`.
 2. Importer CSSen som deklarerer fontfamilien Fremtind Grotesk med `@font-face`.
 3. Legg til `jkl`-klassen på rotnivå i appen din, slik at fontfamilien blir brukt overalt.
 4. Konfigurer byggverktøyet ditt til å kopiere fontfiler.

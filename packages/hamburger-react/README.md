@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/hambu
 
 **Tips:** [stilpakken](../hamburger/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-hamburger-react` eller `npm i @fremtind/jkl-hamburger-react`.
+1. `npm i @fremtind/jkl-hamburger-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

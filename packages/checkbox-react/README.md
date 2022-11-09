@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/check
 
 **Tips:** [stilpakken](../checkbox/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-checkbox-react` eller `npm i @fremtind/jkl-checkbox-react`.
+1. `npm i @fremtind/jkl-checkbox-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

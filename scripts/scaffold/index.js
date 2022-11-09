@@ -63,9 +63,9 @@ const main = async () => {
             path.resolve(process.cwd(), "packages", `${componentName}-react`),
         );
 
-        spawnSync("yarn", ["install"], { stdio: "inherit" });
+        spawnSync("pnpm", ["install"], { stdio: "inherit" });
 
-        spawnSync("yarn", ["lerna", "run", "--scope", `@fremtind/jkl-${componentName}`, "build"], { stdio: "inherit" });
+        spawnSync("pnpm", ["lerna", "run", "--scope", `@fremtind/jkl-${componentName}`, "build"], { stdio: "inherit" });
     } catch (error) {
         console.error(error);
         process.exit(1);

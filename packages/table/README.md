@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/table
 
 **Tips:** om du bruker [React-pakken](../table-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-table` eller `npm i @fremtind/jkl-table`.
+1. `npm i @fremtind/jkl-table`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

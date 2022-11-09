@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/tabs)
 
 **Tips:** om du bruker [React-pakken](../tabs-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-tabs` eller `npm i @fremtind/jkl-tabs`.
+1. `npm i @fremtind/jkl-tabs`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

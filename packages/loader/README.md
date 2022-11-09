@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/loade
 
 **Tips:** om du bruker [React-pakken](../loader-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-loader` eller `npm i @fremtind/jkl-loader`.
+1. `npm i @fremtind/jkl-loader`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

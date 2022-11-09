@@ -29,15 +29,14 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf .turbo/ build/ node_modules/",
+        "clean": "rimraf node_modules/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "node ./esbuild.prod.mjs",
         "build": "run-s build:*",
         "test": "jest --testMatch '**/toggle-switch-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
         "dev:server": "node ./dist/server.js",
-        "predev": "node ./esbuild.dev.mjs",
-        "dev": "run-p dev:*"
+        "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
         "@fremtind/jkl-react-hooks": "^10.2.1",
