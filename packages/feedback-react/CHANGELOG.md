@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.1.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@14.1.3...@fremtind/jkl-feedback-react@14.1.4) (2022-11-09)
+
+### Bug Fixes
+
+- legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
 # [14.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@14.0.13...@fremtind/jkl-feedback-react@14.1.0) (2022-10-28)
 
 ### Features
