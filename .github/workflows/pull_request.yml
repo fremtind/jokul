@@ -72,6 +72,7 @@ jobs:
                   cache: "pnpm"
 
             - name: Cypress binary cache
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               uses: actions/cache@v3
               id: cypress-cache
               with:
@@ -93,10 +94,12 @@ jobs:
               run: pnpm ci:install
 
             - name: Cypress binary install
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               run: pnpm cypress install
 
             # Installeringen printer ikke hvor den ligger første gang, men gjør det på n+1
             - name: Cypress binary install debug
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               run: pnpm cypress install
 
             - name: Build site

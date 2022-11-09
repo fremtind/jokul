@@ -56,9 +56,12 @@ jobs:
                   restore-keys: |
                       nx-${{ github.ref_name }}-
 
+            - name: Try logout
+              continue-on-error: true
+              run: npm logout
+
             - name: Authenticate with Registry
               run: |
-                  npm logout
                   echo "registry=http://registry.npmjs.org/" >> .npmrc
                   echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
                   npm whoami
