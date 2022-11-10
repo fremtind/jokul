@@ -1,15 +1,45 @@
+@use "sass:map";
 @use "../jkl/spacing";
-
-$_positions: (top, bottom, left, right);
+@use "../jkl/screens";
 
 @each $name, $spacing in spacing.$spacing-new {
+    $small-spacing: map.get($spacing, "small-screen");
+    $large-spacing: map.get($spacing, "large-screen");
+
     .jkl-spacing-#{$name} {
         &--all {
-            margin: $spacing;
+            margin: $small-spacing;
         }
-        @each $position in $_positions {
+
+        @each $position in spacing.$positions {
             &--#{$position} {
-                margin-#{$position}: $spacing;
+                margin-#{$position}: $small-spacing;
+            }
+        }
+    }
+
+    @include screens.from-medium-device {
+        .jkl-spacing-#{$name} {
+            &--all {
+                margin: $large-spacing;
+            }
+
+            @each $position in spacing.$positions {
+                &--#{$position} {
+                    margin-#{$position}: $large-spacing;
+                }
+            }
+        }
+    }
+
+    .jkl-static-spacing-#{$name} {
+        &--all {
+            margin: $large-spacing;
+        }
+
+        @each $position in spacing.$positions {
+            &--#{$position} {
+                margin-#{$position}: $large-spacing;
             }
         }
     }

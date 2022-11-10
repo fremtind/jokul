@@ -1,3 +1,8 @@
+@use "sass:string";
+@use "sass:map";
+@use "sass:list";
+@use "screens";
+
 /// Tilsvarer 2px
 /// @type Number
 $spacing-3xs: 0.125rem;
@@ -41,14 +46,78 @@ $spacing-4xl: 10.5rem;
 /// Lar deg gjøre oppslag på navnet uten `spacing`-prefix for å få ut rem-verdien
 /// @type Map
 $spacing-new: (
-    "3xs": $spacing-3xs,
-    "2xs": $spacing-2xs,
-    "xs": $spacing-xs,
-    "s": $spacing-s,
-    "m": $spacing-m,
-    "l": $spacing-l,
-    "xl": $spacing-xl,
-    "2xl": $spacing-2xl,
-    "3xl": $spacing-3xl,
-    "4xl": $spacing-4xl,
+    "3xs": (
+        "small-screen": $spacing-3xs,
+        "large-screen": $spacing-3xs,
+    ),
+    "2xs": (
+        "small-screen": $spacing-2xs,
+        "large-screen": $spacing-2xs,
+    ),
+    "xs": (
+        "small-screen": $spacing-xs,
+        "large-screen": $spacing-xs,
+    ),
+    "s": (
+        "small-screen": $spacing-s,
+        "large-screen": $spacing-s,
+    ),
+    "m": (
+        "small-screen": $spacing-m,
+        "large-screen": $spacing-m,
+    ),
+    "l": (
+        "small-screen": $spacing-m,
+        "large-screen": $spacing-l,
+    ),
+    "xl": (
+        "small-screen": $spacing-l,
+        "large-screen": $spacing-xl,
+    ),
+    "2xl": (
+        "small-screen": $spacing-xl,
+        "large-screen": $spacing-2xl,
+    ),
+    "3xl": (
+        "small-screen": $spacing-2xl,
+        "large-screen": $spacing-3xl,
+    ),
+    "4xl": (
+        "small-screen": $spacing-3xl,
+        "large-screen": $spacing-4xl,
+    ),
 );
+
+$positions: (top, bottom, left, right);
+
+@mixin spacing($spacing-name) {
+    // Separate spacing/position into spacing and position variables:
+    $start-index: string.index($spacing-name, "/") or 0;
+    $end-index: string.index($spacing-name, "/") or 9999999;
+    $spacing: string.slice($spacing-name, 0, $start-index - 1);
+    $position: string.slice($spacing-name, $end-index + 1);
+
+    @if map.has-key($spacing-new, $spacing) {
+        $variants: map.get($spacing-new, $spacing);
+
+        @if string.length($position) == 0 {
+            margin: map.get($variants, "small-screen");
+
+            @include screens.from-medium-device {
+                margin: map.get($variants, "large-screen");
+            }
+        } @else {
+            @if list.index($positions, $position) {
+                margin-#{$position}: map.get($variants, "small-screen");
+
+                @include screens.from-medium-device {
+                    margin-#{$position}: map.get($variants, "large-screen");
+                }
+            } @else {
+                @error "The spacing #{$spacing} has no position called #{$position}. Try one of these: #{$positions}";
+            }
+        }
+    } @else {
+        @error "No spacing with the name #{$spacing} was found. Try one of these: #{map.keys($spacing-new)}";
+    }
+}
