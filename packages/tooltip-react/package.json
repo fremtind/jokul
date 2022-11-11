@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tooltip-react",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "publishConfig": {
         "access": "public"
     },
@@ -39,13 +39,13 @@
     "dependencies": {
         "@floating-ui/react-dom": "^1.0.0",
         "@floating-ui/react-dom-interactions": "^0.10.1",
-        "@fremtind/jkl-core": "^11.1.1",
-        "@fremtind/jkl-tooltip": "^1.0.3",
+        "@fremtind/jkl-core": "^11.1.2",
+        "@fremtind/jkl-tooltip": "^1.0.4",
         "classnames": "^2.2.6",
         "framer-motion": "^7.0.0"
     },
     "devDependencies": {
-        "@fremtind/jkl-constants-util": "^1.0.3"
+        "@fremtind/jkl-constants-util": "^1.0.4"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
