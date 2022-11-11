@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-content-toggle-react",
-    "version": "4.0.7",
+    "version": "4.0.8",
     "publishConfig": {
         "access": "public"
     },
@@ -38,8 +38,8 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-content-toggle": "^4.0.4",
-        "@fremtind/jkl-core": "^11.1.1",
+        "@fremtind/jkl-content-toggle": "^4.0.5",
+        "@fremtind/jkl-core": "^11.1.2",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

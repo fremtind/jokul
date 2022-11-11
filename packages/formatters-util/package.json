@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-formatters-util",
-    "version": "3.0.4",
+    "version": "3.0.5",
     "publishConfig": {
         "access": "public"
     },
@@ -36,12 +36,12 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-constants-util": "^1.0.3",
-        "@fremtind/jkl-core": "^11.1.1"
+        "@fremtind/jkl-constants-util": "^1.0.4",
+        "@fremtind/jkl-core": "^11.1.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-button": "^9.0.4",
-        "@fremtind/jkl-text-input": "^9.1.7",
+        "@fremtind/jkl-button": "^9.0.5",
+        "@fremtind/jkl-text-input": "^9.1.8",
         "react-hook-form": "^7.34.0"
     },
     "peerDependencies": {
