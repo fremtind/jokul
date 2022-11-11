@@ -1,0 +1,32 @@
+{
+    "name": "@fremtind/jkl-action-paths-filter",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Find files that were modified in the pull request",
+    "main": "build/main.js",
+    "scripts": {
+        "build": "tsc",
+        "lint": "eslint src/**/*.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "keywords": [
+        "actions",
+        "node"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@actions/core": "^1.9.1",
+        "@actions/github": "^5.1.1",
+        "@octokit/webhooks-definitions": "^3.67.3",
+        "js-yaml": "^4.1.0",
+        "micromatch": "^4.0.4"
+    },
+    "devDependencies": {
+        "@types/js-yaml": "^4.0.5",
+        "@types/micromatch": "^4.0.2"
+    }
+}

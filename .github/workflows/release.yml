@@ -76,7 +76,7 @@ jobs:
               run: pnpm version:check
 
             - name: Check for changes to portal
-              uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
+              uses: ./actions/paths-filter
               id: changes
               with:
                   filters: |
