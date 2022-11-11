@@ -8,9 +8,26 @@ React-komponentene våre er er den raskeste og enkleste måten å ta i bruk Jøk
 
 ## Kom i gang
 
-Vi har en egen guide som hjelper deg med å [komme i gang](https://jokul.fremtind.no/kom-i-gang/introduksjon/) som ny bruker av Jøkul.
+For å starte utviklingsserveren for Jøkul lokalt må du først ha installert:
+
+-   [Node]-versjonen definert i [`.nvmrc`](./.nvmrc), gjerne via [Node Version Manager (NVM)](https://github.com/nvm-sh/nvm).
+-   [pnpm](https://pnpm.io/installation#using-corepack), gjerne via `corepack` eller `npm`.
+
+Så, etter å ha klonet repoet:
+
+-   `pnpm boot`
+-   `pnpm dev`
+-   Åpne [localhost:8000](http://localhost:8000)
+
+### Tips under utvikling
+
+-   Kjør `pnpm reboot` om du kommer tilbake til Jøkul-prosjektet etter en stund, eller noe ikke fungerer som du forventer.
+-   `pnpm dev` har live reloading for _portalen_, ikke kildekoden til pakkene. Kjør `pnpm build` for pakken du endrer, så oppdaterer portalen seg.
+-   Hver pakke har sin egen devserver bak `pnpm dev` om du skal jobbe på noe isolert, og ikke trenger hele portalen.
 
 ### Bruk av pakkene
+
+Vi har en egen guide som hjelper deg med å [komme i gang](https://jokul.fremtind.no/kom-i-gang/introduksjon/) som ny bruker av Jøkul.
 
 Du kan bruke Jøkul på to måter:
 
@@ -59,7 +76,7 @@ Hvis prosjektet ditt også bruker SCSS kan du hente stiler via samme filnavn som
 
 ### Bruk kjernen til å lage egne komponenter i Jøkul-drakt
 
-Om du skal bygge komponenter for Fremtind, utover de som finnes i Jøkul, bør du bruke variablene fra [@fremtind/jkl-core](./packages//core/). Det sørger for at farger, sperring, typografisk skala og liknende holder seg oppdatert mot endringer i designsystemet.
+Om du skal bygge komponenter for Fremtind, utover de som finnes i Jøkul, bør du bruke variablene fra [@fremtind/jkl-core](./packages/core/). Det sørger for at farger, sperring, typografisk skala og liknende holder seg oppdatert mot endringer i designsystemet.
 
 ## Dokumentasjon
 
