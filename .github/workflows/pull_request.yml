@@ -209,7 +209,6 @@ jobs:
               with:
                   # We install packages above
                   install: false
-                  node-version: 16
                   browser: chrome
                   start: pnpm serve
                   wait-on: "http://localhost:9000"
