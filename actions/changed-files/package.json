@@ -5,7 +5,7 @@
     "description": "Find files that were changed during the run of the action, using simple-git, with an option to upload the files as an artifact",
     "main": "build/main.js",
     "scripts": {
-        "build": "tsc",
+        "build": "esbuild src/main.ts --bundle --platform=node --target=node16 --outfile=build/main.js",
         "lint": "eslint src/**/*.ts",
         "test": "jest"
     },
