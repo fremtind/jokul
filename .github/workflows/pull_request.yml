@@ -37,7 +37,7 @@ jobs:
 
             - name: Check for changes that require extra verification
               if: "!contains(github.event.sender.login, 'fremtind-bot')"
-              uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
+              uses: ./actions/paths-filter
               id: changes
               with:
                   filters: |
@@ -151,8 +151,6 @@ jobs:
             fail-fast: false
             matrix:
                 # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
-                group: [1, 2, 3]
-                groups: [3]
                 forced-colors: [true, false]
         permissions:
             actions: write
@@ -194,27 +192,15 @@ jobs:
             - name: Build site
               run: pnpm build:docs
 
-            - name: Calculate which tests to run
-              id: parallel
-              uses: outsideopen/cypress-e2e-parallel-test-action@11345a74b311e33022c365f421cf6c906518838b
-              with:
-                  group: ${{ matrix.group }}
-                  groups: ${{ matrix.groups }}
-                  test-pattern: |
-                      packages/*/integration/**/*.spec.js
-                      portal/integration/**/*.spec.js
-
             - name: Run Cypress
               uses: cypress-io/github-action@v4
               with:
                   # We install packages above
                   install: false
-                  node-version: 16
                   browser: chrome
                   start: pnpm serve
                   wait-on: "http://localhost:9000"
                   wait-on-timeout: 280
-                  spec: ${{ steps.parallel.outputs.tests }}
               env:
                   FORCED_COLORS: ${{ matrix.forced-colors }}
 
@@ -222,7 +208,7 @@ jobs:
               uses: actions/upload-artifact@v3
               if: failure()
               with:
-                  name: cypress-screenshots-${{ matrix.forced-colors }}-${{ matrix.group }}
+                  name: cypress-screenshots-${{ matrix.forced-colors }}
                   path: |
                       cypress/screenshots
                       packages/**/integration/**/*.actual.png
@@ -245,7 +231,7 @@ jobs:
               uses: actions/upload-artifact@v3
               if: steps.lfcf.outputs.has_changed_files == 'true'
               with:
-                  name: cypress-snapshots-${{ matrix.forced-colors }}-${{ matrix.group }}
+                  name: cypress-snapshots-${{ matrix.forced-colors }}
                   # GitHub will find the lowest common folder to reduce the number of folders
                   # in the uploaded artifact. If you want to preserve the same folder structure
                   # as in your repository when downloading the artifact, include a file from
@@ -275,37 +261,13 @@ jobs:
               # bygget markeres som grønt.
               continue-on-error: true
               with:
-                  name: cypress-snapshots-false-1
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v2
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-false-2
+                  name: cypress-snapshots-false
 
             - name: Download snapshots
               uses: actions/download-artifact@v3
               continue-on-error: true
               with:
-                  name: cypress-snapshots-false-3
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v3
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-true-1
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v3
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-true-2
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v3
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-true-3
+                  name: cypress-snapshots-true
 
             - name: Commit snapshots
               run: |
