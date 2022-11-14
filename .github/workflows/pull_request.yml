@@ -68,7 +68,7 @@ jobs:
               uses: actions/setup-node@v3
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               with:
-                  node-version: 16
+                  node-version: 18
                   cache: "pnpm"
 
             - name: Cypress binary cache
@@ -125,7 +125,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: 16
+                  node-version: 18
                   cache: "pnpm"
 
             - name: Monorepo Runner Cache
@@ -167,7 +167,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: 16
+                  node-version: 18
                   cache: "pnpm"
 
             - name: Cypress binary cache
@@ -310,7 +310,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: 16
+                  node-version: 18
                   cache: "pnpm"
 
             - name: Monorepo Runner Cache
