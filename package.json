@@ -38,6 +38,7 @@
     "packageManager": "pnpm@7.15.0",
     "pnpm": {
         "overrides": {
+            "chokidar": "^3.5.3",
             "cz-lerna-changelog>shelljs": "^0.8.5"
         }
     },
