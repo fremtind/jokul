@@ -13,6 +13,7 @@ const ignoreNonMdx = [
 
 module.exports = {
     pathPrefix: process.env.PREVIEW_PATH ? `/${process.env.PREVIEW_PATH}` : "/",
+    trailingSlash: "never",
     siteMetadata: {
         title: `Jøkul Designsystem`,
         description: `Jøkul er designsystemet til Fremtind`,
@@ -102,7 +103,7 @@ module.exports = {
                         query: `
                         {
                             allMdx(
-                                sort: { fields: [frontmatter___publishDate], order: DESC },
+                                sort: { frontmatter: { publishDate: DESC } },
                                 filter: { internal: {
                                     contentFilePath: {regex: "/\/portal\/src\/texts\/blog\/.*\.mdx$/"}
                                 } },

@@ -62,7 +62,7 @@ type PageData = {
 export const pageQuery = graphql`
   query {
     allMdx(
-      sort: { fields: [frontmatter___publishDate], order: DESC },
+      sort: { frontmatter: { publishDate: DESC } },
       filter: { internal: {
         contentFilePath: {regex: "/\\/portal\\/src\\/texts\\/blog\\/.*\\.mdx$/"}
       } },

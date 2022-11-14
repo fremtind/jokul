@@ -78,10 +78,7 @@ type NavigationLinks = {
 export function useNavigationLinks(): NavigationLinks {
     const { allMdx } = useStaticQuery(graphql`
         query getPages {
-            allMdx(
-                sort: { order: ASC, fields: frontmatter___title }
-                filter: { frontmatter: { title: { regex: "/.+/" } } }
-            ) {
+            allMdx(sort: { frontmatter: { title: ASC } }, filter: { frontmatter: { title: { regex: "/.+/" } } }) {
                 edges {
                     node {
                         fields {
@@ -99,7 +96,7 @@ export function useNavigationLinks(): NavigationLinks {
                         }
                     }
                 }
-                distinct(field: frontmatter___group)
+                distinct(field: { frontmatter: { group: SELECT } })
             }
         }
     `);
