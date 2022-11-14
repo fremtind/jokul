@@ -125,13 +125,13 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
         }
 
         const snapshotConfig = {
-            separator: forcedColorsActive ? ` in high contrast #` : undefined,
+            title: forcedColorsActive ? `${Cypress.currentTest.titlePath.join(" ")} in high contrast #` : undefined,
         };
 
         if (typeof options.customSelector === "function") {
-            options.customSelector().toMatchImageSnapshot(snapshotConfig);
+            options.customSelector().matchImage(snapshotConfig);
         } else {
-            cy.getComponent().eq(componentIndex).toMatchImageSnapshot(snapshotConfig);
+            cy.getComponent().eq(componentIndex).matchImage(snapshotConfig);
         }
 
         if (pause) {
