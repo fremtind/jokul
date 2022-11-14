@@ -5,119 +5,132 @@
 
 /// Tilsvarer 2px
 /// @type Number
-$spacing-3xs: 0.125rem;
+$spacing-2: 0.125rem;
+$spacing-3xs: $spacing-2;
 
 /// Tilsvarer 4px
 /// @type Number
-$spacing-2xs: 0.25rem;
+$spacing-4: 0.25rem;
+$spacing-2xs: $spacing-4;
 
 /// Tilsvarer 8px
 /// @type Number
-$spacing-xs: 0.5rem;
+$spacing-8: 0.5rem;
+$spacing-xs: $spacing-8;
 
 /// Tilsvarer 12px
 /// @type Number
-$spacing-s: 0.75rem;
+$spacing-12: 0.75rem;
+$spacing-s: $spacing-12;
 
 /// Tilsvarer 16px
 /// @type Number
-$spacing-m: 1rem;
+$spacing-16: 1rem;
+$spacing-m: $spacing-16;
 
 /// Tilsvarer 24px
 /// @type Number
-$spacing-l: 1.5rem;
+$spacing-24: 1.5rem;
+$spacing-l: $spacing-24;
+
+/// Tilsvarer 32px
+/// @type Number
+$spacing-32: 2rem;
 
 /// Tilsvarer 40px
 /// @type Number
-$spacing-xl: 2.5rem;
+$spacing-40: 2.5rem;
+$spacing-xl: $spacing-40;
 
 /// Tilsvarer 64px
 /// @type Number
-$spacing-2xl: 4rem;
+$spacing-64: 4rem;
+$spacing-2xl: $spacing-64;
 
 /// Tilsvarer 104px
 /// @type Number
-$spacing-3xl: 6.5rem;
+$spacing-104: 6.5rem;
+$spacing-3xl: $spacing-104;
 
 /// Tilsvarer 168px
 /// @type Number
-$spacing-4xl: 10.5rem;
+$spacing-168: 10.5rem;
+$spacing-4xl: $spacing-168;
 
 /// Lar deg gjøre oppslag på navnet uten `spacing`-prefix for å få ut rem-verdien
 /// @type Map
-$spacing-new: (
-    "3xs": (
-        "small-screen": $spacing-3xs,
-        "large-screen": $spacing-3xs,
-    ),
-    "2xs": (
-        "small-screen": $spacing-2xs,
-        "large-screen": $spacing-2xs,
-    ),
-    "xs": (
-        "small-screen": $spacing-xs,
-        "large-screen": $spacing-xs,
-    ),
-    "s": (
-        "small-screen": $spacing-s,
-        "large-screen": $spacing-s,
-    ),
-    "m": (
-        "small-screen": $spacing-m,
-        "large-screen": $spacing-m,
-    ),
-    "l": (
-        "small-screen": $spacing-m,
-        "large-screen": $spacing-l,
-    ),
-    "xl": (
-        "small-screen": $spacing-l,
-        "large-screen": $spacing-xl,
-    ),
-    "2xl": (
-        "small-screen": $spacing-xl,
-        "large-screen": $spacing-2xl,
-    ),
-    "3xl": (
-        "small-screen": $spacing-2xl,
-        "large-screen": $spacing-3xl,
-    ),
-    "4xl": (
-        "small-screen": $spacing-3xl,
-        "large-screen": $spacing-4xl,
-    ),
+$spacing: (
+    "2": $spacing-2,
+    "4": $spacing-4,
+    "8": $spacing-8,
+    "12": $spacing-12,
+    "16": $spacing-16,
+    "24": $spacing-24,
+    "32": $spacing-32,
+    "40": $spacing-40,
+    "64": $spacing-64,
+    "104": $spacing-104,
+    "168": $spacing-168,
+    // Gamle t-skjortestørrelser for kompatibilitet
+    "3xs": $spacing-3xs,
+    "2xs": $spacing-2xs,
+    "xs": $spacing-xs,
+    "s": $spacing-s,
+    "m": $spacing-m,
+    "l": $spacing-l,
+    "xl": $spacing-xl,
+    "2xl": $spacing-2xl,
+    "3xl": $spacing-3xl,
+    "4xl": $spacing-4xl,
 );
 
+/// Her defineres par av spacinger for dynamiske spacing-klasser, som f.eks. .jkl-spacing-16-24
+/// @type Map
+$spacing-pairs: (("16", "24"), ("24", "40"), ("32", "40"), ("40", "64"), ("64", "104"), ("104", "168"));
+
+/// Posisjoner som kan benyttes for spacing
+/// @type Map
 $positions: (top, bottom, left, right);
 
-@mixin spacing($spacing-name) {
-    // Separate spacing/position into spacing and position variables:
-    $start-index: string.index($spacing-name, "/") or 0;
-    $end-index: string.index($spacing-name, "/") or 9999999;
-    $spacing: string.slice($spacing-name, 0, $start-index - 1);
-    $position: string.slice($spacing-name, $end-index + 1);
+/// Gir deg marginer basert på stegene i spacing-skalaen.
+/// @param $steps Enten navnet på ett steg i skalaen, eller navnet på tosteg i skalaen adskilt av "/".
+/// Dersom du oppgir to steg brukes det første på små skjermer og det andre på store.
+/// @param {"top" | "right" | "bottom" | "left"} $position Lar deg spesifisere margin for kun én av sidene
+/// @example
+/// .class {
+///     @include jkl.spacing("40/64");
+/// }
+/// @example
+/// .class {
+///     @include jkl.spacing("16", "bottom");
+/// }
+@mixin spacing($steps, $position: null) {
+    // Separate "step-1/step-2" into separate variables:
+    $start-index: string.index($steps, "/") or 0;
+    $end-index: string.index($steps, "/") or 9999999;
+    $step-1: string.slice($steps, 0, $start-index - 1);
+    $step-2: string.slice($steps, $end-index + 1);
 
-    @if map.has-key($spacing-new, $spacing) {
-        $variants: map.get($spacing-new, $spacing);
+    @if $position and list.index($positions, $position) {
+        // Rephrase e.g. "bottom" to "-bottom" for easier interpolation
+        $position: "-#{$position}";
+    }
 
-        @if string.length($position) == 0 {
-            margin: map.get($variants, "small-screen");
-
-            @include screens.from-medium-device {
-                margin: map.get($variants, "large-screen");
-            }
+    // Return only one value if step-2 is missing or both steps are the same
+    @if (string.length($step-2) == 0) or ($step-1 == $step-2) {
+        @if map.has-key($spacing, $step-1) {
+            margin#{$position}: map.get($spacing, $step-1);
         } @else {
-            @if list.index($positions, $position) {
-                margin-#{$position}: map.get($variants, "small-screen");
-
-                @include screens.from-medium-device {
-                    margin-#{$position}: map.get($variants, "large-screen");
-                }
-            } @else {
-                @error "The spacing #{$spacing} has no position called #{$position}. Try one of these: #{$positions}";
-            }
+            @error "Could not find the spacing step \"#{$step-1}\" in our spacing scale";
         }
     } @else {
-        @error "No spacing with the name #{$spacing} was found. Try one of these: #{map.keys($spacing-new)}";
+        @if map.has-key($spacing, $step-1) and map.has-key($spacing, $step-2) {
+            margin#{$position}: map.get($spacing, $step-1);
+            @include screens.from-medium-device {
+                margin#{$position}: map.get($spacing, $step-2);
+            }
+        } @else {
+            @error "Either \"#{$step-1}\" or \"#{$step-2}\" does not exist in our spacing scale";
+        }
     }
 }

@@ -2,44 +2,44 @@
 @use "../jkl/spacing";
 @use "../jkl/screens";
 
-@each $name, $spacing in spacing.$spacing-new {
-    $small-spacing: map.get($spacing, "small-screen");
-    $large-spacing: map.get($spacing, "large-screen");
-
+@each $name, $spacing in spacing.$spacing {
     .jkl-spacing-#{$name} {
         &--all {
-            margin: $small-spacing;
+            margin: $spacing;
         }
 
         @each $position in spacing.$positions {
             &--#{$position} {
-                margin-#{$position}: $small-spacing;
+                margin-#{$position}: $spacing;
             }
         }
     }
+}
 
-    @include screens.from-medium-device {
-        .jkl-spacing-#{$name} {
+@each $from, $to in spacing.$spacing-pairs {
+    .jkl-spacing-#{$from}-#{$to} {
+        &--all {
+            margin: $from;
+        }
+
+        @each $position in spacing.$positions {
+            &--#{$position} {
+                margin-#{$position}: $from;
+            }
+        }
+    }
+}
+@include screens.from-medium-device {
+    @each $from, $to in spacing.$spacing-pairs {
+        .jkl-spacing-#{$from}-#{$to} {
             &--all {
-                margin: $large-spacing;
+                margin: $to;
             }
 
             @each $position in spacing.$positions {
                 &--#{$position} {
-                    margin-#{$position}: $large-spacing;
+                    margin-#{$position}: $to;
                 }
-            }
-        }
-    }
-
-    .jkl-static-spacing-#{$name} {
-        &--all {
-            margin: $large-spacing;
-        }
-
-        @each $position in spacing.$positions {
-            &--#{$position} {
-                margin-#{$position}: $large-spacing;
             }
         }
     }
