@@ -6,31 +6,49 @@
 /// Tilsvarer 2px
 /// @type Number
 $spacing-2: 0.125rem;
+/// Tilsvarer 2px
+/// @deprecated Bruk heller $spacing-2
+/// @type Number
 $spacing-3xs: $spacing-2;
 
 /// Tilsvarer 4px
 /// @type Number
 $spacing-4: 0.25rem;
+/// Tilsvarer 4px
+/// @deprecated Bruk heller $spacing-4
+/// @type Number
 $spacing-2xs: $spacing-4;
 
 /// Tilsvarer 8px
 /// @type Number
 $spacing-8: 0.5rem;
+/// Tilsvarer 8px
+/// @deprecated Bruk heller $spacing-8
+/// @type Number
 $spacing-xs: $spacing-8;
 
 /// Tilsvarer 12px
 /// @type Number
 $spacing-12: 0.75rem;
+/// Tilsvarer 12px
+/// @deprecated Bruk heller $spacing-12
+/// @type Number
 $spacing-s: $spacing-12;
 
 /// Tilsvarer 16px
 /// @type Number
 $spacing-16: 1rem;
+/// Tilsvarer 16px
+/// @deprecated Bruk heller $spacing-16
+/// @type Number
 $spacing-m: $spacing-16;
 
 /// Tilsvarer 24px
 /// @type Number
 $spacing-24: 1.5rem;
+/// Tilsvarer 24px
+/// @deprecated Bruk heller $spacing-24
+/// @type Number
 $spacing-l: $spacing-24;
 
 /// Tilsvarer 32px
@@ -40,21 +58,33 @@ $spacing-32: 2rem;
 /// Tilsvarer 40px
 /// @type Number
 $spacing-40: 2.5rem;
+/// Tilsvarer 40px
+/// @deprecated Bruk heller $spacing-40
+/// @type Number
 $spacing-xl: $spacing-40;
 
 /// Tilsvarer 64px
 /// @type Number
 $spacing-64: 4rem;
+/// Tilsvarer 64px
+/// @deprecated Bruk heller $spacing-64
+/// @type Number
 $spacing-2xl: $spacing-64;
 
 /// Tilsvarer 104px
 /// @type Number
 $spacing-104: 6.5rem;
+/// Tilsvarer 104px
+/// @deprecated Bruk heller $spacing-104
+/// @type Number
 $spacing-3xl: $spacing-104;
 
 /// Tilsvarer 168px
 /// @type Number
 $spacing-168: 10.5rem;
+/// Tilsvarer 168px
+/// @deprecated Bruk heller $spacing-168
+/// @type Number
 $spacing-4xl: $spacing-168;
 
 /// Lar deg gjøre oppslag på navnet uten `spacing`-prefix for å få ut rem-verdien
@@ -93,7 +123,7 @@ $spacing-pairs: (("16", "24"), ("24", "40"), ("32", "40"), ("40", "64"), ("64", 
 $positions: (top, bottom, left, right);
 
 /// Gir deg marginer basert på stegene i spacing-skalaen.
-/// @param $steps Enten navnet på ett steg i skalaen, eller navnet på tosteg i skalaen adskilt av "/".
+/// @param {"2/4" | "2/8" | "2/12" | "2/16" | "2/24" | "2/32" | "2/40" | "2/64" | "2/104" | "2/168" | "4/8" | "4/14" | "4/16" | "4/44" | "4/34" | "4/40" | "4/64" | "4/104" | "4/168" | "8/12" | "8/16" | "8/84" | "8/38" | "8/40" | "8/64" | "8/104" | "8/168" | "12/16" | "12/124" | "12/32" | "12/40" | "12/64" | "12/104" | "12/168" | "16/24" | "16/32" | "16/40" | "16/64" | "16/104" | "16/168" | "24/32" | "24/40" | "24/64" | "24/104" | "24/168" | "32/40" | "32/64" | "32/104" | "32/168" | "40/64" | "40/104" | "40/168" | "64/104" | "64/168" | "104/168"} $steps Enten navnet på ett steg i skalaen, eller navnet på tosteg i skalaen adskilt av "/".
 /// Dersom du oppgir to steg brukes det første på små skjermer og det andre på store.
 /// @param {"top" | "right" | "bottom" | "left"} $position Lar deg spesifisere margin for kun én av sidene
 /// @example
@@ -117,7 +147,7 @@ $positions: (top, bottom, left, right);
     }
 
     // Return only one value if step-2 is missing or both steps are the same
-    @if (string.length($step-2) == 0) or ($step-1 == $step-2) {
+    @if string.length($step-2) == 0 or $step-1 == $step-2 {
         @if map.has-key($spacing, $step-1) {
             margin#{$position}: map.get($spacing, $step-1);
         } @else {

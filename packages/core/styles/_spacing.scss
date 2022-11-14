@@ -19,12 +19,12 @@
 @each $from, $to in spacing.$spacing-pairs {
     .jkl-spacing-#{$from}-#{$to} {
         &--all {
-            margin: $from;
+            margin: map.get(spacing.$spacing, $from);
         }
 
         @each $position in spacing.$positions {
             &--#{$position} {
-                margin-#{$position}: $from;
+                margin-#{$position}: map.get(spacing.$spacing, $from);
             }
         }
     }
@@ -33,12 +33,12 @@
     @each $from, $to in spacing.$spacing-pairs {
         .jkl-spacing-#{$from}-#{$to} {
             &--all {
-                margin: $to;
+                margin: map.get(spacing.$spacing, $to);
             }
 
             @each $position in spacing.$positions {
                 &--#{$position} {
-                    margin-#{$position}: $to;
+                    margin-#{$position}: map.get(spacing.$spacing, $to);
                 }
             }
         }
