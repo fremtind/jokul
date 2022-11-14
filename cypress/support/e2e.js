@@ -1,6 +1,6 @@
 /// OM DU GJØR ENDRINGER HER, SØRG FOR Å OPPDATERE TYPEDEFINISJONENE I `index.d.ts`!
 
-import "cypress-plugin-snapshots/commands";
+import "@frsource/cypress-plugin-visual-regression-diff";
 
 function pascalCase(phrase) {
     return phrase.replace(/\ ./, (match) => match.slice(-1).toUpperCase());
