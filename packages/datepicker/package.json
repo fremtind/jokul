@@ -25,9 +25,9 @@
         "dev": "echo \"Error: run dev from datepicker-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.1.2",
-        "@fremtind/jkl-select": "^9.2.3",
-        "@fremtind/jkl-text-input": "^9.1.8"
+        "@fremtind/jkl-core": "workspace:^11.1.2",
+        "@fremtind/jkl-select": "workspace:^9.2.3",
+        "@fremtind/jkl-text-input": "workspace:^9.1.8"
     },
     "repository": {
         "type": "git",

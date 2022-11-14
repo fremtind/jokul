@@ -36,11 +36,11 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.1.2",
-        "@fremtind/jkl-expand-button": "^3.0.5",
-        "@fremtind/jkl-icons-react": "^6.0.6",
-        "@fremtind/jkl-react-hooks": "^10.2.3",
-        "classnames": "^2.2.6"
+        "@fremtind/jkl-core": "workspace:^11.1.2",
+        "@fremtind/jkl-expand-button": "workspace:^3.0.5",
+        "@fremtind/jkl-icons-react": "workspace:^6.0.6",
+        "@fremtind/jkl-react-hooks": "workspace:^10.2.3",
+        "classnames": "^2.3.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

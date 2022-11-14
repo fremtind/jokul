@@ -38,14 +38,14 @@
     },
     "dependencies": {
         "@floating-ui/react-dom": "^1.0.0",
-        "@floating-ui/react-dom-interactions": "^0.10.1",
-        "@fremtind/jkl-core": "^11.1.2",
-        "@fremtind/jkl-tooltip": "^1.0.4",
-        "classnames": "^2.2.6",
-        "framer-motion": "^7.0.0"
+        "@floating-ui/react-dom-interactions": "^0.10.3",
+        "@fremtind/jkl-core": "workspace:^11.1.2",
+        "@fremtind/jkl-tooltip": "workspace:^1.0.4",
+        "classnames": "^2.3.2",
+        "framer-motion": "^7.6.6"
     },
     "devDependencies": {
-        "@fremtind/jkl-constants-util": "^1.0.4"
+        "@fremtind/jkl-constants-util": "workspace:^1.0.4"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

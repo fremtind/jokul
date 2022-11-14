@@ -22,8 +22,8 @@
         "build"
     ],
     "devDependencies": {
-        "@fremtind/jkl-core": "^11.1.2",
-        "@fremtind/jkl-table-react": "^9.0.10"
+        "@fremtind/jkl-core": "workspace:^11.1.2",
+        "@fremtind/jkl-table-react": "workspace:^9.0.10"
     },
     "scripts": {
         "clean": "rimraf node_modules/ build/ node_modules/",
