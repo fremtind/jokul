@@ -5,6 +5,10 @@ export default defineConfig({
     viewportWidth: 1920,
     viewportHeight: 1080,
     video: false,
+    env: {
+        // Default true, men gjort eksplisitt for å sørge for at patchen vår i `patches/` ender opp med å bli brukt.
+        pluginVisualRegressionForceDeviceScaleFactor: true,
+    },
     e2e: {
         setupNodeEvents(on, config) {
             on("before:browser:launch", (browser, launchOptions) => {
