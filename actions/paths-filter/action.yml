@@ -1,0 +1,13 @@
+name: "Paths filter"
+description: "Find files that were modified in the pull request"
+author: "Fremtind"
+inputs:
+    token:
+        description: "GitHub API token"
+        default: ${{ github.token }}
+    filters:
+        description: "YAML list of filters"
+        required: true
+runs:
+    using: "node16"
+    main: "build/main.js"
