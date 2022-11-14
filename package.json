@@ -39,7 +39,9 @@
     "pnpm": {
         "overrides": {
             "chokidar": "^3.5.3",
-            "cz-lerna-changelog>shelljs": "^0.8.5"
+            "cz-lerna-changelog>shelljs": "^0.8.5",
+            "glob-stream>glob-parent": "^5.1.2",
+            "resolve-url-loader>loader-utils": "^1.4.2"
         }
     },
     "dependencies": {
