@@ -30,7 +30,6 @@
         "dev": "pnpm --filter \"@fremtind/portal\" dev",
         "start": "pnpm dev",
         "serve": "pnpm --filter \"@fremtind/portal\" serve",
-        "postinstall": "pnpm patch-package",
         "boot": "pnpm install && husky install && pnpm build",
         "reboot": "pnpm clean && pnpm boot",
         "scaffold": "node './scripts/scaffold'"
@@ -42,6 +41,11 @@
             "cz-lerna-changelog>shelljs": "^0.8.5",
             "glob-stream>glob-parent": "^5.1.2",
             "resolve-url-loader>loader-utils": "^1.4.2"
+        },
+        "patchedDependencies": {
+            "@frsource/cypress-plugin-visual-regression-diff@3.1.5": "patches/@frsource__cypress-plugin-visual-regression-diff@3.1.5.patch",
+            "cz-lerna-changelog@2.0.3": "patches/cz-lerna-changelog@2.0.3.patch",
+            "gulp-sass@5.1.0": "patches/gulp-sass@5.1.0.patch"
         }
     },
     "dependencies": {
@@ -103,9 +107,7 @@
         "lerna-clean-changelogs-cli": "^2.1.12",
         "lint-staged": "^13.0.3",
         "npm-run-all": "^4.1.5",
-        "patch-package": "^6.5.0",
         "postcss": "^8.4.19",
-        "postinstall-postinstall": "^2.1.0",
         "prettier": "^2.7.1",
         "prompt": "^1.3.0",
         "react-syntax-highlighter": "^15.5.0",

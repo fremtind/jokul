@@ -1,0 +1,16 @@
+diff --git a/dist/plugins.js b/dist/plugins.js
+index 34e1d38ed9861de2c8f6c8353047bbe5b7af8178..a0e4e49a572c05687605c1ba96b6d3974c24e6f9 100644
+--- a/dist/plugins.js
++++ b/dist/plugins.js
+@@ -490,6 +490,11 @@ const initForceDeviceScaleFactor = on => {
+     if (browser.name === "chrome" || browser.name === "chromium") {
+       launchOptions.args.push("--force-device-scale-factor=1");
+       launchOptions.args.push("--high-dpi-support=1");
++      launchOptions.args.push("--force-prefers-reduced-motion");
++
++      if (process.env.FORCED_COLORS === true || process.env.FORCED_COLORS === "true") {
++        args.push("--force-high-contrast");
++      }
+     } else if (browser.name === "electron" && browser.isHeaded) {
+       // eslint-disable-next-line no-console
+       console.log("There isn't currently a way of setting the device scale factor in Cypress when running headed electron so we disable the image regression commands.");

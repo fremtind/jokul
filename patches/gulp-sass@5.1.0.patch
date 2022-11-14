@@ -1,7 +1,33 @@
-diff --git a/node_modules/gulp-sass/index.js b/node_modules/gulp-sass/index.js
-index 3a027bc..10182c3 100644
---- a/node_modules/gulp-sass/index.js
-+++ b/node_modules/gulp-sass/index.js
+diff --git a/index.js b/index.js
+index 3a027bc93b0ee9946b1c5873a9333d235870dbae..11cbc384fa90f7b1f32b8b4fb642bc2337b8e94e 100644
+--- a/index.js
++++ b/index.js
+@@ -1,15 +1,15 @@
+-'use strict';
++"use strict";
+ 
+-const path = require('path');
+-const { Transform } = require('stream');
+-const picocolors = require('picocolors');
+-const PluginError = require('plugin-error');
+-const replaceExtension = require('replace-ext');
+-const stripAnsi = require('strip-ansi');
+-const clonedeep = require('lodash.clonedeep');
+-const applySourceMap = require('vinyl-sourcemaps-apply');
++const path = require("path");
++const { Transform } = require("stream");
++const picocolors = require("picocolors");
++const PluginError = require("plugin-error");
++const replaceExtension = require("replace-ext");
++const stripAnsi = require("strip-ansi");
++const clonedeep = require("lodash.clonedeep");
++const applySourceMap = require("vinyl-sourcemaps-apply");
+ 
+-const PLUGIN_NAME = 'gulp-sass';
++const PLUGIN_NAME = "gulp-sass";
+ 
+ const MISSING_COMPILER_MESSAGE = `
+ gulp-sass no longer has a default Sass compiler; please set one yourself.
 @@ -24,13 +24,19 @@ const transfob = (transform) => new Transform({ transform, objectMode: true });
  /**
   * Handles returning the file to the stream
@@ -9,26 +35,25 @@ index 3a027bc..10182c3 100644
 -const filePush = (file, sassObject, callback) => {
 +const filePush = (file, compileResult, callback) => {
 +  file.contents = Buffer.from(compileResult.css);
-+  file.path = replaceExtension(file.path, '.css');
++  file.path = replaceExtension(file.path, ".css");
 +
    // Build Source Maps!
 -  if (sassObject.map) {
 -    // Transform map into JSON
 -    const sassMap = JSON.parse(sassObject.map.toString());
--    // Grab the stdout and transform it into stdin
--    const sassMapFile = sassMap.file.replace(/^stdout$/, 'stdin');
 +  if (compileResult.sourceMap) {
 +    const sassMap = compileResult.sourceMap;
-+
-+    const sassMapFile = file.path;
 +    if (!sassMap.file) {
-+      sassMap.file = sassMapFile;
++      sassMap.file = file.path;
 +    }
 +
+     // Grab the stdout and transform it into stdin
+-    const sassMapFile = sassMap.file.replace(/^stdout$/, 'stdin');
++    const sassMapFile = sassMap.file.replace(/^stdout$/, "stdin");
      // Grab the base filename that's being worked on
      const sassFileSrc = file.relative;
      // Grab the path portion of the file that's being worked on
-@@ -39,11 +45,9 @@ const filePush = (file, sassObject, callback) => {
+@@ -39,25 +45,20 @@ const filePush = (file, sassObject, callback) => {
      if (sassFileSrcPath) {
        const sourceFileIndex = sassMap.sources.indexOf(sassMapFile);
        // Prepend the path to all files in the sources array except the file that's being worked on
@@ -41,50 +66,89 @@ index 3a027bc..10182c3 100644
 +        index === sourceFileIndex ? source : path.join(sassFileSrcPath, source)
 +      );
      }
-
+ 
      // Remove 'stdin' from souces and replace with filenames!
-@@ -55,9 +59,6 @@ const filePush = (file, sassObject, callback) => {
+-    sassMap.sources = sassMap.sources.filter((src) => src !== 'stdin' && src);
++    sassMap.sources = sassMap.sources.filter((src) => src !== "stdin" && src);
+ 
+     // Replace the map file with the original filename (but new extension)
+-    sassMap.file = replaceExtension(sassFileSrc, '.css');
++    sassMap.file = replaceExtension(sassFileSrc, ".css");
+     // Apply the map
      applySourceMap(file, sassMap);
    }
-
+ 
 -  file.contents = sassObject.css;
 -  file.path = replaceExtension(file.path, '.css');
 -
    if (file.stat) {
      file.stat.atime = file.stat.mtime = file.stat.ctime = new Date();
    }
-@@ -110,52 +111,47 @@ const gulpSass = (options, sync) => {
+@@ -69,9 +70,10 @@ const filePush = (file, sassObject, callback) => {
+  * Handles error message
+  */
+ const handleError = (error, file, callback) => {
+-  const filePath = (error.file === 'stdin' ? file.path : error.file) || file.path;
++  const filePath =
++    (error.file === "stdin" ? file.path : error.file) || file.path;
+   const relativePath = path.relative(process.cwd(), filePath);
+-  const message = `${picocolors.underline(relativePath)}\n${error.formatted}`;
++  const message = `${picocolors.underline(relativePath)}\n${error.message}`;
+ 
+   error.messageFormatted = message;
+   error.messageOriginal = error.message;
+@@ -94,68 +96,68 @@ const gulpSass = (options, sync) => {
      }
-
+ 
+     if (file.isStream()) {
+-      callback(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
++      callback(new PluginError(PLUGIN_NAME, "Streaming not supported"));
+       return;
+     }
+ 
+-    if (path.basename(file.path).startsWith('_')) {
++    if (path.basename(file.path).startsWith("_")) {
+       callback();
+       return;
+     }
+ 
+     if (!file.contents.length) {
+-      file.path = replaceExtension(file.path, '.css');
++      file.path = replaceExtension(file.path, ".css");
+       callback(null, file);
+       return;
+     }
+ 
      const opts = clonedeep(options || {});
 -    opts.data = file.contents.toString();
-
+-
 -    // We set the file path here so that libsass can correctly resolve import paths
 -    opts.file = file.path;
--
+ 
 -    // Ensure `indentedSyntax` is true if a `.sass` file
-+    // Ensure `indented` if a `.sass` file
-     if (path.extname(file.path) === '.sass') {
+-    if (path.extname(file.path) === '.sass') {
 -      opts.indentedSyntax = true;
-+      opts.syntax = 'indented';
++    // Ensure `indented` if a `.sass` file
++    if (path.extname(file.path) === ".sass") {
++      opts.syntax = "indented";
      }
-
+ 
      // Ensure file's parent directory in the include path
 -    if (opts.includePaths) {
 -      if (typeof opts.includePaths === 'string') {
 -        opts.includePaths = [opts.includePaths];
 +    if (opts.loadPaths) {
-+      if (typeof opts.loadPaths === 'string') {
++      if (typeof opts.loadPaths === "string") {
 +        opts.loadPaths = [opts.loadPaths];
        }
      } else {
 -      opts.includePaths = [];
 +      opts.loadPaths = [];
      }
-
+ 
 -    opts.includePaths.unshift(path.dirname(file.path));
 +    opts.loadPaths.unshift(path.dirname(file.path));
-
+ 
      // Generate Source Maps if the source-map plugin is present
      if (file.sourceMap) {
 -      opts.sourceMap = file.path;
@@ -93,7 +157,8 @@ index 3a027bc..10182c3 100644
 +      opts.sourceMap = true;
 +      opts.sourceMapIncludeSources = true;
      }
-
+ 
++    const fileContents = file.contents.toString();
      if (sync !== true) {
        /**
 -       * Async Sass render
@@ -102,7 +167,7 @@ index 3a027bc..10182c3 100644
 -      gulpSass.compiler.render(opts, (error, obj) => {
 -        if (error) {
 +      gulpSass.compiler
-+        .compileAsync(file.path, opts)
++        .compileStringAsync(fileContents, opts)
 +        .then((compileResult) => {
 +          filePush(file, compileResult, callback);
 +        })
@@ -121,53 +186,66 @@ index 3a027bc..10182c3 100644
         */
        try {
 -        filePush(file, gulpSass.compiler.renderSync(opts), callback);
-+        filePush(file, gulpSass.compiler.compile(opts), callback);
++        filePush(
++          file,
++          gulpSass.compiler.compileString(fileContents, opts),
++          callback
++        );
        } catch (error) {
          handleError(error, file, callback);
        }
-@@ -164,7 +160,7 @@ const gulpSass = (options, sync) => {
+@@ -164,7 +166,7 @@ const gulpSass = (options, sync) => {
  };
-
+ 
  /**
 - * Sync Sass render
 + * Sync Sass compile
   */
  gulpSass.sync = (options) => gulpSass(options, true);
-
-@@ -172,13 +168,13 @@ gulpSass.sync = (options) => gulpSass(options, true);
+ 
+@@ -172,18 +174,16 @@ gulpSass.sync = (options) => gulpSass(options, true);
   * Log errors nicely
   */
  gulpSass.logError = function logError(error) {
 -  const message = new PluginError('sass', error.messageFormatted).toString();
-+  const message = new PluginError('sass', error).toString();
++  const message = new PluginError("sass", error).toString();
    process.stderr.write(`${message}\n`);
-   this.emit('end');
+-  this.emit('end');
++  this.emit("end");
  };
-
+ 
  module.exports = (compiler) => {
 -  if (!compiler || !compiler.render) {
+-    const message = new PluginError(
+-      PLUGIN_NAME,
+-      MISSING_COMPILER_MESSAGE,
+-      { showProperties: false },
+-    ).toString();
 +  if (!compiler || !compiler.compile) {
-     const message = new PluginError(
-       PLUGIN_NAME,
-       MISSING_COMPILER_MESSAGE,
-diff --git a/node_modules/gulp-sass/legacy.js b/node_modules/gulp-sass/legacy.js
++    const message = new PluginError(PLUGIN_NAME, MISSING_COMPILER_MESSAGE, {
++      showProperties: false,
++    }).toString();
+     process.stderr.write(`${message}\n`);
+     process.exit(1);
+   }
+diff --git a/legacy.js b/legacy.js
 new file mode 100644
-index 0000000..3a027bc
+index 0000000000000000000000000000000000000000..ac3da17038321ac75f98537fa005a7ce89ca66b9
 --- /dev/null
-+++ b/node_modules/gulp-sass/legacy.js
-@@ -0,0 +1,193 @@
-+'use strict';
++++ b/legacy.js
+@@ -0,0 +1,190 @@
++"use strict";
 +
-+const path = require('path');
-+const { Transform } = require('stream');
-+const picocolors = require('picocolors');
-+const PluginError = require('plugin-error');
-+const replaceExtension = require('replace-ext');
-+const stripAnsi = require('strip-ansi');
-+const clonedeep = require('lodash.clonedeep');
-+const applySourceMap = require('vinyl-sourcemaps-apply');
++const path = require("path");
++const { Transform } = require("stream");
++const picocolors = require("picocolors");
++const PluginError = require("plugin-error");
++const replaceExtension = require("replace-ext");
++const stripAnsi = require("strip-ansi");
++const clonedeep = require("lodash.clonedeep");
++const applySourceMap = require("vinyl-sourcemaps-apply");
 +
-+const PLUGIN_NAME = 'gulp-sass';
++const PLUGIN_NAME = "gulp-sass";
 +
 +const MISSING_COMPILER_MESSAGE = `
 +gulp-sass no longer has a default Sass compiler; please set one yourself.
@@ -188,7 +266,7 @@ index 0000000..3a027bc
 +    // Transform map into JSON
 +    const sassMap = JSON.parse(sassObject.map.toString());
 +    // Grab the stdout and transform it into stdin
-+    const sassMapFile = sassMap.file.replace(/^stdout$/, 'stdin');
++    const sassMapFile = sassMap.file.replace(/^stdout$/, "stdin");
 +    // Grab the base filename that's being worked on
 +    const sassFileSrc = file.relative;
 +    // Grab the path portion of the file that's being worked on
@@ -197,24 +275,22 @@ index 0000000..3a027bc
 +    if (sassFileSrcPath) {
 +      const sourceFileIndex = sassMap.sources.indexOf(sassMapFile);
 +      // Prepend the path to all files in the sources array except the file that's being worked on
-+      sassMap.sources = sassMap.sources.map((source, index) => (
-+        index === sourceFileIndex
-+          ? source
-+          : path.join(sassFileSrcPath, source)
-+      ));
++      sassMap.sources = sassMap.sources.map((source, index) =>
++        index === sourceFileIndex ? source : path.join(sassFileSrcPath, source)
++      );
 +    }
 +
 +    // Remove 'stdin' from souces and replace with filenames!
-+    sassMap.sources = sassMap.sources.filter((src) => src !== 'stdin' && src);
++    sassMap.sources = sassMap.sources.filter((src) => src !== "stdin" && src);
 +
 +    // Replace the map file with the original filename (but new extension)
-+    sassMap.file = replaceExtension(sassFileSrc, '.css');
++    sassMap.file = replaceExtension(sassFileSrc, ".css");
 +    // Apply the map
 +    applySourceMap(file, sassMap);
 +  }
 +
 +  file.contents = sassObject.css;
-+  file.path = replaceExtension(file.path, '.css');
++  file.path = replaceExtension(file.path, ".css");
 +
 +  if (file.stat) {
 +    file.stat.atime = file.stat.mtime = file.stat.ctime = new Date();
@@ -227,7 +303,8 @@ index 0000000..3a027bc
 + * Handles error message
 + */
 +const handleError = (error, file, callback) => {
-+  const filePath = (error.file === 'stdin' ? file.path : error.file) || file.path;
++  const filePath =
++    (error.file === "stdin" ? file.path : error.file) || file.path;
 +  const relativePath = path.relative(process.cwd(), filePath);
 +  const message = `${picocolors.underline(relativePath)}\n${error.formatted}`;
 +
@@ -252,17 +329,17 @@ index 0000000..3a027bc
 +    }
 +
 +    if (file.isStream()) {
-+      callback(new PluginError(PLUGIN_NAME, 'Streaming not supported'));
++      callback(new PluginError(PLUGIN_NAME, "Streaming not supported"));
 +      return;
 +    }
 +
-+    if (path.basename(file.path).startsWith('_')) {
++    if (path.basename(file.path).startsWith("_")) {
 +      callback();
 +      return;
 +    }
 +
 +    if (!file.contents.length) {
-+      file.path = replaceExtension(file.path, '.css');
++      file.path = replaceExtension(file.path, ".css");
 +      callback(null, file);
 +      return;
 +    }
@@ -274,13 +351,13 @@ index 0000000..3a027bc
 +    opts.file = file.path;
 +
 +    // Ensure `indentedSyntax` is true if a `.sass` file
-+    if (path.extname(file.path) === '.sass') {
++    if (path.extname(file.path) === ".sass") {
 +      opts.indentedSyntax = true;
 +    }
 +
 +    // Ensure file's parent directory in the include path
 +    if (opts.includePaths) {
-+      if (typeof opts.includePaths === 'string') {
++      if (typeof opts.includePaths === "string") {
 +        opts.includePaths = [opts.includePaths];
 +      }
 +    } else {
@@ -330,18 +407,16 @@ index 0000000..3a027bc
 + * Log errors nicely
 + */
 +gulpSass.logError = function logError(error) {
-+  const message = new PluginError('sass', error.messageFormatted).toString();
++  const message = new PluginError("sass", error.messageFormatted).toString();
 +  process.stderr.write(`${message}\n`);
-+  this.emit('end');
++  this.emit("end");
 +};
 +
 +module.exports = (compiler) => {
 +  if (!compiler || !compiler.render) {
-+    const message = new PluginError(
-+      PLUGIN_NAME,
-+      MISSING_COMPILER_MESSAGE,
-+      { showProperties: false },
-+    ).toString();
++    const message = new PluginError(PLUGIN_NAME, MISSING_COMPILER_MESSAGE, {
++      showProperties: false,
++    }).toString();
 +    process.stderr.write(`${message}\n`);
 +    process.exit(1);
 +  }
