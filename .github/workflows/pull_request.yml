@@ -198,6 +198,8 @@ jobs:
                   # We install packages above
                   install: false
                   browser: chrome
+                  # Workaround for Node-versjon. Se https://github.com/cypress-io/github-action/issues/489#issuecomment-1021379037
+                  command: npx cypress run
                   start: pnpm serve
                   wait-on: "http://localhost:9000"
                   wait-on-timeout: 280
