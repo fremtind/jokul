@@ -39,7 +39,7 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
         open,
         onOpenChange: setOpen,
         placement: initialPlacement,
-        middleware: [offset(16), flip(), shift({ padding: 16 }), arrow({ element: arrowElement, padding: 8 })],
+        middleware: [offset(16), flip(), shift({ padding: 16 }), arrow({ element: arrowElement, padding: 20 })],
     });
 
     const { getReferenceProps, getFloatingProps } = useInteractions([
