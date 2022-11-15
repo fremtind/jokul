@@ -27,7 +27,7 @@ export default defineConfig({
             return config;
         },
         specPattern: ".//**/integration/*.spec.*",
-        baseUrl: "http://localhost:9000",
+        baseUrl: "http://127.0.0.1:9000",
         excludeSpecPattern: ["**/__snapshots__/*", "**/__image_snapshots__/*", "**/node_modules/**", "./scripts/**"],
     },
 });
