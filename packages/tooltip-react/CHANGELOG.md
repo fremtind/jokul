@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@1.0.7...@fremtind/jkl-tooltip-react@1.0.8) (2022-11-15)
+
+### Bug Fixes
+
+- changed padding for tooltip arrow hence the design sketches ([9c78d5e](https://github.com/fremtind/jokul/commit/9c78d5eb365870acf2efc99eadb07e14a081c9ba)), closes [#3256](https://github.com/fremtind/jokul/issues/3256)
+
 ## [1.0.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@1.0.5...@fremtind/jkl-tooltip-react@1.0.7) (2022-11-11)
 
 ### Reverts

@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "16.0.39",
+    "version": "16.0.40",
     "devDependencies": {
         "@jest/globals": "^29.2.2",
         "react-docgen-typescript": "^2.2.2"
@@ -42,7 +42,7 @@
         "@fremtind/jkl-tag-react": "^3.0.10",
         "@fremtind/jkl-text-input-react": "^11.1.13",
         "@fremtind/jkl-toggle-switch-react": "^10.0.8",
-        "@fremtind/jkl-tooltip-react": "^1.0.7",
+        "@fremtind/jkl-tooltip-react": "^1.0.8",
         "@fremtind/jkl-validators-util": "^2.5.3",
         "@fremtind/jkl-webfonts": "^2.1.2",
         "@mdx-js/react": "^2.1.2",
