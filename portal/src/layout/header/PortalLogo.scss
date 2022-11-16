@@ -1,5 +1,15 @@
 @use "@fremtind/jkl-core/jkl";
 
+@include jkl.light-mode-variables {
+    --portal-logo-color: var(--jkl-color);
+    --portal-logo-color-hover: #{jkl.$color-stein};
+}
+
+@include jkl.dark-mode-variables {
+    --portal-logo-color: var(--jkl-color);
+    --portal-logo-color-hover: #{jkl.$color-svaberg};
+}
+
 .jkl-portal-logo {
     @include jkl.reset-outline;
     padding: 0;
@@ -8,15 +18,15 @@
     @include jkl.text-style("heading-4") {
         font-weight: jkl.$typography-weight-normal;
     }
-    color: inherit;
+    color: var(--portal-logo-color);
     text-decoration: none;
 
     &:hover {
-        color: jkl.$color-stein;
+        color: var(--portal-logo-color-hover);
     }
 
     html:not([data-mousenavigation]) &:focus {
-        color: jkl.$color-granitt;
+        color: var(--portal-logo-color);
         font-weight: jkl.$typography-weight-bold;
     }
 }
