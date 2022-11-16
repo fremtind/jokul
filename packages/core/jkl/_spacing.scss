@@ -114,53 +114,130 @@ $spacing: (
     "4xl": $spacing-4xl,
 );
 
-/// Her defineres par av spacinger for dynamiske spacing-klasser, som f.eks. .jkl-spacing-16-24
+/// Her defineres kombinasjoner av spacinger til bruk i nytteklasser for spacing.
+/// Nytteklasser for alle enkeltspacinger, samt kombinasjoner, i denne listen
+/// blir automatisk generert i core.css, med versjoner for alle posisjoner (top, right, etc.).
 /// @type Map
-$spacing-pairs: (("16", "24"), ("24", "40"), ("32", "40"), ("40", "64"), ("64", "104"), ("104", "168"));
+$combinations: (
+    "2",
+    "4",
+    "8",
+    "12",
+    "16",
+    "24",
+    "32",
+    "40",
+    "64",
+    "104",
+    "168",
+    "16" "24",
+    "24" "40",
+    "24" "32",
+    "32" "40",
+    "40" "64",
+    "64" "104",
+    "104" "168",
+    "16" "16" "24",
+    "16" "24" "32",
+    "16" "24" "40",
+    "24" "24" "32",
+    "24" "24" "40",
+    "24" "32" "40",
+    "32" "32" "40",
+    "32" "40" "64",
+    "40" "40" "64",
+    "40" "64" "104",
+    "64" "64" "104",
+    "64" "104" "168",
+    "104" "104" "168"
+);
 
 /// Posisjoner som kan benyttes for spacing
 /// @type Map
 $positions: (top, bottom, left, right);
 
+/// Deler opp en streng i substrenger, gitt et tegn du vil bruke som avdeler.
+/// @param { string } $string En streng du vil dele opp
+/// @param { string } $delimiter [null] En string du vil bruke som avdeler, f.eks. komma
+/// @return { list } Returnerer en liste med substrenger
+/// @example
+/// splitString("24/40", "/"); // "24", "40"
+@function _split-string($string, $delimiter: null) {
+    // Returner en liste med uendret streng hvis ingen separator er satt, eller strengen er tom
+    @if not $delimiter or string.length($string) == 0 {
+        @return ($string);
+    }
+
+    // Finn index til separatoren
+    $delimiter-index: string.index($string, $delimiter);
+
+    // Returner en liste med uendret streng hvis ikke separatoren finnes i strengen
+    @if not $delimiter-index {
+        @return ($string);
+    }
+
+    $first-value: string.slice($string, 0, $delimiter-index - 1);
+    // Finn eventuelt flere substrenger ved å kjøre funksjonen rekursivt
+    $other-values: _split-string(string.slice($string, $delimiter-index + 1), $delimiter);
+
+    // Returner en kommaseparert liste over substrengene
+    @return list.join($first-value, $other-values, "comma");
+}
+
+/// Setter marginer ut fra et steg i spacing-skalaen
+/// @param {"2" | "4" | "8" | "12" | "16" | "24" | "32" | "40" | "64" | "104" | "168"} $spacing-step Et steg i spacingskalaen
+/// @param {"top" | "right" | "bottom" | "left"} $position En posisjon du vil sette spacingen i
+/// @output margin-<posisjon>: <verdi i spacing-skalaen>;
+@mixin _single-spacing($spacing-step, $position) {
+    @if $position and list.index($positions, $position) {
+        // Legg til bindestrek foran posisjonen for enklere interpolering
+        $position: "-#{$position}";
+    }
+
+    @if map.has-key($spacing, $spacing-step) {
+        margin#{$position}: map.get($spacing, $spacing-step);
+    } @else {
+        @error "Fant ikke \"#{$spacing-step}\" i våre spacing-verdier";
+    }
+}
+
 /// Gir deg marginer basert på stegene i spacing-skalaen.
-/// @param {"2/4" | "2/8" | "2/12" | "2/16" | "2/24" | "2/32" | "2/40" | "2/64" | "2/104" | "2/168" | "4/8" | "4/14" | "4/16" | "4/44" | "4/34" | "4/40" | "4/64" | "4/104" | "4/168" | "8/12" | "8/16" | "8/84" | "8/38" | "8/40" | "8/64" | "8/104" | "8/168" | "12/16" | "12/124" | "12/32" | "12/40" | "12/64" | "12/104" | "12/168" | "16/24" | "16/32" | "16/40" | "16/64" | "16/104" | "16/168" | "24/32" | "24/40" | "24/64" | "24/104" | "24/168" | "32/40" | "32/64" | "32/104" | "32/168" | "40/64" | "40/104" | "40/168" | "64/104" | "64/168" | "104/168"} $steps Enten navnet på ett steg i skalaen, eller navnet på tosteg i skalaen adskilt av "/".
-/// Dersom du oppgir to steg brukes det første på små skjermer og det andre på store.
+/// @param $steps Navnet på ett, to eller tre steg i spacing-skalaen, adskilt av "/".
+/// Stegene trer i kraft fra henholdsvis små, mellomstore og store skjermstørrelser i den rekkefølgen du angir dem.
 /// @param {"top" | "right" | "bottom" | "left"} $position Lar deg spesifisere margin for kun én av sidene
 /// @example
 /// .class {
+///     // Gir spacing-40 på små skjermer, og spacing-64 fra mellomstore skjermer
 ///     @include jkl.spacing("40/64");
+/// }
+/// @example
+/// .class {
+///     // Gir spacing-40 på små skjermer, spacing-64 på mellomstore skjermer, og spacing-104 fra store skjermer
+///     @include jkl.spacing("40/64/104");
 /// }
 /// @example
 /// .class {
 ///     @include jkl.spacing("16", "bottom");
 /// }
 @mixin spacing($steps, $position: null) {
-    // Separate "step-1/step-2" into separate variables:
-    $start-index: string.index($steps, "/") or 0;
-    $end-index: string.index($steps, "/") or 9999999;
-    $step-1: string.slice($steps, 0, $start-index - 1);
-    $step-2: string.slice($steps, $end-index + 1);
+    $steps: _split-string($steps, "/");
 
-    @if $position and list.index($positions, $position) {
-        // Rephrase e.g. "bottom" to "-bottom" for easier interpolation
-        $position: "-#{$position}";
+    @if list.length($steps) > 3 {
+        @error "Du kan ikke oppgi fler enn tre spacing-steg";
+    } @else if list.length($steps) < 1 {
+        @error "Du må oppgi minst ett spacing-steg";
     }
 
-    // Return only one value if step-2 is missing or both steps are the same
-    @if string.length($step-2) == 0 or $step-1 == $step-2 {
-        @if map.has-key($spacing, $step-1) {
-            margin#{$position}: map.get($spacing, $step-1);
-        } @else {
-            @error "Could not find the spacing step \"#{$step-1}\" in our spacing scale";
+    @include _single-spacing(list.nth($steps, 1), $position);
+
+    @if list.length($steps) > 1 {
+        @include screens.from-medium-device {
+            @include _single-spacing(list.nth($steps, 2), $position);
         }
-    } @else {
-        @if map.has-key($spacing, $step-1) and map.has-key($spacing, $step-2) {
-            margin#{$position}: map.get($spacing, $step-1);
-            @include screens.from-medium-device {
-                margin#{$position}: map.get($spacing, $step-2);
-            }
-        } @else {
-            @error "Either \"#{$step-1}\" or \"#{$step-2}\" does not exist in our spacing scale";
+    }
+    @if list.length($steps) > 2 {
+        @include screens.from-large-device {
+            @include _single-spacing(list.nth($steps, 3), $position);
         }
     }
 }
