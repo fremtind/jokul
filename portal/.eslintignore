@@ -1,5 +1,5 @@
+.cache/
 build/
 dist/
-public/
-.cache/
 node_modules/
+public/
