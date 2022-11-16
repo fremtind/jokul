@@ -59,6 +59,9 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-gatsby-build-
 
+            - name: Build packages
+              run: pnpm build
+
             - name: Build and deploy portal
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
