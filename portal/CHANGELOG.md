@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.0.41](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.40...@fremtind/portal@16.0.41) (2022-11-16)
+
+### Bug Fixes
+
+- rett opp farger i dark mode ([8dacec0](https://github.com/fremtind/jokul/commit/8dacec066a0e0ac71e46d61c5e0ee8392618bf8b)), closes [#3263](https://github.com/fremtind/jokul/issues/3263)
+
 ## [16.0.39](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.37...@fremtind/portal@16.0.39) (2022-11-11)
 
 ### Reverts
