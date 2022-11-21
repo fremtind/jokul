@@ -14,7 +14,7 @@ patchedDependencies:
     hash: rwhr2kgabnya2gbdqqa3lsmu4i
     path: patches/cz-lerna-changelog@2.0.3.patch
   '@frsource/cypress-plugin-visual-regression-diff@3.1.6':
-    hash: clqzxjojmq3lay2ehvj6jyvxly
+    hash: e6umj5xys57o3rbg6x3acuktgm
     path: patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch
 
 importers:
@@ -94,7 +94,7 @@ importers:
       '@commitlint/config-conventional': 17.2.0
       '@fremtind/browserslist-config-jkl': link:packages/browserslist-config-jkl
       '@fremtind/stylelint-config-jkl': link:packages/stylelint-config-jkl
-      '@frsource/cypress-plugin-visual-regression-diff': 3.1.6_clqzxjojmq3lay2ehvj6jyvxly_cypress@11.1.0
+      '@frsource/cypress-plugin-visual-regression-diff': 3.1.6_e6umj5xys57o3rbg6x3acuktgm_cypress@11.1.0
       '@testing-library/dom': 8.19.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
@@ -2695,7 +2695,7 @@ packages:
     resolution: {integrity: sha512-IphM1ro1cvV5CqJWzX/LvPJcUE26cwgt/zMtBdssvTrfSNhh9KjfS2VXTA8SivkvPHK1DsdPnoMoXitmx8c3Cg==}
     dev: true
 
-  /@frsource/cypress-plugin-visual-regression-diff/3.1.6_clqzxjojmq3lay2ehvj6jyvxly_cypress@11.1.0:
+  /@frsource/cypress-plugin-visual-regression-diff/3.1.6_e6umj5xys57o3rbg6x3acuktgm_cypress@11.1.0:
     resolution: {integrity: sha512-REKVdGB90MmoavrQCyOXENhP8mAEZfUiIWQup7ChlY7hTGtWOfURrqi/BrutIohfeYrqRVEbo5DfZHwuXUoCsA==}
     engines: {node: '>=10'}
     peerDependencies:
