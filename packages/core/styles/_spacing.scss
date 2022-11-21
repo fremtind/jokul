@@ -4,9 +4,9 @@
 @use "../jkl/spacing";
 @use "../jkl/screens";
 
-@function get-class-name($spacingCombination) {
+@function get-class-name($spacing-combination) {
     $class-name: "jkl-spacing";
-    @each $spacing in $spacingCombination {
+    @each $spacing in $spacing-combination {
         $class-name: "#{$class-name}-#{$spacing}";
     }
     @return $class-name;
@@ -14,36 +14,36 @@
 
 // Sett CSS-variabler for alle spacing-kombinasjoner
 :root {
-    @each $spacingCombination in spacing.$combinations {
-        $_step: list.nth($spacingCombination, 1);
+    @each $spacing-combination in spacing.$combinations {
+        $_step: list.nth($spacing-combination, 1);
 
-        --#{get-class-name($spacingCombination)}: #{map.get(spacing.$spacing, $_step)};
+        --#{get-class-name($spacing-combination)}: #{map.get(spacing.$spacing, $_step)};
     }
 
     @include screens.from-medium-device {
-        @each $spacingCombination in spacing.$combinations {
-            @if list.length($spacingCombination) > 1 {
-                $_step: list.nth($spacingCombination, 2);
+        @each $spacing-combination in spacing.$combinations {
+            @if list.length($spacing-combination) > 1 {
+                $_step: list.nth($spacing-combination, 2);
 
-                --#{get-class-name($spacingCombination)}: #{map.get(spacing.$spacing, $_step)};
+                --#{get-class-name($spacing-combination)}: #{map.get(spacing.$spacing, $_step)};
             }
         }
     }
 
     @include screens.from-large-device {
-        @each $spacingCombination in spacing.$combinations {
-            @if list.length($spacingCombination) > 2 {
-                $_step: list.nth($spacingCombination, 3);
+        @each $spacing-combination in spacing.$combinations {
+            @if list.length($spacing-combination) > 2 {
+                $_step: list.nth($spacing-combination, 3);
 
-                --#{get-class-name($spacingCombination)}: #{map.get(spacing.$spacing, $_step)};
+                --#{get-class-name($spacing-combination)}: #{map.get(spacing.$spacing, $_step)};
             }
         }
     }
 }
 
 // Lag nytteklasser for alle spacing-kombinasjoner og -posisjoner
-@each $spacingCombination in spacing.$combinations {
-    $_class-name: get-class-name($spacingCombination);
+@each $spacing-combination in spacing.$combinations {
+    $_class-name: get-class-name($spacing-combination);
     .#{$_class-name} {
         &--all {
             margin: var(--#{$_class-name});
