@@ -9,7 +9,7 @@
 @forward "screenreader";
 @forward "screens";
 @forward "shadows";
-@forward "spacing" hide $spacing, $spacing-steps, $positions;
+@forward "spacing" hide $spacing, $combinations, $positions;
 @forward "theme";
 @forward "typography" hide $text-styles;
 @forward "underline";
