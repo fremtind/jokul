@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-action-paths-filter",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "private": true,
     "description": "Find files that were modified in the pull request",
     "main": "build/main.js",

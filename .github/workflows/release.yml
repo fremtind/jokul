@@ -75,20 +75,6 @@ jobs:
               continue-on-error: true
               run: pnpm version:check
 
-            - name: Check for changes to portal
-              uses: ./actions/paths-filter
-              id: changes
-              with:
-                  filters: |
-                      portal:
-                        - "**/*.mdx"
-                        - "**/*.scss"
-                        - "**/*.js"
-                        - "**/*.ts"
-                        - "**/*.tsx"
-                        - "portal/static/**"
-                        - "pnpm-lock.yaml"
-
             - name: Publish packages to NPM
               if: steps.lerna_changed.outcome == 'success' # only run if there are changes to publish
               run: pnpm release --yes
@@ -96,11 +82,6 @@ jobs:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   GITHUB_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-            - name: Ensure build
-              # Publish-step will do a build, but if there's nothing to publish we still need a build if there are portal changes
-              if: steps.changes.outputs.portal == 'true' && steps.lerna_changed.outcome != 'success'
-              run: pnpm build
 
             - name: Switch registry
               if: steps.lerna_changed.outcome == 'success'
@@ -115,28 +96,6 @@ jobs:
               run: pnpm release-gh --yes
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Caching Gatsby
-              if: steps.changes.outputs.portal == 'true'
-              id: gatsby-cache-build
-              uses: actions/cache@v3
-              with:
-                  path: |
-                      portal/public
-                      portal/.cache
-                  key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
-                  restore-keys: |
-                      ${{ runner.os }}-gatsby-build-
-
-            - name: Build and deploy portal
-              if: steps.changes.outputs.portal == 'true'
-              env:
-                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
-              run: |
-                  git config user.email "fremtind.designsystem@fremtind.no"
-                  git config user.name "fremtind-bot"
-                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
-                  pnpm deploy:docs
 
     main-to-external:
         name: Merge main to external-contributions
