@@ -37,31 +37,10 @@
     "packageManager": "pnpm@7.17.0",
     "pnpm": {
         "overrides": {
-            "@graphql-tools/url-loader>ws": "^7.4.6",
-            "@types/eslint": "^8.4.9",
-            "axios": "^0.21.2",
-            "cypress-plugin-snapshots>jimp": "^0.16.1",
-            "diff2html>merge": "^2.1.1",
-            "gatsby>multer": "v1.4.5-lts.1",
-            "got": "^11.8.5",
-            "parse-url": "^8.1.0",
-            "unidiff>diff": "^3.5.0",
-            "ansi-html": "^0.0.9",
             "chokidar": "^3.5.3",
-            "cross-fetch": "^3.1.5",
-            "commitizen>minimist": "^1.2.6",
             "cz-lerna-changelog>shelljs": "^0.8.5",
-            "engine.io": "^4.1.2",
-            "file-type": "^16.5.4",
-            "git-up": "^6.0.0",
-            "glob-parent": "^6.0.2",
-            "jpeg-js": "^0.4.2",
-            "mkdirp": "^1.0.4",
-            "moment": "^2.29.4",
-            "nth-check": "^2.0.1",
-            "socket.io>debug": "^4.3.1",
-            "socket.io-parser>debug": "^4.3.1",
-            "trim": "^0.0.3"
+            "glob-stream>glob-parent": "^5.1.2",
+            "resolve-url-loader>loader-utils": "^1.4.2"
         },
         "patchedDependencies": {
             "gulp-sass@5.1.0": "patches/gulp-sass@5.1.0.patch",
