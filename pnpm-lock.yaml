@@ -830,7 +830,6 @@ importers:
       '@fremtind/jkl-icons-react': ^6.0.6
       '@fremtind/jkl-react-hooks': ^10.2.3
       '@fremtind/jkl-text-input': ^9.1.8
-      '@types/match-sorter': ^6.0.0
       classnames: ^2.2.6
       downshift: ^7.0.0
       match-sorter: ^6.3.0
@@ -843,8 +842,6 @@ importers:
       classnames: 2.3.2
       downshift: 7.0.1
       match-sorter: 6.3.1
-    devDependencies:
-      '@types/match-sorter': 6.0.0
 
   packages/toggle-switch:
     specifiers:
@@ -5898,13 +5895,6 @@ packages:
   /@types/lodash/4.14.187:
     resolution: {integrity: sha512-MrO/xLXCaUgZy3y96C/iOsaIqZSeupyTImKClHunL5GrmaiII2VwvWmLBu2hwa0Kp0sV19CsyjtrTc/Fx8rg/A==}
     dev: false
-
-  /@types/match-sorter/6.0.0:
-    resolution: {integrity: sha512-/B8BLck7dy+vQQedYvrTw2f+U02KghNCMLocjRSWtHhCKE1OeoAmOWiLGAPs96qacT9bSJF4HmJNyijiy5bycA==}
-    deprecated: This is a stub types definition. match-sorter provides its own type definitions, so you do not need this installed.
-    dependencies:
-      match-sorter: 6.3.1
-    dev: true
 
   /@types/mdast/3.0.10:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
@@ -15680,6 +15670,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.1
       remove-accents: 0.4.2
+    dev: false
 
   /matchdep/2.0.0:
     resolution: {integrity: sha512-LFgVbaHIHMqCRuCZyfCtUOq9/Lnzhi7Z0KFUE2fhD54+JN2jLh3hC02RLkqauJ3U4soU6H1J3tfj/Byk7GoEjA==}
@@ -19072,6 +19063,7 @@ packages:
 
   /remove-accents/0.4.2:
     resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
+    dev: false
 
   /remove-bom-buffer/3.0.0:
     resolution: {integrity: sha512-8v2rWhaakv18qcvNeli2mZ/TMTL2nEyAKRvzo1WtnZBl15SHyEhrCu2/xKlJyUFKHiHgfXIyuY6g2dObJJycXQ==}
