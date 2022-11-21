@@ -125,7 +125,7 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
         }
 
         const snapshotConfig = {
-            title: forcedColorsActive ? `${Cypress.currentTest.titlePath.join(" ")} in high contrast #` : undefined,
+            title: forcedColorsActive ? `${Cypress.currentTest.titlePath.join(" ")} in high contrast` : undefined,
         };
 
         if (typeof options.customSelector === "function") {
