@@ -55,7 +55,7 @@ jobs:
 
                       🧑‍💻 Lag eventuelle nye patcher.
 
-                      Vi har [noen få pakker hvor vi gjør egne patcher](https://github.com/fremtind/jokul/tree/main/patches) i Jøkul. Disse krever at vi [lager en tilsvarende patch](https://github.com/ds300/patch-package#usage) på den nye versjonen.
+                      Vi har [noen få pakker hvor vi gjør egne patcher](https://github.com/fremtind/jokul/tree/main/patches) i Jøkul. Disse krever at vi lager en tilsvarende patch på den nye versjonen. Se README for instrukser.
 
                       🧑‍💻 Kjør `pnpm build:docs`, `pnpm ci:test` og `pnpm serve`.
 

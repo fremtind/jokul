@@ -37,7 +37,6 @@ jobs:
             - name: Install Packages
               run: |
                   pnpm install --frozen-lockfile
-                  pnpm patch-package
 
             - name: Monorepo Runner Cache
               uses: actions/cache@v3
