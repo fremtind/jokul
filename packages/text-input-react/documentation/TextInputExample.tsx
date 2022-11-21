@@ -1,4 +1,4 @@
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant, Link } from "@fremtind/jkl-core";
 import React, { useState, ChangeEvent, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { TextInput } from "../src";
@@ -20,7 +20,12 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
 
     const helpLabel = boolValues?.["Med hjelpetekst"] ? "Fødselsnummer består av 11 siffer" : undefined;
-    const errorLabel = boolValues?.["Med feil"] ? "Du må fylle ut fødselsnummer, 11 siffer" : undefined;
+    const errorLabel = boolValues?.["Med feil"] ? (
+        <>
+            Du må fylle ut fødselsnummer, 11 siffer. <Link href="">Kontakt oss </Link> hvis du ikke har norsk
+            fødselsnummer.{" "}
+        </>
+    ) : undefined;
 
     const inline = boolValues?.["Inline"];
     const variant = choiceValues?.["Variant"] as LabelVariant;
@@ -73,7 +78,11 @@ export const textInputExampleCode = ({ choiceValues, boolValues }: ExampleCompon
     label="Fødselsnummer"
     name="fodselsnummer"
     helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Fødselsnummer består av 11 siffer"` : `{undefined}`}
-    errorLabel=${boolValues?.["Med feil"] ? `"Du må fylle ut fødselsnummer, 11 siffer."` : `{undefined}`}
+    errorLabel=${
+        boolValues?.["Med feil"]
+            ? `<>Du må fylle ut fødselsnummer, 11 siffer. <Link href="">Kontakt oss </Link> hvis du ikke har norsk fødselsnummer.{" "}</>`
+            : `{undefined}`
+    }
     variant={${choiceValues?.["Variant"]}}
     action={${
         boolValues?.["Med handling"]
