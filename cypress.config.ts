@@ -1,45 +1,30 @@
+import { initPlugin } from "@frsource/cypress-plugin-visual-regression-diff/plugins";
 import { defineConfig } from "cypress";
-import plugins from "./cypress/plugins";
 
 export default defineConfig({
     viewportWidth: 1920,
     viewportHeight: 1080,
     video: false,
     env: {
-        "cypress-plugin-snapshots": {
-            autoCleanUp: false,
-            autopassNewSnapshots: true,
-            diffLines: 3,
-            excludeFields: [],
-            ignoreExtraArrayItems: false,
-            ignoreExtraFields: false,
-            normalizeJson: true,
-            prettier: true,
-            imageConfig: {
-                createDiffImage: true,
-                resizeDevicePixelRatio: true,
-                threshold: 0.01,
-                thresholdType: "percent",
-            },
-            screenshotConfig: {
-                blackout: [],
-                capture: "fullPage",
-                clip: null,
-                disableTimersAndAnimations: true,
-                log: false,
-                scale: false,
-                timeout: 30000,
-            },
-            serverEnabled: true,
-            serverHost: "localhost",
-            serverPort: 2121,
-            updateSnapshots: false,
-            backgroundBlend: "difference",
-        },
+        // Default true, men gjort eksplisitt for å sørge for at patchen vår i `patches/` ender opp med å bli brukt.
+        pluginVisualRegressionForceDeviceScaleFactor: true,
     },
     e2e: {
         setupNodeEvents(on, config) {
-            return plugins(on, config);
+            on("before:browser:launch", (browser, launchOptions) => {
+                const REDUCE = 1;
+                if (browser.family === "firefox") {
+                    launchOptions.preferences["ui.prefersReducedMotion"] = REDUCE;
+                }
+                if (browser.family === "chromium") {
+                    launchOptions.args.push("--force-prefers-reduced-motion");
+                }
+                return launchOptions;
+            });
+
+            initPlugin(on, config);
+
+            return config;
         },
         specPattern: ".//**/integration/*.spec.*",
         baseUrl: "http://127.0.0.1:9000",

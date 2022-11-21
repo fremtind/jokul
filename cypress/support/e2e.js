@@ -1,6 +1,6 @@
 /// OM DU GJØR ENDRINGER HER, SØRG FOR Å OPPDATERE TYPEDEFINISJONENE I `index.d.ts`!
 
-import "cypress-plugin-snapshots/commands";
+import "@frsource/cypress-plugin-visual-regression-diff";
 
 function pascalCase(phrase) {
     return phrase.replace(/\ ./, (match) => match.slice(-1).toUpperCase());
@@ -125,13 +125,13 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
         }
 
         const snapshotConfig = {
-            separator: forcedColorsActive ? ` in high contrast #` : undefined,
+            title: forcedColorsActive ? `${Cypress.currentTest.titlePath.join(" ")} in high contrast #` : undefined,
         };
 
         if (typeof options.customSelector === "function") {
-            options.customSelector().toMatchImageSnapshot(snapshotConfig);
+            options.customSelector().matchImage(snapshotConfig);
         } else {
-            cy.getComponent().eq(componentIndex).toMatchImageSnapshot(snapshotConfig);
+            cy.getComponent().eq(componentIndex).matchImage(snapshotConfig);
         }
 
         if (pause) {
