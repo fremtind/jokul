@@ -1,5 +1,5 @@
-import { initPlugin } from "@frsource/cypress-plugin-visual-regression-diff/plugins";
 import { defineConfig } from "cypress";
+import plugins from "./cypress/plugins";
 
 export default defineConfig({
     viewportWidth: 1920,
@@ -11,20 +11,7 @@ export default defineConfig({
     },
     e2e: {
         setupNodeEvents(on, config) {
-            on("before:browser:launch", (browser, launchOptions) => {
-                const REDUCE = 1;
-                if (browser.family === "firefox") {
-                    launchOptions.preferences["ui.prefersReducedMotion"] = REDUCE;
-                }
-                if (browser.family === "chromium") {
-                    launchOptions.args.push("--force-prefers-reduced-motion");
-                }
-                return launchOptions;
-            });
-
-            initPlugin(on, config);
-
-            return config;
+            return plugins(on, config);
         },
         specPattern: ".//**/integration/*.spec.*",
         baseUrl: "http://127.0.0.1:9000",
