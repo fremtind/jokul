@@ -38,9 +38,9 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.1.2",
-        "@fremtind/jkl-icons": "^6.0.5",
-        "classnames": "^2.2.6"
+        "@fremtind/jkl-core": "workspace:^11.1.2",
+        "@fremtind/jkl-icons": "workspace:^6.0.5",
+        "classnames": "^2.3.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

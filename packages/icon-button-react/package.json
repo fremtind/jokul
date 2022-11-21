@@ -40,11 +40,11 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.1.2",
-        "@fremtind/jkl-icon-button": "^2.0.5"
+        "@fremtind/jkl-core": "workspace:^11.1.2",
+        "@fremtind/jkl-icon-button": "workspace:^2.0.5"
     },
     "devDependencies": {
-        "@fremtind/jkl-toggle-switch-react": "^10.0.8"
+        "@fremtind/jkl-toggle-switch-react": "workspace:^10.0.8"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

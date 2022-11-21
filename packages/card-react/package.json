@@ -35,15 +35,15 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button-react": "^12.0.11",
-        "@fremtind/jkl-card": "^7.0.6",
-        "@fremtind/jkl-core": "^11.1.2",
-        "@fremtind/jkl-image-react": "^4.0.8",
-        "@fremtind/jkl-tag-react": "^3.0.10",
-        "classnames": "^2.2.6"
+        "@fremtind/jkl-button-react": "workspace:^12.0.11",
+        "@fremtind/jkl-card": "workspace:^7.0.6",
+        "@fremtind/jkl-core": "workspace:^11.1.2",
+        "@fremtind/jkl-image-react": "workspace:^4.0.8",
+        "@fremtind/jkl-tag-react": "workspace:^3.0.10",
+        "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-constants-util": "^1.0.4"
+        "@fremtind/jkl-constants-util": "workspace:^1.0.4"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
