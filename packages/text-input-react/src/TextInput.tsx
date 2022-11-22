@@ -2,7 +2,7 @@ import { Label, SupportLabel, LabelVariant, LabelProps, Density } from "@fremtin
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler } from "react";
+import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler, type ReactNode } from "react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
 
 export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
@@ -14,8 +14,8 @@ export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>,
 export interface Props extends BaseProps {
     label: string;
     labelProps?: Omit<LabelProps, "children" | "density" | "standAlone">;
-    helpLabel?: string;
-    errorLabel?: string;
+    helpLabel?: ReactNode;
+    errorLabel?: ReactNode;
     /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
     "data-testautoid"?: string;
