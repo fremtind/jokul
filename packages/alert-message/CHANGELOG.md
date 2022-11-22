@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.6 (2022-11-22)
+
+### Bug Fixes
+
+- gjør at ikonet får riktig størrelse hvis man globalt setter box-sixing:border-box ([343a413](https://github.com/fremtind/jokul/commit/343a4135a10c3e66625df80c3e8ffcc68a2fd375))
+
 # 7.0.0 (2022-09-08)
 
 ### Bug Fixes
