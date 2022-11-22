@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.1.8 (2022-11-22)
+
+### Bug Fixes
+
+- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
 ## [14.1.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@14.1.3...@fremtind/jkl-feedback-react@14.1.5) (2022-11-11)
 
 ### Bug Fixes

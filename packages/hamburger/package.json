@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-hamburger",
-    "version": "11.0.7",
+    "version": "11.0.8",
     "publishConfig": {
         "access": "public"
     },

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-image",
-    "version": "4.0.7",
+    "version": "4.0.8",
     "description": "Jøkul style for image",
     "publishConfig": {
         "access": "public"

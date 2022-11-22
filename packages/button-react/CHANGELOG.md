@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.14 (2022-11-22)
+
+### Bug Fixes
+
+- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
 ## [12.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@12.0.9...@fremtind/jkl-button-react@12.0.11) (2022-11-11)
 
 ### Bug Fixes
