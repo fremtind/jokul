@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-checkbox",
-    "version": "8.0.6",
+    "version": "8.0.7",
     "publishConfig": {
         "access": "public"
     },
@@ -26,7 +26,7 @@
         "dev": "echo \"Error: run dev from checkbox-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "workspace:^11.2.0"
+        "@fremtind/jkl-core": "workspace:^11.2.1"
     },
     "repository": {
         "type": "git",

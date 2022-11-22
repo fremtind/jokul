@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-button-react",
-    "version": "12.0.12",
+    "version": "12.0.13",
     "publishConfig": {
         "access": "public"
     },
@@ -40,15 +40,15 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button": "workspace:^9.0.6",
-        "@fremtind/jkl-core": "workspace:^11.2.0",
-        "@fremtind/jkl-icons-react": "workspace:^6.0.7",
-        "@fremtind/jkl-loader-react": "workspace:^10.0.7",
-        "@fremtind/jkl-react-hooks": "workspace:^10.2.4",
+        "@fremtind/jkl-button": "workspace:^9.0.7",
+        "@fremtind/jkl-core": "workspace:^11.2.1",
+        "@fremtind/jkl-icons-react": "workspace:^6.0.8",
+        "@fremtind/jkl-loader-react": "workspace:^10.0.8",
+        "@fremtind/jkl-react-hooks": "workspace:^10.2.5",
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-toggle-switch-react": "workspace:^10.0.9"
+        "@fremtind/jkl-toggle-switch-react": "workspace:^10.0.10"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
