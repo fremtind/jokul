@@ -14,7 +14,7 @@ export default defineConfig({
             return plugins(on, config);
         },
         specPattern: ".//**/integration/*.spec.*",
-        baseUrl: "http://127.0.0.1:9000",
+        baseUrl: `http://127.0.0.1:9000/${process.env.PREVIEW_PATH || ""}`,
         excludeSpecPattern: ["**/__snapshots__/*", "**/__image_snapshots__/*", "**/node_modules/**", "./scripts/**"],
     },
 });
