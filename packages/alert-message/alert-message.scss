@@ -51,7 +51,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     &__icon {
         align-self: flex-start;
         height: var(--jkl-alert-message-icon-height);
-        padding: var(--jkl-alert-message-icon-padding);
+        margin: var(--jkl-alert-message-icon-padding);
         flex-shrink: 0;
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
