@@ -1,0 +1,33 @@
+diff --git a/lib/make-default-questions.js b/lib/make-default-questions.js
+index 9ac9c4871875650654c6aefb7b84813ebbf0fb2a..df139482d875d3e84ae0e6bfbe0d0f8aea770d2f 100644
+--- a/lib/make-default-questions.js
++++ b/lib/make-default-questions.js
+@@ -12,10 +12,6 @@ module.exports = function (allPackages, changedPackages) {
+     name: 'type',
+     message: 'Select the type of change that you\'re committing:',
+     choices: [{ value: 'feat', name: 'feat:     ✨  A new feature (note: this will indicate a release)' }, { value: 'fix', name: 'fix:      🛠  A bug fix (note: this will indicate a release)' }, { value: 'docs', name: 'docs:     Documentation only changes' }, { value: 'style', name: 'style:    Changes that do not affect the meaning of the code\n            (white-space, formatting, missing semi-colons, etc)' }, { value: 'refactor', name: 'refactor: A code change that neither fixes a bug nor adds a feature' }, { value: 'perf', name: 'perf:     A code change that improves performance' }, { value: 'test', name: 'test:     Adding missing tests' }, { value: 'chore', name: 'chore:    Changes to the build process or auxiliary tools\n            and libraries such as documentation generation' }, { value: 'revert', name: 'revert:   Revert to a commit' }, { value: 'WIP', name: 'WIP:      Work in progress' }]
+-  }, {
+-    type: 'input',
+-    name: 'scope',
+-    message: 'Denote the scope of this change:'
+   }, {
+     type: 'input',
+     name: 'subject',
+@@ -38,17 +34,5 @@ module.exports = function (allPackages, changedPackages) {
+     type: 'input',
+     name: 'footer',
+     message: 'List any ISSUES CLOSED by this change (optional). E.g.: #31, #34:\n'
+-  }, {
+-    type: 'checkbox',
+-    name: 'packages',
+-    'default': changedPackages,
+-    choices: allPackages,
+-    message: 'The packages that this commit has affected (' + changedPackages.length + ' detected)\n'
+-    // validate: function (input) {
+-    //   const type = commitMessage.type;
+-    //   const isRequired = ['feat', 'fix'].some((type) => messageHead.indexOf(type) === 0);
+-    //   const isProvided = input.length > 0;
+-    //   return isRequired ? (isProvided ? true : `Commit type "${type}" must affect at least one component`) : true;
+-    // }
+   }];
+ };

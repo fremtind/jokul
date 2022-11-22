@@ -184,5 +184,3 @@ Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontrib
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 Dette prosjektet følger retningslinjene i spesifikasjonen [all-contributors](https://github.com/all-contributors/all-contributors). Vi setter pris på alle bidrag!
-
-[^windows]: På grunn av en bug i patch-package på Windows vil denne kommandoen feile. Enten må du sjekke ut repoet med _UNIX-style line endings_, eller så må du først gjøre `pnpm install` (som vil feile på `postinstall`), så manuelt legge til [denne endringen](https://github.com/ds300/patch-package/pull/301/files) i `node_modules/patch-package/dist/patch/parse.js` på linje 53. Deretter kan du kjøre `pnpm postinstall` igjen, og så `pnpm build`.
