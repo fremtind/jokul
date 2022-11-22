@@ -37,8 +37,8 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "workspace:^11.2.1",
-        "@fremtind/jkl-summary-table": "workspace:^8.0.7",
+        "@fremtind/jkl-core": "^11.2.1",
+        "@fremtind/jkl-summary-table": "^8.0.7",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

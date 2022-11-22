@@ -37,12 +37,12 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "workspace:^11.2.1",
-        "@fremtind/jkl-datepicker": "workspace:^9.0.14",
-        "@fremtind/jkl-icon-button-react": "workspace:^2.0.11",
-        "@fremtind/jkl-react-hooks": "workspace:^10.2.5",
-        "@fremtind/jkl-select-react": "workspace:^11.2.10",
-        "@fremtind/jkl-text-input-react": "workspace:^11.2.1",
+        "@fremtind/jkl-core": "^11.2.1",
+        "@fremtind/jkl-datepicker": "^9.0.14",
+        "@fremtind/jkl-icon-button-react": "^2.0.11",
+        "@fremtind/jkl-react-hooks": "^10.2.5",
+        "@fremtind/jkl-select-react": "^11.2.10",
+        "@fremtind/jkl-text-input-react": "^11.2.1",
         "classnames": "^2.3.2",
         "date-fns": "^2.29.3"
     },

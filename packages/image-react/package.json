@@ -44,8 +44,8 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-image": "workspace:^4.0.7",
-        "@fremtind/jkl-react-hooks": "workspace:^10.2.5",
+        "@fremtind/jkl-image": "^4.0.7",
+        "@fremtind/jkl-react-hooks": "^10.2.5",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
