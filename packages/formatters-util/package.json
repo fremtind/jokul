@@ -36,12 +36,12 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-constants-util": "workspace:^1.0.6",
-        "@fremtind/jkl-core": "workspace:^11.2.1"
+        "@fremtind/jkl-constants-util": "^1.0.6",
+        "@fremtind/jkl-core": "^11.2.1"
     },
     "devDependencies": {
-        "@fremtind/jkl-button": "workspace:^9.0.7",
-        "@fremtind/jkl-text-input": "workspace:^9.1.10",
+        "@fremtind/jkl-button": "^9.0.7",
+        "@fremtind/jkl-text-input": "^9.1.10",
         "react-hook-form": "^7.39.5"
     },
     "peerDependencies": {
