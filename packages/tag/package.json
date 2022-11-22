@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tag",
-    "version": "3.0.7",
+    "version": "3.0.8",
     "publishConfig": {
         "access": "public"
     },
