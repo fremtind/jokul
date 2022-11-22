@@ -28,7 +28,7 @@
         "dev": "echo \"Error: run dev from list-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.2.0"
+        "@fremtind/jkl-core": "workspace:^11.2.0"
     },
     "repository": {
         "type": "git",

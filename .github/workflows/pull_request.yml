@@ -211,8 +211,8 @@ jobs:
                   name: cypress-screenshots-${{ matrix.forced-colors }}
                   path: |
                       cypress/screenshots
-                      packages/**/integration/**/*.actual.png
-                      packages/**/integration/**/*.diff.png
+                      packages/*/integration/**/*.actual.png
+                      packages/*/integration/**/*.diff.png
 
             - name: Debug
               if: success()
