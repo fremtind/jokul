@@ -198,9 +198,10 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
 
             if (action?.onClick) {
                 action.onClick(e);
+                setDate(date);
             }
         },
-        [setShowCalendar, showCalendar, action, calendarRef],
+        [setShowCalendar, showCalendar, action, calendarRef, date],
     );
 
     const clickInput = useCallback(() => {
