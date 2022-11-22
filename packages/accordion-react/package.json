@@ -37,13 +37,13 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "workspace:^9.0.4",
-        "@fremtind/jkl-core": "workspace:^11.2.1",
-        "@fremtind/jkl-react-hooks": "workspace:^10.2.5",
+        "@fremtind/jkl-accordion": "^9.0.4",
+        "@fremtind/jkl-core": "^11.2.1",
+        "@fremtind/jkl-react-hooks": "^10.2.5",
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-list-react": "workspace:^8.0.9"
+        "@fremtind/jkl-list-react": "^8.0.9"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

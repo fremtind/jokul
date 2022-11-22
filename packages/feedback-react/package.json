@@ -37,16 +37,16 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button-react": "workspace:^12.0.13",
-        "@fremtind/jkl-checkbox-react": "workspace:^8.0.10",
-        "@fremtind/jkl-core": "workspace:^11.2.1",
-        "@fremtind/jkl-feedback": "workspace:^11.0.7",
-        "@fremtind/jkl-field-group-react": "workspace:^7.0.11",
-        "@fremtind/jkl-message-box-react": "workspace:^9.0.7",
-        "@fremtind/jkl-radio-button-react": "workspace:^8.0.11",
-        "@fremtind/jkl-react-hooks": "workspace:^10.2.5",
-        "@fremtind/jkl-text-input-react": "workspace:^11.2.1",
-        "@fremtind/jkl-validators-util": "workspace:^2.5.3",
+        "@fremtind/jkl-button-react": "^12.0.13",
+        "@fremtind/jkl-checkbox-react": "^8.0.10",
+        "@fremtind/jkl-core": "^11.2.1",
+        "@fremtind/jkl-feedback": "^11.0.7",
+        "@fremtind/jkl-field-group-react": "^7.0.11",
+        "@fremtind/jkl-message-box-react": "^9.0.7",
+        "@fremtind/jkl-radio-button-react": "^8.0.11",
+        "@fremtind/jkl-react-hooks": "^10.2.5",
+        "@fremtind/jkl-text-input-react": "^11.2.1",
+        "@fremtind/jkl-validators-util": "^2.5.3",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

@@ -55,8 +55,8 @@
     "devDependencies": {
         "@commitlint/cli": "^17.3.0",
         "@commitlint/config-conventional": "^17.3.0",
-        "@fremtind/browserslist-config-jkl": "workspace:^1.0.3",
-        "@fremtind/stylelint-config-jkl": "workspace:^6.0.3",
+        "@fremtind/browserslist-config-jkl": "^1.0.3",
+        "@fremtind/stylelint-config-jkl": "^6.0.3",
         "@frsource/cypress-plugin-visual-regression-diff": "^3.1.6",
         "@testing-library/dom": "^8.19.0",
         "@testing-library/jest-dom": "^5.16.5",
