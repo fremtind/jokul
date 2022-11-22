@@ -3,25 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.1.13...@fremtind/jkl-text-input-react@11.2.0) (2022-11-22)
+
+### Bug Fixes
+
+-   slettet snapshots ([78fbff9](https://github.com/fremtind/jokul/commit/78fbff90f5c538c4601dba6b3e6d6f4f51f4ee2c)), closes [#3269](https://github.com/fremtind/jokul/issues/3269)
+
+### Features
+
+-   changed prop type for helpLabel and errorLabel in SupportLabel from string to ReactNode ([037c5c1](https://github.com/fremtind/jokul/commit/037c5c1ef0529a6027894b0ce2da1c24053a1af3))
+-   la til et visuelt eksempel på å ha lenker i errorLabel ([ccf54f6](https://github.com/fremtind/jokul/commit/ccf54f64f029d8ab1ebea4d728e5fed80ae7152a)), closes [#3253](https://github.com/fremtind/jokul/issues/3253)
+
 ## 11.1.13 (2022-11-11)
 
 ### Bug Fixes
 
-- legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 ## 11.1.12 (2022-11-09)
 
 ### Bug Fixes
 
-- legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 ## 11.1.7 (2022-10-07)
 

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-image-react",
-    "version": "4.0.8",
+    "version": "4.0.9",
     "publishConfig": {
         "access": "public"
     },
@@ -44,8 +44,8 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-image": "workspace:^4.0.5",
-        "@fremtind/jkl-react-hooks": "workspace:^10.2.3",
+        "@fremtind/jkl-image": "workspace:^4.0.6",
+        "@fremtind/jkl-react-hooks": "workspace:^10.2.4",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
