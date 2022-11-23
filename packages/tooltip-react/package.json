@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tooltip-react",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "publishConfig": {
         "access": "public"
     },
@@ -45,7 +45,7 @@
         "framer-motion": "^7.6.9"
     },
     "devDependencies": {
-        "@fremtind/jkl-constants-util": "^1.0.7"
+        "@fremtind/jkl-constants-util": "^1.0.8"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
