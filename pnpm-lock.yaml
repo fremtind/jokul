@@ -24,7 +24,7 @@ importers:
       '@commitlint/cli': ^17.3.0
       '@commitlint/config-conventional': ^17.3.0
       '@fremtind/browserslist-config-jkl': ^1.0.3
-      '@fremtind/stylelint-config-jkl': ^6.0.3
+      '@fremtind/stylelint-config-jkl': ^6.0.4
       '@frsource/cypress-plugin-visual-regression-diff': ^3.1.6
       '@testing-library/dom': ^8.19.0
       '@testing-library/jest-dom': ^5.16.5
@@ -865,14 +865,14 @@ importers:
       '@fremtind/jkl-core': ^11.2.1
       '@fremtind/jkl-tooltip': ^1.0.7
       classnames: ^2.3.2
-      framer-motion: ^7.6.7
+      framer-motion: ^7.6.9
     dependencies:
       '@floating-ui/react-dom': 1.0.1
       '@floating-ui/react-dom-interactions': 0.10.3
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-tooltip': link:../tooltip
       classnames: 2.3.2
-      framer-motion: 7.6.7
+      framer-motion: 7.6.9
     devDependencies:
       '@fremtind/jkl-constants-util': link:../constants-util
 
@@ -926,7 +926,7 @@ importers:
       '@sindresorhus/slugify': ^1.1.2
       classnames: ^2.3.2
       focus-trap-react: ^10.0.1
-      framer-motion: ^7.6.7
+      framer-motion: ^7.6.9
       gatsby: ^4.24.8
       gatsby-plugin-feed: ^4.24.0
       gatsby-plugin-image: ^2.24.0
@@ -989,7 +989,7 @@ importers:
       '@sindresorhus/slugify': 1.1.2
       classnames: 2.3.2
       focus-trap-react: 10.0.1_biqbaboplfbrettd7655fr4n2y
-      framer-motion: 7.6.7_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 7.6.9_biqbaboplfbrettd7655fr4n2y
       gatsby: 4.24.8_biqbaboplfbrettd7655fr4n2y
       gatsby-plugin-feed: 4.24.0_gqtqbalxbuarcpxtzp4oqnq4rq
       gatsby-plugin-image: 2.24.0_y4uhvp2nuomxq5f6dbp66vwqry
@@ -3125,7 +3125,7 @@ packages:
     dependencies:
       '@jest/fake-timers': 29.3.1
       '@jest/types': 29.3.1
-      '@types/node': 17.0.45
+      '@types/node': 18.11.9
       jest-mock: 29.3.1
     dev: true
 
@@ -3273,7 +3273,7 @@ packages:
       '@jest/schemas': 29.0.0
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 17.0.45
+      '@types/node': 18.11.9
       '@types/yargs': 17.0.13
       chalk: 4.1.2
     dev: true
@@ -5638,7 +5638,6 @@ packages:
 
   /@types/node/18.11.9:
     resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
-    dev: false
 
   /@types/node/8.10.66:
     resolution: {integrity: sha512-tktOkFUA4kXx2hhhrB8bIFb5TbwzS4uOhKEmwiD+NoiL0qtP2OQ9mFldbgD4dV1djrlBYP6eBuQZiWjuHUpqFw==}
@@ -6136,8 +6135,8 @@ packages:
     resolution: {integrity: sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==}
     dev: true
 
-  /@yarnpkg/parsers/3.0.0-rc.30:
-    resolution: {integrity: sha512-95BoSadF1Qyxeh8BleNxRP8eczG4faqOxIgowwCtZD+Ahihlu5PxI1KG35IXNbR52GR0V5EV+eR94g+4gTPP9g==}
+  /@yarnpkg/parsers/3.0.0-rc.31:
+    resolution: {integrity: sha512-7M67TPmTM5OmtoypK0KHV3vIY9z0v4qZ6zF7flH8THLgjGuoA7naop8pEfL9x5vCtid1PDC4A4COrcym4WAZpQ==}
     engines: {node: '>=14.15.0'}
     dependencies:
       js-yaml: 3.14.1
@@ -11161,8 +11160,8 @@ packages:
       map-cache: 0.2.2
     dev: true
 
-  /framer-motion/7.6.7:
-    resolution: {integrity: sha512-vEGsjXygf4qSmgXXsCT1FC56DjiZau9tSQTCchwAP2mOHnYHUy5gbthc4RXFWJh4Z/gFtqE8bzEmjahwOrfT7w==}
+  /framer-motion/7.6.9:
+    resolution: {integrity: sha512-byPSPOqKApmVUvbtvmFCyL09dqBNLUwkXRQMeTsawtF6YpiB54yCVzk+9YXAnoswMSgsB7CQaA6ls7e8QL+C+g==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -11177,8 +11176,8 @@ packages:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
 
-  /framer-motion/7.6.7_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-vEGsjXygf4qSmgXXsCT1FC56DjiZau9tSQTCchwAP2mOHnYHUy5gbthc4RXFWJh4Z/gFtqE8bzEmjahwOrfT7w==}
+  /framer-motion/7.6.9_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-byPSPOqKApmVUvbtvmFCyL09dqBNLUwkXRQMeTsawtF6YpiB54yCVzk+9YXAnoswMSgsB7CQaA6ls7e8QL+C+g==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -14134,7 +14133,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.3.1
-      '@types/node': 17.0.45
+      '@types/node': 18.11.9
       jest-util: 29.3.1
     dev: true
 
@@ -16578,7 +16577,7 @@ packages:
       '@nrwl/tao': 15.2.1
       '@parcel/watcher': 2.0.4
       '@yarnpkg/lockfile': 1.1.0
-      '@yarnpkg/parsers': 3.0.0-rc.30
+      '@yarnpkg/parsers': 3.0.0-rc.31
       '@zkochan/js-yaml': 0.0.6
       axios: 1.1.3
       chalk: 4.1.0

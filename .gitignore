@@ -5,7 +5,6 @@ yarn-error.log
 .vscode
 .cache
 .parcel-cache
-.npmrc
 .yarn/
 build/
 # Vi committer build-mapper til actions så de kan kjøre uten at hele prosjektet bootes opp. Diff? Lag en commit.

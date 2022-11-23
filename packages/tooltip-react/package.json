@@ -42,7 +42,7 @@
         "@fremtind/jkl-core": "^11.2.1",
         "@fremtind/jkl-tooltip": "^1.0.7",
         "classnames": "^2.3.2",
-        "framer-motion": "^7.6.7"
+        "framer-motion": "^7.6.9"
     },
     "devDependencies": {
         "@fremtind/jkl-constants-util": "^1.0.7"
