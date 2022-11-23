@@ -223,10 +223,9 @@ importers:
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-alert-message': link:../alert-message
+      '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
-    devDependencies:
-      '@fremtind/jkl-core': link:../core
 
   packages/breadcrumb:
     specifiers:
@@ -486,11 +485,10 @@ importers:
       '@fremtind/jkl-react-hooks': ^10.2.6
       classnames: ^2.3.2
     dependencies:
+      '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-field-group': link:../field-group
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
-    devDependencies:
-      '@fremtind/jkl-core': link:../core
 
   packages/footer:
     specifiers:
@@ -755,15 +753,12 @@ importers:
       '@fremtind/jkl-react-hooks': ^10.2.6
       '@fremtind/jkl-table': ^7.0.8
       classnames: ^2.3.2
-      npm-run-all: ^4.1.5
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-expand-button-react': link:../expand-button-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-table': link:../table
       classnames: 2.3.2
-    devDependencies:
-      npm-run-all: 4.1.5
 
   packages/tabs:
     specifiers:
@@ -845,11 +840,10 @@ importers:
       '@fremtind/jkl-toggle-switch': ^10.0.8
       classnames: ^2.3.2
     dependencies:
+      '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-toggle-switch': link:../toggle-switch
       classnames: 2.3.2
-    devDependencies:
-      '@fremtind/jkl-core': link:../core
 
   packages/tooltip:
     specifiers:
