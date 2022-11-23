@@ -4,20 +4,22 @@ on:
     pull_request:
         branches:
             - main
+
+env:
+    PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
+    PREFIX_PATHS: true
+
 ##
 # Sjekker først om det er endringer som krever grundigere test.
 # Bygger i så fall pakkene og cacher dem via Nx.
-# Bygger så portalen dersom det er visuelle endringer og cacher på samme måte.
-# Cachen lastes ned av tre jobber: testlint, cypress og preview.
+# Bygger så portalen og en branch preview dersom det er visuelle endringer og cacher på samme måte.
+# Cachen lastes ned av jobbene testlint, cypress.
 # Førstnevnte kjører enhetstester, ESLint, og TypeScript typesjekk.
 # N instanser av cypress-jobben spinner opp og kjører deler av testene fordelt mellom seg.
-# Cypressjobben server den ferdigbyggede siten og kjører et utvalg
-# av testene. Om en jobb  har nye snapshots lastes disse opp som en artifact.
-# Til slutt  sjekker en jobb om nye snapshots har blitt generert av en eller
+# Om en jobb har nye snapshots lastes disse opp som en artifact.
+# Til slutt sjekker en jobb om nye snapshots har blitt generert av en eller
 # flere av cypressjobbene. I så fall samles disse i én commit
 # som pushes til branchen som testes.
-# Preview-jobben er en bygg og deploy av portalen, med en path prefix lik branchnavnet.
-# Brukes som "staging".
 ##
 
 jobs:
@@ -30,6 +32,7 @@ jobs:
         permissions:
             actions: write
             contents: read
+            pull-requests: write
         steps:
             - name: Checkout
               if: "!contains(github.event.sender.login, 'fremtind-bot')"
@@ -59,14 +62,14 @@ jobs:
                         - "portal/src/texts/**"
 
             - name: Setup pnpm
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               uses: pnpm/action-setup@v2
               with:
                   version: 7
 
             - name: Setup Node
               uses: actions/setup-node@v3
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               with:
                   node-version: 16
                   cache: "pnpm"
@@ -80,7 +83,7 @@ jobs:
                   key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
 
             - name: Monorepo Runner Cache
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               uses: actions/cache@v3
               id: nx-cache
               with:
@@ -90,7 +93,7 @@ jobs:
                       nx-${{ github.ref_name }}-
 
             - name: Install dependencies and build packages
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               run: pnpm ci:install
 
             - name: Cypress binary install
@@ -102,9 +105,41 @@ jobs:
               if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               run: pnpm cypress install
 
+            - name: Add a comment with a link to the preview
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
+              with:
+                  header: preview
+                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                  message: |
+                      <span aria-hidden="true">🔄</span> **Gjør klar en forhåndsvisning…**
+                      <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
+
             - name: Build site
-              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               run: pnpm build:docs
+
+            - name: Deploy preview
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              env:
+                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+              run: |
+                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.name "fremtind-bot"
+                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                  pnpm gh-pages --add --dist portal/public --dest ${{ env.PREVIEW_PATH }} --message "docs: preview #${{ github.event.number }}"
+
+            - name: Add a comment with a link to the preview
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
+              with:
+                  header: preview
+                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                  message: |
+                      <span aria-hidden="true">✅</span> Forhåndsvisning: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}/
+                      <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
+
+                      Forhåndsvisningen blir tilgjengelig innen et par minutter. Den fjernes automatisk når pull requesten lukkes.
 
     testlint:
         needs: [build]
@@ -189,7 +224,7 @@ jobs:
             - name: Build packages
               run: pnpm ci:install
 
-            - name: Build site
+            - name: Build site with path prefix
               run: pnpm build:docs
 
             - name: Run Cypress
@@ -199,7 +234,7 @@ jobs:
                   install: false
                   browser: chrome
                   start: pnpm serve
-                  wait-on: "http://localhost:9000"
+                  wait-on: "http://localhost:9000/${{ env.PREVIEW_PATH }}"
                   wait-on-timeout: 280
               env:
                   FORCED_COLORS: ${{ matrix.forced-colors }}
@@ -211,8 +246,8 @@ jobs:
                   name: cypress-screenshots-${{ matrix.forced-colors }}
                   path: |
                       cypress/screenshots
-                      packages/**/integration/**/*.actual.png
-                      packages/**/integration/**/*.diff.png
+                      packages/*/integration/**/*.actual.png
+                      packages/*/integration/**/*.diff.png
 
             - name: Debug
               if: success()
@@ -273,79 +308,6 @@ jobs:
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"
-                  git add . || echo "No updated snapshots, nothing to add!"
+                  git add **/*.png || echo "No updated snapshots, nothing to add!"
                   git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
                   git push
-
-    preview:
-        needs: [build]
-        if: (needs.build.outputs.visual == 'true' || needs.build.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
-        runs-on: ubuntu-latest
-        permissions:
-            actions: write
-            contents: write
-            pull-requests: write
-        env:
-            PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
-        steps:
-            - name: Add a comment with a link to the preview
-              uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
-              with:
-                  header: preview
-                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
-                  message: |
-                      <span aria-hidden="true">🔄</span> **Gjør klar en forhåndsvisning…**
-                      <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
-
-            - name: Checkout
-              uses: actions/checkout@v3
-              with:
-                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
-
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                  version: 7
-
-            - name: Setup Node
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 16
-                  cache: "pnpm"
-
-            - name: Monorepo Runner Cache
-              uses: actions/cache@v3
-              id: nx-cache
-              with:
-                  path: .nx
-                  key: nx-${{ github.ref_name }}-${{ github.sha }}
-                  restore-keys: |
-                      nx-${{ github.ref_name }}-
-
-            - name: Install dependencies
-              run: pnpm ci:install
-
-            - name: Build site with path prefix
-              env:
-                  PREFIX_PATHS: true
-              run: pnpm build:docs
-
-            - name: Deploy preview
-              env:
-                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
-              run: |
-                  git config user.email "fremtind.designsystem@fremtind.no"
-                  git config user.name "fremtind-bot"
-                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
-                  pnpm gh-pages --add --dist portal/public --dest ${{ env.PREVIEW_PATH }} --message "docs: preview #${{ github.event.number }}"
-
-            - name: Add a comment with a link to the preview
-              uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
-              with:
-                  header: preview
-                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
-                  message: |
-                      <span aria-hidden="true">✅</span> Forhåndsvisning: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}/
-                      <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
-
-                      Forhåndsvisningen blir tilgjengelig innen et par minutter. Den fjernes automatisk når pull requesten lukkes.

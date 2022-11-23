@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tag",
-    "version": "3.0.5",
+    "version": "3.0.8",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "echo \"Error: run dev from tag-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.1.2"
+        "@fremtind/jkl-core": "^11.2.1"
     },
     "repository": {
         "type": "git",

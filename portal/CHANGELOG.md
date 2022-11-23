@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 16.0.46 (2022-11-22)
+
+### Bug Fixes
+
+- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
 ## [16.0.41](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.40...@fremtind/portal@16.0.41) (2022-11-16)
 
 ### Bug Fixes

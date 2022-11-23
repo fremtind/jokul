@@ -3,17 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@11.1.2...@fremtind/jkl-core@11.2.0) (2022-11-22)
+
+### Features
+
+-   changed prop type for helpLabel and errorLabel in SupportLabel from string to ReactNode ([037c5c1](https://github.com/fremtind/jokul/commit/037c5c1ef0529a6027894b0ce2da1c24053a1af3))
+
 ## 11.1.2 (2022-11-11)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 ## 11.1.1 (2022-11-09)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 # 11.1.0 (2022-10-11)
 

@@ -5709,7 +5709,7 @@ var core2 = __toESM(require_core());
 var core = __toESM(require_core());
 var import_micromatch = __toESM(require_micromatch());
 
-// ../../node_modules/.pnpm/simple-git@3.14.1/node_modules/simple-git/dist/esm/index.js
+// ../../node_modules/.pnpm/simple-git@3.15.0/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist2(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_child_process = require("child_process");
@@ -9219,6 +9219,32 @@ function abortPlugin(signal) {
   };
   return [onSpawnBefore, onSpawnAfter];
 }
+function isConfigSwitch(arg) {
+  return arg.trim().toLowerCase() === "-c";
+}
+function preventProtocolOverride(arg, next) {
+  if (!isConfigSwitch(arg)) {
+    return;
+  }
+  if (!/^\s*protocol(.[a-z]+)?.allow/.test(next)) {
+    return;
+  }
+  throw new GitPluginError(void 0, "unsafe", "Configuring protocol.allow is not permitted without enabling allowUnsafeExtProtocol");
+}
+function blockUnsafeOperationsPlugin({
+  allowUnsafeProtocolOverride = false
+} = {}) {
+  return {
+    type: "spawn.args",
+    action(args, _context) {
+      args.forEach((current, index) => {
+        const next = index < args.length ? args[index + 1] : "";
+        allowUnsafeProtocolOverride || preventProtocolOverride(current, next);
+      });
+      return args;
+    }
+  };
+}
 init_utils();
 function commandConfigPrefixingPlugin(configuration) {
   const prefix = prefixedArray(configuration, "-c");
@@ -9447,6 +9473,7 @@ function gitInstanceFactory(baseDir, options) {
   if (Array.isArray(config.config)) {
     plugins.add(commandConfigPrefixingPlugin(config.config));
   }
+  plugins.add(blockUnsafeOperationsPlugin(config.unsafe));
   plugins.add(completionDetectionPlugin(config.completion));
   config.abort && plugins.add(abortPlugin(config.abort));
   config.progress && plugins.add(progressMonitorPlugin(config.progress));

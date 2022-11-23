@@ -41,13 +41,12 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "lts/*"
+                  node-version: 16
                   cache: "pnpm"
 
             - name: Install Packages
               run: |
                   pnpm install --frozen-lockfile
-                  pnpm patch-package
 
             - name: Monorepo Runner Cache
               uses: actions/cache@v3
@@ -62,6 +61,11 @@ jobs:
               continue-on-error: true
               run: npm logout
 
+            - name: Verify release is needed
+              id: lerna_changed
+              continue-on-error: true
+              run: pnpm version:check
+
             - name: Authenticate with Registry
               run: |
                   echo "registry=http://registry.npmjs.org/" >> .npmrc
@@ -69,11 +73,6 @@ jobs:
                   npm whoami
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-            - name: Verify release is needed
-              id: lerna_changed
-              continue-on-error: true
-              run: pnpm version:check
 
             - name: Publish packages to NPM
               if: steps.lerna_changed.outcome == 'success' # only run if there are changes to publish

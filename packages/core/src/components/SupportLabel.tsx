@@ -1,5 +1,5 @@
 import cn from "classnames";
-import React, { FC } from "react";
+import React, { FC, type ReactNode } from "react";
 import { Density } from "../utils";
 
 export interface SupportLabelProps {
@@ -35,8 +35,8 @@ export interface SupportLabelProps {
      *  ```
      */
     id: string;
-    helpLabel?: string;
-    errorLabel?: string;
+    helpLabel?: ReactNode;
+    errorLabel?: ReactNode;
     density?: Density;
     className?: string;
     srOnly?: boolean;

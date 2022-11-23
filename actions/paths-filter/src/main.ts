@@ -13,10 +13,15 @@ async function run(): Promise<void> {
         const pr = github.context.payload.pull_request as PullRequest;
         const files = await findChangedFiles(token, pr);
 
+        let hasMatches = false;
         for (const [name, patterns] of Object.entries(filters)) {
             const matches = micromatch(files, patterns);
             core.setOutput(name, matches.length > 0);
+            if (!hasMatches && matches.length > 0) {
+                hasMatches = true;
+            }
         }
+        core.setOutput("has_matches", hasMatches);
     } catch (error) {
         if (error instanceof Error) core.setFailed(error.message);
     }

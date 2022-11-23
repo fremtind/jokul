@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.5 (2022-11-22)
+
+### Bug Fixes
+
+- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
 # [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@8.0.3...@fremtind/jkl-accordion@9.0.0) (2022-10-11)
 
 ### Bug Fixes

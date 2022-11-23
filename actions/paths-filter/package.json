@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-action-paths-filter",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "private": true,
     "description": "Find files that were modified in the pull request",
     "main": "build/main.js",
@@ -19,11 +19,11 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@actions/core": "^1.9.1",
+        "@actions/core": "^1.10.0",
         "@actions/github": "^5.1.1",
         "@octokit/webhooks-definitions": "^3.67.3",
         "js-yaml": "^4.1.0",
-        "micromatch": "^4.0.4"
+        "micromatch": "^4.0.5"
     },
     "devDependencies": {
         "@types/js-yaml": "^4.0.5",

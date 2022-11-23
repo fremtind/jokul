@@ -5,3 +5,4 @@ public/
 jest/
 tsconfig.json
 tsconfig-for-declarations.json
+pnpm-lock.yaml

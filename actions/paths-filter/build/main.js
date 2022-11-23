@@ -16545,10 +16545,15 @@ async function run() {
     const filters = js_yaml_default.load(filtersInput);
     const pr = github.context.payload.pull_request;
     const files = await findChangedFiles(token, pr);
+    let hasMatches = false;
     for (const [name, patterns] of Object.entries(filters)) {
       const matches = (0, import_micromatch.default)(files, patterns);
       core2.setOutput(name, matches.length > 0);
+      if (!hasMatches && matches.length > 0) {
+        hasMatches = true;
+      }
     }
+    core2.setOutput("has_matches", hasMatches);
   } catch (error) {
     if (error instanceof Error)
       core2.setFailed(error.message);

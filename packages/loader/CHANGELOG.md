@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.8 (2022-11-22)
+
+### Bug Fixes
+
+- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
 ## [9.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader@9.0.0...@fremtind/jkl-loader@9.0.1) (2022-09-08)
 
 ### Bug Fixes
