@@ -280,14 +280,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         [setSelected, setExtendedMonth, selected, date, minDate, maxDate],
     );
 
-    // const handleBlur = useCallback(
-    //     (e: React.FocusEvent<HTMLInputElement>) => {
-    //         setSelected(defaultSelected);
-    //         setExtendedMonth(String(selected?.getMonth()));
-    //     },
-    //     [defaultSelected, selected],
-    // );
-
     return (
         <div
             ref={ref}
@@ -309,7 +301,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             inputClassName="jkl-calendar__year-selector-input"
                             width="5rem"
                             variant="small"
-                            // onBlur={handleBlur}
                             onChange={handleYearChange}
                             value={extendedYear}
                         />
