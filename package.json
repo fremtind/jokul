@@ -22,7 +22,7 @@
         "test:unit": "jest --testMatch '**/*.test.+(ts|tsx|js)'",
         "test:watch": "jest --watch",
         "version:check": "lerna changed -l -a",
-        "version": "lernacleanchangelog '**' && git add -A",
+        "version": "lernacleanchangelog '**' && git add **/CHANGELOG.md **/package.json package.json pnpm-lock.yaml",
         "cypress:open": "ELECTRON_EXTRA_LAUNCH_ARGS=\"--force-prefers-reduced-motion\" cypress open --project .",
         "cypress:dev": "cypress open --project . --config baseUrl=http://localhost:8000",
         "release": "pnpm build && lerna publish --conventional-graduate",
