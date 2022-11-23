@@ -67,6 +67,7 @@ jobs:
               run: pnpm version:check
 
             - name: Authenticate with Registry
+              if: steps.lerna_changed.outcome == 'success'
               run: |
                   echo "registry=http://registry.npmjs.org/" >> .npmrc
                   echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
@@ -89,6 +90,10 @@ jobs:
                   registry-url: "https://npm.pkg.github.com"
                   # Defaults to the user or organization that owns the workflow file
                   scope: "@fremtind"
+
+            - name: Clear uncommitted changes
+              if: steps.lerna_changed.outcome == 'success'
+              run: git checkout .npmrc
 
             - name: Publish packages to GitHub Packages
               if: steps.lerna_changed.outcome == 'success'
