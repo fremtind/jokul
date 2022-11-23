@@ -202,6 +202,11 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
     const [extendedYear, setExtendedYear] = useState(String((selected || date || new Date()).getFullYear()));
     const [extendedMonth, setExtendedMonth] = useState(String((selected || date || new Date()).getMonth()));
 
+    useEffect(() => {
+        setExtendedYear(String((selected || date || new Date()).getFullYear()));
+        setExtendedMonth(String((selected || date || new Date()).getMonth()));
+    }, [date, selected]);
+
     /// Extended variant events
 
     const handleYearChange = useCallback(
@@ -275,6 +280,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         [setSelected, setExtendedMonth, selected, date, minDate, maxDate],
     );
 
+    // const handleBlur = useCallback(
+    //     (e: React.FocusEvent<HTMLInputElement>) => {
+    //         setSelected(defaultSelected);
+    //         setExtendedMonth(String(selected?.getMonth()));
+    //     },
+    //     [defaultSelected, selected],
+    // );
+
     return (
         <div
             ref={ref}
@@ -296,6 +309,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             inputClassName="jkl-calendar__year-selector-input"
                             width="5rem"
                             variant="small"
+                            // onBlur={handleBlur}
                             onChange={handleYearChange}
                             value={extendedYear}
                         />
