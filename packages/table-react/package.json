@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table-react",
-    "version": "9.0.13",
+    "version": "9.0.14",
     "publishConfig": {
         "access": "public"
     },

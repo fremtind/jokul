@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-field-group-react",
-    "version": "7.0.12",
+    "version": "7.0.13",
     "publishConfig": {
         "access": "public"
     },

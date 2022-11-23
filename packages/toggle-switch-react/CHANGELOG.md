@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.12 (2022-11-23)
+
+### Bug Fixes
+
+- rett opp i feil rundt devDependencies ([936f310](https://github.com/fremtind/jokul/commit/936f310a585f3c7f7f11af816d5c54cd5a43dd43))
+
 ## 10.0.11 (2022-11-22)
 
 ### Bug Fixes
