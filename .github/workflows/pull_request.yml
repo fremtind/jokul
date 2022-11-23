@@ -308,6 +308,6 @@ jobs:
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"
-                  git add . || echo "No updated snapshots, nothing to add!"
+                  git add **/*.png || echo "No updated snapshots, nothing to add!"
                   git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
                   git push
