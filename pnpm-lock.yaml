@@ -888,7 +888,7 @@ importers:
       '@fremtind/jkl-content-toggle-react': ^4.0.11
       '@fremtind/jkl-cookie-consent-react': ^7.0.16
       '@fremtind/jkl-core': ^11.2.1
-      '@fremtind/jkl-datepicker-react': ^12.0.23
+      '@fremtind/jkl-datepicker-react': ^12.0.24
       '@fremtind/jkl-description-list-react': ^6.0.9
       '@fremtind/jkl-expand-button-react': ^4.0.12
       '@fremtind/jkl-feedback-react': ^14.1.9

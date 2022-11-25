@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.24](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@12.0.23...@fremtind/jkl-datepicker-react@12.0.24) (2022-11-25)
+
+### Bug Fixes
+
+- fikset "heng" i input med god hjelp fra Pio ([3699a34](https://github.com/fremtind/jokul/commit/3699a341a4f7b2fc3eef1fbdef56c130744b6c2c)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
+- fjernet kommentert ut kode. Sary :´) ([4b579f8](https://github.com/fremtind/jokul/commit/4b579f8881a134cf9c58e647664d2ea86c883118)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
+- setDate oppdateres til å vise valgt date ved onClick av kalenderknappen slik at den viser rikti ([a7d64d6](https://github.com/fremtind/jokul/commit/a7d64d6684e5bd066341c23e27a48fa342a1e1ae)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
+
 ## 12.0.22 (2022-11-22)
 
 ### Bug Fixes
