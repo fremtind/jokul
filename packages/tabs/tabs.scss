@@ -26,13 +26,26 @@
     --jkl-tab-padding: #{jkl.$spacing-3xs} #{jkl.rem(32px)} #{jkl.$spacing-2xs} 0;
 }
 
+.jkl-tabs {
+    scroll-snap-type: x proximity;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 .jkl-tablist {
     position: relative;
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     padding: 0;
     margin: 0;
     border-bottom: 1px jkl.$color-svaberg solid;
+    min-width: fit-content;
     width: 100%;
 
     &__indicator {
@@ -61,6 +74,10 @@
     background-color: transparent;
     cursor: pointer;
     position: relative;
+    scroll-margin-inline-start: jkl.$spacing-m;
+    scroll-snap-align: start;
+    text-decoration: none;
+    white-space: nowrap;
 
     &:hover {
         color: var(--jkl-tab-hover-color);
@@ -77,6 +94,11 @@
             bottom: jkl.rem(1px);
             left: jkl.rem(-2px);
             box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-tab-focus-border-color);
+        }
+
+        &:first-of-type::after {
+            // Unngå clipping hvis kant til kant med skjerm eller scroll container.
+            left: jkl.rem(2px);
         }
     }
 
