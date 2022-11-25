@@ -202,6 +202,11 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
     const [extendedYear, setExtendedYear] = useState(String((selected || date || new Date()).getFullYear()));
     const [extendedMonth, setExtendedMonth] = useState(String((selected || date || new Date()).getMonth()));
 
+    useEffect(() => {
+        setExtendedYear(String((selected || date || new Date()).getFullYear()));
+        setExtendedMonth(String((selected || date || new Date()).getMonth()));
+    }, [date, selected]);
+
     /// Extended variant events
 
     const handleYearChange = useCallback(
