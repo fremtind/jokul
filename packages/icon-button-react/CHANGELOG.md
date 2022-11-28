@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.14 (2022-11-28)
+
+### Bug Fixes
+
+- gjør at custom className ikke overrider default className ([6ed60c6](https://github.com/fremtind/jokul/commit/6ed60c6cce16d1e1423d8e509585941c81a9fec0))
+
 ## 2.0.12 (2022-11-22)
 
 ### Bug Fixes
