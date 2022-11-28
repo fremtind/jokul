@@ -556,9 +556,11 @@ importers:
       '@fremtind/jkl-core': ^11.2.1
       '@fremtind/jkl-icon-button': ^2.0.8
       '@fremtind/jkl-toggle-switch-react': ^10.0.12
+      classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-icon-button': link:../icon-button
+      classnames: 2.3.2
     devDependencies:
       '@fremtind/jkl-toggle-switch-react': link:../toggle-switch-react
 
