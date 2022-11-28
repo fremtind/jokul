@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@2.0.14...@fremtind/jkl-icon-button-react@2.0.15) (2022-11-28)
+
+### Bug Fixes
+
+- fikset bug der jøkul sitt className var forsvunnet ([16d7533](https://github.com/fremtind/jokul/commit/16d753307156470f73b196175e0d63043e0f8f85))
+
 ## 2.0.14 (2022-11-28)
 
 ### Bug Fixes
