@@ -284,7 +284,7 @@ importers:
       '@fremtind/jkl-constants-util': ^1.0.8
       '@fremtind/jkl-core': ^11.2.1
       '@fremtind/jkl-image-react': ^4.0.11
-      '@fremtind/jkl-tag-react': ^3.0.15
+      '@fremtind/jkl-tag-react': ^3.0.16
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-button-react': link:../button-react
@@ -385,10 +385,10 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^11.2.1
       '@fremtind/jkl-datepicker': ^9.0.15
-      '@fremtind/jkl-icon-button-react': ^2.0.14
+      '@fremtind/jkl-icon-button-react': ^2.0.15
       '@fremtind/jkl-react-hooks': ^10.2.6
       '@fremtind/jkl-select-react': ^11.2.11
-      '@fremtind/jkl-text-input-react': ^11.2.4
+      '@fremtind/jkl-text-input-react': ^11.2.5
       '@jest/globals': ^29.3.1
       classnames: ^2.3.2
       date-fns: ^2.29.3
@@ -456,7 +456,7 @@ importers:
       '@fremtind/jkl-message-box-react': ^9.0.8
       '@fremtind/jkl-radio-button-react': ^8.0.13
       '@fremtind/jkl-react-hooks': ^10.2.6
-      '@fremtind/jkl-text-input-react': ^11.2.4
+      '@fremtind/jkl-text-input-react': ^11.2.5
       '@fremtind/jkl-validators-util': ^2.5.3
       classnames: ^2.3.2
     dependencies:
@@ -791,7 +791,7 @@ importers:
   packages/tag-react:
     specifiers:
       '@fremtind/jkl-core': ^11.2.1
-      '@fremtind/jkl-icon-button-react': ^2.0.14
+      '@fremtind/jkl-icon-button-react': ^2.0.15
       '@fremtind/jkl-tag': ^3.0.8
       classnames: ^2.3.2
     dependencies:
@@ -809,7 +809,7 @@ importers:
   packages/text-input-react:
     specifiers:
       '@fremtind/jkl-core': ^11.2.1
-      '@fremtind/jkl-icon-button-react': ^2.0.14
+      '@fremtind/jkl-icon-button-react': ^2.0.15
       '@fremtind/jkl-icons-react': ^6.0.9
       '@fremtind/jkl-react-hooks': ^10.2.6
       '@fremtind/jkl-text-input': ^9.1.11
@@ -884,21 +884,21 @@ importers:
       '@fremtind/jkl-alert-message-react': ^9.0.14
       '@fremtind/jkl-breadcrumb-react': ^3.0.10
       '@fremtind/jkl-button-react': ^12.0.15
-      '@fremtind/jkl-card-react': ^7.0.18
+      '@fremtind/jkl-card-react': ^7.0.19
       '@fremtind/jkl-checkbox-react': ^8.0.12
       '@fremtind/jkl-constants-util': ^1.0.8
       '@fremtind/jkl-content-toggle-react': ^4.0.11
       '@fremtind/jkl-cookie-consent-react': ^7.0.16
       '@fremtind/jkl-core': ^11.2.1
-      '@fremtind/jkl-datepicker-react': ^12.0.25
+      '@fremtind/jkl-datepicker-react': ^12.0.26
       '@fremtind/jkl-description-list-react': ^6.0.9
       '@fremtind/jkl-expand-button-react': ^4.0.12
-      '@fremtind/jkl-feedback-react': ^14.1.10
+      '@fremtind/jkl-feedback-react': ^14.1.11
       '@fremtind/jkl-field-group-react': ^7.0.13
       '@fremtind/jkl-footer-react': ^3.0.14
       '@fremtind/jkl-formatters-util': ^3.0.9
       '@fremtind/jkl-hamburger-react': ^10.0.12
-      '@fremtind/jkl-icon-button-react': ^2.0.14
+      '@fremtind/jkl-icon-button-react': ^2.0.15
       '@fremtind/jkl-icons-react': ^6.0.9
       '@fremtind/jkl-image-react': ^4.0.11
       '@fremtind/jkl-list-react': ^8.0.10
@@ -911,8 +911,8 @@ importers:
       '@fremtind/jkl-summary-table-react': ^8.0.9
       '@fremtind/jkl-table-react': ^9.0.14
       '@fremtind/jkl-tabs-react': ^3.0.11
-      '@fremtind/jkl-tag-react': ^3.0.15
-      '@fremtind/jkl-text-input-react': ^11.2.4
+      '@fremtind/jkl-tag-react': ^3.0.16
+      '@fremtind/jkl-text-input-react': ^11.2.5
       '@fremtind/jkl-toggle-switch-react': ^10.0.12
       '@fremtind/jkl-tooltip-react': ^1.0.13
       '@fremtind/jkl-validators-util': ^2.5.3
