@@ -33,7 +33,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props,
             ref={ref}
             type="button"
             title={buttonTitle}
-            className={(cn("jkl-icon-button"), className)}
+            className={cn("jkl-icon-button", className)}
             data-testid="jkl-icon-button"
             data-density={density}
             {...rest}
