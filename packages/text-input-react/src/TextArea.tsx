@@ -64,7 +64,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         ...rest
     } = props;
 
-    const componentClassName = cn("jkl-text-input jkl-text-area", className, {
+    const componentClassName = cn("jkl-text-area", className, {
         "jkl-text-area--start-open": startOpen,
         "jkl-text-area--auto-expand": autoExpand,
         "jkl-text-area--with-counter": typeof counter !== "undefined",
@@ -138,33 +138,32 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
             >
                 {label}
             </Label>
-            {!counter && (
-                <textarea
-                    id={uid}
-                    ref={textAreaRef}
-                    className={`jkl-text-input__input jkl-text-input__input--${rows}-rows`}
-                    onFocus={handleOnFocus}
-                    onBlur={handleOnBlur}
-                    aria-invalid={!!errorLabel}
-                    aria-describedby={describedBy}
-                    placeholder={placeholder}
-                    style={style}
-                    value={value}
-                    {...rest}
-                />
-            )}
-            {counter && (
-                <div className="jkl-text-area__content">
-                    <div
-                        className="jkl-text-input__input"
-                        aria-invalid={Boolean(errorLabel || counterLabel)}
-                        data-has-content={counterCurrent > 0}
+            <div
+                className="jkl-text-input-wrapper"
+                data-invalid={Boolean(errorLabel || counterLabel)}
+                data-has-content={counterCurrent > 0}
+            >
+                {!counter && (
+                    <textarea
+                        id={uid}
+                        ref={textAreaRef}
+                        className={`jkl-text-area__text-area jkl-text-area__text-area--${rows}-rows`}
+                        onFocus={handleOnFocus}
+                        onBlur={handleOnBlur}
+                        aria-invalid={!!errorLabel}
+                        aria-describedby={describedBy}
+                        placeholder={placeholder}
                         style={style}
-                    >
+                        value={value}
+                        {...rest}
+                    />
+                )}
+                {counter && (
+                    <>
                         <textarea
                             id={uid}
                             ref={textAreaRef}
-                            className={`jkl-text-area__text-area jkl-text-input__input--${rows}-rows`}
+                            className={`jkl-text-area__text-area jkl-text-area__text-area--${rows}-rows`}
                             onFocus={handleOnFocus}
                             onBlur={handleOnBlur}
                             aria-describedby={describedBy}
@@ -174,25 +173,25 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                             value={value}
                             {...rest}
                         />
-                    </div>
-                    <div className="jkl-text-area__counter" aria-hidden="true">
-                        <div className="jkl-text-area__counter-count">
-                            {counterCurrent}&nbsp;/&nbsp;{counterTotal}
+                        <div className="jkl-text-area__counter" aria-hidden="true">
+                            <div className="jkl-text-area__counter-count">
+                                {counterCurrent}&nbsp;/&nbsp;{counterTotal}
+                            </div>
+                            {!counter.hideProgress && (
+                                <div
+                                    className="jkl-text-area__counter-progress"
+                                    style={{
+                                        ["--progress-width" as string]: `${calculatePercentage(
+                                            progressCurrent,
+                                            counterTotal,
+                                        )}%`,
+                                    }}
+                                />
+                            )}
                         </div>
-                        {!counter.hideProgress && (
-                            <div
-                                className="jkl-text-area__counter-progress"
-                                style={{
-                                    ["--progress-width" as string]: `${calculatePercentage(
-                                        progressCurrent,
-                                        counterTotal,
-                                    )}%`,
-                                }}
-                            />
-                        )}
-                    </div>
-                </div>
-            )}
+                    </>
+                )}
+            </div>
             <SupportLabel
                 id={supportId}
                 helpLabel={helpLabel}
