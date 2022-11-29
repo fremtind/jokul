@@ -10,17 +10,21 @@
 .jkl-datepicker {
     @include jkl.reset-outline;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
     &__input-wrapper {
         position: relative;
     }
 
     & &__input {
-        // adjust input padding for visual balance with numbers
-        padding-top: jkl.rem(10px);
+        /* Juster padding for bedre balanse når det vises tall */
+        padding-top: calc(var(--jkl-text-input-vertical-padding) + 0.05em);
+        padding-bottom: calc(var(--jkl-text-input-vertical-padding) - 0.05em);
     }
 
-    & .jkl-text-input__action-button {
+    &__action-button {
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonFace);
     }
 
@@ -32,14 +36,10 @@
     }
 
     &--open {
-        .jkl-datepicker__input {
-            box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-datepicker-focus-color), 0 0 0 jkl.rem(1px) transparent;
-
-            &:hover,
-            &:focus {
-                box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-datepicker-focus-color),
-                    0 0 0 jkl.rem(1px) var(--jkl-datepicker-focus-color);
-            }
+        .jkl-datepicker__input-wrapper {
+            box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
+                0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
+            border-color: var(--jkl-text-input-focus-color);
         }
     }
 
@@ -128,7 +128,7 @@
 }
 
 .jkl-calendar {
-    // hard code for CSP blocking inline styling
+    /* hard code for CSP blocking inline styling */
     display: block;
 
     justify-content: center;
@@ -146,8 +146,8 @@
 
     &--extended {
         caption {
-            // Hide table caption (month name) in extended mode
-            // since month is shown in select above
+            /* Hide table caption (month name) in extended mode
+            since month is shown in select above */
             @include jkl.screenreader-only;
         }
     }
@@ -290,11 +290,11 @@
 
     td + td,
     th + th {
-        padding-left: jkl.rem(4px); // space between columns
+        padding-left: jkl.rem(4px); /* space between columns */
     }
 
     tr + tr > td {
-        padding-top: jkl.rem(4px); // space between rows
+        padding-top: jkl.rem(4px); /* space between rows */
     }
 
     td button {
@@ -316,7 +316,7 @@
         margin: var(--jkl-calendar-date-margin);
 
         padding: 0;
-        padding-top: jkl.$spacing-3xs; // adjust visual alignment of text
+        padding-top: jkl.$spacing-3xs; /* adjust visual alignment of text */
         @include jkl.motion("entrance", "energetic");
         transition-property: color, background-color, box-shadow;
 
@@ -333,7 +333,7 @@
 
         &[data-adjacent="true"] {
             @include jkl.use-font-variables("jkl-calendar-adjacent-date");
-            padding: 0; // reset vertical alignment of text
+            padding: 0; /* reset vertical alignment of text */
             color: var(--jkl-calendar-adjacent-month-color);
         }
 
