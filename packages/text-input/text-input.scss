@@ -7,26 +7,20 @@
 $_text-input-height: jkl.rem(48px);
 $_text-input-height--mobile: jkl.rem(44px);
 $_text-input-height--compact: jkl.rem(32px);
-$_text-input-padding: jkl.$spacing-xs jkl.$spacing-xs jkl.$spacing-xs jkl.$spacing-s;
-$_text-input-padding--compact: jkl.$spacing-2xs jkl.$spacing-2xs jkl.$spacing-2xs jkl.$spacing-xs;
+$_text-input-vertical-padding: jkl.$spacing-xs;
+$_text-input-vertical-padding--compact: jkl.$spacing-2xs;
+$_text-input-horizontal-padding: jkl.$spacing-s;
+$_text-input-horizontal-padding--compact: jkl.$spacing-xs;
 
 $_action-button-size: jkl.rem(48px);
 $_action-button-size--mobile: jkl.rem(44px);
-$_action-button-size--compact: jkl.rem(24px);
+$_action-button-size--compact: jkl.rem(32px);
 $_action-button-icon-size: jkl.rem(20px);
 $_action-button-icon-size--compact: jkl.rem(18px);
 $_action-button-padding: jkl.$spacing-xs 0;
 $_action-button-padding--compact: 0;
-$_action-button-margin: 0 0 0 -#{jkl.rem(48px)};
-$_action-button-margin--compact: 0 0 0 -#{$_action-button-size--compact + jkl.rem(2px)};
 $_action-button-focus-position: jkl.rem(8px);
 $_action-button-focus-position--compact: 0;
-
-// These are used to calculate textarea height,
-// and MUST equal the line height in the text style used
-$_text-input-line-height: jkl.rem(32px);
-$_text-input-line-height--mobile: jkl.rem(28px);
-$_text-input-line-height--compact: jkl.rem(24px);
 
 $_text-input-focus-color: jkl.$color-granitt;
 $_text-input-selection-color: color.scale(
@@ -44,6 +38,7 @@ $_text-input-selection-color--inverted: color.scale(
     --jkl-text-input-border-color: #{jkl.$color-stein};
     --jkl-text-input-text-color: #{jkl.$color-granitt};
     --jkl-text-input-placeholder-color: #{jkl.$color-stein};
+    --jkl-text-input-unit-color: #{jkl.$color-granitt};
     --jkl-text-input-background-color: #{jkl.$color-hvit};
     --jkl-text-input-focus-color: #{$_text-input-focus-color};
     --jkl-text-input-error-background-color: #{colors.varslingsfarge("feil")};
@@ -57,6 +52,7 @@ $_text-input-selection-color--inverted: color.scale(
     --jkl-text-input-border-color: #{jkl.$color-svaberg};
     --jkl-text-input-text-color: #{jkl.$color-snohvit};
     --jkl-text-input-placeholder-color: #{jkl.$color-svaberg};
+    --jkl-text-input-unit-color: #{jkl.$color-snohvit};
     --jkl-text-input-background-color: #{jkl.$color-svart};
     --jkl-text-input-focus-color: #{$_text-input-focus-color--inverted};
     --jkl-text-input-selection-color: #{$_text-input-selection-color--inverted};
@@ -70,11 +66,12 @@ $_text-input-selection-color--inverted: color.scale(
     @include jkl.declare-font-variables("jkl-text-input", "body");
 
     --jkl-text-input-height: #{$_text-input-height};
-    --jkl-text-input-padding: #{$_text-input-padding};
+    --jkl-text-input-vertical-padding: #{$_text-input-vertical-padding};
+    --jkl-text-input-horizontal-padding: #{$_text-input-horizontal-padding};
+    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding) var(--jkl-text-input-horizontal-padding);
     --jkl-text-input-action-button-size: #{$_action-button-size};
     --jkl-text-input-action-button-icon-size: #{$_action-button-icon-size};
     --jkl-text-input-action-button-padding: #{$_action-button-padding};
-    --jkl-text-input-action-button-margin: #{$_action-button-margin};
     --jkl-text-input-action-button-focus-position: #{$_action-button-focus-position};
 
     @include jkl.small-device {
@@ -87,24 +84,24 @@ $_text-input-selection-color--inverted: color.scale(
     @include jkl.declare-font-variables("jkl-text-input", "small");
 
     --jkl-text-input-height: #{$_text-input-height--compact};
-    --jkl-text-input-padding: #{$_text-input-padding--compact};
+    --jkl-text-input-vertical-padding: #{$_text-input-vertical-padding--compact};
+    --jkl-text-input-horizontal-padding: #{$_text-input-horizontal-padding--compact};
+    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding) var(--jkl-text-input-horizontal-padding);
     --jkl-text-input-action-button-size: #{$_action-button-size--compact};
     --jkl-text-input-action-button-icon-size: #{$_action-button-icon-size--compact};
     --jkl-text-input-action-button-padding: #{$_action-button-padding--compact};
-    --jkl-text-input-action-button-margin: #{$_action-button-margin--compact};
     --jkl-text-input-action-button-focus-position: #{$_action-button-focus-position--compact};
 }
 
 @mixin _shared-input-styles {
     background: none;
     -webkit-appearance: none;
-
+    padding: 0;
     @include jkl.reset-outline;
-    @include jkl.motion;
+    @include jkl.remove-inner-outer-button;
     @include jkl.use-font-variables("jkl-text-input");
 
-    color: var(--jkl-text-input-text-color);
-    background-color: transparent;
+    color: var(--jkl-color);
 
     // Placeholder text style
     &::placeholder {
@@ -123,7 +120,6 @@ $_text-input-selection-color--inverted: color.scale(
 
     //  Invalid state
     &[aria-invalid="true"] {
-        background: var(--jkl-text-input-error-background-color);
         color: var(--jkl-text-input-error-text-color);
 
         &::placeholder {
@@ -153,169 +149,125 @@ $_text-input-selection-color--inverted: color.scale(
     }
 }
 
-@mixin _shared-error-styles {
-    //  Invalid state
-    &[aria-invalid="true"] {
+.jkl-text-input-action-button {
+    @include jkl.reset-outline;
+    flex-shrink: 0;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    cursor: pointer;
+    padding: var(--jkl-text-input-action-button-padding);
+    height: var(--jkl-text-input-action-button-size);
+    width: var(--jkl-text-input-action-button-size);
+    color: var(--jkl-text-input-border-color);
+
+    /* Unngå for langt mellomrom mellom ikon og teksten i feltet */
+    margin-inline-start: calc(var(--jkl-text-input-horizontal-padding) * -1);
+
+    .jkl-icon-button__icon {
+        height: var(--jkl-text-input-action-button-icon-size);
+        width: var(--jkl-text-input-action-button-icon-size);
+    }
+
+    &:hover {
+        color: var(--jkl-text-input-focus-color);
+
+        @include jkl.forced-colors-mode {
+            border: rem(2px) inset ButtonText;
+        }
+    }
+
+    &:focus {
+        @include jkl.keyboard-navigation {
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: var(--jkl-text-input-action-button-focus-position);
+                right: var(--jkl-text-input-action-button-focus-position);
+                bottom: var(--jkl-text-input-action-button-focus-position);
+                left: var(--jkl-text-input-action-button-focus-position);
+                box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-text-input-focus-color);
+            }
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        border: revert;
+        background-color: revert;
+    }
+
+    @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+}
+
+.jkl-text-input-wrapper {
+    border-radius: jkl.rem(3px);
+    box-sizing: border-box;
+    max-width: 100%;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--jkl-text-input-height);
+
+    @include jkl.use-font-variables("jkl-text-input");
+    @include jkl.motion;
+    transition-property: color, box-shadow, background-color;
+
+    color: var(--jkl-text-input-text-color);
+    box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-border-color), 0 0 0 jkl.rem(1px) transparent;
+    background-color: transparent;
+
+    &:hover {
+        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
+            0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
+        border-color: var(--jkl-text-input-focus-color);
+    }
+
+    &:focus-within {
+        background-color: var(--jkl-text-input-background-color);
+        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
+            0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
+        border-color: var(--jkl-text-input-focus-color);
+    }
+
+    &[data-invalid="true"] {
         background-color: var(--jkl-text-input-error-background-color);
         color: var(--jkl-text-input-error-text-color);
-
-        // Color of text selection
-        &::selection {
-            background-color: var(--jkl-text-input-error-selection-color-color);
-        }
     }
 }
 
 .jkl-text-input {
-    @include jkl.reset-outline;
-    @include jkl.remove-inner-outer-button;
-
-    &__input-wrapper {
-        display: inline-flex;
-        align-items: center;
-        max-width: 100%;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
     &__input {
         @include _shared-input-styles;
-
-        border-radius: jkl.rem(3px);
-        box-sizing: border-box;
-        height: var(--jkl-text-input-height);
         padding: var(--jkl-text-input-padding);
-        max-width: 100%;
-        width: 100%;
-
-        background-color: transparent;
-        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-border-color), 0 0 0 jkl.rem(1px) transparent;
-
-        transition-property: color, box-shadow, background-color;
-
-        &:hover {
-            box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
-                0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
-            border-color: var(--jkl-text-input-focus-color);
-        }
-
-        &:focus,
-        &:focus-within {
-            background-color: var(--jkl-text-input-background-color);
-            box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
-                0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
-            border-color: var(--jkl-text-input-focus-color);
-        }
-
-        @include _shared-error-styles;
 
         &--align-right {
             text-align: right;
         }
     }
 
+    &__unit {
+        padding-inline-end: var(--jkl-text-input-horizontal-padding);
+        padding-block: var(--jkl-text-input-vertical-padding);
+        color: var(--jkl-text-input-unit-color);
+    }
+
     &__action-button {
-        @include jkl.reset-outline;
-        display: inline-flex;
-        box-sizing: border-box;
-        align-items: center;
-        justify-content: center;
-        background-color: transparent;
-        cursor: pointer;
-        padding: var(--jkl-text-input-action-button-padding);
-        height: var(--jkl-text-input-action-button-size);
-        width: var(--jkl-text-input-action-button-size);
-        margin: var(--jkl-text-input-action-button-margin);
-        color: var(--jkl-text-input-border-color);
-
-        .jkl-icon-button__icon {
-            height: var(--jkl-text-input-action-button-icon-size);
-            width: var(--jkl-text-input-action-button-icon-size);
-        }
-
-        &:hover {
-            color: var(--jkl-text-input-focus-color);
-
-            @include jkl.forced-colors-mode {
-                border: rem(2px) inset ButtonText;
-            }
-        }
-
-        &:focus {
-            @include jkl.keyboard-navigation {
-                position: relative;
-
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: var(--jkl-text-input-action-button-focus-position);
-                    right: var(--jkl-text-input-action-button-focus-position);
-                    bottom: var(--jkl-text-input-action-button-focus-position);
-                    left: var(--jkl-text-input-action-button-focus-position);
-                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-text-input-focus-color);
-                }
-            }
-        }
-
-        @include jkl.forced-colors-mode {
-            border: revert;
-            background-color: revert;
-        }
-
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+        margin-inline-start: calc(var(--jkl-text-input-horizontal-padding) * -1);
     }
 
-    &--action {
-        .jkl-text-input__input {
-            padding-right: var(--jkl-text-input-height);
-        }
-    }
-}
-
-.jkl-text-input--inline {
-    display: inline-block;
-    margin: jkl.rem(-2px) jkl.rem(4px);
-
-    .jkl-text-input__input {
-        @include jkl.text-style("small");
-        height: $_text-input-height--compact;
-        padding: $_text-input-padding--compact;
-    }
-
-    .jkl-text-input__action-button {
-        .jkl-icon-button__icon {
-            height: $_action-button-icon-size--compact;
-            width: $_action-button-icon-size--compact;
-        }
-
-        padding: $_action-button-padding--compact;
-        height: $_action-button-size--compact;
-        width: $_action-button-size--compact;
-        margin-left: $_action-button-margin--compact;
-    }
-
-    html:not([data-mousenavigation]):not([data-touchnavigation]) & .jkl-text-input__action-button:focus::after {
-        top: $_action-button-focus-position--compact;
-        right: $_action-button-focus-position--compact;
-        bottom: $_action-button-focus-position--compact;
-        left: $_action-button-focus-position--compact;
-    }
-}
-
-.jkl-text-input:not(.jkl-text-area) {
-    .jkl-text-input__input {
-        line-height: $_text-input-height; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
-
-        @include jkl.small-device {
-            line-height: $_text-input-height--mobile;
-        }
-    }
-}
-
-[data-layout-density="compact"] :not([data-density="comfortable"]) :not(.jkl-text-area),
-[data-density="compact"]:not(.jkl-text-area),
-.jkl-text-input--inline {
-    .jkl-text-input__input {
-        line-height: $_text-input-height--compact; // Trengs for å unngå clipping av Å i Chrome, men den ødelegger placeholder i textarea (hvor clippingen ikke skjer)
-        padding: $_text-input-padding--compact;
+    &--inline {
+        display: inline-block;
+        vertical-align: middle;
+        margin: jkl.rem(-2px) jkl.rem(4px);
     }
 }
 
@@ -323,89 +275,50 @@ $_text-input-selection-color--inverted: color.scale(
     height: auto;
     width: 100%;
 
-    &--auto-expand {
-        .jkl-text-input__input,
-        .jkl-text-area__text-area {
-            overflow: hidden; // Skjul scrollbar når høyden autojusteres
+    &__text-area {
+        @include _shared-input-styles;
+        scrollbar-color: var(--jkl-color) transparent; /* Unngå at scrollbar ligger oppå rammen */
+        box-sizing: border-box;
+        resize: none; /* Fjern mulighet for resizing av feltet */
+        width: 100%;
+        padding: var(--jkl-text-input-padding);
+        max-height: var(--jkl-text-input-height);
+    }
+
+    .jkl-text-input-wrapper {
+        height: auto;
+        max-height: var(--jkl-text-input-height);
+        transition-property: color, max-height, box-shadow, padding-bottom, background-color;
+
+        &[data-has-content="true"],
+        &:focus-within {
+            max-height: 100%;
         }
     }
 
-    & .jkl-text-input__input {
-        @include jkl.motion;
+    &--start-open {
+        .jkl-text-input-wrapper {
+            max-height: 100%;
+        }
+    }
 
-        transition-property: height, box-shadow;
-        font-weight: normal;
-        width: 100%;
-        resize: none; // Disable textarea resize
+    &--auto-expand {
+        .jkl-text-area__text-area {
+            overflow: hidden; /* Skjul scrollbar når høyden autojusteres */
+            max-height: 100%;
+        }
     }
 
     &--with-counter {
         $progress-bar-height: jkl.rem(4px);
 
-        .jkl-text-area__content {
+        .jkl-text-input-wrapper {
             position: relative;
-        }
-
-        .jkl-text-input__input {
-            height: auto;
-            max-height: var(--jkl-text-input-height);
-            padding: var(--jkl-text-input-padding);
-            transition-property: max-height, box-shadow, padding-bottom;
 
             &[data-has-content="true"],
             &:focus-within {
-                padding-right: jkl.rem(1px);
-                max-height: 100%;
-                background: var(--jkl-text-input-background-color);
-                padding-bottom: jkl.$spacing-xl;
+                padding-bottom: calc(var(--jkl-text-input-height) + #{$progress-bar-height});
             }
-
-            @include _shared-error-styles;
-
-            @include jkl.forced-colors-mode {
-                // Fordi all styling med box-shadow er ut vinduet i forced-colors
-                // så er det igjen textarea som har en border. Da er det _den_
-                // som må ha padding, og her unngår vi å få dobbelt opp.
-                // Det gjør at telleren havner under textarea, men siden vi
-                // heller ikke har noen progress-bar synlig i denne modusen
-                // så er det _godt nok_.
-                padding: 0;
-            }
-        }
-
-        // Textarea respekterer ikke padding (teksten rendres under det som
-        // burde være tomrom), så om vi har en teller må vi wrappe textarea
-        // i noe som styles som selve inputfeltet. Det er rollen
-        // .jkl-text-input__input har i denne sammenhengen. Denne klassen
-        // sørger for at selve textarea-elementet ikke får native styles og
-        // får fonter, farger, og høyden den skal.
-        .jkl-text-area__text-area {
-            @include jkl.reset-outline;
-            @include _shared-input-styles;
-
-            display: block;
-            box-sizing: border-box;
-
-            background: transparent;
-            font-weight: normal;
-            resize: none; // Disable textarea resize
-            width: 100%;
-
-            height: calc($_text-input-height - (2 * jkl.$spacing-xs));
-            padding: 0;
-
-            transition-property: height;
-
-            @include _shared-error-styles;
-
-            @include jkl.forced-colors-mode {
-                padding: $_text-input-padding;
-            }
-        }
-
-        .jkl-text-input__input[data-has-content="true"] .jkl-text-area__text-area,
-        .jkl-text-area__text-area:focus {
-            padding-right: jkl.$spacing-xs;
         }
 
         .jkl-text-area__counter {
@@ -413,7 +326,7 @@ $_text-input-selection-color--inverted: color.scale(
             transition-property: opacity;
             opacity: 0;
 
-            pointer-events: none; // Don't block interactivity when field is collapsed
+            pointer-events: none; /* La brukeren klikke gjennom telleren når feltet er kollapset */
             position: absolute;
             bottom: 0;
             left: 0;
@@ -421,7 +334,7 @@ $_text-input-selection-color--inverted: color.scale(
 
             &-count {
                 @include jkl.text-style("small");
-                padding: jkl.$spacing-xs jkl.$spacing-s;
+                padding: var(--jkl-text-input-padding);
             }
 
             &-progress {
@@ -444,53 +357,28 @@ $_text-input-selection-color--inverted: color.scale(
 
         &:focus-within .jkl-text-area__counter {
             opacity: 1;
-            transition-delay: jkl.timing("productive"); // Fade in once field is expanded
+            transition-delay: jkl.timing("productive"); /* Vent med å fade inn til feltet er ekspandert */
         }
 
         [aria-invalid="true"] ~ .jkl-text-area__counter {
             color: var(--jkl-text-input-error-text-color);
         }
-
-        &.jkl-text-area--start-open .jkl-text-input__input {
-            max-height: none;
-            padding-bottom: jkl.$spacing-xl;
-        }
     }
 }
 
-// Utility classes for number of rows
+// Nytteklasser for tekstfelt med $num antall rader
 @for $num from 3 through 10 {
-    $height: $_text-input-line-height * $num + jkl.$spacing-xs * 2;
-    $small-height: $_text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
-    $compact-height: $_text-input-line-height--compact * $num + jkl.$spacing-xs * 2;
+    .jkl-text-area__text-area--#{$num}-rows:focus,
+    .jkl-text-area__text-area--#{$num}-rows:not(:placeholder-shown),
+    .jkl-text-area--start-open .jkl-text-area__text-area--#{$num}-rows {
+        --height: calc(var(--jkl-text-input-line-height) * #{$num});
+        --vertical-padding: calc(var(--jkl-text-input-vertical-padding) * 2);
 
-    .jkl-text-input__input--#{$num}-rows:focus,
-    .jkl-text-input__input--#{$num}-rows:not(:placeholder-shown),
-    .jkl-text-area--start-open .jkl-text-input__input--#{$num}-rows {
         // (#2751) Ekspanderende får inline style med height auto,
         //         som gir et "hopp" dersom det er en teller og vi
         //         ikke har en minimumshøyde.
-        min-height: $height; // (#2751)
-        height: $height;
+        min-height: calc(var(--height) + var(--vertical-padding)); // (#2751)
+        height: calc(var(--height) + var(--vertical-padding));
         max-height: 100%;
-
-        @include jkl.small-device {
-            height: $small-height;
-            min-height: $small-height; // (#2751)
-        }
-
-        [data-layout-density="compact"] :not([data-density="comfortable"]),
-        [data-density="compact"] & {
-            height: $compact-height;
-            min-height: $compact-height; // (#2751)
-        }
-    }
-
-    [data-layout-density="compact"]
-        .jkl-text-area--start-open:not([data-density="comfortable"])
-        .jkl-text-input__input--#{$num}-rows,
-    .jkl-text-area--start-open[data-density="compact"] .jkl-text-input__input--#{$num}-rows {
-        height: $compact-height;
-        min-height: $compact-height; // (#2751)
     }
 }
