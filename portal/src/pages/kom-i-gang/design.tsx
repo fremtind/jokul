@@ -3,7 +3,8 @@ import { Link } from "@fremtind/jkl-core";
 import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
+import { GroupKey, GroupValue, useAnalytics } from "../../analytics";
 import { FigmaLogo } from "../../components/figma-logo";
 import { Grid } from "../../components/Grid";
 import { Image } from "../../components/image";
@@ -20,6 +21,13 @@ export const Head: FC = () => <Seo title={pageTitle} />;
 const PraktiskDesignhverdagen: FC = () => {
     const fullscreenMenuContext = useFullscreenMenuContext();
     const { menuItems } = useNavigationLinks();
+
+    const analytics = useAnalytics();
+    useEffect(() => {
+        analytics.setGroup(GroupKey.Profile, GroupValue.Designer);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <MainContent>
             <PageTitle>{pageTitle}</PageTitle>
