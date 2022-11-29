@@ -129,7 +129,7 @@ export interface DatePickerProps extends DataTestAutoId {
     placeholder?: string;
     /**
      * Bredden på inputfeltet, tilpasset typisk bredde for en dato i formatet `dd.mm.åååå`.
-     * @default "11.5rem"
+     * @default "10ch"
      */
     width?: string;
     /**
