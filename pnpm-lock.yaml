@@ -920,6 +920,7 @@ importers:
       '@jest/globals': ^29.3.1
       '@mdx-js/react': ^2.1.5
       '@sindresorhus/slugify': ^1.1.2
+      '@types/mixpanel-browser': ^2.38.0
       classnames: ^2.3.2
       focus-trap-react: ^10.0.1
       framer-motion: ^7.6.9
@@ -937,6 +938,7 @@ importers:
       gatsby-source-filesystem: ^4.24.0
       gatsby-transformer-react-docgen: ^7.24.0
       gatsby-transformer-sharp: ^4.24.0
+      mixpanel-browser: ^2.45.0
       prism-react-renderer: ^1.3.5
       react: ^18.2.0
       react-docgen-typescript: ^2.2.2
@@ -1000,6 +1002,7 @@ importers:
       gatsby-source-filesystem: 4.24.0_gatsby@4.24.8
       gatsby-transformer-react-docgen: 7.24.0_gatsby@4.24.8
       gatsby-transformer-sharp: 4.24.0_lrbwmhhxn5xmwuaca2nnhadopa
+      mixpanel-browser: 2.45.0
       prism-react-renderer: 1.3.5_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -1007,6 +1010,7 @@ importers:
       react-live: 3.1.1_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@jest/globals': 29.3.1
+      '@types/mixpanel-browser': 2.38.0
       react-docgen-typescript: 2.2.2
 
 packages:
@@ -5606,6 +5610,10 @@ packages:
 
   /@types/minimist/1.2.2:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
+
+  /@types/mixpanel-browser/2.38.0:
+    resolution: {integrity: sha512-TR8rvsILnqXA7oiiGOxuMGXwvDeCoQDonXJB5UR+TYvEAFpiK8ReFj5LhZT+Xhm3NpI9aPoju30jB2ssorSUww==}
+    dev: true
 
   /@types/mkdirp/0.5.2:
     resolution: {integrity: sha512-U5icWpv7YnZYGsN4/cmh3WD2onMY0aJIiTE6+51TwJCttdHvtCYmkBNOobHlXwrJRL0nkH9jH4kD+1FAdMN4Tg==}
@@ -16045,6 +16053,10 @@ packages:
       for-in: 1.0.2
       is-extendable: 1.0.1
     dev: true
+
+  /mixpanel-browser/2.45.0:
+    resolution: {integrity: sha512-PQ1DaTk68yyYtLA0iejmzPA9iNDhT4uIZpqZjRTw7HWpYfl123fydHb2laKanaKjm8YDmrGGz3+xZ4Q6joogyg==}
+    dev: false
 
   /mkdirp-classic/0.5.3:
     resolution: {integrity: sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==}

@@ -4,10 +4,11 @@ import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@fremtind/jkl-table-react";
 import { HeadProps, Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { ComponentExample } from "../../../../doc-utils";
 import { CodeBlock } from "../../../../doc-utils/CodeBlock";
 import { TagExample, tagExampleCode } from "../../../../packages/tag-react/documentation/TagExample";
+import { GroupKey, GroupValue, useAnalytics } from "../../analytics";
 import { Image } from "../../components/image";
 import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, InlineCode, PageTitle, Paragraph, Strong } from "../../components/Typography";
@@ -22,6 +23,13 @@ export const Head: FC<HeadProps> = () => <Seo title={pageTitle} />;
 const PraktiskInfoUtviklere: FC = () => {
     const fullscreenMenuContext = useFullscreenMenuContext();
     const { menuItems } = useNavigationLinks();
+
+    const analytics = useAnalytics();
+    useEffect(() => {
+        analytics.setGroup(GroupKey.Profile, GroupValue.Developer);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <MainContent>
             <PageTitle>{pageTitle}</PageTitle>
