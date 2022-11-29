@@ -2,11 +2,7 @@ import { Label, SupportLabel, LabelVariant, LabelProps, Density } from "@fremtin
 import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-<<<<<<< HEAD
 import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler, type ReactNode } from "react";
-=======
-import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler, ReactNode } from "react";
->>>>>>> a5ee538aa (feat: legg til mulighet for benevnelse i TextInput)
 import { BaseInputField, BaseProps } from "./BaseInputField";
 
 export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {

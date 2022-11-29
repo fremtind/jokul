@@ -30,37 +30,35 @@ function Menu<T>({
     const itemList = visibleItems.length === 0 && noHits ? noHits.items : visibleItems;
 
     return (
-        <div data-testid="autosuggest__menu" style={{ position: "relative" }}>
-            <div className="jkl-autosuggest__menu">
-                {(noHitsMessage || noHits) && visibleItems.length === 0 && (
-                    <div className="jkl-autosuggest__no-hits-message" aria-live="polite">
-                        {noHitsMessage || noHits?.text}
-                    </div>
-                )}
+        <div data-testid="autosuggest__menu" className="jkl-autosuggest__menu">
+            {(noHitsMessage || noHits) && visibleItems.length === 0 && (
+                <div className="jkl-autosuggest__no-hits-message" aria-live="polite">
+                    {noHitsMessage || noHits?.text}
+                </div>
+            )}
 
-                {itemList.length > 0 && (
-                    <ul
-                        {...getMenuProps({
-                            className: "jkl-autosuggest__item-list",
-                        })}
-                    >
-                        {itemList.map((item, index) => (
-                            <li
-                                {...getItemProps({
-                                    item,
-                                    className: cn("jkl-autosuggest__item", {
-                                        "jkl-autosuggest__item--active": index === highlightedIndex,
-                                    }),
-                                })}
-                                data-testid="autosuggest__item"
-                                key={itemToString(item)}
-                            >
-                                {itemToString(item)}
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </div>
+            {itemList.length > 0 && (
+                <ul
+                    {...getMenuProps({
+                        className: "jkl-autosuggest__item-list",
+                    })}
+                >
+                    {itemList.map((item, index) => (
+                        <li
+                            {...getItemProps({
+                                item,
+                                className: cn("jkl-autosuggest__item", {
+                                    "jkl-autosuggest__item--active": index === highlightedIndex,
+                                }),
+                            })}
+                            data-testid="autosuggest__item"
+                            key={itemToString(item)}
+                        >
+                            {itemToString(item)}
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }
