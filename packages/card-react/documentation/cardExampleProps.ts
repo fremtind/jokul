@@ -5,8 +5,8 @@ export const baseCardExampleProps = {
     choiceProps: [
         {
             name: "Padding",
-            values: ["m", "l", "xl", "blandet"],
-            defaultValue: 1,
+            values: ["0", "m", "l", "xl", "blandet"],
+            defaultValue: 2,
         },
     ],
 };
