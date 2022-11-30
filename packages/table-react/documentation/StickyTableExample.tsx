@@ -25,7 +25,7 @@ const StickyTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
     const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
 
     return (
-        <Table fullWidth {...props} style={{ height: "100px" }}>
+        <Table fullWidth {...props}>
             <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
             <TableHead srOnly={headless} sticky>
                 <TableRow>
@@ -60,7 +60,7 @@ export default StickyTableExample;
 export const stickyTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
 <Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
-    <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
+    <TableHead srOnly={${boolValues?.["Skjul overskrift"]}} sticky>
         <TableRow>
             {columns.map((header, index) => (
                 <TableHeader key={index} density="compact" bold>
