@@ -1,7 +1,24 @@
 @use "~@fremtind/jkl-core/jkl";
 
+@include jkl.light-mode-variables {
+    --jkl-table-head-sticky-color: var(--jkl-background-color);
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-table-head-sticky-color: var(--jkl-background-color);
+}
+
 .jkl-table-head {
     &--sr-only {
         @include jkl.screenreader-only;
+    }
+
+    &--sticky {
+        & > .jkl-table-row {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background-color: var(--jkl-table-head-sticky-color);
+        }
     }
 }
