@@ -227,6 +227,16 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
 
+  packages/analytics:
+    specifiers:
+      '@fremtind/jkl-core': ^11.0.0
+      '@types/mixpanel-browser': ^2.38.0
+      mixpanel-browser: ^2.45.0
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+      '@types/mixpanel-browser': 2.38.0
+      mixpanel-browser: 2.45.0
+
   packages/breadcrumb:
     specifiers:
       '@fremtind/jkl-core': ^11.2.1
@@ -882,6 +892,7 @@ importers:
     specifiers:
       '@fremtind/jkl-accordion-react': ^8.0.12
       '@fremtind/jkl-alert-message-react': ^9.0.14
+      '@fremtind/jkl-analytics': 1.0.0-alpha.0
       '@fremtind/jkl-breadcrumb-react': ^3.0.10
       '@fremtind/jkl-button-react': ^12.0.15
       '@fremtind/jkl-card-react': ^7.0.21
@@ -948,6 +959,7 @@ importers:
     dependencies:
       '@fremtind/jkl-accordion-react': link:../packages/accordion-react
       '@fremtind/jkl-alert-message-react': link:../packages/alert-message-react
+      '@fremtind/jkl-analytics': link:../packages/analytics
       '@fremtind/jkl-breadcrumb-react': link:../packages/breadcrumb-react
       '@fremtind/jkl-button-react': link:../packages/button-react
       '@fremtind/jkl-card-react': link:../packages/card-react
@@ -5613,7 +5625,6 @@ packages:
 
   /@types/mixpanel-browser/2.38.0:
     resolution: {integrity: sha512-TR8rvsILnqXA7oiiGOxuMGXwvDeCoQDonXJB5UR+TYvEAFpiK8ReFj5LhZT+Xhm3NpI9aPoju30jB2ssorSUww==}
-    dev: true
 
   /@types/mkdirp/0.5.2:
     resolution: {integrity: sha512-U5icWpv7YnZYGsN4/cmh3WD2onMY0aJIiTE6+51TwJCttdHvtCYmkBNOobHlXwrJRL0nkH9jH4kD+1FAdMN4Tg==}
