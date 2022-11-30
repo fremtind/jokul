@@ -19,6 +19,7 @@ export interface Props {
         choiceProps?: Array<ChoiceProp>;
     };
     codeExample?: CodeExample;
+    style?: React.CSSProperties;
 }
 
 function useLocalStorage<T>(key: string, defaultValue: T): [T, (newValue: T) => void] {
@@ -46,7 +47,7 @@ function useLocalStorage<T>(key: string, defaultValue: T): [T, (newValue: T) => 
     return [state, setState];
 }
 
-export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable }) => {
+export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable, style }) => {
     const uid = useId("example");
     const [theme, setTheme] = useLocalStorage<ColorScheme>("jkl-example-theme", "light");
     const [density, setDensity] = useLocalStorage<Density>("jkl-example-density", "comfortable");
@@ -96,6 +97,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                     } ${scrollable ? "jkl-portal-component-example__example-wrapper--scrollable" : ""} ${
                         density === "comfortable" ? "jkl-body" : ""
                     } ${density === "compact" ? "jkl-small" : ""}`.trim()}
+                    style={style}
                 >
                     {example}
                 </div>
