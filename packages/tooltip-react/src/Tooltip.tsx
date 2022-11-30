@@ -8,6 +8,7 @@ import {
     useInteractions,
     useClick,
     useDismiss,
+    useFocus,
 } from "@floating-ui/react-dom-interactions";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -45,6 +46,7 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
     const { getReferenceProps, getFloatingProps } = useInteractions([
         useClick(context),
         useDismiss(context, { referencePress: false }),
+        useFocus(context, { enabled: open }), // Lukk når fokus flyttes vekk
         useRole(context, { role: "tooltip" }),
     ]);
 
