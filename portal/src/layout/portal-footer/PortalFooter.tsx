@@ -1,9 +1,11 @@
+import { useAnalytics } from "@fremtind/jkl-analytics";
+import { useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
 import { Feedback } from "@fremtind/jkl-feedback-react";
 import { Footer } from "@fremtind/jkl-footer-react";
 import { LogoStamp, TeknologiFraFremtind } from "@fremtind/jkl-logo-react";
 import cn from "classnames";
 import React from "react";
-import { EventName, useAnalytics } from "../../analytics";
+import { EventName } from "../../analytics";
 import { useLocation } from "../locationContext";
 import { Cookies } from "./Cookies";
 import "./portal-footer.scss";
@@ -13,13 +15,14 @@ export interface PortalFooterProps {
 }
 
 export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
+    const { consents } = useCookieConsent();
     const analytics = useAnalytics();
     const { isFrontPage } = useLocation();
     return (
         <div className={cn("jkl-portal-footer", className)}>
             <div className="jkl-portal-footer__feedback">
                 <div className="jkl-portal-footer__feedback-spacer"></div>
-                {!isFrontPage && (
+                {!isFrontPage && consents.statistics === "accepted" && (
                     <Feedback
                         type="radio"
                         label="Fant du det du lette etter?"
@@ -58,8 +61,11 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
                                 </>
                             ),
                         }}
-                        onSubmit={(feedback) => {
-                            analytics.track(EventName.Feedback, feedback);
+                        onSubmit={async (feedback) => {
+                            await analytics.track({
+                                eventName: EventName.Feedback,
+                                properties: feedback,
+                            });
                         }}
                     />
                 )}

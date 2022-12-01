@@ -1,8 +1,8 @@
+import { AnalyticsContextProvider } from "@fremtind/jkl-analytics";
 import { CookieConsentProvider } from "@fremtind/jkl-cookie-consent-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import React, { FC } from "react";
 import { A11yContextProvider } from "./src/a11yContext";
-import { AnalyticsContextProvider } from "./src/analytics";
 import { FSMenuContextProvider } from "./src/fullscreenMenuContext";
 import { LocationContextProvider } from "./src/layout/locationContext";
 

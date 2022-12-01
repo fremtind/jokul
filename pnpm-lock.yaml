@@ -947,6 +947,7 @@ importers:
       gatsby-plugin-sharp: ^4.24.0
       gatsby-plugin-typescript: ^4.24.0
       gatsby-source-filesystem: ^4.24.0
+      gatsby-source-package: ^1.0.1
       gatsby-transformer-react-docgen: ^7.24.0
       gatsby-transformer-sharp: ^4.24.0
       mixpanel-browser: ^2.45.0
@@ -1012,6 +1013,7 @@ importers:
       gatsby-plugin-sharp: 4.24.0_gatsby@4.24.8
       gatsby-plugin-typescript: 4.24.0_gatsby@4.24.8
       gatsby-source-filesystem: 4.24.0_gatsby@4.24.8
+      gatsby-source-package: 1.0.1_gatsby@4.24.8
       gatsby-transformer-react-docgen: 7.24.0_gatsby@4.24.8
       gatsby-transformer-sharp: 4.24.0_lrbwmhhxn5xmwuaca2nnhadopa
       mixpanel-browser: 2.45.0
@@ -11778,6 +11780,16 @@ packages:
       pretty-bytes: 5.6.0
       valid-url: 1.0.9
       xstate: 4.32.1
+    dev: false
+
+  /gatsby-source-package/1.0.1_gatsby@4.24.8:
+    resolution: {integrity: sha512-ujukzQN1oNa9qFvOhGbHotsCBYavfG83lNCCM7Nr3k6BHen4czNkEf7BkRxNd+q5R04PYfJkbT4AQo8EZymD2Q==}
+    peerDependencies:
+      gatsby: ^2.0.0 || ^3.0.0 || ^4.0.0
+    dependencies:
+      fs-extra: 10.1.0
+      gatsby: 4.24.8_biqbaboplfbrettd7655fr4n2y
+      lodash: 4.17.21
     dev: false
 
   /gatsby-telemetry/3.24.0:

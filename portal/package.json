@@ -64,6 +64,7 @@
         "gatsby-plugin-sharp": "^4.24.0",
         "gatsby-plugin-typescript": "^4.24.0",
         "gatsby-source-filesystem": "^4.24.0",
+        "gatsby-source-package": "^1.0.1",
         "gatsby-transformer-react-docgen": "^7.24.0",
         "gatsby-transformer-sharp": "^4.24.0",
         "mixpanel-browser": "^2.45.0",
