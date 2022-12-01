@@ -903,7 +903,6 @@ importers:
     specifiers:
       '@fremtind/jkl-accordion-react': ^8.0.12
       '@fremtind/jkl-alert-message-react': ^9.0.14
-      '@fremtind/jkl-analytics': 1.0.0-alpha.0
       '@fremtind/jkl-analytics-mixpanel': 1.0.0-alpha.0
       '@fremtind/jkl-analytics-react': 1.0.0-alpha.0
       '@fremtind/jkl-breadcrumb-react': ^3.0.10
@@ -973,7 +972,6 @@ importers:
     dependencies:
       '@fremtind/jkl-accordion-react': link:../packages/accordion-react
       '@fremtind/jkl-alert-message-react': link:../packages/alert-message-react
-      '@fremtind/jkl-analytics': link:../packages/analytics
       '@fremtind/jkl-analytics-mixpanel': link:../packages/analytics-mixpanel
       '@fremtind/jkl-analytics-react': link:../packages/analytics-react
       '@fremtind/jkl-breadcrumb-react': link:../packages/breadcrumb-react
