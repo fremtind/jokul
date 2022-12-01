@@ -1,4 +1,4 @@
-import { useAnalytics } from "@fremtind/jkl-analytics";
+import { useAnalytics } from "@fremtind/jkl-analytics-react";
 import { useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
 import type { WithChildren } from "@fremtind/jkl-core";
 import { useScreen } from "@fremtind/jkl-react-hooks";

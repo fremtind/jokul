@@ -1,4 +1,5 @@
-import { useAnalytics, MixpanelBackend } from "@fremtind/jkl-analytics";
+import { MixpanelBackend } from "@fremtind/jkl-analytics-mixpanel";
+import { useAnalytics } from "@fremtind/jkl-analytics-react";
 import { CookieConsent, useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { graphql, useStaticQuery } from "gatsby";

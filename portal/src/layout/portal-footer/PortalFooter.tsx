@@ -1,4 +1,4 @@
-import { useAnalytics } from "@fremtind/jkl-analytics";
+import { useAnalytics } from "@fremtind/jkl-analytics-react";
 import { useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
 import { Feedback } from "@fremtind/jkl-feedback-react";
 import { Footer } from "@fremtind/jkl-footer-react";
