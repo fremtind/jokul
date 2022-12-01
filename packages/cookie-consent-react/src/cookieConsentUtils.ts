@@ -3,6 +3,10 @@ import type { Consent, ConsentState, ConsentRequirement } from "./types";
 const COOKIE_NAME = "fremtind-cookie-consent";
 
 const getCookie = (name = COOKIE_NAME) => {
+    if (typeof document === "undefined") {
+        return undefined;
+    }
+
     const cookie = document.cookie
         // split a string of cookies into array of cookies
         .split(";")
