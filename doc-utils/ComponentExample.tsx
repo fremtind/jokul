@@ -11,6 +11,7 @@ export interface Props {
         choiceProps?: Array<ChoiceProp>;
     };
     codeExample?: CodeExample;
+    style?: React.CSSProperties;
 }
 
 export const ComponentExample: FC<Props> = ({ component, ...rest }) => {
