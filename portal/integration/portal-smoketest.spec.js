@@ -9,6 +9,8 @@ context("Portal", () => {
             // eslint-disable-next-line cypress/no-unnecessary-waiting
             cy.wait(1000); // Må vente til siden blir interaktiv
 
+            cy.get('[data-testid="jkl-cookie-consent-godta"]').click();
+
             cy.get("#jkl-portal-main-menu-hamburger").click();
 
             cy.get(".jkl-portal-full-screen-menu-item__link").eq(0).click();
@@ -25,6 +27,8 @@ context("Portal", () => {
 
             // eslint-disable-next-line cypress/no-unnecessary-waiting
             cy.wait(1000); // Må vente til siden blir interaktiv
+
+            cy.get('[data-testid="jkl-cookie-consent-godta"]').click();
 
             cy.get(".jkl-portal-main-menu__root-link").eq(0).click();
 
