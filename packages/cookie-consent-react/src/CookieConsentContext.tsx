@@ -142,6 +142,8 @@ const useCookieConsentState = (): UseCookieConsentState => {
 
 type UseCookieConsent = {
     openConsentModalWithSettings: () => void;
+    /** Se hvilke samtykker som er gitt, om du for eksempel trenger styre UI basert på samtykker. */
+    consents: Consent;
 };
 
 // expose functionality to be used by consumers
@@ -156,7 +158,9 @@ const useCookieConsent = (): UseCookieConsent => {
         context.dispatch({ type: "SET_SHOW_SETTINGS", payload: true });
     };
 
-    return { openConsentModalWithSettings };
+    const consents = context.state.consent;
+
+    return { openConsentModalWithSettings, consents };
 };
 
 export { CookieConsentProvider, useCookieConsentState, useCookieConsent };
