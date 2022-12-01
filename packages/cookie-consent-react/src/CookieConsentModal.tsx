@@ -88,6 +88,10 @@ export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept, ..
         }
     }, [instance, isOpen]);
 
+    if (typeof document === "undefined") {
+        return null;
+    }
+
     return ReactDOM.createPortal(
         <div
             {...rest}
