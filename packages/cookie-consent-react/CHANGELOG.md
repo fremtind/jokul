@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.17 (2022-12-01)
+
+### Bug Fixes
+
+- forhindre undefined-feil på serversiden ([e78ae73](https://github.com/fremtind/jokul/commit/e78ae736af43d671a17707c0e18fbd8dbf3bef67))
+
 ## 7.0.15 (2022-11-22)
 
 ### Bug Fixes
