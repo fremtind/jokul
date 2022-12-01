@@ -1,11 +1,11 @@
 {
-    "name": "@fremtind/jkl-analytics",
+    "name": "@fremtind/jkl-analytics-mixpanel",
     "version": "1.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
     "description": "Jøkul analytics",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/analytics",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/analytics-mixpanel",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -27,6 +27,17 @@
         "build:scripts": "node ./esbuild.prod.mjs",
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1"
+    },
+    "dependencies": {
+        "@fremtind/jkl-analytics": "^1.0.0-alpha.0",
+        "@types/mixpanel-browser": "^2.38.0",
+        "mixpanel-browser": "^2.45.0"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
     },
     "repository": {
         "type": "git",

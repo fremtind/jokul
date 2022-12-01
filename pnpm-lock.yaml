@@ -228,14 +228,25 @@ importers:
       classnames: 2.3.2
 
   packages/analytics:
+    specifiers: {}
+
+  packages/analytics-mixpanel:
     specifiers:
-      '@fremtind/jkl-core': ^11.0.0
+      '@fremtind/jkl-analytics': ^1.0.0-alpha.0
       '@types/mixpanel-browser': ^2.38.0
       mixpanel-browser: ^2.45.0
     dependencies:
-      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-analytics': link:../analytics
       '@types/mixpanel-browser': 2.38.0
       mixpanel-browser: 2.45.0
+
+  packages/analytics-react:
+    specifiers:
+      '@fremtind/jkl-analytics': 1.0.0-alpha.0
+      '@fremtind/jkl-core': ^11.0.0
+    dependencies:
+      '@fremtind/jkl-analytics': link:../analytics
+      '@fremtind/jkl-core': link:../core
 
   packages/breadcrumb:
     specifiers:
@@ -893,6 +904,8 @@ importers:
       '@fremtind/jkl-accordion-react': ^8.0.12
       '@fremtind/jkl-alert-message-react': ^9.0.14
       '@fremtind/jkl-analytics': 1.0.0-alpha.0
+      '@fremtind/jkl-analytics-mixpanel': 1.0.0-alpha.0
+      '@fremtind/jkl-analytics-react': 1.0.0-alpha.0
       '@fremtind/jkl-breadcrumb-react': ^3.0.10
       '@fremtind/jkl-button-react': ^12.0.15
       '@fremtind/jkl-card-react': ^7.0.21
@@ -961,6 +974,8 @@ importers:
       '@fremtind/jkl-accordion-react': link:../packages/accordion-react
       '@fremtind/jkl-alert-message-react': link:../packages/alert-message-react
       '@fremtind/jkl-analytics': link:../packages/analytics
+      '@fremtind/jkl-analytics-mixpanel': link:../packages/analytics-mixpanel
+      '@fremtind/jkl-analytics-react': link:../packages/analytics-react
       '@fremtind/jkl-breadcrumb-react': link:../packages/breadcrumb-react
       '@fremtind/jkl-button-react': link:../packages/button-react
       '@fremtind/jkl-card-react': link:../packages/card-react

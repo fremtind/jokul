@@ -2,14 +2,12 @@
 
 ## Installasjon
 
-**Tips:** [stilpakken](../analytics/) blir automatisk installert som en avhengighet.
-
 1. `npm i @fremtind/jkl-analytics`.
-2. Bruk `Analytics` sammen med en `backend`.
+2. Bruk `Analytics` sammen med en backend, for eksempel fra `@fremtind/jkl-analytics-mixpanel`.
 
 ```js
 import { Analytics } from "@fremtind/jkl-analytics";
-import { MixpanelBackend } from "@fremtind/jkl-analytics/backends/mixpanel";
+import { MixpanelBackend } from "@fremtind/jkl-analytics-mixpanel";
 
 const analytics = new Analytics(
     new MixpanelBackend({
@@ -17,9 +15,3 @@ const analytics = new Analytics(
     }),
 );
 ```
-
-### Bruk i React
-
-1. Lag en [Context](https://reactjs.org/docs/context.html).
-2. Bruk contextens `Provider` så langt opp i appen din som gir mening, men _under_ `CookieConsentProvider`.
-3. Bruk contexten ute i komponentene for å få tilgang til `analytics`-objektet.

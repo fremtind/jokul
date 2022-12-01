@@ -1,4 +1,4 @@
-import { AnalyticsContextProvider } from "@fremtind/jkl-analytics";
+import { AnalyticsContextProvider } from "@fremtind/jkl-analytics-react";
 import { CookieConsentProvider } from "@fremtind/jkl-cookie-consent-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import React, { FC } from "react";
