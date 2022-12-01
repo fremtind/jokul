@@ -884,7 +884,7 @@ importers:
       '@fremtind/jkl-alert-message-react': ^9.0.14
       '@fremtind/jkl-breadcrumb-react': ^3.0.10
       '@fremtind/jkl-button-react': ^12.0.15
-      '@fremtind/jkl-card-react': ^7.0.20
+      '@fremtind/jkl-card-react': ^7.0.21
       '@fremtind/jkl-checkbox-react': ^8.0.12
       '@fremtind/jkl-constants-util': ^1.0.9
       '@fremtind/jkl-content-toggle-react': ^4.0.11
