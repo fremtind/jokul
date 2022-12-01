@@ -1,21 +1,15 @@
 # `@fremtind/jkl-analytics-react`
 
+Dette er React-wrapper rundt [`@fremtind/jkl-analytics`](../analytics/).
+
 ## Installasjon
 
 1. `npm i @fremtind/jkl-analytics-react`.
-2. Bruk `Analytics` sammen med en backend, for eksempel `@fremtind/jkl-analytics-mixpanel`.
+2. Bruk sammen med en backend, for eksempel [`@fremtind/jkl-analytics-mixpanel`](../analytics-mixpanel/).
 
-```js
-import { Analytics } from "@fremtind/jkl-analytics";
-import { MixpanelBackend } from "@fremtind/jkl-analytics-mixpanel";
+```jsx
 import { AnalyticsContextProvider } from "@fremtind/jkl-analytics-react";
 import { CookieConsentProvider } from "@fremtind/jkl-cookie-consent-react";
-
-const analytics = new Analytics(
-    new MixpanelBackend({
-        projectId: process.env.MIXPANEL_PROJECT_ID,
-    }),
-);
 
 export const Providers: FC<WithChildren> = ({ children }) => {
     return (
@@ -24,10 +18,16 @@ export const Providers: FC<WithChildren> = ({ children }) => {
         </CookieConsentProvider>
     );
 };
+```
 
-// Meanwhile...
-
+```jsx
+import { MixpanelBackend } from "@fremtind/jkl-analytics-mixpanel";
+import { useAnalytics } from "@fremtind/jkl-analytics-react";
 import { CookieConsent } from "@fremtind/jkl-cookie-consent-react";
+
+const mixpanel = new MixpanelBackend({
+    projectId: process.env.MIXPANEL_PROJECT_ID,
+});
 
 export const Cookies: FC = () => {
     const analytics = useAnalytics();

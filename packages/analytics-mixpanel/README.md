@@ -1,17 +1,10 @@
 # `@fremtind/jkl-analytics-mixpanel`
 
+Dette er en Mixpanel-backend for [`@fremtind/jkl-analytics`](../analytics/).
+
+-   Se [`@fremtind/jkl-analytics-react`](../analytics-react/) for en ferdig context, hook, og eksempler på bruk.
+
 ## Installasjon
 
 1. `npm i @fremtind/jkl-analytics-mixpanel`.
-2. Bruk `Mixpanel` som backend for `Analytics` fra `@fremtind/jkl-analytics`.
-
-```js
-import { Analytics } from "@fremtind/jkl-analytics";
-import { Mixpanel } from "@fremtind/jkl-analytics-mixpanel";
-
-const analytics = new Analytics(
-    new MixpanelBackend({
-        projectId: process.env.MIXPANEL_PROJECT_ID,
-    }),
-);
-```
+2. Bruk backend sammen med `useAnalytics` fra [`@fremtind/jkl-analytics-react`](../analytics-react/) eller `Analytics` fra [`@fremtind/jkl-analytics`](../analytics).
