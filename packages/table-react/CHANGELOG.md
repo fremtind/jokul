@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.1.0 (2022-11-30)
+
+### Features
+
+- add sticky table header ([604bfd0](https://github.com/fremtind/jokul/commit/604bfd09ce1c0b1f0d1edbca7dd95368d6da031f))
+
 ## 9.0.14 (2022-11-23)
 
 ### Bug Fixes

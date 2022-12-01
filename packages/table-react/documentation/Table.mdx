@@ -22,6 +22,7 @@ import MobileListTableExample, {
     mobileListTableExampleCode,
     mobileListTableExampleKnobs,
 } from "./MobileListTableExample";
+import StickyTableExample, { stickyTableExampleCode } from "./StickyTableExample";
 
 <Ingress>Vi bruker tabeller for å vise data på en ordnet måte som gjør sammenlikning enkelt.</Ingress>
 
@@ -387,4 +388,16 @@ Hele raden blir automatisk klikkbar, samtidig som man skal sette inn en celle fo
     component={ExpandableTableExample}
     knobs={expandableTableExampleKnobs}
     codeExample={expandableTableExampleCode}
+/>
+
+### Sticky tabell heading
+
+Tabellens header blir festet til toppen av skjermen og flyter over tabellinnholdet om man scroller lenger ned i tabellen enn skjermens høyde. For å sette en egen bakgrunnsfarge kan man overstyre CSS-variabelen `--jkl-table-head-sticky-color`.
+
+<ComponentExample
+    style={{ height: "200px" }}
+    scrollable={true}
+    title="Tabell med sticky header"
+    component={StickyTableExample}
+    codeExample={stickyTableExampleCode}
 />

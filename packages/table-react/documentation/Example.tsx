@@ -17,6 +17,7 @@ import "../../table/table.scss";
 import "../../button/button.scss";
 import "../../icons/animated-icons.scss";
 import "../../expand-button/expand-button.scss";
+import StickyTableExample, { stickyTableExampleCode } from "./StickyTableExample";
 
 export default function Example() {
     return (
@@ -68,6 +69,13 @@ export default function Example() {
                 component={ExpandableTableExample}
                 knobs={expandableTableExampleKnobs}
                 codeExample={expandableTableExampleCode}
+            />
+            <DevExample
+                style={{ height: "200px" }}
+                scrollable={true}
+                title="Tabell med sticky header"
+                component={StickyTableExample}
+                codeExample={stickyTableExampleCode}
             />
         </>
     );
