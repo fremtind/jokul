@@ -1,6 +1,6 @@
-export const SPACING_STEPS = ["m", "l", "xl", "2xl", "3xl", "4xl"] as const;
+export const SPACING_STEPS = ["0", "m", "l", "xl", "2xl", "3xl", "4xl"] as const;
 type SpacingSteps = typeof SPACING_STEPS;
-export type BasePadding = SpacingSteps[0 | 1 | 2];
+export type BasePadding = SpacingSteps[0 | 1 | 2 | 3];
 export type SpacingStep = SpacingSteps[number];
 
 export interface PaddingShorthand {
