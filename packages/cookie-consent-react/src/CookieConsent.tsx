@@ -24,7 +24,7 @@ export const CookieConsent = ({ blocking, onAccept, ...rest }: CookieConsentProp
     }, [onAccept, consent, prevConsent]);
 
     // Cookies are disabled in the browser
-    if (navigator && !navigator.cookieEnabled) {
+    if (typeof navigator !== "undefined" && !navigator.cookieEnabled) {
         if (onAccept) {
             onAccept({
                 functional: "denied",

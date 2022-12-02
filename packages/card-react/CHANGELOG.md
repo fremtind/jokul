@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.21](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@7.0.20...@fremtind/jkl-card-react@7.0.21) (2022-12-01)
+
+### Bug Fixes
+
+- la til muligheten for å sette padding til 0 ([fd19b37](https://github.com/fremtind/jokul/commit/fd19b37bd86824fe8f59e0a5788d5ee94ef085f8)), closes [#3283](https://github.com/fremtind/jokul/issues/3283)
+
 ## 7.0.16 (2022-11-22)
 
 ### Bug Fixes
