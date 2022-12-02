@@ -163,7 +163,7 @@ $_text-input-selection-color--inverted: color.scale(
     width: var(--jkl-text-input-action-button-size);
     color: var(--jkl-text-input-border-color);
 
-    /* Unngå for langt mellomrom mellom ikon og teksten i feltet */
+    // Unngå for langt mellomrom mellom ikon og teksten i feltet
     margin-inline-start: calc(var(--jkl-text-input-horizontal-padding) * -1);
 
     .jkl-icon-button__icon {
@@ -277,9 +277,9 @@ $_text-input-selection-color--inverted: color.scale(
 
     &__text-area {
         @include _shared-input-styles;
-        scrollbar-color: var(--jkl-color) transparent; /* Unngå at scrollbar ligger oppå rammen */
+        scrollbar-color: var(--jkl-color) transparent; // Unngå at scrollbar ligger oppå rammen
         box-sizing: border-box;
-        resize: none; /* Fjern mulighet for resizing av feltet */
+        resize: none; // Fjern mulighet for resizing av feltet
         width: 100%;
         padding: var(--jkl-text-input-padding);
         max-height: var(--jkl-text-input-height);
@@ -304,7 +304,7 @@ $_text-input-selection-color--inverted: color.scale(
 
     &--auto-expand {
         .jkl-text-area__text-area {
-            overflow: hidden; /* Skjul scrollbar når høyden autojusteres */
+            overflow: hidden; // Skjul scrollbar når høyden autojusteres
             max-height: 100%;
         }
     }
@@ -326,7 +326,7 @@ $_text-input-selection-color--inverted: color.scale(
             transition-property: opacity;
             opacity: 0;
 
-            pointer-events: none; /* La brukeren klikke gjennom telleren når feltet er kollapset */
+            pointer-events: none; // La brukeren klikke gjennom telleren når feltet er kollapset
             position: absolute;
             bottom: 0;
             left: 0;
@@ -357,7 +357,7 @@ $_text-input-selection-color--inverted: color.scale(
 
         &:focus-within .jkl-text-area__counter {
             opacity: 1;
-            transition-delay: jkl.timing("productive"); /* Vent med å fade inn til feltet er ekspandert */
+            transition-delay: jkl.timing("productive"); // Vent med å fade inn til feltet er ekspandert
         }
 
         [aria-invalid="true"] ~ .jkl-text-area__counter {
