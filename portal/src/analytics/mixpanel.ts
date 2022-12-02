@@ -1,4 +1,5 @@
-import {
+import mixpanel from "mixpanel-browser";
+import type {
     AnalyticsBackend,
     AnalyticsBackendOptions,
     Identifiable,
@@ -10,8 +11,7 @@ import {
     Timed,
     Trackable,
     TrackResponse,
-} from "@fremtind/jkl-analytics";
-import mixpanel from "mixpanel-browser";
+} from "./types";
 
 export interface MixpanelOptions extends AnalyticsBackendOptions {}
 

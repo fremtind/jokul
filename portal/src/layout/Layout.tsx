@@ -1,4 +1,3 @@
-import { useAnalytics } from "@fremtind/jkl-analytics-react";
 import { useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
 import type { WithChildren } from "@fremtind/jkl-core";
 import { useScreen } from "@fremtind/jkl-react-hooks";
@@ -6,7 +5,7 @@ import { usePreviousValue } from "@fremtind/jkl-react-hooks/src";
 import { AnimatePresence } from "framer-motion";
 import type { HeadProps } from "gatsby";
 import React, { useEffect, useRef, useState } from "react";
-import { EventName } from "../analytics";
+import { useAnalytics, EventName } from "../analytics";
 import { Seo } from "../components/seo";
 import { FormatProvider } from "./FormatProvider";
 import { Header } from "./header";

@@ -1,9 +1,8 @@
-import { MixpanelBackend } from "@fremtind/jkl-analytics-mixpanel";
-import { useAnalytics } from "@fremtind/jkl-analytics-react";
 import { CookieConsent, useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, Suspense } from "react";
+import { MixpanelBackend, useAnalytics } from "../../analytics";
 
 const mixpanel = new MixpanelBackend({
     trackingId: process.env.MIXPANEL_PROJECT_ID || "bac3ea28c7d92a05956f54eab1595663",

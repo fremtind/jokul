@@ -1,11 +1,10 @@
-import { useAnalytics } from "@fremtind/jkl-analytics-react";
 import { useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
 import { Feedback } from "@fremtind/jkl-feedback-react";
 import { Footer } from "@fremtind/jkl-footer-react";
 import { LogoStamp, TeknologiFraFremtind } from "@fremtind/jkl-logo-react";
 import cn from "classnames";
 import React from "react";
-import { EventName } from "../../analytics";
+import { useAnalytics, EventName } from "../../analytics";
 import { useLocation } from "../locationContext";
 import { Cookies } from "./Cookies";
 import "./portal-footer.scss";

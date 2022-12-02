@@ -1,6 +1,6 @@
-import { Analytics } from "@fremtind/jkl-analytics";
 import type { WithChildren } from "@fremtind/jkl-core";
 import React, { createContext, useContext, type FC } from "react";
+import { Analytics } from "./analytics";
 
 const analytics = new Analytics();
 
