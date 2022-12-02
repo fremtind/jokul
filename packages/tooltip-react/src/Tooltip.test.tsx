@@ -7,7 +7,7 @@ describe("Tooltip", () => {
     test("should render button for showing tooltip", () => {
         render(<Tooltip content={<p className="jkl-small">Dette er en tooltip</p>} />);
 
-        const tooltipButton = screen.getByRole("button", { name: /Hjelpetekst/ });
+        const tooltipButton = screen.getByRole("button", { name: /Vis hjelpetekst/ });
         expect(tooltipButton).toBeInTheDocument();
     });
 
@@ -18,28 +18,28 @@ describe("Tooltip", () => {
         expect(tooltipText).not.toBeInTheDocument();
     });
 
-    test("should render tooltip text when tooltip is HOVERED", async () => {
+    test("should not render tooltip text when tooltip is HOVERED", async () => {
         render(<Tooltip content={<p className="jkl-small">Dette er en tooltip</p>} />);
         const user = userEvent.setup();
 
-        const tooltipButton = screen.getByRole("button", { name: /Hjelpetekst/ });
+        const tooltipButton = screen.getByRole("button", { name: /Vis hjelpetekst/ });
         await user.hover(tooltipButton);
-        expect(screen.getByText(/Dette er en tooltip/)).toBeInTheDocument();
+        expect(screen.queryByText(/Dette er en tooltip/)).not.toBeInTheDocument();
     });
 
-    test("should render tooltip text when tooltip is FOCUSED", () => {
+    test("should not render tooltip text when tooltip is FOCUSED", () => {
         render(<Tooltip content={<p className="jkl-small">Dette er en tooltip</p>} />);
 
-        const tooltipButton = screen.getByRole("button", { name: /Hjelpetekst/ });
+        const tooltipButton = screen.getByRole("button", { name: /Vis hjelpetekst/ });
         fireEvent.focus(tooltipButton);
-        expect(screen.getByText(/Dette er en tooltip/)).toBeInTheDocument();
+        expect(screen.queryByText(/Dette er en tooltip/)).not.toBeInTheDocument();
     });
 
     test("should render tooltip text when tooltip is CLICKED", async () => {
         render(<Tooltip content={<p className="jkl-small">Dette er en tooltip</p>} />);
         const user = userEvent.setup();
 
-        const tooltipButton = screen.getByRole("button", { name: /Hjelpetekst/ });
+        const tooltipButton = screen.getByRole("button", { name: /Vis hjelpetekst/ });
         await user.click(tooltipButton);
         expect(screen.getByText(/Dette er en tooltip/)).toBeInTheDocument();
     });
