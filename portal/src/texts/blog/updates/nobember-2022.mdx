@@ -1,6 +1,6 @@
 ---
 title: Høydepunkter fra november 2022
-author: William Killerud
+author: Jøkul-teamet
 publishDate: "2022.12.01"
 ---
 
@@ -11,18 +11,30 @@ publishDate: "2022.12.01"
 
 Her er november kort oppsummert:
 
--   Jøkul-teamet har samlet tilbakemeldinger på en prototype av neste versjon av portalen.
+-   Vi har samlet tilbakemeldinger på en prototype av neste versjon av portalen.
 -   Dynamisk spacing er snart klar.
 -   En masse husarbeid har blitt gjort i kulissene.
 -   Som vanlig en bukett med bugrettinger og små forbedringer.
 
-Minner om at du under [Projects på GitHub](https://github.com/orgs/fremtind/projects/22/views/3) kan se hva vi jobber med for tiden. Designere er kanskje interesserte i vår [dedikerte visning for visuelle endringer](https://github.com/orgs/fremtind/projects/22/views/1). Håpet er at det skal bli mer synlig hva vi driver med, og enklere å gi tilbakemelding underveis.
+Vi minner om at du under [Projects på GitHub](https://github.com/orgs/fremtind/projects/22/views/3) kan se hva vi jobber med. Om du synes listen er overveldende og kun er ute etter det visuelle, kan du finne dette under [Design](https://github.com/orgs/fremtind/projects/22/views/1) fanen. Målet med denne oversikten er å synliggjøre hva vi driver med, og senke terskelen for å gi løpende tilbakemeldinger.
 
-## Jøkul-teamet prototyper den neste portalen
+## Den neste "store" versjonen av portalen
 
-![](/assets/blog/updates/november-2022/nov-radiobutton-prototype.png)
+<picture className="jkl-portal-image">
+    <source
+        media="(prefers-color-scheme: dark)"
+        srcset="/assets/blog/updates/november-2022/nov-radiobutton-prototype-dark.png"
+    />
+    <img
+        className="jkl-portal-image__img"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        src="/assets/blog/updates/november-2022/nov-radiobutton-prototype.png"
+    />
+</picture>
 
-Jøkul-teamet jobber med å prototype neste utgave av nettsiden du leser nå. Målet med redesignet er å gjøre det lettere å finne fram, og vise gode eksempler.
+Vi jobber med å prototype neste utgave av nettsiden du leser nå. Målet med redesignet er blant annet å gjøre det lettere å finne fram, og vise gode eksempler.
 
 [Testmiljøet til prototypen finner du her](https://portal.distlosn-ds-jkl-preprod.aws.fremtind.no/komponenter/radio-buttons). Om du ikke har sett den allerede må du gjerne titte innom.
 
@@ -30,7 +42,15 @@ Vi har hatt en runde hvor vi demoet prototypen på to designsystemforum, delte l
 
 ## Dynamisk spacing
 
-![](/assets/blog/updates/november-2022/nov-dynamisk-spacing.png)
+<picture className="jkl-portal-image">
+    <img
+        className="jkl-portal-image__img"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        src="/assets/blog/updates/november-2022/nov-dynamisk-spacing.png"
+    />
+</picture>
 
 Diskusjonen har gått [på GitHub](https://github.com/fremtind/jokul/issues/3255) om behovet for spacing som endrer seg basert på skjermbredden.
 
@@ -53,6 +73,11 @@ Kort oppsummert:
 
 -   Eksempelinnhold for Task Card er live.
 -   Tooltip har fått en maxbredde som bedre matcher kode ([#3233](https://github.com/fremtind/jokul/issues/3233)).
+-   Fikset en bug i Text Input hvor en Instance Swap prop hadde blitt liggende igjen på et par varianter fra en tidligere test.
+-   Feedback komponenten kommer nå to versjoner. En [forenklet variant](https://www.figma.com/file/9b2lNofbSyTNdmO0sGOlrx/Patterns?node-id=2382%3A14140&viewport=-1034%2C339%2C0.18&t=OaNil8PELGq30KKV-11) man kan sette sammen selv etter behov, i tillegg til den interaktive ende-til-ende komponenten.
+-   Opprydningssarbeidet på ikonsettet har startet. Alt tegnes opp på et grid og vil bli sortert i respektive størrelser og tykkelser.
+-   En skisse på Combobox / Multi Select er underveis, vi holder detaljnivået enkelt frem til vi finner ut hva slags behov vi ønsker å dekke.
+-   Select rentegnes til ikke være avhengig av Text Input i påvente av Combobox / Multi Select.
 
 ### GitHub
 
