@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.15 (2022-12-02)
+
+### Bug Fixes
+
+- forbedre brukeropplevelse for tooltip ([94d8573](https://github.com/fremtind/jokul/commit/94d8573abeaac589f0453ce66fdb693307cabfcf))
+- lukk tooltip når fokus flyttes vekk fra knappen ([dff5c56](https://github.com/fremtind/jokul/commit/dff5c563dfbea5840bb27535f2083972e70c760f))
+
 ## 1.0.11 (2022-11-22)
 
 ### Bug Fixes
