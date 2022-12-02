@@ -859,6 +859,7 @@ importers:
       '@floating-ui/react-dom-interactions': ^0.10.3
       '@fremtind/jkl-constants-util': ^1.0.9
       '@fremtind/jkl-core': ^11.2.1
+      '@fremtind/jkl-react-hooks': ^10.2.6
       '@fremtind/jkl-tooltip': ^1.0.7
       classnames: ^2.3.2
       framer-motion: ^7.6.9
@@ -866,6 +867,7 @@ importers:
       '@floating-ui/react-dom': 1.0.1
       '@floating-ui/react-dom-interactions': 0.10.3
       '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-tooltip': link:../tooltip
       classnames: 2.3.2
       framer-motion: 7.6.9
