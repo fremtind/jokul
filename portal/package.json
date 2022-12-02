@@ -11,8 +11,6 @@
     "dependencies": {
         "@fremtind/jkl-accordion-react": "^8.0.12",
         "@fremtind/jkl-alert-message-react": "^9.0.14",
-        "@fremtind/jkl-analytics-mixpanel": "1.0.0-alpha.0",
-        "@fremtind/jkl-analytics-react": "1.0.0-alpha.0",
         "@fremtind/jkl-breadcrumb-react": "^3.0.10",
         "@fremtind/jkl-button-react": "^12.0.15",
         "@fremtind/jkl-card-react": "^7.0.21",
