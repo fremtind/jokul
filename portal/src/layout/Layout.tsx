@@ -115,10 +115,8 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
             <div className="jkl-portal__theme-bg" />
             <Header className="jkl-portal__header" />
             <AnimatePresence>{shouldShowSidebar && <Sidebar className="jkl-portal__sidebar" />}</AnimatePresence>
-            <KBar />
-            <FormatProvider>
-                <AnimatePresence mode="wait">{children}</AnimatePresence>
-            </FormatProvider>
+            {hasMounted && <KBar />}
+            <FormatProvider>{hasMounted && <AnimatePresence mode="wait">{children}</AnimatePresence>}</FormatProvider>
             {!isTestMode && hasMounted && <PortalFooter className="jkl-portal__footer" />}
         </div>
     );
