@@ -10,7 +10,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/selec
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
-import { select } from "@fremtind/jkl-select-react";
+import { Select } from "@fremtind/jkl-select-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-select/select.min.css";
