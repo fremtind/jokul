@@ -1,5 +1,6 @@
 import { CookieConsentProvider } from "@fremtind/jkl-cookie-consent-react";
 import { WithChildren } from "@fremtind/jkl-core";
+import { KBarProvider } from "kbar";
 import React, { FC } from "react";
 import { A11yContextProvider } from "./src/a11yContext";
 import { AnalyticsContextProvider } from "./src/analytics";
@@ -10,11 +11,13 @@ export const SharedProviders: FC<WithChildren> = ({ children }) => {
     return (
         <CookieConsentProvider statistics>
             <AnalyticsContextProvider>
-                <A11yContextProvider>
-                    <LocationContextProvider>
-                        <FSMenuContextProvider>{children}</FSMenuContextProvider>
-                    </LocationContextProvider>
-                </A11yContextProvider>
+                <KBarProvider actions={[]}>
+                    <A11yContextProvider>
+                        <LocationContextProvider>
+                            <FSMenuContextProvider>{children}</FSMenuContextProvider>
+                        </LocationContextProvider>
+                    </A11yContextProvider>
+                </KBarProvider>
             </AnalyticsContextProvider>
         </CookieConsentProvider>
     );

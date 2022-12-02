@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby";
+import { Action, useRegisterActions } from "kbar";
 import { MenuItemList } from "../../fullscreenMenuContext";
 
 export interface FrontmatterTypeProp {
@@ -74,6 +75,16 @@ type NavigationLinks = {
     PageType: typeof PageType;
     menuItems: MenuItemList;
 };
+
+function mapToAction({ parent, name, path }: { parent: PageType; name: string; path: string }): Action {
+    return {
+        id: path,
+        name,
+        parent,
+        section: pageNames[parent],
+        perform: () => (window.location.pathname = path),
+    };
+}
 
 export function useNavigationLinks(): NavigationLinks {
     const { allMdx } = useStaticQuery(graphql`
@@ -255,6 +266,89 @@ export function useNavigationLinks(): NavigationLinks {
             basePath: PageType.BLOG,
         },
     ];
+
+    useRegisterActions([
+        {
+            id: PageType.KOMIGANG,
+            name: pageNames[PageType.KOMIGANG],
+            keywords: "start introduksjon",
+            shortcut: ["g", "i"],
+            section: "Områder",
+        },
+        ...getStartedDocPages.map((page) =>
+            mapToAction({
+                path: page.path,
+                name: page.title,
+                parent: PageType.KOMIGANG,
+            }),
+        ),
+        {
+            id: PageType.PROFIL,
+            name: pageNames[PageType.PROFIL],
+            shortcut: ["g", "p"],
+            keywords: "typografi font logo farger spacing stil tone stemme",
+            section: "Områder",
+        },
+        ...profileDocPages.map((page) =>
+            mapToAction({
+                path: page.path,
+                name: page.title,
+                parent: PageType.PROFIL,
+            }),
+        ),
+        {
+            id: PageType.KOMPONENTER,
+            name: pageNames[PageType.KOMPONENTER],
+            shortcut: ["g", "k"],
+            section: "Områder",
+        },
+        ...componentDocPages.map((page) =>
+            mapToAction({
+                path: page.path,
+                name: page.title,
+                parent: PageType.KOMPONENTER,
+            }),
+        ),
+        {
+            id: PageType.UU,
+            name: pageNames[PageType.UU],
+            shortcut: ["g", "u"],
+            section: "Områder",
+        },
+        ...uuDocPages.map((page) =>
+            mapToAction({
+                path: page.path,
+                name: page.title,
+                parent: PageType.UU,
+            }),
+        ),
+        {
+            id: PageType.GUIDER,
+            name: pageNames[PageType.GUIDER],
+            shortcut: ["g", "g"],
+            section: "Områder",
+        },
+        ...guiderDocPages.map((page) =>
+            mapToAction({
+                path: page.path,
+                name: page.title,
+                parent: PageType.GUIDER,
+            }),
+        ),
+        {
+            id: PageType.BLOG,
+            name: pageNames[PageType.BLOG],
+            shortcut: ["g", "b"],
+            section: "Områder",
+        },
+        ...blogPages.map((page) =>
+            mapToAction({
+                path: page.path,
+                name: page.title,
+                parent: PageType.BLOG,
+            }),
+        ),
+    ]);
 
     return {
         profileDocPages,

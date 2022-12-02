@@ -9,6 +9,7 @@ import { useAnalytics, EventName } from "../analytics";
 import { Seo } from "../components/seo";
 import { FormatProvider } from "./FormatProvider";
 import { Header } from "./header";
+import { KBar } from "./KBar";
 import { useLocation } from "./locationContext";
 import { PortalFooter } from "./portal-footer";
 import { Sidebar } from "./sidebar";
@@ -114,6 +115,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
             <div className="jkl-portal__theme-bg" />
             <Header className="jkl-portal__header" />
             <AnimatePresence>{shouldShowSidebar && <Sidebar className="jkl-portal__sidebar" />}</AnimatePresence>
+            <KBar />
             <FormatProvider>
                 <AnimatePresence mode="wait">{children}</AnimatePresence>
             </FormatProvider>
