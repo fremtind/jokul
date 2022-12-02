@@ -1,0 +1,94 @@
+@use "@fremtind/jkl-core/jkl";
+
+@include jkl.light-mode-variables {
+    --kbar-active: #{jkl.$color-svaberg};
+    --kbar-kbd: #{jkl.$color-dis};
+}
+
+@include jkl.dark-mode-variables {
+    --kbar-active: #{jkl.$color-stein};
+    --kbar-kbd: #{jkl.$color-skifer};
+}
+
+$_kbar-padding-inline: jkl.$spacing-s jkl.$spacing-m;
+$_kbar-padding-block: jkl.$spacing-s jkl.$spacing-m;
+$_kbar-padding: $_kbar-padding-block $_kbar-padding-inline;
+
+.kbar-search {
+    @include jkl.text-style("body");
+    padding: $_kbar-padding;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    background: var(--jkl-background-color);
+    color: var(--jkl-color);
+}
+
+.kbar-animator {
+    max-width: jkl.rem(600px);
+    width: 100%;
+    background: var(--jkl-background-color);
+    color: var(--jkl-color);
+    border: 1px solid jkl.$color-svaberg;
+    border-radius: jkl.rem(4px);
+    overflow: hidden;
+    box-shadow: jkl.$drop-shadow--large;
+}
+
+.kbar-group-name {
+    @include jkl.text-style("heading-5");
+    padding: $_kbar-padding;
+}
+
+.kbar-result-item {
+    padding: $_kbar-padding;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 2px solid transparent;
+    cursor: pointer;
+
+    &--active {
+        border-left-color: var(--jkl-color);
+        background: var(--kbar-active);
+    }
+
+    &__wrapper {
+        @include jkl.text-style("body");
+        display: flex;
+        gap: jkl.rem(8px);
+        align-items: center;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__ancestor {
+        opacity: 0.5;
+        margin-right: jkl.rem(8px);
+    }
+
+    &__divider {
+        margin-right: jkl.rem(8px);
+    }
+
+    &__subtitle {
+        @include jkl.text-style("small");
+    }
+}
+
+.kbar-shortcut {
+    display: grid;
+    grid-auto-flow: column;
+    gap: jkl.rem(4px);
+
+    &__key {
+        @include jkl.text-style("small");
+        padding: jkl.rem(4px) jkl.rem(6px);
+        background: var(--kbar-kbd);
+        border-radius: jkl.rem(4px);
+    }
+}

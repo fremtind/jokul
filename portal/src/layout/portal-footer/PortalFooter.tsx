@@ -17,6 +17,7 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
     const { consents } = useCookieConsent();
     const analytics = useAnalytics();
     const { isFrontPage } = useLocation();
+
     return (
         <div className={cn("jkl-portal-footer", className)}>
             <div className="jkl-portal-footer__feedback">
