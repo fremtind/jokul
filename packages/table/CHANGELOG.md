@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@7.1.0...@fremtind/jkl-table@7.1.1) (2022-12-02)
+
+### Bug Fixes
+
+- use box shadow as border so it stays with the sticky content ([24fc4bc](https://github.com/fremtind/jokul/commit/24fc4bc33d07cdb3d473b3fefaaee8d1f721bde9))
+
 # 7.1.0 (2022-11-30)
 
 ### Features
