@@ -1,0 +1,103 @@
+---
+title: Høydepunkter fra november 2022
+author: Jøkul-teamet
+publishDate: "2022.12.01"
+---
+
+<Ingress>
+    Det er spennende ting på horisonten. Denne månedens oppsummering handler mest om de tingene som har blitt jobbet
+    med, men ikke er lansert <i>helt</i> ennå.
+</Ingress>
+
+Her er november kort oppsummert:
+
+-   Vi har samlet tilbakemeldinger på en prototype av neste versjon av portalen.
+-   Dynamisk spacing er snart klar.
+-   En masse husarbeid har blitt gjort i kulissene.
+-   Som vanlig en bukett med bugrettinger og små forbedringer.
+
+Vi minner om at du under [Projects på GitHub](https://github.com/orgs/fremtind/projects/22/views/3) kan se hva vi jobber med. Om du synes listen er overveldende og kun er ute etter det visuelle, kan du finne dette under [Design](https://github.com/orgs/fremtind/projects/22/views/1) fanen. Målet med denne oversikten er å synliggjøre hva vi driver med, og senke terskelen for å gi løpende tilbakemeldinger.
+
+## Den neste "store" versjonen av portalen
+
+<picture className="jkl-portal-image">
+    <source
+        media="(prefers-color-scheme: dark)"
+        srcset="/assets/blog/updates/november-2022/nov-radiobutton-prototype-dark.png"
+    />
+    <img
+        className="jkl-portal-image__img"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        src="/assets/blog/updates/november-2022/nov-radiobutton-prototype.png"
+    />
+</picture>
+
+Vi jobber med å prototype neste utgave av nettsiden du leser nå. Målet med redesignet er blant annet å gjøre det lettere å finne fram, og vise gode eksempler.
+
+[Testmiljøet til prototypen finner du her](https://portal.distlosn-ds-jkl-preprod.aws.fremtind.no/komponenter/radio-buttons). Om du ikke har sett den allerede må du gjerne titte innom.
+
+Vi har hatt en runde hvor vi demoet prototypen på to designsystemforum, delte lenken over og samlet tilbakemeldinger på GitHub. Vi er godt i gang med å iterere etter denne første runden med tilbakemeldinger, men det er ikke for sent å komme med innspill.
+
+## Dynamisk spacing
+
+<picture className="jkl-portal-image">
+    <img
+        className="jkl-portal-image__img"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        src="/assets/blog/updates/november-2022/nov-dynamisk-spacing.png"
+    />
+</picture>
+
+Diskusjonen har gått [på GitHub](https://github.com/fremtind/jokul/issues/3255) om behovet for spacing som endrer seg basert på skjermbredden.
+
+Henrik Hermansen [fikk ballen til å rulle](https://github.com/fremtind/jokul/pull/3249) på kodesiden, og etter noen runder i tenkeboksen har vi sammen kommet fram til et løsningsforslag.
+
+Coming Soon™
+
+Kort oppsummert:
+
+-   Bakoverkompatibelt, ingen breaking changes.
+-   Innfører nye spacingverdier basert på pixler (for eksempel `$spacing-32`).
+-   Nye utility-klasser for spacing som endrer seg i to steg fra `small` til `medium`.
+-   Nye utility-klasser for spacing som endrer seg i _tre_ steg fra `small` til `medium` til `large`.
+-   CSS-variabler for samtlige spacingverdier for å bruke disse i egne klasser.
+-   Sass-hjelpere for å oppnå det samme, om du foretrekker.
+
+## Diverse bugfikser og forbedringer
+
+### Figma
+
+-   Eksempelinnhold for Task Card er live.
+-   Tooltip har fått en maxbredde som bedre matcher kode ([#3233](https://github.com/fremtind/jokul/issues/3233)).
+-   Fikset en bug i Text Input hvor en Instance Swap prop hadde blitt liggende igjen på et par varianter fra en tidligere test.
+-   Feedback komponenten kommer nå to versjoner. En [forenklet variant](https://www.figma.com/file/9b2lNofbSyTNdmO0sGOlrx/Patterns?node-id=2382%3A14140&viewport=-1034%2C339%2C0.18&t=OaNil8PELGq30KKV-11) man kan sette sammen selv etter behov, i tillegg til den interaktive ende-til-ende komponenten.
+-   Opprydningssarbeidet på ikonsettet har startet. Alt tegnes opp på et grid og vil bli sortert i respektive størrelser og tykkelser.
+-   En skisse på Combobox / Multi Select er underveis, vi holder detaljnivået enkelt frem til vi finner ut hva slags behov vi ønsker å dekke.
+-   Select rentegnes til ikke være avhengig av Text Input i påvente av Combobox / Multi Select.
+
+### GitHub
+
+-   Stylelint-config tvinger ikke lenger kortformen av `flex` og `grid` ([#3228](https://github.com/fremtind/jokul/pull/3228)).
+-   `SkeletonElement` tar inn en `className` ([#3229](https://github.com/fremtind/jokul/pull/3229)) og åpner for prosentverdier i `width` og `height` ([#3230](https://github.com/fremtind/jokul/pull/3230)).
+-   Ryddet opp i manglende listing av dependencies med `pnpm` ([#3235](https://github.com/fremtind/jokul/pull/3235)).
+-   Tooltip-ikonet strekkes ikke lenger i Safari på mobil ([#3237](https://github.com/fremtind/jokul/pull/3237)).
+-   Popupen til Tooltip har fått en justering i plassering av pila ([#3259](https://github.com/fremtind/jokul/pull/3259)).
+-   Hjelpeteksten kan nå ta inn en React-komponent som alternativ til `string` hvis det trengs en lenke ([#3269](https://github.com/fremtind/jokul/pull/3269)).
+-   Behold riktig ikonstørrelse selv med `box-sizing: border-box;` ([#3271](https://github.com/fremtind/jokul/pull/3271)).
+-   Utvidet datovelger viser inputfelter i tilstand som matcher kalenderen ([#3272](https://github.com/fremtind/jokul/pull/3272)).
+-   `IconButton` kan ta inn et `className` ([#3286](https://github.com/fremtind/jokul/pull/3286)).
+-   En ny prop `sticky` for `TableHeader` forenkler sticky tabellheader ([#3294](https://github.com/fremtind/jokul/pull/3294)).
+
+## Takk
+
+Takk til alle bidragsytere, både på GitHub og i Figma!
+
+-   BjorneOma
+-   henrikhermansen
+-   joms
+
+En stor takk også til alle som er med på designsystemforum!
