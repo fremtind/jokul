@@ -6,22 +6,11 @@ function stringLiteralArray<T extends string>(a: T[]) {
     return a;
 }
 
-const spacings = stringLiteralArray([
-    "spacing-3xs",
-    "spacing-2xs",
-    "spacing-xs",
-    "spacing-s",
-    "spacing-m",
-    "spacing-l",
-    "spacing-xl",
-    "spacing-2xl",
-    "spacing-3xl",
-    "spacing-4xl",
-]);
+const spacings = stringLiteralArray(["2", "4", "8", "12", "16", "24", "32", "40", "64", "104", "168"]);
 
-type spacingClass = typeof spacings[number];
+type Spacing = typeof spacings[number];
 
-const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
+const SpacingTableRow: React.FC<{ spacing: Spacing }> = ({ spacing }) => {
     const getComputedProperty = (node: HTMLElement | null, cssProperty: string) => {
         return (node && window?.getComputedStyle(node)?.getPropertyValue(cssProperty)) || "N/A";
     };
@@ -41,7 +30,7 @@ const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
     return (
         <tr className="jkl-portal-spacing-example-table__row">
             <td data-header="Spacing:" className="jkl-portal-spacing-example-table__data">
-                <div className={`jkl-${spacing}--top`} style={{ display: "none" }} ref={ref} />
+                <div className={`jkl-spacing-${spacing}--top`} style={{ display: "none" }} ref={ref} />
                 <div
                     aria-label={`${spacing},  ${pxValue}`}
                     style={{
@@ -52,26 +41,28 @@ const SpacingTableRow: React.FC<{ spacing: spacingClass }> = ({ spacing }) => {
                 />
             </td>
             <td data-header="Variabel:" className="jkl-portal-spacing-example-table__data">
-                <code className="jkl-portal-inline-code">${spacing}</code>
-            </td>
-            <td data-header="Rem:" className="jkl-portal-spacing-example-table__data">
-                <code className="jkl-portal-inline-code">{remValue}rem</code>
+                <code className="jkl-portal-inline-code">jkl.${`spacing-${spacing}`}</code>
+                <br />
+                <code className="jkl-portal-inline-code">{`var(--jkl-spacing-${spacing})`}</code>
             </td>
             <td data-header="Pixelverdi:" className="jkl-portal-spacing-example-table__data">
                 <code className="jkl-portal-inline-code">{pxValue}</code>
+            </td>
+            <td data-header="Rem:" className="jkl-portal-spacing-example-table__data">
+                <code className="jkl-portal-inline-code">{remValue}rem</code>
             </td>
         </tr>
     );
 };
 
-const SpacingTable: React.FC<{ values: spacingClass[] }> = ({ values }) => (
+const SpacingTable: React.FC<{ values: Spacing[] }> = ({ values }) => (
     <table className="jkl-portal-spacing-example-table">
         <thead>
             <tr>
                 <th className="jkl-portal-spacing-example-table__header">Spacing</th>
                 <th className="jkl-portal-spacing-example-table__header">Variabel</th>
+                <th className="jkl-portal-spacing-example-table__header">Piksler</th>
                 <th className="jkl-portal-spacing-example-table__header">Rem</th>
-                <th className="jkl-portal-spacing-example-table__header">Pixler</th>
             </tr>
         </thead>
         <tbody>
