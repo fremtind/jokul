@@ -45,7 +45,11 @@ export const NavTabs = ({
     // Scroll fanelisten og posisjoner markøren i tilfelle direktelink eller refresh
     useEffect(() => {
         if (scrollRef.current) {
-            const currentTab = scrollRef.current.querySelector(`[href="${path}"]`);
+            let currentTab = scrollRef.current.querySelector(`[href="${path}"]`);
+            if (!currentTab) {
+                // Fall tilbake til den første linken som forhåndsutfylt om ingenting matcher
+                currentTab = scrollRef.current.querySelector("a");
+            }
             if (currentTab) {
                 const rect = currentTab.getBoundingClientRect();
                 scrollRef.current.scrollTo(rect.x, 0);
