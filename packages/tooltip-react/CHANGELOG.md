@@ -7,32 +7,32 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- forbedre brukeropplevelse for tooltip ([94d8573](https://github.com/fremtind/jokul/commit/94d8573abeaac589f0453ce66fdb693307cabfcf))
-- lukk tooltip når fokus flyttes vekk fra knappen ([dff5c56](https://github.com/fremtind/jokul/commit/dff5c563dfbea5840bb27535f2083972e70c760f))
+-   forbedre brukeropplevelse for tooltip ([94d8573](https://github.com/fremtind/jokul/commit/94d8573abeaac589f0453ce66fdb693307cabfcf))
+-   lukk tooltip når fokus flyttes vekk fra knappen ([dff5c56](https://github.com/fremtind/jokul/commit/dff5c563dfbea5840bb27535f2083972e70c760f))
 
 ## 1.0.11 (2022-11-22)
 
 ### Bug Fixes
 
-- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
 
 ## [1.0.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@1.0.7...@fremtind/jkl-tooltip-react@1.0.8) (2022-11-15)
 
 ### Bug Fixes
 
-- changed padding for tooltip arrow hence the design sketches ([9c78d5e](https://github.com/fremtind/jokul/commit/9c78d5eb365870acf2efc99eadb07e14a081c9ba)), closes [#3256](https://github.com/fremtind/jokul/issues/3256)
+-   changed padding for tooltip arrow hence the design sketches ([9c78d5e](https://github.com/fremtind/jokul/commit/9c78d5eb365870acf2efc99eadb07e14a081c9ba)), closes [#3256](https://github.com/fremtind/jokul/issues/3256)
 
 ## [1.0.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@1.0.5...@fremtind/jkl-tooltip-react@1.0.7) (2022-11-11)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 ## [1.0.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@1.0.5...@fremtind/jkl-tooltip-react@1.0.6) (2022-11-09)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 ## [1.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@1.0.1...@fremtind/jkl-tooltip-react@1.0.2) (2022-10-07)
 
