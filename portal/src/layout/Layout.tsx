@@ -1,9 +1,11 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
+import type { WithChildren } from "@fremtind/jkl-core";
 import { useScreen } from "@fremtind/jkl-react-hooks";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks/src";
 import { AnimatePresence } from "framer-motion";
 import type { HeadProps } from "gatsby";
 import React, { useEffect, useRef, useState } from "react";
+import { useAnalytics, EventName } from "../analytics";
 import { Seo } from "../components/seo";
 import { FormatProvider } from "./FormatProvider";
 import { Header } from "./header";
@@ -82,16 +84,32 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
         }
     }, [hasMounted, previous, location.pathname]);
 
-    const pageTitle = pageContext.title;
     const isGettingStarted = currentSection === "kom-i-gang"; // Disse sidene overstyrer tittel
     const shouldShowSidebar =
-        !isFrontPage && (pageTitle || isGettingStarted) && !(screen.isSmallDevice || screen.isMediumDevice);
+        !isFrontPage && (pageContext.title || isGettingStarted) && !(screen.isSmallDevice || screen.isMediumDevice);
+
+    const consent = useCookieConsent();
+    const analytics = useAnalytics();
+    useEffect(() => {
+        if (location.pathname !== previous) {
+            // Vent på at framer skal få animert ferdig før vi prøver å finne ny verdi på tittel
+            setTimeout(() => {
+                analytics.track({
+                    eventName: EventName.Sidevisning,
+                    properties: {
+                        tittel: document.title.split("|")[0].trim(),
+                        side: location.pathname,
+                        fra: previous,
+                    },
+                });
+            }, 400);
+        }
+    }, [analytics, consent, location.pathname, previous]);
+
+    const isTestMode = hasMounted && window.location.search === "?mode=e2e" ? "e2e" : undefined;
 
     return (
-        <div
-            className="jkl jkl-portal"
-            data-test-mode={hasMounted && window.location.search === "?mode=e2e" ? "e2e" : undefined}
-        >
+        <div className="jkl jkl-portal" data-test-mode={isTestMode}>
             <div ref={announcerRef} className="jkl-sr-only" aria-live="polite" aria-atomic="true"></div>
             <div className="jkl-portal__theme-bg" />
             <Header className="jkl-portal__header" />
@@ -99,7 +117,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
             <FormatProvider>
                 <AnimatePresence mode="wait">{children}</AnimatePresence>
             </FormatProvider>
-            <PortalFooter className="jkl-portal__footer" />
+            {!isTestMode && hasMounted && <PortalFooter className="jkl-portal__footer" />}
         </div>
     );
 };

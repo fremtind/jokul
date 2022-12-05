@@ -7,33 +7,96 @@ group: util
 
 import { SpacingScaleTable } from "./Spacing/Spacing";
 
-<Ingress>Vi tilbyr Sass-variabler og utility-klasser for verdiene i spacing-skalaene til Jøkul.</Ingress>
+<Ingress>
+    Vi tilbyr CSS- og Sass-variabler, en Sass-mixin, og nytteklasser for verdiene i spacing-skalaene til Jøkul. Disse
+    støtter også dynamisk spacing.
+</Ingress>
 
 ## Bruk
 
-I Jøkul har vi en spacing-skala som er basert på t-skjorte størrelser. Du kan bruke skalaene ved hjelp av SASS-variabler som du kan sette inn i ditt eget stilark, eller bruke hjelpeklassene direkte på elementer i koden.
+I Jøkul har vi en spacing-skala som er basert på pikselstørrelser. Du kan bruke skalaene ved hjelp av CSS- eller Sass-variabler som du kan sette inn i ditt eget stilark, bruke en Sass-mixin, eller bruke nytteklassene direkte på elementer i koden.
 
-Variablene kan importeres fra `~@fremtind/jkl-core/jkl`. Husk å bruke riktig importsyntaks for byggverktøyet ditt når du importerer. De kan da brukes slik:
+### Variabler
+
+Sass-variablene kan importeres fra `~@fremtind/jkl-core/jkl`. Husk å bruke riktig importsyntaks for byggverktøyet ditt når du importerer. De kan da brukes slik:
 
 ```scss
 @use "~@fremtind/jkl-core/jkl";
 
 .jkl-your-component {
-    padding-left: jkl.$spacing-s;
+    padding-left: jkl.$spacing-12;
 }
 ```
 
-Utility-klassene setter en verdi fra spacingskalaene som margin på elementet som har klassen. Det finnes varianter for å sette margin på `top`, `right`, `bottom` og `left`, samt for `all`e sider. Klassene kan brukes slik:
+CSS-variablene kan brukes direkte uten noen import, så lenge core-stilene fra Jøkul er i bruk i løsningen din.
+
+```css
+.jkl-your-component {
+    margin-top: var(--jkl-spacing-32);
+}
+```
+
+### Nytteklasser
+
+Nytteklassene setter en verdi fra spacingskalaene som margin på elementet som har klassen. Det finnes varianter for å sette margin på `top`, `right`, `bottom` og `left`, samt for `all`e sider. Klassene kan brukes slik:
 
 ```html
-<div class="jkl-spacing-xl--all">
-    <span class="jkl-spacing-s--right">Hallo</span>
+<div class="jkl-spacing-40--all">
+    <span class="jkl-spacing-12--right">Hallo</span>
     verden
 </div>
 ```
 
-<div class="jkl-spacing-xl--top" />
+### Sass-mixin
 
-### Skala
+Sass-mixinen `jkl.spacing()` fungerer på samme måte som nytteklassene, ved at den setter marginer på elementet som har klassen den brukes i. Du kan sette samme margin på alle sider, eller spesifisere en av sidene `top`, `right`, `bottom` eller `left`:
+
+```scss
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-your-component {
+    @include jkl.spacing("12"); // tilsvarer margin: jkl.$spacing-12;
+}
+
+.jkl-your-component {
+    @include jkl.spacing("40", "top"); // tilsvarer margin-top: jkl.$spacing-40;
+}
+```
+
+## Dynamisk spacing
+
+Både CSS-variablene, Sass-mixinen og nytteklassene støtter at spacingen endrer seg etter skjermstørrelse. Det finnes variabler for de mest brukte kombinasjonene, og med mixinen kan du definere kombinasjoner fritt.
+
+Der det veksles mellom to størrelser skjer byttet ved overgangen fra liten til mellomstor skjerm, og der det er tre verdier skjer byttene ved henholdsvis liten/mellomstor- og mellomstor/stor-overgangene.
+
+```scss
+@use "~@fremtind/jkl-core/jkl";
+
+// 16px på små skjermer og 24px på medium skjermer og oppover:
+.jkl-your-component {
+    @include jkl.spacing("16/24");
+}
+
+// 16px på små og mellomstore skjermer og 24px på store skjermer og oppover:
+.jkl-your-component {
+    padding: var(--jkl-spacing-16-16-24);
+}
+
+// 16px på små, 24px på mellomstore, og 32px på store skjermer og oppover:
+.jkl-your-component {
+    @include jkl.spacing("16/24/32", "left");
+}
+```
+
+```html
+<!-- 32px på små, 40px på mellomstore, og 64px på store skjermer og oppover -->
+<div class="jkl-spacing-32-40-64--top">
+    <span class="jkl-spacing-12">Hallo verden</span>
+</div>
+```
+
+<div class="jkl-spacing-40--top" />
+
+## Skala
 
 <SpacingScaleTable />

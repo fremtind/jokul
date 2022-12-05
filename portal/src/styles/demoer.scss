@@ -1,0 +1,28 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-portal-demoer {
+    &__demo-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: jkl.$spacing-s;
+        grid-auto-rows: minmax(320px, auto);
+        grid-auto-flow: dense;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__demo {
+        margin-bottom: jkl.$spacing-l;
+        max-width: jkl.rem(750px);
+        width: 100%;
+
+        a {
+            height: 100%;
+        }
+
+        @include jkl.from-medium-device {
+            margin-bottom: jkl.$spacing-xl;
+        }
+    }
+}

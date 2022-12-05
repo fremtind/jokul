@@ -14,7 +14,7 @@
             "outputs": ["{projectRoot}/build", "{projectRoot}/*.css"]
         },
         "build:docs": {
-            "inputs": [{ "env": "PREVIEW_PATH" }],
+            "inputs": [{ "env": "PREVIEW_PATH" }, { "env": "MIXPANEL_PROJECT_ID" }],
             "dependsOn": ["build"],
             "outputs": ["{workspaceRoot}/portal/public", "{workspaceRoot}/portal/.cache"]
         }

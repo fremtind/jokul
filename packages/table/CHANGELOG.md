@@ -3,17 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.2 (2022-12-05)
+
+### Bug Fixes
+
+-   legg til luft over headingen ([f23d04d](https://github.com/fremtind/jokul/commit/f23d04de452711412ddb28430ea902558e470ce5))
+
+## [7.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@7.1.0...@fremtind/jkl-table@7.1.1) (2022-12-02)
+
+### Bug Fixes
+
+-   use box shadow as border so it stays with the sticky content ([24fc4bc](https://github.com/fremtind/jokul/commit/24fc4bc33d07cdb3d473b3fefaaee8d1f721bde9))
+
 # 7.1.0 (2022-11-30)
 
 ### Features
 
-- add sticky table header ([604bfd0](https://github.com/fremtind/jokul/commit/604bfd09ce1c0b1f0d1edbca7dd95368d6da031f))
+-   add sticky table header ([604bfd0](https://github.com/fremtind/jokul/commit/604bfd09ce1c0b1f0d1edbca7dd95368d6da031f))
 
 ## 7.0.8 (2022-11-22)
 
 ### Bug Fixes
 
-- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
 
 # 7.0.0 (2022-09-08)
 

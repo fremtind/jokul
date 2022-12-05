@@ -39,9 +39,9 @@ const VariantTable: FC<{ variant: "desktop" | "mobile" }> = ({ variant }) => (
 export const TypographyTable: FC = () => {
     const [skala, setSkala] = useState("Desktop");
     return (
-        <div className="jkl-portal-content jkl-spacing-xl--bottom">
+        <div className="jkl-portal-content jkl-spacing-40--bottom">
             <ToggleSlider
-                className="jkl-spacing-xl--bottom"
+                className="jkl-spacing-40--bottom"
                 defaultValue={skala}
                 labels={["Desktop", "Mobile"]}
                 onToggle={setSkala}

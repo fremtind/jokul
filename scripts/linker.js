@@ -29,23 +29,31 @@ const runLinker = async () => {
     }
 
     const projectDirFiles = await fs.readdir(resolvedPath, "utf-8");
+    let tool = null;
+
     const isYarn = projectDirFiles.includes("yarn.lock");
     if (isYarn) {
+        tool = "yarn";
         console.log("Fant yarn.lock. Fortsetter med yarn.");
+    }
+
+    const isPnpm = projectDirFiles.includes("pnpm-lock.yaml");
+    if (isPnpm) {
+        tool = "pnpm";
+        console.log("Fant pnpm-lock.yaml. Fortsetter med pnpm.");
     }
 
     const isNpm = projectDirFiles.includes("package-lock.json");
     if (isNpm) {
+        tool = "npm";
         console.log("Fant package-lock.json. Fortsetter med npm.");
     }
 
-    if (!isYarn && !isNpm) {
+    if (!isPnpm && !isYarn && !isNpm) {
         throw new Error(
-            `Fant hverken yarn.lock eller package-lock.json i ${resolvedPath}. Linker støtter bare yarn og npm.`,
+            `Fant hverken pnpm-lock.yaml, yarn.lock eller package-lock.json i ${resolvedPath}. Linker støtter bare pnpm, yarn og npm.`,
         );
     }
-
-    const tool = isYarn ? "yarn" : "npm";
 
     const packagesDir = await fs.readdir(path.join(__dirname, "..", "packages"), {
         encoding: "utf-8",

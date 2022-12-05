@@ -8,6 +8,8 @@
     --jkl-table-head-sticky-color: var(--jkl-background-color);
 }
 
+$_border-size: jkl.rem(-1px);
+
 .jkl-table-head {
     &--sr-only {
         @include jkl.screenreader-only;
@@ -19,6 +21,15 @@
             top: 0;
             z-index: 1;
             background-color: var(--jkl-table-head-sticky-color);
+
+            border-bottom: none;
+
+            box-shadow: inset 0 0 0 #000, inset 0 $_border-size 0 var(--jkl-table-row-hover-border-color);
+            background-clip: padding-box;
+
+            // legg til litt (nesten-cirka 16px) over headingen
+            vertical-align: bottom;
+            height: 2.3em;
         }
     }
 }

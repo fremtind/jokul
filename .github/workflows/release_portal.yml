@@ -10,7 +10,6 @@ on:
 jobs:
     portal:
         name: Build and deploy portal
-        if: "!contains(github.event.head_commit.message, '[ci skip release]')"
         runs-on: ubuntu-latest
         permissions:
             actions: write
@@ -63,6 +62,7 @@ jobs:
 
             - name: Build and deploy portal
               env:
+                  GATSBY_MIXPANEL_PROJECT_ID: ${{ secrets.MIXPANEL_PROJECT_ID_PROD }}
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"

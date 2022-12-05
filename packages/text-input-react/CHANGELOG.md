@@ -7,7 +7,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
 
 # [11.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.1.13...@fremtind/jkl-text-input-react@11.2.0) (2022-11-22)
 
