@@ -54,18 +54,22 @@ const reducer = (state: LocationState, action: LocationAction): LocationState =>
 };
 
 export const LocationContextProvider: FC<WithChildren> = ({ children }) => {
-    const [gatsbyLocation, setLocation] = useState<GatsbyLocation>(window ? window.location : new Location());
+    const [gatsbyLocation, setLocation] = useState<GatsbyLocation | null>(
+        typeof window !== "undefined" ? window.location : null,
+    );
 
     const initialState: LocationState = {
-        currentPath: gatsbyLocation.pathname,
+        currentPath: gatsbyLocation?.pathname || "/",
         currentSection: "",
-        isFrontPage: gatsbyLocation.pathname === "/",
+        isFrontPage: gatsbyLocation?.pathname === "/",
         sectionHasChanged: true,
     };
     const [locationState, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
-        dispatch({ type: "update", payload: { newLocation: gatsbyLocation } });
+        if (gatsbyLocation) {
+            dispatch({ type: "update", payload: { newLocation: gatsbyLocation } });
+        }
     }, [gatsbyLocation]);
 
     return <locationContext.Provider value={{ ...locationState, setLocation }}>{children}</locationContext.Provider>;

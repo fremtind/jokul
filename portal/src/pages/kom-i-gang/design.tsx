@@ -20,6 +20,7 @@ export const Head: FC = () => <Seo title={pageTitle} />;
 const PraktiskDesignhverdagen: FC = () => {
     const fullscreenMenuContext = useFullscreenMenuContext();
     const { menuItems } = useNavigationLinks();
+
     return (
         <MainContent>
             <PageTitle>{pageTitle}</PageTitle>
