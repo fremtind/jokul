@@ -7,37 +7,37 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- fjern sjekk som alltid er false ([35661c9](https://github.com/fremtind/jokul/commit/35661c9630c96ffe1ff7ac1037e21bf1232f70bd))
-- ikke nevn e-post siden det ikke skjer lenger ([531ead6](https://github.com/fremtind/jokul/commit/531ead6b7c2f41d793d2b803ebca0588c656cc5d))
-- registrer appnavn, versjon, miljø ([f0fb8a0](https://github.com/fremtind/jokul/commit/f0fb8a061bfec4ef36b38c9498ed18a93a4aa646))
+-   fjern sjekk som alltid er false ([35661c9](https://github.com/fremtind/jokul/commit/35661c9630c96ffe1ff7ac1037e21bf1232f70bd))
+-   ikke nevn e-post siden det ikke skjer lenger ([531ead6](https://github.com/fremtind/jokul/commit/531ead6b7c2f41d793d2b803ebca0588c656cc5d))
+-   registrer appnavn, versjon, miljø ([f0fb8a0](https://github.com/fremtind/jokul/commit/f0fb8a061bfec4ef36b38c9498ed18a93a4aa646))
 
 ### Features
 
-- ny pakke for analytics ([05e3428](https://github.com/fremtind/jokul/commit/05e3428cb0206cba4baebfb03c9c37d967cee163))
+-   ny pakke for analytics ([05e3428](https://github.com/fremtind/jokul/commit/05e3428cb0206cba4baebfb03c9c37d967cee163))
 
 ## 16.0.46 (2022-11-22)
 
 ### Bug Fixes
 
-- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
 
 ## [16.0.41](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.40...@fremtind/portal@16.0.41) (2022-11-16)
 
 ### Bug Fixes
 
-- rett opp farger i dark mode ([8dacec0](https://github.com/fremtind/jokul/commit/8dacec066a0e0ac71e46d61c5e0ee8392618bf8b)), closes [#3263](https://github.com/fremtind/jokul/issues/3263)
+-   rett opp farger i dark mode ([8dacec0](https://github.com/fremtind/jokul/commit/8dacec066a0e0ac71e46d61c5e0ee8392618bf8b)), closes [#3263](https://github.com/fremtind/jokul/issues/3263)
 
 ## [16.0.39](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.37...@fremtind/portal@16.0.39) (2022-11-11)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 ## [16.0.38](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.37...@fremtind/portal@16.0.38) (2022-11-09)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 ## [16.0.25](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.24...@fremtind/portal@16.0.25) (2022-10-11)
 

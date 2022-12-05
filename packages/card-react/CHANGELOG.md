@@ -7,25 +7,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- la til muligheten for å sette padding til 0 ([fd19b37](https://github.com/fremtind/jokul/commit/fd19b37bd86824fe8f59e0a5788d5ee94ef085f8)), closes [#3283](https://github.com/fremtind/jokul/issues/3283)
+-   la til muligheten for å sette padding til 0 ([fd19b37](https://github.com/fremtind/jokul/commit/fd19b37bd86824fe8f59e0a5788d5ee94ef085f8)), closes [#3283](https://github.com/fremtind/jokul/issues/3283)
 
 ## 7.0.16 (2022-11-22)
 
 ### Bug Fixes
 
-- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
 
 ## [7.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@7.0.11...@fremtind/jkl-card-react@7.0.13) (2022-11-11)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 ## [7.0.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@7.0.11...@fremtind/jkl-card-react@7.0.12) (2022-11-09)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 # 7.0.0 (2022-09-08)
 
