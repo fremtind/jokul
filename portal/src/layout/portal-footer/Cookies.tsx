@@ -24,12 +24,12 @@ export const Cookies: FC<WithChildren> = ({ children }) => {
             <CookieConsent
                 blocking
                 onAccept={async (consentValue) => {
-                    if (!process.env.MIXPANEL_PROJECT_ID) {
+                    if (!process.env.GATSBY_MIXPANEL_PROJECT_ID) {
                         return;
                     }
 
                     const mixpanel = new MixpanelBackend({
-                        trackingId: process.env.MIXPANEL_PROJECT_ID,
+                        trackingId: process.env.GATSBY_MIXPANEL_PROJECT_ID,
                     });
 
                     await analytics.init(mixpanel, {

@@ -924,6 +924,7 @@ importers:
       '@sindresorhus/slugify': ^1.1.2
       '@types/mixpanel-browser': ^2.38.0
       classnames: ^2.3.2
+      dotenv: ^8.6.0
       focus-trap-react: ^10.0.1
       framer-motion: ^7.6.9
       gatsby: ^4.24.8
@@ -989,6 +990,7 @@ importers:
       '@mdx-js/react': 2.1.5_react@18.2.0
       '@sindresorhus/slugify': 1.1.2
       classnames: 2.3.2
+      dotenv: 8.6.0
       focus-trap-react: 10.0.1_biqbaboplfbrettd7655fr4n2y
       framer-motion: 7.6.9_biqbaboplfbrettd7655fr4n2y
       gatsby: 4.24.8_biqbaboplfbrettd7655fr4n2y

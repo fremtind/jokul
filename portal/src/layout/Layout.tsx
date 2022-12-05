@@ -117,7 +117,7 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
             <FormatProvider>
                 <AnimatePresence mode="wait">{children}</AnimatePresence>
             </FormatProvider>
-            {!isTestMode && <PortalFooter className="jkl-portal__footer" />}
+            {!isTestMode && hasMounted && <PortalFooter className="jkl-portal__footer" />}
         </div>
     );
 };
