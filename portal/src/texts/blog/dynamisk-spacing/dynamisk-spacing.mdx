@@ -1,0 +1,119 @@
+---
+title: Kom i gang med ny spacing-skala og dynamisk spacing
+author: Jøkul-teamet v/Pio Rasch-Halvorsen
+publishDate: "2022.12.06"
+---
+
+import { ConversionTable } from "./ConversionTable";
+
+<Ingress>
+    Med siste versjon av `jkl-core` har vi gått over til en ny spacing-skala basert på pikselverdier, og det er lagt
+    bedre til rette for spacing som endrer seg etter skjermstørrelse. Her er noen tips til hvordan du kommer i gang med
+    de nye funksjonene.
+</Ingress>
+
+<picture className="jkl-portal-image">
+    <img
+        className="jkl-portal-image__img jkl-spacing-40--bottom"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        src="/assets/blog/updates/november-2022/nov-dynamisk-spacing.png"
+    />
+</picture>
+
+Aller først: **Endringene er ikke breaking**. Det vil si at du fortsatt kan bruke spacing-verdiene og -klassene du allerede har i koden din. De gamle verdiene vil imidlertid kunne bli avviklet helt på et senere tidspunkt, så vi anbefaler uansett at du bytter ut gamle verdier når du kommer over dem i koden din.
+
+## Gamle og nye verdier
+
+Alle stegene i spacing-skalaen har nå navn etter pikselverdien de representerer. Det har også kommet inn et nytt steg i skalaen, `spacing-32`. Bruk tabellen under for å oversette fra de gamle til de nye stegene.
+
+<ConversionTable />
+
+## Nye Sass- og CSS-variabler
+
+Alle de nye spacingstegene er tilgjengelige som variabler i Sass når du har tatt i bruk `@fremtind/jkl-core/jkl`, og som CSS-variabler dersom core-stilarket er lastet inn på siden. Hvis du tidligere har brukt Sass-variablene kan du enkelt gjøre en search and replace fra tabellen over for å oppgradere til de nye verdiene.
+
+```scss
+// For å bruke Sass-variablene må du ta inn jkl-biblioteket
+@use "~@fremtind/jkl-core/jkl";
+
+.min-komponent {
+    padding-top: jkl.$spacing-16;
+}
+
+// CSS-variablene kan brukes direkte
+.min-andre-komponent {
+    margin-block: var(--jkl-spacing-64);
+}
+```
+
+## Nye nytteklasser og ny Sass-mixin
+
+Nytteklassene for spacing setter en spacing-verdi som margin på en eller flere sider av et element, og kan brukes direkte i HTML- eller JSX-koden din. Den nye Sass-mixinen fungerer på samme måte, og kan inkluderes i klassene du skriver for komponentene dine.
+
+### Nytteklasser
+
+Disse fungerer som før, ved at de setter en verdi fra spacingskalaene som margin på elementet som har klassen. Det finnes varianter for å sette margin på `top`, `right`, `bottom` og `left`, samt for `all`e sider. Klassene kan brukes slik:
+
+```html
+<div class="jkl-spacing-64--top jkl-spacing-64--bottom">
+    <span class="jkl-spacing-16--all">Hei, verden!</span>
+</div>
+```
+
+Du kan enkelt konvertere fra de gamle til de nye nytteklassene ved å gjøre en search and replace fra tabellen over.
+
+### Sass-mixin
+
+Dette er en helt ny mixin som kommer med `jkl`-biblioteket. Akkurat som nytteklassene setter den marginer i klassen de er en del av. Du bruker mixinen slik:
+
+```scss
+@use "~@fremtind/jkl-core/jkl";
+
+.min-komponent {
+    @include jkl-spacing("64"); // Setter spacingen på alle sider, lik margin: jkl.$spacing-64;
+}
+
+.min-andre-komponent {
+    @include jkl-spacing("64", "left"); // Setter spacing kun på venstre side
+}
+```
+
+## Dynamisk spacing
+
+Den største nyheten med de nye spacing-verdiene er at vi også legger bedre til rette for spacinger som endrer seg ut fra skjermstørrelse. Dette er ganske vanlig på for eksempel layout-komponenter, og vi har derfor laget CSS-variabler og nytteklasser for de vanligste kombinasjonene. Trenger du andre kombinasjoner av verdier kan du bruke Sass-mixinen.
+
+Det finnes variabler og nytteklasser med både to og tre steg: Det første steget brukes fra små skjermer, det andre steget brukes fra mellomstore skjermer, og det tredje steget (hvis det finnes) brukes fra store skjermer. Utiver at de har flere steg i seg brukes variablene og nytteklassene på samme måte som sine statiske varianter:
+
+```html
+<div class="jkl-spacing-64-104--top">
+    <span class="jkl-spacing-16-24-32--all">Hei, verden!</span>
+</div>
+```
+
+```css
+.min-komponent {
+    margin-block: var(--jkl-spacing-40-64);
+}
+```
+
+```scss
+@use "~@fremtind/jkl-core/jkl";
+
+.min-komponent {
+    @include jkl-spacing("64/104");
+}
+
+.min-andre-komponent {
+    @include jkl-spacing("16/24/32", "bottom");
+}
+```
+
+Hvis du vil ha samme spacing på små og mellomstore skjermer bruker du varianten med tre steg, og skriver samme verdi for de to første stegene: `var(--jkl-spacing-16-16-24)`, `jkl.spacing("64/64/104")` eller `class="jkl-spacing-24-24-40"`
+
+## Jøkul-teamet hjelper deg gjerne!
+
+Vi har forsøkt å gjøre det så enkelt som mulig å ta i bruk den nye spacing-skalaen, men hvis noe er uklart eller du står fast på noen måte er det bare å ta kontakt med oss i Jøkul-teamet! Vi hjelper deg gjerne med å komme i gang eller å finne ut av feil.
+
+God spacing!
