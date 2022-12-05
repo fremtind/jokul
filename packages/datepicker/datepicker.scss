@@ -10,17 +10,21 @@
 .jkl-datepicker {
     @include jkl.reset-outline;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
     &__input-wrapper {
         position: relative;
     }
 
     & &__input {
-        // adjust input padding for visual balance with numbers
-        padding-top: jkl.rem(10px);
+        // Juster padding for bedre balanse når det vises tall
+        padding-top: calc(var(--jkl-text-input-vertical-padding) + 0.05em);
+        padding-bottom: calc(var(--jkl-text-input-vertical-padding) - 0.05em);
     }
 
-    & .jkl-text-input__action-button {
+    &__action-button {
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonFace);
     }
 
@@ -32,14 +36,10 @@
     }
 
     &--open {
-        .jkl-datepicker__input {
-            box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-datepicker-focus-color), 0 0 0 jkl.rem(1px) transparent;
-
-            &:hover,
-            &:focus {
-                box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-datepicker-focus-color),
-                    0 0 0 jkl.rem(1px) var(--jkl-datepicker-focus-color);
-            }
+        .jkl-datepicker__input-wrapper {
+            box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
+                0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
+            border-color: var(--jkl-text-input-focus-color);
         }
     }
 

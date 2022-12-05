@@ -22,6 +22,11 @@ export interface Props extends BaseProps {
     density?: Density;
     inline?: boolean;
     action?: Action;
+    /**
+     * Benevnelse for feltet. Unngå å bruke både benevnelse og handling samtidig
+     * @example "kr"
+     * */
+    unit?: ReactNode;
     inputClassName?: string;
 }
 
@@ -37,6 +42,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
         inline,
         density,
         action,
+        unit,
         "data-testautoid": testAutoId,
         inputClassName,
         ...inputProps
@@ -52,9 +58,8 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             data-testid="jkl-text-input"
             className={cn("jkl-text-input", className, {
                 "jkl-text-input--inline": inline,
-                "jkl-text-input--action": action,
             })}
-            data-density={density}
+            data-density={inline ? "compact" : density}
         >
             <Label
                 variant={variant}
@@ -66,7 +71,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             >
                 {label}
             </Label>
-            <div className="jkl-text-input__input-wrapper">
+            <div className="jkl-text-input-wrapper" data-invalid={!!errorLabel}>
                 <BaseInputField
                     ref={ref}
                     id={uid}
@@ -76,9 +81,10 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                     className={inputClassName}
                     {...inputProps}
                 />
+                {unit && <span className="jkl-text-input__unit">{unit}</span>}
                 {action && (
                     <IconButton
-                        className="jkl-text-input__action-button"
+                        className="jkl-text-input-action-button"
                         density={density}
                         iconType={action.icon}
                         buttonTitle={action.label}

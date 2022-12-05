@@ -1,4 +1,4 @@
-import { Search, Close } from "@fremtind/jkl-icons-react";
+import { IconButton } from "@fremtind/jkl-icon-button-react";
 import React, { FC } from "react";
 
 interface Props {
@@ -7,17 +7,15 @@ interface Props {
     onClick: () => void;
 }
 
-const ControllerButton: FC<Props> = ({ hasSelectedItem, clearSelection, onClick, ...rest }) => (
-    <button
-        {...rest}
-        className="jkl-autosuggest__controller-button"
+const ControllerButton: FC<Props> = ({ hasSelectedItem, clearSelection, onClick, ...downshiftProps }) => (
+    <IconButton
+        {...downshiftProps}
+        className="jkl-text-input-action-button"
         aria-label={hasSelectedItem ? "Fjern valg" : "Vis valg"}
+        buttonTitle={hasSelectedItem ? "Fjern valg" : "Vis valg"}
         onClick={hasSelectedItem ? clearSelection : onClick}
-        type="button"
-    >
-        {!hasSelectedItem && <Search variant="small" />}
-        {hasSelectedItem && <Close variant="small" />}
-    </button>
+        iconType={hasSelectedItem ? "clear" : "search"}
+    />
 );
 
 export default ControllerButton;
