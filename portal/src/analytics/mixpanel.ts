@@ -57,12 +57,14 @@ export class MixpanelBackend implements AnalyticsBackend {
         mixpanel.identify(identifiable.uid);
     }
 
-    async init(options?: InitOptions): Promise<void> {
+    async init(options: InitOptions = {}): Promise<void> {
+        const { appName, version, environment, ...rest } = options;
+
         const initOptions = {
             api_host: "https://api-eu.mixpanel.com",
             ip: false,
             opt_out_tracking_by_default: true,
-            ...options,
+            ...rest,
         };
 
         if (this.options.debug) {
@@ -72,6 +74,22 @@ export class MixpanelBackend implements AnalyticsBackend {
         }
 
         mixpanel.init(this.options.trackingId, initOptions);
+
+        if (appName) {
+            mixpanel.register({
+                appName,
+            });
+        }
+        if (version) {
+            mixpanel.register({
+                version,
+            });
+        }
+        if (environment) {
+            mixpanel.register({
+                environment,
+            });
+        }
     }
 
     async optIn<T extends Partial<OptInOptions>>(options?: T | undefined): Promise<void> {
