@@ -86,7 +86,7 @@ const icons = [
 export const PortalIconExample: FC = () => {
     return (
         <>
-            <table className={`jkl-icon-table jkl-spacing-xl--top`}>
+            <table className={`jkl-icon-table jkl-spacing-40--top`}>
                 <TableHeader />
                 <tbody>
                     {icons.map((ico) => (
