@@ -62,12 +62,12 @@ interface APIDocumentationProps {
 
 export const APIDocumentation: FC<APIDocumentationProps> = ({ types }) => {
     return (
-        <section className="jkl-spacing-3xl--bottom jkl-portal-paragraph">
-            <h2 className="jkl-heading-1 jkl-spacing-3xl--top">React API</h2>
-            <p className="jkl-body jkl-spacing-m--top">
+        <section className="jkl-spacing-104--bottom jkl-portal-paragraph">
+            <h2 className="jkl-heading-1 jkl-spacing-104--top">React API</h2>
+            <p className="jkl-body jkl-spacing-16--top">
                 Her finner du en oversikt over props på komponentene i pakken.
             </p>
-            <Accordion className="jkl-spacing-xl--top jkl-portal-api-docs">
+            <Accordion className="jkl-spacing-40--top jkl-portal-api-docs">
                 {Object.entries(types).map(([displayName, propTypes]) => {
                     const ownProps = propTypes.props ? Object.values(propTypes.props).filter(isOwnProp) : [];
                     const externalProps = propTypes.props ? Object.values(propTypes.props).filter(isExternalProp) : [];
