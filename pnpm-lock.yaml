@@ -810,7 +810,6 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^11.3.0
       '@fremtind/jkl-icon-button-react': ^2.0.16
-      '@fremtind/jkl-icons-react': ^6.0.10
       '@fremtind/jkl-react-hooks': ^10.2.7
       '@fremtind/jkl-text-input': ^9.1.12
       '@types/match-sorter': ^6.0.0
