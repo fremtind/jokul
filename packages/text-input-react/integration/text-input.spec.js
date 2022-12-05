@@ -26,9 +26,33 @@ describe("TextInput", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.focusInput("fodselsnummer").type("Å være eller ikke være");
+                cy.focusInput("boareal").type("Å være eller ikke være");
             },
             teardown: () => {
+                cy.get(".jkl-portal-component-example__example-wrapper input").clear();
+            },
+            eq: textInput,
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Med handling"]').check();
+                cy.focusInput("boareal").type("Å være eller ikke være");
+            },
+            teardown: () => {
+                cy.get('input[value="Med handling"]').check();
+                cy.get(".jkl-portal-component-example__example-wrapper input").clear();
+            },
+            eq: textInput,
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Med benevnelse"]').check();
+                cy.focusInput("boareal").type("Å være eller ikke være");
+            },
+            teardown: () => {
+                cy.get('input[value="Med benevnelse"]').check();
                 cy.get(".jkl-portal-component-example__example-wrapper input").clear();
             },
             eq: textInput,
