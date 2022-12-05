@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-cookie-consent-react",
-    "version": "7.0.17",
+    "version": "7.1.0",
     "publishConfig": {
         "access": "public"
     },
