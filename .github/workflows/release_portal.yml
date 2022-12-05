@@ -62,7 +62,7 @@ jobs:
 
             - name: Build and deploy portal
               env:
-                  MIXPANEL_PROJECT_ID: ${{ secrets.MIXPANEL_PROJECT_ID_PROD }}
+                  GATSBY_MIXPANEL_PROJECT_ID: ${{ secrets.MIXPANEL_PROJECT_ID_PROD }}
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
