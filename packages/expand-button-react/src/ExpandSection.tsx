@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import { UseAnimatedHeightOptions, useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
 import React, { ReactNode, useEffect, useState } from "react";
@@ -14,9 +15,9 @@ export interface ExpandSectionProps {
     children: ReactNode;
     title: string;
     className?: string;
-    forceCompact?: boolean;
+    density?: Density;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>, isExpanded: boolean) => void;
-    expandButtonProps?: Omit<ExpandButtonProps, "id" | "forceCompact" | "isExpanded" | "onClick" | "hideLabel">;
+    expandButtonProps?: Omit<ExpandButtonProps, "id" | "isExpanded" | "onClick" | "hideLabel">;
     useAnimatedHeightOptions?: UseAnimatedHeightOptions;
     /** Om du ønsker å styre komponenten utenfra */
     isExpanded?: boolean;
@@ -27,7 +28,7 @@ export const ExpandSection = ({
     className,
     expandButtonProps,
     isExpanded = false,
-    forceCompact,
+    density,
     onClick,
     title,
     useAnimatedHeightOptions,
@@ -56,7 +57,7 @@ export const ExpandSection = ({
                 {...expandButtonProps}
                 id={buttonId}
                 aria-controls={contentId}
-                forceCompact={forceCompact}
+                density={density}
                 isExpanded={expanded}
                 onClick={onExpandButtonClick}
             >

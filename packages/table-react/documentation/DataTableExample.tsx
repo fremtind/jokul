@@ -3,7 +3,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { DataTable } from "../src";
 
 export const dataTableExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact"],
+    boolProps: [],
     choiceProps: [
         {
             name: "Mobilvisning",
@@ -21,20 +21,18 @@ const rows = [
     ["31.07.2017", "Kari Nordkvinne", "Opprettet", "Per Persen"],
 ];
 
-const DataTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const compact = boolValues?.["Compact"];
+const DataTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true, compact: true } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
 
-    return <DataTable caption="Saksliste" compact={compact} columns={columns} rows={rows} {...props} />;
+    return <DataTable caption="Saksliste" columns={columns} rows={rows} {...props} />;
 };
 
 export default DataTableExample;
 
-export const dataTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const dataTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
 <DataTable
     caption="Saksliste"
-    compact={${boolValues?.["Compact"]}}
     collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}
     columns={columns}
     rows={rows}

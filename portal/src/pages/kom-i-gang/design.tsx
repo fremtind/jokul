@@ -1,7 +1,6 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { Link } from "@fremtind/jkl-core";
 import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
-import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
@@ -12,6 +11,7 @@ import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, KeyboardShortcut, PageTitle, Paragraph } from "../../components/Typography";
 import { RootItem, useFullscreenMenuContext } from "../../fullscreenMenuContext";
 import { useNavigationLinks } from "../../layout/header/useNavigationLinks";
+import { MainContent } from "../../layout/MainContent";
 
 const pageTitle = "Praktisk i designhverdagen";
 
@@ -20,14 +20,9 @@ export const Head: FC = () => <Seo title={pageTitle} />;
 const PraktiskDesignhverdagen: FC = () => {
     const fullscreenMenuContext = useFullscreenMenuContext();
     const { menuItems } = useNavigationLinks();
+
     return (
-        <motion.main
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="jkl-portal__main"
-        >
+        <MainContent>
             <PageTitle>{pageTitle}</PageTitle>
             <Ingress>
                 Vi bruker Figma til å designe skisser. I tillegg har vi et{" "}
@@ -167,7 +162,7 @@ const PraktiskDesignhverdagen: FC = () => {
                     fullscreenMenuContext.setCurrentItem(menuItems[1] as RootItem);
                 }}
             />
-        </motion.main>
+        </MainContent>
     );
 };
 

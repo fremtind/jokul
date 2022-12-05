@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.15 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+# 9.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   brukt riktig skriftnivå i compact caption ([89de10c](https://github.com/fremtind/jokul/commit/89de10cdbd4b3c40d6cf349f675da471df696e75))
+-   fixup datepicker scss ([a3a5eb6](https://github.com/fremtind/jokul/commit/a3a5eb67f4014a52bd069b3af9af4239389151af))
+-   fjern kompakt kalenderpopup ([64b528c](https://github.com/fremtind/jokul/commit/64b528ce92cac4d5b59401ce0e20cc8f65d4bffd))
+-   gjør så kalenderen kan vises kompakt, ikke bare skjemafeltet ([f0a2512](https://github.com/fremtind/jokul/commit/f0a2512accd8149a0d83db73f1356a519089addb))
+-   unngå visuelt overlapp ved fokusring ved siden av valgte dato ([e06d57a](https://github.com/fremtind/jokul/commit/e06d57ac6681fd0a53b2ce73bcdd2e3c6797c104))
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@6.0.16...@fremtind/jkl-datepicker@8.0.0) (2022-06-07)
 
 ### Code Refactoring

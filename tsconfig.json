@@ -16,7 +16,8 @@
         "noImplicitReturns": true,
         "moduleResolution": "node",
         "esModuleInterop": true,
-        "baseUrl": "./"
+        "baseUrl": "./",
+        "skipLibCheck": true
     },
     "exclude": ["**/node_modules", "**/.*", "**/build", "**/dist"],
     "include": ["./packages/**/*", "./jest/setupTests.ts", "portal", "./node_modules/jest"]

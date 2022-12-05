@@ -1,0 +1,149 @@
+@use "~@fremtind/jkl-core/jkl";
+
+$_tooltip-border-width: jkl.rem(1px);
+$_tooltip-arrow-height: jkl.rem(8px);
+$_focus-ring-distance: jkl.rem(-1px); // Negativ margin for å unngå subpixel mellomrom mellom border og box-shadow
+$_focus-ring-width: jkl.rem(2px);
+
+@include jkl.light-mode-variables {
+    --jkl-tooltip-button-color: #{jkl.$color-stein};
+    --jkl-tooltip-active-button-color: #{jkl.$color-skifer};
+    --jkl-tooltip-bg-color: #{jkl.$color-granitt};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-tooltip-button-color: #{jkl.$color-svaberg};
+    --jkl-tooltip-active-button-color: #{jkl.$color-sand};
+    --jkl-tooltip-bg-color: #{jkl.$color-stein};
+}
+
+@include jkl.comfortable-density-variables {
+    --jkl-tooltip-size: #{jkl.rem(24px)};
+    --jkl-tooltip-content-padding: #{jkl.$spacing-m};
+
+    @include jkl.small-device {
+        --jkl-tooltip-size: #{jkl.rem(20px)};
+        --jkl-tooltip-content-padding: #{jkl.$spacing-s};
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-tooltip-size: #{jkl.rem(20px)};
+    --jkl-tooltip-content-padding: #{jkl.$spacing-xs};
+}
+
+.jkl-tooltip {
+    position: relative;
+
+    /* Plasser knappen i forhold til teksten */
+    display: inline-block;
+    vertical-align: middle;
+    height: 1em;
+    margin-top: max(-0.16em, jkl.rem(-4px)); // Cap på -4px margin
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1em;
+        vertical-align: middle;
+    }
+
+    &__button {
+        @include jkl.reset-outline;
+        @include jkl.text-style("small");
+        @include jkl.motion("exit", "snappy");
+        transition-property: border-color, color;
+        height: var(--jkl-tooltip-size);
+        width: var(--jkl-tooltip-size);
+        padding: 0;
+        background-color: transparent;
+        border: $_tooltip-border-width solid var(--jkl-tooltip-button-color);
+        border-radius: 9999px;
+        color: var(--jkl-tooltip-button-color);
+        cursor: pointer;
+        position: relative;
+
+        &::after {
+            @include jkl.motion("exit", "snappy");
+            transition-property: box-shadow;
+
+            content: "";
+            position: absolute;
+            top: -($_tooltip-border-width + $_focus-ring-distance);
+            right: -($_tooltip-border-width + $_focus-ring-distance);
+            bottom: -($_tooltip-border-width + $_focus-ring-distance);
+            left: -($_tooltip-border-width + $_focus-ring-distance);
+            border-radius: 9999px;
+            box-shadow: 0 0 0 $_focus-ring-width transparent;
+        }
+
+        /* Plasser knappen i forhold til teksten */
+
+        /* Visuelt sentrer spørsmålstegn */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & > span {
+            margin-top: jkl.$spacing-3xs;
+        }
+
+        /* Visuelt sentrer spørsmålstegn */
+
+        &:hover,
+        &:focus {
+            border-color: var(--jkl-tooltip-active-button-color);
+            color: var(--jkl-tooltip-active-button-color);
+
+            &::after {
+                box-shadow: 0 0 0 $_focus-ring-width var(--jkl-tooltip-active-button-color);
+            }
+        }
+    }
+
+    &__content {
+        @include jkl.text-style("small");
+        background-color: var(--jkl-tooltip-bg-color);
+        color: jkl.$color-snohvit;
+        display: inline-block;
+        min-width: jkl.rem(200px);
+        max-width: jkl.rem(310px); // 10px mindre enn smaleste støttede skjerm
+        padding: var(--jkl-tooltip-content-padding);
+        position: absolute;
+        z-index: jkl.$z-index--floating;
+
+        &[data-placement^="top"] > .jkl-tooltip__arrow {
+            bottom: -#{$_tooltip-arrow-height};
+        }
+
+        &[data-placement^="bottom"] > .jkl-tooltip__arrow {
+            top: -#{$_tooltip-arrow-height};
+        }
+
+        &[data-placement^="left"] > .jkl-tooltip__arrow {
+            right: -#{$_tooltip-arrow-height};
+        }
+
+        &[data-placement^="right"] > .jkl-tooltip__arrow {
+            left: -#{$_tooltip-arrow-height};
+        }
+
+        @include jkl.forced-colors-mode {
+            border: 1px solid CanvasText;
+        }
+    }
+
+    &__arrow {
+        overflow: hidden;
+        position: absolute;
+        background-color: var(--jkl-tooltip-bg-color);
+        transform: rotate(45deg);
+        height: $_tooltip-arrow-height * 2;
+        width: $_tooltip-arrow-height * 2;
+
+        @include jkl.forced-colors-mode {
+            background-color: CanvasText;
+        }
+    }
+}

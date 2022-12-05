@@ -1,10 +1,10 @@
+import { Density } from "@fremtind/jkl-core";
 import cx from "classnames";
-import React, { DetailedHTMLProps, forwardRef, TdHTMLAttributes } from "react";
+import React, { forwardRef, TdHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 
-export interface TableCellProps
-    extends DetailedHTMLProps<TdHTMLAttributes<HTMLTableCellElement>, HTMLTableCellElement> {
-    compact?: boolean;
+export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
+    density?: Density;
     /**
      * Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal innholdet være venstrejustert, men for eksempel summer er høyrejustert.
      * @default "left"
@@ -18,16 +18,16 @@ export interface TableCellProps
 }
 
 const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
-    ({ align = "left", verticalAlign = "top", className, compact, ...rest }, ref) => {
-        const { compact: contextCompact } = useTableContext();
+    ({ align = "left", verticalAlign = "top", className, density, ...rest }, ref) => {
+        const { density: contextDensity } = useTableContext();
         return (
             <td
                 className={cx("jkl-table-cell", className, {
-                    ["jkl-table-cell--compact"]: typeof compact === "undefined" ? contextCompact : compact,
                     ["jkl-table-cell--align-right"]: align === "right",
                     ["jkl-table-cell--align-center"]: verticalAlign === "center",
                 })}
                 {...rest}
+                data-density={density || contextDensity}
                 ref={ref}
             />
         );

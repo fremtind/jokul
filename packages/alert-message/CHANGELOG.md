@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.9 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 7.0.6 (2022-11-22)
+
+### Bug Fixes
+
+-   gjør at ikonet får riktig størrelse hvis man globalt setter box-sixing:border-box ([343a413](https://github.com/fremtind/jokul/commit/343a4135a10c3e66625df80c3e8ffcc68a2fd375))
+
+# 7.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   ikonstørrelse i små containers ([e129ee6](https://github.com/fremtind/jokul/commit/e129ee62e14232169ae54326f296933919fe6f92))
+-   ikonstørrelse kompakt alertmessage ([88fee9b](https://github.com/fremtind/jokul/commit/88fee9b07bbe8adf925efb7e7268b6b305f26b0e))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   kompakt alert message ([33e249d](https://github.com/fremtind/jokul/commit/33e249d3c99cfa97333d25d50bedff9e36ef29e9))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 # [6.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message@5.0.23...@fremtind/jkl-alert-message@6.0.0) (2022-06-07)
 
 ### Code Refactoring

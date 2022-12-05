@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/stylelint-config-jkl",
-    "version": "4.0.0",
+    "version": "6.0.4",
     "description": "Styleint configuration for Jøkul",
     "keywords": [
         "stylelint",
@@ -17,21 +17,20 @@
         "rules/"
     ],
     "scripts": {
-        "clean": "rimraf .turbo/ node_modules/ .stylelintcache",
-        "build": "npm run lint",
+        "clean": "rimraf node_modules/ node_modules/ .stylelintcache",
         "lint": "stylelint --config=index.js 'examples/**/*.{css,scss,sass}' --cache",
         "test": "npm run lint"
     },
     "dependencies": {
-        "stylelint-config-prettier": "^9.0.3",
-        "stylelint-config-standard": "^27.0.0",
-        "stylelint-config-standard-scss": "^5.0.0"
+        "stylelint-config-prettier": "^9.0.4",
+        "stylelint-config-standard": "^29.0.0",
+        "stylelint-config-standard-scss": "^6.1.0"
     },
     "peerDependencies": {
         "stylelint": "^14.0.0"
     },
     "devDependencies": {
-        "stylelint": "^14.8.5"
+        "stylelint": "^14.15.0"
     },
     "repository": {
         "type": "git",

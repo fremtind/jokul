@@ -31,64 +31,57 @@ jobs:
                   git config --global user.email 'fremtind-bot@users.noreply.github.com'
                   git remote set-url origin https://fremtind-bot:$BOT_PUBLISH_TOKEN@github.com/fremtind/jokul
 
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
+                  run_install: |
+                      - args: [--global, lerna-clean-changelogs-cli@^2.0.18]
+
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "lts/*"
-                  cache: "yarn"
+                  node-version: 16
+                  cache: "pnpm"
 
             - name: Install Packages
               run: |
-                  yarn install --frozen-lockfile
-                  yarn patch
+                  pnpm install --frozen-lockfile
 
-            - name: Turbo Cache
-              id: turbo-cache
+            - name: Monorepo Runner Cache
               uses: actions/cache@v3
+              id: nx-cache
               with:
-                  path: node_modules/.cache/turbo
-                  key: turbo-${{ hashFiles('**/package.json') }}
+                  path: .nx
+                  key: nx-${{ github.ref_name }}-${{ github.sha }}
+                  restore-keys: |
+                      nx-${{ github.ref_name }}-
+
+            - name: Try logout
+              continue-on-error: true
+              run: npm logout
+
+            - name: Verify release is needed
+              id: lerna_changed
+              continue-on-error: true
+              run: pnpm version:check
 
             - name: Authenticate with Registry
+              if: steps.lerna_changed.outcome == 'success'
               run: |
-                  yarn logout
                   echo "registry=http://registry.npmjs.org/" >> .npmrc
                   echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
                   npm whoami
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-            - name: Verify release is needed
-              id: lerna_changed
-              continue-on-error: true
-              run: yarn version:check
-
-            - name: Check for changes to portal
-              uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
-              id: changes
-              with:
-                  filters: |
-                      portal:
-                        - "**/*.mdx"
-                        - "**/*.scss"
-                        - "**/*.js"
-                        - "**/*.ts"
-                        - "**/*.tsx"
-                        - "portal/static/**"
-                        - "yarn.lock"
-
             - name: Publish packages to NPM
               if: steps.lerna_changed.outcome == 'success' # only run if there are changes to publish
-              run: yarn release --yes
+              run: pnpm release --yes
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   GITHUB_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-            - name: Ensure build
-              # Publish-step will do a build, but if there's nothing to publish we still need a build if there are portal changes
-              if: steps.changes.outputs.portal == 'true' && steps.lerna_changed.outcome != 'success'
-              run: yarn build
 
             - name: Switch registry
               if: steps.lerna_changed.outcome == 'success'
@@ -98,33 +91,15 @@ jobs:
                   # Defaults to the user or organization that owns the workflow file
                   scope: "@fremtind"
 
+            - name: Clear uncommitted changes
+              if: steps.lerna_changed.outcome == 'success'
+              run: git checkout .npmrc
+
             - name: Publish packages to GitHub Packages
               if: steps.lerna_changed.outcome == 'success'
-              run: yarn release-gh --yes
+              run: pnpm release-gh --yes
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Caching Gatsby
-              if: steps.changes.outputs.portal == 'true'
-              id: gatsby-cache-build
-              uses: actions/cache@v3
-              with:
-                  path: |
-                      portal/public
-                      portal/.cache
-                  key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
-                  restore-keys: |
-                      ${{ runner.os }}-gatsby-build-
-
-            - name: Build and deploy portal
-              if: steps.changes.outputs.portal == 'true'
-              env:
-                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
-              run: |
-                  git config user.email "fremtind.designsystem@fremtind.no"
-                  git config user.name "fremtind-bot"
-                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
-                  yarn deploy:docs
 
     main-to-external:
         name: Merge main to external-contributions

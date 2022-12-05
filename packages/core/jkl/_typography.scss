@@ -1,0 +1,286 @@
+@use "sass:string";
+@use "sass:map";
+@use "sass:list";
+@use "screens";
+@use "responsive-units" as ru;
+
+/// @type Number
+$typography-weight-normal: 400;
+
+/// @type Number
+$typography-weight-bold: 700;
+
+/// @type Number
+$typography-font-size-1: ru.rem(16px);
+
+/// @type Number
+$typography-font-size-2: ru.rem(18px);
+
+/// @type Number
+$typography-font-size-3: ru.rem(20px);
+
+/// @type Number
+$typography-font-size-4: ru.rem(21px);
+
+/// @type Number
+$typography-font-size-5: ru.rem(23px);
+
+/// @type Number
+$typography-font-size-6: ru.rem(25px);
+
+/// @type Number
+$typography-font-size-7: ru.rem(26px);
+
+/// @type Number
+$typography-font-size-8: ru.rem(28px);
+
+/// @type Number
+$typography-font-size-9: ru.rem(36px);
+
+/// @type Number
+$typography-font-size-10: ru.rem(56px);
+
+/// @type Number
+$typography-line-height-1: ru.rem(24px);
+
+/// @type Number
+$typography-line-height-2: ru.rem(28px);
+
+/// @type Number
+$typography-line-height-3: ru.rem(32px);
+
+/// @type Number
+$typography-line-height-4: ru.rem(40px);
+
+/// @type Number
+$typography-line-height-5: ru.rem(44px);
+
+/// @type Number
+$typography-line-height-6: ru.rem(64px);
+
+/// @access private - forwardes ikke ut av modulen, men er tilgjengelig ved direkteimport. KUN FOR INTERN BRUK I JØKUL.
+$text-styles: (
+    "title": (
+        "small-screen": (
+            "font-size": $typography-font-size-9,
+            "line-height": $typography-line-height-5,
+            "font-weight": $typography-weight-normal,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-10,
+            "line-height": $typography-line-height-6,
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+    "title-small": (
+        // Legger til ny fontstørrelse her direkte uten variabler i påvente av en større omstrukturering med design tokens.
+        // Vi har to fontstørrelser her som ellers ville måtte bli skvist inn mellom det eksisterende nivå 8, 9 og 10
+        // i typografivariablene våre. Det samme problemet gjelder linjehøyden.
+        "small-screen":
+            (
+                "font-size": ru.rem(30px),
+                "line-height": ru.rem(36px),
+                "font-weight": $typography-weight-normal,
+            ),
+        "large-screen": (
+            "font-size": ru.rem(44px),
+            "line-height": ru.rem(52px),
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+    "heading-1": (
+        "small-screen": (
+            "font-size": $typography-font-size-7,
+            "line-height": $typography-line-height-3,
+            "font-weight": $typography-weight-normal,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-9,
+            "line-height": $typography-line-height-5,
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+    "heading-2": (
+        "small-screen": (
+            "font-size": $typography-font-size-5,
+            "line-height": $typography-line-height-3,
+            "font-weight": $typography-weight-normal,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-8,
+            "line-height": $typography-line-height-4,
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+    "heading-3": (
+        "small-screen": (
+            "font-size": $typography-font-size-4,
+            "line-height": $typography-line-height-2,
+            "font-weight": $typography-weight-bold,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-6,
+            "line-height": $typography-line-height-3,
+            "font-weight": $typography-weight-bold,
+        ),
+    ),
+    "heading-4": (
+        "small-screen": (
+            "font-size": $typography-font-size-2,
+            "line-height": $typography-line-height-1,
+            "font-weight": $typography-weight-bold,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-4,
+            "line-height": $typography-line-height-2,
+            "font-weight": $typography-weight-bold,
+        ),
+    ),
+    "heading-5": (
+        "small-screen": (
+            "font-size": $typography-font-size-1,
+            "line-height": $typography-line-height-1,
+            "font-weight": $typography-weight-bold,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-1,
+            "line-height": $typography-line-height-1,
+            "font-weight": $typography-weight-bold,
+        ),
+    ),
+    "body": (
+        "small-screen": (
+            "font-size": $typography-font-size-2,
+            "line-height": $typography-line-height-2,
+            "font-weight": $typography-weight-normal,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-3,
+            "line-height": $typography-line-height-3,
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+    "small": (
+        "small-screen": (
+            "font-size": $typography-font-size-1,
+            "line-height": $typography-line-height-1,
+            "font-weight": $typography-weight-normal,
+        ),
+        "large-screen": (
+            "font-size": $typography-font-size-1,
+            "line-height": $typography-line-height-1,
+            "font-weight": $typography-weight-normal,
+        ),
+    ),
+);
+
+/// Gir deg responsive font-size, line-height og font-weight basert på navnet på typografien.
+/// Du kan overstyre standardverdier ved å bruke `@content`. Dette er ment som en "escape hatch".
+/// Ikke tukle med typografiskalaen med mindre du har en god grunn til det.
+/// @param {"title" | "title-small" | "heading-1" | "heading-2" | "heading-3" | "heading-4" | "heading-5" | "body" | "small" | "title/large-screen" | "heading-1/large-screen" | "heading-2/large-screen" | "heading-3/large-screen" | "heading-4/large-screen" | "heading-5/large-screen" | "body/large-screen" | "small/large-screen" | "title/small-screen" | "heading-1/small-screen" | "heading-2/small-screen" | "heading-3/small-screen" | "heading-4/small-screen" | "heading-5/small-screen" | "body/small-screen" | "small/small-screen"} $style-name - Ønsket stilnavn. Støtter å hente small-screen og large-screen også, om du trenger stilene fra en spesifik skjermstørrelse.
+/// @content Plasseres alltid etter mixinen har satt sine verdier, slik at du kan velge å overstyre deler av dem.
+/// @example
+///     .class {
+///         @include jkl.text-style("body");
+///     }
+/// @example
+///     .bold {
+///         @include jkl.text-style("body") {
+///             font-weight: jkl.$typography-weight-bold;
+///         }
+///     }
+@mixin text-style($style-name) {
+    // Separate style/variant into style and variant variables:
+    $start-index: string.index($style-name, "/") or 0;
+    $end-index: string.index($style-name, "/") or 9999999;
+    $style: string.slice($style-name, 0, $start-index - 1);
+    $variant: string.slice($style-name, $end-index + 1);
+
+    @if map.has-key($text-styles, $style) {
+        $variants: map.get($text-styles, $style);
+
+        @if string.length($variant) == 0 {
+            @each $property, $value in map.get($variants, "small-screen") {
+                #{$property}: $value;
+            }
+            @content;
+
+            // Styles heading-5 and small are the same size on small and large screens. Skip to generate less CSS.
+            @if $style != "small" and $style != "heading-5" {
+                @include screens.from-medium-device {
+                    @each $property, $value in map.get($variants, "large-screen") {
+                        #{$property}: $value;
+                    }
+                    @content;
+                }
+            }
+        } @else {
+            @if map.has-key($variants, $variant) {
+                @each $property, $value in map.get($variants, $variant) {
+                    #{$property}: $value;
+                }
+                @content;
+            } @else {
+                @error "The text style #{$style} has no variant called #{$variant}. Try one of these: #{map.keys(map.get($new-text-styles, $style))}";
+            }
+        }
+    } @else {
+        @error "No text style with the name #{$style} was found. Try one of these: #{map.keys($new-text-styles)}";
+    }
+}
+
+/// Makes text bold without changing the space it takes up on screen.
+/// Not perfect for all lengths of text, but close enough!
+@mixin no-grow-bold {
+    font-weight: $typography-weight-bold;
+    letter-spacing: -0.014em;
+}
+
+/// Definer egne variabler for fontstørrelse basert på design tokens fra :root. Kan enkelt brukes med `use-font-variables`.
+/// @param {String} $name - Navn på variablen. Postfixes med `-font-size`, `-line-height`, og `-font-weight`.
+/// @param {"title" | "title-small" | "heading-1" | "heading-2" | "heading-3" | "heading-4" | "heading-5" | "body" | "small"} $level - Nivå i fontskalaen.
+/// @output - CSS-variabler fro font-size, line-height, og font-weight.
+/// @see use-font-variables
+/// @example
+///     @include jkl.declare-font-variables("jkl-accordion-title", "body");
+/// @example
+///     @include jkl.use-font-variables("jkl-accordion-title");
+@mixin declare-font-variables($name, $level) {
+    --#{$name}-font-size: var(--jkl-#{$level}-font-size);
+    --#{$name}-line-height: var(--jkl-#{$level}-line-height);
+    --#{$name}-font-weight: var(--jkl-#{$level}-font-weight);
+}
+
+/// Ta i bruk variabler du har laget med  `declare-font-variables`.
+/// @param {String} $name - Navn på variablen. Postfixes med `-font-size`, `-line-height`, og `-font-weight`.
+/// @output - CSS som setter font-size, line-height, og font-weight basert på CSS-variabler som følger standard format fra  `declare-font-variables`.
+/// @see declare-font-variables
+/// @example
+///     @include jkl.use-font-variables("jkl-accordion-title");
+/// @example
+///     @include jkl.declare-font-variables("jkl-accordion-title", "body");
+@mixin use-font-variables($name) {
+    font-size: var(--#{$name}-font-size);
+    line-height: var(--#{$name}-line-height);
+    font-weight: var(--#{$name}-font-weight);
+}
+
+$_valid-font-family-values: ("Fremtind Grotesk", "Fremtind Grotesk Display", "Fremtind Grotesk Mono");
+
+/// Hjelper sette riktig remse med fallback-fonts for Fremtind Grotesk, Fremtind Grotesk Display, og Fremtind Grotesk Mono.
+/// @param {"Fremtind Grotesk" | "Fremtind Grotesk Mono" | "Fremtind Grotesk Display"} $font - Regular justerer seg automatisk til italic og bold basert på font-style og font-weight. Display og Mono er adskilte fontfamilier.
+/// @output - Ønsket fontfamilie med justert fallbackfont.
+@mixin use-font-family($font) {
+    @if not list.index($_valid-font-family-values, $font) {
+        @error "#{$font} will not be used for font-family. Valid options are: #{$_valid-font-family-values}.";
+    }
+
+    @if $font == "Fremtind Grotesk Mono" {
+        font-family: "Fremtind Grotesk Mono", "Adjusted Courier New Fallback", -apple-system, BlinkMacSystemFont,
+            monospace;
+    } @else if $font == "Fremtind Grotesk Display" {
+        font-family: "Fremtind Grotesk Display", "Adjusted Arial Display Fallback", Arial, sans-serif;
+    } @else {
+        font-family: "Fremtind Grotesk", "Adjusted Arial Fallback", Arial, sans-serif;
+    }
+}

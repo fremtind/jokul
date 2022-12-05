@@ -1,4 +1,3 @@
-import { SecondaryButton } from "@fremtind/jkl-button-react";
 import React from "react";
 
 interface AnimatedIconProps {
@@ -14,9 +13,13 @@ export const AnimatedIcon: React.FC<AnimatedIconProps> = ({ renderIcon, iconName
                 {renderIcon(state)}
                 <div className={`jkl-micro jkl-spacing-xs--top`}>{iconName || renderIcon.name}</div>
             </div>
-            <SecondaryButton forceCompact className="jkl-spacing-2xl--left" onClick={() => setState(!state)}>
+            <button
+                data-density="compact"
+                className="jkl-button jkl-button--secondary jkl-spacing-2xl--left"
+                onClick={() => setState(!state)}
+            >
                 Animér <span className="jkl-sr-only">{iconName}</span>
-            </SecondaryButton>
+            </button>
         </>
     );
 };

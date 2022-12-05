@@ -1,17 +1,10 @@
 # Portal
 
-## Important
+## Miljøvariabler
 
-When using markdown render, all first-level headings will be ignored. The rest of the headings will be one level lower than set in markdown-file.
+Se [Gatsbys dokumentasjon for detaljer](https://www.gatsbyjs.com/docs/how-to/local-development/environment-variables/).
 
-```md
-# Title
+tl;dr
 
-## Subtitle
-```
-
-Will output
-
-```html
-<h3>Subtitle</h3>
-```
+1. Lag en `.env.development`-fil for `pnpm dev`, eller `.env.production` om du tester `pnpm build:docs && pnpm serve`.
+2. Prefix variabler med `GATSBY_` om du vil de skal være tilgjengelige runtime i browser.

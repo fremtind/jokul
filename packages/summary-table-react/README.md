@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/summa
 
 **Tips:** [stilpakken](../summary-table/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-summary-table-react` eller `npm i @fremtind/jkl-summary-table-react`.
+1. `npm i @fremtind/jkl-summary-table-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { AriaRole, HTMLProps, ReactNode } from "react";
 import { useDelayedRender } from "../useDelayedRender";
@@ -5,10 +6,9 @@ import { useDelayedRender } from "../useDelayedRender";
 export interface SkeletonAnimationProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;
     children: ReactNode;
-    forceCompact?: boolean;
+    density?: Density;
     /** @default "Vennligst vent" */
     textDescription?: string;
-    politeness?: "polite" | "assertive";
     role?: AriaRole;
     /**
      * Antall millisekunder komponenten vil vente før den rendrer
@@ -20,8 +20,7 @@ export interface SkeletonAnimationProps extends Pick<HTMLProps<HTMLDivElement>, 
 export const SkeletonAnimation = ({
     className,
     delay = 0,
-    forceCompact,
-    politeness = "polite",
+    density,
     textDescription = "Vennligst vent",
     ...rest
 }: SkeletonAnimationProps) => {
@@ -33,14 +32,11 @@ export const SkeletonAnimation = ({
 
     return (
         <div
-            className={cn("jkl-skeleton-animation", className, {
-                "jkl-skeleton-animation--compact": forceCompact,
-            })}
+            className={cn("jkl-skeleton-animation", className)}
             aria-busy="true"
             aria-label={textDescription}
-            aria-live={politeness}
-            role="alert"
             {...rest}
+            data-density={density}
         />
     );
 };

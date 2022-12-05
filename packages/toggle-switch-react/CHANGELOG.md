@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.12 (2022-11-23)
+
+### Bug Fixes
+
+-   rett opp i feil rundt devDependencies ([936f310](https://github.com/fremtind/jokul/commit/936f310a585f3c7f7f11af816d5c54cd5a43dd43))
+
+## 10.0.11 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 10.0.8 (2022-11-11)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 10.0.7 (2022-11-09)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+# 10.0.0 (2022-09-08)
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt kompaktdesign for ToggleSwitch og ToggleSlider ([69c1296](https://github.com/fremtind/jokul/commit/69c1296d6ebbe3658d2715c3f7845fc5e5bd9a56))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## 9.0.5 (2022-07-21)
 
 ### Bug Fixes

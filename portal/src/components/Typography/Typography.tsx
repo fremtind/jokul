@@ -76,7 +76,7 @@ export const KeyboardShortcut: React.FC<WithChildren> = ({ children, ...rest }) 
     </kbd>
 );
 
-interface CodeBlockProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLPreElement>, HTMLPreElement> {
+interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
     language?: string;
 }
 
@@ -108,5 +108,5 @@ export const Anchor: React.FC<{ children: React.ReactNode; className?: string; h
         return <GatsbyLink to={href} className="jkl-link" {...restProps} />;
     }
 
-    return <Link external={!props.href.includes("jokul.fremtind.no")} {...props} />;
+    return <Link external={!props.href.includes("jokul.fremtind.no") && !props.href.startsWith("#")} {...props} />;
 };

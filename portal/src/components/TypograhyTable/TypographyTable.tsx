@@ -1,10 +1,12 @@
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@fremtind/jkl-table-react";
-import { ToggleSwitch } from "@fremtind/jkl-toggle-switch-react";
+import { ToggleSlider } from "@fremtind/jkl-toggle-switch-react";
 import React, { FC, useState } from "react";
 import { TypographyTableRow, TypographyLevels } from "./TypographyTableRow";
+import "./typography-table.scss";
 
 const levels: TypographyLevels[] = [
     "Title",
+    "Title Small",
     "Heading 1",
     "Heading 2",
     "Heading 3",
@@ -15,36 +17,38 @@ const levels: TypographyLevels[] = [
     "Small",
 ];
 
-export const TypographyTable: FC = () => {
-    const [isMobile, setIsMobile] = useState(false);
-    const toggleMobile = () => setIsMobile(!isMobile);
+const VariantTable: FC<{ variant: "desktop" | "mobile" }> = ({ variant }) => (
+    <Table collapseToList fullWidth>
+        <TableHead>
+            <TableRow>
+                <TableHeader srOnly>Illustrasjonstekst</TableHeader>
+                <TableHeader>Stilnavn</TableHeader>
+                <TableHeader>Vekt</TableHeader>
+                <TableHeader>Størrelse</TableHeader>
+                <TableHeader>Linjeavstand</TableHeader>
+            </TableRow>
+        </TableHead>
+        <TableBody>
+            {levels.map((level) => (
+                <TypographyTableRow key={level} level={level} variant={variant} />
+            ))}
+        </TableBody>
+    </Table>
+);
 
+export const TypographyTable: FC = () => {
+    const [skala, setSkala] = useState("Desktop");
     return (
-        <div className="jkl-portal-paragraph">
-            <Table
-                className="jkl-spacing-xl--top"
-                collapseToList
-                fullWidth
-                {...(isMobile ? { "data-compactlayout": true } : {})}
+        <div className="jkl-portal-content jkl-spacing-xl--bottom">
+            <ToggleSlider
+                className="jkl-spacing-xl--bottom"
+                defaultValue={skala}
+                labels={["Desktop", "Mobile"]}
+                onToggle={setSkala}
             >
-                <TableHead>
-                    <TableRow>
-                        <TableHeader srOnly>Illustrasjonstekst</TableHeader>
-                        <TableHeader>Stilnavn</TableHeader>
-                        <TableHeader>Vekt</TableHeader>
-                        <TableHeader>Størrelse</TableHeader>
-                        <TableHeader>Linjeavstand</TableHeader>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {levels.map((level) => (
-                        <TypographyTableRow key={level} level={level} />
-                    ))}
-                </TableBody>
-            </Table>
-            <ToggleSwitch className="jkl-spacing-2xl--top" pressed={isMobile} onClick={toggleMobile}>
-                Mobil
-            </ToggleSwitch>
+                Velg skala
+            </ToggleSlider>
+            <VariantTable variant={skala.toLowerCase() as "desktop" | "mobile"} />
         </div>
     );
 };

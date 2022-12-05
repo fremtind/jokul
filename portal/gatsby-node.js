@@ -35,12 +35,72 @@ function parseFiles(fileNames) {
     return parser.parseWithProgramProvider(fileNames, () => program);
 }
 
-exports.onCreateWebpackConfig = ({ actions, stage }) => {
+exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
     if (stage === "build-javascript") {
         // Skru av source maps i produksjon. Sparer byggtid, artifact-størrelse.
         actions.setWebpackConfig({
             devtool: false,
         });
+    }
+
+    if (stage === "develop" || stage === "build-javascript") {
+        const config = getConfig();
+
+        const packagesDir = fs.readdirSync(path.join(__dirname, "..", "packages"), {
+            encoding: "utf-8",
+            withFileTypes: true,
+        });
+        const packageAliases = {};
+        for (const entry of packagesDir) {
+            if (!entry.isDirectory()) {
+                continue;
+            }
+            if (entry.name === ".DS_Store") {
+                continue;
+            }
+
+            const packagePath = path.join(__dirname, "..", "packages", entry.name);
+            try {
+                const packageJson = fs.readFileSync(path.join(packagePath, "package.json"), "utf-8");
+                const parsed = JSON.parse(packageJson);
+
+                // Alias til Gatsbys node_modules for importer i documentation-mapper i pakkene.
+                packageAliases[parsed.name] = path.resolve(__dirname, "node_modules", parsed.name);
+
+                // Alias CSSen til React-pakkens node_modules
+                if (parsed.name.endsWith("-react")) {
+                    const cssName = parsed.name.replace("-react", "");
+                    packageAliases[cssName] = path.resolve(
+                        __dirname,
+                        "node_modules",
+                        parsed.name,
+                        "node_modules",
+                        cssName,
+                    );
+                }
+            } catch {
+                // Ingen package.json
+                continue;
+            }
+        }
+
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            ...packageAliases,
+            // "@mdx-js/react": path.resolve(__dirname, "node_modules", "@mdx-js", "react"),
+            "@sindresorhus/slugify": path.resolve(__dirname, "node_modules", "@sindresorhus", "slugify"),
+        };
+
+        const miniCssExtractPlugin = config.plugins.find((p) => p.constructor.name === "MiniCssExtractPlugin");
+        if (miniCssExtractPlugin) {
+            // På grunn av Gatsby internals får vi warnings om rekkefølgen på CSS-filer som er i konflikt.
+            // Rekkefølgen har ikke noe å si for oss når vi bruker BEM, så vi kan trygt ignorere dem.
+            // https://github.com/webpack-contrib/mini-css-extract-plugin#remove-order-warnings
+            // https://github.com/gatsbyjs/gatsby/discussions/30169
+            // https://github.com/gatsbyjs/gatsby/discussions/30083
+            miniCssExtractPlugin.options.ignoreOrder = true;
+            actions.replaceWebpackConfig(config);
+        }
     }
 };
 

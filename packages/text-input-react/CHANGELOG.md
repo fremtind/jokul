@@ -3,6 +3,83 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.2.2 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+# [11.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.1.13...@fremtind/jkl-text-input-react@11.2.0) (2022-11-22)
+
+### Bug Fixes
+
+-   slettet snapshots ([78fbff9](https://github.com/fremtind/jokul/commit/78fbff90f5c538c4601dba6b3e6d6f4f51f4ee2c)), closes [#3269](https://github.com/fremtind/jokul/issues/3269)
+
+### Features
+
+-   changed prop type for helpLabel and errorLabel in SupportLabel from string to ReactNode ([037c5c1](https://github.com/fremtind/jokul/commit/037c5c1ef0529a6027894b0ce2da1c24053a1af3))
+-   la til et visuelt eksempel på å ha lenker i errorLabel ([ccf54f6](https://github.com/fremtind/jokul/commit/ccf54f64f029d8ab1ebea4d728e5fed80ae7152a)), closes [#3253](https://github.com/fremtind/jokul/issues/3253)
+
+## 11.1.13 (2022-11-11)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 11.1.12 (2022-11-09)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 11.1.7 (2022-10-07)
+
+### Bug Fixes
+
+-   bruk useAriaLiveRegion for å sette aria-live ([85d3a11](https://github.com/fremtind/jokul/commit/85d3a116477495a55e4849f70408fc4532ccc4a5)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+-   sett aria-hidden på telleren ([cba2a3e](https://github.com/fremtind/jokul/commit/cba2a3ed0ed8d69fa1abe3fa211b1e2685a0fe7c))
+
+## [11.1.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.1.3...@fremtind/jkl-text-input-react@11.1.4) (2022-09-21)
+
+### Bug Fixes
+
+-   bedre håndtering av border på åpen autosuggest ([581b6fb](https://github.com/fremtind/jokul/commit/581b6fbf3765c2998adf5e921e7abdb0a1d48289))
+
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.0.0...@fremtind/jkl-text-input-react@11.1.0) (2022-09-08)
+
+### Bug Fixes
+
+-   added wrapper to avoid jumping in autosuggest ([680c8bb](https://github.com/fremtind/jokul/commit/680c8bb50c009cf3b611f415aa6b1acd56739375))
+-   lintfeil etter bom på indent i forslag på GitHub ([e583260](https://github.com/fremtind/jokul/commit/e583260136bb83e3adcc3ad963e6c329b3a66e4e))
+
+### Features
+
+-   support fallback items on non-matching search ([1b7b431](https://github.com/fremtind/jokul/commit/1b7b4311cc16b00ee312ef5ca8ba692b71b16299)), closes [#3062](https://github.com/fremtind/jokul/issues/3062)
+
+# 11.0.0 (2022-09-08)
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt kompakt design for TextInput, TextArea, Autosuggest ([8ccac05](https://github.com/fremtind/jokul/commit/8ccac0564e62d43cfe3110da5d15af1cbc1fb04c))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 ## 10.0.13 (2022-08-15)
 
 ### Bug Fixes

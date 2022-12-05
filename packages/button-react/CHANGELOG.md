@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.14 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## [12.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@12.0.9...@fremtind/jkl-button-react@12.0.11) (2022-11-11)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## [12.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@12.0.9...@fremtind/jkl-button-react@12.0.10) (2022-11-09)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 12.0.4 (2022-10-07)
+
+### Bug Fixes
+
+-   bruk useAriaLiveRegion for å sette aria-live ([85d3a11](https://github.com/fremtind/jokul/commit/85d3a116477495a55e4849f70408fc4532ccc4a5)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+
+# 12.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   bruk ny compact prop overalt i Button ([b8c3dec](https://github.com/fremtind/jokul/commit/b8c3decb4b21a4d7f39a4ffb21bd18dc6c6295d0))
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt design for kompakte knapper ([86cfcf8](https://github.com/fremtind/jokul/commit/86cfcf8f0ddca7269d5550b450da71593e160fd6))
+
+### Performance Improvements
+
+-   bruk useCallback for intern metode i Button ([efc5ede](https://github.com/fremtind/jokul/commit/efc5eded52becc6be64415b6ed4d065bf5854cd5))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 ## [11.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@11.0.3...@fremtind/jkl-button-react@11.0.4) (2022-06-13)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-webfonts",
-    "version": "2.0.1",
+    "version": "2.1.2",
     "publishConfig": {
         "access": "public"
     },
@@ -19,7 +19,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf .turbo/ **/*.css",
+        "clean": "rimraf node_modules/ **/*.css",
         "build": "gulp build",
         "dev": "echo \"Error: run dev from root\" && exit 1"
     },

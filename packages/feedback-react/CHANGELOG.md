@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.1.8 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## [14.1.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@14.1.3...@fremtind/jkl-feedback-react@14.1.5) (2022-11-11)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## [14.1.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@14.1.3...@fremtind/jkl-feedback-react@14.1.4) (2022-11-09)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+# [14.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@14.0.13...@fremtind/jkl-feedback-react@14.1.0) (2022-10-28)
+
+### Features
+
+-   legg til optional helplabel på hovedspørsmålet ([b2d0ef4](https://github.com/fremtind/jokul/commit/b2d0ef4154bef6e0354db14533529f6dd8ae0385))
+
+## 14.0.8 (2022-10-07)
+
+### Bug Fixes
+
+-   bruk useAriaLiveRegion for å sette aria-live ([85d3a11](https://github.com/fremtind/jokul/commit/85d3a116477495a55e4849f70408fc4532ccc4a5)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+-   flere skjermleserjusteringer for feedback ([5a6496e](https://github.com/fremtind/jokul/commit/5a6496e162bc90a0f46c5dd2a11e400f7e385e23))
+-   juster aria-live oppførsel for feedback ([9f7a3ea](https://github.com/fremtind/jokul/commit/9f7a3ea7fb1112b23407478fc9e60a596646ce8f))
+
 ## 13.0.17 (2022-08-15)
 
 ### Bug Fixes

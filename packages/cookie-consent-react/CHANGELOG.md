@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@7.0.17...@fremtind/jkl-cookie-consent-react@7.1.0) (2022-12-05)
+
+### Features
+
+-   useCookieConsent returnerer nå samtykkene ([8876485](https://github.com/fremtind/jokul/commit/88764857a40b329c03663591328b5675eb15abc2))
+
+## 7.0.17 (2022-12-01)
+
+### Bug Fixes
+
+-   forhindre undefined-feil på serversiden ([e78ae73](https://github.com/fremtind/jokul/commit/e78ae736af43d671a17707c0e18fbd8dbf3bef67))
+
+## 7.0.15 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## [7.0.12](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@7.0.10...@fremtind/jkl-cookie-consent-react@7.0.12) (2022-11-11)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## [7.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@7.0.10...@fremtind/jkl-cookie-consent-react@7.0.11) (2022-11-09)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
 ## [6.0.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@6.0.4...@fremtind/jkl-cookie-consent-react@6.0.5) (2022-06-13)
 
 ### Bug Fixes

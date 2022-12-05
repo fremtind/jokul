@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@11.1.2...@fremtind/jkl-core@11.2.0) (2022-11-22)
+
+### Features
+
+-   changed prop type for helpLabel and errorLabel in SupportLabel from string to ReactNode ([037c5c1](https://github.com/fremtind/jokul/commit/037c5c1ef0529a6027894b0ce2da1c24053a1af3))
+
+## 11.1.2 (2022-11-11)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 11.1.1 (2022-11-09)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+# 11.1.0 (2022-10-11)
+
+### Features
+
+-   ny mixin use-font-family for å få fontfamilie mer riktig fallback ([4959663](https://github.com/fremtind/jokul/commit/49596634828fcc4e3651ef0a60ce1b81dcd4f386))
+
+## [11.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@11.0.0...@fremtind/jkl-core@11.0.1) (2022-09-08)
+
+### Bug Fixes
+
+-   rydd opp noen etternølere etter compact reboot ([3ea49aa](https://github.com/fremtind/jokul/commit/3ea49aa11dc51c7e72ee78c9405fc0fb8bea695e))
+
+# 11.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   bruk samme tykkelse på outline som rundt checbox, radio ([245bcc6](https://github.com/fremtind/jokul/commit/245bcc63c07ed495b36c8f0a7fadf39ea64b6a72))
+-   eksporter getCompactValue fra rotnivå ([f10156c](https://github.com/fremtind/jokul/commit/f10156cf40b14e6e696224c4ce10bc07fdd6a27c))
+-   fjern jkl-prefix fra public mixin ([2c580da](https://github.com/fremtind/jokul/commit/2c580dac204555ecf4caa144288636b391563483))
+-   ikke inkluder CSS i jkl-namespace ([651ff2d](https://github.com/fremtind/jokul/commit/651ff2d6e0d78bf89fc985133aeb03592cc76450))
+-   la brukerne nøste hele trær med data-compactlayout ([7427b7a](https://github.com/fremtind/jokul/commit/7427b7ae274a0919866964378c331604138afc37))
+-   legg til manglende easing og timing i motion.ts ([3ba5ffd](https://github.com/fremtind/jokul/commit/3ba5ffd81b1fd9d48211f1422665efc4154f3917))
+-   sync linkdesign med Figma ([16eb235](https://github.com/fremtind/jokul/commit/16eb235a752806ff36e196d1638b5f1e7f36fb02))
+-   visuell justering ved tastaturfokus ([126a50a](https://github.com/fremtind/jokul/commit/126a50a4b5818d9d95c120fffe85e719a4089c93))
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   eksponer variabler for typografi på rotnivå ([ab5ba30](https://github.com/fremtind/jokul/commit/ab5ba30aadd91357ddc4ce0487fb75eb9b2df246))
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   legg til nytt compact-API og deprecate det eksisterende ([47c0f5d](https://github.com/fremtind/jokul/commit/47c0f5dd1a0a9221aa79854809e7877c9977b553))
+
+### Performance Improvements
+
+-   dropp å generer en media query med likt innhold for text-style small ([b8293db](https://github.com/fremtind/jokul/commit/b8293dbc516d69c763f89ac9ed027bba235e69a5))
+-   fjern unødvendig \* selector ([10f51a5](https://github.com/fremtind/jokul/commit/10f51a5f8c7fa4b6f1dabf4ef6258aba20704b0f))
+-   som for small, unngå å generere media query med duplikat stil ([f45f6c7](https://github.com/fremtind/jokul/commit/f45f6c79416043d0ccff73ebde59eeba6aee6c9d))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   data-compactlayout krever nå en verdi true eller false
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
+# 10.1.0 (2022-09-01)
+
+### Features
+
+-   legg til nytt typografinivå Title Small ([decd931](https://github.com/fremtind/jokul/commit/decd931791b93beac18c21b8614bff842301bdc5)), closes [#3045](https://github.com/fremtind/jokul/issues/3045)
+
 ## [10.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@10.0.10...@fremtind/jkl-core@10.0.11) (2022-08-18)
 
 ### Bug Fixes

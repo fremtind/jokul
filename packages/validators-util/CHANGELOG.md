@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-validators-util@2.5.0...@fremtind/jkl-validators-util@2.5.1) (2022-10-26)
+
+### Bug Fixes
+
+-   only zeros is not valid fodselsnummer anymore ([304b0f4](https://github.com/fremtind/jokul/commit/304b0f4bb67f3629736c2da4b8d55a6dd695a5f9))
+
+# 2.5.0 (2022-10-24)
+
+### Features
+
+-   added hasNoIllegalCharacters validator ([f38949f](https://github.com/fremtind/jokul/commit/f38949f81826e9e5370d8ab2cd5385381b37c677))
+
 ## 2.4.2 (2022-07-26)
 
 ### Bug Fixes

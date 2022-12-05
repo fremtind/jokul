@@ -7,8 +7,8 @@ const ExpandSection = forwardRef<HTMLDivElement, { id: string; "aria-labelledby"
     ({ ...rest }, ref) => (
         <div ref={ref} className="jkl-expand-section__content-wrapper" role="group" {...rest}>
             <div className="jkl-expand-section__content">
-                <h3 className="jkl-heading-3 jkl-spacing-xl--bottom">Skjult seksjon</h3>
-                <p className="jkl-portal-paragraph">
+                <p className="jkl-heading-4 jkl-spacing-xl--bottom">Skjult seksjon</p>
+                <p className="jkl-spacing-l--bottom">
                     For at dette skal fungere på en god måte må man huske på <code>aria-controls</code>. Denne
                     komponenten kan være nyttig i for eksempel ekspanderbare tabellrader.
                 </p>
@@ -18,7 +18,7 @@ const ExpandSection = forwardRef<HTMLDivElement, { id: string; "aria-labelledby"
 );
 ExpandSection.displayName = "ExpandSection";
 
-export const ExpandButtonExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+export const ExpandButtonExample = ({ choiceValues }: ExampleComponentProps) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [elementRef] = useAnimatedHeight<HTMLDivElement>(isExpanded);
     const expandButtonId = "jkl-example-expand-button";
@@ -32,7 +32,7 @@ export const ExpandButtonExample = ({ boolValues, choiceValues }: ExampleCompone
 
     return (
         <div>
-            <p className="jkl-portal-paragraph">
+            <p className="jkl-spacing-l--bottom">
                 Noen ganger trenger vi å gi brukerne som ønsker det litt mer informasjon.
             </p>
             {expandDirection === "up" && (
@@ -43,7 +43,7 @@ export const ExpandButtonExample = ({ boolValues, choiceValues }: ExampleCompone
                         id={expandedContentId}
                         hidden={!isExpanded}
                     />
-                    <p className="jkl-body jkl-spacing-l--bottom">
+                    <p className="jkl-spacing-l--bottom">
                         Jeg er ikke styrt av ExpandButton. Jeg illustrerer muligheten for å kontrollere deler av siden
                         som ikke er direkte under ExpandButton.
                     </p>
@@ -53,7 +53,6 @@ export const ExpandButtonExample = ({ boolValues, choiceValues }: ExampleCompone
                 aria-controls={expandedContentId}
                 id={expandButtonId}
                 className="jkl-spacing-l--bottom"
-                forceCompact={boolValues?.["Compact"]}
                 expandDirection={expandDirection}
                 isExpanded={isExpanded}
                 onClick={onClick}
@@ -62,7 +61,7 @@ export const ExpandButtonExample = ({ boolValues, choiceValues }: ExampleCompone
             </ExpandButton>
             {expandDirection === "down" && (
                 <>
-                    <p className="jkl-body jkl-spacing-l--bottom">
+                    <p className="jkl-spacing-l--bottom">
                         Jeg er ikke styrt av ExpandButton. Jeg illustrerer muligheten for å kontrollere deler av siden
                         som ikke er direkte under ExpandButton.
                     </p>
@@ -80,7 +79,7 @@ export const ExpandButtonExample = ({ boolValues, choiceValues }: ExampleCompone
 
 export default ExpandButtonExample;
 
-export const expandButtonExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
+export const expandButtonExampleCode: CodeExample = ({ choiceValues }) => {
     const expandDirection = choiceValues?.["Ekspander i retning (kun frittstående)"] === "Oppover" ? "up" : "down";
 
     const expandSection = `
@@ -93,8 +92,8 @@ export const expandButtonExampleCode: CodeExample = ({ boolValues, choiceValues 
             className="jkl-expand-section__content-wrapper"
         >
             <div className="jkl-expand-section__content">
-                <h3 className="jkl-heading-3 jkl-spacing-xl--bottom">Skjult seksjon</h3>
-                <p className="jkl-portal-paragraph">
+                <p className="jkl-heading-4 jkl-spacing-xl--bottom">Skjult seksjon</p>
+                <p className="jkl-spacing-l--bottom">
                     For at dette skal fungere på en god måte må man huske på <code>aria-controls</code>. Denne
                     komponenten kan være nyttig i for eksempel ekspanderbare tabellrader.
                 </p>
@@ -115,13 +114,13 @@ const onClick = () => {
 
 return (
     <div>
-        <p className="jkl-portal-paragraph">
+        <p className="jkl-spacing-l--bottom">
             Noen ganger trenger vi å gi brukerne som ønsker det litt mer informasjon.
         </p>
         ${
             expandDirection === "up"
                 ? `${expandSection}
-        <p className="jkl-body jkl-spacing-l--bottom">
+        <p className="jkl-spacing-l--bottom">
             Jeg er ikke styrt av ExpandButton. Jeg illustrerer muligheten for å kontrollere deler av siden som ikke
             er direkte under ExpandButton.
         </p>
@@ -132,7 +131,6 @@ return (
             aria-controls={expandedContentId}
             id={expandButtonId}
             className="jkl-spacing-l--bottom"
-            forceCompact={${boolValues?.["Compact"]}}
             expandDirection={expandDirection}
             isExpanded={isExpanded}
             onClick={onClick}
@@ -142,7 +140,7 @@ return (
         ${
             expandDirection === "down"
                 ? `
-        <p className="jkl-body jkl-spacing-l--bottom">
+        <p className="jkl-spacing-l--bottom">
             Jeg er ikke styrt av ExpandButton. Jeg illustrerer muligheten for å kontrollere deler av siden som ikke
             er direkte under ExpandButton.
         </p>

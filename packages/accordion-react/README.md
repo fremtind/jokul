@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/accor
 
 **Tips:** [stilpakken](../accordion/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-accordion-react` eller `npm i @fremtind/jkl-accordion-react`.
+1. `npm i @fremtind/jkl-accordion-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

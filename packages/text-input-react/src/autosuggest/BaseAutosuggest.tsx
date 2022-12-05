@@ -2,7 +2,7 @@ import { Label, SupportLabel } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import Downshift, { DownshiftProps } from "downshift";
-import React from "react";
+import React, { ReactNode } from "react";
 import { CommonProps } from "./Autosuggest";
 import ControllerButton from "./ControllerButton";
 import Menu from "./Menu";
@@ -15,6 +15,7 @@ type BaseAutosuggestProps<T> = CommonProps & {
     downshiftProps: DownshiftProps<T>;
     showDropdownControllerButton?: boolean;
     onConfirm?: () => void;
+    noHits?: { text: ReactNode; items: T[] };
 };
 
 function BaseAutosuggest<T>({
@@ -26,6 +27,7 @@ function BaseAutosuggest<T>({
     leadText,
     errorLabel,
     helpLabel,
+    density,
     variant = "small",
     noHitsMessage,
     maxNumberOfHits,
@@ -37,6 +39,7 @@ function BaseAutosuggest<T>({
     onConfirm = () => {
         /* noop */
     },
+    noHits,
 }: BaseAutosuggestProps<T>): JSX.Element {
     const uid = useId(inputId || "jkl-text-input", { generateSuffix: !inputId });
     const lid = useId(labelId || "jkl-label", { generateSuffix: !labelId });
@@ -64,10 +67,11 @@ function BaseAutosuggest<T>({
                 clearSelection,
             }) => {
                 return (
-                    <div className={`jkl-autosuggest ${className}`}>
+                    <div className={cn("jkl-autosuggest", className)} data-density={density}>
                         {label && (
                             <Label
                                 variant={variant}
+                                density={density}
                                 {...labelProps}
                                 {...getLabelProps({
                                     id: lid,
@@ -77,12 +81,17 @@ function BaseAutosuggest<T>({
                                 {label}
                             </Label>
                         )}
-                        {leadText && <p className="jkl-body jkl-spacing-l--bottom">{leadText}</p>}
-                        <div
-                            className={cn("jkl-autosuggest__input-group", {
-                                "jkl-autosuggest__input-group--open": isOpen && items.length !== 0,
-                            })}
-                        >
+                        {leadText && (
+                            <p
+                                className={cn("jkl-spacing-l--bottom", {
+                                    "jkl-body": density !== "compact",
+                                    "jkl-small": density === "compact",
+                                })}
+                            >
+                                {leadText}
+                            </p>
+                        )}
+                        <div className="jkl-autosuggest__input-group">
                             <input
                                 {...getInputProps({
                                     id: uid,
@@ -117,9 +126,10 @@ function BaseAutosuggest<T>({
                                 itemToString={itemToString}
                                 noHitsMessage={noHitsMessage}
                                 maxNumberOfHits={maxNumberOfHits}
+                                noHits={noHits}
                             />
                         )}
-                        <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} />
+                        <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} density={density} />
                     </div>
                 );
             }}

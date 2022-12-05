@@ -1,26 +1,20 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { Link } from "@fremtind/jkl-core";
 import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
-import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
 import { Portrait, PortraitGallery } from "../../components/portrait-gallery";
 import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
+import { MainContent } from "../../layout/MainContent";
 
 const pageTitle = "Hvor kan du få hjelp?";
 
 export const Head: FC = () => <Seo title={pageTitle} />;
 
 const DegOgJokul: FC = () => (
-    <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.35 }}
-        className="jkl-portal__main"
-    >
+    <MainContent>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
             Jøkul er et stort system, og det er mange ting å skulle lære. Av og til trenger vi alle litt ekstra hjelp.
@@ -148,7 +142,7 @@ const DegOgJokul: FC = () => (
             title="Neste: Jobb med Jøkul-teamet"
             description="Finn ut litt mer om hva vi gjør og hvordan vi kan hjelpe deg."
         />
-    </motion.main>
+    </MainContent>
 );
 
 export default DegOgJokul;

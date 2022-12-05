@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.5 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+# [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@8.0.3...@fremtind/jkl-accordion@9.0.0) (2022-10-11)
+
+### Bug Fixes
+
+-   sync Accordion med oppdatert design fra Figma ([777fc21](https://github.com/fremtind/jokul/commit/777fc21e12cc2c27598d35466d968dc4fd6ef652)), closes [#3132](https://github.com/fremtind/jokul/issues/3132)
+
+### BREAKING CHANGES
+
+-   CSS-variabelen som setter venstremargin på tittelen er fjernet.
+
+# 8.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   bold tittel når åpen i kompaktmodus ([2a7645d](https://github.com/fremtind/jokul/commit/2a7645d2c5bc3318e326ae72b7936b269f8a3985))
+-   fjern ekstrapadding i accordiontittel ([05468c4](https://github.com/fremtind/jokul/commit/05468c497fc1875211d4af9300f423509b1a482e))
+-   fjern jkl-prefix fra public mixin ([2c580da](https://github.com/fremtind/jokul/commit/2c580dac204555ecf4caa144288636b391563483))
+-   plassering av pila i flere kontekster ([6cc2831](https://github.com/fremtind/jokul/commit/6cc28313f394dbf842e627c8910fed5744a72e98))
+-   rett opp feil farge i dark mode på accordion etter refactor ([a1d4120](https://github.com/fremtind/jokul/commit/a1d4120fa302f7ff0d788d93297528289ff3a90c))
+
+### Features
+
+-   compact-variant av accordion ([1b3d5a3](https://github.com/fremtind/jokul/commit/1b3d5a35ae4b0c4d95815b54fdc2a0d78b16634b))
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   -   jkl-expand-arrow er nå jkl-accordion-item\_\_arrow
+-   variabelen --jkl-accordion-accent er fjernet siden den var ubrukt internt
+
 # [7.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@6.0.13...@fremtind/jkl-accordion@7.0.0) (2022-06-07)
 
 ### Bug Fixes

@@ -6,9 +6,7 @@
 import { initTabListener } from "@fremtind/jkl-core";
 import { GatsbyBrowser } from "gatsby";
 import React from "react";
-import { A11yContextProvider } from "./src/a11yContext";
-import { FSMenuContextProvider } from "./src/fullscreenMenuContext";
-import { LocationContextProvider } from "./src/layout/locationContext";
+import { SharedProviders } from "./gatsby-shared-providers";
 import "@fremtind/jkl-core/core.min.css";
 import "@fremtind/jkl-accordion/accordion.min.css";
 import "@fremtind/jkl-alert-message/alert-message.min.css";
@@ -32,6 +30,7 @@ import "@fremtind/jkl-select/select.min.css";
 import "@fremtind/jkl-summary-table/summary-table.min.css";
 import "@fremtind/jkl-table/table.min.css";
 import "@fremtind/jkl-tag/tag.min.css";
+import "@fremtind/jkl-tabs/tabs.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
 import "@fremtind/jkl-icons/animated-icons.min.css";
@@ -45,11 +44,5 @@ import "./src/components/Typography/typography.scss";
 initTabListener();
 
 export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({ element }) => {
-    return (
-        <A11yContextProvider>
-            <LocationContextProvider>
-                <FSMenuContextProvider>{element}</FSMenuContextProvider>
-            </LocationContextProvider>
-        </A11yContextProvider>
-    );
+    return <SharedProviders>{element}</SharedProviders>;
 };

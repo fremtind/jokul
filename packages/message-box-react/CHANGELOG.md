@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.8 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 9.0.5 (2022-11-11)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 9.0.4 (2022-11-09)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+# 9.0.0 (2022-10-07)
+
+### Bug Fixes
+
+-   fjern default role fra meldingsboks ([416d242](https://github.com/fremtind/jokul/commit/416d242c999483dfa3f85d94d9ac6e68440eb05f))
+
+### BREAKING CHANGES
+
+-   role blir ikke lenger satt automatisk. Om du trenger at innholdet annonseres som en status eller
+    alert må du selv sette role.
+
+# 8.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   bruk IDen som ble generert for aria-controls ([c80eff7](https://github.com/fremtind/jokul/commit/c80eff7218688344583fef0ae98d0f8c4b148701))
+-   dom-validering og hydreringsbug i MessageBox ([3310266](https://github.com/fremtind/jokul/commit/3310266626092e0a30e0fd06d0840e94c5f0c60f))
+-   redesignet kompakt modus for MessageBox ([e5dc5bd](https://github.com/fremtind/jokul/commit/e5dc5bdd119ae4a8f562b7e0bbf284335e4df9fe))
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 ## [7.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@7.0.3...@fremtind/jkl-message-box-react@7.0.4) (2022-06-13)
 
 ### Bug Fixes

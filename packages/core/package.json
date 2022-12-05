@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "10.0.11",
+    "version": "11.2.1",
     "publishConfig": {
         "access": "public"
     },
@@ -26,17 +26,8 @@
     "directories": {
         "lib": "build"
     },
-    "files": [
-        "build",
-        "functions",
-        "mixins",
-        "styles",
-        "variables",
-        "*.css",
-        "*.scss"
-    ],
     "scripts": {
-        "clean": "rimraf .turbo/ build/ node_modules/ **/*.css",
+        "clean": "rimraf node_modules/ build/ node_modules/ **/*.css",
         "build": "run-s build:*",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
@@ -44,8 +35,7 @@
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
         "dev:server": "node ./dist/server.js",
-        "predev": "node ./esbuild.dev.mjs",
-        "dev": "run-p dev:*"
+        "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "repository": {
         "type": "git",
@@ -55,7 +45,7 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "dependencies": {
-        "classnames": "^2.2.6"
+        "classnames": "^2.3.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

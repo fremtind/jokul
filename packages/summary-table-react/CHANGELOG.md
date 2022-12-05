@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.9 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 8.0.6 (2022-11-11)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 8.0.5 (2022-11-09)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+# 8.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   fjern jkl-body fra SummaryTable ([5b07902](https://github.com/fremtind/jokul/commit/5b0790250b288c8195202cb3202bcaab0b79d66d))
+
 ## [7.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-summary-table-react@7.0.2...@fremtind/jkl-summary-table-react@7.0.3) (2022-06-13)
 
 ### Bug Fixes

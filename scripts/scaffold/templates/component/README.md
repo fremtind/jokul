@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/scaff
 
 **Tips:** om du bruker [React-pakken](../scaffold-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-scaffold` eller `npm i @fremtind/jkl-scaffold`.
+1. `npm i @fremtind/jkl-scaffold`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

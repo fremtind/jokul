@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.2.11 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 11.2.8 (2022-11-11)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 11.2.7 (2022-11-09)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## [11.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@11.2.1...@fremtind/jkl-select-react@11.2.2) (2022-10-04)
+
+### Bug Fixes
+
+-   sørg for at valgt alternativ vises når Select åpnes ([949da1a](https://github.com/fremtind/jokul/commit/949da1ab0bd52e46e6b9d27cf518b810410361e0)), closes [#3153](https://github.com/fremtind/jokul/issues/3153)
+
+# 11.2.0 (2022-09-27)
+
+### Features
+
+-   la listen i select scrolle ved mange valg ([7d76394](https://github.com/fremtind/jokul/commit/7d763943dedb92802e378cc3ff975aa04d88ea60))
+
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@11.0.4...@fremtind/jkl-select-react@11.1.0) (2022-09-20)
+
+### Bug Fixes
+
+-   bruk et flagg for å kontrollere markering ved hover ([6a27ce5](https://github.com/fremtind/jokul/commit/6a27ce5db887dec6e11ee35be2b2b04f0df1d0bb))
+-   forhindre unødvendig scrolling ([3a2f532](https://github.com/fremtind/jokul/commit/3a2f532296c5fe21498d537ea09e57b094974ef2))
+
+### Features
+
+-   la kun ett valg være fokusert av gangen ([bf62cda](https://github.com/fremtind/jokul/commit/bf62cdab4de2e587a422ba5ff238d9c8833abdf4))
+
+# 11.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   fixup native select etter endring av kompaktdesign ([2ecf367](https://github.com/fremtind/jokul/commit/2ecf36706117bb94a8acdadc654e64cb8d2be701))
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   implementer nytt kompaktdesign for Select ([ae8e84f](https://github.com/fremtind/jokul/commit/ae8e84fa5533ff2270c2c25163c4132f435673db))
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
+## 10.0.20 (2022-08-25)
+
+### Bug Fixes
+
+-   ikke flytt fokus til forrige valgte ved pil ned i søkbar select ([51eaad7](https://github.com/fremtind/jokul/commit/51eaad7e0a311a40d9d812a5127809755e9bbef5))
+-   navigasjon med piltast forbi skjulte elementer ([89375e1](https://github.com/fremtind/jokul/commit/89375e135b39038a755babae4bb7493d0a98ff47))
+
 ## [10.0.18](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@10.0.17...@fremtind/jkl-select-react@10.0.18) (2022-08-17)
 
 ### Bug Fixes

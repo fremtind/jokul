@@ -4,31 +4,35 @@ on:
     pull_request:
         branches:
             - main
+
+env:
+    PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
+    PREFIX_PATHS: true
+
 ##
 # Sjekker først om det er endringer som krever grundigere test.
-# Bygger i så fall pakkene og cacher dem via turborepo.
-# Bygger så portalen dersom det er visuelle endringer og cacher på samme måte.
-# Cachen lastes ned av tre jobber: testlint, cypress og preview.
+# Bygger i så fall pakkene og cacher dem via Nx.
+# Bygger så portalen og en branch preview dersom det er visuelle endringer og cacher på samme måte.
+# Cachen lastes ned av jobbene testlint, cypress.
 # Førstnevnte kjører enhetstester, ESLint, og TypeScript typesjekk.
 # N instanser av cypress-jobben spinner opp og kjører deler av testene fordelt mellom seg.
-# Cypressjobben server den ferdigbyggede siten og kjører et utvalg
-# av testene. Om en jobb  har nye snapshots lastes disse opp som en artifact.
-# Til slutt  sjekker en jobb om nye snapshots har blitt generert av en eller
+# Om en jobb har nye snapshots lastes disse opp som en artifact.
+# Til slutt sjekker en jobb om nye snapshots har blitt generert av en eller
 # flere av cypressjobbene. I så fall samles disse i én commit
 # som pushes til branchen som testes.
-# Preview-jobben er en bygg og deploy av portalen, med en path prefix lik branchnavnet.
-# Brukes som "staging".
 ##
 
 jobs:
     build:
         outputs:
             visual: ${{ steps.changes.outputs.visual }}
+            preview: ${{ steps.changes.outputs.preview }}
             testlint: ${{ steps.changes.outputs.testlint }}
         runs-on: ubuntu-latest
         permissions:
             actions: write
             contents: read
+            pull-requests: write
         steps:
             - name: Checkout
               if: "!contains(github.event.sender.login, 'fremtind-bot')"
@@ -36,7 +40,7 @@ jobs:
 
             - name: Check for changes that require extra verification
               if: "!contains(github.event.sender.login, 'fremtind-bot')"
-              uses: dorny/paths-filter@1ec7035ff53cbd7a98744bd986f6ca1c7e17d1cb
+              uses: ./actions/paths-filter
               id: changes
               with:
                   filters: |
@@ -45,7 +49,7 @@ jobs:
                         - "**/*.scss"
                         - "**/*.ts"
                         - "**/*.tsx"
-                        - "yarn.lock"
+                        - "pnpm-lock.yaml"
                       visual:
                         - "cypress/**"
                         - "packages/**/*.mdx"
@@ -53,32 +57,91 @@ jobs:
                         - "**/*.scss"
                         - "**/!(*.d|*.test).ts"
                         - "**/!(*.test).tsx"
-                        - "yarn.lock"
+                        - "pnpm-lock.yaml"
+                      preview:
+                        - "portal/src/texts/**"
+
+            - name: Setup pnpm
+              if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
 
             - name: Setup Node
               uses: actions/setup-node@v3
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               with:
-                  node-version: "lts/*"
-                  cache: "yarn"
+                  node-version: 16
+                  cache: "pnpm"
 
-            - name: Turbo Cache
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+            - name: Cypress binary cache
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               uses: actions/cache@v3
-              id: turbo-cache
+              id: cypress-cache
               with:
-                  path: .turbo
-                  key: turbo-${{ github.ref_name }}-${{ github.sha }}
+                  path: /home/runner/.cache/Cypress
+                  key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+            - name: Monorepo Runner Cache
+              if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+              uses: actions/cache@v3
+              id: nx-cache
+              with:
+                  path: .nx
+                  key: nx-${{ github.ref_name }}-${{ github.sha }}
                   restore-keys: |
-                      turbo-${{ github.ref_name }}-
+                      nx-${{ github.ref_name }}-
 
             - name: Install dependencies and build packages
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
-              run: yarn ci:install
+              if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+              run: pnpm ci:install
+
+            - name: Cypress binary install
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+              run: pnpm cypress install
+
+            # Installeringen printer ikke hvor den ligger første gang, men gjør det på n+1
+            - name: Cypress binary install debug
+              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+              run: pnpm cypress install
+
+            - name: Add a comment with a link to the preview
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
+              with:
+                  header: preview
+                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                  message: |
+                      <span aria-hidden="true">🔄</span> **Gjør klar en forhåndsvisning…**
+                      <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
 
             - name: Build site
-              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
-              run: yarn build:docs
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              env:
+                  GATSBY_MIXPANEL_PROJECT_ID: ${{ secrets.MIXPANEL_PROJECT_ID_TEST }}
+              run: pnpm build:docs
+
+            - name: Deploy preview
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              env:
+                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+              run: |
+                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.name "fremtind-bot"
+                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                  pnpm gh-pages --add --dist portal/public --dest ${{ env.PREVIEW_PATH }} --message "docs: preview #${{ github.event.number }}"
+
+            - name: Add a comment with a link to the preview
+              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
+              uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
+              with:
+                  header: preview
+                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                  message: |
+                      <span aria-hidden="true">✅</span> Forhåndsvisning: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}/
+                      <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
+
+                      Forhåndsvisningen blir tilgjengelig innen et par minutter. Den fjernes automatisk når pull requesten lukkes.
 
     testlint:
         needs: [build]
@@ -91,26 +154,31 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
 
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
+
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "lts/*"
-                  cache: "yarn"
+                  node-version: 16
+                  cache: "pnpm"
 
-            - name: Turbo Cache
-              id: turbo-cache
+            - name: Monorepo Runner Cache
               uses: actions/cache@v3
+              id: nx-cache
               with:
-                  path: .turbo
-                  key: turbo-${{ github.ref_name }}-${{ github.sha }}
+                  path: .nx
+                  key: nx-${{ github.ref_name }}-${{ github.sha }}
                   restore-keys: |
-                      turbo-${{ github.ref_name }}-
+                      nx-${{ github.ref_name }}-
 
             - name: Install dependencies
-              run: yarn ci:install
+              run: pnpm ci:install
 
             - name: Lint and test
-              run: yarn ci:test
+              run: pnpm ci:test
 
     cypress:
         needs: [build]
@@ -120,8 +188,6 @@ jobs:
             fail-fast: false
             matrix:
                 # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
-                group: [1, 2, 3]
-                groups: [3]
                 forced-colors: [true, false]
         permissions:
             actions: write
@@ -130,40 +196,48 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
 
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
+
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "lts/*"
-                  cache: "yarn"
+                  node-version: 16
+                  cache: "pnpm"
 
-            - name: Turbo Cache
-              id: turbo-cache
+            - name: Cypress binary cache
               uses: actions/cache@v3
+              id: cypress-cache
               with:
-                  path: .turbo
-                  key: turbo-${{ github.ref_name }}-${{ github.sha }}
-                  restore-keys: |
-                      turbo-${{ github.ref_name }}-
+                  path: /home/runner/.cache/Cypress
+                  key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
 
-            - name: Calculate which tests to run
-              id: parallel
-              uses: outsideopen/cypress-e2e-parallel-test-action@11345a74b311e33022c365f421cf6c906518838b
+            - name: Monorepo Runner Cache
+              uses: actions/cache@v3
+              id: nx-cache
               with:
-                  group: ${{ matrix.group }}
-                  groups: ${{ matrix.groups }}
-                  test-pattern: |
-                      packages/**/*.spec.js
-                      portal/**/*.spec.js
+                  path: .nx
+                  key: nx-${{ github.ref_name }}-${{ github.sha }}
+                  restore-keys: |
+                      nx-${{ github.ref_name }}-
+
+            - name: Build packages
+              run: pnpm ci:install
+
+            - name: Build site with path prefix
+              run: pnpm build:docs
 
             - name: Run Cypress
               uses: cypress-io/github-action@v4
               with:
-                  install-command: yarn ci:install-cypress
+                  # We install packages above
+                  install: false
                   browser: chrome
-                  start: yarn serve
-                  wait-on: "http://localhost:9000"
+                  start: pnpm serve
+                  wait-on: "http://localhost:9000/${{ env.PREVIEW_PATH }}"
                   wait-on-timeout: 280
-                  spec: ${{ steps.parallel.outputs.tests }}
               env:
                   FORCED_COLORS: ${{ matrix.forced-colors }}
 
@@ -171,11 +245,11 @@ jobs:
               uses: actions/upload-artifact@v3
               if: failure()
               with:
-                  name: cypress-screenshots-${{ matrix.forced-colors }}-${{ matrix.group }}
+                  name: cypress-screenshots-${{ matrix.forced-colors }}
                   path: |
                       cypress/screenshots
-                      packages/**/integration/**/*.actual.png
-                      packages/**/integration/**/*.diff.png
+                      packages/*/integration/**/*.actual.png
+                      packages/*/integration/**/*.diff.png
 
             - name: Debug
               if: success()
@@ -194,7 +268,7 @@ jobs:
               uses: actions/upload-artifact@v3
               if: steps.lfcf.outputs.has_changed_files == 'true'
               with:
-                  name: cypress-snapshots-${{ matrix.forced-colors }}-${{ matrix.group }}
+                  name: cypress-snapshots-${{ matrix.forced-colors }}
                   # GitHub will find the lowest common folder to reduce the number of folders
                   # in the uploaded artifact. If you want to preserve the same folder structure
                   # as in your repository when downloading the artifact, include a file from
@@ -224,110 +298,18 @@ jobs:
               # bygget markeres som grønt.
               continue-on-error: true
               with:
-                  name: cypress-snapshots-false-1
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v2
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-false-2
+                  name: cypress-snapshots-false
 
             - name: Download snapshots
               uses: actions/download-artifact@v3
               continue-on-error: true
               with:
-                  name: cypress-snapshots-false-3
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v3
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-true-1
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v3
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-true-2
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v3
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-true-3
+                  name: cypress-snapshots-true
 
             - name: Commit snapshots
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"
-                  git add . || echo "No updated snapshots, nothing to add!"
+                  git add **/*.png || echo "No updated snapshots, nothing to add!"
                   git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
                   git push
-
-    preview:
-        needs: [build]
-        if: needs.build.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
-        runs-on: ubuntu-latest
-        permissions:
-            actions: write
-            contents: write
-            pull-requests: write
-        env:
-            PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
-        steps:
-            - name: Add a comment with a link to the preview
-              uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
-              with:
-                  header: preview
-                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
-                  message: |
-                      <span aria-hidden="true">🔄</span> **Gjør klar en forhåndsvisning…**
-                      <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
-
-            - name: Checkout
-              uses: actions/checkout@v3
-              with:
-                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
-
-            - name: Setup Node
-              uses: actions/setup-node@v3
-              with:
-                  node-version: "lts/*"
-                  cache: "yarn"
-
-            - name: Turbo Cache
-              id: turbo-cache
-              uses: actions/cache@v3
-              with:
-                  path: .turbo
-                  key: turbo-${{ github.ref_name }}-${{ github.sha }}
-                  restore-keys: |
-                      turbo-${{ github.ref_name }}-
-
-            - name: Install dependencies
-              run: yarn ci:install
-
-            - name: Build site with path prefix
-              env:
-                  PREFIX_PATHS: true
-              run: yarn build:docs
-
-            - name: Deploy preview
-              env:
-                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
-              run: |
-                  git config user.email "fremtind.designsystem@fremtind.no"
-                  git config user.name "fremtind-bot"
-                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
-                  yarn gh-pages --add --dist portal/public --dest ${{ env.PREVIEW_PATH }} --message "docs: preview #${{ github.event.number }}"
-
-            - name: Add a comment with a link to the preview
-              uses: marocchino/sticky-pull-request-comment@a6749bc8ac4329731f34ce30797c089afdfa9e8c
-              with:
-                  header: preview
-                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
-                  message: |
-                      <span aria-hidden="true">✅</span> Forhåndsvisning: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}/
-                      <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
-
-                      Forhåndsvisningen blir tilgjengelig innen et par minutter. Den fjernes automatisk når pull requesten lukkes.

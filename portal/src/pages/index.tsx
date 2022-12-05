@@ -1,6 +1,5 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { useScreen, useBrowserPreferences } from "@fremtind/jkl-react-hooks";
-import { motion } from "framer-motion";
 import { Link, withPrefix } from "gatsby";
 import React, { useState, useMemo } from "react";
 import { CardList } from "../components/Card";
@@ -10,6 +9,7 @@ import { Seo } from "../components/seo";
 import { VisibleDetector } from "../components/VisibleDetector";
 import "../styles/style.scss";
 import "../styles/index.scss";
+import { MainContent } from "../layout/MainContent";
 
 // TODO Try to use scrollY in stead of time when lerping diamonds
 // TODO Remove DelayText when it's done
@@ -56,21 +56,15 @@ const IndexPage: React.FC = () => {
     const { isSmallDevice } = useScreen();
 
     return (
-        <motion.main
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="jkl-portal__main jkl-portal__main--full-width"
-            id="innhold"
-        >
+        <MainContent className="jkl-portal__main--frontpage jkl-portal__main--full-width">
             {!isSmallDevice && <DelayText text="Jøkul Designsystem" delay={100} />}
             <div className="jkl-portal-frontpage">
                 <section className="jkl-portal-frontpage__section-intro">
-                    <h2 className="jkl-heading-1" data-testid="front-page__tagline">
+                    <h1 className="jkl-sr-only">Jøkul Designsystem</h1>
+                    <p className="jkl-heading-1" data-testid="front-page__tagline">
                         Velkommen til Jøkul — design&shy;systemet til Fremtind. Her har vi samlet alt du trenger for å
                         lage løsninger i vår profil.
-                    </h2>
+                    </p>
                     <div className="jkl-portal-frontpage__section-intro--content">
                         <div className="jkl-portal-frontpage__section-intro--image-container">
                             <div
@@ -105,9 +99,10 @@ const IndexPage: React.FC = () => {
                 </section>
 
                 <section className="jkl-portal-frontpage__section-principles">
-                    <h2 className="jkl-heading-1 jkl-portal-frontpage__section-principles--heading">
+                    <h2 className="jkl-sr-only">Hovedprinsipper</h2>
+                    <p className="jkl-heading-1 jkl-portal-frontpage__section-principles--heading">
                         Hovedprinsipper du kan tenke på for å designe en løsning til vår profil på best mulig måte:
-                    </h2>
+                    </p>
                     <div className="jkl-portal-frontpage__section-principles__diamond-container">
                         <div className="jkl-portal-principle-diamond">
                             <PrincipleDiamond
@@ -135,9 +130,9 @@ const IndexPage: React.FC = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <h1 className="jkl-title" data-testid="title-elevasjon">
+                                        <p className="jkl-title" data-testid="title-elevasjon">
                                             Elevasjon
-                                        </h1>
+                                        </p>
                                         <p className="jkl-heading-2">
                                             Vi løfter det som er viktig og skaper et naturlig informasjonshierarki.
                                         </p>
@@ -151,9 +146,9 @@ const IndexPage: React.FC = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <h1 className="jkl-title" data-testid="title-bevegelse">
+                                        <p className="jkl-title" data-testid="title-bevegelse">
                                             Bevegelse
-                                        </h1>
+                                        </p>
                                         <p className="jkl-heading-2">
                                             Vi skal utforske, se fremover og være tilpasningsdyktige.
                                         </p>
@@ -167,9 +162,9 @@ const IndexPage: React.FC = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <h1 className="jkl-title" data-testid="title-klarhet">
+                                        <p className="jkl-title" data-testid="title-klarhet">
                                             Klarhet
-                                        </h1>
+                                        </p>
                                         <p className="jkl-heading-2">
                                             Vi skal fremstå som ærlig og klar, med en tydelig og varm stemme
                                         </p>
@@ -195,7 +190,7 @@ const IndexPage: React.FC = () => {
                     </div>
                 </section>
             </div>
-        </motion.main>
+        </MainContent>
     );
 };
 

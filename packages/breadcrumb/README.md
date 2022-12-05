@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/bread
 
 **Tips:** om du bruker [React-pakken](../breadcrumb-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-breadcrumb` eller `npm i @fremtind/jkl-breadcrumb`.
+1. `npm i @fremtind/jkl-breadcrumb`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

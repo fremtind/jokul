@@ -1,4 +1,4 @@
-import { LabelProps } from "@fremtind/jkl-core";
+import { Density, LabelProps } from "@fremtind/jkl-core";
 import { StateChangeOptions } from "downshift";
 import React, { ReactNode, useEffect, useState } from "react";
 import BaseAutosuggest from "./BaseAutosuggest";
@@ -25,11 +25,14 @@ export type CommonProps = (
     errorLabel?: string;
     helpLabel?: string;
     variant?: "large" | "medium" | "small";
+    density?: Density;
     placeholder?: string;
+    /** @deprecated Bruk noHits med text og evt. defaultverdier for items */
     noHitsMessage?: ReactNode;
     maxNumberOfHits?: number;
     showDropdownControllerButton?: boolean;
     onInputValueChange?: (inputValue: string) => void;
+    noHits?: { items: string[]; text: ReactNode };
 };
 
 export interface AutosuggestStringItemProps {

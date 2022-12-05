@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/selec
 
 **Tips:** om du bruker [React-pakken](../select-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-select` eller `npm i @fremtind/jkl-select`.
+1. `npm i @fremtind/jkl-select`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

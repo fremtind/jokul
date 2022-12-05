@@ -1,0 +1,22 @@
+{
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "nx/tasks-runners/default",
+            "options": {
+                "cacheableOperations": ["build", "build:docs"],
+                "cacheDirectory": ".nx"
+            }
+        }
+    },
+    "targetDefaults": {
+        "build": {
+            "dependsOn": ["^build"],
+            "outputs": ["{projectRoot}/build", "{projectRoot}/*.css"]
+        },
+        "build:docs": {
+            "inputs": [{ "env": "PREVIEW_PATH" }, { "env": "MIXPANEL_PROJECT_ID" }],
+            "dependsOn": ["build"],
+            "outputs": ["{workspaceRoot}/portal/public", "{workspaceRoot}/portal/.cache"]
+        }
+    }
+}

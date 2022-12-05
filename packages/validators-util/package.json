@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-validators-util",
-    "version": "2.4.2",
+    "version": "2.5.3",
     "publishConfig": {
         "access": "public"
     },
@@ -27,7 +27,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf .turbo/ build/ node_modules/",
+        "clean": "rimraf node_modules/ build/ node_modules/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "node ./esbuild.prod.mjs",
         "build": "run-s build:*",

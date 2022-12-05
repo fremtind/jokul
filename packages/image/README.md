@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/image
 
 **Tips:** om du bruker [React-pakken](../image-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-image` eller `npm i @fremtind/jkl-image`.
+1. `npm i @fremtind/jkl-image`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

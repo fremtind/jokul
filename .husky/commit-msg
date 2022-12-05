@@ -1,4 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn commitlint --edit $1
+if [ "$CI" = "true" ]; then
+  echo "Skipping commitlint on CI"
+else
+  pnpm commitlint --edit "$1"
+fi

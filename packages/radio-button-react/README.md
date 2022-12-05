@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/radio
 
 **Tips:** [stilpakken](../radio-button/) blir automatisk installert som en avhengighet.
 
-1. `yarn add @fremtind/jkl-radio-button-react` eller `npm i @fremtind/jkl-radio-button-react`.
+1. `npm i @fremtind/jkl-radio-button-react`.
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js

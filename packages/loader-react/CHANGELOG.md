@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.9 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## [10.0.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader-react@10.0.4...@fremtind/jkl-loader-react@10.0.6) (2022-11-11)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## [10.0.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader-react@10.0.4...@fremtind/jkl-loader-react@10.0.5) (2022-11-09)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## [10.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader-react@10.0.3...@fremtind/jkl-loader-react@10.0.4) (2022-11-02)
+
+### Bug Fixes
+
+-   **loader-react:** size props can also be string to allow percent values ([d961f48](https://github.com/fremtind/jokul/commit/d961f4869bfc14f902129dd061cdd94fad6568fe))
+
+## 10.0.3 (2022-11-02)
+
+### Bug Fixes
+
+-   **loader-react:** add missing className prop in SkeletonElement ([bae791f](https://github.com/fremtind/jokul/commit/bae791fff61e5a25fa741320061cfff3a6f36a09))
+
+# 10.0.0 (2022-10-07)
+
+### Bug Fixes
+
+-   fjern prematur annonsering av innhold ved sidebytte ([a5d28f3](https://github.com/fremtind/jokul/commit/a5d28f3bf805031ffb0c3d1ecf72a1c6ebdec6a1)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+
+### BREAKING CHANGES
+
+-   aria-live er fjernet fra loaderne. Om du trenger at loaderens tekst for skjermleser annonseres må du
+    selv sørge for å sette aria-live. Sørg for at meldingen ikke leses opp ved sidenavigering.
+
+# 9.0.0 (2022-09-08)
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 ## [8.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-loader-react@8.0.2...@fremtind/jkl-loader-react@8.0.3) (2022-06-13)
 
 ### Bug Fixes

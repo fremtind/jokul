@@ -29,18 +29,9 @@ I tillegg har vi [pakker for mange ulike komponenter](https://github.com/orgs/fr
 For å installere det grunnleggende:
 
 ```sh
-yarn add @fremtind/jkl-core @fremtind/jkl-webfonts
-yarn add --dev @fremtind/browserslist-config-jkl
+npm i @fremtind/jkl-core @fremtind/jkl-webfonts
+npm i @fremtind/browserslist-config-jkl
 ```
-
-<div className="jkl-portal-paragraph">
-    <InfoMessageBox forceCompact fullWidth role="none presentation">
-        <span className="jkl-small">
-            Vi bruker Yarn for pakkehåndtering i Jøkul. Hvis ditt prosjekt bruker NPM, kan du selvfølgelig installere
-            pakkene med <code>npm install</code> som vanlig.
-        </span>
-    </InfoMessageBox>
-</div>
 
 ### Kort om de forskjellige pakkene i Jøkul
 
@@ -56,7 +47,7 @@ Hvis du bruker React-komponenten blir stilpakken automatisk installert som en av
 
 #### Et eksempel på bruk av en komponent
 
-Ta [Accordion](/komponenter/accordion) som et eksempel. Skal du bruke React-komponenten installerer du den med `yarn add @fremtind/jkl-accordion-react` og får automatisk med riktig versjon av `@fremtind/jkl-accordion` som en avhengighet. Dersom du bare bruker stilpakken, installerer du den med `yarn add @fremtind/jkl-accordion`.
+Ta [Accordion](/komponenter/accordion) som et eksempel. Skal du bruke React-komponenten installerer du den med `npm i @fremtind/jkl-accordion-react` og får automatisk med riktig versjon av `@fremtind/jkl-accordion` som en avhengighet. Dersom du bare bruker stilpakken, installerer du den med `npm i @fremtind/jkl-accordion`.
 
 Når du skal ta i bruk en React-komponent trenger du å laste inn både stilen og komponenten. Hvis du har satt opp en CSS-loader i prosjektet ditt kan du importere stilen direkte i TypeScript. Du kan også velge å importere den i en av dine `.scss`- eller `.css`-filer.
 
@@ -78,14 +69,25 @@ import { initTabListener } from "@fremtind/jkl-core";
 initTabListener();
 ```
 
-## Fonter
+## Klassen `jkl`
 
-For at blant annet fonter skal bli riktige må du sette `jkl`-klassen på rotnivå i appen din, for eksempel på `<body>` eller `<div>`-en hvor appen din rendres.
+For at CSSen i Jøkul skal fungere som forventet må du sette klassen `jkl` på rotnivå i applikasjonen din.
 
-```html
-<div class="jkl" id="app">
-    <!-- app rendres her -->
-</div>
+Vi bruker `jkl`-klassen til å blant annet:
+
+-   Sette riktige fonter.
+-   Gi standardfarger til tekst og bakgrunn.
+-   Noen CSS resets.
+
+Du har kanskje en komponent som heter `Layout` eller `App` hvor du kan sette denne klassen? Om du er usikker, sett klassen på `body`.
+
+```tsx
+import React, { FC } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
+
+export const Layout: FC<WithChildren> = ({ children }) => {
+    return <div className="jkl">{children}</div>;
+};
 ```
 
 ### Bruk med Sass

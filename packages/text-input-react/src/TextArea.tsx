@@ -1,4 +1,4 @@
-import { Label, SupportLabel, LabelVariant, LabelProps } from "@fremtind/jkl-core";
+import { Label, SupportLabel, LabelVariant, LabelProps, Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { forwardRef, FocusEvent, useRef, useState, useEffect, RefObject } from "react";
@@ -28,12 +28,12 @@ export interface Props extends BaseProps {
     /** @deprecated Foretrekk counter-propen sin maxLength for å la brukerne fullføre en tankerekke før de redigerer seg innenfor maksgrensen */
     maxLength?: number;
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "density" | "standAlone">;
     helpLabel?: string;
     errorLabel?: string;
     /** @deprecated Bruk `labelProps.variant`  */
     variant?: LabelVariant;
-    forceCompact?: boolean;
+    density?: Density;
     /** Sett antall rader skjemafeltet ekspanderes til ved focus. Innholdet scroller om feltet fylles med mer innhold enn det er plass til. */
     rows?: number;
     inline?: boolean;
@@ -57,7 +57,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         placeholder = " ",
         autoExpand = false,
         startOpen = false,
-        forceCompact = false,
+        density,
         value,
         onBlur,
         onFocus,
@@ -68,7 +68,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
         "jkl-text-area--start-open": startOpen,
         "jkl-text-area--auto-expand": autoExpand,
         "jkl-text-area--with-counter": typeof counter !== "undefined",
-        "jkl-text-input--compact": forceCompact,
     });
     const uid = useId(id || "jkl-text-area", { generateSuffix: !id });
     const supportId = useId("jkl-support-label");
@@ -128,13 +127,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
     } as React.CSSProperties;
 
     return (
-        <div data-testid="jkl-text-area" className={componentClassName}>
+        <div data-testid="jkl-text-area" className={componentClassName} data-density={density}>
             <Label
                 variant={variant}
                 {...labelProps}
                 standAlone
                 srOnly={inline || labelProps?.srOnly}
-                forceCompact={forceCompact}
+                density={density}
                 htmlFor={uid}
             >
                 {label}
@@ -176,17 +175,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                             {...rest}
                         />
                     </div>
-                    <div className="jkl-text-area__counter">
-                        <span className="jkl-sr-only" aria-live="polite">
-                            {counterCurrent} av ${counterTotal} tegn brukt
-                        </span>
-                        <div className="jkl-text-area__counter-count" aria-hidden="true">
+                    <div className="jkl-text-area__counter" aria-hidden="true">
+                        <div className="jkl-text-area__counter-count">
                             {counterCurrent}&nbsp;/&nbsp;{counterTotal}
                         </div>
                         {!counter.hideProgress && (
                             <div
                                 className="jkl-text-area__counter-progress"
-                                aria-hidden="true"
                                 style={{
                                     ["--progress-width" as string]: `${calculatePercentage(
                                         progressCurrent,
@@ -202,7 +197,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
                 id={supportId}
                 helpLabel={helpLabel}
                 errorLabel={errorLabel || counterLabel}
-                forceCompact={forceCompact}
+                density={density}
             />
         </div>
     );

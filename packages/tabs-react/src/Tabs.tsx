@@ -1,11 +1,15 @@
-import { WithChildren } from "@fremtind/jkl-core";
+import { Density, WithChildren } from "@fremtind/jkl-core";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
-import cx from "classnames";
+import cn from "classnames";
 import { nanoid } from "nanoid";
 import React, { useState, useCallback, useEffect } from "react";
+import { InjectedProps, TabListProps } from "./TabList";
+import { TabPanelProps } from "./TabPanel";
+import { TabsContextProvider } from "./tabsContext";
 
 export interface TabsProps extends WithChildren {
     className?: string;
+    density?: Density;
     onChange?: (tabIndex: number) => void;
     defaultTab?: number;
 }
@@ -16,7 +20,7 @@ export interface TabsProps extends WithChildren {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
+export const Tabs = ({ onChange, defaultTab, density, ...props }: TabsProps) => {
     const [activeIndex, setActiveIndex] = useState(defaultTab ?? 0);
 
     const previousTabIndex = usePreviousValue(activeIndex);
@@ -46,9 +50,9 @@ export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
     const renderTabList = () => {
         const tabList = React.Children.toArray(props.children)[0];
 
-        if (!React.isValidElement(tabList)) return;
+        if (!React.isValidElement<TabListProps & InjectedProps>(tabList)) return;
 
-        return React.cloneElement(tabList, {
+        return React.cloneElement<TabListProps & InjectedProps>(tabList, {
             activeIndex,
             setActiveIndex,
             tabIDs,
@@ -58,12 +62,13 @@ export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
 
     const renderTabPanels = () => {
         return React.Children.map(props.children, (child, childIndex) => {
-            if (!React.isValidElement(child) || childIndex === 0) return;
+            if (!React.isValidElement<TabPanelProps & React.HTMLAttributes<HTMLDivElement>>(child) || childIndex === 0)
+                return;
 
             const tabPanelIndex = childIndex - 1;
 
             return tabPanelIndex === activeIndex
-                ? React.cloneElement(child, {
+                ? React.cloneElement<TabPanelProps & React.HTMLAttributes<HTMLDivElement>>(child, {
                       "aria-labelledby": tabIDs[tabPanelIndex],
                       id: tabPanelIDs[tabPanelIndex],
                   })
@@ -75,12 +80,12 @@ export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
         resolveIDs();
     }, [resolveIDs]);
 
-    const classes = cx("jkl-tabs", props.className);
-
     return (
-        <div {...props} className={classes}>
-            {renderTabList()}
-            {renderTabPanels()}
-        </div>
+        <TabsContextProvider state={{ density }}>
+            <div {...props} className={cn("jkl-tabs", props.className)} data-density={density}>
+                {renderTabList()}
+                {renderTabPanels()}
+            </div>
+        </TabsContextProvider>
     );
 };

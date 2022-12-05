@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.12 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 8.0.9 (2022-11-11)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 8.0.8 (2022-11-09)
+
+### Bug Fixes
+
+-   legg til manglende dependencies internt mellom pakker ([761936f](https://github.com/fremtind/jokul/commit/761936ff2ecdf7338dcddb7f33e984f229cef48b)), closes [#3232](https://github.com/fremtind/jokul/issues/3232)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## [8.0.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@8.0.6...@fremtind/jkl-accordion-react@8.0.7) (2022-10-11)
+
+### Bug Fixes
+
+-   sync designet på Accordion med Figma ([d7dd108](https://github.com/fremtind/jokul/commit/d7dd108fcd9501e5794a0925467e19af0dacc476)), closes [#3132](https://github.com/fremtind/jokul/issues/3132)
+
+# 8.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   plassering av pila i flere kontekster ([6cc2831](https://github.com/fremtind/jokul/commit/6cc28313f394dbf842e627c8910fed5744a72e98))
+
+### Features
+
+-   compact-variant av Accordion ([61a3647](https://github.com/fremtind/jokul/commit/61a364770e2a225b00e55b149ac089cc8ee44769))
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   kompakt alert message ([33e249d](https://github.com/fremtind/jokul/commit/33e249d3c99cfa97333d25d50bedff9e36ef29e9))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## [7.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@7.0.3...@fremtind/jkl-accordion-react@7.0.4) (2022-06-13)
 
 ### Bug Fixes

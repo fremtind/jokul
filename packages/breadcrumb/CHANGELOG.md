@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.9 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 3.0.4 (2022-10-18)
+
+### Bug Fixes
+
+-   fjern hovereffekt fra siste brødsmule ([2516a7f](https://github.com/fremtind/jokul/commit/2516a7fddb5d86ed135cb384ac94ebca23738ebb)), closes [#3128](https://github.com/fremtind/jokul/issues/3128)
+
+# 3.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   bruk Jøkul-outline rundt siste brødsmule i sti ([1cdab46](https://github.com/fremtind/jokul/commit/1cdab4658168d353d673b10db3f2953ef36c1418))
+
+### Features
+
+-   differensier brødsmulesti i og utenfor kompakt layout ([76b085c](https://github.com/fremtind/jokul/commit/76b085cbd4d926b5727824c41329a28ad0a73984))
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-breadcrumb@1.0.12...@fremtind/jkl-breadcrumb@2.0.0) (2022-06-07)
 
 ### chore

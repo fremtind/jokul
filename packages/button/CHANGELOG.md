@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.8 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+# 9.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   button slider-høyde på mobil ([837f2c9](https://github.com/fremtind/jokul/commit/837f2c9d368a91749a35e1b3603c48f8eff21f77))
+-   fontjuteringer på Button ([bf23781](https://github.com/fremtind/jokul/commit/bf23781aa798d374e26ce1ba52d946e465edf121))
+-   juster knappehøyden i kompakt modus ([1fe35c0](https://github.com/fremtind/jokul/commit/1fe35c041a9279009c54917f3ed420825e2270bb))
+-   knappehøyde på mobil ([0296526](https://github.com/fremtind/jokul/commit/029652610aae0558749a1a12713bfde4052ba62b))
+-   legg til manglende box-shadow transition på secondary ([b453939](https://github.com/fremtind/jokul/commit/b45393934b21c35b0f1552d1430b867c04480a6c))
+-   spesifisitet for linjehøyde på mobil ([e5fcd48](https://github.com/fremtind/jokul/commit/e5fcd484379afca4c6bbcbe10fcad1b6cf8109b1))
+-   typografiregresjon i knapper på desktop ([afd481e](https://github.com/fremtind/jokul/commit/afd481ee6a9baf394bde6fa41c041bf0a459b19a))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt design for kompakte knapper ([86cfcf8](https://github.com/fremtind/jokul/commit/86cfcf8f0ddca7269d5550b450da71593e160fd6))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@7.0.13...@fremtind/jkl-button@8.0.0) (2022-06-07)
 
 ### Code Refactoring

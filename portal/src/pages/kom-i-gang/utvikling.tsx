@@ -2,7 +2,6 @@ import { NavCard } from "@fremtind/jkl-card-react";
 import { Link } from "@fremtind/jkl-core";
 import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@fremtind/jkl-table-react";
-import { motion } from "framer-motion";
 import { HeadProps, Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
@@ -14,6 +13,7 @@ import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, InlineCode, PageTitle, Paragraph, Strong } from "../../components/Typography";
 import { RootItem, useFullscreenMenuContext } from "../../fullscreenMenuContext";
 import { useNavigationLinks } from "../../layout/header/useNavigationLinks";
+import { MainContent } from "../../layout/MainContent";
 
 const pageTitle = "Praktisk info for utviklere";
 
@@ -22,14 +22,9 @@ export const Head: FC<HeadProps> = () => <Seo title={pageTitle} />;
 const PraktiskInfoUtviklere: FC = () => {
     const fullscreenMenuContext = useFullscreenMenuContext();
     const { menuItems } = useNavigationLinks();
+
     return (
-        <motion.main
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="jkl-portal__main"
-        >
+        <MainContent>
             <PageTitle>{pageTitle}</PageTitle>
             <Ingress>
                 Designsystemet blir både en ekstern avhengighet og et prosjekt du er med på å utvikle. Derfor er det et
@@ -42,7 +37,7 @@ const PraktiskInfoUtviklere: FC = () => {
                 React. Du installerer og oppgraderer Jøkul-pakker på akkurat samme måte. Jøkul er open source og
                 offentlig tilgjengelig, så du trenger ikke sette opp noe eget for å få tilgang – det bare funker.
             </Paragraph>
-            <CodeBlock>~ $ yarn add @fremtind/jkl-core @fremtind/jkl-webfonts</CodeBlock>
+            <CodeBlock>~ $ npm i @fremtind/jkl-core @fremtind/jkl-webfonts</CodeBlock>
 
             <HeadingLarge>Se hvilke pakker som finnes</HeadingLarge>
             <Paragraph>
@@ -74,7 +69,7 @@ const PraktiskInfoUtviklere: FC = () => {
                 layouten i prosjektet ditt etter egne behov.
             </Paragraph>
             <div className="jkl-portal-paragraph">
-                <Table fullWidth compact>
+                <Table fullWidth>
                     <TableHead>
                         <TableRow>
                             <TableHeader>Størrelse</TableHeader>
@@ -237,7 +232,7 @@ const PraktiskInfoUtviklere: FC = () => {
                     fullscreenMenuContext.setCurrentItem(menuItems[1] as RootItem);
                 }}
             />
-        </motion.main>
+        </MainContent>
     );
 };
 

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.8 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+# 2.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   regresjon i høykontrastmodus hvor ikonet forsvant ([d8ce2e3](https://github.com/fremtind/jokul/commit/d8ce2e37a7ee6f499c88a0c602d8ecc4a7a1097f))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   kompaktvariant av ikonknapp ([56f5e51](https://github.com/fremtind/jokul/commit/56f5e5102f4d2d9af46df39eb91f34701a2e3032))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## [1.0.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button@1.0.8...@fremtind/jkl-icon-button@1.0.9) (2022-07-29)
 
 ### Bug Fixes

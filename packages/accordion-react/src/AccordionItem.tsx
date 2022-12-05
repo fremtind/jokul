@@ -1,8 +1,8 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
-import classNames from "classnames";
+import cn from "classnames";
 import React, { FC, useState } from "react";
-import { ExpandArrow } from "./ExpandArrow";
+import { AccordionExpandArrow } from "./AccordionExpandArrow";
 
 export interface AccordionItemProps extends WithChildren {
     title: string;
@@ -22,13 +22,19 @@ export const AccordionItem: FC<AccordionItemProps> = ({
     const buttonId = useId("title");
     const contentId = useId("content");
     const [isOpen, setIsOpen] = useState(startExpanded);
-    const [elementRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
-    const componentClassName = classNames("jkl-accordion-item", className, {
-        "jkl-accordion-item--expanded": isOpen,
+    const [elementRef] = useAnimatedHeight<HTMLDivElement>(isOpen, {
+        easing: "exit",
+        timing: "expressive",
     });
 
     return (
-        <div data-testid="jkl-accordion-item" {...rest} className={componentClassName}>
+        <div
+            data-testid="jkl-accordion-item"
+            {...rest}
+            className={cn("jkl-accordion-item", className, {
+                "jkl-accordion-item--expanded": isOpen,
+            })}
+        >
             <button
                 id={buttonId}
                 className="jkl-accordion-item__title"
@@ -43,8 +49,8 @@ export const AccordionItem: FC<AccordionItemProps> = ({
                     }
                 }}
             >
-                <span className="jkl-accordion-item__title-text">{title}</span>
-                <ExpandArrow className="jkl-accordion-item__title__arrow" expanded={isOpen} />
+                {title}
+                <AccordionExpandArrow expanded={isOpen} />
             </button>
             <div
                 id={contentId}

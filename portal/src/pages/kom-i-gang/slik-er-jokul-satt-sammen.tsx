@@ -1,6 +1,5 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { ListItem, OrderedList } from "@fremtind/jkl-list-react";
-import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React, { FC } from "react";
@@ -8,19 +7,14 @@ import { Grid } from "../../components/Grid";
 import { Image } from "../../components/image";
 import { Seo } from "../../components/seo";
 import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
+import { MainContent } from "../../layout/MainContent";
 
 const pageTitle = "Slik er Jøkul satt sammen";
 
 export const Head: FC = () => <Seo title={pageTitle} />;
 
 const SlikErJokulSattSammen: FC = () => (
-    <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.35 }}
-        className="jkl-portal__main"
-    >
+    <MainContent>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
             Siden et system er summen av dets deler i samspill, så er det greit å ha en samlet oversikt over alle delene
@@ -95,7 +89,7 @@ const SlikErJokulSattSammen: FC = () => (
                 description="Branching, Variants, Auto-Layout, breakpoints, praktiske plugins, “uskrevne regler” og mer."
             />
         </Grid>
-    </motion.main>
+    </MainContent>
 );
 
 export default SlikErJokulSattSammen;

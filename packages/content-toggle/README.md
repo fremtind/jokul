@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/conte
 
 **Tips:** om du bruker [React-pakken](../content-toggle-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-content-toggle` eller `npm i @fremtind/jkl-content-toggle`.
+1. `npm i @fremtind/jkl-content-toggle`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

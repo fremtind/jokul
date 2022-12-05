@@ -130,7 +130,7 @@ describe("a11y", () => {
 
     test("compact radio buttons should be a11y compliant", async () => {
         const { container } = render(
-            <RadioButtonGroup legend="Er du fornøyd?" name="happy" forceCompact>
+            <RadioButtonGroup legend="Er du fornøyd?" name="happy" density="compact">
                 <RadioButton value="y">Ja</RadioButton>
                 <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,

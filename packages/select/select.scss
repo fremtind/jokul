@@ -1,16 +1,7 @@
 @use "sass:color";
+@use "sass:math";
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/variables/colors";
-
-$_transition-timing: 200ms cubic-bezier(0.7, 0, 0.3, 1);
-
-$_value-height: jkl.rem(32px);
-$_value-font-size: jkl.rem(22px);
-
-$_arrow-height: jkl.rem(16px);
-$_arrow-width: jkl.rem(13px);
-
-$_select-padding: jkl.$spacing-xs jkl.$spacing-s;
+@use "~@fremtind/jkl-core/jkl/colors";
 
 $_select-focus-color: jkl.$color-granitt;
 $_select-search-input-selection-color: color.scale(
@@ -52,6 +43,37 @@ $_select-search-input-selection-color--inverted: color.scale(
     --jkl-select-hover-option-background-color: #{jkl.$color-stein};
     --jkl-select-search-input-selection-color: #{$_select-search-input-selection-color--inverted};
     --jkl-select-search-input-error-selection-color: #{$_select-search-input-selection-color};
+}
+
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-select", "body");
+
+    --jkl-select-input-height: #{jkl.rem(48px)};
+    --jkl-select-arrow-height: #{jkl.rem(16px)};
+    --jkl-select-arrow-width: #{jkl.rem(13px)};
+    --jkl-select-arrow-right: #{jkl.$spacing-m};
+    --jkl-select-button-padding: #{jkl.$spacing-xs} #{jkl.rem(32px)} #{jkl.$spacing-xs} #{jkl.$spacing-s};
+    --jkl-select-search-input-padding: var(--jkl-select-button-padding);
+    --jkl-select-native-padding: 0 #{jkl.$spacing-xl} 0 #{jkl.$spacing-xs};
+    --jkl-select-option-padding: #{jkl.$spacing-xs} #{jkl.$spacing-s};
+
+    @include jkl.small-device {
+        --jkl-select-input-height: #{jkl.rem(44px)};
+        --jkl-select-arrow-right: #{jkl.$spacing-xs};
+    }
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-select", "small");
+
+    --jkl-select-input-height: #{jkl.rem(32px)};
+    --jkl-select-arrow-height: #{jkl.rem(13px)};
+    --jkl-select-arrow-width: #{jkl.rem(10px)};
+    --jkl-select-arrow-right: #{jkl.rem(11px)};
+    --jkl-select-button-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} #{jkl.$spacing-xs};
+    --jkl-select-search-input-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-xs};
+    --jkl-select-native-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-l} #{jkl.$spacing-2xs} #{jkl.$spacing-2xs};
+    --jkl-select-option-padding: #{jkl.$spacing-2xs} #{jkl.$spacing-xs};
 }
 
 .jkl-select {
@@ -99,6 +121,7 @@ $_select-search-input-selection-color--inverted: color.scale(
 
     &__search-input {
         box-sizing: border-box;
+        padding: var(--jkl-select-search-input-padding);
         color: var(--jkl-select-text-color);
 
         /* Color of text selection */
@@ -114,7 +137,7 @@ $_select-search-input-selection-color--inverted: color.scale(
     /* The main select element showing the current value */
     &__search-input,
     &__button {
-        @include jkl.text-style("body/large-screen");
+        @include jkl.use-font-variables("jkl-select");
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -122,13 +145,10 @@ $_select-search-input-selection-color--inverted: color.scale(
         color: var(--jkl-select-text-color);
         cursor: pointer;
 
-        height: jkl.rem(48px);
+        height: var(--jkl-select-input-height);
         border-radius: jkl.rem(3px);
         border: jkl.rem(1px) solid var(--jkl-select-border-color);
         box-shadow: 0 0 0 jkl.rem(1px) transparent;
-
-        padding: $_select-padding;
-        padding-right: $_arrow-width + 2 * jkl.$spacing-m;
         text-align: left;
         width: 100%;
 
@@ -152,13 +172,62 @@ $_select-search-input-selection-color--inverted: color.scale(
         }
     }
 
+    &__button {
+        padding: var(--jkl-select-button-padding);
+    }
+
+    & select.jkl-select__button {
+        padding: var(--jkl-select-native-padding);
+    }
+
     /* The dropdown arrow */
     &__arrow {
         position: absolute;
-        right: jkl.$spacing-m;
+        right: var(--jkl-select-arrow-right);
         top: 50%;
         transform: translateY(-50%);
         color: inherit;
+
+        height: var(--jkl-select-arrow-height);
+        width: var(--jkl-select-arrow-width);
+        clip: rect(auto, auto, auto, auto);
+        clip-path: inset(0 0 0 0);
+
+        pointer-events: none;
+
+        @include jkl.motion;
+        transition-property: transform, color;
+
+        &-up,
+        &-down {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            height: var(--jkl-select-arrow-height);
+            width: var(--jkl-select-arrow-width);
+            @include jkl.motion;
+            transition-property: transform;
+        }
+
+        &-up {
+            top: 100%;
+        }
+
+        &-down {
+            top: 0;
+        }
+
+        &--expanded {
+            .jkl-select__arrow-up,
+            .jkl-select__arrow-down {
+                @include jkl.motion("standard", "expressive");
+                transform: translate(0, -100%);
+            }
+        }
+
+        @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
     }
 
     /* The wrapper for the dropdown list */
@@ -178,7 +247,8 @@ $_select-search-input-selection-color--inverted: color.scale(
         box-sizing: border-box;
 
         overflow-y: auto;
-        max-height: 60vh;
+        // Sett makshøyde på listen til høyden av (maxShownOptions + 0.5) ganger høyden på ett enlinjes valg
+        max-height: calc(calc(var(--jkl-select-max-shown-options, 5) + 0.5) * var(--jkl-select-input-height));
     }
 
     /* A wrapper for the list items (<ul>) */
@@ -192,23 +262,26 @@ $_select-search-input-selection-color--inverted: color.scale(
 
     /* The individual options in the dropdown list */
     &__option {
-        @include jkl.text-style("body/large-screen");
+        @include jkl.use-font-variables("jkl-select");
         color: unset;
         display: flex; // avoids wrapping long names "under" the focus arrow
         align-items: flex-start;
         border: 0; // removes native styling
         width: 100%;
         background-color: inherit;
-        min-height: jkl.rem(48px);
+        min-height: var(--jkl-select-input-height);
         text-align: left;
         @include jkl.motion;
         transition-property: color, background-color;
         position: relative;
-        padding: $_select-padding;
+        padding: var(--jkl-select-option-padding);
         cursor: pointer;
 
+        /* For å unngå "dobbel" markering skrur vi av markering på hover i React-
+        komponenten med data-focus="controlled". Uten dette satt vil valgene
+        markeres ved hover som normalt. */
         &:focus,
-        &:hover {
+        :not([data-focus="controlled"]) > &:hover {
             color: var(--jkl-select-hover-option-color);
             background-color: var(--jkl-select-hover-option-background-color);
         }
@@ -256,23 +329,6 @@ $_select-search-input-selection-color--inverted: color.scale(
         }
     }
 
-    @include jkl.compact-mode {
-        & .jkl-select__search-input,
-        & .jkl-select__button {
-            @include jkl.text-style("body/small-screen") {
-                line-height: jkl.rem(24px);
-            }
-            height: jkl.rem(40px);
-        }
-
-        & .jkl-select__option {
-            @include jkl.text-style("body/small-screen") {
-                line-height: jkl.rem(24px);
-            }
-            min-height: jkl.rem(40px);
-        }
-    }
-
     @include jkl.forced-colors-mode {
         // Vi er en button (hvis ikke native) og får ButtonText, men vi later som vi er en select, og den har CanvasText
         & .jkl-select__button,
@@ -300,50 +356,5 @@ $_select-search-input-selection-color--inverted: color.scale(
                 border-bottom: 1px solid Highlight;
             }
         }
-    }
-}
-
-.jkl-expand-arrow {
-    height: $_arrow-height;
-    width: $_arrow-width;
-    clip: rect(auto, auto, auto, auto);
-    clip-path: inset(0 0 0 0);
-
-    pointer-events: none;
-
-    @include jkl.motion;
-    transition-property: transform, color;
-
-    &__up,
-    &__down {
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        height: $_arrow-height;
-        width: $_arrow-width;
-        @include jkl.motion;
-        transition-property: transform;
-    }
-
-    &__up {
-        top: 100%;
-    }
-
-    &__down {
-        top: 0;
-    }
-
-    &--expanded {
-        .jkl-expand-arrow__up,
-        .jkl-expand-arrow__down {
-            @include jkl.motion("standard", "expressive");
-            transform: translate(0, -100%);
-        }
-    }
-
-    .jkl-select & {
-        @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
     }
 }

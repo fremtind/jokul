@@ -8,7 +8,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/mixin
 
 ## Installasjon
 
-1. `yarn add @fremtind/jkl-core` eller `npm i @fremtind/jkl-core`.
+1. `npm i @fremtind/jkl-core`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js
@@ -33,6 +33,27 @@ import "@fremtind/jkl-core/core.min.css";
 
 ## Bruk
 
+### Klassen `jkl`
+
+For at CSSen i Jøkul skal fungere som forventet må du sette klassen `jkl` på rotnivå i applikasjonen din.
+
+Vi bruker `jkl`-klassen til å blant annet:
+
+-   Sette riktige fonter.
+-   Gi standardfarger til tekst og bakgrunn.
+-   Noen CSS resets.
+
+Du har kanskje en komponent som heter `Layout` eller `App` hvor du kan sette denne klassen? Om du er usikker, sett klassen på `body`.
+
+```tsx
+import React, { FC } from "react";
+import { WithChildren } from "@fremtind/jkl-core";
+
+export const Layout: FC<WithChildren> = ({ children }) => {
+    return <div className="jkl">{children}</div>;
+};
+```
+
 ### `initTabListener()`
 
 Av tilgjengelighetshensyn viser vi fokusomriss på interaktive elementer når man navigerer en løsning ved hjelp av tastaturet. Normalt blir disse omrissene også vist når man bruker musen for navigasjon, noe vi ikke ønsker.
@@ -47,9 +68,9 @@ initTabListener();
 
 ### Kompakt modus
 
-Noen løsninger, spesielt rådgiverløsninger, har behov for å vise veldig mye informasjon på skjermen samtidig. Derfor ønsker vi å tilby kompakte versjoner av komponentene til dette formålet. Vi bruker BEM-modifieren `--compact` for å markere kompakt variant av en komponent.
+Noen løsninger, spesielt rådgiverløsninger, har behov for å vise veldig mye informasjon på skjermen samtidig. Derfor ønsker vi å tilby kompakte versjoner av komponentene til dette formålet.
 
-For å gjøre det enklere å ha kompakt modus på en hel løsning tillater vi å sette en attributt `data-compactlayout` på `<body>` (eller et annet element) slik at alle komponenter inne i dette elementet blir kompakte.
+For å gjøre det enklere å ha kompakt modus på en hel løsning tillater vi å sette en attributt `data-layout-density="compact"` på `<body>` (eller et annet element) slik at alle komponenter inne i dette elementet blir kompakte.
 
 ### `getValuePair()`
 

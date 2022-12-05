@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.2.6 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 10.2.3 (2022-11-11)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 10.2.2 (2022-11-09)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+# 10.2.0 (2022-10-10)
+
+### Features
+
+-   la useIntersectionObserver ta inn flere elementer ([be5ca18](https://github.com/fremtind/jokul/commit/be5ca18dc3ff23181ffd360513fcbbab49ac9582)), closes [#3182](https://github.com/fremtind/jokul/issues/3182)
+
+# 10.1.0 (2022-10-07)
+
+### Bug Fixes
+
+-   arraystøtte for useAriaLiveRegion ([e1b3b99](https://github.com/fremtind/jokul/commit/e1b3b99911696205fa8ac66ff16ca110bc125d7b))
+
+### Features
+
+-   legg til ny hook useAriaLiveRegion ([11c91f1](https://github.com/fremtind/jokul/commit/11c91f106151078729a1d6fa7bf7b47c402178af)), closes [#3155](https://github.com/fremtind/jokul/issues/3155)
+
+# 10.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   easing og timing options i useAnimatedHeight brukes nå for oppslag, ikke rett som verdier ([07bdb8e](https://github.com/fremtind/jokul/commit/07bdb8e2f9d6afb806518c88e0ecfc2a349f8d54))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## 9.1.6 (2022-08-15)
 
 ### Bug Fixes

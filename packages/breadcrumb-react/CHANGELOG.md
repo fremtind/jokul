@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.10 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 3.0.7 (2022-11-11)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 3.0.6 (2022-11-09)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-breadcrumb-react@2.0.13...@fremtind/jkl-breadcrumb-react@3.0.0) (2022-09-08)
+
+### Bug Fixes
+
+-   bruk Jøkul-outline rundt siste brødsmule i sti ([1cdab46](https://github.com/fremtind/jokul/commit/1cdab4658168d353d673b10db3f2953ef36c1418))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   legg til mulighet å skru av compact ([7ab30e1](https://github.com/fremtind/jokul/commit/7ab30e1b3fc3997f980765894e2113ed7c855966))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## [2.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-breadcrumb-react@2.0.2...@fremtind/jkl-breadcrumb-react@2.0.3) (2022-06-13)
 
 ### Bug Fixes

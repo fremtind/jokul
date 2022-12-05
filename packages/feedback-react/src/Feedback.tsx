@@ -14,6 +14,8 @@ interface Props {
     type: "radio" | "smiley";
     /** Spørsmålet som stilles til brukeren */
     label: string;
+    /** Hjelpetekst til hovedspørsmålet */
+    helpLabel?: string;
     /** Svaralternativer til spørsmålet */
     options: FeedbackOption[];
     /** Dersom du vil stille et åpent spørsmål i tillegg kan du legge det til her */
@@ -49,7 +51,7 @@ export const Feedback = ({
     const [contactSubmitted, setContactSubmitted] = useState(false);
 
     return (
-        <div className={`jkl-feedback ${className || ""}`} aria-live="polite">
+        <div className={`jkl-feedback ${className || ""}`} data-testid="feedback">
             <FeedbackContextProvider
                 value={{
                     feedbackSubmitted,
@@ -65,9 +67,13 @@ export const Feedback = ({
             >
                 {!followupStarted && <MainQuestion {...mainQuestionProps} />}
                 {feedbackSubmitted && !contactSubmitted && followup && <Followup {...followup} />}
-                {/* Show contact question after followup, or after feedback if no followup */}
-                {((!followup && feedbackSubmitted) || followupSubmitted) && contactQuestion && (
-                    <ContactQuestion {...contactQuestion} />
+                {contactQuestion && (
+                    <div aria-live="polite">
+                        {/* Show contact question after followup, or after feedback if no followup */}
+                        {((!followup && feedbackSubmitted) || followupSubmitted) && (
+                            <ContactQuestion {...contactQuestion} />
+                        )}
+                    </div>
                 )}
             </FeedbackContextProvider>
         </div>

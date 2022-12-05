@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { DatePicker, formatInput, isBlurTargetOutside } from "../src";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Utvidet velger", "Compact", "Med feil", "Med hjelpetekst"],
+    boolProps: ["Utvidet velger", "Med feil", "Med hjelpetekst"],
     choiceProps: [
         {
             name: "Variant",
@@ -32,7 +32,6 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({ boolValues, choic
             label="Velg startdato for forsikringen"
             labelProps={{ variant }}
             extended={boolValues && boolValues["Utvidet velger"]}
-            forceCompact={boolValues && boolValues["Compact"]}
             errorLabel={errorLabel}
             name="datepicker"
             helpLabel={helpLabel}
@@ -107,11 +106,6 @@ export const datepickerExampleCode = ({ boolValues, choiceValues }: ExampleCompo
     boolValues?.["Utvidet velger"]
         ? `
     extended`
-        : ""
-}${
-    boolValues?.["Compact"]
-        ? `
-    forceCompact`
         : ""
 }
 />

@@ -9,7 +9,6 @@ export interface LoaderProps {
     textDescription: string;
     className?: string;
     dataTestAutoId?: string;
-    politeness?: "polite" | "assertive";
     role?: AriaRole;
     inline?: boolean;
     /**
@@ -25,7 +24,6 @@ export const Loader = ({
     textDescription,
     className,
     dataTestAutoId = "jkl-loader",
-    politeness = "polite",
     inline = false,
     ...rest
 }: LoaderProps): JSX.Element | null => {
@@ -45,11 +43,9 @@ export const Loader = ({
         <span
             aria-busy="true"
             aria-label={textDescription}
-            aria-live={politeness}
             className={componentClassName}
             data-testautoid={dataTestAutoId}
             data-testid="jkl-loader"
-            role="alert"
             title={textDescription}
             {...rest}
         >

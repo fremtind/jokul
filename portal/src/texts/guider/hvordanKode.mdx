@@ -23,14 +23,14 @@ Om du er usikker på noe eller står fast er det kort vei til å få hjelp på [
 Dette må være installert på maskinen for å jobbe i Jøkul:
 
 -   [Node](https://nodejs.org/en/download/) Long Term Support release (LTS)
--   [Yarn Classic](https://classic.yarnpkg.com/lang/en/)
+-   [pnpm](https://pnpm.io/installation/)
 -   [Git](https://git-scm.com) 2.0.0 eller nyere
 
 Når maskinen er klar er det tre steg for å komme i gang:
 
 1. Klon [Jøkul-biblioteket](https://github.com/fremtind/jokul) fra GitHub (du kan lage deg en fork om du ikke har tilgang, eller høre med nærmeste leder om å bli lagt til i GitHub-organisasjonen)
 2. Lag en ny branch basert på `main`-branchen
-3. Bygg prosjektet med kommandoen `yarn boot`
+3. Bygg prosjektet med kommandoen `pnpm boot`
 
 ## Her finner du pakkene
 
@@ -49,7 +49,7 @@ export interface LoaderProps {
 }
 ```
 
-Før vi gjør en endring er det greit å sjekke at vi har en oppdatert `main`-branch. Om det er første gang vi gjør en endring i Jøkul må vi ha kjørt `yarn boot`.
+Før vi gjør en endring er det greit å sjekke at vi har en oppdatert `main`-branch. Om det er første gang vi gjør en endring i Jøkul må vi ha kjørt `pnpm boot`.
 
 ### Gjør endringen på en ny branch
 
@@ -62,7 +62,7 @@ $ git checkout -b feat/loader-id
 Her har vi valgt å se på dette som en ny _feature_. Om dette hadde vært en bugfix ville det vært naturlig å starte branchnavnet med `fix/`.
 
 <aside className="jkl-portal-paragraph">
-    <InfoMessageBox role="none presentation" forceCompact fullWidth>
+    <InfoMessageBox role="none presentation" fullWidth>
         <p className="jkl-small">
             Ikke bruk mye tid på branchnavnet! Det viktiste er at du finner igjen branchen din senere om du skulle
             trenge det.
@@ -79,9 +79,9 @@ export interface LoaderProps {
 }
 ```
 
-Før vi lager en commit er det lurt å sjekke at endringen vår ikke har ødelagt noe. For å være _helt_ sikker kan du kjøre kommandoene `yarn build` og `yarn ci:test` på toppnivå i Jøkul (altså `./`, ikke i mappen `./packages/loader-react`). Det kan ta litt tid.
+Før vi lager en commit er det lurt å sjekke at endringen vår ikke har ødelagt noe. For å være _helt_ sikker kan du kjøre kommandoene `pnpm build` og `pnpm ci:test` på toppnivå i Jøkul (altså `./`, ikke i mappen `./packages/loader-react`). Det kan ta litt tid.
 
-I akkurat dette tilfellet har vi bare endret en typedefinisjon, så det holder å kjøre `yarn typecheck`. Hvis det ikke kommer noen feilmeldinger er alt klart for å lage en commit.
+I akkurat dette tilfellet har vi bare endret en typedefinisjon, så det holder å kjøre `pnpm typecheck`. Hvis det ikke kommer noen feilmeldinger er alt klart for å lage en commit.
 
 ### Visuelle regresjonstester
 
@@ -92,7 +92,7 @@ Hvis du gjør en villet endring i utseendet til en komponent må mappen `<pakken
 I vårt tilfelle er det ingen visuell endring, så vi hopper over dette steget.
 
 <aside className="jkl-portal-paragraph">
-    <InfoMessageBox role="none presentation" forceCompact fullWidth>
+    <InfoMessageBox role="none presentation" fullWidth>
         <p className="jkl-small">
             Siden skjermbilder tas av eksemplene må du også slette snapshots om du for eksempel endrer navn eller
             rekkefølge på spakene som styrer eksempelet.
@@ -110,17 +110,17 @@ Vi bruker [Jest](https://jestjs.io/) som test runner og [React testing library](
 
 ### Lag en commit
 
-Til å lage commits bruker vi kommandoen `yarn commit`. Grunnen til det er at commitmeldingene brukes for å generere changelogs og versjonsnummer basert på [Semantic Versioning](https://semver.org). Det kan vi gjøre fordi `yarn commit` formaterer commitmeldinger på en spesiell måte kalt [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Hvis en commitmelding starter med `feat:` vil det automatisk lages en _minor_-release av pakken som ble endret.
+Til å lage commits bruker vi kommandoen `pnpm commit`. Grunnen til det er at commitmeldingene brukes for å generere changelogs og versjonsnummer basert på [Semantic Versioning](https://semver.org). Det kan vi gjøre fordi `pnpm commit` formaterer commitmeldinger på en spesiell måte kalt [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Hvis en commitmelding starter med `feat:` vil det automatisk lages en _minor_-release av pakken som ble endret.
 
 <aside className="jkl-portal-paragraph">
-    <WarningMessageBox role="none presentation" forceCompact fullWidth>
+    <WarningMessageBox role="none presentation" fullWidth>
         <p className="jkl-small">
-            Bruk <code>yarn commit</code> for å lage commits!
+            Bruk <code>pnpm commit</code> for å lage commits!
         </p>
     </WarningMessageBox>
 </aside>
 
-Når vi kjører `yarn commit` startes det en veiviser. Her blir du bedt om å velge hvilken type endring vi har gjort. I vårt tilfelle velger vi `feat:`. Du kan skrive typen, eller velge med piltastene. Trykk Enter.
+Når vi kjører `pnpm commit` startes det en veiviser. Her blir du bedt om å velge hvilken type endring vi har gjort. I vårt tilfelle velger vi `feat:`. Du kan skrive typen, eller velge med piltastene. Trykk Enter.
 
 Neste trinn i veiviseren er _commit-tittelen_. Her skriver du kort hva som er gjort, for eksempel `la til id i LoaderProps`. Trykk Enter.
 
@@ -143,7 +143,7 @@ Pull requests (PR) lager du [på GitHub](https://github.com/fremtind/jokul/compa
 Når du lager en PR blir du vist et skjema med en mal som kan fylles ut. Det er supert om du gir en kort beskrivelse av innholdet i pull requesten, og lenker til relevante issues og discussions. Sjekk gjerne også av punktene i sjekklisten ved å endre `[ ]` til `[x]`.
 
 <aside className="jkl-portal-paragraph">
-    <InfoMessageBox role="none presentation" fullWidth forceCompact title="Sender du en pull request fra en fork?">
+    <InfoMessageBox role="none presentation" fullWidth title="Sender du en pull request fra en fork?">
         <p className="jkl-small">
             Sett <code>external-contributions</code> som <i>base</i> for pull requesten, så loser en maintainer koden
             videre til <code>main</code>.
@@ -183,7 +183,7 @@ Dokumentasjon skrives i `MDX`-filer, og disse ligger i egne `documentation`-mapp
 
 ### Slik lager du en ny pakke
 
-1. Gå til rot, kjør kommandoen `yarn scaffold`, og følg instruksene i terminalen.
+1. Gå til rot, kjør kommandoen `pnpm scaffold`, og følg instruksene i terminalen.
 2. Etter kommandoen har kjørt vil det være opprettet to mapper i packages mappen (komponent-navn og komponent-navn-react).
 
 Vi har noen minstekrav til dokumentasjon som den nye komponenten din **må** følge. Disse kravene gjelder dokumentasjonen som vises under Komponenter. I tillegg **må** det ligge en Figma-branch klar til å merges inn i [Jøkul-biblioteket](https://www.figma.com/file/y9JtTf3whfTCHCdYSUXVQ5/J%C3%B8kul-bibliotek-2.0?node-id=0%3A1) som dokumenterer komponenten og alle varianter. Tiden mellom merging av kode og merging av design må være så kort som mulig.
@@ -206,10 +206,10 @@ Du kan se på dokumentasjonen for [Tag](/komponenter/tag) og [Alert message](/ko
 
 ### Slik lenker du pakker sammen
 
-Hvis du vil legge til en pakke i en annen, kan du fra hvor som helst i prosjektet kjøre `yarn lerna add <pakke-som-skal-legges-til> --scope=<pakken-den-skal-inn-i>`. For eksempel vil `yarn lerna add @fremtind/jkl-core scope=@fremtind/jkl-button` legge til `jkl-core` som en avhengighet i `jkl-button`-pakken. Når du legger til avhengigheter på denne måten, kan Lerna bruke den lokale versjonen av `jkl-core` i stedet for å laste ned fra NPM, slik at du kan utvikle raskere. Dette fungerer bare for andre pakker i Jøkul.
+Hvis du vil legge til en pakke i en annen, kan du fra hvor som helst i prosjektet kjøre `pnpm lerna add <pakke-som-skal-legges-til> --scope=<pakken-den-skal-inn-i>`. For eksempel vil `pnpm lerna add @fremtind/jkl-core scope=@fremtind/jkl-button` legge til `jkl-core` som en avhengighet i `jkl-button`-pakken. Når du legger til avhengigheter på denne måten, kan Lerna bruke den lokale versjonen av `jkl-core` i stedet for å laste ned fra NPM, slik at du kan utvikle raskere. Dette fungerer bare for andre pakker i Jøkul.
 
 ### Slik legger du til en avhengighet
 
-Det finnes avhengigheter på ulike nivåer i Jøkul. Globale avhengigheter, for eksempel de som trengs til å kjøre en byggejobb, ligger på rotnivå. Du kan legge til en ny pakke på rotnivå, med kommandoen `yarn add pakke -W`. For å legge til som en utviklingsavhengighet bruker du `-DW`.
+Det finnes avhengigheter på ulike nivåer i Jøkul. Globale avhengigheter, for eksempel de som trengs til å kjøre en byggejobb, ligger på rotnivå. Du kan legge til en ny pakke på rotnivå, med kommandoen `pnpm add pakke -w`. For å legge til som en utviklingsavhengighet bruker du `-w -D`.
 
-Lokale avhengigheter, som trengs for at en pakke skal fungere i bruk, legger vi vanligvis på pakkenivå. Se "Slik lenker du pakker sammen". Bruk kommandoen `yarn add` for å legge til pakker som ikke er en del av Jøkul. Alternativt kan du bruke [`lerna add`](https://github.com/lerna/lerna/tree/main/commands/add#readme). Før du gjør det, er det lurt å tenke på om de skal sendes med komponenten eller om brukeren av komponenten har ansvaret for å ha avhengigheten i sitt prosjekt. React bør for eksempel være en `peerDependency`, slik at brukeren ikke ender opp med flere utgaver av React i sin pakke.
+Lokale avhengigheter, som trengs for at en pakke skal fungere i bruk, legger vi vanligvis på pakkenivå. Se "Slik lenker du pakker sammen". Bruk kommandoen `pnpm add` for å legge til pakker som ikke er en del av Jøkul. Alternativt kan du bruke [`lerna add`](https://github.com/lerna/lerna/tree/main/commands/add#readme). Før du gjør det, er det lurt å tenke på om de skal sendes med komponenten eller om brukeren av komponenten har ansvaret for å ha avhengigheten i sitt prosjekt. React bør for eksempel være en `peerDependency`, slik at brukeren ikke ender opp med flere utgaver av React i sin pakke.

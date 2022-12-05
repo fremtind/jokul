@@ -6,7 +6,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/logo)
 
 **Tips:** om du bruker [React-pakken](../logo-react/) trenger du ikke installere denne pakken direkte.
 
-1. `yarn add @fremtind/jkl-logo` eller `npm i @fremtind/jkl-logo`.
+1. `npm i @fremtind/jkl-logo`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js

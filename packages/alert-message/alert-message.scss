@@ -1,6 +1,6 @@
 @use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/variables/colors";
+@use "~@fremtind/jkl-core/jkl/colors";
 
 $_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
 $_dismiss-animation-duration: jkl.timing("lazy");
@@ -13,6 +13,26 @@ $_bg-color--feil: colors.varslingsfarge("feil");
 $_bg-color--info: colors.varslingsfarge("info");
 $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
+@include jkl.comfortable-density-variables {
+    --jkl-alert-message-icon-height: #{jkl.rem(18px)};
+    --jkl-alert-message-icon-padding: #{jkl.rem(7px)} 0 0 0;
+    --jkl-alert-message-content-padding: #{jkl.$spacing-l};
+    --jkl-alert-message-dismiss-button-size: #{jkl.rem(44px)};
+    --jkl-alert-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)} auto;
+    --jkl-alert-message-message-margin: 0 #{jkl.$spacing-m};
+    @include jkl.declare-font-variables("jkl-alert-message-message", "body");
+}
+
+@include jkl.compact-density-variables {
+    --jkl-alert-message-icon-height: #{jkl.rem(12px)};
+    --jkl-alert-message-icon-padding: #{jkl.rem(5px)} 0 0 #{jkl.rem(2px)};
+    --jkl-alert-message-content-padding: #{jkl.$spacing-xs};
+    --jkl-alert-message-dismiss-button-size: #{jkl.rem(32px)};
+    --jkl-alert-message-dismiss-button-margin: -#{jkl.rem(3px)} -#{jkl.rem(6px)} -#{jkl.rem(4.5px)} auto;
+    --jkl-alert-message-message-margin: 0 #{jkl.$spacing-s};
+    @include jkl.declare-font-variables("jkl-alert-message-message", "small");
+}
+
 .jkl-alert-message {
     width: 100%;
     background-color: $_bg-color--default;
@@ -21,44 +41,43 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__content {
         box-sizing: border-box;
-        padding: jkl.$spacing-m jkl.$spacing-l;
+        padding: var(--jkl-alert-message-content-padding);
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         width: 100%;
         margin: 0 auto;
     }
 
     &__icon {
-        padding-right: jkl.$spacing-m;
         align-self: flex-start;
-        padding-top: jkl.$spacing-3xs;
-        height: jkl.rem(24px);
+        height: var(--jkl-alert-message-icon-height);
+        margin: var(--jkl-alert-message-icon-padding);
+        flex-shrink: 0;
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
 
     &__message {
-        margin-right: jkl.$spacing-m;
+        @include jkl.use-font-variables("jkl-alert-message-message");
+        margin: var(--jkl-alert-message-message-margin);
     }
 
     &__dismiss-button {
         @include jkl.reset-outline;
         background-color: transparent;
+        border-radius: jkl.rem(3px);
         padding: 0;
-        margin-left: auto;
-        margin-top: jkl.$spacing-2xs;
         cursor: pointer;
-        width: jkl.rem(20px);
-        height: jkl.rem(20px);
+
+        // Sørg for å ha en stor nok touch target.
+        width: var(--jkl-alert-message-dismiss-button-size);
+        height: var(--jkl-alert-message-dismiss-button-size);
+        margin: var(--jkl-alert-message-dismiss-button-margin);
 
         color: inherit;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         @include jkl.forced-colors-mode {
             background-color: ButtonFace;
-            margin-top: jkl.rem(-1px);
-            width: jkl.rem(32px);
-            height: jkl.rem(32px);
-            padding: jkl.rem(4px);
         }
 
         align-self: flex-start;
@@ -71,16 +90,11 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
         &:focus {
             @include jkl.keyboard-navigation {
-                position: relative;
+                outline: 2px solid $_dismiss-focus-border-color;
 
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: jkl.rem(-2px);
-                    right: jkl.rem(-2px);
-                    bottom: jkl.rem(-2px);
-                    left: jkl.rem(-2px);
-                    box-shadow: 0 0 0 jkl.rem(2px) $_dismiss-focus-border-color;
+                @include jkl.forced-colors-mode {
+                    outline: 2px solid ButtonText;
+                    outline-offset: 2px;
                 }
             }
         }

@@ -1,0 +1,21 @@
+@use "motion";
+
+@mixin chevron($size, $color, $weight: 0.125rem, $rotate: 0, $state: closed) {
+    box-sizing: border-box;
+    width: $size;
+    height: $size;
+
+    transform-origin: 26.33% 73.66%; // places origin in center of chevron
+    transform: rotate((-45 + $rotate) * 1deg); // default orientation is pointing down
+
+    border-left: $weight solid $color;
+    border-bottom: $weight solid $color;
+    transition: transform motion.timing("lazy") ease;
+}
+
+@mixin decorative($content) {
+    // Detaljer finnes her: https://github.com/fremtind/jokul/issues/2774#issuecomment-1056575107
+    content: $content; // Fallback for nettlesere som ikke støtter ny syntaks (Firefox, Safari)
+    content: $content / ""; // Tom alternativ tekst
+    alt: " "; // WebKit-alternativ, fases ut når varianten fra speccen er støttet
+}

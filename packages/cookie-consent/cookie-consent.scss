@@ -5,6 +5,9 @@ $_container-width: jkl.rem(660px);
 $_container-width--compact: jkl.rem(320px);
 
 .jkl-cookie-consent-modal {
+    position: fixed;
+    z-index: jkl.$z-index--modal !important;
+
     &[aria-hidden="true"] {
         display: none;
     }
@@ -17,7 +20,6 @@ $_container-width--compact: jkl.rem(320px);
         right: 0;
         bottom: 0;
         transition: 0.2s;
-        z-index: jkl.$z-index--modal !important;
     }
 
     &__content {

@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.1.11 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 9.1.5 (2022-10-04)
+
+### Bug Fixes
+
+-   la brukeren scrolle i TextArea som starter åpent ([eba61ca](https://github.com/fremtind/jokul/commit/eba61caecef3282aaaf7fda56096c2600d12c008)), closes [#3140](https://github.com/fremtind/jokul/issues/3140)
+
+## 9.1.4 (2022-09-29)
+
+### Bug Fixes
+
+-   push tekst i text-input to pixler opp ([e51264f](https://github.com/fremtind/jokul/commit/e51264fe03a2e1edc217aa55fa6278f9ebf04b7f)), closes [#3131](https://github.com/fremtind/jokul/issues/3131)
+
+## [9.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.1.2...@fremtind/jkl-text-input@9.1.3) (2022-09-21)
+
+### Bug Fixes
+
+-   bedre håndtering av border på åpen autosuggest ([581b6fb](https://github.com/fremtind/jokul/commit/581b6fbf3765c2998adf5e921e7abdb0a1d48289))
+-   bruk riktig padding på compact TextInput ([33bce75](https://github.com/fremtind/jokul/commit/33bce75abd1830b2a50ddf4008bd2b857645abfa))
+-   fjern unødvendig padding og ubrukt variabel ([fb9325e](https://github.com/fremtind/jokul/commit/fb9325ed963d33bd7e7b6f2a9ac46e7f12075c37))
+-   unngå breaking change for de som bare bruker stilpakken ([924b96c](https://github.com/fremtind/jokul/commit/924b96ca9e07ea3716d36d8ecd2c1e1b8810b2e0))
+
+## [9.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.1.1...@fremtind/jkl-text-input@9.1.2) (2022-09-13)
+
+### Bug Fixes
+
+-   høyde på option lik Select ([4f50b31](https://github.com/fremtind/jokul/commit/4f50b31561bad7990da813e14fce1948dfcb98aa))
+
+# [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.0.0...@fremtind/jkl-text-input@9.1.0) (2022-09-08)
+
+### Features
+
+-   support fallback items on non-matching search ([1b7b431](https://github.com/fremtind/jokul/commit/1b7b4311cc16b00ee312ef5ca8ba692b71b16299)), closes [#3062](https://github.com/fremtind/jokul/issues/3062)
+
+# 9.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   juster høyden til text-input på mobil ([9bef706](https://github.com/fremtind/jokul/commit/9bef7067375c347a5bdac457f4da7ae0f36e1821))
+-   kompakt datepicker via data-compactlayout ([f175814](https://github.com/fremtind/jokul/commit/f1758148cad4d3e9da9a99116944405ebb965c0b))
+-   legg til kompakt tekstfelt for autosuggest, datepicker--compact ([e65e48b](https://github.com/fremtind/jokul/commit/e65e48bd2d403b279bce7dcccb5b09c223083569))
+-   størrelse på handlingsikon ved kompakt ([b63bb6e](https://github.com/fremtind/jokul/commit/b63bb6e0409635b1edbd2d031cd2c3a7a9ec1951))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+-   nytt kompakt design for TextInput, TextArea, Autosuggest ([8ccac05](https://github.com/fremtind/jokul/commit/8ccac0564e62d43cfe3110da5d15af1cbc1fb04c))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
 ## [8.0.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@8.0.10...@fremtind/jkl-text-input@8.0.11) (2022-07-29)
 
 ### Bug Fixes

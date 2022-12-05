@@ -9,3 +9,4 @@ export { isValidFodselsnummer } from "./isValidFodselsnummer/isValidFodselsnumme
 export { isValidOrganisasjonsnummer } from "./isValidOrganisasjonsnummer/isValidOrganisasjonsnummer";
 export { isValidName } from "./isValidName/isValidName";
 export { hasMinimumWords } from "./hasMinimumWords/hasMinimumWords";
+export { hasNoIllegalCharacters } from "./hasNoIllegalCharacters/hasNoIllegalCharacters";

@@ -10,6 +10,14 @@
     --jkl-icon-button-focus-color: #{jkl.$color-svaberg};
 }
 
+@include jkl.comfortable-density-variables {
+    --jkl-icon-button-icon-width: #{jkl.rem(20px)};
+}
+
+@include jkl.compact-density-variables {
+    --jkl-icon-button-icon-width: #{jkl.rem(14px)};
+}
+
 .jkl-icon-button {
     @include jkl.reset-outline;
     @include jkl.motion(focus, snappy);
@@ -22,13 +30,13 @@
 
     &__icon {
         display: inline-block;
-        width: jkl.rem(20px);
-        height: jkl.rem(20px);
+        width: var(--jkl-icon-button-icon-width);
+        height: var(--jkl-icon-button-icon-width);
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 
     &:hover {
         color: var(--jkl-icon-button-focus-color);
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 
     &::after {
@@ -60,6 +68,4 @@
         border: revert;
         background-color: revert;
     }
-
-    @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
 }

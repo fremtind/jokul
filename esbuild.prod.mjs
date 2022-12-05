@@ -1,8 +1,8 @@
 // @ts-check
+import path from "path";
 import browserslist from "browserslist";
 import esbuild from "esbuild";
 import { esbuildPluginBrowserslist } from "esbuild-plugin-browserslist";
-import path from "path";
 import browserListConfig from "./packages/browserslist-config-jkl/index.js";
 
 /**

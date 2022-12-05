@@ -13,7 +13,7 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
     const [selected, setSelected] = useState(false);
     const [contentRef] = useAnimatedHeight<HTMLDivElement>(selected);
 
-    const paddingChoice = (choiceValues?.["Padding"] as "m" | "l" | "xl" | "blandet") || "l";
+    const paddingChoice = (choiceValues?.["Padding"] as "0" | "m" | "l" | "xl" | "blandet") || "l";
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (

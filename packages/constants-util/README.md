@@ -4,7 +4,7 @@ Se portalen for [en oversikt over hvilke konstanter som finnes](https://jokul.fr
 
 ## Installasjon
 
-1. `yarn add @fremtind/jkl-constants-util` eller `npm i @fremtind/jkl-constants-util`.
+1. `npm i @fremtind/jkl-constants-util`.
 2. Importér konstantene du trenger.
 
 ```js

@@ -1,3 +1,4 @@
+import { Density } from "@fremtind/jkl-core";
 import type { FieldGroupProps } from "@fremtind/jkl-field-group-react";
 import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import React, { ChangeEventHandler, FC } from "react";
@@ -21,11 +22,7 @@ export interface RadioButtonGroupProps extends Omit<FieldGroupProps, "onChange">
      * @default false
      */
     inline?: boolean;
-    /**
-     * Setter kompakt-modifieren på gruppen og alle RadioButton i den.
-     * @default false
-     */
-    forceCompact?: boolean;
+    density?: Density;
 }
 
 export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
@@ -35,7 +32,7 @@ export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
         onChange,
         errorLabel,
         inline = false,
-        forceCompact = false,
+        density,
         labelProps = { variant: "medium" },
         ...rest
     } = props;
@@ -48,13 +45,14 @@ export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
                 name,
                 invalid: Boolean(errorLabel),
                 inline,
-                forceCompact: forceCompact,
+                density,
             }}
         >
             <FieldGroup
                 errorLabel={errorLabel}
-                labelProps={{ forceCompact, ...labelProps }}
+                labelProps={{ density, ...labelProps }}
                 data-testid="jkl-radio-button-group"
+                density={density}
                 {...rest}
                 role="radiogroup"
                 aria-invalid={Boolean(errorLabel)}

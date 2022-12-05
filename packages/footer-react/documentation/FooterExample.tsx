@@ -1,24 +1,24 @@
 import React, { FC } from "react";
 import { ExampleComponentProps, CodeExample, ExampleKnobsProps } from "../../../doc-utils";
 import { Footer } from "../src";
+import "./footer-example.scss";
 
 export const footerExampleKnobs: ExampleKnobsProps = {
     boolProps: [
-        { prop: "Compact", defaultValue: true },
+        { prop: "Mobil", defaultValue: true },
         { prop: "Med lenker", defaultValue: true },
         { prop: "Med adresse", defaultValue: false },
     ],
 };
 
 export const FooterExample: FC<ExampleComponentProps> = ({ boolValues }) => {
-    const isCompact = boolValues?.["Compact"];
+    const isMobile = boolValues?.["Mobil"];
     const withLinks = boolValues?.["Med lenker"];
     const withAddress = boolValues?.["Med adresse"];
     return (
         <div
-            {...(isCompact
-                ? { "data-compactlayout": true, style: { minWidth: "21rem" } }
-                : { style: { minWidth: "82rem" } })}
+            {...(isMobile ? { style: { minWidth: "21rem" } } : { style: { minWidth: "82rem" } })}
+            data-simulate-mobile={isMobile ? "true" : undefined}
         >
             <Footer
                 role="none presentation"

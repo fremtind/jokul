@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.8 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+# 3.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   arv typografi fra omgivelsene ([81afe8c](https://github.com/fremtind/jokul/commit/81afe8c76ede4b56c06b00390a6db5ec6958e478))
+-   ikke sett likhetstegn mellom kompakt og kolonnelayout i footer ([f693788](https://github.com/fremtind/jokul/commit/f693788c96290e26d665cb9a3c2b8b0f41a71ab6))
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-footer@1.0.6...@fremtind/jkl-footer@2.0.0) (2022-06-07)
 
 ### Code Refactoring

@@ -3,6 +3,104 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.57...@fremtind/portal@16.1.0) (2022-12-05)
+
+### Bug Fixes
+
+-   fjern sjekk som alltid er false ([35661c9](https://github.com/fremtind/jokul/commit/35661c9630c96ffe1ff7ac1037e21bf1232f70bd))
+-   ikke nevn e-post siden det ikke skjer lenger ([531ead6](https://github.com/fremtind/jokul/commit/531ead6b7c2f41d793d2b803ebca0588c656cc5d))
+-   registrer appnavn, versjon, miljø ([f0fb8a0](https://github.com/fremtind/jokul/commit/f0fb8a061bfec4ef36b38c9498ed18a93a4aa646))
+
+### Features
+
+-   ny pakke for analytics ([05e3428](https://github.com/fremtind/jokul/commit/05e3428cb0206cba4baebfb03c9c37d967cee163))
+
+## 16.0.46 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## [16.0.41](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.40...@fremtind/portal@16.0.41) (2022-11-16)
+
+### Bug Fixes
+
+-   rett opp farger i dark mode ([8dacec0](https://github.com/fremtind/jokul/commit/8dacec066a0e0ac71e46d61c5e0ee8392618bf8b)), closes [#3263](https://github.com/fremtind/jokul/issues/3263)
+
+## [16.0.39](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.37...@fremtind/portal@16.0.39) (2022-11-11)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## [16.0.38](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.37...@fremtind/portal@16.0.38) (2022-11-09)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## [16.0.25](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.24...@fremtind/portal@16.0.25) (2022-10-11)
+
+### Bug Fixes
+
+-   se etter attributtene på riktig plass ([a8ad4bd](https://github.com/fremtind/jokul/commit/a8ad4bdb9857ed9c13c4a3211d72b328f641ba6c)), closes [#3193](https://github.com/fremtind/jokul/issues/3193)
+
+## [16.0.22](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.21...@fremtind/portal@16.0.22) (2022-10-10)
+
+### Bug Fixes
+
+-   flytt tastaturfokus ved sidenavigering ([6a210cc](https://github.com/fremtind/jokul/commit/6a210ccc12afc864ad7fa268994fa593847e90fa)), closes [#3138](https://github.com/fremtind/jokul/issues/3138)
+-   ikke merk interne bokmerker som eksterne lenker ([aa89e59](https://github.com/fremtind/jokul/commit/aa89e594dfb1caa5df37d33d6cab011196d7f7fd))
+-   overskriftsnivåer på landingssiden ([40c54bb](https://github.com/fremtind/jokul/commit/40c54bba1b0747e44d965959843b0b53053694b0))
+-   timing og språk på navigasjonaannonsering ([dedc94e](https://github.com/fremtind/jokul/commit/dedc94e7a280b7f48669f2c177bfe35ddeaa2bc9))
+-   vær høfflig med annonseringen ([628f485](https://github.com/fremtind/jokul/commit/628f4857c5a35b5d7b16c858fae9c37213bc0e77))
+
+## [16.0.16](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.15...@fremtind/portal@16.0.16) (2022-09-30)
+
+### Bug Fixes
+
+-   legg til title-small i tabellen også på profil ([ec7949e](https://github.com/fremtind/jokul/commit/ec7949e4ab5d419b87684f57fdc8e6b83223b9b5))
+
+## [16.0.13](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.12...@fremtind/portal@16.0.13) (2022-09-28)
+
+### Bug Fixes
+
+-   sørg for at hopp til innhold funker som forventet ([bf6e1ed](https://github.com/fremtind/jokul/commit/bf6e1edf8534518419898a1e901d185e85b96132)), closes [#3137](https://github.com/fremtind/jokul/issues/3137)
+
+## [16.0.7](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.6...@fremtind/portal@16.0.7) (2022-09-20)
+
+### Bug Fixes
+
+-   forenkle arvede html-attributter for å unngå feil ([eab3b1c](https://github.com/fremtind/jokul/commit/eab3b1ca687a2d1d959cd79ff082c57675db1929)), closes [#3108](https://github.com/fremtind/jokul/issues/3108)
+-   reparer en liten search and replace-feil ([4dd17b6](https://github.com/fremtind/jokul/commit/4dd17b6758a719656724f52d8bd50eca9f028b56))
+
+# [16.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.1.2...@fremtind/portal@16.0.0) (2022-09-08)
+
+### Bug Fixes
+
+-   skjul tømmeknapp fram til vi har et filter ([47bf5be](https://github.com/fremtind/jokul/commit/47bf5bea84342a8739cd9d7cc2561e1f4f830004))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+
+# [15.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.54...@fremtind/portal@15.1.0) (2022-09-05)
+
+### Features
+
+-   nyoppretta lekegrind i portalen ([7779213](https://github.com/fremtind/jokul/commit/77792134b80d4dd9584e3e19731a5b1a77212bb4))
+-   nyopprettet lekegrind ([f62fa6a](https://github.com/fremtind/jokul/commit/f62fa6a67bd5722d25a4b269736707c0b1616316))
+-   nyopprettet lekegrind ([805958b](https://github.com/fremtind/jokul/commit/805958bb7ac0363ff07182b4b206cee73005e434))
+-   nyopprettet lekegrind ([d714866](https://github.com/fremtind/jokul/commit/d7148667b2b8e2ef319826ea47e7ec1034c5967b))
+-   nyopprettet lekegrind i portalen ([b4a65b7](https://github.com/fremtind/jokul/commit/b4a65b7c42cc756b5283d212ae43508b07521eb8))
+-   nyopprettet lekegrind i portalen ([5b95649](https://github.com/fremtind/jokul/commit/5b95649d01e5d4598a5cae9eb0f273670abdab5e))
+-   nyopprettet lekegrind i portalen ([755ba47](https://github.com/fremtind/jokul/commit/755ba47b7e94fcf492b65b343976a9fa029f17de))
+-   nyopprettet lekegrind i portalen ([429a664](https://github.com/fremtind/jokul/commit/429a664eafe3852e459ece68f544b25240a24351))
+
 ## [15.0.51](https://github.com/fremtind/jokul/compare/@fremtind/portal@15.0.50...@fremtind/portal@15.0.51) (2022-08-23)
 
 ### Bug Fixes

@@ -6,6 +6,7 @@ import {
     getValuePair,
     DataTestAutoId,
     LabelProps,
+    Density,
 } from "@fremtind/jkl-core";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -20,6 +21,8 @@ import React, {
     useCallback,
     useMemo,
     RefObject,
+    MouseEvent,
+    CSSProperties,
 } from "react";
 import { ExpandArrow } from "./ExpandArrow";
 import { toLower, focusSelected } from "./select-utils";
@@ -47,7 +50,7 @@ export interface SelectProps extends DataTestAutoId {
     id?: string;
     name: string;
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "forceCompact" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "standAlone">;
     items: Array<string | ValuePair>;
     /**
      * @default false
@@ -67,7 +70,7 @@ export interface SelectProps extends DataTestAutoId {
      * @default false
      */
     searchable?: boolean | ((searchValue: string, searchItem: string | ValuePair) => boolean);
-    forceCompact?: boolean;
+    density?: Density;
     width?: string;
     onChange?: ChangeEventHandler;
     onBlur?: ChangeEventHandler;
@@ -77,6 +80,11 @@ export interface SelectProps extends DataTestAutoId {
      * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
      */
     invalid?: boolean;
+    /**
+     * Hvor mange valg skal vises i listen før den begynner å scrolle.
+     * @default 5
+     */
+    maxShownOptions?: number;
 }
 
 const noop = () => {
@@ -102,8 +110,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         inline = false,
         defaultPrompt = "Velg",
         variant,
-        forceCompact,
+        density,
         width,
+        maxShownOptions = 5,
         ...rest
     } = props;
 
@@ -266,6 +275,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         }
     }, [onFocus, selectedValue, name]);
 
+    const handleMouseOver = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+        // Ved mouseOver på options flytter vi fokus til dem for å unngå "dobbel fokus"
+        // der det ser ut som to forskjellige elementer er fokusert/hovered samtidig
+        (e.target as HTMLButtonElement).focus({ preventScroll: true });
+    }, []);
+
     // Handle focus and blur of hidden select element
     useEffect(() => {
         const select = selectRef.current;
@@ -318,7 +333,14 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
 
                 const listElement = dropdownRef.current;
                 if (listElement) {
-                    focusSelected(listElement, selectedValue);
+                    if (isSearchable) {
+                        // Flytt fokus til det første elementet i listen, ikke det forrige valgte.
+                        // Ved endring i filter er det ikke gitt at vi ønsker å ta utgangspunkt i
+                        // den valgte verdien.
+                        focusSelected(listElement, undefined);
+                    } else {
+                        focusSelected(listElement, selectedValue);
+                    }
                 }
             } else if (e.key === "Escape") {
                 e.preventDefault();
@@ -333,7 +355,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 }
             }
         },
-        [setShown, dropdownRef, selectedValue],
+        [setShown, dropdownRef, selectedValue, isSearchable],
     );
 
     // onKeyDown so this Tab listener isn't triggered by tabbing from search field to option
@@ -386,12 +408,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             data-testid="jkl-select"
             className={cn("jkl-select", className, {
                 "jkl-select--inline": inline,
-                "jkl-select--compact": forceCompact,
-                "jkl-select--open": dropdownIsShown,
+                "jkl-select--open": dropdownIsShown && visibleItems.some((item) => item.visible),
                 "jkl-select--no-value": !hasSelectedValue,
                 "jkl-select--invalid": !!errorLabel || invalid,
             })}
             ref={componentRootElementRef}
+            data-density={density}
+            style={{ ["--jkl-select-max-shown-options"]: maxShownOptions } as CSSProperties}
             {...rest}
         >
             <Label
@@ -401,7 +424,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
                 htmlFor={isSearchable ? searchInputId : labelProps?.htmlFor}
                 srOnly={inline || labelProps?.srOnly}
-                forceCompact={forceCompact}
+                density={density}
             >
                 {label}
             </Label>
@@ -480,37 +503,46 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     ref={dropdownRef}
                     role="listbox"
                     className="jkl-select__options-menu"
-                    hidden={!dropdownIsShown}
+                    hidden={!dropdownIsShown || visibleItems.every((item) => !item.visible)}
                     aria-labelledby={labelId}
                     tabIndex={-1}
+                    data-focus="controlled" // lar oss styre markering av valg vha focus
                 >
-                    {visibleItems.map((item, i) => (
-                        <button
-                            key={`${listId}-${item.value}`}
-                            hidden={!item.visible}
-                            type="button"
-                            id={`${listId}__${toLower(item.value)}`}
-                            className="jkl-select__option"
-                            data-testid="jkl-select__option"
-                            aria-selected={item.value === selectedValue}
-                            role="option"
-                            value={item.value}
-                            data-testautoid={`jkl-select__option-${i}`}
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
-                            onKeyDown={handleOptionOnKeyDown}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                selectOption(item);
-                            }}
-                        >
-                            {item.label}
-                        </button>
-                    ))}
+                    {visibleItems.map((item, i) =>
+                        // Det er viktig at vi _fjerner_ elementer som ikke er synlige fra DOMen for at tastaturnavigasjon skal fungere.
+                        // For eksempel, hvis vi har elementene Apple, Samsung og LG i den rekkefølgen og søker etter "l"
+                        // vil Samsung ikke synes. Om vi bare setter hidden-attributtet på Samsung vil ArrowDown fra Apple ikke fungere.
+                        // Dette lar seg ikke gjenskape i en enhetstest med JSDOM + user-events, og Cypress lukker Select
+                        // ved første {downArrow} ¯\_(ツ)_/¯. Så please test scenariet over manuelt om dette skaper trøbbel for deg.
+                        item.visible ? (
+                            <button
+                                key={`${listId}-${item.value}`}
+                                hidden={!item.visible}
+                                type="button"
+                                id={`${listId}__${toLower(item.value)}`}
+                                className="jkl-select__option"
+                                data-testid="jkl-select__option"
+                                aria-selected={item.value === selectedValue}
+                                role="option"
+                                value={item.value}
+                                data-testautoid={`jkl-select__option-${i}`}
+                                onBlur={handleBlur}
+                                onFocus={handleFocus}
+                                onKeyDown={handleOptionOnKeyDown}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    selectOption(item);
+                                }}
+                                onMouseOver={handleMouseOver}
+                            >
+                                {item.label}
+                            </button>
+                        ) : null,
+                    )}
                 </div>
-                <ExpandArrow className="jkl-select__arrow" expanded={dropdownIsShown} />
+                <ExpandArrow expanded={dropdownIsShown} />
             </div>
-            <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} forceCompact={forceCompact} />
+            <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} density={density} />
         </div>
     );
 });

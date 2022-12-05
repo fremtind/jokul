@@ -19,4 +19,8 @@ describe("isValidFodselsnummer", () => {
     it("should return false if not valid ssn", () => {
         expect(isValidFodselsnummer("34123449648")).toBe(false);
     });
+
+    it("should return false if not valid ssn", () => {
+        expect(isValidFodselsnummer("00000000000")).toBe(false);
+    });
 });

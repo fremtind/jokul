@@ -11,6 +11,7 @@ export interface Props {
         choiceProps?: Array<ChoiceProp>;
     };
     codeExample?: CodeExample;
+    style?: React.CSSProperties;
 }
 
 export const ComponentExample: FC<Props> = ({ component, ...rest }) => {
@@ -18,7 +19,9 @@ export const ComponentExample: FC<Props> = ({ component, ...rest }) => {
 
     return (
         <ExampleBase
-            component={({ boolValues, choiceValues }) => <C boolValues={boolValues} choiceValues={choiceValues} />}
+            component={({ boolValues, choiceValues, displayValues }) => (
+                <C boolValues={boolValues} choiceValues={choiceValues} displayValues={displayValues} />
+            )}
             {...rest}
         />
     );

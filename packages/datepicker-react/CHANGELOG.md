@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.24](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@12.0.23...@fremtind/jkl-datepicker-react@12.0.24) (2022-11-25)
+
+### Bug Fixes
+
+-   fikset "heng" i input med god hjelp fra Pio ([3699a34](https://github.com/fremtind/jokul/commit/3699a341a4f7b2fc3eef1fbdef56c130744b6c2c)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
+-   fjernet kommentert ut kode. Sary :´) ([4b579f8](https://github.com/fremtind/jokul/commit/4b579f8881a134cf9c58e647664d2ea86c883118)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
+-   setDate oppdateres til å vise valgt date ved onClick av kalenderknappen slik at den viser rikti ([a7d64d6](https://github.com/fremtind/jokul/commit/a7d64d6684e5bd066341c23e27a48fa342a1e1ae)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
+
+## 12.0.22 (2022-11-22)
+
+### Bug Fixes
+
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+
+## 12.0.19 (2022-11-11)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+## 12.0.18 (2022-11-09)
+
+### Reverts
+
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+
+# 12.0.0 (2022-09-08)
+
+### Bug Fixes
+
+-   fjern kompakt kalenderpopup ([64b528c](https://github.com/fremtind/jokul/commit/64b528ce92cac4d5b59401ce0e20cc8f65d4bffd))
+-   videresend density til utvidet velger ([a6dcc8f](https://github.com/fremtind/jokul/commit/a6dcc8f5a40b74acdd7e7602aab5a81dd03b2080))
+
+### chore
+
+-   fjern forceCompact-props ([0f8bfeb](https://github.com/fremtind/jokul/commit/0f8bfebc68fe6ebf6368bf8a37e2af78f4d7b46d))
+
+### Features
+
+-   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
+
+### BREAKING CHANGES
+
+-   data-compactlayout er nå data-layout-density="compact"
+-   forceCompact er fjernet. Bruk compact og regresjonstest steder du bruker kompaktvarianter.
+
 ## [11.0.25](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@11.0.24...@fremtind/jkl-datepicker-react@11.0.25) (2022-08-19)
 
 ### Bug Fixes

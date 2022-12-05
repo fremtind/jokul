@@ -9,7 +9,7 @@ on:
             - "**/*.js"
             - "**/*.ts"
             - "**/*.tsx"
-            - "yarn.lock"
+            - "pnpm-lock.yaml"
     schedule:
         - cron: "0 18 * * 3"
 

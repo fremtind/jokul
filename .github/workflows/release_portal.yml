@@ -1,0 +1,71 @@
+name: Publish portal
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - "portal/**"
+
+jobs:
+    portal:
+        name: Build and deploy portal
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: write
+            packages: write
+            deployments: write
+        steps:
+            - name: Checkout branch
+              uses: actions/checkout@v3
+              with:
+                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 7
+
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  cache: "pnpm"
+
+            - name: Install Packages
+              run: |
+                  pnpm install --frozen-lockfile
+
+            - name: Monorepo Runner Cache
+              uses: actions/cache@v3
+              id: nx-cache
+              with:
+                  path: .nx
+                  key: nx-${{ github.ref_name }}-${{ github.sha }}
+                  restore-keys: |
+                      nx-${{ github.ref_name }}-
+
+            - name: Caching Gatsby
+              id: gatsby-cache-build
+              uses: actions/cache@v3
+              with:
+                  path: |
+                      portal/public
+                      portal/.cache
+                  key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+                  restore-keys: |
+                      ${{ runner.os }}-gatsby-build-
+
+            - name: Build packages
+              run: pnpm build
+
+            - name: Build and deploy portal
+              env:
+                  GATSBY_MIXPANEL_PROJECT_ID: ${{ secrets.MIXPANEL_PROJECT_ID_PROD }}
+                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+              run: |
+                  git config user.email "fremtind.designsystem@fremtind.no"
+                  git config user.name "fremtind-bot"
+                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                  pnpm deploy:docs

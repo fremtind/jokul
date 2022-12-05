@@ -1,6 +1,8 @@
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { TabList, Tab, Tabs, TabPanel } from "../src";
+
+export const tabsExampleKnobs: ExampleKnobsProps = {};
 
 export const TabsExample: FC<ExampleComponentProps> = () => {
     return (
@@ -10,26 +12,30 @@ export const TabsExample: FC<ExampleComponentProps> = () => {
                 <Tab>Bedriftansvarlige</Tab>
                 <Tab>Rådgivere</Tab>
             </TabList>
-            <TabPanel className="jkl-spacing-m--all">Innhold for Bedrifter</TabPanel>
-
-            <TabPanel className="jkl-spacing-m--all">Innhold for Bedriftansvarlige</TabPanel>
-
-            <TabPanel className="jkl-spacing-m--all">
-                Innhold for Rådgivere
-                <Tabs>
-                    <TabList aria-label="subtabs">
-                        <Tab>Bedrift AS</Tab>
-                        <Tab>Alternativ AS</Tab>
-                    </TabList>
-                    <TabPanel className="jkl-spacing-m--all">Innhold for Bedrift AS</TabPanel>
-                    <TabPanel className="jkl-spacing-m--all">Innhold for Alternativ AS</TabPanel>
-                </Tabs>
+            <TabPanel>
+                <div className="jkl-spacing-m--all">Innhold for Bedrifter</div>
+            </TabPanel>
+            <TabPanel>
+                <div className="jkl-spacing-m--all">Innhold for Bedriftansvarlige</div>
+            </TabPanel>
+            <TabPanel>
+                <div className="jkl-spacing-m--all">
+                    Innhold for Rådgivere
+                    <Tabs>
+                        <TabList aria-label="subtabs">
+                            <Tab>Bedrift AS</Tab>
+                            <Tab>Alternativ AS</Tab>
+                        </TabList>
+                        <TabPanel className="jkl-spacing-m--all">Innhold for Bedrift AS</TabPanel>
+                        <TabPanel className="jkl-spacing-m--all">Innhold for Alternativ AS</TabPanel>
+                    </Tabs>
+                </div>
             </TabPanel>
         </Tabs>
     );
 };
 
-export const tabsExampleCode = `
+export const tabsExampleCode: CodeExample = () => `
 <Tabs>
     <TabList aria-label="tabs">
         <Tab>Bedrifter</Tab>

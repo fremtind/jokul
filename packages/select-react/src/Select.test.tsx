@@ -75,9 +75,9 @@ describe("Select", () => {
     });
 
     it("can be forced into compact mode", () => {
-        render(<Select name="count" items={["1", "2"]} label="test" forceCompact />);
+        render(<Select name="count" items={["1", "2"]} label="test" density="compact" />);
 
-        expect(screen.getByTestId("jkl-select")).toHaveClass("jkl-select--compact");
+        expect(screen.getByTestId("jkl-select")).toHaveAttribute("data-density", "compact");
     });
 
     it("displays the ValuePair label of selected item on first render", () => {
@@ -847,7 +847,14 @@ describe("a11y", () => {
 
     test("compact select should be a11y compliant", async () => {
         const { container } = render(
-            <Select name="items" forceCompact label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
+            <Select
+                name="items"
+                density="compact"
+                label="Select"
+                items={["1", "2"]}
+                value="1"
+                helpLabel="Velg en av to"
+            />,
         );
         const results = await axe(container);
 

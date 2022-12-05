@@ -3,7 +3,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { FormErrorMessageBox } from "../src";
 
 export const formErrorMessageBoxKnobs: ExampleKnobsProps = {
-    boolProps: ["Full width", "Compact", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],
+    boolProps: ["Full width", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],
 };
 
 export const FormErrorMessageBoxExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
@@ -17,7 +17,6 @@ export const FormErrorMessageBoxExample: React.FC<ExampleComponentProps> = ({ bo
                 isSubmitted={boolValues?.["Submitted"] || false}
                 isValid={(boolValues?.["Gyldig fornavn"] && boolValues?.["Gyldig etternavn"]) || false}
                 messageBoxProps={{
-                    forceCompact: boolValues?.["Compact"],
                     fullWidth: boolValues?.["Full width"],
                 }}
             />
@@ -36,7 +35,6 @@ export const formErrorMessageBoxExampleCode = ({ boolValues }: ExampleComponentP
     isSubmitted={${boolValues?.["Submitted"] || false}}
     isValid={${boolValues?.["Gyldig fornavn"] && boolValues?.["Gyldig etternavn"]}}
     messageBoxProps={{
-        forceCompact: ${boolValues?.["Compact"]},
         fullWidth: ${boolValues?.["Full width"]},
     }}
 />

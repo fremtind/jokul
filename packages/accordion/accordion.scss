@@ -2,16 +2,38 @@
 
 @include jkl.light-mode-variables {
     --jkl-accordion-border: #{jkl.$color-svaberg};
-    --jkl-accordion-accent: #{jkl.$color-stein};
     --jkl-accordion-focus: #{jkl.$color-focus-color};
     --jkl-accordion-expanded-background: #{jkl.$color-hvit};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-accordion-border: #{jkl.$color-stein};
-    --jkl-accordion-accent: #{jkl.$color-svaberg};
     --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
     --jkl-accordion-expanded-background: #{jkl.$color-svart};
+}
+
+@include jkl.comfortable-density-variables {
+    --jkl-accordion-title-padding: #{jkl.$spacing-m} #{jkl.rem(48px)} #{jkl.$spacing-m} #{jkl.$spacing-m};
+    --jkl-accordion-arrow-top: #{jkl.rem(25px)};
+    --jkl-accordion-arrow-right: #{jkl.$spacing-m};
+    --jkl-accordion-content-padding: #{jkl.$spacing-xs} #{jkl.$spacing-m} #{jkl.$spacing-m};
+    @include jkl.declare-font-variables("jkl-accordion-title", "body");
+    @include jkl.declare-font-variables("jkl-accordion-content", "body");
+
+    @include jkl.small-device {
+        --jkl-accordion-title-padding: #{jkl.$spacing-m} #{jkl.rem(44px)} #{jkl.$spacing-m} #{jkl.$spacing-s};
+        --jkl-accordion-content-padding: #{jkl.$spacing-xs} #{jkl.$spacing-s} #{jkl.$spacing-m} #{jkl.$spacing-s};
+        --jkl-accordion-arrow-top: #{jkl.rem(23px)};
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-accordion-title-padding: #{jkl.$spacing-xs} #{jkl.rem(32px)} #{jkl.$spacing-xs} #{jkl.$spacing-xs};
+    --jkl-accordion-arrow-top: #{jkl.rem(13px)};
+    --jkl-accordion-arrow-right: #{jkl.$spacing-xs};
+    --jkl-accordion-content-padding: #{jkl.$spacing-xs};
+    @include jkl.declare-font-variables("jkl-accordion-title", "small");
+    @include jkl.declare-font-variables("jkl-accordion-content", "small");
 }
 
 .jkl-accordion {
@@ -20,56 +42,59 @@
 
 .jkl-accordion-item {
     @include jkl.reset-outline;
+    @include jkl.motion("exit", "snappy");
+    transition-property: border-top-color, border-bottom-color;
 
     &:nth-child(n) {
-        border-top: jkl.rem(1px) solid var(--jkl-accordion-border);
+        border-top: jkl.rem(1px) solid;
+        border-top-color: var(--jkl-accordion-border);
 
         &:hover {
-            border-top: jkl.rem(1px) solid var(--jkl-accordion-focus);
+            border-top-color: var(--jkl-accordion-focus);
 
             + .jkl-accordion-item {
-                border-top: jkl.rem(1px) solid var(--jkl-accordion-focus);
+                border-top-color: var(--jkl-accordion-focus);
             }
         }
     }
 
     &:last-child {
-        border-bottom: jkl.rem(1px) solid var(--jkl-accordion-border);
+        border-bottom: jkl.rem(1px) solid;
+        border-bottom-color: var(--jkl-accordion-border);
 
         &:hover {
-            border-bottom: jkl.rem(1px) solid var(--jkl-accordion-focus);
+            border-bottom-color: var(--jkl-accordion-focus);
+        }
+    }
+
+    &--expanded {
+        background-color: var(--jkl-accordion-expanded-background);
+
+        .jkl-accordion-item__title {
+            @include jkl.no-grow-bold;
         }
     }
 
     &__title {
+        @include jkl.use-font-variables("jkl-accordion-title");
+        @include jkl.reset-outline;
+
+        color: inherit;
         background-color: transparent;
         position: relative;
-        padding: jkl.$spacing-m;
+        padding: var(--jkl-accordion-title-padding);
         text-align: left;
         width: 100%;
-
-        @include jkl.motion;
-        transition-property: transform, color;
-
-        /* Remove button styles */
-        outline: none;
-        color: inherit; // stops Safari from changing color on :active
-        border: none;
-
-        /* The dropdown arrow */
-        &__arrow {
-            position: absolute;
-            left: jkl.$spacing-m;
-            top: 50%;
-            transform: translateY(-50%);
-            color: inherit;
-        }
 
         &:hover {
             cursor: pointer;
 
-            .jkl-accordion-item__title__arrow {
-                transform: translateY(calc(-50% + #{jkl.rem(3px)}));
+            .jkl-accordion-item__arrow {
+                top: calc(var(--jkl-accordion-arrow-top) + #{jkl.rem(4px)});
+
+                .jkl-accordion-item--expanded & {
+                    top: calc(var(--jkl-accordion-arrow-top) - #{jkl.rem(4px)});
+                }
             }
         }
 
@@ -78,44 +103,68 @@
         }
     }
 
-    &--expanded {
-        background-color: var(--jkl-accordion-expanded-background);
+    &__arrow {
+        position: absolute;
+        right: var(--jkl-accordion-arrow-right);
+        top: var(--jkl-accordion-arrow-top);
+        color: inherit;
 
-        .jkl-accordion-item {
-            &__title {
-                &-text {
-                    @include jkl.no-grow-bold;
-                }
+        $_arrow-height: jkl.rem(16px);
+        $_arrow-width: jkl.rem(13px);
 
-                &:hover {
-                    .jkl-accordion-item__title__arrow {
-                        transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
-                    }
-                }
+        height: $_arrow-height;
+        width: $_arrow-width;
+        clip: rect(auto, auto, auto, auto);
+        clip-path: inset(0 0 0 0);
+
+        pointer-events: none;
+
+        @include jkl.motion("exit", "snappy");
+        transition-property: top;
+
+        &-up,
+        &-down {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            height: $_arrow-height;
+            width: $_arrow-width;
+            @include jkl.motion;
+
+            transition-property: transform;
+        }
+
+        &-up {
+            top: 100%;
+        }
+
+        &-down {
+            top: 0;
+        }
+
+        &--expanded {
+            .jkl-accordion-item__arrow-up,
+            .jkl-accordion-item__arrow-down {
+                @include jkl.motion("exit", "productive");
+                transform: translate(0, -100%);
             }
         }
-    }
 
-    &__title-text {
-        @include jkl.text-style("body");
-
-        display: block;
-        padding-right: 2rem;
-        margin-left: jkl.$spacing-l;
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
     }
 
     &__content-wrapper {
         @include jkl.motion;
-
         transition-property: height;
     }
 
     &__content {
-        @include jkl.text-style("body");
-
+        @include jkl.use-font-variables("jkl-accordion-title");
+        color: inherit;
         height: auto;
-        padding: jkl.$spacing-m jkl.$spacing-l jkl.$spacing-xl jkl.$spacing-l;
-        color: inherit; // Make content same color as rest of page text
+        padding: var(--jkl-accordion-content-padding);
     }
 
     @include jkl.forced-colors-mode {
@@ -144,52 +193,4 @@
             outline: revert;
         }
     }
-}
-
-.jkl-expand-arrow {
-    $_arrow-height: jkl.rem(16px);
-    $_arrow-width: jkl.rem(13px);
-
-    height: $_arrow-height;
-    width: $_arrow-width;
-    clip: rect(auto, auto, auto, auto);
-    clip-path: inset(0 0 0 0);
-
-    pointer-events: none;
-
-    @include jkl.motion;
-
-    transition-property: transform;
-
-    &__up,
-    &__down {
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-        position: absolute;
-        left: 0;
-        height: $_arrow-height;
-        width: $_arrow-width;
-        @include jkl.motion;
-
-        transition-property: transform;
-    }
-
-    &__up {
-        top: 100%;
-    }
-
-    &__down {
-        top: 0;
-    }
-
-    &--expanded {
-        .jkl-expand-arrow__up,
-        .jkl-expand-arrow__down {
-            @include jkl.motion("standard", "expressive");
-            transform: translate(0, -100%);
-        }
-    }
-
-    @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
 }

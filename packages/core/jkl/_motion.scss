@@ -1,0 +1,56 @@
+@use "sass:map";
+
+// Oppdater verdier i motion.ts også
+$_easings: (
+    "standard": ease,
+    "entrance": ease-out,
+    "exit": ease-in,
+    "easeInBounceOut": cubic-bezier(0, 0, 0.375, 1.17),
+    "focus": cubic-bezier(0.6, 0.2, 0.35, 1),
+);
+
+/// Hent en easing til bruk i animasjoner. Se også `timing`-funksjonen og `motion`-mixinen.
+/// @param {"standard" | "entrance" | "exit" | "easeInBounceOut" | "focus"} $name - Navn på easingen du ønsker verdien til
+/// @return {String} - easingverdi til bruk i animasjoner
+/// @see timing
+/// @see motion
+@function easing($name, $easings: $_easings) {
+    @if map.has-key($easings, $name) {
+        @return map.get($easings, $name);
+    } @else {
+        @error 'Unable to find an easing named #{$name} in our supported easings.';
+    }
+}
+
+// Oppdater verdier i motion.ts også
+$_timings: (
+    "energetic": 75ms,
+    "snappy": 100ms,
+    "productive": 150ms,
+    "expressive": 250ms,
+    "lazy": 400ms,
+);
+
+/// Hent en timing til bruk i animasjoner. Se også `easing`-funksjonen og `motion`-mixinen.
+/// @param {"energetic" | "snappy" | "productive" | "expressive" | "lazy"} $mode - Navn på timingen du ønsker verdien til
+/// @return {String} - timingverdi til bruk i animasjoner
+/// @see easing
+/// @see motion
+@function timing($mode, $timings: $_timings) {
+    @if map.has-key($timings, $mode) {
+        @return map.get($timings, $mode);
+    } @else {
+        @error 'Unable to find a mode for #{$mode}';
+    }
+}
+
+/// Setter transition-timing-function og transition-duration, for bruk i animasjoner.
+/// Se også `timing`- og `easing`-funksjonene.
+/// @param {"standard" | "entrance" | "exit" | "easeInBounceOut" | "focus"} $name [standard] - Navn på easingen du ønsker verdien til
+/// @param {"energetic" | "snappy" | "productive" | "expressive" | "lazy"} $mode [productive] - Navn på timingen du ønsker verdien til
+/// @see easing
+/// @see timing
+@mixin motion($name: "standard", $mode: "productive") {
+    transition-timing-function: easing($name);
+    transition-duration: timing($mode);
+}

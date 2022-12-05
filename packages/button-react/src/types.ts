@@ -1,7 +1,8 @@
+import { Density } from "@fremtind/jkl-core";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export interface Props extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
-    forceCompact?: boolean;
+    density?: Density;
     className?: string;
     loader?: {
         showLoader: boolean;

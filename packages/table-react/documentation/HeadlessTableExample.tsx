@@ -3,7 +3,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../src";
 
 export const headlessTableExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Compact"],
+    boolProps: [],
     choiceProps: [
         {
             name: "Mobilvisning",
@@ -21,12 +21,11 @@ const rows = [
     ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Opprettet", "Per Persen"],
 ];
 
-const HeadlessTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const forceCompact = boolValues && boolValues["Compact"];
+const HeadlessTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const type = choiceValues ? choiceValues["Mobilvisning"] : "";
-    const props = type === "Liste" ? { "data-collapse": "true", compact: true, collapseToList: true } : {};
+    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
     return (
-        <Table {...props} fullWidth compact={forceCompact}>
+        <Table {...props} fullWidth>
             <TableCaption srOnly>Tabell uten synlig header</TableCaption>
             <TableHead srOnly>
                 <TableRow>
@@ -52,8 +51,8 @@ const HeadlessTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
 
 export default HeadlessTableExample;
 
-export const headlessTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}} compact={${!!boolValues?.["Compact"]}}>
+export const headlessTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
+<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell uten synlig header</TableCaption>
     <TableHead srOnly>
         <TableRow>
