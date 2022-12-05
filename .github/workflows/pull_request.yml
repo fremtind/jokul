@@ -118,7 +118,7 @@ jobs:
             - name: Build site
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
               env:
-                  MIXPANEL_PROJECT_ID: bac3ea28c7d92a05956f54eab1595663
+                  MIXPANEL_PROJECT_ID: ${{ secrets.MIXPANEL_PROJECT_ID_TEST }}
               run: pnpm build:docs
 
             - name: Deploy preview

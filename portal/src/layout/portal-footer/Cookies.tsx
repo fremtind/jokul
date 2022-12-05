@@ -4,10 +4,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, Suspense } from "react";
 import { MixpanelBackend, useAnalytics } from "../../analytics";
 
-const mixpanel = new MixpanelBackend({
-    trackingId: process.env.MIXPANEL_PROJECT_ID || "bac3ea28c7d92a05956f54eab1595663",
-});
-
 export const Cookies: FC<WithChildren> = ({ children }) => {
     const { openConsentModalWithSettings } = useCookieConsent();
     const analytics = useAnalytics();
@@ -28,6 +24,14 @@ export const Cookies: FC<WithChildren> = ({ children }) => {
             <CookieConsent
                 blocking
                 onAccept={async (consentValue) => {
+                    if (!process.env.MIXPANEL_PROJECT_ID) {
+                        return;
+                    }
+
+                    const mixpanel = new MixpanelBackend({
+                        trackingId: process.env.MIXPANEL_PROJECT_ID,
+                    });
+
                     await analytics.init(mixpanel, {
                         appName: "gatsby",
                         environment: process.env.PREVIEW_PATH ? "preview" : process.env.NODE_ENV,
