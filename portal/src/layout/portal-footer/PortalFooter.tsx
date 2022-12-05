@@ -41,7 +41,7 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
                         addOnQuestion={{
                             label: "Vil du legge til noe mer?",
                             helpLabel:
-                                "Når du trykker på send vil en e-post genereres for deg. Ikke del personlige opplysninger. Vi behandler dine data i henhold til vår personvernserklæring.",
+                                "Ikke del personlige opplysninger. Vi behandler dine data i henhold til vår personvernserklæring.",
                         }}
                         successMessage={{
                             title: "Takk! Jøkul blir enda bedre med dine tilbakemeldinger.",
