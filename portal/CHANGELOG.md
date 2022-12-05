@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.1.1...@fremtind/portal@16.2.0) (2022-12-05)
+
+### Features
+
+- importerer bilder for å få riktig filsti i preview ([4481d3a](https://github.com/fremtind/jokul/commit/4481d3a6fd023b1ce3ae2ea43ca4f6cbd317b740))
+- nyopprettet demoside i portalen ([73f08a1](https://github.com/fremtind/jokul/commit/73f08a1eefd251e0c8c33396b1e09d2f15c209d1))
+
 # [16.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.57...@fremtind/portal@16.1.0) (2022-12-05)
 
 ### Bug Fixes
