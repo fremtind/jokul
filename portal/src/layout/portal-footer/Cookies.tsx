@@ -34,7 +34,7 @@ export const Cookies: FC<WithChildren> = ({ children }) => {
 
                     await analytics.init(mixpanel, {
                         appName: "gatsby",
-                        environment: process.env.PREVIEW_PATH ? "preview" : process.env.NODE_ENV,
+                        environment: process.env.NODE_ENV,
                         version: data.package.version,
                     });
 
