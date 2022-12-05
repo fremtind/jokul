@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@7.0.17...@fremtind/jkl-cookie-consent-react@7.1.0) (2022-12-05)
+
+### Features
+
+- useCookieConsent returnerer nå samtykkene ([8876485](https://github.com/fremtind/jokul/commit/88764857a40b329c03663591328b5675eb15abc2))
+
 ## 7.0.17 (2022-12-01)
 
 ### Bug Fixes
