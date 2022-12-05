@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.2 (2022-12-05)
+
+### Bug Fixes
+
+- legg til luft over headingen ([f23d04d](https://github.com/fremtind/jokul/commit/f23d04de452711412ddb28430ea902558e470ce5))
+
 ## [7.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@7.1.0...@fremtind/jkl-table@7.1.1) (2022-12-02)
 
 ### Bug Fixes
