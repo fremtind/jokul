@@ -20,11 +20,22 @@ export const KBar: FC = () => {
         useNavigationLinks();
 
     const mapToAction = useCallback(
-        ({ parent, name, path }: { parent: PageType; name: string; path: string }): Action => {
+        ({
+            parent,
+            name,
+            path,
+            keywords,
+        }: {
+            parent: PageType;
+            name: string;
+            path: string;
+            keywords?: string;
+        }): Action => {
             return {
                 id: path,
                 name,
                 parent,
+                keywords,
                 section: pageNames[parent],
                 perform: () => navigate(path),
             };
@@ -52,6 +63,7 @@ export const KBar: FC = () => {
             mapToAction({
                 path: page.path,
                 name: page.title,
+                keywords: page.keywords,
                 parent: PageType.KOMIGANG,
             }),
         ),
@@ -66,6 +78,7 @@ export const KBar: FC = () => {
             mapToAction({
                 path: page.path,
                 name: page.title,
+                keywords: page.keywords,
                 parent: PageType.PROFIL,
             }),
         ),
@@ -79,6 +92,7 @@ export const KBar: FC = () => {
             mapToAction({
                 path: page.path,
                 name: page.title,
+                keywords: `${page.group} ${page.keywords || ""}`.trim(),
                 parent: PageType.KOMPONENTER,
             }),
         ),
@@ -92,6 +106,7 @@ export const KBar: FC = () => {
             mapToAction({
                 path: page.path,
                 name: page.title,
+                keywords: page.keywords,
                 parent: PageType.UU,
             }),
         ),
@@ -105,6 +120,7 @@ export const KBar: FC = () => {
             mapToAction({
                 path: page.path,
                 name: page.title,
+                keywords: page.keywords,
                 parent: PageType.GUIDER,
             }),
         ),
@@ -118,6 +134,7 @@ export const KBar: FC = () => {
             mapToAction({
                 path: page.path,
                 name: page.title,
+                keywords: page.keywords,
                 parent: PageType.BLOG,
             }),
         ),

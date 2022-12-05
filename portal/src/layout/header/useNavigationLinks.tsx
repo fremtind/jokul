@@ -30,6 +30,7 @@ export interface Frontmatter {
     publishDate?: string;
     group?: string;
     path?: string;
+    keywords?: string;
 }
 
 interface RawDocumentationPage {
@@ -96,6 +97,7 @@ export function useNavigationLinks(): NavigationLinks {
                             publishDate
                             group
                             path
+                            keywords
                         }
                     }
                 }
