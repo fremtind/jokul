@@ -12,9 +12,9 @@ const IndexPage: FC<PageProps<PageData>> = ({ data }) => {
 
     return (
         <MainContent>
-            <h1 className="jkl-title jkl-spacing-2xl--bottom">Blogg</h1>
+            <h1 className="jkl-title jkl-spacing-64--bottom">Blogg</h1>
             <p className="jkl-portal-paragraph">Velkommen til Jøkul — design­systemet til Fremtind.</p>
-            <h2 className="jkl-heading-1 jkl-spacing-xl--top jkl-spacing-l--bottom">Alt fra bloggen</h2>
+            <h2 className="jkl-heading-1 jkl-spacing-40--top jkl-spacing-24--bottom">Alt fra bloggen</h2>
             <ul className="jkl-portal-blog__post-list">
                 {posts.map((post) => {
                     const title = post.frontmatter.title || post.fields.path;
