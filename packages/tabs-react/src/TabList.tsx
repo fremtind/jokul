@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useTabsContext } from "./tabsContext";
 
 export interface TabListProps extends WithChildren {
-    "aria-label": string;
+    "aria-label"?: string;
     className?: string;
 }
 
