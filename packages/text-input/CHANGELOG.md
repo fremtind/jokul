@@ -3,11 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.1.12...@fremtind/jkl-text-input@10.0.0) (2022-12-05)
+
+### Features
+
+- legg til mulighet for benevnelse i text-input ([dd7cf6a](https://github.com/fremtind/jokul/commit/dd7cf6a441529981aebcbf3dccf3b62bf810c5a6))
+
+### BREAKING CHANGES
+
+- Endrede klassenavn og til dels endret DOM-struktur. Se MIGRATION.md for detaljer.
+
 ## 9.1.11 (2022-11-22)
 
 ### Bug Fixes
 
-- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
 
 ## 9.1.5 (2022-10-04)
 

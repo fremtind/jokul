@@ -7,27 +7,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- fikset "heng" i input med god hjelp fra Pio ([3699a34](https://github.com/fremtind/jokul/commit/3699a341a4f7b2fc3eef1fbdef56c130744b6c2c)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
-- fjernet kommentert ut kode. Sary :´) ([4b579f8](https://github.com/fremtind/jokul/commit/4b579f8881a134cf9c58e647664d2ea86c883118)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
-- setDate oppdateres til å vise valgt date ved onClick av kalenderknappen slik at den viser rikti ([a7d64d6](https://github.com/fremtind/jokul/commit/a7d64d6684e5bd066341c23e27a48fa342a1e1ae)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
+-   fikset "heng" i input med god hjelp fra Pio ([3699a34](https://github.com/fremtind/jokul/commit/3699a341a4f7b2fc3eef1fbdef56c130744b6c2c)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
+-   fjernet kommentert ut kode. Sary :´) ([4b579f8](https://github.com/fremtind/jokul/commit/4b579f8881a134cf9c58e647664d2ea86c883118)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
+-   setDate oppdateres til å vise valgt date ved onClick av kalenderknappen slik at den viser rikti ([a7d64d6](https://github.com/fremtind/jokul/commit/a7d64d6684e5bd066341c23e27a48fa342a1e1ae)), closes [#3264](https://github.com/fremtind/jokul/issues/3264)
 
 ## 12.0.22 (2022-11-22)
 
 ### Bug Fixes
 
-- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
 
 ## 12.0.19 (2022-11-11)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 ## 12.0.18 (2022-11-09)
 
 ### Reverts
 
-- Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
+-   Revert "chore: rigg om doc-utils som en intern pakke" ([281b0e1](https://github.com/fremtind/jokul/commit/281b0e1d7f0c6b077da45c7dd9f98a6fb218675a))
 
 # 12.0.0 (2022-09-08)
 

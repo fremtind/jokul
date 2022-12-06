@@ -91,7 +91,7 @@ function BaseAutosuggest<T>({
                                 {leadText}
                             </p>
                         )}
-                        <div className="jkl-autosuggest__input-group">
+                        <div className="jkl-text-input-wrapper" data-invalid={!!errorLabel}>
                             <input
                                 {...getInputProps({
                                     id: uid,
@@ -114,21 +114,21 @@ function BaseAutosuggest<T>({
                                     clearSelection={clearSelection}
                                 />
                             )}
+                            {isOpen && (
+                                <Menu
+                                    downshiftProps={{
+                                        getMenuProps,
+                                        getItemProps,
+                                    }}
+                                    highlightedIndex={highlightedIndex}
+                                    items={items}
+                                    itemToString={itemToString}
+                                    noHitsMessage={noHitsMessage}
+                                    maxNumberOfHits={maxNumberOfHits}
+                                    noHits={noHits}
+                                />
+                            )}
                         </div>
-                        {isOpen && (
-                            <Menu
-                                downshiftProps={{
-                                    getMenuProps,
-                                    getItemProps,
-                                }}
-                                highlightedIndex={highlightedIndex}
-                                items={items}
-                                itemToString={itemToString}
-                                noHitsMessage={noHitsMessage}
-                                maxNumberOfHits={maxNumberOfHits}
-                                noHits={noHits}
-                            />
-                        )}
                         <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} density={density} />
                     </div>
                 );

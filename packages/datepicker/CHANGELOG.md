@@ -3,11 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@9.0.16...@fremtind/jkl-datepicker@10.0.0) (2022-12-05)
+
+### Code Refactoring
+
+- bruk nye klasser fra text-input ([dbbbef3](https://github.com/fremtind/jokul/commit/dbbbef34ea942c5d4a713220e37aebaccffa8e62))
+
+### BREAKING CHANGES
+
+- Klassenavn må oppdateres dersom du bruker stilpakken direkte
+
 ## 9.0.15 (2022-11-22)
 
 ### Bug Fixes
 
-- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
 
 # 9.0.0 (2022-09-08)
 

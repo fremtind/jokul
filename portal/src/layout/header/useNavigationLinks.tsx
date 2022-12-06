@@ -30,6 +30,7 @@ export interface Frontmatter {
     publishDate?: string;
     group?: string;
     path?: string;
+    keywords?: string;
 }
 
 interface RawDocumentationPage {
@@ -52,6 +53,7 @@ export enum PageType {
     UU = "universell-utforming",
     GUIDER = "guider",
     BLOG = "blog",
+    DEMOER = "demoer",
 }
 
 export const pageNames = {
@@ -59,6 +61,7 @@ export const pageNames = {
     [PageType.PROFIL]: "Profil",
     [PageType.KOMPONENTER]: "Komponenter",
     [PageType.UU]: "Universell utforming",
+    [PageType.DEMOER]: "Demoer",
     [PageType.GUIDER]: "Guider",
     [PageType.BLOG]: "Blogg",
 };
@@ -67,6 +70,7 @@ type NavigationLinks = {
     profileDocPages: DocumentationPageInfo[];
     getStartedDocPages: DocumentationPageInfo[];
     componentDocPages: DocumentationPageInfo[];
+    demoPages: DocumentationPageInfo[];
     componentGroup: string[];
     uuDocPages: DocumentationPageInfo[];
     guiderDocPages: DocumentationPageInfo[];
@@ -96,6 +100,7 @@ export function useNavigationLinks(): NavigationLinks {
                             publishDate
                             group
                             path
+                            keywords
                         }
                     }
                 }
@@ -177,16 +182,29 @@ export function useNavigationLinks(): NavigationLinks {
         },
     ];
 
+    const demoPages = [
+        {
+            title: "Skjemavalidering",
+            path: "/demoer/skjemavalidering",
+        },
+        {
+            title: "Tjenestefeil",
+            path: "/demoer/feilmelding-500",
+        },
+        {
+            title: "Tjenestefeil med melding",
+            path: "/demoer/feilmelding-500-med-melding",
+        },
+    ];
+
     const menuItems: MenuItemList = [
         {
             linkText: pageNames[PageType.KOMIGANG],
-            content: [
-                ...getStartedDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.KOMIGANG,
-                })),
-            ],
+            content: getStartedDocPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.KOMIGANG,
+            })),
             basePath: PageType.KOMIGANG,
         },
         {
@@ -223,25 +241,30 @@ export function useNavigationLinks(): NavigationLinks {
             basePath: PageType.KOMPONENTER,
         },
         {
+            linkText: pageNames[PageType.DEMOER],
+            content: demoPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.DEMOER,
+            })),
+            basePath: PageType.DEMOER,
+        },
+        {
             linkText: pageNames[PageType.UU],
-            content: [
-                ...uuDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.UU,
-                })),
-            ],
+            content: uuDocPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.UU,
+            })),
             basePath: PageType.UU,
         },
         {
             linkText: pageNames[PageType.GUIDER],
-            content: [
-                ...guiderDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.GUIDER,
-                })),
-            ],
+            content: guiderDocPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.GUIDER,
+            })),
             basePath: PageType.GUIDER,
         },
         {
@@ -260,6 +283,7 @@ export function useNavigationLinks(): NavigationLinks {
         profileDocPages,
         getStartedDocPages,
         guiderDocPages,
+        demoPages,
         componentDocPages,
         componentGroup,
         uuDocPages,

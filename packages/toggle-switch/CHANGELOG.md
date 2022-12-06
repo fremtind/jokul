@@ -3,11 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.10 (2022-12-06)
+
+### Bug Fixes
+
+- reduser z-index for label til det minste nødvendige ([d344ffa](https://github.com/fremtind/jokul/commit/d344ffabaa49da706db3689820d0d89e144f0b38))
+
 ## 10.0.8 (2022-11-22)
 
 ### Bug Fixes
 
-- fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
+-   fjern workspace-prefix som ikke blir fjernet ([283540b](https://github.com/fremtind/jokul/commit/283540b45f1fe557168eede3ca3637077a10a15b))
 
 # 10.0.0 (2022-09-08)
 

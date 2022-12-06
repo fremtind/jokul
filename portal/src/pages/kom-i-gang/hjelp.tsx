@@ -135,7 +135,7 @@ const DegOgJokul: FC = () => (
         </p>
 
         <NavCard
-            className="jkl-spacing-xl--top"
+            className="jkl-spacing-40--top"
             style={{ maxWidth: "35rem" }}
             to="/kom-i-gang/jobb-med-teamet"
             component={GatsbyLink}

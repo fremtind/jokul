@@ -17,6 +17,7 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
     const { consents } = useCookieConsent();
     const analytics = useAnalytics();
     const { isFrontPage } = useLocation();
+
     return (
         <div className={cn("jkl-portal-footer", className)}>
             <div className="jkl-portal-footer__feedback">
@@ -47,7 +48,7 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
                             title: "Takk! Jøkul blir enda bedre med dine tilbakemeldinger.",
                             children: (
                                 <>
-                                    <p className="jkl-spacing-s--bottom">
+                                    <p className="jkl-spacing-12--bottom">
                                         Spill gjerne inn på GitHub, eller delta på forum (hver tirsdag{" "}
                                         <time dateTime="14:00">kl. 14</time>)!
                                     </p>
