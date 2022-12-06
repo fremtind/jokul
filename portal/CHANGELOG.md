@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.2.2...@fremtind/portal@16.3.0) (2022-12-06)
+
+### Bug Fixes
+
+- dropp hydration-feil fra mdx ved å bare rendre i klient ([4caf348](https://github.com/fremtind/jokul/commit/4caf348cc7a7ec59cc1988dc905af122e79fea50))
+- plasser kbar riktig i z-index ([8906eb5](https://github.com/fremtind/jokul/commit/8906eb5410bc79b7bf5c660fb759f18b3779c439))
+
+### Features
+
+- hook opp kbar i usenavigationlinks ([4e0948b](https://github.com/fremtind/jokul/commit/4e0948bf057742b165679b8d7b178db6caab81c8))
+- legg til støtte for keywords, søk i den og group ([53cf355](https://github.com/fremtind/jokul/commit/53cf3555c15cda08f4ee2bbdb39a8cbe80650b8a))
+- mvp ([0af33f8](https://github.com/fremtind/jokul/commit/0af33f85bb18351b2cef082bfdcb3b0c907b918a))
+
 # [16.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.1.1...@fremtind/portal@16.2.0) (2022-12-05)
 
 ### Features
