@@ -44,21 +44,12 @@
 }
 
 .jkl-autosuggest {
-    width: 100%;
-    font-family: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     position: relative;
 
-    &__input-group {
-        position: relative;
-
-        & > input {
-            width: 100%;
-            padding-right: jkl.$spacing-xl; // to accomodate button
-        }
-    }
-
-    &[aria-expanded="true"] &__input-group > input,
-    &__input-group--open > input {
+    &[aria-expanded="true"] .jkl-text-input-wrapper {
         border-radius: jkl.rem(3px) jkl.rem(3px) 0 0;
     }
 
@@ -83,51 +74,6 @@
         padding: var(--jkl-autosuggest-option-padding);
     }
 
-    &__controller-button {
-        @include jkl.reset-outline;
-        align-items: flex-start;
-        justify-content: center;
-        background: transparent;
-        cursor: pointer;
-        display: flex;
-        flex-flow: column;
-        height: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: var(--jkl-autosuggest-controller-button-padding);
-        color: var(--jkl-autosuggest-text-color);
-        width: var(--jkl-autosuggest-controller-button-width);
-
-        .jkl-icon--small {
-            --jkl-icon-width: var(--jkl-autosuggest-controller-button-icon-size);
-        }
-
-        &:focus {
-            @include jkl.keyboard-navigation {
-                &::after {
-                    content: "";
-                    position: absolute;
-                    top: jkl.rem(8px);
-                    right: jkl.rem(8px);
-                    bottom: jkl.rem(8px);
-                    left: jkl.rem(8px);
-                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-autosuggest-focus-color);
-                }
-            }
-        }
-
-        @include jkl.forced-colors-mode {
-            color: ButtonText;
-
-            & .jkl-icon,
-            & .jkl-icon path,
-            & .jkl-icon svg {
-                stroke: ButtonText;
-            }
-        }
-    }
-
     &__menu {
         background-color: var(--jkl-autosuggest-menu-background-color);
         border: jkl.rem(2px) solid var(--jkl-autosuggest-focus-color);
@@ -136,9 +82,7 @@
         box-sizing: border-box;
         color: var(--jkl-autosuggest-text-color);
         position: absolute;
-        top: 0;
-        left: -#{jkl.rem(1px)};
-        right: -#{jkl.rem(1px)};
+        inset: 100% jkl.rem(-1px) auto;
         margin: 0;
         padding: 0;
         max-height: 60vh;

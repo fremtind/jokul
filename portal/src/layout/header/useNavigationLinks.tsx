@@ -53,6 +53,7 @@ export enum PageType {
     UU = "universell-utforming",
     GUIDER = "guider",
     BLOG = "blog",
+    DEMOER = "demoer",
 }
 
 export const pageNames = {
@@ -60,6 +61,7 @@ export const pageNames = {
     [PageType.PROFIL]: "Profil",
     [PageType.KOMPONENTER]: "Komponenter",
     [PageType.UU]: "Universell utforming",
+    [PageType.DEMOER]: "Demoer",
     [PageType.GUIDER]: "Guider",
     [PageType.BLOG]: "Blogg",
 };
@@ -223,6 +225,27 @@ export function useNavigationLinks(): NavigationLinks {
                 },
             ],
             basePath: PageType.KOMPONENTER,
+        },
+        {
+            linkText: pageNames[PageType.DEMOER],
+            content: [
+                {
+                    linkText: "Skjemavalidering",
+                    basePath: PageType.DEMOER,
+                    content: "/demoer/skjemavalidering",
+                },
+                {
+                    linkText: "Tjenestefeil",
+                    basePath: PageType.DEMOER,
+                    content: "/demoer/feilmelding-500",
+                },
+                {
+                    linkText: "Tjenestefeil med melding",
+                    basePath: PageType.DEMOER,
+                    content: "/demoer/feilmelding-500-med-melding",
+                },
+            ],
+            basePath: PageType.DEMOER,
         },
         {
             linkText: pageNames[PageType.UU],

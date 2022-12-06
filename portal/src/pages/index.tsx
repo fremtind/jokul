@@ -56,7 +56,7 @@ const IndexPage: React.FC = () => {
     const { isSmallDevice } = useScreen();
 
     return (
-        <MainContent className="jkl-portal__main--frontpage">
+        <MainContent className="jkl-portal__main--frontpage jkl-portal__main--full-width">
             {!isSmallDevice && <DelayText text="Jøkul Designsystem" delay={100} />}
             <div className="jkl-portal-frontpage">
                 <section className="jkl-portal-frontpage__section-intro">

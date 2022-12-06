@@ -133,5 +133,8 @@
         "*.{ts,tsx,js,jsx}": [
             "eslint --fix"
         ]
+    },
+    "stylelint": {
+        "extends": "@fremtind/stylelint-config-jkl"
     }
 }

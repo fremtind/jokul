@@ -104,6 +104,16 @@ describe("TextInput", () => {
         });
     });
 
+    describe("with unit", () => {
+        it("renders the unit", () => {
+            const unit = "kr";
+            render(<TextInput label="testing" unit={unit} />);
+
+            const component = screen.getByText(unit);
+            expect(component).toBeInTheDocument();
+        });
+    });
+
     describe("inline", () => {
         it("renders as inline", () => {
             render(<TextInput inline label="testing" />);
