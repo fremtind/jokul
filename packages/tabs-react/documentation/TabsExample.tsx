@@ -61,5 +61,3 @@ export const tabsExampleCode: CodeExample = () => `
     </TabPanel>
 </Tabs>
 `;
-
-export default TabsExample;

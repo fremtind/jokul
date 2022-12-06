@@ -5,7 +5,7 @@ scss: tabs
 group: knapper
 ---
 
-import TabsExample, { tabsExampleCode, tabsExampleKnobs } from "./TabsExample";
+import { TabsExample, tabsExampleCode, tabsExampleKnobs } from "./TabsExample";
 import "@fremtind/jkl-tabs/tabs.css";
 
 <Ingress>
@@ -15,23 +15,65 @@ import "@fremtind/jkl-tabs/tabs.css";
 
 <ComponentExample title="Tabs" component={TabsExample} knobs={tabsExampleKnobs} codeExample={tabsExampleCode} />
 
+Denne komponenten er utformet for å brukes i innholdsdelen av en side, og er designet for å brukes med ett nivå.
+
+Fanekomponenten kommer i to varianter som er visuelt like, men teknisk forskjellige:
+
+-   Den første bytter visning av innhold på samme side med `button` - navigerer ikke til en ny URL.
+-   Den andre baserer seg på lenker (`a` eller en custom komponent), og at hver fane er sin egen route.
+
+```jsx
+<div style={{ width: "100%" }}>
+    <NavTabs>
+        {/* Sett aria-selected til true for den nåværende routen. */}
+        <NavTab aria-selected={true} href="/eksempler">
+            Eksempler
+        </NavTab>
+        <NavTab aria-selected={false} href="/bruk">
+            Bruk
+        </NavTab>
+        <NavTab aria-selected={false} href="/tekst">
+            Tekst
+        </NavTab>
+        <NavTab aria-selected={false} href="/spec">
+            Design Spec
+        </NavTab>
+        <NavTab aria-selected={false} href="/kode">
+            Kode
+        </NavTab>
+    </NavTabs>
+    <div role="tabpanel">
+        Sideinnhold, eller for eksempel <code>&lt;Outlet /&gt;</code> i Remix.
+    </div>
+</div>
+```
+
 ## Best practices
 
--   Denne komponenten er i første omgang utformet for å brukes i innholdsdelen av en side, og er designet for å brukes med ett nivå.
--   Bytter visning av innhold på samme side - navigerer ikke til en ny.
 -   Brukes horisontalt med 2-9 tabs.
+-   Scroller horisontalt på skjermer hvor fanelinjen ikke får plass.
 -   Bør ha korte og beskrivende navn.
 -   Den første fanen skal vise den informasjonen som er mest relevant for brukeren.
+-   En fane må alltid være synlig.
 
 ## Når skal man ikke bruke tabs?
 
 -   Bør ikke brukes når det er nødvendig å sammenligne eller se innholdet i de ulike fanene samtidig. Hvis dette er et behov, er det bedre å bruke accordion.
 -   Bør ikke brukes hvis man trenger å lese gjennom alt innholdet for å forstå en stegvis prosess.
--   Skal ikke brukes for å sende brukeren til en ny side.
 
 ## Eksempler på bruk
 
-<PortalImage src="/assets/documentation/tab/tab-animation.gif" caption="Eksempel på navigasjon mellom faner." />
+<PortalImage
+    className="jkl-spacing-xl--bottom"
+    src="/assets/documentation/tab/tab-animation.gif"
+    caption="Eksempel på navigasjon mellom faner."
+/>
+
+<PortalImage
+    className="jkl-spacing-xl--bottom"
+    src="/assets/documentation/tab/tabs-scroll.gif"
+    caption="På smale skjermer vil faner scrolle horisontalt. Ved å legge til en margin på start og slutt vil det gi hint om at det finnes mer."
+/>
 
 <Grid className="jkl-spacing-xl--bottom">
     <PortalImage src="/assets/documentation/tab/tab-one.png" alt="" />
