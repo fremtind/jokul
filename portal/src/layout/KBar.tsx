@@ -16,7 +16,7 @@ import { pageNames, PageType, useNavigationLinks } from "./header/useNavigationL
 import "./kbar.scss";
 
 export const KBar: FC = () => {
-    const { getStartedDocPages, profileDocPages, componentDocPages, uuDocPages, guiderDocPages, blogPages } =
+    const { getStartedDocPages, profileDocPages, componentDocPages, demoPages, uuDocPages, guiderDocPages, blogPages } =
         useNavigationLinks();
 
     const mapToAction = useCallback(
@@ -94,6 +94,20 @@ export const KBar: FC = () => {
                 name: page.title,
                 keywords: `${page.group} ${page.keywords || ""}`.trim(),
                 parent: PageType.KOMPONENTER,
+            }),
+        ),
+        {
+            id: PageType.DEMOER,
+            name: pageNames[PageType.DEMOER],
+            shortcut: ["g", "d"],
+            section: "Områder",
+        },
+        ...demoPages.map((page) =>
+            mapToAction({
+                path: page.path,
+                name: page.title,
+                keywords: page.keywords,
+                parent: PageType.DEMOER,
             }),
         ),
         {

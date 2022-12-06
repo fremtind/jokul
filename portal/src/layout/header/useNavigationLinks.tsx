@@ -70,6 +70,7 @@ type NavigationLinks = {
     profileDocPages: DocumentationPageInfo[];
     getStartedDocPages: DocumentationPageInfo[];
     componentDocPages: DocumentationPageInfo[];
+    demoPages: DocumentationPageInfo[];
     componentGroup: string[];
     uuDocPages: DocumentationPageInfo[];
     guiderDocPages: DocumentationPageInfo[];
@@ -181,16 +182,29 @@ export function useNavigationLinks(): NavigationLinks {
         },
     ];
 
+    const demoPages = [
+        {
+            title: "Skjemavalidering",
+            path: "/demoer/skjemavalidering",
+        },
+        {
+            title: "Tjenestefeil",
+            path: "/demoer/feilmelding-500",
+        },
+        {
+            title: "Tjenestefeil med melding",
+            path: "/demoer/feilmelding-500-med-melding",
+        },
+    ];
+
     const menuItems: MenuItemList = [
         {
             linkText: pageNames[PageType.KOMIGANG],
-            content: [
-                ...getStartedDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.KOMIGANG,
-                })),
-            ],
+            content: getStartedDocPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.KOMIGANG,
+            })),
             basePath: PageType.KOMIGANG,
         },
         {
@@ -228,45 +242,29 @@ export function useNavigationLinks(): NavigationLinks {
         },
         {
             linkText: pageNames[PageType.DEMOER],
-            content: [
-                {
-                    linkText: "Skjemavalidering",
-                    basePath: PageType.DEMOER,
-                    content: "/demoer/skjemavalidering",
-                },
-                {
-                    linkText: "Tjenestefeil",
-                    basePath: PageType.DEMOER,
-                    content: "/demoer/feilmelding-500",
-                },
-                {
-                    linkText: "Tjenestefeil med melding",
-                    basePath: PageType.DEMOER,
-                    content: "/demoer/feilmelding-500-med-melding",
-                },
-            ],
+            content: demoPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.DEMOER,
+            })),
             basePath: PageType.DEMOER,
         },
         {
             linkText: pageNames[PageType.UU],
-            content: [
-                ...uuDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.UU,
-                })),
-            ],
+            content: uuDocPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.UU,
+            })),
             basePath: PageType.UU,
         },
         {
             linkText: pageNames[PageType.GUIDER],
-            content: [
-                ...guiderDocPages.map((page) => ({
-                    linkText: page.title,
-                    content: page.path,
-                    basePath: PageType.GUIDER,
-                })),
-            ],
+            content: guiderDocPages.map((page) => ({
+                linkText: page.title,
+                content: page.path,
+                basePath: PageType.GUIDER,
+            })),
             basePath: PageType.GUIDER,
         },
         {
@@ -285,6 +283,7 @@ export function useNavigationLinks(): NavigationLinks {
         profileDocPages,
         getStartedDocPages,
         guiderDocPages,
+        demoPages,
         componentDocPages,
         componentGroup,
         uuDocPages,
