@@ -2,9 +2,6 @@ import type { LabelVariant } from "@fremtind/jkl-core";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
 import { InputGroup } from "../src";
-import { InputProps } from "../src/InputGroup";
-
-const Input = ({ id, describedBy }: InputProps) => <input type="text" id={id} aria-describedby={describedBy} />;
 
 export const inputGroupExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil"],
@@ -26,7 +23,7 @@ export const InputGroupExample: FC<ExampleComponentProps> = ({ boolValues, choic
 
     return (
         <InputGroup label="Hello" errorLabel={errorLabel} helpLabel={helpLabel} labelProps={labelProps}>
-            <Input />
+            <input type="text" />
         </InputGroup>
     );
 };

@@ -8,36 +8,47 @@ import {
     type DataTestAutoId,
 } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import React, { CSSProperties, ReactNode } from "react";
+import cn from "classnames";
+import React, { type ReactNode } from "react";
 
 export interface InputProps {
-    density?: Density;
     "aria-describedby"?: string;
+    "aria-invalid"?: boolean;
     id?: string;
 }
 
 export interface InputGroupProps extends WithChildren, DataTestAutoId {
-    id?: string;
+    className?: string;
     "data-testid"?: string;
     density?: Density;
+    errorLabel?: ReactNode;
+    helpLabel?: ReactNode;
+    id?: string;
     inline?: boolean;
     label: ReactNode;
-    errorLabel?: string;
-    helpLabel?: string;
     labelProps?: Pick<LabelProps, "className" | "srOnly" | "variant">;
     supportLabelProps?: Pick<SupportLabelProps, "className" | "srOnly">;
 }
 
 export const InputGroup = (props: InputGroupProps) => {
-    const { children, density, errorLabel, helpLabel, inline, label, labelProps, supportLabelProps, id, ...rest } =
-        props;
+    const {
+        className,
+        children,
+        density,
+        errorLabel,
+        helpLabel,
+        inline,
+        label,
+        labelProps,
+        supportLabelProps,
+        id,
+        ...rest
+    } = props;
 
     const uid = useId(id || "jkl-input", { generateSuffix: !id });
     const supportId = useId("jkl-support-label");
     const hasSupportText = helpLabel || errorLabel;
     const describedBy = hasSupportText ? supportId : undefined;
-
-    const inlineStyle: CSSProperties = { display: "inline-block", margin: "0 8px" };
 
     const renderInput = () => {
         const input = React.Children.toArray(props.children)[0];
@@ -46,12 +57,20 @@ export const InputGroup = (props: InputGroupProps) => {
 
         return React.cloneElement<InputProps>(input, {
             "aria-describedby": describedBy,
+            "aria-invalid": Boolean(errorLabel) ? true : undefined,
             id: uid,
+            ...input.props,
         });
     };
 
     return (
-        <div className="jkl-input-group" data-density={density} style={inline ? inlineStyle : undefined} {...rest}>
+        <div
+            className={cn(className, "jkl-input-group", {
+                "jkl-input-group--inline": inline,
+            })}
+            data-density={density}
+            {...rest}
+        >
             <Label standAlone htmlFor={uid} srOnly={inline} {...labelProps}>
                 {label}
             </Label>

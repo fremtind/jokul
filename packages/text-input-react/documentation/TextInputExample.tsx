@@ -1,8 +1,8 @@
 import { LabelVariant, Link } from "@fremtind/jkl-core";
 import React, { useState, ChangeEvent, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { TextInput } from "../src";
-import { Action } from "../src/TextInput";
+import { type Action } from "../src/BaseTextInput";
+import { TextInput } from "../src/TextInput";
 
 export const textInputExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med handling", "Med benevnelse", "Inline"],
@@ -69,11 +69,11 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
             name="boareal"
             helpLabel={helpLabel}
             errorLabel={errorLabel}
+            labelProps={{ variant }}
             value={value}
             onChange={handleChange}
             onKeyDown={() => console.log("onKeyDown event")}
             inline={inline}
-            variant={variant}
             action={action}
             unit={unit}
             align="right"

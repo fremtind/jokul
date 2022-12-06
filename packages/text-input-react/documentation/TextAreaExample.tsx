@@ -1,7 +1,7 @@
 import { LabelVariant } from "@fremtind/jkl-core";
 import React, { useState, ChangeEvent, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { TextArea } from "../src";
+import { TextArea } from "../src/TextArea";
 
 export const textAreaExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Ekspanderende", "Starter åpen", "Med teller", "Skjul progress", "Med hjelpetekst", "Med feil"],
@@ -37,7 +37,7 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             autoExpand={autoExpand}
             startOpen={startOpen}
             counter={medTeller ? { maxLength: 200, hideProgress: skjulProgress } : undefined}
-            variant={variant}
+            labelProps={{ variant }}
             value={value}
             onChange={handleChange}
         />
