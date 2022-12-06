@@ -6,7 +6,6 @@ group: knapper
 ---
 
 import { TabsExample, tabsExampleCode, tabsExampleKnobs } from "./TabsExample";
-import { NavTabsExample, navTabsExampleCode, navTabsExampleKnobs } from "./NavTabsExample";
 import "@fremtind/jkl-tabs/tabs.css";
 
 <Ingress>
@@ -23,14 +22,31 @@ Fanekomponenten kommer i to varianter som er visuelt like, men teknisk forskjell
 -   Den første bytter visning av innhold på samme side med `button` - navigerer ikke til en ny URL.
 -   Den andre baserer seg på lenker (`a` eller en custom komponent), og at hver fane er sin egen route.
 
-<ComponentExample
-    title="NavTabs"
-    component={NavTabsExample}
-    knobs={navTabsExampleKnobs}
-    codeExample={navTabsExampleCode}
-/>
-
-NavTabs er visuelt lik som Tabs, men gjør det mulig å ha faner med ulike _routes_ eller URLer.
+```jsx
+<div style={{ width: "100%" }}>
+    <NavTabs>
+        {/* Sett aria-selected til true for den nåværende routen. */}
+        <NavTab aria-selected={true} href="/eksempler">
+            Eksempler
+        </NavTab>
+        <NavTab aria-selected={false} href="/bruk">
+            Bruk
+        </NavTab>
+        <NavTab aria-selected={false} href="/tekst">
+            Tekst
+        </NavTab>
+        <NavTab aria-selected={false} href="/spec">
+            Design Spec
+        </NavTab>
+        <NavTab aria-selected={false} href="/kode">
+            Kode
+        </NavTab>
+    </NavTabs>
+    <div role="tabpanel">
+        Sideinnhold, eller for eksempel <code>&lt;Outlet /&gt;</code> i Remix.
+    </div>
+</div>
+```
 
 ## Best practices
 
