@@ -3,7 +3,7 @@ import {
     type LabelProps,
     SupportLabel,
     type SupportLabelProps,
-    type WithChildren,
+    type WithOptionalChildren,
     type Density,
     type DataTestAutoId,
 } from "@fremtind/jkl-core";
@@ -17,7 +17,7 @@ export interface InputProps {
     id?: string;
 }
 
-export interface InputGroupProps extends WithChildren, DataTestAutoId {
+export interface InputGroupProps extends WithOptionalChildren, DataTestAutoId {
     className?: string;
     "data-testid"?: string;
     density?: Density;
@@ -28,6 +28,7 @@ export interface InputGroupProps extends WithChildren, DataTestAutoId {
     label: ReactNode;
     labelProps?: Pick<LabelProps, "className" | "srOnly" | "variant">;
     supportLabelProps?: Pick<SupportLabelProps, "className" | "srOnly">;
+    render?: (props: InputProps) => JSX.Element;
 }
 
 export const InputGroup = (props: InputGroupProps) => {
@@ -40,6 +41,7 @@ export const InputGroup = (props: InputGroupProps) => {
         inline,
         label,
         labelProps,
+        render,
         supportLabelProps,
         id,
         ...rest
@@ -50,18 +52,24 @@ export const InputGroup = (props: InputGroupProps) => {
     const hasSupportText = helpLabel || errorLabel;
     const describedBy = hasSupportText ? supportId : undefined;
 
-    const renderInput = () => {
-        const input = React.Children.toArray(props.children)[0];
-
-        if (!React.isValidElement<InputProps>(input)) return;
-
-        return React.cloneElement<InputProps>(input, {
-            "aria-describedby": describedBy,
-            "aria-invalid": Boolean(errorLabel) ? true : undefined,
-            id: uid,
-            ...input.props,
-        });
+    const inputProps: InputProps = {
+        "aria-describedby": describedBy,
+        "aria-invalid": Boolean(errorLabel) ? true : undefined,
+        id: uid,
     };
+
+    const renderInput = render
+        ? () => render(inputProps)
+        : () => {
+              const input = React.Children.toArray(props.children)[0];
+
+              if (!React.isValidElement<InputProps>(input)) return;
+
+              return React.cloneElement<InputProps>(input, {
+                  ...inputProps,
+                  ...input.props,
+              });
+          };
 
     return (
         <div
