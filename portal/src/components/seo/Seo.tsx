@@ -25,7 +25,7 @@ export const Seo: React.FC<Props> = ({ title }) => {
 
     return (
         <Fragment>
-            <title id="title">{pageTitle}</title>
+            <title id="head-title">{pageTitle}</title>
             <meta id="description" name="description" content={metaDescription} />
             <meta id="twitter:card" name="twitter:card" content="summary" />
             <meta id="twitter:title" name="twitter:title" content={pageTitle} />
