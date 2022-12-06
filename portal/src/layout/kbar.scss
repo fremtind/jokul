@@ -14,15 +14,8 @@ $_kbar-padding-inline: jkl.$spacing-s jkl.$spacing-m;
 $_kbar-padding-block: jkl.$spacing-s jkl.$spacing-m;
 $_kbar-padding: $_kbar-padding-block $_kbar-padding-inline;
 
-.kbar-search {
-    @include jkl.text-style("body");
-    padding: $_kbar-padding;
-    width: 100%;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    background: var(--jkl-background-color);
-    color: var(--jkl-color);
+.kbar-positioner {
+    z-index: jkl.$z-index--modal;
 }
 
 .kbar-animator {
@@ -34,6 +27,17 @@ $_kbar-padding: $_kbar-padding-block $_kbar-padding-inline;
     border-radius: jkl.rem(4px);
     overflow: hidden;
     box-shadow: jkl.$drop-shadow--large;
+}
+
+.kbar-search {
+    @include jkl.text-style("body");
+    padding: $_kbar-padding;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    background: var(--jkl-background-color);
+    color: var(--jkl-color);
 }
 
 .kbar-group-name {

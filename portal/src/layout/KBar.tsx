@@ -156,7 +156,7 @@ export const KBar: FC = () => {
 
     return (
         <KBarPortal>
-            <KBarPositioner>
+            <KBarPositioner className="kbar-positioner">
                 <KBarAnimator className="jkl kbar-animator">
                     <KBarSearch className="kbar-search" defaultPlaceholder="Skriv en kommando eller søk" />
                     <RenderResults />
