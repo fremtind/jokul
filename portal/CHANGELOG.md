@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.4.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.3.0...@fremtind/portal@16.4.0) (2022-12-06)
+
+### Bug Fixes
+
+- bredde på mobil for portal-image ([1b00c7d](https://github.com/fremtind/jokul/commit/1b00c7d4d79c0943374243dc53dc69ede2ca96e6))
+
+### Features
+
+- nye fanekomponenter basert på lenker og URLer ([3f69586](https://github.com/fremtind/jokul/commit/3f695860aaf8ff98c8a95af5dfb9bad35725dd9a))
+
 # [16.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.2.2...@fremtind/portal@16.3.0) (2022-12-06)
 
 ### Bug Fixes

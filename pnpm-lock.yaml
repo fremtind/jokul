@@ -772,7 +772,7 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^11.3.0
       '@fremtind/jkl-react-hooks': ^10.2.7
-      '@fremtind/jkl-tabs': ^3.0.9
+      '@fremtind/jkl-tabs': ^3.1.0
       classnames: ^2.3.2
       nanoid: ^3.3.4
     dependencies:
@@ -910,7 +910,7 @@ importers:
       '@fremtind/jkl-select-react': ^11.2.12
       '@fremtind/jkl-summary-table-react': ^8.0.10
       '@fremtind/jkl-table-react': ^9.1.3
-      '@fremtind/jkl-tabs-react': ^3.0.12
+      '@fremtind/jkl-tabs-react': ^3.1.0
       '@fremtind/jkl-tag-react': ^3.0.18
       '@fremtind/jkl-text-input-react': ^11.3.1
       '@fremtind/jkl-toggle-switch-react': ^10.0.14
