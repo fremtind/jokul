@@ -16,6 +16,9 @@ patchedDependencies:
   '@frsource/cypress-plugin-visual-regression-diff@3.1.6':
     hash: e6umj5xys57o3rbg6x3acuktgm
     path: patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch
+  kbar@0.1.0-beta.39:
+    hash: xz5kcti6rhkbtvejisfylwqd7u
+    path: patches/kbar@0.1.0-beta.39.patch
 
 importers:
 
@@ -1007,7 +1010,7 @@ importers:
       gatsby-source-package: 1.0.1_gatsby@4.24.8
       gatsby-transformer-react-docgen: 7.24.0_gatsby@4.24.8
       gatsby-transformer-sharp: 4.24.0_lrbwmhhxn5xmwuaca2nnhadopa
-      kbar: 0.1.0-beta.39_biqbaboplfbrettd7655fr4n2y
+      kbar: 0.1.0-beta.39_xz5kcti6rhkbtvejisfylwqd7u_biqbaboplfbrettd7655fr4n2y
       mixpanel-browser: 2.45.0
       prism-react-renderer: 1.3.5_react@18.2.0
       react: 18.2.0
@@ -14637,7 +14640,7 @@ packages:
     resolution: {integrity: sha512-u8HXJ3HlNrTzY7zrYYKjNEfBlyjqhdBkoyTVdjtn7p02RJD5NvR8rIClzeGA7t+UYP1/7eAkWNLU0+P3QrEqKQ==}
     dev: true
 
-  /kbar/0.1.0-beta.39_biqbaboplfbrettd7655fr4n2y:
+  /kbar/0.1.0-beta.39_xz5kcti6rhkbtvejisfylwqd7u_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-Gjn0m3MV2V/rEYTDAhIMzxD75Rz65tuMB6v6w71B8PuU4vQzZ7dWVKEI4b56Cf47T49zrax6tqsijxcsAFpLSg==}
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0
@@ -14651,6 +14654,7 @@ packages:
       react-virtual: 2.10.4_react@18.2.0
       tiny-invariant: 1.3.1
     dev: false
+    patched: true
 
   /keyv/3.1.0:
     resolution: {integrity: sha512-9ykJ/46SN/9KPM/sichzQ7OvXyGDYKGTaDlKMGCAlg2UK8KRy4jb0d8sFc+0Tt0YYnThq8X2RZgCg74RPxgcVA==}

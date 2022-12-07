@@ -45,7 +45,8 @@
         "patchedDependencies": {
             "gulp-sass@5.1.0": "patches/gulp-sass@5.1.0.patch",
             "cz-lerna-changelog@2.0.3": "patches/cz-lerna-changelog@2.0.3.patch",
-            "@frsource/cypress-plugin-visual-regression-diff@3.1.6": "patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch"
+            "@frsource/cypress-plugin-visual-regression-diff@3.1.6": "patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch",
+            "kbar@0.1.0-beta.39": "patches/kbar@0.1.0-beta.39.patch"
         }
     },
     "dependencies": {
