@@ -5709,7 +5709,7 @@ var core2 = __toESM(require_core());
 var core = __toESM(require_core());
 var import_micromatch = __toESM(require_micromatch());
 
-// ../../node_modules/.pnpm/simple-git@3.15.0/node_modules/simple-git/dist/esm/index.js
+// ../../node_modules/.pnpm/simple-git@3.15.1/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist2(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_child_process = require("child_process");
@@ -9220,7 +9220,7 @@ function abortPlugin(signal) {
   return [onSpawnBefore, onSpawnAfter];
 }
 function isConfigSwitch(arg) {
-  return arg.trim().toLowerCase() === "-c";
+  return typeof arg === "string" && arg.trim().toLowerCase() === "-c";
 }
 function preventProtocolOverride(arg, next) {
   if (!isConfigSwitch(arg)) {
