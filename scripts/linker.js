@@ -10,17 +10,22 @@ const path = require("path");
 const prompt = require("prompt");
 
 const runLinker = async () => {
-    prompt.start();
+    let projectPath = process.argv[2];
 
-    const { projectPath } = await prompt.get({
-        properties: {
-            projectPath: {
-                description: "Hva er filstien til prosjektet hvor du vil teste?",
-                message: "Kan være absolutt (starte med /) eller relativ (starte med ../).",
-                required: true,
+    if (!projectPath) {
+        prompt.start();
+
+        const { projectPath } = await prompt.get({
+            properties: {
+                projectPath: {
+                    description: "Hva er filstien til prosjektet hvor du vil teste?",
+                    message: "Kan være absolutt (starte med /) eller relativ (starte med ../).",
+                    required: true,
+                },
             },
-        },
-    });
+        });
+    }
+
     let resolvedPath = null;
     if (path.isAbsolute(projectPath)) {
         resolvedPath = projectPath;
@@ -55,12 +60,20 @@ const runLinker = async () => {
         );
     }
 
+    if ([isYarn, isPnpm, isNpm].filter((isTool) => isTool).length > 1) {
+        throw new Error("Fant flere lockfiler i samme prosjekt. Slett den du ikke bruker.");
+    }
+
     const packagesDir = await fs.readdir(path.join(__dirname, "..", "packages"), {
         encoding: "utf-8",
         withFileTypes: true,
     });
 
-    console.log("Gjør klar pakker for linking...");
+    if (isPnpm) {
+        console.log("Linker...");
+    } else {
+        console.log("Gjør klar pakker for linking...");
+    }
 
     const packageNames = [];
     for (const entry of packagesDir) {
@@ -81,7 +94,11 @@ const runLinker = async () => {
             continue;
         }
 
-        execSync(`${tool} link`, { cwd: path.join(__dirname, "..", "packages", entry.name), windowsHide: true });
+        if (isPnpm) {
+            execSync(`pnpm link ${packagePath}`, { cwd: resolvedPath, windowsHide: true });
+        } else {
+            execSync(`${tool} link`, { cwd: path.join(__dirname, "..", "packages", entry.name), windowsHide: true });
+        }
         console.log(`  - ${entry.name}`);
     }
 
@@ -91,9 +108,11 @@ const runLinker = async () => {
 
     const allPackageNames = packageNames.reduce((acc, current) => `${acc} ${current}`, "").trim();
 
-    console.log();
-    console.log(`Linker pakkene ${allPackageNames} i ${projectPath}`);
-    execSync(`${tool} link ${allPackageNames}`, { cwd: resolvedPath, windowsHide: true });
+    if (!isPnpm) {
+        console.log();
+        console.log(`Linker pakkene ${allPackageNames} i ${projectPath}`);
+        execSync(`${tool} link ${allPackageNames}`, { cwd: resolvedPath, windowsHide: true });
+    }
 
     console.log();
     console.log(`✅ Jøkul-pakker klar for test i ${projectPath}`);
