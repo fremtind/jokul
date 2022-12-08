@@ -230,7 +230,7 @@ jobs:
               run: pnpm build:docs
 
             - name: Run Cypress
-              uses: cypress-io/github-action@v4
+              uses: cypress-io/github-action@v5
               with:
                   # We install packages above
                   install: false
