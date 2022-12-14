@@ -313,7 +313,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                 value: String(i),
                                 label: name,
                             }))}
-                            variant="small"
+                            labelProps={{ variant: "small" }}
                             value={extendedMonth}
                             onChange={handleMonthChange}
                             width="auto"

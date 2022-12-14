@@ -1,84 +1,67 @@
-import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps, Density } from "@fremtind/jkl-core";
-import { useId } from "@fremtind/jkl-react-hooks";
+import { type ValuePair, getValuePair } from "@fremtind/jkl-core";
+import { InputGroup, type InputGroupProps } from "@fremtind/jkl-input-group-react";
 import cn from "classnames";
-import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
+import React, { forwardRef, SelectHTMLAttributes } from "react";
 import { ExpandArrow } from "./ExpandArrow";
 
-export interface NativeSelectProps {
-    id?: string;
-    name?: string;
-    label: string;
-    labelProps?: Omit<LabelProps, "children" | "standAlone">;
-    items: Array<string | ValuePair>;
-    className?: string;
-    selectClassName?: string;
-    inline?: boolean;
-    helpLabel?: string;
-    errorLabel?: string;
-    /** @deprecated Bruk `labelProps.variant`  */
-    variant?: LabelVariant;
-    placeholder?: string;
-    value?: string;
-    density?: Density;
-    width?: string;
-    onChange?: ChangeEventHandler<HTMLSelectElement>;
-    onFocus?: FocusEventHandler<HTMLSelectElement>;
-    onBlur?: FocusEventHandler<HTMLSelectElement>;
+export interface NativeSelectProps extends Omit<InputGroupProps, "children">, SelectHTMLAttributes<HTMLSelectElement> {
     /**
      * Merk som ugyldig uten å sende inn en errorLabel.
      * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
      */
     invalid?: boolean;
+    items: Array<string | ValuePair>;
+    selectClassName?: string;
+    width?: string;
 }
 
-export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
-    (
-        {
-            id,
-            label,
-            labelProps,
-            items,
-            className = "",
-            inline = false,
-            helpLabel,
-            errorLabel,
-            invalid,
-            variant,
-            placeholder,
-            value,
-            density,
-            width,
-            selectClassName,
-            ...rest
-        },
-        ref,
-    ) => {
-        const uid = useId(id || "jkl-select", { generateSuffix: !id });
-        const supportId = `${uid}_support-label`;
-        const hasSupportText = helpLabel || errorLabel;
-        const describedBy = hasSupportText ? supportId : undefined;
+export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>((props, ref) => {
+    const {
+        label,
+        className,
+        density,
+        errorLabel,
+        helpLabel,
+        inline,
+        invalid,
+        items,
+        labelProps,
+        placeholder,
+        selectClassName,
+        supportLabelProps,
+        tooltipProps,
+        value,
+        width,
+        ...rest
+    } = props;
 
-        return (
-            <div
-                data-testid="jkl-select"
-                className={cn("jkl-select", className, {
-                    "jkl-select--inline": inline,
-                    "jkl-select--invalid": !!errorLabel || invalid,
-                })}
-                data-density={density}
-            >
-                <Label variant={variant} {...labelProps} standAlone htmlFor={uid} density={density}>
-                    {label}
-                </Label>
+    const inputGroupProps = {
+        label,
+        density,
+        errorLabel,
+        helpLabel,
+        labelProps,
+        inline,
+        supportLabelProps,
+        tooltipProps,
+    };
+
+    return (
+        <InputGroup
+            {...inputGroupProps}
+            data-testid="jkl-select"
+            className={cn("jkl-select", className, {
+                "jkl-select--inline": inline,
+                "jkl-select--invalid": !!errorLabel || invalid,
+            })}
+            render={(inputProps) => (
                 <div className="jkl-select__outer-wrapper" style={{ width }}>
                     <select
                         ref={ref}
-                        id={uid}
                         className={cn("jkl-select__button", selectClassName)}
                         defaultValue={value ? undefined : ""}
                         value={value}
-                        aria-describedby={describedBy}
-                        aria-invalid={Boolean(errorLabel)}
+                        {...inputProps}
                         {...rest}
                     >
                         {placeholder && !value && (
@@ -99,10 +82,9 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                     </select>
                     <ExpandArrow />
                 </div>
-                <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} density={density} />
-            </div>
-        );
-    },
-);
+            )}
+        />
+    );
+});
 
 NativeSelect.displayName = "NativeSelect";
