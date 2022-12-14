@@ -1,7 +1,8 @@
 import { LabelVariant } from "@fremtind/jkl-core";
 import React, { useState, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { Select, NativeSelect } from "../src";
+import { Select /* NativeSelect */ } from "../src";
+import { NativeSelect } from "../src/NewNativeSelect";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Native", "Med hjelpetekst", "Med feil", "Med søk"],
