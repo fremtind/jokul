@@ -17,13 +17,15 @@
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-tab", "body");
 
-    --jkl-tab-padding: #{jkl.$spacing-xs} #{jkl.$spacing-xl} #{jkl.$spacing-s} #{jkl.$spacing-3xs};
+    --jkl-tab-padding: var(--jkl-spacing-8) var(--jkl-spacing-4);
+    --jkl-tab-spacing: var(--jkl-spacing-40);
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-tab", "small");
 
-    --jkl-tab-padding: #{jkl.$spacing-3xs} #{jkl.rem(32px)} #{jkl.$spacing-2xs} 0;
+    --jkl-tab-padding: var(--jkl-spacing-4);
+    --jkl-tab-spacing: var(--jkl-spacing-24);
 }
 
 .jkl-tabs {
@@ -42,6 +44,7 @@
     position: relative;
     display: inline-flex;
     flex-direction: row;
+    gap: var(--jkl-tab-spacing);
     padding: 0;
     margin: 0;
     border-bottom: 1px jkl.$color-svaberg solid;
@@ -50,11 +53,14 @@
 
     &__indicator {
         position: absolute;
+        bottom: -1px;
         height: 2px;
+        width: 1px;
         background-color: var(--jkl-tab-indicator-color);
         @include jkl.motion("standard", "lazy");
-        transition-property: left, width;
-        will-change: left, width;
+        transition-property: transform;
+        transform: translate(var(--position, 0), 0) scale(var(--width, 0), 1);
+        transform-origin: bottom left;
 
         @include jkl.forced-colors-mode {
             background-color: Highlight;
@@ -74,7 +80,7 @@
     background-color: transparent;
     cursor: pointer;
     position: relative;
-    scroll-margin-inline-start: jkl.$spacing-m;
+    scroll-margin-inline-start: jkl.$spacing-16;
     scroll-snap-align: start;
     text-decoration: none;
     white-space: nowrap;
@@ -89,16 +95,8 @@
         &::after {
             content: "";
             position: absolute;
-            top: jkl.rem(2px);
-            right: jkl.rem(6px); // Hold avstand til neste fane
-            bottom: jkl.rem(1px);
-            left: jkl.rem(-2px);
-            box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-tab-focus-border-color);
-        }
-
-        &:first-of-type::after {
-            // Unngå clipping hvis kant til kant med skjerm eller scroll container.
-            left: jkl.rem(2px);
+            inset: jkl.rem(2px) jkl.rem(2px) jkl.rem(1px) jkl.rem(2px);
+            outline: jkl.rem(2px) solid var(--jkl-tab-focus-border-color);
         }
     }
 

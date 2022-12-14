@@ -1,6 +1,6 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { useTabsContext } from "./tabsContext";
 
 export interface TabListProps extends WithChildren {
@@ -85,11 +85,12 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
 
             <span
                 className="jkl-tablist__indicator"
-                style={{
-                    left: (activeRect?.left || 0) - (tabsRect?.left || 0),
-                    bottom: -1,
-                    width: (activeRect?.width || 0) - (density === "compact" ? 32 : 38),
-                }}
+                style={
+                    {
+                        "--position": `${(activeRect?.left || 0) - (tabsRect?.left || 0)}px`,
+                        "--width": activeRect?.width || 0,
+                    } as CSSProperties
+                }
             />
         </div>
     );
