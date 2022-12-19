@@ -160,7 +160,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPagesStatefully = async ({ graphql, actions, reporter }) => {
     const result = await graphql(`
         {
             components: allMdx(
