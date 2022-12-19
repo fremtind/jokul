@@ -1,4 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
+import { usePreviousValue } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { useTabsContext } from "./tabsContext";
@@ -27,9 +28,26 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
 
     const [tabsRect, setTabsRect] = useState<DOMRect>();
     const [activeRect, setActiveRect] = useState<DOMRect>();
+    const previousIndex = usePreviousValue(activeIndex);
 
     const tabsRef = useRef<HTMLDivElement>(null);
     const activeRef = useRef<HTMLButtonElement>(null);
+    const indicatorRef = useRef<HTMLSpanElement>(null);
+
+    // Sørg for å ikke animere indikatoren ved første innlasting av fanene
+    useEffect(() => {
+        if (previousIndex === undefined) {
+            requestAnimationFrame(() => {
+                indicatorRef.current?.style.setProperty("transition-property", "none");
+                setTabsRect(tabsRef.current?.getBoundingClientRect());
+                setActiveRect(activeRef.current?.getBoundingClientRect());
+            });
+
+            requestAnimationFrame(() => {
+                indicatorRef.current?.style.removeProperty("transition-property");
+            });
+        }
+    }, [activeIndex, previousIndex]);
 
     useEffect(() => {
         if (tabsRef.current) {
@@ -84,6 +102,7 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
             })}
 
             <span
+                ref={indicatorRef}
                 className="jkl-tablist__indicator"
                 style={
                     {
