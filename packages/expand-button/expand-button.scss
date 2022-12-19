@@ -96,13 +96,12 @@
             margin-bottom: 0;
         }
 
-        --jkl-icon-width: var(--jkl-expand-button-arrow-width);
-
-        .jkl-icon--small {
-            --jkl-icon-width: var(--jkl-expand-button-arrow-width);
-        }
-
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+    }
+
+    // Bevisst nøstet for høyere specificity enn core uavhengig av importrekkefølge.
+    .jkl-expand-button__arrow {
+        --jkl-icon-width: var(--jkl-expand-button-arrow-width);
     }
 
     @include jkl.forced-colors-mode {
