@@ -1,8 +1,8 @@
 diff --git a/dist/plugins.js b/dist/plugins.js
-index f9c95fa1806bb131548f86563750ad60c3185306..54b89cfd72e5fca8a7c9f2df923a6e4e61d9d53a 100644
+index ad7f9173b68870a36bde004b2c50266f5af2330f..0fdfe113665594864fa99a746ebafa7a95740f7e 100644
 --- a/dist/plugins.js
 +++ b/dist/plugins.js
-@@ -490,6 +490,10 @@ const initForceDeviceScaleFactor = on => {
+@@ -490,6 +490,11 @@ const initForceDeviceScaleFactor = on => {
      if (browser.name === "chrome" || browser.name === "chromium") {
        launchOptions.args.push("--force-device-scale-factor=1");
        launchOptions.args.push("--high-dpi-support=1");
@@ -10,14 +10,15 @@ index f9c95fa1806bb131548f86563750ad60c3185306..54b89cfd72e5fca8a7c9f2df923a6e4e
 +      if (process.env.FORCED_COLORS === true || process.env.FORCED_COLORS === "true") {
 +        launchOptions.args.push("--force-high-contrast");
 +      }
-       return launchOptions;
++      return launchOptions;
      } else if (browser.name === "electron" && browser.isHeaded) {
        // eslint-disable-next-line no-console
+       console.log("There isn't currently a way of setting the device scale factor in Cypress when running headed electron so we disable the image regression commands.");
 diff --git a/dist/plugins.mjs b/dist/plugins.mjs
-index 761ecb15addeae6463850f8fcb14e7ebb1e83423..dffb4caf368e64b53b8f775212ae8b5c888b5cab 100644
+index 758f6e71586c2c31a1b9a35ca08833499bf8ff15..52683067fd1a665f6dd7992930dc362beaf5660f 100644
 --- a/dist/plugins.mjs
 +++ b/dist/plugins.mjs
-@@ -481,6 +481,10 @@ const initForceDeviceScaleFactor = on => {
+@@ -481,6 +481,11 @@ const initForceDeviceScaleFactor = on => {
      if (browser.name === "chrome" || browser.name === "chromium") {
        launchOptions.args.push("--force-device-scale-factor=1");
        launchOptions.args.push("--high-dpi-support=1");
@@ -25,6 +26,7 @@ index 761ecb15addeae6463850f8fcb14e7ebb1e83423..dffb4caf368e64b53b8f775212ae8b5c
 +      if (process.env.FORCED_COLORS === true || process.env.FORCED_COLORS === "true") {
 +        launchOptions.args.push("--force-high-contrast");
 +      }
-       return launchOptions;
++      return launchOptions;
      } else if (browser.name === "electron" && browser.isHeaded) {
        // eslint-disable-next-line no-console
+       console.log("There isn't currently a way of setting the device scale factor in Cypress when running headed electron so we disable the image regression commands.");

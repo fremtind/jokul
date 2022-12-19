@@ -10,15 +10,15 @@ patchedDependencies:
   gulp-sass@5.1.0:
     hash: z2duu6muooayewj4qeaynjtnaa
     path: patches/gulp-sass@5.1.0.patch
-  '@frsource/cypress-plugin-visual-regression-diff@3.2.3':
-    hash: xfoujcwylvcqu757xwrhkmof3i
-    path: patches/@frsource__cypress-plugin-visual-regression-diff@3.2.3.patch
   cz-lerna-changelog@2.0.3:
     hash: rwhr2kgabnya2gbdqqa3lsmu4i
     path: patches/cz-lerna-changelog@2.0.3.patch
   kbar@0.1.0-beta.39:
     hash: xz5kcti6rhkbtvejisfylwqd7u
     path: patches/kbar@0.1.0-beta.39.patch
+  '@frsource/cypress-plugin-visual-regression-diff@3.1.6':
+    hash: e6umj5xys57o3rbg6x3acuktgm
+    path: patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch
 
 importers:
 
@@ -28,7 +28,7 @@ importers:
       '@commitlint/config-conventional': ^17.3.0
       '@fremtind/browserslist-config-jkl': ^1.0.3
       '@fremtind/stylelint-config-jkl': ^6.0.4
-      '@frsource/cypress-plugin-visual-regression-diff': 3.2.3
+      '@frsource/cypress-plugin-visual-regression-diff': 3.1.6
       '@testing-library/dom': ^8.19.0
       '@testing-library/jest-dom': ^5.16.5
       '@testing-library/react': ^13.4.0
@@ -97,7 +97,7 @@ importers:
       '@commitlint/config-conventional': 17.3.0
       '@fremtind/browserslist-config-jkl': link:packages/browserslist-config-jkl
       '@fremtind/stylelint-config-jkl': link:packages/stylelint-config-jkl
-      '@frsource/cypress-plugin-visual-regression-diff': 3.2.3_xfoujcwylvcqu757xwrhkmof3i_cypress@11.2.0
+      '@frsource/cypress-plugin-visual-regression-diff': 3.1.6_e6umj5xys57o3rbg6x3acuktgm_cypress@11.2.0
       '@testing-library/dom': 8.19.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
@@ -2905,17 +2905,17 @@ packages:
       '@floating-ui/dom': 1.0.7
     dev: false
 
-  /@frsource/base64/1.0.5:
-    resolution: {integrity: sha512-RIlQtKezeRhNuxIpIc2BuM4kNqAakIarKV/TCgx2EC+zgj1NxX3+Mc80AkJCCMO8dZUuGzbULG7295YeBQZlSA==}
+  /@frsource/base64/1.0.4:
+    resolution: {integrity: sha512-IphM1ro1cvV5CqJWzX/LvPJcUE26cwgt/zMtBdssvTrfSNhh9KjfS2VXTA8SivkvPHK1DsdPnoMoXitmx8c3Cg==}
     dev: true
 
-  /@frsource/cypress-plugin-visual-regression-diff/3.2.3_xfoujcwylvcqu757xwrhkmof3i_cypress@11.2.0:
-    resolution: {integrity: sha512-lMtdDZy2RFCXnMcenpiXB160KuanXWjj5h/MyRDlZfZFEmi6V2znXUcRG3STvcrH9AXctb+IFRrhFQxbfyegrQ==}
+  /@frsource/cypress-plugin-visual-regression-diff/3.1.6_e6umj5xys57o3rbg6x3acuktgm_cypress@11.2.0:
+    resolution: {integrity: sha512-REKVdGB90MmoavrQCyOXENhP8mAEZfUiIWQup7ChlY7hTGtWOfURrqi/BrutIohfeYrqRVEbo5DfZHwuXUoCsA==}
     engines: {node: '>=10'}
     peerDependencies:
       cypress: '>=4.5.0'
     dependencies:
-      '@frsource/base64': 1.0.5
+      '@frsource/base64': 1.0.4
       cypress: 11.2.0
       glob: 8.0.3
       meta-png: 1.0.5

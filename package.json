@@ -45,8 +45,8 @@
         "patchedDependencies": {
             "gulp-sass@5.1.0": "patches/gulp-sass@5.1.0.patch",
             "cz-lerna-changelog@2.0.3": "patches/cz-lerna-changelog@2.0.3.patch",
-            "@frsource/cypress-plugin-visual-regression-diff@3.2.3": "patches/@frsource__cypress-plugin-visual-regression-diff@3.2.3.patch",
-            "kbar@0.1.0-beta.39": "patches/kbar@0.1.0-beta.39.patch"
+            "kbar@0.1.0-beta.39": "patches/kbar@0.1.0-beta.39.patch",
+            "@frsource/cypress-plugin-visual-regression-diff@3.1.6": "patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch"
         }
     },
     "dependencies": {
@@ -58,7 +58,7 @@
         "@commitlint/config-conventional": "^17.3.0",
         "@fremtind/browserslist-config-jkl": "^1.0.3",
         "@fremtind/stylelint-config-jkl": "^6.0.4",
-        "@frsource/cypress-plugin-visual-regression-diff": "3.2.3",
+        "@frsource/cypress-plugin-visual-regression-diff": "3.1.6",
         "@testing-library/dom": "^8.19.0",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
