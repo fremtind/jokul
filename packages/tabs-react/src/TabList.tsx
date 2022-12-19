@@ -1,8 +1,8 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import { usePreviousValue } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import React, { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
+import React, { CSSProperties, useCallback } from "react";
 import { useTabsContext } from "./tabsContext";
+import { useTabIndicator } from "./useTabIndicator";
 
 export interface TabListProps extends WithChildren {
     "aria-label"?: string;
@@ -26,37 +26,10 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
     const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...rest } = injected as TabListProps & InjectedProps;
     const { density } = useTabsContext();
 
-    const [tabsRect, setTabsRect] = useState<DOMRect>();
-    const [activeRect, setActiveRect] = useState<DOMRect>();
-    const previousIndex = usePreviousValue(activeIndex);
-
-    const tabsRef = useRef<HTMLDivElement>(null);
-    const activeRef = useRef<HTMLButtonElement>(null);
-    const indicatorRef = useRef<HTMLSpanElement>(null);
-
-    // Sørg for å ikke animere indikatoren ved første innlasting av fanene
-    useEffect(() => {
-        if (previousIndex === undefined) {
-            requestAnimationFrame(() => {
-                indicatorRef.current?.style.setProperty("transition-property", "none");
-                setTabsRect(tabsRef.current?.getBoundingClientRect());
-                setActiveRect(activeRef.current?.getBoundingClientRect());
-            });
-
-            requestAnimationFrame(() => {
-                indicatorRef.current?.style.removeProperty("transition-property");
-            });
-        }
-    }, [activeIndex, previousIndex]);
-
-    useEffect(() => {
-        if (tabsRef.current) {
-            setTabsRect(tabsRef.current.getBoundingClientRect());
-        }
-        if (activeRef.current) {
-            setActiveRect(activeRef.current.getBoundingClientRect());
-        }
-    }, [activeIndex, density]);
+    const { activeTab, indicatorPosition, indicatorWidth, tabContainer, tabIndicator } = useTabIndicator({
+        activeIndex,
+        density,
+    });
 
     const keyDownHandler = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
         if (event.key === "ArrowLeft") {
@@ -84,7 +57,7 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
     }, []);
 
     return (
-        <div role="tablist" ref={tabsRef} {...rest} className={cn("jkl-tablist", className)}>
+        <div role="tablist" ref={tabContainer} {...rest} className={cn("jkl-tablist", className)}>
             {React.Children.map(children, (tab, tabIndex) => {
                 const isActive = activeIndex === tabIndex;
 
@@ -92,7 +65,7 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
                     ? React.cloneElement<any>(tab, {
                           onKeyDown: keyDownHandler,
                           tabIndex: isActive ? undefined : -1,
-                          ref: isActive ? activeRef : undefined,
+                          ref: isActive ? activeTab : undefined,
                           onClick: () => setActiveIndex(tabIndex),
                           "aria-selected": isActive,
                           "aria-controls": tabPanelIDs[tabIndex],
@@ -102,12 +75,12 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
             })}
 
             <span
-                ref={indicatorRef}
+                ref={tabIndicator}
                 className="jkl-tablist__indicator"
                 style={
                     {
-                        "--position": `${(activeRect?.left || 0) - (tabsRect?.left || 0)}px`,
-                        "--width": activeRect?.width || 0,
+                        "--position": indicatorPosition,
+                        "--width": indicatorWidth,
                     } as CSSProperties
                 }
             />
