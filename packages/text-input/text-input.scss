@@ -305,7 +305,6 @@ $_text-input-selection-color--inverted: color.scale(
     &--auto-expand {
         .jkl-text-area__text-area {
             overflow: hidden; // Skjul scrollbar når høyden autojusteres
-            max-height: 100%;
         }
     }
 
