@@ -4,11 +4,11 @@ import { Anchor, HeadingSmall, InlineCode, Paragraph } from "../../Typography";
 import type { UUContent } from "./uu-content";
 
 const liste: UUContent = {
-    id: "lyd-og-video",
-    title: "Lyd og video",
-    tags: ["media"],
-    wcagRules: ["1.2.1", "1.4.2"],
-    links: [["Vår info om blinkende innhold", "/universell-utforming/guide/#blinkende-innhold"]],
+    id: "lister",
+    title: "Lister",
+    tags: ["liste"],
+    wcagRules: ["2.4.6"],
+    links: [["Jøkuls listekomponenter", "/komponenter/list"]],
     body: () => (
         <>
             <Paragraph>
