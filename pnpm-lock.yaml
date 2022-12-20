@@ -391,7 +391,7 @@ importers:
       '@fremtind/jkl-icon-button-react': ^2.0.17
       '@fremtind/jkl-react-hooks': ^10.2.7
       '@fremtind/jkl-select-react': ^11.2.12
-      '@fremtind/jkl-text-input-react': ^11.3.1
+      '@fremtind/jkl-text-input-react': ^11.3.2
       '@jest/globals': ^29.3.1
       classnames: ^2.3.2
       date-fns: ^2.29.3
@@ -459,7 +459,7 @@ importers:
       '@fremtind/jkl-message-box-react': ^9.0.9
       '@fremtind/jkl-radio-button-react': ^8.0.14
       '@fremtind/jkl-react-hooks': ^10.2.7
-      '@fremtind/jkl-text-input-react': ^11.3.1
+      '@fremtind/jkl-text-input-react': ^11.3.2
       '@fremtind/jkl-validators-util': ^2.5.3
       classnames: ^2.3.2
     dependencies:
@@ -503,7 +503,7 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^11.3.0
       '@fremtind/jkl-footer': ^3.0.9
-      '@fremtind/jkl-formatters-util': ^3.0.15
+      '@fremtind/jkl-formatters-util': ^3.0.16
       '@fremtind/jkl-logo-react': ^11.0.12
       classnames: ^2.3.2
     dependencies:
@@ -890,13 +890,13 @@ importers:
       '@fremtind/jkl-content-toggle-react': ^4.0.12
       '@fremtind/jkl-cookie-consent-react': ^7.1.2
       '@fremtind/jkl-core': ^11.3.0
-      '@fremtind/jkl-datepicker-react': ^12.0.29
+      '@fremtind/jkl-datepicker-react': ^12.0.30
       '@fremtind/jkl-description-list-react': ^6.0.10
       '@fremtind/jkl-expand-button-react': ^4.0.14
-      '@fremtind/jkl-feedback-react': ^14.1.14
+      '@fremtind/jkl-feedback-react': ^14.1.15
       '@fremtind/jkl-field-group-react': ^7.0.14
-      '@fremtind/jkl-footer-react': ^3.0.20
-      '@fremtind/jkl-formatters-util': ^3.0.15
+      '@fremtind/jkl-footer-react': ^3.0.21
+      '@fremtind/jkl-formatters-util': ^3.0.16
       '@fremtind/jkl-hamburger-react': ^10.0.13
       '@fremtind/jkl-icon-button-react': ^2.0.17
       '@fremtind/jkl-icons-react': ^6.0.10
@@ -912,9 +912,9 @@ importers:
       '@fremtind/jkl-table-react': ^9.1.4
       '@fremtind/jkl-tabs-react': ^3.1.0
       '@fremtind/jkl-tag-react': ^3.0.18
-      '@fremtind/jkl-text-input-react': ^11.3.1
+      '@fremtind/jkl-text-input-react': ^11.3.2
       '@fremtind/jkl-toggle-switch-react': ^10.0.14
-      '@fremtind/jkl-tooltip-react': ^1.0.19
+      '@fremtind/jkl-tooltip-react': ^1.0.20
       '@fremtind/jkl-validators-util': ^2.5.3
       '@fremtind/jkl-webfonts': ^2.1.2
       '@jest/globals': ^29.3.1
@@ -7046,7 +7046,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.4
-      caniuse-lite: 1.0.30001436
+      caniuse-lite: 1.0.30001439
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -7093,15 +7093,9 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axe-core/4.5.2:
-    resolution: {integrity: sha512-u2MVsXfew5HBvjsczCv+xlwdNnB1oQR9HlAcsejZttNjKKSkeDNVwB1vMThIUIFI9GoT57Vtk8iQLwqOfAkboA==}
-    engines: {node: '>=4'}
-    dev: false
-
   /axe-core/4.6.1:
     resolution: {integrity: sha512-lCZN5XRuOnpG4bpMq8v0khrWtUOn+i8lZSb6wHZH56ZfbIEv6XwJV84AAueh9/zi7qPVJ/E4yz6fmsiyOmXR4w==}
     engines: {node: '>=4'}
-    dev: true
 
   /axios/0.21.4_debug@3.2.7:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
@@ -7845,10 +7839,6 @@ packages:
       caniuse-lite: 1.0.30001439
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
-
-  /caniuse-lite/1.0.30001436:
-    resolution: {integrity: sha512-ZmWkKsnC2ifEPoWUvSAIGyOYwT+keAaaWPHiQ9DfMqS1t6tfuyFYoWR78TeZtznkEQ64+vGXH9cZrElwR2Mrxg==}
-    dev: false
 
   /caniuse-lite/1.0.30001439:
     resolution: {integrity: sha512-1MgUzEkoMO6gKfXflStpYgZDlFM7M/ck/bgfVCACO5vnAf0fXoNVHdWtqGU+MYca+4bL9Z5bpOVmR33cWW9G2A==}
@@ -10418,14 +10408,14 @@ packages:
       aria-query: 4.2.2
       array-includes: 3.1.6
       ast-types-flow: 0.0.7
-      axe-core: 4.5.2
+      axe-core: 4.6.1
       axobject-query: 2.2.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
       eslint: 7.32.0
       has: 1.0.3
       jsx-ast-utils: 3.3.3
-      language-tags: 1.0.6
+      language-tags: 1.0.7
       minimatch: 3.1.2
       semver: 6.3.0
     dev: false
@@ -15084,17 +15074,10 @@ packages:
   /language-subtag-registry/0.3.22:
     resolution: {integrity: sha512-tN0MCzyWnoz/4nHS6uxdlFWoUZT7ABptwKPQ52Ea7URk6vll88bWBVhodtnlfEuCcKWNGoc+uGbw1cwa9IKh/w==}
 
-  /language-tags/1.0.6:
-    resolution: {integrity: sha512-HNkaCgM8wZgE/BZACeotAAgpL9FUjEnhgF0FVQMIgH//zqTPreLYMb3rWYkYAqPoF75Jwuycp1da7uz66cfFQg==}
-    dependencies:
-      language-subtag-registry: 0.3.22
-    dev: false
-
   /language-tags/1.0.7:
     resolution: {integrity: sha512-bSytju1/657hFjgUzPAPqszxH62ouE8nQFoFaVlIQfne4wO/wXC9A4+m8jYve7YBBvi59eq0SUpcshvG8h5Usw==}
     dependencies:
       language-subtag-registry: 0.3.22
-    dev: true
 
   /last-run/1.1.1:
     resolution: {integrity: sha512-U/VxvpX4N/rFvPzr3qG5EtLKEnNI0emvIQB3/ecEwv+8GHaUKbIB8vxv1Oai5FAF0d0r7LXHhLLe5K/yChm5GQ==}
