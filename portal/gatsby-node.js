@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const slugify = require("@sindresorhus/slugify");
 const { createFilePath } = require("gatsby-source-filesystem");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const docgen = require("react-docgen-typescript");
 const ts = require("typescript");
 
@@ -91,6 +92,20 @@ exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
             "@sindresorhus/slugify": path.resolve(__dirname, "node_modules", "@sindresorhus", "slugify"),
         };
 
+        // Skru av hashing. Cachingen på GitHub Pages er ikke evigvarende.
+        // Måten vi gjør branch previews på gjør også at vi ender opp med en uendelig voksende samling ubrukte filer, siden ingenting overskrives hvis det hashes.
+        config.output.filename = "[name].js";
+        config.output.chunkFilename = "[name].js";
+        config.output.assetModuleFilename = "[name].[ext][query]";
+
+        const plugins = config.plugins.filter((plugin) => !plugin instanceof MiniCssExtractPlugin);
+        plugins.push(
+            new MiniCssExtractPlugin({
+                filename: "[name].css",
+                chunkFilename: "[name].css",
+            }),
+        );
+
         const miniCssExtractPlugin = config.plugins.find((p) => p.constructor.name === "MiniCssExtractPlugin");
         if (miniCssExtractPlugin) {
             // På grunn av Gatsby internals får vi warnings om rekkefølgen på CSS-filer som er i konflikt.
@@ -99,8 +114,14 @@ exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
             // https://github.com/gatsbyjs/gatsby/discussions/30169
             // https://github.com/gatsbyjs/gatsby/discussions/30083
             miniCssExtractPlugin.options.ignoreOrder = true;
-            actions.replaceWebpackConfig(config);
+
+            // Skru av hashing. Cachingen på GitHub Pages er ikke evigvarende.
+            // Måten vi gjør branch previews på gjør også at vi ender opp med en uendelig voksende samling ubrukte filer, siden ingenting overskrives hvis det hashes.
+            miniCssExtractPlugin.options.filename = "[name].css";
+            miniCssExtractPlugin.options.chunkFilename = "[name].css";
         }
+
+        actions.replaceWebpackConfig(config);
     }
 };
 
@@ -139,7 +160,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     }
 };
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+exports.createPagesStatefully = async ({ graphql, actions, reporter }) => {
     const result = await graphql(`
         {
             components: allMdx(
