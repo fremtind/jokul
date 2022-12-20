@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-formatters-util",
-    "version": "3.0.17",
+    "version": "3.0.18",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-constants-util": "^1.0.13",
+        "@fremtind/jkl-constants-util": "^1.0.14",
         "@fremtind/jkl-core": "^11.3.0"
     },
     "devDependencies": {
