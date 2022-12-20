@@ -5,8 +5,15 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __esm = (fn, res) => function __init() {
+  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+};
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
 };
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
@@ -20,6 +27,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // ../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/utils.js
 var require_utils = __commonJS({
@@ -140,494 +148,336 @@ var require_command = __commonJS({
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/rng.js
-var require_rng = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/rng.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = rng;
-    var _crypto = _interopRequireDefault(require("crypto"));
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    var rnds8Pool = new Uint8Array(256);
-    var poolPtr = rnds8Pool.length;
-    function rng() {
-      if (poolPtr > rnds8Pool.length - 16) {
-        _crypto.default.randomFillSync(rnds8Pool);
-        poolPtr = 0;
-      }
-      return rnds8Pool.slice(poolPtr, poolPtr += 16);
-    }
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/rng.js
+function rng() {
+  if (poolPtr > rnds8Pool.length - 16) {
+    import_crypto.default.randomFillSync(rnds8Pool);
+    poolPtr = 0;
+  }
+  return rnds8Pool.slice(poolPtr, poolPtr += 16);
+}
+var import_crypto, rnds8Pool, poolPtr;
+var init_rng = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/rng.js"() {
+    import_crypto = __toESM(require("crypto"));
+    rnds8Pool = new Uint8Array(256);
+    poolPtr = rnds8Pool.length;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/regex.js
-var require_regex = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/regex.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-    exports.default = _default;
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/regex.js
+var regex_default;
+var init_regex = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/regex.js"() {
+    regex_default = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/validate.js
-var require_validate = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/validate.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _regex = _interopRequireDefault(require_regex());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    function validate(uuid) {
-      return typeof uuid === "string" && _regex.default.test(uuid);
-    }
-    var _default = validate;
-    exports.default = _default;
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/validate.js
+function validate(uuid) {
+  return typeof uuid === "string" && regex_default.test(uuid);
+}
+var validate_default;
+var init_validate = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/validate.js"() {
+    init_regex();
+    validate_default = validate;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/stringify.js
-var require_stringify = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/stringify.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _validate = _interopRequireDefault(require_validate());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    var byteToHex = [];
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/stringify.js
+function stringify(arr, offset = 0) {
+  const uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase();
+  if (!validate_default(uuid)) {
+    throw TypeError("Stringified UUID is invalid");
+  }
+  return uuid;
+}
+var byteToHex, stringify_default;
+var init_stringify = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/stringify.js"() {
+    init_validate();
+    byteToHex = [];
     for (let i = 0; i < 256; ++i) {
       byteToHex.push((i + 256).toString(16).substr(1));
     }
-    function stringify(arr, offset = 0) {
-      const uuid = (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase();
-      if (!(0, _validate.default)(uuid)) {
-        throw TypeError("Stringified UUID is invalid");
-      }
-      return uuid;
-    }
-    var _default = stringify;
-    exports.default = _default;
+    stringify_default = stringify;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/v1.js
-var require_v1 = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/v1.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _rng = _interopRequireDefault(require_rng());
-    var _stringify = _interopRequireDefault(require_stringify());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v1.js
+function v1(options, buf, offset) {
+  let i = buf && offset || 0;
+  const b = buf || new Array(16);
+  options = options || {};
+  let node = options.node || _nodeId;
+  let clockseq = options.clockseq !== void 0 ? options.clockseq : _clockseq;
+  if (node == null || clockseq == null) {
+    const seedBytes = options.random || (options.rng || rng)();
+    if (node == null) {
+      node = _nodeId = [seedBytes[0] | 1, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
     }
-    var _nodeId;
-    var _clockseq;
-    var _lastMSecs = 0;
-    var _lastNSecs = 0;
-    function v1(options, buf, offset) {
-      let i = buf && offset || 0;
-      const b = buf || new Array(16);
-      options = options || {};
-      let node = options.node || _nodeId;
-      let clockseq = options.clockseq !== void 0 ? options.clockseq : _clockseq;
-      if (node == null || clockseq == null) {
-        const seedBytes = options.random || (options.rng || _rng.default)();
-        if (node == null) {
-          node = _nodeId = [seedBytes[0] | 1, seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]];
-        }
-        if (clockseq == null) {
-          clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 16383;
-        }
-      }
-      let msecs = options.msecs !== void 0 ? options.msecs : Date.now();
-      let nsecs = options.nsecs !== void 0 ? options.nsecs : _lastNSecs + 1;
-      const dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 1e4;
-      if (dt < 0 && options.clockseq === void 0) {
-        clockseq = clockseq + 1 & 16383;
-      }
-      if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === void 0) {
-        nsecs = 0;
-      }
-      if (nsecs >= 1e4) {
-        throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
-      }
-      _lastMSecs = msecs;
-      _lastNSecs = nsecs;
-      _clockseq = clockseq;
-      msecs += 122192928e5;
-      const tl = ((msecs & 268435455) * 1e4 + nsecs) % 4294967296;
-      b[i++] = tl >>> 24 & 255;
-      b[i++] = tl >>> 16 & 255;
-      b[i++] = tl >>> 8 & 255;
-      b[i++] = tl & 255;
-      const tmh = msecs / 4294967296 * 1e4 & 268435455;
-      b[i++] = tmh >>> 8 & 255;
-      b[i++] = tmh & 255;
-      b[i++] = tmh >>> 24 & 15 | 16;
-      b[i++] = tmh >>> 16 & 255;
-      b[i++] = clockseq >>> 8 | 128;
-      b[i++] = clockseq & 255;
-      for (let n = 0; n < 6; ++n) {
-        b[i + n] = node[n];
-      }
-      return buf || (0, _stringify.default)(b);
+    if (clockseq == null) {
+      clockseq = _clockseq = (seedBytes[6] << 8 | seedBytes[7]) & 16383;
     }
-    var _default = v1;
-    exports.default = _default;
+  }
+  let msecs = options.msecs !== void 0 ? options.msecs : Date.now();
+  let nsecs = options.nsecs !== void 0 ? options.nsecs : _lastNSecs + 1;
+  const dt = msecs - _lastMSecs + (nsecs - _lastNSecs) / 1e4;
+  if (dt < 0 && options.clockseq === void 0) {
+    clockseq = clockseq + 1 & 16383;
+  }
+  if ((dt < 0 || msecs > _lastMSecs) && options.nsecs === void 0) {
+    nsecs = 0;
+  }
+  if (nsecs >= 1e4) {
+    throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
+  }
+  _lastMSecs = msecs;
+  _lastNSecs = nsecs;
+  _clockseq = clockseq;
+  msecs += 122192928e5;
+  const tl = ((msecs & 268435455) * 1e4 + nsecs) % 4294967296;
+  b[i++] = tl >>> 24 & 255;
+  b[i++] = tl >>> 16 & 255;
+  b[i++] = tl >>> 8 & 255;
+  b[i++] = tl & 255;
+  const tmh = msecs / 4294967296 * 1e4 & 268435455;
+  b[i++] = tmh >>> 8 & 255;
+  b[i++] = tmh & 255;
+  b[i++] = tmh >>> 24 & 15 | 16;
+  b[i++] = tmh >>> 16 & 255;
+  b[i++] = clockseq >>> 8 | 128;
+  b[i++] = clockseq & 255;
+  for (let n = 0; n < 6; ++n) {
+    b[i + n] = node[n];
+  }
+  return buf || stringify_default(b);
+}
+var _nodeId, _clockseq, _lastMSecs, _lastNSecs, v1_default;
+var init_v1 = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v1.js"() {
+    init_rng();
+    init_stringify();
+    _lastMSecs = 0;
+    _lastNSecs = 0;
+    v1_default = v1;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/parse.js
-var require_parse = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/parse.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _validate = _interopRequireDefault(require_validate());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    function parse(uuid) {
-      if (!(0, _validate.default)(uuid)) {
-        throw TypeError("Invalid UUID");
-      }
-      let v;
-      const arr = new Uint8Array(16);
-      arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
-      arr[1] = v >>> 16 & 255;
-      arr[2] = v >>> 8 & 255;
-      arr[3] = v & 255;
-      arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
-      arr[5] = v & 255;
-      arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
-      arr[7] = v & 255;
-      arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
-      arr[9] = v & 255;
-      arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 1099511627776 & 255;
-      arr[11] = v / 4294967296 & 255;
-      arr[12] = v >>> 24 & 255;
-      arr[13] = v >>> 16 & 255;
-      arr[14] = v >>> 8 & 255;
-      arr[15] = v & 255;
-      return arr;
-    }
-    var _default = parse;
-    exports.default = _default;
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/parse.js
+function parse(uuid) {
+  if (!validate_default(uuid)) {
+    throw TypeError("Invalid UUID");
+  }
+  let v;
+  const arr = new Uint8Array(16);
+  arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
+  arr[1] = v >>> 16 & 255;
+  arr[2] = v >>> 8 & 255;
+  arr[3] = v & 255;
+  arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
+  arr[5] = v & 255;
+  arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
+  arr[7] = v & 255;
+  arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
+  arr[9] = v & 255;
+  arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 1099511627776 & 255;
+  arr[11] = v / 4294967296 & 255;
+  arr[12] = v >>> 24 & 255;
+  arr[13] = v >>> 16 & 255;
+  arr[14] = v >>> 8 & 255;
+  arr[15] = v & 255;
+  return arr;
+}
+var parse_default;
+var init_parse = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/parse.js"() {
+    init_validate();
+    parse_default = parse;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/v35.js
-var require_v35 = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/v35.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = _default;
-    exports.URL = exports.DNS = void 0;
-    var _stringify = _interopRequireDefault(require_stringify());
-    var _parse = _interopRequireDefault(require_parse());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v35.js
+function stringToBytes(str) {
+  str = unescape(encodeURIComponent(str));
+  const bytes = [];
+  for (let i = 0; i < str.length; ++i) {
+    bytes.push(str.charCodeAt(i));
+  }
+  return bytes;
+}
+function v35_default(name, version2, hashfunc) {
+  function generateUUID(value, namespace, buf, offset) {
+    if (typeof value === "string") {
+      value = stringToBytes(value);
     }
-    function stringToBytes(str) {
-      str = unescape(encodeURIComponent(str));
-      const bytes = [];
-      for (let i = 0; i < str.length; ++i) {
-        bytes.push(str.charCodeAt(i));
-      }
-      return bytes;
+    if (typeof namespace === "string") {
+      namespace = parse_default(namespace);
     }
-    var DNS = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
-    exports.DNS = DNS;
-    var URL2 = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
-    exports.URL = URL2;
-    function _default(name, version, hashfunc) {
-      function generateUUID(value, namespace, buf, offset) {
-        if (typeof value === "string") {
-          value = stringToBytes(value);
-        }
-        if (typeof namespace === "string") {
-          namespace = (0, _parse.default)(namespace);
-        }
-        if (namespace.length !== 16) {
-          throw TypeError("Namespace must be array-like (16 iterable integer values, 0-255)");
-        }
-        let bytes = new Uint8Array(16 + value.length);
-        bytes.set(namespace);
-        bytes.set(value, namespace.length);
-        bytes = hashfunc(bytes);
-        bytes[6] = bytes[6] & 15 | version;
-        bytes[8] = bytes[8] & 63 | 128;
-        if (buf) {
-          offset = offset || 0;
-          for (let i = 0; i < 16; ++i) {
-            buf[offset + i] = bytes[i];
-          }
-          return buf;
-        }
-        return (0, _stringify.default)(bytes);
-      }
-      try {
-        generateUUID.name = name;
-      } catch (err) {
-      }
-      generateUUID.DNS = DNS;
-      generateUUID.URL = URL2;
-      return generateUUID;
+    if (namespace.length !== 16) {
+      throw TypeError("Namespace must be array-like (16 iterable integer values, 0-255)");
     }
+    let bytes = new Uint8Array(16 + value.length);
+    bytes.set(namespace);
+    bytes.set(value, namespace.length);
+    bytes = hashfunc(bytes);
+    bytes[6] = bytes[6] & 15 | version2;
+    bytes[8] = bytes[8] & 63 | 128;
+    if (buf) {
+      offset = offset || 0;
+      for (let i = 0; i < 16; ++i) {
+        buf[offset + i] = bytes[i];
+      }
+      return buf;
+    }
+    return stringify_default(bytes);
+  }
+  try {
+    generateUUID.name = name;
+  } catch (err) {
+  }
+  generateUUID.DNS = DNS;
+  generateUUID.URL = URL2;
+  return generateUUID;
+}
+var DNS, URL2;
+var init_v35 = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v35.js"() {
+    init_stringify();
+    init_parse();
+    DNS = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
+    URL2 = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/md5.js
-var require_md5 = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/md5.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _crypto = _interopRequireDefault(require("crypto"));
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    function md5(bytes) {
-      if (Array.isArray(bytes)) {
-        bytes = Buffer.from(bytes);
-      } else if (typeof bytes === "string") {
-        bytes = Buffer.from(bytes, "utf8");
-      }
-      return _crypto.default.createHash("md5").update(bytes).digest();
-    }
-    var _default = md5;
-    exports.default = _default;
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/md5.js
+function md5(bytes) {
+  if (Array.isArray(bytes)) {
+    bytes = Buffer.from(bytes);
+  } else if (typeof bytes === "string") {
+    bytes = Buffer.from(bytes, "utf8");
+  }
+  return import_crypto2.default.createHash("md5").update(bytes).digest();
+}
+var import_crypto2, md5_default;
+var init_md5 = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/md5.js"() {
+    import_crypto2 = __toESM(require("crypto"));
+    md5_default = md5;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/v3.js
-var require_v3 = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/v3.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _v = _interopRequireDefault(require_v35());
-    var _md = _interopRequireDefault(require_md5());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    var v3 = (0, _v.default)("v3", 48, _md.default);
-    var _default = v3;
-    exports.default = _default;
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v3.js
+var v3, v3_default;
+var init_v3 = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v3.js"() {
+    init_v35();
+    init_md5();
+    v3 = v35_default("v3", 48, md5_default);
+    v3_default = v3;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/v4.js
-var require_v4 = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/v4.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _rng = _interopRequireDefault(require_rng());
-    var _stringify = _interopRequireDefault(require_stringify());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v4.js
+function v4(options, buf, offset) {
+  options = options || {};
+  const rnds = options.random || (options.rng || rng)();
+  rnds[6] = rnds[6] & 15 | 64;
+  rnds[8] = rnds[8] & 63 | 128;
+  if (buf) {
+    offset = offset || 0;
+    for (let i = 0; i < 16; ++i) {
+      buf[offset + i] = rnds[i];
     }
-    function v4(options, buf, offset) {
-      options = options || {};
-      const rnds = options.random || (options.rng || _rng.default)();
-      rnds[6] = rnds[6] & 15 | 64;
-      rnds[8] = rnds[8] & 63 | 128;
-      if (buf) {
-        offset = offset || 0;
-        for (let i = 0; i < 16; ++i) {
-          buf[offset + i] = rnds[i];
-        }
-        return buf;
-      }
-      return (0, _stringify.default)(rnds);
-    }
-    var _default = v4;
-    exports.default = _default;
+    return buf;
+  }
+  return stringify_default(rnds);
+}
+var v4_default;
+var init_v4 = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v4.js"() {
+    init_rng();
+    init_stringify();
+    v4_default = v4;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/sha1.js
-var require_sha1 = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/sha1.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _crypto = _interopRequireDefault(require("crypto"));
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    function sha1(bytes) {
-      if (Array.isArray(bytes)) {
-        bytes = Buffer.from(bytes);
-      } else if (typeof bytes === "string") {
-        bytes = Buffer.from(bytes, "utf8");
-      }
-      return _crypto.default.createHash("sha1").update(bytes).digest();
-    }
-    var _default = sha1;
-    exports.default = _default;
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/sha1.js
+function sha1(bytes) {
+  if (Array.isArray(bytes)) {
+    bytes = Buffer.from(bytes);
+  } else if (typeof bytes === "string") {
+    bytes = Buffer.from(bytes, "utf8");
+  }
+  return import_crypto3.default.createHash("sha1").update(bytes).digest();
+}
+var import_crypto3, sha1_default;
+var init_sha1 = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/sha1.js"() {
+    import_crypto3 = __toESM(require("crypto"));
+    sha1_default = sha1;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/v5.js
-var require_v5 = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/v5.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _v = _interopRequireDefault(require_v35());
-    var _sha = _interopRequireDefault(require_sha1());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    var v5 = (0, _v.default)("v5", 80, _sha.default);
-    var _default = v5;
-    exports.default = _default;
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v5.js
+var v5, v5_default;
+var init_v5 = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/v5.js"() {
+    init_v35();
+    init_sha1();
+    v5 = v35_default("v5", 80, sha1_default);
+    v5_default = v5;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/nil.js
-var require_nil = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/nil.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _default = "00000000-0000-0000-0000-000000000000";
-    exports.default = _default;
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/nil.js
+var nil_default;
+var init_nil = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/nil.js"() {
+    nil_default = "00000000-0000-0000-0000-000000000000";
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/version.js
-var require_version = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/version.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.default = void 0;
-    var _validate = _interopRequireDefault(require_validate());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
-    function version(uuid) {
-      if (!(0, _validate.default)(uuid)) {
-        throw TypeError("Invalid UUID");
-      }
-      return parseInt(uuid.substr(14, 1), 16);
-    }
-    var _default = version;
-    exports.default = _default;
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/version.js
+function version(uuid) {
+  if (!validate_default(uuid)) {
+    throw TypeError("Invalid UUID");
+  }
+  return parseInt(uuid.substr(14, 1), 16);
+}
+var version_default;
+var init_version = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/version.js"() {
+    init_validate();
+    version_default = version;
   }
 });
 
-// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/index.js
-var require_dist = __commonJS({
-  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/index.js"(exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    Object.defineProperty(exports, "v1", {
-      enumerable: true,
-      get: function() {
-        return _v.default;
-      }
-    });
-    Object.defineProperty(exports, "v3", {
-      enumerable: true,
-      get: function() {
-        return _v2.default;
-      }
-    });
-    Object.defineProperty(exports, "v4", {
-      enumerable: true,
-      get: function() {
-        return _v3.default;
-      }
-    });
-    Object.defineProperty(exports, "v5", {
-      enumerable: true,
-      get: function() {
-        return _v4.default;
-      }
-    });
-    Object.defineProperty(exports, "NIL", {
-      enumerable: true,
-      get: function() {
-        return _nil.default;
-      }
-    });
-    Object.defineProperty(exports, "version", {
-      enumerable: true,
-      get: function() {
-        return _version.default;
-      }
-    });
-    Object.defineProperty(exports, "validate", {
-      enumerable: true,
-      get: function() {
-        return _validate.default;
-      }
-    });
-    Object.defineProperty(exports, "stringify", {
-      enumerable: true,
-      get: function() {
-        return _stringify.default;
-      }
-    });
-    Object.defineProperty(exports, "parse", {
-      enumerable: true,
-      get: function() {
-        return _parse.default;
-      }
-    });
-    var _v = _interopRequireDefault(require_v1());
-    var _v2 = _interopRequireDefault(require_v3());
-    var _v3 = _interopRequireDefault(require_v4());
-    var _v4 = _interopRequireDefault(require_v5());
-    var _nil = _interopRequireDefault(require_nil());
-    var _version = _interopRequireDefault(require_version());
-    var _validate = _interopRequireDefault(require_validate());
-    var _stringify = _interopRequireDefault(require_stringify());
-    var _parse = _interopRequireDefault(require_parse());
-    function _interopRequireDefault(obj) {
-      return obj && obj.__esModule ? obj : { default: obj };
-    }
+// ../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/index.js
+var esm_node_exports = {};
+__export(esm_node_exports, {
+  NIL: () => nil_default,
+  parse: () => parse_default,
+  stringify: () => stringify_default,
+  v1: () => v1_default,
+  v3: () => v3_default,
+  v4: () => v4_default,
+  v5: () => v5_default,
+  validate: () => validate_default,
+  version: () => version_default
+});
+var init_esm_node = __esm({
+  "../../node_modules/.pnpm/uuid@8.3.2/node_modules/uuid/dist/esm-node/index.js"() {
+    init_v1();
+    init_v3();
+    init_v4();
+    init_v5();
+    init_nil();
+    init_version();
+    init_validate();
+    init_stringify();
+    init_parse();
   }
 });
 
@@ -667,7 +517,7 @@ var require_file_command = __commonJS({
     exports.prepareKeyValueMessage = exports.issueFileCommand = void 0;
     var fs = __importStar(require("fs"));
     var os = __importStar(require("os"));
-    var uuid_1 = require_dist();
+    var uuid_1 = (init_esm_node(), __toCommonJS(esm_node_exports));
     var utils_1 = require_utils();
     function issueFileCommand(command, message) {
       const filePath = process.env[`GITHUB_${command}`];
@@ -2266,12 +2116,12 @@ var require_utils2 = __commonJS({
 });
 
 // ../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/stringify.js
-var require_stringify2 = __commonJS({
+var require_stringify = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/stringify.js"(exports, module2) {
     "use strict";
     var utils = require_utils2();
     module2.exports = (ast, options = {}) => {
-      let stringify = (node, parent = {}) => {
+      let stringify2 = (node, parent = {}) => {
         let invalidBlock = options.escapeInvalid && utils.isInvalidBrace(parent);
         let invalidNode = node.invalid === true && options.escapeInvalid === true;
         let output = "";
@@ -2286,12 +2136,12 @@ var require_stringify2 = __commonJS({
         }
         if (node.nodes) {
           for (let child of node.nodes) {
-            output += stringify(child);
+            output += stringify2(child);
           }
         }
         return output;
       };
-      return stringify(ast);
+      return stringify2(ast);
     };
   }
 });
@@ -2549,7 +2399,7 @@ var require_fill_range = __commonJS({
         ;
       return index > 0;
     };
-    var stringify = (start, end, options) => {
+    var stringify2 = (start, end, options) => {
       if (typeof start === "string" || typeof end === "string") {
         return true;
       }
@@ -2651,7 +2501,7 @@ var require_fill_range = __commonJS({
       step = Math.max(Math.abs(step), 1);
       let padded = zeros(startString) || zeros(endString) || zeros(stepString);
       let maxLen = padded ? Math.max(startString.length, endString.length, stepString.length) : 0;
-      let toNumber2 = padded === false && stringify(start, end, options) === false;
+      let toNumber2 = padded === false && stringify2(start, end, options) === false;
       let format = options.transform || transform(toNumber2);
       if (options.toRegex && step === 1) {
         return toRange(toMaxLen(start, maxLen), toMaxLen(end, maxLen), true, options);
@@ -2786,7 +2636,7 @@ var require_expand = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/expand.js"(exports, module2) {
     "use strict";
     var fill = require_fill_range();
-    var stringify = require_stringify2();
+    var stringify2 = require_stringify();
     var utils = require_utils2();
     var append2 = (queue = "", stash = "", enclose = false) => {
       let result = [];
@@ -2823,7 +2673,7 @@ var require_expand = __commonJS({
           q = p.queue;
         }
         if (node.invalid || node.dollar) {
-          q.push(append2(q.pop(), stringify(node, options)));
+          q.push(append2(q.pop(), stringify2(node, options)));
           return;
         }
         if (node.type === "brace" && node.invalid !== true && node.nodes.length === 2) {
@@ -2837,7 +2687,7 @@ var require_expand = __commonJS({
           }
           let range = fill(...args, options);
           if (range.length === 0) {
-            range = stringify(node, options);
+            range = stringify2(node, options);
           }
           q.push(append2(q.pop(), range));
           node.nodes = [];
@@ -2933,10 +2783,10 @@ var require_constants = __commonJS({
 });
 
 // ../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/parse.js
-var require_parse2 = __commonJS({
+var require_parse = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/parse.js"(exports, module2) {
     "use strict";
-    var stringify = require_stringify2();
+    var stringify2 = require_stringify();
     var {
       MAX_LENGTH,
       CHAR_BACKSLASH,
@@ -2954,7 +2804,7 @@ var require_parse2 = __commonJS({
       CHAR_NO_BREAK_SPACE,
       CHAR_ZERO_WIDTH_NOBREAK_SPACE
     } = require_constants();
-    var parse = (input, options = {}) => {
+    var parse2 = (input, options = {}) => {
       if (typeof input !== "string") {
         throw new TypeError("Expected a string");
       }
@@ -3099,7 +2949,7 @@ var require_parse2 = __commonJS({
           if (block.ranges > 0) {
             block.ranges = 0;
             let open = block.nodes.shift();
-            block.nodes = [open, { type: "text", value: stringify(block) }];
+            block.nodes = [open, { type: "text", value: stringify2(block) }];
           }
           push({ type: "comma", value });
           block.commas++;
@@ -3160,7 +3010,7 @@ var require_parse2 = __commonJS({
       push({ type: "eos" });
       return ast;
     };
-    module2.exports = parse;
+    module2.exports = parse2;
   }
 });
 
@@ -3168,10 +3018,10 @@ var require_parse2 = __commonJS({
 var require_braces = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/index.js"(exports, module2) {
     "use strict";
-    var stringify = require_stringify2();
+    var stringify2 = require_stringify();
     var compile = require_compile();
     var expand = require_expand();
-    var parse = require_parse2();
+    var parse2 = require_parse();
     var braces = (input, options = {}) => {
       let output = [];
       if (Array.isArray(input)) {
@@ -3191,12 +3041,12 @@ var require_braces = __commonJS({
       }
       return output;
     };
-    braces.parse = (input, options = {}) => parse(input, options);
+    braces.parse = (input, options = {}) => parse2(input, options);
     braces.stringify = (input, options = {}) => {
       if (typeof input === "string") {
-        return stringify(braces.parse(input, options), options);
+        return stringify2(braces.parse(input, options), options);
       }
-      return stringify(input, options);
+      return stringify2(input, options);
     };
     braces.compile = (input, options = {}) => {
       if (typeof input === "string") {
@@ -3752,7 +3602,7 @@ var require_scan = __commonJS({
 });
 
 // ../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js
-var require_parse3 = __commonJS({
+var require_parse2 = __commonJS({
   "../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js"(exports, module2) {
     "use strict";
     var constants = require_constants2();
@@ -3780,7 +3630,7 @@ var require_parse3 = __commonJS({
     var syntaxError = (type, char) => {
       return `Missing ${type}: "${char}" - use "\\\\${char}" to match literal characters`;
     };
-    var parse = (input, options) => {
+    var parse2 = (input, options) => {
       if (typeof input !== "string") {
         throw new TypeError("Expected a string");
       }
@@ -3930,7 +3780,7 @@ var require_parse3 = __commonJS({
             output = token.close = `)$))${extglobStar}`;
           }
           if (token.inner.includes("*") && (rest = remaining()) && /^\.[^\\/.]+$/.test(rest)) {
-            const expression = parse(rest, { ...options, fastpaths: false }).output;
+            const expression = parse2(rest, { ...options, fastpaths: false }).output;
             output = token.close = `)${expression})${extglobStar})`;
           }
           if (token.prev.type === "bos") {
@@ -4459,7 +4309,7 @@ var require_parse3 = __commonJS({
       }
       return state;
     };
-    parse.fastpaths = (input, options) => {
+    parse2.fastpaths = (input, options) => {
       const opts = { ...options };
       const max = typeof opts.maxLength === "number" ? Math.min(MAX_LENGTH, opts.maxLength) : MAX_LENGTH;
       const len = input.length;
@@ -4528,7 +4378,7 @@ var require_parse3 = __commonJS({
       }
       return source;
     };
-    module2.exports = parse;
+    module2.exports = parse2;
   }
 });
 
@@ -4538,7 +4388,7 @@ var require_picomatch = __commonJS({
     "use strict";
     var path = require("path");
     var scan = require_scan();
-    var parse = require_parse3();
+    var parse2 = require_parse2();
     var utils = require_utils3();
     var constants = require_constants2();
     var isObject = (val) => val && typeof val === "object" && !Array.isArray(val);
@@ -4628,7 +4478,7 @@ var require_picomatch = __commonJS({
     picomatch.parse = (pattern, options) => {
       if (Array.isArray(pattern))
         return pattern.map((p) => picomatch.parse(p, options));
-      return parse(pattern, { ...options, fastpaths: false });
+      return parse2(pattern, { ...options, fastpaths: false });
     };
     picomatch.scan = (input, options) => scan(input, options);
     picomatch.compileRe = (state, options, returnOutput = false, returnState = false) => {
@@ -4654,10 +4504,10 @@ var require_picomatch = __commonJS({
       }
       let parsed = { negated: false, fastpaths: true };
       if (options.fastpaths !== false && (input[0] === "." || input[0] === "*")) {
-        parsed.output = parse.fastpaths(input, options);
+        parsed.output = parse2.fastpaths(input, options);
       }
       if (!parsed.output) {
-        parsed = parse(input, options);
+        parsed = parse2(input, options);
       }
       return picomatch.compileRe(parsed, options, returnOutput, returnState);
     };
@@ -4859,7 +4709,7 @@ var require_ms = __commonJS({
       options = options || {};
       var type = typeof val;
       if (type === "string" && val.length > 0) {
-        return parse(val);
+        return parse2(val);
       } else if (type === "number" && isFinite(val)) {
         return options.long ? fmtLong(val) : fmtShort(val);
       }
@@ -4867,7 +4717,7 @@ var require_ms = __commonJS({
         "val is not a non-empty string or a valid number. val=" + JSON.stringify(val)
       );
     };
-    function parse(str) {
+    function parse2(str) {
       str = String(str);
       if (str.length > 100) {
         return;
@@ -5383,10 +5233,10 @@ var require_supports_color = __commonJS({
         return 3;
       }
       if ("TERM_PROGRAM" in env) {
-        const version = Number.parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
+        const version2 = Number.parseInt((env.TERM_PROGRAM_VERSION || "").split(".")[0], 10);
         switch (env.TERM_PROGRAM) {
           case "iTerm.app":
-            return version >= 3 ? 3 : 2;
+            return version2 >= 3 ? 3 : 2;
           case "Apple_Terminal":
             return 2;
         }
@@ -5647,21 +5497,21 @@ var require_src2 = __commonJS({
 });
 
 // ../../node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/index.js
-var require_dist2 = __commonJS({
+var require_dist = __commonJS({
   "../../node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/index.js"(exports) {
     "use strict";
-    function __export2(m) {
+    function __export3(m) {
       for (var p in m)
         if (!exports.hasOwnProperty(p))
           exports[p] = m[p];
     }
     Object.defineProperty(exports, "__esModule", { value: true });
-    __export2(require_src2());
+    __export3(require_src2());
   }
 });
 
 // ../../node_modules/.pnpm/@kwsites+promise-deferred@1.1.1/node_modules/@kwsites/promise-deferred/dist/index.js
-var require_dist3 = __commonJS({
+var require_dist2 = __commonJS({
   "../../node_modules/.pnpm/@kwsites+promise-deferred@1.1.1/node_modules/@kwsites/promise-deferred/dist/index.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -5709,12 +5559,12 @@ var core2 = __toESM(require_core());
 var core = __toESM(require_core());
 var import_micromatch = __toESM(require_micromatch());
 
-// ../../node_modules/.pnpm/simple-git@3.15.0/node_modules/simple-git/dist/esm/index.js
-var import_file_exists = __toESM(require_dist2(), 1);
+// ../../node_modules/.pnpm/simple-git@3.15.1/node_modules/simple-git/dist/esm/index.js
+var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_child_process = require("child_process");
-var import_promise_deferred = __toESM(require_dist3(), 1);
-var import_promise_deferred2 = __toESM(require_dist3(), 1);
+var import_promise_deferred = __toESM(require_dist2(), 1);
+var import_promise_deferred2 = __toESM(require_dist2(), 1);
 var __defProp2 = Object.defineProperty;
 var __defProps = Object.defineProperties;
 var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;
@@ -5737,13 +5587,13 @@ var __spreadValues = (a, b) => {
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __markAsModule = (target) => __defProp2(target, "__esModule", { value: true });
-var __esm = (fn, res) => function __init() {
+var __esm2 = (fn, res) => function __init() {
   return fn && (res = (0, fn[__getOwnPropNames2(fn)[0]])(fn = 0)), res;
 };
 var __commonJS2 = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames2(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
-var __export = (target, all) => {
+var __export2 = (target, all) => {
   for (var name in all)
     __defProp2(target, name, { get: all[name], enumerable: true });
 };
@@ -5755,7 +5605,7 @@ var __reExport = (target, module2, copyDefault, desc) => {
   }
   return target;
 };
-var __toCommonJS = /* @__PURE__ */ ((cache) => {
+var __toCommonJS2 = /* @__PURE__ */ ((cache) => {
   return (module2, temp) => {
     return cache && cache.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache && cache.set(module2, temp), temp);
   };
@@ -5781,7 +5631,7 @@ var __async = (__this, __arguments, generator) => {
   });
 };
 var GitError;
-var init_git_error = __esm({
+var init_git_error = __esm2({
   "src/lib/errors/git-error.ts"() {
     GitError = class extends Error {
       constructor(task, message) {
@@ -5793,7 +5643,7 @@ var init_git_error = __esm({
   }
 });
 var GitResponseError;
-var init_git_response_error = __esm({
+var init_git_response_error = __esm2({
   "src/lib/errors/git-response-error.ts"() {
     init_git_error();
     GitResponseError = class extends GitError {
@@ -5805,7 +5655,7 @@ var init_git_response_error = __esm({
   }
 });
 var TaskConfigurationError;
-var init_task_configuration_error = __esm({
+var init_task_configuration_error = __esm2({
   "src/lib/errors/task-configuration-error.ts"() {
     init_git_error();
     TaskConfigurationError = class extends GitError {
@@ -5913,7 +5763,7 @@ function delay(duration = 0) {
 var NULL;
 var NOOP;
 var objectToString;
-var init_util = __esm({
+var init_util = __esm2({
   "src/lib/utils/util.ts"() {
     NULL = "\0";
     NOOP = () => {
@@ -5941,7 +5791,7 @@ var filterString;
 var filterStringArray;
 var filterStringOrStringArray;
 var filterHasLength;
-var init_argument_filters = __esm({
+var init_argument_filters = __esm2({
   "src/lib/utils/argument-filters.ts"() {
     init_util();
     filterArray = (input) => {
@@ -5965,7 +5815,7 @@ var init_argument_filters = __esm({
   }
 });
 var ExitCodes;
-var init_exit_codes = __esm({
+var init_exit_codes = __esm2({
   "src/lib/utils/exit-codes.ts"() {
     ExitCodes = /* @__PURE__ */ ((ExitCodes2) => {
       ExitCodes2[ExitCodes2["SUCCESS"] = 0] = "SUCCESS";
@@ -5977,7 +5827,7 @@ var init_exit_codes = __esm({
   }
 });
 var GitOutputStreams;
-var init_git_output_streams = __esm({
+var init_git_output_streams = __esm2({
   "src/lib/utils/git-output-streams.ts"() {
     GitOutputStreams = class {
       constructor(stdOut, stdErr) {
@@ -5992,7 +5842,7 @@ var init_git_output_streams = __esm({
 });
 var LineParser;
 var RemoteLineParser;
-var init_line_parser = __esm({
+var init_line_parser = __esm2({
   "src/lib/utils/line-parser.ts"() {
     LineParser = class {
       constructor(regExp, useMatches) {
@@ -6049,7 +5899,7 @@ function createInstanceConfig(...options) {
   return config;
 }
 var defaultOptions;
-var init_simple_git_options = __esm({
+var init_simple_git_options = __esm2({
   "src/lib/utils/simple-git-options.ts"() {
     defaultOptions = {
       binary: "git",
@@ -6098,7 +5948,7 @@ function trailingFunctionArgument(args, includeNoop = true) {
   const callback = asFunction(last(args));
   return includeNoop || isUserFunction(callback) ? callback : void 0;
 }
-var init_task_options = __esm({
+var init_task_options = __esm2({
   "src/lib/utils/task-options.ts"() {
     init_argument_filters();
     init_util();
@@ -6116,18 +5966,18 @@ function parseStringResponse(result, parsers12, texts, trim = true) {
         }
         return lines[i + offset];
       };
-      parsers12.some(({ parse }) => parse(line, result));
+      parsers12.some(({ parse: parse2 }) => parse2(line, result));
     }
   });
   return result;
 }
-var init_task_parser = __esm({
+var init_task_parser = __esm2({
   "src/lib/utils/task-parser.ts"() {
     init_util();
   }
 });
 var utils_exports = {};
-__export(utils_exports, {
+__export2(utils_exports, {
   ExitCodes: () => ExitCodes,
   GitOutputStreams: () => GitOutputStreams,
   LineParser: () => LineParser,
@@ -6170,7 +6020,7 @@ __export(utils_exports, {
   trailingFunctionArgument: () => trailingFunctionArgument,
   trailingOptionsArgument: () => trailingOptionsArgument
 });
-var init_utils = __esm({
+var init_utils = __esm2({
   "src/lib/utils/index.ts"() {
     init_argument_filters();
     init_exit_codes();
@@ -6183,7 +6033,7 @@ var init_utils = __esm({
   }
 });
 var check_is_repo_exports = {};
-__export(check_is_repo_exports, {
+__export2(check_is_repo_exports, {
   CheckRepoActions: () => CheckRepoActions,
   checkIsBareRepoTask: () => checkIsBareRepoTask,
   checkIsRepoRootTask: () => checkIsRepoRootTask,
@@ -6230,7 +6080,7 @@ function isNotRepoMessage(error) {
 var CheckRepoActions;
 var onError;
 var parser;
-var init_check_is_repo = __esm({
+var init_check_is_repo = __esm2({
   "src/lib/tasks/check-is-repo.ts"() {
     init_utils();
     CheckRepoActions = /* @__PURE__ */ ((CheckRepoActions2) => {
@@ -6264,7 +6114,7 @@ var CleanResponse;
 var removalRegexp;
 var dryRunRemovalRegexp;
 var isFolderRegexp;
-var init_CleanSummary = __esm({
+var init_CleanSummary = __esm2({
   "src/lib/responses/CleanSummary.ts"() {
     init_utils();
     CleanResponse = class {
@@ -6281,7 +6131,7 @@ var init_CleanSummary = __esm({
   }
 });
 var task_exports = {};
-__export(task_exports, {
+__export2(task_exports, {
   EMPTY_COMMANDS: () => EMPTY_COMMANDS,
   adhocExecTask: () => adhocExecTask,
   configurationErrorTask: () => configurationErrorTask,
@@ -6331,14 +6181,14 @@ function isEmptyTask(task) {
   return task.format === "empty" || !task.commands.length;
 }
 var EMPTY_COMMANDS;
-var init_task = __esm({
+var init_task = __esm2({
   "src/lib/tasks/task.ts"() {
     init_task_configuration_error();
     EMPTY_COMMANDS = [];
   }
 });
 var clean_exports = {};
-__export(clean_exports, {
+__export2(clean_exports, {
   CONFIG_ERROR_INTERACTIVE_MODE: () => CONFIG_ERROR_INTERACTIVE_MODE,
   CONFIG_ERROR_MODE_REQUIRED: () => CONFIG_ERROR_MODE_REQUIRED,
   CONFIG_ERROR_UNKNOWN_OPTION: () => CONFIG_ERROR_UNKNOWN_OPTION,
@@ -6409,7 +6259,7 @@ var CONFIG_ERROR_MODE_REQUIRED;
 var CONFIG_ERROR_UNKNOWN_OPTION;
 var CleanOptions;
 var CleanOptionValues;
-var init_clean = __esm({
+var init_clean = __esm2({
   "src/lib/tasks/clean.ts"() {
     init_CleanSummary();
     init_utils();
@@ -6480,7 +6330,7 @@ function* configParser(text, requestedKey = null) {
   }
 }
 var ConfigList;
-var init_ConfigList = __esm({
+var init_ConfigList = __esm2({
   "src/lib/responses/ConfigList.ts"() {
     init_utils();
     ConfigList = class {
@@ -6578,7 +6428,7 @@ function config_default() {
   };
 }
 var GitConfigScope;
-var init_config = __esm({
+var init_config = __esm2({
   "src/lib/tasks/config.ts"() {
     init_ConfigList();
     init_utils();
@@ -6639,7 +6489,7 @@ var disallowedOptions;
 var Query;
 var _a;
 var GrepQuery;
-var init_grep = __esm({
+var init_grep = __esm2({
   "src/lib/tasks/grep.ts"() {
     init_utils();
     init_task();
@@ -6666,7 +6516,7 @@ var init_grep = __esm({
   }
 });
 var reset_exports = {};
-__export(reset_exports, {
+__export2(reset_exports, {
   ResetMode: () => ResetMode,
   getResetMode: () => getResetMode,
   resetTask: () => resetTask
@@ -6695,7 +6545,7 @@ function isValidResetMode(mode) {
 }
 var ResetMode;
 var ResetModes;
-var init_reset = __esm({
+var init_reset = __esm2({
   "src/lib/tasks/reset.ts"() {
     init_task();
     ResetMode = /* @__PURE__ */ ((ResetMode2) => {
@@ -6757,7 +6607,7 @@ function createLogger(label, verbose, initialStep, infoDebugger = createLog()) {
     });
   }
 }
-var init_git_logger = __esm({
+var init_git_logger = __esm2({
   "src/lib/git-logger.ts"() {
     init_utils();
     import_debug.default.formatters.L = (value) => String(filterHasLength(value) ? value.length : "-");
@@ -6771,7 +6621,7 @@ var init_git_logger = __esm({
 });
 var _TasksPendingQueue;
 var TasksPendingQueue;
-var init_tasks_pending_queue = __esm({
+var init_tasks_pending_queue = __esm2({
   "src/lib/runners/tasks-pending-queue.ts"() {
     init_git_error();
     init_git_logger();
@@ -6854,7 +6704,7 @@ function onDataReceived(target, name, logger, output) {
   };
 }
 var GitExecutorChain;
-var init_git_executor_chain = __esm({
+var init_git_executor_chain = __esm2({
   "src/lib/runners/git-executor-chain.ts"() {
     init_git_error();
     init_task();
@@ -7019,11 +6869,11 @@ var init_git_executor_chain = __esm({
   }
 });
 var git_executor_exports = {};
-__export(git_executor_exports, {
+__export2(git_executor_exports, {
   GitExecutor: () => GitExecutor
 });
 var GitExecutor;
-var init_git_executor = __esm({
+var init_git_executor = __esm2({
   "src/lib/runners/git-executor.ts"() {
     init_git_executor_chain();
     GitExecutor = class {
@@ -7075,7 +6925,7 @@ function addDeprecationNoticeToError(err) {
     return all;
   }
 }
-var init_task_callback = __esm({
+var init_task_callback = __esm2({
   "src/lib/task-callback.ts"() {
     init_git_response_error();
     init_utils();
@@ -7089,7 +6939,7 @@ function changeWorkingDirectoryTask(directory, root) {
     return (root || instance).cwd = directory;
   });
 }
-var init_change_working_directory = __esm({
+var init_change_working_directory = __esm2({
   "src/lib/tasks/change-working-directory.ts"() {
     init_utils();
     init_task();
@@ -7110,7 +6960,7 @@ function parseCommitResult(stdOut) {
   return parseStringResponse(result, parsers, stdOut);
 }
 var parsers;
-var init_parse_commit = __esm({
+var init_parse_commit = __esm2({
   "src/lib/parsers/parse-commit.ts"() {
     init_utils();
     parsers = [
@@ -7148,7 +6998,7 @@ var init_parse_commit = __esm({
   }
 });
 var commit_exports = {};
-__export(commit_exports, {
+__export2(commit_exports, {
   commitTask: () => commitTask,
   default: () => commit_default
 });
@@ -7179,7 +7029,7 @@ function commit_default() {
     return !filterStringOrStringArray(message) && configurationErrorTask(`git.commit: requires the commit message to be supplied as a string/string[]`);
   }
 }
-var init_commit = __esm({
+var init_commit = __esm2({
   "src/lib/tasks/commit.ts"() {
     init_parse_commit();
     init_utils();
@@ -7193,7 +7043,7 @@ function hashObjectTask(filePath, write) {
   }
   return straightThroughStringTask(commands, true);
 }
-var init_hash_object = __esm({
+var init_hash_object = __esm2({
   "src/lib/tasks/hash-object.ts"() {
     init_task();
   }
@@ -7221,7 +7071,7 @@ function parseInit(bare, path, text) {
 var InitSummary;
 var initResponseRegex;
 var reInitResponseRegex;
-var init_InitSummary = __esm({
+var init_InitSummary = __esm2({
   "src/lib/responses/InitSummary.ts"() {
     InitSummary = class {
       constructor(bare, path, existing, gitDir) {
@@ -7252,7 +7102,7 @@ function initTask(bare = false, path, customArgs) {
   };
 }
 var bareCommand;
-var init_init = __esm({
+var init_init = __esm2({
   "src/lib/tasks/init.ts"() {
     init_InitSummary();
     bareCommand = "--bare";
@@ -7271,13 +7121,13 @@ function isLogFormat(customArg) {
   return logFormatRegex.test(customArg);
 }
 var logFormatRegex;
-var init_log_format = __esm({
+var init_log_format = __esm2({
   "src/lib/args/log-format.ts"() {
     logFormatRegex = /^--(stat|numstat|name-only|name-status)(=|$)/;
   }
 });
 var DiffSummary;
-var init_DiffSummary = __esm({
+var init_DiffSummary = __esm2({
   "src/lib/responses/DiffSummary.ts"() {
     DiffSummary = class {
       constructor() {
@@ -7298,7 +7148,7 @@ var numStatParser;
 var nameOnlyParser;
 var nameStatusParser;
 var diffSummaryParsers;
-var init_parse_diff_summary = __esm({
+var init_parse_diff_summary = __esm2({
   "src/lib/parsers/parse-diff-summary.ts"() {
     init_log_format();
     init_DiffSummary();
@@ -7415,7 +7265,7 @@ var START_BOUNDARY;
 var COMMIT_BOUNDARY;
 var SPLITTER;
 var defaultFieldNames;
-var init_parse_list_log_summary = __esm({
+var init_parse_list_log_summary = __esm2({
   "src/lib/parsers/parse-list-log-summary.ts"() {
     init_utils();
     init_parse_diff_summary();
@@ -7427,7 +7277,7 @@ var init_parse_list_log_summary = __esm({
   }
 });
 var diff_exports = {};
-__export(diff_exports, {
+__export2(diff_exports, {
   diffSummaryTask: () => diffSummaryTask,
   validateLogFormatConfig: () => validateLogFormatConfig
 });
@@ -7454,7 +7304,7 @@ function validateLogFormatConfig(customArgs) {
     return configurationErrorTask(`Summary flag ${flags} parsing is not compatible with null termination option '-z'`);
   }
 }
-var init_diff = __esm({
+var init_diff = __esm2({
   "src/lib/tasks/diff.ts"() {
     init_log_format();
     init_parse_diff_summary();
@@ -7538,7 +7388,7 @@ function log_default() {
   }
 }
 var excludeOptions;
-var init_log = __esm({
+var init_log = __esm2({
   "src/lib/tasks/log.ts"() {
     init_log_format();
     init_parse_list_log_summary();
@@ -7565,7 +7415,7 @@ var init_log = __esm({
 });
 var MergeSummaryConflict;
 var MergeSummaryDetail;
-var init_MergeSummary = __esm({
+var init_MergeSummary = __esm2({
   "src/lib/responses/MergeSummary.ts"() {
     MergeSummaryConflict = class {
       constructor(reason, file = null, meta) {
@@ -7600,7 +7450,7 @@ var init_MergeSummary = __esm({
 });
 var PullSummary;
 var PullFailedSummary;
-var init_PullSummary = __esm({
+var init_PullSummary = __esm2({
   "src/lib/responses/PullSummary.ts"() {
     PullSummary = class {
       constructor() {
@@ -7657,7 +7507,7 @@ function asObjectCount(source) {
   };
 }
 var remoteMessagesObjectParsers;
-var init_parse_remote_objects = __esm({
+var init_parse_remote_objects = __esm2({
   "src/lib/parsers/parse-remote-objects.ts"() {
     init_utils();
     remoteMessagesObjectParsers = [
@@ -7685,7 +7535,7 @@ function parseRemoteMessages(_stdOut, stdErr) {
 }
 var parsers2;
 var RemoteMessageSummary;
-var init_parse_remote_messages = __esm({
+var init_parse_remote_messages = __esm2({
   "src/lib/parsers/parse-remote-messages.ts"() {
     init_utils();
     init_parse_remote_objects();
@@ -7724,7 +7574,7 @@ var parsers3;
 var errorParsers;
 var parsePullDetail;
 var parsePullResult;
-var init_parse_pull = __esm({
+var init_parse_pull = __esm2({
   "src/lib/parsers/parse-pull.ts"() {
     init_PullSummary();
     init_utils();
@@ -7777,7 +7627,7 @@ var init_parse_pull = __esm({
 var parsers4;
 var parseMergeResult;
 var parseMergeDetail;
-var init_parse_merge = __esm({
+var init_parse_merge = __esm2({
   "src/lib/parsers/parse-merge.ts"() {
     init_MergeSummary();
     init_utils();
@@ -7823,7 +7673,7 @@ function mergeTask(customArgs) {
     }
   };
 }
-var init_merge = __esm({
+var init_merge = __esm2({
   "src/lib/tasks/merge.ts"() {
     init_git_response_error();
     init_parse_merge();
@@ -7847,7 +7697,7 @@ function pushResultPushedItem(local, remote, status) {
 var parsers5;
 var parsePushResult;
 var parsePushDetail;
-var init_parse_push = __esm({
+var init_parse_push = __esm2({
   "src/lib/parsers/parse-push.ts"() {
     init_utils();
     init_parse_remote_messages();
@@ -7894,7 +7744,7 @@ var init_parse_push = __esm({
   }
 });
 var push_exports = {};
-__export(push_exports, {
+__export2(push_exports, {
   pushTagsTask: () => pushTagsTask,
   pushTask: () => pushTask
 });
@@ -7919,7 +7769,7 @@ function pushTask(ref = {}, customArgs) {
     parser: parsePushResult
   };
 }
-var init_push = __esm({
+var init_push = __esm2({
   "src/lib/tasks/push.ts"() {
     init_parse_push();
     init_utils();
@@ -7927,7 +7777,7 @@ var init_push = __esm({
 });
 var fromPathRegex;
 var FileStatusSummary;
-var init_FileStatusSummary = __esm({
+var init_FileStatusSummary = __esm2({
   "src/lib/responses/FileStatusSummary.ts"() {
     fromPathRegex = /^(.+) -> (.+)$/;
     FileStatusSummary = class {
@@ -7981,7 +7831,7 @@ function splitLine(result, lineStr) {
 var StatusSummary;
 var parsers6;
 var parseStatusSummary;
-var init_StatusSummary = __esm({
+var init_StatusSummary = __esm2({
   "src/lib/responses/StatusSummary.ts"() {
     init_utils();
     init_FileStatusSummary();
@@ -8088,7 +7938,7 @@ function statusTask(customArgs) {
   };
 }
 var ignoredOptions;
-var init_status = __esm({
+var init_status = __esm2({
   "src/lib/tasks/status.ts"() {
     init_StatusSummary();
     ignoredOptions = ["--null", "-z"];
@@ -8112,7 +7962,7 @@ function versionResponse(major = 0, minor = 0, patch = 0, agent = "", installed 
 function notInstalledResponse() {
   return versionResponse(0, 0, 0, "", false);
 }
-function version_default() {
+function version_default2() {
   return {
     version() {
       return this._runTask({
@@ -8137,7 +7987,7 @@ function versionParser(stdOut) {
 }
 var NOT_INSTALLED;
 var parsers7;
-var init_version = __esm({
+var init_version2 = __esm2({
   "src/lib/tasks/version.ts"() {
     init_utils();
     NOT_INSTALLED = "installed=false";
@@ -8152,11 +8002,11 @@ var init_version = __esm({
   }
 });
 var simple_git_api_exports = {};
-__export(simple_git_api_exports, {
+__export2(simple_git_api_exports, {
   SimpleGitApi: () => SimpleGitApi
 });
 var SimpleGitApi;
-var init_simple_git_api = __esm({
+var init_simple_git_api = __esm2({
   "src/lib/simple-git-api.ts"() {
     init_task_callback();
     init_change_working_directory();
@@ -8170,7 +8020,7 @@ var init_simple_git_api = __esm({
     init_push();
     init_status();
     init_task();
-    init_version();
+    init_version2();
     init_utils();
     SimpleGitApi = class {
       constructor(_executor) {
@@ -8234,16 +8084,16 @@ var init_simple_git_api = __esm({
         return this._runTask(statusTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
       }
     };
-    Object.assign(SimpleGitApi.prototype, commit_default(), config_default(), grep_default(), log_default(), version_default());
+    Object.assign(SimpleGitApi.prototype, commit_default(), config_default(), grep_default(), log_default(), version_default2());
   }
 });
 var scheduler_exports = {};
-__export(scheduler_exports, {
+__export2(scheduler_exports, {
   Scheduler: () => Scheduler
 });
 var createScheduledTask;
 var Scheduler;
-var init_scheduler = __esm({
+var init_scheduler = __esm2({
   "src/lib/runners/scheduler.ts"() {
     init_utils();
     init_git_logger();
@@ -8290,13 +8140,13 @@ var init_scheduler = __esm({
   }
 });
 var apply_patch_exports = {};
-__export(apply_patch_exports, {
+__export2(apply_patch_exports, {
   applyPatchTask: () => applyPatchTask
 });
 function applyPatchTask(patches, customArgs) {
   return straightThroughStringTask(["apply", ...customArgs, ...patches]);
 }
-var init_apply_patch = __esm({
+var init_apply_patch = __esm2({
   "src/lib/tasks/apply-patch.ts"() {
     init_task();
   }
@@ -8316,7 +8166,7 @@ function branchDeletionFailure(branch) {
   };
 }
 var BranchDeletionBatch;
-var init_BranchDeleteSummary = __esm({
+var init_BranchDeleteSummary = __esm2({
   "src/lib/responses/BranchDeleteSummary.ts"() {
     BranchDeletionBatch = class {
       constructor() {
@@ -8337,7 +8187,7 @@ var deleteSuccessRegex;
 var deleteErrorRegex;
 var parsers8;
 var parseBranchDeletions;
-var init_parse_branch_delete = __esm({
+var init_parse_branch_delete = __esm2({
   "src/lib/parsers/parse-branch-delete.ts"() {
     init_BranchDeleteSummary();
     init_utils();
@@ -8362,7 +8212,7 @@ var init_parse_branch_delete = __esm({
   }
 });
 var BranchSummaryResult;
-var init_BranchSummary = __esm({
+var init_BranchSummary = __esm2({
   "src/lib/responses/BranchSummary.ts"() {
     BranchSummaryResult = class {
       constructor() {
@@ -8395,7 +8245,7 @@ function parseBranchSummary(stdOut) {
   return parseStringResponse(new BranchSummaryResult(), parsers9, stdOut);
 }
 var parsers9;
-var init_parse_branch = __esm({
+var init_parse_branch = __esm2({
   "src/lib/parsers/parse-branch.ts"() {
     init_BranchSummary();
     init_utils();
@@ -8410,7 +8260,7 @@ var init_parse_branch = __esm({
   }
 });
 var branch_exports = {};
-__export(branch_exports, {
+__export2(branch_exports, {
   branchLocalTask: () => branchLocalTask,
   branchTask: () => branchTask,
   containsDeleteBranchCommand: () => containsDeleteBranchCommand,
@@ -8480,7 +8330,7 @@ function deleteBranchTask(branch, forceDelete = false) {
   };
   return task;
 }
-var init_branch = __esm({
+var init_branch = __esm2({
   "src/lib/tasks/branch.ts"() {
     init_git_response_error();
     init_parse_branch_delete();
@@ -8489,7 +8339,7 @@ var init_branch = __esm({
   }
 });
 var parseCheckIgnore;
-var init_CheckIgnore = __esm({
+var init_CheckIgnore = __esm2({
   "src/lib/responses/CheckIgnore.ts"() {
     parseCheckIgnore = (text) => {
       return text.split(/\n/g).map((line) => line.trim()).filter((file) => !!file);
@@ -8497,7 +8347,7 @@ var init_CheckIgnore = __esm({
   }
 });
 var check_ignore_exports = {};
-__export(check_ignore_exports, {
+__export2(check_ignore_exports, {
   checkIgnoreTask: () => checkIgnoreTask
 });
 function checkIgnoreTask(paths) {
@@ -8507,13 +8357,13 @@ function checkIgnoreTask(paths) {
     parser: parseCheckIgnore
   };
 }
-var init_check_ignore = __esm({
+var init_check_ignore = __esm2({
   "src/lib/tasks/check-ignore.ts"() {
     init_CheckIgnore();
   }
 });
 var clone_exports = {};
-__export(clone_exports, {
+__export2(clone_exports, {
   cloneMirrorTask: () => cloneMirrorTask,
   cloneTask: () => cloneTask
 });
@@ -8534,7 +8384,7 @@ function cloneMirrorTask(repo, directory, customArgs) {
   append(customArgs, "--mirror");
   return cloneTask(repo, directory, customArgs);
 }
-var init_clone = __esm({
+var init_clone = __esm2({
   "src/lib/tasks/clone.ts"() {
     init_task();
     init_utils();
@@ -8552,7 +8402,7 @@ function parseFetchResult(stdOut, stdErr) {
   return parseStringResponse(result, parsers10, [stdOut, stdErr]);
 }
 var parsers10;
-var init_parse_fetch = __esm({
+var init_parse_fetch = __esm2({
   "src/lib/parsers/parse-fetch.ts"() {
     init_utils();
     parsers10 = [
@@ -8588,7 +8438,7 @@ var init_parse_fetch = __esm({
   }
 });
 var fetch_exports = {};
-__export(fetch_exports, {
+__export2(fetch_exports, {
   fetchTask: () => fetchTask
 });
 function disallowedCommand2(command) {
@@ -8609,7 +8459,7 @@ function fetchTask(remote, branch, customArgs) {
     parser: parseFetchResult
   };
 }
-var init_fetch = __esm({
+var init_fetch = __esm2({
   "src/lib/tasks/fetch.ts"() {
     init_parse_fetch();
     init_task();
@@ -8619,7 +8469,7 @@ function parseMoveResult(stdOut) {
   return parseStringResponse({ moves: [] }, parsers11, stdOut);
 }
 var parsers11;
-var init_parse_move = __esm({
+var init_parse_move = __esm2({
   "src/lib/parsers/parse-move.ts"() {
     init_utils();
     parsers11 = [
@@ -8630,7 +8480,7 @@ var init_parse_move = __esm({
   }
 });
 var move_exports = {};
-__export(move_exports, {
+__export2(move_exports, {
   moveTask: () => moveTask
 });
 function moveTask(from, to) {
@@ -8640,14 +8490,14 @@ function moveTask(from, to) {
     parser: parseMoveResult
   };
 }
-var init_move = __esm({
+var init_move = __esm2({
   "src/lib/tasks/move.ts"() {
     init_parse_move();
     init_utils();
   }
 });
 var pull_exports = {};
-__export(pull_exports, {
+__export2(pull_exports, {
   pullTask: () => pullTask
 });
 function pullTask(remote, branch, customArgs) {
@@ -8670,7 +8520,7 @@ function pullTask(remote, branch, customArgs) {
     }
   };
 }
-var init_pull = __esm({
+var init_pull = __esm2({
   "src/lib/tasks/pull.ts"() {
     init_git_response_error();
     init_parse_pull();
@@ -8700,13 +8550,13 @@ function parseGetRemotesVerbose(text) {
 function forEach(text, handler) {
   forEachLineWithContent(text, (line) => handler(line.split(/\s+/)));
 }
-var init_GetRemoteSummary = __esm({
+var init_GetRemoteSummary = __esm2({
   "src/lib/responses/GetRemoteSummary.ts"() {
     init_utils();
   }
 });
 var remote_exports = {};
-__export(remote_exports, {
+__export2(remote_exports, {
   addRemoteTask: () => addRemoteTask,
   getRemotesTask: () => getRemotesTask,
   listRemotesTask: () => listRemotesTask,
@@ -8744,14 +8594,14 @@ function remoteTask(customArgs = []) {
 function removeRemoteTask(remoteName) {
   return straightThroughStringTask(["remote", "remove", remoteName]);
 }
-var init_remote = __esm({
+var init_remote = __esm2({
   "src/lib/tasks/remote.ts"() {
     init_GetRemoteSummary();
     init_task();
   }
 });
 var stash_list_exports = {};
-__export(stash_list_exports, {
+__export2(stash_list_exports, {
   stashListTask: () => stashListTask
 });
 function stashListTask(opt = {}, customArgs) {
@@ -8764,7 +8614,7 @@ function stashListTask(opt = {}, customArgs) {
     parser: parser3
   };
 }
-var init_stash_list = __esm({
+var init_stash_list = __esm2({
   "src/lib/tasks/stash-list.ts"() {
     init_log_format();
     init_parse_list_log_summary();
@@ -8773,7 +8623,7 @@ var init_stash_list = __esm({
   }
 });
 var sub_module_exports = {};
-__export(sub_module_exports, {
+__export2(sub_module_exports, {
   addSubModuleTask: () => addSubModuleTask,
   initSubModuleTask: () => initSubModuleTask,
   subModuleTask: () => subModuleTask,
@@ -8795,7 +8645,7 @@ function subModuleTask(customArgs) {
 function updateSubModuleTask(customArgs) {
   return subModuleTask(["update", ...customArgs]);
 }
-var init_sub_module = __esm({
+var init_sub_module = __esm2({
   "src/lib/tasks/sub-module.ts"() {
     init_task();
   }
@@ -8822,7 +8672,7 @@ function toNumber(input) {
 }
 var TagList;
 var parseTagList;
-var init_TagList = __esm({
+var init_TagList = __esm2({
   "src/lib/responses/TagList.ts"() {
     TagList = class {
       constructor(all, latest) {
@@ -8854,7 +8704,7 @@ var init_TagList = __esm({
   }
 });
 var tag_exports = {};
-__export(tag_exports, {
+__export2(tag_exports, {
   addAnnotatedTagTask: () => addAnnotatedTagTask,
   addTagTask: () => addTagTask,
   tagListTask: () => tagListTask
@@ -8887,17 +8737,17 @@ function addAnnotatedTagTask(name, tagMessage) {
     }
   };
 }
-var init_tag = __esm({
+var init_tag = __esm2({
   "src/lib/tasks/tag.ts"() {
     init_TagList();
   }
 });
 var require_git = __commonJS2({
   "src/git.js"(exports, module2) {
-    var { GitExecutor: GitExecutor2 } = (init_git_executor(), __toCommonJS(git_executor_exports));
-    var { SimpleGitApi: SimpleGitApi2 } = (init_simple_git_api(), __toCommonJS(simple_git_api_exports));
-    var { Scheduler: Scheduler2 } = (init_scheduler(), __toCommonJS(scheduler_exports));
-    var { configurationErrorTask: configurationErrorTask2 } = (init_task(), __toCommonJS(task_exports));
+    var { GitExecutor: GitExecutor2 } = (init_git_executor(), __toCommonJS2(git_executor_exports));
+    var { SimpleGitApi: SimpleGitApi2 } = (init_simple_git_api(), __toCommonJS2(simple_git_api_exports));
+    var { Scheduler: Scheduler2 } = (init_scheduler(), __toCommonJS2(scheduler_exports));
+    var { configurationErrorTask: configurationErrorTask2 } = (init_task(), __toCommonJS2(task_exports));
     var {
       asArray: asArray2,
       filterArray: filterArray2,
@@ -8908,41 +8758,41 @@ var require_git = __commonJS2({
       getTrailingOptions: getTrailingOptions2,
       trailingFunctionArgument: trailingFunctionArgument2,
       trailingOptionsArgument: trailingOptionsArgument2
-    } = (init_utils(), __toCommonJS(utils_exports));
-    var { applyPatchTask: applyPatchTask2 } = (init_apply_patch(), __toCommonJS(apply_patch_exports));
+    } = (init_utils(), __toCommonJS2(utils_exports));
+    var { applyPatchTask: applyPatchTask2 } = (init_apply_patch(), __toCommonJS2(apply_patch_exports));
     var {
       branchTask: branchTask2,
       branchLocalTask: branchLocalTask2,
       deleteBranchesTask: deleteBranchesTask2,
       deleteBranchTask: deleteBranchTask2
-    } = (init_branch(), __toCommonJS(branch_exports));
-    var { checkIgnoreTask: checkIgnoreTask2 } = (init_check_ignore(), __toCommonJS(check_ignore_exports));
-    var { checkIsRepoTask: checkIsRepoTask2 } = (init_check_is_repo(), __toCommonJS(check_is_repo_exports));
-    var { cloneTask: cloneTask2, cloneMirrorTask: cloneMirrorTask2 } = (init_clone(), __toCommonJS(clone_exports));
-    var { cleanWithOptionsTask: cleanWithOptionsTask2, isCleanOptionsArray: isCleanOptionsArray2 } = (init_clean(), __toCommonJS(clean_exports));
-    var { commitTask: commitTask2 } = (init_commit(), __toCommonJS(commit_exports));
-    var { diffSummaryTask: diffSummaryTask2 } = (init_diff(), __toCommonJS(diff_exports));
-    var { fetchTask: fetchTask2 } = (init_fetch(), __toCommonJS(fetch_exports));
-    var { moveTask: moveTask2 } = (init_move(), __toCommonJS(move_exports));
-    var { pullTask: pullTask2 } = (init_pull(), __toCommonJS(pull_exports));
-    var { pushTagsTask: pushTagsTask2 } = (init_push(), __toCommonJS(push_exports));
+    } = (init_branch(), __toCommonJS2(branch_exports));
+    var { checkIgnoreTask: checkIgnoreTask2 } = (init_check_ignore(), __toCommonJS2(check_ignore_exports));
+    var { checkIsRepoTask: checkIsRepoTask2 } = (init_check_is_repo(), __toCommonJS2(check_is_repo_exports));
+    var { cloneTask: cloneTask2, cloneMirrorTask: cloneMirrorTask2 } = (init_clone(), __toCommonJS2(clone_exports));
+    var { cleanWithOptionsTask: cleanWithOptionsTask2, isCleanOptionsArray: isCleanOptionsArray2 } = (init_clean(), __toCommonJS2(clean_exports));
+    var { commitTask: commitTask2 } = (init_commit(), __toCommonJS2(commit_exports));
+    var { diffSummaryTask: diffSummaryTask2 } = (init_diff(), __toCommonJS2(diff_exports));
+    var { fetchTask: fetchTask2 } = (init_fetch(), __toCommonJS2(fetch_exports));
+    var { moveTask: moveTask2 } = (init_move(), __toCommonJS2(move_exports));
+    var { pullTask: pullTask2 } = (init_pull(), __toCommonJS2(pull_exports));
+    var { pushTagsTask: pushTagsTask2 } = (init_push(), __toCommonJS2(push_exports));
     var {
       addRemoteTask: addRemoteTask2,
       getRemotesTask: getRemotesTask2,
       listRemotesTask: listRemotesTask2,
       remoteTask: remoteTask2,
       removeRemoteTask: removeRemoteTask2
-    } = (init_remote(), __toCommonJS(remote_exports));
-    var { getResetMode: getResetMode2, resetTask: resetTask2 } = (init_reset(), __toCommonJS(reset_exports));
-    var { stashListTask: stashListTask2 } = (init_stash_list(), __toCommonJS(stash_list_exports));
+    } = (init_remote(), __toCommonJS2(remote_exports));
+    var { getResetMode: getResetMode2, resetTask: resetTask2 } = (init_reset(), __toCommonJS2(reset_exports));
+    var { stashListTask: stashListTask2 } = (init_stash_list(), __toCommonJS2(stash_list_exports));
     var {
       addSubModuleTask: addSubModuleTask2,
       initSubModuleTask: initSubModuleTask2,
       subModuleTask: subModuleTask2,
       updateSubModuleTask: updateSubModuleTask2
-    } = (init_sub_module(), __toCommonJS(sub_module_exports));
-    var { addAnnotatedTagTask: addAnnotatedTagTask2, addTagTask: addTagTask2, tagListTask: tagListTask2 } = (init_tag(), __toCommonJS(tag_exports));
-    var { straightThroughBufferTask: straightThroughBufferTask2, straightThroughStringTask: straightThroughStringTask2 } = (init_task(), __toCommonJS(task_exports));
+    } = (init_sub_module(), __toCommonJS2(sub_module_exports));
+    var { addAnnotatedTagTask: addAnnotatedTagTask2, addTagTask: addTagTask2, tagListTask: tagListTask2 } = (init_tag(), __toCommonJS2(tag_exports));
+    var { straightThroughBufferTask: straightThroughBufferTask2, straightThroughStringTask: straightThroughStringTask2 } = (init_task(), __toCommonJS2(task_exports));
     function Git2(options, plugins) {
       this._executor = new GitExecutor2(options.binary, options.baseDir, new Scheduler2(options.maxConcurrentProcesses), plugins);
       this._trimmed = options.trimmed;
@@ -9220,7 +9070,7 @@ function abortPlugin(signal) {
   return [onSpawnBefore, onSpawnAfter];
 }
 function isConfigSwitch(arg) {
-  return arg.trim().toLowerCase() === "-c";
+  return typeof arg === "string" && arg.trim().toLowerCase() === "-c";
 }
 function preventProtocolOverride(arg, next) {
   if (!isConfigSwitch(arg)) {
@@ -9564,21 +9414,3 @@ async function run() {
   }
 }
 run();
-/*!
- * fill-range <https://github.com/jonschlinkert/fill-range>
- *
- * Copyright (c) 2014-present, Jon Schlinkert.
- * Licensed under the MIT License.
- */
-/*!
- * is-number <https://github.com/jonschlinkert/is-number>
- *
- * Copyright (c) 2014-present, Jon Schlinkert.
- * Released under the MIT License.
- */
-/*!
- * to-regex-range <https://github.com/micromatch/to-regex-range>
- *
- * Copyright (c) 2015-present, Jon Schlinkert.
- * Released under the MIT License.
- */

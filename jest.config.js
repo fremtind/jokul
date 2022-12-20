@@ -19,7 +19,7 @@ const config = {
     moduleFileExtensions: ["ts", "tsx", "js"],
     moduleNameMapper: {
         "^nanoid$": require.resolve("nanoid"),
-        "^.+\\.(css|less|scss)$": "esbuild",
+        "^.+\\.(css|scss)$": "<rootDir>/jest/identity-mapper.ts",
     },
     roots: ["./packages", "./portal"],
     testEnvironment: "jsdom",
