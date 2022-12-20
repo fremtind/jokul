@@ -20,29 +20,21 @@ export const useTabIndicator = ({ activeIndex = 0, density = "comfortable" }: Ta
     const indicatorWidth = activeTabRect?.width || 0;
     const indicatorPosition = `${(activeTabRect?.left || 0) - (containerRect?.left || 0)}px`;
 
-    // Sørg for å ikke animere indikatoren ved første innlasting av fanene
     useEffect(() => {
-        if (previousIndex === undefined) {
-            requestAnimationFrame(() => {
-                tabIndicator.current?.style.setProperty("transition-property", "none");
-                setContainerRect(tabContainer.current?.getBoundingClientRect());
-                setActiveTabRect(activeTab.current?.getBoundingClientRect());
-            });
+        if (tabContainer.current && activeTab.current && tabIndicator.current) {
+            if (previousIndex === undefined) {
+                // Ikke animer inn indikatoren ved første render
+                tabIndicator.current.style.setProperty("transition", "none");
+            }
 
-            requestAnimationFrame(() => {
-                tabIndicator.current?.style.removeProperty("transition-property");
-            });
+            setContainerRect(tabContainer.current.getBoundingClientRect());
+            setActiveTabRect(activeTab.current.getBoundingClientRect());
+
+            setTimeout(() => {
+                tabIndicator.current?.style.removeProperty("transition");
+            }, 10);
         }
     }, [activeIndex, previousIndex, density]);
-
-    useEffect(() => {
-        if (tabContainer.current) {
-            setContainerRect(tabContainer.current.getBoundingClientRect());
-        }
-        if (activeTab.current) {
-            setActiveTabRect(activeTab.current.getBoundingClientRect());
-        }
-    }, [activeIndex, density]);
 
     return { tabContainer, activeTab, tabIndicator, setActiveTabRect, indicatorPosition, indicatorWidth };
 };
