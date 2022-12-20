@@ -44,9 +44,9 @@ jobs:
               id: nx-cache
               with:
                   path: .nx
-                  key: nx-${{ github.ref_name }}-${{ github.sha }}
+                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
                   restore-keys: |
-                      nx-${{ github.ref_name }}-
+                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
 
             - name: Caching Gatsby
               id: gatsby-cache-build
