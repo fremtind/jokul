@@ -5,10 +5,12 @@ on:
         branches:
             - main
         paths:
-            - "portal/**"
+            # Bare publiser etter at Lerna har versjonert
+            - "portal/package.json"
 
 jobs:
     portal:
+        if: "contains(github.event.sender.login, 'fremtind-bot')"
         name: Build and deploy portal
         runs-on: ubuntu-latest
         permissions:
