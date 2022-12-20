@@ -1,6 +1,6 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
-import { PullRequest } from "@octokit/webhooks-definitions/schema";
+import type { PullRequest } from "@octokit/webhooks-types";
 import jsyaml from "js-yaml";
 import micromatch from "micromatch";
 
