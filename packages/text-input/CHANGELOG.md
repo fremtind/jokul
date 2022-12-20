@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.1 (2022-12-20)
+
+### Bug Fixes
+
+- unngå at placeholder plasseres oppå border ([24be418](https://github.com/fremtind/jokul/commit/24be41863bfa2cf68613907938b2e276d33d637b)), closes [#3321](https://github.com/fremtind/jokul/issues/3321)
+
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.1.12...@fremtind/jkl-text-input@10.0.0) (2022-12-05)
 
 ### Features
