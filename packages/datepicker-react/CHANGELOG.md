@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.32 (2022-12-23)
+
+### Bug Fixes
+
+- gjør typen for event handlere gjenbrukbar ([19c1747](https://github.com/fremtind/jokul/commit/19c174725bad5476847a2f2ebb44cd0563979ffe))
+
 ## [12.0.24](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@12.0.23...@fremtind/jkl-datepicker-react@12.0.24) (2022-11-25)
 
 ### Bug Fixes
