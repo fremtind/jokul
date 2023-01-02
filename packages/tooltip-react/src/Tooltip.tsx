@@ -11,8 +11,8 @@ import {
     useFocus,
 } from "@floating-ui/react-dom-interactions";
 import { useId } from "@fremtind/jkl-react-hooks";
+import { Fade } from "@fremtind/jkl-transitions-react";
 import cn from "classnames";
-import { motion, AnimatePresence } from "framer-motion";
 import React, { ReactNode, useRef, useState } from "react";
 
 export type Placement = "top" | "left" | "right" | "top-end" | "top-start";
@@ -63,39 +63,33 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                     <span aria-hidden="true">?</span>
                     <span className="jkl-sr-only">{`${open ? "Skjul" : "Vis"} hjelpetekst`}</span>
                 </button>
-                <AnimatePresence>
-                    {open && (
-                        <motion.span
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ ease: "easeIn", duration: 0.1 }}
-                            data-placement={placement}
-                            aria-live="assertive"
-                            className="jkl-tooltip__content"
-                            {...getFloatingProps({
-                                id: tooltipId,
-                                ref: floating,
-                                style: {
-                                    position: strategy,
-                                    top: y ?? "",
-                                    left: x ?? "",
-                                },
-                            })}
-                        >
-                            {content}
-                            <span
-                                aria-hidden
-                                className="jkl-tooltip__arrow"
-                                ref={arrowElement}
-                                style={{
-                                    left: arrowX != null ? `${arrowX}px` : "",
-                                    top: arrowY != null ? `${arrowY}px` : "",
-                                }}
-                            />
-                        </motion.span>
-                    )}
-                </AnimatePresence>
+                <Fade in={open} ref={floating}>
+                    <span
+                        aria-live="assertive"
+                        id={tooltipId}
+                        data-placement={placement}
+                        className="jkl-tooltip__content"
+                        {...getFloatingProps({
+                            ref: floating,
+                            style: {
+                                position: strategy,
+                                top: y ?? "",
+                                left: x ?? "",
+                            },
+                        })}
+                    >
+                        {content}
+                        <span
+                            aria-hidden="true"
+                            className="jkl-tooltip__arrow"
+                            ref={arrowElement}
+                            style={{
+                                left: arrowX != null ? `${arrowX}px` : "",
+                                top: arrowY != null ? `${arrowY}px` : "",
+                            }}
+                        />
+                    </span>
+                </Fade>
             </span>
         </span>
     );
