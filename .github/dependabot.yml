@@ -17,7 +17,7 @@ updates:
       ## PR med alle endringer manuelt.
       rebase-strategy: "disabled"
       labels:
-          - "👷‍♂️ CI and deployment"
+          - "👷‍♂️ CI & infra"
           - "🔗 dependencies"
 
     - package-ecosystem: "npm"
