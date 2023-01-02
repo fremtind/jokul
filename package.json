@@ -34,7 +34,7 @@
         "reboot": "pnpm clean && pnpm boot",
         "scaffold": "node './scripts/scaffold'"
     },
-    "packageManager": "pnpm@7.17.0",
+    "packageManager": "pnpm@7.21.0",
     "pnpm": {
         "overrides": {
             "chokidar": "^3.5.3",
