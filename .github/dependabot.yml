@@ -9,7 +9,7 @@ updates:
       ## La Dependabot varsle om oppdaterte GitHub Actions ukentlig.
       directory: "/"
       schedule:
-          interval: "weekly"
+          interval: "monthly"
           day: "thursday"
       ## Skru av automatisk rebasing for å spare CI-minutter.
       ## En maintainer sørger for å rebase+merge én PR av gangen,
