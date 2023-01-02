@@ -1,27 +1,20 @@
 @use "../jkl";
 
-:root {
-    --jkl-icon-width: 20px;
-}
-
 .jkl-icon {
-    width: var(--jkl-icon-width);
-
-    &--inherit {
-        height: 1em;
-        width: initial;
-    }
+    width: var(--jkl-icon-size, #{jkl.rem(20px)});
+    height: var(--jkl-icon-size, #{jkl.rem(20px)});
+    color: currentColor;
 
     &--small {
-        --jkl-icon-width: 20px;
+        --jkl-icon-size: #{jkl.rem(20px)};
     }
 
     &--medium {
-        --jkl-icon-width: 30px;
+        --jkl-icon-size: #{jkl.rem(24px)};
     }
 
-    &--large {
-        --jkl-icon-width: 40px;
+    &--inherit {
+        --jkl-icon-size: calc(1em / 20 * 24);
     }
 
     @include jkl.forced-colors-svg-fallback($stroke: CanvasText);

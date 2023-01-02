@@ -9,8 +9,6 @@ export interface HamburgerCloseAnimatedProps {
     className?: string;
     isBurger: boolean;
     variant?: IconVariant;
-    hamburgerTitle?: string;
-    closeTitle?: string;
 }
 
 interface ShowProps extends WithChildren {
@@ -27,8 +25,6 @@ export const HamburgerCloseAnimated: FC<HamburgerCloseAnimatedProps> = ({
     className,
     isBurger,
     variant = "small",
-    hamburgerTitle = "meny",
-    closeTitle = "lukk",
     ...rest
 }) => {
     const iconSize = variant !== "inherit" ? variant : "small";
@@ -36,10 +32,10 @@ export const HamburgerCloseAnimated: FC<HamburgerCloseAnimatedProps> = ({
     return (
         <div {...rest} className={cx(`jkl-icon--${iconSize}`, "jkl-icons-animated__burger", className)}>
             <Show when={isBurger}>
-                <Hamburger variant={iconSize} title={hamburgerTitle} />
+                <Hamburger variant={iconSize} />
             </Show>
             <Show when={!isBurger}>
-                <Close variant={iconSize} title={closeTitle} />
+                <Close variant={iconSize} />
             </Show>
         </div>
     );

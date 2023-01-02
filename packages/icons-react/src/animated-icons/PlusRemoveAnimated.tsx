@@ -7,18 +7,9 @@ export interface PlusRemoveAnimatedProps {
     className?: string;
     isPlus: boolean;
     variant?: IconVariant;
-    plusTitle?: string;
-    closeTitle?: string;
 }
 
-export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
-    className,
-    isPlus,
-    variant = "small",
-    plusTitle = "pluss",
-    closeTitle = "lukk",
-    ...rest
-}) => {
+export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({ className, isPlus, variant = "small", ...rest }) => {
     const iconSize = variant !== "inherit" ? variant : "small";
     return (
         <div
@@ -30,11 +21,7 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
                 className,
             )}
         >
-            <Plus
-                variant={iconSize}
-                title={isPlus ? plusTitle : closeTitle}
-                description={`Ikon av ${isPlus ? plusTitle : closeTitle}tegn`}
-            />
+            <Plus variant={iconSize} />
         </div>
     );
 };
