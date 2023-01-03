@@ -797,11 +797,13 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^11.3.0
       '@fremtind/jkl-icon-button-react': ^2.0.17
+      '@fremtind/jkl-icons-react': ^6.0.10
       '@fremtind/jkl-tag': ^3.0.9
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-tag': link:../tag
       classnames: 2.3.2
 

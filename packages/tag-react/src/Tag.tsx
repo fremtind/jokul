@@ -1,5 +1,6 @@
 import { Density } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { CloseIcon } from "@fremtind/jkl-icons-react";
 import cx from "classnames";
 import React, { ButtonHTMLAttributes, FC, HTMLAttributes, MouseEventHandler } from "react";
 
@@ -56,7 +57,7 @@ function tagFactory(variant?: Variant) {
                     onFocus={dismissAction.onFocus}
                     onBlur={dismissAction.onBlur}
                 >
-                    TODO
+                    <CloseIcon variant="inherit" bold />
                 </IconButton>
             )}
         </span>
