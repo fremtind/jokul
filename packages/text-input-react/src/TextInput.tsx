@@ -1,12 +1,12 @@
 import { Label, SupportLabel, LabelVariant, LabelProps, Density } from "@fremtind/jkl-core";
-import { IconButton, IconVariant } from "@fremtind/jkl-icon-button-react";
+import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler, type ReactNode } from "react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
 
 export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
-    icon: IconVariant;
+    icon: React.ReactNode;
     label: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
 }
@@ -86,12 +86,13 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                     <IconButton
                         className="jkl-text-input-action-button"
                         density={density}
-                        iconType={action.icon}
-                        buttonTitle={action.label}
+                        title={action.label}
                         onClick={action.onClick}
                         onFocus={action.onFocus}
                         onBlur={action.onBlur}
-                    />
+                    >
+                        {action.icon}
+                    </IconButton>
                 )}
             </div>
             <SupportLabel

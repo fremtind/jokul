@@ -1,4 +1,5 @@
 import { LabelVariant, Link } from "@fremtind/jkl-core";
+import { SearchIcon } from "@fremtind/jkl-icons-react";
 import React, { useState, ChangeEvent, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { TextInput } from "../src";
@@ -38,8 +39,8 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
     const variant = choiceValues?.["Variant"] as LabelVariant;
     const action = boolValues?.["Med handling"]
         ? ({
-              icon: "clear",
-              label: "Nullstill feltet",
+              icon: <SearchIcon variant="inherit" />,
+              label: "Søk",
               onClick: () => setValue(""),
           } as Action)
         : undefined;
