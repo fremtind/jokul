@@ -1,28 +1,24 @@
 import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
+import { SearchIcon } from "../../icons-react/src/icons/search/SearchIcon";
 import { IconButton } from ".";
 
 describe("IconButton", () => {
     it("calls the onClick handler when clicked", async () => {
         const clickHandler = jest.fn();
-        render(<IconButton iconType="calendar" buttonTitle="Åpne kalender" onClick={clickHandler} />);
+        render(
+            <IconButton title="Søk" onClick={clickHandler}>
+                <SearchIcon />
+            </IconButton>,
+        );
 
-        const button = screen.getByTestId("jkl-icon-button");
+        const button = screen.getByRole("button");
 
         await act(async () => {
             await userEvent.click(button);
         });
 
         expect(clickHandler).toHaveBeenCalled();
-    });
-
-    it("has search icon", () => {
-        const clickHandler = jest.fn();
-        render(<IconButton iconType="calendar" buttonTitle="Åpne kalender" onClick={clickHandler} />);
-
-        const svg = screen.getByTestId("jkl-calendar-icon");
-
-        expect(svg).toBeInTheDocument();
     });
 });
