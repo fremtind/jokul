@@ -1,21 +1,21 @@
 import React, { FC, SVGAttributes } from "react";
 
 export const CalendarSmall: FC<SVGAttributes<SVGElement>> = (props) => (
-    <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M0 2H1V15H0V2Z" fill="currentColor" />
-        <path d="M3 0H4V4H3V0Z" fill="currentColor" />
-        <path d="M2.79289 6.00711L3.5 5.3L4.20711 6.00711L3.5 6.71421L2.79289 6.00711Z" fill="currentColor" />
-        <path d="M6.29289 6.00711L7 5.3L7.70711 6.00711L7 6.71421L6.29289 6.00711Z" fill="currentColor" />
-        <path d="M9.79289 6.00711L10.5 5.3L11.2071 6.00711L10.5 6.71421L9.79289 6.00711Z" fill="currentColor" />
-        <path d="M2.79289 9.00711L3.5 8.3L4.20711 9.00711L3.5 9.71421L2.79289 9.00711Z" fill="currentColor" />
-        <path d="M6.29289 9.00711L7 8.3L7.70711 9.00711L7 9.71421L6.29289 9.00711Z" fill="currentColor" />
-        <path d="M9.79289 9.00711L10.5 8.3L11.2071 9.00711L10.5 9.71421L9.79289 9.00711Z" fill="currentColor" />
-        <path d="M2.79289 12.0071L3.5 11.3L4.20711 12.0071L3.5 12.7142L2.79289 12.0071Z" fill="currentColor" />
-        <path d="M6.29289 12.0071L7 11.3L7.70711 12.0071L7 12.7142L6.29289 12.0071Z" fill="currentColor" />
-        <path d="M9.79289 12.0071L10.5 11.3L11.2071 12.0071L10.5 12.7142L9.79289 12.0071Z" fill="currentColor" />
-        <path d="M0 2H14V3H0V2Z" fill="currentColor" />
-        <path d="M0 14H14V15H0V14Z" fill="currentColor" />
-        <path d="M13 2H14V15H13V2Z" fill="currentColor" />
-        <path d="M10 0H11V4H10V0Z" fill="currentColor" />
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M3 4H4V17H3V4Z" fill="currentColor" />
+        <path d="M6 2H7V6H6V2Z" fill="currentColor" />
+        <path d="M5.79289 8.00711L6.5 7.3L7.20711 8.00711L6.5 8.71421L5.79289 8.00711Z" fill="currentColor" />
+        <path d="M9.29289 8.00711L10 7.3L10.7071 8.00711L10 8.71421L9.29289 8.00711Z" fill="currentColor" />
+        <path d="M12.7929 8.00711L13.5 7.3L14.2071 8.00711L13.5 8.71421L12.7929 8.00711Z" fill="currentColor" />
+        <path d="M5.79289 11.0071L6.5 10.3L7.20711 11.0071L6.5 11.7142L5.79289 11.0071Z" fill="currentColor" />
+        <path d="M9.29289 11.0071L10 10.3L10.7071 11.0071L10 11.7142L9.29289 11.0071Z" fill="currentColor" />
+        <path d="M12.7929 11.0071L13.5 10.3L14.2071 11.0071L13.5 11.7142L12.7929 11.0071Z" fill="currentColor" />
+        <path d="M5.79289 14.0071L6.5 13.3L7.20711 14.0071L6.5 14.7142L5.79289 14.0071Z" fill="currentColor" />
+        <path d="M9.29289 14.0071L10 13.3L10.7071 14.0071L10 14.7142L9.29289 14.0071Z" fill="currentColor" />
+        <path d="M12.7929 14.0071L13.5 13.3L14.2071 14.0071L13.5 14.7142L12.7929 14.0071Z" fill="currentColor" />
+        <path d="M3 4H17V5H3V4Z" fill="currentColor" />
+        <path d="M3 16H17V17H3V16Z" fill="currentColor" />
+        <path d="M16 4H17V17H16V4Z" fill="currentColor" />
+        <path d="M13 2H14V6H13V2Z" fill="currentColor" />
     </svg>
 );

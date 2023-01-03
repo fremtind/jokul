@@ -1,18 +1,18 @@
 import React, { FC, SVGAttributes } from "react";
 
 export const CalendarMedium: FC<SVGAttributes<SVGElement>> = (props) => (
-    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path fillRule="evenodd" clipRule="evenodd" d="M19 3H1V18H19V3ZM0 2V19H20V2H0Z" fill="currentColor" />
-        <path d="M4 7L5 6L6 7L5 8L4 7Z" fill="currentColor" />
-        <path d="M4 11L5 10L6 11L5 12L4 11Z" fill="currentColor" />
-        <path d="M4 15L5 14L6 15L5 16L4 15Z" fill="currentColor" />
-        <path d="M9 7L10 6L11 7L10 8L9 7Z" fill="currentColor" />
-        <path d="M9 11L10 10L11 11L10 12L9 11Z" fill="currentColor" />
-        <path d="M9 15L10 14L11 15L10 16L9 15Z" fill="currentColor" />
-        <path d="M14 7L15 6L16 7L15 8L14 7Z" fill="currentColor" />
-        <path d="M14 11L15 10L16 11L15 12L14 11Z" fill="currentColor" />
-        <path d="M14 15L15 14L16 15L15 16L14 15Z" fill="currentColor" />
-        <path d="M4.5 0H5.5V4H4.5V0Z" fill="currentColor" />
-        <path d="M14.5 0H15.5V4H14.5V0Z" fill="currentColor" />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path fillRule="evenodd" clipRule="evenodd" d="M21 5H3V20H21V5ZM2 4V21H22V4H2Z" fill="currentColor" />
+        <path d="M6 9L7 8L8 9L7 10L6 9Z" fill="currentColor" />
+        <path d="M6 13L7 12L8 13L7 14L6 13Z" fill="currentColor" />
+        <path d="M6 17L7 16L8 17L7 18L6 17Z" fill="currentColor" />
+        <path d="M11 9L12 8L13 9L12 10L11 9Z" fill="currentColor" />
+        <path d="M11 13L12 12L13 13L12 14L11 13Z" fill="currentColor" />
+        <path d="M11 17L12 16L13 17L12 18L11 17Z" fill="currentColor" />
+        <path d="M16 9L17 8L18 9L17 10L16 9Z" fill="currentColor" />
+        <path d="M16 13L17 12L18 13L17 14L16 13Z" fill="currentColor" />
+        <path d="M16 17L17 16L18 17L17 18L16 17Z" fill="currentColor" />
+        <path d="M6.5 2H7.5V6H6.5V2Z" fill="currentColor" />
+        <path d="M16.5 2H17.5V6H16.5V2Z" fill="currentColor" />
     </svg>
 );
