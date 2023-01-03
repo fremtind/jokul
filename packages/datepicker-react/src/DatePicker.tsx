@@ -1,5 +1,6 @@
 import { Label, SupportLabel } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { CalendarIcon } from "@fremtind/jkl-icons-react";
 import { useAnimatedHeight, useClickOutside, useFocusOutside, useId, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseInputField } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
@@ -305,7 +306,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     onClick={clickCalendar}
                     onKeyDown={handleKeyDownAction}
                 >
-                    TODO
+                    <CalendarIcon variant="inherit" />
                 </IconButton>
                 <div className="jkl-datepicker__calendar-wrapper">
                     <Calendar
