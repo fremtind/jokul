@@ -939,6 +939,7 @@ importers:
       '@fremtind/jkl-text-input-react': ^11.3.3
       '@fremtind/jkl-toggle-switch-react': ^10.0.14
       '@fremtind/jkl-tooltip-react': ^1.0.21
+      '@fremtind/jkl-transitions-react': ^1.0.0-alpha
       '@fremtind/jkl-validators-util': ^2.5.3
       '@fremtind/jkl-webfonts': ^2.1.2
       '@jest/globals': ^29.3.1
@@ -1008,6 +1009,7 @@ importers:
       '@fremtind/jkl-text-input-react': link:../packages/text-input-react
       '@fremtind/jkl-toggle-switch-react': link:../packages/toggle-switch-react
       '@fremtind/jkl-tooltip-react': link:../packages/tooltip-react
+      '@fremtind/jkl-transitions-react': link:../packages/transitions-react
       '@fremtind/jkl-validators-util': link:../packages/validators-util
       '@fremtind/jkl-webfonts': link:../packages/webfonts
       '@mdx-js/react': 2.1.5_react@18.2.0
