@@ -2,6 +2,7 @@ export { CheckMark } from "./icons/CheckMark";
 export { Close } from "./icons/Close";
 export { Plus } from "./icons/Plus";
 export { Search } from "./icons/Search";
+export { SearchIcon } from "./icons/search/SearchIcon";
 export { Hamburger } from "./icons/Hamburger";
 export { Calendar } from "./icons/Calendar";
 export { ArrowUpRight } from "./icons/ArrowUpRight";
