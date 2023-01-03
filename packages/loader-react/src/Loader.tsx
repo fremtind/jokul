@@ -42,7 +42,6 @@ export const Loader = ({
     return (
         <span
             aria-busy="true"
-            aria-label={textDescription}
             className={componentClassName}
             data-testautoid={dataTestAutoId}
             data-testid="jkl-loader"
@@ -52,6 +51,7 @@ export const Loader = ({
             <span className="jkl-loader__dot jkl-loader__dot--left" />
             <span className="jkl-loader__dot jkl-loader__dot--middle" />
             <span className="jkl-loader__dot jkl-loader__dot--right" />
+            <span className="jkl-sr-only">{textDescription}</span>
         </span>
     );
 };
