@@ -9414,3 +9414,29 @@ async function run() {
   }
 }
 run();
+/*! Bundled license information:
+
+is-number/index.js:
+  (*!
+   * is-number <https://github.com/jonschlinkert/is-number>
+   *
+   * Copyright (c) 2014-present, Jon Schlinkert.
+   * Released under the MIT License.
+   *)
+
+to-regex-range/index.js:
+  (*!
+   * to-regex-range <https://github.com/micromatch/to-regex-range>
+   *
+   * Copyright (c) 2015-present, Jon Schlinkert.
+   * Released under the MIT License.
+   *)
+
+fill-range/index.js:
+  (*!
+   * fill-range <https://github.com/jonschlinkert/fill-range>
+   *
+   * Copyright (c) 2014-present, Jon Schlinkert.
+   * Licensed under the MIT License.
+   *)
+*/

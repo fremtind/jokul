@@ -1,34 +1,25 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Weekly tasks
+name: Monthly tasks
 on:
     schedule:
-        - cron: 00 05 * * 1
+        # at 06:13 on the first day of the month
+        - cron: 13 06 1 * *
 
 jobs:
     create_issue:
-        name: Create weekly issue to upgrade dependencies
+        name: Create issue to upgrade dependencies
         runs-on: ubuntu-latest
         permissions:
             issues: write
         steps:
-            - name: Create weekly issue to upgrade dependencies
-              uses: imjohnbo/issue-bot@7e438653c0da13f4f79678a56bb9ecbd9dcc26ac
+            - name: Create issue to upgrade dependencies
+              uses: imjohnbo/issue-bot@76645b39cda009302cc49d8624af634795e9eab5
               with:
-                  assignees: "wkillerud, piofinn"
+                  assignees: "wkillerud, piofinn, fremtindelise"
                   rotate-assignees: true
                   labels: "🔁 round robin, 🔗 dependencies"
-                  pinned: true
                   close-previous: true
-                  title: "Ukentlig oppdatering av avhengigheter"
+                  title: "Oppdatering av avhengigheter"
                   body: |
-                      ## Sjekkliste
-
-                      - [ ] Mottatt – jeg fikser i løpet av uka!
-
                       ## Fremgangsmåte
 
                       🧑‍💻 Kjør `git pull` på `main` og lag en ny branch.

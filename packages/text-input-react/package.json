@@ -47,7 +47,7 @@
         "@fremtind/jkl-react-hooks": "^10.2.7",
         "@fremtind/jkl-text-input": "^10.0.1",
         "classnames": "^2.3.2",
-        "downshift": "^7.0.4",
+        "downshift": "^7.0.5",
         "match-sorter": "^6.3.1"
     },
     "peerDependencies": {
