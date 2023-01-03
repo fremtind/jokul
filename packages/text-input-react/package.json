@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input-react",
-    "version": "11.3.3",
+    "version": "11.3.4",
     "publishConfig": {
         "access": "public"
     },
