@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import {
-    Close,
+    CloseIcon,
     CheckMark,
     Plus,
-    // Search,
+    SearchIcon,
     Hamburger,
-    // Calendar,
+    CalendarIcon,
     ArrowUpRight,
     ArrowUp,
     ArrowDown,
@@ -17,8 +17,6 @@ import {
     Warning,
     Success,
 } from "../src";
-import { CalendarIcon } from "../src/icons/calendar/CalendarIcon";
-import { SearchIcon } from "../src/icons/search/SearchIcon";
 import { IconVariant } from "../src/icons/types";
 import { IconExample } from "./internal/IconExample";
 import { IconsExampleGrid } from "./internal/IconsExampleGrid";
@@ -36,7 +34,7 @@ export const iconsExampleKnobs: ExampleKnobsProps = {
 
 export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const allIcons = [
-        Close,
+        CloseIcon,
         CheckMark,
         Plus,
         SearchIcon,

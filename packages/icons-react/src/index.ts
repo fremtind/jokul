@@ -1,5 +1,6 @@
 export { CheckMark } from "./icons/CheckMark";
 export { Close } from "./icons/Close";
+export { CloseIcon } from "./icons/close/CloseIcon";
 export { Plus } from "./icons/Plus";
 export { Search } from "./icons/Search";
 export { SearchIcon } from "./icons/search/SearchIcon";
