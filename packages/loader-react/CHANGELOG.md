@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.11 (2023-01-03)
+
+### Bug Fixes
+
+- rett opp i feil bruk av aria-label i Loader ([2a0b40e](https://github.com/fremtind/jokul/commit/2a0b40e8e79d2f661df2f8f9caf4e31f8dbec0f7))
+
 ## 10.0.9 (2022-11-22)
 
 ### Bug Fixes
