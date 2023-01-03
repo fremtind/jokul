@@ -300,12 +300,13 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     ref={iconButtonRef}
                     density={density}
                     className="jkl-datepicker__action-button jkl-text-input-action-button"
-                    iconType="calendar"
-                    buttonTitle={showCalendar ? hideCalendarLabel : showCalendarLabel}
+                    title={showCalendar ? hideCalendarLabel : showCalendarLabel}
                     {...action}
                     onClick={clickCalendar}
                     onKeyDown={handleKeyDownAction}
-                />
+                >
+                    TODO
+                </IconButton>
                 <div className="jkl-datepicker__calendar-wrapper">
                     <Calendar
                         ref={calendarRef}

@@ -50,13 +50,14 @@ function tagFactory(variant?: Variant) {
             {dismissAction && (
                 <IconButton
                     className="jkl-tag__dismiss-action"
-                    iconType="clear"
                     density={density}
-                    buttonTitle={dismissAction.label}
+                    title={dismissAction.label}
                     onClick={dismissAction.onClick}
                     onFocus={dismissAction.onFocus}
                     onBlur={dismissAction.onBlur}
-                />
+                >
+                    TODO
+                </IconButton>
             )}
         </span>
     );
