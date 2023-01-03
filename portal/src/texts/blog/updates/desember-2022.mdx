@@ -23,9 +23,10 @@ Pio skrev [en egen bloggpost om temaet](https://jokul.fremtind.no/blog/dynamisk-
 
 Kort fortalt:
 
--   Endringene i kode er bakoverkompatible, altså _ingen_ breaking change.
--   Nye variabler for spacing som er tallbaserte, for eksempel `$spacing-2` for REM-verdi som matcher `2px`.
--   Nye hjelpere for å lage spacing som endrer seg basert på skjermbredde.
+-   Endringene i kode er bakoverkompatible.
+-   Nye tallbaserte variabler, for eksempel `$spacing-2` som matcher `2px`.
+-   Steg på `32px` lagt til i skalaen.
+-   Hjelpere for å lage spacing som endrer seg basert på skjermbredde.
 
 Les bloggposten for å komme i gang med ny skala.
 
@@ -47,15 +48,15 @@ I kode er det propen `unit` som lar deg gjøre dette. Figma-biblioteket har i sk
 
 ![](/assets/blog/updates/desember-2022/desember-2022-kbar.png)
 
-[Command bars](https://maggieappleton.com/command-bar) er etter hvert blitt mer og mer vanlig i _verktøy_. Under en fagdag testet William hvordan en sånn _kbar_ kunne fungere i portalen.
+[Command bars](https://maggieappleton.com/command-bar) er etter hvert blitt mer vanlig i verktøy. Under en fagdag testet William hvordan en _kbar_ kunne fungere i portalen.
 
 Du kan teste selv ved å trykke `Cmd + K` på macOS, eller `Ctrl + K` på Windows/Linux.
 
-Komponenten er _ikke designet_, så ikke løp av sted med dette i egne løsninger helt ennå. Om dette er noe du synes er kult og vil være med på å designe, sei ifrå.
+Komponenten er _ikke designet_, så vent med å bruke den i egne løsninger inntil videre. Om dette er noe du synes er kult og vil være med på å designe, sei ifrå.
 
-Kommandopaletten i dag er i grunnen bare et _veldig enkelt_ søk. Sidetitler og noen egne nøkkelord er alt som kan søkes i, men det kan være nyttig nok for mange.
+Kommandopaletten er i grunnen bare et _veldig enkelt_ søk i dag. Søket er begrenset til sidetitler og noen egne nøkkelord.
 
-Prøv for eksempel søke etter:
+Prøv for eksempel å søke etter:
 
 -   farger
 -   spacing
@@ -74,7 +75,7 @@ Om du har forslag til nøkkelord som bør assosieres med en side så gi lyd [på
 
 ### GitHub
 
--   TaskCard kan få padding lik `0` ([#3298](https://github.com/fremtind/jokul/pull/3298))
+-   TaskCard kan få padding lik `0` ([#3289](https://github.com/fremtind/jokul/pull/3289))
 -   CookieConsent krasjer ikke SSR ([#3295](https://github.com/fremtind/jokul/pull/3295))
 -   Tooltip krever interaksjon for å åpnes ([#3292](https://github.com/fremtind/jokul/pull/3292))
 -   Sticky tabellheader bruker box-shadow for border, for stickyness ([#3296](https://github.com/fremtind/jokul/pull/3296))
