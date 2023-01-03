@@ -6,7 +6,7 @@ import {
     Plus,
     // Search,
     Hamburger,
-    Calendar,
+    // Calendar,
     ArrowUpRight,
     ArrowUp,
     ArrowDown,
@@ -17,6 +17,7 @@ import {
     Warning,
     Success,
 } from "../src";
+import { CalendarIcon } from "../src/icons/calendar/CalendarIcon";
 import { SearchIcon } from "../src/icons/search/SearchIcon";
 import { IconVariant } from "../src/icons/types";
 import { IconExample } from "./internal/IconExample";
@@ -40,7 +41,7 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
         Plus,
         SearchIcon,
         Hamburger,
-        Calendar,
+        CalendarIcon,
         ArrowUpRight,
         ArrowUp,
         ArrowDown,

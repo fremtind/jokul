@@ -5,6 +5,7 @@ export { Search } from "./icons/Search";
 export { SearchIcon } from "./icons/search/SearchIcon";
 export { Hamburger } from "./icons/Hamburger";
 export { Calendar } from "./icons/Calendar";
+export { CalendarIcon } from "./icons/calendar/CalendarIcon";
 export { ArrowUpRight } from "./icons/ArrowUpRight";
 export { ArrowUp } from "./icons/ArrowUp";
 export { ArrowDown } from "./icons/ArrowDown";
