@@ -12,8 +12,7 @@ function onClick() {
 export const IconButtonExample: FC<ExampleComponentProps> = () => {
     return (
         <p className="jkl-body">
-            Lorem ipsum
-            <IconButton onClick={onClick} title="Søk" className="jkl-spacing-4--left">
+            <IconButton onClick={onClick} title="Søk">
                 <SearchIcon variant="inherit" />
             </IconButton>
         </p>
