@@ -306,7 +306,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     onClick={clickCalendar}
                     onKeyDown={handleKeyDownAction}
                 >
-                    <CalendarIcon variant="inherit" />
+                    <CalendarIcon />
                 </IconButton>
                 <div className="jkl-datepicker__calendar-wrapper">
                     <Calendar

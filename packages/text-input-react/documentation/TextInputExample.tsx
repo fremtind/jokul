@@ -39,7 +39,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
     const variant = choiceValues?.["Variant"] as LabelVariant;
     const action = boolValues?.["Med handling"]
         ? ({
-              icon: <SearchIcon variant="inherit" />,
+              icon: <SearchIcon />,
               label: "Søk",
               onClick: () => setValue(""),
           } as Action)

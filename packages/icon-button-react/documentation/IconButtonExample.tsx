@@ -13,7 +13,7 @@ export const IconButtonExample: FC<ExampleComponentProps> = () => {
     return (
         <p className="jkl-body">
             <IconButton onClick={onClick} title="Søk">
-                <SearchIcon variant="inherit" />
+                <SearchIcon />
             </IconButton>
         </p>
     );
