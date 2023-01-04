@@ -20,7 +20,7 @@ import {
     DotsIcon,
     QuestionIcon,
     Info,
-    Error,
+    ErrorIcon,
     Warning,
     Success,
 } from "../src";
@@ -60,7 +60,7 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
         DotsIcon,
         QuestionIcon,
         Info,
-        Error,
+        ErrorIcon,
         Warning,
         Success,
     ];

@@ -34,6 +34,7 @@ export { Info } from "./icons/Info";
 export { Success } from "./icons/Success";
 export { Warning } from "./icons/Warning";
 export { Error } from "./icons/Error";
+export { ErrorIcon } from "./icons/error/ErrorIcon";
 
 export type { ArrowVerticalAnimatedProps } from "./animated-icons/ArrowVerticalAnimated";
 export type { ArrowHorizontalAnimatedProps } from "./animated-icons/ArrowHorizontalAnimated";
