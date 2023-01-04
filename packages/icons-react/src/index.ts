@@ -11,6 +11,7 @@ export { HamburgerIcon } from "./icons/hamburger/HamburgerIcon";
 export { Calendar } from "./icons/Calendar";
 export { CalendarIcon } from "./icons/calendar/CalendarIcon";
 export { ArrowUpRight } from "./icons/ArrowUpRight";
+export { ArrowNorthEastIcon } from "./icons/arrow-north-east/ArrowNorthEastIcon";
 export { ArrowUp } from "./icons/ArrowUp";
 export { ArrowUpIcon } from "./icons/arrow-up/ArrowUpIcon";
 export { ArrowDown } from "./icons/ArrowDown";
