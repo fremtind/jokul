@@ -2,6 +2,14 @@
 
 @use "./animated-icons";
 
+@include jkl.light-mode-variables {
+    --jkl-icon-color-secondary: #{jkl.$color-snohvit};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-icon-color-secondary: #{jkl.$color-granitt};
+}
+
 .jkl-icon {
     width: var(--jkl-icon-size, #{jkl.rem(20px)});
     height: var(--jkl-icon-size, #{jkl.rem(20px)});

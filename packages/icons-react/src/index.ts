@@ -21,6 +21,8 @@ export { ChevronLeftIcon } from "./icons/chevron-left/ChevronLeftIcon";
 export { ChevronRightIcon } from "./icons/chevron-right/ChevronRightIcon";
 export { ChevronUpIcon } from "./icons/chevron-up/ChevronUpIcon";
 
+export { CopyIcon } from "./icons/copy/CopyIcon";
+
 export { Info } from "./icons/Info";
 export { Success } from "./icons/Success";
 export { Warning } from "./icons/Warning";
