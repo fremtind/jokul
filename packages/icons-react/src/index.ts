@@ -35,6 +35,7 @@ export { InfoIcon } from "./icons/info/InfoIcon";
 export { Success } from "./icons/Success";
 export { SuccessIcon } from "./icons/success/SuccessIcon";
 export { Warning } from "./icons/Warning";
+export { WarningIcon } from "./icons/warning/WarningIcon";
 export { Error } from "./icons/Error";
 export { ErrorIcon } from "./icons/error/ErrorIcon";
 
