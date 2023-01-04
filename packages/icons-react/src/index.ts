@@ -12,9 +12,13 @@ export { Calendar } from "./icons/Calendar";
 export { CalendarIcon } from "./icons/calendar/CalendarIcon";
 export { ArrowUpRight } from "./icons/ArrowUpRight";
 export { ArrowUp } from "./icons/ArrowUp";
+export { ArrowUpIcon } from "./icons/arrow-up/ArrowUpIcon";
 export { ArrowDown } from "./icons/ArrowDown";
+export { ArrowDownIcon } from "./icons/arrow-down/ArrowDownIcon";
 export { ArrowRight } from "./icons/ArrowRight";
+export { ArrowRightIcon } from "./icons/arrow-right/ArrowRightIcon";
 export { ArrowLeft } from "./icons/ArrowLeft";
+export { ArrowLeftIcon } from "./icons/arrow-left/ArrowLeftIcon";
 
 export { ChevronDownIcon } from "./icons/chevron-down/ChevronDownIcon";
 export { ChevronLeftIcon } from "./icons/chevron-left/ChevronLeftIcon";
