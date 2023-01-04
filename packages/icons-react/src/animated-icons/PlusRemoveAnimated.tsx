@@ -1,6 +1,6 @@
 import cx from "classnames";
 import React, { FC } from "react";
-import { Plus } from "../icons/Plus";
+import { PlusIcon } from "../icons/plus/PlusIcon";
 import { IconVariant } from "../icons/types";
 
 export interface PlusRemoveAnimatedProps {
@@ -15,13 +15,14 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({ className, isP
         <div
             {...rest}
             className={cx(
+                "jkl-icon",
                 `jkl-icon--${iconSize}`,
                 "jkl-icons-animated__plus",
                 `jkl-icons-animated__plus--${isPlus ? "plus" : "close"}`,
                 className,
             )}
         >
-            <Plus variant={iconSize} />
+            <PlusIcon variant={iconSize} />
         </div>
     );
 };
