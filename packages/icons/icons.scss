@@ -1,7 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@use "./animated-icons";
-
 @include jkl.light-mode-variables {
     --jkl-icon-color-secondary: #{jkl.$color-snohvit};
 }
@@ -28,4 +26,59 @@
     }
 
     @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+}
+
+.jkl-animated-horizontal-arrows,
+.jkl-animated-vertical-arrows {
+    --jkl-animated-arrow-height: calc(1.0667 * var(--jkl-icon-size));
+
+    height: var(--jkl-animated-arrow-height);
+    overflow: hidden;
+    position: relative;
+}
+
+.jkl-animated-horizontal-arrows__slider,
+.jkl-animated-vertical-arrows__slider {
+    display: flex;
+    position: absolute;
+    @include jkl.motion(standard, expressive);
+    transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
+    transition-property: transform;
+}
+
+.jkl-animated-vertical-arrows__slider {
+    flex-direction: column;
+
+    &[data-show="down"] {
+        transform: translate3d(0, 0, 0);
+    }
+
+    &[data-show="up"] {
+        transform: translate3d(0, -50%, 0);
+    }
+}
+
+.jkl-animated-horizontal-arrows__slider {
+    flex-direction: row;
+
+    &[data-show="right"] {
+        transform: translate3d(0, 0, 0);
+    }
+
+    &[data-show="left"] {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.jkl-icons-animated__plus {
+    @include jkl.motion("easeInBounceOut", "expressive");
+    transition-property: transform;
+
+    &--plus {
+        transform: rotate(0);
+    }
+
+    &--close {
+        transform: rotate(45deg);
+    }
 }
