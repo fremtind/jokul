@@ -67,24 +67,3 @@
         transform: rotate(45deg);
     }
 }
-
-.jkl-icons-animated__burger {
-    position: relative;
-    height: var(--jkl-animated-icon-width);
-
-    &__icons {
-        position: absolute;
-        transition: jkl.timing("expressive") ease opacity;
-
-        &--show {
-            transition-delay: jkl.timing("expressive");
-            opacity: 1;
-        }
-
-        &--hide {
-            transition-delay: 0;
-            opacity: 0;
-            z-index: -1;
-        }
-    }
-}

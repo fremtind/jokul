@@ -1,6 +1,6 @@
 import React from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
-import { ArrowVerticalAnimated, PlusRemoveAnimated, ArrowHorizontalAnimated, HamburgerCloseAnimated } from "../src";
+import { ArrowVerticalAnimated, PlusRemoveAnimated, ArrowHorizontalAnimated } from "../src";
 import { IconVariant } from "../src/icons/types";
 import { AnimatedIcon } from "./internal/AnimatedIcon";
 import { IconsExampleGrid } from "./internal/IconsExampleGrid";
@@ -37,10 +37,6 @@ export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceVa
                 <AnimatedIcon
                     renderIcon={(isPlus) => <PlusRemoveAnimated isPlus={isPlus} variant={variant} />}
                     iconName={PlusRemoveAnimated.displayName}
-                />
-                <AnimatedIcon
-                    renderIcon={(isBurger) => <HamburgerCloseAnimated isBurger={isBurger} variant={variant} />}
-                    iconName={HamburgerCloseAnimated.displayName}
                 />
             </IconsExampleGrid>
         </div>
