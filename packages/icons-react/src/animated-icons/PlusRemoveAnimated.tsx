@@ -9,7 +9,12 @@ export interface PlusRemoveAnimatedProps {
     variant?: IconVariant;
 }
 
-export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({ className, isPlus, variant = "small", ...rest }) => (
+export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
+    className,
+    isPlus,
+    variant = "inherit",
+    ...rest
+}) => (
     <div
         {...rest}
         className={cx(

@@ -13,7 +13,7 @@ export interface ArrowVerticalAnimatedProps {
 export const ArrowVerticalAnimated = ({
     className,
     pointingDown,
-    variant = "small",
+    variant = "inherit",
     ...rest
 }: ArrowVerticalAnimatedProps) => (
     <div {...rest} className={cx(`jkl-icon jkl-icon--${variant}`, "jkl-animated-vertical-arrows", className)}>

@@ -13,7 +13,7 @@ export interface ArrowHorizontalAnimatedProps {
 export const ArrowHorizontalAnimated: FC<ArrowHorizontalAnimatedProps> = ({
     className,
     pointingRight,
-    variant = "small",
+    variant = "inherit",
     ...rest
 }) => (
     <div {...rest} className={cx(`jkl-icon jkl-icon--${variant}`, "jkl-animated-horizontal-arrows", className)}>
