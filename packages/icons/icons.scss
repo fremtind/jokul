@@ -30,9 +30,6 @@
 
 .jkl-animated-horizontal-arrows,
 .jkl-animated-vertical-arrows {
-    --jkl-animated-arrow-height: calc(1.0667 * var(--jkl-icon-size));
-
-    height: var(--jkl-animated-arrow-height);
     overflow: hidden;
     position: relative;
 }
