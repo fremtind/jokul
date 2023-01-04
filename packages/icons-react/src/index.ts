@@ -31,6 +31,7 @@ export { DotsIcon } from "./icons/dots/DotsIcon";
 export { QuestionIcon } from "./icons/question/QuestionIcon";
 
 export { Info } from "./icons/Info";
+export { InfoIcon } from "./icons/info/InfoIcon";
 export { Success } from "./icons/Success";
 export { Warning } from "./icons/Warning";
 export { Error } from "./icons/Error";
