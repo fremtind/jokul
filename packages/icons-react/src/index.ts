@@ -1,4 +1,5 @@
 export { CheckMark } from "./icons/CheckMark";
+export { CheckIcon } from "./icons/check/CheckIcon";
 export { Close } from "./icons/Close";
 export { CloseIcon } from "./icons/close/CloseIcon";
 export { Plus } from "./icons/Plus";

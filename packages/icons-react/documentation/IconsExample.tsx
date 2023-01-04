@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import {
     CloseIcon,
-    CheckMark,
+    CheckIcon,
     Plus,
     SearchIcon,
     Hamburger,
@@ -35,7 +35,7 @@ export const iconsExampleKnobs: ExampleKnobsProps = {
 export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const allIcons = [
         CloseIcon,
-        CheckMark,
+        CheckIcon,
         Plus,
         SearchIcon,
         Hamburger,
