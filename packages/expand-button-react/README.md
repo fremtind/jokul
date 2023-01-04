@@ -16,11 +16,11 @@ import { ExpandButton } from "@fremtind/jkl-expand-button-react";
 import "@fremtind/jkl-expand-button/expand-button.min.css";
 
 // Ekspanderknappen bruker icons-pakka for å animere pila
-import "@fremtind/jkl-icons/animated-icons.min.css";
+import "@fremtind/jkl-icons/icons.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-expand-button/expand-button";
-@use "@fremtind/jkl-icons/animated-icons";
+@use "@fremtind/jkl-icons/icons";
 ```

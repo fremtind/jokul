@@ -4,7 +4,7 @@ import { ExpandButtonExample } from "./ExpandButtonExample";
 import { expandExamplesProps } from "./ExpandExamples";
 import { ExpandSectionExample } from "./ExpandSectionExample";
 import "../../expand-button/expand-button.scss";
-import "../../icons/animated-icons.scss";
+import "../../icons/icons.scss";
 
 export default function Example() {
     return (

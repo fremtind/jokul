@@ -6,7 +6,7 @@ import "../packages/webfonts/documentation/internal.scss";
 import "../packages/radio-button/radio-button.scss";
 import "../packages/checkbox/checkbox.scss";
 import "../packages/expand-button/expand-button.scss";
-import "../packages/icons/animated-icons.scss";
+import "../packages/icons/icons.scss";
 import "../packages/select/select.scss";
 
 export type HydrateClientOptions = {
