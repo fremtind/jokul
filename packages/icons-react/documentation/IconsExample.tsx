@@ -22,7 +22,7 @@ import {
     InfoIcon,
     ErrorIcon,
     Warning,
-    Success,
+    SuccessIcon,
 } from "../src";
 import { IconVariant } from "../src/icons/types";
 import { IconExample } from "./internal/IconExample";
@@ -62,7 +62,7 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
         InfoIcon,
         ErrorIcon,
         Warning,
-        Success,
+        SuccessIcon,
     ];
 
     const colorValue = choiceValues ? choiceValues["Farge"] : "inherit";
