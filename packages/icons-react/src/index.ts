@@ -15,6 +15,11 @@ export { ArrowDown } from "./icons/ArrowDown";
 export { ArrowRight } from "./icons/ArrowRight";
 export { ArrowLeft } from "./icons/ArrowLeft";
 
+export { ChevronDownIcon } from "./icons/chevron-down/ChevronDownIcon";
+export { ChevronLeftIcon } from "./icons/chevron-left/ChevronLeftIcon";
+export { ChevronRightIcon } from "./icons/chevron-right/ChevronRightIcon";
+export { ChevronUpIcon } from "./icons/chevron-up/ChevronUpIcon";
+
 export { Info } from "./icons/Info";
 export { Success } from "./icons/Success";
 export { Warning } from "./icons/Warning";
