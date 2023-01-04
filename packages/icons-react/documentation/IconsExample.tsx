@@ -65,8 +65,6 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
         SuccessIcon,
     ];
 
-    const colorValue = choiceValues ? choiceValues["Farge"] : "inherit";
-    const color = colorValue === "inherit" ? undefined : colorValue;
     const variant = choiceValues ? (choiceValues["Variant"] as IconVariant) : "small";
     const bold = boolValues?.["Bold"] || false;
 
@@ -84,7 +82,7 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
                     />
                 </label>
             )}
-            <IconsExampleGrid style={{ fontSize }} columns="four" color={color}>
+            <IconsExampleGrid style={{ fontSize }} columns="four">
                 {allIcons.map((Ico) => (
                     <IconExample
                         key={Ico.name}

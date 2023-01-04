@@ -5,47 +5,20 @@ scss: icons
 group: annet
 ---
 
-import { IconsExample, choiceProps as iconsChoiceProps, iconsExampleCode } from "./IconsExample";
-import {
-    AnimatedIconsExample,
-    choiceProps as animatedIconsChoiceProps,
-    animatedIconsExampleCode,
-} from "./AnimatedIconsExample";
-import { BoldIconsExample, choiceProps as boldIconsChoiceProps, boldIconsExampleCode } from "./BoldIconsExample";
+import { IconsExample, iconsExampleKnobs, iconsExampleCode } from "./IconsExample";
+import { AnimatedIconsExample, animatedIconsExampleKnobs, animatedIconsExampleCode } from "./AnimatedIconsExample";
 
 <Ingress>Vi bruker sjelden ikoner. De ikonene vi har valgt å ha, er funksjonelle, ikke til dekorasjon.</Ingress>
 
-<ComponentExample
-    title="Icons"
-    component={IconsExample}
-    knobs={{
-        choiceProps: iconsChoiceProps,
-    }}
-    codeExample={iconsExampleCode}
-/>
+<ComponentExample title="Icons" component={IconsExample} knobs={iconsExampleKnobs} codeExample={iconsExampleCode} />
 
 Et lite utvalg av ikonene våre er animerbare. For å bruke animasjonene trengs [CSSen fra ikonpakka](https://github.com/fremtind/jokul/tree/main/packages/icons).
 
 <ComponentExample
     title="Animated"
     component={AnimatedIconsExample}
-    knobs={{
-        choiceProps: animatedIconsChoiceProps,
-    }}
+    knobs={animatedIconsExampleKnobs}
     codeExample={animatedIconsExampleCode}
-/>
-
-Det animerte hamburgerikonet er ikke tiltenkt hovedmenyer. Til det bruker vi den dedikerte [Hamburger](/komponenter/hamburger)-komponenten.
-
-Et utvalg av ikonene våre er også tilgjengelige i en bold variant.
-
-<ComponentExample
-    title="Bold"
-    component={BoldIconsExample}
-    knobs={{
-        choiceProps: boldIconsChoiceProps,
-    }}
-    codeExample={boldIconsExampleCode}
 />
 
 ## Hvordan bruker vi ikoner?
