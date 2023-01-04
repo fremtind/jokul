@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.2.13 (2023-01-04)
+
+### Bug Fixes
+
+- fiks en overskriving av value med tom string i sjeldne tilfeller ([096dda8](https://github.com/fremtind/jokul/commit/096dda8b401fccead0d560b5aba03476b9186566))
+
 ## 11.2.11 (2022-11-22)
 
 ### Bug Fixes
