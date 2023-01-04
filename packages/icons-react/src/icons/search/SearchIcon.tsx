@@ -1,4 +1,4 @@
-import { makeIconComponent } from "../../NewIconFactory";
+import { makeIconComponent } from "../../IconFactory";
 import { SearchMedium } from "./SearchMedium";
 import { SearchMediumBold } from "./SearchMediumBold";
 import { SearchSmall } from "./SearchSmall";

@@ -1,4 +1,4 @@
-import { makeIconComponent } from "../../NewIconFactory";
+import { makeIconComponent } from "../../IconFactory";
 import { HamburgerMedium } from "./HamburgerMedium";
 import { HamburgerMediumBold } from "./HamburgerMediumBold";
 import { HamburgerSmall } from "./HamburgerSmall";

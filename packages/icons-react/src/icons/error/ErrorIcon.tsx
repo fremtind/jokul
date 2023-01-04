@@ -1,4 +1,4 @@
-import { makeIconComponent } from "../../NewIconFactory";
+import { makeIconComponent } from "../../IconFactory";
 import { ErrorMedium } from "./ErrorMedium";
 import { ErrorMediumBold } from "./ErrorMediumBold";
 import { ErrorSmall } from "./ErrorSmall";

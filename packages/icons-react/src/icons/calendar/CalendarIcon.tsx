@@ -1,4 +1,4 @@
-import { makeIconComponent } from "../../NewIconFactory";
+import { makeIconComponent } from "../../IconFactory";
 import { CalendarMedium } from "./CalendarMedium";
 import { CalendarMediumBold } from "./CalendarMediumBold";
 import { CalendarSmall } from "./CalendarSmall";

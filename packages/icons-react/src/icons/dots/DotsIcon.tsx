@@ -1,4 +1,4 @@
-import { makeIconComponent } from "../../NewIconFactory";
+import { makeIconComponent } from "../../IconFactory";
 import { DotsMedium } from "./DotsMedium";
 import { DotsMediumBold } from "./DotsMediumBold";
 import { DotsSmall } from "./DotsSmall";

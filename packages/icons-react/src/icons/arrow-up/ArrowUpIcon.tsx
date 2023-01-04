@@ -1,4 +1,4 @@
-import { makeIconComponent } from "../../NewIconFactory";
+import { makeIconComponent } from "../../IconFactory";
 import { ArrowUpMedium } from "./ArrowUpMedium";
 import { ArrowUpMediumBold } from "./ArrowUpMediumBold";
 import { ArrowUpSmall } from "./ArrowUpSmall";

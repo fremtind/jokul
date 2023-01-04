@@ -1,4 +1,4 @@
-import { makeIconComponent } from "../../NewIconFactory";
+import { makeIconComponent } from "../../IconFactory";
 import { CheckMedium } from "./CheckMedium";
 import { CheckMediumBold } from "./CheckMediumBold";
 import { CheckSmall } from "./CheckSmall";

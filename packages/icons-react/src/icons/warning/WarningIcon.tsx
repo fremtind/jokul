@@ -1,4 +1,4 @@
-import { makeIconComponent } from "../../NewIconFactory";
+import { makeIconComponent } from "../../IconFactory";
 import { WarningMedium } from "./WarningMedium";
 import { WarningMediumBold } from "./WarningMediumBold";
 import { WarningSmall } from "./WarningSmall";

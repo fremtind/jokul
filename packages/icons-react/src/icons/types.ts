@@ -1,9 +1,5 @@
 export type IconVariant = "inherit" | "small" | "medium";
 
-export interface ArrowIconProps extends IconProps {
-    bold?: boolean;
-}
-
 export interface IconProps {
     /**
      * Størrelsesvarianten til ikonet. `"small"` er 16px med 20px bounding box, og `"medium"` er 20px med 24px bounding box.

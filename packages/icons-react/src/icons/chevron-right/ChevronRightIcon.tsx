@@ -1,4 +1,4 @@
-import { makeIconComponent } from "../../NewIconFactory";
+import { makeIconComponent } from "../../IconFactory";
 import { ChevronRightMedium } from "./ChevronRightMedium";
 import { ChevronRightMediumBold } from "./ChevronRightMediumBold";
 import { ChevronRightSmall } from "./ChevronRightSmall";
