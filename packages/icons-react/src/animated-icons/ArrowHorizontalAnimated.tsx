@@ -15,16 +15,13 @@ export const ArrowHorizontalAnimated: FC<ArrowHorizontalAnimatedProps> = ({
     pointingRight,
     variant = "small",
     ...rest
-}) => {
-    const iconSize = variant !== "inherit" ? variant : "small";
-    return (
-        <div {...rest} className={cx(`jkl-icon jkl-icon--${iconSize}`, "jkl-animated-horizontal-arrows", className)}>
-            <div className="jkl-animated-horizontal-arrows__slider" data-show={pointingRight ? "right" : "left"}>
-                <ArrowRightIcon variant={iconSize} />
-                <ArrowLeftIcon variant={iconSize} />
-            </div>
+}) => (
+    <div {...rest} className={cx(`jkl-icon jkl-icon--${variant}`, "jkl-animated-horizontal-arrows", className)}>
+        <div className="jkl-animated-horizontal-arrows__slider" data-show={pointingRight ? "right" : "left"}>
+            <ArrowRightIcon variant={variant} />
+            <ArrowLeftIcon variant={variant} />
         </div>
-    );
-};
+    </div>
+);
 
 ArrowHorizontalAnimated.displayName = "ArrowHorizontalAnimated";

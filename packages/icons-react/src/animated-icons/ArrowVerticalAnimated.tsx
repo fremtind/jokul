@@ -11,21 +11,17 @@ export interface ArrowVerticalAnimatedProps {
 }
 
 export const ArrowVerticalAnimated = ({
-    className = "",
+    className,
     pointingDown,
     variant = "small",
     ...rest
-}: ArrowVerticalAnimatedProps) => {
-    const iconSize = variant !== "inherit" ? variant : "small";
-
-    return (
-        <div {...rest} className={cx(`jkl-icon jkl-icon--${iconSize}`, "jkl-animated-vertical-arrows", className)}>
-            <div className="jkl-animated-vertical-arrows__slider" data-show={pointingDown ? "down" : "up"}>
-                <ArrowDownIcon variant={iconSize} />
-                <ArrowUpIcon variant={iconSize} />
-            </div>
+}: ArrowVerticalAnimatedProps) => (
+    <div {...rest} className={cx(`jkl-icon jkl-icon--${variant}`, "jkl-animated-vertical-arrows", className)}>
+        <div className="jkl-animated-vertical-arrows__slider" data-show={pointingDown ? "down" : "up"}>
+            <ArrowDownIcon variant={variant} />
+            <ArrowUpIcon variant={variant} />
         </div>
-    );
-};
+    </div>
+);
 
 ArrowVerticalAnimated.displayName = "ArrowVerticalAnimated";

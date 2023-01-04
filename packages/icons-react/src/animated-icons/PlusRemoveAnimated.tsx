@@ -9,22 +9,19 @@ export interface PlusRemoveAnimatedProps {
     variant?: IconVariant;
 }
 
-export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({ className, isPlus, variant = "small", ...rest }) => {
-    const iconSize = variant !== "inherit" ? variant : "small";
-    return (
-        <div
-            {...rest}
-            className={cx(
-                "jkl-icon",
-                `jkl-icon--${iconSize}`,
-                "jkl-icons-animated__plus",
-                `jkl-icons-animated__plus--${isPlus ? "plus" : "close"}`,
-                className,
-            )}
-        >
-            <PlusIcon variant={iconSize} />
-        </div>
-    );
-};
+export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({ className, isPlus, variant = "small", ...rest }) => (
+    <div
+        {...rest}
+        className={cx(
+            "jkl-icon",
+            `jkl-icon--${variant}`,
+            "jkl-icons-animated__plus",
+            `jkl-icons-animated__plus--${isPlus ? "plus" : "close"}`,
+            className,
+        )}
+    >
+        <PlusIcon variant={variant} />
+    </div>
+);
 
 PlusRemoveAnimated.displayName = "PlusRemoveAnimated";
