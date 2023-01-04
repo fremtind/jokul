@@ -3,7 +3,7 @@ import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../
 import {
     CloseIcon,
     CheckIcon,
-    Plus,
+    PlusIcon,
     SearchIcon,
     Hamburger,
     CalendarIcon,
@@ -36,7 +36,7 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
     const allIcons = [
         CloseIcon,
         CheckIcon,
-        Plus,
+        PlusIcon,
         SearchIcon,
         Hamburger,
         CalendarIcon,

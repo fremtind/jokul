@@ -3,6 +3,7 @@ export { CheckIcon } from "./icons/check/CheckIcon";
 export { Close } from "./icons/Close";
 export { CloseIcon } from "./icons/close/CloseIcon";
 export { Plus } from "./icons/Plus";
+export { PlusIcon } from "./icons/plus/PlusIcon";
 export { Search } from "./icons/Search";
 export { SearchIcon } from "./icons/search/SearchIcon";
 export { Hamburger } from "./icons/Hamburger";
