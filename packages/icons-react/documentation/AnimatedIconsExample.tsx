@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { TextInput } from "../../text-input-react/src";
 import { ArrowVerticalAnimated, PlusRemoveAnimated, ArrowHorizontalAnimated } from "../src";
 import { IconVariant } from "../src/icons/types";
 import { AnimatedIcon } from "./internal/AnimatedIcon";
@@ -24,14 +25,13 @@ export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceVa
     return (
         <div style={{ width: "100%" }}>
             {variant === "inherit" && (
-                <label>
-                    Sett fontstørrelse
-                    <input
-                        className="jkl-spacing-l--top jkl-spacing-l--bottom"
-                        value={fontSize}
-                        onChange={(e) => setFontSize(e.target.value)}
-                    />
-                </label>
+                <TextInput
+                    label="Fontstørrelse"
+                    className="jkl-spacing-24--bottom"
+                    value={fontSize}
+                    onChange={(e) => setFontSize(e.target.value)}
+                    width="10ch"
+                />
             )}
             <IconsExampleGrid style={{ fontSize }} columns="two">
                 <AnimatedIcon
