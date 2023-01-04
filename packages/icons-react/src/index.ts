@@ -7,6 +7,7 @@ export { PlusIcon } from "./icons/plus/PlusIcon";
 export { Search } from "./icons/Search";
 export { SearchIcon } from "./icons/search/SearchIcon";
 export { Hamburger } from "./icons/Hamburger";
+export { HamburgerIcon } from "./icons/hamburger/HamburgerIcon";
 export { Calendar } from "./icons/Calendar";
 export { CalendarIcon } from "./icons/calendar/CalendarIcon";
 export { ArrowUpRight } from "./icons/ArrowUpRight";
