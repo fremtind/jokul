@@ -11,7 +11,7 @@ export const animatedIconsExampleKnobs: ExampleKnobsProps = {
     choiceProps: [
         {
             name: "Variant",
-            values: ["inherit", "small", "medium"],
+            values: ["inherit", "medium", "small"],
             defaultValue: 1,
         },
     ],
