@@ -222,11 +222,13 @@ importers:
     specifiers:
       '@fremtind/jkl-alert-message': ^7.0.10
       '@fremtind/jkl-core': ^11.3.0
+      '@fremtind/jkl-icons-react': ^6.0.10
       '@fremtind/jkl-react-hooks': ^10.2.7
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-alert-message': link:../alert-message
       '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
 

@@ -14,9 +14,13 @@ import { InfoAlertMessage } from "@fremtind/jkl-alert-message-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-alert-message/alert-message.min.css";
+// AlertMessage bruker ikonpakken og må ha stilene dens
+import "@fremtind/jkl-icons/icons.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-alert-message/alert-message";
+// AlertMessage bruker ikonpakken og må ha stilene dens
+@use "@fremtind/jkl-icons/icons.min.css";
 ```
