@@ -1,4 +1,5 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import { axe } from "jest-axe";
 import React from "react";
 import { SupportLabel } from "./SupportLabel";
 
@@ -7,26 +8,33 @@ describe("SupportLabel", () => {
     const errorLabel = "error error error, read in a computer voice";
 
     it("renders with help text when valid", () => {
-        render(<SupportLabel id="test" errorLabel={false ? errorLabel : undefined} helpLabel={helpLabel} />);
+        const { getByText } = render(<SupportLabel id="test" helpLabel={helpLabel} />);
 
-        expect(screen.getByText(helpLabel)).toBeInTheDocument();
+        expect(getByText(helpLabel)).toBeInTheDocument();
     });
 
     it("renders with error text when invalid", () => {
-        render(<SupportLabel id="test" errorLabel={errorLabel} helpLabel={helpLabel} />);
+        const { getByText, queryByText } = render(
+            <SupportLabel id="test" errorLabel={errorLabel} helpLabel={helpLabel} />,
+        );
 
-        expect(screen.getByText(errorLabel)).toBeInTheDocument();
+        expect(getByText(errorLabel)).toBeInTheDocument();
+        expect(queryByText(helpLabel)).not.toBeInTheDocument();
     });
 
-    it("renders with error text when invalid without help text", () => {
-        render(<SupportLabel id="test" errorLabel={errorLabel} />);
+    it("should pass jest-axe tests in default state", async () => {
+        const { container } = render(<SupportLabel id="test" helpLabel={helpLabel} />);
 
-        expect(screen.getByText(errorLabel)).toBeInTheDocument();
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 
-    it("renders with help text when valid without error text", () => {
-        render(<SupportLabel id="test" helpLabel={helpLabel} />);
+    it("should pass jest-axe tests in error state", async () => {
+        const { container } = render(<SupportLabel id="test" errorLabel={errorLabel} helpLabel={helpLabel} />);
 
-        expect(screen.getByText(helpLabel)).toBeInTheDocument();
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });
