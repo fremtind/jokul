@@ -711,11 +711,13 @@ importers:
     specifiers:
       '@fremtind/jkl-accordion-react': ^8.0.13
       '@fremtind/jkl-core': ^11.3.0
+      '@fremtind/jkl-icons-react': 6.0.10
       '@fremtind/jkl-react-hooks': ^10.2.7
       '@fremtind/jkl-select': ^9.2.7
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-select': link:../select
       classnames: 2.3.2

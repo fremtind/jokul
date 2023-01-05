@@ -1,8 +1,8 @@
 import { Label, LabelVariant, SupportLabel, ValuePair, getValuePair, LabelProps, Density } from "@fremtind/jkl-core";
+import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { FocusEventHandler, ChangeEventHandler, forwardRef } from "react";
-import { ExpandArrow } from "./ExpandArrow";
 
 export interface NativeSelectProps {
     id?: string;
@@ -97,7 +97,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                             </option>
                         ))}
                     </select>
-                    <ExpandArrow />
+                    <ArrowVerticalAnimated variant="medium" pointingDown className="jkl-select__arrow" />
                 </div>
                 <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} density={density} />
             </div>

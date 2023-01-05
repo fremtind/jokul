@@ -8,6 +8,7 @@ import {
     LabelProps,
     Density,
 } from "@fremtind/jkl-core";
+import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, {
@@ -24,7 +25,6 @@ import React, {
     MouseEvent,
     CSSProperties,
 } from "react";
-import { ExpandArrow } from "./ExpandArrow";
 import { toLower, focusSelected } from "./select-utils";
 import { useListNavigation } from "./useListNavigation";
 
@@ -540,7 +540,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                         ) : null,
                     )}
                 </div>
-                <ExpandArrow expanded={dropdownIsShown} />
+                <ArrowVerticalAnimated variant="medium" pointingDown={!dropdownIsShown} className="jkl-select__arrow" />
             </div>
             <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} density={density} />
         </div>
