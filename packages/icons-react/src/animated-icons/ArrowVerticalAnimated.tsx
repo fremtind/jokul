@@ -8,18 +8,20 @@ export interface ArrowVerticalAnimatedProps {
     className?: string;
     pointingDown: boolean;
     variant?: IconVariant;
+    bold?: boolean;
 }
 
 export const ArrowVerticalAnimated = ({
     className,
     pointingDown,
     variant = "inherit",
+    bold = false,
     ...rest
 }: ArrowVerticalAnimatedProps) => (
     <div {...rest} className={cx(`jkl-icon jkl-icon--${variant}`, "jkl-animated-vertical-arrows", className)}>
         <div className="jkl-animated-vertical-arrows__slider" data-show={pointingDown ? "down" : "up"}>
-            <ArrowDownIcon variant={variant} />
-            <ArrowUpIcon variant={variant} />
+            <ArrowDownIcon variant={variant} bold={bold} />
+            <ArrowUpIcon variant={variant} bold={bold} />
         </div>
     </div>
 );

@@ -7,12 +7,14 @@ export interface PlusRemoveAnimatedProps {
     className?: string;
     isPlus: boolean;
     variant?: IconVariant;
+    bold?: boolean;
 }
 
 export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
     className,
     isPlus,
     variant = "inherit",
+    bold = false,
     ...rest
 }) => (
     <div
@@ -25,7 +27,7 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
             className,
         )}
     >
-        <PlusIcon variant={variant} />
+        <PlusIcon variant={variant} bold={bold} />
     </div>
 );
 
