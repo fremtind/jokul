@@ -14,9 +14,13 @@ import { InfoMessageBox } from "@fremtind/jkl-message-box-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-message-box/message-box.min.css";
+// Komponenten trenger stilarket til ikonpakka for å vises riktig
+import "@fremtind/jkl-icons/icons.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-message-box/message-box";
+// Komponenten trenger stilarket til ikonpakka for å vises riktig
+@use "@fremtind/jkl-icons/icons.min.css";
 ```
