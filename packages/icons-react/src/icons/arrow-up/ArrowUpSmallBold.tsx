@@ -1,9 +1,9 @@
 import React, { FC, SVGAttributes } from "react";
 
 export const ArrowUpSmallBold: FC<SVGAttributes<SVGElement>> = (props) => (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-            d="M4.75 8.94294L5.83961 9.96697L8.73387 7.09309V15.5H10.2661V7.07658L13.1604 9.96697L14.25 8.94294L9.51702 4.5L4.75 8.94294Z"
+            d="M4.75 8.943l1.09 1.024 2.894-2.874V15.5h1.532V7.077l2.894 2.89 1.09-1.024L9.517 4.5 4.75 8.943z"
             fill="currentColor"
         />
     </svg>

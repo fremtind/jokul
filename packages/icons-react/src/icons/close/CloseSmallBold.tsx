@@ -1,11 +1,9 @@
 import React, { FC, SVGAttributes } from "react";
 
 export const CloseSmallBold: FC<SVGAttributes<SVGElement>> = (props) => (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M8.94468 10L4 5.05533L5.05533 4L10 8.94468L14.9447 4L16 5.05533L11.0553 10L16 14.9447L14.9447 16L10 11.0553L5.05533 16L4 14.9447L8.94468 10Z"
+            d="M8.945 10L4 5.055 5.055 4 10 8.945 14.945 4 16 5.055 11.055 10 16 14.945 14.945 16 10 11.055 5.055 16 4 14.945 8.945 10z"
             fill="currentColor"
         />
     </svg>

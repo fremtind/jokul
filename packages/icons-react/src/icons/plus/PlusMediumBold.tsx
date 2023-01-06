@@ -1,8 +1,8 @@
 import React, { FC, SVGAttributes } from "react";
 
 export const PlusMediumBold: FC<SVGAttributes<SVGElement>> = (props) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M11 4H13V20H11V4Z" fill="currentColor" />
-        <path d="M4 11H20V13H4V11Z" fill="currentColor" />
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M11 4h2v16h-2V4z" fill="currentColor" />
+        <path d="M4 11h16v2H4v-2z" fill="currentColor" />
     </svg>
 );

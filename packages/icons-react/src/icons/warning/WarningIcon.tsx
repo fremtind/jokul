@@ -1,14 +1,12 @@
 import { makeIconComponent } from "../../IconFactory";
 import { WarningMedium } from "./WarningMedium";
-import { WarningMediumBold } from "./WarningMediumBold";
 import { WarningSmall } from "./WarningSmall";
-import { WarningSmallBold } from "./WarningSmallBold";
 
 export const WarningIcon = makeIconComponent({
     bold: {
-        small: WarningSmallBold,
-        medium: WarningMediumBold,
-        inherit: WarningMediumBold,
+        small: WarningSmall,
+        medium: WarningMedium,
+        inherit: WarningMedium,
     },
     regular: {
         small: WarningSmall,

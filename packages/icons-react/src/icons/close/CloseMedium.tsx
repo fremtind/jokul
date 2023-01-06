@@ -1,11 +1,9 @@
 import React, { FC, SVGAttributes } from "react";
 
 export const CloseMedium: FC<SVGAttributes<SVGElement>> = (props) => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M11.2788 12L4.5 5.22119L5.22119 4.5L12 11.2788L18.7788 4.5L19.5 5.22119L12.7212 12L19.5 18.7788L18.7788 19.5L12 12.7212L5.22119 19.5L4.5 18.7788L11.2788 12Z"
+            d="M11.279 12L4.5 5.221l.721-.721L12 11.279 18.779 4.5l.721.721L12.721 12l6.779 6.779-.721.721L12 12.721 5.221 19.5l-.721-.721L11.279 12z"
             fill="currentColor"
         />
     </svg>

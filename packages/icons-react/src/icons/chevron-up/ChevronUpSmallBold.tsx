@@ -1,12 +1,7 @@
 import React, { FC, SVGAttributes } from "react";
 
 export const ChevronUpSmallBold: FC<SVGAttributes<SVGElement>> = (props) => (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M4.5 12.454L5.55484 13.5L10 9.09204L14.4452 13.5L15.5 12.454L10 7L4.5 12.454Z"
-            fill="currentColor"
-        />
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M4.5 12.454L5.555 13.5 10 9.092l4.445 4.408 1.055-1.046L10 7l-5.5 5.454z" fill="currentcolor" />
     </svg>
 );

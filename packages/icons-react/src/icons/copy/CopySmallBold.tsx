@@ -1,19 +1,12 @@
 import React, { FC, SVGAttributes } from "react";
 
 export const CopySmallBold: FC<SVGAttributes<SVGElement>> = (props) => (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="M4 5H13V18H4V5Z" style={{ fill: "var(--jkl-icon-color-secondary, transparent)" }} />
+    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M11.5 16.5h-6v-10H7V5H4v13h9v-3h-1.5v1.5z" fill="currentColor" />
         <path
             fillRule="evenodd"
             clipRule="evenodd"
-            d="M11.5 6.5H5.5V16.5H11.5V6.5ZM4 5V18H13V5H4Z"
-            fill="currentColor"
-        />
-        <path d="M7 2H16V15H7V2Z" style={{ fill: "var(--jkl-icon-color-secondary, transparent)" }} />
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M14.5 3.5H8.5V13.5H14.5V3.5ZM7 2V15H16V2H7Z"
+            d="M4 5v13h9v-3h3V2H7v3H4zm1.5 1.5v10h6V15H7V6.5H5.5zm3 7h6v-10h-6v10z"
             fill="currentColor"
         />
     </svg>
