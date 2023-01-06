@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { DatePicker, formatInput, isBlurTargetOutside } from "../src";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Utvidet velger", "Med feil", "Med hjelpetekst"],
+    boolProps: ["Utvidet velger", "Med hjelpetekst", "Med feil", "Med tooltip"],
     choiceProps: [
         {
             name: "Variant",
@@ -25,12 +25,19 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({ boolValues, choic
     const errorLabel = boolValues && boolValues["Med feil"] ? "Du kan ikke velge en dato som har vært" : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
+    const tooltipProps = boolValues?.["Med tooltip"]
+        ? {
+              content: <>Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært.</>,
+          }
+        : undefined;
+
     const [value, setValue] = useState<string>("");
 
     return (
         <DatePicker
             label="Velg startdato for forsikringen"
             labelProps={{ variant }}
+            tooltipProps={tooltipProps}
             extended={boolValues && boolValues["Utvidet velger"]}
             errorLabel={errorLabel}
             name="datepicker"
