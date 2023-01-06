@@ -27,7 +27,7 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({ boolValues, choic
 
     const tooltipProps = boolValues?.["Med tooltip"]
         ? {
-              content: <>Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært.</>,
+              content: "Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært.",
           }
         : undefined;
 
@@ -108,6 +108,11 @@ export const datepickerExampleCode = ({ boolValues, choiceValues }: ExampleCompo
     boolValues?.["Med hjelpetekst"]
         ? `
     helpLabel="Du vil være forsikret fra denne datoen"`
+        : ""
+}${
+    boolValues?.["Med tooltip"]
+        ? `
+    tooltipProps={{ content: "Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært." }}`
         : ""
 }${
     boolValues?.["Utvidet velger"]

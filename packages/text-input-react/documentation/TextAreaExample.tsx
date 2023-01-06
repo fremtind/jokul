@@ -4,7 +4,15 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { TextArea } from "../src/TextArea";
 
 export const textAreaExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Ekspanderende", "Starter åpen", "Med teller", "Skjul progress", "Med hjelpetekst", "Med feil"],
+    boolProps: [
+        "Ekspanderende",
+        "Starter åpen",
+        "Med teller",
+        "Skjul progress",
+        "Med hjelpetekst",
+        "Med feil",
+        "Med tooltip",
+    ],
     choiceProps: [
         {
             name: "Variant",
@@ -27,6 +35,12 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
         ? "Du må fylle ut en beskrivelse. Beskriv så utfyllende som mulig."
         : undefined;
 
+    const tooltipProps = boolValues?.["Med tooltip"]
+        ? {
+              content: "Beskriv så utfyllende som mulig.",
+          }
+        : undefined;
+
     return (
         <TextArea
             className="jkl-spacing-xl--top"
@@ -34,6 +48,7 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             name="beskrivelse"
             helpLabel={helpLabel}
             errorLabel={errorLabel}
+            tooltipProps={tooltipProps}
             autoExpand={autoExpand}
             startOpen={startOpen}
             counter={medTeller ? { maxLength: 200, hideProgress: skjulProgress } : undefined}
@@ -51,7 +66,12 @@ export const textAreaExampleCode = ({ choiceValues, boolValues }: ExampleCompone
     helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Beskriv så utfyllende som mulig"` : `{undefined}`}
     errorLabel=${
         boolValues?.["Med feil"] ? `"Du må fylle ut en beskrivelse. Beskriv så utfyllende som mulig."` : `{undefined}`
-    }
+    }${
+    boolValues?.["Med tooltip"]
+        ? `
+    tooltipProps={{ content: "Beskriv så utfyllende som mulig." }}`
+        : ""
+}
     autoExpand={${boolValues?.["Ekspanderende"]}}
     startOpen={${boolValues?.["Starter åpen"]}}
     counter={${

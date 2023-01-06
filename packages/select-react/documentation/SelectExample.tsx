@@ -63,7 +63,7 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
 
     const tooltipProps = boolValues?.["Med tooltip"]
         ? {
-              content: <>Vi spør om merket på telefonen for å finne riktig reperatør for deg.</>,
+              content: "Vi spør om merket på telefonen for å finne riktig reperatør for deg.",
           }
         : undefined;
 
@@ -112,7 +112,12 @@ export const selectCode = ({ boolValues, choiceValues }: ExampleComponentProps):
     variant="${choiceValues?.["Variant"]}"
     label="Hvilket merke er telefonen?"
     helpLabel=${!!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`}
-    errorLabel=${!!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`}
+    errorLabel=${!!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`}${
+    boolValues?.["Med tooltip"]
+        ? `
+    tooltipProps={{ content: "Vi spør om merket på telefonen for å finne riktig reperatør for deg." }}`
+        : ""
+}
     items={[
         { value: "google", label: "Google og noen flere" },
         { value: "apple", label: "Apple" },
