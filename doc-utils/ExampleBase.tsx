@@ -106,7 +106,7 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                         {(knobs?.boolProps || knobs?.choiceProps) && (
                             <FieldGroup
                                 legend="Egenskaper"
-                                variant="medium"
+                                labelProps={{ variant: "medium" }}
                                 className="jkl-portal-component-example__example-options-header"
                             >
                                 {knobs?.boolProps && (
@@ -130,7 +130,6 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                                             choices[key].length < 4 ? (
                                                 <RadioButtonGroup
                                                     className="jkl-spacing-xs--top"
-                                                    variant="small"
                                                     name={`${uid}-${hyphenate(key)}`}
                                                     key={`${uid}-${hyphenate(key)}`}
                                                     legend={key}
@@ -161,11 +160,10 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                         )}
                         <FieldGroup
                             legend="Visning"
-                            variant="medium"
+                            labelProps={{ variant: "medium" }}
                             className="jkl-portal-component-example__example-options-header"
                         >
                             <RadioButtonGroup
-                                variant="small"
                                 name={`${uid}-theme`}
                                 legend="Tema"
                                 value={theme}
@@ -177,7 +175,6 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
                             </RadioButtonGroup>
                             <RadioButtonGroup
                                 className="jkl-spacing-xs--top"
-                                variant="small"
                                 name={`${uid}-density`}
                                 legend="Tetthet"
                                 value={density}

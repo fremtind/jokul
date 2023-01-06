@@ -1,10 +1,10 @@
-import { LabelVariant } from "@fremtind/jkl-core";
+import { LabelVariant, Link } from "@fremtind/jkl-core";
 import React, { FC } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { FieldGroup } from "../src/index";
 
 export const fieldGroupExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Med hjelpetekst", "Med feil"],
+    boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],
     choiceProps: [
         {
             name: "Variant",
@@ -15,13 +15,24 @@ export const fieldGroupExampleKnobs: ExampleKnobsProps = {
 };
 
 export const FieldGroupExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+    const tooltip = boolValues?.["Med tooltip"]
+        ? {
+              content: (
+                  <>
+                      Du må fylle ut fødelsnummer eller D-nummer. Se <Link href="">guiden vår</Link> hvis du er usikker
+                      på hvordan du finner D-nummer.
+                  </>
+              ),
+          }
+        : undefined;
+
     return (
         <FieldGroup
             legend="Samleoverskrift for feltene"
-            variant={choiceValues?.["Variant"] as LabelVariant}
+            labelProps={{ variant: choiceValues?.["Variant"] as LabelVariant }}
             helpLabel={boolValues?.["Med hjelpetekst"] ? "Hjelpetekst for feltene samlet" : undefined}
             errorLabel={boolValues?.["Med feil"] ? "Feilmelding for feltene samlet" : undefined}
-            className="jkl-spacing-2xl--bottom"
+            tooltipProps={tooltip}
         >
             <p>her kan du sette inn innhold og felter</p>
         </FieldGroup>
@@ -33,8 +44,17 @@ export const fieldGroupExampleCode: CodeExample = ({ boolValues, choiceValues })
     legend="Samleoverskrift for feltene"
     variant="${choiceValues?.["Variant"] as LabelVariant}"
     helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Hjelpetekst for feltene samlet"` : `{undefined}`}
-    errorLabel=${boolValues?.["Med feil"] ? `"Feilmelding for feltene samlet"` : `{undefined}`}
-    className="jkl-spacing-2xl--bottom"
+    errorLabel=${boolValues?.["Med feil"] ? `"Feilmelding for feltene samlet"` : `{undefined}`}${
+    boolValues?.["Med tooltip"]
+        ? `
+        tooltipProps={{ content: (
+            <>
+                Du må fylle ut fødelsnummer eller D-nummer. Se <Link href="">guiden vår</Link> hvis du er usikker
+                på hvordan Du finner D-nummer.
+            </>
+        )}}`
+        : ""
+}
 >
     <p>her kan du sette inn innhold og felter</p>
 </FieldGroup>

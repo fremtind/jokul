@@ -486,11 +486,13 @@ importers:
       '@fremtind/jkl-core': ^11.3.0
       '@fremtind/jkl-field-group': ^6.0.9
       '@fremtind/jkl-react-hooks': ^10.2.7
+      '@fremtind/jkl-tooltip-react': ^1.0.22
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-field-group': link:../field-group
       '@fremtind/jkl-react-hooks': link:../react-hooks
+      '@fremtind/jkl-tooltip-react': link:../tooltip-react
       classnames: 2.3.2
 
   packages/footer:

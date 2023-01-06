@@ -45,7 +45,7 @@ export const CheckboxQuestion: React.FC<QuestionProps> = ({ label, name, options
     }
 
     return (
-        <FieldGroup variant="large" legend={label} helpLabel={helpLabel}>
+        <FieldGroup labelProps={{ variant: "large" }} legend={label} helpLabel={helpLabel}>
             {options?.map((option, i) => (
                 <Checkbox
                     key={`${label}-${option.value}`}
