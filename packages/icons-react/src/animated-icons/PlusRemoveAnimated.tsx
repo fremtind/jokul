@@ -17,17 +17,12 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
     bold = false,
     ...rest
 }) => (
-    <div
-        {...rest}
-        className={cx(
-            "jkl-icon",
-            `jkl-icon--${variant}`,
-            "jkl-icons-animated__plus",
-            `jkl-icons-animated__plus--${isPlus ? "plus" : "close"}`,
-            className,
-        )}
-    >
-        <PlusIcon variant={variant} bold={bold} />
+    <div {...rest} className={cx("jkl-icon", `jkl-icon--${variant}`, className)}>
+        <PlusIcon
+            variant={variant}
+            bold={bold}
+            className={cx("jkl-icons-animated__plus", `jkl-icons-animated__plus--${isPlus ? "plus" : "close"}`)}
+        />
     </div>
 );
 
