@@ -23,18 +23,22 @@
 .jkl-animated-horizontal-arrows,
 .jkl-animated-vertical-arrows {
     overflow: hidden;
-}
 
-.jkl-animated-horizontal-arrows__slider,
-.jkl-animated-vertical-arrows__slider {
-    display: flex;
-    @include jkl.motion(standard, expressive);
-    transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
-    transition-property: transform;
+    &__slider {
+        display: flex;
+        @include jkl.motion(standard, expressive);
+        transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
+        transition-property: transform;
+    }
+
+    &__arrow {
+        flex-shrink: 0;
+    }
 }
 
 .jkl-animated-vertical-arrows__slider {
     flex-direction: column;
+    height: calc(var(--jkl-icon-size) * 2);
 
     &[data-show="down"] {
         transform: translate3d(0, 0, 0);
@@ -47,6 +51,7 @@
 
 .jkl-animated-horizontal-arrows__slider {
     flex-direction: row;
+    width: calc(var(--jkl-icon-size) * 2);
 
     &[data-show="right"] {
         transform: translate3d(0, 0, 0);
