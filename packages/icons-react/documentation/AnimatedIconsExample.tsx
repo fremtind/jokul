@@ -17,8 +17,9 @@ export const animatedIconsExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceValues }) => {
+export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const variant = choiceValues ? (choiceValues["Variant"] as IconVariant) : "small";
+    const bold = boolValues?.["Bold"] || false;
 
     const [fontSize, setFontSize] = useState("1rem");
 
@@ -35,15 +36,19 @@ export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceVa
             )}
             <IconsExampleGrid style={{ fontSize }} columns="two">
                 <AnimatedIcon
-                    renderIcon={(isDown) => <ArrowVerticalAnimated pointingDown={isDown} variant={variant} />}
+                    renderIcon={(isDown) => (
+                        <ArrowVerticalAnimated bold={bold} pointingDown={isDown} variant={variant} />
+                    )}
                     iconName={ArrowVerticalAnimated.displayName}
                 />
                 <AnimatedIcon
-                    renderIcon={(isRight) => <ArrowHorizontalAnimated pointingRight={isRight} variant={variant} />}
+                    renderIcon={(isRight) => (
+                        <ArrowHorizontalAnimated bold={bold} pointingRight={isRight} variant={variant} />
+                    )}
                     iconName={ArrowHorizontalAnimated.displayName}
                 />
                 <AnimatedIcon
-                    renderIcon={(isPlus) => <PlusRemoveAnimated isPlus={isPlus} variant={variant} />}
+                    renderIcon={(isPlus) => <PlusRemoveAnimated bold={bold} isPlus={isPlus} variant={variant} />}
                     iconName={PlusRemoveAnimated.displayName}
                 />
             </IconsExampleGrid>
