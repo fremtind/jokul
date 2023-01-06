@@ -49,8 +49,8 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
             key="sidebar-menu"
         >
             <TextInput
-                variant="small"
                 label="Filtrér"
+                labelProps={{ variant: "small" }}
                 value={filter}
                 density="compact"
                 onChange={filterLinks}

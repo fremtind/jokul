@@ -295,12 +295,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                     <div className="jkl-calendar__navigation">
                         <TextInput
                             label={yearLabel}
+                            labelProps={{ variant: "small" }}
                             density={density}
                             type="number"
                             className="jkl-calendar__year-selector"
                             inputClassName="jkl-calendar__year-selector-input"
                             width="5rem"
-                            variant="small"
                             onChange={handleYearChange}
                             value={extendedYear}
                         />

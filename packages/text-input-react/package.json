@@ -44,8 +44,10 @@
     "dependencies": {
         "@fremtind/jkl-core": "^11.3.0",
         "@fremtind/jkl-icon-button-react": "^2.0.17",
+        "@fremtind/jkl-input-group-react": "^1.0.0-alpha.0",
         "@fremtind/jkl-react-hooks": "^10.2.7",
         "@fremtind/jkl-text-input": "^10.0.1",
+        "@fremtind/jkl-tooltip-react": "^1.0.22",
         "classnames": "^2.3.2",
         "downshift": "^7.0.5",
         "match-sorter": "^6.3.1"
