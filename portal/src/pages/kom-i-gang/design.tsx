@@ -70,12 +70,7 @@ const PraktiskDesignhverdagen: FC = () => {
                     href="https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes"
                     title="Branching"
                     description="Aldri brukt branching i Figma før? Ta en kikk på introduksjonen fra Figma."
-                />
-                <NavCard
-                    to="/guider/hvordan-endre-jokul#klar-for-å-lansere-huskelista-hjelper-deg-"
-                    component={GatsbyLink}
-                    title="Endre på Jøkul"
-                    description="Det er et par ting å huske på, så ta en kikk på tipsene vi har skrevet."
+                    style={{ maxWidth: "25rem" }}
                 />
             </Grid>
             <Image
