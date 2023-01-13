@@ -4,6 +4,7 @@ import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler, type ReactNode } from "react";
 import { BaseInputField, BaseProps } from "./BaseInputField";
+import { getWidthAsStyle } from "./utils";
 
 export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     icon: IconVariant;
@@ -44,6 +45,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
         action,
         unit,
         "data-testautoid": testAutoId,
+        width,
         inputClassName,
         ...inputProps
     } = props;
@@ -71,7 +73,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             >
                 {label}
             </Label>
-            <div className="jkl-text-input-wrapper" data-invalid={!!errorLabel}>
+            <div className="jkl-text-input-wrapper" data-invalid={!!errorLabel} style={getWidthAsStyle(width)}>
                 <BaseInputField
                     ref={ref}
                     id={uid}
@@ -79,6 +81,7 @@ export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                     invalid={!!errorLabel}
                     data-testautoid={testAutoId}
                     className={inputClassName}
+                    width={width}
                     {...inputProps}
                 />
                 {unit && <span className="jkl-text-input__unit">{unit}</span>}
