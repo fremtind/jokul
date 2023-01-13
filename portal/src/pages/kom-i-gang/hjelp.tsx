@@ -50,8 +50,7 @@ const DegOgJokul: FC = () => (
         </Paragraph>
         <UnorderedList className="jkl-portal-ul">
             <ListItem>
-                Tirsdager <time dateTime="13:00">13:00</time> til <time dateTime="14:00">14:00</time> og torsdager{" "}
-                <time dateTime="14:00">14:00</time> til <time dateTime="15:00">15:00</time>.
+                Mandager og tirsdager <time dateTime="13:00">13:00</time> til <time dateTime="14:00">14:00</time>.
             </ListItem>
             <ListItem>Drop-in en-til-en support.</ListItem>
             <ListItem>En designer og en utvikler er tilgjengelig.</ListItem>
@@ -60,9 +59,9 @@ const DegOgJokul: FC = () => (
             Vi er tilgjengelig også utenfor office hours, men det kan hende du må vente litt lenger på å få hjelp.
         </Paragraph>
         <Paragraph>
-            Kom veldig gjerne til oss der vi sitter i 7. etasje i H2 — ut mot Youngs gate. Det er ofte lettere å sparre
-            når vi sitter i samme rom. Vi er så klart også tilgjengelige digitalt. Det er bare å sende en melding til en
-            av oss i Jøkul-teamet.
+            Kom veldig gjerne til oss der vi sitter i 5. etasje i H2 — på hjørnet ut mot Storgata/Youngs gate. Det er
+            ofte lettere å sparre når vi sitter i samme rom. Vi er så klart også tilgjengelige digitalt. Det er bare å
+            sende en melding til en av oss i Jøkul-teamet.
         </Paragraph>
         <HeadingLarge>Jøkul-teamet</HeadingLarge>
         <Paragraph>
@@ -120,7 +119,7 @@ const DegOgJokul: FC = () => (
             </Portrait>
         </PortraitGallery>
         <p className="jkl-small" style={{ maxWidth: "45rem" }}>
-            Du finner oss i 7. etasje i H2 (ut mot Youngs gate), og på Teams i{" "}
+            Du finner oss i 5. etasje i H2 (på hjørnet ut mot Storgata/Youngs gate), og på Teams i{" "}
             <a
                 href="https://teams.microsoft.com/l/channel/19%3adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%2520Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0"
                 className="jkl-link"
