@@ -277,23 +277,22 @@ $_text-input-selection-color--inverted: color.scale(
 
     &__text-area {
         @include _shared-input-styles;
+        @include jkl.motion;
+
+        transition-property: height, min-height, max-height, padding;
         scrollbar-color: var(--jkl-color) transparent; // Unngå at scrollbar ligger oppå rammen
         box-sizing: border-box;
         resize: none; // Fjern mulighet for resizing av feltet
         width: 100%;
         padding: var(--jkl-text-input-padding);
         max-height: var(--jkl-text-input-height);
+        height: var(--jkl-text-input-height);
+        min-height: var(--jkl-text-input-height);
     }
 
     .jkl-text-input-wrapper {
         height: auto;
-        max-height: var(--jkl-text-input-height);
-        transition-property: color, max-height, box-shadow, padding-bottom, background-color;
-
-        &[data-has-content="true"],
-        &:focus-within {
-            max-height: 100%;
-        }
+        max-height: 100%;
     }
 
     &--start-open {
