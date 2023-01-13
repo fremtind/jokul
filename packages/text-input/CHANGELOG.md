@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.2 (2023-01-13)
+
+### Bug Fixes
+
+- tilbakefør animeringen av ekspandering ([c4ade70](https://github.com/fremtind/jokul/commit/c4ade70517c7f930a67f69f587b1e28652a0e891)), closes [#3359](https://github.com/fremtind/jokul/issues/3359)
+
 ## 10.0.1 (2022-12-20)
 
 ### Bug Fixes
