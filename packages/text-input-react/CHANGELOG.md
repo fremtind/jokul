@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.3.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.3.5...@fremtind/jkl-text-input-react@11.3.6) (2023-01-13)
+
+### Bug Fixes
+
+- bruk bredden også på det visuelle skjemaelementet ([39b2e3d](https://github.com/fremtind/jokul/commit/39b2e3dd0ffe1c2f77ac1e8350a9a9100b457e03)), closes [#3363](https://github.com/fremtind/jokul/issues/3363)
+
 # [11.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.2.6...@fremtind/jkl-text-input-react@11.3.0) (2022-12-05)
 
 ### Features
