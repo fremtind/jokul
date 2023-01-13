@@ -7,6 +7,7 @@ import React, {
     KeyboardEventHandler,
     MouseEventHandler,
 } from "react";
+import { getWidthAsStyle } from "./utils";
 
 export interface BaseProps {
     id?: string;
@@ -46,21 +47,6 @@ export interface Props extends BaseProps {
     invalid?: boolean;
 }
 
-function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | undefined {
-    if (width) {
-        return { width }; // prioritize width prop
-    }
-
-    if (maxLength) {
-        // adapt to maxLength, but capped at 40ch
-        const length = `${Math.min(maxLength, 40)}ch`;
-        const padding = "24px"; // left + right padding
-        return { width: `calc(${length} + ${padding})` };
-    }
-
-    return undefined;
-}
-
 export const BaseInputField = forwardRef<HTMLInputElement, Props>(
     ({ id, describedBy, invalid, maxLength, width, type = "text", align = "left", className = "", ...rest }, ref) => (
         <input
@@ -69,7 +55,7 @@ export const BaseInputField = forwardRef<HTMLInputElement, Props>(
             className={cn("jkl-text-input__input", className, {
                 "jkl-text-input__input--align-right": align === "right",
             })}
-            style={getWidthAsStyle(width, maxLength)}
+            style={getWidthAsStyle(width)}
             aria-describedby={describedBy}
             aria-invalid={invalid}
             maxLength={maxLength}
