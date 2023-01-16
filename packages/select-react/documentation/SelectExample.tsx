@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Native", "Med hjelpetekst", "Med feil", "Med søk"],
+    boolProps: ["Native", "Med hjelpetekst", "Med feil", "Med tooltip", "Med søk"],
     choiceProps: [
         {
             name: "Maks. viste valg",
@@ -51,22 +51,33 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
     ];
     const [value, setValue] = useState<string>();
 
-    const errorLabel = boolValues && boolValues["Med feil"] ? "Beskrivende feilmelding" : undefined;
-    const helpLabel = boolValues && boolValues["Med hjelpetekst"] ? "Prøv å søke på et tall" : undefined;
+    const errorLabel =
+        boolValues && boolValues["Med feil"] ? "Du må velge merket til telefonen, for eksempel Apple." : undefined;
+    const helpLabel =
+        boolValues && boolValues["Med hjelpetekst"]
+            ? "Med merke mener vi for eksempel Apple eller Samsung."
+            : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
     const searchAble = boolValues && boolValues["Med søk"];
     const maxChoices = getMaxChoices(choiceValues?.["Maks. viste valg"]);
+
+    const tooltipProps = boolValues?.["Med tooltip"]
+        ? {
+              content: "Vi spør om merket på telefonen for å finne riktig reperatør for deg.",
+          }
+        : undefined;
 
     return (
         <C
             id="produsent"
             name="produsent"
-            variant={variant}
             label="Hvilket merke er telefonen?"
+            labelProps={{ variant }}
             items={values}
             value={value}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
+            tooltipProps={tooltipProps}
             onChange={(event) => {
                 setValue(event.target.value);
                 console.log("Change: ", event);
@@ -101,7 +112,12 @@ export const selectCode = ({ boolValues, choiceValues }: ExampleComponentProps):
     variant="${choiceValues?.["Variant"]}"
     label="Hvilket merke er telefonen?"
     helpLabel=${!!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`}
-    errorLabel=${!!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`}
+    errorLabel=${!!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`}${
+    boolValues?.["Med tooltip"]
+        ? `
+    tooltipProps={{ content: "Vi spør om merket på telefonen for å finne riktig reperatør for deg." }}`
+        : ""
+}
     items={[
         { value: "google", label: "Google og noen flere" },
         { value: "apple", label: "Apple" },

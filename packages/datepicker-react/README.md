@@ -14,19 +14,24 @@ import { DatePicker } from "@fremtind/jkl-datepicker-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-datepicker/datepicker.min.css";
-
-// DatePicker bruker flere komponenter internt, avhengig av konfigurasjon. Select blir bare brukt i utvidet velger.
+import "@fremtind/jkl-input-group/input-group.min.css";
 import "@fremtind/jkl-icon-button/icon-button.min.css";
+
+// For enkelte features må du også ha denne CSSen importert.
 import "@fremtind/jkl-select/select.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
+import "@fremtind/jkl-tooltip/tooltip.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-datepicker/datepicker";
 @use "@fremtind/jkl-icon-button/icon-button";
+@use "@fremtind/jkl-input-group/input-group";
+
 @use "@fremtind/jkl-select/select";
 @use "@fremtind/jkl-text-input/text-input";
+@use "@fremtind/jkl-tooltip/tooltip";
 ```
 
 ### Bruk

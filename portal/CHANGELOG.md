@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [17.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.4.15...@fremtind/portal@17.0.0) (2023-01-16)
+
+### Features
+
+- forenkle bruken av tooltip etter label i text-input ([dd96052](https://github.com/fremtind/jokul/commit/dd96052c7a750ba171d66aefe7cfbbaf91ee63fb))
+- forenkle bruken av tooltip med FieldGroup ([779eb91](https://github.com/fremtind/jokul/commit/779eb913fa992dac394ee0adf147c34b5b2ee78b))
+- legg til InputGroup-komponent ([6a8f329](https://github.com/fremtind/jokul/commit/6a8f329763a711135337bb286bffcd2b5480ec77))
+
+### BREAKING CHANGES
+
+- `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+- - `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+- `BaseInputField` er erstattet av `BaseTextInput`.
+- Du må importere CSS for
+[input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+
 ## [16.4.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.4.0...@fremtind/portal@16.4.1) (2022-12-08)
 
 ### Bug Fixes

@@ -4,13 +4,13 @@ import { Autosuggest } from "../src";
 
 export const autosuggestExampleKnobs: ExampleKnobsProps = {
     boolProps: [
-        "Hjelpetekst",
-        "Feiltekst",
-        "Leadtekst",
-        "Ingen treff",
+        "Med hjelpetekst",
+        "Med feil",
+        "Med tooltip",
+        "Med placeholder",
         "Max antall treff",
-        "Placeholder",
         "Vis ikoner",
+        "Ingen treff",
         "Ingen treff med valg",
     ],
     choiceProps: [
@@ -50,13 +50,22 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues
                 value={value}
                 onConfirm={() => console.log("onConfirm")}
                 allItems={filteredItems}
-                helpLabel={boolValues?.Hjelpetekst ? "Velg et land fra listen eller skriv inn landet selv" : undefined}
-                errorLabel={boolValues?.Feiltekst ? "Du må velge et land" : undefined}
-                placeholder={boolValues?.Placeholder ? "Velg et land" : undefined}
+                helpLabel={
+                    boolValues?.["Med hjelpetekst"] ? "Velg et land fra listen eller skriv inn landet selv" : undefined
+                }
+                tooltipProps={
+                    boolValues?.["Med tooltip"]
+                        ? {
+                              content: "Velg et land fra listen eller skriv inn landet selv.",
+                          }
+                        : undefined
+                }
+                errorLabel={boolValues?.["Med feil"] ? "Du må velge et land" : undefined}
+                placeholder={boolValues?.["Med placeholder"] ? "Velg et land" : undefined}
                 showDropdownControllerButton={boolValues?.["Vis ikoner"]}
                 noHitsMessage={boolValues?.["Ingen treff"] ? "Fant ingen land, men du kan skrive ferdig" : undefined}
                 maxNumberOfHits={boolValues?.["Max antall treff"] ? 3 : undefined}
-                variant={(choiceValues?.Variant as "small" | "medium" | "large") || "medium"}
+                variant={(choiceValues?.["Variant"] as "small" | "medium" | "large") || "medium"}
                 noHits={
                     boolValues?.["Ingen treff med valg"]
                         ? {
@@ -85,17 +94,22 @@ return (
             onChange={setValue}
             value={value}
             allItems={allItems.filter((item) => item.toLowerCase().includes(value.toLowerCase()))}${
-                boolValues?.Hjelpetekst
+                boolValues?.["Med hjelpetekst"]
                     ? `
             helpLabel="Velg et land fra listen eller skriv inn landet selv"`
                     : ""
             }${
-    boolValues?.Feiltekst
+    boolValues?.["Med feil"]
         ? `
             errorLabel="Du må velge et land"`
         : ""
 }${
-    boolValues?.Placeholder
+    boolValues?.["Med tooltip"]
+        ? `
+            tooltipProps={{ content: "Velg et land fra listen eller skriv inn landet selv." }}`
+        : ""
+}${
+    boolValues?.["Med placeholder"]
         ? `
             placeholder="Velg et land"`
         : ""

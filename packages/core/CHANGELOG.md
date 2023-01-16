@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.4.0 (2023-01-16)
+
+### Bug Fixes
+
+- rydd opp import og eksport av typer for labels ([b711127](https://github.com/fremtind/jokul/commit/b711127a9d746b20764bf7e38f9c041c91e686a9))
+- tillat flere elementer som children ([1a54d60](https://github.com/fremtind/jokul/commit/1a54d60009b4a6823deadfcd1c460df7d8197102))
+
+### Features
+
+- legg til InputGroup-komponent ([6a8f329](https://github.com/fremtind/jokul/commit/6a8f329763a711135337bb286bffcd2b5480ec77))
+
 # 11.3.0 (2022-12-05)
 
 ### Bug Fixes

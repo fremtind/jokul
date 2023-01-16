@@ -122,9 +122,9 @@ export const UU: FC = () => {
 
             <section className="uu__section--search-results" ref={resultWrapperRef}>
                 <TextInput
-                    variant="small"
                     width="316px"
                     label="Søk"
+                    labelProps={{ variant: "small" }}
                     placeholder="Søk i artikler"
                     value={search}
                     onChange={onSearchChange}

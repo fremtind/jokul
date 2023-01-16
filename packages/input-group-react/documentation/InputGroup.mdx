@@ -1,0 +1,30 @@
+---
+title: InputGroup
+react: input-group-react
+scss: input-group
+group: skjema
+---
+
+import InputGroupExample, { inputGroupExampleCode, inputGroupExampleKnobs } from "./InputGroupExample";
+
+<Ingress>
+    En inputgruppe er en hjelpekomponent for å enklere kunne lage skjemafelter. Den er mest tiltenkt intern bruk i
+    Jøkul.
+</Ingress>
+
+<ComponentExample component={InputGroupExample} codeExample={inputGroupExampleCode} knobs={inputGroupExampleKnobs} />
+
+InputGroup brukes i disse skjemakomponentene:
+
+-   [DatePicker](/komponenter/datepicker)
+-   [Select](/komponenter/select)
+-   [NativeSelect](/komponenter/select)
+-   [TextInput](/komponenter/textinput)
+-   [TextArea](/komponenter/textinput)
+-   [Autosuggest](/komponenter/autosuggest)
+
+## Når bruker vi InputGroup?
+
+Annet enn når du importerer CSS skal du vanligvis ikke trenge forholde deg til denne komponenten. InputGroup er mest tiltenkt intern bruk i Jøkul.
+
+Vi bruker den først og fremst for å gjenbruke kode, særlig rundt plassering av [Tooltip](/komponenter/tooltip) inline etter skjemafeltets label.

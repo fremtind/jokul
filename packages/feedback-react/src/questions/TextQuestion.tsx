@@ -23,7 +23,7 @@ export const TextQuestion: React.FC<QuestionProps> = ({
         }
     }, [autoFocus, ref]);
 
-    const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
         const value: FeedbackAnswer = {
             label,
             name: name || label,
@@ -49,8 +49,8 @@ export const TextQuestion: React.FC<QuestionProps> = ({
     return (
         <TextArea
             ref={ref}
-            variant="large"
             label={label}
+            labelProps={{ variant: "large" }}
             name={name || label}
             startOpen
             rows={5}

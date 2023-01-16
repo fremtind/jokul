@@ -1,9 +1,9 @@
-import { Label, SupportLabel } from "@fremtind/jkl-core";
+import { InputGroup } from "@fremtind/jkl-input-group-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import Downshift, { DownshiftProps } from "downshift";
-import React, { ReactNode } from "react";
-import { CommonProps } from "./Autosuggest";
+import Downshift, { type DownshiftProps } from "downshift";
+import React, { type ReactNode } from "react";
+import { type CommonProps } from "./Autosuggest";
 import ControllerButton from "./ControllerButton";
 import Menu from "./Menu";
 
@@ -22,6 +22,8 @@ function BaseAutosuggest<T>({
     className = "",
     label,
     labelProps,
+    tooltipProps,
+    supportLabelProps,
     inputId,
     labelId,
     leadText,
@@ -49,10 +51,6 @@ function BaseAutosuggest<T>({
         labelId: lid,
     };
 
-    const supportId = useId("jkl-support-label");
-    const hasSupportText = helpLabel || errorLabel;
-    const describedBy = hasSupportText ? supportId : undefined;
-
     return (
         <Downshift {...downshiftProps} {...customLabelProps} itemToString={itemToString}>
             {({
@@ -61,76 +59,81 @@ function BaseAutosuggest<T>({
                 getItemProps,
                 getLabelProps,
                 getMenuProps,
+                getRootProps,
                 selectedItem,
                 isOpen,
                 highlightedIndex,
                 clearSelection,
             }) => {
                 return (
-                    <div className={cn("jkl-autosuggest", className)} data-density={density}>
-                        {label && (
-                            <Label
-                                variant={variant}
-                                density={density}
-                                {...labelProps}
-                                {...getLabelProps({
-                                    id: lid,
-                                })}
-                                standAlone
-                            >
-                                {label}
-                            </Label>
+                    <InputGroup
+                        {...getRootProps()}
+                        label={label}
+                        className={cn("jkl-autosuggest", className)}
+                        density={density}
+                        labelProps={{
+                            variant,
+                            ...labelProps,
+                            ...getLabelProps({
+                                id: lid,
+                            }),
+                        }}
+                        supportLabelProps={supportLabelProps}
+                        tooltipProps={tooltipProps}
+                        errorLabel={errorLabel}
+                        helpLabel={helpLabel}
+                        render={(inputProps) => (
+                            <>
+                                {leadText && (
+                                    <p
+                                        className={cn("jkl-spacing-l--bottom", {
+                                            "jkl-body": density !== "compact",
+                                            "jkl-small": density === "compact",
+                                        })}
+                                    >
+                                        {leadText}
+                                    </p>
+                                )}
+                                <div className="jkl-text-input-wrapper" data-invalid={!!errorLabel}>
+                                    <input
+                                        {...inputProps}
+                                        {...getInputProps({
+                                            id: inputProps.id,
+                                            placeholder,
+                                            className: "jkl-text-input__input",
+                                            onKeyDown: (e) => {
+                                                if (e.keyCode === KEY_ENTER && !isOpen) {
+                                                    onConfirm();
+                                                }
+                                            },
+                                        })}
+                                        data-testid="autosuggest__input"
+                                    />
+                                    {showDropdownControllerButton && (
+                                        <ControllerButton
+                                            {...getToggleButtonProps()}
+                                            hasSelectedItem={!!selectedItem}
+                                            clearSelection={clearSelection}
+                                        />
+                                    )}
+                                    {isOpen && (
+                                        <Menu
+                                            downshiftProps={{
+                                                getMenuProps,
+                                                getItemProps,
+                                            }}
+                                            highlightedIndex={highlightedIndex}
+                                            items={items}
+                                            itemToString={itemToString}
+                                            noHitsMessage={noHitsMessage}
+                                            maxNumberOfHits={maxNumberOfHits}
+                                            noHits={noHits}
+                                        />
+                                    )}
+                                </div>
+                            </>
                         )}
-                        {leadText && (
-                            <p
-                                className={cn("jkl-spacing-l--bottom", {
-                                    "jkl-body": density !== "compact",
-                                    "jkl-small": density === "compact",
-                                })}
-                            >
-                                {leadText}
-                            </p>
-                        )}
-                        <div className="jkl-text-input-wrapper" data-invalid={!!errorLabel}>
-                            <input
-                                {...getInputProps({
-                                    id: uid,
-                                    placeholder,
-                                    className: "jkl-text-input__input",
-                                    "aria-invalid": !!errorLabel,
-                                    "aria-describedby": describedBy,
-                                    onKeyDown: (e) => {
-                                        if (e.keyCode === KEY_ENTER && !isOpen) {
-                                            onConfirm();
-                                        }
-                                    },
-                                })}
-                                data-testid="autosuggest__input"
-                            />
-                            {showDropdownControllerButton && (
-                                <ControllerButton
-                                    {...getToggleButtonProps()}
-                                    hasSelectedItem={!!selectedItem}
-                                    clearSelection={clearSelection}
-                                />
-                            )}
-                            {isOpen && (
-                                <Menu
-                                    downshiftProps={{
-                                        getMenuProps,
-                                        getItemProps,
-                                    }}
-                                    highlightedIndex={highlightedIndex}
-                                    items={items}
-                                    itemToString={itemToString}
-                                    noHitsMessage={noHitsMessage}
-                                    maxNumberOfHits={maxNumberOfHits}
-                                    noHits={noHits}
-                                />
-                            )}
-                        </div>
-                        <SupportLabel id={supportId} errorLabel={errorLabel} helpLabel={helpLabel} density={density} />
-                    </div>
+                    />
                 );
             }}
         </Downshift>

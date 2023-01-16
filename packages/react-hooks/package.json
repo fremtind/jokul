@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-react-hooks",
-    "version": "10.2.7",
+    "version": "10.2.8",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.3.0",
+        "@fremtind/jkl-core": "^11.4.0",
         "nanoid": "^3.3.4"
     },
     "peerDependencies": {
