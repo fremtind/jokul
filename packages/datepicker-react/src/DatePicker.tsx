@@ -43,7 +43,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         monthLabel,
         yearLabel,
         placeholder = "dd.mm.åååå",
-        width = "10ch",
+        width = "11.25rem",
         onChange,
         onBlur,
         onFocus,
@@ -274,7 +274,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             render={(inputProps) => (
                 <div
                     data-testid="jkl-datepicker__input-wrapper"
-                    className="jkl-datepicker__input-wrapper jkl-text-input-wrapper"
+                    className="jkl-datepicker__input-wrapper"
                     data-density={density}
                     tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
                 >
@@ -282,7 +282,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                         ref={unifiedInputRef}
                         data-testid="jkl-datepicker__input"
                         data-testautoid={testAutoId}
-                        className="jkl-datepicker__input jkl-text-input__input"
+                        className="jkl-datepicker__input"
                         name={name}
                         defaultValue={defaultValue}
                         density={density}
@@ -297,7 +297,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                         onChange={handleChange}
                         {...inputProps}
                         action={{
-                            className: "jkl-datepicker__action-button",
                             buttonRef: iconButtonRef,
                             icon: "calendar",
                             label: showCalendar ? hideCalendarLabel : showCalendarLabel,

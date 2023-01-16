@@ -63,14 +63,17 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
         ...rest
     } = props;
     return (
-        <div className="jkl-text-input-wrapper" data-invalid={ariaInvalid} style={getWidthAsStyle(width)}>
+        <div
+            className="jkl-text-input-wrapper"
+            data-invalid={ariaInvalid}
+            style={{ ...style, ...getWidthAsStyle(width, maxLength) }}
+        >
             <input
                 aria-invalid={ariaInvalid}
                 ref={ref}
                 className={cn("jkl-text-input__input", className, {
                     "jkl-text-input__input--align-right": align === "right",
                 })}
-                style={{ ...style, ...getWidthAsStyle(width, maxLength) }}
                 maxLength={maxLength}
                 type={type}
                 {...rest}
