@@ -3,18 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.4.0 (2023-01-16)
+
+### Bug Fixes
+
+-   rydd opp import og eksport av typer for labels ([b711127](https://github.com/fremtind/jokul/commit/b711127a9d746b20764bf7e38f9c041c91e686a9))
+-   tillat flere elementer som children ([1a54d60](https://github.com/fremtind/jokul/commit/1a54d60009b4a6823deadfcd1c460df7d8197102))
+
+### Features
+
+-   legg til InputGroup-komponent ([6a8f329](https://github.com/fremtind/jokul/commit/6a8f329763a711135337bb286bffcd2b5480ec77))
+
 # 11.3.0 (2022-12-05)
 
 ### Bug Fixes
 
-- riktige verdier for dynamiske klasser og bedre dokumentasjon ([ad1e9ce](https://github.com/fremtind/jokul/commit/ad1e9ce962e1dd3b594e2fb6c9daef50e415fc09))
-- skjul spacingkombinasjoner i jkl.scss ([ac8b623](https://github.com/fremtind/jokul/commit/ac8b623ddee63daa79f329218f63361d39efbb78))
+-   riktige verdier for dynamiske klasser og bedre dokumentasjon ([ad1e9ce](https://github.com/fremtind/jokul/commit/ad1e9ce962e1dd3b594e2fb6c9daef50e415fc09))
+-   skjul spacingkombinasjoner i jkl.scss ([ac8b623](https://github.com/fremtind/jokul/commit/ac8b623ddee63daa79f329218f63361d39efbb78))
 
 ### Features
 
-- **core:** dynamisk spacing etter skjermstørrelse ([3f91aea](https://github.com/fremtind/jokul/commit/3f91aea319bc346dd3a14d759a2b9cb4d32d5344))
-- legg til støtte for spacinger med tre steg ([f1743f9](https://github.com/fremtind/jokul/commit/f1743f9af2297d54e2fd298bae229f65df80eb5e))
-- omdøpt spacing-skala og dynamiske klasser for spacing ([48ac8d8](https://github.com/fremtind/jokul/commit/48ac8d8047052325e6cfd17549653c487c24f3a5))
+-   **core:** dynamisk spacing etter skjermstørrelse ([3f91aea](https://github.com/fremtind/jokul/commit/3f91aea319bc346dd3a14d759a2b9cb4d32d5344))
+-   legg til støtte for spacinger med tre steg ([f1743f9](https://github.com/fremtind/jokul/commit/f1743f9af2297d54e2fd298bae229f65df80eb5e))
+-   omdøpt spacing-skala og dynamiske klasser for spacing ([48ac8d8](https://github.com/fremtind/jokul/commit/48ac8d8047052325e6cfd17549653c487c24f3a5))
 
 # [11.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@11.1.2...@fremtind/jkl-core@11.2.0) (2022-11-22)
 

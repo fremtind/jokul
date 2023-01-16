@@ -2,11 +2,11 @@ import { LabelVariant, Link } from "@fremtind/jkl-core";
 import { SearchIcon } from "@fremtind/jkl-icons-react";
 import React, { useState, ChangeEvent, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { TextInput } from "../src";
-import { Action } from "../src/TextInput";
+import { type Action } from "../src/BaseTextInput";
+import { TextInput } from "../src/TextInput";
 
 export const textInputExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Med hjelpetekst", "Med feil", "Med handling", "Med benevnelse", "Inline"],
+    boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip", "Med handling", "Med benevnelse", "Inline"],
     choiceProps: [
         {
             name: "Variant",
@@ -29,6 +29,17 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
             areal.
         </>
     ) : undefined;
+
+    const tooltipProps = boolValues?.["Med tooltip"]
+        ? {
+              content: (
+                  <>
+                      Boareal måles i kvadratmeter (m<sup>2</sup>). Hvis du ikke vet boarealet ditt kan du lese guiden
+                      vi lenker til under.
+                  </>
+              ),
+          }
+        : undefined;
 
     const unit = boolValues?.["Med benevnelse"] ? (
         <>
@@ -70,14 +81,16 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
             name="boareal"
             helpLabel={helpLabel}
             errorLabel={errorLabel}
+            labelProps={{ variant }}
+            tooltipProps={tooltipProps}
             value={value}
             onChange={handleChange}
             onKeyDown={() => console.log("onKeyDown event")}
             inline={inline}
-            variant={variant}
             action={action}
             unit={unit}
             align="right"
+            width="min(10rem, 100%)"
         />
     );
 };
@@ -104,7 +117,17 @@ export const textInputExampleCode = ({ choiceValues, boolValues }: ExampleCompon
             ? `<>Du må fylle ut fødselsnummer, 11 siffer. <Link href="">Kontakt oss </Link> hvis du ikke har norsk fødselsnummer.{" "}</>`
             : `{undefined}`
     }
-    variant={${choiceValues?.["Variant"]}}
+    variant={${choiceValues?.["Variant"]}}${
+        boolValues?.["Med tooltip"]
+            ? `
+    tooltipProps={{ content: (
+        <>
+            Boareal måles i kvadratmeter (m<sup>2</sup>). Hvis du ikke vet boarealet ditt kan du lese guiden
+            vi lenker til under.
+        </>
+    )}}`
+            : ""
+    }
     action={${
         boolValues?.["Med handling"]
             ? `{

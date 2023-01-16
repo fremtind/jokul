@@ -3,11 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.3.6...@fremtind/jkl-text-input-react@12.0.0) (2023-01-16)
+
+### Bug Fixes
+
+-   breddebugs etter merge med main ([5853b7a](https://github.com/fremtind/jokul/commit/5853b7a5ffeccfda615687bc2aec3bcd721972fe))
+
+### Features
+
+-   forenkle bruken av tooltip etter label i text-input ([dd96052](https://github.com/fremtind/jokul/commit/dd96052c7a750ba171d66aefe7cfbbaf91ee63fb))
+
+### BREAKING CHANGES
+
+-   -   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   `BaseInputField` er erstattet av `BaseTextInput`.
+-   Du må importere CSS for
+    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+
+## [11.3.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.3.5...@fremtind/jkl-text-input-react@11.3.6) (2023-01-13)
+
+### Bug Fixes
+
+-   bruk bredden også på det visuelle skjemaelementet ([39b2e3d](https://github.com/fremtind/jokul/commit/39b2e3dd0ffe1c2f77ac1e8350a9a9100b457e03)), closes [#3363](https://github.com/fremtind/jokul/issues/3363)
+
 # [11.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.2.6...@fremtind/jkl-text-input-react@11.3.0) (2022-12-05)
 
 ### Features
 
-- legg til mulighet for benevnelse i TextInput ([9215690](https://github.com/fremtind/jokul/commit/92156905b264cac096f9be0e9a97b3dedd58b9bb))
+-   legg til mulighet for benevnelse i TextInput ([9215690](https://github.com/fremtind/jokul/commit/92156905b264cac096f9be0e9a97b3dedd58b9bb))
 
 ## 11.2.2 (2022-11-22)
 

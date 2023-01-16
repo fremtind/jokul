@@ -1,14 +1,7 @@
-import {
-    Label,
-    LabelVariant,
-    SupportLabel,
-    ValuePair,
-    getValuePair,
-    DataTestAutoId,
-    LabelProps,
-    Density,
-} from "@fremtind/jkl-core";
+import { ValuePair, getValuePair, DataTestAutoId, LabelProps, Density } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
+import { InputGroup } from "@fremtind/jkl-input-group-react";
+import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, {
@@ -46,11 +39,11 @@ interface Option {
     label: string;
 }
 
-export interface SelectProps extends DataTestAutoId {
+export interface SelectProps extends InputGroupProps, DataTestAutoId {
     id?: string;
     name: string;
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "density" | "htmlFor" | "standAlone">;
     items: Array<string | ValuePair>;
     /**
      * @default false
@@ -64,8 +57,6 @@ export interface SelectProps extends DataTestAutoId {
     value?: string;
     helpLabel?: string;
     errorLabel?: string;
-    /** @deprecated Bruk `labelProps.variant`  */
-    variant?: LabelVariant;
     /**
      * @default false
      */
@@ -109,10 +100,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         searchable = false,
         inline = false,
         defaultPrompt = "Velg",
-        variant,
         density,
         width,
         maxShownOptions = 5,
+        style,
         ...rest
     } = props;
 
@@ -120,9 +111,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     const labelId = `${listId}_label`;
     const buttonId = `${listId}_button`;
     const searchInputId = `${listId}_search-input`;
-    const supportId = `${listId}_support-label`;
-    const hasSupportText = helpLabel || errorLabel;
-    const describedBy = hasSupportText ? supportId : undefined;
 
     const [dropdownIsShown, setShown] = useState(false);
     const toggleListVisibility = useCallback(() => {
@@ -190,7 +178,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     // React Hook Form setter select-elementets value hvis skjemaet har `defaultValues`, men vi rendrer ikke det elementet synlig.
     // For at brukeren skal se at verdien faktisk er blitt satt må vi sette denne staten.
     useEffect(() => {
-        setSelectedValue(selectRef.current?.value || "");
+        if (typeof selectRef.current?.value !== "undefined") {
+            setSelectedValue(selectRef.current.value);
+        }
     }, [selectRef.current?.value]);
 
     const selectOption = useCallback(
@@ -404,30 +394,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     }, [setShown, dropdownIsShown]);
 
     return (
-        <div
-            data-testid="jkl-select"
-            className={cn("jkl-select", className, {
-                "jkl-select--inline": inline,
-                "jkl-select--open": dropdownIsShown && visibleItems.some((item) => item.visible),
-                "jkl-select--no-value": !hasSelectedValue,
-                "jkl-select--invalid": !!errorLabel || invalid,
-            })}
-            ref={componentRootElementRef}
-            data-density={density}
-            style={{ ["--jkl-select-max-shown-options"]: maxShownOptions } as CSSProperties}
-            {...rest}
-        >
-            <Label
-                id={labelId}
-                variant={variant}
-                {...labelProps}
-                standAlone={isSearchable} // Use <label> as the element when isSearchable=true for accessibility
-                htmlFor={isSearchable ? searchInputId : labelProps?.htmlFor}
-                srOnly={inline || labelProps?.srOnly}
-                density={density}
-            >
-                {label}
-            </Label>
+        <>
             <select
                 name={name}
                 tabIndex={-1}
@@ -444,106 +411,132 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     </option>
                 ))}
             </select>
-            <div className="jkl-select__outer-wrapper" style={{ width }}>
-                {isSearchable && (
-                    <input
-                        id={searchInputId}
-                        hidden={!showSearchInputField}
-                        ref={searchFieldRef}
-                        placeholder="Søk"
-                        value={searchValue}
-                        onChange={(e) => setSearchValue(e.target.value)}
-                        data-testid="jkl-select__search-input"
-                        className="jkl-select__search-input"
-                        aria-autocomplete="list"
-                        aria-activedescendant={hasSelectedValue ? `${listId}__${toLower(selectedValue)}` : undefined}
-                        aria-controls={listId}
-                        aria-describedby={describedBy}
-                        aria-labelledby={labelId}
-                        aria-expanded={dropdownIsShown}
-                        role="combobox"
-                        onKeyDown={handleSearchOnKeyDown}
-                        onBlur={handleBlur}
-                        onFocus={handleFocus}
-                        onClick={(e) => {
-                            e.stopPropagation();
-                        }}
-                    />
-                )}
-                {/* eslint-disable jsx-a11y/role-supports-aria-props */}
-                <button
-                    id={buttonId}
-                    ref={buttonRef}
-                    hidden={showSearchInputField}
-                    type="button"
-                    name={`${name}-btn`}
-                    className="jkl-select__button"
-                    data-testid="jkl-select__button"
-                    aria-label={`${selectedValueLabel || "Velg"},${label}`}
-                    aria-expanded={dropdownIsShown}
-                    aria-controls={listId}
-                    aria-describedby={describedBy}
-                    aria-invalid={Boolean(errorLabel)} // Nei dette er ikke i henhold til speccen, men VoiceOver leser den likevel og det er oppførselen vi ønsker
-                    onBlur={handleBlur}
-                    onFocus={handleFocus}
-                    onKeyDown={handleOnKeyDown}
-                    onClick={toggleListVisibility}
-                    onMouseDown={(e) => {
-                        // Workaround for en Safari-bug hvor e.relatedTarget er null i onBlur
-                        // https://twitter.com/MilesSorce/status/1278762360669265925
-                        e.preventDefault();
-                        buttonRef.current?.focus();
-                    }}
-                >
-                    {selectedValueLabel}
-                </button>
-                {/* eslint-enable jsx-a11y/role-supports-aria-props */}
-                <div
-                    id={listId}
-                    ref={dropdownRef}
-                    role="listbox"
-                    className="jkl-select__options-menu"
-                    hidden={!dropdownIsShown || visibleItems.every((item) => !item.visible)}
-                    aria-labelledby={labelId}
-                    tabIndex={-1}
-                    data-focus="controlled" // lar oss styre markering av valg vha focus
-                >
-                    {visibleItems.map((item, i) =>
-                        // Det er viktig at vi _fjerner_ elementer som ikke er synlige fra DOMen for at tastaturnavigasjon skal fungere.
-                        // For eksempel, hvis vi har elementene Apple, Samsung og LG i den rekkefølgen og søker etter "l"
-                        // vil Samsung ikke synes. Om vi bare setter hidden-attributtet på Samsung vil ArrowDown fra Apple ikke fungere.
-                        // Dette lar seg ikke gjenskape i en enhetstest med JSDOM + user-events, og Cypress lukker Select
-                        // ved første {downArrow} ¯\_(ツ)_/¯. Så please test scenariet over manuelt om dette skaper trøbbel for deg.
-                        item.visible ? (
-                            <button
-                                key={`${listId}-${item.value}`}
-                                hidden={!item.visible}
-                                type="button"
-                                id={`${listId}__${toLower(item.value)}`}
-                                className="jkl-select__option"
-                                data-testid="jkl-select__option"
-                                aria-selected={item.value === selectedValue}
-                                role="option"
-                                value={item.value}
-                                data-testautoid={`jkl-select__option-${i}`}
+            <InputGroup
+                ref={componentRootElementRef}
+                data-testid="jkl-select"
+                className={cn("jkl-select", className, {
+                    "jkl-select--inline": inline,
+                    "jkl-select--open": dropdownIsShown && visibleItems.some((item) => item.visible),
+                    "jkl-select--no-value": !hasSelectedValue,
+                    "jkl-select--invalid": !!errorLabel || invalid,
+                })}
+                {...rest}
+                id={isSearchable ? searchInputId : buttonId}
+                style={{ ["--jkl-select-max-shown-options"]: maxShownOptions, ...style } as CSSProperties}
+                density={density}
+                label={label}
+                labelProps={{
+                    id: labelId,
+                    srOnly: inline,
+                    ...labelProps,
+                    htmlFor: isSearchable ? searchInputId : buttonId,
+                }}
+                helpLabel={helpLabel}
+                errorLabel={errorLabel}
+                render={(inputProps) => (
+                    <div className="jkl-select__outer-wrapper" style={{ width }}>
+                        {isSearchable && (
+                            <input
+                                {...inputProps}
+                                id={searchInputId}
+                                hidden={!showSearchInputField}
+                                ref={searchFieldRef}
+                                placeholder="Søk"
+                                value={searchValue}
+                                onChange={(e) => setSearchValue(e.target.value)}
+                                data-testid="jkl-select__search-input"
+                                className="jkl-select__search-input"
+                                aria-autocomplete="list"
+                                aria-activedescendant={
+                                    hasSelectedValue ? `${listId}__${toLower(selectedValue)}` : undefined
+                                }
+                                aria-controls={listId}
+                                aria-expanded={dropdownIsShown}
+                                role="combobox"
+                                onKeyDown={handleSearchOnKeyDown}
                                 onBlur={handleBlur}
                                 onFocus={handleFocus}
-                                onKeyDown={handleOptionOnKeyDown}
                                 onClick={(e) => {
-                                    e.preventDefault();
-                                    selectOption(item);
+                                    e.stopPropagation();
                                 }}
-                                onMouseOver={handleMouseOver}
-                            >
-                                {item.label}
-                            </button>
-                        ) : null,
-                    )}
-                </div>
-                <ArrowVerticalAnimated variant="medium" pointingDown={!dropdownIsShown} className="jkl-select__arrow" />
-            </div>
-            <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} density={density} />
-        </div>
+                            />
+                        )}
+                        <button
+                            {...inputProps}
+                            id={buttonId}
+                            ref={buttonRef}
+                            hidden={showSearchInputField}
+                            type="button"
+                            name={`${name}-btn`}
+                            className="jkl-select__button"
+                            data-testid="jkl-select__button"
+                            aria-label={`${selectedValueLabel || "Velg"},${label}`}
+                            aria-expanded={dropdownIsShown}
+                            aria-controls={listId}
+                            onBlur={handleBlur}
+                            onFocus={handleFocus}
+                            onKeyDown={handleOnKeyDown}
+                            onClick={toggleListVisibility}
+                            onMouseDown={(e) => {
+                                // Workaround for en Safari-bug hvor e.relatedTarget er null i onBlur
+                                // https://twitter.com/MilesSorce/status/1278762360669265925
+                                e.preventDefault();
+                                buttonRef.current?.focus();
+                            }}
+                        >
+                            {selectedValueLabel}
+                        </button>
+                        <div
+                            id={listId}
+                            ref={dropdownRef}
+                            role="listbox"
+                            className="jkl-select__options-menu"
+                            hidden={!dropdownIsShown || visibleItems.every((item) => !item.visible)}
+                            aria-labelledby={labelId}
+                            tabIndex={-1}
+                            data-focus="controlled" // lar oss styre markering av valg vha focus
+                        >
+                            {visibleItems.map((item, i) =>
+                                // Det er viktig at vi _fjerner_ elementer som ikke er synlige fra DOMen for at tastaturnavigasjon skal fungere.
+                                // For eksempel, hvis vi har elementene Apple, Samsung og LG i den rekkefølgen og søker etter "l"
+                                // vil Samsung ikke synes. Om vi bare setter hidden-attributtet på Samsung vil ArrowDown fra Apple ikke fungere.
+                                // Dette lar seg ikke gjenskape i en enhetstest med JSDOM + user-events, og Cypress lukker Select
+                                // ved første {downArrow} ¯\_(ツ)_/¯. Så please test scenariet over manuelt om dette skaper trøbbel for deg.
+                                item.visible ? (
+                                    <button
+                                        key={`${listId}-${item.value}`}
+                                        hidden={!item.visible}
+                                        type="button"
+                                        id={`${listId}__${toLower(item.value)}`}
+                                        className="jkl-select__option"
+                                        data-testid="jkl-select__option"
+                                        aria-selected={item.value === selectedValue}
+                                        role="option"
+                                        value={item.value}
+                                        data-testautoid={`jkl-select__option-${i}`}
+                                        onBlur={handleBlur}
+                                        onFocus={handleFocus}
+                                        onKeyDown={handleOptionOnKeyDown}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            selectOption(item);
+                                        }}
+                                        onMouseOver={handleMouseOver}
+                                    >
+                                        {item.label}
+                                    </button>
+                                ) : null,
+                            )}
+                        </div>
+                        <ArrowVerticalAnimated
+                            variant="medium"
+                            pointingDown={!dropdownIsShown}
+                            className="jkl-select__arrow"
+                        />
+                    </div>
+                )}
+            />
+        </>
     );
 });
 

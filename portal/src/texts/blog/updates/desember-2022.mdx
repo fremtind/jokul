@@ -1,0 +1,104 @@
+---
+title: Høydepunkter fra desember 2022
+author: Jøkul-teamet
+publishDate: "2023.01.02"
+---
+
+import { TextInputExample } from "../../../../../packages/text-input-react/documentation/TextInputExample";
+
+Godt nytt år fra Jøkul-teamet!
+
+Desember var ikke bare adventskalendere og pepperkaker. Her er forrige måned kort oppsummert:
+
+-   Utvidet spacingskala med steg for 32px, dynamisk spacing og nye navn.
+-   Inputfelter kan få en benevnelse, som f. eks. "kr" og "G".
+-   En ny Demoer-seksjon i portalen for å kunne synliggjøre eksempler som er litt større enn én komponent.
+-   🧑‍💻 Apropos portalen: trykk `Cmd + K` (`Ctrl + K` for Windows/Linux) for et enkelt søk.
+
+## Dynamisk spacingskala
+
+![](/assets/blog/updates/november-2022/nov-dynamisk-spacing.png)
+
+Pio skrev [en egen bloggpost om temaet](https://jokul.fremtind.no/blog/dynamisk-spacing/dynamisk-spacing/), så vi skal ikke gjenta oss selv for mye.
+
+Kort fortalt:
+
+-   Endringene i kode er bakoverkompatible.
+-   Nye tallbaserte variabler, for eksempel `$spacing-2` som matcher `2px`.
+-   Steg på `32px` lagt til i skalaen.
+-   Hjelpere for å lage spacing som endrer seg basert på skjermbredde.
+
+Les bloggposten for å komme i gang med ny skala.
+
+## Benevnelser i inputfelter
+
+Inputfelter kan nå brukes med benevnelse.
+
+<ComponentExample
+    title="TextInput med benevnelse"
+    component={TextInputExample}
+    knobs={{
+        boolProps: [{ prop: "Med benevnelse", defaultValue: true }],
+    }}
+/>
+
+I kode er det propen `unit` som lar deg gjøre dette. Figma-biblioteket har i skrivende stund ikke noe eget for å lage inputfelter med benevnelse, men dette vil komme etter hvert.
+
+## Kommandopalett i portalen
+
+![](/assets/blog/updates/desember-2022/desember-2022-kbar.png)
+
+[Command bars](https://maggieappleton.com/command-bar) er etter hvert blitt mer vanlig i verktøy. Under en fagdag testet William hvordan en _kbar_ kunne fungere i portalen.
+
+Du kan teste selv ved å trykke `Cmd + K` på macOS, eller `Ctrl + K` på Windows/Linux.
+
+Komponenten er _ikke designet_, så vent med å bruke den i egne løsninger inntil videre. Om dette er noe du synes er kult og vil være med på å designe, sei ifrå.
+
+Kommandopaletten er i grunnen bare et _veldig enkelt_ søk i dag. Søket er begrenset til sidetitler og noen egne nøkkelord.
+
+Prøv for eksempel å søke etter:
+
+-   farger
+-   spacing
+-   button
+-   textinput
+-   skjema
+
+Om du har forslag til nøkkelord som bør assosieres med en side så gi lyd [på GitHub](https://github.com/fremtind/jokul/issues/3330) eller Teams.
+
+## Diverse bugfikser og forbedringer
+
+### Figma
+
+-   Ny spacingskala med pixelbaserte navn på variabler, og nytt steg på `32px` i skalaen ([#3255](https://github.com/fremtind/jokul/issues/3255))
+-   Ny rekkefølge i fontstilene, og _bold_ renamet til _body bold_ ([#3310](https://github.com/fremtind/jokul/issues/3310), [#3337](https://github.com/fremtind/jokul/issues/3337))
+
+### GitHub
+
+-   TaskCard kan få padding lik `0` ([#3289](https://github.com/fremtind/jokul/pull/3289))
+-   CookieConsent krasjer ikke SSR ([#3295](https://github.com/fremtind/jokul/pull/3295))
+-   Tooltip krever interaksjon for å åpnes ([#3292](https://github.com/fremtind/jokul/pull/3292))
+-   Sticky tabellheader bruker box-shadow for border, for stickyness ([#3296](https://github.com/fremtind/jokul/pull/3296))
+-   Analytics ([#3300](https://github.com/fremtind/jokul/pull/3300))
+-   Tabellheader får litt luft over seg ([#3306](https://github.com/fremtind/jokul/pull/3306))
+-   Demosider ([#3027](https://github.com/fremtind/jokul/pull/3027))
+-   Dynamisk spacing ([#3249](https://github.com/fremtind/jokul/pull/3249))
+-   Benevnelse i inputfelter ([#3291](https://github.com/fremtind/jokul/pull/3291))
+-   kbar ([#3301](https://github.com/fremtind/jokul/pull/3301), [#3311](https://github.com/fremtind/jokul/pull/3311))
+-   Faner kan scrolle på mobil, og brukes som routes via nye komponenter ([#3284](https://github.com/fremtind/jokul/pull/3284))
+-   Øk specificity for ExpandButton sin pil, fikser visuell bug hvis Core ble importert etter ([#3324](https://github.com/fremtind/jokul/pull/3324), [#3332](https://github.com/fremtind/jokul/pull/3332))
+-   Fiks feil i metadata i oppslagsguiden for UU som laget duplikater, andre rarheter ([#3325](https://github.com/fremtind/jokul/pull/3325))
+-   Unngå at placeholder i textarea havner oppå border ([#3327](https://github.com/fremtind/jokul/pull/3327))
+-   Gjør typen for event handlers i inputmasker gjenbrukbar ([#3335](https://github.com/fremtind/jokul/pull/3335))
+
+## Takk
+
+Takk til alle som har vært med å bygge videre på Jøkul, både på GitHub og i Figma!
+
+-   hegebjo
+-   henrikhermansen
+-   joms
+-   Murstam
+-   Stormoen
+
+En stor takk også til alle som er med på designsystemforum!

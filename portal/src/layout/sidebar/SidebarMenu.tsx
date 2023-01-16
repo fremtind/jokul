@@ -49,8 +49,8 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
             key="sidebar-menu"
         >
             <TextInput
-                variant="small"
                 label="Filtrér"
+                labelProps={{ variant: "small" }}
                 value={filter}
                 density="compact"
                 onChange={filterLinks}
@@ -66,7 +66,7 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                     name="filter-radio"
                     value={selectedGroup}
                     onChange={(e) => setSelectedGroup(e.target.value)}
-                    variant={"small"}
+                    labelProps={{ variant: "small" }}
                     inline
                 >
                     {[allComponents, ...groups].map((value) => (

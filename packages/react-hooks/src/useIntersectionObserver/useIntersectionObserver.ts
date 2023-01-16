@@ -1,7 +1,12 @@
-import { useEffect, useRef, RefObject } from "react";
+import { useEffect, useRef, RefObject, MutableRefObject } from "react";
 
 type ValidElement = HTMLElement | SVGElement;
-type Target = RefObject<ValidElement> | RefObject<NodeListOf<ValidElement>> | NodeListOf<ValidElement>;
+type Target =
+    | MutableRefObject<ValidElement>
+    | RefObject<ValidElement>
+    | MutableRefObject<NodeListOf<ValidElement>>
+    | RefObject<NodeListOf<ValidElement>>
+    | NodeListOf<ValidElement>;
 
 function isNodeList(target: Target | ValidElement): target is NodeListOf<ValidElement> {
     return (target as NodeListOf<ValidElement>).forEach !== undefined;
@@ -28,7 +33,7 @@ export const useIntersectionObserver = (
     /**
      * Funksjon som kalles dersom nettleseren ikke støtter IntersectionOpserver-APIet.
      */
-    fallback: VoidFunction,
+    fallback?: VoidFunction | null,
     /**
      * Objekt med innstillinger for oberveren. Se
      * https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#parameters
@@ -40,6 +45,7 @@ export const useIntersectionObserver = (
 
     useEffect(() => {
         let observer = observerRef.current;
+
         if (hasWindowWithIntersectionObserver()) {
             if (observer) {
                 observer.disconnect();
@@ -54,9 +60,10 @@ export const useIntersectionObserver = (
             } else if (target.current) {
                 observer.observe(target.current);
             }
-        } else {
+        } else if (fallback) {
             fallback();
         }
+
         return () => {
             if (hasWindowWithIntersectionObserver() && observer) {
                 observer.disconnect();

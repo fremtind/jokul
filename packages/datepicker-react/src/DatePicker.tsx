@@ -1,8 +1,6 @@
-import { Label, SupportLabel } from "@fremtind/jkl-core";
-import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { CalendarIcon } from "@fremtind/jkl-icons-react";
-import { useAnimatedHeight, useClickOutside, useFocusOutside, useId, useKeyListener } from "@fremtind/jkl-react-hooks";
-import { BaseInputField } from "@fremtind/jkl-text-input-react";
+import { InputGroup } from "@fremtind/jkl-input-group-react";
+import { useAnimatedHeight, useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
+import { BaseTextInput } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
 import startOfDay from "date-fns/startOfDay";
 import React, {
@@ -45,7 +43,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         monthLabel,
         yearLabel,
         placeholder = "dd.mm.åååå",
-        width = "10ch",
+        width = "11.25rem",
         onChange,
         onBlur,
         onFocus,
@@ -53,6 +51,8 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         action,
         showCalendarLabel = "Åpne kalender",
         hideCalendarLabel = "Lukk kalender",
+        supportLabelProps,
+        tooltipProps,
         ...rest
     } = props;
 
@@ -71,9 +71,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
 
     const [date, setDate] = useState(getInitialDate(value, defaultValue, minDate, maxDate));
     const [error, setError] = useState<DateValidationError | null>(null);
-
-    const inputId = useId("jkl-datepicker");
-    const supportLabelId = useId("jkl-datepicker-label");
 
     /// Calendar state
 
@@ -260,75 +257,75 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     });
 
     return (
-        <div
+        <InputGroup
             id={id}
             className={cn("jkl-datepicker", className, {
                 "jkl-datepicker--open": showCalendar,
             })}
             {...rest}
             ref={datepickerRef}
-        >
-            <Label standAlone {...labelProps} density={density} htmlFor={inputId}>
-                {label}
-            </Label>
-            <div
-                data-testid="jkl-datepicker__input-wrapper"
-                className="jkl-datepicker__input-wrapper jkl-text-input-wrapper"
-                data-density={density}
-                tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
-            >
-                <BaseInputField
-                    ref={unifiedInputRef}
-                    data-testid="jkl-datepicker__input"
-                    data-testautoid={testAutoId}
-                    className="jkl-datepicker__input jkl-text-input__input"
-                    id={inputId}
-                    name={name}
-                    describedBy={helpLabel || errorLabel ? supportLabelId : undefined}
-                    invalid={!!errorLabel || invalid}
-                    defaultValue={defaultValue}
-                    value={value}
-                    type="text"
-                    placeholder={placeholder}
-                    width={width}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
-                    onKeyDown={handleKeyDown}
-                    onClick={clickInput}
-                    onChange={handleChange}
-                />
-                <IconButton
-                    ref={iconButtonRef}
-                    density={density}
-                    className="jkl-datepicker__action-button jkl-text-input-action-button"
-                    title={showCalendar ? hideCalendarLabel : showCalendarLabel}
-                    {...action}
-                    onClick={clickCalendar}
-                    onKeyDown={handleKeyDownAction}
+            label={label}
+            labelProps={labelProps}
+            density={density}
+            helpLabel={helpLabel}
+            errorLabel={errorLabel}
+            supportLabelProps={supportLabelProps}
+            tooltipProps={tooltipProps}
+            render={(inputProps) => (
+                <div
+                    data-testid="jkl-datepicker__input-wrapper"
+                    className="jkl-datepicker__input-wrapper"
+                    data-density={density}
+                    tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
                 >
-                    <CalendarIcon />
-                </IconButton>
-                <div className="jkl-datepicker__calendar-wrapper">
-                    <Calendar
-                        ref={calendarRef}
-                        defaultSelected={defaultSelectedInCalendar}
+                    <BaseTextInput
+                        ref={unifiedInputRef}
+                        data-testid="jkl-datepicker__input"
+                        data-testautoid={testAutoId}
+                        className="jkl-datepicker__input"
+                        name={name}
+                        defaultValue={defaultValue}
                         density={density}
-                        date={date}
-                        minDate={minDate}
-                        maxDate={maxDate}
-                        days={days}
-                        months={months}
-                        monthLabel={monthLabel}
-                        yearLabel={yearLabel}
-                        hidden={!showCalendar}
-                        extended={extended}
-                        onDateSelected={handleClickCalendarDay}
-                        onTabOutside={handleTabOutsideCalendar}
+                        value={value}
+                        type="text"
+                        placeholder={placeholder}
+                        width={width}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
+                        onKeyDown={handleKeyDown}
+                        onClick={clickInput}
+                        onChange={handleChange}
+                        {...inputProps}
+                        action={{
+                            buttonRef: iconButtonRef,
+                            icon: "calendar",
+                            label: showCalendar ? hideCalendarLabel : showCalendarLabel,
+                            ...action,
+                            onClick: clickCalendar,
+                            onKeyDown: handleKeyDownAction,
+                        }}
                     />
+                    <div className="jkl-datepicker__calendar-wrapper">
+                        <Calendar
+                            ref={calendarRef}
+                            defaultSelected={defaultSelectedInCalendar}
+                            density={density}
+                            date={date}
+                            minDate={minDate}
+                            maxDate={maxDate}
+                            days={days}
+                            months={months}
+                            monthLabel={monthLabel}
+                            yearLabel={yearLabel}
+                            hidden={!showCalendar}
+                            extended={extended}
+                            onDateSelected={handleClickCalendarDay}
+                            onTabOutside={handleTabOutsideCalendar}
+                        />
+                    </div>
                 </div>
-            </div>
-            <SupportLabel density={density} id={supportLabelId} helpLabel={helpLabel} errorLabel={errorLabel} />
-        </div>
+            )}
+        />
     );
 });
 

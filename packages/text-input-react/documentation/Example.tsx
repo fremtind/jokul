@@ -5,6 +5,8 @@ import { TextAreaExample, textAreaExampleCode, textAreaExampleKnobs } from "./Te
 import { TextInputExample, textInputExampleCode, textInputExampleKnobs } from "./TextInputExample";
 import "../../text-input/text-input.scss";
 import "../../icon-button/icon-button.scss";
+import "../../input-group/input-group.scss";
+import "../../tooltip/tooltip.scss";
 import "./index.scss";
 
 export default function Example() {

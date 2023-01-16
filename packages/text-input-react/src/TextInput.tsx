@@ -1,108 +1,50 @@
-import { Label, SupportLabel, LabelVariant, LabelProps, Density } from "@fremtind/jkl-core";
-import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { useId } from "@fremtind/jkl-react-hooks";
+import { InputGroup, InputGroupProps } from "@fremtind/jkl-input-group-react";
 import cn from "classnames";
-import React, { forwardRef, ButtonHTMLAttributes, MouseEventHandler, type ReactNode } from "react";
-import { BaseInputField, BaseProps } from "./BaseInputField";
+import React, { forwardRef } from "react";
+import { BaseTextInput, BaseTextInputProps } from "./BaseTextInput";
 
-export interface Action extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
-    icon: React.ReactNode;
-    label: string;
-    onClick: MouseEventHandler<HTMLButtonElement>;
-}
-
-export interface Props extends BaseProps {
-    label: string;
-    labelProps?: Omit<LabelProps, "children" | "density" | "standAlone">;
-    helpLabel?: ReactNode;
-    errorLabel?: ReactNode;
-    /** @deprecated Bruk `labelProps.variant`  */
-    variant?: LabelVariant;
+export interface TextInputProps extends Omit<InputGroupProps, "children">, BaseTextInputProps {
     "data-testautoid"?: string;
-    density?: Density;
     inline?: boolean;
-    action?: Action;
-    /**
-     * Benevnelse for feltet. Unngå å bruke både benevnelse og handling samtidig
-     * @example "kr"
-     * */
-    unit?: ReactNode;
     inputClassName?: string;
 }
 
-export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>((props, ref) => {
     const {
-        id,
-        className,
         label,
-        labelProps,
-        helpLabel,
-        errorLabel,
-        variant,
-        inline,
+        className,
         density,
-        action,
-        unit,
-        "data-testautoid": testAutoId,
+        errorLabel,
+        helpLabel,
+        inline,
         inputClassName,
-        ...inputProps
+        labelProps,
+        supportLabelProps,
+        tooltipProps,
+        ...rest
     } = props;
-
-    const uid = useId(id || "jkl-text-input", { generateSuffix: !id });
-    const supportId = useId("jkl-support-label");
-    const hasSupportText = helpLabel || errorLabel;
-    const describedBy = hasSupportText ? supportId : undefined;
-
+    const inputGroupProps = {
+        label,
+        density,
+        errorLabel,
+        helpLabel,
+        labelProps,
+        inline,
+        supportLabelProps,
+        tooltipProps,
+    };
     return (
-        <div
-            data-testid="jkl-text-input"
-            className={cn("jkl-text-input", className, {
+        <InputGroup
+            {...inputGroupProps}
+            className={cn(className, "jkl-text-input", {
                 "jkl-text-input--inline": inline,
             })}
-            data-density={inline ? "compact" : density}
+            data-testid="jkl-text-input"
+            density={inline ? "compact" : density}
         >
-            <Label
-                variant={variant}
-                {...labelProps}
-                srOnly={inline || labelProps?.srOnly}
-                standAlone
-                density={density}
-                htmlFor={uid}
-            >
-                {label}
-            </Label>
-            <div className="jkl-text-input-wrapper" data-invalid={!!errorLabel}>
-                <BaseInputField
-                    ref={ref}
-                    id={uid}
-                    describedBy={describedBy}
-                    invalid={!!errorLabel}
-                    data-testautoid={testAutoId}
-                    className={inputClassName}
-                    {...inputProps}
-                />
-                {unit && <span className="jkl-text-input__unit">{unit}</span>}
-                {action && (
-                    <IconButton
-                        className="jkl-text-input-action-button"
-                        density={density}
-                        title={action.label}
-                        onClick={action.onClick}
-                        onFocus={action.onFocus}
-                        onBlur={action.onBlur}
-                    >
-                        {action.icon}
-                    </IconButton>
-                )}
-            </div>
-            <SupportLabel
-                id={supportId}
-                helpLabel={helpLabel}
-                errorLabel={errorLabel}
-                density={density}
-                srOnly={inline}
-            />
-        </div>
+            <BaseTextInput ref={ref} {...rest} className={inputClassName} />
+        </InputGroup>
     );
 });
+
 TextInput.displayName = "TextInput";

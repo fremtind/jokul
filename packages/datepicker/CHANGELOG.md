@@ -3,15 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.3 (2023-01-16)
+
+### Bug Fixes
+
+-   breddebugs etter merge med main ([5853b7a](https://github.com/fremtind/jokul/commit/5853b7a5ffeccfda615687bc2aec3bcd721972fe))
+
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@9.0.16...@fremtind/jkl-datepicker@10.0.0) (2022-12-05)
 
 ### Code Refactoring
 
-- bruk nye klasser fra text-input ([dbbbef3](https://github.com/fremtind/jokul/commit/dbbbef34ea942c5d4a713220e37aebaccffa8e62))
+-   bruk nye klasser fra text-input ([dbbbef3](https://github.com/fremtind/jokul/commit/dbbbef34ea942c5d4a713220e37aebaccffa8e62))
 
 ### BREAKING CHANGES
 
-- Klassenavn må oppdateres dersom du bruker stilpakken direkte
+-   Klassenavn må oppdateres dersom du bruker stilpakken direkte
 
 ## 9.0.15 (2022-11-22)
 

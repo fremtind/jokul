@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@14.1.20...@fremtind/jkl-feedback-react@15.0.0) (2023-01-16)
+
+### Bug Fixes
+
+-   hjelpetekst i tillegsspørsmål for feedback ([af4a523](https://github.com/fremtind/jokul/commit/af4a5232f5933206be339549c7dd00d328ccc6cd))
+
+### Features
+
+-   forenkle bruken av tooltip etter label i text-input ([dd96052](https://github.com/fremtind/jokul/commit/dd96052c7a750ba171d66aefe7cfbbaf91ee63fb))
+-   forenkle bruken av tooltip med FieldGroup ([779eb91](https://github.com/fremtind/jokul/commit/779eb913fa992dac394ee0adf147c34b5b2ee78b))
+
+### BREAKING CHANGES
+
+-   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   -   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   `BaseInputField` er erstattet av `BaseTextInput`.
+-   Du må importere CSS for
+    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+
 ## 14.1.8 (2022-11-22)
 
 ### Bug Fixes

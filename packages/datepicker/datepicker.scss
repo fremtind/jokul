@@ -16,16 +16,13 @@
 
     &__input-wrapper {
         position: relative;
+        display: contents;
     }
 
     & &__input {
         // Juster padding for bedre balanse når det vises tall
         padding-top: calc(var(--jkl-text-input-vertical-padding) + 0.05em);
         padding-bottom: calc(var(--jkl-text-input-vertical-padding) - 0.05em);
-    }
-
-    &__action-button {
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonFace);
     }
 
     &__calendar-wrapper {
@@ -36,7 +33,7 @@
     }
 
     &--open {
-        .jkl-datepicker__input-wrapper {
+        .jkl-text-input-wrapper {
             box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
                 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
             border-color: var(--jkl-text-input-focus-color);
