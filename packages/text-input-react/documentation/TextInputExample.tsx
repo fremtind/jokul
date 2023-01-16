@@ -89,6 +89,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
             action={action}
             unit={unit}
             align="right"
+            width="min(10rem, 100%)"
         />
     );
 };

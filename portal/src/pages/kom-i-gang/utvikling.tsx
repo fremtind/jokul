@@ -27,7 +27,7 @@ const PraktiskInfoUtviklere: FC = () => {
         <MainContent>
             <PageTitle>{pageTitle}</PageTitle>
             <Ingress>
-                Designsystemet blir både en ekstern avhengighet og et prosjekt du er med på å utvikle. Derfor er det et
+                Designsystemet blir både en ekstern avhengighet og et prosjekt du er med på å påvirke. Derfor er det et
                 par ting det kan være verdt å vite om.
             </Ingress>
 
@@ -51,12 +51,11 @@ const PraktiskInfoUtviklere: FC = () => {
                 andre ord <Strong>ikke</Strong> både React- og stilpakken i <InlineCode>package.json</InlineCode>.
             </Paragraph>
 
-            <HeadingLarge>Hvordan er flyten for å få publisert kode?</HeadingLarge>
+            <HeadingLarge>Hvordan starter jeg et prosjekt med Jøkul?</HeadingLarge>
             <Paragraph>
-                Det er en forventning at du er med på utviklingen av Jøkul, så det er lurt å ha et forhold til hvordan
-                kode kommer fra din egen maskin ut i publiserte pakker. Vi har skrevet en egen{" "}
-                <GatsbyLink className="jkl-link" to="/guider/hvordan-endre-jokul">
-                    guide om det her
+                Om du skal lage et helt nytt prosjekt med Jøkul har vi{" "}
+                <GatsbyLink className="jkl-link" to="/guider/utvikler-nytt-prosjekt">
+                    en guide for det
                 </GatsbyLink>
                 .
             </Paragraph>
@@ -140,12 +139,6 @@ const PraktiskInfoUtviklere: FC = () => {
                 <ListItem>
                     <Link href="https://github.com/fremtind/jokul/blob/main/packages/core/MIGRATION.md">MIGRATION</Link>{" "}
                     for hjelp ved <i>breaking changes</i>
-                </ListItem>
-                <ListItem>
-                    Om du skal lage et helt nytt prosjekt med Jøkul har vi{" "}
-                    <GatsbyLink className="jkl-link" to="/guider/utvikler-nytt-prosjekt">
-                        en guide for det
-                    </GatsbyLink>
                 </ListItem>
             </UnorderedList>
             <Paragraph>

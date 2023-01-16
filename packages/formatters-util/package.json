@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-formatters-util",
-    "version": "3.0.19",
+    "version": "3.0.20",
     "publishConfig": {
         "access": "public"
     },
@@ -41,7 +41,7 @@
     },
     "devDependencies": {
         "@fremtind/jkl-button": "^9.0.9",
-        "@fremtind/jkl-text-input": "^10.0.1",
+        "@fremtind/jkl-text-input": "^10.0.2",
         "react-hook-form": "^7.41.3"
     },
     "peerDependencies": {

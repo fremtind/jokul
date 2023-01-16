@@ -63,7 +63,7 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
         ...rest
     } = props;
     return (
-        <div className="jkl-text-input-wrapper" data-invalid={ariaInvalid}>
+        <div className="jkl-text-input-wrapper" data-invalid={ariaInvalid} style={getWidthAsStyle(width)}>
             <input
                 aria-invalid={ariaInvalid}
                 ref={ref}
@@ -91,4 +91,5 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
         </div>
     );
 });
+
 BaseTextInput.displayName = "BaseInputField";
