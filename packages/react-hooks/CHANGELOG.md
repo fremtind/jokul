@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@10.2.8...@fremtind/jkl-react-hooks@10.2.9) (2023-01-16)
+
+### Bug Fixes
+
+- tillat MutableRefObject som target ([4554d72](https://github.com/fremtind/jokul/commit/4554d72aad94102cb22d8cfa32228a04e733c6ae))
+
 ## 10.2.6 (2022-11-22)
 
 ### Bug Fixes
