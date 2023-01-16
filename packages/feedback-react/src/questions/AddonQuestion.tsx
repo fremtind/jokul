@@ -39,12 +39,12 @@ export const AddonQuestion: React.FC<Props> = ({
                 </div>
             )}
             <TextArea
-                inline
                 startOpen
                 rows={4}
                 data-testid="jkl-feedback__open-question"
                 className="jkl-spacing-xl--bottom jkl-spacing-xl--top"
                 label={dynamicLabel}
+                labelProps={{ srOnly: true }}
                 placeholder={dynamicLabel}
                 helpLabel={helpLabel}
                 value={message || ""}

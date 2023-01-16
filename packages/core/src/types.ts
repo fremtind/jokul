@@ -28,7 +28,7 @@ export type ValuePair = {
  * @see https://solverfox.dev/writing/no-implicit-children/
  */
 export interface WithChildren {
-    children: ReactNode;
+    children: ReactNode | ReactNode[];
 }
 
 /**
@@ -45,5 +45,5 @@ export interface WithChildren {
  * @see https://solverfox.dev/writing/no-implicit-children/
  */
 export interface WithOptionalChildren {
-    children?: ReactNode;
+    children?: ReactNode | ReactNode[];
 }

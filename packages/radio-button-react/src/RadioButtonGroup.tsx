@@ -50,7 +50,7 @@ export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
         >
             <FieldGroup
                 errorLabel={errorLabel}
-                labelProps={{ density, ...labelProps }}
+                labelProps={labelProps}
                 data-testid="jkl-radio-button-group"
                 density={density}
                 {...rest}

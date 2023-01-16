@@ -1,5 +1,6 @@
-import { DataTestAutoId, Density, LabelProps } from "@fremtind/jkl-core";
-import { ChangeEvent, KeyboardEvent, FocusEvent, ButtonHTMLAttributes } from "react";
+import type { DataTestAutoId, Density, LabelProps } from "@fremtind/jkl-core";
+import type { InputGroupProps } from "@fremtind/jkl-input-group-react";
+import type { ChangeEvent, KeyboardEvent, FocusEvent, ButtonHTMLAttributes } from "react";
 
 export type DateValidationError = "WRONG_FORMAT" | "OUTSIDE_LOWER_BOUND" | "OUTSIDE_UPPER_BOUND";
 
@@ -29,7 +30,7 @@ export type DatePickerMetadata = {
     value: string;
 };
 
-export interface DatePickerProps extends DataTestAutoId {
+export interface DatePickerProps extends Omit<InputGroupProps, "label" | "children">, DataTestAutoId {
     /** Settes på rotnivå. */
     id?: string;
     /** Settes på rotnivå. */

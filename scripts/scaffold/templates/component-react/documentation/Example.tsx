@@ -4,5 +4,5 @@ import { ScaffoldExample, scaffoldExampleCode, scaffoldExampleKnobs } from "./Sc
 import "../../scaffold/scaffold.scss";
 
 export default function Example() {
-    return <DevExample component={ScaffoldExample} code={scaffoldExampleCode} knobs={scaffoldExampleKnobs} />;
+    return <DevExample component={ScaffoldExample} codeExample={scaffoldExampleCode} knobs={scaffoldExampleKnobs} />;
 }
