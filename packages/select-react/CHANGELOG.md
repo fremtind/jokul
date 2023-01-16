@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@11.2.13...@fremtind/jkl-select-react@12.0.0) (2023-01-16)
+
+### Features
+
+- gjør det enklere å bruke tooltip med Select ([a5fe254](https://github.com/fremtind/jokul/commit/a5fe254e0c31911456a75032610f42537859138a))
+
+### BREAKING CHANGES
+
+- - `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+- Du må importere CSS for
+[input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+
 ## 11.2.13 (2023-01-04)
 
 ### Bug Fixes

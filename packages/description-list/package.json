@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-description-list",
-    "version": "6.0.9",
+    "version": "6.0.10",
     "description": "The description list component is a container whose children is a key-value pair consisting of terms and details.",
     "keywords": [
         "description",
@@ -25,7 +25,7 @@
         "url": "git+https://github.com/fremtind/jokul.git"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.3.0"
+        "@fremtind/jkl-core": "^11.4.0"
     },
     "scripts": {
         "clean": "rimraf .turbo **/*.css",
