@@ -83,7 +83,13 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                                 },
                             })}
                         >
-                            {content}
+                            <span
+                                style={{
+                                    whiteSpace: "normal", // Overstyr nowrap satt for å plassere tooltip riktig etter Label
+                                }}
+                            >
+                                {content}
+                            </span>
                             <span
                                 aria-hidden
                                 className="jkl-tooltip__arrow"

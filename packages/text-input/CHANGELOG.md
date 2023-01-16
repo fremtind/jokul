@@ -7,23 +7,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- tilbakefør animeringen av ekspandering ([c4ade70](https://github.com/fremtind/jokul/commit/c4ade70517c7f930a67f69f587b1e28652a0e891)), closes [#3359](https://github.com/fremtind/jokul/issues/3359)
+-   tilbakefør animeringen av ekspandering ([c4ade70](https://github.com/fremtind/jokul/commit/c4ade70517c7f930a67f69f587b1e28652a0e891)), closes [#3359](https://github.com/fremtind/jokul/issues/3359)
 
 ## 10.0.1 (2022-12-20)
 
 ### Bug Fixes
 
-- unngå at placeholder plasseres oppå border ([24be418](https://github.com/fremtind/jokul/commit/24be41863bfa2cf68613907938b2e276d33d637b)), closes [#3321](https://github.com/fremtind/jokul/issues/3321)
+-   unngå at placeholder plasseres oppå border ([24be418](https://github.com/fremtind/jokul/commit/24be41863bfa2cf68613907938b2e276d33d637b)), closes [#3321](https://github.com/fremtind/jokul/issues/3321)
 
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@9.1.12...@fremtind/jkl-text-input@10.0.0) (2022-12-05)
 
 ### Features
 
-- legg til mulighet for benevnelse i text-input ([dd7cf6a](https://github.com/fremtind/jokul/commit/dd7cf6a441529981aebcbf3dccf3b62bf810c5a6))
+-   legg til mulighet for benevnelse i text-input ([dd7cf6a](https://github.com/fremtind/jokul/commit/dd7cf6a441529981aebcbf3dccf3b62bf810c5a6))
 
 ### BREAKING CHANGES
 
-- Endrede klassenavn og til dels endret DOM-struktur. Se MIGRATION.md for detaljer.
+-   Endrede klassenavn og til dels endret DOM-struktur. Se MIGRATION.md for detaljer.
 
 ## 9.1.11 (2022-11-22)
 

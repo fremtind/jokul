@@ -248,6 +248,7 @@ $_text-input-selection-color--inverted: color.scale(
     &__input {
         @include _shared-input-styles;
         padding: var(--jkl-text-input-padding);
+        width: 100%;
 
         &--align-right {
             text-align: right;

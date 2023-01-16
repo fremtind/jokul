@@ -129,8 +129,8 @@ export const ContactQuestion: FC<Props> = ({
             <TextInput
                 ref={emailRef}
                 className="jkl-spacing-l--top"
-                variant="small"
                 label="E-post"
+                labelProps={{ variant: "small" }}
                 autoComplete="email"
                 name="email"
                 value={email}
@@ -141,8 +141,8 @@ export const ContactQuestion: FC<Props> = ({
                 <TextInput
                     ref={phoneRef}
                     className="jkl-spacing-l--top"
-                    variant="small"
                     label="Telefonnummer"
+                    labelProps={{ variant: "small" }}
                     autoComplete="tel"
                     name="phone"
                     value={phone}

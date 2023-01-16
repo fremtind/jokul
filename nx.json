@@ -8,13 +8,30 @@
             }
         }
     },
+    "namedInputs": {
+        "packages": ["{workspaceRoot}/packages/*/build/*", "{workspaceRoot}/packages/*/*.css"],
+        "documentation": ["{workspaceRoot}/packages/**/documentation/**/*"],
+        "portal": [
+            "{workspaceRoot}/portal/images/**/*",
+            "{workspaceRoot}/portal/src/**/*",
+            "{workspaceRoot}/portal/static/**/*",
+            "{workspaceRoot}/portal/gatsby-*",
+            "{workspaceRoot}/portal/package.json"
+        ]
+    },
     "targetDefaults": {
         "build": {
             "dependsOn": ["^build"],
             "outputs": ["{projectRoot}/build", "{projectRoot}/*.css"]
         },
         "build:docs": {
-            "inputs": [{ "env": "PREVIEW_PATH" }, { "env": "MIXPANEL_PROJECT_ID" }],
+            "inputs": [
+                "packages",
+                "documentation",
+                "portal",
+                { "env": "PREVIEW_PATH" },
+                { "env": "MIXPANEL_PROJECT_ID" }
+            ],
             "dependsOn": ["build"],
             "outputs": ["{workspaceRoot}/portal/public", "{workspaceRoot}/portal/.cache"]
         }

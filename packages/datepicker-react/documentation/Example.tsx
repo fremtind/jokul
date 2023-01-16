@@ -4,8 +4,10 @@ import { DatepickerExample, datepickerExampleKnobs, datepickerExampleCode } from
 import "../../core/core.scss";
 import "../../datepicker/datepicker.scss";
 import "../../icon-button/icon-button.scss";
-import "../../text-input/text-input.scss";
+import "../../input-group/input-group.scss";
 import "../../select/select.scss";
+import "../../text-input/text-input.scss";
+import "../../tooltip/tooltip.scss";
 
 export default function Example() {
     return (

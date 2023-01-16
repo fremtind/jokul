@@ -1,4 +1,3 @@
-import { NON_BREAKING_SPACE } from "@fremtind/jkl-constants-util/src/unicode";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { formatValuta } from "../../formatters-util/src";
@@ -26,16 +25,19 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues, displa
 
     return (
         <p className={`jkl-${typo.toLowerCase().replace(/ /g, "-")}`}>
-            Du betaler 348 kr/mnd{NON_BREAKING_SPACE}
-            <Tooltip
-                content={
-                    <span>
-                        Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
-                        <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
-                    </span>
-                }
-                {...(initialPlacement && { initialPlacement })}
-            />
+            Du betaler{" "}
+            <span style={{ whiteSpace: "nowrap" }}>
+                348 kr/mnd{" "}
+                <Tooltip
+                    content={
+                        <span>
+                            Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
+                            <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
+                        </span>
+                    }
+                    {...(initialPlacement && { initialPlacement })}
+                />
+            </span>
         </p>
     );
 };
@@ -59,15 +61,18 @@ export const tooltipExampleCode = ({ choiceValues, displayValues }: ExampleCompo
     const typo: string = displayValues?.density === "compact" ? "small" : choiceValues?.["Typografinivå"] || "body";
 
     return `<p className={jkl-${typo.toLowerCase().replace(/ /g, "-")}}>
-    Du betaler 348 kr/mnd{NON_BREAKING_SPACE}
-    <Tooltip
-        content={
-            <span>
-                Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
-                <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
-            </span>
-        }
-        placement={${initialPlacement}}
-    />
+    Du betaler{" "}
+    <span style={{ whiteSpace: "nowrap" }}>
+        348 kr/mnd{" "}
+        <Tooltip
+            content={
+                <span>
+                    Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
+                    <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
+                </span>
+            }
+            placement={${initialPlacement}}
+        />
+    </span>
 </p>>`;
 };

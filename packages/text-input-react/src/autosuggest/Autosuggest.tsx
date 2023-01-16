@@ -1,13 +1,14 @@
-import { Density, LabelProps } from "@fremtind/jkl-core";
-import { StateChangeOptions } from "downshift";
-import React, { ReactNode, useEffect, useState } from "react";
+import type { Density, LabelProps, SupportLabelProps } from "@fremtind/jkl-core";
+import type { TooltipProps } from "@fremtind/jkl-tooltip-react";
+import type { StateChangeOptions } from "downshift";
+import React, { type ReactNode, useEffect, useState } from "react";
 import BaseAutosuggest from "./BaseAutosuggest";
 import { filter } from "./utils";
 
 export type CommonProps = (
     | {
           label: string;
-          labelProps?: Omit<LabelProps, "children" | "standAlone">;
+          labelProps?: Omit<LabelProps, "children" | "density" | "htmlFor" | "standAlone">;
           inputId?: null;
           labelId?: null;
       }
@@ -24,6 +25,8 @@ export type CommonProps = (
     leadText?: string;
     errorLabel?: string;
     helpLabel?: string;
+    supportLabelProps?: Omit<SupportLabelProps, "id" | "errorLabel" | "helpLabel" | "density">;
+    tooltipProps?: TooltipProps;
     variant?: "large" | "medium" | "small";
     density?: Density;
     placeholder?: string;
