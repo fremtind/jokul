@@ -769,14 +769,22 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^11.4.0
       '@fremtind/jkl-expand-button-react': ^4.0.17
+      '@fremtind/jkl-icon-button-react': ^2.0.19
+      '@fremtind/jkl-icons-react': ^6.0.11
       '@fremtind/jkl-react-hooks': ^10.2.9
+      '@fremtind/jkl-select-react': ^12.0.1
       '@fremtind/jkl-table': ^7.1.4
+      '@fremtind/jkl-text-input-react': ^12.0.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-expand-button-react': link:../expand-button-react
+      '@fremtind/jkl-icon-button-react': link:../icon-button-react
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
+      '@fremtind/jkl-select-react': link:../select-react
       '@fremtind/jkl-table': link:../table
+      '@fremtind/jkl-text-input-react': link:../text-input-react
       classnames: 2.3.2
 
   packages/tabs:

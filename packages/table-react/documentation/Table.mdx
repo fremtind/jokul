@@ -24,6 +24,7 @@ import MobileListTableExample, {
     mobileListTableExampleKnobs,
 } from "./MobileListTableExample";
 import StickyTableExample, { stickyTableExampleCode } from "./StickyTableExample";
+import { PaginatedTableExample, paginatedTableExampleCode, paginatedTableExamplesProps } from "./PaginatedTableExample";
 
 <Ingress>Vi bruker tabeller for å vise data på en ordnet måte som gjør sammenlikning enkelt.</Ingress>
 
@@ -401,4 +402,14 @@ Tabellens header blir festet til toppen av skjermen og flyter over tabellinnhold
     title="Tabell med sticky header"
     component={StickyTableExample}
     codeExample={stickyTableExampleCode}
+/>
+
+### Paginering
+
+<ComponentExample
+    scrollable={true}
+    title="Tabell med paginering"
+    component={PaginatedTableExample}
+    knobs={paginatedTableExamplesProps}
+    codeExample={paginatedTableExampleCode}
 />
