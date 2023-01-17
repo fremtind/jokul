@@ -1,4 +1,5 @@
-import { Density, SupportLabel, WithChildren } from "@fremtind/jkl-core";
+import type { Density, WithChildren } from "@fremtind/jkl-core";
+import { SupportLabel } from "@fremtind/jkl-input-group-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { MouseEventHandler, FC } from "react";
