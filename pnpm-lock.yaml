@@ -392,6 +392,7 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^11.4.0
       '@fremtind/jkl-datepicker': ^10.0.3
+      '@fremtind/jkl-icons-react': ^6.0.10
       '@fremtind/jkl-input-group-react': ^1.0.1
       '@fremtind/jkl-react-hooks': ^10.2.9
       '@fremtind/jkl-select-react': ^12.0.1
@@ -402,6 +403,7 @@ importers:
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-datepicker': link:../datepicker
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-input-group-react': link:../input-group-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-select-react': link:../select-react
@@ -684,13 +686,13 @@ importers:
   packages/message-box-react:
     specifiers:
       '@fremtind/jkl-core': ^11.4.0
-      '@fremtind/jkl-icons-react': 6.0.10
+      '@fremtind/jkl-icons-react': ^6.0.10
       '@fremtind/jkl-message-box': ^7.0.10
       '@fremtind/jkl-react-hooks': ^10.2.9
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
-      '@fremtind/jkl-icons-react': 6.0.10
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-message-box': link:../message-box
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
@@ -851,19 +853,22 @@ importers:
       '@fremtind/jkl-input-group-react': ^1.0.1
       '@fremtind/jkl-react-hooks': ^10.2.9
       '@fremtind/jkl-text-input': ^10.0.3
+      '@fremtind/jkl-tooltip-react': ^1.0.24
       classnames: ^2.3.2
       downshift: ^7.0.5
       match-sorter: ^6.3.1
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
-      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-input-group-react': link:../input-group-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-text-input': link:../text-input
       classnames: 2.3.2
       downshift: 7.0.5
       match-sorter: 6.3.1
+    devDependencies:
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-tooltip-react': link:../tooltip-react
 
   packages/toggle-switch:
     specifiers:
