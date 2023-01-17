@@ -481,28 +481,6 @@ importers:
       '@fremtind/jkl-validators-util': link:../validators-util
       classnames: 2.3.2
 
-  packages/field-group:
-    specifiers:
-      '@fremtind/jkl-core': ^11.4.0
-    dependencies:
-      '@fremtind/jkl-core': link:../core
-
-  packages/field-group-react:
-    specifiers:
-      '@fremtind/jkl-core': ^11.4.0
-      '@fremtind/jkl-field-group': ^6.0.10
-      '@fremtind/jkl-input-group-react': ^1.0.1
-      '@fremtind/jkl-react-hooks': ^10.2.9
-      '@fremtind/jkl-tooltip-react': ^1.0.24
-      classnames: ^2.3.2
-    dependencies:
-      '@fremtind/jkl-core': link:../core
-      '@fremtind/jkl-field-group': link:../field-group
-      '@fremtind/jkl-input-group-react': link:../input-group-react
-      '@fremtind/jkl-react-hooks': link:../react-hooks
-      '@fremtind/jkl-tooltip-react': link:../tooltip-react
-      classnames: 2.3.2
-
   packages/footer:
     specifiers:
       '@fremtind/jkl-core': ^11.4.0
