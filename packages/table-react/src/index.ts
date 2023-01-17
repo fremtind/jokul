@@ -10,6 +10,7 @@ export { useTableSectionContext, TableSectionContextProvider } from "./tableSect
 export { TableFooter } from "./TableFooter";
 export { TableHead } from "./TableHead";
 export { TableHeader } from "./TableHeader";
+export { TablePagination } from "./TablePagination";
 export { TableRow } from "./TableRow";
 export { ExpandableTableRow } from "./ExpandableTableRow";
 export { ExpandableTableRowController } from "./ExpandableTableRowController";
@@ -26,6 +27,7 @@ export type { TableSectionContextProviderProps } from "./tableSectionContext";
 export type { TableFooterProps } from "./TableFooter";
 export type { TableHeadProps } from "./TableHead";
 export type { TableHeaderProps } from "./TableHeader";
+export type { TablePaginationProps } from "./TablePagination";
 export type { TableRowProps } from "./TableRow";
 export type { ExpandableTableRowProps } from "./ExpandableTableRow";
 export type { ExpandableTableRowControllerProps } from "./ExpandableTableRowController";
