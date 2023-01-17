@@ -461,7 +461,7 @@ importers:
       '@fremtind/jkl-checkbox-react': ^9.0.1
       '@fremtind/jkl-core': ^11.4.0
       '@fremtind/jkl-feedback': ^11.0.10
-      '@fremtind/jkl-field-group-react': ^8.0.1
+      '@fremtind/jkl-input-group-react': ^1.0.1
       '@fremtind/jkl-message-box-react': ^9.0.11
       '@fremtind/jkl-radio-button-react': ^9.0.1
       '@fremtind/jkl-react-hooks': ^10.2.9
@@ -473,7 +473,7 @@ importers:
       '@fremtind/jkl-checkbox-react': link:../checkbox-react
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-feedback': link:../feedback
-      '@fremtind/jkl-field-group-react': link:../field-group-react
+      '@fremtind/jkl-input-group-react': link:../input-group-react
       '@fremtind/jkl-message-box-react': link:../message-box-react
       '@fremtind/jkl-radio-button-react': link:../radio-button-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
