@@ -51,54 +51,18 @@ $_focus-ring-width: jkl.rem(2px);
 
     &__button {
         @include jkl.reset-outline;
-        @include jkl.text-style("small");
         @include jkl.motion("exit", "snappy");
-        transition-property: border-color, color;
-        height: var(--jkl-tooltip-size);
-        width: var(--jkl-tooltip-size);
-        padding: 0;
-        background-color: transparent;
-        border: $_tooltip-border-width solid var(--jkl-tooltip-button-color);
-        border-radius: 9999px;
-        color: var(--jkl-tooltip-button-color);
+        transition-property: color;
         cursor: pointer;
-        position: relative;
-
-        &::after {
-            @include jkl.motion("exit", "snappy");
-            transition-property: box-shadow;
-
-            content: "";
-            position: absolute;
-            top: -($_tooltip-border-width + $_focus-ring-distance);
-            right: -($_tooltip-border-width + $_focus-ring-distance);
-            bottom: -($_tooltip-border-width + $_focus-ring-distance);
-            left: -($_tooltip-border-width + $_focus-ring-distance);
-            border-radius: 9999px;
-            box-shadow: 0 0 0 $_focus-ring-width transparent;
-        }
-
-        /* Plasser knappen i forhold til teksten */
-
-        /* Visuelt sentrer spørsmålstegn */
-        display: flex;
+        background-color: transparent;
+        padding: 0;
+        display: inline-flex;
         align-items: center;
-        justify-content: center;
+        color: var(--jkl-tooltip-button-color);
 
-        & > span {
-            margin-top: jkl.$spacing-3xs;
-        }
-
-        /* Visuelt sentrer spørsmålstegn */
-
-        &:hover,
-        &:focus {
-            border-color: var(--jkl-tooltip-active-button-color);
+        &:focus,
+        &:hover {
             color: var(--jkl-tooltip-active-button-color);
-
-            &::after {
-                box-shadow: 0 0 0 $_focus-ring-width var(--jkl-tooltip-active-button-color);
-            }
         }
     }
 
