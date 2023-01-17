@@ -1,13 +1,14 @@
 import React from "react";
 import { hydrateRoot } from "react-dom/client";
 import { initTabListener } from "../packages/core";
-import "../packages/core/core.scss";
-import "../packages/webfonts/documentation/internal.scss";
-import "../packages/radio-button/radio-button.scss";
 import "../packages/checkbox/checkbox.scss";
+import "../packages/core/core.scss";
 import "../packages/expand-button/expand-button.scss";
 import "../packages/icons/icons.scss";
+import "../packages/input-group/input-group.scss";
+import "../packages/radio-button/radio-button.scss";
 import "../packages/select/select.scss";
+import "../packages/webfonts/documentation/internal.scss";
 
 export type HydrateClientOptions = {
     rootId: string;
