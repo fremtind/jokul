@@ -1,4 +1,4 @@
-import { LabelVariant } from "@fremtind/jkl-core";
+import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { RadioButtonGroup, RadioButton } from "../src";
