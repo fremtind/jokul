@@ -1,6 +1,6 @@
-import { ValuePair, getValuePair, DataTestAutoId, LabelProps, Density } from "@fremtind/jkl-core";
+import { ValuePair, getValuePair, DataTestAutoId, Density } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
-import { InputGroup } from "@fremtind/jkl-input-group-react";
+import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
