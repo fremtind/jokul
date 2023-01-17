@@ -14,9 +14,11 @@ import { Select } from "@fremtind/jkl-select-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-select/select.min.css";
+import "@fremtind/jkl-icons/icons.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-select/select";
+@use "@fremtind/jkl-icons/icons";
 ```

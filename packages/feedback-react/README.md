@@ -21,6 +21,10 @@ import "@fremtind/jkl-input-group/input-group.min-css";
 import "@fremtind/jkl-message-box/message-box.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
+
+// For enkelte features må du også ha denne CSSen importert:
+import "@fremtind/jkl-icons/icons.min.css";
+import "@fremtind/jkl-tooltip/tooltip.min.css";
 ```
 
 ```scss
@@ -31,4 +35,7 @@ import "@fremtind/jkl-text-input/text-input.min.css";
 @use "@fremtind/jkl-message-box/message-box";
 @use "@fremtind/jkl-radio-button/radio-button";
 @use "@fremtind/jkl-text-input/text-input";
+
+@use "@fremtind/jkl-icons/icons";
+@use "@fremtind/jkl-tooltip/tooltip";
 ```
