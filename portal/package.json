@@ -23,7 +23,6 @@
         "@fremtind/jkl-description-list-react": "^6.0.11",
         "@fremtind/jkl-expand-button-react": "^4.0.17",
         "@fremtind/jkl-feedback-react": "^15.0.1",
-        "@fremtind/jkl-field-group-react": "^8.0.1",
         "@fremtind/jkl-footer-react": "^3.0.27",
         "@fremtind/jkl-formatters-util": "^3.0.22",
         "@fremtind/jkl-hamburger-react": "^10.0.15",

@@ -1,8 +1,8 @@
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { DatePicker, formatInput, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { formatDate } from "@fremtind/jkl-formatters-util";
+import { FieldGroup } from "@fremtind/jkl-input-group-react";
 import { FormErrorMessageBox } from "@fremtind/jkl-message-box-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";

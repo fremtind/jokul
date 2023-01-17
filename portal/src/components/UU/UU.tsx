@@ -1,7 +1,8 @@
 import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { Link } from "@fremtind/jkl-core";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { CloseIcon } from "@fremtind/jkl-icons-react";
+import { FieldGroup } from "@fremtind/jkl-input-group-react";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Tag } from "@fremtind/jkl-tag-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
@@ -129,7 +130,7 @@ export const UU: FC = () => {
                     value={search}
                     onChange={onSearchChange}
                     className="uu__filter-search"
-                    action={hasFilter ? { icon: "clear", label: "Fjern søk", onClick: handleClear } : undefined}
+                    action={hasFilter ? { icon: <CloseIcon />, label: "Fjern søk", onClick: handleClear } : undefined}
                     aria-label="Søk i artikler"
                 />
 
