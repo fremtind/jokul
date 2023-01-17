@@ -1,5 +1,5 @@
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { SearchIcon } from "@fremtind/jkl-icons-react";
+import { SearchIcon, CloseIcon } from "@fremtind/jkl-icons-react";
 import React, { FC } from "react";
 
 interface Props {
@@ -16,7 +16,7 @@ const ControllerButton: FC<Props> = ({ hasSelectedItem, clearSelection, onClick,
         title={hasSelectedItem ? "Fjern valg" : "Vis valg"}
         onClick={hasSelectedItem ? clearSelection : onClick}
     >
-        {hasSelectedItem ? <>TODO</> : <SearchIcon />}
+        {hasSelectedItem ? <CloseIcon /> : <SearchIcon />}
     </IconButton>
 );
 
