@@ -1,5 +1,5 @@
 import { LabelVariant, Link } from "@fremtind/jkl-core";
-import { SearchIcon } from "@fremtind/jkl-icons-react";
+import { CloseIcon } from "@fremtind/jkl-icons-react";
 import React, { useState, ChangeEvent, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { type Action } from "../src/BaseTextInput";
@@ -50,8 +50,8 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
     const variant = choiceValues?.["Variant"] as LabelVariant;
     const action = boolValues?.["Med handling"]
         ? ({
-              icon: <SearchIcon />,
-              label: "Søk",
+              icon: <CloseIcon />,
+              label: "Nullstill feltet",
               onClick: () => setValue(""),
           } as Action)
         : undefined;
@@ -131,7 +131,7 @@ export const textInputExampleCode = ({ choiceValues, boolValues }: ExampleCompon
     action={${
         boolValues?.["Med handling"]
             ? `{
-        icon: "clear",
+        icon: <CloseIcon />,
         label: "Nullstill feltet",
         onClick: () => setValue(""),
     }`
