@@ -14,6 +14,7 @@ import { FieldGroup } from "@fremtind/jkl-field-group-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-field-group/field-group.min.css";
+import "@fremtind/jkl-input-group/input-group.min.css";
 
 // For enkelte features må du også ha denne CSSen importert.
 import "@fremtind/jkl-tooltip/tooltip.min.css";
@@ -22,4 +23,5 @@ import "@fremtind/jkl-tooltip/tooltip.min.css";
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-field-group/field-group";
+@use "@fremtind/jkl-input-group/input-group";
 ```

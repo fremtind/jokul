@@ -1,5 +1,5 @@
-import type { Density, LabelProps, SupportLabelProps } from "@fremtind/jkl-core";
-import { Label, SupportLabel, DataTestAutoId } from "@fremtind/jkl-core";
+import type { Density, DataTestAutoId } from "@fremtind/jkl-core";
+import { Label, type LabelProps, SupportLabel, type SupportLabelProps } from "@fremtind/jkl-input-group-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { Tooltip, type TooltipProps } from "@fremtind/jkl-tooltip-react";
 import cn from "classnames";

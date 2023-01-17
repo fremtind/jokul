@@ -1,4 +1,5 @@
-import { LabelVariant, Link } from "@fremtind/jkl-core";
+import { Link } from "@fremtind/jkl-core";
+import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { FC } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { FieldGroup } from "../src/index";
