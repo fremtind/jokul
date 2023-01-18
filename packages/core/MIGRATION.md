@@ -1,5 +1,28 @@
 # Migrasjonsguide
 
+## Til `jkl-core@12.0.0` - Flytting av labels og ikonstiler
+
+Fra versjon 12 av `jkl-core` er komponentene `Label` og `SupportLabel`, samt deres stiler og typer, flyttet til `jkl-input-group` og `jkl-input-group-react`. I tillegg er stilene for ikonene våre flyttet ut til ikon-pakken.
+
+Det betyr at du nå må huske å importere stilarkene til `input-group` og `icons` i prosjektet ditt, samt `input-group-react` dersom du bruker `Label` eller `SupportLabel` direkte.
+
+```ts
+import "@fremtind/jkl-core/core.min.css";
+// Legg til disse importene:
+import "@fremtind/jkl-icons/icons.min.css";
+import "@fremtind/jkl-input-group/input-group.min.css";
+```
+
+### Dersom du bruker `Label` eller `SupportLabel` direkte:
+
+```tsx
+// Tidligere:
+// import { Label, SupportLabel } from "@fremtind/jkl-core";
+
+import { Label, SupportLabel } from "@fremtind/jkl-input-group-react";
+import "@fremtind/jkl-input-group/input-group.min.css";
+```
+
 ## Til `jkl-core@11.0.0` – Compact Reboot
 
 Denne majoren av Core har noen breaking changes for brukerne av **compact** og de som måtte bruke **kun CSS** av Select og Accordion.
