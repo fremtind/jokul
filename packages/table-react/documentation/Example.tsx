@@ -14,6 +14,7 @@ import MobileListTableExample, {
 } from "./MobileListTableExample";
 import MobileScrollTableExample, { mobileScrollTableExampleCode } from "./MobileScrollTableExample";
 import { PaginatedTableExample, paginatedTableExampleCode, paginatedTableExamplesProps } from "./PaginatedTableExample";
+import { SortableTableExample, sortableTableExampleCode, sortableTableExamplesProps } from "./SortableTableExample";
 import StickyTableExample, { stickyTableExampleCode } from "./StickyTableExample";
 import "../../table/table.scss";
 import "../../button/button.scss";
@@ -87,6 +88,13 @@ export default function Example() {
                 component={PaginatedTableExample}
                 knobs={paginatedTableExamplesProps}
                 codeExample={paginatedTableExampleCode}
+            />
+            <DevExample
+                scrollable={true}
+                title="Sorterbar"
+                component={SortableTableExample}
+                knobs={sortableTableExamplesProps}
+                codeExample={sortableTableExampleCode}
             />
         </>
     );
