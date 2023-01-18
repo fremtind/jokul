@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,7 +7,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- reduser z-index for label til det minste nødvendige ([d344ffa](https://github.com/fremtind/jokul/commit/d344ffabaa49da706db3689820d0d89e144f0b38))
+-   reduser z-index for label til det minste nødvendige ([d344ffa](https://github.com/fremtind/jokul/commit/d344ffabaa49da706db3689820d0d89e144f0b38))
 
 ## 10.0.8 (2022-11-22)
 
