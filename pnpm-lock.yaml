@@ -201,7 +201,7 @@ importers:
     specifiers:
       '@fremtind/jkl-accordion': ^9.0.7
       '@fremtind/jkl-core': ^11.4.0
-      '@fremtind/jkl-icons-react': ^6.0.10
+      '@fremtind/jkl-icons-react': ^6.0.11
       '@fremtind/jkl-list-react': ^8.0.12
       '@fremtind/jkl-react-hooks': ^10.2.9
       classnames: ^2.3.2
@@ -224,7 +224,7 @@ importers:
     specifiers:
       '@fremtind/jkl-alert-message': ^7.0.11
       '@fremtind/jkl-core': ^11.4.0
-      '@fremtind/jkl-icons-react': ^6.0.10
+      '@fremtind/jkl-icons-react': ^6.0.11
       '@fremtind/jkl-react-hooks': ^10.2.9
       classnames: ^2.3.2
     dependencies:
@@ -392,7 +392,7 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^11.4.0
       '@fremtind/jkl-datepicker': ^10.0.3
-      '@fremtind/jkl-icons-react': ^6.0.10
+      '@fremtind/jkl-icons-react': ^6.0.11
       '@fremtind/jkl-input-group-react': ^1.0.1
       '@fremtind/jkl-react-hooks': ^10.2.9
       '@fremtind/jkl-select-react': ^12.0.1
@@ -666,7 +666,7 @@ importers:
   packages/message-box-react:
     specifiers:
       '@fremtind/jkl-core': ^11.4.0
-      '@fremtind/jkl-icons-react': ^6.0.10
+      '@fremtind/jkl-icons-react': ^6.0.11
       '@fremtind/jkl-message-box': ^7.0.10
       '@fremtind/jkl-react-hooks': ^10.2.9
       classnames: ^2.3.2
@@ -715,14 +715,14 @@ importers:
     specifiers:
       '@fremtind/jkl-accordion-react': ^8.0.15
       '@fremtind/jkl-core': ^11.4.0
-      '@fremtind/jkl-icons-react': 6.0.10
+      '@fremtind/jkl-icons-react': ^6.0.11
       '@fremtind/jkl-input-group-react': ^1.0.1
       '@fremtind/jkl-react-hooks': ^10.2.9
       '@fremtind/jkl-select': ^9.2.8
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
-      '@fremtind/jkl-icons-react': 6.0.10
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-input-group-react': link:../input-group-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-select': link:../select
@@ -809,7 +809,7 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^11.4.0
       '@fremtind/jkl-icon-button-react': ^2.0.19
-      '@fremtind/jkl-icons-react': ^6.0.10
+      '@fremtind/jkl-icons-react': ^6.0.11
       '@fremtind/jkl-tag': ^3.0.10
       classnames: ^2.3.2
     dependencies:
@@ -829,7 +829,7 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^11.4.0
       '@fremtind/jkl-icon-button-react': ^2.0.19
-      '@fremtind/jkl-icons-react': ^6.0.10
+      '@fremtind/jkl-icons-react': ^6.0.11
       '@fremtind/jkl-input-group-react': ^1.0.1
       '@fremtind/jkl-react-hooks': ^10.2.9
       '@fremtind/jkl-text-input': ^10.0.3
@@ -2931,41 +2931,6 @@ packages:
       react-dom: '>=16.8.0'
     dependencies:
       '@floating-ui/dom': 1.1.0
-    dev: false
-
-  /@fremtind/jkl-core/11.4.0:
-    resolution: {integrity: sha512-278WmOwjXvNlE5sXU4UDeyqnGwSxQl5cPXg33LGhGoHfGyYfUfK3SFnw/UbBPsKObpmRKhKmnlPPess7mc2IRg==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      classnames: 2.3.2
-    dev: false
-
-  /@fremtind/jkl-icons-react/6.0.10:
-    resolution: {integrity: sha512-YHKJKMQYsGPYwbfcbwU6o2FDCXnFquWAFwBwN5WF0sVI79bcfo0+IlyXgv178Fw601crqh0IRXjmYrOagCo7Iw==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 11.4.0
-      '@fremtind/jkl-icons': 6.0.10
-      classnames: 2.3.2
-    dev: false
-
-  /@fremtind/jkl-icons/6.0.10:
-    resolution: {integrity: sha512-Ygr4Zl/79h3s4tanjpIhH3ik49eDoPbwDTfdU2nymH8Y/fhT+kYrgi5lnAWqSfz+QxqOPoct7MxSdnYdF5T0ng==}
-    dependencies:
-      '@fremtind/jkl-core': 11.4.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
     dev: false
 
   /@frsource/base64/1.0.4:
