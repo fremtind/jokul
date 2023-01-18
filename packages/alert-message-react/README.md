@@ -22,5 +22,5 @@ import "@fremtind/jkl-icons/icons.min.css";
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-alert-message/alert-message";
 // AlertMessage bruker ikonpakken og må ha stilene dens
-@use "@fremtind/jkl-icons/icons.min.css";
+@use "@fremtind/jkl-icons/icons";
 ```

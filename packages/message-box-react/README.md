@@ -22,5 +22,5 @@ import "@fremtind/jkl-icons/icons.min.css";
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-message-box/message-box";
 // Komponenten trenger stilarket til ikonpakka for å vises riktig
-@use "@fremtind/jkl-icons/icons.min.css";
+@use "@fremtind/jkl-icons/icons";
 ```

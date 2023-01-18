@@ -82,7 +82,7 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
                     width="10ch"
                 />
             )}
-            <IconsExampleGrid style={{ fontSize }} columns="two">
+            <IconsExampleGrid style={{ fontSize }} columns="four">
                 {allIcons.map((Ico) => (
                     <IconExample
                         key={Ico.name}
