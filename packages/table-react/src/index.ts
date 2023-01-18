@@ -26,7 +26,7 @@ export type { TableContextProviderProps } from "./tableContext";
 export type { TableSectionContextProviderProps } from "./tableSectionContext";
 export type { TableFooterProps } from "./TableFooter";
 export type { TableHeadProps } from "./TableHead";
-export type { TableHeaderProps } from "./TableHeader";
+export type { TableHeaderProps, TableSortDirection } from "./TableHeader";
 export type { TablePaginationProps } from "./TablePagination";
 export type { TableRowProps } from "./TableRow";
 export type { ExpandableTableRowProps } from "./ExpandableTableRow";

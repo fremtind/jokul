@@ -27,8 +27,33 @@
         font-weight: jkl.$typography-weight-bold;
     }
 
+    &--sortable {
+        cursor: pointer;
+        user-select: none;
+    }
+
     &--sr-only {
         @include jkl.screenreader-only;
+    }
+
+    &__arrows {
+        @include jkl.motion("entrance", "energetic");
+        transition-property: opacity;
+        display: inline-block;
+        margin-bottom: jkl.$spacing-2;
+        margin-left: jkl.$spacing-4;
+        vertical-align: middle;
+        opacity: 0;
+
+        // Via jkl-icon--inherit. Duplisert her for å få en konstant bredde på
+        // kolonnen så vi unngår layout shifts når man bytter kolonnen det sorteres
+        // på. Wrapperen er nødvendig for at vi skal unngå at pila animeres i det
+        // man skifter kolonne (den må være u-rendret fram til kolonnen blir sortert).
+        width: calc(1em / 20 * 24);
+
+        &--active {
+            opacity: 1;
+        }
     }
 
     @mixin _responsive-table-header {
