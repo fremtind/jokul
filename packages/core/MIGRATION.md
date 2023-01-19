@@ -4,11 +4,12 @@
 
 Fra versjon 12 av `jkl-core` er komponentene `Label` og `SupportLabel`, samt deres stiler og typer, flyttet til `jkl-input-group` og `jkl-input-group-react`. I tillegg er stilene for ikonene våre flyttet ut til ikon-pakken.
 
-Det betyr at du nå må huske å importere stilarkene til `input-group` og `icons` i prosjektet ditt, samt `input-group-react` dersom du bruker `Label` eller `SupportLabel` direkte.
+Du må importere stilarkene til `input-group` og `icons` i prosjektet ditt, samt `input-group-react` dersom du bruker `Label` eller `SupportLabel` direkte.
 
 ```ts
 import "@fremtind/jkl-core/core.min.css";
 // Legg til disse importene:
+// icons.min.css inneholder også stiler for animerte ikoner, animated-icons.min.css finnes ikke lenger
 import "@fremtind/jkl-icons/icons.min.css";
 import "@fremtind/jkl-input-group/input-group.min.css";
 ```
