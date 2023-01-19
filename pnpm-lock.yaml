@@ -840,15 +840,14 @@ importers:
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-input-group-react': link:../input-group-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-text-input': link:../text-input
+      '@fremtind/jkl-tooltip-react': link:../tooltip-react
       classnames: 2.3.2
       downshift: 7.0.5
       match-sorter: 6.3.1
-    devDependencies:
-      '@fremtind/jkl-icons-react': link:../icons-react
-      '@fremtind/jkl-tooltip-react': link:../tooltip-react
 
   packages/toggle-switch:
     specifiers:
@@ -859,7 +858,7 @@ importers:
   packages/toggle-switch-react:
     specifiers:
       '@fremtind/jkl-core': ^11.4.0
-      '@fremtind/jkl-input-group-react': 1.0.1
+      '@fremtind/jkl-input-group-react': ^1.0.1
       '@fremtind/jkl-react-hooks': ^10.2.9
       '@fremtind/jkl-toggle-switch': ^10.0.11
       classnames: ^2.3.2
