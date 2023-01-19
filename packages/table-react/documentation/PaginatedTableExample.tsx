@@ -43,11 +43,7 @@ export const PaginatedTableExample: FC<ExampleComponentProps> = ({ boolValues, c
                 {visibleRows.map((row, rowIndex) => (
                     <TableRow key={rowIndex}>
                         {row.map((cell, cellIndex) => (
-                            <TableCell
-                                key={cellIndex}
-                                data-th={columns[cellIndex]}
-                                align={[1, 2].includes(cellIndex) ? "right" : "left"}
-                            >
+                            <TableCell key={cellIndex} data-th={columns[cellIndex]}>
                                 {cell}
                             </TableCell>
                         ))}
