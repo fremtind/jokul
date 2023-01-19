@@ -33,7 +33,7 @@ const ActionTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
             <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (
-                        <TableHeader key={column} density="compact" bold>
+                        <TableHeader key={column} bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -71,7 +71,7 @@ export const actionTableExampleCode = ({ boolValues, choiceValues }: ExampleComp
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>
             {headings.map((column) => (
-                <TableHeader key={column} density="compact" bold>
+                <TableHeader key={column} bold>
                     {column}
                 </TableHeader>
             ))}

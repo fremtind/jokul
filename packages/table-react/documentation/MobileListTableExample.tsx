@@ -29,7 +29,7 @@ const MobileListTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => 
             <TableHead>
                 <TableRow>
                     {columns.map((column, index) => (
-                        <TableHeader key={index} density="compact" bold>
+                        <TableHeader key={index} bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -62,7 +62,7 @@ export const mobileListTableExampleCode = ({ choiceValues }: ExampleComponentPro
     <TableHead>
         <TableRow>
             {columns.map((column, index) => (
-                <TableHeader key={index} density="compact" bold>
+                <TableHeader key={index} bold>
                     {column}
                 </TableHeader>
             ))}
