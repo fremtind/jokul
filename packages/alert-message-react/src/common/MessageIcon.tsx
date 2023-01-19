@@ -10,13 +10,13 @@ type Props = {
 export const MessageIcon: FC<Props> = ({ messageType }) => {
     switch (messageType) {
         case "error":
-            return <ErrorIcon variant="medium" className="jkl-alert-message__icon" />;
+            return <ErrorIcon className="jkl-alert-message__icon" />;
         case "info":
-            return <InfoIcon variant="medium" className="jkl-alert-message__icon" />;
+            return <InfoIcon className="jkl-alert-message__icon" />;
         case "success":
-            return <SuccessIcon variant="medium" className="jkl-alert-message__icon" />;
+            return <SuccessIcon className="jkl-alert-message__icon" />;
         case "warning":
-            return <WarningIcon variant="medium" className="jkl-alert-message__icon" />;
+            return <WarningIcon className="jkl-alert-message__icon" />;
 
         default:
             return null;
