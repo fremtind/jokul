@@ -13,7 +13,8 @@
 }
 
 .jkl-table-header {
-    @include jkl.text-style("body");
+    @include jkl.use-font-variables("jkl-table-header");
+
     padding: var(--jkl-table-header-padding);
     text-align: left;
     white-space: nowrap;
