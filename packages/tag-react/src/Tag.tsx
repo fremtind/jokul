@@ -57,7 +57,7 @@ function tagFactory(variant?: Variant) {
                     onFocus={dismissAction.onFocus}
                     onBlur={dismissAction.onBlur}
                 >
-                    <CloseIcon bold />
+                    <CloseIcon variant="small" bold />
                 </IconButton>
             )}
         </span>
