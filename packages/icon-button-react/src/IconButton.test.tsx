@@ -1,7 +1,7 @@
+import { SearchIcon } from "@fremtind/jkl-icons-react";
 import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
-import { SearchIcon } from "../../icons-react/src/icons/search/SearchIcon";
 import { IconButton } from ".";
 
 describe("IconButton", () => {
