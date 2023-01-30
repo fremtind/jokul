@@ -1,7 +1,22 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [14.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@13.0.1...@fremtind/jkl-datepicker-react@14.0.0) (2023-01-30)
+
+### Bug Fixes
+
+- bruk nytt API for BaseTextInput i DatePicker ([422cab2](https://github.com/fremtind/jokul/commit/422cab25e7e751ad54c6629e3417107a9761229f))
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- du må nå importere stilen til jkl-icon for at DatePicker skal vises riktig
 
 # [13.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@12.0.36...@fremtind/jkl-datepicker-react@13.0.0) (2023-01-16)
 

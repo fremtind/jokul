@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.0.0 (2023-01-30)
+
+### Code Refactoring
+
+- fjern Label og SupportLabel fra core ([00177af](https://github.com/fremtind/jokul/commit/00177af2ed09997ba96cff5b61cc3a96d384935b))
+- flytt CSS for ikoner til ikonpakka ([0f79524](https://github.com/fremtind/jokul/commit/0f795242dc247842bc45784b161be2d174684e11))
+
+### BREAKING CHANGES
+
+- Komponentene Label og SupportLabel, samt deres typer og stiler, ligger ikke lenger i core. De kan i
+stedet importeres fra jkl-input-group-react (komponenter og typer) og jkl-input-group (stiler)
+- Klassen jkl-icon og modifiers er ikke del av core lenger. Du vil måtte importere CSSen til
+ikonpakken.
+
 # 11.4.0 (2023-01-16)
 
 ### Bug Fixes

@@ -1,7 +1,19 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@2.0.19...@fremtind/jkl-icon-button-react@3.0.0) (2023-01-30)
+
+### Features
+
+- åpne for bruk av ikoner fra icons-react i icon-button ([e6ec85f](https://github.com/fremtind/jokul/commit/e6ec85f5e8871751459cf9fa8303c9fad6759723))
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- Krever nå at du sender inn en ikonkomponent som children. ButtonTitle er renamet til bare title.
 
 ## [2.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@2.0.14...@fremtind/jkl-icon-button-react@2.0.15) (2022-11-28)
 
