@@ -1,7 +1,19 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 10.0.0 (2023-01-30)
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+- ta i bruk nye ikoner i AccordionItem ([f9c6a32](https://github.com/fremtind/jokul/commit/f9c6a32f9a924721e71f2e111f6260b052ee5bd0))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- Du må nå importere stilarket fra jkl-icons fr at komponentnen skal se riktig ut
 
 ## 9.0.5 (2022-11-22)
 

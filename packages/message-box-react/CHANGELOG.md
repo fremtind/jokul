@@ -1,7 +1,23 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@9.0.11...@fremtind/jkl-message-box-react@10.0.0) (2023-01-30)
+
+### Bug Fixes
+
+- bruk riktig versjon av jkl-icon-react i MessageBox ([0d32576](https://github.com/fremtind/jokul/commit/0d32576b0a450e03f945a473f7d136cd98c166ef))
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+- ta i bruk de nye ikonene i MessageBox ([ea6f952](https://github.com/fremtind/jokul/commit/ea6f95206ca475a7fcaef0403681543e915cbde2))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- Du må nå importere stilpakken til jkl-icons for å vise komponenten riktig
 
 ## 9.0.8 (2022-11-22)
 

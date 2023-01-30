@@ -1,7 +1,24 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [13.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@12.0.1...@fremtind/jkl-text-input-react@13.0.0) (2023-01-30)
+
+### Bug Fixes
+
+- la BaseTextInput ta inn et ikon til handlingsknappen ([b236fe2](https://github.com/fremtind/jokul/commit/b236fe20d4af9750591680522a1fcab3e8e69d9c))
+- legg til ikon for fjerning av innhold i Autosuggest ([7931b15](https://github.com/fremtind/jokul/commit/7931b15a1a711ccd36e8a3bd0e11b0a9007ddf22))
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- propen action.icon på TextInput og BaseTextInput tar nå inn en Icon-komponent i stedet for en streng
+med navnet på en ikontype
 
 # [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.3.6...@fremtind/jkl-text-input-react@12.0.0) (2023-01-16)
 

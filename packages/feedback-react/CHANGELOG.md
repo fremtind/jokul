@@ -1,7 +1,22 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [16.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@15.0.1...@fremtind/jkl-feedback-react@16.0.0) (2023-01-30)
+
+### Code Refactoring
+
+- bruk FieldGroup fra input-group-react i spørsmålskomponentene ([029aeef](https://github.com/fremtind/jokul/commit/029aeef8f3a2920f420d0d6a28132bfc10c7e56b))
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- Du må nå importere stilarket til jkl-input-group for at komponenten skal se riktig ut
 
 # [15.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@14.1.20...@fremtind/jkl-feedback-react@15.0.0) (2023-01-16)
 
