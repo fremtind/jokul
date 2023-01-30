@@ -1,3 +1,4 @@
+import { SearchIcon } from "@fremtind/jkl-icons-react";
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
@@ -97,7 +98,16 @@ describe("TextInput", () => {
 
     describe("with action", () => {
         it("renders the action-icon", () => {
-            render(<TextInput label="testing" action={{ icon: "clear", label: "testing", onClick: () => {} }} />);
+            render(
+                <TextInput
+                    label="testing"
+                    action={{
+                        icon: <SearchIcon data-testid="jkl-action-icon" />,
+                        label: "testing",
+                        onClick: () => {},
+                    }}
+                />,
+            );
 
             const component = screen.getByTestId("jkl-action-icon");
             expect(component).toBeInTheDocument();

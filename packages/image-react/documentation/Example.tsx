@@ -4,7 +4,7 @@ import { ImageExample } from "./ImageExample";
 import { choiceProps } from "./internal/props";
 import "../../image/image.scss";
 import "../../button/button.scss";
-import "../../icons/animated-icons.scss";
+import "../../icons/icons.scss";
 import "../../text-input/text-input.scss";
 
 export default function Example() {

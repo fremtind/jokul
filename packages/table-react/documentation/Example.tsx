@@ -15,7 +15,7 @@ import MobileListTableExample, {
 import MobileScrollTableExample, { mobileScrollTableExampleCode } from "./MobileScrollTableExample";
 import "../../table/table.scss";
 import "../../button/button.scss";
-import "../../icons/animated-icons.scss";
+import "../../icons/icons.scss";
 import "../../expand-button/expand-button.scss";
 import StickyTableExample, { stickyTableExampleCode } from "./StickyTableExample";
 

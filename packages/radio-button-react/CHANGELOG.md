@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,11 +7,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- forenkle bruken av tooltip med FieldGroup ([779eb91](https://github.com/fremtind/jokul/commit/779eb913fa992dac394ee0adf147c34b5b2ee78b))
+-   forenkle bruken av tooltip med FieldGroup ([779eb91](https://github.com/fremtind/jokul/commit/779eb913fa992dac394ee0adf147c34b5b2ee78b))
 
 ### BREAKING CHANGES
 
-- `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
 
 ## 8.0.12 (2022-11-22)
 

@@ -1,6 +1,5 @@
 import { Density } from "@fremtind/jkl-core";
-import type { FieldGroupProps } from "@fremtind/jkl-field-group-react";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { FieldGroup, type FieldGroupProps } from "@fremtind/jkl-input-group-react";
 import React, { ChangeEventHandler, FC } from "react";
 import { RadioGroupContextProvider } from "./radioGroupContext";
 

@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,13 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- legg til manglende selector for animerte ikon ([3a5fc4e](https://github.com/fremtind/jokul/commit/3a5fc4e970c96d2b853b1211b74fe98b85f5fe82)), closes [#3331](https://github.com/fremtind/jokul/issues/3331)
+-   legg til manglende selector for animerte ikon ([3a5fc4e](https://github.com/fremtind/jokul/commit/3a5fc4e970c96d2b853b1211b74fe98b85f5fe82)), closes [#3331](https://github.com/fremtind/jokul/issues/3331)
 
 ## 3.0.10 (2022-12-19)
 
 ### Bug Fixes
 
-- øk specificity for expand-button sin pil ([dff913f](https://github.com/fremtind/jokul/commit/dff913facc834ee92ac84726c8455f92bdadb67a)), closes [#3323](https://github.com/fremtind/jokul/issues/3323)
+-   øk specificity for expand-button sin pil ([dff913f](https://github.com/fremtind/jokul/commit/dff913facc834ee92ac84726c8455f92bdadb67a)), closes [#3323](https://github.com/fremtind/jokul/issues/3323)
 
 ## 3.0.8 (2022-11-22)
 

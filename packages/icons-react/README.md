@@ -15,11 +15,11 @@ import { ArrowDown, ArrowHorizontalAnimated } from "@fremtind/jkl-icons-react";
 // Importer stilark via JavaScript med CSS-loader.
 // CSS for uanimerte ikoner ligger i core.
 import "@fremtind/jkl-core/core.min.css";
-import "@fremtind/jkl-icons/animated-icons.min.css";
+import "@fremtind/jkl-icons/icons.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-core/core";
-@use "@fremtind/jkl-icons/animated-icons";
+@use "@fremtind/jkl-icons/icons";
 ```

@@ -1,5 +1,5 @@
-import type { DataTestAutoId, Density, LabelProps } from "@fremtind/jkl-core";
-import type { InputGroupProps } from "@fremtind/jkl-input-group-react";
+import type { DataTestAutoId, Density } from "@fremtind/jkl-core";
+import type { InputGroupProps, LabelProps } from "@fremtind/jkl-input-group-react";
 import type { ChangeEvent, KeyboardEvent, FocusEvent, ButtonHTMLAttributes } from "react";
 
 export type DateValidationError = "WRONG_FORMAT" | "OUTSIDE_LOWER_BOUND" | "OUTSIDE_UPPER_BOUND";

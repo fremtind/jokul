@@ -6,8 +6,5 @@ interface Props {
 }
 
 export const IconExample: React.FC<Props> = ({ name, renderIcon }) => (
-    <div>
-        {renderIcon()}
-        <div className={`jkl-micro jkl-spacing-xs--top`}>{name || renderIcon.name}</div>
-    </div>
+    <div title={name || renderIcon.name}>{renderIcon()}</div>
 );

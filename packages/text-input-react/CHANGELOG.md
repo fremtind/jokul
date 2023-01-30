@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,18 +7,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- breddebugs etter merge med main ([5853b7a](https://github.com/fremtind/jokul/commit/5853b7a5ffeccfda615687bc2aec3bcd721972fe))
+-   breddebugs etter merge med main ([5853b7a](https://github.com/fremtind/jokul/commit/5853b7a5ffeccfda615687bc2aec3bcd721972fe))
 
 ### Features
 
-- forenkle bruken av tooltip etter label i text-input ([dd96052](https://github.com/fremtind/jokul/commit/dd96052c7a750ba171d66aefe7cfbbaf91ee63fb))
+-   forenkle bruken av tooltip etter label i text-input ([dd96052](https://github.com/fremtind/jokul/commit/dd96052c7a750ba171d66aefe7cfbbaf91ee63fb))
 
 ### BREAKING CHANGES
 
-- - `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
-- `BaseInputField` er erstattet av `BaseTextInput`.
-- Du må importere CSS for
-[input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+-   -   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   `BaseInputField` er erstattet av `BaseTextInput`.
+-   Du må importere CSS for
+    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
 
 ## [11.3.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@11.3.5...@fremtind/jkl-text-input-react@11.3.6) (2023-01-13)
 

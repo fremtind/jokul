@@ -18,6 +18,7 @@ import "@fremtind/jkl-text-input/text-input.min.css";
 
 // For enkelte features må du også ha denne CSSen importert.
 import "@fremtind/jkl-icon-button/icon-button.min.css";
+import "@fremtind/jkl-icons/icons.min.css";
 import "@fremtind/jkl-tooltip/tooltip.min.css";
 ```
 
@@ -27,5 +28,6 @@ import "@fremtind/jkl-tooltip/tooltip.min.css";
 @use "@fremtind/jkl-text-input/text-input";
 
 @use "@fremtind/jkl-icon-button/icon-button";
+@use "@fremtind/jkl-icons/icons";
 @use "@fremtind/jkl-tooltip/tooltip";
 ```

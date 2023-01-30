@@ -222,9 +222,9 @@ describe("Datepicker", () => {
     it("should should move focus to calendar button when opening datepicker with button", async () => {
         jest.setSystemTime(new Date(2019, 9, 20));
 
-        const { user, getByText, getByLabelText } = setup(<DatePicker label="Some datepicker" />);
+        const { user, getByRole, getByLabelText } = setup(<DatePicker label="Some datepicker" />);
 
-        const openCalendarButtonElement = getByText("Åpne kalender");
+        const openCalendarButtonElement = getByRole("button");
 
         await act(async () => {
             await user.click(openCalendarButtonElement);
@@ -239,9 +239,9 @@ describe("Datepicker", () => {
         jest.setSystemTime(new Date(2019, 9, 20));
 
         const onChangeFn = jest.fn();
-        const { user, getByText, getByLabelText } = setup(<DatePicker onChange={onChangeFn} />);
+        const { user, getByRole, getByLabelText } = setup(<DatePicker onChange={onChangeFn} />);
 
-        const toggleCalendarButtonElement = getByText("Åpne kalender");
+        const toggleCalendarButtonElement = getByRole("button");
 
         await act(async () => {
             await user.click(toggleCalendarButtonElement);

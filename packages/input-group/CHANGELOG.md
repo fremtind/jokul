@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,8 +7,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- breddebugs etter merge med main ([5853b7a](https://github.com/fremtind/jokul/commit/5853b7a5ffeccfda615687bc2aec3bcd721972fe))
+-   breddebugs etter merge med main ([5853b7a](https://github.com/fremtind/jokul/commit/5853b7a5ffeccfda615687bc2aec3bcd721972fe))
 
 ### Features
 
-- legg til InputGroup-komponent ([6a8f329](https://github.com/fremtind/jokul/commit/6a8f329763a711135337bb286bffcd2b5480ec77))
+-   legg til InputGroup-komponent ([6a8f329](https://github.com/fremtind/jokul/commit/6a8f329763a711135337bb286bffcd2b5480ec77))

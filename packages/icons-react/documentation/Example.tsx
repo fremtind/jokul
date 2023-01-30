@@ -1,8 +1,10 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import { AnimatedIconsExample, choiceProps as animatedIconsChoiceProps } from "./AnimatedIconsExample";
-import { IconsExample, choiceProps as iconsChoiceProps } from "./IconsExample";
-import "../../icons/animated-icons.scss";
+import { AnimatedIconsExample, animatedIconsExampleCode, animatedIconsExampleKnobs } from "./AnimatedIconsExample";
+import { IconsExample, iconsExampleCode, iconsExampleKnobs } from "./IconsExample";
+import "../../core/core.scss";
+import "../../expand-button/expand-button.scss";
+import "../../icons/icons.scss";
 import "../../text-input/text-input.scss";
 import "../../button/button.scss";
 
@@ -10,19 +12,13 @@ export default function Example() {
     return (
         <>
             <div>
-                <DevExample
-                    component={IconsExample}
-                    knobs={{
-                        choiceProps: iconsChoiceProps,
-                    }}
-                />
+                <DevExample component={IconsExample} knobs={iconsExampleKnobs} codeExample={iconsExampleCode} />
             </div>
             <div>
                 <DevExample
                     component={AnimatedIconsExample}
-                    knobs={{
-                        choiceProps: animatedIconsChoiceProps,
-                    }}
+                    knobs={animatedIconsExampleKnobs}
+                    codeExample={animatedIconsExampleCode}
                 />
             </div>
         </>

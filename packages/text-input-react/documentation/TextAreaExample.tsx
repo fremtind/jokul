@@ -1,4 +1,4 @@
-import { LabelVariant } from "@fremtind/jkl-core";
+import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { useState, ChangeEvent, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { TextArea } from "../src/TextArea";
