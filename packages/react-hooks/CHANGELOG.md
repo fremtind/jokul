@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
@@ -7,7 +7,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- tillat MutableRefObject som target ([4554d72](https://github.com/fremtind/jokul/commit/4554d72aad94102cb22d8cfa32228a04e733c6ae))
+-   tillat MutableRefObject som target ([4554d72](https://github.com/fremtind/jokul/commit/4554d72aad94102cb22d8cfa32228a04e733c6ae))
 
 ## 10.2.6 (2022-11-22)
 

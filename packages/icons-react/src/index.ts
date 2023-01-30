@@ -1,27 +1,32 @@
-export { CheckMark } from "./icons/CheckMark";
-export { Close } from "./icons/Close";
-export { Plus } from "./icons/Plus";
-export { Search } from "./icons/Search";
-export { Hamburger } from "./icons/Hamburger";
-export { Calendar } from "./icons/Calendar";
-export { ArrowUpRight } from "./icons/ArrowUpRight";
-export { ArrowUp } from "./icons/ArrowUp";
-export { ArrowDown } from "./icons/ArrowDown";
-export { ArrowRight } from "./icons/ArrowRight";
-export { ArrowLeft } from "./icons/ArrowLeft";
-
-export { Info } from "./icons/Info";
-export { Success } from "./icons/Success";
-export { Warning } from "./icons/Warning";
-export { Error } from "./icons/Error";
-
 export type { ArrowVerticalAnimatedProps } from "./animated-icons/ArrowVerticalAnimated";
 export type { ArrowHorizontalAnimatedProps } from "./animated-icons/ArrowHorizontalAnimated";
 export type { PlusRemoveAnimatedProps } from "./animated-icons/PlusRemoveAnimated";
-export type { HamburgerCloseAnimatedProps } from "./animated-icons/HamburgerCloseAnimated";
+
 export { ArrowVerticalAnimated } from "./animated-icons/ArrowVerticalAnimated";
 export { ArrowHorizontalAnimated } from "./animated-icons/ArrowHorizontalAnimated";
 export { PlusRemoveAnimated } from "./animated-icons/PlusRemoveAnimated";
-export { HamburgerCloseAnimated } from "./animated-icons/HamburgerCloseAnimated";
 
-export type { IconProps, IconVariant, ArrowIconProps } from "./icons/types";
+export type { IconProps, IconVariant } from "./icons/types";
+
+export { ArrowDownIcon } from "./icons/arrow-down/ArrowDownIcon";
+export { ArrowLeftIcon } from "./icons/arrow-left/ArrowLeftIcon";
+export { ArrowNorthEastIcon } from "./icons/arrow-north-east/ArrowNorthEastIcon";
+export { ArrowRightIcon } from "./icons/arrow-right/ArrowRightIcon";
+export { ArrowUpIcon } from "./icons/arrow-up/ArrowUpIcon";
+export { CalendarIcon } from "./icons/calendar/CalendarIcon";
+export { CheckIcon } from "./icons/check/CheckIcon";
+export { ChevronDownIcon } from "./icons/chevron-down/ChevronDownIcon";
+export { ChevronLeftIcon } from "./icons/chevron-left/ChevronLeftIcon";
+export { ChevronRightIcon } from "./icons/chevron-right/ChevronRightIcon";
+export { ChevronUpIcon } from "./icons/chevron-up/ChevronUpIcon";
+export { CloseIcon } from "./icons/close/CloseIcon";
+export { CopyIcon } from "./icons/copy/CopyIcon";
+export { DotsIcon } from "./icons/dots/DotsIcon";
+export { ErrorIcon } from "./icons/error/ErrorIcon";
+export { HamburgerIcon } from "./icons/hamburger/HamburgerIcon";
+export { InfoIcon } from "./icons/info/InfoIcon";
+export { PlusIcon } from "./icons/plus/PlusIcon";
+export { QuestionIcon } from "./icons/question/QuestionIcon";
+export { SearchIcon } from "./icons/search/SearchIcon";
+export { SuccessIcon } from "./icons/success/SuccessIcon";
+export { WarningIcon } from "./icons/warning/WarningIcon";

@@ -7,8 +7,6 @@ context("IconButton", () => {
     });
 
     it("renders correctly", () => {
-        cy.takeSnapshots({
-            variants: ["clear", "search", "calendar"],
-        });
+        cy.takeSnapshots();
     });
 });

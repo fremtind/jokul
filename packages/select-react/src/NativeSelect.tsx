@@ -1,8 +1,8 @@
 import { type ValuePair, getValuePair } from "@fremtind/jkl-core";
+import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import { InputGroup, type InputGroupProps } from "@fremtind/jkl-input-group-react";
 import cn from "classnames";
 import React, { forwardRef, SelectHTMLAttributes } from "react";
-import { ExpandArrow } from "./ExpandArrow";
 
 export interface NativeSelectProps extends Omit<InputGroupProps, "children">, SelectHTMLAttributes<HTMLSelectElement> {
     /**
@@ -80,7 +80,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>((pr
                             </option>
                         ))}
                     </select>
-                    <ExpandArrow />
+                    <ArrowVerticalAnimated variant="medium" pointingDown className="jkl-select__arrow" />
                 </div>
             )}
         />

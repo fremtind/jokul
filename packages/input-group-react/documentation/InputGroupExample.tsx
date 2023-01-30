@@ -1,7 +1,7 @@
-import { LabelVariant, Link } from "@fremtind/jkl-core";
+import { Link } from "@fremtind/jkl-core";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
-import { InputGroup } from "../src";
+import { InputGroup, type LabelVariant } from "../src";
 
 export const inputGroupExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],

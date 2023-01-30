@@ -14,16 +14,18 @@ import { RadioButton } from "@fremtind/jkl-radio-button-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-radio-button/radio-button.min.css";
-import "@fremtind/jkl-field-group/field-group.min.css";
+import "@fremtind/jkl-field-group/input-group.min.css";
 
 // For enkelte features må du også ha denne CSSen importert.
 import "@fremtind/jkl-tooltip/tooltip.min.css";
+import "@fremtind/jkl-icons/icons.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-radio-button/radio-button";
-@use "@fremtind/jkl-field-group/field-group";
+@use "@fremtind/jkl-field-group/input-group";
 
 @use "@fremtind/jkl-tooltip/tooltip";
+@use "@fremtind/jkl-icons/icons";
 ```

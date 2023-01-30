@@ -1,4 +1,4 @@
-import { LabelVariant } from "@fremtind/jkl-core";
+import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { useState, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";

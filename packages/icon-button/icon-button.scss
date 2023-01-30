@@ -27,11 +27,10 @@
     color: inherit;
     position: relative;
     transition-property: box-shadow;
+    border-radius: jkl.rem(3px);
 
-    &__icon {
-        display: inline-block;
-        width: var(--jkl-icon-button-icon-width);
-        height: var(--jkl-icon-button-icon-width);
+    .jkl-icon {
+        vertical-align: middle;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 
@@ -50,17 +49,17 @@
         box-shadow: none;
     }
 
-    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
-    html[data-touchnavigation] &.jkl-button--pressed {
-        border: none;
-        color: var(--jkl-icon-button-focus-color);
+    @include jkl.keyboard-navigation {
+        &:focus {
+            color: var(--jkl-icon-button-focus-color);
 
-        &::after {
-            box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-icon-button-border-color);
-        }
+            &::after {
+                box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-icon-button-border-color);
+            }
 
-        @include jkl.forced-colors-mode {
-            border: revert;
+            @include jkl.forced-colors-mode {
+                border: revert;
+            }
         }
     }
 

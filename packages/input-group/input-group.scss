@@ -1,4 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
+@use "field-group";
+@use "labels";
 
 .jkl-text-input-action-button {
     @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonFace);

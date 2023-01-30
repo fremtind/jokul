@@ -1,7 +1,7 @@
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { DatePicker, formatInput, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
 import { formatDate } from "@fremtind/jkl-formatters-util";
+import { FieldGroup } from "@fremtind/jkl-input-group-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";

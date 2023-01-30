@@ -1,3 +1,4 @@
+import { CalendarIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup } from "@fremtind/jkl-input-group-react";
 import { useAnimatedHeight, useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseTextInput } from "@fremtind/jkl-text-input-react";
@@ -298,7 +299,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                         {...inputProps}
                         action={{
                             buttonRef: iconButtonRef,
-                            icon: "calendar",
+                            icon: <CalendarIcon />,
                             label: showCalendar ? hideCalendarLabel : showCalendarLabel,
                             ...action,
                             onClick: clickCalendar,

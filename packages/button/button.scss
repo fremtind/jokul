@@ -35,8 +35,8 @@ $_focus-ring-width: jkl.rem(2px);
     --jkl-button-min-width: #{jkl.rem(104px)};
     --jkl-button-padding: 0 #{jkl.$spacing-l};
     --jkl-button-tertiary-padding: 0 #{jkl.$spacing-xs};
-    --jkl-button-children-padding-with-arrow: #{jkl.$spacing-s};
-    --jkl-button-tertiary-padding-with-arrow: #{jkl.$spacing-xs};
+    --jkl-button-children-padding-with-arrow: #{jkl.$spacing-8};
+    --jkl-button-tertiary-padding-with-arrow: #{jkl.$spacing-4};
     --jkl-button-focus-ring-placement: -#{($_button-border-width + $_focus-ring-distance)};
 
     @include jkl.small-device {
@@ -51,8 +51,8 @@ $_focus-ring-width: jkl.rem(2px);
     --jkl-button-min-width: #{jkl.rem(76px)};
     --jkl-button-padding: 0 #{jkl.$spacing-s};
     --jkl-button-tertiary-padding: 0 #{jkl.$spacing-2xs};
-    --jkl-button-children-padding-with-arrow: #{jkl.$spacing-xs};
-    --jkl-button-tertiary-padding-with-arrow: #{jkl.$spacing-2xs};
+    --jkl-button-children-padding-with-arrow: #{jkl.$spacing-4};
+    --jkl-button-tertiary-padding-with-arrow: #{jkl.$spacing-2};
     --jkl-button-focus-ring-placement: -#{($_button-border-width + calc($_focus-ring-distance / 2))};
 }
 
@@ -247,17 +247,16 @@ a.jkl-button {
     &--right-arrow,
     &--left-arrow {
         .jkl-button__arrow {
-            --jkl-icon-width: 1rem;
             display: inline-block;
             margin-bottom: jkl.rem(-4px);
         }
     }
 
     &--left-arrow {
-        padding-left: jkl.$spacing-s;
+        padding-left: jkl.$spacing-8;
 
         .jkl-button__children {
-            padding-left: var(--jkl-button-children-padding-with-arrow);
+            padding-left: var(--jkl-button-tertiary-padding-with-arrow);
         }
 
         &.jkl-button--tertiary {
@@ -266,7 +265,7 @@ a.jkl-button {
     }
 
     &--right-arrow {
-        padding-right: jkl.$spacing-s;
+        padding-right: jkl.$spacing-8;
 
         .jkl-button__children {
             padding-right: var(--jkl-button-children-padding-with-arrow);

@@ -41,7 +41,7 @@
         "@fremtind/jkl-checkbox-react": "^9.0.1",
         "@fremtind/jkl-core": "^11.4.0",
         "@fremtind/jkl-feedback": "^11.0.10",
-        "@fremtind/jkl-field-group-react": "^8.0.1",
+        "@fremtind/jkl-input-group-react": "^1.0.1",
         "@fremtind/jkl-message-box-react": "^9.0.11",
         "@fremtind/jkl-radio-button-react": "^9.0.1",
         "@fremtind/jkl-react-hooks": "^10.2.9",

@@ -1,5 +1,6 @@
 import { Density } from "@fremtind/jkl-core";
-import { IconButton, type IconVariant } from "@fremtind/jkl-icon-button-react";
+import { IconButton } from "@fremtind/jkl-icon-button-react";
+import type { IconProps } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
 import React, {
     type CSSProperties,
@@ -26,7 +27,7 @@ function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | un
 }
 
 export interface Action extends Exclude<HTMLProps<HTMLButtonElement>, "disabled"> {
-    icon: IconVariant;
+    icon: React.ReactElement<IconProps>;
     label: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
     buttonRef?: React.Ref<HTMLButtonElement>;
@@ -83,13 +84,14 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
                 <IconButton
                     density={density}
                     className={cn("jkl-text-input-action-button", action.className)}
-                    iconType={action.icon}
-                    buttonTitle={action.label}
+                    title={action.label}
                     onClick={action.onClick}
                     onFocus={action.onFocus}
                     onBlur={action.onBlur}
                     ref={action.buttonRef}
-                />
+                >
+                    {action.icon}
+                </IconButton>
             )}
         </div>
     );

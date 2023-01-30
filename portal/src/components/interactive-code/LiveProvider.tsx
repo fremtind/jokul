@@ -11,12 +11,12 @@ import * as datepickerReact from "@fremtind/jkl-datepicker-react";
 import * as descriptionListReact from "@fremtind/jkl-description-list-react";
 import * as expandButtonReact from "@fremtind/jkl-expand-button-react";
 import * as feedbackReact from "@fremtind/jkl-feedback-react";
-import * as fieldGroupReact from "@fremtind/jkl-field-group-react";
 import * as footerReact from "@fremtind/jkl-footer-react";
 import * as hamburgerReact from "@fremtind/jkl-hamburger-react";
 import * as iconButtonReact from "@fremtind/jkl-icon-button-react";
 import * as iconsReact from "@fremtind/jkl-icons-react";
 import * as imageReact from "@fremtind/jkl-image-react";
+import * as inputGroupReact from "@fremtind/jkl-input-group-react";
 import * as listReact from "@fremtind/jkl-list-react";
 import * as loaderReact from "@fremtind/jkl-loader-react";
 import * as logoReact from "@fremtind/jkl-logo-react";
@@ -44,12 +44,12 @@ const scope = {
     ...descriptionListReact,
     ...expandButtonReact,
     ...feedbackReact,
-    ...fieldGroupReact,
     ...footerReact,
     ...hamburgerReact,
     ...iconButtonReact,
     ...iconsReact,
     ...imageReact,
+    ...inputGroupReact,
     ...listReact,
     ...loaderReact,
     ...logoReact,

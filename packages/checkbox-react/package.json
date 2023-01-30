@@ -44,7 +44,7 @@
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-field-group-react": "^8.0.1"
+        "@fremtind/jkl-input-group-react": "^1.0.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

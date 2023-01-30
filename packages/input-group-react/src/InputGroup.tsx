@@ -1,16 +1,10 @@
-import {
-    Label,
-    type LabelProps,
-    SupportLabel,
-    type SupportLabelProps,
-    type WithOptionalChildren,
-    type Density,
-    type DataTestAutoId,
-} from "@fremtind/jkl-core";
+import { type WithOptionalChildren, type Density, type DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { Tooltip, type TooltipProps } from "@fremtind/jkl-tooltip-react";
 import cn from "classnames";
 import React, { forwardRef, type CSSProperties, type ReactNode } from "react";
+import { Label, type LabelProps } from "./Label";
+import { SupportLabel, type SupportLabelProps } from "./SupportLabel";
 
 export interface InputProps {
     "aria-describedby"?: string;

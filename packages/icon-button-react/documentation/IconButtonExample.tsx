@@ -1,35 +1,26 @@
 import React, { FC } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { IconButton, IconVariant } from "../src";
+import { SearchIcon } from "../../icons-react/src/icons/search/SearchIcon";
+import { IconButton } from "../src";
 
-export const iconButtonExampleKnobs: ExampleKnobsProps = {
-    choiceProps: [
-        {
-            name: "Variant",
-            values: ["clear", "search", "calendar"],
-            defaultValue: 1,
-        },
-    ],
-};
+export const iconButtonExampleKnobs: ExampleKnobsProps = {};
 
 function onClick() {
-    console.log("Button Clicked!");
+    console.log("Hallo");
 }
 
-export const IconButtonExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
-    const type = choiceValues && (choiceValues["Variant"] as IconVariant);
-
+export const IconButtonExample: FC<ExampleComponentProps> = () => {
     return (
-        <>
-            <IconButton iconType={type} onClick={onClick} buttonTitle="Vis knappen" />
-        </>
+        <p className="jkl-body">
+            <IconButton onClick={onClick} title="Søk">
+                <SearchIcon />
+            </IconButton>
+        </p>
     );
 };
 
-export const iconButtonExampleCode: CodeExample = ({ choiceValues }) => `
-<IconButton
-    buttonTitle="Beskrivelse av handlingen for skjermlesere"
-    iconType="${choiceValues?.["Variant"]}"
-    onClick={onClick}
-/>
+export const iconButtonExampleCode: CodeExample = () => `
+<IconButton onClick={onClick} title="Søk">
+    <SearchIcon />
+</IconButton>
 `;

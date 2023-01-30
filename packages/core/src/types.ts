@@ -5,8 +5,6 @@ export interface DataTestAutoId {
     "data-testautoid"?: string;
 }
 
-export type LabelVariant = "small" | "medium" | "large";
-
 export type ColorScheme = "light" | "dark";
 
 export type ValuePair = {

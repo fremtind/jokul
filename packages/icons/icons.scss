@@ -1,0 +1,77 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-icon {
+    width: var(--jkl-icon-size, #{jkl.rem(20px)});
+    height: var(--jkl-icon-size, #{jkl.rem(20px)});
+    color: currentColor;
+
+    &--small {
+        --jkl-icon-size: #{jkl.rem(20px)};
+    }
+
+    &--medium {
+        --jkl-icon-size: #{jkl.rem(24px)};
+    }
+
+    &--inherit {
+        --jkl-icon-size: calc(1em / 20 * 24);
+    }
+
+    @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+}
+
+.jkl-animated-horizontal-arrows,
+.jkl-animated-vertical-arrows {
+    overflow: hidden;
+
+    &__slider {
+        display: flex;
+        @include jkl.motion(standard, expressive);
+        transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
+        transition-property: transform;
+    }
+
+    &__arrow {
+        flex-shrink: 0;
+    }
+}
+
+.jkl-animated-vertical-arrows__slider {
+    flex-direction: column;
+    height: calc(var(--jkl-icon-size) * 2);
+
+    &[data-show="down"] {
+        transform: translate3d(0, 0, 0);
+    }
+
+    &[data-show="up"] {
+        transform: translate3d(0, -50%, 0);
+    }
+}
+
+.jkl-animated-horizontal-arrows__slider {
+    flex-direction: row;
+    width: calc(var(--jkl-icon-size) * 2);
+
+    &[data-show="right"] {
+        transform: translate3d(0, 0, 0);
+    }
+
+    &[data-show="left"] {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.jkl-icons-animated__plus {
+    @include jkl.motion("easeInBounceOut", "expressive");
+    transition-property: transform;
+    transform-origin: 50% 50%;
+
+    &--plus {
+        transform: rotate(0);
+    }
+
+    &--close {
+        transform: rotate(135deg);
+    }
+}

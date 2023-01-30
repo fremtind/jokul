@@ -1,5 +1,5 @@
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { FieldGroup } from "@fremtind/jkl-field-group-react";
+import { FieldGroup } from "@fremtind/jkl-input-group-react";
 import React, { ChangeEventHandler, useEffect, useRef } from "react";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";

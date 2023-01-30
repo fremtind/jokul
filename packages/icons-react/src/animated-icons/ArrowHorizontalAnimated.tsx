@@ -1,30 +1,29 @@
 import cx from "classnames";
 import React, { FC } from "react";
-import { ArrowLeft } from "../icons/ArrowLeft";
-import { ArrowRight } from "../icons/ArrowRight";
+import { ArrowLeftIcon } from "../icons/arrow-left/ArrowLeftIcon";
+import { ArrowRightIcon } from "../icons/arrow-right/ArrowRightIcon";
 import { IconVariant } from "../icons/types";
 
 export interface ArrowHorizontalAnimatedProps {
     className?: string;
     pointingRight: boolean;
     variant?: IconVariant;
+    bold?: boolean;
 }
 
 export const ArrowHorizontalAnimated: FC<ArrowHorizontalAnimatedProps> = ({
     className,
     pointingRight,
-    variant = "small",
+    variant = "inherit",
+    bold = false,
     ...rest
-}) => {
-    const iconSize = variant !== "inherit" ? variant : "small";
-    return (
-        <div {...rest} className={cx(`jkl-icon--${iconSize}`, "jkl-animated-horizontal-arrows", className)}>
-            <div className="jkl-animated-horizontal-arrows__slider" data-show={pointingRight ? "right" : "left"}>
-                <ArrowRight variant={iconSize} />
-                <ArrowLeft variant={iconSize} />
-            </div>
+}) => (
+    <div {...rest} className={cx(`jkl-icon jkl-icon--${variant}`, "jkl-animated-horizontal-arrows", className)}>
+        <div className="jkl-animated-horizontal-arrows__slider" data-show={pointingRight ? "right" : "left"}>
+            <ArrowRightIcon className="jkl-animated-horizontal-arrows__arrow" variant={variant} bold={bold} />
+            <ArrowLeftIcon className="jkl-animated-horizontal-arrows__arrow" variant={variant} bold={bold} />
         </div>
-    );
-};
+    </div>
+);
 
 ArrowHorizontalAnimated.displayName = "ArrowHorizontalAnimated";

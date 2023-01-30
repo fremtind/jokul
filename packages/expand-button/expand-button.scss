@@ -19,13 +19,11 @@
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-expand-button", "body");
 
-    --jkl-expand-button-arrow-width: #{jkl.rem(16px)};
+    --jkl-expand-button-arrow-size: calc(var(--jkl-expand-button-line-height) - #{jkl.rem(2px)});
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-expand-button", "small");
-
-    --jkl-expand-button-arrow-width: #{jkl.rem(14px)};
 }
 
 .jkl-expand-button {
@@ -81,7 +79,7 @@
 
     &--icon-only {
         .jkl-expand-button__arrow {
-            margin: jkl.$spacing-2xs jkl.$spacing-xs;
+            margin: jkl.$spacing-4 jkl.$spacing-8;
         }
     }
 
@@ -89,11 +87,12 @@
         @include jkl.motion;
 
         display: inline-block;
-        margin-left: jkl.$spacing-xs;
-        margin-bottom: jkl.rem(-3px);
+        margin-left: jkl.$spacing-2;
+        margin-bottom: jkl.rem(-8px);
 
-        .jkl-expand-button--expanded & {
-            margin-bottom: 0;
+        .jkl-animated-vertical-arrows__slider[data-show="up"] {
+            // For å få pila på linje med teksten
+            transform: translate3d(0, -56%, 0);
         }
 
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
@@ -101,10 +100,10 @@
 
     // Bevisst nøstet for høyere specificity enn core uavhengig av importrekkefølge.
     .jkl-expand-button__arrow {
-        --jkl-icon-width: var(--jkl-expand-button-arrow-width);
+        --jkl-icon-size: var(--jkl-expand-button-arrow-size);
 
-        .jkl-icon--small {
-            --jkl-icon-width: var(--jkl-expand-button-arrow-width);
+        .jkl-icon--inherit {
+            --jkl-icon-size: var(--jkl-expand-button-arrow-size);
         }
     }
 
@@ -126,6 +125,6 @@
 
     &__content {
         height: auto;
-        padding: jkl.$spacing-m 0 jkl.$spacing-xl 0;
+        padding: jkl.$spacing-16 0 jkl.$spacing-40 0;
     }
 }

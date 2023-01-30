@@ -40,6 +40,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^11.4.0",
+        "@fremtind/jkl-icons-react": "^6.0.11",
         "@fremtind/jkl-input-group-react": "^1.0.1",
         "@fremtind/jkl-react-hooks": "^10.2.9",
         "@fremtind/jkl-select": "^9.2.8",

@@ -1,5 +1,6 @@
-import { ValuePair, getValuePair, DataTestAutoId, LabelProps, Density } from "@fremtind/jkl-core";
-import { InputGroup } from "@fremtind/jkl-input-group-react";
+import { ValuePair, getValuePair, DataTestAutoId, Density } from "@fremtind/jkl-core";
+import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
+import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -17,7 +18,6 @@ import React, {
     MouseEvent,
     CSSProperties,
 } from "react";
-import { ExpandArrow } from "./ExpandArrow";
 import { toLower, focusSelected } from "./select-utils";
 import { useListNavigation } from "./useListNavigation";
 
@@ -528,7 +528,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                                 ) : null,
                             )}
                         </div>
-                        <ExpandArrow expanded={dropdownIsShown} />
+                        <ArrowVerticalAnimated
+                            variant="medium"
+                            pointingDown={!dropdownIsShown}
+                            className="jkl-select__arrow"
+                        />
                     </div>
                 )}
             />

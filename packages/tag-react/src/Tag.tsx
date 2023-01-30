@@ -1,5 +1,6 @@
 import { Density } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { CloseIcon } from "@fremtind/jkl-icons-react";
 import cx from "classnames";
 import React, { ButtonHTMLAttributes, FC, HTMLAttributes, MouseEventHandler } from "react";
 
@@ -50,13 +51,14 @@ function tagFactory(variant?: Variant) {
             {dismissAction && (
                 <IconButton
                     className="jkl-tag__dismiss-action"
-                    iconType="clear"
                     density={density}
-                    buttonTitle={dismissAction.label}
+                    title={dismissAction.label}
                     onClick={dismissAction.onClick}
                     onFocus={dismissAction.onFocus}
                     onBlur={dismissAction.onBlur}
-                />
+                >
+                    <CloseIcon variant="small" bold />
+                </IconButton>
             )}
         </span>
     );

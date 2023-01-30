@@ -22,12 +22,12 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     @include jkl.declare-font-variables("jkl-message-box-title", "heading-4");
 
     --jkl-message-box-padding: #{jkl.$spacing-l} #{jkl.$spacing-l} #{jkl.$spacing-l} #{jkl.rem(56px)};
-    --jkl-message-box-icon-size: #{jkl.rem(18px)};
-    --jkl-message-box-icon-left: #{jkl.rem(20.8px)};
-    --jkl-message-box-icon-top: #{jkl.rem(27.2px)};
+    --jkl-message-box-icon-size: #{jkl.rem(24px)};
+    --jkl-message-box-icon-left: #{jkl.rem(16px)};
+    --jkl-message-box-icon-top: #{jkl.rem(24px)};
     --jkl-message-box-title-margin: 0 0 #{jkl.$spacing-xs} 0;
     --jkl-message-box-dismiss-button-size: #{jkl.rem(44px)};
-    --jkl-message-box-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(12px)} -#{jkl.rem(6.5px)} auto;
+    --jkl-message-box-dismiss-button-margin: -#{jkl.rem(12px)} -#{jkl.rem(12px)} auto auto;
 }
 
 @include jkl.compact-density-variables {
@@ -35,12 +35,12 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     @include jkl.declare-font-variables("jkl-message-box-title", "heading-5");
 
     --jkl-message-box-padding: #{jkl.$spacing-s} #{jkl.$spacing-xs} #{jkl.$spacing-s} #{jkl.rem(32px)};
-    --jkl-message-box-icon-size: #{jkl.rem(12px)};
-    --jkl-message-box-icon-left: #{jkl.rem(10px)};
-    --jkl-message-box-icon-top: #{jkl.rem(17px)};
+    --jkl-message-box-icon-size: #{jkl.rem(20px)};
+    --jkl-message-box-icon-left: #{jkl.rem(6px)};
+    --jkl-message-box-icon-top: #{jkl.rem(14px)};
     --jkl-message-box-title-margin: 0;
     --jkl-message-box-dismiss-button-size: #{jkl.rem(32px)};
-    --jkl-message-box-dismiss-button-margin: #{jkl.rem(-6px)} #{jkl.rem(-2px)} #{jkl.rem(-6.5px)} auto;
+    --jkl-message-box-dismiss-button-margin: #{jkl.rem(-6px)} #{jkl.rem(-2px)} auto auto;
 }
 
 .jkl-message-box {
@@ -59,7 +59,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         position: absolute;
         left: var(--jkl-message-box-icon-left);
         top: var(--jkl-message-box-icon-top);
-        height: var(--jkl-message-box-icon-size);
+        width: var(--jkl-message-box-icon-size);
         flex-shrink: 0;
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
@@ -80,6 +80,10 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         border-radius: jkl.rem(3px);
         padding: 0;
         cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         // Sørg for å ha en stor nok touch target.
         width: var(--jkl-message-box-dismiss-button-size);
