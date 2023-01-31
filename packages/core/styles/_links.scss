@@ -5,7 +5,7 @@
 }
 
 @mixin _link-outline {
-    outline: jkl.rem(2px) solid var(--jkl-link-active-color);
+    outline: jkl.rem(2px) solid var(--jkl-link-color);
     outline-offset: jkl.rem(2px);
 }
 
@@ -16,19 +16,21 @@ $_north-east-arrow: "\2197"; // unicode north east arrow (up/right)
 $_link-underline-thickness: jkl.rem(1px);
 $_link-underline-thickness--focus: jkl.rem(2px);
 
-@include jkl.light-mode-variables {
-    --jkl-link-color: #{jkl.$color-granitt};
-    --jkl-link-hover-color: #{jkl.$color-stein};
-    --jkl-link-active-color: #{jkl.$color-granitt};
-}
-@include jkl.dark-mode-variables {
-    --jkl-link-color: #{jkl.$color-snohvit};
-    --jkl-link-hover-color: #{jkl.$color-svaberg};
-    --jkl-link-active-color: #{jkl.$color-snohvit};
+.jkl-link,
+.jkl-nav-link {
+    --jkl-link-color: var(--jkl-color-primary);
+
+    &:hover:not(:focus) {
+        --jkl-link-color: var(--jkl-color-primary-hover);
+    }
+    @include jkl.keyboard-focus {
+        --jkl-link-color: var(--jkl-color-primary-active);
+    }
+
+    color: var(--jkl-link-color);
 }
 
 .jkl-link {
-    color: var(--jkl-link-color);
     @include _underline-gradient(var(--jkl-link-color));
     background-position: 0 calc(100% - (#{$_link-underline-thickness--focus} - #{$_link-underline-thickness}));
     background-size: $_link-underline-thickness $_link-underline-thickness;
@@ -38,16 +40,7 @@ $_link-underline-thickness--focus: jkl.rem(2px);
     outline: none;
     text-decoration: none;
 
-    &:hover:not(:focus) {
-        color: var(--jkl-link-hover-color);
-        @include _underline-gradient(var(--jkl-link-hover-color));
-    }
-
-    &:hover {
-        @include _underline-gradient(var(--jkl-link-hover-color));
-    }
-
-    html:not([data-mousenavigation]) &:focus {
+    @include jkl.keyboard-focus {
         @include jkl.no-grow-bold;
         @include _link-outline;
         background: none;
@@ -73,8 +66,6 @@ $_link-underline-thickness--focus: jkl.rem(2px);
 }
 
 .jkl-nav-link {
-    color: var(--jkl-link-color);
-
     @include jkl.reset-outline;
     box-sizing: border-box;
     font-weight: jkl.$typography-weight-normal;
@@ -91,16 +82,12 @@ $_link-underline-thickness--focus: jkl.rem(2px);
         padding-right: 0.35em;
     }
 
-    &:hover:not(:focus) {
-        color: var(--jkl-link-hover-color);
-
-        &::after {
-            padding-left: 0.7em;
-            padding-right: 0;
-        }
+    &:hover:not(:focus)::after {
+        padding-left: 0.7em;
+        padding-right: 0;
     }
 
-    html:not([data-mousenavigation]) &:focus {
+    @include jkl.keyboard-focus {
         @include jkl.no-grow-bold;
         @include _link-outline;
 
