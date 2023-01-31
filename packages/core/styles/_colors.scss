@@ -37,12 +37,12 @@
 
     /* Farger for interaktive elementer med liten overflate */
     --jkl-color-primary: var(--jkl-color-granitt);
-    --jkl-color-primary-hover: var(--jkl-color-stein);
-    --jkl-color-primary-active: var(--jkl-color-svart);
+    --jkl-color-primary-subdued: var(--jkl-color-stein);
+    --jkl-color-primary-highlighted: var(--jkl-color-svart);
 
     /* Farger for tekst og grafikk interaktive elementer med liten overflate */
     --jkl-color-on-primary: var(--jkl-color-snohvit);
-    --jkl-color-on-primary-alternate: var(--jkl-color-hvit);
+    --jkl-color-on-primary-highlighted: var(--jkl-color-hvit);
 
     /* Farger for skillelinjer rundt/mellom større flater */
     --jkl-color-outline: var(--jkl-color-svaberg);
@@ -55,7 +55,7 @@
     --jkl-color-background: var(--jkl-color-granitt);
     --jkl-color-background-highlighted: var(--jkl-color-svart);
     --jkl-color-background-subdued: var(--jkl-color-fjellgra);
-    --jkl-color-background-contrast: var(--jkl-color-svaberg);
+    --jkl-color-background-contrast: var(--jkl-color-stein);
 
     /* Farger for tekst of grafikk på bakgrunnsfargene */
     --jkl-color-on-background: var(--jkl-color-snohvit);
@@ -65,7 +65,7 @@
     --jkl-color-surface: var(--jkl-color-fjellgra);
     --jkl-color-surface-highlighted: var(--jkl-color-svart);
     --jkl-color-surface-subdued: var(--jkl-color-granitt);
-    --jkl-color-surface-contrast: var(--jkl-color-svaberg);
+    --jkl-color-surface-contrast: var(--jkl-color-stein);
 
     /* Farger for tekst og grafikk på overlfatefargene */
     --jkl-color-on-surface: var(--jkl-color-snohvit);
@@ -73,12 +73,12 @@
 
     /* Farger for interaktive elementer med liten overflate */
     --jkl-color-primary: var(--jkl-color-snohvit);
-    --jkl-color-primary-hover: var(--jkl-color-svaberg);
-    --jkl-color-primary-active: var(--jkl-color-hvit);
+    --jkl-color-primary-subdued: var(--jkl-color-svaberg);
+    --jkl-color-primary-highlighted: var(--jkl-color-hvit);
 
     /* Farger for tekst og grafikk interaktive elementer med liten overflate */
     --jkl-color-on-primary: var(--jkl-color-granitt);
-    --jkl-color-on-primary-alternate: var(--jkl-color-svart);
+    --jkl-color-on-primary-highlighted: var(--jkl-color-svart);
 
     /* Farger for skillelinjer rundt/mellom større flater */
     --jkl-color-outline: var(--jkl-color-svaberg);
