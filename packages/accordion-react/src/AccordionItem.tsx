@@ -1,8 +1,8 @@
 import { WithChildren } from "@fremtind/jkl-core";
+import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { FC, useState } from "react";
-import { AccordionExpandArrow } from "./AccordionExpandArrow";
 
 export interface AccordionItemProps extends WithChildren {
     title: string;
@@ -50,7 +50,12 @@ export const AccordionItem: FC<AccordionItemProps> = ({
                 }}
             >
                 {title}
-                <AccordionExpandArrow expanded={isOpen} />
+                <ArrowVerticalAnimated
+                    variant="medium"
+                    className="jkl-accordion-item__arrow"
+                    pointingDown={!isOpen}
+                    bold={isOpen}
+                />
             </button>
             <div
                 id={contentId}

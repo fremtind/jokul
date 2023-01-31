@@ -3,35 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [14.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@13.0.1...@fremtind/jkl-datepicker-react@14.0.0) (2023-01-30)
+
+### Bug Fixes
+
+- bruk nytt API for BaseTextInput i DatePicker ([422cab2](https://github.com/fremtind/jokul/commit/422cab25e7e751ad54c6629e3417107a9761229f))
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- du må nå importere stilen til jkl-icon for at DatePicker skal vises riktig
+
 # [13.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@12.0.36...@fremtind/jkl-datepicker-react@13.0.0) (2023-01-16)
 
 ### Bug Fixes
 
-- breddebugs etter merge med main ([5853b7a](https://github.com/fremtind/jokul/commit/5853b7a5ffeccfda615687bc2aec3bcd721972fe))
+-   breddebugs etter merge med main ([5853b7a](https://github.com/fremtind/jokul/commit/5853b7a5ffeccfda615687bc2aec3bcd721972fe))
 
 ### Features
 
-- forenkle bruken av tooltip etter label i datepicker ([426c39a](https://github.com/fremtind/jokul/commit/426c39ac0fae24d562a83f4ed8582426cb5addb4))
-- forenkle bruken av tooltip etter label i text-input ([dd96052](https://github.com/fremtind/jokul/commit/dd96052c7a750ba171d66aefe7cfbbaf91ee63fb))
-- gjør det enklere å bruke tooltip med Select ([a5fe254](https://github.com/fremtind/jokul/commit/a5fe254e0c31911456a75032610f42537859138a))
+-   forenkle bruken av tooltip etter label i datepicker ([426c39a](https://github.com/fremtind/jokul/commit/426c39ac0fae24d562a83f4ed8582426cb5addb4))
+-   forenkle bruken av tooltip etter label i text-input ([dd96052](https://github.com/fremtind/jokul/commit/dd96052c7a750ba171d66aefe7cfbbaf91ee63fb))
+-   gjør det enklere å bruke tooltip med Select ([a5fe254](https://github.com/fremtind/jokul/commit/a5fe254e0c31911456a75032610f42537859138a))
 
 ### BREAKING CHANGES
 
-- Du må importere CSS for
-[input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
-- - `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
-- Du må importere CSS for
-[input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
-- - `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
-- `BaseInputField` er erstattet av `BaseTextInput`.
-- Du må importere CSS for
-[input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+-   Du må importere CSS for
+    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+-   -   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   Du må importere CSS for
+    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+-   -   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   `BaseInputField` er erstattet av `BaseTextInput`.
+-   Du må importere CSS for
+    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
 
 ## 12.0.32 (2022-12-23)
 
 ### Bug Fixes
 
-- gjør typen for event handlere gjenbrukbar ([19c1747](https://github.com/fremtind/jokul/commit/19c174725bad5476847a2f2ebb44cd0563979ffe))
+-   gjør typen for event handlere gjenbrukbar ([19c1747](https://github.com/fremtind/jokul/commit/19c174725bad5476847a2f2ebb44cd0563979ffe))
 
 ## [12.0.24](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@12.0.23...@fremtind/jkl-datepicker-react@12.0.24) (2022-11-25)
 

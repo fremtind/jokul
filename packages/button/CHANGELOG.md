@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.0.0 (2023-01-30)
+
+### Bug Fixes
+
+- juster plassering av ikon etter nye SVGer ([15f126f](https://github.com/fremtind/jokul/commit/15f126f31e78f8378ac4e7961392d6bf537284f6))
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+
 ## 9.0.8 (2022-11-22)
 
 ### Bug Fixes

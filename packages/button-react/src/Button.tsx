@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight } from "@fremtind/jkl-icons-react";
+import { ArrowLeftIcon, ArrowRightIcon } from "@fremtind/jkl-icons-react";
 import { Loader } from "@fremtind/jkl-loader-react";
 import { useAriaLiveRegion } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -48,9 +48,9 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                             "jkl-button__slider--show-loader": !!loader?.showLoader,
                         })}
                     >
-                        {arrow === "left" && <ArrowLeft className="jkl-button__arrow" bold />}
+                        {arrow === "left" && <ArrowLeftIcon className="jkl-button__arrow" bold />}
                         <span className="jkl-button__children">{children}</span>
-                        {arrow === "right" && <ArrowRight className="jkl-button__arrow" bold />}
+                        {arrow === "right" && <ArrowRightIcon className="jkl-button__arrow" bold />}
 
                         {loader && (
                             <div className="jkl-button__loader">

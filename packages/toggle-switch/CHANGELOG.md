@@ -3,11 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.0.0 (2023-01-30)
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+
 ## 10.0.10 (2022-12-06)
 
 ### Bug Fixes
 
-- reduser z-index for label til det minste nødvendige ([d344ffa](https://github.com/fremtind/jokul/commit/d344ffabaa49da706db3689820d0d89e144f0b38))
+-   reduser z-index for label til det minste nødvendige ([d344ffa](https://github.com/fremtind/jokul/commit/d344ffabaa49da706db3689820d0d89e144f0b38))
 
 ## 10.0.8 (2022-11-22)
 

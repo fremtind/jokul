@@ -1,4 +1,5 @@
 import { Link } from "@fremtind/jkl-core";
+import { CloseIcon } from "@fremtind/jkl-icons-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
@@ -54,7 +55,11 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                 value={filter}
                 density="compact"
                 onChange={filterLinks}
-                action={filter ? { icon: "clear", label: "Nullstill filter", onClick: () => setFilter("") } : undefined}
+                action={
+                    filter
+                        ? { icon: <CloseIcon />, label: "Nullstill filter", onClick: () => setFilter("") }
+                        : undefined
+                }
                 className="jkl-portal-sidebar-menu__filter"
                 data-testid="sidebar-filter"
             />

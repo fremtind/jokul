@@ -7,53 +7,53 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- forenkle bruken av tooltip etter label i text-input ([dd96052](https://github.com/fremtind/jokul/commit/dd96052c7a750ba171d66aefe7cfbbaf91ee63fb))
-- forenkle bruken av tooltip med FieldGroup ([779eb91](https://github.com/fremtind/jokul/commit/779eb913fa992dac394ee0adf147c34b5b2ee78b))
-- legg til InputGroup-komponent ([6a8f329](https://github.com/fremtind/jokul/commit/6a8f329763a711135337bb286bffcd2b5480ec77))
+-   forenkle bruken av tooltip etter label i text-input ([dd96052](https://github.com/fremtind/jokul/commit/dd96052c7a750ba171d66aefe7cfbbaf91ee63fb))
+-   forenkle bruken av tooltip med FieldGroup ([779eb91](https://github.com/fremtind/jokul/commit/779eb913fa992dac394ee0adf147c34b5b2ee78b))
+-   legg til InputGroup-komponent ([6a8f329](https://github.com/fremtind/jokul/commit/6a8f329763a711135337bb286bffcd2b5480ec77))
 
 ### BREAKING CHANGES
 
-- `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
-- - `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
-- `BaseInputField` er erstattet av `BaseTextInput`.
-- Du må importere CSS for
-[input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+-   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   -   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   `BaseInputField` er erstattet av `BaseTextInput`.
+-   Du må importere CSS for
+    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
 
 ## [16.4.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.4.0...@fremtind/portal@16.4.1) (2022-12-08)
 
 ### Bug Fixes
 
-- oppdater kbar for å få riktig oppførsel ved escape ([2b91e25](https://github.com/fremtind/jokul/commit/2b91e2596798f31dc3fc7f7dbe59c19727be609d)), closes [#3308](https://github.com/fremtind/jokul/issues/3308)
+-   oppdater kbar for å få riktig oppførsel ved escape ([2b91e25](https://github.com/fremtind/jokul/commit/2b91e2596798f31dc3fc7f7dbe59c19727be609d)), closes [#3308](https://github.com/fremtind/jokul/issues/3308)
 
 # [16.4.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.3.0...@fremtind/portal@16.4.0) (2022-12-06)
 
 ### Bug Fixes
 
-- bredde på mobil for portal-image ([1b00c7d](https://github.com/fremtind/jokul/commit/1b00c7d4d79c0943374243dc53dc69ede2ca96e6))
+-   bredde på mobil for portal-image ([1b00c7d](https://github.com/fremtind/jokul/commit/1b00c7d4d79c0943374243dc53dc69ede2ca96e6))
 
 ### Features
 
-- nye fanekomponenter basert på lenker og URLer ([3f69586](https://github.com/fremtind/jokul/commit/3f695860aaf8ff98c8a95af5dfb9bad35725dd9a))
+-   nye fanekomponenter basert på lenker og URLer ([3f69586](https://github.com/fremtind/jokul/commit/3f695860aaf8ff98c8a95af5dfb9bad35725dd9a))
 
 # [16.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.2.2...@fremtind/portal@16.3.0) (2022-12-06)
 
 ### Bug Fixes
 
-- dropp hydration-feil fra mdx ved å bare rendre i klient ([4caf348](https://github.com/fremtind/jokul/commit/4caf348cc7a7ec59cc1988dc905af122e79fea50))
-- plasser kbar riktig i z-index ([8906eb5](https://github.com/fremtind/jokul/commit/8906eb5410bc79b7bf5c660fb759f18b3779c439))
+-   dropp hydration-feil fra mdx ved å bare rendre i klient ([4caf348](https://github.com/fremtind/jokul/commit/4caf348cc7a7ec59cc1988dc905af122e79fea50))
+-   plasser kbar riktig i z-index ([8906eb5](https://github.com/fremtind/jokul/commit/8906eb5410bc79b7bf5c660fb759f18b3779c439))
 
 ### Features
 
-- hook opp kbar i usenavigationlinks ([4e0948b](https://github.com/fremtind/jokul/commit/4e0948bf057742b165679b8d7b178db6caab81c8))
-- legg til støtte for keywords, søk i den og group ([53cf355](https://github.com/fremtind/jokul/commit/53cf3555c15cda08f4ee2bbdb39a8cbe80650b8a))
-- mvp ([0af33f8](https://github.com/fremtind/jokul/commit/0af33f85bb18351b2cef082bfdcb3b0c907b918a))
+-   hook opp kbar i usenavigationlinks ([4e0948b](https://github.com/fremtind/jokul/commit/4e0948bf057742b165679b8d7b178db6caab81c8))
+-   legg til støtte for keywords, søk i den og group ([53cf355](https://github.com/fremtind/jokul/commit/53cf3555c15cda08f4ee2bbdb39a8cbe80650b8a))
+-   mvp ([0af33f8](https://github.com/fremtind/jokul/commit/0af33f85bb18351b2cef082bfdcb3b0c907b918a))
 
 # [16.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.1.1...@fremtind/portal@16.2.0) (2022-12-05)
 
 ### Features
 
-- importerer bilder for å få riktig filsti i preview ([4481d3a](https://github.com/fremtind/jokul/commit/4481d3a6fd023b1ce3ae2ea43ca4f6cbd317b740))
-- nyopprettet demoside i portalen ([73f08a1](https://github.com/fremtind/jokul/commit/73f08a1eefd251e0c8c33396b1e09d2f15c209d1))
+-   importerer bilder for å få riktig filsti i preview ([4481d3a](https://github.com/fremtind/jokul/commit/4481d3a6fd023b1ce3ae2ea43ca4f6cbd317b740))
+-   nyopprettet demoside i portalen ([73f08a1](https://github.com/fremtind/jokul/commit/73f08a1eefd251e0c8c33396b1e09d2f15c209d1))
 
 # [16.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.0.57...@fremtind/portal@16.1.0) (2022-12-05)
 

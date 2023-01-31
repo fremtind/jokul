@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@1.0.24...@fremtind/jkl-tooltip-react@2.0.0) (2023-01-30)
+
+### Code Refactoring
+
+- bruk spørsmålsikon fra ikonpakka i Tooltip ([a6a8fae](https://github.com/fremtind/jokul/commit/a6a8fae77178f3401514c5f574b81ba05a92a5d5))
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- Du må nå importere stilarket fra jkl-icons dersom du bruker Tooltip
+
 ## 1.0.15 (2022-12-02)
 
 ### Bug Fixes

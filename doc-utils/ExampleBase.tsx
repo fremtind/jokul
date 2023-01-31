@@ -1,7 +1,7 @@
 import React, { useState, FC, useMemo, useEffect } from "react";
 import { Checkbox } from "../packages/checkbox-react";
 import { ColorScheme, Density } from "../packages/core";
-import { FieldGroup } from "../packages/field-group-react";
+import { FieldGroup } from "../packages/input-group-react";
 import { RadioButton, RadioButtonGroup } from "../packages/radio-button-react";
 import { useId } from "../packages/react-hooks";
 import { Select } from "../packages/select-react";

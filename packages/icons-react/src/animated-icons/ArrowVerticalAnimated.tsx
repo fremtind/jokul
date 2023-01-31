@@ -1,31 +1,29 @@
 import cx from "classnames";
 import React from "react";
-import { ArrowDown } from "../icons/ArrowDown";
-import { ArrowUp } from "../icons/ArrowUp";
+import { ArrowDownIcon } from "../icons/arrow-down/ArrowDownIcon";
+import { ArrowUpIcon } from "../icons/arrow-up/ArrowUpIcon";
 import { IconVariant } from "../icons/types";
 
 export interface ArrowVerticalAnimatedProps {
     className?: string;
     pointingDown: boolean;
     variant?: IconVariant;
+    bold?: boolean;
 }
 
 export const ArrowVerticalAnimated = ({
-    className = "",
+    className,
     pointingDown,
-    variant = "small",
+    variant = "inherit",
+    bold = false,
     ...rest
-}: ArrowVerticalAnimatedProps) => {
-    const iconSize = variant !== "inherit" ? variant : "small";
-
-    return (
-        <div {...rest} className={cx(`jkl-icon--${iconSize}`, "jkl-animated-vertical-arrows", className)}>
-            <div className="jkl-animated-vertical-arrows__slider" data-show={pointingDown ? "down" : "up"}>
-                <ArrowDown variant={iconSize} />
-                <ArrowUp variant={iconSize} />
-            </div>
+}: ArrowVerticalAnimatedProps) => (
+    <div {...rest} className={cx(`jkl-icon jkl-icon--${variant}`, "jkl-animated-vertical-arrows", className)}>
+        <div className="jkl-animated-vertical-arrows__slider" data-show={pointingDown ? "down" : "up"}>
+            <ArrowDownIcon className="jkl-animated-vertical-arrows__arrow" variant={variant} bold={bold} />
+            <ArrowUpIcon className="jkl-animated-vertical-arrows__arrow" variant={variant} bold={bold} />
         </div>
-    );
-};
+    </div>
+);
 
 ArrowVerticalAnimated.displayName = "ArrowVerticalAnimated";

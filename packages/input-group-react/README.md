@@ -17,6 +17,7 @@ import "@fremtind/jkl-input-group/input-group.min.css";
 
 // For enkelte features må du også ha denne CSSen importert.
 import "@fremtind/jkl-tooltip/tooltip.min.css";
+import "@fremtind/jkl-icons/icons.min.css";
 ```
 
 ```scss

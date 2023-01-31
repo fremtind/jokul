@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.0.0 (2023-01-30)
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+- ta i bruk nye ikoner i Select ([eae24e8](https://github.com/fremtind/jokul/commit/eae24e826922b3056ef2d38fa8a76d3a08b4f70d))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- Du må nå importere stilarket til jkl-icons for at komponenten skal se riktig ut
+
 ## 9.2.6 (2022-11-22)
 
 ### Bug Fixes

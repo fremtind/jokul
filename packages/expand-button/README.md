@@ -14,11 +14,11 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/expan
 import "@fremtind/jkl-expand-button/expand-button.min.css";
 
 // Ekspanderknappen bruker icons-pakka for å animere pila
-import "@fremtind/jkl-icons/animated-icons.min.css";
+import "@fremtind/jkl-icons/icons.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-expand-button/expand-button";
-@use "@fremtind/jkl-icons/animated-icons";
+@use "@fremtind/jkl-icons/icons";
 ```

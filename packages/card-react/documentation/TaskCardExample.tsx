@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Checkbox } from "../../checkbox-react/src";
-import { FieldGroup } from "../../field-group-react/src";
+import { FieldGroup } from "../../input-group-react/src";
 import { useAnimatedHeight } from "../../react-hooks";
 import { Select } from "../../select-react/src";
 import { TaskCard } from "../src/TaskCard";

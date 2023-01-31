@@ -3,15 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@9.0.1...@fremtind/jkl-radio-button-react@10.0.0) (2023-01-30)
+
+### Code Refactoring
+
+- bruk FieldGroup fra jkl-input-group/-react i RadioButtonGroup ([b7bcb3e](https://github.com/fremtind/jokul/commit/b7bcb3e15e018cf9444343e10d282e925b3bad63))
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- Du må nå impoertere stilarket til FieldGroup fra jkl-input-group i stedet for jkl-field-group
+
 # 9.0.0 (2023-01-16)
 
 ### Features
 
-- forenkle bruken av tooltip med FieldGroup ([779eb91](https://github.com/fremtind/jokul/commit/779eb913fa992dac394ee0adf147c34b5b2ee78b))
+-   forenkle bruken av tooltip med FieldGroup ([779eb91](https://github.com/fremtind/jokul/commit/779eb913fa992dac394ee0adf147c34b5b2ee78b))
 
 ### BREAKING CHANGES
 
-- `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
 
 ## 8.0.12 (2022-11-22)
 

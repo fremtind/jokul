@@ -1,27 +1,16 @@
-import React, { ReactNode, FC } from "react";
-import { IconProps } from "./icons/types";
+import cn from "classnames";
+import React, { SVGAttributes } from "react";
+import { IconProps, IconVariant } from "./icons/types";
 
-interface Props extends IconProps {
-    innerSvg: ReactNode;
-    viewBox?: string;
-}
+export type IconSet = Record<IconVariant, React.FC<SVGAttributes<SVGElement>>>;
+export type IconVariants = Record<"bold" | "regular", IconSet>;
 
-export const IconFactory: FC<Props> = ({
-    viewBox = "0 0 20 21",
-    variant = "inherit",
-    className = "",
-    innerSvg,
-    ...rest
-}) => (
-    <svg
-        {...rest}
-        className={`jkl-icon jkl-icon--${variant} ${className}`}
-        width="100%"
-        viewBox={viewBox}
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
-    >
-        {innerSvg}
-    </svg>
-);
+export const makeIconComponent = (variants: IconVariants) => {
+    const Icon: React.FC<IconProps> = ({ bold = false, className, variant = "inherit", ...rest }) => {
+        const IconComponent = variants[bold ? "bold" : "regular"][variant];
+
+        return <IconComponent className={cn(className, "jkl-icon", `jkl-icon--${variant}`)} {...rest} />;
+    };
+
+    return Icon;
+};

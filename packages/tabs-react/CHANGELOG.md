@@ -3,15 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tabs-react@3.1.2...@fremtind/jkl-tabs-react@4.0.0) (2023-01-30)
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+
 # 3.1.0 (2022-12-06)
 
 ### Bug Fixes
 
-- bruk første link om treff mangler på route ([982a3a8](https://github.com/fremtind/jokul/commit/982a3a8142445cae287c85bb9b380ca58745b754))
+-   bruk første link om treff mangler på route ([982a3a8](https://github.com/fremtind/jokul/commit/982a3a8142445cae287c85bb9b380ca58745b754))
 
 ### Features
 
-- nye fanekomponenter basert på lenker og URLer ([3f69586](https://github.com/fremtind/jokul/commit/3f695860aaf8ff98c8a95af5dfb9bad35725dd9a))
+-   nye fanekomponenter basert på lenker og URLer ([3f69586](https://github.com/fremtind/jokul/commit/3f695860aaf8ff98c8a95af5dfb9bad35725dd9a))
 
 ## 3.0.11 (2022-11-22)
 

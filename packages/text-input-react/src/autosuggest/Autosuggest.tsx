@@ -1,4 +1,5 @@
-import type { Density, LabelProps, SupportLabelProps } from "@fremtind/jkl-core";
+import type { Density } from "@fremtind/jkl-core";
+import type { LabelProps, SupportLabelProps } from "@fremtind/jkl-input-group-react";
 import type { TooltipProps } from "@fremtind/jkl-tooltip-react";
 import type { StateChangeOptions } from "downshift";
 import React, { type ReactNode, useEffect, useState } from "react";

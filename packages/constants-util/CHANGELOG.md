@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-constants-util@1.0.16...@fremtind/jkl-constants-util@2.0.0) (2023-01-30)
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+
 ## 1.0.7 (2022-11-22)
 
 ### Bug Fixes

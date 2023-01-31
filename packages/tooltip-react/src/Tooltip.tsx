@@ -10,6 +10,7 @@ import {
     useDismiss,
     useFocus,
 } from "@floating-ui/react-dom-interactions";
+import { QuestionIcon } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import { motion, AnimatePresence } from "framer-motion";
@@ -26,6 +27,7 @@ export interface TooltipProps {
 export const Tooltip = ({ content, initialPlacement = "top", className }: TooltipProps) => {
     const tooltipId = useId("jkl-tooltip");
     const [open, setOpen] = useState(false);
+    const [buttonHasFocus, setButtonFocus] = useState(false);
     const arrowElement = useRef<HTMLDivElement>(null);
     const {
         x,
@@ -58,9 +60,15 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                     aria-controls={tooltipId}
                     type="button"
                     className="jkl-tooltip__button"
-                    {...getReferenceProps({ ref: reference })}
+                    {...getReferenceProps({
+                        ref: reference,
+                        onFocus: () => setButtonFocus(true),
+                        onBlur: () => setButtonFocus(false),
+                        onMouseOver: () => setButtonFocus(true),
+                        onMouseLeave: () => setButtonFocus(false),
+                    })}
                 >
-                    <span aria-hidden="true">?</span>
+                    <QuestionIcon bold={buttonHasFocus} />
                     <span className="jkl-sr-only">{`${open ? "Skjul" : "Vis"} hjelpetekst`}</span>
                 </button>
                 <AnimatePresence>

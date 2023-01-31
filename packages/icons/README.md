@@ -13,10 +13,10 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/icons
 
 ```js
 // Importer stilark via JavaScript med CSS-loader.
-import "@fremtind/jkl-icons/animated-icons.min.css";
+import "@fremtind/jkl-icons/icons.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
-@use "@fremtind/jkl-icons/animated-icons";
+@use "@fremtind/jkl-icons/icons";
 ```

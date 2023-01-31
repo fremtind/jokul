@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.0.0 (2023-01-30)
+
+### Bug Fixes
+
+- fiks feil posisjonering av noen animerte ikoner ([ff118fd](https://github.com/fremtind/jokul/commit/ff118fd6fc5ef3e426902f6757e72ee614d5809a))
+- fixup animerte ikoners CSS ([08ec332](https://github.com/fremtind/jokul/commit/08ec3323d6c1b8f1f5ef48a6d8d35cfceaa29553))
+- fjern ubrukt fargevariabel ([09ac0da](https://github.com/fremtind/jokul/commit/09ac0da26350d7319d1c3a727d548339226b6199))
+- fjern unødvendig høydeoverstyring ([b302f27](https://github.com/fremtind/jokul/commit/b302f27e299cc06822f72b95d4d50e7fb172b0e9))
+- gjør rotasjonen litt mer tydelig ([591e8c1](https://github.com/fremtind/jokul/commit/591e8c1524d8c8c18ad33022937a45919a1df753))
+- sikre riktig visning av animerte piler ([6a486dc](https://github.com/fremtind/jokul/commit/6a486dcaf0978ac0f86ffe3b1e1131d5c465eafd))
+
+### chore
+
+- slett animert hamburger-til-close ([ce13543](https://github.com/fremtind/jokul/commit/ce13543fcb7334c1c345dbfb9faf0c19085633ec))
+
+### Code Refactoring
+
+- flytt CSSen for ikoner til ikonpakka ([02e7945](https://github.com/fremtind/jokul/commit/02e7945f5a23a5b7e13f1718719f8547c8f7a5a7))
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+- nytt ikon for kopiering ([c4507ab](https://github.com/fremtind/jokul/commit/c4507abef05030eb0b0783c8668b8fb5f6708cd7))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+- Animert hamburger-til-lukk er fjernet. Bruk ContentToggle om du ønsker beholde den samme effekten.
+- animated-icons.css og animated-icons.min.css bygges ikke separat lenger. Endre importer til
+icons.css eller icons.min.css
+
 ## 6.0.8 (2022-11-22)
 
 ### Bug Fixes

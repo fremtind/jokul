@@ -3,15 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@9.0.1...@fremtind/jkl-checkbox-react@10.0.0) (2023-01-30)
+
+### Features
+
+- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+
+### BREAKING CHANGES
+
+- Avhenger av en versjon av jkl-core med breaking changes
+
 # 9.0.0 (2023-01-16)
 
 ### Features
 
-- forenkle bruken av tooltip med FieldGroup ([779eb91](https://github.com/fremtind/jokul/commit/779eb913fa992dac394ee0adf147c34b5b2ee78b))
+-   forenkle bruken av tooltip med FieldGroup ([779eb91](https://github.com/fremtind/jokul/commit/779eb913fa992dac394ee0adf147c34b5b2ee78b))
 
 ### BREAKING CHANGES
 
-- `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
+-   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
 
 ## 8.0.11 (2022-11-22)
 
