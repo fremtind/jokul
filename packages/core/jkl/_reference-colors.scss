@@ -1,0 +1,55 @@
+@use "sass:map";
+
+// Hovedfarger
+
+/// @type Color
+$color-svart: #000;
+
+/// @type Color
+$color-granitt: #1b1917;
+
+/// @type Color
+$color-skifer: #313030;
+
+/// @type Color
+$color-fjellgra: #444141;
+
+/// @type Color
+$color-stein: #636060;
+
+/// @type Color
+$color-svaberg: #c8c5c3;
+
+/// @type Color
+$color-varde: #e0dbd4;
+
+/// @type Color
+$color-dis: #ece9e5;
+
+/// @type Color
+$color-sand: #f4f2ef;
+
+/// @type Color
+$color-snohvit: #f9f9f9;
+
+/// @type Color
+$color-hvit: #fff;
+
+// Varslingsfarger / Meldingsfarger.
+// Kun til bruk som bakgrunn i komponenter som gir varslinger til bruker.
+$_varslingsfarger: (
+    "suksess": #c8ecd2,
+    "feil": #ffc9b2,
+    "info": #d9ddff,
+    "advarsel": #fdeab9,
+    "suksess--alt": #90c49e,
+    "feil--alt": #ff9a7a,
+);
+
+/// Hent fargekoden til en navngitt varslingsfarge
+/// @param {"suksess" | "feil" | "info" | "advarsel" | "suksess--alt" | "feil--alt"} $farge - Navn på fargen du ønsker verdien til
+/// @return {Color} - fargekoden til den ønskede fargen
+/// @access private - forwardes ikke ut av modulen, men er tilgjengelig ved direkteimport. KUN FOR INTERN BRUK I JØKUL.
+@function varslingsfarge($farge) {
+    @return map.get($_varslingsfarger, $farge);
+}

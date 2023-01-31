@@ -1,0 +1,86 @@
+@use "../jkl";
+
+:root {
+    --jkl-color-svart: #{jkl.$color-svart};
+    --jkl-color-granitt: #{jkl.$color-granitt};
+    --jkl-color-skifer: #{jkl.$color-skifer};
+    --jkl-color-fjellgra: #{jkl.$color-fjellgra};
+    --jkl-color-stein: #{jkl.$color-stein};
+    --jkl-color-svaberg: #{jkl.$color-svaberg};
+    --jkl-color-varde: #{jkl.$color-varde};
+    --jkl-color-dis: #{jkl.$color-dis};
+    --jkl-color-sand: #{jkl.$color-sand};
+    --jkl-color-snohvit: #{jkl.$color-snohvit};
+    --jkl-color-hvit: #{jkl.$color-hvit};
+}
+
+@include jkl.light-mode-variables {
+    /* Farger for bruk på bakgrunner */
+    --jkl-color-background: var(--jkl-color-snohvit);
+    --jkl-color-background-highlighted: var(--jkl-color-hvit);
+    --jkl-color-background-subdued: var(--jkl-color-dis);
+    --jkl-color-background-contrast: var(--jkl-color-varde);
+
+    /* Farger for tekst of grafikk på bakgrunnsfargene */
+    --jkl-color-on-background: var(--jkl-color-granitt);
+    --jkl-color-on-background-subdued: var(--jkl-color-stein);
+
+    /* Farger for bruk på større overflater */
+    --jkl-color-surface: var(--jkl-color-dis);
+    --jkl-color-surface-highlighted: var(--jkl-color-hvit);
+    --jkl-color-surface-subdued: var(--jkl-color-snohvit);
+    --jkl-color-surface-contrast: var(--jkl-color-varde);
+
+    /* Farger for tekst og grafikk på overlfatefargene */
+    --jkl-color-on-surface: var(--jkl-color-granitt);
+    --jkl-color-on-surface-subdued: var(--jkl-color-stein);
+
+    /* Farger for interaktive elementer med liten overflate */
+    --jkl-color-primary: var(--jkl-color-granitt);
+    --jkl-color-primary-hover: var(--jkl-color-stein);
+    --jkl-color-primary-active: var(--jkl-color-svart);
+
+    /* Farger for tekst og grafikk interaktive elementer med liten overflate */
+    --jkl-color-on-primary: var(--jkl-color-snohvit);
+    --jkl-color-on-primary-alternate: var(--jkl-color-hvit);
+
+    /* Farger for skillelinjer rundt/mellom større flater */
+    --jkl-color-outline: var(--jkl-color-svaberg);
+    --jkl-color-outline-alternate: var(--jkl-color-stein);
+}
+
+// TODO: FINN RIKTIGE VERDIER FOR DARK MODE
+@include jkl.dark-mode-variables {
+    /* Farger for bruk på bakgrunner */
+    --jkl-color-background: var(--jkl-color-snohvit);
+    --jkl-color-background-highlighted: var(--jkl-color-hvit);
+    --jkl-color-background-subdued: var(--jkl-color-dis);
+    --jkl-color-background-contrast: var(--jkl-color-varde);
+
+    /* Farger for tekst of grafikk på bakgrunnsfargene */
+    --jkl-color-on-background: var(--jkl-color-granitt);
+    --jkl-color-on-background-subdued: var(--jkl-color-stein);
+
+    /* Farger for bruk på større overflater */
+    --jkl-color-surface: var(--jkl-color-dis);
+    --jkl-color-surface-highlighted: var(--jkl-color-hvit);
+    --jkl-color-surface-subdued: var(--jkl-color-snohvit);
+    --jkl-color-surface-contrast: var(--jkl-color-varde);
+
+    /* Farger for tekst og grafikk på overlfatefargene */
+    --jkl-color-on-surface: var(--jkl-color-granitt);
+    --jkl-color-on-surface-subdued: var(--jkl-color-stein);
+
+    /* Farger for interaktive elementer med liten overflate */
+    --jkl-color-primary: var(--jkl-color-granitt);
+    --jkl-color-primary-hover: var(--jkl-color-stein);
+    --jkl-color-primary-active: var(--jkl-color-svart);
+
+    /* Farger for tekst og grafikk interaktive elementer med liten overflate */
+    --jkl-color-on-primary: var(--jkl-color-snohvit);
+    --jkl-color-on-primary-alternate: var(--jkl-color-hvit);
+
+    /* Farger for skillelinjer rundt/mellom større flater */
+    --jkl-color-outline: var(--jkl-color-svaberg);
+    --jkl-color-outline-alternate: var(--jkl-color-stein);
+}
