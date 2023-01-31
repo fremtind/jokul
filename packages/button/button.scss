@@ -45,10 +45,10 @@ a.jkl-button {
 .jkl-button {
     --jkl-button-color: var(--jkl-color-primary);
     --jkl-button-content-color: var(--jkl-color-on-primary);
-    --jkl-button-color-transparent: transparent;
 
     &:active {
         --jkl-button-color: var(--jkl-color-primary-active);
+        --jkl-button-content-color: var(--jkl-color-on-primary-active);
     }
 
     @include jkl.reset-outline;
