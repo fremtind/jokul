@@ -1,12 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-datepicker-focus-color: #{jkl.$color-granitt};
-}
-@include jkl.dark-mode-variables {
-    --jkl-datepicker-focus-color: #{jkl.$color-snohvit};
-}
-
 .jkl-datepicker {
     @include jkl.reset-outline;
     position: relative;
@@ -56,32 +49,6 @@
 
 // CALENDAR STYLES
 
-@include jkl.light-mode-variables {
-    --jkl-calendar-text-color: #{jkl.$color-granitt};
-    --jkl-calendar-background-color: #{jkl.$color-hvit};
-    --jkl-calendar-border-color: #{jkl.$color-granitt};
-    --jkl-calendar-adjacent-month-color: #{jkl.$color-stein};
-    --jkl-calendar-disabled-day-color: #{jkl.$color-svaberg};
-    --jkl-calendar-active-day-color: #{jkl.$color-hvit};
-    --jkl-calendar-focus-color: #{jkl.$color-granitt};
-    --jkl-calendar-navigation-arrow-focus-color: #{jkl.$color-stein};
-    --jkl-calendar-hover-date-background-color: #{jkl.$color-varde};
-    --jkl-calendar-selected-date-background-color: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-calendar-text-color: #{jkl.$color-snohvit};
-    --jkl-calendar-background-color: #{jkl.$color-svart};
-    --jkl-calendar-border-color: #{jkl.$color-snohvit};
-    --jkl-calendar-adjacent-month-color: #{jkl.$color-svaberg};
-    --jkl-calendar-disabled-day-color: #{jkl.$color-stein};
-    --jkl-calendar-active-day-color: #{jkl.$color-svart};
-    --jkl-calendar-focus-color: #{jkl.$color-snohvit};
-    --jkl-calendar-navigation-arrow-focus-color: #{jkl.$color-svaberg};
-    --jkl-calendar-hover-date-background-color: #{jkl.$color-stein};
-    --jkl-calendar-selected-date-background-color: #{jkl.$color-snohvit};
-}
-
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-calendar-caption", "body");
 
@@ -125,9 +92,18 @@
 }
 
 .jkl-calendar {
+    --jkl-calendar-border-color: var(--jkl-color-primary);
+    --jkl-calendar-background-color: var(--jkl-color-surface-highlighted);
+    --jkl-calendar-text-color: var(--jkl-color-on-surface);
+    --jkl-calendar-adjacent-month-color: var(--jkl-color-on-surface-subdued);
+    --jkl-calendar-selected-date-background-color: var(--jkl-color-primary);
+    --jkl-calendar-selected-date-text-color: var(--jkl-color-on-primary);
+    --jkl-calendar-hover-date-background-color: var(--jkl-color-surface-contrast);
+    --jkl-calendar-focus-color: var(--jkl-color-primary-subdued);
+    --jkl-calendar-hover-color: var(--jkl-color-primary-highlighted);
+
     // hard code for CSP blocking inline styling
     display: block;
-
     justify-content: center;
     flex-direction: column;
     max-width: var(--jkl-calendar-max-width);
@@ -216,9 +192,17 @@
             border-radius: 50%;
         }
 
+        &:hover {
+            color: var(--jkl-calendar-hover-color);
+        }
+
+        @include jkl.keyboard-focus {
+            color: var(--jkl-calendar-focus-color);
+        }
+
         &:hover,
         &:focus {
-            color: var(--jkl-calendar-navigation-arrow-focus-color);
+            color: var(--jkl-calendar-focus-color);
 
             @include jkl.keyboard-navigation {
                 border-color: var(--jkl-calendar-focus-color);
@@ -231,7 +215,7 @@
         }
 
         &:disabled {
-            color: var(--jkl-calendar-disabled-day-color);
+            opacity: 0.3;
         }
     }
 
@@ -347,7 +331,7 @@
         // Selected date
         &[aria-pressed="true"] {
             background-color: var(--jkl-calendar-selected-date-background-color);
-            color: var(--jkl-calendar-active-day-color);
+            color: var(--jkl-calendar-selected-date-text-color);
             cursor: pointer;
 
             &:hover {
@@ -356,7 +340,7 @@
         }
 
         &:disabled {
-            color: var(--jkl-calendar-disabled-day-color);
+            opacity: 0.3;
         }
 
         @include jkl.keyboard-navigation {
