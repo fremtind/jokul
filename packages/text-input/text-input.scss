@@ -22,6 +22,7 @@ $_action-button-padding--compact: 0;
 $_action-button-focus-position: jkl.rem(8px);
 $_action-button-focus-position--compact: 0;
 
+// TODO: Finn ut hvordan i huleste vi kan løse dette her. Kankje bare droppe custom selection?
 $_text-input-focus-color: jkl.$color-granitt;
 $_text-input-selection-color: color.scale(
     $color: $_text-input-focus-color,
@@ -35,30 +36,12 @@ $_text-input-selection-color--inverted: color.scale(
 );
 
 @include jkl.light-mode-variables {
-    --jkl-text-input-border-color: #{jkl.$color-stein};
-    --jkl-text-input-text-color: #{jkl.$color-granitt};
-    --jkl-text-input-placeholder-color: #{jkl.$color-stein};
-    --jkl-text-input-unit-color: #{jkl.$color-granitt};
-    --jkl-text-input-background-color: #{jkl.$color-hvit};
-    --jkl-text-input-focus-color: #{$_text-input-focus-color};
-    --jkl-text-input-error-background-color: #{colors.varslingsfarge("feil")};
-    --jkl-text-input-error-text-color: #{jkl.$color-granitt};
-    --jkl-text-input-error-placeholder-color: #{jkl.$color-stein};
     --jkl-text-input-selection-color: #{$_text-input-selection-color};
     --jkl-text-input-error-selection-color-color: #{$_text-input-selection-color};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-text-input-border-color: #{jkl.$color-svaberg};
-    --jkl-text-input-text-color: #{jkl.$color-snohvit};
-    --jkl-text-input-placeholder-color: #{jkl.$color-svaberg};
-    --jkl-text-input-unit-color: #{jkl.$color-snohvit};
-    --jkl-text-input-background-color: #{jkl.$color-svart};
-    --jkl-text-input-focus-color: #{$_text-input-focus-color--inverted};
     --jkl-text-input-selection-color: #{$_text-input-selection-color--inverted};
-    --jkl-text-input-error-background-color: #{colors.varslingsfarge("feil")};
-    --jkl-text-input-error-text-color: #{jkl.$color-granitt};
-    --jkl-text-input-error-placeholder-color: #{jkl.$color-stein};
     --jkl-text-input-error-selection-color-color: #{$_text-input-selection-color};
 }
 
@@ -94,14 +77,21 @@ $_text-input-selection-color--inverted: color.scale(
 }
 
 @mixin _shared-input-styles {
+    --jkl-text-input-placeholder-color: var(--jkl-color-on-surface-subdued);
+
+    &[aria-invalid="true"] {
+        // TODO: Manglende rolle jkl-on-error-subdued
+        --jkl-text-input-placeholder-color: var(--jkl-color-stein);
+        --jkl-text-input-selection-color: var(--jkl-text-input-error-selection-color);
+    }
+
     background: none;
+    color: var(--jkl-text-input-text-color);
     -webkit-appearance: none;
     padding: 0;
     @include jkl.reset-outline;
     @include jkl.remove-inner-outer-button;
     @include jkl.use-font-variables("jkl-text-input");
-
-    color: var(--jkl-color);
 
     // Placeholder text style
     &::placeholder {
@@ -112,37 +102,24 @@ $_text-input-selection-color--inverted: color.scale(
     // Color of text selection
     &::selection {
         background-color: var(--jkl-text-input-selection-color);
-
-        [data-theme="dark"] & {
-            background-color: var(--jkl-text-input-selection-color);
-        }
     }
 
-    //  Invalid state
-    &[aria-invalid="true"] {
-        color: var(--jkl-text-input-error-text-color);
+    // Invalid state for action-button
+    // TODO: rydd opp i dette, hører disse stilene virkelig hjeme her?
+    &[aria-invalid="true"] ~ .jkl-text-input-action-button {
+        // TODO: Manglende rolle jkl-on-error
+        color: var(--jkl-color-granitt);
 
-        &::placeholder {
-            color: var(--jkl-text-input-error-placeholder-color);
+        &:hover {
+            // TODO: Manglende rolle jkl-on-error-subdued
+            color: var(--jkl-color-stein);
         }
 
-        // Color of text selection
-        &::selection {
-            background-color: var(--jkl-text-input-error-selection-color-color);
-        }
-
-        & ~ .jkl-text-input__action-button {
-            color: var(--jkl-text-input-error-placeholder-color);
-
-            &:hover {
-                color: var(--jkl-text-input-error-text-color);
-            }
-
-            &:focus {
-                @include jkl.keyboard-navigation {
-                    &::after {
-                        box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-text-input-error-text-color);
-                    }
+        &:focus {
+            @include jkl.keyboard-navigation {
+                &::after {
+                    // TODO: Manglende rolle jkl-on-error
+                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-color-granitt);
                 }
             }
         }
@@ -204,6 +181,25 @@ $_text-input-selection-color--inverted: color.scale(
 }
 
 .jkl-text-input-wrapper {
+    --jkl-text-input-border-color: var(--jkl-color-primary);
+    --jkl-text-input-text-color: var(--jkl-color-on-surface);
+    --jkl-text-input-background-color: transparent;
+
+    &:hover {
+        --jkl-text-input-border-color: var(--jkl-color-primary-subdued);
+    }
+
+    &:focus-within {
+        --jkl-text-input-border-color: var(--jkl-color-primary-highlighted);
+        --jkl-text-input-background-color: var(--jkl-color-surface-highlighted);
+    }
+
+    &[data-invalid="true"] {
+        --jkl-text-input-background-color: #{colors.varslingsfarge("feil")};
+        // TODO: Trengs ny rolle jkl-color-on-error
+        --jkl-text-input-text-color: var(--jkl-color-granitt);
+    }
+
     border-radius: jkl.rem(3px);
     box-sizing: border-box;
     max-width: 100%;
@@ -219,28 +215,19 @@ $_text-input-selection-color--inverted: color.scale(
 
     color: var(--jkl-text-input-text-color);
     box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-border-color), 0 0 0 jkl.rem(1px) transparent;
-    background-color: transparent;
+    background-color: var(--jkl-text-input-background-color);
 
-    &:hover {
-        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
-            0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
-        border-color: var(--jkl-text-input-focus-color);
-    }
-
+    &:hover,
     &:focus-within {
-        background-color: var(--jkl-text-input-background-color);
-        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
-            0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
-        border-color: var(--jkl-text-input-focus-color);
-    }
-
-    &[data-invalid="true"] {
-        background-color: var(--jkl-text-input-error-background-color);
-        color: var(--jkl-text-input-error-text-color);
+        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-border-color),
+            0 0 0 jkl.rem(1px) var(--jkl-text-input-border-color);
+        border-color: var(--jkl-text-input-border-color);
     }
 }
 
 .jkl-text-input {
+    --jkl-text-input-unit-color: var(--jkl-color-on-surface-subdued);
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
