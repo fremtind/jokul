@@ -61,7 +61,7 @@ const IndexPage: React.FC = () => {
             <div className="jkl-portal-frontpage">
                 <section className="jkl-portal-frontpage__section-intro">
                     <h1 className="jkl-sr-only">Jøkul Designsystem</h1>
-                    <p className="jkl-heading-1" data-testid="front-page__tagline">
+                    <p className="jkl-heading-1 jkl-portal-frontpage__tagline" data-testid="front-page__tagline">
                         Velkommen til Jøkul — design&shy;systemet til Fremtind. Her har vi samlet alt du trenger for å
                         lage løsninger i vår profil.
                     </p>
