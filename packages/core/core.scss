@@ -34,8 +34,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    background-color: var(--jkl-background-color);
-    color: var(--jkl-color);
+    background-color: var(--jkl-color-background);
+    color: var(--jkl-color-on-background);
 }
 
 @include jkl.prefers-reduced-motion {
