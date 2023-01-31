@@ -21,10 +21,10 @@ $_link-underline-thickness--focus: jkl.rem(2px);
     --jkl-link-color: var(--jkl-color-primary);
 
     &:hover:not(:focus) {
-        --jkl-link-color: var(--jkl-color-primary-hover);
+        --jkl-link-color: var(--jkl-color-primary-subdued);
     }
     @include jkl.keyboard-focus {
-        --jkl-link-color: var(--jkl-color-primary-active);
+        --jkl-link-color: var(--jkl-color-primary-highlighted);
     }
 
     color: var(--jkl-link-color);

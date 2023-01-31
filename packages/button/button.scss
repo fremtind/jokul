@@ -47,8 +47,8 @@ a.jkl-button {
     --jkl-button-content-color: var(--jkl-color-on-primary);
 
     &:active {
-        --jkl-button-color: var(--jkl-color-primary-active);
-        --jkl-button-content-color: var(--jkl-color-on-primary-active);
+        --jkl-button-color: var(--jkl-color-primary-highligted);
+        --jkl-button-content-color: var(--jkl-color-on-primary-highligted);
     }
 
     @include jkl.reset-outline;

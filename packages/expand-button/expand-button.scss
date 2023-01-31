@@ -19,8 +19,11 @@
 .jkl-expand-button {
     --jkl-expand-button-color: var(--jkl-color-primary);
 
+    &:hover {
+        --jkl-expand-button-color: var(--jkl-color-primary-subdued);
+    }
     @include jkl.keyboard-focus {
-        --jkl-expand-button-color: var(--jkl-color-primary-active);
+        --jkl-expand-button-color: var(--jkl-color-primary-highlighted);
     }
 
     $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
@@ -61,13 +64,12 @@
         }
     }
 
-    &:hover {
-        --jkl-expand-button-color: var(--jkl-color-primary-hover);
+    &:hover,
+    &[aria-expanded="true"] {
         @include _expanded-arrow(3px);
     }
 
     &[aria-expanded="true"] {
-        @include _expanded-arrow(3px);
         @include jkl.no-grow-bold;
 
         &:hover {
