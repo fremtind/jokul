@@ -7,3 +7,14 @@
         @content;
     }
 }
+
+/// Brukes for CSS som skal gjelde bare ved fokus ved tastaturnavigasjon.
+/// Krever at `initTabListener()` fra core er kjørt. Se README til core.
+/// @content Innholdet plasseres i en selector som bare matcher dersom vi _ikke_ har data-mousenavigation eller data-touchnavigation på html-elementet, og det er fokus på elementet.
+@mixin keyboard-focus {
+    @at-root html:not([data-mousenavigation]):not([data-touchnavigation]) #{&} {
+        &:focus {
+            @content;
+        }
+    }
+}
