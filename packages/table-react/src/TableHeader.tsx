@@ -3,6 +3,7 @@ import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
 import React, { forwardRef, MouseEventHandler, ThHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
+import { TableSortProps } from "./utils";
 
 export type TableSortDirection = "asc" | "desc";
 
@@ -20,15 +21,14 @@ export interface TableHeaderProps extends ThHTMLAttributes<HTMLTableCellElement>
      */
     scope?: "col" | "row";
     srOnly?: boolean;
-    direction?: TableSortDirection;
-    onClick?: MouseEventHandler<HTMLTableCellElement>;
+    sortable?: TableSortProps;
 }
 
 const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>((props, ref) => {
     const {
         bold = true,
         density,
-        direction,
+        sortable,
         className,
         scope = "col",
         srOnly,
@@ -39,28 +39,33 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>((props, r
     } = props;
     const { density: contextDensity } = useTableContext();
 
+    const handleClick: MouseEventHandler<HTMLTableCellElement> = (e) => {
+        onClick?.(e);
+        sortable?.onClick();
+    };
+
     return (
         <th
             className={cn("jkl-table-header", className, {
                 ["jkl-table-header--bold"]: bold,
                 ["jkl-table-header--align-right"]: align === "right",
                 ["jkl-table-header--sr-only"]: srOnly,
-                ["jkl-table-header--sortable"]: typeof onClick !== "undefined",
+                ["jkl-table-header--sortable"]: typeof sortable !== "undefined",
             })}
             scope={scope}
-            onClick={onClick}
+            onClick={handleClick}
             {...rest}
             data-density={density || contextDensity}
             ref={ref}
         >
             {children}
-            {onClick && (
+            {sortable && (
                 <div
                     className={cn("jkl-table-header__arrows", {
-                        "jkl-table-header__arrows--active": Boolean(direction),
+                        "jkl-table-header__arrows--active": Boolean(sortable.direction),
                     })}
                 >
-                    {direction && <ArrowVerticalAnimated pointingDown={direction === "desc"} />}
+                    {sortable.direction && <ArrowVerticalAnimated pointingDown={sortable.direction === "desc"} />}
                 </div>
             )}
         </th>

@@ -14,6 +14,7 @@ export { TablePagination } from "./TablePagination";
 export { TableRow } from "./TableRow";
 export { ExpandableTableRow } from "./ExpandableTableRow";
 export { ExpandableTableRowController } from "./ExpandableTableRowController";
+export { useSortableTableHeader } from "./utils";
 
 export type { DataTableProps } from "./DataTable";
 export type { TableProps } from "./Table";
@@ -31,3 +32,4 @@ export type { TablePaginationProps } from "./TablePagination";
 export type { TableRowProps } from "./TableRow";
 export type { ExpandableTableRowProps } from "./ExpandableTableRow";
 export type { ExpandableTableRowControllerProps } from "./ExpandableTableRowController";
+export type { TableSortProps } from "./utils";
