@@ -17,6 +17,25 @@
 }
 
 .jkl-task-card {
+    --jkl-task-card-shadow: #{jkl.$shadow-task-card};
+
+    &--subdued {
+        --jkl-task-card-background: var(--jkl-color-surface-subdued);
+    }
+
+    &--highlighted {
+        --jkl-task-card-background: var(--jkl-color-surface-highlighted);
+    }
+
+    &--contrast {
+        --jkl-task-card-background: var(--jkl-color-surface-contrast);
+    }
+
+    &--normal {
+        --jkl-task-card-background: var(--jkl-color-surface);
+    }
+
+    background-color: var(--jkl-task-card-background, var(--jkl-color-surface));
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -29,22 +48,6 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-    }
-
-    &--hvit {
-        background-color: var(--jkl-task-card-background--hvit);
-    }
-
-    &--snohvit {
-        background-color: var(--jkl-task-card-background--snohvit);
-    }
-
-    &--sand {
-        background-color: var(--jkl-task-card-background--sand);
-    }
-
-    &--dis {
-        background-color: var(--jkl-task-card-background--dis);
     }
 
     &--with-shadow {

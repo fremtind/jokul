@@ -7,9 +7,10 @@ import { getSpacingClasses } from "./utils";
 export interface TaskCardProps extends PaddingOptions, WithChildren {
     /**
      * Bakgrunnsfargen til kortet
-     * @default "hvit"
+     * Standard bakgrunn er nedtonet overflate (color.surface.subdued)
+     * @default "subdued"
      */
-    bgColor?: "hvit" | "snohvit" | "sand" | "dis";
+    bgColor?: "subdued" | "highlighted" | "contrast" | "normal";
     /**
      * Skal kortet ha skygge?
      * @default false
@@ -20,7 +21,7 @@ export interface TaskCardProps extends PaddingOptions, WithChildren {
 }
 
 export const TaskCard: FC<TaskCardProps> = ({
-    bgColor = "hvit",
+    bgColor = "subdued",
     withShadow = false,
     padding = "l",
     className,
