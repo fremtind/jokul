@@ -40,7 +40,7 @@
         "@fremtind/jkl-core": "^12.0.0",
         "@fremtind/jkl-expand-button-react": "^5.0.0",
         "@fremtind/jkl-icon-button-react": "^2.0.19",
-        "@fremtind/jkl-icons-react": "^6.0.11",
+        "@fremtind/jkl-icons-react": "^7.0.0",
         "@fremtind/jkl-react-hooks": "^11.0.0",
         "@fremtind/jkl-select-react": "^12.0.1",
         "@fremtind/jkl-table": "^8.0.0",

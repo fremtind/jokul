@@ -772,7 +772,7 @@ importers:
       '@fremtind/jkl-core': ^12.0.0
       '@fremtind/jkl-expand-button-react': ^5.0.0
       '@fremtind/jkl-icon-button-react': ^2.0.19
-      '@fremtind/jkl-icons-react': ^6.0.11
+      '@fremtind/jkl-icons-react': ^7.0.0
       '@fremtind/jkl-react-hooks': ^11.0.0
       '@fremtind/jkl-select-react': ^12.0.1
       '@fremtind/jkl-table': ^8.0.0
@@ -782,7 +782,7 @@ importers:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-expand-button-react': link:../expand-button-react
       '@fremtind/jkl-icon-button-react': 2.0.19
-      '@fremtind/jkl-icons-react': 6.0.11
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-select-react': 12.0.1
       '@fremtind/jkl-table': link:../table
@@ -2968,30 +2968,6 @@ packages:
 
   /@fremtind/jkl-icon-button/2.0.10:
     resolution: {integrity: sha512-AkCYTAS3/Zx5AkCoLNg77HIHG/CGsSSxtJNd65vowpxV1DQ5D8ouCvof0NFWLcnE1Nb90fjudTWM+UWllplz2w==}
-    dependencies:
-      '@fremtind/jkl-core': 11.4.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
-
-  /@fremtind/jkl-icons-react/6.0.11:
-    resolution: {integrity: sha512-HsMrp4oI46w0YBPLulHBtCMXv6P6qznGfepRm9pqFjINQ4fPUsIX7VXXXjuBXGh+sLCI2DHzd+K6OF56Zsmu3g==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 11.4.0
-      '@fremtind/jkl-icons': 6.0.10
-      classnames: 2.3.2
-    dev: false
-
-  /@fremtind/jkl-icons/6.0.10:
-    resolution: {integrity: sha512-Ygr4Zl/79h3s4tanjpIhH3ik49eDoPbwDTfdU2nymH8Y/fhT+kYrgi5lnAWqSfz+QxqOPoct7MxSdnYdF5T0ng==}
     dependencies:
       '@fremtind/jkl-core': 11.4.0
     transitivePeerDependencies:
