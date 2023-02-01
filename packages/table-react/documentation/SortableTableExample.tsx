@@ -9,6 +9,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
+    useSortableTableHeader,
     type TableSortDirection,
 } from "../src";
 
@@ -33,99 +34,31 @@ export const SortableTableExample: FC<ExampleComponentProps> = ({ boolValues, ch
     const [sortBy, setSortBy] = useState("dato");
     const [direction, setDirection] = useState<TableSortDirection>("desc");
 
+    const handleSortChange = (sortKey: string, sortDirection: TableSortDirection) => {
+        setSortBy(sortKey);
+        setDirection(sortDirection);
+    };
+
+    const { getSortProps } = useSortableTableHeader(sortBy, direction, handleSortChange);
+
     return (
         <Table fullWidth {...props}>
             <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
             <TableHead srOnly={headless}>
                 <TableRow>
-                    <TableHeader
-                        bold
-                        direction={sortBy === "dato" ? direction : undefined}
-                        onClick={() => {
-                            if (sortBy === "dato") {
-                                if (direction === "desc") {
-                                    setDirection("asc");
-                                } else {
-                                    setDirection("desc");
-                                }
-                            } else {
-                                setSortBy("dato");
-                                setDirection("desc");
-                            }
-                        }}
-                    >
+                    <TableHeader bold {...getSortProps("dato")}>
                         Dato
                     </TableHeader>
-                    <TableHeader
-                        bold
-                        direction={sortBy === "sak" ? direction : undefined}
-                        onClick={() => {
-                            if (sortBy === "sak") {
-                                if (direction === "desc") {
-                                    setDirection("asc");
-                                } else {
-                                    setDirection("desc");
-                                }
-                            } else {
-                                setSortBy("sak");
-                                setDirection("desc");
-                            }
-                        }}
-                    >
+                    <TableHeader bold {...getSortProps("sak")}>
                         Saksnummer
                     </TableHeader>
-                    <TableHeader
-                        bold
-                        direction={sortBy === "kunde" ? direction : undefined}
-                        onClick={() => {
-                            if (sortBy === "kunde") {
-                                if (direction === "desc") {
-                                    setDirection("asc");
-                                } else {
-                                    setDirection("desc");
-                                }
-                            } else {
-                                setSortBy("kunde");
-                                setDirection("desc");
-                            }
-                        }}
-                    >
+                    <TableHeader bold {...getSortProps("kunde")}>
                         Kundenummer
                     </TableHeader>
-                    <TableHeader
-                        bold
-                        direction={sortBy === "navn" ? direction : undefined}
-                        onClick={() => {
-                            if (sortBy === "navn") {
-                                if (direction === "desc") {
-                                    setDirection("asc");
-                                } else {
-                                    setDirection("desc");
-                                }
-                            } else {
-                                setSortBy("navn");
-                                setDirection("desc");
-                            }
-                        }}
-                    >
+                    <TableHeader bold {...getSortProps("navn")}>
                         Kundenavn
                     </TableHeader>
-                    <TableHeader
-                        bold
-                        direction={sortBy === "behandler" ? direction : undefined}
-                        onClick={() => {
-                            if (sortBy === "behandler") {
-                                if (direction === "desc") {
-                                    setDirection("asc");
-                                } else {
-                                    setDirection("desc");
-                                }
-                            } else {
-                                setSortBy("behandler");
-                                setDirection("desc");
-                            }
-                        }}
-                    >
+                    <TableHeader bold {...getSortProps("behandler")}>
                         Følger saken
                     </TableHeader>
                 </TableRow>
@@ -136,10 +69,13 @@ export const SortableTableExample: FC<ExampleComponentProps> = ({ boolValues, ch
                         let sorta = "";
                         let sortb = "";
                         if (sortBy === "dato") {
+                            const timeA = parseDateString(a[0])?.getTime() ?? 0;
+                            const timeB = parseDateString(b[0])?.getTime() ?? 0;
+
                             if (direction === "asc") {
-                                return parseDateString(a[0]).getTime() - parseDateString(b[0]).getTime();
+                                return timeA - timeB;
                             } else {
-                                return parseDateString(b[0]).getTime() - parseDateString(a[0]).getTime();
+                                return timeB - timeA;
                             }
                         }
                         if (sortBy === "sak") {
@@ -158,9 +94,9 @@ export const SortableTableExample: FC<ExampleComponentProps> = ({ boolValues, ch
                             sorta = a[4];
                             sortb = b[4];
                         }
-                        let order = 0;
+
                         if (sorta === sortb) {
-                            return order;
+                            return 0;
                         }
                         if (sorta > sortb) {
                             if (direction === "desc") {
