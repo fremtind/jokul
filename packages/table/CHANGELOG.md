@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.1.0 (2023-02-02)
+
+### Bug Fixes
+
+- bruk fontstiler for riktig størrelse i kompakt ([825b1cd](https://github.com/fremtind/jokul/commit/825b1cdefdf988d9c5c7439594a230ef8e3f1e66))
+
+### Features
+
+- paginering i tabeller ([7fdf478](https://github.com/fremtind/jokul/commit/7fdf47899aa48fc6e2e893b8547d0a19d4b9944b))
+- støtte for sortering med tabellheader ([12a589d](https://github.com/fremtind/jokul/commit/12a589d6cce67c18ea45ae7da2b86a858822ceba))
+
 # 8.0.0 (2023-01-30)
 
 ### Features
