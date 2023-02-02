@@ -18,24 +18,25 @@ import React, { useState, ReactNode, ChangeEventHandler, useRef, Children } from
 
 export interface ContextualMenuProps extends DataTestAutoId {
     className?: string;
-    initiatorElement: ReactNode;
+    initiatorElement?: ReactNode;
     children: ReactNode;
     initialPlacement?: Placement;
+    openOnHover?: boolean;
     onChange?: ChangeEventHandler;
     onFocus?: ChangeEventHandler;
     onBlur?: ChangeEventHandler;
 }
 
-export type Placement = "bottom-end" | "bottom-start";
+export type Placement = "bottom-end" | "bottom-start" | "right-end";
 
 export const ContextualMenu = ({
     className,
     initiatorElement,
     children,
     initialPlacement = "bottom-start",
+    openOnHover = false,
 }: ContextualMenuProps) => {
     const [open, setOpen] = useState(false);
-    /*     const [initiatorFocused, setInitiatorFocused] = useState(false); */
     const contextualMenuId = useId("jkl-contextual-menu");
     const childrenArray = Children.toArray(children);
     const componentRef = useRef(null);
@@ -51,25 +52,26 @@ export const ContextualMenu = ({
     const { getReferenceProps, getFloatingProps } = useInteractions([
         useClick(context),
         useDismiss(context, { referencePress: false }),
-        useFocus(context, { enabled: open }), // Lukk når fokus flyttes vekk
+        useFocus(context, { enabled: open }),
         useRole(context, { role: "menu" }),
     ]);
 
     return (
         <div className="jkl-contextual-menu" role="menu" ref={componentRef}>
-            <div
-                aria-expanded={open}
-                className={cn("jkl-contextual-menu__initiator", className)}
-                {...getReferenceProps({
-                    ref: reference,
-                    /*                     onFocus: () => setInitiatorFocused(true),
-                    onBlur: () => setInitiatorFocused(false),
-                    onMouseOver: () => setInitiatorFocused(true),
-                    onMouseLeave: () => setInitiatorFocused(false), */
-                })}
-            >
-                {initiatorElement}
-            </div>
+            {initiatorElement && (
+                <div
+                    aria-expanded={open}
+                    className={cn("jkl-contextual-menu__initiator", className)}
+                    onMouseOver={openOnHover ? () => setOpen(true) : undefined}
+                    onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
+                    onFocus={openOnHover ? () => setOpen(false) : undefined}
+                    {...getReferenceProps({
+                        ref: reference,
+                    })}
+                >
+                    {initiatorElement}
+                </div>
+            )}
 
             <AnimatePresence>
                 {open && (
@@ -92,15 +94,14 @@ export const ContextualMenu = ({
                         })}
                     >
                         {childrenArray.map((child, i) => (
-                            <span key={`${i}-${child}`} className="jkl-contextual-menu__menu-item">
+                            <span
+                                key={`${i}-${child}`}
+                                className="jkl-contextual-menu__menu-item"
+                                onMouseOver={openOnHover ? () => setOpen(true) : undefined}
+                                onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
+                                onFocus={openOnHover ? () => setOpen(false) : undefined}
+                            >
                                 {child}
-                                {/**
-                                 * Flere valg = chevron-right-md > ekspanderer,
-                                 * sentrert på første linje,
-                                 * 8px fra høyre. Fixed...
-                                 * skal kunne ha en divider per linje (1px solid farge: dis, outside),
-                                 *
-                                 * */}
                             </span>
                         ))}
                     </motion.span>

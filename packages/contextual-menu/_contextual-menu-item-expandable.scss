@@ -1,0 +1,11 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/jkl/colors";
+
+.contextual-menu-item-expandable {
+    display: flex;
+    align-items: center;
+    gap: jkl.rem(12px);
+    max-width: jkl.rem(280px);
+    min-width: jkl.rem(280px);
+    height: jkl.rem(48px);
+}

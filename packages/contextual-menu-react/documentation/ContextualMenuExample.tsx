@@ -1,75 +1,62 @@
-import { CheckIcon, ChevronDownIcon, DotsIcon, InfoIcon, SearchIcon } from "@fremtind/jkl-icons-react";
+import { DotsIcon, InfoIcon } from "@fremtind/jkl-icons-react";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
 import { ContextualMenu } from "../src";
+import { ContextualMenuIconInitiator } from "../src/ContextualMenuIconInitiator";
+import { ContextualMenuItem } from "../src/ContextualMenuItem";
+import { ContextualMenuItemExpandable } from "../src/ContextualMenuItemExpandable";
 
 export const contextualMenuExampleKnobs: ExampleKnobsProps = {};
 export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
     return (
         <div style={{ width: "500px", display: "flex", flexDirection: "column", justifyContent: "center", gap: "3em" }}>
-            <ContextualMenu initiatorElement={<DotsIcon bold />}>
-                <span>2-Headed Shark Attack (2012)</span>
-                <span>Ice Age 2</span>
-                <span>Antfarm</span>
-                <span>Chairman of the Board</span>
-                <span>Cyber Bully</span>
+            <ContextualMenu
+                initiatorElement={
+                    <div>
+                        <span>Hello</span>
+                    </div>
+                }
+            >
+                <ContextualMenuItem description="Tester uten icon" />
+                <ContextualMenuItem description="Tester uten icon" />
             </ContextualMenu>
 
-            <ContextualMenu initiatorElement={<DotsIcon bold />}>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <SearchIcon />
-                    <span>Søk etter noe kult</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <CheckIcon />
-                    <span>Dette er en test</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <InfoIcon />
-                    <span>Tester her også</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <span>Balenciaga</span>
-                </div>
-            </ContextualMenu>
+            <ContextualMenu initiatorElement={<ContextualMenuIconInitiator icon={<DotsIcon bold />} />}>
+                <ContextualMenuItem description="Tester icon bold her" icon={<InfoIcon bold />} />
+                <ContextualMenuItem description="Tester uten icon her også men litt lengre Tester" />
+                <ContextualMenuItem description="Tester uten icon" />
 
-            <ContextualMenu initialPlacement="bottom-end" initiatorElement={<ChevronDownIcon bold />}>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <SearchIcon />
-                    <span>Søk etter noe kult</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <CheckIcon />
-                    <span>Dette er en test</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <InfoIcon />
-                    <span>Tester her også qkwjellkqjweqlkwjeqwljke</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <span>Balenciaga</span>
-                </div>
-            </ContextualMenu>
+                <ContextualMenu
+                    openOnHover
+                    initialPlacement="right-end"
+                    initiatorElement={<ContextualMenuItemExpandable description="Hello" />}
+                >
+                    <ContextualMenuItem description="Ekspandert 1" icon={<InfoIcon />} />
+                    <ContextualMenuItem description="Ekspandert 2 med mer tekst" />
+                </ContextualMenu>
 
-            <ContextualMenu initiatorElement={<div>Hello</div>}>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <SearchIcon />
-                    <span>Søk etter noe kult</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <CheckIcon />
-                    <span>Dette er en test</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <InfoIcon />
-                    <span>Tester her også</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: ".3rem" }}>
-                    <span>Balenciaga</span>
-                </div>
-                <div>
-                    <button>Hello</button>
-                </div>
+                <ContextualMenu
+                    openOnHover
+                    initialPlacement="right-end"
+                    initiatorElement={<ContextualMenuItemExpandable icon={<InfoIcon />} description="Deeper" />}
+                >
+                    <ContextualMenuItem description="Tester med icon her" icon={<InfoIcon />} />
+                    <ContextualMenuItem description="Tester uten icon" />
+                </ContextualMenu>
+
+                <ContextualMenu
+                    openOnHover
+                    initialPlacement="right-end"
+                    initiatorElement={
+                        <ContextualMenuItemExpandable
+                            icon={<InfoIcon />}
+                            description="Hello dette er en lang item med expand"
+                        />
+                    }
+                >
+                    <ContextualMenuItem description="Tester med icon her" icon={<InfoIcon />} />
+                    <ContextualMenuItem description="Tester uten icon og lang tekst som overskrider bredden" />
+                </ContextualMenu>
             </ContextualMenu>
         </div>
     );

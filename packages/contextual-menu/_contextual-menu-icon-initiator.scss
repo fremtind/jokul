@@ -1,0 +1,33 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/jkl/colors";
+
+@include jkl.light-mode-variables {
+    --jkl-contextual-menu-initiator-color: #{jkl.$color-svart};
+    --jkl-contextual-menu-initiator-bg-color: rgb(27 25 23 / 5%);
+    --jkl-contextual-menu-initiator-hover-bg-color: rgb(27 25 23 / 10%);
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-contextual-menu-initiator-color: #{jkl.$color-snohvit};
+    --jkl-contextual-menu-initiator-bg-color: rgb(236 233 229 / 5%);
+    --jkl-contextual-menu-initiator-hover-bg-color: rgb(236 233 229 / 10%);
+}
+
+.contextual-menu-icon-initiator {
+    height: jkl.rem(24px);
+    vertical-align: middle;
+    background: var(--jkl-contextual-menu-initiator-bg-color);
+    border-radius: jkl.rem(4px);
+    padding: jkl.rem(4px);
+    user-select: none;
+
+    &:focus,
+    &:hover {
+        cursor: pointer;
+        background: var(--jkl-contextual-menu-initiator-hover-bg-color);
+    }
+
+    &:active {
+        background: var(--jkl-contextual-menu-initiator-hover-bg-color);
+    }
+}
