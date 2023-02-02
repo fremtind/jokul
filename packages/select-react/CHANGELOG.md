@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [13.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@13.0.0...@fremtind/jkl-select-react@13.0.1) (2023-02-02)
+
+### Bug Fixes
+
+- rett en feil som Flyt ser ved asynkron lasting av value ([c7ec713](https://github.com/fremtind/jokul/commit/c7ec7139c89ff435aa874efd2eddc6aff6b5aef8))
+
 # [13.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@12.0.1...@fremtind/jkl-select-react@13.0.0) (2023-01-30)
 
 ### Features

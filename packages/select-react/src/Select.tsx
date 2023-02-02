@@ -159,6 +159,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     const unifiedSelectRef = useCallback(
         (instance: HTMLSelectElement | null) => {
             selectRef.current = instance;
+            if (instance) {
+                setSelectedValue(instance.value);
+            }
 
             if (forwardedSelectRef) {
                 if (typeof forwardedSelectRef === "function") {
@@ -174,14 +177,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     useEffect(() => {
         setSelectedValue(value || "");
     }, [setSelectedValue, value]);
-
-    // React Hook Form setter select-elementets value hvis skjemaet har `defaultValues`, men vi rendrer ikke det elementet synlig.
-    // For at brukeren skal se at verdien faktisk er blitt satt må vi sette denne staten.
-    useEffect(() => {
-        if (typeof selectRef.current?.value !== "undefined") {
-            setSelectedValue(selectRef.current.value);
-        }
-    }, [selectRef.current?.value]);
 
     const selectOption = useCallback(
         (item: Option) => {
