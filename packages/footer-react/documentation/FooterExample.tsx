@@ -1,20 +1,19 @@
 import React, { FC } from "react";
 import { ExampleComponentProps, CodeExample, ExampleKnobsProps } from "../../../doc-utils";
 import { Footer } from "../src";
-import "./footer-example.scss";
 
 export const footerExampleKnobs: ExampleKnobsProps = {
     boolProps: [
         { prop: "Mobil", defaultValue: true },
         { prop: "Med lenker", defaultValue: true },
-        { prop: "Med adresse", defaultValue: false },
+        { prop: "Med finansportalen", defaultValue: true },
     ],
 };
 
 export const FooterExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const isMobile = boolValues?.["Mobil"];
     const withLinks = boolValues?.["Med lenker"];
-    const withAddress = boolValues?.["Med adresse"];
+    const withFinansportalen = boolValues?.["Med finansportalen"];
     return (
         <div
             {...(isMobile ? { style: { minWidth: "21rem" } } : { style: { minWidth: "82rem" } })}
@@ -22,33 +21,20 @@ export const FooterExample: FC<ExampleComponentProps> = ({ boolValues }) => {
         >
             <Footer
                 role="none presentation"
-                address={
-                    withAddress
-                        ? {
-                              addressLine1: "Postboks 778 Sentrum",
-                              postalCode: "0106",
-                              postalArea: "Oslo",
-                              organizationNumber: "915651232",
-                          }
-                        : undefined
-                }
+                showFinansportalenLink={withFinansportalen}
                 links={
                     withLinks
                         ? [
                               {
                                   title: "Personvern og vilkår",
-                                  href: "https://github.com/fremtind/jokul",
-                                  external: false,
-                              },
-                              {
-                                  title: "Bruk av informasjonskapsler",
                                   href: "https://www.fremtind.no/personvern/",
                                   external: false,
                               },
                               {
-                                  title: "Sammenlign våre priser med andere selskaper på finansportalen.no",
-                                  href: "https://www.finansportalen.no/",
-                                  external: true,
+                                  title: "Bruk av informasjonskapsler",
+                                  component: "button",
+                                  onClick: () => alert("Åpne cookieConsent"),
+                                  external: false,
                               },
                           ]
                         : undefined
@@ -62,29 +48,26 @@ export default FooterExample;
 
 export const footerExampleCode: CodeExample = ({ boolValues }) => {
     const withLinks = boolValues?.["Med lenker"];
-    const withAddress = boolValues?.["Med adresse"];
+    const withFinansportalen = boolValues?.["Med finansportalen"];
 
-    if (!withLinks && !withAddress) {
+    if (!withLinks && !withFinansportalen) {
         return "<Footer />";
     }
 
-    if (!withAddress) {
+    if (!withFinansportalen) {
         return `<Footer
     links={
         [
             {
-                title: "Personvern og vilkår",
-                href: "https://github.com/fremtind/jokul",
-                external: false,
+              title: "Personvern og vilkår",
+              href: "https://www.fremtind.no/personvern/",
+              external: false
             },
             {
-                title: "Bruk av informasjonskapsler",
-                href: "https://www.fremtind.no/personvern/",
-                external: false,
-            },{
-                title: "Sammenlign våre priser med andere selskaper på finansportalen.no",
-                href: "https://www.finansportalen.no/"
-                exsternal: true;
+              title: "Bruk av informasjonskapsler",
+              component: "button",
+              onClick: () => alert("Åpne cookieConsent"),
+              external: false
             }
         ]
     }
@@ -92,38 +75,23 @@ export const footerExampleCode: CodeExample = ({ boolValues }) => {
     }
 
     if (!withLinks) {
-        return `<Footer
-    address={{
-        addressLine1: "Postboks 778 Sentrum",
-        postalCode: "0106",
-        postalArea: "Oslo",
-        organizationNumber: "915651232",
-    }}
-/>`;
+        return `<Footer showFinansportalenLink={true} />`;
     }
 
     return `<Footer
-    address={{
-        addressLine1: "Postboks 778 Sentrum",
-        postalCode: "0106",
-        postalArea: "Oslo",
-        organizationNumber: "915651232",
-    }}
+    showFinansportalenLink={true}
     links={
         [
-            { 
-                title: "Personvern og vilkår",
-                href: "https://github.com/fremtind/jokul",
-                external: false,
+            {
+              title: "Personvern og vilkår",
+              href: "https://www.fremtind.no/personvern/",
+              external: false
             },
             {
-                title: "Bruk av informasjonskapsler",
-                href: "https://www.fremtind.no/personvern/",
-                external: false,
-            },{
-                title: "Sammenlign våre priser med andere selskaper på finansportalen.no",
-                href: "https://www.finansportalen.no/"
-                exsternal: true;
+              title: "Bruk av informasjonskapsler",
+              component: "button",
+              onClick: () => alert("Åpne cookieConsent"),
+              external: false
             }
         ]
     }

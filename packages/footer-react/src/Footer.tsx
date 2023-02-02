@@ -1,23 +1,6 @@
-import { DataTestAutoId, Density, Link, WithChildren } from "@fremtind/jkl-core";
-import { formatNumber } from "@fremtind/jkl-formatters-util";
-import { Logo } from "@fremtind/jkl-logo-react";
+import { DataTestAutoId, Density, Link } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
-
-export interface FooterAddress {
-    /** @example "Postboks 778 Sentrum" */
-    addressLine1?: string;
-    addressLine2?: string;
-    /** @example "0106" */
-    postalCode?: string;
-    /** @example "Oslo" */
-    postalArea?: string;
-    /**
-     * Formateres automatisk og blir gitt prefikset "Org. nr."
-     * @example "915651232"
-     */
-    organizationNumber?: string;
-}
 
 export interface FooterLink<T = HTMLAnchorElement> {
     title: string;
@@ -34,44 +17,14 @@ export interface FooterLink<T = HTMLAnchorElement> {
 
 export interface FooterProps extends DataTestAutoId, HTMLAttributes<HTMLElement> {
     links?: Array<FooterLink>;
-    address?: FooterAddress;
+    showFinansportalenLink?: boolean;
     density?: Density;
 }
 
-const AddressLine: FC<WithChildren> = ({ children }) => (
-    <>
-        {children}
-        <br />
-    </>
-);
-
-export const Footer: FC<FooterProps> = ({ className, address, links, density, ...rest }) => {
+export const Footer: FC<FooterProps> = ({ className, links, showFinansportalenLink = false, density, ...rest }) => {
     return (
         <footer className={cn("jkl-footer", className)} data-density={density} {...rest}>
-            <div>
-                <div className="jkl-footer__heading">
-                    <div className="jkl-footer__logo">
-                        <Logo />
-                    </div>
-                    <p className="jkl-footer__description jkl-body jkl-spacing-32--left">
-                        Er er forsikringsselskap fra Sparebank 1
-                    </p>
-                </div>
-                {address && (
-                    <address className="jkl-footer__address">
-                        {address.addressLine1 && <AddressLine>{address.addressLine1}</AddressLine>}
-                        {address.addressLine2 && <AddressLine>{address.addressLine2}</AddressLine>}
-                        {(address.postalCode || address.postalArea) && (
-                            <AddressLine>
-                                {address.postalCode} {address.postalArea}
-                            </AddressLine>
-                        )}
-                        {address.organizationNumber && (
-                            <AddressLine>Org. nr. {formatNumber(address.organizationNumber)}</AddressLine>
-                        )}
-                    </address>
-                )}
-            </div>
+            <p className="jkl-footer__description">Fremtind er vår leverandør av forsikring.</p>
             {links && (
                 <div className="jkl-footer__links">
                     <ul>
@@ -79,10 +32,22 @@ export const Footer: FC<FooterProps> = ({ className, address, links, density, ..
                             const C = component;
                             return (
                                 <li key={children}>
-                                    <C {...rest}>{children}</C>
+                                    <C className={component === "button" ? "jkl-link" : ""} {...rest}>
+                                        {children}
+                                    </C>
                                 </li>
                             );
                         })}
+                        {showFinansportalenLink && (
+                            <li>
+                                <p>
+                                    Sammenlign våre priser med andre selskaper på{" "}
+                                    <Link href="https://www.finansportalen.no/" external={true}>
+                                        finansportalen.no
+                                    </Link>
+                                </p>
+                            </li>
+                        )}
                     </ul>
                 </div>
             )}

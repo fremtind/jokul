@@ -1,71 +1,40 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-footer-background-color: #{jkl.$color-svart};
-    --jkl-footer-text-color: #{jkl.$color-svaberg};
+    --jkl-footer-background-color: #{jkl.$color-hvit};
 }
 @include jkl.dark-mode-variables {
-    --jkl-footer-background-color: #{jkl.$color-hvit};
-    --jkl-footer-text-color: #{jkl.$color-svaberg};
-}
-
-@mixin _footer-height($padding) {
-    min-height: calc(jkl.rem(174px) - $padding);
+    --jkl-footer-background-color: #{jkl.$color-svart};
 }
 
 .jkl-footer {
-    --jkl-logo-color: var(--jkl-footer-text-color);
-    --jkl-link-color: var(--jkl-footer-text-color);
-
     background-color: var(--jkl-footer-background-color);
-    color: var(--jkl-footer-text-color);
 
     display: flex;
-    gap: jkl.$spacing-l;
+    gap: jkl.$spacing-40;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: jkl.$spacing-l;
+    padding: jkl.$spacing-40;
 
-    @include _footer-height(jkl.$spacing-l);
-
-    @include jkl.from-medium-device {
-        gap: jkl.$spacing-xl;
-        padding: jkl.$spacing-xl;
-        @include _footer-height(jkl.$spacing-xl);
-    }
+    @include jkl.text-style("body");
 
     @include jkl.from-large-device {
-        flex-direction: row;
-    }
-
-    &__logo {
-        $_logo-width: jkl.rem(200px);
-        min-width: $_logo-width;
-        width: $_logo-width;
-        padding-bottom: 5px;
-        display: flex;
-        color: jkl.$color-snohvit;
-    }
-
-    &__heading {
-        display: flex;
-        flex-direction: row;
+        gap: jkl.$spacing-16;
     }
 
     &__description {
         display: flex;
         align-items: flex-end;
-        color: jkl.$color-snohvit;
-    }
-
-    &__address {
-        font-style: normal; // address får vanligvis italic font
-        margin-top: jkl.$spacing-l;
     }
 
     &__links {
-        color: inherit;
+        & button {
+            border: none;
+            background-color: inherit;
+            padding: 0;
+            line-height: normal;
+        }
 
         & ul {
             display: block;
@@ -77,12 +46,18 @@
 
         & ul li {
             display: block;
-            margin-bottom: jkl.$spacing-m;
+
+            &:not(:last-child) {
+                margin-bottom: jkl.$spacing-16;
+            }
 
             .jkl-footer > & {
                 @include jkl.from-medium-device {
                     display: inline-block;
-                    margin-right: jkl.$spacing-l;
+
+                    &:not(:last-child) {
+                        margin-right: jkl.$spacing-32;
+                    }
                 }
             }
         }
