@@ -17,7 +17,7 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (
-        <TaskCard bgColor={selected ? "hvit" : "dis"} withShadow={selected} padding={padding}>
+        <TaskCard bgColor={selected ? "highlighted" : "contrast"} withShadow={selected} padding={padding}>
             <Checkbox
                 id="veterinar-checkbox"
                 aria-controls="expanded-content"
