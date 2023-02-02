@@ -1,0 +1,95 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/jkl/colors";
+
+.jkl-file-uploader-box {
+    border: jkl.$color-fjellgra 1px dashed;
+    border-radius: jkl.rem(4px);
+    padding: jkl.$spacing-40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    gap: jkl.$spacing-24;
+    margin-bottom: jkl.$spacing-24;
+    transition: 150ms ease background-color;
+    background-color: transparent;
+
+    &--enter {
+        background-color: jkl.$color-varde;
+        border-style: solid;
+    }
+
+    &__drag-text {
+        @include jkl.text-style("heading-2");
+        @include jkl.small-device {
+            display: none;
+        }
+    }
+
+    &__max-size-text {
+        color: jkl.$color-stein;
+    }
+}
+
+.jkl-file-uploader-preview {
+    @include jkl.text-style("small");
+    border-bottom: 1px jkl.$color-dis solid;
+    padding: jkl.$spacing-16 jkl.$spacing-12;
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+
+    &--invalid {
+        background-color: colors.varslingsfarge("feil");
+        color: jkl.$color-granitt;
+    }
+
+    &__info-wrapper {
+        display: flex;
+        flex-flow: nowrap row;
+        align-items: center;
+    }
+
+    &__img {
+        flex: 0 0 jkl.rem(64px);
+        width: jkl.rem(64px);
+        height: jkl.rem(64px);
+        object-fit: contain;
+        border-radius: jkl.rem(4px);
+    }
+
+    &__file-info {
+        flex: 1 1 auto;
+        margin-left: jkl.$spacing-16;
+        overflow-wrap: break-word;
+    }
+
+    &__file-name {
+        @include jkl.text-style("heading-5");
+        margin-top: jkl.$spacing-8;
+        overflow-wrap: anywhere;
+    }
+
+    &__close-button {
+        margin-left: jkl.$spacing-8;
+    }
+
+    &__file-thumbnail {
+        width: jkl.rem(64px);
+        height: jkl.rem(64px);
+        flex: 0 0 jkl.rem(64px);
+        background: jkl.$color-sand;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__error-message {
+        flex: 0 0 100%;
+        margin-top: jkl.$spacing-12;
+        display: flex;
+        gap: jkl.$spacing-4;
+        align-items: center;
+    }
+}
