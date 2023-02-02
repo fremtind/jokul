@@ -219,7 +219,7 @@ describe("Datepicker", () => {
         expect(document.activeElement).toBe(input);
     });
 
-    it("should should move focus to calendar button when opening datepicker with button", async () => {
+    it("should move focus to calendar button when opening datepicker with button", async () => {
         jest.setSystemTime(new Date(2019, 9, 20));
 
         const { user, getByRole, getByLabelText } = setup(<DatePicker label="Some datepicker" />);
@@ -446,6 +446,41 @@ describe("Datepicker", () => {
 
             expect(onBlur).toHaveBeenCalledTimes(1);
             expect(onBlur.mock.calls[0][1]).toStrictEqual(new Date("01.01.2021"));
+        });
+
+        it("should return correct date when pasting content", async () => {
+            const returnDate = "2021.12.24";
+            const variants = [
+                "24.12.2021",
+                "24-12-2021",
+                "24/12/2021",
+                "24 12 2021",
+                "2021.12.24",
+                "2021-12-24",
+                "2021/12/24",
+                "2021 12 24",
+            ];
+
+            const onBlur = jest.fn();
+            const { user, getByLabelText, getByText } = setup(
+                <div>
+                    <DatePicker onBlur={onBlur} />
+                    <button>Click</button>
+                </div>,
+            );
+
+            for (const variant of variants) {
+                const input = getByLabelText("Velg dato");
+
+                await act(async () => {
+                    await user.click(input);
+                    await user.clear(input);
+                    await user.paste(variant);
+                    await user.click(getByText("Click"));
+                });
+
+                expect(onBlur.mock.lastCall?.[1]).toStrictEqual(new Date(returnDate));
+            }
         });
     });
 

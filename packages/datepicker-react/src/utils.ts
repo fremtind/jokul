@@ -1,6 +1,7 @@
 import React from "react";
 
-export const dayMonthYearRegex = /^(\d\d?)[\.-](\d\d?)[\.-](\d{4}|\d{2})$/;
+export const dayMonthYearRegex = /^(\d\d?)[\W](\d\d?)[\W](\d{4}|\d{2})$/;
+const yearMonthDayRegex = /^(\d{4}|\d{2})[\W](\d\d?)[\W](\d\d?)$/;
 
 /**
  * Format a Date object as a string in the format DatePicker expects.
@@ -15,6 +16,32 @@ export function formatInput(date: Date): string {
 }
 
 /**
+ * Get the date segments from a string of unknown format
+ *
+ * @param input date as a string with unknown format
+ * @returns an array of string elements [day, month, year]
+ */
+const getDateSegmentsFromString = (input: string): string[] | undefined => {
+    const dayMonthYear = dayMonthYearRegex.exec(input);
+
+    if (dayMonthYear) {
+        return dayMonthYear.slice(1, 4);
+    }
+
+    const yearMonthDay = yearMonthDayRegex.exec(input);
+
+    if (!yearMonthDay) {
+        return undefined;
+    }
+
+    // reverse to get the correct ordering
+    const slicedDateSegments = yearMonthDay.slice(1, 4);
+    slicedDateSegments.reverse();
+
+    return slicedDateSegments;
+};
+
+/**
  * Convert a date string to a Date object
  *
  * @param dateString date as string with format dd.mm.yyyy
@@ -25,18 +52,18 @@ export function parseDateString(dateString?: string): Date | undefined {
         return undefined;
     }
 
-    const match = dayMonthYearRegex.exec(dateString);
+    const inputDateSegments = getDateSegmentsFromString(dateString);
 
-    if (!match) {
+    if (!inputDateSegments) {
         return undefined;
     }
 
     const currentTwoDigitYear = parseInt(new Date().toLocaleString("no-NB", { year: "2-digit" }));
     const parseTwoDigitYear = (year: number) => (year > currentTwoDigitYear ? year + 1900 : year + 2000);
 
-    const day = parseInt(match[1], 10);
-    const month = parseInt(match[2], 10) - 1;
-    const yearIn = parseInt(match[3], 10);
+    const day = parseInt(inputDateSegments[0], 10);
+    const month = parseInt(inputDateSegments[1], 10) - 1;
+    const yearIn = parseInt(inputDateSegments[2], 10);
     const year = yearIn > 99 ? yearIn : parseTwoDigitYear(yearIn);
 
     const generatedDate = new Date(year, month, day, 0, 0, 0);
