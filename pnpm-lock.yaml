@@ -291,7 +291,7 @@ importers:
       '@fremtind/jkl-constants-util': ^2.0.0
       '@fremtind/jkl-core': ^12.0.0
       '@fremtind/jkl-image-react': ^5.0.0
-      '@fremtind/jkl-tag-react': ^4.0.0
+      '@fremtind/jkl-tag-react': ^4.0.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-button-react': link:../button-react
@@ -909,7 +909,7 @@ importers:
       '@fremtind/jkl-alert-message-react': ^10.0.0
       '@fremtind/jkl-breadcrumb-react': ^4.0.0
       '@fremtind/jkl-button-react': ^13.0.0
-      '@fremtind/jkl-card-react': ^8.0.0
+      '@fremtind/jkl-card-react': ^8.0.1
       '@fremtind/jkl-checkbox-react': ^10.0.0
       '@fremtind/jkl-constants-util': ^2.0.0
       '@fremtind/jkl-content-toggle-react': ^5.0.0
@@ -936,7 +936,7 @@ importers:
       '@fremtind/jkl-summary-table-react': ^9.0.0
       '@fremtind/jkl-table-react': ^10.0.0
       '@fremtind/jkl-tabs-react': ^4.0.0
-      '@fremtind/jkl-tag-react': ^4.0.0
+      '@fremtind/jkl-tag-react': ^4.0.1
       '@fremtind/jkl-text-input-react': ^13.0.0
       '@fremtind/jkl-toggle-switch-react': ^11.0.0
       '@fremtind/jkl-tooltip-react': ^2.0.0
