@@ -1,13 +1,8 @@
 @use "./component-example";
 
 .jkl-dev-example {
+    max-width: 100vw;
     width: 100%;
-    min-height: 100vh;
-    padding: 3rem;
-    box-sizing: border-box;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
 
     & .jkl-portal-component-example {
         max-width: unset;

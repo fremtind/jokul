@@ -4,6 +4,7 @@
 @use "table-cell";
 @use "table-head";
 @use "table-header";
+@use "table-pagination";
 @use "table-row";
 
 @mixin _responsive-table {

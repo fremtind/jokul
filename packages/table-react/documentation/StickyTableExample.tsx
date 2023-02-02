@@ -30,7 +30,7 @@ const StickyTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
             <TableHead srOnly={headless} sticky>
                 <TableRow>
                     {columns.map((column, index) => (
-                        <TableHeader key={index} density="compact" bold>
+                        <TableHeader key={index} bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -63,7 +63,7 @@ export const stickyTableExampleCode = ({ boolValues, choiceValues }: ExampleComp
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}} sticky>
         <TableRow>
             {columns.map((header, index) => (
-                <TableHeader key={index} density="compact" bold>
+                <TableHeader key={index} bold>
                     {header}
                 </TableHeader>
             ))}
