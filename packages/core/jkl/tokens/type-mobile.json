@@ -1,0 +1,123 @@
+{
+    "title": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Regular",
+            "lineHeight": "44",
+            "fontSize": "36",
+            "letterSpacing": "0",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    },
+    "title-small": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Regular",
+            "lineHeight": "36",
+            "fontSize": "30",
+            "letterSpacing": "0",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    },
+    "heading-1": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Regular",
+            "lineHeight": "32",
+            "fontSize": "26",
+            "letterSpacing": "0",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    },
+    "heading-2": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Regular",
+            "lineHeight": "32",
+            "fontSize": "23",
+            "letterSpacing": "0",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    },
+    "heading-3": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Bold",
+            "lineHeight": "28",
+            "fontSize": "21",
+            "letterSpacing": "0",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    },
+    "heading-4": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Bold",
+            "lineHeight": "24",
+            "fontSize": "18",
+            "letterSpacing": "0",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    },
+    "heading-5": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Bold",
+            "lineHeight": "24",
+            "fontSize": "16",
+            "letterSpacing": "0",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    },
+    "body": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Regular",
+            "lineHeight": "28",
+            "fontSize": "18",
+            "letterSpacing": "0",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    },
+    "body-bold": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Bold",
+            "lineHeight": "28",
+            "fontSize": "18",
+            "letterSpacing": "-1.5%",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    },
+    "small": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Regular",
+            "lineHeight": "24",
+            "fontSize": "16",
+            "letterSpacing": "0",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    },
+    "small-bold": {
+        "value": {
+            "fontFamily": "Fremtind Grotesk",
+            "fontWeight": "Bold",
+            "lineHeight": "24",
+            "fontSize": "16",
+            "letterSpacing": "-1.5%",
+            "paragraphSpacing": "0"
+        },
+        "type": "typography"
+    }
+}
