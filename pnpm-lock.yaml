@@ -62,8 +62,10 @@ importers:
       eslint-plugin-react: ^7.31.11
       eslint-plugin-react-hooks: ^4.6.0
       express: ^4.18.2
+      fs-extra: ^11.1.0
       get-port: ^6.1.2
       gh-pages: 4.0.0
+      glob: ^8.1.0
       gulp: ^4.0.2
       gulp-postcss: ^9.0.1
       gulp-rename: ^2.0.0
@@ -90,6 +92,8 @@ importers:
       tiny-glob: ^0.2.9
       typescript: ^4.9.4
     dependencies:
+      fs-extra: 11.1.0
+      glob: 8.1.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
@@ -323,6 +327,26 @@ importers:
       classnames: 2.3.2
     devDependencies:
       '@fremtind/jkl-input-group-react': link:../input-group-react
+
+  packages/combobox:
+    specifiers:
+      '@fremtind/jkl-core': ^11.0.0
+    dependencies:
+      '@fremtind/jkl-core': 11.4.0
+
+  packages/combobox-react:
+    specifiers:
+      '@fremtind/jkl-combobox': ^1.0.0-alpha.0
+      '@fremtind/jkl-core': ^11.0.0
+      '@fremtind/jkl-icon-button-react': 3.0.0
+      '@fremtind/jkl-icons-react': 7.0.0
+      '@fremtind/jkl-tag-react': 4.0.0
+    dependencies:
+      '@fremtind/jkl-combobox': link:../combobox
+      '@fremtind/jkl-core': 11.4.0
+      '@fremtind/jkl-icon-button-react': link:../icon-button-react
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-tag-react': link:../tag-react
 
   packages/constants-util:
     specifiers:
@@ -911,6 +935,7 @@ importers:
       '@fremtind/jkl-button-react': ^13.0.0
       '@fremtind/jkl-card-react': ^8.0.0
       '@fremtind/jkl-checkbox-react': ^10.0.0
+      '@fremtind/jkl-combobox-react': 1.0.0-alpha.0
       '@fremtind/jkl-constants-util': ^2.0.0
       '@fremtind/jkl-content-toggle-react': ^5.0.0
       '@fremtind/jkl-cookie-consent-react': ^8.0.0
@@ -980,6 +1005,7 @@ importers:
       '@fremtind/jkl-button-react': link:../packages/button-react
       '@fremtind/jkl-card-react': link:../packages/card-react
       '@fremtind/jkl-checkbox-react': link:../packages/checkbox-react
+      '@fremtind/jkl-combobox-react': link:../packages/combobox-react
       '@fremtind/jkl-constants-util': link:../packages/constants-util
       '@fremtind/jkl-content-toggle-react': link:../packages/content-toggle-react
       '@fremtind/jkl-cookie-consent-react': link:../packages/cookie-consent-react
@@ -2934,6 +2960,17 @@ packages:
       '@floating-ui/dom': 1.1.0
     dev: false
 
+  /@fremtind/jkl-core/11.4.0:
+    resolution: {integrity: sha512-278WmOwjXvNlE5sXU4UDeyqnGwSxQl5cPXg33LGhGoHfGyYfUfK3SFnw/UbBPsKObpmRKhKmnlPPess7mc2IRg==}
+    peerDependencies:
+      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
+      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
+    dependencies:
+      classnames: 2.3.2
+    dev: false
+
   /@frsource/base64/1.0.4:
     resolution: {integrity: sha512-IphM1ro1cvV5CqJWzX/LvPJcUE26cwgt/zMtBdssvTrfSNhh9KjfS2VXTA8SivkvPHK1DsdPnoMoXitmx8c3Cg==}
     dev: true
@@ -4652,7 +4689,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     dependencies:
       '@npmcli/name-from-folder': 1.0.1
-      glob: 8.0.3
+      glob: 8.1.0
       minimatch: 5.1.2
       read-package-json-fast: 2.0.3
     dev: true
@@ -7561,7 +7598,6 @@ packages:
     resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
     dependencies:
       balanced-match: 1.0.2
-    dev: true
 
   /braces/2.3.2:
     resolution: {integrity: sha512-aNdbnj9P8PjdXU4ybaWLK2IF3jc/EoDYbC7AazW6to3TRsfXxscC9UXOB5iDiEQrkyIbWp2SLQda4+QAa7nc3w==}
@@ -7682,7 +7718,7 @@ packages:
       '@npmcli/move-file': 2.0.1
       chownr: 2.0.0
       fs-minipass: 2.1.0
-      glob: 8.0.3
+      glob: 8.1.0
       infer-owner: 1.0.4
       lru-cache: 7.14.1
       minipass: 3.3.6
@@ -11554,7 +11590,6 @@ packages:
       graceful-fs: 4.2.10
       jsonfile: 6.1.0
       universalify: 2.0.0
-    dev: true
 
   /fs-extra/8.1.0:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
@@ -12604,7 +12639,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
@@ -12640,6 +12675,16 @@ packages:
       minimatch: 5.1.2
       once: 1.4.0
     dev: true
+
+  /glob/8.1.0:
+    resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.4
+      minimatch: 5.1.2
+      once: 1.4.0
 
   /global-dirs/0.1.1:
     resolution: {integrity: sha512-NknMLn7F2J7aflwFOlGdNIuCDpN3VGoSoB+aap3KABFWbHVn1TCgFC+np23J8W2BiZbjfEw3BFBycSMv1AFblg==}
@@ -16303,7 +16348,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       brace-expansion: 2.0.1
-    dev: true
 
   /minimist-options/4.1.0:
     resolution: {integrity: sha512-Q4r8ghd80yhO/0j1O3B2BjweX3fiHg9cdOwjJd2J76Q135c+NDxGCqdYKQ1SKBuFfgWbAUzBfvYjPUEeNgqN1A==}
@@ -16807,7 +16851,7 @@ packages:
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     hasBin: true
     dependencies:
-      glob: 8.0.3
+      glob: 8.1.0
       ignore-walk: 5.0.1
       npm-bundled: 2.0.1
       npm-normalize-package-bin: 2.0.0
@@ -18684,7 +18728,7 @@ packages:
     resolution: {integrity: sha512-BSzugrt4kQ/Z0krro8zhTwV1Kd79ue25IhNN/VtHFy1mG/6Tluyi+msc0UpwaoQzxSHa28mntAjIZY6kEgfR9Q==}
     engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
     dependencies:
-      glob: 8.0.3
+      glob: 8.1.0
       json-parse-even-better-errors: 2.3.1
       normalize-package-data: 4.0.1
       npm-normalize-package-bin: 2.0.0
