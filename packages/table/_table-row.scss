@@ -24,7 +24,8 @@ $_focus-ring-width: jkl.rem(2px);
         border-bottom: solid $_border-size var(--jkl-table-row-hover-border-color);
     }
 
-    :not(thead) > & {
+    /* stylelint-disable-next-line selector-not-notation */
+    :not(thead, tfoot) > & {
         border-top: solid $_border-size transparent; // Unngår vertikal shift ved hover i collapsed mobilvisning
 
         &:hover {

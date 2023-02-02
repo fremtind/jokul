@@ -33,7 +33,7 @@ const ClickableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceVa
             <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (
-                        <TableHeader key={column} density="compact" bold>
+                        <TableHeader key={column} bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -66,7 +66,7 @@ export const clickableTableExampleCode = ({ boolValues, choiceValues }: ExampleC
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
         <TableRow>
             {headings.map((column) => (
-                <TableHeader key={column} density="compact" bold>{column}</TableHeader>
+                <TableHeader key={column} bold>{column}</TableHeader>
             ))}
         </TableRow>
     </TableHead>
