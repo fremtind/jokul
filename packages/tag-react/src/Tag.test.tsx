@@ -6,7 +6,6 @@ import { Tag } from ".";
 describe("Tag", () => {
     it("handles clicking the dismiss button", async () => {
         const dismissed = jest.fn();
-
         render(<Tag dismissAction={{ label: "Fjern", onClick: dismissed }} />);
 
         const button = screen.getByRole("button");
