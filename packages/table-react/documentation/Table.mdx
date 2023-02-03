@@ -25,6 +25,7 @@ import MobileListTableExample, {
 } from "./MobileListTableExample";
 import StickyTableExample, { stickyTableExampleCode } from "./StickyTableExample";
 import { PaginatedTableExample, paginatedTableExampleCode, paginatedTableExamplesProps } from "./PaginatedTableExample";
+import { SortableTableExample, sortableTableExampleCode } from "./SortableTableExample";
 
 <Ingress>Vi bruker tabeller for å vise data på en ordnet måte som gjør sammenlikning enkelt.</Ingress>
 
@@ -412,4 +413,13 @@ Tabellens header blir festet til toppen av skjermen og flyter over tabellinnhold
     component={PaginatedTableExample}
     knobs={paginatedTableExamplesProps}
     codeExample={paginatedTableExampleCode}
+/>
+
+### Sortering
+
+<ComponentExample
+    scrollable={true}
+    title="Tabell med sorterbare kolonner"
+    component={SortableTableExample}
+    codeExample={sortableTableExampleCode}
 />
