@@ -67,6 +67,28 @@ export function subtractMonth({
 }
 
 /**
+ * Generates an array of year strings for a year selector component, with min and max dates taken into account.
+ *
+ * @param {number} currentYear - The current year to center the list around
+ * @param {Date} [minDate] - The minimum date to include in the list of years
+ * @param {Date} [maxDate] - The maximum date to include in the list of years
+ *
+ * @returns {string[]} - An array of year strings, starting from the earliest year specified by minDate or currentYear - 5, and ending at the latest year specified by maxDate or currentYear + 5
+ */
+export function getYearSelectItems(currentYear: number, minDate?: Date, maxDate?: Date): string[] {
+    const minDateYear = minDate?.getFullYear() || currentYear;
+    const maxDateYear = maxDate?.getFullYear() || currentYear;
+
+    let start = Math.min(minDateYear, currentYear);
+    let end = Math.max(maxDateYear, currentYear);
+
+    const range = [...Array(end - start + 1).keys()].map((x) => x + start);
+    const stringRange = range.map((item) => item.toString());
+
+    return stringRange;
+}
+
+/**
  * Takes a calendars array and figures out the number of months to add
  * based on the current offset and the maxDate allowed.
  * @param {Object} param The param object
