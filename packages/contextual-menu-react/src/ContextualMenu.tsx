@@ -27,7 +27,7 @@ export interface ContextualMenuProps extends DataTestAutoId {
     onBlur?: ChangeEventHandler;
 }
 
-export type Placement = "bottom-end" | "bottom-start" | "right-end";
+export type Placement = "bottom-end" | "bottom-start" | "right-end" | "right-start";
 
 export const ContextualMenu = ({
     className,
@@ -45,7 +45,7 @@ export const ContextualMenu = ({
         open,
         onOpenChange: setOpen,
         placement: initialPlacement,
-        middleware: [offset(14), flip(), shift({ padding: 16 })],
+        middleware: [offset(8), flip(), shift({ padding: 16 })],
         whileElementsMounted: autoUpdate,
     });
 

@@ -1,11 +1,23 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/jkl/colors";
 
+@include jkl.comfortable-density-variables {
+    --jkl-contextual-menu-item-height: jkl.rem(48px);
+
+    @include jkl.small-device {
+        --jkl-contextual-menu-item-height: jkl.rem(32px);
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-contextual-menu-item-height: jkl.rem(32px);
+}
+
 .contextual-menu-item {
     display: flex;
     align-items: center;
     gap: jkl.rem(12px);
     max-width: jkl.rem(280px);
     min-width: jkl.rem(280px);
-    height: jkl.rem(48px);
+    height: var(--jkl-contextual-menu-item-height);
 }

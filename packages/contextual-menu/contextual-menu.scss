@@ -17,6 +17,21 @@
     --jkl-contextual-menu-item-border: 2px solid #{jkl.$color-snohvit};
 }
 
+@include jkl.comfortable-density-variables {
+    --jkl-contextual-menu-item-font-size: jkl.$typography-font-size-3;
+    --jkl-contextual-menu-item-height: jkl.rem(48px);
+
+    @include jkl.small-device {
+        --jkl-contextual-menu-item-font-size: jkl.$typography-font-size-1;
+        --jkl-contextual-menu-item-height: jkl.rem(32px);
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-contextual-menu-item-font-size: jkl.$typography-font-size-1;
+    --jkl-contextual-menu-item-height: jkl.rem(32px);
+}
+
 .jkl-contextual-menu {
     width: fit-content;
     margin: 0;
@@ -58,18 +73,23 @@
         &[data-placement^="right-end"] .jkl-contextual-menu__menu {
             right: 0;
         }
+
+        &[data-placement^="right-start"] .jkl-contextual-menu__menu {
+            right: 0;
+            top: 0;
+        }
     }
 
     &__menu-item {
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
-        height: jkl.rem(48px);
+        height: var(--jkl-contextual-menu-item-height);
         padding: jkl.rem(8px) jkl.rem(8px) jkl.rem(8px) jkl.rem(12px);
         min-width: jkl.rem(300px);
         box-sizing: border-box;
         user-select: none;
-        font-size: jkl.$typography-font-size-1;
+        font-size: var(--jkl-contextual-menu-item-font-size);
 
         &:hover:not(:disabled) {
             background-color: var(--jkl-contextual-menu-item-hover-background-color);

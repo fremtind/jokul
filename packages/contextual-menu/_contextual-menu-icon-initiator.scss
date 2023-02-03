@@ -13,9 +13,22 @@
     --jkl-contextual-menu-initiator-hover-bg-color: rgb(236 233 229 / 10%);
 }
 
+@include jkl.comfortable-density-variables {
+    --jkl-contextual-menu-icon-initiator-size: jkl.rem(24px);
+
+    @include jkl.small-device {
+        --jkl-contextual-menu-icon-initiator-size: jkl.rem(20px);
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-contextual-menu-icon-initiator-size: jkl.rem(20px);
+}
+
 .contextual-menu-icon-initiator {
-    height: jkl.rem(24px);
-    vertical-align: middle;
+    height: var(--jkl-contextual-menu-icon-initiator-size);
+    display: flex;
+    align-items: center;
     background: var(--jkl-contextual-menu-initiator-bg-color);
     border-radius: jkl.rem(4px);
     padding: jkl.rem(4px);
