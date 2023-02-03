@@ -127,30 +127,43 @@ export const SortableTableExample: FC<ExampleComponentProps> = ({ boolValues, ch
 };
 
 export const sortableTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-<Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
-    <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
-    <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
-        <TableRow>
-            {columns.map((header, index) => ( bold>
-                    {header}
-                </TableHeader>
-            ))}
-        </TableRow>
-    </TableHead>
-    <TableBody>
-        {rows.map((row, rowIndex) => (
-            <TableRow key={rowIndex}>
-                {row.map((cell, cellIndex) => (
-                    <TableCell
-                        key={cellIndex}
-                        data-th={columns[cellIndex]}
-                        align={[1, 2].includes(cellIndex) ? "right" : "left"}
-                    >
-                        {cell}
-                    </TableCell>
+const [sortBy, setSortBy] = useState(columns[0]);
+const [direction, setDirection] = useState<TableSortDirection>("desc");
+
+const handleSortChange = (sortKey: string, sortDirection: TableSortDirection) => {
+    setSortBy(sortKey);
+    setDirection(sortDirection);
+};
+
+const { getSortProps } = useSortableTableHeader(sortBy, direction, handleSortChange);
+
+return (
+    <Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
+        <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
+        <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>
+            <TableRow>
+                {columns.map((header, index) => (
+                    <TableHeader key={index} bold {...getSortProps(header)}>
+                        {header}
+                    </TableHeader>
                 ))}
             </TableRow>
-        ))}
-    </TableBody>
-</Table>
+        </TableHead>
+        <TableBody>
+            {rows.map((row, rowIndex) => (
+                <TableRow key={rowIndex}>
+                    {row.map((cell, cellIndex) => (
+                        <TableCell
+                            key={cellIndex}
+                            data-th={columns[cellIndex]}
+                            align={[1, 2].includes(cellIndex) ? "right" : "left"}
+                        >
+                            {cell}
+                        </TableCell>
+                    ))}
+                </TableRow>
+            ))}
+        </TableBody>
+    </Table>
+)
 `;
