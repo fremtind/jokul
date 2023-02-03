@@ -44,7 +44,7 @@ const ExpandableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
             <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (
-                        <TableHeader key={column} density="compact" bold>
+                        <TableHeader key={column} bold>
                             {column}
                         </TableHeader>
                     ))}
@@ -106,7 +106,7 @@ export const expandableTableExampleCode = ({ choiceValues, boolValues }: Example
     <TableHead srOnly={headless}>
         <TableRow>
             {headings.map((column) => (
-                <TableHeader key={column} density="compact" bold>
+                <TableHeader key={column} bold>
                     {column}
                 </TableHeader>
             ))}

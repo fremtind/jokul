@@ -13,11 +13,16 @@ import MobileListTableExample, {
     mobileListTableExampleKnobs,
 } from "./MobileListTableExample";
 import MobileScrollTableExample, { mobileScrollTableExampleCode } from "./MobileScrollTableExample";
+import { PaginatedTableExample, paginatedTableExampleCode, paginatedTableExamplesProps } from "./PaginatedTableExample";
+import { SortableTableExample, sortableTableExampleCode, sortableTableExamplesProps } from "./SortableTableExample";
+import StickyTableExample, { stickyTableExampleCode } from "./StickyTableExample";
 import "../../table/table.scss";
 import "../../button/button.scss";
 import "../../icons/icons.scss";
+import "../../input-group/input-group.scss";
+import "../../select/select.scss";
+import "../../text-input/text-input.scss";
 import "../../expand-button/expand-button.scss";
-import StickyTableExample, { stickyTableExampleCode } from "./StickyTableExample";
 
 export default function Example() {
     return (
@@ -76,6 +81,20 @@ export default function Example() {
                 title="Tabell med sticky header"
                 component={StickyTableExample}
                 codeExample={stickyTableExampleCode}
+            />
+            <DevExample
+                scrollable={true}
+                title="Paginert"
+                component={PaginatedTableExample}
+                knobs={paginatedTableExamplesProps}
+                codeExample={paginatedTableExampleCode}
+            />
+            <DevExample
+                scrollable={true}
+                title="Sorterbar"
+                component={SortableTableExample}
+                knobs={sortableTableExamplesProps}
+                codeExample={sortableTableExampleCode}
             />
         </>
     );

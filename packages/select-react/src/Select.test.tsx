@@ -1,8 +1,8 @@
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Select } from ".";
 
 describe("Select", () => {
@@ -250,6 +250,35 @@ describe("Select", () => {
 
         const label = screen.getByText("test");
         expect(label).toHaveClass("jkl-label--sr-only");
+    });
+
+    it("syncs with async value setting", async () => {
+        const DoThing = () => {
+            const [value, setValue] = useState<string>("");
+            useEffect(() => {
+                setValue("A");
+            }, []);
+            useEffect(() => {
+                const timeout = setTimeout(() => {
+                    setValue("B");
+                }, 200);
+                return () => {
+                    clearTimeout(timeout);
+                };
+            }, []);
+            return (
+                <div className="build-info-page">
+                    <Select name={"Hello"} label={"Utbetalingsmottaker"} items={["A", "B", "C"]} value={value} />
+                </div>
+            );
+        };
+
+        render(<DoThing />);
+        expect(screen.getByTestId("jkl-select__button")).toHaveTextContent("A");
+
+        await waitFor(() => {
+            expect(screen.getByTestId("jkl-select__button")).toHaveTextContent("B");
+        });
     });
 });
 

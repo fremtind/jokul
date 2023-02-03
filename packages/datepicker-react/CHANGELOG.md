@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [14.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@14.0.0...@fremtind/jkl-datepicker-react@14.1.0) (2023-02-02)
+
+### Features
+
+- extend supported date format variants ([d81bfc0](https://github.com/fremtind/jokul/commit/d81bfc087313d18edfba0b891e18d909d4d277ae))
+
 # [14.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@13.0.1...@fremtind/jkl-datepicker-react@14.0.0) (2023-01-30)
 
 ### Bug Fixes
