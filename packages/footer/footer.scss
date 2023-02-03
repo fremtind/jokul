@@ -29,6 +29,10 @@
     }
 
     &__links {
+        &--small-text {
+            @include jkl.text-style("body/small-screen");
+        }
+
         & button {
             border: none;
             background-color: inherit;

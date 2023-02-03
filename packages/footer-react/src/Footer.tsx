@@ -32,7 +32,14 @@ export const Footer: FC<FooterProps> = ({ className, links, showFinansportalenLi
                             const C = component;
                             return (
                                 <li key={children}>
-                                    <C className={component === "button" ? "jkl-link" : ""} {...rest}>
+                                    <C
+                                        className={
+                                            component === "button"
+                                                ? "jkl-link jkl-footer__links--small-text"
+                                                : "jkl-footer__links--small-text"
+                                        }
+                                        {...rest}
+                                    >
                                         {children}
                                     </C>
                                 </li>
@@ -40,7 +47,7 @@ export const Footer: FC<FooterProps> = ({ className, links, showFinansportalenLi
                         })}
                         {showFinansportalenLink && (
                             <li>
-                                <p>
+                                <p className="jkl-footer__links--small-text">
                                     Sammenlign våre priser med andre selskaper på{" "}
                                     <Link href="https://www.finansportalen.no/" external={true}>
                                         finansportalen.no
