@@ -22,7 +22,7 @@ const InfoColumn: FC<WithChildren> = ({ children }) => {
     return <div className="jkl-contact-info__column">{children}</div>;
 };
 
-export const ContactInfo: FC<FooterProps> = ({
+export const ContactInformation: FC<FooterProps> = ({
     className,
     contactName,
     phone,
@@ -41,7 +41,12 @@ export const ContactInfo: FC<FooterProps> = ({
             <div className="jkl-contact-info__content">
                 {phone && (
                     <InfoColumn>
-                        <Link href={`tel:${phone.number.replace(/\s/g, "")}`}>{formatTelefonnummer(phone.number)}</Link>
+                        <p>
+                            Telefon{" "}
+                            <Link href={`tel:${phone.number.replace(/\s/g, "")}`}>
+                                {formatTelefonnummer(phone.number)}
+                            </Link>
+                        </p>
                         {phone.openingHours && <p>{phone.openingHours}</p>}
                     </InfoColumn>
                 )}

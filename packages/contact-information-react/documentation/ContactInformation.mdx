@@ -1,0 +1,31 @@
+---
+title: Kontaktinformasjon
+react: contact-information-react
+scss: contact-information
+group: layout
+---
+
+import ContactInformationExample, {
+    contactInformationExampleCode,
+    contactInformationExampleKnobs,
+} from "./ContactInformationExample";
+
+<Ingress>
+    Kontaktinformasjon brukes i løsninger der vi trenger å oppgi kontaktinformasjon til oss selv eller til
+    distributøren.
+</Ingress>
+
+<ComponentExample
+    scrollable
+    component={ContactInformationExample}
+    codeExample={footerExampleCode}
+    knobs={footerExampleKnobs}
+/>
+
+Komponenten brukes gjerne i sammenheng med footer. Se for eksempel bunnen av denne siden, hvor en [Feedback](/komponenter/feedback) og et [LogoStamp](/komponenter/logo) er plassert over selve Footer-komponenten.
+
+Kontaktinformasjon-komponenten er ment som et grunnleggende utgangspunkt og vil kunne utvides etter behov. [Si ifra](https://github.com/fremtind/jokul/discussions/2344) om det er noe du trenger!
+
+## Når bruker vi Footer?
+
+Footer brukes når det kreves tilleggsinformasjon om opphavsrett, kontaktinformasjon, lenker til andre sider eller lignende.

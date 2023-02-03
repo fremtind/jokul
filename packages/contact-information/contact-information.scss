@@ -38,6 +38,7 @@
     &__column {
         display: flex;
         flex-direction: column;
+        gap: jkl.$spacing-8;
 
         & .jkl-link {
             width: fit-content;
