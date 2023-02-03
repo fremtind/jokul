@@ -79,8 +79,8 @@ export function getYearSelectItems(currentYear: number, minDate?: Date, maxDate?
     const minDateYear = minDate?.getFullYear() || currentYear;
     const maxDateYear = maxDate?.getFullYear() || currentYear;
 
-    let start = Math.min(minDateYear, currentYear);
-    let end = Math.max(maxDateYear, currentYear);
+    let start = Math.max(minDateYear, currentYear - 3);
+    let end = Math.min(maxDateYear, currentYear + 3);
 
     const range = [...Array(end - start + 1).keys()].map((x) => x + start);
     const stringRange = range.map((item) => item.toString());
@@ -88,7 +88,7 @@ export function getYearSelectItems(currentYear: number, minDate?: Date, maxDate?
     return stringRange;
 }
 
-/**
+/**s
  * Takes a calendars array and figures out the number of months to add
  * based on the current offset and the maxDate allowed.
  * @param {Object} param The param object
