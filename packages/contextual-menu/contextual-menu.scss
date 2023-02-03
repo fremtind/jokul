@@ -85,11 +85,11 @@
         align-items: center;
         flex-wrap: nowrap;
         height: var(--jkl-contextual-menu-item-height);
-        padding: jkl.rem(8px) jkl.rem(8px) jkl.rem(8px) jkl.rem(12px);
         min-width: jkl.rem(300px);
         box-sizing: border-box;
         user-select: none;
         font-size: var(--jkl-contextual-menu-item-font-size);
+        width: 100%;
 
         &:hover:not(:disabled) {
             background-color: var(--jkl-contextual-menu-item-hover-background-color);

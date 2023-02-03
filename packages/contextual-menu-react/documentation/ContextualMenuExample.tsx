@@ -10,6 +10,27 @@ export const contextualMenuExampleKnobs: ExampleKnobsProps = {};
 export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
     return (
         <div style={{ width: "500px", display: "flex", flexDirection: "column", justifyContent: "center", gap: "3em" }}>
+            <ContextualMenu initiatorElement={<span>Hello</span>}>
+                <div
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: "100%",
+                        height: "73px",
+                    }}
+                >
+                    <InfoIcon />
+                    <InfoIcon />
+                    <span style={{ color: "blue" }}>Hello 1</span>
+                    <InfoIcon />
+                    <InfoIcon />
+                </div>
+                <div style={{ display: "flex", justifyContent: "center", width: "100%", height: "123px" }}>
+                    kajskjKLJKLJKLlkjkjklKLKJKJalskdjakls
+                </div>
+            </ContextualMenu>
+
             <ContextualMenu initiatorElement={<ContextualMenuIconInitiator icon={<DotsIcon bold />} />}>
                 <ContextualMenuItem description="Helt vanlig menyvalg" icon={<InfoIcon />}></ContextualMenuItem>
                 <ContextualMenu
