@@ -1,13 +1,15 @@
 ---
-title: ContextualMenu
+title: Contextual Menu
 react: contextual-menu-react
 scss: contextual-menu
 group: edit me!
 ---
 
-import ContextualMenuExample, { contextual-menuExampleCode, contextual-menuExampleKnobs } from "./ContextualMenuExample";
+import ContextualMenuExample, { contextualMenuExampleCode, contextualMenuExampleKnobs } from "./ContextualMenuExample";
 
-<Ingress>Ingress med kort beskrivelse av komponenten</Ingress>
+<Ingress>
+    Med kontekstuell meny presenteres en liste med kontekst relatert utvalg (alternativer) på en midlertidig overflate.
+</Ingress>
 
 <ComponentExample
     component={ContextualMenuExample}
@@ -15,25 +17,42 @@ import ContextualMenuExample, { contextual-menuExampleCode, contextual-menuExamp
     knobs={contextual - menuExampleKnobs}
 />
 
-Første eksempel må være synlig uten å scrolle og skal ha et kodeeksempel som oppdateres til å matche valgte parametere.
+Inneholder et lite sett med relevante handlinger, relatert til en kontroll, et stykk innhold, en visning i en app eller et område av brukergrensesnittet (trigger).
+Menyen vises når brukere samhandler med en trigger (ikon, knapp, tekst, kombo av tekst og ikon f.eks., handling)
+Kontekstuell meny er mindre prominente og tar mindre plass enn Select komponent (digresjon).
+Det er mulig å bygge utvidbar liste men det anbefales å bruke maksimal to nivåer. Bruk gjerne færre enn 10 items i en liste.
+Liste items skal kunne grupperes med skillelinje.
 
-Fyll på med mer utfyllende beskrivelse av komponenten her under eksempelet, for eksempel føringer for innhold. List opp de ulike variantene dersom komponenten har dem, sammen med beskrivelse av når den ene varianten bør brukes i stedet for en annen.
+## Mulig innhold i en meny
 
-Dokumentér riktig og feil bruk av varianter visuelt med `DoDontExample`. Se for eksempel [Tag](/komponenter/tag) for inspirasjon.
+Tekst, ikon+tekst, knapp > forskjellige interaktive elementer
+Keyboard shortcuts
 
-## Tilgjengelighet
+## Triggers
 
-Dokumenter spesielle hensyn for universell utforming. Eksempler kan være spesielle hensyn som må tas for brukere av skjermlesere, for fargeblinde, eller liknende.
+Desktop
+Klikke på visuell element; Icons: Ellipsis button (h/v), Chevrons, Stykk av tekst, tekst+Chevron
+Ctrl+klikk, høyre mus klikk
+Klikk med to fingre på trackpad
+
+Mobil
+Tapping på visuell element; Icons: Ellipsis button (h/v), Chevrons, Stykk av tekst, tekst+Chevron
+Trigger Dots-icon> Elipsis button  
+Hvis ikonen skal være en del av horisontall serie av elementer, så brukes en horisontal variant.
+Hvis ikonen står alene så er det fritt å velge orjentasjonen h/v
+Plassering av menu liste
+Listen blir plassert under elementet som genererer den (trigger)
+Plasseringen skjer relativt til skjerm slik at listen blir alltid synlig uansett nærheten av skjermkanten.
 
 ## Når bruker vi ContextualMenu?
 
-Før du bruker ContextualMenu er det greit å ha tatt stilling til noen spørsmål:
+Vi bruker den for å levere relevante verktøy for å fullføre oppgaver uten å legge til rot i grensesnittet. Den er en subtile digresjon i historie (i flyt).
 
--   Liste med kontrollspørsmål
--   Se [Message box](/komponenter/messagebox#når-bruker-vi-en-melding-) for eksempler
-
-Dokumentér riktig og feil bruk av komponenten visuelt med `DoDontExample`. Se for eksempel [Alert message](/komponenter/alertmessage#når-bruker-vi-en-varselmelding-) for inspirasjon.
-
-Om det er relevant, lenk direkte til andre komponenter som er riktig å bruke dersom denne komponenten ikke bør brukes i en gitt situasjon.
-
-Kontroller at Gatsby klarer å generere React API-dokumentasjon riktig i bunnen. Om komponenten din ikke dukker opp riktig, sørg for at den har et `displayName`. Om du får flere komponenter enn du ønsker i tabellen kan du bruke [`displayTypes` i frontmatter](https://github.com/fremtind/jokul/blob/60edb292a922eea69e539875359524e2c13eda3e/packages/core/documentation/Link.mdx?plain=1#L6-L8).
+<PortalImage
+    src="/assets/documentation/contextual-menu/contextual-menu-dots-example.png"
+    caption="Chevron ikon med contextual menu i en løsning"
+/>
+<PortalImage
+    src="/assets/documentation/contextual-menu/contextual-menu-dots-example.png"
+    caption="ThreeDots ikon med contextual menu i en løsning"
+/>
