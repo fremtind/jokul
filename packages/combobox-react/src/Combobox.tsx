@@ -1,10 +1,11 @@
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { ArrowVerticalAnimated, CloseIcon, CheckIcon } from "@fremtind/jkl-icons-react";
 import { Tag } from "@fremtind/jkl-tag-react";
-import React, { FC, HTMLAttributes, useEffect, useRef, useState } from "react";
+import React, { FC, HTMLAttributes, useEffect, useRef, useState, useCallback, KeyboardEvent } from "react";
 
 interface ComboboxProps extends HTMLAttributes<HTMLDivElement> {
     placeholder?: string;
+    label?: string;
     items: any;
     value: string;
     // setSelectedValue: any;
@@ -12,9 +13,10 @@ interface ComboboxProps extends HTMLAttributes<HTMLDivElement> {
     onChange: any;
 }
 
-export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, value }) => {
+export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, value, label }) => {
     const [selectedValue, setSelectedValue] = useState<any>(value || "");
     const [isPoitingDown, setIsPointingDown] = useState(true);
+    const [isHovered, setIsHovered] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [searchValue, setSearchValue] = useState<string>("");
     const searchRef = useRef<any>();
@@ -85,6 +87,10 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
         setSelectedValue([]);
     };
 
+    const toggleHover = () => {
+        setIsHovered((prevState) => !prevState);
+    };
+
     // Håndtere valgt verdi i listen
     const onItemClick = (option: { value: any }) => {
         let newValue;
@@ -132,17 +138,53 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
         }
     }, [showMenu]);
 
+    // Lukk meny med ESC
+    useEffect(() => {
+        const handleEscape = (e: globalThis.KeyboardEvent) => {
+            if (e.key === "Escape") {
+                setShowMenu(false);
+            }
+        };
+        if (typeof window !== "undefined") {
+            window.addEventListener("keydown", handleEscape);
+        }
+        return () => {
+            if (typeof window !== "undefined") {
+                window.removeEventListener("keydown", handleEscape);
+            }
+        };
+    }, [setShowMenu]);
+
+    // Åpne meny med pil-ned
+    const handleOnKeyDown = useCallback(
+        (e: KeyboardEvent<HTMLButtonElement>) => {
+            if (e.key === "ArrowDown" || e.key === " ") {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowMenu(true);
+            } else if (e.key === "Escape") {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowMenu(false);
+            }
+        },
+        [setShowMenu],
+    );
+
     return (
         <div className={`jkl-combobox__wrapper ${showMenu && "menu-open"}`}>
+            <div className="jkl-label jkl-label--small">{label}</div>
             <button
                 ref={inputRef}
                 onClick={handleInputClick}
+                onKeyDown={handleOnKeyDown}
                 className={`jkl-combobox__button ${showMenu && "menu-open"}`}
                 type="button"
-                aria-label="Velg"
+                aria-label="Søk"
             >
                 <div className="jkl-combobox__content">
                     {getDisplay()}
+
                     <div className="jkl-combobox__actions">
                         {selectedValue.length > 0 && (
                             <IconButton onClick={(e) => onTagRemoveAll(e)}>
@@ -153,7 +195,7 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
                     </div>
                 </div>
                 {showMenu && (
-                    <div className="jkl-combobox__menu">
+                    <div className="jkl-combobox__menu" role="listbox">
                         {getOptions().map((option: { value: any; label: any }) => (
                             <div
                                 aria-hidden
@@ -166,8 +208,10 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
                                 }}
                                 className={`jkl-combobox__option ${isSelected(option) && "selected"}`}
                             >
-                                <option key={option.value}>{option.label}</option>
-                                {isSelected(option) ? <CheckIcon /> : null}
+                                <option key={option.value} /* onMouseEnter={toggleHover} onMouseLeave={toggleHover}*/>
+                                    {option.label}
+                                </option>
+                                {isSelected(option) ? <>{isHovered ? <CloseIcon /> : <CheckIcon />}</> : null}
                             </div>
                         ))}
                     </div>
