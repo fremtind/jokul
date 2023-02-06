@@ -23,6 +23,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = () => {
         <>
             <Combobox
                 placeholder="Søk"
+                label="Velg leverandører"
                 items={items}
                 value={selectedValue}
                 onChange={(value: any) => {
