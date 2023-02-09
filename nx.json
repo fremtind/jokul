@@ -33,7 +33,7 @@
                 { "env": "MIXPANEL_PROJECT_ID" }
             ],
             "dependsOn": ["build"],
-            "outputs": ["{workspaceRoot}/portal/public", "{workspaceRoot}/portal/.cache"]
+            "outputs": ["{workspaceRoot}/portal/public"]
         }
     }
 }
