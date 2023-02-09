@@ -19,6 +19,7 @@ export interface Props {
         choiceProps?: Array<ChoiceProp>;
     };
     codeExample?: CodeExample;
+    isWide?: boolean;
     style?: React.CSSProperties;
 }
 
@@ -47,7 +48,15 @@ function useLocalStorage<T>(key: string, defaultValue: T): [T, (newValue: T) => 
     return [state, setState];
 }
 
-export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", codeExample, scrollable, style }) => {
+export const ExampleBase: FC<Props> = ({
+    component,
+    knobs,
+    title = "Komponent",
+    codeExample,
+    scrollable,
+    style,
+    isWide,
+}) => {
     const uid = useId("example");
     const [theme, setTheme] = useLocalStorage<ColorScheme>("jkl-example-theme", "light");
     const [density, setDensity] = useLocalStorage<Density>("jkl-example-density", "comfortable");
@@ -86,7 +95,9 @@ export const ExampleBase: FC<Props> = ({ component, knobs, title = "Komponent", 
 
     return (
         <div className="jkl-spacing-2xl--bottom">
-            <section className="jkl-portal-component-example">
+            <section
+                className={`jkl-portal-component-example ${isWide ? "jkl-portal-component-example--is-wide" : ""}`}
+            >
                 <div
                     id={hyphenate(title)}
                     data-layout-density={density}
