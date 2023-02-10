@@ -7,6 +7,17 @@ export interface DataTestAutoId {
 
 export type ColorScheme = "light" | "dark";
 
+export type TextStyle =
+    | "title"
+    | "title-small"
+    | "heading-1"
+    | "heading-2"
+    | "heading-3"
+    | "heading-4"
+    | "heading-5"
+    | "body"
+    | "small";
+
 export type ValuePair = {
     value: string;
     label: string;
