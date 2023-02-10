@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-constants-util",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "publishConfig": {
         "access": "public"
     },
@@ -22,8 +22,8 @@
         "build"
     ],
     "devDependencies": {
-        "@fremtind/jkl-core": "^12.0.0",
-        "@fremtind/jkl-table-react": "^10.1.1"
+        "@fremtind/jkl-core": "^12.0.1",
+        "@fremtind/jkl-table-react": "^10.1.2"
     },
     "scripts": {
         "clean": "rimraf node_modules/ build/ node_modules/",
@@ -32,8 +32,8 @@
         "build": "run-s build:*",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
-        "dev:server": "node ./dist/server.js",
-        "dev": "node ./esbuild.dev.mjs && run-p dev:*"
+        "dev:server": "nodemon ./dist/server.js",
+        "dev": "run-p dev:*"
     },
     "repository": {
         "type": "git",
