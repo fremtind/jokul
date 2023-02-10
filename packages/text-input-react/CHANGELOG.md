@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 13.0.1 (2023-02-10)
+
+### Bug Fixes
+
+- gjenopprett ekspandering i TextArea ([d33d822](https://github.com/fremtind/jokul/commit/d33d822ea3273b8df1d3bb67046a5a19b05d8093)), closes [#3386](https://github.com/fremtind/jokul/issues/3386)
+
 # [13.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@12.0.1...@fremtind/jkl-text-input-react@13.0.0) (2023-01-30)
 
 ### Bug Fixes
