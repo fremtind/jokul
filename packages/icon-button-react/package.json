@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icon-button-react",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -40,13 +40,13 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^12.0.1",
-        "@fremtind/jkl-icon-button": "^3.0.1",
+        "@fremtind/jkl-core": "^12.0.2",
+        "@fremtind/jkl-icon-button": "^3.0.2",
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-icons-react": "^7.0.1",
-        "@fremtind/jkl-toggle-switch-react": "^11.0.1"
+        "@fremtind/jkl-icons-react": "^7.0.2",
+        "@fremtind/jkl-toggle-switch-react": "^11.0.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
