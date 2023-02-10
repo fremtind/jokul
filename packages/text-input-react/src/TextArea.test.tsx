@@ -23,6 +23,14 @@ describe("TextArea", () => {
         const label = screen.getByText("testing");
         expect(label).toHaveClass("jkl-label--sr-only");
     });
+
+    it("renders with an empty placeholder for CSS selector reasons, so expand animation works", () => {
+        const { getByRole } = render(<TextArea label="Cool text area" />);
+
+        const textArea = getByRole("textbox");
+
+        expect(textArea.getAttribute("placeholder")).toEqual(" ");
+    });
 });
 
 describe("a11y", () => {

@@ -36,8 +36,8 @@
         "build": "run-s build:*",
         "test": "jest --testMatch '**/button-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
-        "dev:server": "node ./dist/server.js",
-        "dev": "node ./esbuild.dev.mjs && run-p dev:*"
+        "dev:server": "nodemon ./dist/server.js",
+        "dev": "run-p dev:*"
     },
     "dependencies": {
         "@fremtind/jkl-button": "^10.0.0",
