@@ -1,19 +1,18 @@
-import React from "react";
-import { render, screen } from "@testing-library/react";
-import { Scaffold } from ".";
+import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
+import React from "react";
+import { Scaffold } from ".";
 
 describe("Scaffold", () => {
     it("should render", () => {
-        render(<Scaffold>Edit me!</Scaffold>);
+        const { getByText } = render(<Scaffold>Edit me!</Scaffold>);
 
-        screen.getByText("Edit me!");
+        getByText("Edit me!");
     });
-});
 
-describe("a11y", () => {
-    test("Scaffold should be a11y compliant", async () => {
-        const { container } = render(<Scaffold>I am special</Scaffold>);
+    it("should pass jest-axe tests in default state", async () => {
+        const { container } = render(<Scaffold>Edit me!</Scaffold>);
+
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
