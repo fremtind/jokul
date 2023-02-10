@@ -25,6 +25,12 @@ Så, etter å ha klonet repoet:
 -   `pnpm dev` har live reloading for _portalen_, ikke kildekoden til pakkene. Kjør `pnpm build` for pakken du endrer, så oppdaterer portalen seg.
 -   Hver pakke har sin egen devserver bak `pnpm dev` om du skal jobbe på noe isolert, og ikke trenger hele portalen.
 
+**Kjapt om `pnpm dev` i pakkene**
+
+For å teste server-side rendering har vi det problemet at serverdelen må restarte for at første render skal bli oppdatert med det nyeste. Vi bruker nodemon for å restarte denne automatisk ved endringer.
+
+En ulempe med det er at hvis du har _to_ devservere kjørende vil du få et nytt portnummer på én av de hver gang. Du kan komme deg rundt det problemet ved å sette PORT-miljøvariabelen til noe annet enn 1234. For eksempel `PORT=1235 pnpm dev`.
+
 ### Bruk av pakkene
 
 Vi har en egen guide som hjelper deg med å [komme i gang](https://jokul.fremtind.no/kom-i-gang/introduksjon/) som ny bruker av Jøkul.
