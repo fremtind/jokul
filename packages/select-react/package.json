@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select-react",
-    "version": "13.0.2",
+    "version": "13.0.3",
     "publishConfig": {
         "access": "public"
     },
@@ -39,15 +39,15 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^12.0.1",
-        "@fremtind/jkl-icons-react": "^7.0.1",
-        "@fremtind/jkl-input-group-react": "^2.0.1",
-        "@fremtind/jkl-react-hooks": "^11.0.1",
-        "@fremtind/jkl-select": "^10.0.1",
+        "@fremtind/jkl-core": "^12.0.2",
+        "@fremtind/jkl-icons-react": "^7.0.2",
+        "@fremtind/jkl-input-group-react": "^2.0.2",
+        "@fremtind/jkl-react-hooks": "^11.0.2",
+        "@fremtind/jkl-select": "^10.0.2",
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-accordion-react": "^9.0.1"
+        "@fremtind/jkl-accordion-react": "^9.0.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
