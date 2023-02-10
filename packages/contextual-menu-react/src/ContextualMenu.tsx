@@ -18,11 +18,10 @@ import React, { useState, ReactNode, ChangeEventHandler, useRef, Children } from
 
 export interface ContextualMenuProps extends DataTestAutoId {
     className?: string;
-    initiatorElement?: ReactNode;
+    triggerElement?: ReactNode;
     children: ReactNode;
     initialPlacement?: Placement;
     openOnHover?: boolean;
-    onChange?: ChangeEventHandler;
     onFocus?: ChangeEventHandler;
     onBlur?: ChangeEventHandler;
 }
@@ -31,7 +30,7 @@ export type Placement = "bottom-end" | "bottom-start" | "right-end" | "right-sta
 
 export const ContextualMenu = ({
     className,
-    initiatorElement,
+    triggerElement,
     children,
     initialPlacement = "bottom-start",
     openOnHover = false,
@@ -45,7 +44,7 @@ export const ContextualMenu = ({
         open,
         onOpenChange: setOpen,
         placement: initialPlacement,
-        middleware: [offset(8), flip(), shift({ padding: 16 })],
+        middleware: [offset(2), flip(), shift({ padding: 8 })],
         whileElementsMounted: autoUpdate,
     });
 
@@ -58,10 +57,10 @@ export const ContextualMenu = ({
 
     return (
         <div className="jkl-contextual-menu" role="menu" ref={componentRef}>
-            {initiatorElement && (
+            {triggerElement && (
                 <div
                     aria-expanded={open}
-                    className={cn("jkl-contextual-menu__initiator", className)}
+                    className={cn("jkl-contextual-menu__trigger", className)}
                     onMouseOver={openOnHover ? () => setOpen(true) : undefined}
                     onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
                     onFocus={openOnHover ? () => setOpen(false) : undefined}
@@ -69,7 +68,7 @@ export const ContextualMenu = ({
                         ref: reference,
                     })}
                 >
-                    {initiatorElement}
+                    {triggerElement}
                 </div>
             )}
 

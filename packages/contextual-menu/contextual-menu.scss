@@ -1,8 +1,7 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/jkl/colors";
 @use "contextual-menu-item";
-@use "contextual-menu-item-expandable";
-@use "contextual-menu-icon-initiator";
+@use "contextual-menu-trigger-icon";
 
 @include jkl.light-mode-variables {
     --jkl-contextual-menu--border-color: #{jkl.$color-skifer};
@@ -33,10 +32,12 @@
 }
 
 .jkl-contextual-menu {
-    width: fit-content;
+    max-width: jkl.rem(300px);
     margin: 0;
 
-    &__initiator {
+    &__trigger {
+        max-width: jkl.rem(300px);
+        width: fit-content;
         user-select: none;
 
         &:focus,
@@ -56,52 +57,23 @@
         box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
         border-radius: jkl.rem(2px);
         border: var(--jkl-contextual-menu-item-border);
-        min-width: jkl.rem(300px);
         height: fit-content;
         z-index: 1;
-
-        &[data-placement^="bottom-start"] .jkl-contextual-menu__menu {
-            right: 0;
-            bottom: 0;
-        }
-
-        &[data-placement^="bottom-end"] .jkl-contextual-menu__menu {
-            left: 0;
-            bottom: 0;
-        }
-
-        &[data-placement^="right-end"] .jkl-contextual-menu__menu {
-            right: 0;
-        }
-
-        &[data-placement^="right-start"] .jkl-contextual-menu__menu {
-            right: 0;
-            top: 0;
-        }
     }
 
     &__menu-item {
         display: flex;
         align-items: center;
-        flex-wrap: nowrap;
         height: var(--jkl-contextual-menu-item-height);
-        min-width: jkl.rem(300px);
         box-sizing: border-box;
         user-select: none;
         font-size: var(--jkl-contextual-menu-item-font-size);
-        width: 100%;
+        width: jkl.rem(300px);
 
         &:hover:not(:disabled) {
             background-color: var(--jkl-contextual-menu-item-hover-background-color);
             cursor: pointer;
         }
-    }
-
-    &__menu-item span {
-        width: jkl.rem(280px);
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
     }
 
     &__option {
