@@ -1,4 +1,4 @@
-import { Density, ScreenReaderOnly, WithChildren } from "@fremtind/jkl-core";
+import { Density, ScreenReaderOnly, TextStyle, WithChildren } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import cx from "classnames";
 import React from "react";
@@ -27,6 +27,7 @@ export interface ExpandButtonProps extends WithChildren {
      * @default false
      */
     hideLabel?: boolean;
+    textStyle?: TextStyle;
 }
 
 export const ExpandButton = ({
@@ -36,6 +37,7 @@ export const ExpandButton = ({
     expandDirection = "down",
     isExpanded = false,
     hideLabel = false,
+    textStyle,
     ...rest
 }: ExpandButtonProps): JSX.Element => {
     const ContentWrapper = hideLabel ? ScreenReaderOnly : React.Fragment;
@@ -49,6 +51,15 @@ export const ExpandButton = ({
                 "jkl-expand-button--expanded": isExpanded,
                 "jkl-expand-button--icon-only": !children,
             })}
+            style={
+                textStyle
+                    ? ({
+                          "--jkl-expand-button-font-size": `var(--jkl-${textStyle}-font-size)`,
+                          "--jkl-expand-button-line-height": `var(--jkl-${textStyle}-line-height)`,
+                          "--jkl-expand-button-font-weight": `var(--jkl-${textStyle}-font-weight)`,
+                      } as React.CSSProperties)
+                    : undefined
+            }
             {...rest}
             data-density={density}
         >
@@ -57,7 +68,7 @@ export const ExpandButton = ({
                     <span className="jkl-expand-button__text">{children}</span>
                 </ContentWrapper>
             )}
-            <ArrowVerticalAnimated className="jkl-expand-button__arrow" pointingDown={pointingDown} />
+            <ArrowVerticalAnimated className="jkl-expand-button__arrow" pointingDown={pointingDown} variant="inherit" />
         </button>
     );
 };

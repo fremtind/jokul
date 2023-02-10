@@ -18,8 +18,6 @@
 
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-expand-button", "body");
-
-    --jkl-expand-button-arrow-size: calc(var(--jkl-expand-button-line-height) - #{jkl.rem(2px)});
 }
 
 @include jkl.compact-density-variables {
@@ -27,6 +25,8 @@
 }
 
 .jkl-expand-button {
+    --jkl-expand-button-arrow-size: calc(var(--jkl-expand-button-line-height) - #{jkl.rem(2px)});
+
     $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
     $_focus-ring-width: jkl.rem(2px);
 
