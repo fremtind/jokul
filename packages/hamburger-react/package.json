@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-hamburger-react",
-    "version": "11.0.0",
+    "version": "11.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -33,14 +33,14 @@
         "build": "run-s build:*",
         "test": "jest --testMatch '**/hamburger-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
-        "dev:server": "node ./dist/server.js",
-        "dev": "node ./esbuild.dev.mjs && run-p dev:*"
+        "dev:server": "nodemon ./dist/server.js",
+        "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-content-toggle-react": "^5.0.0",
-        "@fremtind/jkl-core": "^12.0.0",
-        "@fremtind/jkl-hamburger": "^12.0.0",
-        "@fremtind/jkl-react-hooks": "^11.0.0",
+        "@fremtind/jkl-content-toggle-react": "^5.0.1",
+        "@fremtind/jkl-core": "^12.0.1",
+        "@fremtind/jkl-hamburger": "^12.0.1",
+        "@fremtind/jkl-react-hooks": "^11.0.1",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tooltip-react",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -33,16 +33,16 @@
         "build": "run-s build:*",
         "test": "jest --testMatch '**/tooltip-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
-        "dev:server": "node ./dist/server.js",
-        "dev": "node ./esbuild.dev.mjs && run-p dev:*"
+        "dev:server": "nodemon ./dist/server.js",
+        "dev": "run-p dev:*"
     },
     "dependencies": {
         "@floating-ui/react-dom": "^1.1.0",
         "@floating-ui/react-dom-interactions": "^0.12.0",
-        "@fremtind/jkl-core": "^12.0.0",
-        "@fremtind/jkl-icons-react": "^7.0.0",
-        "@fremtind/jkl-react-hooks": "^11.0.0",
-        "@fremtind/jkl-tooltip": "^2.0.0",
+        "@fremtind/jkl-core": "^12.0.1",
+        "@fremtind/jkl-icons-react": "^7.0.1",
+        "@fremtind/jkl-react-hooks": "^11.0.1",
+        "@fremtind/jkl-tooltip": "^2.0.1",
         "classnames": "^2.3.2",
         "framer-motion": "^7.10.3"
     },

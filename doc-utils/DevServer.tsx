@@ -21,6 +21,10 @@ const defaults: CreateServerOptions = {
 export async function createServer(rootComponent: React.ReactElement, options = defaults): Promise<Express> {
     const opts = { ...defaults, ...options };
 
+    if (process.env.PORT) {
+        opts.port = Number.parseInt(process.env.PORT);
+    }
+
     const app = express();
 
     app.get("/", (req, res) => {
