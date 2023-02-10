@@ -288,7 +288,7 @@ importers:
     specifiers:
       '@fremtind/jkl-button-react': ^13.0.0
       '@fremtind/jkl-card': ^8.0.0
-      '@fremtind/jkl-constants-util': ^2.0.1
+      '@fremtind/jkl-constants-util': ^2.0.2
       '@fremtind/jkl-core': ^12.0.0
       '@fremtind/jkl-image-react': ^5.0.0
       '@fremtind/jkl-tag-react': ^4.0.1
@@ -327,7 +327,7 @@ importers:
   packages/constants-util:
     specifiers:
       '@fremtind/jkl-core': ^12.0.0
-      '@fremtind/jkl-table-react': ^10.1.0
+      '@fremtind/jkl-table-react': ^10.1.1
     devDependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-table-react': link:../table-react
@@ -491,7 +491,7 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^12.0.0
       '@fremtind/jkl-footer': ^4.0.0
-      '@fremtind/jkl-formatters-util': ^4.0.1
+      '@fremtind/jkl-formatters-util': ^4.0.2
       '@fremtind/jkl-logo-react': ^12.0.0
       classnames: ^2.3.2
     dependencies:
@@ -504,7 +504,7 @@ importers:
   packages/formatters-util:
     specifiers:
       '@fremtind/jkl-button': ^10.0.0
-      '@fremtind/jkl-constants-util': ^2.0.1
+      '@fremtind/jkl-constants-util': ^2.0.2
       '@fremtind/jkl-core': ^12.0.0
       '@fremtind/jkl-text-input': ^11.0.0
       react-hook-form: ^7.41.3
@@ -917,9 +917,9 @@ importers:
       '@fremtind/jkl-alert-message-react': ^10.0.0
       '@fremtind/jkl-breadcrumb-react': ^4.0.0
       '@fremtind/jkl-button-react': ^13.0.0
-      '@fremtind/jkl-card-react': ^8.0.2
+      '@fremtind/jkl-card-react': ^8.0.3
       '@fremtind/jkl-checkbox-react': ^10.0.0
-      '@fremtind/jkl-constants-util': ^2.0.1
+      '@fremtind/jkl-constants-util': ^2.0.2
       '@fremtind/jkl-content-toggle-react': ^5.0.0
       '@fremtind/jkl-cookie-consent-react': ^8.0.0
       '@fremtind/jkl-core': ^12.0.0
@@ -927,8 +927,8 @@ importers:
       '@fremtind/jkl-description-list-react': ^7.0.0
       '@fremtind/jkl-expand-button-react': ^5.0.0
       '@fremtind/jkl-feedback-react': ^16.0.0
-      '@fremtind/jkl-footer-react': ^4.0.1
-      '@fremtind/jkl-formatters-util': ^4.0.1
+      '@fremtind/jkl-footer-react': ^4.0.2
+      '@fremtind/jkl-formatters-util': ^4.0.2
       '@fremtind/jkl-hamburger-react': ^11.0.0
       '@fremtind/jkl-icon-button-react': ^3.0.0
       '@fremtind/jkl-icons-react': ^7.0.0
@@ -942,7 +942,7 @@ importers:
       '@fremtind/jkl-react-hooks': ^11.0.0
       '@fremtind/jkl-select-react': ^13.0.1
       '@fremtind/jkl-summary-table-react': ^9.0.0
-      '@fremtind/jkl-table-react': ^10.1.0
+      '@fremtind/jkl-table-react': ^10.1.1
       '@fremtind/jkl-tabs-react': ^4.0.0
       '@fremtind/jkl-tag-react': ^4.0.1
       '@fremtind/jkl-text-input-react': ^13.0.0
