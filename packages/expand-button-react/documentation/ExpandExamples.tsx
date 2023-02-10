@@ -18,7 +18,7 @@ export const expandExamplesProps = {
     ],
 };
 
-const ExpandExamples: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const ExpandExamples: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const frittstaende = choiceValues?.["Innhold"] === "Frittstående";
     let C = ExpandSectionExample;
     if (frittstaende) {
