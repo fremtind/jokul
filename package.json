@@ -8,6 +8,7 @@
         "build": "lerna run build",
         "build:docs": "lerna run build:docs",
         "commit": "git-cz",
+        "cosign": "git-cz -S",
         "deploy:docs": "pnpm build:docs && gh-pages -f --no-history --remove '[\".\", \"!preview\"]' --dist portal/public",
         "typecheck": "tsc --noEmit",
         "linker": "node scripts/linker.js",
