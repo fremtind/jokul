@@ -73,6 +73,7 @@ export default InputMaskExample;
 
 export const inputMaskExampleCode: CodeExample = `
 import { registerWithMasks } from "@fremtind/jkl-formatters-util";
+import { useForm } from "react-hook-form";
 
 const form = useForm<Skjema>();
 const [formData, setFormData] = useState<Skjema>();
