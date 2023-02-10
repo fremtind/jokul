@@ -10,6 +10,7 @@ export interface Props {
         boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;
     };
+    isWide?: boolean;
     codeExample?: CodeExample;
     style?: React.CSSProperties;
 }
