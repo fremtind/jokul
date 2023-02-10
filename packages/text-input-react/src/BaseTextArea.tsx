@@ -45,7 +45,8 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>((
         counter,
         onBlur,
         onFocus,
-        rows,
+        rows = 7,
+        placeholder = " ", // This space intentionally left blank. Denne + rows trengs for å få den ekspanderende effekten.
         startOpen,
         style,
         value,
@@ -117,6 +118,7 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>((
                 onFocus={handleOnFocus}
                 ref={textAreaRef}
                 style={{ ...style, ...overflowStyle }}
+                placeholder={placeholder}
                 value={value}
                 {...rest}
             />
