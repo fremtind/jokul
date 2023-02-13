@@ -25,7 +25,7 @@
 }
 
 .jkl-expand-button {
-    --jkl-expand-button-arrow-size: calc(var(--jkl-expand-button-line-height) - #{jkl.rem(2px)});
+    --jkl-expand-button-arrow-size: calc(var(--jkl-expand-button-line-height) - #{jkl.rem(4px)});
 
     $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
     $_focus-ring-width: jkl.rem(2px);
@@ -89,10 +89,11 @@
         display: inline-block;
         margin-left: jkl.$spacing-2;
         margin-bottom: jkl.rem(-8px);
+        // For å få pila på linje med teksten
 
         .jkl-animated-vertical-arrows__slider[data-show="up"] {
             // For å få pila på linje med teksten
-            transform: translate3d(0, -56%, 0);
+            transform: translate3d(0, -57%, 0);
         }
 
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
