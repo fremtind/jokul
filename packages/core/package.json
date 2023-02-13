@@ -29,7 +29,7 @@
     "scripts": {
         "clean": "rimraf node_modules/ build/ node_modules/ **/*.css",
         "build": "run-s build:*",
-        "build:style": "gulp build",
+        "build:style": "node ./transform.js && gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "node ./esbuild.prod.mjs",
         "test": "echo \"Error: run tests from root\" && exit 1",
@@ -52,5 +52,8 @@
         "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
         "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
         "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
+    },
+    "devDependencies": {
+        "fs": "0.0.1-security"
     }
 }

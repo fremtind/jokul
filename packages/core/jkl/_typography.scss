@@ -246,9 +246,9 @@ $text-styles: (
 /// @example
 ///     @include jkl.use-font-variables("jkl-accordion-title");
 @mixin declare-font-variables($name, $level) {
-    --#{$name}-font-size: var(--jkl-#{$level}-font-size);
-    --#{$name}-line-height: var(--jkl-#{$level}-line-height);
-    --#{$name}-font-weight: var(--jkl-#{$level}-font-weight);
+    --#{$name}-font-size: var(--jkl-font-size-#{$level});
+    --#{$name}-line-height: var(--jkl-line-height-#{$level});
+    --#{$name}-font-weight: var(--jkl-font-weight-#{$level});
 }
 
 /// Ta i bruk variabler du har laget med  `declare-font-variables`.
