@@ -28,7 +28,7 @@ export const Footer: FC<FooterProps> = ({ className, links, showFinansportalenLi
             {links && (
                 <div className="jkl-footer__links">
                     <ul>
-                        {links.map(({ component = Link, title: children, ...rest }) => {
+                        {links.map(({ component = Link, title: children, external, ...rest }) => {
                             const C = component;
                             return (
                                 <li key={children}>
@@ -38,6 +38,7 @@ export const Footer: FC<FooterProps> = ({ className, links, showFinansportalenLi
                                                 ? "jkl-link jkl-footer__links--small-text"
                                                 : "jkl-footer__links--small-text"
                                         }
+                                        external={external !== undefined ? external : undefined}
                                         {...rest}
                                     >
                                         {children}

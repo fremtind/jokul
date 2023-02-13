@@ -7,7 +7,7 @@ describe("ContactInformation", () => {
     it("should render", () => {
         render(<ContactInformation headingComponent={<ContactInformationHeading />} />);
 
-        screen.getByText("Ola Nordmann");
+        screen.getByText("Trenger du hjelp med forsikring?");
     });
 
     test("should be a11y compliant", async () => {

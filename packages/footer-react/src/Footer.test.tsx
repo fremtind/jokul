@@ -24,7 +24,7 @@ describe("Footer", () => {
             />,
         );
 
-        screen.getByText("Jøkul på GitHub");
+        screen.getByText("Personvern og vilkår");
     });
 
     test("should be a11y compliant", async () => {
