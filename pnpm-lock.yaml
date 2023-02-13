@@ -334,6 +334,24 @@ importers:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-table-react': link:../table-react
 
+  packages/contact-information:
+    specifiers:
+      '@fremtind/jkl-core': ^12.0.0
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/contact-information-react:
+    specifiers:
+      '@fremtind/jkl-contact-information': ^1.0.0
+      '@fremtind/jkl-core': ^12.0.0
+      '@fremtind/jkl-formatters-util': ^4.0.0
+      classnames: ^2.3.2
+    dependencies:
+      '@fremtind/jkl-contact-information': link:../contact-information
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-formatters-util': link:../formatters-util
+      classnames: 2.3.2
+
   packages/content-toggle:
     specifiers:
       '@fremtind/jkl-core': ^12.0.2
