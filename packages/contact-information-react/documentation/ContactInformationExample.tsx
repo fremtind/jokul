@@ -1,6 +1,13 @@
 import React, { FC } from "react";
 import { ExampleComponentProps, CodeExample, ExampleKnobsProps } from "../../../doc-utils";
-import { ContactInformation } from "../src";
+import {
+    ChatAndMailColumn,
+    ContactInformation,
+    ContactInformationHeading,
+    Content,
+    PhoneColumn,
+    QAndAColumn,
+} from "../src";
 
 export const contactInformationExampleKnobs: ExampleKnobsProps = {
     boolProps: [
@@ -25,13 +32,20 @@ export const ContactInformationExample: FC<ExampleComponentProps> = ({ boolValue
             data-simulate-mobile={isMobile ? "true" : undefined}
         >
             <ContactInformation
-                contactName={withName ? "Ola Nordmann" : undefined}
-                phone={withPhone ? { number: "90040900", openingHours: "07.00 - 23.00 Alle dager" } : undefined}
-                chatAndMail={
-                    withChatAndMail ? { chat: () => alert("open chat"), email: "fremtind@fremtind.no" } : undefined
+                headingComponent={
+                    <ContactInformationHeading>
+                        {withName && <p className="jkl-body">Ta kontakt med din rådgiver Ola Nordmann</p>}
+                    </ContactInformationHeading>
                 }
-                qAndA={withQnA ? () => alert("open link") : undefined}
-            />
+            >
+                <Content>
+                    {withPhone && <PhoneColumn phone={"900 90 900"} openingHours={"07:00 - 24:00"} />}
+                    {withChatAndMail && (
+                        <ChatAndMailColumn chat={() => alert("open chat")} email={"fremtind@fremtind.no"} />
+                    )}
+                    {withQnA && <QAndAColumn qAndA={() => alert("open link")} />}
+                </Content>
+            </ContactInformation>
         </div>
     );
 };
@@ -39,71 +53,34 @@ export const ContactInformationExample: FC<ExampleComponentProps> = ({ boolValue
 export default ContactInformationExample;
 
 export const contactInformationExampleCode: CodeExample = ({ boolValues }) => {
-    const withLinks = boolValues?.["Med lenker"];
-    const withAddress = boolValues?.["Med adresse"];
+    const withName = boolValues?.["Med navn"];
+    const withPhone = boolValues?.["Med telefon"];
+    const withChatAndMail = boolValues?.["Med chat og mail"];
+    const withQnA = boolValues?.["Med QnA"];
 
-    if (!withLinks && !withAddress) {
-        return "<Footer />";
-    }
-
-    if (!withAddress) {
-        return `<Footer
-    links={
-        [
-            {
-                title: "Personvern og vilkår",
-                href: "https://github.com/fremtind/jokul",
-                external: false,
-            },
-            {
-                title: "Bruk av informasjonskapsler",
-                href: "https://www.fremtind.no/personvern/",
-                external: false,
-            },{
-                title: "Sammenlign våre priser med andere selskaper på finansportalen.no",
-                href: "https://www.finansportalen.no/"
-                exsternal: true;
-            }
-        ]
-    }
-/>`;
-    }
-
-    if (!withLinks) {
-        return `<Footer
-    address={{
-        addressLine1: "Postboks 778 Sentrum",
-        postalCode: "0106",
-        postalArea: "Oslo",
-        organizationNumber: "915651232",
-    }}
-/>`;
-    }
-
-    return `<Footer
-    address={{
-        addressLine1: "Postboks 778 Sentrum",
-        postalCode: "0106",
-        postalArea: "Oslo",
-        organizationNumber: "915651232",
-    }}
-    links={
-        [
-            { 
-                title: "Personvern og vilkår",
-                href: "https://github.com/fremtind/jokul",
-                external: false,
-            },
-            {
-                title: "Bruk av informasjonskapsler",
-                href: "https://www.fremtind.no/personvern/",
-                external: false,
-            },{
-                title: "Sammenlign våre priser med andere selskaper på finansportalen.no",
-                href: "https://www.finansportalen.no/"
-                exsternal: true;
-            }
-        ]
-    }
+    return `<ContactInformation
+                headingComponent={
+                ${
+                    withName ? (
+                        <ContactInformationHeading>
+                            <p className="jkl-body">Ta kontakt med din rådgiver Ola Nordmann</p>
+                        </ContactInformationHeading>
+                    ) : (
+                        <ContactInformationHeading />
+                    )
+                }
+            >
+                <Content>
+                    ${withPhone ? <PhoneColumn phone={"900 90 900"} openingHours={"07:00 - 24:00"} /> : ""}
+                    ${
+                        withChatAndMail ? (
+                            <ChatAndMailColumn chat={() => alert("open chat")} email={"fremtind@fremtind.no"} />
+                        ) : (
+                            ""
+                        )
+                    }
+                    ${withQnA ? <QAndAColumn qAndA={() => alert("open link")} /> : ""}
+                </Content>
+            </ContactInformation>
 />`;
 };
