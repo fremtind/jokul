@@ -340,12 +340,18 @@ importers:
       '@fremtind/jkl-core': ^11.0.0
       '@fremtind/jkl-icon-button-react': 3.0.0
       '@fremtind/jkl-icons-react': 7.0.0
+      '@fremtind/jkl-input-group-react': 2.0.0
+      '@fremtind/jkl-react-hooks': 11.0.0
+      '@fremtind/jkl-select-react': 13.0.0
       '@fremtind/jkl-tag-react': 4.0.0
     dependencies:
       '@fremtind/jkl-combobox': link:../combobox
       '@fremtind/jkl-core': 11.4.0
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
       '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-input-group-react': link:../input-group-react
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      '@fremtind/jkl-select-react': link:../select-react
       '@fremtind/jkl-tag-react': link:../tag-react
 
   packages/constants-util:
