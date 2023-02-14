@@ -1,3 +1,5 @@
+import { SupportLabel, SupportLabelProps } from "@fremtind/jkl-input-group-react";
+import { useId } from "@fremtind/jkl-react-hooks";
 import React, { forwardRef, InputHTMLAttributes, ChangeEventHandler, ReactNode } from "react";
 import { BaseRadioButton } from "./BaseRadioButton";
 import { useRadioGroupContext } from "./radioGroupContext";
@@ -11,26 +13,33 @@ export interface RadioButtonProps extends Omit<InputHTMLAttributes<HTMLInputElem
     onChange?: ChangeEventHandler<HTMLInputElement>;
     /** @deprecated Bruk children */
     label?: ReactNode;
+    helpLabel?: ReactNode;
+    supportLabelProps?: Omit<SupportLabelProps, "id" | "errorLabel" | "helpLabel" | "density">;
 }
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>((props, ref) => {
-    const { checked, value, ...rest } = props;
-    const { value: selectedValue, ...context } = useRadioGroupContext();
+    const { checked, value, supportLabelProps, helpLabel, ...rest } = props;
+    const { value: selectedValue, density, ...context } = useRadioGroupContext();
+    const supportId = useId("jkl-support-label");
 
     return (
-        <BaseRadioButton
-            {...context}
-            {...rest}
-            ref={ref}
-            checked={
-                typeof checked !== "undefined"
-                    ? checked
-                    : typeof selectedValue !== "undefined"
-                    ? value === selectedValue
-                    : undefined
-            }
-            value={value}
-        />
+        <>
+            <BaseRadioButton
+                {...context}
+                {...rest}
+                ref={ref}
+                checked={
+                    typeof checked !== "undefined"
+                        ? checked
+                        : typeof selectedValue !== "undefined"
+                        ? value === selectedValue
+                        : undefined
+                }
+                value={value}
+                aria-describedby={helpLabel ? supportId : undefined}
+            />
+            <SupportLabel {...supportLabelProps} helpLabel={helpLabel} id={supportId} density={density} />
+        </>
     );
 });
 
