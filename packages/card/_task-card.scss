@@ -1,21 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-task-card-background--hvit: #{jkl.$color-hvit};
-    --jkl-task-card-background--snohvit: #{jkl.$color-snohvit};
-    --jkl-task-card-background--sand: #{jkl.$color-sand};
-    --jkl-task-card-background--dis: #{jkl.$color-dis};
-    --jkl-task-card-shadow: #{jkl.$shadow-task-card};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-task-card-background--hvit: #{jkl.$color-svart};
-    --jkl-task-card-background--snohvit: #{jkl.$color-granitt};
-    --jkl-task-card-background--sand: #{jkl.$color-skifer};
-    --jkl-task-card-background--dis: #{jkl.$color-fjellgra};
-    --jkl-task-card-shadow: none;
-}
-
 .jkl-task-card {
     --jkl-task-card-shadow: #{jkl.$shadow-task-card};
 

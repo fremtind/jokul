@@ -855,6 +855,18 @@
     },
     "light": {
         "color": {
+            "error": {
+                "normal": {
+                    "value": "{color.red.90}",
+                    "type": "color"
+                }
+            },
+            "on-error": {
+                "normal": {
+                    "value": "{color.legacy.granitt}",
+                    "type": "color"
+                }
+            },
             "background": {
                 "normal": {
                     "value": "{color.legacy.snøhvit}",
@@ -953,6 +965,18 @@
     },
     "dark": {
         "color": {
+            "error": {
+                "normal": {
+                    "value": "{color.red.90}",
+                    "type": "color"
+                }
+            },
+            "on-error": {
+                "normal": {
+                    "value": "{color.legacy.granitt}",
+                    "type": "color"
+                }
+            },
             "background": {
                 "normal": {
                     "value": "{color.legacy.granitt}",

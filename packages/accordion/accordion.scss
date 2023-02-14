@@ -1,17 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-svaberg};
-    --jkl-accordion-focus: #{jkl.$color-focus-color};
-    --jkl-accordion-expanded-background: #{jkl.$color-hvit};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-stein};
-    --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
-    --jkl-accordion-expanded-background: #{jkl.$color-svart};
-}
-
 @include jkl.comfortable-density-variables {
     --jkl-accordion-title-padding: var(--jkl-spacing-16) #{jkl.rem(48px)} var(--jkl-spacing-16) var(--jkl-spacing-16);
     --jkl-accordion-arrow-top: #{jkl.rem(20px)};
@@ -42,6 +30,9 @@
 }
 
 .jkl-accordion-item {
+    --jkl-accordion-border: var(--jkl-color-outline);
+    --jkl-accordion-focus: var(--jkl-color-primary);
+    --jkl-accordion-expanded-background: var(--jkl-color-background-highlighted);
     @include jkl.reset-outline;
     @include jkl.motion("exit", "snappy");
     transition-property: border-top-color, border-bottom-color;

@@ -1,19 +1,5 @@
 @use "~@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-nav-card-background: #{jkl.$color-hvit};
-    --jkl-nav-card-shadow: #{jkl.$shadow-navigation};
-    --jkl-nav-card-shadow--hover: #{jkl.$shadow-navigation--hover};
-    --jkl-nav-card-info-border-color: #{jkl.$color-svaberg};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-nav-card-background: #{jkl.$color-svart};
-    --jkl-nav-card-shadow: none;
-    --jkl-nav-card-shadow--hover: none;
-    --jkl-nav-card-info-border-color: #{jkl.$color-stein};
-}
-
 @include jkl.comfortable-density-variables {
     --jkl-nav-card-content-wrapper-gap: #{jkl.$spacing-m};
     --jkl-nav-card-info-padding: #{jkl.$spacing-l} 0 0 0;
@@ -27,6 +13,11 @@
 }
 
 .jkl-nav-card {
+    --jkl-nav-card-background: var(--jkl-color-surface-highlighted);
+    --jkl-nav-card-info-border-color: var(--jkl-color-outline);
+    --jkl-nav-card-shadow: #{jkl.$shadow-navigation};
+    --jkl-nav-card-shadow--hover: #{jkl.$shadow-navigation--hover};
+
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

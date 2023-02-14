@@ -1,10 +1,21 @@
 @use "~@fremtind/jkl-core/jkl";
 
-$_card-corner-radius: jkl.rem(2px);
-$_container-width: jkl.rem(660px);
-$_container-width--compact: jkl.rem(320px);
-
 .jkl-cookie-consent-modal {
+    --jkl-cookie-consent-border-radius: #{jkl.rem(2px)};
+    --jkl-cookie-consent-max-width: #{jkl.rem(660px)};
+    // TODO: Finn ut om vi vil bruke en annen variant her
+    --jkl-cookie-consent-background: var(--jkl-color-background);
+    --jkl-cookie-consent-text-color: var(--jkl-color-on-background);
+    // TODO: Finn ut hvilken skygge som bør brukes her (og evt. lag den)
+    --jkl-cookie-consent-shadow: #{jkl.$shadow-navigation--hover};
+    --jkl-cookie-consent-padding: var(--jkl-spacing-24);
+    --jkl-cookie-consent-margin: var(--jkl-spacing-24);
+
+    @include jkl.from-medium-device {
+        --jkl-cookie-consent-padding: var(--jkl-spacing-40) var(--jkl-spacing-40) var(--jkl-spacing-32)
+            var(--jkl-spacing-40);
+    }
+
     position: fixed;
     z-index: jkl.$z-index--modal !important;
 
@@ -15,15 +26,18 @@ $_container-width--compact: jkl.rem(320px);
     & > .jkl-cookie-consent-modal__overlay {
         position: fixed;
         background: rgb(0 0 0 / 30%);
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         transition: 0.2s;
     }
 
     &__content {
         @include jkl.text-style("body");
+        box-shadow: var(--jkl-cookie-consent-shadow);
+        background-color: var(--jkl-cookie-consent-background);
+        color: var(--jkl-cookie-consent-text-color);
+        border-radius: var(--jkl-cookie-consent-border-radius);
+        padding: var(--jkl-cookie-consent-padding);
+
         z-index: jkl.$z-index--floating !important;
         position: fixed;
         margin: auto;
@@ -34,18 +48,11 @@ $_container-width--compact: jkl.rem(320px);
         left: 0;
         right: 0;
         width: 100%;
-        padding: jkl.$spacing-xl jkl.$spacing-xl jkl.rem(30px) jkl.$spacing-xl;
-        min-width: $_container-width--compact;
-        max-width: $_container-width;
-        background-color: var(--jkl-background-color);
-        box-shadow: jkl.$drop-shadow--large;
+        max-width: min(var(--jkl-cookie-consent-max-width), 100% - var(--jkl-cookie-consent-margin) * 2);
         transition: 0.2s;
 
         @include jkl.small-device {
-            top: jkl.$spacing-xl;
-            margin: jkl.$spacing-l;
-            max-width: calc(100% - #{jkl.$spacing-l} - #{jkl.$spacing-l});
-            padding: jkl.$spacing-l;
+            top: var(--jkl-spacing-40);
         }
 
         @include jkl.forced-colors-mode {
@@ -54,7 +61,7 @@ $_container-width--compact: jkl.rem(320px);
     }
 
     &__checklist {
-        margin-bottom: jkl.$spacing-m;
+        margin-bottom: var(--jkl-spacing-16);
     }
 
     &__info-text {
@@ -63,19 +70,19 @@ $_container-width--compact: jkl.rem(320px);
 
     &__header {
         @include jkl.text-style("heading-3");
-        margin-bottom: jkl.$spacing-l;
+        margin-bottom: var(--jkl-spacing-24);
     }
 
     &__checkbox {
-        margin-bottom: jkl.$spacing-xs;
-        margin-top: jkl.$spacing-l;
+        margin-bottom: var(--jkl-spacing-8);
+        margin-top: var(--jkl-spacing-24);
     }
 
     &__button-group {
-        margin-top: jkl.$spacing-xl;
+        margin-top: var(--jkl-spacing-40);
 
         & > :not(:first-child) {
-            margin-left: jkl.$spacing-l;
+            margin-left: var(--jkl-spacing-24);
         }
     }
 }
