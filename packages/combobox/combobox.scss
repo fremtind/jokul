@@ -21,6 +21,8 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-background-color: transparent;
     --jkl-combobox-open-color: #{jkl.$color-hvit};
     --jkl-combobox-focus-color: #{$_combobox-focus-color};
+    --jkl-combobox-error-background-color: #{colors.varslingsfarge("feil")};
+    --jkl-combobox-error-text-color: #{jkl.$color-granitt};
     --jkl-combobox-hover-option-color: #{jkl.$color-granitt};
     --jkl-combobox-selected-background: #{jkl.$color-varde};
     --jkl-combobox-hover-option-background-color: #{jkl.$color-sand};
@@ -34,6 +36,8 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-background-color: transparent;
     --jkl-combobox-open-color: #{jkl.$color-svart};
     --jkl-combobox-focus-color: #{$_combobox-focus-color--inverted};
+    --jkl-combobox-error-background-color: #{colors.varslingsfarge("feil")};
+    --jkl-combobox-error-text-color: #{jkl.$color-granitt};
     --jkl-combobox-selected-background: #{jkl.$color-stein};
     --jkl-combobox-hover-option-color: #{jkl.$color-snohvit};
     --jkl-combobox-hover-option-background-color: #{jkl.$color-skifer};
@@ -47,7 +51,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-button-padding: #{jkl.$spacing-8} #{jkl.rem(36px)} #{jkl.$spacing-8} #{jkl.$spacing-8};
     --jkl-combobox-input-height: #{jkl.rem(48px)};
     --jkl-combobox-actions-right: #{jkl.$spacing-8};
-    --jkl-combobox-actions-top: 12px;
+    --jkl-combobox-actions-top: 11px;
     --jkl-combobox-line-height: 1.75rem;
     --jkl-combobox-tag-top: 1.5px;
     --jkl-combobox-tag-bottom: 1.5px;
@@ -239,5 +243,23 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
     &__tag {
         margin: 1px;
+    }
+
+    &--invalid {
+        .jkl-combobox__search-input,
+        .jkl-combobox__button {
+            background-color: var(--jkl-combobox-error-background-color);
+        }
+
+        .jkl-combobox__search-input,
+        .jkl-combobox__button,
+        .jkl-combobox__arrow {
+            color: var(--jkl-combobox-error-text-color);
+        }
+
+        /* Color of text selection */
+        .jkl-combobox__search-input::selection {
+            background-color: var(--jkl-combobox-search-input-selection-color);
+        }
     }
 }
