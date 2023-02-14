@@ -36,13 +36,18 @@ export const FooterExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                     withLinks
                         ? [
                               {
-                                  title: "Jøkul på GitHub",
+                                  title: "Personvern og vilkår",
                                   href: "https://github.com/fremtind/jokul",
-                                  external: true,
+                                  external: false,
                               },
                               {
-                                  title: "Personvernserklæring",
+                                  title: "Bruk av informasjonskapsler",
                                   href: "https://www.fremtind.no/personvern/",
+                                  external: false,
+                              },
+                              {
+                                  title: "Sammenlign våre priser med andere selskaper på finansportalen.no",
+                                  href: "https://www.finansportalen.no/",
                                   external: true,
                               },
                           ]
@@ -68,15 +73,19 @@ export const footerExampleCode: CodeExample = ({ boolValues }) => {
     links={
         [
             {
-                title: "Jøkul på GitHub",
+                title: "Personvern og vilkår",
                 href: "https://github.com/fremtind/jokul",
-                external: true,
+                external: false,
             },
             {
-                title: "Personvernserklæring",
+                title: "Bruk av informasjonskapsler",
                 href: "https://www.fremtind.no/personvern/",
-                external: true,
-            },
+                external: false,
+            },{
+                title: "Sammenlign våre priser med andere selskaper på finansportalen.no",
+                href: "https://www.finansportalen.no/"
+                exsternal: true;
+            }
         ]
     }
 />`;
@@ -102,16 +111,20 @@ export const footerExampleCode: CodeExample = ({ boolValues }) => {
     }}
     links={
         [
-            {
-                title: "Jøkul på GitHub",
+            { 
+                title: "Personvern og vilkår",
                 href: "https://github.com/fremtind/jokul",
-                external: true,
+                external: false,
             },
             {
-                title: "Personvernserklæring",
+                title: "Bruk av informasjonskapsler",
                 href: "https://www.fremtind.no/personvern/",
-                external: true,
-            },
+                external: false,
+            },{
+                title: "Sammenlign våre priser med andere selskaper på finansportalen.no",
+                href: "https://www.finansportalen.no/"
+                exsternal: true;
+            }
         ]
     }
 />`;

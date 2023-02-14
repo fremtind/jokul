@@ -49,8 +49,13 @@ export const Footer: FC<FooterProps> = ({ className, address, links, density, ..
     return (
         <footer className={cn("jkl-footer", className)} data-density={density} {...rest}>
             <div>
-                <div className="jkl-footer__logo">
-                    <Logo />
+                <div className="jkl-footer__heading">
+                    <div className="jkl-footer__logo">
+                        <Logo />
+                    </div>
+                    <p className="jkl-footer__description jkl-body jkl-spacing-32--left">
+                        Er er forsikringsselskap fra Sparebank 1
+                    </p>
                 </div>
                 {address && (
                     <address className="jkl-footer__address">

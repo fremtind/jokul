@@ -2,11 +2,11 @@
 
 @include jkl.light-mode-variables {
     --jkl-footer-background-color: #{jkl.$color-svart};
-    --jkl-footer-text-color: #{jkl.$color-snohvit};
+    --jkl-footer-text-color: #{jkl.$color-svaberg};
 }
 @include jkl.dark-mode-variables {
     --jkl-footer-background-color: #{jkl.$color-hvit};
-    --jkl-footer-text-color: #{jkl.$color-granitt};
+    --jkl-footer-text-color: #{jkl.$color-svaberg};
 }
 
 @mixin _footer-height($padding) {
@@ -23,6 +23,7 @@
     display: flex;
     gap: jkl.$spacing-l;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: jkl.$spacing-l;
 
@@ -42,7 +43,20 @@
         $_logo-width: jkl.rem(200px);
         min-width: $_logo-width;
         width: $_logo-width;
-        color: inherit;
+        padding-bottom: 5px;
+        display: flex;
+        color: jkl.$color-snohvit;
+    }
+
+    &__heading {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__description {
+        display: flex;
+        align-items: flex-end;
+        color: jkl.$color-snohvit;
     }
 
     &__address {
@@ -55,6 +69,7 @@
 
         & ul {
             display: block;
+            justify-items: flex-end;
             list-style: none;
             margin: 0;
             padding: 0;
