@@ -5,11 +5,12 @@ import {
     contactInformationExampleCode,
     contactInformationExampleKnobs,
 } from "./ContactInformationExample";
-import "../../footer/contact-information.scss";
+import "../../contact-information/contact-information.scss";
 
 export default function Example() {
     return (
         <DevExample
+            scrollable={true}
             component={ContactInformationExample}
             knobs={contactInformationExampleKnobs}
             codeExample={contactInformationExampleCode}

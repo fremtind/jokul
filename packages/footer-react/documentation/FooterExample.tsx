@@ -16,7 +16,7 @@ export const FooterExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const withFinansportalen = boolValues?.["Med finansportalen"];
     return (
         <div
-            {...(isMobile ? { style: { minWidth: "21rem" } } : { style: { minWidth: "82rem" } })}
+            {...(isMobile ? { style: { width: "21rem" } } : { style: { minWidth: "82rem" } })}
             data-simulate-mobile={isMobile ? "true" : undefined}
         >
             <Footer

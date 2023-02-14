@@ -41,7 +41,9 @@
         }
 
         & ul {
-            display: block;
+            display: flex;
+            flex-wrap: wrap;
+            gap: jkl.$spacing-16 jkl.$spacing-32;
             justify-items: flex-end;
             list-style: none;
             margin: 0;
@@ -49,19 +51,9 @@
         }
 
         & ul li {
-            display: block;
-
-            &:not(:last-child) {
-                margin-bottom: jkl.$spacing-16;
-            }
-
             .jkl-footer > & {
                 @include jkl.from-medium-device {
                     display: inline-block;
-
-                    &:not(:last-child) {
-                        margin-right: jkl.$spacing-32;
-                    }
                 }
             }
         }

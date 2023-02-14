@@ -18,15 +18,8 @@
 
     &__content {
         display: flex;
-        flex-direction: column;
-
-        gap: jkl.$spacing-40;
-
-        @include jkl.from-medium-device {
-            display: flex;
-            flex-direction: row;
-            gap: 10%;
-        }
+        flex-wrap: wrap;
+        gap: jkl.$spacing-40 10%;
     }
 
     &__heading {

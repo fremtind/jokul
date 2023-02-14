@@ -27,7 +27,7 @@ export const ContactInformationExample: FC<ExampleComponentProps> = ({ boolValue
     const withQnA = boolValues?.["Med QnA"];
     return (
         <div
-            {...(isMobile ? { style: { minWidth: "21rem" } } : { style: { minWidth: "82rem" } })}
+            {...(isMobile ? { style: { width: "21rem" } } : { style: { minWidth: "64rem" } })}
             data-simulate-mobile={isMobile ? "true" : undefined}
         >
             <ContactInformation

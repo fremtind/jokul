@@ -16,15 +16,23 @@ export interface FooterLink<T = HTMLAnchorElement> {
 }
 
 export interface FooterProps extends DataTestAutoId, HTMLAttributes<HTMLElement> {
+    heading?: string;
     links?: Array<FooterLink>;
     showFinansportalenLink?: boolean;
     density?: Density;
 }
 
-export const Footer: FC<FooterProps> = ({ className, links, showFinansportalenLink = false, density, ...rest }) => {
+export const Footer: FC<FooterProps> = ({
+    heading = "Fremtind er vår leverandør av forsikring",
+    className,
+    links,
+    showFinansportalenLink = false,
+    density,
+    ...rest
+}) => {
     return (
         <footer className={cn("jkl-footer", className)} data-density={density} {...rest}>
-            <p className="jkl-footer__description">Fremtind er vår leverandør av forsikring.</p>
+            <p className="jkl-footer__description">{heading}</p>
             {links && (
                 <div className="jkl-footer__links">
                     <ul>
@@ -48,12 +56,12 @@ export const Footer: FC<FooterProps> = ({ className, links, showFinansportalenLi
                         })}
                         {showFinansportalenLink && (
                             <li>
-                                <p className="jkl-footer__links--small-text">
+                                <span className="jkl-footer__links--small-text">
                                     Sammenlign våre priser med andre selskaper på{" "}
                                     <Link href="https://www.finansportalen.no/" external={true}>
                                         finansportalen.no
                                     </Link>
-                                </p>
+                                </span>
                             </li>
                         )}
                     </ul>
