@@ -1,14 +1,12 @@
 import { CloseIcon, CheckIcon } from "@fremtind/jkl-icons-react";
-import React, { ChangeEventHandler, Dispatch, FC, SetStateAction, useState } from "react";
+import React, { Dispatch, FC, SetStateAction, useState } from "react";
 
 interface ComboboxOptionItemProps {
     value: string;
     label: string;
-    option: any;
+    option: { value: string; label: string };
     selectedValue: string;
-    onFocus?: ChangeEventHandler;
-    onBlur?: ChangeEventHandler;
-    isSelected: (option: { value: any }) => boolean;
+    isSelected: (option: { value: string }) => boolean;
     setSearchValue: Dispatch<SetStateAction<string>>;
     onItemClick: Function;
 }

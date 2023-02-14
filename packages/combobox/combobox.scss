@@ -47,7 +47,8 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-button-padding: #{jkl.$spacing-8} #{jkl.rem(36px)} #{jkl.$spacing-8} #{jkl.$spacing-8};
     --jkl-combobox-input-height: #{jkl.rem(48px)};
     --jkl-combobox-actions-right: #{jkl.$spacing-8};
-    --jkl-combobox-actions-top: 14px;
+    --jkl-combobox-actions-top: 12px;
+    --jkl-combobox-line-height: 1.75rem;
     --jkl-combobox-tag-top: 1.5px;
     --jkl-combobox-tag-bottom: 1.5px;
     --jkl-combobox-search-input-padding: var(--jkl-combobox-button-padding);
@@ -146,6 +147,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         cursor: pointer;
         text-align: left;
         display: flex;
+        line-height: var(--jkl-combobox-line-height);
 
         @include jkl.motion;
         transition-property: color, border-color, box-shadow;
@@ -192,6 +194,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         color: var(--jkl-combobox-text-color);
         transition-property: color, background-color;
         cursor: pointer;
+        padding: var(--jkl-combobox-option-padding);
 
         button {
             color: inherit;
@@ -200,7 +203,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
             border: none;
             text-align: left;
             cursor: inherit;
-            padding: var(--jkl-combobox-option-padding);
+            padding: 0;
             line-height: var(--jkl-combobox-option-line-height);
         }
 
