@@ -3,7 +3,7 @@
 
 describe("ContactInformation", () => {
     beforeEach(() => {
-        cy.testComponent("contactInformation");
+        cy.testComponent("contactinformation");
     });
 
     it("renders correctly", () => {
