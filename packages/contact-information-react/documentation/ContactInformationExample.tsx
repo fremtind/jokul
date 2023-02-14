@@ -12,7 +12,6 @@ import {
 export const contactInformationExampleKnobs: ExampleKnobsProps = {
     boolProps: [
         { prop: "Mobil", defaultValue: true },
-        { prop: "Med lenker", defaultValue: true },
         { prop: "Med navn", defaultValue: true },
         { prop: "Med telefon", defaultValue: true },
         { prop: "Med chat og mail", defaultValue: true },
