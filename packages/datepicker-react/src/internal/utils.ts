@@ -70,12 +70,16 @@ export function subtractMonth({
  * Generates an array of year strings for a year selector component, with min and max dates taken into account.
  *
  * @param {number} currentYear - The current year to center the list around
- * @param {Date} [minDate] - The minimum date to include in the list of years
- * @param {Date} [maxDate] - The maximum date to include in the list of years
+ * @param {Date | undefined} [minDate] - The minimum date to include in the list of years
+ * @param {Date | undefined} [maxDate] - The maximum date to include in the list of years
  *
  * @returns {string[]} - An array of year strings, starting from the earliest year specified by minDate or currentYear - 5, and ending at the latest year specified by maxDate or currentYear + 5
  */
-export function getYearSelectItems(currentYear: number, minDate?: Date, maxDate?: Date): string[] {
+export function getYearSelectOptions(
+    currentYear: number,
+    minDate: Date | undefined,
+    maxDate: Date | undefined,
+): string[] {
     const minDateYear = minDate?.getFullYear() || currentYear;
     const maxDateYear = maxDate?.getFullYear() || currentYear;
 
@@ -86,6 +90,40 @@ export function getYearSelectItems(currentYear: number, minDate?: Date, maxDate?
     const stringRange = range.map((item) => item.toString());
 
     return stringRange;
+}
+
+/**
+ * Returns an array of months that are allowed for selection in the current year based on the minimum and maximum dates.
+ * @param {number} currentYear The current year
+ * @param {string[]} months An array of strings representing the months
+ * @param {Date | undefined} minDate The minimum date that is allowed for selection
+ * @param {Date | undefined} maxDate The maximum date that is allowed for selection
+ * @returns {string[]} An array of strings representing the months that are allowed for selection in the current year
+ */
+export function getMonthSelectOptions(
+    currentYear: number,
+    months: string[],
+    minDate: Date | undefined,
+    maxDate: Date | undefined,
+): string[] {
+    const minDateYear = minDate?.getFullYear() || currentYear;
+    const minDateMonth = minDate?.getMonth() || 0;
+    const maxDateYear = maxDate?.getFullYear() || currentYear;
+    const maxDateMonth = maxDate?.getMonth() || 11;
+
+    let startMonth = 0;
+    let endMonth = 11;
+
+    if (minDateYear === currentYear) {
+        startMonth = minDateMonth;
+    }
+    if (maxDateYear === currentYear) {
+        endMonth = maxDateMonth;
+    }
+
+    const filteredMonths = months.filter((month, index) => index >= startMonth && index <= endMonth);
+
+    return filteredMonths;
 }
 
 /**s
