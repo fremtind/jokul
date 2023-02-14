@@ -6,7 +6,17 @@ import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { focusSelected } from "@fremtind/jkl-select-react/src/select-utils";
 import { useListNavigation } from "@fremtind/jkl-select-react/src/useListNavigation";
 import { Tag } from "@fremtind/jkl-tag-react";
-import React, { FC, useEffect, useRef, useState, useCallback, KeyboardEvent, ChangeEvent, RefObject } from "react";
+import React, {
+    FC,
+    useEffect,
+    useRef,
+    useState,
+    useCallback,
+    KeyboardEvent,
+    ChangeEvent,
+    RefObject,
+    FocusEvent,
+} from "react";
 import { ComboboxOptionItem } from "./ComboboxOptionItem";
 
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
@@ -25,6 +35,7 @@ interface ComboboxProps extends InputGroupProps {
     placeholder?: string;
     items: Array<{ value: string; label: string }>;
     label: string;
+    name: string;
     value?: string;
     width?: string;
     onChange: ChangeEventHandler;
@@ -32,7 +43,17 @@ interface ComboboxProps extends InputGroupProps {
     onFocus?: ChangeEventHandler;
 }
 
-export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, value, label, width, onBlur }) => {
+export const Combobox: FC<ComboboxProps> = ({
+    placeholder,
+    items,
+    onChange,
+    onFocus,
+    onBlur,
+    value,
+    label,
+    width,
+    name,
+}) => {
     const [selectedValue, setSelectedValue] = useState<any>(value || "");
     const [isPoitingDown, setIsPointingDown] = useState(true);
     const [showMenu, setShowMenu] = useState(false);
@@ -66,6 +87,7 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
         setShowMenu((prevState) => !prevState);
     }, []);
 
+    // Funksjon for å rendre verdi i input-feltet
     const getDisplay = () => {
         return (
             <div className="jkl-combobox__tags">
@@ -82,10 +104,11 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
                 <input
                     className="jkl-combobox__search-input"
                     onChange={onSearch}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                     value={searchValue}
                     ref={searchRef}
                     placeholder={selectedValue.length > 0 ? "" : placeholder}
-                    onClick={() => setShowMenu(true)}
                 />
             </div>
         );
@@ -130,11 +153,13 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
         }
     };
 
+    // Funksjon for søk
     const onSearch = (e: { target: { value: React.SetStateAction<string> } }) => {
         setShowMenu(true);
         setSearchValue(e.target.value);
     };
 
+    // Funkjson for å hente options
     const getOptions = () => {
         if (!searchValue) {
             return items;
@@ -171,26 +196,7 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
         };
     }, [setShowMenu]);
 
-    // Åpne meny med pil-ned
-    const handleOnKeyDown = useCallback(
-        (e: KeyboardEvent<HTMLDivElement>) => {
-            if (e.key === "ArrowDown" || e.key === " ") {
-                e.preventDefault();
-                e.stopPropagation();
-                setShowMenu(true);
-            } else if (e.key === "Escape") {
-                e.preventDefault();
-                e.stopPropagation();
-                setShowMenu(false);
-            }
-        },
-        [setShowMenu],
-    );
-
-    const handleKeyDown = (event: { key: any }) => {
-        console.log("user pressed: ", event.key);
-    };
-
+    // Fokushåndtering
     const handleFocusPlacement = useCallback(
         (isOpen: boolean, ref: RefObject<HTMLElement>) => {
             if (isOpen) {
@@ -211,24 +217,74 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
         [selectedValue],
     );
 
+    const handleFocus = useCallback(() => {
+        if (!focusInsideRef.current) {
+            if (onFocus) {
+                onFocus({ type: "change", target: { name, value: selectedValue || "" } });
+            }
+            focusInsideRef.current = true;
+        }
+    }, [onFocus, selectedValue, name]);
+
     const [dropdownRef] = useAnimatedHeight<HTMLDivElement>(showMenu, {
         onFirstVisible: handleFocusPlacement,
         onTransitionEnd: handleFocusPlacement,
     });
 
-    useListNavigation({ ref: dropdownRef });
+    const componentRootElementRef = useRef<HTMLDivElement>(null);
+
+    useListNavigation({ ref: inputRef });
+
+    const handleBlur = useCallback(
+        (e: FocusEvent<HTMLDivElement | HTMLInputElement | HTMLButtonElement>) => {
+            const componentRootElement = componentRootElementRef.current;
+            // There are known issues in Firefox when using "relatedTarget" in onBlur events:
+            // https://github.com/facebook/react/issues/2011
+            // This might be fixed in react 17. Se issue above.
+            const nextFocusIsInsideComponent =
+                componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
+            if (!nextFocusIsInsideComponent) {
+                setSearchValue("");
+
+                if (onBlur) {
+                    onBlur({ type: "blur", target: { name, value: selectedValue || "" } });
+                    inputRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
+                }
+                focusInsideRef.current = false;
+                setShowMenu(false);
+            }
+        },
+        [onBlur, name, selectedValue],
+    );
+
+    // Tastaturnavigasjon
+    const handleOnKeyDown = useCallback(
+        (e: KeyboardEvent<HTMLDivElement>) => {
+            if (e.key === "ArrowDown" || e.key === " ") {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowMenu(true);
+            } else if (e.key === "Escape") {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowMenu(false);
+            }
+        },
+        [setShowMenu],
+    );
 
     return (
-        <InputGroup label={label}>
+        <InputGroup label={label} ref={componentRootElementRef}>
             <div className={`jkl-combobox__wrapper ${showMenu && "menu-open"}`} style={{ width }}>
                 <div
                     ref={inputRef}
                     onClick={handleInputClick}
                     onKeyDown={handleOnKeyDown}
+                    onBlur={handleBlur}
                     className={`jkl-combobox__button ${showMenu && "menu-open"}`}
                     aria-label={`${selectedValue || "Velg"},${label}`}
                     role="button"
-                    tabIndex={0}
+                    tabIndex={-1}
                 >
                     {getDisplay()}
                     <div className="jkl-combobox__actions">
@@ -241,13 +297,7 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
                     </div>
                 </div>
                 {showMenu && (
-                    <div
-                        className="jkl-combobox__menu"
-                        role="listbox"
-                        ref={dropdownRef}
-                        tabIndex={0}
-                        onKeyDown={handleKeyDown}
-                    >
+                    <div className="jkl-combobox__menu" role="listbox" tabIndex={-1}>
                         {getOptions().map((option: { value: string; label: string }) => (
                             <ComboboxOptionItem
                                 key={option.value}
@@ -255,8 +305,10 @@ export const Combobox: FC<ComboboxProps> = ({ placeholder, items, onChange, valu
                                 value={option.value}
                                 label={option.label}
                                 isSelected={isSelected}
+                                selectedValue={selectedValue}
                                 setSearchValue={setSearchValue}
                                 onItemClick={onItemClick}
+                                onFocus={handleFocus}
                             />
                         ))}
                     </div>

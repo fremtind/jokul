@@ -352,6 +352,7 @@ importers:
       '@fremtind/jkl-react-hooks': 11.0.0
       '@fremtind/jkl-select-react': 13.0.0
       '@fremtind/jkl-tag-react': 4.0.0
+      classnames: 2.3.2
     dependencies:
       '@fremtind/jkl-combobox': link:../combobox
       '@fremtind/jkl-core': 11.4.0
@@ -361,6 +362,7 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-select-react': link:../select-react
       '@fremtind/jkl-tag-react': link:../tag-react
+      classnames: 2.3.2
 
   packages/constants-util:
     specifiers:
