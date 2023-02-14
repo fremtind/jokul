@@ -58,28 +58,25 @@ export const contactInformationExampleCode: CodeExample = ({ boolValues }) => {
     const withQnA = boolValues?.["Med QnA"];
 
     return `<ContactInformation
-                headingComponent={
-                ${
-                    withName ? (
-                        <ContactInformationHeading>
-                            <p className="jkl-body">Ta kontakt med din rådgiver Ola Nordmann</p>
-                        </ContactInformationHeading>
-                    ) : (
-                        <ContactInformationHeading />
-                    )
-                }
-            >
-                <Content>
-                    ${withPhone ? <PhoneColumn phone={"900 90 900"} openingHours={"07:00 - 24:00"} /> : ""}
-                    ${
-                        withChatAndMail ? (
-                            <ChatAndMailColumn chat={() => alert("open chat")} email={"fremtind@fremtind.no"} />
-                        ) : (
-                            ""
-                        )
-                    }
-                    ${withQnA ? <QAndAColumn qAndA={() => alert("open link")} /> : ""}
-                </Content>
-            </ContactInformation>
-/>`;
+  headingComponent={
+    ${
+        withName
+            ? `<ContactInformationHeading>
+        <p className="jkl-body">Ta kontakt med din rådgiver Ola Nordmann</p>
+    </ContactInformationHeading>`
+            : `<ContactInformationHeading />`
+    }
+  }
+>
+${
+    withPhone || withChatAndMail || withQnA
+        ? `  <Content>
+    ${withPhone ? `<PhoneColumn phone={"900 90 900"} openingHours={"07:00 - 24:00"} />` : ""}
+    ${withChatAndMail ? `<ChatAndMailColumn chat={() => alert("open chat")} email={"fremtind@fremtind.no"} />` : ""}
+    ${withQnA ? `<QAndAColumn qAndA={() => alert("open link")} />` : ""}
+  </Content>`
+        : ""
+}
+</ContactInformation>
+`;
 };
