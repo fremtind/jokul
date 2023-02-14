@@ -1,10 +1,13 @@
 import { CloseIcon, CheckIcon } from "@fremtind/jkl-icons-react";
-import React, { Dispatch, FC, SetStateAction, useState } from "react";
+import React, { ChangeEventHandler, Dispatch, FC, SetStateAction, useState } from "react";
 
 interface ComboboxOptionItemProps {
     value: string;
     label: string;
     option: any;
+    selectedValue: string;
+    onFocus?: ChangeEventHandler;
+    onBlur?: ChangeEventHandler;
     isSelected: (option: { value: any }) => boolean;
     setSearchValue: Dispatch<SetStateAction<string>>;
     onItemClick: Function;
@@ -14,6 +17,7 @@ export const ComboboxOptionItem: FC<ComboboxOptionItemProps> = ({
     option,
     value,
     label,
+    selectedValue,
     isSelected,
     setSearchValue,
     onItemClick,
@@ -37,7 +41,9 @@ export const ComboboxOptionItem: FC<ComboboxOptionItemProps> = ({
             onMouseLeave={toggleHover}
             className={`jkl-combobox__option ${isSelected(option) && "selected"}`}
         >
-            <option key={value}>{label}</option>
+            <button key={value} type="button" role="option" aria-selected={option.value === selectedValue}>
+                {label}
+            </button>
             {isSelected(option) ? <>{isHovered ? <CloseIcon /> : <CheckIcon />}</> : null}
         </div>
     );
