@@ -4,6 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Combobox } from "../src";
 
 export const comboboxExampleKnobs: ExampleKnobsProps = {
+    boolProps: ["Med hjelpetekst", "Med feil"],
     choiceProps: [
         {
             name: "Variant",
@@ -13,7 +14,7 @@ export const comboboxExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
+export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const [selectedValue, setSelectedValue] = useState<any>([] || null);
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
@@ -29,10 +30,23 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues }) => 
         { value: "doro", label: "Doro" },
     ];
 
+    const errorLabel =
+        boolValues && boolValues["Med feil"]
+            ? "Du må velge leverandøren(e), for eksempel Apple og Samsung."
+            : undefined;
+    const helpLabel =
+        boolValues && boolValues["Med hjelpetekst"]
+            ? "Med leverandør mener vi for eksempel Apple og Samsung."
+            : undefined;
+
     return (
         <Combobox
+            id="produsent"
+            name="prdusent"
             placeholder="Søk"
             labelProps={{ variant }}
+            helpLabel={helpLabel}
+            errorLabel={errorLabel}
             label="Velg leverandører"
             items={items}
             value={selectedValue}

@@ -5,6 +5,7 @@ import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
 import { useListNavigation } from "@fremtind/jkl-select-react/src/useListNavigation";
 import { Tag } from "@fremtind/jkl-tag-react";
+import cn from "classnames";
 import React, {
     FC,
     useEffect,
@@ -39,6 +40,10 @@ interface ComboboxProps extends InputGroupProps {
     name: string;
     value?: string;
     width?: string;
+    helpLabel?: string;
+    errorLabel?: string;
+    className?: string;
+    invalid?: boolean;
     onChange: ChangeEventHandler;
     onBlur?: ChangeEventHandler;
     onFocus?: ChangeEventHandler;
@@ -54,8 +59,12 @@ export const Combobox: FC<ComboboxProps> = ({
     value,
     label,
     labelProps,
+    helpLabel,
+    errorLabel,
     width,
     name,
+    className,
+    invalid,
 }) => {
     const listId = useId(id || "jkl-select", { generateSuffix: !id });
     const labelId = `${listId}_label`;
@@ -114,6 +123,7 @@ export const Combobox: FC<ComboboxProps> = ({
                     id={inputId}
                     className="jkl-combobox__search-input"
                     onChange={onSearch}
+                    data-testid="jkl-combobox__search-input"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     value={searchValue}
@@ -289,14 +299,20 @@ export const Combobox: FC<ComboboxProps> = ({
             id={buttonId}
             ref={componentRootElementRef}
             data-testid="jkl-combobox"
+            className={cn("jkl-combobox", className, {
+                "jkl-combobox--invalid": !!errorLabel || invalid,
+            })}
             labelProps={{
                 id: labelId,
                 ...labelProps,
                 htmlFor: buttonId,
             }}
+            helpLabel={helpLabel}
+            errorLabel={errorLabel}
             render={(inputProps) => (
                 <div className={`jkl-combobox__wrapper ${showMenu && "menu-open"}`} style={{ width }}>
                     <div
+                        {...inputProps}
                         ref={inputRef}
                         onClick={handleInputClick}
                         onKeyDown={handleOnKeyDown}
