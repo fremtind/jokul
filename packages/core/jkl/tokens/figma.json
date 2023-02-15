@@ -972,14 +972,20 @@
   "dark": {
     "color": {
       "error": {
-        "normal": {
+        "error-container": {
           "value": "{color.red.90}",
           "type": "color"
-        }
-      },
-      "on-error": {
-        "normal": {
+        },
+        "on-error-container": {
           "value": "{color.legacy.granitt}",
+          "type": "color"
+        },
+        "error": {
+          "value": "{color.red.70}",
+          "type": "color"
+        },
+        "on-error": {
+          "value": "{color.red.10}",
           "type": "color"
         }
       },
