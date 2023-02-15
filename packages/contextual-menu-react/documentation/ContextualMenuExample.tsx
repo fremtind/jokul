@@ -1,4 +1,4 @@
-import { CheckIcon, CopyIcon, DotsIcon, InfoIcon } from "@fremtind/jkl-icons-react";
+import { CopyIcon, DotsIcon, InfoIcon } from "@fremtind/jkl-icons-react";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
 import { ContextualMenu } from "../src";
@@ -9,30 +9,6 @@ export const contextualMenuExampleKnobs: ExampleKnobsProps = {};
 export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
     return (
         <div style={{ width: "500px", display: "flex", flexDirection: "column", justifyContent: "center", gap: "3em" }}>
-            <ContextualMenu triggerElement={<ContextualMenuTriggerIcon icon={<CheckIcon bold />} />}>
-                <ContextualMenuItem description="Menyvalg 1" icon={<InfoIcon />} />
-                <ContextualMenuItem description="Menyvalg 2" />
-                <ContextualMenuItem description="Menyvalg med en lengre beskrivende tekst" />
-                <ContextualMenu
-                    openOnHover
-                    initialPlacement="right-start"
-                    triggerElement={<ContextualMenuItem divider expandable description="Ekspanderende menyvalg" />}
-                >
-                    <ContextualMenuItem description="Ekspandert menyvalg" icon={<CopyIcon />} />
-                    <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
-                </ContextualMenu>
-                <ContextualMenu
-                    openOnHover
-                    initialPlacement="right-start"
-                    triggerElement={
-                        <ContextualMenuItem icon={<InfoIcon />} expandable description="Ekspanderende menyvalg" />
-                    }
-                >
-                    <ContextualMenuItem description="Ekspandert menyvalg" icon={<CopyIcon />} />
-                    <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
-                </ContextualMenu>
-            </ContextualMenu>
-
             <ContextualMenu triggerElement={<ContextualMenuTriggerIcon icon={<DotsIcon bold />} />}>
                 <ContextualMenuItem description="Menyvalg 1" icon={<InfoIcon />} />
                 <ContextualMenuItem description="Menyvalg 2" />
@@ -40,7 +16,7 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
                 <ContextualMenu
                     openOnHover
                     initialPlacement="right-start"
-                    triggerElement={<ContextualMenuItem expandable description="Ekspanderende menyvalg" />}
+                    triggerElement={<ContextualMenuItem divider expandable description="Ekspanderende menyvalg" />}
                 >
                     <ContextualMenuItem description="Ekspandert menyvalg" icon={<InfoIcon />} />
                     <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
@@ -60,43 +36,39 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
 
 export default ContextualMenuExample;
 export const contextualMenuExampleCode: CodeExample = () => `
-            <ContextualMenu initiatorElement={<ContextualMenuTriggerIcon icon={<ChevronDownIcon bold />} />}>
-                <ContextualMenuItem description="Menyvalg 1" icon={<InfoIcon />} />
-                <ContextualMenuItem description="Menyvalg 2" icon={<InfoIcon />} />
-                <ContextualMenuItem description="Menyvalg med en lengre beskrivende tekst" icon={<InfoIcon />} />
-                <ContextualMenu
-                    initialPlacement="right-start"
-                    initiatorElement={<ContextualMenuItem description="Ekspanderende menyvalg" />}
-                >
-                    <ContextualMenuItem description="Ekspandert menyvalg" icon={<InfoIcon />} />
-                    <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
-                </ContextualMenu>
-                <ContextualMenu
-                    initialPlacement="right-start"
-                    initiatorElement={<ContextualMenuItem description="Ekspanderende menyvalg" />}
-                >
-                    <ContextualMenuItem description="Ekspandert menyvalg" icon={<InfoIcon />} />
-                    <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
-                </ContextualMenu>
-            </ContextualMenu>
-
-            <ContextualMenu initiatorElement={<ContextualMenuTriggerIcon icon={<DotsIcon bold />} />}>
-                <ContextualMenuItem description="Menyvalg 1" icon={<InfoIcon />} />
-                <ContextualMenuItem description="Menyvalg 2" icon={<InfoIcon />} />
-                <ContextualMenuItem description="Menyvalg med en lengre beskrivende tekst" icon={<InfoIcon />} />
-                <ContextualMenu
-                    initialPlacement="right-start"
-                    initiatorElement={<ContextualMenuItem description="Ekspanderende menyvalg" />}
-                >
-                    <ContextualMenuItem description="Ekspandert menyvalg" icon={<InfoIcon />} />
-                    <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
-                </ContextualMenu>
-                <ContextualMenu
-                    initialPlacement="right-start"
-                    initiatorElement={<ContextualMenuItem description="Ekspanderende menyvalg" />}
-                >
-                    <ContextualMenuItem description="Ekspandert menyvalg" icon={<InfoIcon />} />
-                    <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
-                </ContextualMenu>
-            </ContextualMenu>
+    <ContextualMenu triggerElement={<ContextualMenuTriggerIcon icon={<CheckIcon bold />} />}>
+        <ContextualMenuItem description="Menyvalg 1" icon={<InfoIcon />} />
+        <ContextualMenuItem description="Menyvalg 2" />
+        <ContextualMenuItem 
+            description="Menyvalg med en lengre beskrivende tekst" 
+        />
+        <ContextualMenu
+            openOnHover
+            initialPlacement="right-start"
+            triggerElement={
+                <ContextualMenuItem 
+                    description="Ekspanderende menyvalg"
+                    divider 
+                    expandable  
+                />
+            }
+        >
+            <ContextualMenuItem description="Ekspandert menyvalg" icon={<CopyIcon />} />
+            <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
+        </ContextualMenu>
+        <ContextualMenu
+            openOnHover
+            initialPlacement="right-start"
+            triggerElement={
+                <ContextualMenuItem 
+                    icon={<InfoIcon />} 
+                    description="Ekspanderende menyvalg" 
+                    expandable 
+                />
+            }
+        >
+            <ContextualMenuItem description="Ekspandert menyvalg" icon={<CopyIcon />} />
+            <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
+        </ContextualMenu>
+    </ContextualMenu>
 `;

@@ -16,7 +16,8 @@ export const ContextualMenuItem = ({
 }: ContextualMenuItemProps) => {
     return (
         <div
-            className={cn("contextual-menu-item", {
+            className={cn({
+                "contextual-menu-item": true,
                 "contextual-menu-item--divide-top": divider,
             })}
         >

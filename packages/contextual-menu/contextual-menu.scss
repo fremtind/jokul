@@ -1,5 +1,4 @@
 @use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/jkl/colors";
 @use "contextual-menu-item";
 @use "contextual-menu-trigger-icon";
 
@@ -7,6 +6,7 @@
     --jkl-contextual-menu--border-color: #{jkl.$color-skifer};
     --jkl-contextual-menu-bg-color: #{jkl.$color-hvit};
     --jkl-contextual-menu-item-hover-background-color: #{jkl.$color-sand};
+    --jkl-contextual-menu-item-trigger-font-color: #{jkl.$color-svart};
 }
 
 @include jkl.dark-mode-variables {
@@ -14,31 +14,39 @@
     --jkl-contextual-menu-bg-color: #{jkl.$color-svart};
     --jkl-contextual-menu-item-hover-background-color: #{jkl.$color-skifer};
     --jkl-contextual-menu-item-border: 2px solid #{jkl.$color-snohvit};
+    --jkl-contextual-menu-item-trigger-font-color: #{jkl.$color-hvit};
 }
 
 @include jkl.comfortable-density-variables {
     --jkl-contextual-menu-item-font-size: jkl.$typography-font-size-3;
-    --jkl-contextual-menu-item-height: jkl.rem(48px);
-
-    @include jkl.small-device {
-        --jkl-contextual-menu-item-font-size: jkl.$typography-font-size-1;
-        --jkl-contextual-menu-item-height: jkl.rem(32px);
-    }
+    --jkl-contextual-menu-item-font-weight: jkl.$typography-weight-normal;
+    --jkl-contextual-menu-menu-item-height: jkl.rem(48px);
 }
 
 @include jkl.compact-density-variables {
     --jkl-contextual-menu-item-font-size: jkl.$typography-font-size-1;
-    --jkl-contextual-menu-item-height: jkl.rem(32px);
+    --jkl-contextual-menu-item-font-weight: jkl.$typography-weight-normal;
+    --jkl-contextual-menu-menu-item-height: jkl.rem(32px);
 }
 
 .jkl-contextual-menu {
+    width: fit-content;
+    display: flex;
+    align-items: center;
     max-width: jkl.rem(300px);
     margin: 0;
 
-    &__trigger {
+    &__trigger-btn {
+        @include jkl.reset-outline;
+        @include jkl.motion("exit", "snappy");
+        transition-property: color;
+        color: var(--jkl-contextual-menu-item-trigger-font-color);
+        padding: 0;
+        background-color: transparent;
+        user-select: none;
         max-width: jkl.rem(300px);
         width: fit-content;
-        user-select: none;
+        height: fit-content;
 
         &:focus,
         &:hover {
@@ -57,18 +65,18 @@
         box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
         border-radius: jkl.rem(2px);
         border: var(--jkl-contextual-menu-item-border);
-        height: fit-content;
-        z-index: 1;
+        z-index: jkl.$z-index--floating;
     }
 
     &__menu-item {
         display: flex;
         align-items: center;
-        height: var(--jkl-contextual-menu-item-height);
+        width: jkl.rem(300px);
         box-sizing: border-box;
         user-select: none;
         font-size: var(--jkl-contextual-menu-item-font-size);
-        width: jkl.rem(300px);
+        font-weight: var(--jkl-contextual-menu-item-font-weight);
+        height: var(--jkl-contextual-menu-menu-item-height);
 
         &:hover:not(:disabled) {
             background-color: var(--jkl-contextual-menu-item-hover-background-color);

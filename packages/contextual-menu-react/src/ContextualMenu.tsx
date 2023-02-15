@@ -14,7 +14,7 @@ import { DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useState, ReactNode, ChangeEventHandler, useRef, Children } from "react";
+import React, { useState, ReactNode, Children } from "react";
 
 export interface ContextualMenuProps extends DataTestAutoId {
     className?: string;
@@ -22,8 +22,6 @@ export interface ContextualMenuProps extends DataTestAutoId {
     children: ReactNode;
     initialPlacement?: Placement;
     openOnHover?: boolean;
-    onFocus?: ChangeEventHandler;
-    onBlur?: ChangeEventHandler;
 }
 
 export type Placement = "bottom-end" | "bottom-start" | "right-end" | "right-start";
@@ -38,7 +36,6 @@ export const ContextualMenu = ({
     const [open, setOpen] = useState(false);
     const contextualMenuId = useId("jkl-contextual-menu");
     const childrenArray = Children.toArray(children);
-    const componentRef = useRef(null);
 
     const { x, y, reference, floating, placement, strategy, context } = useFloating({
         open,
@@ -56,11 +53,13 @@ export const ContextualMenu = ({
     ]);
 
     return (
-        <div className="jkl-contextual-menu" role="menu" ref={componentRef}>
+        <span className="jkl-contextual-menu" role="menu">
             {triggerElement && (
-                <div
+                <button
+                    type="button"
                     aria-expanded={open}
-                    className={cn("jkl-contextual-menu__trigger", className)}
+                    aria-controls={contextualMenuId}
+                    className={cn("jkl-contextual-menu__trigger-btn", className)}
                     onMouseOver={openOnHover ? () => setOpen(true) : undefined}
                     onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
                     onFocus={openOnHover ? () => setOpen(false) : undefined}
@@ -69,7 +68,8 @@ export const ContextualMenu = ({
                     })}
                 >
                     {triggerElement}
-                </div>
+                    <span className="jkl-sr-only">{`${open ? "Lukk" : "Vis"} meny`}</span>
+                </button>
             )}
 
             <AnimatePresence>
@@ -92,20 +92,22 @@ export const ContextualMenu = ({
                             },
                         })}
                     >
-                        {childrenArray.map((child, i) => (
-                            <span
-                                key={`${i}-${child}`}
-                                className="jkl-contextual-menu__menu-item"
-                                onMouseOver={openOnHover ? () => setOpen(true) : undefined}
-                                onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
-                                onFocus={openOnHover ? () => setOpen(false) : undefined}
-                            >
-                                {child}
-                            </span>
-                        ))}
+                        <span>
+                            {childrenArray.map((child, i) => (
+                                <span
+                                    key={`${i}-${child}`}
+                                    className="jkl-contextual-menu__menu-item"
+                                    onMouseOver={openOnHover ? () => setOpen(true) : undefined}
+                                    onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
+                                    onFocus={openOnHover ? () => setOpen(false) : undefined}
+                                >
+                                    {child}
+                                </span>
+                            ))}
+                        </span>
                     </motion.span>
                 )}
             </AnimatePresence>
-        </div>
+        </span>
     );
 };

@@ -25,9 +25,7 @@
 }
 
 .contextual-menu-trigger-icon {
-    height: var(--jkl-contextual-menu-trigger-icon-size);
     display: flex;
-    align-items: center;
     background: var(--jkl-contextual-menu-trigger-icon-bg-color);
     border-radius: jkl.rem(4px);
     padding: jkl.rem(4px);
