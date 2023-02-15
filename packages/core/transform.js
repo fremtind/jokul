@@ -64,6 +64,24 @@ function generateTypography() {
     return output;
 }
 
+function convertSingleShadow(shadow) {
+    const inset = shadow.type === "dropShadow" ? "" : "inset ";
+
+    return `${inset}${shadow.x}px ${shadow.y}px ${shadow.blur}px ${shadow.spread}px ${shadow.color}`;
+}
+
+function generateShadowTokens() {
+    let output = `:root {\n\n`;
+
+    Object.entries(tokens.reference.elevation).map(([name, { value }]) => {
+        output += `    --jkl-elevation-${name}: ${value.map(convertSingleShadow).join(", ")};\n`;
+    });
+
+    output += `\n};`;
+
+    return output;
+}
+
 // SKRIV UT FARGEVARIABLER TIL SCSS
 
 const colorsFileContent = `@use "../../jkl";
@@ -93,12 +111,23 @@ fs.writeFile("./styles/generated/_typography.scss", typographyFileContent, (err)
     console.log("Typografivariabler skrevet til _typography.scss");
 });
 
+// SKRIV UT SKYGGEVARIABLES TIL SCSS
+
+fs.writeFile("./styles/generated/_elevation.scss", generateShadowTokens(), (err) => {
+    if (err) {
+        console.err("Klarte ikke å skrive ut skyggetokens");
+    }
+
+    console.log("Skyggetokens skrevet til _elevation.scss");
+});
+
 // SKRIV UT INDEX-FIL SOM EKSPORTERER VARIABLENE
 
-const indexFileContent = `@forward "colors";
-@forward "typography";`;
+function generateIndexFile(filesToForward) {
+    return filesToForward.map((file) => `@forward "${file}";`).join("\n");
+}
 
-fs.writeFile("./styles/generated/_index.scss", indexFileContent, (err) => {
+fs.writeFile("./styles/generated/_index.scss", generateIndexFile(["colors", "typography", "elevation"]), (err) => {
     if (err) {
         console.err("Klarte ikke å skrive ut index-fil");
     }
