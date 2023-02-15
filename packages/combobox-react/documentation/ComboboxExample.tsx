@@ -31,9 +31,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
     ];
 
     const errorLabel =
-        boolValues && boolValues["Med feil"]
-            ? "Du må velge leverandøren(e), for eksempel Apple og Samsung."
-            : undefined;
+        boolValues && boolValues["Med feil"] ? "Du må velge leverandørene, for eksempel Apple og Samsung." : undefined;
     const helpLabel =
         boolValues && boolValues["Med hjelpetekst"]
             ? "Med leverandør mener vi for eksempel Apple og Samsung."
