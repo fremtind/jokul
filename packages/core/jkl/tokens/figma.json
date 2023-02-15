@@ -966,6 +966,36 @@
           "value": "{color.legacy.granitt}",
           "type": "color"
         }
+      },
+      "warning": {
+        "warning-container": {
+          "value": "{color.yellow.95}",
+          "type": "color"
+        },
+        "on-warning-container": {
+          "value": "{color.legacy.granitt}",
+          "type": "color"
+        }
+      },
+      "info": {
+        "info-container": {
+          "value": "{color.blue.90}",
+          "type": "color"
+        },
+        "on-info-container": {
+          "value": "{color.legacy.granitt}",
+          "type": "color"
+        }
+      },
+      "success": {
+        "success-container": {
+          "value": "{color.green.95}",
+          "type": "color"
+        },
+        "on-success-container": {
+          "value": "{color.legacy.granitt}",
+          "type": "color"
+        }
       }
     }
   },
@@ -1080,6 +1110,36 @@
         },
         "contrast": {
           "value": "{color.legacy.snøhvit}",
+          "type": "color"
+        }
+      },
+      "warning": {
+        "warning-container": {
+          "value": "{color.yellow.95}",
+          "type": "color"
+        },
+        "on-warning-container": {
+          "value": "{color.legacy.granitt}",
+          "type": "color"
+        }
+      },
+      "info": {
+        "info-container": {
+          "value": "{color.blue.90}",
+          "type": "color"
+        },
+        "on-info-container": {
+          "value": "{color.legacy.granitt}",
+          "type": "color"
+        }
+      },
+      "success": {
+        "success-container": {
+          "value": "{color.green.95}",
+          "type": "color"
+        },
+        "on-success-container": {
+          "value": "{color.legacy.granitt}",
           "type": "color"
         }
       }
