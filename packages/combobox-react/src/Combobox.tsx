@@ -3,20 +3,9 @@ import { ArrowVerticalAnimated, CloseIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
-import { useListNavigation } from "@fremtind/jkl-select-react/src/useListNavigation";
 import { Tag } from "@fremtind/jkl-tag-react";
 import cn from "classnames";
-import React, {
-    FC,
-    useEffect,
-    useRef,
-    useState,
-    useCallback,
-    KeyboardEvent,
-    ChangeEvent,
-    RefObject,
-    FocusEvent,
-} from "react";
+import React, { FC, useEffect, useRef, useState, useCallback, KeyboardEvent, ChangeEvent, FocusEvent } from "react";
 import { ComboboxOptionItem } from "./ComboboxOptionItem";
 
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
@@ -116,7 +105,7 @@ export const Combobox: FC<ComboboxProps> = ({
                         className="jkl-combobox__tag"
                         dismissAction={{ onClick: (e) => onTagRemove(e, option), label: "Fjern tag" }}
                     >
-                        {option.label}
+                        {option.label.length > 9 ? `${option.label.slice(0, 9)}..` : option.label}
                     </Tag>
                 ))}
                 <input
@@ -218,14 +207,7 @@ export const Combobox: FC<ComboboxProps> = ({
     }, [setShowMenu]);
 
     // Fokushåndtering
-    const handleFocusPlacement = useCallback((isOpen: boolean, ref: RefObject<HTMLElement>) => {
-        if (isOpen) {
-            // const listElement = ref.current;
-            // console.log(listElement);
-            // if (listElement) {
-            //     focusSelected(listElement, selectedValue);
-            // }
-        }
+    const handleFocusPlacement = useCallback((isOpen: boolean) => {
         if (isOpen) {
             if (searchRef.current) {
                 searchRef.current.focus();
@@ -253,14 +235,9 @@ export const Combobox: FC<ComboboxProps> = ({
 
     const componentRootElementRef = useRef<HTMLDivElement>(null);
 
-    useListNavigation({ ref: dropdownRef });
-
     const handleBlur = useCallback(
         (e: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
             const componentRootElement = componentRootElementRef.current;
-            // There are known issues in Firefox when using "relatedTarget" in onBlur events:
-            // https://github.com/facebook/react/issues/2011
-            // This might be fixed in react 17. Se issue above.
             const nextFocusIsInsideComponent =
                 componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
             if (!nextFocusIsInsideComponent) {
@@ -320,35 +297,34 @@ export const Combobox: FC<ComboboxProps> = ({
                         onBlur={handleBlur}
                         className={`jkl-combobox__button ${showMenu && "menu-open"}`}
                         aria-label={`${selectedValue || "Velg"},${label}`}
+                        aria-expanded={showMenu}
                         role="button"
                         tabIndex={-1}
                     >
                         {getDisplay()}
-
-                        {showMenu && (
-                            <div
-                                className="jkl-combobox__menu"
-                                role="listbox"
-                                ref={dropdownRef}
-                                aria-labelledby={labelId}
-                                onFocus={handleFocus}
-                                onBlur={handleBlur}
-                                tabIndex={-1}
-                            >
-                                {getOptions().map((option: { value: string; label: string }) => (
-                                    <ComboboxOptionItem
-                                        key={option.value}
-                                        option={option}
-                                        value={option.value}
-                                        label={option.label}
-                                        isSelected={isSelected}
-                                        selectedValue={selectedValue}
-                                        setSearchValue={setSearchValue}
-                                        onItemClick={onItemClick}
-                                    />
-                                ))}
-                            </div>
-                        )}
+                        <div
+                            className="jkl-combobox__menu"
+                            role="listbox"
+                            ref={dropdownRef}
+                            id={listId}
+                            aria-labelledby={labelId}
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                            tabIndex={-1}
+                        >
+                            {getOptions().map((option: { value: string; label: string }) => (
+                                <ComboboxOptionItem
+                                    key={option.value}
+                                    option={option}
+                                    value={option.value}
+                                    label={option.label}
+                                    isSelected={isSelected}
+                                    selectedValue={selectedValue}
+                                    setSearchValue={setSearchValue}
+                                    onItemClick={onItemClick}
+                                />
+                            ))}
+                        </div>
                         <div className="jkl-combobox__actions">
                             {selectedValue.length > 0 && (
                                 <IconButton onClick={(e) => onTagRemoveAll(e)}>

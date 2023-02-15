@@ -191,7 +191,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     &__option {
         @include jkl.use-font-variables("jkl-combobox");
         @include jkl.motion;
-        display: flex; // avoids wrapping long names "under" the focus arrow
+        display: flex;
         align-items: center;
         border: 0; // removes native styling
         background-color: inherit;
