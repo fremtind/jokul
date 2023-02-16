@@ -3,7 +3,7 @@
 
 describe("ContextualMenu", () => {
     beforeEach(() => {
-        cy.testComponent("contextual-menu");
+        cy.testComponent("contextualmenu");
     });
 
     it("renders correctly", () => {
