@@ -7,18 +7,18 @@ overrides:
   resolve-url-loader>loader-utils: ^1.4.2
 
 patchedDependencies:
-  cz-lerna-changelog@2.0.3:
-    hash: rwhr2kgabnya2gbdqqa3lsmu4i
-    path: patches/cz-lerna-changelog@2.0.3.patch
   gulp-sass@5.1.0:
     hash: z2duu6muooayewj4qeaynjtnaa
     path: patches/gulp-sass@5.1.0.patch
-  '@frsource/cypress-plugin-visual-regression-diff@3.1.6':
-    hash: e6umj5xys57o3rbg6x3acuktgm
-    path: patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch
+  cz-lerna-changelog@2.0.3:
+    hash: rwhr2kgabnya2gbdqqa3lsmu4i
+    path: patches/cz-lerna-changelog@2.0.3.patch
   kbar@0.1.0-beta.39:
     hash: xz5kcti6rhkbtvejisfylwqd7u
     path: patches/kbar@0.1.0-beta.39.patch
+  '@frsource/cypress-plugin-visual-regression-diff@3.1.6':
+    hash: e6umj5xys57o3rbg6x3acuktgm
+    path: patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch
 
 importers:
 
@@ -349,6 +349,32 @@ importers:
       '@fremtind/jkl-content-toggle': link:../content-toggle
       '@fremtind/jkl-core': link:../core
       classnames: 2.3.2
+
+  packages/contextual-menu:
+    specifiers:
+      '@fremtind/jkl-core': ^11.0.0
+    dependencies:
+      '@fremtind/jkl-core': 11.4.0
+
+  packages/contextual-menu-react:
+    specifiers:
+      '@floating-ui/react-dom': ^1.2.2
+      '@floating-ui/react-dom-interactions': ^0.12.0
+      '@fremtind/jkl-contextual-menu': ^1.0.0-alpha.0
+      '@fremtind/jkl-core': ^11.0.0
+      '@fremtind/jkl-icons-react': ^7.0.0
+      '@fremtind/jkl-react-hooks': ^11.0.0
+      classnames: ^2.3.2
+      framer-motion: ^7.10.3
+    dependencies:
+      '@floating-ui/react-dom': 1.3.0
+      '@floating-ui/react-dom-interactions': 0.12.0
+      '@fremtind/jkl-contextual-menu': link:../contextual-menu
+      '@fremtind/jkl-core': 11.4.0
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      classnames: 2.3.2
+      framer-motion: 7.10.3
 
   packages/cookie-consent:
     specifiers:
@@ -2911,14 +2937,20 @@ packages:
       - supports-color
     dev: true
 
-  /@floating-ui/core/1.0.5:
-    resolution: {integrity: sha512-iDdOsaCHZH/0FM0yNBYt+cJxJF9S5jrYWNtDZOiDFMiZ7uxMJ/71h8eTwoVifEAruv9p9rlMPYCGIgMjOz95FQ==}
+  /@floating-ui/core/1.2.1:
+    resolution: {integrity: sha512-LSqwPZkK3rYfD7GKoIeExXOyYx6Q1O4iqZWwIehDNuv3Dv425FIAE8PRwtAx1imEolFTHgBEcoFHm9MDnYgPCg==}
     dev: false
 
   /@floating-ui/dom/1.1.0:
     resolution: {integrity: sha512-TSogMPVxbRe77QCj1dt8NmRiJasPvuc+eT5jnJ6YpLqgOD2zXc5UA3S1qwybN+GVCDNdKfpKy1oj8RpzLJvh6A==}
     dependencies:
-      '@floating-ui/core': 1.0.5
+      '@floating-ui/core': 1.2.1
+    dev: false
+
+  /@floating-ui/dom/1.2.1:
+    resolution: {integrity: sha512-Rt45SmRiV8eU+xXSB9t0uMYiQ/ZWGE/jumse2o3i5RGlyvcbqOF4q+1qBnzLE2kZ5JGhq0iMkcGXUKbFe7MpTA==}
+    dependencies:
+      '@floating-ui/core': 1.2.1
     dev: false
 
   /@floating-ui/react-dom-interactions/0.12.0:
@@ -2928,7 +2960,7 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@floating-ui/react-dom': 1.1.0
+      '@floating-ui/react-dom': 1.3.0
       aria-hidden: 1.2.2
       tabbable: 6.0.1
     transitivePeerDependencies:
@@ -2942,6 +2974,15 @@ packages:
       react-dom: '>=16.8.0'
     dependencies:
       '@floating-ui/dom': 1.1.0
+    dev: false
+
+  /@floating-ui/react-dom/1.3.0:
+    resolution: {integrity: sha512-htwHm67Ji5E/pROEAr7f8IKFShuiCKHwUC/UY4vC3I5jiSvGFAYnSYiZO5MlGmads+QqvUkR9ANHEguGrDv72g==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/dom': 1.2.1
     dev: false
 
   /@fremtind/jkl-core/11.4.0:
@@ -3081,7 +3122,7 @@ packages:
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@floating-ui/react-dom': 1.1.0
+      '@floating-ui/react-dom': 1.3.0
       '@floating-ui/react-dom-interactions': 0.12.0
       '@fremtind/jkl-core': 11.4.0
       '@fremtind/jkl-react-hooks': 10.2.9
