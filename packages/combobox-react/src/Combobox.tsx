@@ -1,5 +1,5 @@
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { ArrowVerticalAnimated, CloseIcon } from "@fremtind/jkl-icons-react";
+import { ArrowVerticalAnimated, CheckIcon, CloseIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
@@ -18,10 +18,8 @@ import React, {
     MouseEvent,
 } from "react";
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
-    /** Kreves av react-hook-form, det skjer ulike ting avhengig av om det er blur eller change */
     type: "change" | "blur";
     target: {
-        /** Kreves av react-hook-form for å vite hvilket skjemafelt som ble endret */
         name: string;
         value: string;
     };
@@ -73,12 +71,12 @@ export const Combobox: FC<ComboboxProps> = ({
     const inputId = `${listId}_search-input`;
 
     const [selectedValue, setSelectedValue] = useState<any>(value || "");
-    const [isPoitingDown, setIsPointingDown] = useState(true);
-    const [showMenu, setShowMenu] = useState(false);
+    const [isPoitingDown, setIsPointingDown] = useState<boolean>(true);
+    const [showMenu, setShowMenu] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
 
-    const searchRef = useRef<any>();
-    const inputRef = useRef<any>();
+    const searchRef = useRef<HTMLInputElement>(null);
+    const inputRef = useRef<HTMLDivElement>(null);
     const focusInsideRef = useRef(false);
 
     useEffect(() => {
@@ -130,7 +128,6 @@ export const Combobox: FC<ComboboxProps> = ({
                     onBlur={handleBlur}
                     value={searchValue}
                     ref={searchRef}
-                    onClick={(e) => e.stopPropagation()}
                     placeholder={selectedValue.length > 0 ? "" : placeholder}
                 />
             </div>
@@ -171,14 +168,14 @@ export const Combobox: FC<ComboboxProps> = ({
         } else {
             newValue = [...selectedValue, option];
         }
-        searchRef.current.focus();
+        searchRef.current?.focus();
         setSelectedValue(newValue);
         onChange(newValue);
     };
 
     // Funksjon for søk
     const onSearch = (e: { target: { value: React.SetStateAction<string> } }) => {
-        searchRef.current.focus();
+        searchRef.current?.focus();
         setShowMenu(true);
         setSearchValue(e.target.value);
     };
@@ -264,7 +261,7 @@ export const Combobox: FC<ComboboxProps> = ({
                     inputRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
                 }
                 focusInsideRef.current = false;
-                setShowMenu(false);
+                setShowMenu(true);
             }
         },
         [onBlur, name, selectedValue],
@@ -383,6 +380,7 @@ export const Combobox: FC<ComboboxProps> = ({
                                         onMouseOver={handleMouseOver}
                                     >
                                         {option.label}
+                                        {isSelected(option) ? <CheckIcon /> : null}
                                     </button>
                                 </>
                             ))}
