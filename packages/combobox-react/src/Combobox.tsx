@@ -3,11 +3,20 @@ import { ArrowVerticalAnimated, CloseIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import { useListNavigation } from "@fremtind/jkl-select-react/src/useListNavigation";
 import { Tag } from "@fremtind/jkl-tag-react";
 import cn from "classnames";
-import React, { FC, useEffect, useRef, useState, useCallback, KeyboardEvent, ChangeEvent, FocusEvent } from "react";
-import { ComboboxOptionItem } from "./ComboboxOptionItem";
-
+import React, {
+    FC,
+    useEffect,
+    useRef,
+    useState,
+    useCallback,
+    KeyboardEvent,
+    ChangeEvent,
+    FocusEvent,
+    MouseEvent,
+} from "react";
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
     /** Kreves av react-hook-form, det skjer ulike ting avhengig av om det er blur eller change */
     type: "change" | "blur";
@@ -24,7 +33,10 @@ interface ComboboxProps extends InputGroupProps {
     id?: string;
     placeholder?: string;
     labelProps?: Omit<LabelProps, "children" | "density" | "htmlFor" | "standAlone">;
-    items: Array<{ value: string; label: string }>;
+    items: Array<{
+        value: string;
+        label: string;
+    }>;
     label: string;
     name: string;
     value?: string;
@@ -64,6 +76,7 @@ export const Combobox: FC<ComboboxProps> = ({
     const [isPoitingDown, setIsPointingDown] = useState(true);
     const [showMenu, setShowMenu] = useState(false);
     const [searchValue, setSearchValue] = useState<string>("");
+
     const searchRef = useRef<any>();
     const inputRef = useRef<any>();
     const focusInsideRef = useRef(false);
@@ -102,10 +115,10 @@ export const Combobox: FC<ComboboxProps> = ({
                         aria-hidden
                         key={option.value}
                         density="compact"
-                        className="jkl-combobox__tag"
+                        className="jkl-tag"
                         dismissAction={{ onClick: (e) => onTagRemove(e, option), label: "Fjern tag" }}
                     >
-                        {option.label.length > 9 ? `${option.label.slice(0, 9)}..` : option.label}
+                        {option.label}
                     </Tag>
                 ))}
                 <input
@@ -117,10 +130,20 @@ export const Combobox: FC<ComboboxProps> = ({
                     onBlur={handleBlur}
                     value={searchValue}
                     ref={searchRef}
+                    onClick={(e) => e.stopPropagation()}
                     placeholder={selectedValue.length > 0 ? "" : placeholder}
                 />
             </div>
         );
+    };
+
+    // Funksjon for å stile valgt element
+    const isSelected = (option: { value: string }) => {
+        if (!selectedValue) {
+            return false;
+        } else {
+            return selectedValue.filter((o: { value: string }) => o.value === option.value).length > 0;
+        }
     };
 
     // Fjerne ett eller flere valg
@@ -128,14 +151,14 @@ export const Combobox: FC<ComboboxProps> = ({
         return selectedValue.filter((o: { value: string }) => o.value !== option.value);
     };
 
-    const onTagRemove = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>, option: any) => {
+    const onTagRemove = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>, option: any) => {
         const newValue = removeOption(option);
         setSelectedValue(newValue);
         onChange(newValue);
         e.stopPropagation();
     };
 
-    const onTagRemoveAll = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    const onTagRemoveAll = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
         setSelectedValue([]);
     };
 
@@ -224,10 +247,12 @@ export const Combobox: FC<ComboboxProps> = ({
         onTransitionEnd: handleFocusPlacement,
     });
 
+    useListNavigation({ ref: dropdownRef });
+
     const componentRootElementRef = useRef<HTMLDivElement>(null);
 
     const handleBlur = useCallback(
-        (e: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
+        (e: FocusEvent<HTMLDivElement | HTMLInputElement | HTMLButtonElement>) => {
             const componentRootElement = componentRootElementRef.current;
             const nextFocusIsInsideComponent =
                 componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
@@ -245,6 +270,12 @@ export const Combobox: FC<ComboboxProps> = ({
         [onBlur, name, selectedValue],
     );
 
+    const handleMouseOver = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+        // Ved mouseOver på options flytter vi fokus til dem for å unngå "dobbel fokus"
+        // der det ser ut som to forskjellige elementer er fokusert/hovered samtidig
+        (e.target as HTMLButtonElement).focus({ preventScroll: true });
+    }, []);
+
     // Tastaturnavigasjon
     const handleOnKeyDown = useCallback(
         (e: KeyboardEvent<HTMLDivElement>) => {
@@ -261,6 +292,32 @@ export const Combobox: FC<ComboboxProps> = ({
         [setShowMenu],
     );
 
+    const handleOptionOnKeyDown = useCallback(
+        (e: KeyboardEvent<HTMLButtonElement>) => {
+            if (e.key === "Tab") {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (e.shiftKey && searchRef.current) {
+                    searchRef.current.focus();
+                } else if (inputRef.current) {
+                    // Mimic behaviour of Firefox and native select, where Tab selects the current item and closes the menu
+                    setSelectedValue(e.currentTarget.value);
+                    setShowMenu(false);
+                    inputRef.current.focus();
+                }
+            } else if (e.key === "ArrowUp") {
+                if (dropdownRef.current && searchRef.current) {
+                    // Can't be based on index since the first item might be filtered out
+                    const firstVisible = dropdownRef.current.querySelector('[role="option"]:not([hidden])');
+                    if (e.currentTarget.id === firstVisible?.id && searchRef.current) {
+                        searchRef.current.focus();
+                    }
+                }
+            }
+        },
+        [setShowMenu, dropdownRef],
+    );
     return (
         <InputGroup
             label={label}
@@ -303,14 +360,31 @@ export const Combobox: FC<ComboboxProps> = ({
                             onBlur={handleBlur}
                             tabIndex={-1}
                         >
-                            {getOptions().map((option: { value: string; label: string }) => (
-                                <ComboboxOptionItem
-                                    key={option.value}
-                                    option={option}
-                                    selectedValue={selectedValue}
-                                    setSearchValue={setSearchValue}
-                                    onItemClick={onItemClick}
-                                />
+                            {getOptions().map((option: { value: string; label: string }, i) => (
+                                <>
+                                    <button
+                                        key={`${listId}-${option.value}`}
+                                        type="button"
+                                        id={`${listId}__${option.value}`}
+                                        aria-selected={option.value === selectedValue}
+                                        role="option"
+                                        value={option.value}
+                                        onBlur={handleBlur}
+                                        className={`jkl-combobox__option ${isSelected(option) && "selected"}`}
+                                        data-testid="jkl-combobox__option"
+                                        data-testautoid={`jkl-combobox__option-${i}`}
+                                        onFocus={handleFocus}
+                                        onKeyDown={handleOptionOnKeyDown}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            onItemClick(option);
+                                            setSearchValue("");
+                                        }}
+                                        onMouseOver={handleMouseOver}
+                                    >
+                                        {option.label}
+                                    </button>
+                                </>
                             ))}
                         </div>
                         <div className="jkl-combobox__actions">
