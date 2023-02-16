@@ -35,6 +35,7 @@ import { SortableTableExample, sortableTableExampleCode } from "./SortableTableE
     component={TableExamples}
     knobs={tableExamplesProps}
     codeExample={tableExamplesCode}
+    isWide
 />
 
 Jøkul tilbyr enkeltkomponenter tilsvarende de du finner i HTML. Hvert tabell-element har sin egen Jøkul-motpart du kan ta i bruk.
@@ -211,6 +212,7 @@ Under ser du et eksempel på horisontal scroll. Legg merke til at scrollbaren le
 som dette _ikke_ gjør så hele siden scroller horisontalt.
 
 <ComponentExample
+    isWide
     scrollable={true}
     title="Mobil: horisontal scroll"
     component={MobileScrollTableExample}
@@ -220,6 +222,7 @@ som dette _ikke_ gjør så hele siden scroller horisontalt.
 Og her ser du et eksempel på en tabell som gjøres om til en listevisning.
 
 <ComponentExample
+    isWide
     title="Mobil: tabell til liste"
     scrollable={true}
     component={MobileListTableExample}
@@ -337,6 +340,7 @@ Overskrifter kan med fordel gjøres _sticky_ – at de beholdes vist selv om bru
 Det er også mulig å skjule tabelloverskrifter visuelt. De må fremdeles være der for skjermlesere, og det må komme tydelig fram av innholdet rundt hva tabellen handler om.
 
 <ComponentExample
+    isWide
     scrollable={true}
     title="Skjulte overskrifter"
     component={HeadlessTableExample}
@@ -351,6 +355,7 @@ Det er også mulig å skjule tabelloverskrifter visuelt. De må fremdeles være 
 De enkleste tabellene består av et sett med navngitte kolonner, og en eller flere rader med data som tilhører de angitte kolonnene. Radene er uten interaksjon, og alle cellene er venstrejusterte. Den kan ikke brukes med tallverdier eller valuta.
 
 <ComponentExample
+    isWide
     scrollable={true}
     title="DataTable"
     component={DataTableExample}
@@ -363,6 +368,7 @@ De enkleste tabellene består av et sett med navngitte kolonner, og en eller fle
 Knapper skal komme til slutt i raden og høyrejusteres. Tekstinnholdet i rader med handling bør sentreres vertikalt slik at det kommer på linje med knappene, med mindre det er mye innhold som bryter over flere linjer. I listevisning skal knappene venstrejusteres og vises under en egen overskrift.
 
 <ComponentExample
+    isWide
     scrollable={true}
     title="Rader med handling"
     component={ActionTableExample}
@@ -375,6 +381,7 @@ Knapper skal komme til slutt i raden og høyrejusteres. Tekstinnholdet i rader m
 Hele raden kan gjøres klikkbar om du ønsker, men foretrekk å ha en rad med handling i egen kolonne da det er mer tilgjengelig visuelt og for skjermlesere.
 
 <ComponentExample
+    isWide
     scrollable={true}
     title="Klikkbare rader"
     component={ClickableTableExample}
@@ -387,6 +394,7 @@ Hele raden kan gjøres klikkbar om du ønsker, men foretrekk å ha en rad med ha
 Hele raden blir automatisk klikkbar, samtidig som man skal sette inn en celle for å vise hvorvidt raden er åpen eller ikke og tilføre informasjon for hjelpemidler. Hvis man vil ha en egen klikk-handling på raden og bruker propen `clickable`, er det kun knappen som vil kontrollere hvorvidt raden er åpen eller ikke.
 
 <ComponentExample
+    isWide
     title="Tabell med ekspanderbare rader"
     component={ExpandableTableExample}
     knobs={expandableTableExampleKnobs}
@@ -398,6 +406,7 @@ Hele raden blir automatisk klikkbar, samtidig som man skal sette inn en celle fo
 Tabellens header blir festet til toppen av skjermen og flyter over tabellinnholdet om man scroller lenger ned i tabellen enn skjermens høyde. For å sette en egen bakgrunnsfarge kan man overstyre CSS-variabelen `--jkl-table-head-sticky-color`.
 
 <ComponentExample
+    isWide
     style={{ height: "200px" }}
     scrollable={true}
     title="Tabell med sticky header"
@@ -408,6 +417,7 @@ Tabellens header blir festet til toppen av skjermen og flyter over tabellinnhold
 ### Paginering
 
 <ComponentExample
+    isWide
     scrollable={true}
     title="Tabell med paginering"
     component={PaginatedTableExample}
@@ -418,6 +428,7 @@ Tabellens header blir festet til toppen av skjermen og flyter over tabellinnhold
 ### Sortering
 
 <ComponentExample
+    isWide
     scrollable={true}
     title="Tabell med sorterbare kolonner"
     component={SortableTableExample}

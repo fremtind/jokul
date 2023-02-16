@@ -29,6 +29,10 @@
     max-width: jkl.rem(740px);
     min-height: jkl.rem(208px);
 
+    &--is-wide {
+        max-width: jkl.rem(1200px);
+    }
+
     &__example-wrapper {
         width: 100%;
         display: flex;

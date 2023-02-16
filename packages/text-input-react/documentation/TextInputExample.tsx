@@ -110,15 +110,20 @@ export const textInputExampleCode = ({ choiceValues, boolValues }: ExampleCompon
 
     return `
 <TextInput
-    label="Fødselsnummer"
-    name="fodselsnummer"
-    helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Fødselsnummer består av 11 siffer"` : `{undefined}`}
-    errorLabel=${
+    label="Boareal"
+    name="boareal"
+    align="right"
+    labelProps={{ variant: "${choiceValues?.["Variant"]}" }}${
+        boolValues?.["Med hjelpetekst"]
+            ? `
+    helpLabel="Boareal er innvendig bruksareal unntatt bodarealet"`
+            : ""
+    }${
         boolValues?.["Med feil"]
-            ? `<>Du må fylle ut fødselsnummer, 11 siffer. <Link href="">Kontakt oss </Link> hvis du ikke har norsk fødselsnummer.{" "}</>`
-            : `{undefined}`
-    }
-    variant={${choiceValues?.["Variant"]}}${
+            ? `
+    errorLabel={<>Du må fylle ut boarealet. Se <a href="#">guiden vår</a> hvis du er usikker på hvordan du finner riktig areal.</>}`
+            : ""
+    }${
         boolValues?.["Med tooltip"]
             ? `
     tooltipProps={{ content: (
@@ -128,16 +133,21 @@ export const textInputExampleCode = ({ choiceValues, boolValues }: ExampleCompon
         </>
     )}}`
             : ""
-    }
-    action={${
+    }${
         boolValues?.["Med handling"]
-            ? `{
+            ? `
+    action={{
         icon: <CloseIcon />,
         label: "Nullstill feltet",
         onClick: () => setValue(""),
-    }`
-            : undefined
-    }}
+    }}`
+            : ""
+    }${
+        boolValues?.["Med benevnelse"]
+            ? `
+    unit={<>m<sup>2</sup></>}`
+            : ""
+    }
 />
 `;
 };

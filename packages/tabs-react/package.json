@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tabs-react",
-    "version": "4.0.0",
+    "version": "4.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -32,13 +32,13 @@
         "build": "run-s build:*",
         "test": "jest --testMatch '**/tabs-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
-        "dev:server": "node ./dist/server.js",
-        "dev": "node ./esbuild.dev.mjs && run-p dev:*"
+        "dev:server": "nodemon ./dist/server.js",
+        "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^12.0.0",
-        "@fremtind/jkl-react-hooks": "^11.0.0",
-        "@fremtind/jkl-tabs": "^4.0.0",
+        "@fremtind/jkl-core": "^12.0.2",
+        "@fremtind/jkl-react-hooks": "^11.0.2",
+        "@fremtind/jkl-tabs": "^4.0.2",
         "classnames": "^2.3.2",
         "nanoid": "^3.3.4"
     },

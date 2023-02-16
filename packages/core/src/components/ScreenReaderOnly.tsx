@@ -6,7 +6,7 @@ export interface ScreenReaderOnlyProps extends WithChildren {
 }
 
 export const ScreenReaderOnly: FC<ScreenReaderOnlyProps> = ({ children, showOnFocus, ...rest }) => (
-    <span {...rest} className={`jkl-sr-only ${showOnFocus ? "jkl-sr-only--focusable" : ""}`}>
+    <span {...rest} className={`jkl-sr-only${showOnFocus ? " jkl-sr-only--focusable" : ""}`}>
         {children}
     </span>
 );

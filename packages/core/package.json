@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-core",
-    "version": "12.0.0",
+    "version": "12.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -34,8 +34,8 @@
         "build:scripts": "node ./esbuild.prod.mjs",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
-        "dev:server": "node ./dist/server.js",
-        "dev": "node ./esbuild.dev.mjs && run-p dev:*"
+        "dev:server": "nodemon ./dist/server.js",
+        "dev": "run-p dev:*"
     },
     "repository": {
         "type": "git",

@@ -183,16 +183,24 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             const nextValue = item.value;
             setSearchValue("");
             setSelectedValue(nextValue);
-            if (onChange) {
-                onChange({ type: "change", target: { name, value: nextValue } });
-            }
-            if (selectRef.current) {
-                selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
-            }
             toggleListVisibility();
         },
-        [onChange, setSearchValue, setSelectedValue, toggleListVisibility, name],
+        [setSearchValue, setSelectedValue, toggleListVisibility],
     );
+
+    // La komponenten rendre <select> med den valgte verdien før onChange trigges, slik at
+    // react-hook-form@>7.41.1 behandler feltet som at det har en verdi.
+    useEffect(() => {
+        if (value === selectedValue) {
+            return;
+        }
+        if (onChange) {
+            onChange({ type: "change", target: { name, value: selectedValue } });
+        }
+        if (selectRef.current) {
+            selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+    }, [onChange, name, value, selectedValue]);
 
     /// Fokushåndtering
 

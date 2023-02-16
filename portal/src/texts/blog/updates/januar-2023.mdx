@@ -1,0 +1,98 @@
+---
+title: Høydepunkter fra januar 2023
+author: Jøkul-teamet
+publishDate: "2023.02.10"
+---
+
+import { IconsExample, iconsExampleKnobs } from "../../../../../packages/icons-react/documentation/IconsExample";
+import { TextInputExample } from "../../../../../packages/text-input-react/documentation/TextInputExample";
+
+Vi avsluttet januar med Jøkuluka, så oppsummeringen ble litt forsinket denne gangen.
+
+Her er måneden kort oppsummert:
+
+-   Nye ikoner
+-   Enklere å bruke Tooltip i skjemafelter
+-   Tabellkomponenter for sortering og paginering
+
+I tillegg var det en masse som ble gjort under Jøkuluka som ikke er _helt_ klar ennå. Her er det bare å glede seg 😄
+
+## Nye ikoner
+
+Vi har fått flunka nye ikoner!
+
+<ComponentExample title="Ikoner" component={IconsExample} knobs={iconsExampleKnobs} />
+
+Du kan lese mer om ikonene under [Profil](/profil/ikoner), og under [Komponenter](/komponenter/icons).
+
+Vi jobber med å bruke disse ikonene i de ulike komponentene også.
+
+Relaterte issues og pull requests:
+
+-   [#3066](https://github.com/fremtind/jokul/issues/3066)
+-   [#3345](https://github.com/fremtind/jokul/issues/3345)
+
+## Forenkle bruken av Tooltip med skjemakomponenter
+
+Et vanlig scenarie for bruken av [tooltip](/komponenter/tooltip) er å beskrive mer om et skjemafelt, men hvor vanlig hjelpetekst ikke strekker til. Det var lettere sagt enn gjort å få til med Jøkul-komponenter, men har blitt lettere i den nyeste versjonen.
+
+Nå er det enklere å få til i kode, og Figma-forbedringene ligger klare i en branch.
+
+<ComponentExample
+    title="TextExample med støtte for tooltip"
+    component={TextInputExample}
+    knobs={{
+        boolProps: [{ prop: "Med tooltip", defaultValue: true }],
+        choiceProps: [
+            {
+                name: "Variant",
+                values: ["small", "medium", "large"],
+                defaultValue: 1,
+            },
+        ],
+    }}
+/>
+
+I kode har hvert skjemafelt fått en ny prop: `tooltipProps`. Den speiler alle mulige props fra `Tooltip`-komponenten.
+
+Relaterte issues og pull requests:
+
+-   [#3367](https://github.com/fremtind/jokul/issues/3367)
+-   [#3251](https://github.com/fremtind/jokul/pull/3251)
+
+## Nye muligheter med tabeller
+
+Det har kommet inn mulighet for å indikere sortering med tabelloverskrifter (pil opp og ned). Dette styrer du med en property på `TableHeader`.
+
+Det har også kommet en første versjon av _paginering_.
+
+Eksempler på begge tabelltyper finner du på [komponentsiden om tabeller](/komponenter/table) ved å scrolle deg til bunnen.
+
+Relaterte issues og pull requests:
+
+-   [#3060](https://github.com/fremtind/jokul/issues/3060)
+-   [#3369](https://github.com/fremtind/jokul/pull/3369)
+-   [#3371](https://github.com/fremtind/jokul/pull/3371)
+
+## Diverse bugfikser og forbedringer
+
+### Figma
+
+-   Navneendring og rekkefølge på fonter i Figmabiblioteket ([#3337](https://github.com/fremtind/jokul/issues/3337))
+-   Tooltip i Group Title ([#3367](https://github.com/fremtind/jokul/issues/3367))
+
+I tillegg ligger en rekke ting på vent i branches. Vi prøver å finne måter å rulle ut endringene på en god måte.
+
+### GitHub
+
+-   Rett en feil i bruken av `aria-label` i `Loader` ([#3347](https://github.com/fremtind/jokul/pull/3347))
+-   Rett et par edge cases i `Select` ([#3351](https://github.com/fremtind/jokul/pull/3351), [#3372](https://github.com/fremtind/jokul/pull/3372))
+-   Gjør det lettere å finne fram til enkelte sider i portalen ([#3354](https://github.com/fremtind/jokul/pull/3354), [#3361](https://github.com/fremtind/jokul/pull/3361))
+-   Fiks en bug der ekspandering av `TextArea` ikke lenger ble animert ([#3362](https://github.com/fremtind/jokul/pull/3362))
+-   Fiks en bug der bredden på `TextInput` ikke ble satt ([#3365](https://github.com/fremtind/jokul/pull/3365))
+-   Tillat MutableRefObject som target i `useIntersectionObserver` ([#3357](https://github.com/fremtind/jokul/pull/3357))
+-   Støtt innliming av andre datoformater ([#3381](https://github.com/fremtind/jokul/pull/3381))
+
+## Takk
+
+Takk til alle som var med, både på Jøkuluka, Designsystemforum, GitHub og Figma!
