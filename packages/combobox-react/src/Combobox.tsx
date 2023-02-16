@@ -1,3 +1,4 @@
+import { ValuePair, getValuePair } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { ArrowVerticalAnimated, CheckIcon, CloseIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
@@ -17,6 +18,7 @@ import React, {
     FocusEvent,
     MouseEvent,
 } from "react";
+
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
     type: "change" | "blur";
     target: {
@@ -31,13 +33,10 @@ interface ComboboxProps extends InputGroupProps {
     id?: string;
     placeholder?: string;
     labelProps?: Omit<LabelProps, "children" | "density" | "htmlFor" | "standAlone">;
-    items: Array<{
-        value: string;
-        label: string;
-    }>;
+    items: Array<string | ValuePair>;
     label: string;
     name: string;
-    value?: string;
+    value?: Array<string> | string;
     width?: string;
     helpLabel?: string;
     errorLabel?: string;
@@ -70,7 +69,7 @@ export const Combobox: FC<ComboboxProps> = ({
     const buttonId = `${listId}_button`;
     const inputId = `${listId}_search-input`;
 
-    const [selectedValue, setSelectedValue] = useState<any>(value || "");
+    const [selectedValue, setSelectedValue] = useState(typeof value === "string" ? [value] : value || []);
     const [isPoitingDown, setIsPointingDown] = useState<boolean>(true);
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
@@ -108,7 +107,7 @@ export const Combobox: FC<ComboboxProps> = ({
     const getDisplay = () => {
         return (
             <div className="jkl-combobox__tags">
-                {selectedValue.map((option: { value: string; label: string }) => (
+                {selectedValue.map((option) => (
                     <Tag
                         aria-hidden
                         key={option.value}
@@ -139,19 +138,19 @@ export const Combobox: FC<ComboboxProps> = ({
         if (!selectedValue) {
             return false;
         } else {
-            return selectedValue.filter((o: { value: string }) => o.value === option.value).length > 0;
+            return selectedValue.some((value) => value === option.value);
         }
     };
 
     // Fjerne ett eller flere valg
-    const removeOption = (option: { value: string }) => {
-        return selectedValue.filter((o: { value: string }) => o.value !== option.value);
+    const removeOption = (option: ValuePair) => {
+        return selectedValue.filter((value) => value !== option.value);
     };
 
     const onTagRemove = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>, option: any) => {
         const newValue = removeOption(option);
         setSelectedValue(newValue);
-        onChange(newValue);
+        onChange({ type: "change", target: { name, value: option.value } });
         e.stopPropagation();
     };
 
@@ -160,17 +159,17 @@ export const Combobox: FC<ComboboxProps> = ({
     };
 
     // Håndtere valgt verdi i listen
-    const onItemClick = (option: { value: string }) => {
-        let newValue;
+    const onItemClick = (option: ValuePair) => {
+        let newValue: Array<string>;
 
-        if (selectedValue.findIndex((o: { value: string }) => o.value === option.value) >= 0) {
+        if (selectedValue.some((value) => value === option.value)) {
             newValue = removeOption(option);
         } else {
-            newValue = [...selectedValue, option];
+            newValue = [...selectedValue, option.value];
         }
         searchRef.current?.focus();
         setSelectedValue(newValue);
-        onChange(newValue);
+        onChange({ type: "change", target: { name, value: option.value } });
     };
 
     // Funksjon for søk
@@ -187,7 +186,7 @@ export const Combobox: FC<ComboboxProps> = ({
         }
 
         return items.filter(
-            (option: { label: string }) => option.label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0,
+            (option) => getValuePair(option).label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0,
         );
     };
 

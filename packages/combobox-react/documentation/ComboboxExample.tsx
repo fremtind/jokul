@@ -48,9 +48,9 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             label="Velg leverandører"
             items={items}
             value={selectedValue}
-            onChange={(value: any) => {
-                setSelectedValue(value);
-                console.log("Change: ", value);
+            onChange={(event) => {
+                setSelectedValue(event);
+                console.log("Change: ", event);
             }}
         />
     );
