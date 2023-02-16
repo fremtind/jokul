@@ -153,15 +153,6 @@ export const Combobox: FC<ComboboxProps> = ({
         onChange(newValue);
     };
 
-    // Funksjon for å stile valgt element
-    const isSelected = (option: { value: string }) => {
-        if (!selectedValue) {
-            return false;
-        } else {
-            return selectedValue.filter((o: { value: string }) => o.value === option.value).length > 0;
-        }
-    };
-
     // Funksjon for søk
     const onSearch = (e: { target: { value: React.SetStateAction<string> } }) => {
         searchRef.current.focus();
@@ -316,9 +307,6 @@ export const Combobox: FC<ComboboxProps> = ({
                                 <ComboboxOptionItem
                                     key={option.value}
                                     option={option}
-                                    value={option.value}
-                                    label={option.label}
-                                    isSelected={isSelected}
                                     selectedValue={selectedValue}
                                     setSearchValue={setSearchValue}
                                     onItemClick={onItemClick}

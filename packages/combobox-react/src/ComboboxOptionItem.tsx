@@ -2,21 +2,15 @@ import { CloseIcon, CheckIcon } from "@fremtind/jkl-icons-react";
 import React, { Dispatch, FC, SetStateAction, useState } from "react";
 
 interface ComboboxOptionItemProps {
-    value: string;
-    label: string;
     option: { value: string; label: string };
-    selectedValue: string;
-    isSelected: (option: { value: string }) => boolean;
+    selectedValue: any;
     setSearchValue: Dispatch<SetStateAction<string>>;
     onItemClick: Function;
 }
 
 export const ComboboxOptionItem: FC<ComboboxOptionItemProps> = ({
     option,
-    value,
-    label,
     selectedValue,
-    isSelected,
     setSearchValue,
     onItemClick,
 }) => {
@@ -25,22 +19,35 @@ export const ComboboxOptionItem: FC<ComboboxOptionItemProps> = ({
     const toggleHover = () => {
         setIsHovered((prevState) => !prevState);
     };
+
+    // Funksjon for å stile valgt element
+    const isSelected = (option: { value: string }) => {
+        if (!selectedValue) {
+            return false;
+        } else {
+            return selectedValue.filter((o: { value: string }) => o.value === option.value).length > 0;
+        }
+    };
+
     return (
         <div
             aria-hidden
-            key={value}
+            key={option.value}
             onClick={(e) => {
-                // Hindre at liste lukker seg ved select/deselect av items i listen
                 e.stopPropagation();
                 onItemClick(option);
                 setSearchValue("");
             }}
-            onMouseEnter={toggleHover}
-            onMouseLeave={toggleHover}
             className={`jkl-combobox__option ${isSelected(option) && "selected"}`}
         >
-            <button key={value} type="button" role="option" aria-selected={option.value === selectedValue}>
-                {label}
+            <button
+                type="button"
+                role="option"
+                aria-selected={option.value === selectedValue}
+                onMouseEnter={toggleHover}
+                onMouseLeave={toggleHover}
+            >
+                {option.label}
             </button>
             {isSelected(option) ? <>{isHovered ? <CloseIcon /> : <CheckIcon />}</> : null}
         </div>
