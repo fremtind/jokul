@@ -37,6 +37,7 @@ import "@fremtind/jkl-icons/icons.min.css";
 import "@fremtind/jkl-image/image.min.css";
 import "@fremtind/jkl-content-toggle/content-toggle.min.css";
 import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
+import "@fremtind/jkl-contextual-menu/contextual-menu.min.css";
 import "@fremtind/jkl-expand-button/expand-button.min.css";
 import "@fremtind/jkl-footer/footer.min.css";
 import "./src/components/Typography/typography.scss";
