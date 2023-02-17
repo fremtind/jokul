@@ -39,12 +39,12 @@
     "dependencies": {
         "@fremtind/jkl-core": "^12.0.2",
         "@fremtind/jkl-expand-button-react": "^5.0.2",
-        "@fremtind/jkl-icon-button-react": "^2.0.19",
+        "@fremtind/jkl-icon-button-react": "^3.0.2",
         "@fremtind/jkl-icons-react": "^7.0.2",
         "@fremtind/jkl-react-hooks": "^11.0.2",
-        "@fremtind/jkl-select-react": "^12.0.1",
+        "@fremtind/jkl-select-react": "^13.0.4",
         "@fremtind/jkl-table": "^8.1.2",
-        "@fremtind/jkl-text-input-react": "^12.0.1",
+        "@fremtind/jkl-text-input-react": "^13.0.2",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
