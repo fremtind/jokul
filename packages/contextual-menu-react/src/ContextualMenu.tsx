@@ -53,7 +53,7 @@ export const ContextualMenu = ({
     ]);
 
     return (
-        <span className="jkl-contextual-menu" role="menu">
+        <div className="jkl-contextual-menu" role="menu">
             {triggerElement && (
                 <button
                     type="button"
@@ -74,7 +74,7 @@ export const ContextualMenu = ({
 
             <AnimatePresence>
                 {open && (
-                    <motion.span
+                    <motion.div
                         className="jkl-contextual-menu__menu"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -92,9 +92,9 @@ export const ContextualMenu = ({
                             },
                         })}
                     >
-                        <span>
+                        <div>
                             {childrenArray.map((child, i) => (
-                                <span
+                                <div
                                     key={`${i}-${child}`}
                                     className="jkl-contextual-menu__menu-item"
                                     onMouseOver={openOnHover ? () => setOpen(true) : undefined}
@@ -102,12 +102,12 @@ export const ContextualMenu = ({
                                     onFocus={openOnHover ? () => setOpen(false) : undefined}
                                 >
                                     {child}
-                                </span>
+                                </div>
                             ))}
-                        </span>
-                    </motion.span>
+                        </div>
+                    </motion.div>
                 )}
             </AnimatePresence>
-        </span>
+        </div>
     );
 };
