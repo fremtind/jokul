@@ -47,6 +47,8 @@
     }
 
     &__menu {
+        width: 100%;
+        max-width: jkl.rem(300px);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -62,6 +64,7 @@
 
     &__menu-item {
         width: 100%;
+        overflow: hidden;
         max-width: jkl.rem(300px);
         box-sizing: border-box;
         user-select: none;
