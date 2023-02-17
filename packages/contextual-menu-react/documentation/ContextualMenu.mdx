@@ -2,57 +2,32 @@
 title: Contextual Menu
 react: contextual-menu-react
 scss: contextual-menu
-group: edit me!
+group: meny
 ---
 
 import ContextualMenuExample, { contextualMenuExampleCode, contextualMenuExampleKnobs } from "./ContextualMenuExample";
 
-<Ingress>
-    Med kontekstuell meny presenteres en liste med kontekst relatert utvalg (alternativer) på en midlertidig overflate.
-</Ingress>
+Inneholder et mindre sett med handlinger, relatert til innhold eller kontekst av et område i brukergrensesnittet (trigger).
+Menyen vises når bruker interagerer med en trigger (eks. klikker på et ikon).
 
-<ComponentExample
-    component={ContextualMenuExample}
-    codeExample={contextualMenuExampleCode}
-    knobs={contextualMenuExampleKnobs}
-/>
+Kontekstuelle menyer er mindre fremtredende og tar mindre plass enn eksempelvis Select komponenter.
 
-Inneholder et lite sett med relevante handlinger, relatert til en kontroll, et stykk innhold, en visning i en app eller et område av brukergrensesnittet (trigger).
-Menyen vises når brukere samhandler med en trigger (ikon, knapp, tekst, kombo av tekst og ikon f.eks., handling)
-Kontekstuell meny er mindre prominente og tar mindre plass enn Select komponent (digresjon).
-Det er mulig å bygge utvidbar liste men det anbefales å bruke maksimal to nivåer. Bruk gjerne færre enn 10 items i en liste.
-Liste items skal kunne grupperes med skillelinje.
+Det er mulig å gjøre hvert element i menyen ekspanderbare, men da anbefales det å bruke maksimalt to (2) nivåer. Bruk helst færre enn ti (10) meny-elementer i hver kontekstuelle meny.
 
 ## Mulig innhold i en meny
 
-Tekst, ikon+tekst, knapp > forskjellige interaktive elementer
-Keyboard shortcuts
+-   Tekst
+-   Ikon+tekst
+-   Knapp > forskjellige interaktive elementer.
 
 ## Triggers
 
-Desktop
-Klikke på visuell element; Icons: Ellipsis button (h/v), Chevrons, Stykk av tekst, tekst+Chevron
-Ctrl+klikk, høyre mus klikk
-Klikk med to fingre på trackpad
+#### Desktop
 
-Mobil
-Tapping på visuell element; Icons: Ellipsis button (h/v), Chevrons, Stykk av tekst, tekst+Chevron
-Trigger Dots-icon> Elipsis button  
-Hvis ikonen skal være en del av horisontall serie av elementer, så brukes en horisontal variant.
-Hvis ikonen står alene så er det fritt å velge orjentasjonen h/v
-Plassering av menu liste
-Listen blir plassert under elementet som genererer den (trigger)
-Plasseringen skjer relativt til skjerm slik at listen blir alltid synlig uansett nærheten av skjermkanten.
+Klikke på visuelt element av typen ikon, knapp eller tekst.
+
+-   Icons: Ellipsis button (h/v), Chevron, tekst+Chevron
 
 ## Når bruker vi ContextualMenu?
 
 Vi bruker den for å levere relevante verktøy for å fullføre oppgaver uten å legge til rot i grensesnittet. Den er en subtile digresjon i historie (i flyt).
-
-<PortalImage
-    src="/assets/documentation/contextual-menu/contextual-menu-dots-example.png"
-    caption="Chevron ikon med contextual menu i en løsning"
-/>
-<PortalImage
-    src="/assets/documentation/contextual-menu/contextual-menu-dots-example.png"
-    caption="ThreeDots ikon med contextual menu i en løsning"
-/>
