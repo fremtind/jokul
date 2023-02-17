@@ -1,5 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "contextual-menu-item";
+@use "contextual-menu-item-divider";
 @use "contextual-menu-trigger-icon";
 
 @include jkl.light-mode-variables {
@@ -69,14 +70,11 @@
     }
 
     &__menu-item {
-        display: flex;
-        align-items: center;
         width: jkl.rem(300px);
         box-sizing: border-box;
         user-select: none;
         font-size: var(--jkl-contextual-menu-item-font-size);
         font-weight: var(--jkl-contextual-menu-item-font-weight);
-        height: var(--jkl-contextual-menu-menu-item-height);
 
         &:hover:not(:disabled) {
             background-color: var(--jkl-contextual-menu-item-hover-background-color);

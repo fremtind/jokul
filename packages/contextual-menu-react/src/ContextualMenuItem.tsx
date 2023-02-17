@@ -8,19 +8,9 @@ interface ContextualMenuItemProps {
     icon?: ReactNode;
 }
 
-export const ContextualMenuItem = ({
-    description,
-    icon,
-    expandable = false,
-    divider = false,
-}: ContextualMenuItemProps) => {
+export const ContextualMenuItem = ({ description, icon, expandable = false }: ContextualMenuItemProps) => {
     return (
-        <div
-            className={cn({
-                "contextual-menu-item": true,
-                "contextual-menu-item--divide-top": divider,
-            })}
-        >
+        <div className="contextual-menu-item">
             <div className="contextual-menu-item__content-wrapper">
                 {icon && <span className="contextual-menu-item__icon">{icon}</span>}
 

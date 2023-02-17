@@ -8,14 +8,6 @@
     --jkl-contextual-menu-item-height: jkl.rem(32px);
 }
 
-@include jkl.light-mode-variables {
-    --jkl-contextual-menu-item-divider-color: #{jkl.$color-dis};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-contextual-menu-item-divider-color: #{jkl.$color-stein};
-}
-
 .contextual-menu-item {
     display: flex;
     align-items: center;
@@ -23,10 +15,6 @@
     width: jkl.rem(280px);
     height: var(--jkl-contextual-menu-item-height);
     padding: jkl.rem(8px) jkl.rem(8px) jkl.rem(8px) jkl.rem(12px);
-
-    &--divide-top {
-        border-top: jkl.rem(1px) solid var(--jkl-contextual-menu-item-divider-color);
-    }
 
     &__content-wrapper {
         display: flex;
