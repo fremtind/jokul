@@ -62,7 +62,7 @@ export const ContextualMenu = ({
                     className={cn("jkl-contextual-menu__trigger-btn", className)}
                     onMouseOver={openOnHover ? () => setOpen(true) : undefined}
                     onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
-                    onFocus={openOnHover ? () => setOpen(false) : undefined}
+                    onFocus={openOnHover ? () => setOpen(true) : undefined}
                     {...getReferenceProps({
                         ref: reference,
                     })}
@@ -82,6 +82,7 @@ export const ContextualMenu = ({
                         transition={{ ease: "easeIn", duration: 0.1 }}
                         data-placement={placement}
                         aria-live="assertive"
+                        aria-hidden={!open}
                         {...getFloatingProps({
                             id: contextualMenuId,
                             ref: floating,
@@ -92,19 +93,21 @@ export const ContextualMenu = ({
                             },
                         })}
                     >
-                        <div>
-                            {childrenArray.map((child, i) => (
-                                <div
-                                    key={`${i}-${child}`}
-                                    className="jkl-contextual-menu__menu-item"
-                                    onMouseOver={openOnHover ? () => setOpen(true) : undefined}
-                                    onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
-                                    onFocus={openOnHover ? () => setOpen(false) : undefined}
-                                >
-                                    {child}
-                                </div>
-                            ))}
-                        </div>
+                        {childrenArray.map((child, i) => (
+                            <div
+                                tabIndex={0}
+                                role="menuitem"
+                                aria-hidden={!open}
+                                key={`${i}-${child}`}
+                                className="jkl-contextual-menu__menu-item"
+                                onMouseOver={openOnHover ? () => setOpen(true) : undefined}
+                                onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
+                                onFocus={() => setOpen(true)}
+                                onBlur={() => setOpen(false)}
+                            >
+                                {child}
+                            </div>
+                        ))}
                     </motion.div>
                 )}
             </AnimatePresence>
