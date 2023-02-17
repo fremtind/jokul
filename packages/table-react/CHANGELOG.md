@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.1.4 (2023-02-17)
+
+### Bug Fixes
+
+- oppdater dependencies i table ([cf24e88](https://github.com/fremtind/jokul/commit/cf24e88dc912c48e777a7e489379fa5b9fc4a998))
+
 # 10.1.0 (2023-02-02)
 
 ### Bug Fixes
