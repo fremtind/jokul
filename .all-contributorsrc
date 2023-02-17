@@ -529,6 +529,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "maciejost",
+      "name": "maciejost",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30048523?v=4",
+      "profile": "https://github.com/maciejost",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
