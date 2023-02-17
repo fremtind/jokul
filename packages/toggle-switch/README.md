@@ -12,9 +12,11 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/toggl
 ```js
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-toggle-switch/toggle-switch.min.css";
+import "@fremtind/jkl-input-group/input-group.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-toggle-switch/toggle-switch";
+@use "@fremtind/jkl-input-group/input-group";
 ```
