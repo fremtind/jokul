@@ -188,8 +188,8 @@
 
     &__month-button {
         @include jkl.reset-outline;
-        position: absolute;
         display: inline-flex;
+        position: relative;
         cursor: pointer;
         padding: 0;
         margin: 0;
@@ -233,32 +233,6 @@
         &:disabled {
             color: var(--jkl-calendar-disabled-day-color);
         }
-    }
-
-    // Navigation in extended mode
-    // ===========================
-
-    &__navigation {
-        margin-bottom: jkl.$spacing-l;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-    }
-
-    &__year-selector {
-        max-width: 30%;
-        margin-right: jkl.$spacing-xl;
-        @include jkl.remove-inner-outer-button;
-    }
-
-    &__month-selector {
-        position: relative;
-        flex-grow: 2;
-        min-width: unset !important;
-    }
-
-    &__month-value {
-        text-transform: capitalize;
     }
 
     // Calendar table caption (month and year)

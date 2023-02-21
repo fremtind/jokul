@@ -1,7 +1,5 @@
 import { Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { NativeSelect } from "@fremtind/jkl-select-react";
-import { TextInput } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
 import isAfter from "date-fns/isAfter";
 import isBefore from "date-fns/isBefore";
@@ -312,47 +310,42 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                 {calendars.map((calendar) => (
                     <>
                         <fieldset className="jkl-calendar__month-navigation">
-                            <span style={{ display: "flex" }}>
-                                <button
-                                    {...getBackProps({ calendars })}
-                                    className="jkl-calendar__month-button"
-                                    type="button"
-                                >
-                                    ←
-                                </button>
-                                <button
-                                    {...getForwardProps({ calendars })}
-                                    className="jkl-calendar__month-button jkl-calendar__month-button--right"
-                                    type="button"
-                                >
-                                    →
-                                </button>
-                            </span>
-                            <span style={{ display: "flex" }}>
-                                <NativeSelect
-                                    className="jkl-calendar__month-selector"
-                                    label={monthLabel}
-                                    selectClassName="jkl-calendar__month-selector-select"
-                                    aria-label={monthLabel}
-                                    density={density}
-                                    items={monthSelectOptions}
-                                    labelProps={{ srOnly: true }}
-                                    value={calendar.month}
-                                    onChange={handleMonthChange}
-                                    width="auto"
-                                />
-                                <NativeSelect
-                                    className="jkl-calendar__month-selector"
-                                    selectClassName="jkl-calendar__month-selector-select"
-                                    label={yearLabel}
-                                    density={density}
-                                    items={yearSelectOptions}
-                                    labelProps={{ srOnly: true }}
-                                    value={calendar.year}
-                                    onChange={handleYearChange}
-                                    width="auto"
-                                />
-                            </span>
+                            <button
+                                {...getBackProps({ calendars })}
+                                className="jkl-calendar__month-button"
+                                type="button"
+                            >
+                                ←
+                            </button>
+                            <button
+                                {...getForwardProps({ calendars })}
+                                className="jkl-calendar__month-button jkl-calendar__month-button--right"
+                                type="button"
+                            >
+                                →
+                            </button>
+                            <select
+                                onChange={handleMonthChange}
+                                className="jkl-calendar__month-selector"
+                                aria-label={monthLabel}
+                            >
+                                {monthSelectOptions.map(({ label, value }) => (
+                                    <option key={value} value={value}>
+                                        {label}
+                                    </option>
+                                ))}
+                            </select>
+                            <select
+                                onChange={handleYearChange}
+                                className="jkl-calendar__year-selector"
+                                aria-label={yearLabel}
+                            >
+                                {yearSelectOptions.map((year) => (
+                                    <option key={year} value={year}>
+                                        {year}
+                                    </option>
+                                ))}
+                            </select>
                         </fieldset>
                         <table key={`${calendar.month}${calendar.year}`} data-testid="jkl-datepicker-calendar">
                             <caption className="jkl-sr-only">
