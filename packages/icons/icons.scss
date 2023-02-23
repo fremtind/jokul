@@ -26,10 +26,6 @@
         --jkl-icon-size: #{jkl.rem(24px)};
     }
 
-    &--bold {
-        font-weight: jkl.$typography-weight-bold;
-    }
-
     @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
 }
 
