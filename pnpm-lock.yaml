@@ -334,6 +334,24 @@ importers:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-table-react': link:../table-react
 
+  packages/contact-information:
+    specifiers:
+      '@fremtind/jkl-core': ^12.0.0
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/contact-information-react:
+    specifiers:
+      '@fremtind/jkl-contact-information': ^1.0.0-alpha.0
+      '@fremtind/jkl-core': ^12.0.0
+      '@fremtind/jkl-formatters-util': ^4.0.0
+      classnames: ^2.3.2
+    dependencies:
+      '@fremtind/jkl-contact-information': link:../contact-information
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-formatters-util': link:../formatters-util
+      classnames: 2.3.2
+
   packages/content-toggle:
     specifiers:
       '@fremtind/jkl-core': ^12.0.2
@@ -922,6 +940,7 @@ importers:
       '@fremtind/jkl-card-react': ^8.0.6
       '@fremtind/jkl-checkbox-react': ^10.0.2
       '@fremtind/jkl-constants-util': ^2.0.5
+      '@fremtind/jkl-contact-information-react': ^1.0.0-alpha.0
       '@fremtind/jkl-content-toggle-react': ^5.0.2
       '@fremtind/jkl-cookie-consent-react': ^8.0.2
       '@fremtind/jkl-core': ^12.0.2
@@ -991,6 +1010,7 @@ importers:
       '@fremtind/jkl-card-react': link:../packages/card-react
       '@fremtind/jkl-checkbox-react': link:../packages/checkbox-react
       '@fremtind/jkl-constants-util': link:../packages/constants-util
+      '@fremtind/jkl-contact-information-react': link:../packages/contact-information-react
       '@fremtind/jkl-content-toggle-react': link:../packages/content-toggle-react
       '@fremtind/jkl-cookie-consent-react': link:../packages/cookie-consent-react
       '@fremtind/jkl-core': link:../packages/core
