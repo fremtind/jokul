@@ -7,28 +7,24 @@ describe("Footer", () => {
     it("should render", () => {
         render(
             <Footer
-                address={{
-                    addressLine1: "Postboks 778 Sentrum",
-                    postalCode: "0106",
-                    postalArea: "Oslo",
-                    organizationNumber: "915651232",
-                }}
+                showFinansportalenLink={true}
                 links={[
                     {
-                        title: "Jøkul på GitHub",
-                        href: "https://github.com/fremtind/jokul",
-                        external: true,
+                        title: "Personvern og vilkår",
+                        href: "https://www.fremtind.no/personvern/",
+                        external: false,
                     },
                     {
-                        title: "Personvernserklæring",
-                        href: "https://www.fremtind.no/personvern/",
-                        external: true,
+                        title: "Bruk av informasjonskapsler",
+                        component: "button",
+                        onClick: () => alert("Åpne cookieConsent"),
+                        external: false,
                     },
                 ]}
             />,
         );
 
-        screen.getByText("Jøkul på GitHub");
+        screen.getByText("Personvern og vilkår");
     });
 
     test("should be a11y compliant", async () => {
@@ -37,16 +33,7 @@ describe("Footer", () => {
         expect(results).toHaveNoViolations();
         cleanup();
 
-        screen = render(
-            <Footer
-                address={{
-                    addressLine1: "Postboks 778 Sentrum",
-                    postalCode: "0106",
-                    postalArea: "Oslo",
-                    organizationNumber: "915651232",
-                }}
-            />,
-        );
+        screen = render(<Footer showFinansportalenLink={true} />);
         results = await axe(screen.container);
         expect(results).toHaveNoViolations();
         cleanup();
@@ -55,14 +42,15 @@ describe("Footer", () => {
             <Footer
                 links={[
                     {
-                        title: "Jøkul på GitHub",
-                        href: "https://github.com/fremtind/jokul",
-                        external: true,
+                        title: "Personvern og vilkår",
+                        href: "https://www.fremtind.no/personvern/",
+                        external: false,
                     },
                     {
-                        title: "Personvernserklæring",
-                        href: "https://www.fremtind.no/personvern/",
-                        external: true,
+                        title: "Bruk av informasjonskapsler",
+                        component: "button",
+                        onClick: () => alert("Åpne cookieConsent"),
+                        external: false,
                     },
                 ]}
             />,
