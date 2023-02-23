@@ -190,7 +190,6 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                                     className="jkl-table-pagination__previous"
                                     title="Forrige"
                                     onClick={onPrevious}
-                                    buttonTitle="Forrige side"
                                 >
                                     <ChevronLeftIcon />
                                 </IconButton>
@@ -202,12 +201,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                                 onPageClick={onPageClick}
                             />
                             <li>
-                                <IconButton
-                                    className="jkl-table-pagination__next"
-                                    buttonTitle="Neste side"
-                                    title="Neste"
-                                    onClick={onNext}
-                                >
+                                <IconButton className="jkl-table-pagination__next" title="Neste" onClick={onNext}>
                                     <ChevronRightIcon />
                                 </IconButton>
                             </li>

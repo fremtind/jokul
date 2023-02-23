@@ -482,7 +482,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/25311543?v=4",
       "profile": "https://github.com/Chrihenn",
       "contributions": [
-        "bug"
+        "bug",
+        "code"
       ]
     },
     {
@@ -526,6 +527,15 @@
       "name": "Elise Brenna",
       "avatar_url": "https://avatars.githubusercontent.com/u/117173936?v=4",
       "profile": "https://github.com/fremtindelise",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "maciejost",
+      "name": "maciejost",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30048523?v=4",
+      "profile": "https://github.com/maciejost",
       "contributions": [
         "code"
       ]

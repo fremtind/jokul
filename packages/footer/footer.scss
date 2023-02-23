@@ -1,73 +1,59 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-footer-background-color: #{jkl.$color-svart};
-    --jkl-footer-text-color: #{jkl.$color-snohvit};
+    --jkl-footer-background-color: #{jkl.$color-hvit};
 }
 @include jkl.dark-mode-variables {
-    --jkl-footer-background-color: #{jkl.$color-hvit};
-    --jkl-footer-text-color: #{jkl.$color-granitt};
-}
-
-@mixin _footer-height($padding) {
-    min-height: calc(jkl.rem(174px) - $padding);
+    --jkl-footer-background-color: #{jkl.$color-svart};
 }
 
 .jkl-footer {
-    --jkl-logo-color: var(--jkl-footer-text-color);
-    --jkl-link-color: var(--jkl-footer-text-color);
-
     background-color: var(--jkl-footer-background-color);
-    color: var(--jkl-footer-text-color);
 
     display: flex;
-    gap: jkl.$spacing-l;
+    gap: jkl.$spacing-40;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding: jkl.$spacing-l;
+    padding: jkl.$spacing-40;
 
-    @include _footer-height(jkl.$spacing-l);
-
-    @include jkl.from-medium-device {
-        gap: jkl.$spacing-xl;
-        padding: jkl.$spacing-xl;
-        @include _footer-height(jkl.$spacing-xl);
-    }
+    @include jkl.text-style("body");
 
     @include jkl.from-large-device {
-        flex-direction: row;
+        gap: jkl.$spacing-16;
     }
 
-    &__logo {
-        $_logo-width: jkl.rem(200px);
-        min-width: $_logo-width;
-        width: $_logo-width;
-        color: inherit;
-    }
-
-    &__address {
-        font-style: normal; // address får vanligvis italic font
-        margin-top: jkl.$spacing-l;
+    &__description {
+        display: flex;
+        align-items: flex-end;
     }
 
     &__links {
-        color: inherit;
+        &--small-text {
+            @include jkl.text-style("body/small-screen");
+        }
+
+        & button {
+            border: none;
+            background-color: inherit;
+            padding: 0;
+            line-height: normal;
+        }
 
         & ul {
-            display: block;
+            display: flex;
+            flex-wrap: wrap;
+            gap: jkl.$spacing-16 jkl.$spacing-32;
+            justify-items: flex-end;
             list-style: none;
             margin: 0;
             padding: 0;
         }
 
         & ul li {
-            display: block;
-            margin-bottom: jkl.$spacing-m;
-
             .jkl-footer > & {
                 @include jkl.from-medium-device {
                     display: inline-block;
-                    margin-right: jkl.$spacing-l;
                 }
             }
         }
