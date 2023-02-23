@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tag@4.0.2...@fremtind/jkl-tag@4.0.3) (2023-02-23)
+
+### Bug Fixes
+
+- sync spacing med Figma ([d0cb08e](https://github.com/fremtind/jokul/commit/d0cb08e9bcbaa9146c29d63d11f911d69858493a))
+
 # 4.0.0 (2023-01-30)
 
 ### Bug Fixes
