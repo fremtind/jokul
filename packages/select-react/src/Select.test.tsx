@@ -15,6 +15,7 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
         ...render(jsx, renderOptions),
     };
 }
+
 describe("Select", () => {
     it("should render correct amount of options", () => {
         const { getAllByTestId } = setup(
@@ -60,7 +61,7 @@ describe("Select", () => {
     it("should use the specified value", () => {
         const onChange = jest.fn();
         const value = "drop";
-        const screen = setup(
+        const { getByTestId } = setup(
             <Select
                 name="snoop"
                 onChange={onChange}
@@ -70,18 +71,18 @@ describe("Select", () => {
             />,
         );
 
-        const button = screen.getByTestId("jkl-select__button");
-
         expect(onChange).toHaveBeenCalledTimes(0);
-        expect(button).toHaveTextContent(value);
+        expect(getByTestId("jkl-select__button")).toHaveTextContent(value);
+        expect(getByTestId("jkl-native-select")).toHaveValue(value);
     });
 
     it("should have default text value in button when no option selected", () => {
-        const screen = setup(<Select name="snoop" items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+        const { getByTestId } = setup(
+            <Select name="snoop" items={["drop", "it", "like", "its", "hot"]} label="Snoop" />,
+        );
 
-        const button = screen.getByTestId("jkl-select__button");
-
-        expect(button).toHaveTextContent("Velg");
+        expect(getByTestId("jkl-select__button")).toHaveTextContent("Velg");
+        expect(getByTestId("jkl-native-select")).toHaveValue("");
     });
 
     it("can be forced into compact mode", () => {
@@ -93,11 +94,12 @@ describe("Select", () => {
     it("displays the ValuePair label of selected item on first render", () => {
         const valuePairs = [{ value: "datagreier", label: "Fin lesbar tekst" }];
 
-        const screen = setup(
+        const { getByTestId } = setup(
             <Select name="datagreier" label="test" items={valuePairs} value={"datagreier"} onChange={() => {}} />,
         );
 
-        expect(screen.getByTestId("jkl-select__button").innerHTML).toBe("Fin lesbar tekst");
+        expect(getByTestId("jkl-select__button").innerHTML).toBe("Fin lesbar tekst");
+        expect(getByTestId("jkl-native-select")).toHaveValue("datagreier");
     });
 
     it("should call onFocus when clicking on select dropdown", async () => {
@@ -248,13 +250,14 @@ describe("Select", () => {
             );
         };
 
-        const screen = setup(<TestControlledSelect />);
+        const { getByText, getByTestId } = setup(<TestControlledSelect />);
 
         await act(async () => {
-            await userEvent.click(screen.getByText("Click"));
+            await userEvent.click(getByText("Click"));
         });
 
-        expect(screen.getByTestId("jkl-select__button")).toHaveTextContent("Item 2");
+        expect(getByTestId("jkl-select__button")).toHaveTextContent("Item 2");
+        expect(getByTestId("jkl-native-select")).toHaveValue("2");
     });
 
     it("supports labels only for screen readers", () => {
@@ -285,11 +288,13 @@ describe("Select", () => {
             );
         };
 
-        const screen = setup(<DoThing />);
-        expect(screen.getByTestId("jkl-select__button")).toHaveTextContent("A");
+        const { getByTestId } = setup(<DoThing />);
+        expect(getByTestId("jkl-select__button")).toHaveTextContent("A");
+        expect(getByTestId("jkl-native-select")).toHaveValue("A");
 
         await waitFor(() => {
-            expect(screen.getByTestId("jkl-select__button")).toHaveTextContent("B");
+            expect(getByTestId("jkl-select__button")).toHaveTextContent("B");
+            expect(getByTestId("jkl-native-select")).toHaveValue("B");
         });
     });
 });
@@ -340,19 +345,20 @@ describe("Searchable select", () => {
                 />
             );
         }
-        const screen = setup(<WrappedSelect />);
-        const openDropdownButtonElement = screen.getByText("Velg");
+        const { getByRole, getByText, getByTestId } = setup(<WrappedSelect />);
+        const openDropdownButtonElement = getByText("Velg");
 
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
         });
 
-        const selectOption1Element = screen.getByRole("option", { name: "Item 1" });
+        const selectOption1Element = getByRole("option", { name: "Item 1" });
 
         await act(async () => {
             await userEvent.click(selectOption1Element);
         });
         expect(openDropdownButtonElement.textContent).toBe("Item 1");
+        expect(getByTestId("jkl-native-select")).toHaveValue("1");
     });
 
     it("should change visibility of search input when opening select dropdown", async () => {
@@ -877,6 +883,7 @@ describe("a11y", () => {
 
         expect(results).toHaveNoViolations();
     });
+
     test("select should be a11y compliant", async () => {
         const { container } = setup(
             <Select name="items" label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,

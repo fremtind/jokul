@@ -401,6 +401,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             <select
                 name={name}
                 tabIndex={-1}
+                data-testid="jkl-native-select"
                 className="jkl-sr-only"
                 aria-hidden
                 ref={unifiedSelectRef}
