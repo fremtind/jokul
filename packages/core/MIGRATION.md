@@ -241,7 +241,7 @@ I denne oppdateringen er det følgende som blir videresendt: `breakpoints`, `sha
 Under ser du et eksempel:
 
 ```scss
-@use "~@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
+@use "@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
 
 .min-komponent {
     box-shadow: jkl.$drop-shadow--medium; //shadow
@@ -375,7 +375,7 @@ For å ta i bruk fontskalaen i en løsning kan man fortsatt bruke nytteklasser e
 Sass-mixinen har fått et nytt navn, og et litt annet API. Den importeres også fra den nye `jkl`-eksporten i `jkl-core` på samme måte som de nye fargeverdiene fra v5.0.0. Alle typografi-elementer som eksporteres fra denne filen har prefix `typography-`.
 
 ```scss
-@use "~@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
+@use "@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
 
 .min-komponent {
     // automatisk bytte for stor/liten skjerm:
@@ -402,7 +402,7 @@ Hvis du trenger å overstyre fontvekt eller linjehøyde på tekststilen kan du l
 Variabler for fontvekt eksporteres også fra den nye `jkl`-eksporten, også de med prefix `typography-`.
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 jkl.$typography-weight-normal; // normal fontvekt
 jkl.$typography-weight-bold; // fet fontvekt
@@ -421,7 +421,7 @@ Alle nytteklasser (unntatt `jkl-body` og `jkl-small`) må byttes ut med riktig n
 Sørg for at du importerer `jkl` i alle stilark der du bruker typografi fra Jøkul:
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 ```
 
 | Der du før brukte...                              | ...bruk nå                                       |
@@ -491,9 +491,9 @@ Ta gjerne en titt på componentene i portalen eller ta kontakt i Support Designs
 
 ### Hvordan bruke de nye fargestilene i CSS/Sass
 
-Vi har laget en ny eksport fil med `color-`-prefix som vi anbefaler at du tar i bruk. Du skriver da `@use "~@fremtind/jkl-core/jkl";` og skriver `jkl.$color-snovhit` for å bruke den i din stil-fil.
+Vi har laget en ny eksport fil med `color-`-prefix som vi anbefaler at du tar i bruk. Du skriver da `@use "@fremtind/jkl-core/jkl";` og skriver `jkl.$color-snovhit` for å bruke den i din stil-fil.
 Dette ble gjort slik at det skal bli likt når typografi endringen kommer (skal også få prefix);
-Om du ikke har lyst til å endre imports så eksponerer vi også alle fargene som før via `@use "~@fremtind/jkl-core/variables/_colors.scss";`.
+Om du ikke har lyst til å endre imports så eksponerer vi også alle fargene som før via `@use "@fremtind/jkl-core/variables/_colors.scss";`.
 
 Dersom du har brukt de gamle valørene som bakgrunnsfarge eller lignende, kan du bruke denne tabellen som et cheat sheet når du tar i bruk `jkl-core@5.0.0`.
 
