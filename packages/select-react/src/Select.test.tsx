@@ -74,6 +74,35 @@ describe("Select", () => {
         expect(getByTestId("jkl-native-select")).toHaveValue(value);
     });
 
+    it("should not get stuck in a loop when changing the value from outside (https://github.com/fremtind/jokul/issues/3421#issuecomment-1440155891)", () => {
+        const onChange = jest.fn();
+        const DoThing = () => {
+            const [value, setValue] = useState<string>("");
+            useEffect(() => {
+                setValue("A");
+            }, []);
+            return (
+                <div className="build-info-page">
+                    <Select
+                        name={"Hello"}
+                        label={"Utbetalingsmottaker"}
+                        items={["A", "B", "C"]}
+                        value={value}
+                        onChange={(e) => {
+                            setValue(e.target.value);
+                            onChange();
+                        }}
+                    />
+                </div>
+            );
+        };
+
+        const { getByTestId } = setup(<DoThing />);
+        expect(getByTestId("jkl-select__button")).toHaveTextContent("A");
+        expect(getByTestId("jkl-native-select")).toHaveValue("A");
+        expect(onChange).toHaveBeenCalledTimes(1);
+    });
+
     it("should not call onChange if value is undefined (#3421)", () => {
         const onChange = jest.fn();
         const { getByTestId } = setup(
