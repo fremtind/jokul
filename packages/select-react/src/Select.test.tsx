@@ -46,8 +46,6 @@ describe("Select", () => {
     });
 
     it("should open when arrow down is pressed", async () => {
-        // Testen produserer en tom DOMException. Undersøkelser i jsdom ga ikke noe hint om årsak.
-
         const screen = setup(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
 
         const button = screen.getByTestId("jkl-select__button");
@@ -76,9 +74,30 @@ describe("Select", () => {
         expect(getByTestId("jkl-native-select")).toHaveValue(value);
     });
 
+    it("should not call onChange if value is undefined (#3421)", () => {
+        const onChange = jest.fn();
+        const { getByTestId } = setup(
+            <Select
+                label="Items"
+                name="items"
+                items={[
+                    { label: "Item 1", value: "1" },
+                    { label: "Item 2", value: "2" },
+                    { label: "Item 3", value: "3" },
+                ]}
+                value={undefined}
+                onChange={onChange}
+            />,
+        );
+
+        expect(getByTestId("jkl-select__button")).toHaveTextContent("Velg");
+        expect(getByTestId("jkl-native-select")).toHaveValue("");
+        expect(onChange).toHaveBeenCalledTimes(0);
+    });
+
     it("should change the controlled value of the select when clicking on a option", async () => {
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -156,20 +175,22 @@ describe("Select", () => {
     });
 
     it("displays the ValuePair label of selected item on first render", () => {
+        const onChange = jest.fn();
         const valuePairs = [{ value: "datagreier", label: "Fin lesbar tekst" }];
 
         const { getByTestId } = setup(
-            <Select name="datagreier" label="test" items={valuePairs} value={"datagreier"} onChange={() => {}} />,
+            <Select name="datagreier" label="test" items={valuePairs} value="datagreier" onChange={onChange} />,
         );
 
         expect(getByTestId("jkl-select__button").innerHTML).toBe("Fin lesbar tekst");
         expect(getByTestId("jkl-native-select")).toHaveValue("datagreier");
+        expect(onChange).not.toHaveBeenCalled();
     });
 
     it("should call onFocus when clicking on select dropdown", async () => {
         const onFocus = jest.fn();
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -201,7 +222,7 @@ describe("Select", () => {
     it("should call onBlur when clicking on something outside Select", async () => {
         const onBlur = jest.fn();
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -241,7 +262,7 @@ describe("Select", () => {
     it("should not call onBlur when clicking on a dropdown item", async () => {
         const onBlur = jest.fn();
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -366,7 +387,7 @@ describe("Select", () => {
 describe("Searchable select", () => {
     it("should keep search input hidden by default", async () => {
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -391,7 +412,7 @@ describe("Searchable select", () => {
 
     it("should change the value of the select when clicking on a option", async () => {
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -427,7 +448,7 @@ describe("Searchable select", () => {
 
     it("should change visibility of search input when opening select dropdown", async () => {
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -461,7 +482,7 @@ describe("Searchable select", () => {
 
     it("should keep all items visible when nothing has been typed into search input", async () => {
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -502,7 +523,7 @@ describe("Searchable select", () => {
 
     it("should change visibility of options who's label does not match the input search value", async () => {
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 11", value: "A" },
@@ -554,7 +575,7 @@ describe("Searchable select", () => {
 
     it("should clear search input after selecting an item and opening select options again", async () => {
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 11", value: "A" },
@@ -607,7 +628,7 @@ describe("Searchable select", () => {
 
     it("should have a case insensitive search", async () => {
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "ITEM 1", value: "1" },
@@ -664,7 +685,7 @@ describe("Searchable select", () => {
 
     it("should focus search input field when clicking dropdown button", async () => {
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -696,7 +717,7 @@ describe("Searchable select", () => {
     it("should call onFocus when select button is clicked in searchable Select", async () => {
         const onFocus = jest.fn();
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -729,7 +750,7 @@ describe("Searchable select", () => {
     it("should not call onBlur when clicking on a searchable Select", async () => {
         const onBlur = jest.fn();
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -762,7 +783,7 @@ describe("Searchable select", () => {
     it("should call onBlur when clicking on something outside searchable Select", async () => {
         const onBlur = jest.fn();
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -805,7 +826,7 @@ describe("Searchable select", () => {
     it("should call onFocus only once when performing multiple actions and focus shifts inside the searchable Select", async () => {
         const onBlur = jest.fn();
         function WrappedSelect() {
-            const [state, setState] = useState<string>();
+            const [state, setState] = useState<string>("");
 
             const items = [
                 { label: "Item 1", value: "1" },
@@ -976,7 +997,7 @@ describe("a11y", () => {
     test("aria-label should update correctly on change", async () => {
         const onChange = jest.fn();
         function WrappedSelect() {
-            const [value, setValue] = useState<string>();
+            const [value, setValue] = useState<string>("");
 
             const items = [
                 { value: "apple", label: "Apple" },

@@ -147,7 +147,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
 
     /// Valg av <option>
 
-    const [selectedValue, setSelectedValue] = useState<string>(value || "");
+    const [selectedValue, setSelectedValue] = useState<string | undefined>(value);
     const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
     const selectedValueLabel = useMemo(
         () => visibleItems.find((item) => item.value === selectedValue)?.label || defaultPrompt,
@@ -159,7 +159,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     const unifiedSelectRef = useCallback(
         (instance: HTMLSelectElement | null) => {
             selectRef.current = instance;
-            if (instance) {
+            if (instance && instance.value && !selectedValue) {
                 setSelectedValue(instance.value);
             }
 
@@ -171,11 +171,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                 }
             }
         },
-        [selectRef, forwardedSelectRef],
+        [selectRef, selectedValue, forwardedSelectRef],
     );
 
     useEffect(() => {
-        setSelectedValue(value || "");
+        setSelectedValue(value);
     }, [setSelectedValue, value]);
 
     const selectOption = useCallback(
@@ -191,11 +191,17 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     // La komponenten rendre <select> med den valgte verdien før onChange trigges, slik at
     // react-hook-form@>7.41.1 behandler feltet som at det har en verdi.
     useEffect(() => {
+        const isMisconfiguredControlledComponent = typeof value === "undefined" && onChange;
+        if (isMisconfiguredControlledComponent) {
+            console.warn(
+                "<Select /> was given an onChange as if the component should be controlled, but value was undefined as if the component should be uncontrolled. If <Select /> should be controlled, but have no value, set value to an empty string.",
+            );
+        }
         if (value === selectedValue) {
             return;
         }
         if (onChange) {
-            onChange({ type: "change", target: { name, value: selectedValue } });
+            onChange({ type: "change", target: { name, value: selectedValue || "" } });
         }
         if (selectRef.current) {
             selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
