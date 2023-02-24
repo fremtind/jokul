@@ -13,4 +13,5 @@ export interface IconProps {
      */
     bold?: boolean;
     className?: string;
+    style?: React.CSSProperties;
 }

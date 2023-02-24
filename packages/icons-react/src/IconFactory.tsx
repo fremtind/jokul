@@ -11,6 +11,7 @@ export const makeIconComponent = (variants: IconVariants) => {
         className,
         variant = "inherit",
         "data-testid": testId,
+        style,
         ...rest
     }) => {
         const IconComponent = variants["regular"]["inherit"];
@@ -23,6 +24,7 @@ export const makeIconComponent = (variants: IconVariants) => {
             <div
                 className={cn(className, "jkl-icon", `jkl-icon--${variant}`, { "jkl-icon--bold": bold })}
                 aria-hidden="true"
+                style={style}
                 data-testid={testId}
             >
                 <IconComponent className="jkl-icon__icon jkl-icon__icon--inherit jkl-icon__icon--regular" {...rest} />

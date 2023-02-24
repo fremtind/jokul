@@ -97,7 +97,24 @@ $_icon-weights: ("regular", "bold");
     }
 }
 
+$_regular-headings: ("heading-1", "heading-2");
 $_bold-headings: ("heading-3", "heading-4", "heading-5");
+
+// Overstyr eventuell compact settings
+@each $_heading in $_regular-headings {
+    .jkl-#{$_heading} {
+        @each $_size in $_icon-sizes {
+            .jkl-icon--#{$_size} {
+                .jkl-icon__icon--#{$_size}.jkl-icon__icon--bold {
+                    display: none;
+                }
+                .jkl-icon__icon--#{$_size}.jkl-icon__icon--regular {
+                    display: unset;
+                }
+            }
+        }
+    }
+}
 
 @each $_heading in $_bold-headings {
     .jkl-#{$_heading} {
