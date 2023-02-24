@@ -1,13 +1,23 @@
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, RenderOptions, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useEffect, useState } from "react";
 import { Select } from ".";
 
+function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
+    return {
+        user: userEvent.setup({
+            delay: 5,
+            advanceTimers: jest.advanceTimersByTime,
+            skipHover: true,
+        }),
+        ...render(jsx, renderOptions),
+    };
+}
 describe("Select", () => {
     it("should render correct amount of options", () => {
-        const { getAllByTestId } = render(
+        const { getAllByTestId } = setup(
             <Select name="snoop" items={["drop", "it", "like", "its", "hot"]} label="Snoop" />,
         );
 
@@ -17,14 +27,14 @@ describe("Select", () => {
     });
 
     it("should be inline when specified", () => {
-        render(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+        const screen = setup(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
 
         const dropdown = screen.getByTestId("jkl-select");
         expect(dropdown).toHaveClass("jkl-select--inline");
     });
 
     it("should open when clicked", async () => {
-        render(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+        const screen = setup(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
 
         const button = screen.getByTestId("jkl-select__button");
 
@@ -37,7 +47,7 @@ describe("Select", () => {
     it("should open when arrow down is pressed", async () => {
         // Testen produserer en tom DOMException. Undersøkelser i jsdom ga ikke noe hint om årsak.
 
-        render(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+        const screen = setup(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
 
         const button = screen.getByTestId("jkl-select__button");
 
@@ -50,7 +60,7 @@ describe("Select", () => {
     it("should use the specified value", () => {
         const onChange = jest.fn();
         const value = "drop";
-        render(
+        const screen = setup(
             <Select
                 name="snoop"
                 onChange={onChange}
@@ -67,7 +77,7 @@ describe("Select", () => {
     });
 
     it("should have default text value in button when no option selected", () => {
-        render(<Select name="snoop" items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+        const screen = setup(<Select name="snoop" items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
 
         const button = screen.getByTestId("jkl-select__button");
 
@@ -75,7 +85,7 @@ describe("Select", () => {
     });
 
     it("can be forced into compact mode", () => {
-        render(<Select name="count" items={["1", "2"]} label="test" density="compact" />);
+        const screen = setup(<Select name="count" items={["1", "2"]} label="test" density="compact" />);
 
         expect(screen.getByTestId("jkl-select")).toHaveAttribute("data-density", "compact");
     });
@@ -83,7 +93,9 @@ describe("Select", () => {
     it("displays the ValuePair label of selected item on first render", () => {
         const valuePairs = [{ value: "datagreier", label: "Fin lesbar tekst" }];
 
-        render(<Select name="datagreier" label="test" items={valuePairs} value={"datagreier"} onChange={() => {}} />);
+        const screen = setup(
+            <Select name="datagreier" label="test" items={valuePairs} value={"datagreier"} onChange={() => {}} />,
+        );
 
         expect(screen.getByTestId("jkl-select__button").innerHTML).toBe("Fin lesbar tekst");
     });
@@ -109,7 +121,7 @@ describe("Select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
 
@@ -144,7 +156,7 @@ describe("Select", () => {
                 </>
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
         const outsideSelectButtonElement = screen.getByText("OUTSIDE BUTTON");
@@ -184,7 +196,7 @@ describe("Select", () => {
                 </>
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
 
@@ -202,7 +214,7 @@ describe("Select", () => {
     });
 
     it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", async () => {
-        render(
+        const screen = setup(
             <Accordion>
                 <AccordionItem title="Velg tingen" startExpanded>
                     <Select name="items" items={[{ label: "Item 3", value: "3" }]} label="Ting" />
@@ -236,7 +248,7 @@ describe("Select", () => {
             );
         };
 
-        render(<TestControlledSelect />);
+        const screen = setup(<TestControlledSelect />);
 
         await act(async () => {
             await userEvent.click(screen.getByText("Click"));
@@ -246,7 +258,7 @@ describe("Select", () => {
     });
 
     it("supports labels only for screen readers", () => {
-        render(<Select name="count" items={["1", "2"]} label="test" labelProps={{ srOnly: true }} />);
+        const screen = setup(<Select name="count" items={["1", "2"]} label="test" labelProps={{ srOnly: true }} />);
 
         const label = screen.getByText("test");
         expect(label).toHaveClass("jkl-label--sr-only");
@@ -273,7 +285,7 @@ describe("Select", () => {
             );
         };
 
-        render(<DoThing />);
+        const screen = setup(<DoThing />);
         expect(screen.getByTestId("jkl-select__button")).toHaveTextContent("A");
 
         await waitFor(() => {
@@ -303,7 +315,7 @@ describe("Searchable select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         expect(screen.getByLabelText("List of items", { selector: "input" })).not.toBeVisible();
     });
@@ -328,7 +340,7 @@ describe("Searchable select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
         const openDropdownButtonElement = screen.getByText("Velg");
 
         await act(async () => {
@@ -363,7 +375,7 @@ describe("Searchable select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
@@ -400,7 +412,7 @@ describe("Searchable select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
@@ -441,7 +453,7 @@ describe("Searchable select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
@@ -493,7 +505,7 @@ describe("Searchable select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
@@ -546,7 +558,7 @@ describe("Searchable select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
@@ -600,7 +612,7 @@ describe("Searchable select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
         const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
@@ -633,7 +645,7 @@ describe("Searchable select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
 
@@ -666,7 +678,7 @@ describe("Searchable select", () => {
                 />
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
 
@@ -702,7 +714,7 @@ describe("Searchable select", () => {
                 </>
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
         const outsideSelectButtonElement = screen.getByText("OUTSIDE BUTTON");
@@ -745,7 +757,7 @@ describe("Searchable select", () => {
                 </>
             );
         }
-        render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
         const outsideSelectButtonElement = screen.getByText("OUTSIDE BUTTON");
@@ -778,7 +790,7 @@ describe("Searchable select", () => {
     });
 
     it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", async () => {
-        render(
+        const screen = setup(
             <Accordion>
                 <AccordionItem title="Velg tingen" startExpanded>
                     <Select name="items" searchable items={[{ label: "Item 3", value: "3" }]} label="Ting" />
@@ -801,7 +813,7 @@ describe("Searchable select", () => {
             { label: "Item 3", value: "3" },
         ];
 
-        render(<Select name="items" items={items} label="Ting" searchable />);
+        const screen = setup(<Select name="items" items={items} label="Ting" searchable />);
 
         const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
         await act(async () => {
@@ -825,7 +837,7 @@ describe("Searchable select", () => {
             { label: "baz", value: "3" },
         ];
 
-        render(
+        const screen = setup(
             <Select
                 name="items"
                 items={items}
@@ -858,7 +870,7 @@ describe("Searchable select", () => {
 
 describe("a11y", () => {
     test("searchable select should be a11y compliant", async () => {
-        const { container } = render(
+        const { container } = setup(
             <Select name="items" searchable label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
         const results = await axe(container);
@@ -866,7 +878,7 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
     test("select should be a11y compliant", async () => {
-        const { container } = render(
+        const { container } = setup(
             <Select name="items" label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
         const results = await axe(container);
@@ -875,7 +887,7 @@ describe("a11y", () => {
     });
 
     test("compact select should be a11y compliant", async () => {
-        const { container } = render(
+        const { container } = setup(
             <Select
                 name="items"
                 density="compact"
@@ -916,7 +928,7 @@ describe("a11y", () => {
             );
         }
 
-        const screen = render(<WrappedSelect />);
+        const screen = setup(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
         await act(async () => {
