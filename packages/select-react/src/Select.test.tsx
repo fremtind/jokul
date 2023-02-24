@@ -76,6 +76,43 @@ describe("Select", () => {
         expect(getByTestId("jkl-native-select")).toHaveValue(value);
     });
 
+    it("should change the controlled value of the select when clicking on a option", async () => {
+        function WrappedSelect() {
+            const [state, setState] = useState<string>();
+
+            const items = [
+                { label: "Item 1", value: "1" },
+                { label: "Item 2", value: "2" },
+                { label: "Item 3", value: "3" },
+            ];
+            return (
+                <Select
+                    name="items"
+                    label="List of items"
+                    items={items}
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
+                />
+            );
+        }
+
+        const { getByRole, getByText, getByTestId } = setup(<WrappedSelect />);
+        const openDropdownButtonElement = getByText("Velg");
+
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
+        });
+
+        const selectOption1Element = getByRole("option", { name: "Item 1" });
+
+        await act(async () => {
+            await userEvent.click(selectOption1Element);
+        });
+
+        expect(openDropdownButtonElement.textContent).toBe("Item 1");
+        expect(getByTestId("jkl-native-select")).toHaveValue("1");
+    });
+
     it("should have default text value in button when no option selected", () => {
         const { getByTestId } = setup(
             <Select name="snoop" items={["drop", "it", "like", "its", "hot"]} label="Snoop" />,
