@@ -8,8 +8,8 @@ group: meny
 import ContextualMenuExample, { contextualMenuExampleCode, contextualMenuExampleKnobs } from "./ContextualMenuExample";
 
 <Ingress>
-    Med kontekstuell meny presenteres en liste med valg basert på relatert kontekst. Menyen vises som en midlertidig
-    overflate.
+    En kontekstuell meny lar brukeren utføre handlinger relatert til deler av innholdet på en side, men som ikke er
+    sentrale for oppgaven brukeren holder på med.
 </Ingress>
 
 <ComponentExample
@@ -18,27 +18,23 @@ import ContextualMenuExample, { contextualMenuExampleCode, contextualMenuExample
     knobs={contextualMenuExampleKnobs}
 />
 
-Inneholder et mindre sett med handlinger, relatert til innhold eller kontekst av et område i brukergrensesnittet (trigger).
-Menyen vises når bruker interagerer med en trigger (eks. klikker på et ikon).
+Menyen inneholder et lite sett med handlinger, relatert til enten et område i bruker&shy;grensesnittet eller til konteksten brukeren befinner seg i. Grupper av tilhørende handlinger i menyen kan skilles fra hverandre med en skille&shy;linje.
 
-Kontekstuelle menyer er mindre fremtredende og tar mindre plass enn eksempelvis Select komponenter.
+Menyen vises når brukeren interagerer med en trigger på siden ved hjelp av mus, tastatur eller berøring. Triggeren kan være et ikon, en tekst, eller en kombinasjon av disse. Sørg for at triggeren gir en god indikasjon til brukeren om at den åpner en meny.
 
-Det er mulig å gjøre hvert element i menyen ekspanderbare, men da anbefales det å bruke maksimalt to (2) nivåer. Bruk helst færre enn ti (10) meny-elementer i hver kontekstuelle meny.
+Kontekstuelle menyer kan nøstes inni hverandre, men vi anbefaler å bruke maksimalt to nivåer. Bruk helst færre enn ti menypunkter i hver meny - som regel trengs langt færre enn det.
+
+## Når bruker vi ContextualMenu?
+
+Bruk en kontekstuell meny når det finnes handlinger som er relevante for brukeren, men som ikke er en essensiell del av flyten brukeren beveger seg i. Menyen er et godt sted å plassere tilleggs&shy;handlinger uten å legge til rot i grense&shy;snittet. Se på en kontekstuell meny som en subtil digresjon i historien vi leder brukeren gjennom.
+
+**Eksempler på når man kan bruke en kontekstuell meny kan være**
+
+-   Handlinger på hvert element i en liste med oppgave&shy;kort (Slett, Dupliser, Merk som behandlet)
+-   En meny med handlinger relatert til en innlogget bruker (Mine instillinger, Logg ut)
 
 ## Mulig innhold i en meny
 
 -   Tekst
 -   Ikon+tekst
 -   Knapp > forskjellige interaktive elementer.
-
-## Triggers
-
-#### Desktop
-
-Klikke på visuelt element av typen ikon, knapp eller tekst.
-
--   Icons: Ellipsis button (h/v), Chevron, tekst+Chevron
-
-## Når bruker vi ContextualMenu?
-
-Vi bruker den for å levere relevante verktøy for å fullføre oppgaver uten å legge til rot i grensesnittet. Den er en subtile digresjon i historie (i flyt).
