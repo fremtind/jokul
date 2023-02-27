@@ -1,4 +1,4 @@
-import { ValuePair, getValuePair } from "@fremtind/jkl-core";
+import { ValuePair } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { ArrowVerticalAnimated, CheckIcon, CloseIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
@@ -19,11 +19,20 @@ import React, {
     MouseEvent,
 } from "react";
 
+export type ComboboxValuePair = ValuePair & {
+    tagLabel?: string;
+};
+
+export function getComboboxValuePair(item: string | ComboboxValuePair): ComboboxValuePair {
+    return typeof item === "string" ? { value: item, label: item } : item;
+}
+
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLElement>, "target">> {
     type: "change" | "blur";
     target: {
         name: string;
         value: string;
+        selectedOptions: Array<ValuePair>;
     };
 }
 
@@ -36,7 +45,7 @@ interface ComboboxProps extends InputGroupProps {
     items: Array<ValuePair>;
     label: string;
     name: string;
-    value?: Array<string> | string;
+    value?: Array<ValuePair>;
     width?: string;
     helpLabel?: string;
     errorLabel?: string;
@@ -69,7 +78,7 @@ export const Combobox: FC<ComboboxProps> = ({
     const buttonId = `${listId}_button`;
     const inputId = `${listId}_search-input`;
 
-    const [selectedValue, setSelectedValue] = useState<Array<string>>([] || "");
+    const [selectedValue, setSelectedValue] = useState<Array<ValuePair>>(value || []);
     const [isPoitingDown, setIsPointingDown] = useState<boolean>(true);
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
@@ -87,8 +96,8 @@ export const Combobox: FC<ComboboxProps> = ({
 
     // Åpne/lukke meny
     useEffect(() => {
-        const handler = (e: any) => {
-            if (inputRef.current && !inputRef.current.contains(e.target)) {
+        const handler = (e: globalThis.MouseEvent) => {
+            if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
                 setShowMenu(false);
             }
         };
@@ -107,15 +116,15 @@ export const Combobox: FC<ComboboxProps> = ({
     const getDisplay = () => {
         return (
             <div className="jkl-combobox__tags">
-                {selectedValue.map(getValuePair).map((option) => (
+                {selectedValue.map(getComboboxValuePair).map((option) => (
                     <Tag
                         key={option.value}
                         aria-hidden
                         density="compact"
                         className="jkl-tag"
-                        dismissAction={{ onClick: (e) => onTagRemove(e, option), label: "Fjern tag" }}
+                        dismissAction={{ onClick: (e) => onTagRemove(e, option.value), label: "Fjern tag" }}
                     >
-                        {option.value}
+                        {option.tagLabel ? option.tagLabel : option.label}
                     </Tag>
                 ))}
                 <input
@@ -138,19 +147,25 @@ export const Combobox: FC<ComboboxProps> = ({
         if (!selectedValue) {
             return false;
         } else {
-            return selectedValue.some((value) => value === option.value);
+            return selectedValue.some((value) => value.value === option.value);
         }
     };
 
     // Fjerne ett eller flere valg
-    const removeOption = (option: ValuePair) => {
-        return selectedValue.filter((value) => value !== option.value);
-    };
+    const removeOption = useCallback(
+        (option: string) => {
+            return selectedValue.filter((value) => value.value !== option);
+        },
+        [selectedValue],
+    );
 
-    const onTagRemove = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>, option: ValuePair) => {
+    const onTagRemove = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>, option: string) => {
         let newValue = removeOption(option);
         setSelectedValue(newValue);
-        onChange({ type: "change", target: { name, value: option.value } });
+        onChange({
+            type: "change",
+            target: { name, value: option, selectedOptions: selectedValue },
+        });
         e.stopPropagation();
     };
 
@@ -159,18 +174,25 @@ export const Combobox: FC<ComboboxProps> = ({
     };
 
     // Håndtere valgt verdi i listen
-    const onItemClick = (option: ValuePair) => {
-        let newValue: Array<string>;
+    const onItemClick = useCallback(
+        (option: string) => {
+            let newValue: Array<ValuePair>;
 
-        if (selectedValue.some((value) => value === option.value)) {
-            newValue = removeOption(option);
-        } else {
-            newValue = [...selectedValue, option.value];
-        }
-        searchRef.current?.focus();
-        setSelectedValue(newValue);
-        onChange({ type: "change", target: { name, value: option.value } });
-    };
+            if (selectedValue.some((value) => value.value === option)) {
+                newValue = removeOption(option);
+            } else {
+                const item = items.find((i) => i.value === option);
+                newValue = [...selectedValue, item as ValuePair];
+            }
+            searchRef.current?.focus();
+            setSelectedValue(newValue);
+            onChange({
+                type: "change",
+                target: { name, value: option, selectedOptions: selectedValue },
+            });
+        },
+        [selectedValue, setSelectedValue, onChange, name, removeOption, items],
+    );
 
     // Funksjon for søk
     const onSearch = (e: { target: { value: React.SetStateAction<string> } }) => {
@@ -230,7 +252,14 @@ export const Combobox: FC<ComboboxProps> = ({
     const handleFocus = useCallback(() => {
         if (!focusInsideRef.current) {
             if (onFocus) {
-                onFocus({ type: "change", target: { name, value: selectedValue || "" } });
+                onFocus({
+                    type: "change",
+                    target: {
+                        name,
+                        value: selectedValue?.[0].value || "",
+                        selectedOptions: selectedValue,
+                    },
+                });
             }
             focusInsideRef.current = true;
         }
@@ -254,7 +283,14 @@ export const Combobox: FC<ComboboxProps> = ({
                 setSearchValue("");
 
                 if (onBlur) {
-                    onBlur({ type: "blur", target: { name, value: selectedValue || "" } });
+                    onBlur({
+                        type: "blur",
+                        target: {
+                            name,
+                            value: selectedValue?.[0].value || "",
+                            selectedOptions: selectedValue,
+                        },
+                    });
                     inputRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
                 }
                 focusInsideRef.current = false;
@@ -296,7 +332,7 @@ export const Combobox: FC<ComboboxProps> = ({
                     searchRef.current.focus();
                 } else if (inputRef.current) {
                     // Mimic behaviour of Firefox and native select, where Tab selects the current item and closes the menu
-                    setSelectedValue(e.currentTarget.value);
+                    onItemClick(e.currentTarget.value);
                     setShowMenu(false);
                     inputRef.current.focus();
                 }
@@ -310,10 +346,9 @@ export const Combobox: FC<ComboboxProps> = ({
                 }
             }
         },
-        [setShowMenu, dropdownRef],
+        [setShowMenu, onItemClick, dropdownRef],
     );
 
-    console.log(selectedValue);
     return (
         <InputGroup
             label={label}
@@ -375,7 +410,7 @@ export const Combobox: FC<ComboboxProps> = ({
                                         onKeyDown={handleOptionOnKeyDown}
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            onItemClick(option);
+                                            onItemClick(option.value);
                                             setSearchValue("");
                                         }}
                                         onMouseOver={handleMouseOver}

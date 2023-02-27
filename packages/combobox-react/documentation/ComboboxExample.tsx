@@ -1,7 +1,7 @@
 import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { FC, useState } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { Combobox } from "../src";
+import { Combobox, type ComboboxValuePair } from "../src";
 
 export const comboboxExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil"],
@@ -17,8 +17,8 @@ export const comboboxExampleKnobs: ExampleKnobsProps = {
 export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
-    const items = [
-        { value: "google pixel", label: "Google Pixel" },
+    const items: ComboboxValuePair[] = [
+        { value: "google pixel", label: "Google Pixel", tagLabel: "GP" },
         { value: "apple", label: "Apple" },
         { value: "samsung", label: "Samsung" },
         { value: "lg", label: "LG" },
@@ -29,7 +29,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
         { value: "doro", label: "Doro" },
     ];
 
-    const [value, setValue] = useState<string>();
+    const [selectedValues, setSelectedValues] = useState<Array<ComboboxValuePair>>([]);
 
     const errorLabel =
         boolValues && boolValues["Med feil"] ? "Du må velge leverandørene, for eksempel Apple og Samsung." : undefined;
@@ -48,9 +48,9 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             errorLabel={errorLabel}
             label="Velg leverandører"
             items={items}
-            value={value}
+            value={selectedValues}
             onChange={(event) => {
-                setValue(event.target.value);
+                setSelectedValues(event.target.selectedOptions);
                 console.log("Change: ", event);
             }}
         />
