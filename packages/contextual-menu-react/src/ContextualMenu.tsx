@@ -24,6 +24,7 @@ import { WithChildren, type DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useRef, useState } from "react";
+import * as ReactIs from "react-is";
 import { useMenuWideEvents } from "./useMenuWideEvents";
 
 export interface ContextualMenuProps
@@ -85,7 +86,8 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
 
     return (
         <FloatingNode id={nodeId}>
-            {React.isValidElement<ButtonHTMLAttributes<HTMLButtonElement>>(triggerElement) ? (
+            {React.isValidElement(triggerElement) &&
+            (triggerElement.type === "button" || ReactIs.isForwardRef(triggerElement)) ? (
                 // Dersom trigger-elementet er en knapp, sett riktige egenskaper på det
                 React.cloneElement(triggerElement, {
                     ...getReferenceProps({

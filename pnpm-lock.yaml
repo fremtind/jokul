@@ -364,8 +364,10 @@ importers:
       '@fremtind/jkl-core': ^11.0.0
       '@fremtind/jkl-icons-react': ^7.0.0
       '@fremtind/jkl-react-hooks': ^11.0.0
+      '@types/react-is': ^17.0.3
       classnames: ^2.3.2
       framer-motion: ^7.10.3
+      react-is: ^18.2.0
     dependencies:
       '@floating-ui/react': 0.19.2
       '@floating-ui/react-dom-interactions': 0.12.0
@@ -373,8 +375,10 @@ importers:
       '@fremtind/jkl-core': 11.4.0
       '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
+      '@types/react-is': 17.0.3
       classnames: 2.3.2
       framer-motion: 7.10.3
+      react-is: 18.2.0
 
   packages/cookie-consent:
     specifiers:
@@ -6185,6 +6189,12 @@ packages:
     dependencies:
       '@types/react': 18.0.26
     dev: true
+
+  /@types/react-is/17.0.3:
+    resolution: {integrity: sha512-aBTIWg1emtu95bLTLx0cpkxwGW3ueZv71nE2YFBpL8k/z5czEW8yYpOo8Dp+UUAFAtKwNaOsh/ioSeQnWlZcfw==}
+    dependencies:
+      '@types/react': 18.0.26
+    dev: false
 
   /@types/react-syntax-highlighter/15.5.5:
     resolution: {integrity: sha512-QH3JZQXa2usAvJvSsdSUJ4Yu4j8ReuZpgRrEW+XP+Rmosbn425YshW9iGEb/pAARm8496axHhHUPRH3UmTiB6A==}
@@ -18866,7 +18876,6 @@ packages:
 
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
-    dev: true
 
   /react-lifecycles-compat/3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}

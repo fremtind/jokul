@@ -16,19 +16,34 @@
 
 .jkl-contextual-menu {
     &__trigger-btn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         border: none;
+        margin: 0;
         padding: 0;
         background-color: transparent;
         user-select: none;
-        width: fit-content;
-        height: fit-content;
         cursor: pointer;
+
+        // Sørg for stort nok touch target
+        min-width: 40px;
+        min-height: 40px;
 
         @include jkl.keyboard-navigation {
             &:focus {
                 outline: jkl.rem(2px) solid var(--jkl-contextual-menu-trigger-focus-color);
                 outline-offset: jkl.rem(2px);
             }
+        }
+
+        &:hover {
+            background: var(--jkl-contextual-menu-trigger-button-hover-bg-color);
+        }
+
+        &:focus-visible {
+            outline: none;
         }
     }
 
