@@ -19,7 +19,7 @@ import React, {
     MouseEvent,
 } from "react";
 
-interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
+interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLElement>, "target">> {
     type: "change" | "blur";
     target: {
         name: string;
@@ -33,7 +33,7 @@ interface ComboboxProps extends InputGroupProps {
     id?: string;
     placeholder?: string;
     labelProps?: Omit<LabelProps, "children" | "density" | "htmlFor" | "standAlone">;
-    items: Array<string | ValuePair>;
+    items: Array<ValuePair>;
     label: string;
     name: string;
     value?: Array<string> | string;
@@ -64,12 +64,12 @@ export const Combobox: FC<ComboboxProps> = ({
     className,
     invalid,
 }) => {
-    const listId = useId(id || "jkl-select", { generateSuffix: !id });
+    const listId = useId(id || "jkl-combobox", { generateSuffix: !id });
     const labelId = `${listId}_label`;
     const buttonId = `${listId}_button`;
     const inputId = `${listId}_search-input`;
 
-    const [selectedValue, setSelectedValue] = useState(typeof value === "string" ? [value] : value || []);
+    const [selectedValue, setSelectedValue] = useState<Array<string>>([] || "");
     const [isPoitingDown, setIsPointingDown] = useState<boolean>(true);
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
@@ -107,15 +107,15 @@ export const Combobox: FC<ComboboxProps> = ({
     const getDisplay = () => {
         return (
             <div className="jkl-combobox__tags">
-                {selectedValue.map((option) => (
+                {selectedValue.map(getValuePair).map((option) => (
                     <Tag
-                        aria-hidden
                         key={option.value}
+                        aria-hidden
                         density="compact"
                         className="jkl-tag"
                         dismissAction={{ onClick: (e) => onTagRemove(e, option), label: "Fjern tag" }}
                     >
-                        {option.label}
+                        {option.value}
                     </Tag>
                 ))}
                 <input
@@ -134,7 +134,7 @@ export const Combobox: FC<ComboboxProps> = ({
     };
 
     // Funksjon for å stile valgt element
-    const isSelected = (option: { value: string }) => {
+    const isSelected = (option: ValuePair) => {
         if (!selectedValue) {
             return false;
         } else {
@@ -147,14 +147,14 @@ export const Combobox: FC<ComboboxProps> = ({
         return selectedValue.filter((value) => value !== option.value);
     };
 
-    const onTagRemove = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>, option: any) => {
-        const newValue = removeOption(option);
+    const onTagRemove = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>, option: ValuePair) => {
+        let newValue = removeOption(option);
         setSelectedValue(newValue);
         onChange({ type: "change", target: { name, value: option.value } });
         e.stopPropagation();
     };
 
-    const onTagRemoveAll = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+    const onTagRemoveAll = () => {
         setSelectedValue([]);
     };
 
@@ -185,9 +185,7 @@ export const Combobox: FC<ComboboxProps> = ({
             return items;
         }
 
-        return items.filter(
-            (option) => getValuePair(option).label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0,
-        );
+        return items.filter((option) => option.label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0);
     };
 
     // Håndtere arrow-state
@@ -314,6 +312,8 @@ export const Combobox: FC<ComboboxProps> = ({
         },
         [setShowMenu, dropdownRef],
     );
+
+    console.log(selectedValue);
     return (
         <InputGroup
             label={label}
@@ -356,17 +356,19 @@ export const Combobox: FC<ComboboxProps> = ({
                             onBlur={handleBlur}
                             tabIndex={-1}
                         >
-                            {getOptions().map((option: { value: string; label: string }, i) => (
+                            {getOptions().map((option, i) => (
                                 <>
                                     <button
                                         key={`${listId}-${option.value}`}
                                         type="button"
                                         id={`${listId}__${option.value}`}
-                                        aria-selected={option.value === selectedValue}
+                                        aria-selected={option.value === option.value}
                                         role="option"
                                         value={option.value}
                                         onBlur={handleBlur}
-                                        className={`jkl-combobox__option ${isSelected(option) && "selected"}`}
+                                        className={`jkl-combobox__option ${
+                                            isSelected(option) && "jkl-combobox__option--selected"
+                                        }`}
                                         data-testid="jkl-combobox__option"
                                         data-testautoid={`jkl-combobox__option-${i}`}
                                         onFocus={handleFocus}
@@ -386,7 +388,7 @@ export const Combobox: FC<ComboboxProps> = ({
                         </div>
                         <div className="jkl-combobox__actions">
                             {selectedValue.length > 0 && (
-                                <IconButton onClick={(e) => onTagRemoveAll(e)}>
+                                <IconButton onClick={() => onTagRemoveAll()}>
                                     <CloseIcon />
                                 </IconButton>
                             )}

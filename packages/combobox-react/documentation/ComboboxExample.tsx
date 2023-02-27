@@ -15,7 +15,6 @@ export const comboboxExampleKnobs: ExampleKnobsProps = {
 };
 
 export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
-    const [selectedValue, setSelectedValue] = useState<any>([] || null);
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
     const items = [
@@ -29,6 +28,8 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
         { value: "sony", label: "Sony" },
         { value: "doro", label: "Doro" },
     ];
+
+    const [value, setValue] = useState<string>();
 
     const errorLabel =
         boolValues && boolValues["Med feil"] ? "Du må velge leverandørene, for eksempel Apple og Samsung." : undefined;
@@ -47,9 +48,9 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             errorLabel={errorLabel}
             label="Velg leverandører"
             items={items}
-            value={selectedValue}
+            value={value}
             onChange={(event) => {
-                setSelectedValue(event);
+                setValue(event.target.value);
                 console.log("Change: ", event);
             }}
         />

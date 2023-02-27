@@ -79,8 +79,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     @include jkl.reset-outline;
     position: relative;
 
-    &__wrapper,
-    &__wrapper.menu-open {
+    &__wrapper {
         position: relative;
         min-width: 7rem;
         width: 15rem;
@@ -206,7 +205,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         }
     }
 
-    &__option.selected {
+    &__option--selected {
         justify-content: space-between;
         background-color: var(--jkl-combobox-selected-background);
 
