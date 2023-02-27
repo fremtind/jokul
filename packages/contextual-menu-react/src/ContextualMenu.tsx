@@ -5,7 +5,7 @@ import {
     FloatingNode,
     FloatingTree,
     offset,
-    Placement,
+    type Placement,
     safePolygon,
     shift,
     useClick,
@@ -20,11 +20,12 @@ import {
     useMergeRefs,
     useRole,
 } from "@floating-ui/react";
-import { DataTestAutoId } from "@fremtind/jkl-core";
+import { type DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { ButtonHTMLAttributes, forwardRef, ReactNode, useRef, useState, type HTMLAttributes } from "react";
+import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useRef, useState } from "react";
 import { useMenuWideEvents } from "./useMenuWideEvents";
+
 export interface ContextualMenuProps extends DataTestAutoId, ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     initialPlacement?: Placement;
@@ -81,7 +82,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
 
     return (
         <FloatingNode id={nodeId}>
-            {React.isValidElement<HTMLAttributes<HTMLButtonElement>>(triggerElement) ? (
+            {React.isValidElement<ButtonHTMLAttributes<HTMLButtonElement>>(triggerElement) ? (
                 // Dersom trigger-elementet er en knapp, sett riktige egenskaper på det
                 React.cloneElement(triggerElement, {
                     ...getReferenceProps({
@@ -145,7 +146,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                             })}
                         >
                             {React.Children.map(children, (child, index) => {
-                                if (React.isValidElement<React.HTMLAttributes<HTMLButtonElement>>(child)) {
+                                if (React.isValidElement<ButtonHTMLAttributes<HTMLButtonElement>>(child)) {
                                     return React.cloneElement(
                                         child,
                                         getItemProps({
