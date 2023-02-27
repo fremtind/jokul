@@ -2,7 +2,15 @@ import cn from "classnames";
 import React, { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 
 interface ContextualMenuTriggerButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    /**
+     * Beskrivelse av menyen. Leses for skjermlesere og vises som
+     * hjelpetekst ved hover.
+     * @default "Meny"
+     */
     description?: string;
+    /**
+     * Ikonet som skal vises i knappen
+     */
     icon: ReactNode;
     className?: string;
 }

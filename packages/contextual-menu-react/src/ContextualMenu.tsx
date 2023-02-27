@@ -32,8 +32,23 @@ export interface ContextualMenuProps
         WithChildren,
         Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
     className?: string;
+    /**
+     * Initiell plassering av menyen. Dersom det ikke er plass på skjermen der du
+     * angir at den skal åpnes vil den slyttes automatisk.
+     * @default "bottom-start" på toppnivå, "right-start" for undermenyer
+     * */
     initialPlacement?: Placement;
+    /**
+     * Angir om menyen skal åpnes ved hover (uten å måtte klikke)
+     * @default false
+     */
     openOnHover?: boolean;
+    /**
+     * Elementet som fungerer som trigger for menyen. Dersom elementet ikke er en `<button>`
+     * eller en `forwardRef<HTMLButtonElement>` vil det bli lagt inne i en knapp
+     * med forhåndsdefinert stil. For å komme raskt i gang kan du bruke komponenten
+     * `ContextualMenuTriggerButton` fra denne pakken.
+     */
     triggerElement?: ReactNode;
 }
 
