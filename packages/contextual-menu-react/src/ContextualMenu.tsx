@@ -20,13 +20,16 @@ import {
     useMergeRefs,
     useRole,
 } from "@floating-ui/react";
-import { type DataTestAutoId } from "@fremtind/jkl-core";
+import { WithChildren, type DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useRef, useState } from "react";
 import { useMenuWideEvents } from "./useMenuWideEvents";
 
-export interface ContextualMenuProps extends DataTestAutoId, ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ContextualMenuProps
+    extends DataTestAutoId,
+        WithChildren,
+        Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
     className?: string;
     initialPlacement?: Placement;
     openOnHover?: boolean;
