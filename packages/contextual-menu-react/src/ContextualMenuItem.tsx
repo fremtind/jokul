@@ -1,29 +1,20 @@
 import { ChevronRightIcon } from "@fremtind/jkl-icons-react";
-import cn from "classnames";
-import React, { ReactNode } from "react";
-interface ContextualMenuItemProps {
-    description: string;
+import React, { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
+
+export interface ContextualMenuItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     expandable?: boolean;
-    divider?: boolean;
     icon?: ReactNode;
 }
 
-export const ContextualMenuItem = ({ description, icon, expandable = false }: ContextualMenuItemProps) => {
-    return (
-        <div className="contextual-menu-item">
-            <div className="contextual-menu-item__content-wrapper">
-                {icon && <span className="contextual-menu-item__icon">{icon}</span>}
+export const ContextualMenuItem = forwardRef<HTMLButtonElement, ContextualMenuItemProps>((props, ref) => {
+    const { children, icon, expandable = false, ...buttonProps } = props;
 
-                <span
-                    className={cn({
-                        "contextual-menu-item__description": true,
-                        "contextual-menu-item__description--has-icon": icon,
-                    })}
-                >
-                    {description}
-                </span>
-            </div>
-            {expandable && <ChevronRightIcon bold />}
-        </div>
+    return (
+        <button ref={ref} type="button" role="menuitem" className="contextual-menu-item" {...buttonProps}>
+            {icon && <span className="contextual-menu-item__icon">{icon}</span>}
+            <div className="contextual-menu-item__content">{children}</div>
+            {expandable && <ChevronRightIcon className="contextual-menu-item__arrow" bold />}
+        </button>
     );
-};
+});
+ContextualMenuItem.displayName = "ContetualMenuItem";

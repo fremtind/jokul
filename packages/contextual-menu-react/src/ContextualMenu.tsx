@@ -1,116 +1,195 @@
-import { autoUpdate } from "@floating-ui/react-dom";
 import {
-    useFloating,
-    shift,
+    autoUpdate,
     flip,
+    FloatingFocusManager,
+    FloatingNode,
+    FloatingTree,
     offset,
-    useRole,
-    useInteractions,
+    Placement,
+    safePolygon,
+    shift,
     useClick,
     useDismiss,
-    useFocus,
-} from "@floating-ui/react-dom-interactions";
+    useFloating,
+    useFloatingNodeId,
+    useFloatingParentNodeId,
+    useFloatingTree,
+    useHover,
+    useInteractions,
+    useListNavigation,
+    useMergeRefs,
+    useRole,
+} from "@floating-ui/react";
 import { DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
-import { motion, AnimatePresence } from "framer-motion";
-import React, { useState, ReactNode, Children } from "react";
-
-export interface ContextualMenuProps extends DataTestAutoId {
+import { AnimatePresence, motion } from "framer-motion";
+import React, { ButtonHTMLAttributes, forwardRef, ReactNode, useRef, useState, type HTMLAttributes } from "react";
+import { useMenuWideEvents } from "./useMenuWideEvents";
+export interface ContextualMenuProps extends DataTestAutoId, ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
-    triggerElement?: ReactNode;
-    children: ReactNode;
     initialPlacement?: Placement;
     openOnHover?: boolean;
+    triggerElement?: ReactNode;
 }
 
-export type Placement = "bottom-end" | "bottom-start" | "right-end" | "right-start";
+const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, forwardedRef) => {
+    const { children, className, initialPlacement, openOnHover = false, triggerElement, ...triggerProps } = props;
 
-export const ContextualMenu = ({
-    className,
-    triggerElement,
-    children,
-    initialPlacement = "bottom-start",
-    openOnHover = false,
-}: ContextualMenuProps) => {
-    const [open, setOpen] = useState(false);
     const contextualMenuId = useId("jkl-contextual-menu");
-    const childrenArray = Children.toArray(children);
 
-    const { x, y, reference, floating, placement, strategy, context } = useFloating({
-        open,
-        onOpenChange: setOpen,
-        placement: initialPlacement,
+    const tree = useFloatingTree();
+    const nodeId = useFloatingNodeId();
+    const parentId = useFloatingParentNodeId();
+    const isNested = parentId != null;
+
+    const listItemsRef = useRef<Array<HTMLButtonElement | null>>([]);
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const { allowHover, isOpen, setIsOpen } = useMenuWideEvents(tree, nodeId, parentId);
+
+    const { x, y, refs, placement, strategy, context } = useFloating({
+        nodeId,
+        open: isOpen,
+        onOpenChange: setIsOpen,
+        placement: initialPlacement || (isNested ? "right-start" : "bottom-start"),
         middleware: [offset(2), flip(), shift({ padding: 8 })],
         whileElementsMounted: autoUpdate,
     });
 
-    const { getReferenceProps, getFloatingProps } = useInteractions([
-        useClick(context),
-        useDismiss(context, { referencePress: false }),
-        useFocus(context, { enabled: open }),
+    const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
+        useHover(context, {
+            enabled: openOnHover && allowHover,
+            delay: { open: 75 },
+            handleClose: safePolygon({
+                restMs: 25,
+                blockPointerEvents: true,
+            }),
+        }),
+        useClick(context, {
+            event: "mousedown",
+        }),
+        useDismiss(context),
         useRole(context, { role: "menu" }),
+        useListNavigation(context, {
+            listRef: listItemsRef,
+            activeIndex,
+            nested: isNested,
+            onNavigate: setActiveIndex,
+        }),
     ]);
 
+    const referenceRef = useMergeRefs([refs.setReference, forwardedRef]);
+
     return (
-        <div className="jkl-contextual-menu" role="menu">
-            {triggerElement && (
+        <FloatingNode id={nodeId}>
+            {React.isValidElement<HTMLAttributes<HTMLButtonElement>>(triggerElement) ? (
+                // Dersom trigger-elementet er en knapp, sett riktige egenskaper på det
+                React.cloneElement(triggerElement, {
+                    ...getReferenceProps({
+                        ...triggerProps,
+                        ref: referenceRef,
+                        role: isNested ? "menuitem" : undefined,
+                        "aria-controls": contextualMenuId,
+                        onClick(event) {
+                            event.stopPropagation();
+                        },
+                    }),
+                })
+            ) : (
+                // Ellers, sett elementet inne i en knapp med riktige egenskaper
                 <button
                     type="button"
-                    aria-expanded={open}
-                    aria-controls={contextualMenuId}
-                    className={cn("jkl-contextual-menu__trigger-btn", className)}
-                    onMouseOver={openOnHover ? () => setOpen(true) : undefined}
-                    onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
-                    onFocus={openOnHover ? () => setOpen(true) : undefined}
+                    title={`${isOpen ? "Lukk" : "Vis"} meny`}
+                    className="jkl-contextual-menu__trigger-btn"
                     {...getReferenceProps({
-                        ref: reference,
+                        ...triggerProps,
+                        ref: referenceRef,
+                        role: isNested ? "menuitem" : undefined,
+                        "aria-controls": contextualMenuId,
+                        onClick(event) {
+                            event.stopPropagation();
+                        },
                     })}
                 >
                     {triggerElement}
-                    <span className="jkl-sr-only">{`${open ? "Lukk" : "Vis"} meny`}</span>
                 </button>
             )}
-
             <AnimatePresence>
-                {open && (
-                    <motion.div
-                        className="jkl-contextual-menu__menu"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ ease: "easeIn", duration: 0.1 }}
-                        data-placement={placement}
-                        aria-live="assertive"
-                        aria-hidden={!open}
-                        {...getFloatingProps({
-                            id: contextualMenuId,
-                            ref: floating,
-                            style: {
-                                position: strategy,
-                                top: y ?? "",
-                                left: x ?? "",
-                            },
-                        })}
+                {isOpen && (
+                    <FloatingFocusManager
+                        context={context}
+                        // Prevent outside content interference.
+                        modal={false}
+                        // Only initially focus the root floating menu.
+                        initialFocus={isNested ? -1 : 0}
+                        // Only return focus to the root menu's reference when menus close.
+                        returnFocus={!isNested}
                     >
-                        {childrenArray.map((child, i) => (
-                            <div
-                                tabIndex={0}
-                                role="menuitem"
-                                aria-hidden={!open}
-                                key={`${i}-${child}`}
-                                className="jkl-contextual-menu__menu-item"
-                                onMouseOver={openOnHover ? () => setOpen(true) : undefined}
-                                onMouseLeave={openOnHover ? () => setOpen(false) : undefined}
-                                onFocus={() => setOpen(true)}
-                                onBlur={() => setOpen(false)}
-                            >
-                                {child}
-                            </div>
-                        ))}
-                    </motion.div>
+                        <motion.div
+                            className="jkl-contextual-menu__menu"
+                            role="menu"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ ease: "easeIn", duration: 0.1 }}
+                            data-placement={placement}
+                            aria-live="assertive"
+                            aria-hidden={!isOpen}
+                            ref={refs.setFloating}
+                            {...getFloatingProps({
+                                id: contextualMenuId,
+                                style: {
+                                    position: strategy,
+                                    top: y ?? "",
+                                    left: x ?? "",
+                                },
+                            })}
+                        >
+                            {React.Children.map(children, (child, index) => {
+                                if (React.isValidElement<React.HTMLAttributes<HTMLButtonElement>>(child)) {
+                                    return React.cloneElement(
+                                        child,
+                                        getItemProps({
+                                            ...child.props,
+                                            tabIndex: activeIndex === index ? 0 : -1,
+                                            role: "menuitem",
+                                            ref(node: HTMLButtonElement) {
+                                                listItemsRef.current[index] = node;
+                                            },
+                                            onClick(event) {
+                                                child.props.onClick?.(event as React.MouseEvent<HTMLButtonElement>);
+                                                tree?.events.emit("click");
+                                            },
+                                            onMouseEnter() {
+                                                if (allowHover && isOpen) {
+                                                    setActiveIndex(index);
+                                                }
+                                            },
+                                        }),
+                                    );
+                                }
+
+                                return child;
+                            })}
+                        </motion.div>
+                    </FloatingFocusManager>
                 )}
             </AnimatePresence>
-        </div>
+        </FloatingNode>
     );
-};
+});
+ContextualMenuComponent.displayName = "ContextualMenuComponent";
+
+export const ContextualMenu = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, ref) => {
+    const parentId = useFloatingParentNodeId();
+
+    if (parentId === null) {
+        return (
+            <FloatingTree>
+                <ContextualMenuComponent ref={ref} {...props} />
+            </FloatingTree>
+        );
+    }
+
+    return <ContextualMenuComponent ref={ref} {...props} />;
+});
+ContextualMenu.displayName = "ContextualMenu";

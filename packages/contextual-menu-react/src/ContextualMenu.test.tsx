@@ -3,8 +3,9 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { ContextualMenu } from "./ContextualMenu";
+import { ContextualMenuDivider } from "./ContextualMenuDivider";
 import { ContextualMenuItem } from "./ContextualMenuItem";
-import { ContextualMenuTriggerIcon } from "./ContextualMenuTriggerIcon";
+import { ContextualMenuTriggerButton } from "./ContextualMenuTriggerButton";
 
 // Framer motion is referencing ResizeObserver..
 ResizeObserver = jest.fn().mockImplementation(() => ({
@@ -16,47 +17,52 @@ ResizeObserver = jest.fn().mockImplementation(() => ({
 describe("ContextualMenu", () => {
     test("should render menu trigger", () => {
         renderContextualMenu();
-        const contextualMenuTrigger = screen.getByRole("button", { name: /Vis meny/ });
+        const contextualMenuTrigger = screen.getByText("En kontekstuell meny");
         expect(contextualMenuTrigger).toBeInTheDocument();
     });
 
     test("should open menu options when clicking on trigger element", async () => {
         renderContextualMenu();
         const user = userEvent.setup();
-        await user.click(screen.getByRole("button", { name: /Vis meny/i }));
+        await user.click(screen.getByText("En kontekstuell meny"));
         expect(screen.getByText(/Menyvalg 2/)).toBeInTheDocument();
     });
 
     test("should open menu expandable options when hover on ContextualMenuItem used as trigger element", async () => {
         renderContextualMenu();
         const user = userEvent.setup();
-        await user.click(screen.getByRole("button", { name: /Vis meny/i }));
-        await user.hover(screen.getByText(/Ekspanderende menyvalg 1/));
-        expect(screen.getByText(/Ekspandert menyvalg på hover/)).toBeInTheDocument();
+        await user.click(screen.getByText("En kontekstuell meny"));
+        await user.hover(screen.getByText(/Ekspanderende menyvalg med veldig lang tekst/));
+        const expandedMenuItem = await screen.findByText(/Ekspandert menyvalg med mer tekst/);
+        expect(expandedMenuItem).toBeInTheDocument();
     });
 });
 
 function renderContextualMenu() {
     render(
-        <ContextualMenu openOnHover={false} triggerElement={<ContextualMenuTriggerIcon icon={<DotsIcon bold />} />}>
-            <ContextualMenuItem description="Menyvalg 1" icon={<InfoIcon />} />
-            <ContextualMenuItem description="Menyvalg 2" />
-            <ContextualMenuItem description="Menyvalg med en lengre beskrivende tekst" />
+        <ContextualMenu
+            initialPlacement="bottom-start"
+            triggerElement={<ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />}
+        >
+            <ContextualMenuItem icon={<InfoIcon />}>Menyvalg 1</ContextualMenuItem>
+            <ContextualMenuItem onClick={() => console.log("Hei fra Menyvalg 2")}>Menyvalg 2</ContextualMenuItem>
+            <ContextualMenuItem disabled>Menyvalg med en lengre beskrivende tekst</ContextualMenuItem>
+            <ContextualMenuDivider />
             <ContextualMenu
                 openOnHover
-                initialPlacement="right-start"
-                triggerElement={<ContextualMenuItem expandable description="Ekspanderende menyvalg 1" />}
+                triggerElement={
+                    <ContextualMenuItem expandable>Ekspanderende menyvalg med veldig lang tekst</ContextualMenuItem>
+                }
             >
-                <ContextualMenuItem description="Ekspandert menyvalg på hover" icon={<InfoIcon />} />
-                <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
+                <ContextualMenuItem icon={<InfoIcon />}>Ekspandert menyvalg</ContextualMenuItem>
+                <ContextualMenuItem>Ekspandert menyvalg med mer tekst</ContextualMenuItem>
             </ContextualMenu>
             <ContextualMenu
                 openOnHover
-                initialPlacement="right-start"
-                triggerElement={<ContextualMenuItem expandable description="Ekspanderende menyvalg 2" />}
+                triggerElement={<ContextualMenuItem expandable>Ekspanderende menyvalg</ContextualMenuItem>}
             >
-                <ContextualMenuItem description="Ekspandert menyvalg" icon={<CopyIcon />} />
-                <ContextualMenuItem description="Ekspandert menyvalg med mer tekst" />
+                <ContextualMenuItem icon={<CopyIcon />}>Ekspandert menyvalg</ContextualMenuItem>
+                <ContextualMenuItem>Ekspandert menyvalg med mer tekst</ContextualMenuItem>
             </ContextualMenu>
         </ContextualMenu>,
     );

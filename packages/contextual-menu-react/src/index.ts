@@ -1,2 +1,4 @@
-export type { Placement, ContextualMenuProps } from "./ContextualMenu";
-export { ContextualMenu } from "./ContextualMenu";
+export { ContextualMenu, type ContextualMenuProps } from "./ContextualMenu";
+export { ContextualMenuItem, type ContextualMenuItemProps } from "./ContextualMenuItem";
+export { ContextualMenuDivider } from "./ContextualMenuDivider";
+export { ContextualMenuTriggerButton } from "./ContextualMenuTriggerButton";

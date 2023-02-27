@@ -1,40 +1,71 @@
 @use "~@fremtind/jkl-core/jkl";
 
+@include jkl.light-mode-variables {
+    --jkl-contextual-menu-item-hover-background-color: #{jkl.$color-sand};
+    --jkl-contextual-menu-item-disabled-color: #{jkl.$color-svaberg};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-contextual-menu-item-hover-background-color: #{jkl.$color-skifer};
+    --jkl-contextual-menu-item-disabled-color: #{jkl.$color-stein};
+}
+
 @include jkl.comfortable-density-variables {
-    --jkl-contextual-menu-item-height: jkl.rem(48px);
+    --jkl-contextual-menu-menu-item-height: jkl.rem(48px);
+    @include jkl.declare-font-variables("jkl-contextual-menu-item", "body");
 }
 
 @include jkl.compact-density-variables {
-    --jkl-contextual-menu-item-height: jkl.rem(32px);
+    --jkl-contextual-menu-menu-item-height: jkl.rem(32px);
+    @include jkl.declare-font-variables("jkl-contextual-menu-item", "small");
 }
 
 .contextual-menu-item {
+    @include jkl.reset-outline;
+    background-color: transparent;
+    color: var(--jkl-color);
+    cursor: pointer;
+
+    box-sizing: border-box;
+    user-select: none;
+    @include jkl.use-font-variables("jkl-contextual-menu-item");
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: jkl.rem(280px);
+    gap: var(--jkl-spacing-12);
+    width: 100%;
     height: var(--jkl-contextual-menu-item-height);
     padding: jkl.rem(8px) jkl.rem(8px) jkl.rem(8px) jkl.rem(12px);
 
-    &__content-wrapper {
-        display: flex;
-        align-items: center;
-        gap: jkl.rem(12px);
+    &__content {
+        text-align: start;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        flex-grow: 1;
+        flex-shrink: 1;
+        max-width: 100%;
     }
 
     &__icon {
         display: flex;
         align-items: center;
+        flex-shrink: 0;
     }
 
-    &__description {
-        max-width: jkl.rem(250px);
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+    &__arrow {
+        flex-shrink: 0;
+    }
 
-        &--has-icon {
-            max-width: jkl.rem(220px);
-        }
+    html[data-mousenavigation] &:hover:not(:disabled) {
+        background-color: var(--jkl-contextual-menu-item-hover-background-color);
+    }
+
+    &:focus {
+        background-color: var(--jkl-contextual-menu-item-hover-background-color);
+    }
+
+    &:disabled {
+        color: var(--jkl-contextual-menu-item-disabled-color);
+        cursor: unset;
     }
 }
