@@ -11,16 +11,16 @@
 }
 
 @include jkl.comfortable-density-variables {
-    --jkl-contextual-menu-menu-item-height: jkl.rem(48px);
+    --jkl-contextual-menu-item-height: jkl.rem(48px);
     @include jkl.declare-font-variables("jkl-contextual-menu-item", "body");
 }
 
 @include jkl.compact-density-variables {
-    --jkl-contextual-menu-menu-item-height: jkl.rem(32px);
+    --jkl-contextual-menu-item-height: jkl.rem(32px);
     @include jkl.declare-font-variables("jkl-contextual-menu-item", "small");
 }
 
-.contextual-menu-item {
+.jkl-contextual-menu-item {
     @include jkl.reset-outline;
     background-color: transparent;
     color: var(--jkl-color);

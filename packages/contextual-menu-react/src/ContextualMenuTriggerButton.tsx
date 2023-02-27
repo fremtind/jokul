@@ -16,7 +16,7 @@ export const ContextualMenuTriggerButton = forwardRef<HTMLButtonElement, Context
                 ref={ref}
                 type="button"
                 title={description}
-                className={cn("contextual-menu-trigger-button", className)}
+                className={cn("jkl-contextual-menu-trigger-button", className)}
                 {...buttonProps}
             >
                 {icon}

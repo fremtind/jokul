@@ -10,11 +10,11 @@ export const ContextualMenuItem = forwardRef<HTMLButtonElement, ContextualMenuIt
     const { children, icon, expandable = false, ...buttonProps } = props;
 
     return (
-        <button ref={ref} type="button" role="menuitem" className="contextual-menu-item" {...buttonProps}>
-            {icon && <span className="contextual-menu-item__icon">{icon}</span>}
-            <div className="contextual-menu-item__content">{children}</div>
-            {expandable && <ChevronRightIcon className="contextual-menu-item__arrow" bold />}
+        <button ref={ref} type="button" role="menuitem" className="jkl-contextual-menu-item" {...buttonProps}>
+            {icon && <span className="jkl-contextual-menu-item__icon">{icon}</span>}
+            <div className="jkl-contextual-menu-item__content">{children}</div>
+            {expandable && <ChevronRightIcon className="jkl-contextual-menu-item__arrow" bold />}
         </button>
     );
 });
-ContextualMenuItem.displayName = "ContetualMenuItem";
+ContextualMenuItem.displayName = "ContextualMenuItem";

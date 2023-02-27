@@ -25,7 +25,7 @@
     --jkl-contextual-menu-trigger-button-size: jkl.rem(20px);
 }
 
-.contextual-menu-trigger-button {
+.jkl-contextual-menu-trigger-button {
     @include jkl.reset-outline;
 
     display: flex;
