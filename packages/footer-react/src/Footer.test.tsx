@@ -12,13 +12,11 @@ describe("Footer", () => {
                     {
                         title: "Personvern og vilkår",
                         href: "https://www.fremtind.no/personvern/",
-                        external: false,
                     },
                     {
                         title: "Bruk av informasjonskapsler",
                         component: "button",
                         onClick: () => alert("Åpne cookieConsent"),
-                        external: false,
                     },
                 ]}
             />,
@@ -44,13 +42,11 @@ describe("Footer", () => {
                     {
                         title: "Personvern og vilkår",
                         href: "https://www.fremtind.no/personvern/",
-                        external: false,
                     },
                     {
                         title: "Bruk av informasjonskapsler",
                         component: "button",
                         onClick: () => alert("Åpne cookieConsent"),
-                        external: false,
                     },
                 ]}
             />,
