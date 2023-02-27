@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 $_animation-duration: 300ms;
 $_half-animation-duration: calc(#{$_animation-duration} / 2);

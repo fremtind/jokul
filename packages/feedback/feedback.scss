@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 $_smiley-size: jkl.rem(40px);
 $_smileys-max-width: $_smiley-size * 9; // 5 smileys med fire like store mellomrom

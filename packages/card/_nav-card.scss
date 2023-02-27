@@ -1,4 +1,4 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
     --jkl-nav-card-background: #{jkl.$color-hvit};

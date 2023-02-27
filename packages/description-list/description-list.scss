@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 @mixin _horizontal-list {
     display: grid;

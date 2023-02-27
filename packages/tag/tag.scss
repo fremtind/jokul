@@ -1,6 +1,6 @@
 @charset "UTF-8";
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/jkl/colors";
+@use "@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl/colors";
 
 $_tag-background-color: jkl.$color-varde;
 $_tag-text-color: jkl.$color-granitt;
