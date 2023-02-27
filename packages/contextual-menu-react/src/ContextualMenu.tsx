@@ -49,7 +49,7 @@ export interface ContextualMenuProps
      * med forhåndsdefinert stil. For å komme raskt i gang kan du bruke komponenten
      * `ContextualMenuTriggerButton` fra denne pakken.
      */
-    triggerElement?: ReactNode;
+    triggerElement: ReactNode;
 }
 
 const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, forwardedRef) => {
