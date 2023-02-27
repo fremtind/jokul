@@ -328,6 +328,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                 onChange={handleMonthChange}
                                 className="jkl-calendar__month-selector"
                                 aria-label={monthLabel}
+                                value={extendedMonth ?? selected?.getMonth().toString()}
                             >
                                 {monthSelectOptions.map(({ label, value }) => (
                                     <option key={value} value={value}>
@@ -339,6 +340,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                 onChange={handleYearChange}
                                 className="jkl-calendar__year-selector"
                                 aria-label={yearLabel}
+                                value={extendedYear ?? selected?.getFullYear().toString()}
                             >
                                 {yearSelectOptions.map((year) => (
                                     <option key={year} value={year}>
