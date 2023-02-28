@@ -1,12 +1,11 @@
 import { ValuePair } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { ArrowVerticalAnimated, CheckIcon, CloseIcon } from "@fremtind/jkl-icons-react";
-import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
-import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
+import { InputGroup, InputGroupProps, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
-import { useListNavigation } from "@fremtind/jkl-select-react/src/useListNavigation";
 import { Tag } from "@fremtind/jkl-tag-react";
 import cn from "classnames";
+import { useListNavigation } from "packages/select-react/src/useListNavigation";
 import React, {
     FC,
     useEffect,
@@ -136,6 +135,10 @@ export const Combobox: FC<ComboboxProps> = ({
                     onBlur={handleBlur}
                     value={searchValue}
                     ref={searchRef}
+                    aria-controls={listId}
+                    role="combobox"
+                    aria-autocomplete="list"
+                    aria-expanded={showMenu}
                     placeholder={selectedValue.length > 0 ? "" : placeholder}
                 />
             </div>
@@ -222,7 +225,7 @@ export const Combobox: FC<ComboboxProps> = ({
     // Lukk meny med ESC
     useEffect(() => {
         const handleEscape = (e: globalThis.KeyboardEvent) => {
-            if (e.key === "Escape") {
+            if (e.key === "Escape" && showMenu) {
                 setShowMenu(false);
             }
         };
@@ -230,11 +233,11 @@ export const Combobox: FC<ComboboxProps> = ({
             window.addEventListener("keydown", handleEscape);
         }
         return () => {
-            if (typeof window !== "undefined") {
+            if (typeof window !== "undefined" && showMenu) {
                 window.removeEventListener("keydown", handleEscape);
             }
         };
-    }, [setShowMenu]);
+    }, [setShowMenu, showMenu]);
 
     // Fokushåndtering
     const handleFocusPlacement = useCallback((isOpen: boolean) => {
@@ -309,7 +312,7 @@ export const Combobox: FC<ComboboxProps> = ({
     // Tastaturnavigasjon
     const handleOnKeyDown = useCallback(
         (e: KeyboardEvent<HTMLDivElement>) => {
-            if (e.key === "ArrowDown" || e.key === " ") {
+            if ((e.key === "ArrowDown" || e.key === " ") && !showMenu) {
                 e.preventDefault();
                 e.stopPropagation();
                 setShowMenu(true);
@@ -319,7 +322,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 setShowMenu(false);
             }
         },
-        [setShowMenu],
+        [setShowMenu, showMenu],
     );
 
     const handleOptionOnKeyDown = useCallback(
@@ -356,6 +359,7 @@ export const Combobox: FC<ComboboxProps> = ({
             ref={componentRootElementRef}
             data-testid="jkl-combobox"
             className={cn("jkl-combobox", className, {
+                "jkl-combobox--open": showMenu,
                 "jkl-combobox--invalid": !!errorLabel || invalid,
             })}
             labelProps={{
