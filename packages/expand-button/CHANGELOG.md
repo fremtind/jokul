@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@4.0.2...@fremtind/jkl-expand-button@5.0.0) (2023-02-28)
+
+### Features
+
+- arv fontstørrelse fra omgivelsene i ExpandButton ([d1fd1da](https://github.com/fremtind/jokul/commit/d1fd1da2061f345cb912c941149faa660482f751))
+
+### BREAKING CHANGES
+
+- CSS-variablene --jkl-expand-button-* som styrer fontstørrelser og
+størrelser på ikonet er ikke lenger brukt. Størrelsen arves i
+stedet utenfra. Sett fontstørrelse på parent, eller med en egen
+klasse på samme element som jkl-expand-button.
+
 # 4.0.0 (2023-01-30)
 
 ### Bug Fixes
