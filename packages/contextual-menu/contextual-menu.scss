@@ -6,6 +6,7 @@
 @include jkl.light-mode-variables {
     --jkl-contextual-menu-bg-color: #{jkl.$color-hvit};
     --jkl-contextual-menu-trigger-focus-color: #{jkl.$color-granitt};
+    --jkl-contextual-menu-border: none;
 }
 
 @include jkl.dark-mode-variables {
