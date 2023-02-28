@@ -2,7 +2,7 @@ import { ValuePair, getValuePair, DataTestAutoId, Density } from "@fremtind/jkl-
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
-import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import { useId, useAnimatedHeight, usePreviousValue } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, {
     FocusEvent,
@@ -148,7 +148,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     /// Valg av <option>
 
     const [selectedValue, setSelectedValue] = useState<string>(value || "");
-    const hasSelectedValue = typeof selectedValue !== "undefined" && selectedValue !== "";
+    const hasSelectedValue = selectedValue !== "";
     const selectedValueLabel = useMemo(
         () => visibleItems.find((item) => item.value === selectedValue)?.label || defaultPrompt,
         [visibleItems, selectedValue, defaultPrompt],
@@ -174,25 +174,43 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         [selectRef, forwardedSelectRef],
     );
 
+    const previousValue = usePreviousValue(value);
     useEffect(() => {
-        setSelectedValue(value || "");
-    }, [setSelectedValue, value]);
+        if (value === previousValue) {
+            return;
+        }
+        if (typeof value === "undefined") {
+            setSelectedValue("");
+        } else {
+            setSelectedValue(value);
+        }
+    }, [setSelectedValue, value, previousValue]);
 
     const selectOption = useCallback(
         (item: Option) => {
             const nextValue = item.value;
             setSearchValue("");
             setSelectedValue(nextValue);
-            if (onChange) {
-                onChange({ type: "change", target: { name, value: nextValue } });
-            }
-            if (selectRef.current) {
-                selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
-            }
             toggleListVisibility();
         },
-        [onChange, setSearchValue, setSelectedValue, toggleListVisibility, name],
+        [setSearchValue, setSelectedValue, toggleListVisibility],
     );
+
+    // La komponenten rendre <select> med den valgte verdien før onChange trigges, slik at
+    // react-hook-form@>7.41.1 behandler feltet som at det har en verdi.
+    const previousSelectedValue = usePreviousValue(selectedValue);
+    useEffect(() => {
+        // previousSelectedValue er undefined på første render, men da vil vi ikke ha en onChange uansett
+        if (typeof previousSelectedValue === "undefined" || previousSelectedValue === selectedValue) {
+            return;
+        }
+        if (onChange) {
+            onChange({ type: "change", target: { name, value: selectedValue } });
+        }
+        if (selectRef.current) {
+            selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+    }, [onChange, name, selectedValue, previousSelectedValue]);
 
     /// Fokushåndtering
 
@@ -241,7 +259,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     setSearchValue("");
                 }
                 if (onBlur) {
-                    onBlur({ type: "blur", target: { name, value: selectedValue || "" } });
+                    onBlur({ type: "blur", target: { name, value: selectedValue } });
                     selectRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
                 }
                 focusInsideRef.current = false;
@@ -254,7 +272,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     const handleFocus = useCallback(() => {
         if (!focusInsideRef.current) {
             if (onFocus) {
-                onFocus({ type: "change", target: { name, value: selectedValue || "" } });
+                onFocus({ type: "change", target: { name, value: selectedValue } });
             }
             focusInsideRef.current = true;
         }
@@ -393,6 +411,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             <select
                 name={name}
                 tabIndex={-1}
+                data-testid="jkl-native-select"
                 className="jkl-sr-only"
                 aria-hidden
                 ref={unifiedSelectRef}

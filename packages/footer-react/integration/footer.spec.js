@@ -10,21 +10,21 @@ describe("Footer", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.get('input[value="Med lenker"]').uncheck();
-                cy.get('input[value="Med adresse"]').uncheck();
+                cy.get('input[value="Med finansportalen"]').uncheck();
             },
             teardown: () => {
                 cy.get('input[value="Med lenker"]').check();
-                cy.get('input[value="Med adresse"]').check();
+                cy.get('input[value="Med finansportalen"]').check();
             },
         });
 
         cy.takeSnapshots({
             setup: () => {
                 cy.get('input[value="Med lenker"]').check();
-                cy.get('input[value="Med adresse"]').uncheck();
+                cy.get('input[value="Med finansportalen"]').uncheck();
             },
             teardown: () => {
-                cy.get('input[value="Med adresse"]').check();
+                cy.get('input[value="Med finansportalen"]').check();
                 cy.get('input[value="Med lenker"]').check();
             },
         });
@@ -32,10 +32,10 @@ describe("Footer", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.get('input[value="Med lenker"]').uncheck();
-                cy.get('input[value="Med adresse"]').check();
+                cy.get('input[value="Med finansportalen"]').check();
             },
             teardown: () => {
-                cy.get('input[value="Med adresse"]').check();
+                cy.get('input[value="Med finansportalen"]').check();
                 cy.get('input[value="Med lenker"]').check();
             },
         });
@@ -43,7 +43,7 @@ describe("Footer", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.get('input[value="Med lenker"]').check();
-                cy.get('input[value="Med adresse"]').check();
+                cy.get('input[value="Med finansportalen"]').check();
             },
         });
     });
