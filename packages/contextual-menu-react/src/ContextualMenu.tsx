@@ -166,7 +166,10 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                             })}
                         >
                             {React.Children.map(children, (child, index) => {
-                                if (React.isValidElement<ButtonHTMLAttributes<HTMLButtonElement>>(child)) {
+                                if (
+                                    React.isValidElement(child) &&
+                                    (child.type === "button" || ReactIs.isForwardRef(child))
+                                ) {
                                     return React.cloneElement(
                                         child,
                                         getItemProps({
