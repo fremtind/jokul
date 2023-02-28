@@ -13,6 +13,7 @@ import "@fremtind/jkl-alert-message/alert-message.min.css";
 import "@fremtind/jkl-breadcrumb/breadcrumb.min.css";
 import "@fremtind/jkl-button/button.min.css";
 import "@fremtind/jkl-card/card.min.css";
+import "@fremtind/jkl-contact-information/contact-information.min.css";
 import "@fremtind/jkl-checkbox/checkbox.min.css";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
 import "@fremtind/jkl-description-list/description-list.min.css";

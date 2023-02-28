@@ -74,6 +74,7 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
                 </LogoStamp>
             </div>
             <Footer
+                heading="Jøkul er designsystemet til Fremtind Forsikring"
                 links={[
                     { external: false, component: Cookies, title: "Bruk av informasjonskapsler" },
                     { external: true, href: "https://www.fremtind.no/personvern/", title: "Personvernserklæring" },

@@ -3,19 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tag@4.0.2...@fremtind/jkl-tag@4.0.3) (2023-02-23)
+
+### Bug Fixes
+
+-   sync spacing med Figma ([d0cb08e](https://github.com/fremtind/jokul/commit/d0cb08e9bcbaa9146c29d63d11f911d69858493a))
+
 # 4.0.0 (2023-01-30)
 
 ### Bug Fixes
 
-- juster padding og spacing i tag for nytt ikon ([e557691](https://github.com/fremtind/jokul/commit/e5576913baee9a9f33e7f00cf5a082b73429b1b6))
+-   juster padding og spacing i tag for nytt ikon ([e557691](https://github.com/fremtind/jokul/commit/e5576913baee9a9f33e7f00cf5a082b73429b1b6))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 3.0.8 (2022-11-22)
 

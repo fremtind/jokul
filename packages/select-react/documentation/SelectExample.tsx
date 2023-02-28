@@ -49,7 +49,7 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
         { value: "9", label: "Sony" },
         { value: "10", label: "Doro" },
     ];
-    const [value, setValue] = useState<string>();
+    const [value, setValue] = useState<string>("");
 
     const errorLabel =
         boolValues && boolValues["Med feil"] ? "Du må velge merket til telefonen, for eksempel Apple." : undefined;

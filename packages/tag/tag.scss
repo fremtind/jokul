@@ -15,13 +15,13 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
 @include jkl.comfortable-density-variables {
     --jkl-tag-padding: var(--jkl-spacing-4) var(--jkl-spacing-8);
     --jkl-tag-dismiss-margin: 0;
-    --jkl-tag-gap: var(--jkl-spacing-8);
+    --jkl-tag-gap: var(--jkl-spacing-4);
 }
 
 @include jkl.compact-density-variables {
     --jkl-tag-padding: 0 var(--jkl-spacing-4);
     --jkl-tag-dismiss-margin: 0 calc(var(--jkl-spacing-2) * -1) 0 0;
-    --jkl-tag-gap: var(--jkl-spacing-4);
+    --jkl-tag-gap: var(--jkl-spacing-2);
 }
 
 .jkl-tag {
