@@ -1,23 +1,6 @@
-import { DataTestAutoId, Density, Link, WithChildren } from "@fremtind/jkl-core";
-import { formatNumber } from "@fremtind/jkl-formatters-util";
-import { Logo } from "@fremtind/jkl-logo-react";
+import { DataTestAutoId, Density, Link } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
-
-export interface FooterAddress {
-    /** @example "Postboks 778 Sentrum" */
-    addressLine1?: string;
-    addressLine2?: string;
-    /** @example "0106" */
-    postalCode?: string;
-    /** @example "Oslo" */
-    postalArea?: string;
-    /**
-     * Formateres automatisk og blir gitt prefikset "Org. nr."
-     * @example "915651232"
-     */
-    organizationNumber?: string;
-}
 
 export interface FooterLink<T = HTMLAnchorElement> {
     title: string;
@@ -33,51 +16,54 @@ export interface FooterLink<T = HTMLAnchorElement> {
 }
 
 export interface FooterProps extends DataTestAutoId, HTMLAttributes<HTMLElement> {
+    heading?: string;
     links?: Array<FooterLink>;
-    address?: FooterAddress;
+    showFinansportalenLink?: boolean;
     density?: Density;
 }
 
-const AddressLine: FC<WithChildren> = ({ children }) => (
-    <>
-        {children}
-        <br />
-    </>
-);
-
-export const Footer: FC<FooterProps> = ({ className, address, links, density, ...rest }) => {
+export const Footer: FC<FooterProps> = ({
+    heading = "Fremtind er vår leverandør av forsikring",
+    className,
+    links,
+    showFinansportalenLink = false,
+    density,
+    ...rest
+}) => {
     return (
         <footer className={cn("jkl-footer", className)} data-density={density} {...rest}>
-            <div>
-                <div className="jkl-footer__logo">
-                    <Logo />
-                </div>
-                {address && (
-                    <address className="jkl-footer__address">
-                        {address.addressLine1 && <AddressLine>{address.addressLine1}</AddressLine>}
-                        {address.addressLine2 && <AddressLine>{address.addressLine2}</AddressLine>}
-                        {(address.postalCode || address.postalArea) && (
-                            <AddressLine>
-                                {address.postalCode} {address.postalArea}
-                            </AddressLine>
-                        )}
-                        {address.organizationNumber && (
-                            <AddressLine>Org. nr. {formatNumber(address.organizationNumber)}</AddressLine>
-                        )}
-                    </address>
-                )}
-            </div>
+            <p className="jkl-footer__description">{heading}</p>
             {links && (
                 <div className="jkl-footer__links">
                     <ul>
-                        {links.map(({ component = Link, title: children, ...rest }) => {
+                        {links.map(({ component = Link, title: children, external, ...rest }) => {
                             const C = component;
                             return (
                                 <li key={children}>
-                                    <C {...rest}>{children}</C>
+                                    <C
+                                        className={
+                                            component === "button"
+                                                ? "jkl-link jkl-footer__links--small-text"
+                                                : "jkl-footer__links--small-text"
+                                        }
+                                        external={external !== undefined ? external : undefined}
+                                        {...rest}
+                                    >
+                                        {children}
+                                    </C>
                                 </li>
                             );
                         })}
+                        {showFinansportalenLink && (
+                            <li>
+                                <span className="jkl-footer__links--small-text">
+                                    Sammenlign våre priser med andre selskaper på{" "}
+                                    <Link href="https://www.finansportalen.no/" external={true}>
+                                        finansportalen.no
+                                    </Link>
+                                </span>
+                            </li>
+                        )}
                     </ul>
                 </div>
             )}

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 13.0.5 (2023-02-27)
+
+### Bug Fixes
+
+- render-loop når value ble endret fra utsiden ([2b0674e](https://github.com/fremtind/jokul/commit/2b0674e5f1d83867e233829f75796cf3e9121ade))
+- unngå å trigge onchange hvis value er undefined ([0d8a9f4](https://github.com/fremtind/jokul/commit/0d8a9f44d99d10eaf74a6564e5bbfbf65c206a25))
+
 ## [13.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@13.0.3...@fremtind/jkl-select-react@13.0.4) (2023-02-13)
 
 ### Bug Fixes
