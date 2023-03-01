@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.3 (2023-03-01)
+
+### Bug Fixes
+
+- fjern bevegelse i pila ved hover for navcard ([c57a3fd](https://github.com/fremtind/jokul/commit/c57a3fdfc179cb282b30c65f904414b449f7cbd9)), closes [#3400](https://github.com/fremtind/jokul/issues/3400)
+
 # 8.0.0 (2023-01-30)
 
 ### Features
