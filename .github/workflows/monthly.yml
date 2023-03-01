@@ -12,7 +12,7 @@ jobs:
             issues: write
         steps:
             - name: Create issue to upgrade dependencies
-              uses: imjohnbo/issue-bot@76645b39cda009302cc49d8624af634795e9eab5
+              uses: imjohnbo/issue-bot@6924a99d928dc228f407d34eb3d0149eda73f2a7
               with:
                   assignees: "wkillerud, piofinn, fremtindelise"
                   rotate-assignees: true
