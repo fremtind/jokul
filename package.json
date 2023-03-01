@@ -63,7 +63,7 @@
         "@frsource/cypress-plugin-visual-regression-diff": "3.1.6",
         "@testing-library/dom": "^8.19.1",
         "@testing-library/jest-dom": "^5.16.5",
-        "@testing-library/react": "^13.4.0",
+        "@testing-library/react": "^14.0.0",
         "@testing-library/user-event": "^14.4.3",
         "@types/express": "^4.17.15",
         "@types/jest-axe": "^3.5.5",
