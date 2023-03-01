@@ -61,7 +61,7 @@
         "@fremtind/browserslist-config-jkl": "^1.0.3",
         "@fremtind/stylelint-config-jkl": "^6.0.4",
         "@frsource/cypress-plugin-visual-regression-diff": "3.1.6",
-        "@testing-library/dom": "^8.19.1",
+        "@testing-library/dom": "^9.0.0",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^14.4.3",
