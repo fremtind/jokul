@@ -359,7 +359,6 @@ export const Combobox: FC<ComboboxProps> = ({
             ref={componentRootElementRef}
             data-testid="jkl-combobox"
             className={cn("jkl-combobox", className, {
-                "jkl-combobox--open": showMenu,
                 "jkl-combobox--invalid": !!errorLabel || invalid,
             })}
             labelProps={{
@@ -401,7 +400,7 @@ export const Combobox: FC<ComboboxProps> = ({
                                         key={`${listId}-${option.value}`}
                                         type="button"
                                         id={`${listId}__${option.value}`}
-                                        aria-selected={option.value === option.value}
+                                        aria-selected={option.value === selectedValue?.[0].value}
                                         role="option"
                                         value={option.value}
                                         onBlur={handleBlur}
