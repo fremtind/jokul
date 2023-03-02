@@ -89,7 +89,7 @@
     --jkl-calendar-date-size: #{jkl.rem(38px)};
     --jkl-calendar-date-spacing: #{jkl.$spacing-2xs};
     --jkl-calendar-date-margin: #{jkl.rem(1px)};
-    --jkl-calendar-padding: #{jkl.$spacing-l};
+    --jkl-calendar-padding: var(--jkl-spacing-12) var(--jkl-spacing-16) var(--jkl-spacing-16); // #{jkl.$spacing-l};
     --jkl-calendar-max-width: calc(
         calc(var(--jkl-calendar-date-size) * 7) + calc(var(--jkl-calendar-date-spacing) * 6) +
             calc(var(--jkl-calendar-date-margin) * 14) + calc(var(--jkl-calendar-padding) * 2)
@@ -103,7 +103,7 @@
 
     @include jkl.small-device {
         --jkl-calendar-date-size: #{jkl.rem(36px)};
-        --jkl-calendar-padding: #{jkl.$spacing-m};
+        // --jkl-calendar-padding: #{jkl.$spacing-m};
     }
 
     // Custom tweaks for iPhone SE
@@ -156,6 +156,9 @@
 
     &__padding {
         padding: var(--jkl-calendar-padding);
+        display: flex;
+        flex-direction: column;
+        gap: var(--jkl-spacing-12);
         box-sizing: border-box;
 
         @include jkl.forced-colors-mode {
@@ -170,7 +173,7 @@
         border: 0;
     }
 
-    &__month-navigation {
+    &-controls {
         border: 0;
         padding: 0;
         margin: 0;
@@ -180,9 +183,43 @@
         top: 0;
         width: 100%;
         justify-content: space-between;
+        align-items: center;
 
         * {
             font-weight: 800;
+        }
+    }
+
+    &-month-selector,
+    &-year-selector {
+        display: inline-flex;
+        align-items: center;
+
+        & > * {
+            cursor: pointer;
+        }
+
+        &__button {
+            @include jkl.text-style("small") {
+                font-weight: jkl.$typography-weight-bold;
+            }
+            appearance: none;
+            width: fit-content;
+            background-color: transparent;
+            border: none;
+            text-align: end;
+            margin: 0;
+            padding: 0;
+            padding-inline-end: jkl.rem(24px);
+        }
+
+        &__chevron {
+            margin-left: jkl.rem(-24px);
+            pointer-events: none;
+        }
+
+        & + & {
+            margin-inline-start: var(--jkl-spacing-8);
         }
     }
 
@@ -193,11 +230,13 @@
         cursor: pointer;
         padding: 0;
         margin: 0;
+        margin-left: -8px;
         justify-content: center;
         align-items: center;
         background-color: transparent;
         color: var(--jkl-calendar-text-color);
-        width: jkl.rem(32px);
+        width: jkl.rem(40px);
+        height: jkl.rem(40px);
         border-radius: 50%;
         font-weight: jkl.$typography-weight-bold;
 
@@ -209,11 +248,7 @@
             content: "";
             display: block;
             position: absolute;
-            top: -4px;
-            right: -4px;
-            bottom: -4px;
-            left: -4px;
-            border-radius: 50%;
+            inset: 0;
         }
 
         &:hover,

@@ -1,10 +1,10 @@
 import { Density } from "@fremtind/jkl-core";
+import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import isAfter from "date-fns/isAfter";
-import isBefore from "date-fns/isBefore";
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useReducer, useRef } from "react";
 import { flushSync } from "react-dom";
+import { calendarInitializer, calendarReducer } from "./calendarReducer";
 import { useCalendar, UseCalendarProps } from "./useCalendar";
 import {
     addMonth,
@@ -63,26 +63,32 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
 
     const id = useId("jkl-calendar");
 
-    /// Calendar state
-
-    const [offset, setOffset] = useState(0);
-    const [selected, setSelected] = useState(date || defaultSelected);
-
-    useEffect(() => {
-        setOffset(0);
-        setSelected(date || defaultSelected);
-    }, [setOffset, date, defaultSelected]);
-
-    const onOffsetChanged = useCallback(
-        (newOffset: number) => {
-            setOffset(newOffset);
-        },
-        [setOffset],
+    const [{ offset, selectedDate, shownDate }, dispatch] = useReducer(
+        calendarReducer,
+        date || defaultSelected || new Date(),
+        calendarInitializer,
     );
 
+    const shownMonth = shownDate.getMonth();
+    const shownYear = shownDate.getFullYear();
+
+    useEffect(() => {
+        dispatch({
+            type: "SET_SELECTED_DATE",
+            newDate: date || defaultSelected || new Date(),
+        });
+    }, [date, defaultSelected]);
+
+    const onOffsetChanged = useCallback((newOffset: number) => {
+        dispatch({
+            type: "SET_OFFSET",
+            newOffset,
+        });
+    }, []);
+
     const { calendars, getBackProps, getDateProps, getForwardProps, handleOffsetChanged } = useCalendar({
-        date: selected,
-        selected,
+        date: selectedDate,
+        selected: selectedDate,
         minDate,
         maxDate,
         offset,
@@ -201,96 +207,56 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         [onTabOutside],
     );
 
-    /// Extended variant state
-
-    const [extendedYear, setExtendedYear] = useState(String((selected || date || new Date()).getFullYear()));
-    const [, setExtendedMonth] = useState(String((selected || date || new Date()).getMonth()));
-
-    useEffect(() => {
-        setExtendedYear(String((selected || date || new Date()).getFullYear()));
-        setExtendedMonth(String((selected || date || new Date()).getMonth()));
-    }, [date, selected]);
-
     /// Extended variant events
 
     const handleYearChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
-        (e) => {
-            setExtendedYear(e.target.value);
-
-            if (e.target.value.length !== 4) {
+        (event) => {
+            if (event.target.value.length !== 4) {
                 return;
             }
 
-            const year: number = Number.parseInt(e.target.value);
+            const year: number = Number.parseInt(event.target.value);
             if (Number.isNaN(year)) {
                 return;
             }
 
-            const currentlySelected = new Date(selected || date || new Date());
-            const nextDate = new Date(currentlySelected);
-            nextDate.setFullYear(year);
+            const yearDiff = year - shownDate.getFullYear();
+            dispatch({
+                type: "ADD_OFFSET",
+                addedOffset: yearDiff * 12,
+            });
 
-            const withinLowerBound = !minDate || isBefore(minDate, nextDate);
-            if (!withinLowerBound) {
-                setSelected(minDate);
-                setExtendedYear(String(minDate.getFullYear()));
-                setExtendedMonth(String(minDate.getMonth()));
-                return;
-            }
-
-            const withinUpperBound = !maxDate || isAfter(maxDate, nextDate);
-            if (!withinUpperBound) {
-                setSelected(maxDate);
-                setExtendedYear(String(maxDate.getFullYear()));
-                setExtendedMonth(String(maxDate.getMonth()));
-                return;
-            }
-
-            setSelected(nextDate);
+            return;
         },
-        [setSelected, setExtendedYear, selected, date, minDate, maxDate],
+        [shownDate],
     );
 
     const handleMonthChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
-        (e) => {
-            setExtendedMonth(e.target.value);
-
-            if (!selected && !date) {
+        (event) => {
+            if (!selectedDate && !date) {
                 return;
             }
 
-            const currentlySelected = new Date(selected || date || new Date());
-            const nextDate = new Date(currentlySelected);
-            nextDate.setMonth(Number.parseInt(e.target.value));
+            const yearDiff = shownDate.getFullYear() - (selectedDate || new Date()).getFullYear();
+            const monthDiff = Number.parseInt(event.target.value) - (selectedDate || new Date()).getMonth();
 
-            const withinLowerBound = !minDate || isBefore(minDate, nextDate);
-            if (!withinLowerBound) {
-                setSelected(minDate);
-                setExtendedYear(String(minDate.getFullYear()));
-                setExtendedMonth(String(minDate.getMonth()));
-                return;
-            }
+            dispatch({
+                type: "SET_OFFSET",
+                newOffset: yearDiff * 12 + monthDiff,
+            });
 
-            const withinUpperBound = !maxDate || isAfter(maxDate, nextDate);
-            if (!withinUpperBound) {
-                setSelected(maxDate);
-                setExtendedYear(String(maxDate.getFullYear()));
-                setExtendedMonth(String(maxDate.getMonth()));
-                return;
-            }
-
-            setSelected(nextDate);
+            return;
         },
-        [setSelected, setExtendedMonth, selected, date, minDate, maxDate],
+        [selectedDate, date, shownDate],
     );
 
     const yearSelectOptions = getYearSelectOptions(
-        selected ? selected.getFullYear() : new Date().getFullYear(),
+        selectedDate ? selectedDate.getFullYear() : new Date().getFullYear(),
         minDate,
         maxDate,
     );
 
-    const monthSelectOptions = getMonthSelectOptions(Number(extendedYear), months, minDate, maxDate).map(
+    const monthSelectOptions = getMonthSelectOptions(Number(shownYear), months, minDate, maxDate).map(
         (name: string, i: number) => ({
             value: String(i),
             label: name,
@@ -309,49 +275,59 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
             <div className="jkl-calendar__padding" ref={calendarPaddingRef}>
                 {calendars.map((calendar) => (
                     <>
-                        <fieldset className="jkl-calendar__month-navigation">
-                            <button
-                                {...getBackProps({ calendars })}
-                                className="jkl-calendar__month-button"
-                                type="button"
-                            >
-                                ←
-                            </button>
-                            <button
-                                {...getForwardProps({ calendars })}
-                                className="jkl-calendar__month-button jkl-calendar__month-button--right"
-                                type="button"
-                            >
-                                →
-                            </button>
-                            <select
-                                onChange={handleMonthChange}
-                                className="jkl-calendar__month-selector"
-                                aria-label={monthLabel}
-                                value={monthSelectOptions[calendar.month].value}
-                            >
-                                {monthSelectOptions.map(({ label, value }) => (
-                                    <option key={value} value={value}>
-                                        {label}
-                                    </option>
-                                ))}
-                            </select>
-                            <select
-                                onChange={handleYearChange}
-                                className="jkl-calendar__year-selector"
-                                aria-label={yearLabel}
-                                value={calendar.year}
-                            >
-                                {yearSelectOptions.map((year) => (
-                                    <option key={year} value={year}>
-                                        {year}
-                                    </option>
-                                ))}
-                            </select>
+                        <fieldset className="jkl-calendar-controls">
+                            <div className="jkl-calendar-controls__arrows">
+                                <button
+                                    {...getBackProps({ calendars })}
+                                    className="jkl-calendar__month-button"
+                                    type="button"
+                                >
+                                    <ArrowLeftIcon bold />
+                                </button>
+                                <button
+                                    {...getForwardProps({ calendars })}
+                                    className="jkl-calendar__month-button jkl-calendar__month-button--right"
+                                    type="button"
+                                >
+                                    <ArrowRightIcon bold />
+                                </button>
+                            </div>
+                            <div>
+                                <div className="jkl-calendar-month-selector">
+                                    <select
+                                        onChange={handleMonthChange}
+                                        className="jkl-calendar-month-selector__button"
+                                        aria-label={monthLabel}
+                                        value={shownMonth.toString()}
+                                    >
+                                        {monthSelectOptions.map(({ label, value }) => (
+                                            <option key={value} value={value}>
+                                                {label}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <ChevronDownIcon bold className="jkl-calendar-month-selector__chevron" />
+                                </div>
+                                <div className="jkl-calendar-year-selector">
+                                    <select
+                                        onChange={handleYearChange}
+                                        className="jkl-calendar-year-selector__button"
+                                        aria-label={yearLabel}
+                                        value={shownYear.toString()}
+                                    >
+                                        {yearSelectOptions.map((year) => (
+                                            <option key={year} value={year}>
+                                                {year}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <ChevronDownIcon bold className="jkl-calendar-month-selector__chevron" />
+                                </div>
+                            </div>
                         </fieldset>
                         <table key={`${calendar.month}${calendar.year}`} data-testid="jkl-datepicker-calendar">
                             <caption className="jkl-sr-only">
-                                {calendar.month}, {calendar.year}
+                                {months[calendar.month]}, {calendar.year}
                             </caption>
                             <thead>
                                 <tr>
@@ -360,7 +336,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                     ))}
                                 </tr>
                             </thead>
-                            {/* The <div> element handles keyboard events that bubble up from <button> elements inside */}
+                            {/* The <tbody> element handles keyboard events that bubble up from <button> elements inside */}
                             {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-element-interactions */}
                             <tbody data-testid="jkl-datepicker-dates" onKeyDown={onArrowNavigation}>
                                 {calendar.weeks.map((week, weekIndex) => (
@@ -379,6 +355,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                             }
                                             const { date, selected, selectable, today, prevMonth, nextMonth } =
                                                 dateInfo;
+                                            const isSelectedMonth =
+                                                selectedDate &&
+                                                selectedDate.getMonth() === shownMonth &&
+                                                selectedDate.getFullYear() === shownYear;
+                                            const isFocusableDate =
+                                                (isSelectedMonth && selected) ||
+                                                (!isSelectedMonth && date.getDate() === 1);
+
                                             return (
                                                 <td key={key}>
                                                     <button
@@ -387,7 +371,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                                         })}
                                                         type="button"
                                                         className="jkl-calendar__date"
-                                                        tabIndex={selected ? 0 : -1}
+                                                        tabIndex={isFocusableDate ? 0 : -1}
                                                         aria-label={`${date.getDate()}. ${months[
                                                             date.getMonth()
                                                         ].toLowerCase()}`}
