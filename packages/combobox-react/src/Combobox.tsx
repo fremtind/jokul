@@ -129,6 +129,7 @@ export const Combobox: FC<ComboboxProps> = ({
                     aria-autocomplete="list"
                     aria-expanded={showMenu}
                     placeholder={selectedValue.length > 0 ? "" : placeholder}
+                    autoComplete="off"
                 />
             </div>
         );
