@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@8.0.7...@fremtind/jkl-card-react@8.0.10) (2023-03-01)
+
+### Bug Fixes
+
+- fjern bevegelse i pila ved hover for navcard ([c57a3fd](https://github.com/fremtind/jokul/commit/c57a3fdfc179cb282b30c65f904414b449f7cbd9)), closes [#3400](https://github.com/fremtind/jokul/issues/3400)
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@7.0.30...@fremtind/jkl-card-react@8.0.0) (2023-01-30)
 
 ### Features

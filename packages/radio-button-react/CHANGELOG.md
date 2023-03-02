@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.1.0 (2023-03-01)
+
+### Features
+
+- åpne for hjelpetekst på individuell radioknapp ([ab8a3cd](https://github.com/fremtind/jokul/commit/ab8a3cdc61a7506ee9e18e403e24d19b1733c5e7))
+
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@9.0.1...@fremtind/jkl-radio-button-react@10.0.0) (2023-01-30)
 
 ### Code Refactoring
