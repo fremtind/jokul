@@ -2,10 +2,9 @@ import { ValuePair } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { ArrowVerticalAnimated, CheckIcon, CloseIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup, InputGroupProps, type LabelProps } from "@fremtind/jkl-input-group-react";
-import { useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import { useId, useAnimatedHeight, useListNavigation } from "@fremtind/jkl-react-hooks";
 import { Tag } from "@fremtind/jkl-tag-react";
 import cn from "classnames";
-import { useListNavigation } from "packages/select-react/src/useListNavigation";
 import React, {
     FC,
     useEffect,
