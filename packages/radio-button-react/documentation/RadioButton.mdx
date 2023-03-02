@@ -11,6 +11,7 @@ import {
     radioButtonInputRequiredExampleCode,
 } from "./RadioButtonInputRequiredExample";
 import { RadioButtonPreselectedExample, radioButtonPreselectedExampleCode } from "./RadioButtonPreselectedExample";
+import { RadioButtonHelpLabelExample, radioButtonHelpLabelExampleCode } from "./RadioButtonHelpLabelExample";
 
 <Ingress>
     Vi bruker radioknapper når vi vil at brukeren skal velge ett av flere alternativ. Bruk helst radioknapper for inntil
@@ -71,6 +72,16 @@ Eksempel fra helsevurdering:
 
 -   **Hjelpetekst**: _Velg om du har hatt diagnosen de siste 5, 10 eller 15 årene_.
 -   **Feilmelding**: _Du har ikke valgt hvor lenge du har hatt diagnosen_.
+
+### Hjelpetekst for en individuell radioknapp
+
+Valgene i en gruppe med radioknapper bør helst være selvforklarende og korte, men det er ikke alltid mulig. I de tilfellene er det mulig å sette en hjelpetekst på de individuelle radioknappene.
+
+<ComponentExample
+    title="Hjelpetekst på en individuell radioknapp"
+    component={RadioButtonHelpLabelExample}
+    codeExample={radioButtonHelpLabelExampleCode}
+/>
 
 ## Flere kodeeksempler
 

@@ -74,7 +74,7 @@ export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, Nav
             <div className={cn("jkl-nav-card__content", getSpacingClasses(padding))}>
                 {tag && <CardTag density={density}>{tag.text}</CardTag>}
                 <div>
-                    <p className="jkl-nav-link jkl-nav-card__link">{title}</p>
+                    <p className="jkl-nav-card__link">{title}</p>
                     {description && <p className="jkl-nav-card__description jkl-spacing-xs--top">{description}</p>}
                 </div>
                 {children}
