@@ -1,0 +1,80 @@
+---
+title: Høydepunkter fra februar 2023
+author: Jøkul-teamet
+publishDate: "2023.02.28"
+---
+
+<Ingress>Ikke så lenge siden sist, men det har rukket å skje ting i Jøkul.</Ingress>
+
+Her er februar kort oppsummert:
+
+-   Footer-komponenten er delt i to, og fornyet.
+-   Vi jobber med noen løse tråder etter Jøkuluka, blant annet:
+    -   DatePicker som slår sammen dagens forenklede og utvidede varianter til én variant.
+    -   Combobox for å kunne velge flere elementer fra en liste.
+    -   Kontekstuell meny.
+
+## Oppdatert footer
+
+Under Jøkuluka jobbet en gruppe med designere og utviklere på en ny versjon av footerkomponenten i Jøkul. Blant problemene de ønsket å løse var de forskjellige behovene løsningene våre har rundt kontaktinformasjon.
+
+<em lang="en">One size does not fit all</em>, så komponenten ble delt opp i flere deler:
+
+-   [ContactInformation](/komponenter/contactinformation)
+-   [Footer](/komponenter/footer)
+
+De to komponentene har forskjellige props og hjelpekomponenter som gir høyere fleksibilitet enn tidligere.
+
+<figure>
+    <picture className="jkl-portal-image">
+        <source
+            media="(prefers-color-scheme: dark)"
+            srcset="/assets/blog/updates/februar-2023/footer-kontaktinfo-eks-dark.png"
+        />
+        <img
+            className="jkl-portal-image__img"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            src="/assets/blog/updates/februar-2023/footer-kontaktinfo-eks.png"
+        />
+    </picture>
+    <figcaption>Et eksempel på hvordan det kan se ut med de nye komponentene.</figcaption>
+</figure>
+
+Prøv gjerne de nye komponentene og kom med tilbakemelding på Teams.
+
+-   [#3384](https://github.com/fremtind/jokul/pull/3384)
+
+## Diverse bugfikser og forbedringer
+
+### Figma
+
+-   Fikset hover-state i Card ([#3401](https://github.com/fremtind/jokul/issues/3401))
+-   La til padding 0 i TaskCard ([#3283](https://github.com/fremtind/jokul/issues/3283))
+-   Gjorde så Accordion tar inn en slot component ([#3366](https://github.com/fremtind/jokul/issues/3366))
+-   De fleste komponenter og mønstre bruker [de nye ikonene](/blog/updates/januar-2023/)
+-   Figma har en ny utilities-kategori for funksjonelle komponenter som ofte brukes i andre komponenter (f. eks. animert pil)
+-   Group Title har fått Tooltip og innebygget spacing
+
+### GitHub
+
+-   Gjenopprett ekspandering av tekstområde ([#3395](https://github.com/fremtind/jokul/pull/3395))
+-   Finpuss på dokumentasjonen til TextInput ([#3360](https://github.com/fremtind/jokul/pull/3360))
+-   Fiks et synkroniseringsproblem i Select som forvirret `react-hook-form` sin `required` ([#3402](https://github.com/fremtind/jokul/pull/3402))
+-   Oppdater IconButton i Table-pakka for å fikse pagineringsikoner ([#3417](https://github.com/fremtind/jokul/pull/3417))
+-   Dokumentér at InputGroup sin CSS trengs for komponenter der dette manglet ([#3419](https://github.com/fremtind/jokul/pull/3419))
+-   Sync tag-spacing med Figma ([#3404](https://github.com/fremtind/jokul/pull/3404))
+-   Fiks to regresjoner i Select der onChange ble kalt med uventet verdi og kunne starte en render-loop ([#3424](https://github.com/fremtind/jokul/pull/3424))
+
+## Takk
+
+Takk til alle som har vært med å bygge videre på Jøkul, både på GitHub og i Figma!
+
+-   BjorneOma
+-   Chrihenn
+-   joms
+-   kennidenni
+-   maciejost
+
+En stor takk også til alle som er med på designsystemforum!
