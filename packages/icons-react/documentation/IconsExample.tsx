@@ -40,32 +40,32 @@ export const iconsExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
-    const allIcons = [
-        CloseIcon,
-        CheckIcon,
-        PlusIcon,
-        SearchIcon,
-        HamburgerIcon,
-        CalendarIcon,
-        ArrowNorthEastIcon,
-        ArrowUpIcon,
-        ArrowDownIcon,
-        ArrowRightIcon,
-        ArrowLeftIcon,
-        ChevronDownIcon,
-        ChevronLeftIcon,
-        ChevronRightIcon,
-        ChevronUpIcon,
-        CopyIcon,
-        DotsIcon,
-        QuestionIcon,
-        InfoIcon,
-        ErrorIcon,
-        WarningIcon,
-        SuccessIcon,
-    ];
+const allIcons = [
+    CloseIcon,
+    CheckIcon,
+    PlusIcon,
+    SearchIcon,
+    HamburgerIcon,
+    CalendarIcon,
+    ArrowNorthEastIcon,
+    ArrowUpIcon,
+    ArrowDownIcon,
+    ArrowRightIcon,
+    ArrowLeftIcon,
+    ChevronDownIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    ChevronUpIcon,
+    CopyIcon,
+    DotsIcon,
+    QuestionIcon,
+    InfoIcon,
+    ErrorIcon,
+    WarningIcon,
+    SuccessIcon,
+];
 
+export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
     const variant = choiceValues ? (choiceValues["Variant"] as IconVariant) : "small";
     const bold = boolValues?.["Bold"] || false;
 
@@ -95,6 +95,10 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
     );
 };
 
-export const iconsExampleCode: CodeExample = ({ choiceValues }) => `
-<ArrowDown variant="${choiceValues?.["Variant"]}" />
-`;
+export const iconsExampleCode: CodeExample = ({ boolValues, choiceValues }) =>
+    allIcons
+        .map(
+            (icon) =>
+                `<${icon.displayName} variant="${choiceValues?.["Variant"]}"${boolValues?.["Bold"] ? " bold" : ""} />`,
+        )
+        .join("\n");

@@ -56,6 +56,12 @@ export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceVa
     );
 };
 
-export const animatedIconsExampleCode: CodeExample = ({ choiceValues }) => `
-<ArrowVerticalAnimated variant="${choiceValues?.["Variant"]}" pointingDown={false} />
+export const animatedIconsExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
+<ArrowVerticalAnimated variant="${choiceValues?.["Variant"]}"${
+    boolValues?.["Bold"] ? " bold" : ""
+} pointingDown={isPointingDown} />
+<ArrowHorizontalAnimated variant="${choiceValues?.["Variant"]}"${
+    boolValues?.["Bold"] ? " bold" : ""
+} pointingRight={isPointingRight} />
+<PlusRemoveAnimated variant="${choiceValues?.["Variant"]}"${boolValues?.["Bold"] ? " bold" : ""} isPlus={isPlus} />
 `;
