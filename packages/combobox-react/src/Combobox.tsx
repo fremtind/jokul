@@ -92,20 +92,6 @@ export const Combobox: FC<ComboboxProps> = ({
         }
     }, [showMenu]);
 
-    // Åpne/lukke meny
-    useEffect(() => {
-        const handler = (e: globalThis.MouseEvent) => {
-            if (inputRef.current && !inputRef.current.contains(e.target as Node)) {
-                setShowMenu(false);
-            }
-        };
-
-        window.addEventListener("click", handler);
-        return () => {
-            window.removeEventListener("click", handler);
-        };
-    }, []);
-
     const handleInputClick = useCallback(() => {
         setShowMenu((prevState) => !prevState);
     }, []);
@@ -300,7 +286,7 @@ export const Combobox: FC<ComboboxProps> = ({
                     inputRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
                 }
                 focusInsideRef.current = false;
-                setShowMenu(true);
+                setShowMenu(false);
             }
         },
         [onBlur, name, selectedValue],
