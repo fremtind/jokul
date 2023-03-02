@@ -118,9 +118,13 @@ export const Combobox: FC<ComboboxProps> = ({
                     <Tag
                         key={option.value}
                         aria-hidden
+                        aria-selected={selectedValue === selectedValue}
                         density="compact"
                         className="jkl-tag"
-                        dismissAction={{ onClick: (e) => onTagRemove(e, option.value), label: "Fjern tag" }}
+                        dismissAction={{
+                            onClick: (e) => onTagRemove(e, option.value),
+                            label: `Fjern ${option.value}`,
+                        }}
                     >
                         {option.tagLabel ? option.tagLabel : option.label}
                     </Tag>
@@ -377,10 +381,15 @@ export const Combobox: FC<ComboboxProps> = ({
                         onFocus={handleFocus}
                         onBlur={handleBlur}
                         className={`jkl-combobox__button ${showMenu && "menu-open"}`}
-                        aria-label={`${selectedValue || "Velg"},${label}`}
+                        aria-label={`${selectedValue.map((value) => value.label) || "Velg"},${label}`}
                         aria-expanded={showMenu}
+                        aria-controls={listId}
                         role="button"
                         tabIndex={-1}
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                            inputRef.current?.focus();
+                        }}
                     >
                         {getDisplay()}
                         <div
@@ -399,7 +408,7 @@ export const Combobox: FC<ComboboxProps> = ({
                                         key={`${listId}-${option.value}`}
                                         type="button"
                                         id={`${listId}__${option.value}`}
-                                        aria-selected={option.value === selectedValue?.[0].value}
+                                        aria-selected={isSelected(option)}
                                         role="option"
                                         value={option.value}
                                         onBlur={handleBlur}
@@ -425,7 +434,7 @@ export const Combobox: FC<ComboboxProps> = ({
                         </div>
                         <div className="jkl-combobox__actions">
                             {selectedValue.length > 0 && (
-                                <IconButton onClick={() => onTagRemoveAll()}>
+                                <IconButton onClick={() => onTagRemoveAll()} aria-label="Fjern valgte elementer">
                                     <CloseIcon />
                                 </IconButton>
                             )}
