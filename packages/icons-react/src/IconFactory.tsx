@@ -9,7 +9,7 @@ export const makeIconComponent = (variants: IconVariants) => {
     const Icon: React.FC<IconProps> = ({ bold = false, className, variant = "inherit", ...rest }) => {
         const IconComponent = variants[bold ? "bold" : "regular"][variant];
 
-        return <IconComponent className={cn(className, "jkl-icon", `jkl-icon--${variant}`)} {...rest} />;
+        return <IconComponent className={cn(className, "jkl-icon", `jkl-icon--${variant}`)} aria-hidden {...rest} />;
     };
 
     return Icon;
