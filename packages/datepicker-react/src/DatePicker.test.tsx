@@ -383,7 +383,6 @@ describe("Datepicker", () => {
                 defaultValue="24.12.2019"
                 label="Hva er tid?" /* label skal være kompakt */
                 helpLabel="Tid er en flat sirkel" /* hjelpeteksten skal være kompakt */
-                extended /* extended for å vise inputfelt i kalenderen, som også skal være kompakte */
                 density="compact"
             />,
         );
@@ -499,20 +498,6 @@ describe("Datepicker", () => {
         it("default datepicker should be a11y compliant when closed", async () => {
             const { container } = setup(<DatePicker />);
             const results = await axe(container, {});
-
-            expect(results).toHaveNoViolations();
-        });
-
-        it("extended datepicker should be a11y compliant when expanded", async () => {
-            const { container } = setup(<DatePicker extended defaultShow />);
-            const results = await axe(container);
-
-            expect(results).toHaveNoViolations();
-        });
-
-        it("extended datepicker should be a11y compliant when closed", async () => {
-            const { container } = setup(<DatePicker extended />);
-            const results = await axe(container);
 
             expect(results).toHaveNoViolations();
         });

@@ -103,12 +103,6 @@ export interface DatePickerProps extends Omit<InputGroupProps, "label" | "childr
     invalid?: boolean;
     density?: Density;
     /**
-     * Vis et inputfelt og en select for å navigere mellom år og måneder, i stedet for piler frem og tilbake.
-     * Kan være nyttig om brukeren forventes å hoppe langt frem eller tilbake i tid.
-     * @default false
-     */
-    extended?: boolean;
-    /**
      * Om du ønsker andre labels for ukedagene kan du gi de her.
      */
     days?: string[];

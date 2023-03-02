@@ -141,14 +141,6 @@
         display: none;
     }
 
-    &--extended {
-        caption {
-            // Hide table caption (month name) in extended mode
-            // since month is shown in select above
-            @include jkl.screenreader-only;
-        }
-    }
-
     &::before {
         content: "";
         position: absolute;
@@ -171,7 +163,7 @@
         }
     }
 
-    // Navigation in normal non-extended mode
+    // Navigation
     // ===================================
 
     select {
@@ -207,8 +199,7 @@
         color: var(--jkl-calendar-text-color);
         width: jkl.rem(32px);
         border-radius: 50%;
-        font-weight: 800;
-        @include jkl.text-style("body");
+        font-weight: jkl.$typography-weight-bold;
 
         &--right {
             right: 0;
