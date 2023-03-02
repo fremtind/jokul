@@ -59,15 +59,17 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
 
 export default ComboboxExample;
 
-export const comboboxExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
-
-return (
+export const comboboxExampleCode = ({ choiceValues, boolValues }: ExampleComponentProps): string => `
     <Combobox
+    id="produsent"
+    name="prdusent"
     placeholder="Søk"
     variant="${choiceValues?.["Variant"]}"
-    label="Velg leverandører
+    helpLabel=${!!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`}
+    errorLabel=${!!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`}
+    label="Velg leverandører"
     items={[
-        { value: "google pixel", label: "Google Pixel" },
+        { value: "google pixel", label: "Google Pixel", tagLabel: "GP" },
         { value: "apple", label: "Apple" },
         { value: "samsung", label: "Samsung" },
         { value: "lg", label: "LG" },
@@ -77,12 +79,7 @@ return (
         { value: "sony", label: "Sony" },
         { value: "doro", label: "Doro" },
     ]}
-    value={selectedValue}
-    onChange={(value: any) => {
-        setSelectedValue(value);
-        console.log("Change: ", value);
-    }}
+    value={selectedValues}
+    onChange={setSelectedValues}
     />
-)
-
 `;
