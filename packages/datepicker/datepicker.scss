@@ -200,17 +200,25 @@
         }
 
         &__button {
+            appearance: none;
+            @include jkl.reset-outline;
             @include jkl.text-style("small") {
                 font-weight: jkl.$typography-weight-bold;
             }
-            appearance: none;
-            width: fit-content;
             background-color: transparent;
             border: none;
             text-align: end;
+            height: jkl.rem(40px);
             margin: 0;
             padding: 0;
             padding-inline-end: jkl.rem(24px);
+
+            @include jkl.keyboard-navigation {
+                &:focus {
+                    outline: jkl.rem(2px) solid var(--jkl-calendar-focus-color);
+                    outline-offset: 1px;
+                }
+            }
         }
 
         &__chevron {
