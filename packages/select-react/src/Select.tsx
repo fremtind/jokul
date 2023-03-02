@@ -2,7 +2,7 @@ import { ValuePair, getValuePair, DataTestAutoId, Density } from "@fremtind/jkl-
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
-import { useId, useAnimatedHeight, usePreviousValue } from "@fremtind/jkl-react-hooks";
+import { useId, useAnimatedHeight, usePreviousValue, useListNavigation } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, {
     FocusEvent,
@@ -19,7 +19,6 @@ import React, {
     CSSProperties,
 } from "react";
 import { toLower, focusSelected } from "./select-utils";
-import { useListNavigation } from "./useListNavigation";
 
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
     /** Kreves av react-hook-form, det skjer ulike ting avhengig av om det er blur eller change */
