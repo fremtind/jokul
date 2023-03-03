@@ -111,11 +111,18 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                 'button.jkl-calendar__date:not([data-adjacent="true"]',
             );
 
+            const changeFocusTo = async (nextButton: HTMLButtonElement) => {
+                e?.setAttribute("tabindex", "-1");
+                nextButton.setAttribute("tabindex", "0");
+                nextButton.focus();
+            };
+
             buttons.forEach((el, i) => {
                 const newNodeKey = i + offsetDiff;
+
                 if (el == e) {
                     if (newNodeKey <= buttons.length - 1 && newNodeKey >= 0) {
-                        (buttons[newNodeKey] as HTMLButtonElement).focus();
+                        changeFocusTo(buttons[newNodeKey]);
                     } else if (offsetDiff < 0) {
                         if (isBackDisabled({ calendars, minDate })) {
                             return;
@@ -135,7 +142,9 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                         );
                         // + - = -
                         if (newButtons[newButtons.length + newNodeKey]) {
-                            newButtons[newButtons.length + newNodeKey].focus();
+                            // Sørg for at ikke både 1. i måneden og valgt dag er fokuserbare
+                            newButtons[0].setAttribute("tabindex", "-1");
+                            changeFocusTo(newButtons[newButtons.length + newNodeKey]);
                         }
                     } else {
                         if (isForwardDisabled({ calendars, maxDate })) {
@@ -157,7 +166,9 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                         // NewNodeKey er basert på forrige måneds liste med knapper. For at verdien skal bli
                         // riktig i vår nye måned må vi trekke fra anntal dager fra forrige måned.
                         if (newButtons[newNodeKey - buttons.length]) {
-                            newButtons[newNodeKey - buttons.length].focus();
+                            // Sørg for at ikke både 1. i måneden og valgt dag er fokuserbare
+                            newButtons[0].setAttribute("tabindex", "-1");
+                            changeFocusTo(newButtons[newNodeKey - buttons.length]);
                         }
                     }
                 }
@@ -166,7 +177,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         [handleOffsetChanged, calendarPaddingRef, offset, calendars, maxDate, minDate],
     );
 
-    const onArrowNavigation = useCallback(
+    const handleArrowNavigation = useCallback(
         (event: React.KeyboardEvent) => {
             switch (event.key) {
                 case "ArrowUp":
@@ -192,20 +203,26 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         [doFocusChange],
     );
 
-    const handleTabOutside = useCallback(
-        (event: React.KeyboardEvent) => {
-            if (event.key === "Tab") {
-                // Shift + Tab flytter fokus til månedsvelger, noe vi ikke bryr oss om
-                if (event.shiftKey) {
-                    return;
-                }
-                // Når brukeren trykker på Tab fra en fokusert dato ønsker vi å lukke kalenderen
-                // og flytte fokus tilbake til IconButton
-                onTabOutside(event);
-            }
-        },
-        [onTabOutside],
-    );
+    const handleTabInside: React.KeyboardEventHandler = useCallback((event) => {
+        if (event.key !== "Tab") return;
+
+        const focusableElements = calendarPaddingRef.current?.querySelectorAll<HTMLElement>(
+            'button:not([disabled]):not([tabindex="-1"]), select',
+        );
+
+        if (!focusableElements) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (!event.shiftKey && document.activeElement === lastElement) {
+            firstElement.focus();
+            event.preventDefault();
+        } else if (event.shiftKey && document.activeElement === firstElement) {
+            lastElement.focus();
+            event.preventDefault();
+        }
+    }, []);
 
     /// Extended variant events
 
@@ -272,7 +289,9 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
             })}
             data-testid="jkl-calendar"
         >
-            <div className="jkl-calendar__padding" ref={calendarPaddingRef}>
+            {/* Vi lytter på på trykk på Tab inne i kalenderen for å håndtere fokus */}
+            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+            <div className="jkl-calendar__padding" ref={calendarPaddingRef} onKeyDown={handleTabInside}>
                 {calendars.map((calendar) => (
                     <>
                         <fieldset className="jkl-calendar-controls">
@@ -336,9 +355,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                     ))}
                                 </tr>
                             </thead>
-                            {/* The <tbody> element handles keyboard events that bubble up from <button> elements inside */}
-                            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-element-interactions */}
-                            <tbody data-testid="jkl-datepicker-dates" onKeyDown={onArrowNavigation}>
+                            <tbody data-testid="jkl-datepicker-dates">
                                 {calendar.weeks.map((week, weekIndex) => (
                                     <tr key={`${calendar.month}${calendar.year}${weekIndex}`}>
                                         {week.map((dateInfo, index) => {
@@ -361,7 +378,9 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                                 selectedDate.getFullYear() === shownYear;
                                             const isFocusableDate =
                                                 (isSelectedMonth && selected) ||
-                                                (!isSelectedMonth && date.getDate() === 1);
+                                                (!isSelectedMonth &&
+                                                    date.getMonth() === shownMonth &&
+                                                    date.getDate() === 1);
 
                                             return (
                                                 <td key={key}>
@@ -378,7 +397,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                                         aria-current={today ? "date" : undefined}
                                                         data-adjacent={prevMonth || nextMonth ? "true" : undefined}
                                                         disabled={!selectable}
-                                                        onKeyDown={handleTabOutside}
+                                                        onKeyDown={handleArrowNavigation}
                                                     >
                                                         <span aria-hidden="true">{date.getDate()}</span>
                                                     </button>
