@@ -1,0 +1,27 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-calendar-table {
+    // Calendar table heading (weekday names)
+    // ======================================
+
+    th {
+        @include jkl.text-style("small");
+        padding-bottom: var(--jkl-spacing-8);
+    }
+
+    // Calendar table styles
+    // =====================
+
+    td {
+        text-align: center;
+    }
+
+    td + td,
+    th + th {
+        padding-left: jkl.rem(4px); // space between columns
+    }
+
+    tr + tr > td {
+        padding-top: jkl.rem(4px); // space between rows
+    }
+}

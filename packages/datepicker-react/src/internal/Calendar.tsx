@@ -108,8 +108,9 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
 
             const e = document.activeElement;
             const buttons = calendarPaddingRef.current.querySelectorAll<HTMLButtonElement>(
-                'button.jkl-calendar__date:not([data-adjacent="true"]',
+                'button.jkl-calendar-date-button:not([data-adjacent="true"]',
             );
+            console.log(buttons);
 
             const changeFocusTo = async (nextButton: HTMLButtonElement) => {
                 e?.setAttribute("tabindex", "-1");
@@ -138,7 +139,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             return;
                         }
                         const newButtons = calendarPaddingRef.current.querySelectorAll<HTMLButtonElement>(
-                            'button.jkl-calendar__date:not([data-adjacent="true"]',
+                            'button.jkl-calendar-date-button:not([data-adjacent="true"]',
                         );
                         // + - = -
                         if (newButtons[newButtons.length + newNodeKey]) {
@@ -161,7 +162,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             return;
                         }
                         const newButtons = calendarPaddingRef.current.querySelectorAll<HTMLButtonElement>(
-                            'button.jkl-calendar__date:not([data-adjacent="true"]',
+                            'button.jkl-calendar-date-button:not([data-adjacent="true"]',
                         );
                         // NewNodeKey er basert på forrige måneds liste med knapper. For at verdien skal bli
                         // riktig i vår nye måned må vi trekke fra anntal dager fra forrige måned.
@@ -294,28 +295,28 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
             <div className="jkl-calendar__padding" ref={calendarPaddingRef} onKeyDown={handleTabInside}>
                 {calendars.map((calendar) => (
                     <>
-                        <fieldset className="jkl-calendar-controls">
-                            <div className="jkl-calendar-controls__arrows">
+                        <fieldset className="jkl-calendar-navigation">
+                            <div>
                                 <button
                                     {...getBackProps({ calendars })}
-                                    className="jkl-calendar__month-button"
+                                    className="jkl-calendar-navigation__arrow"
                                     type="button"
                                 >
                                     <ArrowLeftIcon bold />
                                 </button>
                                 <button
                                     {...getForwardProps({ calendars })}
-                                    className="jkl-calendar__month-button jkl-calendar__month-button--right"
+                                    className="jkl-calendar-navigation__arrow"
                                     type="button"
                                 >
                                     <ArrowRightIcon bold />
                                 </button>
                             </div>
                             <div>
-                                <div className="jkl-calendar-month-selector">
+                                <div className="jkl-calendar-navigation-dropdown">
                                     <select
                                         onChange={handleMonthChange}
-                                        className="jkl-calendar-month-selector__button"
+                                        className="jkl-calendar-navigation-dropdown__select"
                                         aria-label={monthLabel}
                                         value={shownMonth.toString()}
                                     >
@@ -325,12 +326,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                             </option>
                                         ))}
                                     </select>
-                                    <ChevronDownIcon bold className="jkl-calendar-month-selector__chevron" />
+                                    <ChevronDownIcon bold className="jkl-calendar-navigation-dropdown__chevron" />
                                 </div>
-                                <div className="jkl-calendar-year-selector">
+                                <div className="jkl-calendar-navigation-dropdown">
                                     <select
                                         onChange={handleYearChange}
-                                        className="jkl-calendar-year-selector__button"
+                                        className="jkl-calendar-navigation-dropdown__select"
                                         aria-label={yearLabel}
                                         value={shownYear.toString()}
                                     >
@@ -340,11 +341,15 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                             </option>
                                         ))}
                                     </select>
-                                    <ChevronDownIcon bold className="jkl-calendar-month-selector__chevron" />
+                                    <ChevronDownIcon bold className="jkl-calendar-navigation-dropdown__chevron" />
                                 </div>
                             </div>
                         </fieldset>
-                        <table key={`${calendar.month}${calendar.year}`} data-testid="jkl-datepicker-calendar">
+                        <table
+                            className="jkl-calendar-table"
+                            key={`${calendar.month}${calendar.year}`}
+                            data-testid="jkl-datepicker-calendar"
+                        >
                             <caption className="jkl-sr-only">
                                 {months[calendar.month]}, {calendar.year}
                             </caption>
@@ -389,7 +394,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                                             dateObj: dateInfo,
                                                         })}
                                                         type="button"
-                                                        className="jkl-calendar__date"
+                                                        className="jkl-calendar-date-button"
                                                         tabIndex={isFocusableDate ? 0 : -1}
                                                         aria-label={`${date.getDate()}. ${months[
                                                             date.getMonth()
