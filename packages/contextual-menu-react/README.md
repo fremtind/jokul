@@ -14,9 +14,11 @@ import { ContextualMenu } from "@fremtind/jkl-contextual-menu-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-contextual-menu/contextual-menu.min.css";
+import "@fremtind/jkl-icons/icons.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-contextual-menu/contextual-menu";
+@use "@fremtind/jkl-icons/icons";
 ```
