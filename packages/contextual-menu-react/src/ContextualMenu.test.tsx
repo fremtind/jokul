@@ -1,8 +1,10 @@
 import { DotsIcon } from "@fremtind/jkl-icons-react";
 import { render, RenderOptions } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
 import React from "react";
 import { ContextualMenu } from "./ContextualMenu";
+import { ContextualMenuDivider } from "./ContextualMenuDivider";
 import { ContextualMenuItem } from "./ContextualMenuItem";
 import { ContextualMenuTriggerButton } from "./ContextualMenuTriggerButton";
 
@@ -91,5 +93,78 @@ describe("ContextualMenu", () => {
 
         const ekspandert = await findByRole("menuitem", { name: "Ekspandert" });
         expect(ekspandert).toBeInTheDocument();
+    });
+
+    test("should pass jest-axe tests in default state", async () => {
+        const { container } = setup(
+            <ContextualMenu
+                initialPlacement="bottom-start"
+                triggerElement={
+                    <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+                }
+            >
+                <ContextualMenuItem>Menyvalg</ContextualMenuItem>
+            </ContextualMenu>,
+        );
+
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("should pass jest-axe tests when open", async () => {
+        const { getByRole, container, user } = setup(
+            <ContextualMenu
+                initialPlacement="bottom-start"
+                triggerElement={
+                    <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+                }
+            >
+                <ContextualMenuItem>Menyvalg</ContextualMenuItem>
+                <ContextualMenuDivider />
+                <ContextualMenu
+                    openOnHover
+                    triggerElement={<ContextualMenuItem expandable>Ekspanderende</ContextualMenuItem>}
+                >
+                    <ContextualMenuItem>Ekspandert</ContextualMenuItem>
+                </ContextualMenu>
+            </ContextualMenu>,
+        );
+
+        await user.click(getByRole("button", { name: "En kontekstuell meny" }));
+        expect(getByRole("menuitem", { name: "Ekspanderende" })).toBeInTheDocument();
+
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
+    });
+
+    test("should pass jest-axe tests when hover submenu is open", async () => {
+        const { findByRole, getByRole, container, user } = setup(
+            <ContextualMenu
+                initialPlacement="bottom-start"
+                triggerElement={
+                    <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+                }
+            >
+                <ContextualMenuItem>Menyvalg</ContextualMenuItem>
+                <ContextualMenuDivider />
+                <ContextualMenu
+                    openOnHover
+                    triggerElement={<ContextualMenuItem expandable>Ekspanderende</ContextualMenuItem>}
+                >
+                    <ContextualMenuItem>Ekspandert</ContextualMenuItem>
+                </ContextualMenu>
+            </ContextualMenu>,
+        );
+
+        await user.click(getByRole("button", { name: "En kontekstuell meny" }));
+        await user.hover(getByRole("menuitem", { name: "Ekspanderende" }));
+        const ekspandert = await findByRole("menuitem", { name: "Ekspandert" });
+        expect(ekspandert).toBeInTheDocument();
+
+        const results = await axe(container);
+
+        expect(results).toHaveNoViolations();
     });
 });
