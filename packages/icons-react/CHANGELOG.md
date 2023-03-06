@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.1.0 (2023-03-06)
+
+### Bug Fixes
+
+- sørg for at ikke ikonene leses opp av skjermleser ([2034204](https://github.com/fremtind/jokul/commit/2034204232ca8dfefc38afa701df11ef9972b0bc))
+
+### Features
+
+- legg til ny versjon av error-ikonene ([d2842ea](https://github.com/fremtind/jokul/commit/d2842eac9439600a108bd9a61986489d181f469f))
+
 # 7.0.0 (2023-01-30)
 
 ### Bug Fixes
