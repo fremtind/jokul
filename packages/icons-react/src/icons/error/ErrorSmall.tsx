@@ -2,11 +2,18 @@ import React, { FC, SVGAttributes } from "react";
 
 export const ErrorSmall: FC<SVGAttributes<SVGElement>> = (props) => (
     <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zM5.793 7.207L8.586 10l-2.793 2.793 1.414 1.414L10 11.414l2.793 2.793 1.414-1.414L11.414 10l2.793-2.793-1.414-1.414L10 8.586 7.207 5.793 5.793 7.207z"
-            fill="currentColor"
-        />
+        <g clipPath="url(#a)">
+            <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.25 6v5h1.5V6h-1.5zm.75 8.5a1 1 0 100-2 1 1 0 000 2z"
+                fill="currentColor"
+            />
+        </g>
+        <defs>
+            <clipPath id="a">
+                <path fill="#fff" d="M0 0h20v20H0z" />
+            </clipPath>
+        </defs>
     </svg>
 );
