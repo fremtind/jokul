@@ -18,8 +18,10 @@
             font-weight: jkl.$typography-weight-bold;
         }
         background-color: transparent;
+        border-radius: 0;
         border: none;
         text-align: end;
+        text-align-last: end;
         height: jkl.rem(40px);
         margin: 0;
         padding: 0;

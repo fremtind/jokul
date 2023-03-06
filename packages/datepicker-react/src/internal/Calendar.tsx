@@ -110,7 +110,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
             const buttons = calendarPaddingRef.current.querySelectorAll<HTMLButtonElement>(
                 'button.jkl-calendar-date-button:not([data-adjacent="true"]',
             );
-            console.log(buttons);
 
             const changeFocusTo = async (nextButton: HTMLButtonElement) => {
                 e?.setAttribute("tabindex", "-1");
@@ -238,15 +237,32 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                 return;
             }
 
-            const yearDiff = year - shownDate.getFullYear();
+            let offset = (year - shownDate.getFullYear()) * 12;
+            const expectedDate = new Date(shownDate.getFullYear(), shownDate.getMonth() + offset, shownDate.getDate());
+
+            // Pass på at vi ikke hopper forbi maks. eller min. dato
+            if (
+                maxDate &&
+                maxDate.getFullYear() === expectedDate.getFullYear() &&
+                maxDate.getMonth() < expectedDate.getMonth()
+            ) {
+                offset -= expectedDate.getMonth() - maxDate.getMonth();
+            } else if (
+                minDate &&
+                minDate.getFullYear() === expectedDate.getFullYear() &&
+                minDate.getMonth() > expectedDate.getMonth()
+            ) {
+                offset += minDate.getMonth() - expectedDate.getMonth();
+            }
+
             dispatch({
                 type: "ADD_OFFSET",
-                addedOffset: yearDiff * 12,
+                addedOffset: offset,
             });
 
             return;
         },
-        [shownDate],
+        [shownDate, minDate, maxDate],
     );
 
     const handleMonthChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
@@ -302,14 +318,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                     className="jkl-calendar-navigation__arrow"
                                     type="button"
                                 >
-                                    <ArrowLeftIcon bold />
+                                    <ArrowLeftIcon variant="medium" bold />
                                 </button>
                                 <button
                                     {...getForwardProps({ calendars })}
                                     className="jkl-calendar-navigation__arrow"
                                     type="button"
                                 >
-                                    <ArrowRightIcon bold />
+                                    <ArrowRightIcon variant="medium" bold />
                                 </button>
                             </div>
                             <div>
