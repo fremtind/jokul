@@ -31,10 +31,10 @@
     @include jkl.use-font-variables("jkl-contextual-menu-item");
     display: flex;
     align-items: center;
-    gap: var(--jkl-spacing-12);
+    gap: var(--jkl-spacing-8);
     width: 100%;
     height: var(--jkl-contextual-menu-item-height);
-    padding: jkl.rem(8px) jkl.rem(8px) jkl.rem(8px) jkl.rem(12px);
+    padding: var(--jkl-spacing-8);
 
     &__content {
         text-align: start;
