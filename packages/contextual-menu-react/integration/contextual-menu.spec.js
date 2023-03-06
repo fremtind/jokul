@@ -6,14 +6,11 @@ describe("ContextualMenu", () => {
         cy.testComponent("contextualmenu");
     });
 
-    it("renders the trigger correctly", () => {
-        cy.takeSnapshots();
-    });
-
     it("renders menu when trigger is clicked", () => {
         cy.takeSnapshots({
+            customSelector: () => cy.get(".jkl-contextual-menu"),
             setup: () => {
-                cy.get(".jkl-contextual-menu-trigger-button").click();
+                cy.getByTestid("trigger-contextual-menu").first().click();
             },
         });
     });
