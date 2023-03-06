@@ -11,7 +11,8 @@
     flex-flow: column nowrap;
     gap: jkl.$spacing-24;
     margin-bottom: jkl.$spacing-24;
-    transition: 150ms ease background-color;
+    @include jkl.motion("standard", "productive");
+    transition-property: background-color;
     background-color: transparent;
 
     &--enter {

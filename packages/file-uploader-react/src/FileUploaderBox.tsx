@@ -1,8 +1,8 @@
 import { useId } from "@fremtind/jkl-react-hooks";
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 
 export interface FileUploadValidation {
-    type: "TO_BIG" | "WRONG_FILE";
+    type: "TOO_BIG" | "WRONG_FORMAT";
     message: string;
 }
 
@@ -12,16 +12,22 @@ export interface FileUploadState {
     uploading: boolean;
 }
 
-interface Props {
+export interface FileUploaderBoxProps {
+    accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
+    maxSizeBytes?: number;
+    /**
+     * @default true
+     */
+    multiple?: boolean;
     onChange: (
         e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
         files: FileUploadState[],
     ) => void;
-    maxSizeBytes?: number;
-    accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
 }
 
-export function FileUploaderBox({ onChange, maxSizeBytes, accept = "" }: Props) {
+export const FileUploaderBox: FC<FileUploaderBoxProps> = (props) => {
+    const { onChange, maxSizeBytes, accept } = props;
+
     const id = useId("jkl-file-uploader-box");
 
     const [onDragClassName, setOnDragClassName] = useState<string>("");
@@ -59,11 +65,12 @@ export function FileUploaderBox({ onChange, maxSizeBytes, accept = "" }: Props) 
             }}
         >
             <div className="jkl-file-uploader-box__drag-text">Slipp filer her, eller</div>
-            <label className="jkl-button jkl-button--secondary" htmlFor={id}>
+            <label className="jkl-button jkl-button--primary" htmlFor={id}>
                 Legg til fil
             </label>
             {typeof maxSizeBytes !== "undefined" && (
                 <div className="jkl-file-uploader-box__max-size-text">
+                    {/* TODO: svaberg på dark mode */}
                     Maksimum filstørrelse er {bytesToReadable(maxSizeBytes)}
                 </div>
             )}
@@ -89,7 +96,7 @@ export function FileUploaderBox({ onChange, maxSizeBytes, accept = "" }: Props) 
             />
         </div>
     );
-}
+};
 
 export function bytesToReadable(bytes: number): string {
     if (bytes >= 100000) {
@@ -105,21 +112,24 @@ function validateFile(file: File, accept = "", maxSizeBytes?: number): FileUploa
     const acceptStrings = accept
         ?.split(",")
         .map((s) => s.toLowerCase())
-        .map((s) => s.replace("*", ""));
+        .map((s) => s.replaceAll("*", ""));
 
-    let isValidFile = acceptStrings.length == 0;
+    let isValidFormat = acceptStrings.length === 0;
 
-    isValidFile = acceptStrings.reduce(
+    isValidFormat = acceptStrings.reduce(
         (found, acceptString) => found || file.type.includes(acceptString) || file.name.endsWith(acceptString),
-        isValidFile,
+        isValidFormat,
     );
 
-    if (!isValidFile) {
-        return { type: "WRONG_FILE", message: "Feil filtype" };
+    if (!isValidFormat) {
+        return { type: "WRONG_FORMAT", message: `Filtypen ${file.type} støttes ikke` };
     }
 
     if (typeof maxSizeBytes != "undefined" && file.size > maxSizeBytes) {
-        return { type: "TO_BIG", message: "Filen er for stor" };
+        return {
+            type: "TOO_BIG",
+            message: `Filen er ${formatBytes(file.size)}, men kan maksimalt være ${formatBytes(maxSizeBytes)}`,
+        };
     }
 
     return undefined;

@@ -18,6 +18,7 @@ import "@fremtind/jkl-checkbox/checkbox.min.css";
 import "@fremtind/jkl-datepicker/datepicker.min.css";
 import "@fremtind/jkl-description-list/description-list.min.css";
 import "@fremtind/jkl-feedback/feedback.min.css";
+import "@fremtind/jkl-file-uploader/file-uploader.min.css";
 import "@fremtind/jkl-hamburger/hamburger.min.css";
 import "@fremtind/jkl-icon-button/icon-button.min.css";
 import "@fremtind/jkl-input-group/input-group.min.css";

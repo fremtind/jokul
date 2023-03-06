@@ -537,6 +537,35 @@ importers:
       '@fremtind/jkl-validators-util': link:../validators-util
       classnames: 2.3.2
 
+  packages/file-uploader:
+    specifiers:
+      '@fremtind/jkl-core': ^12.0.2
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/file-uploader-react:
+    specifiers:
+      '@fremtind/jkl-button-react': ^13.0.0
+      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-file-uploader': ^1.0.0-alpha.0
+      '@fremtind/jkl-icon-button-react': ^3.0.0
+      '@fremtind/jkl-icons-react': ^7.0.0
+      '@fremtind/jkl-loader-react': ^11.0.0
+      '@fremtind/jkl-react-hooks': ^11.0.0
+      cors: ^2.8.5
+      multer: 1.4.5-lts.1
+    dependencies:
+      '@fremtind/jkl-button-react': link:../button-react
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-file-uploader': link:../file-uploader
+      '@fremtind/jkl-icon-button-react': link:../icon-button-react
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-loader-react': link:../loader-react
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+    devDependencies:
+      cors: 2.8.5
+      multer: 1.4.5-lts.1
+
   packages/footer:
     specifiers:
       '@fremtind/jkl-core': ^12.0.3
@@ -988,6 +1017,7 @@ importers:
       '@fremtind/jkl-description-list-react': ^7.0.3
       '@fremtind/jkl-expand-button-react': ^5.0.7
       '@fremtind/jkl-feedback-react': ^16.0.10
+      '@fremtind/jkl-file-uploader-react': ^1.0.0-alpha.0
       '@fremtind/jkl-footer-react': ^5.0.8
       '@fremtind/jkl-formatters-util': ^4.0.13
       '@fremtind/jkl-hamburger-react': ^11.0.4
@@ -1059,6 +1089,7 @@ importers:
       '@fremtind/jkl-description-list-react': link:../packages/description-list-react
       '@fremtind/jkl-expand-button-react': link:../packages/expand-button-react
       '@fremtind/jkl-feedback-react': link:../packages/feedback-react
+      '@fremtind/jkl-file-uploader-react': link:../packages/file-uploader-react
       '@fremtind/jkl-footer-react': link:../packages/footer-react
       '@fremtind/jkl-formatters-util': link:../packages/formatters-util
       '@fremtind/jkl-hamburger-react': link:../packages/hamburger-react
@@ -6849,7 +6880,6 @@ packages:
 
   /append-field/1.0.0:
     resolution: {integrity: sha512-klpgFSWLW1ZEs8svjfb7g4qWY0YS5imI82dTg+QahUvJ8YqAY0P10Uk8tTyh9ZGuYEZEMaeJYCF5BFuX552hsw==}
-    dev: false
 
   /application-config-path/0.1.1:
     resolution: {integrity: sha512-zy9cHePtMP0YhwG+CfHm0bgwdnga2X3gZexpdCwEj//dpb+TKajtiC8REEUJUSq6Ab4f9cgNy2l8ObXzCXFkEw==}
@@ -7733,7 +7763,6 @@ packages:
     engines: {node: '>=10.16.0'}
     dependencies:
       streamsearch: 1.1.0
-    dev: false
 
   /byte-size/7.0.1:
     resolution: {integrity: sha512-crQdqyCwhokxwV1UyDzLZanhkugAgft7vt0qbbdt60C6Zf3CAiGmtUCylbtYwrU6loOUw3euGrNtW1J651ot1A==}
@@ -8784,7 +8813,6 @@ packages:
     dependencies:
       object-assign: 4.1.1
       vary: 1.1.2
-    dev: false
 
   /cosmiconfig-typescript-loader/4.3.0_k32j2iwrrwkbro5edqflmrijke:
     resolution: {integrity: sha512-NTxV1MFfZDLPiBMjxbHRwSh5LaLcPMwNdCutmnHJCKoVnlvldPWlllonKwrsRJ5pYZBIBGRWWU2tfvzxgeSW5Q==}
@@ -16542,7 +16570,6 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.7
-    dev: false
 
   /mkdirp/1.0.4:
     resolution: {integrity: sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==}
@@ -16619,7 +16646,6 @@ packages:
       object-assign: 4.1.1
       type-is: 1.6.18
       xtend: 4.0.2
-    dev: false
 
   /multimatch/5.0.0:
     resolution: {integrity: sha512-ypMKuglUrZUD99Tk2bUQ+xNQj43lPEfAeX2o9cTteAmShXy2VHDJpuwu1o0xqoKCt9jLVAvwyFKdLTPXKAfJyA==}
@@ -20290,7 +20316,6 @@ packages:
   /streamsearch/1.1.0:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
     engines: {node: '>=10.0.0'}
-    dev: false
 
   /strict-uri-encode/2.0.0:
     resolution: {integrity: sha512-QwiXZgpRcKkhTj2Scnn++4PKtWsH0kpzZ62L2R6c/LUVYv7hVnZqcg2+sMuT6R7Jusu1vviK/MFsu6kNJfWlEQ==}
