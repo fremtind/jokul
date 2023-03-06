@@ -38,6 +38,7 @@
     "packageManager": "pnpm@7.21.0",
     "pnpm": {
         "overrides": {
+            "axe-core": "^4.6.3",
             "chokidar": "^3.5.3",
             "cz-lerna-changelog>shelljs": "^0.8.5",
             "glob-stream>glob-parent": "^5.1.2",

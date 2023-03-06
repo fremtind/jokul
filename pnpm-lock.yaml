@@ -1,24 +1,25 @@
 lockfileVersion: 5.4
 
 overrides:
+  axe-core: ^4.6.3
   chokidar: ^3.5.3
   cz-lerna-changelog>shelljs: ^0.8.5
   glob-stream>glob-parent: ^5.1.2
   resolve-url-loader>loader-utils: ^1.4.2
 
 patchedDependencies:
-  gulp-sass@5.1.0:
-    hash: z2duu6muooayewj4qeaynjtnaa
-    path: patches/gulp-sass@5.1.0.patch
-  cz-lerna-changelog@2.0.3:
-    hash: rwhr2kgabnya2gbdqqa3lsmu4i
-    path: patches/cz-lerna-changelog@2.0.3.patch
   kbar@0.1.0-beta.39:
     hash: xz5kcti6rhkbtvejisfylwqd7u
     path: patches/kbar@0.1.0-beta.39.patch
   '@frsource/cypress-plugin-visual-regression-diff@3.1.6':
     hash: e6umj5xys57o3rbg6x3acuktgm
     path: patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch
+  cz-lerna-changelog@2.0.3:
+    hash: rwhr2kgabnya2gbdqqa3lsmu4i
+    path: patches/cz-lerna-changelog@2.0.3.patch
+  gulp-sass@5.1.0:
+    hash: z2duu6muooayewj4qeaynjtnaa
+    path: patches/gulp-sass@5.1.0.patch
 
 importers:
 
@@ -5919,7 +5920,7 @@ packages:
     resolution: {integrity: sha512-b8WDIdoeKtr/JDJ2+QjFXMuS8UhfdMA6+15Z5KjjIie3jQrSXD9KZWMSQxc0nPtx7L9rIFKdiDpQk+m7s4a/8w==}
     dependencies:
       '@types/jest': 29.2.5
-      axe-core: 3.5.6
+      axe-core: 4.6.3
     dev: true
 
   /@types/jest/29.2.5:
@@ -7176,18 +7177,8 @@ packages:
     resolution: {integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==}
     dev: true
 
-  /axe-core/3.5.6:
-    resolution: {integrity: sha512-LEUDjgmdJoA3LqklSTwKYqkjcZ4HKc4ddIYGSAiSkr46NTjzg2L9RNB+lekO9P7Dlpa87+hBtzc2Fzn/+GUWMQ==}
-    engines: {node: '>=4'}
-    dev: true
-
-  /axe-core/4.5.1:
-    resolution: {integrity: sha512-1exVbW0X1O/HSr/WMwnaweyqcWOgZgLiVxdLG34pvSQk4NlYQr9OUy0JLwuhFfuVNQzzqgH57eYzkFBCb3bIsQ==}
-    engines: {node: '>=4'}
-    dev: true
-
-  /axe-core/4.6.1:
-    resolution: {integrity: sha512-lCZN5XRuOnpG4bpMq8v0khrWtUOn+i8lZSb6wHZH56ZfbIEv6XwJV84AAueh9/zi7qPVJ/E4yz6fmsiyOmXR4w==}
+  /axe-core/4.6.3:
+    resolution: {integrity: sha512-/BQzOX780JhsxDnPpH4ZiyrJAzcd8AfzFPkv+89veFSr1rcMjuq2JDCwypKaPeB6ljHp9KjXhPpjgCvQlWYuqg==}
     engines: {node: '>=4'}
 
   /axios/0.21.4_debug@3.2.7:
@@ -10455,7 +10446,7 @@ packages:
       aria-query: 4.2.2
       array-includes: 3.1.6
       ast-types-flow: 0.0.7
-      axe-core: 4.6.1
+      axe-core: 4.6.3
       axobject-query: 2.2.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
@@ -10477,7 +10468,7 @@ packages:
       aria-query: 4.2.2
       array-includes: 3.1.6
       ast-types-flow: 0.0.7
-      axe-core: 4.6.1
+      axe-core: 4.6.3
       axobject-query: 2.2.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
@@ -14336,7 +14327,7 @@ packages:
     resolution: {integrity: sha512-y+TH+GGH7zOYABWv5IrtGx4ove1dYcVg9Nv9pJZcqKQ+2goJCkAYoHAqergPaV/y9hh1Q9vZykjSXC/2U0Mjyg==}
     engines: {node: '>= 14.0.0'}
     dependencies:
-      axe-core: 4.5.1
+      axe-core: 4.6.3
       chalk: 4.1.2
       jest-matcher-utils: 29.2.2
       lodash.merge: 4.6.2
