@@ -13,6 +13,7 @@ import {
     isForwardDisabled,
     getYearSelectOptions,
     getMonthSelectOptions,
+    DateInfo,
 } from "./utils";
 
 interface CalendarProps
@@ -224,6 +225,33 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         }
     }, []);
 
+    const isFocusableDate = useCallback(
+        (dateInfo: DateInfo) => {
+            const { date, selected, selectable, prevMonth, nextMonth } = dateInfo;
+
+            // Datoen kan ikke velges
+            if (!selectable) {
+                return false;
+            }
+            // Datoen er valgt dato
+            if (selected) {
+                return true;
+            }
+            // Datoen er første valgbare dato
+            if (date.toString() === minDate?.toString()) {
+                return true;
+            }
+
+            // Datoen er første i måneden som vises
+            if (!prevMonth && !nextMonth && shownDate.getFullYear() === date.getFullYear() && date.getDate() === 1) {
+                return true;
+            }
+
+            return false;
+        },
+        [shownDate, minDate],
+    );
+
     /// Extended variant events
 
     const handleYearChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
@@ -391,17 +419,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                                     </td>
                                                 );
                                             }
-                                            const { date, selected, selectable, today, prevMonth, nextMonth } =
-                                                dateInfo;
-                                            const isSelectedMonth =
-                                                selectedDate &&
-                                                selectedDate.getMonth() === shownMonth &&
-                                                selectedDate.getFullYear() === shownYear;
-                                            const isFocusableDate =
-                                                (isSelectedMonth && selected) ||
-                                                (!isSelectedMonth &&
-                                                    date.getMonth() === shownMonth &&
-                                                    date.getDate() === 1);
+                                            const { date, selectable, today, prevMonth, nextMonth } = dateInfo;
 
                                             return (
                                                 <td key={key}>
@@ -411,7 +429,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                                         })}
                                                         type="button"
                                                         className="jkl-calendar-date-button"
-                                                        tabIndex={isFocusableDate ? 0 : -1}
+                                                        tabIndex={isFocusableDate(dateInfo) ? 0 : -1}
                                                         aria-label={`${date.getDate()}. ${months[
                                                             date.getMonth()
                                                         ].toLowerCase()}`}
