@@ -390,33 +390,35 @@ export const Combobox: FC<ComboboxProps> = ({
                             tabIndex={-1}
                         >
                             {getOptions().map((option, i) => (
-                                <>
-                                    <button
-                                        key={`${listId}-${option.value}`}
-                                        type="button"
-                                        id={`${listId}__${option.value}`}
-                                        aria-selected={isSelected(option)}
-                                        role="option"
-                                        value={option.value}
-                                        onBlur={handleBlur}
-                                        className={`jkl-combobox__option ${
-                                            isSelected(option) && "jkl-combobox__option--selected"
-                                        }`}
-                                        data-testid="jkl-combobox__option"
-                                        data-testautoid={`jkl-combobox__option-${i}`}
-                                        onFocus={handleFocus}
-                                        onKeyDown={handleOptionOnKeyDown}
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            onItemClick(option.value);
-                                            setSearchValue("");
-                                        }}
-                                        onMouseOver={handleMouseOver}
-                                    >
-                                        {option.label}
-                                        {isSelected(option) ? <CheckIcon /> : null}
-                                    </button>
-                                </>
+                                <button
+                                    key={`${listId}-${option.value}`}
+                                    type="button"
+                                    id={`${listId}__${option.value}`}
+                                    aria-selected={isSelected(option)}
+                                    role="option"
+                                    value={option.value}
+                                    onBlur={handleBlur}
+                                    className={`jkl-combobox__option ${
+                                        isSelected(option) && "jkl-combobox__option--selected"
+                                    }`}
+                                    data-testid="jkl-combobox__option"
+                                    data-testautoid={`jkl-combobox__option-${i}`}
+                                    onFocus={handleFocus}
+                                    onKeyDown={handleOptionOnKeyDown}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        onItemClick(option.value);
+                                        setSearchValue("");
+                                    }}
+                                    onMouseOver={handleMouseOver}
+                                >
+                                    {option.label}
+                                    {isSelected(option) ? (
+                                        <span>
+                                            <CheckIcon />{" "}
+                                        </span>
+                                    ) : null}
+                                </button>
                             ))}
                         </div>
                         <div className="jkl-combobox__actions">
