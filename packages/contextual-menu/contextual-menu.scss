@@ -1,7 +1,6 @@
 @use "~@fremtind/jkl-core/jkl";
 @use "contextual-menu-item";
 @use "contextual-menu-divider";
-@use "contextual-menu-trigger-button";
 
 @include jkl.light-mode-variables {
     --jkl-contextual-menu-bg-color: #{jkl.$color-hvit};
@@ -16,53 +15,19 @@
 }
 
 .jkl-contextual-menu {
-    &__trigger-btn {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        margin: 0;
-        padding: 0;
-        background-color: transparent;
-        user-select: none;
-        cursor: pointer;
+    width: 100%;
+    max-width: jkl.rem(336px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    background-color: var(--jkl-contextual-menu-bg-color);
+    box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
+    border-radius: jkl.rem(2px);
+    border: var(--jkl-contextual-menu-border);
+    z-index: jkl.$z-index--dropdown;
 
-        // Sørg for stort nok touch target
-        min-width: 40px;
-        min-height: 40px;
-
-        @include jkl.keyboard-navigation {
-            &:focus {
-                outline: jkl.rem(2px) solid var(--jkl-contextual-menu-trigger-focus-color);
-                outline-offset: jkl.rem(2px);
-            }
-        }
-
-        &:hover {
-            background: var(--jkl-contextual-menu-trigger-button-hover-bg-color);
-        }
-
-        &:focus-visible {
-            outline: none;
-        }
-    }
-
-    &__menu {
-        width: 100%;
-        max-width: jkl.rem(336px);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        flex-wrap: nowrap;
-        background-color: var(--jkl-contextual-menu-bg-color);
-        box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
-        border-radius: jkl.rem(2px);
-        border: var(--jkl-contextual-menu-border);
-        z-index: jkl.$z-index--dropdown;
-
-        &:focus-visible {
-            outline: none;
-        }
+    &:focus-visible {
+        outline: none;
     }
 }

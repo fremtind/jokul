@@ -102,38 +102,21 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
     return (
         <FloatingNode id={nodeId}>
             {React.isValidElement(triggerElement) &&
-            (triggerElement.type === "button" || ReactIs.isForwardRef(triggerElement)) ? (
-                // Dersom trigger-elementet er en knapp, sett riktige egenskaper på det
-                React.cloneElement(triggerElement, {
-                    ...getReferenceProps({
-                        ...triggerProps,
-                        ref: referenceRef,
-                        role: isNested ? "menuitem" : undefined,
-                        "aria-controls": contextualMenuId,
-                        onClick(event) {
-                            event.stopPropagation();
-                        },
-                    }),
-                })
-            ) : (
-                // Ellers, sett elementet inne i en knapp med riktige egenskaper
-                <button
-                    type="button"
-                    title={`${isOpen ? "Lukk" : "Vis"} meny`}
-                    className="jkl-contextual-menu__trigger-btn"
-                    {...getReferenceProps({
-                        ...triggerProps,
-                        ref: referenceRef,
-                        role: isNested ? "menuitem" : undefined,
-                        "aria-controls": contextualMenuId,
-                        onClick(event) {
-                            event.stopPropagation();
-                        },
-                    })}
-                >
-                    {triggerElement}
-                </button>
-            )}
+            (triggerElement.type === "button" || ReactIs.isForwardRef(triggerElement))
+                ? // Dersom trigger-elementet er en knapp, sett riktige egenskaper på det
+                  React.cloneElement(triggerElement, {
+                      ...getReferenceProps({
+                          ...triggerProps,
+                          ref: referenceRef,
+                          role: isNested ? "menuitem" : undefined,
+                          "aria-controls": contextualMenuId,
+                          onClick(event) {
+                              event.stopPropagation();
+                          },
+                      }),
+                  })
+                : // Ellers, rendre elementet as-is, uten interaktivitet. Krev en ferdig brukbar button for å åpne menyen.
+                  triggerElement}
             <AnimatePresence>
                 {isOpen && (
                     <FloatingFocusManager
@@ -146,7 +129,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                         returnFocus={!isNested}
                     >
                         <motion.div
-                            className="jkl-contextual-menu__menu"
+                            className="jkl-contextual-menu"
                             role="menu"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}

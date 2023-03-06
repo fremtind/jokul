@@ -20,7 +20,13 @@ import ContextualMenuExample, { contextualMenuExampleCode, contextualMenuExample
 
 Menyen inneholder et lite sett med handlinger, relatert til enten et område i bruker&shy;grensesnittet eller til konteksten brukeren befinner seg i. Grupper av tilhørende handlinger i menyen kan skilles fra hverandre med en skille&shy;linje.
 
-Menyen vises når brukeren interagerer med en trigger på siden ved hjelp av mus, tastatur eller berøring. Triggeren kan være et ikon, en tekst, eller en kombinasjon av disse. Sørg for at triggeren gir en god indikasjon til brukeren om at den åpner en meny.
+Menyen vises når brukeren interagerer med en trigger på siden ved hjelp av mus, tastatur eller berøring. Triggeren må være en type knapp:
+
+-   ikonknapp
+-   tekstknapp
+-   knapp med tekst og ikon
+
+Sørg for at triggeren gir en god indikasjon til brukeren om at den åpner en meny.
 
 Kontekstuelle menyer kan nøstes inni hverandre, men vi anbefaler å bruke maksimalt to nivåer. Bruk helst færre enn ti menypunkter i hver meny - som regel trengs langt færre enn det.
 
@@ -36,5 +42,5 @@ Bruk en kontekstuell meny når det finnes handlinger som er relevante for bruker
 ## Mulig innhold i en meny
 
 -   Tekst
--   Ikon+tekst
+-   Ikon og tekst
 -   Knapp > forskjellige interaktive elementer.

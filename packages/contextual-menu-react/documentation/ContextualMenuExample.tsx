@@ -1,10 +1,10 @@
+import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { CopyIcon, DotsIcon, InfoIcon } from "@fremtind/jkl-icons-react";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
 import { ContextualMenu } from "../src/ContextualMenu";
 import { ContextualMenuDivider } from "../src/ContextualMenuDivider";
 import { ContextualMenuItem } from "../src/ContextualMenuItem";
-import { ContextualMenuTriggerButton } from "../src/ContextualMenuTriggerButton";
 
 export const contextualMenuExampleKnobs: ExampleKnobsProps = {};
 export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
@@ -17,10 +17,9 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
             <ContextualMenu
                 initialPlacement="bottom-start"
                 triggerElement={
-                    <ContextualMenuTriggerButton
-                        description="En kontekstuell meny med eksempelvalg for å demonstrere mulighetene i komponenten"
-                        icon={<DotsIcon bold />}
-                    />
+                    <IconButton title="En kontekstuell meny med eksempelvalg for å demonstrere mulighetene i komponenten">
+                        <DotsIcon bold />
+                    </IconButton>
                 }
             >
                 <ContextualMenuItem icon={<InfoIcon />}>Menyvalg 1</ContextualMenuItem>
@@ -53,7 +52,9 @@ export const contextualMenuExampleCode: CodeExample = () => `
 <ContextualMenu
     initialPlacement="bottom-start"
     triggerElement={
-        <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+        <IconButton title="En kontekstuell meny med eksempelvalg for å demonstrere mulighetene i komponenten">
+            <DotsIcon bold />
+        </IconButton>
     }
 >
     <ContextualMenuItem icon={<InfoIcon />}>Menyvalg 1</ContextualMenuItem>

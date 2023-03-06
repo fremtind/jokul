@@ -383,6 +383,7 @@ importers:
       '@floating-ui/react-dom-interactions': ^0.12.0
       '@fremtind/jkl-contextual-menu': ^1.0.0-alpha.0
       '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-icon-button-react': ^3.0.3
       '@fremtind/jkl-icons-react': ^7.0.0
       '@fremtind/jkl-react-hooks': ^11.0.0
       '@types/react-is': ^17.0.3
@@ -400,6 +401,8 @@ importers:
       classnames: 2.3.2
       framer-motion: 7.10.3
       react-is: 18.2.0
+    devDependencies:
+      '@fremtind/jkl-icon-button-react': 3.0.3
 
   packages/cookie-consent:
     specifiers:
@@ -3026,6 +3029,41 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
     dev: false
+
+  /@fremtind/jkl-core/12.0.2:
+    resolution: {integrity: sha512-HJREQHRx6bdPx+IV8zXTGPRCLYCKnDQ9CeIcg3MPbe3oc13xoeqjgmjlT1aqbsfIYQ0T8nRFDeqiNo17KN51SA==}
+    peerDependencies:
+      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
+      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
+    dependencies:
+      classnames: 2.3.2
+    dev: true
+
+  /@fremtind/jkl-icon-button-react/3.0.3:
+    resolution: {integrity: sha512-nPR6eacnZismTk2SiTlEAVSCafMDO5F9MVdF/Ys8E4bO9wCOqZJHpgqm0tXCN+id7zNdZEeE3VC6hMJEL0Rhzw==}
+    peerDependencies:
+      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
+      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@fremtind/jkl-core': 12.0.2
+      '@fremtind/jkl-icon-button': 3.0.2
+      classnames: 2.3.2
+    dev: true
+
+  /@fremtind/jkl-icon-button/3.0.2:
+    resolution: {integrity: sha512-PbKehaeUqdV4wxze44YRMrKt1b/rzW7CZkFKuc+Rq+ERWPIpDUp2NuW8wgfXPxSMpjXvXLUwdNiDoEo2aMu8dQ==}
+    dependencies:
+      '@fremtind/jkl-core': 12.0.2
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+      - react
+      - react-dom
+    dev: true
 
   /@frsource/base64/1.0.4:
     resolution: {integrity: sha512-IphM1ro1cvV5CqJWzX/LvPJcUE26cwgt/zMtBdssvTrfSNhh9KjfS2VXTA8SivkvPHK1DsdPnoMoXitmx8c3Cg==}
@@ -8138,7 +8176,6 @@ packages:
 
   /classnames/2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
-    dev: false
 
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}

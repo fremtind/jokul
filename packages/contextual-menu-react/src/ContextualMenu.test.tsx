@@ -1,3 +1,4 @@
+import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { DotsIcon } from "@fremtind/jkl-icons-react";
 import { act, render, RenderOptions } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -6,7 +7,6 @@ import React from "react";
 import { ContextualMenu } from "./ContextualMenu";
 import { ContextualMenuDivider } from "./ContextualMenuDivider";
 import { ContextualMenuItem } from "./ContextualMenuItem";
-import { ContextualMenuTriggerButton } from "./ContextualMenuTriggerButton";
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
@@ -36,7 +36,9 @@ describe("ContextualMenu", () => {
             <ContextualMenu
                 initialPlacement="bottom-start"
                 triggerElement={
-                    <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+                    <IconButton title="En kontekstuell meny">
+                        <DotsIcon bold />
+                    </IconButton>
                 }
             >
                 <ContextualMenuItem>Menyvalg</ContextualMenuItem>
@@ -53,7 +55,9 @@ describe("ContextualMenu", () => {
             <ContextualMenu
                 initialPlacement="bottom-start"
                 triggerElement={
-                    <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+                    <IconButton title="En kontekstuell meny">
+                        <DotsIcon bold />
+                    </IconButton>
                 }
             >
                 <ContextualMenuItem>Menyvalg</ContextualMenuItem>
@@ -70,7 +74,9 @@ describe("ContextualMenu", () => {
             <ContextualMenu
                 initialPlacement="bottom-start"
                 triggerElement={
-                    <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+                    <IconButton title="En kontekstuell meny">
+                        <DotsIcon bold />
+                    </IconButton>
                 }
             >
                 <ContextualMenu
@@ -100,7 +106,9 @@ describe("ContextualMenu", () => {
             <ContextualMenu
                 initialPlacement="bottom-start"
                 triggerElement={
-                    <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+                    <IconButton title="En kontekstuell meny">
+                        <DotsIcon bold />
+                    </IconButton>
                 }
             >
                 <ContextualMenuItem>Menyvalg</ContextualMenuItem>
@@ -117,7 +125,9 @@ describe("ContextualMenu", () => {
             <ContextualMenu
                 initialPlacement="bottom-start"
                 triggerElement={
-                    <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+                    <IconButton title="En kontekstuell meny">
+                        <DotsIcon bold />
+                    </IconButton>
                 }
             >
                 <ContextualMenuItem>Menyvalg</ContextualMenuItem>
@@ -144,7 +154,9 @@ describe("ContextualMenu", () => {
             <ContextualMenu
                 initialPlacement="bottom-start"
                 triggerElement={
-                    <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+                    <IconButton title="En kontekstuell meny">
+                        <DotsIcon bold />
+                    </IconButton>
                 }
             >
                 <ContextualMenuItem>Menyvalg</ContextualMenuItem>

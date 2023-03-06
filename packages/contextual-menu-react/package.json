@@ -47,6 +47,9 @@
         "framer-motion": "^7.10.3",
         "react-is": "^18.2.0"
     },
+    "devDependencies": {
+        "@fremtind/jkl-icon-button-react": "^3.0.3"
+    },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
         "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
