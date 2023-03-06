@@ -3,19 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@4.0.2...@fremtind/jkl-expand-button@5.0.0) (2023-02-28)
+
+### Features
+
+-   arv fontstørrelse fra omgivelsene i ExpandButton ([d1fd1da](https://github.com/fremtind/jokul/commit/d1fd1da2061f345cb912c941149faa660482f751))
+
+### BREAKING CHANGES
+
+-   CSS-variablene --jkl-expand-button-\* som styrer fontstørrelser og
+    størrelser på ikonet er ikke lenger brukt. Størrelsen arves i
+    stedet utenfra. Sett fontstørrelse på parent, eller med en egen
+    klasse på samme element som jkl-expand-button.
+
 # 4.0.0 (2023-01-30)
 
 ### Bug Fixes
 
-- juster plassering av pila etter nye SVGer ([7999757](https://github.com/fremtind/jokul/commit/7999757e987d79324f8bb1fc67cc0913466705df))
+-   juster plassering av pila etter nye SVGer ([7999757](https://github.com/fremtind/jokul/commit/7999757e987d79324f8bb1fc67cc0913466705df))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 3.0.11 (2022-12-20)
 

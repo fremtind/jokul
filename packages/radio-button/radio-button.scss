@@ -256,4 +256,10 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             }
         }
     }
+
+    + .jkl-form-support-label {
+        margin-left: calc(var(--jkl-radio-button-size) + jkl.$spacing-8);
+        margin-top: jkl.rem(-6px);
+        margin-bottom: jkl.$spacing-8;
+    }
 }

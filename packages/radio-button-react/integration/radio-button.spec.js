@@ -10,6 +10,7 @@ context("Radio button", () => {
         const kontaktmetode = 0;
         const fantDuFram = 1;
         const prisvisning = 2;
+        const hjelpetekst = 3;
 
         cy.takeSnapshots({
             setup: () => {
@@ -53,6 +54,10 @@ context("Radio button", () => {
                 cy.setDensity("comfortable");
             },
             eq: fantDuFram,
+        });
+
+        cy.takeSnapshots({
+            eq: hjelpetekst,
         });
     });
 });

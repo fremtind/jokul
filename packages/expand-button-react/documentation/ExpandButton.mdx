@@ -6,7 +6,12 @@ group: knapper
 keywords: expandsection ekspanderbar
 ---
 
-import ExpandExamples, { expandExamplesProps, expandExamplesCode } from "./ExpandExamples";
+import { ExpandExamples, expandExamplesProps, expandExamplesCode } from "./ExpandExamples";
+import {
+    ExpandButtonSizesExample,
+    expandButtonSizesExampleKnobs,
+    expandButtonSizesExampleCode,
+} from "./ExpandButtonSizesExample";
 
 <Ingress>
     Med en ExpandButton kan vi presentere mye innhold på liten plass. Knappen kan brukes frittstående, og styre
@@ -33,6 +38,17 @@ Som hovedregel skal ekspanderingen av innhold skje i retning nedover. Et unntak 
 <PortalImage
     src="/assets/documentation/expand-button/expand-button-footer-expand-up.png"
     caption="Et eksempel på en footer med innhold som kan ekspanderes. Øverst ser vi lukket tilstand, med pil pekende oppover. Under ser vi åpen tilstand, med pilen pekende nedover."
+/>
+
+### Andre fonstørrelser
+
+`ExpandButton` arver størrelsen sin fra omgivelsene. Om du ønsker kan du sette en annen fontstørrelse, enten med en egen klasse, eller med en av utility-klassene i Jøkul.
+
+<ComponentExample
+    title="Ulike størrelser"
+    component={ExpandButtonSizesExample}
+    knobs={expandButtonSizesExampleKnobs}
+    codeExample={expandButtonSizesExampleCode}
 />
 
 ## Tilgjengelighet
