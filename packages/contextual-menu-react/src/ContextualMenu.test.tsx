@@ -1,5 +1,5 @@
 import { DotsIcon } from "@fremtind/jkl-icons-react";
-import { render, RenderOptions } from "@testing-library/react";
+import { act, render, RenderOptions } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
@@ -160,8 +160,11 @@ describe("ContextualMenu", () => {
 
         await user.click(getByRole("button", { name: "En kontekstuell meny" }));
         await user.hover(getByRole("menuitem", { name: "Ekspanderende" }));
+
         const ekspandert = await findByRole("menuitem", { name: "Ekspandert" });
         expect(ekspandert).toBeInTheDocument();
+
+        await act(async () => {}); // La @floating-ui posisjonere undermenyen ferdig (https://floating-ui.com/docs/react#testing)
 
         const results = await axe(container);
 
