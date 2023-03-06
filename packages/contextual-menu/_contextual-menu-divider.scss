@@ -10,7 +10,7 @@
 
 .jkl-contextual-menu-divider {
     width: 100%;
-    margin-block: var(--jkl-spacing-12);
+    margin-block: 0;
     border: none;
     border-bottom: jkl.rem(1px) solid var(--jkl-contextual-menu-divider-color);
 }
