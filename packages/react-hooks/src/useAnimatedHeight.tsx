@@ -9,6 +9,7 @@ interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElemen
 }
 
 export interface UseAnimatedHeightOptions<T extends HTMLElement = HTMLElement> {
+    display?: "block" | "grid" | "flex";
     /**
      * Overstyr standard easingfunksjon
      * @default "standard"
@@ -32,6 +33,7 @@ export interface UseAnimatedHeightOptions<T extends HTMLElement = HTMLElement> {
     onTransitionEnd?: (isOpen: boolean, ref: RefObject<T>) => void;
 }
 
+const defaultDisplay = "block";
 const defaultEasing = "standard";
 const defaultTiming = "productive";
 
@@ -42,6 +44,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
     const wasOpen = usePreviousValue(isOpen);
     const easing = options?.easing || defaultEasing;
     const timing = options?.timing || defaultTiming;
+    const display = options?.display || defaultDisplay;
     const transition = `${timings[timing]} height ${easings[easing]}`;
 
     const { prefersReducedMotion } = useBrowserPreferences();
@@ -94,7 +97,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
         }
 
         element.style.transition = transition;
-        element.style.display = "block";
+        element.style.display = display;
         element.style.overflow = "hidden";
 
         if (isOpen) {
@@ -118,7 +121,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
                 });
             });
         }
-    }, [isOpen, options, wasOpen, transition, prefersReducedMotion]);
+    }, [isOpen, options, wasOpen, transition, prefersReducedMotion, display]);
 
     useEffect(() => {
         runAnimation();
