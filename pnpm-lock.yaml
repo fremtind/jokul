@@ -370,16 +370,16 @@ importers:
 
   packages/contextual-menu:
     specifiers:
-      '@fremtind/jkl-core': ^11.0.0
+      '@fremtind/jkl-core': ^12.0.2
     dependencies:
-      '@fremtind/jkl-core': 11.4.0
+      '@fremtind/jkl-core': link:../core
 
   packages/contextual-menu-react:
     specifiers:
       '@floating-ui/react': ^0.19.2
       '@floating-ui/react-dom-interactions': ^0.12.0
       '@fremtind/jkl-contextual-menu': ^1.0.0-alpha.0
-      '@fremtind/jkl-core': ^11.0.0
+      '@fremtind/jkl-core': ^12.0.2
       '@fremtind/jkl-icons-react': ^7.0.0
       '@fremtind/jkl-react-hooks': ^11.0.0
       '@types/react-is': ^17.0.3
@@ -390,7 +390,7 @@ importers:
       '@floating-ui/react': 0.19.2
       '@floating-ui/react-dom-interactions': 0.12.0
       '@fremtind/jkl-contextual-menu': link:../contextual-menu
-      '@fremtind/jkl-core': 11.4.0
+      '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@types/react-is': 17.0.3
@@ -3022,17 +3022,6 @@ packages:
       tabbable: 6.0.1
     transitivePeerDependencies:
       - '@types/react'
-    dev: false
-
-  /@fremtind/jkl-core/11.4.0:
-    resolution: {integrity: sha512-278WmOwjXvNlE5sXU4UDeyqnGwSxQl5cPXg33LGhGoHfGyYfUfK3SFnw/UbBPsKObpmRKhKmnlPPess7mc2IRg==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      classnames: 2.3.2
     dev: false
 
   /@frsource/base64/1.0.4:
