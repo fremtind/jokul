@@ -3,11 +3,12 @@ title: Combobox
 react: combobox-react
 scss: combobox
 group: skjema
+keywords: dropdown multiselect combobox nedtrekksliste søkbar
 ---
 
 import ComboboxExample, { comboboxExampleCode, comboboxExampleKnobs } from "./ComboboxExample";
 
-<Ingress>Combobox-komponenten lar brukeren velge flere valg fra en nedtrekksliste.</Ingress>
+<Ingress>Combobox-komponenten lar brukeren velge flere alternativ fra en nedtrekksliste.</Ingress>
 
 <ComponentExample
     component={ComboboxExample}
@@ -16,25 +17,24 @@ import ComboboxExample, { comboboxExampleCode, comboboxExampleKnobs } from "./Co
     title="Combobox"
 />
 
-Første eksempel må være synlig uten å scrolle og skal ha et kodeeksempel som oppdateres til å matche valgte parametere.
+Komponenten er en kombinasjon av nedtrekksliste og søkefelt hvor brukeren enten kan skrive direkte inn i inputfeltet eller velge alternativer fra listen.
 
-Fyll på med mer utfyllende beskrivelse av komponenten her under eksempelet, for eksempel føringer for innhold. List opp de ulike variantene dersom komponenten har dem, sammen med beskrivelse av når den ene varianten bør brukes i stedet for en annen.
+<PortalImage src="/assets/documentation/combobox/combobox-eksempel.png" caption="Combobox-eksempel." />
 
-Dokumentér riktig og feil bruk av varianter visuelt med `DoDontExample`. Se for eksempel [Tag](/komponenter/tag) for inspirasjon.
+## Tekst og validering
 
-## Tilgjengelighet
+Unngå forkortelser og hold heller teksten kort og konsis.
+Hvis det trengs, kan du legge en hjelpetekst under listen for å forklare mer.
 
-Dokumenter spesielle hensyn for universell utforming. Eksempler kan være spesielle hensyn som må tas for brukere av skjermlesere, for fargeblinde, eller liknende.
+Hvis nedtrekkslisten ikke validerer, viser systemet en feilmelding som forklarer hva som er galt. Feilmeldingen erstatter en eventuell hjelpetekst, så den må eventuelt gjenta informasjonen fra hjelpeteksten.
+
+Valgte alternativer vises i inputfeltet som [Tags](/komponenter/tag). Hvis teksten i tagen består av mer enn 10 karakterer, anbefaler vi at du bruker `tagLabel`.
 
 ## Når bruker vi Combobox?
 
-Før du bruker Combobox er det greit å ha tatt stilling til noen spørsmål:
+Vi bruker combobox når brukeren har mer enn tre alternativ å velge mellom. Hvis brukeren kun har tre valgalternativer eller mindre, bruk heller [Checkbox](/komponenter/checkbox).
 
--   Liste med kontrollspørsmål
--   Se [Message box](/komponenter/messagebox#når-bruker-vi-en-melding-) for eksempler
+Noen eksempler på bruk er:
 
-Dokumentér riktig og feil bruk av komponenten visuelt med `DoDontExample`. Se for eksempel [Alert message](/komponenter/alertmessage#når-bruker-vi-en-varselmelding-) for inspirasjon.
-
-Om det er relevant, lenk direkte til andre komponenter som er riktig å bruke dersom denne komponenten ikke bør brukes i en gitt situasjon.
-
-Kontroller at Gatsby klarer å generere React API-dokumentasjon riktig i bunnen. Om komponenten din ikke dukker opp riktig, sørg for at den har et `displayName`. Om du får flere komponenter enn du ønsker i tabellen kan du bruke [`displayTypes` i frontmatter](https://github.com/fremtind/jokul/blob/60edb292a922eea69e539875359524e2c13eda3e/packages/core/documentation/Link.mdx?plain=1#L6-L8).
+-   Til å velge diagnoser
+-   Til å velge skadeomfang
