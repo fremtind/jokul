@@ -13,18 +13,6 @@
     --jkl-contextual-menu-trigger-button-hover-bg-color: rgb(236 233 229 / 10%);
 }
 
-@include jkl.comfortable-density-variables {
-    --jkl-contextual-menu-trigger-button-size: jkl.rem(24px);
-
-    @include jkl.small-device {
-        --jkl-contextual-menu-trigger-button-size: jkl.rem(20px);
-    }
-}
-
-@include jkl.compact-density-variables {
-    --jkl-contextual-menu-trigger-button-size: jkl.rem(20px);
-}
-
 .jkl-contextual-menu-trigger-button {
     @include jkl.reset-outline;
 
