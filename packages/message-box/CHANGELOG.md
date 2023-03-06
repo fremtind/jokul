@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.1.0 (2023-03-06)
+
+### Features
+
+- legg innhold under ikon/dismiss-knapp på smale skjermer ([ed1fc4a](https://github.com/fremtind/jokul/commit/ed1fc4ae6fe8d8843e3e8008ddfcbe8bb36e9bea)), closes [#3387](https://github.com/fremtind/jokul/issues/3387)
+
 # 8.0.0 (2023-01-30)
 
 ### Features
