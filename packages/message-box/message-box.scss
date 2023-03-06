@@ -42,7 +42,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     --jkl-message-box-icon-size: #{jkl.rem(20px)};
     --jkl-message-box-icon-left: #{jkl.rem(6px)};
     --jkl-message-box-icon-top: #{jkl.rem(14px)};
-    --jkl-message-box-title-margin: 0;
+    --jkl-message-box-title-margin: #{jkl.rem(-2px)} 0 0 0;
     --jkl-message-box-dismiss-button-size: #{jkl.rem(32px)};
     --jkl-message-box-gap: #{jkl.$spacing-8};
 }
@@ -90,11 +90,17 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__message {
         @include jkl.use-font-variables("jkl-message-box-message");
+
+        margin-top: jkl.rem(-2px); // Offset for å aligne med ikon hvis uten tittel.
     }
 
     &__title {
         @include jkl.use-font-variables("jkl-message-box-title");
         margin: var(--jkl-message-box-title-margin);
+
+        & ~ .jkl-message-box__message {
+            margin-top: 0; // Unset offset satt for å aligne med ikon hvis uten tittel.
+        }
     }
 
     &__dismiss-button {
