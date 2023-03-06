@@ -25,7 +25,7 @@ export const FormErrorMessageBox = forwardRef<HTMLDivElement, FormErrorMessageBo
 
         const showSummary = isSubmitted && !isValid;
 
-        const [messageBoxRef] = useAnimatedHeight<HTMLDivElement>(showSummary);
+        const [messageBoxRef] = useAnimatedHeight<HTMLDivElement>(showSummary, { display: "grid" });
 
         const previousErrors = useRef<Array<string | undefined>>(errors);
         useEffect(() => {
