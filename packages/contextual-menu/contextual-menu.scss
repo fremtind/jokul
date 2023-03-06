@@ -61,7 +61,7 @@
         box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
         border-radius: jkl.rem(2px);
         border: var(--jkl-contextual-menu-border);
-        z-index: jkl.$z-index--floating;
+        z-index: jkl.$z-index--dropdown;
 
         &:focus-visible {
             outline: none;
