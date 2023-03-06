@@ -17,7 +17,10 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
             <ContextualMenu
                 initialPlacement="bottom-start"
                 triggerElement={
-                    <ContextualMenuTriggerButton description="En kontekstuell meny" icon={<DotsIcon bold />} />
+                    <ContextualMenuTriggerButton
+                        description="En kontekstuell meny med eksempelvalg for å demonstrere mulighetene i komponenten"
+                        icon={<DotsIcon bold />}
+                    />
                 }
             >
                 <ContextualMenuItem icon={<InfoIcon />}>Menyvalg 1</ContextualMenuItem>

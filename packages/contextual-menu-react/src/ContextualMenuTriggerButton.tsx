@@ -5,9 +5,8 @@ interface ContextualMenuTriggerButtonProps extends ButtonHTMLAttributes<HTMLButt
     /**
      * Beskrivelse av menyen. Leses for skjermlesere og vises som
      * hjelpetekst ved hover.
-     * @default "Meny"
      */
-    description?: string;
+    description: string;
     /**
      * Ikonet som skal vises i knappen
      */
