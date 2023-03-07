@@ -1,0 +1,16 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-contextual-menu-divider-color: #{jkl.$color-svaberg};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-contextual-menu-divider-color: #{jkl.$color-stein};
+}
+
+.jkl-contextual-menu-divider {
+    width: 100%;
+    margin-block: 0;
+    border: none;
+    border-bottom: jkl.rem(1px) solid var(--jkl-contextual-menu-divider-color);
+}
