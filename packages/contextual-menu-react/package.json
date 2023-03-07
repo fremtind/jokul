@@ -1,11 +1,11 @@
 {
-    "name": "@fremtind/jkl-scaffold-react",
+    "name": "@fremtind/jkl-contextual-menu-react",
     "version": "1.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react scaffold",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/scaffold-react",
+    "description": "Jøkul react contextual-menu",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/contextual-menu-react",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -30,14 +30,25 @@
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "node ./esbuild.prod.mjs",
         "build": "run-s build:*",
-        "test": "jest --testMatch '**/scaffold-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
+        "test": "jest --testMatch '**/contextual-menu-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
         "dev:server": "nodemon ./dist/server.js",
-        "dev": "run-p dev:*"
+        "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.0.0",
-        "@fremtind/jkl-scaffold": "^1.0.0-alpha.0"
+        "@floating-ui/react": "^0.19.2",
+        "@floating-ui/react-dom-interactions": "^0.12.0",
+        "@fremtind/jkl-contextual-menu": "^1.0.0-alpha.0",
+        "@fremtind/jkl-core": "^12.0.2",
+        "@fremtind/jkl-icons-react": "^7.0.0",
+        "@fremtind/jkl-react-hooks": "^11.0.0",
+        "@types/react-is": "^17.0.3",
+        "classnames": "^2.3.2",
+        "framer-motion": "^7.10.3",
+        "react-is": "^18.2.0"
+    },
+    "devDependencies": {
+        "@fremtind/jkl-icon-button-react": "^3.0.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
