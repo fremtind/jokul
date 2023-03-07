@@ -32,6 +32,17 @@
     }
 }
 
+.jkl-file-uploader-previews {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+        margin: 0;
+        padding: 0;
+    }
+}
+
 .jkl-file-uploader-preview {
     @include jkl.text-style("small");
     border-bottom: 1px jkl.$color-dis solid;

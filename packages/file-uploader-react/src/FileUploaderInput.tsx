@@ -1,5 +1,6 @@
 import { formatBytes } from "@fremtind/jkl-formatters-util";
 import { useId } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
 import React, { forwardRef, useState } from "react";
 
 export interface FileUploadValidation {
@@ -42,7 +43,7 @@ export const FileUploaderInput = forwardRef<HTMLInputElement, FileUploaderInputP
 
     return (
         <div
-            className={`jkl-file-uploader-input ${onDragClassName}`}
+            className={cn("jkl-file-uploader-input", onDragClassName)}
             onDragEnter={(e) => {
                 setOnDragClassName("jkl-file-uploader-input--enter");
                 e.preventDefault();

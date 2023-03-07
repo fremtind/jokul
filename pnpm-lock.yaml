@@ -554,6 +554,7 @@ importers:
       '@fremtind/jkl-input-group-react': ^2.0.3
       '@fremtind/jkl-loader-react': ^11.0.0
       '@fremtind/jkl-react-hooks': ^11.0.0
+      classnames: ^2.3.2
       cors: ^2.8.5
       multer: 1.4.5-lts.1
     dependencies:
@@ -566,6 +567,7 @@ importers:
       '@fremtind/jkl-input-group-react': link:../input-group-react
       '@fremtind/jkl-loader-react': link:../loader-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
+      classnames: 2.3.2
     devDependencies:
       cors: 2.8.5
       multer: 1.4.5-lts.1
