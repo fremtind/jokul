@@ -252,6 +252,26 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         [shownDate, minDate],
     );
 
+    const handleGotoEdgeMonth = useCallback(() => {
+        if (
+            // Vi er i ferd med å gå til første måned
+            minDate &&
+            shownDate.getFullYear() - minDate.getFullYear() === 0 &&
+            shownDate.getMonth() - minDate.getMonth() === 1
+        ) {
+            // Fokuser på "neste månded"-knappen
+            document.querySelectorAll<HTMLButtonElement>(".jkl-calendar-navigation__arrow")[1].focus();
+        } else if (
+            // Vi er i ferd med å gå til siste måned
+            maxDate &&
+            maxDate.getFullYear() - shownDate.getFullYear() === 0 &&
+            maxDate.getMonth() - shownDate.getMonth() === 1
+        ) {
+            // Fokuser på "forrige månded"-knappen
+            document.querySelectorAll<HTMLButtonElement>(".jkl-calendar-navigation__arrow")[0].focus();
+        }
+    }, [minDate, maxDate, shownDate]);
+
     /// Extended variant events
 
     const handleYearChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
@@ -342,14 +362,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                         <fieldset className="jkl-calendar-navigation">
                             <div>
                                 <button
-                                    {...getBackProps({ calendars })}
+                                    {...getBackProps({ calendars, onClick: handleGotoEdgeMonth })}
                                     className="jkl-calendar-navigation__arrow"
                                     type="button"
                                 >
                                     <ArrowLeftIcon variant="medium" bold />
                                 </button>
                                 <button
-                                    {...getForwardProps({ calendars })}
+                                    {...getForwardProps({ calendars, onClick: handleGotoEdgeMonth })}
                                     className="jkl-calendar-navigation__arrow"
                                     type="button"
                                 >
