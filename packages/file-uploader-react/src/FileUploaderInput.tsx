@@ -10,10 +10,17 @@ export interface FileUploadValidation {
 export interface FileUploadState {
     file: File;
     validation?: FileUploadValidation;
-    uploading: boolean;
+    isUploading: boolean;
 }
 
-export interface FileUploaderBoxProps {
+export interface FileUploaderInputProps {
+    /**
+     * En string som begrenser hvilke filtyper som kan velges.
+     *
+     * Flere filtyper kan defineres som en kommaseparert liste.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
+     */
     accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
     maxSizeBytes?: number;
     /**
@@ -26,23 +33,23 @@ export interface FileUploaderBoxProps {
     ) => void;
 }
 
-export const FileUploaderBox = forwardRef<HTMLInputElement, FileUploaderBoxProps>((props, ref) => {
+export const FileUploaderInput = forwardRef<HTMLInputElement, FileUploaderInputProps>((props, ref) => {
     const { onChange, maxSizeBytes, accept, multiple } = props;
 
-    const id = useId("jkl-file-uploader-box");
+    const id = useId("jkl-file-uploader-input");
 
     const [onDragClassName, setOnDragClassName] = useState<string>("");
 
     return (
         <div
-            className={`jkl-file-uploader-box ${onDragClassName}`}
+            className={`jkl-file-uploader-input ${onDragClassName}`}
             onDragEnter={(e) => {
-                setOnDragClassName("jkl-file-uploader-box--enter");
+                setOnDragClassName("jkl-file-uploader-input--enter");
                 e.preventDefault();
             }}
             onDragOver={(e) => {
                 /* Prevent browser from opening file in a new tab */
-                setOnDragClassName("jkl-file-uploader-box--enter");
+                setOnDragClassName("jkl-file-uploader-input--enter");
                 e.preventDefault();
             }}
             onDrop={(e) => {
@@ -54,7 +61,7 @@ export const FileUploaderBox = forwardRef<HTMLInputElement, FileUploaderBoxProps
                         e,
                         [...e.dataTransfer.files].map<FileUploadState>((file) => ({
                             file,
-                            uploading: false,
+                            isUploading: false,
                             validation: validateFile(file, accept, maxSizeBytes),
                         })),
                     );
@@ -65,12 +72,12 @@ export const FileUploaderBox = forwardRef<HTMLInputElement, FileUploaderBoxProps
                 e.preventDefault();
             }}
         >
-            <div className="jkl-file-uploader-box__drag-text">Slipp filer her, eller</div>
+            <div className="jkl-file-uploader-input__drag-text">Slipp filer her, eller</div>
             <label className="jkl-button jkl-button--primary" htmlFor={id}>
                 Legg til fil
             </label>
             {typeof maxSizeBytes !== "undefined" && (
-                <div className="jkl-file-uploader-box__max-size-text">
+                <div className="jkl-file-uploader-input__max-size-text">
                     {/* TODO: svaberg på dark mode */}
                     Maksimum filstørrelse er {formatBytes(maxSizeBytes)}
                 </div>
@@ -89,7 +96,7 @@ export const FileUploaderBox = forwardRef<HTMLInputElement, FileUploaderBoxProps
                             e,
                             [...e.target.files].map<FileUploadState>((file) => ({
                                 file,
-                                uploading: false,
+                                isUploading: false,
                                 validation: validateFile(file, accept, maxSizeBytes),
                             })),
                         );
@@ -100,11 +107,11 @@ export const FileUploaderBox = forwardRef<HTMLInputElement, FileUploaderBoxProps
     );
 });
 
-FileUploaderBox.displayName = "FileUploaderBox";
+FileUploaderInput.displayName = "FileUploaderInput";
 
 function validateFile(file: File, accept = "", maxSizeBytes?: number): FileUploadValidation | undefined {
     const acceptStrings = accept
-        ?.split(",")
+        .split(",")
         .map((s) => s.toLowerCase())
         .map((s) => s.replaceAll("*", ""));
 

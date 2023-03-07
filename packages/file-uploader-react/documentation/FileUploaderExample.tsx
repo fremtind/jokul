@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
-import { FileUploaderBox, FileUploadState, FileUploaderPreview } from "../src";
+import { FileUploaderInput, FileUploadState, FileUploaderPreview } from "../src";
 
 export const fileUploaderExampleKnobs: ExampleKnobsProps = {};
 
@@ -11,19 +11,21 @@ export const FileUploaderExample: FC<ExampleComponentProps> = () => {
     return (
         <div>
             <div>
-                <FileUploaderBox
-                    accept={"image/*,.pdf"}
+                <FileUploaderInput
+                    accept="image/*,.pdf"
                     onChange={(e, newFiles) => {
                         setFileStates((currentFiles) => [...currentFiles, ...newFiles]);
                     }}
-                    maxSizeBytes={1000 * 1000}
+                    maxSizeBytes={8_000_000}
                 />
                 <div>
                     {fileStates.map((fileState, index) => (
                         <FileUploaderPreview
                             key={fileState.file.name}
-                            fileState={fileState}
-                            onRemoveFile={(e) => {
+                            file={fileState.file}
+                            isUploading={fileState.isUploading}
+                            errorLabel={fileState.validation?.message}
+                            onRemove={(e) => {
                                 setFileStates([...fileStates.slice(0, index), ...fileStates.slice(index + 1)]);
                             }}
                         />
