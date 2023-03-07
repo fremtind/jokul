@@ -7,7 +7,7 @@ import { useId } from "@fremtind/jkl-react-hooks";
 import React, { FC, MouseEvent } from "react";
 import { FileUploadState } from "./FileUploaderBox";
 
-interface FileUploaderPreviewProps {
+export interface FileUploaderPreviewProps {
     fileState: FileUploadState;
     onRemoveFile: (e: MouseEvent<HTMLButtonElement>) => void;
 }

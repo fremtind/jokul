@@ -1,9 +1,7 @@
 import React, { FC, useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
-import "../../loader/loader.scss";
-import { FileUploaderBox, FileUploadState } from "../src/FileUploaderBox";
-import { FileUploaderPreview } from "../src/FileUploaderPreview";
+import { FileUploaderBox, FileUploadState, FileUploaderPreview } from "../src";
 
 export const fileUploaderExampleKnobs: ExampleKnobsProps = {};
 
