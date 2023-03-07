@@ -1,6 +1,6 @@
 import { formatBytes } from "@fremtind/jkl-formatters-util";
 import { useId } from "@fremtind/jkl-react-hooks";
-import React, { FC, useState } from "react";
+import React, { forwardRef, useState } from "react";
 
 export interface FileUploadValidation {
     type: "TOO_BIG" | "WRONG_FORMAT";
@@ -26,7 +26,7 @@ export interface FileUploaderBoxProps {
     ) => void;
 }
 
-export const FileUploaderBox: FC<FileUploaderBoxProps> = (props) => {
+export const FileUploaderBox = forwardRef<HTMLInputElement, FileUploaderBoxProps>((props, ref) => {
     const { onChange, maxSizeBytes, accept, multiple } = props;
 
     const id = useId("jkl-file-uploader-box");
@@ -77,6 +77,7 @@ export const FileUploaderBox: FC<FileUploaderBoxProps> = (props) => {
             )}
 
             <input
+                ref={ref}
                 id={id}
                 accept={accept}
                 className="jkl-sr-only"
@@ -97,7 +98,9 @@ export const FileUploaderBox: FC<FileUploaderBoxProps> = (props) => {
             />
         </div>
     );
-};
+});
+
+FileUploaderBox.displayName = "FileUploaderBox";
 
 function validateFile(file: File, accept = "", maxSizeBytes?: number): FileUploadValidation | undefined {
     const acceptStrings = accept
