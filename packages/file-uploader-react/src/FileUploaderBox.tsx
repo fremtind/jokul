@@ -1,3 +1,4 @@
+import { formatBytes } from "@fremtind/jkl-formatters-util";
 import { useId } from "@fremtind/jkl-react-hooks";
 import React, { FC, useState } from "react";
 
@@ -71,7 +72,7 @@ export const FileUploaderBox: FC<FileUploaderBoxProps> = (props) => {
             {typeof maxSizeBytes !== "undefined" && (
                 <div className="jkl-file-uploader-box__max-size-text">
                     {/* TODO: svaberg på dark mode */}
-                    Maksimum filstørrelse er {bytesToReadable(maxSizeBytes)}
+                    Maksimum filstørrelse er {formatBytes(maxSizeBytes)}
                 </div>
             )}
 
@@ -97,16 +98,6 @@ export const FileUploaderBox: FC<FileUploaderBoxProps> = (props) => {
         </div>
     );
 };
-
-export function bytesToReadable(bytes: number): string {
-    if (bytes >= 100000) {
-        return `${Number(bytes / 1000 / 1000).toLocaleString("nb", {
-            maximumFractionDigits: 1,
-        })} Mb`;
-    } else {
-        return `${bytes / 1000} Kb`;
-    }
-}
 
 function validateFile(file: File, accept = "", maxSizeBytes?: number): FileUploadValidation | undefined {
     const acceptStrings = accept

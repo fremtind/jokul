@@ -1,18 +1,26 @@
+import { formatBytes } from "@fremtind/jkl-formatters-util";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { CloseIcon, WarningIcon } from "@fremtind/jkl-icons-react";
+import { CloseIcon } from "@fremtind/jkl-icons-react";
+import { SupportLabel } from "@fremtind/jkl-input-group-react";
 import { Loader } from "@fremtind/jkl-loader-react";
-import React, { MouseEvent } from "react";
-import { bytesToReadable, FileUploadState } from "./FileUploaderBox";
+import { useId } from "@fremtind/jkl-react-hooks";
+import React, { FC, MouseEvent } from "react";
+import { FileUploadState } from "./FileUploaderBox";
 
-export function FileUploaderPreview({
-    fileState,
-    onRemoveFile,
-}: {
+interface FileUploaderPreviewProps {
     fileState: FileUploadState;
     onRemoveFile: (e: MouseEvent<HTMLButtonElement>) => void;
-}) {
+}
+
+export const FileUploaderPreview: FC<FileUploaderPreviewProps> = (props) => {
+    const { fileState, onRemoveFile } = props;
+
+    const id = useId("jkl-file-preview");
+    const errorId = id + "_error";
+
     return (
         <div
+            id={id}
             className={`jkl-file-uploader-preview ${fileState.validation ? "jkl-file-uploader-preview--invalid" : ""}`}
         >
             <div className="jkl-file-uploader-preview__info-wrapper">
@@ -35,17 +43,17 @@ export function FileUploaderPreview({
                 )}
                 <div className="jkl-file-uploader-preview__file-info">
                     <div className="jkl-file-uploader-preview__file-name">{fileState.file.name}</div>
-                    <p>{bytesToReadable(fileState.file.size)}</p>
+                    <p>{formatBytes(fileState.file.size)}</p>
                 </div>
-                <IconButton onClick={onRemoveFile} className="jkl-file-uploader-preview__close-button" type="button">
+                <IconButton onClick={onRemoveFile} className="jkl-file-uploader-preview__close-button">
                     <CloseIcon />
                 </IconButton>
             </div>
             {fileState.validation && (
                 <div className="jkl-file-uploader-preview__error-message">
-                    <WarningIcon /> {fileState.validation.message}
+                    <SupportLabel id={errorId} errorLabel={fileState.validation.message} />
                 </div>
             )}
         </div>
     );
-}
+};

@@ -39,8 +39,10 @@
         "@fremtind/jkl-button-react": "^13.0.0",
         "@fremtind/jkl-core": "^12.0.2",
         "@fremtind/jkl-file-uploader": "^1.0.0-alpha.0",
+        "@fremtind/jkl-formatters-util": "^4.0.8",
         "@fremtind/jkl-icon-button-react": "^3.0.0",
         "@fremtind/jkl-icons-react": "^7.0.0",
+        "@fremtind/jkl-input-group-react": "^2.0.3",
         "@fremtind/jkl-loader-react": "^11.0.0",
         "@fremtind/jkl-react-hooks": "^11.0.0"
     },
