@@ -27,7 +27,7 @@ export interface FileUploaderBoxProps {
 }
 
 export const FileUploaderBox: FC<FileUploaderBoxProps> = (props) => {
-    const { onChange, maxSizeBytes, accept } = props;
+    const { onChange, maxSizeBytes, accept, multiple } = props;
 
     const id = useId("jkl-file-uploader-box");
 
@@ -81,7 +81,7 @@ export const FileUploaderBox: FC<FileUploaderBoxProps> = (props) => {
                 accept={accept}
                 className="jkl-sr-only"
                 type="file"
-                multiple={true}
+                multiple={multiple}
                 onChange={(e) => {
                     if (e.target.files) {
                         onChange(
