@@ -201,7 +201,11 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     const previousSelectedValue = usePreviousValue(selectedValue);
     useEffect(() => {
         // previousSelectedValue er undefined på første render, men da vil vi ikke ha en onChange uansett
-        if (typeof previousSelectedValue === "undefined" || previousSelectedValue === selectedValue) {
+        if (
+            typeof previousSelectedValue === "undefined" ||
+            previousSelectedValue === selectedValue ||
+            selectedValue === value
+        ) {
             return;
         }
         if (onChange) {
@@ -210,7 +214,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         if (selectRef.current) {
             selectRef.current.dispatchEvent(new Event("change", { bubbles: true }));
         }
-    }, [onChange, name, selectedValue, previousSelectedValue]);
+    }, [onChange, name, value, selectedValue, previousSelectedValue]);
 
     /// Fokushåndtering
 
