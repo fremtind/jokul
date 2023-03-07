@@ -7,9 +7,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- correct color for contact-information ([c1ab59c](https://github.com/fremtind/jokul/commit/c1ab59c601446a015d2fe1981563a37ddf2ae54c))
-- style adjustment ([465a9a4](https://github.com/fremtind/jokul/commit/465a9a4d812ab10eb4025b8dcf8572fe7b0eeb0c))
+-   correct color for contact-information ([c1ab59c](https://github.com/fremtind/jokul/commit/c1ab59c601446a015d2fe1981563a37ddf2ae54c))
+-   style adjustment ([465a9a4](https://github.com/fremtind/jokul/commit/465a9a4d812ab10eb4025b8dcf8572fe7b0eeb0c))
 
 ### Features
 
-- new contact-information component ([7ce002e](https://github.com/fremtind/jokul/commit/7ce002e7c0506a4b2eea6c21a98ab39e02a568b4))
+-   new contact-information component ([7ce002e](https://github.com/fremtind/jokul/commit/7ce002e7c0506a4b2eea6c21a98ab39e02a568b4))

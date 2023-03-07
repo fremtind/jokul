@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.1.0 (2023-03-07)
+
+### Features
+
+- åpne for å overstyre displayverdien under animasjonen ([b86cb05](https://github.com/fremtind/jokul/commit/b86cb05e5d15f4a7913f62caf81402fc4dec94e1))
+
 # [11.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-react-hooks@10.2.9...@fremtind/jkl-react-hooks@11.0.0) (2023-01-30)
 
 ### Features

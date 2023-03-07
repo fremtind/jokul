@@ -23,6 +23,7 @@ const config = {
     },
     roots: ["./packages", "./portal"],
     testEnvironment: "jsdom",
+    setupFiles: ["jest-canvas-mock"],
     setupFilesAfterEnv: ["./jest/setupTests.ts"],
     watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
 };

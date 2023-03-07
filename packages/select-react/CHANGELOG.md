@@ -7,32 +7,32 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- render-loop når value ble endret fra utsiden ([2b0674e](https://github.com/fremtind/jokul/commit/2b0674e5f1d83867e233829f75796cf3e9121ade))
-- unngå å trigge onchange hvis value er undefined ([0d8a9f4](https://github.com/fremtind/jokul/commit/0d8a9f44d99d10eaf74a6564e5bbfbf65c206a25))
+-   render-loop når value ble endret fra utsiden ([2b0674e](https://github.com/fremtind/jokul/commit/2b0674e5f1d83867e233829f75796cf3e9121ade))
+-   unngå å trigge onchange hvis value er undefined ([0d8a9f4](https://github.com/fremtind/jokul/commit/0d8a9f44d99d10eaf74a6564e5bbfbf65c206a25))
 
 ## [13.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@13.0.3...@fremtind/jkl-select-react@13.0.4) (2023-02-13)
 
 ### Bug Fixes
 
-- rett opp et synkroniseringsproblem ([5edab28](https://github.com/fremtind/jokul/commit/5edab28b4baa27225ef9d9b786e59f5ae2adb993)), closes [#3373](https://github.com/fremtind/jokul/issues/3373)
+-   rett opp et synkroniseringsproblem ([5edab28](https://github.com/fremtind/jokul/commit/5edab28b4baa27225ef9d9b786e59f5ae2adb993)), closes [#3373](https://github.com/fremtind/jokul/issues/3373)
 
 ## [13.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@13.0.0...@fremtind/jkl-select-react@13.0.1) (2023-02-02)
 
 ### Bug Fixes
 
-- rett en feil som Flyt ser ved asynkron lasting av value ([c7ec713](https://github.com/fremtind/jokul/commit/c7ec7139c89ff435aa874efd2eddc6aff6b5aef8))
+-   rett en feil som Flyt ser ved asynkron lasting av value ([c7ec713](https://github.com/fremtind/jokul/commit/c7ec7139c89ff435aa874efd2eddc6aff6b5aef8))
 
 # [13.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@12.0.1...@fremtind/jkl-select-react@13.0.0) (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
-- ta i bruk nye ikoner i Select ([eae24e8](https://github.com/fremtind/jokul/commit/eae24e826922b3056ef2d38fa8a76d3a08b4f70d))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   ta i bruk nye ikoner i Select ([eae24e8](https://github.com/fremtind/jokul/commit/eae24e826922b3056ef2d38fa8a76d3a08b4f70d))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå importere stilarket til jkl-icons for at komponenten skal se riktig ut
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå importere stilarket til jkl-icons for at komponenten skal se riktig ut
 
 # [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@11.2.13...@fremtind/jkl-select-react@12.0.0) (2023-01-16)
 

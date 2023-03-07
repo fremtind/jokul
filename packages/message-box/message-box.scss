@@ -21,30 +21,33 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     @include jkl.declare-font-variables("jkl-message-box-message", "body");
     @include jkl.declare-font-variables("jkl-message-box-title", "heading-4");
 
-    --jkl-message-box-padding: #{jkl.$spacing-l} #{jkl.$spacing-l} #{jkl.$spacing-l} #{jkl.rem(56px)};
+    --jkl-message-box-padding: #{jkl.$spacing-24} #{jkl.$spacing-16};
     --jkl-message-box-icon-size: #{jkl.rem(24px)};
     --jkl-message-box-icon-left: #{jkl.rem(16px)};
     --jkl-message-box-icon-top: #{jkl.rem(24px)};
     --jkl-message-box-title-margin: 0 0 #{jkl.$spacing-xs} 0;
     --jkl-message-box-dismiss-button-size: #{jkl.rem(44px)};
-    --jkl-message-box-dismiss-button-margin: -#{jkl.rem(12px)} -#{jkl.rem(12px)} auto auto;
+    --jkl-message-box-gap: #{jkl.$spacing-16};
+
+    @include jkl.small-device {
+        --jkl-message-box-padding: #{jkl.$spacing-16};
+    }
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-message-box-message", "small");
     @include jkl.declare-font-variables("jkl-message-box-title", "heading-5");
 
-    --jkl-message-box-padding: #{jkl.$spacing-s} #{jkl.$spacing-xs} #{jkl.$spacing-s} #{jkl.rem(32px)};
+    --jkl-message-box-padding: #{jkl.$spacing-12};
     --jkl-message-box-icon-size: #{jkl.rem(20px)};
     --jkl-message-box-icon-left: #{jkl.rem(6px)};
     --jkl-message-box-icon-top: #{jkl.rem(14px)};
-    --jkl-message-box-title-margin: 0;
+    --jkl-message-box-title-margin: #{jkl.rem(-2px)} 0 0 0;
     --jkl-message-box-dismiss-button-size: #{jkl.rem(32px)};
-    --jkl-message-box-dismiss-button-margin: #{jkl.rem(-6px)} #{jkl.rem(-2px)} auto auto;
+    --jkl-message-box-gap: #{jkl.$spacing-8};
 }
 
 .jkl-message-box {
-    position: relative;
     width: 100%;
     max-width: $_message-width;
     padding: var(--jkl-message-box-padding);
@@ -52,43 +55,65 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     color: $_text-color;
     border-radius: jkl.rem(4px);
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    align-items: start;
+
+    @include jkl.small-device {
+        grid-template-areas:
+            "icon dismiss"
+            "content content";
+    }
+
+    @include jkl.from-medium-device {
+        grid-template-areas: "icon content dismiss";
+        grid-template-columns: auto 1fr auto;
+    }
 
     &__icon {
-        position: absolute;
-        left: var(--jkl-message-box-icon-left);
-        top: var(--jkl-message-box-icon-top);
+        grid-area: icon;
         width: var(--jkl-message-box-icon-size);
-        flex-shrink: 0;
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+
+        @include jkl.small-device {
+            margin-bottom: var(--jkl-message-box-gap);
+        }
+
+        @include jkl.from-medium-device {
+            margin-right: var(--jkl-message-box-gap);
+        }
+    }
+
+    &__content {
+        grid-area: content;
     }
 
     &__message {
         @include jkl.use-font-variables("jkl-message-box-message");
+
+        margin-top: jkl.rem(-2px); // Offset for å aligne med ikon hvis uten tittel.
     }
 
     &__title {
         @include jkl.use-font-variables("jkl-message-box-title");
         margin: var(--jkl-message-box-title-margin);
+
+        & ~ .jkl-message-box__message {
+            margin-top: 0; // Unset offset satt for å aligne med ikon hvis uten tittel.
+        }
     }
 
     &__dismiss-button {
         @include jkl.reset-outline;
+        grid-area: dismiss;
+        justify-self: end;
+        position: relative;
+        margin-left: var(--jkl-message-box-gap);
+
         background-color: transparent;
         border-radius: jkl.rem(3px);
         padding: 0;
         cursor: pointer;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        // Sørg for å ha en stor nok touch target.
-        width: var(--jkl-message-box-dismiss-button-size);
-        height: var(--jkl-message-box-dismiss-button-size);
-        margin: var(--jkl-message-box-dismiss-button-margin);
 
         color: inherit;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
@@ -96,8 +121,16 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
             background-color: ButtonFace;
         }
 
-        align-self: flex-start;
-        flex-shrink: 0;
+        // Sørg for å ha en stor nok touch target.
+        &::after {
+            --tap-increment: calc((var(--jkl-message-box-dismiss-button-size) - #{jkl.rem(20px)}) / 2 * -1);
+            content: "";
+            position: absolute;
+            bottom: var(--tap-increment);
+            left: var(--tap-increment);
+            right: var(--tap-increment);
+            top: var(--tap-increment);
+        }
 
         &:hover {
             color: $_dismiss-hover-color;
