@@ -123,7 +123,7 @@ function validateFile(file: File, accept = "", maxSizeBytes?: number): FileUploa
     );
 
     if (!isValidFormat) {
-        return { type: "WRONG_FORMAT", message: `Filtypen ${file.type} støttes ikke` };
+        return { type: "WRONG_FORMAT", message: `Filtypen ${file.name?.split(".")[1] || ""} støttes ikke` };
     }
 
     if (typeof maxSizeBytes != "undefined" && file.size > maxSizeBytes) {
