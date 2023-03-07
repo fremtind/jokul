@@ -103,6 +103,10 @@ export interface DatePickerProps extends Omit<InputGroupProps, "label" | "childr
     invalid?: boolean;
     density?: Density;
     /**
+     * @deprecated Kalenderen viser nå alltid kontroller for å navigere mellom år og måneder. Denne prop'en gjør ikke lenger noe og kan fjernes.
+     */
+    extended?: boolean;
+    /**
      * Om du ønsker andre labels for ukedagene kan du gi de her.
      */
     days?: string[];
