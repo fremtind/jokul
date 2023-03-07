@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@10.0.4...@fremtind/jkl-message-box-react@10.0.5) (2023-03-07)
+
+### Bug Fixes
+
+- ikke rendre tittelelementet om title er tom string ([8c9db6f](https://github.com/fremtind/jokul/commit/8c9db6f44d11e8c33999adf6a3d8dd72e32063bc)), closes [#3445](https://github.com/fremtind/jokul/issues/3445)
+- rett en animasjonsfeil i formerrormessagebox ([af3b21e](https://github.com/fremtind/jokul/commit/af3b21e5ce20d87d5d3c3e750a0d6e6d3c14bab0))
+
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@9.0.11...@fremtind/jkl-message-box-react@10.0.0) (2023-01-30)
 
 ### Bug Fixes

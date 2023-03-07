@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.1.1 (2023-03-07)
+
+### Bug Fixes
+
+- align ikon med innhold både med og uten tittel ([409fcf9](https://github.com/fremtind/jokul/commit/409fcf94ce61b3a615b154a524d381a78d4d2bb3))
+
 # 8.1.0 (2023-03-06)
 
 ### Features
