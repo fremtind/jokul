@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [13.0.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@13.0.5...@fremtind/jkl-select-react@13.0.8) (2023-03-07)
+
+### Bug Fixes
+
+- ikke kall onChange om value endres utenfra ([27dce68](https://github.com/fremtind/jokul/commit/27dce680c873ce79bd664f39b30c1ffa6d9b1478)), closes [#3439](https://github.com/fremtind/jokul/issues/3439)
+
 ## 13.0.5 (2023-02-27)
 
 ### Bug Fixes
