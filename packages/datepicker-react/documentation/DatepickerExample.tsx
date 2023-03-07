@@ -69,13 +69,6 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({ boolValues, choic
                     meta,
                 });
             }}
-            onKeyDown={(e, date, meta) => {
-                console.log("onKeyDown", {
-                    event: e,
-                    date,
-                    meta,
-                });
-            }}
             action={{
                 onBlur: (e) => {
                     // Ignorer blurs som går tilbake til inputfeltet
