@@ -6,7 +6,16 @@ import { FileUploaderPreview } from ".";
 describe("FileUploaderPreview", () => {
     it("should render", () => {
         const onRemove = jest.fn();
-        render(<FileUploaderPreview file={new File([], "test.txt")} isUploading={false} onRemove={onRemove} />);
+        render(
+            <FileUploaderPreview
+                fileName="test.tsx"
+                fileType="application/text"
+                fileSize={0}
+                file={new File([], "test.txt")}
+                isUploading={false}
+                onRemove={onRemove}
+            />,
+        );
 
         screen.getByText("Edit me!");
     });
@@ -16,7 +25,14 @@ describe("a11y", () => {
     test("FileUploaderPreview should be a11y compliant", async () => {
         const onRemove = jest.fn();
         const { container } = render(
-            <FileUploaderPreview file={new File([], "test.txt")} isUploading={false} onRemove={onRemove} />,
+            <FileUploaderPreview
+                fileName="test.tsx"
+                fileType="application/text"
+                fileSize={0}
+                file={new File([], "test.txt")}
+                isUploading={false}
+                onRemove={onRemove}
+            />,
         );
 
         const results = await axe(container);

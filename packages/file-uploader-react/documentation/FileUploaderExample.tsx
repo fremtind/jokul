@@ -52,6 +52,9 @@ export const FileUploaderExample: FC<ExampleComponentProps> = ({ boolValues }) =
                     {fileStates.map((fileState, index) => (
                         <FileUploaderPreviewListItem key={fileState.file.name}>
                             <FileUploaderPreview
+                                fileName={fileState.file.name}
+                                fileType={fileState.file.type}
+                                fileSize={fileState.file.size}
                                 file={fileState.file}
                                 isUploading={fileState.isUploading || Boolean(boolValues?.["Laster opp"])}
                                 errorLabel={
@@ -117,6 +120,9 @@ export const fileUploaderExampleCode: CodeExample = () => `
         {fileStates.map((fileState, index) => (
             <FileUploaderPreviewListItem key={fileState.file.name}>
                 <FileUploaderPreview
+                    fileName={fileState.file.name}
+                    fileType={fileState.file.type}
+                    fileSize={fileState.file.size}
                     file={fileState.file}
                     isUploading={fileState.isUploading}
                     errorLabel={fileState.validation?.message}

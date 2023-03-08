@@ -44,9 +44,32 @@
 }
 
 .jkl-file-uploader-preview {
+    @include jkl.reset-outline;
     @include jkl.text-style("small");
+    color: var(--jkl-color);
     border-bottom: 1px jkl.$color-dis solid;
     padding: jkl.$spacing-16 jkl.$spacing-12;
+
+    &[href] {
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+
+        &:hover .jkl-file-uploader-preview__file-size {
+            @include jkl.no-grow-bold;
+        }
+
+        @include jkl.keyboard-navigation {
+            &:focus {
+                outline: jkl.rem(2px) solid var(--jkl-color);
+            }
+        }
+
+        @include jkl.forced-colors-mode {
+            outline: revert;
+            border: jkl.rem(2px) solid LinkText;
+        }
+    }
 
     &:last-of-type {
         border-bottom: none;

@@ -4,50 +4,69 @@ import { CloseIcon } from "@fremtind/jkl-icons-react";
 import { SupportLabel } from "@fremtind/jkl-input-group-react";
 import { Loader } from "@fremtind/jkl-loader-react";
 import { useId } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
 import React, { FC, MouseEvent } from "react";
 
 export interface FileUploaderPreviewProps {
-    file: File;
-    isUploading: boolean;
+    fileName: string;
+    fileType: string;
+    fileSize: number;
+    path?: string;
+    file?: File;
+    helpLabel?: string;
     errorLabel?: string;
-    onRemove: (e: MouseEvent<HTMLButtonElement>) => void;
+    isUploading?: boolean;
+    onRemove?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const FileUploaderPreview: FC<FileUploaderPreviewProps> = (props) => {
-    const { file, errorLabel, isUploading, onRemove } = props;
+    const { fileName, fileType, fileSize, path, file, helpLabel, errorLabel, isUploading, onRemove } = props;
 
     const id = useId("jkl-file-preview");
-    const errorId = id + "_error";
+    const supportId = id + "support";
+
+    const C = path ? "a" : "div";
 
     return (
-        <div id={id} className={`jkl-file-uploader-preview ${errorLabel ? "jkl-file-uploader-preview--invalid" : ""}`}>
+        <C
+            id={id}
+            className={cn("jkl-file-uploader-preview", { "jkl-file-uploader-preview--invalid": errorLabel })}
+            href={path}
+            target={path ? "_blank" : undefined}
+        >
             <div className="jkl-file-uploader-preview__info-wrapper">
-                {!isUploading && file.type.startsWith("image/") ? (
-                    <img className="jkl-file-uploader-preview__img" src={URL.createObjectURL(file)} alt={file.name} />
+                {!isUploading && fileType.startsWith("image/") ? (
+                    <img
+                        className="jkl-file-uploader-preview__img"
+                        src={file ? URL.createObjectURL(file) : path}
+                        alt=""
+                    />
                 ) : (
                     <div className="jkl-file-uploader-preview__file-thumbnail">
                         {isUploading ? (
                             <div>
-                                <Loader variant="small" textDescription={"Laster opp filer"} />
+                                <Loader variant="small" textDescription="Laster opp" />
                             </div>
                         ) : (
-                            <div>{file.name.split(".")[file.name.split(".").length - 1]}</div>
+                            <div>{fileName.split(".").at(-1)}</div>
                         )}
                     </div>
                 )}
                 <div className="jkl-file-uploader-preview__file-info">
-                    <div className="jkl-file-uploader-preview__file-name">{file.name}</div>
-                    <p>{formatBytes(file.size)}</p>
+                    <div className="jkl-file-uploader-preview__file-name">{fileName}</div>
+                    <p className="jkl-file-uploader-preview__file-size">{formatBytes(fileSize)}</p>
                 </div>
-                <IconButton onClick={onRemove} className="jkl-file-uploader-preview__close-button">
-                    <CloseIcon />
-                </IconButton>
+                {onRemove && (
+                    <IconButton onClick={onRemove} className="jkl-file-uploader-preview__close-button">
+                        <CloseIcon />
+                    </IconButton>
+                )}
             </div>
-            {errorLabel && (
+            {(helpLabel || errorLabel) && (
                 <div className="jkl-file-uploader-preview__error-message">
-                    <SupportLabel id={errorId} errorLabel={errorLabel} />
+                    <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} />
                 </div>
             )}
-        </div>
+        </C>
     );
 };

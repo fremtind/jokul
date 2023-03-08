@@ -3,11 +3,13 @@ title: FileUploader
 react: file-uploader-react
 scss: file-uploader
 group: skjema
+keywords: filopplaster last opp filer
 ---
 
 import FileUploaderExample, { fileUploaderExampleCode, fileUploaderExampleKnobs } from "./FileUploaderExample";
+import FilePreviewExample, { filePreviewExampleCode, filePreviewExampleKnobs } from "./FilePreviewExample";
 
-<Ingress>Ingress med kort beskrivelse av komponenten</Ingress>
+<Ingress>Filopplasteren lar brukeren dele filer med oss, for eksempel dokumentasjon i en sak.</Ingress>
 
 <ComponentExample
     component={FileUploaderExample}
@@ -15,25 +17,55 @@ import FileUploaderExample, { fileUploaderExampleCode, fileUploaderExampleKnobs 
     knobs={fileUploaderExampleKnobs}
 />
 
-Første eksempel må være synlig uten å scrolle og skal ha et kodeeksempel som oppdateres til å matche valgte parametere.
+Opplasting av filer skjer i to trinn:
 
-Fyll på med mer utfyllende beskrivelse av komponenten her under eksempelet, for eksempel føringer for innhold. List opp de ulike variantene dersom komponenten har dem, sammen med beskrivelse av når den ene varianten bør brukes i stedet for en annen.
+1.  Brukeren velger filer, enten med ved å dra de inn i slippfeltet, eller med filutforskeren som er innebygget i nettlesseren.
+2.  En handling fra brukeren starter selve opplastingen av filer.
 
-Dokumentér riktig og feil bruk av varianter visuelt med `DoDontExample`. Se for eksempel [Tag](/komponenter/tag) for inspirasjon.
+## Hjelp brukeren finne riktig fil
 
-## Tilgjengelighet
+Ofte ønsker vi at brukeren skal kunne dele bilder og PDF.
 
-Dokumenter spesielle hensyn for universell utforming. Eksempler kan være spesielle hensyn som må tas for brukere av skjermlesere, for fargeblinde, eller liknende.
+Komponenten bør konfigureres slik at kun filer av ønsket type kan markeres i filvelgeren.
 
-## Når bruker vi FileUploader?
+<figure>
+    <picture className="jkl-portal-image">
+        <source
+            media="(prefers-color-scheme: dark)"
+            srcset="/assets/documentation/file-uploader/macos-filvelger-morkt.png"
+        />
+        <img
+            className="jkl-portal-image__img"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            src="/assets/documentation/file-uploader/macos-filvelger-lyst.png"
+        />
+    </picture>
+    <figcaption>Filvelgeren på macOS. I dette tilfellet kan ikke det komprimerte arkivet velges.</figcaption>
+</figure>
 
-Før du bruker FileUploader er det greit å ha tatt stilling til noen spørsmål:
+Merk at dette ikke vil hindre en bruker i å dra en vilkårlig fil inn i slippfeltet i komponenten. Hvis dette skjer vil komponenten automatisk merke filen med valideringsfeil.
 
--   Liste med kontrollspørsmål
--   Se [Message box](/komponenter/messagebox#når-bruker-vi-en-melding-) for eksempler
+## Håndtering av delte filer
 
-Dokumentér riktig og feil bruk av komponenten visuelt med `DoDontExample`. Se for eksempel [Alert message](/komponenter/alertmessage#når-bruker-vi-en-varselmelding-) for inspirasjon.
+Hva skjer når brukeren starter opplastingen av filer? Detaljene er opp til hvert enkelt team, men grovt sett trengs:
 
-Om det er relevant, lenk direkte til andre komponenter som er riktig å bruke dersom denne komponenten ikke bør brukes i en gitt situasjon.
+-   Et endepunkt som leser _multi-part form data_, og som klarer dekode filinformasjonen i skjemaet.
+-   Et sted å lagre filene på disk. Dette trenger ikke være samme maskin som endepunktet.
+-   Ett eller flere endepunkt som kan spørres for å se filer brukeren har delt med oss tidligere, for eksempel tilknyttet en sak.
 
-Kontroller at Gatsby klarer å generere React API-dokumentasjon riktig i bunnen. Om komponenten din ikke dukker opp riktig, sørg for at den har et `displayName`. Om du får flere komponenter enn du ønsker i tabellen kan du bruke [`displayTypes` i frontmatter](https://github.com/fremtind/jokul/blob/60edb292a922eea69e539875359524e2c13eda3e/packages/core/documentation/Link.mdx?plain=1#L6-L8).
+Et forenklet eksempel som demonstrerer disse punktene finnes i dette GitHub-repoet **TODO**.
+
+## Visning av filer brukeren har lastet opp tidligere
+
+Bruk gjerne samme komponent til forhåndsvisning av filer på siden for øvrig, som i filopplasteren.
+
+<ComponentExample
+    title="Gjenbruk av forhåndsvisning"
+    component={FilePreviewExample}
+    codeExample={filePreviewExampleCode}
+    knobs={filePreviewExampleKnobs}
+/>
+
+Gitt en URL vil komponenten rendres som en lenke, slik at brukeren kan klikke seg videre til å se selve filen i en ny fane.
