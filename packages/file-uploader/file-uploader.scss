@@ -30,6 +30,20 @@
     &__max-size-text {
         color: jkl.$color-stein;
     }
+
+    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
+        .jkl-button {
+            transform: scale(1.05);
+
+            &::after {
+                box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-button-focus-color);
+            }
+
+            &:active {
+                transform: scale(1);
+            }
+        }
+    }
 }
 
 .jkl-file-uploader-previews {
