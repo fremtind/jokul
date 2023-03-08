@@ -243,13 +243,19 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
             }
 
             // Datoen er første i måneden som vises
-            if (!prevMonth && !nextMonth && shownDate.getFullYear() === date.getFullYear() && date.getDate() === 1) {
+            if (
+                !prevMonth &&
+                !nextMonth &&
+                shownDate.getFullYear() === date.getFullYear() &&
+                selectedDate.getMonth() !== date.getMonth() &&
+                date.getDate() === 1
+            ) {
                 return true;
             }
 
             return false;
         },
-        [shownDate, minDate],
+        [shownDate, minDate, selectedDate],
     );
 
     const handleGotoEdgeMonth = useCallback(() => {
@@ -358,7 +364,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
             {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
             <div className="jkl-calendar__padding" ref={calendarPaddingRef} onKeyDown={handleTabInside}>
                 {calendars.map((calendar) => (
-                    <>
+                    <React.Fragment key={calendar.month}>
                         <fieldset className="jkl-calendar-navigation">
                             <div>
                                 <button
@@ -467,7 +473,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                 ))}
                             </tbody>
                         </table>
-                    </>
+                    </React.Fragment>
                 ))}
             </div>
         </div>
