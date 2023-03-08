@@ -44,8 +44,8 @@ export const FileUploaderPreview: FC<FileUploaderPreviewProps> = (props) => {
                 ) : (
                     <div className="jkl-file-uploader-preview__thumbnail">
                         {isUploading ? (
-                            <div>
-                                <Loader variant="small" textDescription="Laster opp" />
+                            <div aria-live="polite">
+                                <Loader variant="small" textDescription={`Laster opp ${fileName}`} />
                             </div>
                         ) : (
                             <div>{fileName.split(".").at(-1)}</div>

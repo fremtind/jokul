@@ -1,25 +1,30 @@
-import { render, screen } from "@testing-library/react";
+import { render, RenderOptions } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
 import { FileUploaderInput } from ".";
 
+function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
+    return {
+        user: userEvent.setup(),
+        ...render(jsx, renderOptions),
+    };
+}
+
 describe("FileUploaderInput", () => {
     it("should render", () => {
         const onChange = jest.fn();
-        render(<FileUploaderInput onChange={onChange} />);
+        const { getByText } = setup(<FileUploaderInput onChange={onChange} />);
 
-        screen.getByText("Edit me!");
+        expect(getByText("Legg til fil")).toBeInTheDocument();
     });
-});
 
-describe("a11y", () => {
-    test("FileUploaderInput should be a11y compliant", async () => {
+    it("should pass jext-axe tests in default state", async () => {
         const onChange = jest.fn();
+        const { container } = setup(<FileUploaderInput onChange={onChange} />);
 
-        const { container } = render(<FileUploaderInput onChange={onChange} />);
+        const result = await axe(container);
 
-        const results = await axe(container);
-
-        expect(results).toHaveNoViolations();
+        expect(result).toHaveNoViolations();
     });
 });

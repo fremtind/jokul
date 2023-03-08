@@ -1,12 +1,54 @@
-import { render, screen } from "@testing-library/react";
+import { render, RenderOptions } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
 import { FileUploaderPreview } from ".";
 
+function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
+    return {
+        user: userEvent.setup(),
+        ...render(jsx, renderOptions),
+    };
+}
+
 describe("FileUploaderPreview", () => {
-    it("should render", () => {
+    it("should render the given file name", () => {
         const onRemove = jest.fn();
-        render(
+        const { getByText } = setup(
+            <FileUploaderPreview
+                fileName="test.txt"
+                fileType="application/text"
+                fileSize={1000}
+                file={new File([], "test.txt")}
+                isUploading={false}
+                onRemove={onRemove}
+            />,
+        );
+
+        expect(getByText("test.txt")).toBeInTheDocument();
+    });
+
+    it("should call onRemove if the button is clicked", async () => {
+        const onRemove = jest.fn();
+        const { getByRole, user } = setup(
+            <FileUploaderPreview
+                fileName="test.txt"
+                fileType="application/text"
+                fileSize={1000}
+                file={new File([], "test.txt")}
+                isUploading={false}
+                onRemove={onRemove}
+            />,
+        );
+
+        await user.click(getByRole("button"));
+
+        expect(onRemove).toHaveBeenCalled();
+    });
+
+    it("should pass jext-axe tests in default state", async () => {
+        const onRemove = jest.fn();
+        const { container } = render(
             <FileUploaderPreview
                 fileName="test.tsx"
                 fileType="application/text"
@@ -17,12 +59,12 @@ describe("FileUploaderPreview", () => {
             />,
         );
 
-        screen.getByText("Edit me!");
-    });
-});
+        const results = await axe(container);
 
-describe("a11y", () => {
-    test("FileUploaderPreview should be a11y compliant", async () => {
+        expect(results).toHaveNoViolations();
+    });
+
+    it("should pass jext-axe tests in uploading state", async () => {
         const onRemove = jest.fn();
         const { container } = render(
             <FileUploaderPreview
@@ -30,7 +72,7 @@ describe("a11y", () => {
                 fileType="application/text"
                 fileSize={0}
                 file={new File([], "test.txt")}
-                isUploading={false}
+                isUploading={true}
                 onRemove={onRemove}
             />,
         );
