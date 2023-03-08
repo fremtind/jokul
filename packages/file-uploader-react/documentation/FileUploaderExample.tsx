@@ -42,6 +42,7 @@ export const FileUploaderExample: FC<ExampleComponentProps> = ({ boolValues }) =
         <div>
             <FileUploader>
                 <FileUploaderInput
+                    className="jkl-spacing-16-24--bottom"
                     accept="image/*,.pdf"
                     onChange={(e, newFiles) => {
                         setFileStates((currentFiles) => [...currentFiles, ...newFiles]);
@@ -110,6 +111,7 @@ export default FileUploaderExample;
 export const fileUploaderExampleCode: CodeExample = () => `
 <FileUploader>
     <FileUploaderInput
+        className="jkl-spacing-16-24--bottom"
         accept="image/*,.pdf"
         onChange={(e, newFiles) => {
             setFileStates((currentFiles) => [...currentFiles, ...newFiles]);

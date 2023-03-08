@@ -15,6 +15,8 @@ export interface FileUploadState {
 }
 
 export interface FileUploaderInputProps {
+    className?: string;
+    id?: string;
     /**
      * En string som begrenser hvilke filtyper som kan velges.
      *
@@ -35,16 +37,17 @@ export interface FileUploaderInputProps {
 }
 
 export const FileUploaderInput = forwardRef<HTMLInputElement, FileUploaderInputProps>((props, ref) => {
-    const { onChange, maxSizeBytes, accept, multiple } = props;
+    const { onChange, maxSizeBytes, accept, multiple, className, id: idProp, ...rest } = props;
 
-    const id = useId("jkl-file-uploader-input");
+    const id = useId(idProp || "jkl-file-uploader-input", { generateSuffix: !idProp });
     const maxSizeDescriptionId = id + "description";
 
     const [onDragClassName, setOnDragClassName] = useState<string>("");
 
     return (
         <div
-            className={cn("jkl-file-uploader-input", onDragClassName)}
+            {...rest}
+            className={cn("jkl-file-uploader-input", onDragClassName, className)}
             onDragEnter={(e) => {
                 setOnDragClassName("jkl-file-uploader-input--enter");
                 e.preventDefault();

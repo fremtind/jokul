@@ -37,12 +37,12 @@ export const FileUploaderPreview: FC<FileUploaderPreviewProps> = (props) => {
             <div className="jkl-file-uploader-preview__info-wrapper">
                 {!isUploading && fileType.startsWith("image/") ? (
                     <img
-                        className="jkl-file-uploader-preview__img"
+                        className="jkl-file-uploader-preview__thumbnail"
                         src={file ? URL.createObjectURL(file) : path}
                         alt=""
                     />
                 ) : (
-                    <div className="jkl-file-uploader-preview__file-thumbnail">
+                    <div className="jkl-file-uploader-preview__thumbnail">
                         {isUploading ? (
                             <div>
                                 <Loader variant="small" textDescription="Laster opp" />
@@ -57,20 +57,12 @@ export const FileUploaderPreview: FC<FileUploaderPreviewProps> = (props) => {
                     <p className="jkl-file-uploader-preview__file-size">{formatBytes(fileSize)}</p>
                 </div>
                 {onRemove && (
-                    <IconButton
-                        onClick={onRemove}
-                        title={`Fjern ${fileName}`}
-                        className="jkl-file-uploader-preview__close-button"
-                    >
+                    <IconButton onClick={onRemove} title={`Fjern ${fileName}`}>
                         <CloseIcon />
                     </IconButton>
                 )}
             </div>
-            {(helpLabel || errorLabel) && (
-                <div className="jkl-file-uploader-preview__error-message">
-                    <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} />
-                </div>
-            )}
+            {(helpLabel || errorLabel) && <SupportLabel id={supportId} helpLabel={helpLabel} errorLabel={errorLabel} />}
         </C>
     );
 };
