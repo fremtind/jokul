@@ -28,6 +28,22 @@ describe("FileUploaderPreview", () => {
         expect(getByText("test.txt")).toBeInTheDocument();
     });
 
+    it("should render a progress indicator when uploading", () => {
+        const onRemove = jest.fn();
+        const { getByText } = setup(
+            <FileUploaderPreview
+                fileName="test.txt"
+                fileType="application/text"
+                fileSize={1000}
+                file={new File([], "test.txt")}
+                isUploading={true}
+                onRemove={onRemove}
+            />,
+        );
+
+        expect(getByText("Laster opp test.txt")).toBeInTheDocument();
+    });
+
     it("should call onRemove if the button is clicked", async () => {
         const onRemove = jest.fn();
         const { getByRole, user } = setup(
