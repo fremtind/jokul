@@ -38,6 +38,7 @@ export const FileUploaderInput = forwardRef<HTMLInputElement, FileUploaderInputP
     const { onChange, maxSizeBytes, accept, multiple } = props;
 
     const id = useId("jkl-file-uploader-input");
+    const maxSizeDescriptionId = id + "description";
 
     const [onDragClassName, setOnDragClassName] = useState<string>("");
 
@@ -77,17 +78,11 @@ export const FileUploaderInput = forwardRef<HTMLInputElement, FileUploaderInputP
             <label className="jkl-button jkl-button--primary" htmlFor={id}>
                 Legg til fil
             </label>
-            {typeof maxSizeBytes !== "undefined" && (
-                <div className="jkl-file-uploader-input__max-size-text">
-                    {/* TODO: svaberg på dark mode */}
-                    Maksimum filstørrelse er {formatBytes(maxSizeBytes)}
-                </div>
-            )}
-
             <input
                 ref={ref}
                 id={id}
                 accept={accept}
+                aria-describedby={maxSizeBytes ? maxSizeDescriptionId : undefined}
                 className="jkl-sr-only"
                 type="file"
                 multiple={multiple}
@@ -104,6 +99,11 @@ export const FileUploaderInput = forwardRef<HTMLInputElement, FileUploaderInputP
                     }
                 }}
             />
+            {typeof maxSizeBytes !== "undefined" && (
+                <div id={maxSizeDescriptionId} className="jkl-file-uploader-input__max-size-text">
+                    Maksimum filstørrelse er {formatBytes(maxSizeBytes)}
+                </div>
+            )}
         </div>
     );
 });

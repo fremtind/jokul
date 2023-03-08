@@ -57,7 +57,11 @@ export const FileUploaderPreview: FC<FileUploaderPreviewProps> = (props) => {
                     <p className="jkl-file-uploader-preview__file-size">{formatBytes(fileSize)}</p>
                 </div>
                 {onRemove && (
-                    <IconButton onClick={onRemove} className="jkl-file-uploader-preview__close-button">
+                    <IconButton
+                        onClick={onRemove}
+                        title={`Fjern ${fileName}`}
+                        className="jkl-file-uploader-preview__close-button"
+                    >
                         <CloseIcon />
                     </IconButton>
                 )}
