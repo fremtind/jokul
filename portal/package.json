@@ -13,7 +13,7 @@
         "@fremtind/jkl-alert-message-react": "^10.0.4",
         "@fremtind/jkl-breadcrumb-react": "^4.0.2",
         "@fremtind/jkl-button-react": "^13.0.4",
-        "@fremtind/jkl-card-react": "^8.0.13",
+        "@fremtind/jkl-card-react": "^9.0.0-alpha.0",
         "@fremtind/jkl-checkbox-react": "^10.0.4",
         "@fremtind/jkl-constants-util": "^2.0.10",
         "@fremtind/jkl-contact-information-react": "^1.0.5",
