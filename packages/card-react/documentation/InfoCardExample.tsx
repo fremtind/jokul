@@ -31,7 +31,9 @@ export const InfoCardExample: React.FC<ExampleComponentProps> = ({ boolValues, c
 };
 
 export const infoCardExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps) => {
-    const image = boolValues?.["Image"] ? '\n    image="car.jpg"' : "";
+    const image = boolValues?.["Image"]
+        ? '\n    image={{ src:"car.jpg", alt:"En person bak rattet på en bil, sett over skulderen på personen som kjører" }}'
+        : "";
     const title = boolValues?.["Title"] ? "title=`Samle forsikringer –${unicode.nbsp}få${unicode.nbsp}rabatt`" : "";
     const paddingChoice = choiceValues?.["Padding"] || "l";
     const padding =
