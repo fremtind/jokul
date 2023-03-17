@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.1 (2023-03-17)
+
+### Bug Fixes
+
+- fjern disabled som mulighet ([45b23e4](https://github.com/fremtind/jokul/commit/45b23e49aabc668a010a0a5266349cc42f2a165f))
+
 # 1.0.0 (2023-03-07)
 
 ### Bug Fixes

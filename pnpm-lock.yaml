@@ -8,9 +8,6 @@ overrides:
   resolve-url-loader>loader-utils: ^1.4.2
 
 patchedDependencies:
-  kbar@0.1.0-beta.39:
-    hash: xz5kcti6rhkbtvejisfylwqd7u
-    path: patches/kbar@0.1.0-beta.39.patch
   '@frsource/cypress-plugin-visual-regression-diff@3.1.6':
     hash: e6umj5xys57o3rbg6x3acuktgm
     path: patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch
@@ -20,6 +17,9 @@ patchedDependencies:
   gulp-sass@5.1.0:
     hash: z2duu6muooayewj4qeaynjtnaa
     path: patches/gulp-sass@5.1.0.patch
+  kbar@0.1.0-beta.39:
+    hash: xz5kcti6rhkbtvejisfylwqd7u
+    path: patches/kbar@0.1.0-beta.39.patch
 
 importers:
 
@@ -381,7 +381,7 @@ importers:
     specifiers:
       '@floating-ui/react': ^0.19.2
       '@floating-ui/react-dom-interactions': ^0.12.0
-      '@fremtind/jkl-contextual-menu': ^1.0.0
+      '@fremtind/jkl-contextual-menu': ^1.0.1
       '@fremtind/jkl-core': ^12.0.2
       '@fremtind/jkl-icon-button-react': ^3.0.3
       '@fremtind/jkl-icons-react': ^7.0.0
@@ -981,7 +981,7 @@ importers:
       '@fremtind/jkl-constants-util': ^2.0.10
       '@fremtind/jkl-contact-information-react': ^1.0.5
       '@fremtind/jkl-content-toggle-react': ^5.0.2
-      '@fremtind/jkl-contextual-menu-react': ^1.0.0
+      '@fremtind/jkl-contextual-menu-react': ^1.0.1
       '@fremtind/jkl-cookie-consent-react': ^8.0.4
       '@fremtind/jkl-core': ^12.0.2
       '@fremtind/jkl-datepicker-react': ^14.1.8
