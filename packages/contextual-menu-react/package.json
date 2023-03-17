@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-contextual-menu-react",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
     "dependencies": {
         "@floating-ui/react": "^0.19.2",
         "@floating-ui/react-dom-interactions": "^0.12.0",
-        "@fremtind/jkl-contextual-menu": "^1.0.0",
+        "@fremtind/jkl-contextual-menu": "^1.0.1",
         "@fremtind/jkl-core": "^12.0.2",
         "@fremtind/jkl-icons-react": "^7.0.0",
         "@fremtind/jkl-react-hooks": "^11.0.0",
