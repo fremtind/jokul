@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2023-03-20)
+
+### Bug Fixes
+
+- fjern unødvendig bruk av flex ([b4c9fcd](https://github.com/fremtind/jokul/commit/b4c9fcd08eb07b267a737030c27ab92e5683b066)), closes [#3451](https://github.com/fremtind/jokul/issues/3451)
+
+### BREAKING CHANGES
+
+- Om du har inline-elementer som direkte children til kortene vil disse ikke lenger ha display:block.
+Wrap de i en div om du trenger.
+
 ## 8.0.3 (2023-03-01)
 
 ### Bug Fixes
