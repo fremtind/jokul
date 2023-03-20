@@ -71,7 +71,14 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
         open: isOpen,
         onOpenChange: setIsOpen,
         placement: initialPlacement || (isNested ? "right-start" : "bottom-start"),
-        middleware: [offset(2), flip(), shift({ padding: 8 })],
+        middleware: [
+            offset(2),
+            flip({
+                fallbackAxisSideDirection: "end", // Allow bottom placement in narrow viewports (https://floating-ui.com/docs/flip#fallbackaxissidedirection)
+                crossAxis: false, // See https://floating-ui.com/docs/flip#combining-with-shift
+            }),
+            shift({ padding: 8 }),
+        ],
         whileElementsMounted: autoUpdate,
     });
 
