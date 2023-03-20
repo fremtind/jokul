@@ -65,7 +65,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-combobox", "small");
 
-    --jkl-combobox-button-padding: #{jkl.rem(3px)} #{jkl.rem(30px)} #{jkl.rem(3px)} #{jkl.rem(3px)};
+    --jkl-combobox-button-padding: #{jkl.rem(2px)} #{jkl.rem(30px)} #{jkl.rem(2px)} #{jkl.rem(2px)};
     --jkl-combobox-input-height: #{jkl.rem(32px)};
     --jkl-combobox-actions-right: #{jkl.rem(4px)};
     --jkl-combobox-actions-top: 5px;
@@ -88,6 +88,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         min-width: 7rem;
         width: 15rem;
         max-width: 100%;
+        min-height: 32px;
         display: flex;
     }
 
