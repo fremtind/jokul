@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from combobox-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^11.0.0"
+        "@fremtind/jkl-core": "^12.0.2"
     },
     "repository": {
         "type": "git",
