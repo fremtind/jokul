@@ -381,7 +381,7 @@ importers:
     specifiers:
       '@floating-ui/react': ^0.19.2
       '@floating-ui/react-dom-interactions': ^0.12.0
-      '@fremtind/jkl-contextual-menu': ^1.0.1
+      '@fremtind/jkl-contextual-menu': ^1.0.2
       '@fremtind/jkl-core': ^12.0.2
       '@fremtind/jkl-icon-button-react': ^3.0.3
       '@fremtind/jkl-icons-react': ^7.0.0
@@ -981,7 +981,7 @@ importers:
       '@fremtind/jkl-constants-util': ^2.0.10
       '@fremtind/jkl-contact-information-react': ^1.0.5
       '@fremtind/jkl-content-toggle-react': ^5.0.2
-      '@fremtind/jkl-contextual-menu-react': ^1.0.1
+      '@fremtind/jkl-contextual-menu-react': ^1.0.2
       '@fremtind/jkl-cookie-consent-react': ^8.0.4
       '@fremtind/jkl-core': ^12.0.2
       '@fremtind/jkl-datepicker-react': ^14.1.8
