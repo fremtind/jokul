@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.2 (2023-03-20)
+
+### Bug Fixes
+
+- forslag til skygge for å indikere elevasjon ([9c4e727](https://github.com/fremtind/jokul/commit/9c4e7275f52586dd2fb82062f81316b1a75991ae))
+
 ## 1.0.1 (2023-03-17)
 
 ### Bug Fixes

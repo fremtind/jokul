@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.2 (2023-03-20)
+
+### Bug Fixes
+
+- plasser submeny under på små skjermer ([21b91aa](https://github.com/fremtind/jokul/commit/21b91aa5f380fdf0898682e2aea059d825b4c2cf)), closes [#3457](https://github.com/fremtind/jokul/issues/3457)
+
 ## 1.0.1 (2023-03-17)
 
 ### Bug Fixes
