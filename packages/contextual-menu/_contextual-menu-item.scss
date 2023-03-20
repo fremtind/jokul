@@ -56,16 +56,11 @@
         flex-shrink: 0;
     }
 
-    html[data-mousenavigation] &:hover:not(:disabled) {
+    html[data-mousenavigation] &:hover {
         background-color: var(--jkl-contextual-menu-item-hover-background-color);
     }
 
     &:focus {
         background-color: var(--jkl-contextual-menu-item-hover-background-color);
-    }
-
-    &:disabled {
-        color: var(--jkl-contextual-menu-item-disabled-color);
-        cursor: unset;
     }
 }

@@ -2,7 +2,7 @@ import { ChevronRightIcon } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
 import React, { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 
-export interface ContextualMenuItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ContextualMenuItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     /**
      * Indikerer at menypunktet er utvidbart ved å vise en chevron
      * @default false

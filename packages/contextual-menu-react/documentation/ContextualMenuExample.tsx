@@ -27,7 +27,6 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
             >
                 <ContextualMenuItem icon={<InfoIcon />}>Menyvalg 1</ContextualMenuItem>
                 <ContextualMenuItem onClick={() => console.log("Hei fra Menyvalg 2")}>Menyvalg 2</ContextualMenuItem>
-                <ContextualMenuItem disabled>Menyvalg med en lengre beskrivende tekst</ContextualMenuItem>
                 <ContextualMenuDivider />
                 <ContextualMenu
                     openOnHover
@@ -62,7 +61,6 @@ export const contextualMenuExampleCode: CodeExample = () => `
 >
     <ContextualMenuItem icon={<InfoIcon />}>Menyvalg 1</ContextualMenuItem>
     <ContextualMenuItem onClick={() => console.log("Hei fra Menyvalg 2")}>Menyvalg 2</ContextualMenuItem>
-    <ContextualMenuItem disabled>Menyvalg med en lengre beskrivende tekst</ContextualMenuItem>
     <ContextualMenuDivider />
     <ContextualMenu
         openOnHover
