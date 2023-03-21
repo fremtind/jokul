@@ -9,7 +9,7 @@ import {
     useClick,
     useDismiss,
     useFocus,
-} from "@floating-ui/react-dom-interactions";
+} from "@floating-ui/react";
 import { QuestionIcon } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
