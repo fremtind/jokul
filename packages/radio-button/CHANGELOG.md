@@ -3,21 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.1.1 (2023-03-21)
+
+### Bug Fixes
+
+- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+
 # 9.1.0 (2023-03-01)
 
 ### Features
 
-- åpne for hjelpetekst på individuell radioknapp ([ab8a3cd](https://github.com/fremtind/jokul/commit/ab8a3cdc61a7506ee9e18e403e24d19b1733c5e7))
+-   åpne for hjelpetekst på individuell radioknapp ([ab8a3cd](https://github.com/fremtind/jokul/commit/ab8a3cdc61a7506ee9e18e403e24d19b1733c5e7))
 
 # 9.0.0 (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 8.0.8 (2022-11-22)
 

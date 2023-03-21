@@ -3,32 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.1 (2023-03-21)
+
+### Bug Fixes
+
+- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+
 # 5.0.0 (2023-02-23)
 
 ### Bug Fixes
 
-- links now have body/small-screen ([8a96e23](https://github.com/fremtind/jokul/commit/8a96e2355a5818703a2f9b4ba4bdd7e443da4e83))
-- style adjustment ([465a9a4](https://github.com/fremtind/jokul/commit/465a9a4d812ab10eb4025b8dcf8572fe7b0eeb0c))
+-   links now have body/small-screen ([8a96e23](https://github.com/fremtind/jokul/commit/8a96e2355a5818703a2f9b4ba4bdd7e443da4e83))
+-   style adjustment ([465a9a4](https://github.com/fremtind/jokul/commit/465a9a4d812ab10eb4025b8dcf8572fe7b0eeb0c))
 
 ### Features
 
-- new contact-information component ([7ce002e](https://github.com/fremtind/jokul/commit/7ce002e7c0506a4b2eea6c21a98ab39e02a568b4))
-- new footer design ([da47a8d](https://github.com/fremtind/jokul/commit/da47a8dc48ea0b3417cd38501ecdeb4167751932))
-- started on new footer ([03af268](https://github.com/fremtind/jokul/commit/03af268ae3c51ca3f1bcd5d14bf7c4de00653ea8))
+-   new contact-information component ([7ce002e](https://github.com/fremtind/jokul/commit/7ce002e7c0506a4b2eea6c21a98ab39e02a568b4))
+-   new footer design ([da47a8d](https://github.com/fremtind/jokul/commit/da47a8dc48ea0b3417cd38501ecdeb4167751932))
+-   started on new footer ([03af268](https://github.com/fremtind/jokul/commit/03af268ae3c51ca3f1bcd5d14bf7c4de00653ea8))
 
 ### BREAKING CHANGES
 
-- new api for footer component
+-   new api for footer component
 
 # 4.0.0 (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 3.0.8 (2022-11-22)
 

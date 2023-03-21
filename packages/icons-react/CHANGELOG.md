@@ -3,48 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.1.0 (2023-03-06)
+
+### Bug Fixes
+
+-   sørg for at ikke ikonene leses opp av skjermleser ([2034204](https://github.com/fremtind/jokul/commit/2034204232ca8dfefc38afa701df11ef9972b0bc))
+
+### Features
+
+-   legg til ny versjon av error-ikonene ([d2842ea](https://github.com/fremtind/jokul/commit/d2842eac9439600a108bd9a61986489d181f469f))
+
 # 7.0.0 (2023-01-30)
 
 ### Bug Fixes
 
-- bruk riktig viewbox og SVG-størrelse ([198194a](https://github.com/fremtind/jokul/commit/198194a2797e3cd01a4303537594c4b17268d181))
-- fiks feil posisjonering av noen animerte ikoner ([ff118fd](https://github.com/fremtind/jokul/commit/ff118fd6fc5ef3e426902f6757e72ee614d5809a))
-- gjør inherit til default også for animerte ([409c874](https://github.com/fremtind/jokul/commit/409c8749e8858fe76a5f6f435b73c49bc8416134))
-- sikre riktig visning av animerte piler ([6a486dc](https://github.com/fremtind/jokul/commit/6a486dcaf0978ac0f86ffe3b1e1131d5c465eafd))
+-   bruk riktig viewbox og SVG-størrelse ([198194a](https://github.com/fremtind/jokul/commit/198194a2797e3cd01a4303537594c4b17268d181))
+-   fiks feil posisjonering av noen animerte ikoner ([ff118fd](https://github.com/fremtind/jokul/commit/ff118fd6fc5ef3e426902f6757e72ee614d5809a))
+-   gjør inherit til default også for animerte ([409c874](https://github.com/fremtind/jokul/commit/409c8749e8858fe76a5f6f435b73c49bc8416134))
+-   sikre riktig visning av animerte piler ([6a486dc](https://github.com/fremtind/jokul/commit/6a486dcaf0978ac0f86ffe3b1e1131d5c465eafd))
 
 ### chore
 
-- slett animert hamburger-til-close ([ce13543](https://github.com/fremtind/jokul/commit/ce13543fcb7334c1c345dbfb9faf0c19085633ec))
-- slett utdaterte ikoner ([60ad65e](https://github.com/fremtind/jokul/commit/60ad65e0bac36f259be8787d1a634ab2d44ff625))
+-   slett animert hamburger-til-close ([ce13543](https://github.com/fremtind/jokul/commit/ce13543fcb7334c1c345dbfb9faf0c19085633ec))
+-   slett utdaterte ikoner ([60ad65e](https://github.com/fremtind/jokul/commit/60ad65e0bac36f259be8787d1a634ab2d44ff625))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
-- legg til mulighet for bold på animerte ikoner ([75edc14](https://github.com/fremtind/jokul/commit/75edc14d2d88ee8a3c325ce13c486383768545a1))
-- nye chevron-ikoner ([ec993f6](https://github.com/fremtind/jokul/commit/ec993f689e9019d7a1d5423e5988d74ca8f970cf))
-- nye pilikoner ([13ee4c1](https://github.com/fremtind/jokul/commit/13ee4c199949c21b2058b3806c462cadf06cdc2a))
-- nytt arrow north east-ikon ([b0410f4](https://github.com/fremtind/jokul/commit/b0410f4dbe5016b6cacba88df5fc0a78e33c62a9))
-- nytt Check-ikon ([40df05d](https://github.com/fremtind/jokul/commit/40df05dc923bff846ceeddfc04cfe2ece623bf91))
-- nytt close-ikon ([80cb836](https://github.com/fremtind/jokul/commit/80cb836ed8a00ccd2ed5cc6d05cb93429ac53a3a))
-- nytt dots-ikon ([d64509b](https://github.com/fremtind/jokul/commit/d64509b642251bce1881f5be40d1c16b341a045d))
-- nytt error-ikon ([bf1b303](https://github.com/fremtind/jokul/commit/bf1b3033230ce5725395b2db400fe20530926c7c))
-- nytt hamburgerikon ([3cd3205](https://github.com/fremtind/jokul/commit/3cd3205f187946edad492853277e643427aee5f8))
-- nytt ikon for kopiering ([c4507ab](https://github.com/fremtind/jokul/commit/c4507abef05030eb0b0783c8668b8fb5f6708cd7))
-- nytt ikon for spørsmålstegn (tooltip) ([0e2e8ce](https://github.com/fremtind/jokul/commit/0e2e8ce3a2559bac0da2cb2e37caae3faf3b44d8))
-- nytt infoikon ([e7e4ff4](https://github.com/fremtind/jokul/commit/e7e4ff49487dd8ed3a74b51018c1756fe9bd0d9f))
-- nytt kalenderikon ([29b6d00](https://github.com/fremtind/jokul/commit/29b6d00f91c3d7c93a78756480963141191e37c7))
-- nytt plus-ikon ([26ee1ea](https://github.com/fremtind/jokul/commit/26ee1ea22022a260b761b2a00ee7282bd0ec5a64))
-- nytt success-ikon ([0eb3d0f](https://github.com/fremtind/jokul/commit/0eb3d0fa5bcd2571482d81f1ed06dd0d76b35066))
-- nytt warning-ikon ([e027786](https://github.com/fremtind/jokul/commit/e027786d65ed8573f700d9b3295a04bd9b6ea634))
-- oppdater svg for alle ikoner til siste versjon ([ce6dfa8](https://github.com/fremtind/jokul/commit/ce6dfa8edc6608fb2a4a770e0835caf93d4b1476))
-- støtt inherit for animerte ikoner ([40e4bbe](https://github.com/fremtind/jokul/commit/40e4bbede0e5ec6dfb8763e25bc85e289bfca29c))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   legg til mulighet for bold på animerte ikoner ([75edc14](https://github.com/fremtind/jokul/commit/75edc14d2d88ee8a3c325ce13c486383768545a1))
+-   nye chevron-ikoner ([ec993f6](https://github.com/fremtind/jokul/commit/ec993f689e9019d7a1d5423e5988d74ca8f970cf))
+-   nye pilikoner ([13ee4c1](https://github.com/fremtind/jokul/commit/13ee4c199949c21b2058b3806c462cadf06cdc2a))
+-   nytt arrow north east-ikon ([b0410f4](https://github.com/fremtind/jokul/commit/b0410f4dbe5016b6cacba88df5fc0a78e33c62a9))
+-   nytt Check-ikon ([40df05d](https://github.com/fremtind/jokul/commit/40df05dc923bff846ceeddfc04cfe2ece623bf91))
+-   nytt close-ikon ([80cb836](https://github.com/fremtind/jokul/commit/80cb836ed8a00ccd2ed5cc6d05cb93429ac53a3a))
+-   nytt dots-ikon ([d64509b](https://github.com/fremtind/jokul/commit/d64509b642251bce1881f5be40d1c16b341a045d))
+-   nytt error-ikon ([bf1b303](https://github.com/fremtind/jokul/commit/bf1b3033230ce5725395b2db400fe20530926c7c))
+-   nytt hamburgerikon ([3cd3205](https://github.com/fremtind/jokul/commit/3cd3205f187946edad492853277e643427aee5f8))
+-   nytt ikon for kopiering ([c4507ab](https://github.com/fremtind/jokul/commit/c4507abef05030eb0b0783c8668b8fb5f6708cd7))
+-   nytt ikon for spørsmålstegn (tooltip) ([0e2e8ce](https://github.com/fremtind/jokul/commit/0e2e8ce3a2559bac0da2cb2e37caae3faf3b44d8))
+-   nytt infoikon ([e7e4ff4](https://github.com/fremtind/jokul/commit/e7e4ff49487dd8ed3a74b51018c1756fe9bd0d9f))
+-   nytt kalenderikon ([29b6d00](https://github.com/fremtind/jokul/commit/29b6d00f91c3d7c93a78756480963141191e37c7))
+-   nytt plus-ikon ([26ee1ea](https://github.com/fremtind/jokul/commit/26ee1ea22022a260b761b2a00ee7282bd0ec5a64))
+-   nytt success-ikon ([0eb3d0f](https://github.com/fremtind/jokul/commit/0eb3d0fa5bcd2571482d81f1ed06dd0d76b35066))
+-   nytt warning-ikon ([e027786](https://github.com/fremtind/jokul/commit/e027786d65ed8573f700d9b3295a04bd9b6ea634))
+-   oppdater svg for alle ikoner til siste versjon ([ce6dfa8](https://github.com/fremtind/jokul/commit/ce6dfa8edc6608fb2a4a770e0835caf93d4b1476))
+-   støtt inherit for animerte ikoner ([40e4bbe](https://github.com/fremtind/jokul/commit/40e4bbede0e5ec6dfb8763e25bc85e289bfca29c))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Animert hamburger-til-lukk er fjernet. Bruk ContentToggle om du ønsker beholde den samme effekten.
-- Alle tidligere ikoner er slettet. Nye ikoner finner du sannsynligvis ved å legge til Icon-postfix.
-ArrowIconProps er slettet. Samtlige ikoner kan nå få en bold-variant.
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Animert hamburger-til-lukk er fjernet. Bruk ContentToggle om du ønsker beholde den samme effekten.
+-   Alle tidligere ikoner er slettet. Nye ikoner finner du sannsynligvis ved å legge til Icon-postfix.
+    ArrowIconProps er slettet. Samtlige ikoner kan nå få en bold-variant.
 
 ## 6.0.9 (2022-11-22)
 

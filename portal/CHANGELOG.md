@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [18.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@17.0.26...@fremtind/portal@18.0.0) (2023-03-20)
+
+### Bug Fixes
+
+- fjern unødvendig bruk av flex ([b4c9fcd](https://github.com/fremtind/jokul/commit/b4c9fcd08eb07b267a737030c27ab92e5683b066)), closes [#3451](https://github.com/fremtind/jokul/issues/3451)
+
+### BREAKING CHANGES
+
+- Om du har inline-elementer som direkte children til kortene vil disse ikke lenger ha display:block.
+Wrap de i en div om du trenger.
+
+## [17.0.22](https://github.com/fremtind/jokul/compare/@fremtind/portal@17.0.21...@fremtind/portal@17.0.22) (2023-03-07)
+
+### Bug Fixes
+
+- importer react- og stilpake for kontekstuell meny i portalen ([4d74ff5](https://github.com/fremtind/jokul/commit/4d74ff54cb2122f561ffd33432ecd752246b2a02))
+
 # [17.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.4.15...@fremtind/portal@17.0.0) (2023-01-16)
 
 ### Features
