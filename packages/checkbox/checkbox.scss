@@ -159,10 +159,7 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
                     &::before {
                         border: 2px solid ButtonText;
                         position: absolute;
-                        top: jkl.rem(-1px);
-                        right: jkl.rem(-1px);
-                        bottom: jkl.rem(-1px);
-                        left: jkl.rem(-1px);
+                        inset: jkl.rem(-1px) jkl.rem(-1px) jkl.rem(-1px) jkl.rem(-1px);
                     }
                 }
             }
@@ -234,10 +231,7 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
         &::before {
             content: "";
             position: absolute;
-            top: jkl.rem(-2px);
-            right: jkl.rem(-2px);
-            bottom: jkl.rem(-2px);
-            left: jkl.rem(-2px);
+            inset: jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px);
         }
 
         @include jkl.forced-colors-mode {

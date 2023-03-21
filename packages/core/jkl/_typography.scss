@@ -73,10 +73,9 @@ $text-styles: (
         ),
     ),
     "title-small": (
-        // Legger til ny fontstørrelse her direkte uten variabler i påvente av en større omstrukturering med design tokens.
-        // Vi har to fontstørrelser her som ellers ville måtte bli skvist inn mellom det eksisterende nivå 8, 9 og 10
-        // i typografivariablene våre. Det samme problemet gjelder linjehøyden.
-        "small-screen":
+        /* Legger til ny fontstørrelse her direkte uten variabler i påvente av en større omstrukturering med design tokens.*/
+            /* Vi har to fontstørrelser her som ellers ville måtte bli skvist inn mellom det eksisterende nivå 8, 9 og 10*/
+            /* i typografivariablene våre. Det samme problemet gjelder linjehøyden.*/ "small-screen":
             (
                 "font-size": ru.rem(30px),
                 "line-height": ru.rem(36px),

@@ -43,10 +43,7 @@
         $_button-border-gap: jkl.rem(1px); // Synlig border i forced-colors
         content: "";
         position: absolute;
-        bottom: -($_button-border-gap);
-        left: $_button-border-gap;
-        right: $_button-border-gap;
-        top: -($_button-border-gap);
+        inset: -($_button-border-gap) $_button-border-gap -($_button-border-gap) $_button-border-gap;
         box-shadow: none;
     }
 
