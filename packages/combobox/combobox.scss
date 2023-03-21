@@ -172,7 +172,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         overflow-y: auto;
         position: absolute;
 
-        z-index: 7000;
+        z-index: jkl.$z-index--dropdown;
         left: jkl.rem(-1px);
         right: jkl.rem(-1px);
         background-color: var(--jkl-combobox-open-color);
