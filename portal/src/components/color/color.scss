@@ -3,13 +3,13 @@
 
 $farger: (
     "hvit": jkl.$color-hvit,
-    "snohvit": jkl.$color-snohvit,
+    "snøhvit": jkl.$color-snohvit,
     "sand": jkl.$color-sand,
     "dis": jkl.$color-dis,
     "varde": jkl.$color-varde,
     "svaberg": jkl.$color-svaberg,
     "stein": jkl.$color-stein,
-    "fjellgra": jkl.$color-fjellgra,
+    "fjellgrå": jkl.$color-fjellgra,
     "skifer": jkl.$color-skifer,
     "granitt": jkl.$color-granitt,
     "svart": jkl.$color-svart,
@@ -19,32 +19,30 @@ $farger: (
     "advarsel": colors.varslingsfarge("advarsel"),
 );
 
-.jkl-portal-color-swatch {
-    min-height: jkl.rem(20px);
-    min-width: jkl.rem(20px);
-    position: relative;
+.jkl-portal-color {
+    display: flex;
+    flex-direction: column;
+    gap: jkl.$spacing-4;
 
-    &__diamond {
-        fill: currentColor;
-        stroke-width: 0.1;
-        stroke: currentColor;
+    &__swatch {
+        height: jkl.rem(80px);
+        width: jkl.rem(145px);
     }
 
-    &--granitt-stroke {
-        .jkl-portal-color-swatch__diamond {
-            stroke: jkl.$color-granitt;
+    &__name {
+        @include jkl.text-style("small") {
+            font-weight: jkl.$typography-weight-bold;
         }
+        margin-top: jkl.$spacing-4;
     }
 
-    &--snohvit-stroke {
-        .jkl-portal-color-swatch__diamond {
-            stroke: jkl.$color-snohvit;
-        }
+    &__value {
+        @include jkl.text-style("small");
     }
 }
 
 @each $property, $value in $farger {
-    .jkl-portal-color-swatch--#{$property} {
-        color: $value;
+    .jkl-portal-color__swatch--#{$property} {
+        background-color: $value;
     }
 }
