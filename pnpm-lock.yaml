@@ -650,10 +650,12 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^12.0.4
       '@fremtind/jkl-icons': ^7.0.4
+      '@fremtind/jkl-react-hooks': ^11.1.2
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-icons': link:../icons
+      '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
 
   packages/image:
