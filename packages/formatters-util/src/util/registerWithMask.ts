@@ -24,11 +24,18 @@ const formatters = {
 };
 export type Formatter = keyof typeof formatters;
 
-export type RegisterWithMaskOptions<T extends FieldValues> = Omit<RegisterOptions<T>, "setValueAs">;
+export type RegisterWithMaskOptions<TFieldValues extends FieldValues> = Omit<
+    RegisterOptions<TFieldValues>,
+    "setValueAs"
+>;
 
 const registerWithMask =
     (formatter: Formatter) =>
-    <T extends FieldValues>(form: UseFormReturn<T>, name: Path<T>, options?: RegisterWithMaskOptions<T>) => {
+    <TFieldValues extends FieldValues>(
+        form: UseFormReturn<TFieldValues>,
+        name: Path<TFieldValues>,
+        options?: RegisterWithMaskOptions<TFieldValues>,
+    ) => {
         let onKeyDownCaretPosition = 0;
         let onKeyDownKeyPressed = "";
 
@@ -46,8 +53,11 @@ const registerWithMask =
             }
 
             form.setValue(
-                name as unknown as Path<T>,
-                formatters[formatter](event.target.value, { partial: true }) as PathValue<T, Path<T>>,
+                name,
+                formatters[formatter](event.target.value, { partial: true }) as PathValue<
+                    TFieldValues,
+                    Path<TFieldValues>
+                >,
             );
 
             let newPosition: number | null = null;
@@ -73,7 +83,11 @@ const registerWithMask =
             }
         };
 
-        const register = form.register(name, { ...options, setValueAs, onChange });
+        const registerOptions: RegisterOptions<TFieldValues, Path<TFieldValues>> = { setValueAs, onChange };
+        if (options) {
+            Object.assign(registerOptions, options);
+        }
+        const register = form.register(name, registerOptions);
 
         // save the caret position before the change occured
         const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
