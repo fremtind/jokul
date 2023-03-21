@@ -551,9 +551,9 @@ var require_file_command = __commonJS({
   }
 });
 
-// ../../node_modules/.pnpm/@actions+http-client@2.0.1/node_modules/@actions/http-client/lib/proxy.js
+// ../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/proxy.js
 var require_proxy = __commonJS({
-  "../../node_modules/.pnpm/@actions+http-client@2.0.1/node_modules/@actions/http-client/lib/proxy.js"(exports) {
+  "../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/proxy.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.checkBypass = exports.getProxyUrl = void 0;
@@ -580,6 +580,10 @@ var require_proxy = __commonJS({
       if (!reqUrl.hostname) {
         return false;
       }
+      const reqHost = reqUrl.hostname;
+      if (isLoopbackAddress(reqHost)) {
+        return true;
+      }
       const noProxy = process.env["no_proxy"] || process.env["NO_PROXY"] || "";
       if (!noProxy) {
         return false;
@@ -597,13 +601,17 @@ var require_proxy = __commonJS({
         upperReqHosts.push(`${upperReqHosts[0]}:${reqPort}`);
       }
       for (const upperNoProxyItem of noProxy.split(",").map((x) => x.trim().toUpperCase()).filter((x) => x)) {
-        if (upperReqHosts.some((x) => x === upperNoProxyItem)) {
+        if (upperNoProxyItem === "*" || upperReqHosts.some((x) => x === upperNoProxyItem || x.endsWith(`.${upperNoProxyItem}`) || upperNoProxyItem.startsWith(".") && x.endsWith(`${upperNoProxyItem}`))) {
           return true;
         }
       }
       return false;
     }
     exports.checkBypass = checkBypass;
+    function isLoopbackAddress(host) {
+      const hostLower = host.toLowerCase();
+      return hostLower === "localhost" || hostLower.startsWith("127.") || hostLower.startsWith("[::1]") || hostLower.startsWith("[0:0:0:0:0:0:0:1]");
+    }
   }
 });
 
@@ -844,9 +852,9 @@ var require_tunnel2 = __commonJS({
   }
 });
 
-// ../../node_modules/.pnpm/@actions+http-client@2.0.1/node_modules/@actions/http-client/lib/index.js
+// ../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/index.js
 var require_lib = __commonJS({
-  "../../node_modules/.pnpm/@actions+http-client@2.0.1/node_modules/@actions/http-client/lib/index.js"(exports) {
+  "../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/index.js"(exports) {
     "use strict";
     var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
       if (k2 === void 0)
@@ -1424,9 +1432,9 @@ var require_lib = __commonJS({
   }
 });
 
-// ../../node_modules/.pnpm/@actions+http-client@2.0.1/node_modules/@actions/http-client/lib/auth.js
+// ../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/auth.js
 var require_auth = __commonJS({
-  "../../node_modules/.pnpm/@actions+http-client@2.0.1/node_modules/@actions/http-client/lib/auth.js"(exports) {
+  "../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/auth.js"(exports) {
     "use strict";
     var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
       function adopt(value) {
@@ -5859,7 +5867,7 @@ var core2 = __toESM(require_core());
 var core = __toESM(require_core());
 var import_micromatch = __toESM(require_micromatch());
 
-// ../../node_modules/.pnpm/simple-git@3.15.1/node_modules/simple-git/dist/esm/index.js
+// ../../node_modules/.pnpm/simple-git@3.17.0/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_child_process = require("child_process");
@@ -7249,6 +7257,32 @@ var init_change_working_directory = __esm2({
     init_task();
   }
 });
+function checkoutTask(args) {
+  const commands = ["checkout", ...args];
+  if (commands[1] === "-b" && commands.includes("-B")) {
+    commands[1] = remove(commands, "-B");
+  }
+  return straightThroughStringTask(commands);
+}
+function checkout_default() {
+  return {
+    checkout() {
+      return this._runTask(checkoutTask(getTrailingOptions(arguments, 1)), trailingFunctionArgument(arguments));
+    },
+    checkoutBranch(branchName, startPoint) {
+      return this._runTask(checkoutTask(["-b", branchName, startPoint, ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments));
+    },
+    checkoutLocalBranch(branchName) {
+      return this._runTask(checkoutTask(["-b", branchName, ...getTrailingOptions(arguments)]), trailingFunctionArgument(arguments));
+    }
+  };
+}
+var init_checkout = __esm2({
+  "src/lib/tasks/checkout.ts"() {
+    init_utils();
+    init_task();
+  }
+});
 function parseCommitResult(stdOut) {
   const result = {
     author: null,
@@ -7300,11 +7334,6 @@ var init_parse_commit = __esm2({
       })
     ];
   }
-});
-var commit_exports = {};
-__export2(commit_exports, {
-  commitTask: () => commitTask,
-  default: () => commit_default
 });
 function commitTask(message, files, customArgs) {
   const commands = [
@@ -8029,7 +8058,7 @@ var init_parse_push = __esm2({
           local
         });
       }),
-      new LineParser(/^[*-=]\s+([^:]+):(\S+)\s+\[(.+)]$/, (result, [local, remote, type]) => {
+      new LineParser(/^[=*-]\s+([^:]+):(\S+)\s+\[(.+)]$/, (result, [local, remote, type]) => {
         result.pushed.push(pushResultPushedItem(local, remote, type));
       }),
       new LineParser(/^Branch '([^']+)' set up to track remote branch '([^']+)' from '([^']+)'/, (result, [local, remote, remoteName]) => {
@@ -8345,6 +8374,7 @@ var init_simple_git_api = __esm2({
   "src/lib/simple-git-api.ts"() {
     init_task_callback();
     init_change_working_directory();
+    init_checkout();
     init_commit();
     init_config();
     init_grep();
@@ -8419,7 +8449,7 @@ var init_simple_git_api = __esm2({
         return this._runTask(statusTask(getTrailingOptions(arguments)), trailingFunctionArgument(arguments));
       }
     };
-    Object.assign(SimpleGitApi.prototype, commit_default(), config_default(), grep_default(), log_default(), version_default2());
+    Object.assign(SimpleGitApi.prototype, checkout_default(), commit_default(), config_default(), grep_default(), log_default(), version_default2());
   }
 });
 var scheduler_exports = {};
@@ -9105,7 +9135,6 @@ var require_git = __commonJS2({
     var { checkIsRepoTask: checkIsRepoTask2 } = (init_check_is_repo(), __toCommonJS2(check_is_repo_exports));
     var { cloneTask: cloneTask2, cloneMirrorTask: cloneMirrorTask2 } = (init_clone(), __toCommonJS2(clone_exports));
     var { cleanWithOptionsTask: cleanWithOptionsTask2, isCleanOptionsArray: isCleanOptionsArray2 } = (init_clean(), __toCommonJS2(clean_exports));
-    var { commitTask: commitTask2 } = (init_commit(), __toCommonJS2(commit_exports));
     var { diffSummaryTask: diffSummaryTask2 } = (init_diff(), __toCommonJS2(diff_exports));
     var { fetchTask: fetchTask2 } = (init_fetch(), __toCommonJS2(fetch_exports));
     var { moveTask: moveTask2 } = (init_move(), __toCommonJS2(move_exports));
@@ -9203,16 +9232,6 @@ var require_git = __commonJS2({
     };
     Git2.prototype.addAnnotatedTag = function(tagName, tagMessage) {
       return this._runTask(addAnnotatedTagTask2(tagName, tagMessage), trailingFunctionArgument2(arguments));
-    };
-    Git2.prototype.checkout = function() {
-      const commands = ["checkout", ...getTrailingOptions2(arguments, true)];
-      return this._runTask(straightThroughStringTask2(commands), trailingFunctionArgument2(arguments));
-    };
-    Git2.prototype.checkoutBranch = function(branchName, startPoint, then) {
-      return this.checkout(["-b", branchName, startPoint], trailingFunctionArgument2(arguments));
-    };
-    Git2.prototype.checkoutLocalBranch = function(branchName, then) {
-      return this.checkout(["-b", branchName], trailingFunctionArgument2(arguments));
     };
     Git2.prototype.deleteLocalBranch = function(branchName, forceDelete, then) {
       return this._runTask(deleteBranchTask2(branchName, typeof forceDelete === "boolean" ? forceDelete : false), trailingFunctionArgument2(arguments));
@@ -9416,15 +9435,28 @@ function preventProtocolOverride(arg, next) {
   }
   throw new GitPluginError(void 0, "unsafe", "Configuring protocol.allow is not permitted without enabling allowUnsafeExtProtocol");
 }
+function preventUploadPack(arg, method) {
+  if (/^\s*--(upload|receive)-pack/.test(arg)) {
+    throw new GitPluginError(void 0, "unsafe", `Use of --upload-pack or --receive-pack is not permitted without enabling allowUnsafePack`);
+  }
+  if (method === "clone" && /^\s*-u\b/.test(arg)) {
+    throw new GitPluginError(void 0, "unsafe", `Use of clone with option -u is not permitted without enabling allowUnsafePack`);
+  }
+  if (method === "push" && /^\s*--exec\b/.test(arg)) {
+    throw new GitPluginError(void 0, "unsafe", `Use of push with option --exec is not permitted without enabling allowUnsafePack`);
+  }
+}
 function blockUnsafeOperationsPlugin({
-  allowUnsafeProtocolOverride = false
+  allowUnsafeProtocolOverride = false,
+  allowUnsafePack = false
 } = {}) {
   return {
     type: "spawn.args",
-    action(args, _context) {
+    action(args, context) {
       args.forEach((current, index) => {
         const next = index < args.length ? args[index + 1] : "";
         allowUnsafeProtocolOverride || preventProtocolOverride(current, next);
+        allowUnsafePack || preventUploadPack(current, context.method);
       });
       return args;
     }
@@ -9614,7 +9646,9 @@ function spawnOptionsPlugin(spawnOptions) {
   };
 }
 function timeoutPlugin({
-  block
+  block,
+  stdErr = true,
+  stdOut = true
 }) {
   if (block > 0) {
     return {
@@ -9638,8 +9672,8 @@ function timeoutPlugin({
           stop();
           context.kill(new GitPluginError(void 0, "timeout", `block timeout reached`));
         }
-        (_a2 = context.spawned.stdout) == null ? void 0 : _a2.on("data", wait);
-        (_b = context.spawned.stderr) == null ? void 0 : _b.on("data", wait);
+        stdOut && ((_a2 = context.spawned.stdout) == null ? void 0 : _a2.on("data", wait));
+        stdErr && ((_b = context.spawned.stderr) == null ? void 0 : _b.on("data", wait));
         context.spawned.on("exit", stop);
         context.spawned.on("close", stop);
         wait();

@@ -48,7 +48,7 @@
         "date-fns": "^2.29.3"
     },
     "devDependencies": {
-        "@jest/globals": "^29.3.1"
+        "@jest/globals": "^29.5.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

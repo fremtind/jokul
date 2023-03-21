@@ -4,8 +4,8 @@
     "description": "Documentation portal for Jøkul",
     "version": "18.0.4",
     "devDependencies": {
-        "@jest/globals": "^29.3.1",
-        "@types/mixpanel-browser": "^2.38.0",
+        "@jest/globals": "^29.5.0",
+        "@types/mixpanel-browser": "^2.38.1",
         "react-docgen-typescript": "^2.2.2"
     },
     "dependencies": {
@@ -48,13 +48,13 @@
         "@fremtind/jkl-tooltip-react": "^2.0.5",
         "@fremtind/jkl-validators-util": "^2.5.3",
         "@fremtind/jkl-webfonts": "^2.1.3",
-        "@mdx-js/react": "^2.2.1",
+        "@mdx-js/react": "^2.3.0",
         "@sindresorhus/slugify": "^1.1.2",
         "classnames": "^2.3.2",
         "dotenv": "^8.6.0",
-        "focus-trap-react": "^10.0.2",
+        "focus-trap-react": "^10.1.1",
         "framer-motion": "^7.10.3",
-        "gatsby": "^4.25.1",
+        "gatsby": "^4.25.5",
         "gatsby-plugin-feed": "^4.25.0",
         "gatsby-plugin-image": "^2.25.0",
         "gatsby-plugin-layout": "^3.25.0",
@@ -74,8 +74,8 @@
         "prism-react-renderer": "^1.3.5",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-hook-form": "^7.41.3",
-        "react-live": "^3.1.1"
+        "react-hook-form": "^7.43.7",
+        "react-live": "^3.1.2"
     },
     "browserslist": [
         ">0.2% in no",

@@ -50,7 +50,7 @@
         "@fremtind/jkl-text-input": "^11.0.3",
         "@fremtind/jkl-tooltip-react": "^2.0.5",
         "classnames": "^2.3.2",
-        "downshift": "^7.0.5",
+        "downshift": "^7.6.0",
         "match-sorter": "^6.3.1"
     },
     "peerDependencies": {
