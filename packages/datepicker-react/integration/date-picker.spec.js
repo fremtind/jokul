@@ -23,6 +23,12 @@ describe("DatePicker", () => {
 
         cy.takeSnapshots({
             setup: () => {
+                cy.focusInput("datepicker").type("{tab}{space}");
+            },
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
                 cy.focusInput("datepicker").type("24.10.1990");
             },
             teardown: () => {
