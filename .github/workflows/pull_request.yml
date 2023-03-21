@@ -292,7 +292,7 @@ jobs:
 
             - name: Run Cypress tests on changed packages
               uses: cypress-io/github-action@v5
-              if: env.RUN_ALL_SPECS == false || env.RUN_ALL_SPECS == 'false'
+              if: steps.subset.outputs.has_matches == 'true' && (env.RUN_ALL_SPECS == false || env.RUN_ALL_SPECS == 'false')
               with:
                   # We install packages above
                   install: false
