@@ -24,6 +24,10 @@ var __copyProps = (to, from, except, desc) => {
   return to;
 };
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
@@ -1075,6 +1079,10 @@ var require_lib = __commonJS({
           return this.request(verb, requestUrl, stream, additionalHeaders);
         });
       }
+      /**
+       * Gets a typed object from an endpoint
+       * Be aware that not found returns a null.  Other errors (4xx, 5xx) reject the promise
+       */
       getJson(requestUrl, additionalHeaders = {}) {
         return __awaiter(this, void 0, void 0, function* () {
           additionalHeaders[Headers.Accept] = this._getExistingOrDefaultHeader(additionalHeaders, Headers.Accept, MediaTypes.ApplicationJson);
@@ -1109,6 +1117,11 @@ var require_lib = __commonJS({
           return this._processResponse(res, this.requestOptions);
         });
       }
+      /**
+       * Makes a raw http request.
+       * All other methods such as get, post, patch, and request ultimately call this.
+       * Prefer get, del, post and patch
+       */
       request(verb, requestUrl, data, headers) {
         return __awaiter(this, void 0, void 0, function* () {
           if (this._disposed) {
@@ -1169,12 +1182,20 @@ var require_lib = __commonJS({
           return response;
         });
       }
+      /**
+       * Needs to be called if keepAlive is set to true in request options.
+       */
       dispose() {
         if (this._agent) {
           this._agent.destroy();
         }
         this._disposed = true;
       }
+      /**
+       * Raw request.
+       * @param info
+       * @param data
+       */
       requestRaw(info2, data) {
         return __awaiter(this, void 0, void 0, function* () {
           return new Promise((resolve, reject) => {
@@ -1191,6 +1212,12 @@ var require_lib = __commonJS({
           });
         });
       }
+      /**
+       * Raw request with callback.
+       * @param info
+       * @param data
+       * @param onResult
+       */
       requestRawWithCallback(info2, data, onResult) {
         if (typeof data === "string") {
           if (!info2.options.headers) {
@@ -1234,6 +1261,11 @@ var require_lib = __commonJS({
           req.end();
         }
       }
+      /**
+       * Gets an http agent. This function is useful when you need an http agent that handles
+       * routing through a proxy server - depending upon the url and proxy environment variables.
+       * @param serverUrl  The server URL where the request will be sent. For example, https://api.github.com
+       */
       getAgent(serverUrl) {
         const parsedUrl = new URL(serverUrl);
         return this._getAgent(parsedUrl);
@@ -1436,6 +1468,7 @@ var require_auth = __commonJS({
         }
         options.headers["Authorization"] = `Basic ${Buffer.from(`${this.username}:${this.password}`).toString("base64")}`;
       }
+      // This handler cannot handle 401
       canHandleAuthentication() {
         return false;
       }
@@ -1450,12 +1483,15 @@ var require_auth = __commonJS({
       constructor(token) {
         this.token = token;
       }
+      // currently implements pre-authorization
+      // TODO: support preAuth = false where it hooks on 401
       prepareRequest(options) {
         if (!options.headers) {
           throw Error("The request has no headers");
         }
         options.headers["Authorization"] = `Bearer ${this.token}`;
       }
+      // This handler cannot handle 401
       canHandleAuthentication() {
         return false;
       }
@@ -1470,12 +1506,15 @@ var require_auth = __commonJS({
       constructor(token) {
         this.token = token;
       }
+      // currently implements pre-authorization
+      // TODO: support preAuth = false where it hooks on 401
       prepareRequest(options) {
         if (!options.headers) {
           throw Error("The request has no headers");
         }
         options.headers["Authorization"] = `Basic ${Buffer.from(`PAT:${this.token}`).toString("base64")}`;
       }
+      // This handler cannot handle 401
       canHandleAuthentication() {
         return false;
       }
@@ -1629,6 +1668,12 @@ var require_summary = __commonJS({
       constructor() {
         this._buffer = "";
       }
+      /**
+       * Finds the summary file path from the environment, rejects if env var is not found or file does not exist
+       * Also checks r/w permissions.
+       *
+       * @returns step summary file path
+       */
       filePath() {
         return __awaiter(this, void 0, void 0, function* () {
           if (this._filePath) {
@@ -1647,6 +1692,15 @@ var require_summary = __commonJS({
           return this._filePath;
         });
       }
+      /**
+       * Wraps content in an HTML tag, adding any HTML attributes
+       *
+       * @param {string} tag HTML tag to wrap
+       * @param {string | null} content content within the tag
+       * @param {[attribute: string]: string} attrs key-value list of HTML attributes to add
+       *
+       * @returns {string} content wrapped in HTML element
+       */
       wrap(tag, content, attrs = {}) {
         const htmlAttrs = Object.entries(attrs).map(([key, value]) => ` ${key}="${value}"`).join("");
         if (!content) {
@@ -1654,6 +1708,13 @@ var require_summary = __commonJS({
         }
         return `<${tag}${htmlAttrs}>${content}</${tag}>`;
       }
+      /**
+       * Writes text in the buffer to the summary buffer file and empties buffer. Will append by default.
+       *
+       * @param {SummaryWriteOptions} [options] (optional) options for write operation
+       *
+       * @returns {Promise<Summary>} summary instance
+       */
       write(options) {
         return __awaiter(this, void 0, void 0, function* () {
           const overwrite = !!(options === null || options === void 0 ? void 0 : options.overwrite);
@@ -1663,39 +1724,95 @@ var require_summary = __commonJS({
           return this.emptyBuffer();
         });
       }
+      /**
+       * Clears the summary buffer and wipes the summary file
+       *
+       * @returns {Summary} summary instance
+       */
       clear() {
         return __awaiter(this, void 0, void 0, function* () {
           return this.emptyBuffer().write({ overwrite: true });
         });
       }
+      /**
+       * Returns the current summary buffer as a string
+       *
+       * @returns {string} string of summary buffer
+       */
       stringify() {
         return this._buffer;
       }
+      /**
+       * If the summary buffer is empty
+       *
+       * @returns {boolen} true if the buffer is empty
+       */
       isEmptyBuffer() {
         return this._buffer.length === 0;
       }
+      /**
+       * Resets the summary buffer without writing to summary file
+       *
+       * @returns {Summary} summary instance
+       */
       emptyBuffer() {
         this._buffer = "";
         return this;
       }
+      /**
+       * Adds raw text to the summary buffer
+       *
+       * @param {string} text content to add
+       * @param {boolean} [addEOL=false] (optional) append an EOL to the raw text (default: false)
+       *
+       * @returns {Summary} summary instance
+       */
       addRaw(text, addEOL = false) {
         this._buffer += text;
         return addEOL ? this.addEOL() : this;
       }
+      /**
+       * Adds the operating system-specific end-of-line marker to the buffer
+       *
+       * @returns {Summary} summary instance
+       */
       addEOL() {
         return this.addRaw(os_1.EOL);
       }
+      /**
+       * Adds an HTML codeblock to the summary buffer
+       *
+       * @param {string} code content to render within fenced code block
+       * @param {string} lang (optional) language to syntax highlight code
+       *
+       * @returns {Summary} summary instance
+       */
       addCodeBlock(code, lang) {
         const attrs = Object.assign({}, lang && { lang });
         const element = this.wrap("pre", this.wrap("code", code), attrs);
         return this.addRaw(element).addEOL();
       }
+      /**
+       * Adds an HTML list to the summary buffer
+       *
+       * @param {string[]} items list of items to render
+       * @param {boolean} [ordered=false] (optional) if the rendered list should be ordered or not (default: false)
+       *
+       * @returns {Summary} summary instance
+       */
       addList(items, ordered = false) {
         const tag = ordered ? "ol" : "ul";
         const listItems = items.map((item) => this.wrap("li", item)).join("");
         const element = this.wrap(tag, listItems);
         return this.addRaw(element).addEOL();
       }
+      /**
+       * Adds an HTML table to the summary buffer
+       *
+       * @param {SummaryTableCell[]} rows table rows
+       *
+       * @returns {Summary} summary instance
+       */
       addTable(rows) {
         const tableBody = rows.map((row) => {
           const cells = row.map((cell) => {
@@ -1712,35 +1829,86 @@ var require_summary = __commonJS({
         const element = this.wrap("table", tableBody);
         return this.addRaw(element).addEOL();
       }
+      /**
+       * Adds a collapsable HTML details element to the summary buffer
+       *
+       * @param {string} label text for the closed state
+       * @param {string} content collapsable content
+       *
+       * @returns {Summary} summary instance
+       */
       addDetails(label, content) {
         const element = this.wrap("details", this.wrap("summary", label) + content);
         return this.addRaw(element).addEOL();
       }
+      /**
+       * Adds an HTML image tag to the summary buffer
+       *
+       * @param {string} src path to the image you to embed
+       * @param {string} alt text description of the image
+       * @param {SummaryImageOptions} options (optional) addition image attributes
+       *
+       * @returns {Summary} summary instance
+       */
       addImage(src, alt, options) {
         const { width, height } = options || {};
         const attrs = Object.assign(Object.assign({}, width && { width }), height && { height });
         const element = this.wrap("img", null, Object.assign({ src, alt }, attrs));
         return this.addRaw(element).addEOL();
       }
+      /**
+       * Adds an HTML section heading element
+       *
+       * @param {string} text heading text
+       * @param {number | string} [level=1] (optional) the heading level, default: 1
+       *
+       * @returns {Summary} summary instance
+       */
       addHeading(text, level) {
         const tag = `h${level}`;
         const allowedTag = ["h1", "h2", "h3", "h4", "h5", "h6"].includes(tag) ? tag : "h1";
         const element = this.wrap(allowedTag, text);
         return this.addRaw(element).addEOL();
       }
+      /**
+       * Adds an HTML thematic break (<hr>) to the summary buffer
+       *
+       * @returns {Summary} summary instance
+       */
       addSeparator() {
         const element = this.wrap("hr", null);
         return this.addRaw(element).addEOL();
       }
+      /**
+       * Adds an HTML line break (<br>) to the summary buffer
+       *
+       * @returns {Summary} summary instance
+       */
       addBreak() {
         const element = this.wrap("br", null);
         return this.addRaw(element).addEOL();
       }
+      /**
+       * Adds an HTML blockquote to the summary buffer
+       *
+       * @param {string} text quote text
+       * @param {string} cite (optional) citation url
+       *
+       * @returns {Summary} summary instance
+       */
       addQuote(text, cite) {
         const attrs = Object.assign({}, cite && { cite });
         const element = this.wrap("blockquote", text, attrs);
         return this.addRaw(element).addEOL();
       }
+      /**
+       * Adds an HTML anchor tag to the summary buffer
+       *
+       * @param {string} text link text/content
+       * @param {string} href hyperlink
+       *
+       * @returns {Summary} summary instance
+       */
       addLink(text, href) {
         const element = this.wrap("a", text, { href });
         return this.addRaw(element).addEOL();
@@ -2734,50 +2902,97 @@ var require_constants = __commonJS({
     "use strict";
     module2.exports = {
       MAX_LENGTH: 1024 * 64,
+      // Digits
       CHAR_0: "0",
+      /* 0 */
       CHAR_9: "9",
+      /* 9 */
+      // Alphabet chars.
       CHAR_UPPERCASE_A: "A",
+      /* A */
       CHAR_LOWERCASE_A: "a",
+      /* a */
       CHAR_UPPERCASE_Z: "Z",
+      /* Z */
       CHAR_LOWERCASE_Z: "z",
+      /* z */
       CHAR_LEFT_PARENTHESES: "(",
+      /* ( */
       CHAR_RIGHT_PARENTHESES: ")",
+      /* ) */
       CHAR_ASTERISK: "*",
+      /* * */
+      // Non-alphabetic chars.
       CHAR_AMPERSAND: "&",
+      /* & */
       CHAR_AT: "@",
+      /* @ */
       CHAR_BACKSLASH: "\\",
+      /* \ */
       CHAR_BACKTICK: "`",
+      /* ` */
       CHAR_CARRIAGE_RETURN: "\r",
+      /* \r */
       CHAR_CIRCUMFLEX_ACCENT: "^",
+      /* ^ */
       CHAR_COLON: ":",
+      /* : */
       CHAR_COMMA: ",",
+      /* , */
       CHAR_DOLLAR: "$",
+      /* . */
       CHAR_DOT: ".",
+      /* . */
       CHAR_DOUBLE_QUOTE: '"',
+      /* " */
       CHAR_EQUAL: "=",
+      /* = */
       CHAR_EXCLAMATION_MARK: "!",
+      /* ! */
       CHAR_FORM_FEED: "\f",
+      /* \f */
       CHAR_FORWARD_SLASH: "/",
+      /* / */
       CHAR_HASH: "#",
+      /* # */
       CHAR_HYPHEN_MINUS: "-",
+      /* - */
       CHAR_LEFT_ANGLE_BRACKET: "<",
+      /* < */
       CHAR_LEFT_CURLY_BRACE: "{",
+      /* { */
       CHAR_LEFT_SQUARE_BRACKET: "[",
+      /* [ */
       CHAR_LINE_FEED: "\n",
+      /* \n */
       CHAR_NO_BREAK_SPACE: "\xA0",
+      /* \u00A0 */
       CHAR_PERCENT: "%",
+      /* % */
       CHAR_PLUS: "+",
+      /* + */
       CHAR_QUESTION_MARK: "?",
+      /* ? */
       CHAR_RIGHT_ANGLE_BRACKET: ">",
+      /* > */
       CHAR_RIGHT_CURLY_BRACE: "}",
+      /* } */
       CHAR_RIGHT_SQUARE_BRACKET: "]",
+      /* ] */
       CHAR_SEMICOLON: ";",
+      /* ; */
       CHAR_SINGLE_QUOTE: "'",
+      /* ' */
       CHAR_SPACE: " ",
+      /*   */
       CHAR_TAB: "	",
+      /* \t */
       CHAR_UNDERSCORE: "_",
+      /* _ */
       CHAR_VERTICAL_LINE: "|",
+      /* | */
       CHAR_ZERO_WIDTH_NOBREAK_SPACE: "\uFEFF"
+      /* \uFEFF */
     };
   }
 });
@@ -2790,17 +3005,29 @@ var require_parse = __commonJS({
     var {
       MAX_LENGTH,
       CHAR_BACKSLASH,
+      /* \ */
       CHAR_BACKTICK,
+      /* ` */
       CHAR_COMMA,
+      /* , */
       CHAR_DOT,
+      /* . */
       CHAR_LEFT_PARENTHESES,
+      /* ( */
       CHAR_RIGHT_PARENTHESES,
+      /* ) */
       CHAR_LEFT_CURLY_BRACE,
+      /* { */
       CHAR_RIGHT_CURLY_BRACE,
+      /* } */
       CHAR_LEFT_SQUARE_BRACKET,
+      /* [ */
       CHAR_RIGHT_SQUARE_BRACKET,
+      /* ] */
       CHAR_DOUBLE_QUOTE,
+      /* " */
       CHAR_SINGLE_QUOTE,
+      /* ' */
       CHAR_NO_BREAK_SPACE,
       CHAR_ZERO_WIDTH_NOBREAK_SPACE
     } = require_constants();
@@ -3149,61 +3376,112 @@ var require_constants2 = __commonJS({
     module2.exports = {
       MAX_LENGTH: 1024 * 64,
       POSIX_REGEX_SOURCE,
+      // regular expressions
       REGEX_BACKSLASH: /\\(?![*+?^${}(|)[\]])/g,
       REGEX_NON_SPECIAL_CHARS: /^[^@![\].,$*+?^{}()|\\/]+/,
       REGEX_SPECIAL_CHARS: /[-*+?.^${}(|)[\]]/,
       REGEX_SPECIAL_CHARS_BACKREF: /(\\?)((\W)(\3*))/g,
       REGEX_SPECIAL_CHARS_GLOBAL: /([-*+?.^${}(|)[\]])/g,
       REGEX_REMOVE_BACKSLASH: /(?:\[.*?[^\\]\]|\\(?=.))/g,
+      // Replace globs with equivalent patterns to reduce parsing time.
       REPLACEMENTS: {
         "***": "*",
         "**/**": "**",
         "**/**/**": "**"
       },
+      // Digits
       CHAR_0: 48,
+      /* 0 */
       CHAR_9: 57,
+      /* 9 */
+      // Alphabet chars.
       CHAR_UPPERCASE_A: 65,
+      /* A */
       CHAR_LOWERCASE_A: 97,
+      /* a */
       CHAR_UPPERCASE_Z: 90,
+      /* Z */
       CHAR_LOWERCASE_Z: 122,
+      /* z */
       CHAR_LEFT_PARENTHESES: 40,
+      /* ( */
       CHAR_RIGHT_PARENTHESES: 41,
+      /* ) */
       CHAR_ASTERISK: 42,
+      /* * */
+      // Non-alphabetic chars.
       CHAR_AMPERSAND: 38,
+      /* & */
       CHAR_AT: 64,
+      /* @ */
       CHAR_BACKWARD_SLASH: 92,
+      /* \ */
       CHAR_CARRIAGE_RETURN: 13,
+      /* \r */
       CHAR_CIRCUMFLEX_ACCENT: 94,
+      /* ^ */
       CHAR_COLON: 58,
+      /* : */
       CHAR_COMMA: 44,
+      /* , */
       CHAR_DOT: 46,
+      /* . */
       CHAR_DOUBLE_QUOTE: 34,
+      /* " */
       CHAR_EQUAL: 61,
+      /* = */
       CHAR_EXCLAMATION_MARK: 33,
+      /* ! */
       CHAR_FORM_FEED: 12,
+      /* \f */
       CHAR_FORWARD_SLASH: 47,
+      /* / */
       CHAR_GRAVE_ACCENT: 96,
+      /* ` */
       CHAR_HASH: 35,
+      /* # */
       CHAR_HYPHEN_MINUS: 45,
+      /* - */
       CHAR_LEFT_ANGLE_BRACKET: 60,
+      /* < */
       CHAR_LEFT_CURLY_BRACE: 123,
+      /* { */
       CHAR_LEFT_SQUARE_BRACKET: 91,
+      /* [ */
       CHAR_LINE_FEED: 10,
+      /* \n */
       CHAR_NO_BREAK_SPACE: 160,
+      /* \u00A0 */
       CHAR_PERCENT: 37,
+      /* % */
       CHAR_PLUS: 43,
+      /* + */
       CHAR_QUESTION_MARK: 63,
+      /* ? */
       CHAR_RIGHT_ANGLE_BRACKET: 62,
+      /* > */
       CHAR_RIGHT_CURLY_BRACE: 125,
+      /* } */
       CHAR_RIGHT_SQUARE_BRACKET: 93,
+      /* ] */
       CHAR_SEMICOLON: 59,
+      /* ; */
       CHAR_SINGLE_QUOTE: 39,
+      /* ' */
       CHAR_SPACE: 32,
+      /*   */
       CHAR_TAB: 9,
+      /* \t */
       CHAR_UNDERSCORE: 95,
+      /* _ */
       CHAR_VERTICAL_LINE: 124,
+      /* | */
       CHAR_ZERO_WIDTH_NOBREAK_SPACE: 65279,
+      /* \uFEFF */
       SEP: path.sep,
+      /**
+       * Create EXTGLOB_CHARS
+       */
       extglobChars(chars) {
         return {
           "!": { type: "negate", open: "(?:(?!(?:", close: `))${chars.STAR})` },
@@ -3213,6 +3491,9 @@ var require_constants2 = __commonJS({
           "@": { type: "at", open: "(?:", close: ")" }
         };
       },
+      /**
+       * Create GLOB_CHARS
+       */
       globChars(win32) {
         return win32 === true ? WINDOWS_CHARS : POSIX_CHARS;
       }
@@ -3290,20 +3571,35 @@ var require_scan = __commonJS({
     var utils = require_utils3();
     var {
       CHAR_ASTERISK,
+      /* * */
       CHAR_AT,
+      /* @ */
       CHAR_BACKWARD_SLASH,
+      /* \ */
       CHAR_COMMA,
+      /* , */
       CHAR_DOT,
+      /* . */
       CHAR_EXCLAMATION_MARK,
+      /* ! */
       CHAR_FORWARD_SLASH,
+      /* / */
       CHAR_LEFT_CURLY_BRACE,
+      /* { */
       CHAR_LEFT_PARENTHESES,
+      /* ( */
       CHAR_LEFT_SQUARE_BRACKET,
+      /* [ */
       CHAR_PLUS,
+      /* + */
       CHAR_QUESTION_MARK,
+      /* ? */
       CHAR_RIGHT_CURLY_BRACE,
+      /* } */
       CHAR_RIGHT_PARENTHESES,
+      /* ) */
       CHAR_RIGHT_SQUARE_BRACKET
+      /* ] */
     } = require_constants2();
     var isPathSeparator = (code) => {
       return code === CHAR_FORWARD_SLASH || code === CHAR_BACKWARD_SLASH;
@@ -4849,7 +5145,7 @@ var require_common = __commonJS({
             return;
           }
           const self = debug4;
-          const curr = Number(new Date());
+          const curr = Number(/* @__PURE__ */ new Date());
           const ms = curr - (prevTime || curr);
           self.diff = ms;
           self.prev = prevTime;
@@ -5077,7 +5373,11 @@ var require_browser = __commonJS({
       if (typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
         return false;
       }
-      return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+      return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || // Is firebug? http://stackoverflow.com/a/398120/376773
+      typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || // Is firefox >= v31?
+      // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+      typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || // Double check webkit in userAgent just in case we are in a worker
+      typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
     }
     function formatArgs(args) {
       args[0] = (this.useColors ? "%c" : "") + this.namespace + (this.useColors ? " %c" : " ") + args[0] + (this.useColors ? "%c " : " ") + "+" + module2.exports.humanize(this.diff);
@@ -5406,7 +5706,7 @@ var require_node = __commonJS({
       if (exports.inspectOpts.hideDate) {
         return "";
       }
-      return new Date().toISOString() + " ";
+      return (/* @__PURE__ */ new Date()).toISOString() + " ";
     }
     function log(...args) {
       return process.stderr.write(util.format(...args) + "\n");
@@ -6417,7 +6717,11 @@ function listConfigTask(scope) {
 function config_default() {
   return {
     addConfig(key, value, ...rest) {
-      return this._runTask(addConfigTask(key, value, rest[0] === true, asConfigScope(rest[1], "local")), trailingFunctionArgument(arguments));
+      return this._runTask(addConfigTask(key, value, rest[0] === true, asConfigScope(
+        rest[1],
+        "local"
+        /* local */
+      )), trailingFunctionArgument(arguments));
     },
     getConfig(key, scope) {
       return this._runTask(getConfigTask(key, asConfigScope(scope, void 0)), trailingFunctionArgument(arguments));
@@ -7229,11 +7533,26 @@ var init_parse_diff_summary = __esm2({
       })
     ];
     diffSummaryParsers = {
-      [""]: statParser,
-      ["--stat"]: statParser,
-      ["--numstat"]: numStatParser,
-      ["--name-status"]: nameStatusParser,
-      ["--name-only"]: nameOnlyParser
+      [
+        ""
+        /* NONE */
+      ]: statParser,
+      [
+        "--stat"
+        /* STAT */
+      ]: statParser,
+      [
+        "--numstat"
+        /* NUM_STAT */
+      ]: numStatParser,
+      [
+        "--name-status"
+        /* NAME_STATUS */
+      ]: nameStatusParser,
+      [
+        "--name-only"
+        /* NAME_ONLY */
+      ]: nameOnlyParser
     };
   }
 });
@@ -7877,9 +8196,25 @@ var init_StatusSummary = __esm2({
         append(_result.ignored = _result.ignored || [], _file);
       }),
       parser2("?", "?", (result, file) => append(result.not_added, file)),
-      ...conflicts("A", "A", "U"),
-      ...conflicts("D", "D", "U"),
-      ...conflicts("U", "A", "D", "U"),
+      ...conflicts(
+        "A",
+        "A",
+        "U"
+        /* UNMERGED */
+      ),
+      ...conflicts(
+        "D",
+        "D",
+        "U"
+        /* UNMERGED */
+      ),
+      ...conflicts(
+        "U",
+        "A",
+        "D",
+        "U"
+        /* UNMERGED */
+      ),
       [
         "##",
         (result, line) => {
