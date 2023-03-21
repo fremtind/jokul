@@ -160,17 +160,20 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                                     React.isValidElement(child) &&
                                     (child.type === "button" || ReactIs.isForwardRef(child))
                                 ) {
+                                    const menuItem = child as React.ReactElement<
+                                        ButtonHTMLAttributes<HTMLButtonElement>
+                                    >;
                                     return React.cloneElement(
                                         child,
                                         getItemProps({
-                                            ...child.props,
+                                            ...menuItem.props,
                                             tabIndex: activeIndex === index ? 0 : -1,
                                             role: "menuitem",
                                             ref(node: HTMLButtonElement) {
                                                 listItemsRef.current[index] = node;
                                             },
                                             onClick(event) {
-                                                child.props.onClick?.(event as React.MouseEvent<HTMLButtonElement>);
+                                                menuItem.props.onClick?.(event as React.MouseEvent<HTMLButtonElement>);
                                                 tree?.events.emit("click");
                                             },
                                             onMouseEnter() {
