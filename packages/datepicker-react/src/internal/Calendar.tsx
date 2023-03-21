@@ -14,6 +14,7 @@ import {
     getYearSelectOptions,
     getMonthSelectOptions,
     DateInfo,
+    getInitialDateShown,
 } from "./utils";
 
 interface CalendarProps
@@ -66,7 +67,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
 
     const [{ offset, selectedDate, shownDate }, dispatch] = useReducer(
         calendarReducer,
-        date || defaultSelected || new Date(),
+        getInitialDateShown(date, defaultSelected, minDate, maxDate),
         calendarInitializer,
     );
 
@@ -76,9 +77,9 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
     useEffect(() => {
         dispatch({
             type: "SET_SELECTED_DATE",
-            newDate: date || defaultSelected || new Date(),
+            newDate: getInitialDateShown(date, defaultSelected, minDate, maxDate),
         });
-    }, [date, defaultSelected]);
+    }, [date, defaultSelected, minDate, maxDate]);
 
     const onOffsetChanged = useCallback((newOffset: number) => {
         dispatch({
@@ -309,6 +310,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                 offset += minDate.getMonth() - expectedDate.getMonth();
             }
 
+            console.table({ year, offset, expectedDate: expectedDate.getFullYear() });
+
             dispatch({
                 type: "ADD_OFFSET",
                 addedOffset: offset,
@@ -338,18 +341,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         [selectedDate, date, shownDate],
     );
 
-    const yearSelectOptions = getYearSelectOptions(
-        selectedDate ? selectedDate.getFullYear() : new Date().getFullYear(),
-        minDate,
-        maxDate,
-    );
+    const yearSelectOptions = getYearSelectOptions(shownYear, minDate, maxDate);
 
-    const monthSelectOptions = getMonthSelectOptions(Number(shownYear), months, minDate, maxDate).map(
+    const monthSelectOptions = getMonthSelectOptions(shownYear, months, minDate, maxDate); /* .map(
         (name: string, i: number) => ({
             value: String(i),
             label: name,
         }),
-    );
+    ) */
 
     return (
         <div

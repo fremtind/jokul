@@ -74,8 +74,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
 
     /// Calendar state
 
-    const defaultSelectedInCalendar = startOfDay(new Date());
-
     const [showCalendar, setShowCalendar] = useState(defaultShow);
     const [calendarRef] = useAnimatedHeight<HTMLDivElement>(showCalendar);
 
@@ -299,7 +297,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                         width={width}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
-                        // onKeyDown={handleKeyDown}
                         onClick={clickInput}
                         onChange={handleChange}
                         {...inputProps}
@@ -315,7 +312,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     <div className="jkl-datepicker__calendar-wrapper">
                         <Calendar
                             ref={calendarRef}
-                            defaultSelected={defaultSelectedInCalendar}
                             density={density}
                             date={date}
                             minDate={minDate}

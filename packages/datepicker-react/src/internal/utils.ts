@@ -22,6 +22,7 @@
  * SOFTWARE.
  */
 
+import type { ValuePair } from "@fremtind/jkl-core";
 import addDays from "date-fns/addDays";
 import differenceInCalendarMonths from "date-fns/differenceInCalendarMonths";
 import isBefore from "date-fns/isBefore";
@@ -70,21 +71,43 @@ export function subtractMonth({
  * Generates an array of year strings for a year selector component, with min and max dates taken into account.
  *
  * @param {number} currentYear - The current year to center the list around
- * @param {Date | undefined} [minDate] - The minimum date to include in the list of years
+ * @param {Date | undefined} [minDate] - The minimum date to include in the list of years
  * @param {Date | undefined} [maxDate] - The maximum date to include in the list of years
  *
- * @returns {string[]} - An array of year strings, starting from the earliest year specified by minDate or currentYear - 5, and ending at the latest year specified by maxDate or currentYear + 5
+ * @returns {string[]} - An array of year strings, starting from the earliest year specified by minDate or currentYear - 3, and ending at the latest year specified by maxDate or currentYear + 3
  */
 export function getYearSelectOptions(
     currentYear: number,
     minDate: Date | undefined,
     maxDate: Date | undefined,
 ): string[] {
-    const minDateYear = minDate?.getFullYear() || currentYear;
-    const maxDateYear = maxDate?.getFullYear() || currentYear;
+    if (maxDate && minDate && maxDate < minDate) {
+        // Dette burde forhåpentligvis aldri skje, men sørg for at ikke
+        // kalenderen kræsjer hvis startdato er etter sluttdato (vis kun inneværende år)
+        return [currentYear.toString()];
+    }
 
-    let start = Math.max(minDateYear, currentYear - 3);
-    let end = Math.min(maxDateYear, currentYear + 3);
+    if (maxDate && !minDate && maxDate.getFullYear() < currentYear - 3) {
+        // Hvis sluttdato er satt mer enn 3 år før dagens, uten en startdato,
+        // sørg for å vise noen år tilbake i tid
+        return Array(6)
+            .fill(null)
+            .map((_, index) => maxDate.getFullYear() - index)
+            .reverse()
+            .map((year) => year.toString());
+    }
+
+    if (minDate && !maxDate && minDate.getFullYear() > currentYear + 3) {
+        // Hvis startdato er satt mer enn 3 år etter dagens, uten en sluttdato,
+        // sørg for å vise noen år frem i tid
+        return Array(6)
+            .fill(null)
+            .map((_, index) => minDate.getFullYear() + index)
+            .map((year) => year.toString());
+    }
+
+    let start = minDate ? Math.max(minDate.getFullYear(), currentYear - 3) : currentYear - 3;
+    let end = maxDate ? Math.min(maxDate.getFullYear(), currentYear + 3) : currentYear + 3;
 
     const range = [...Array(end - start + 1).keys()].map((x) => x + start);
     const stringRange = range.map((item) => item.toString());
@@ -95,17 +118,17 @@ export function getYearSelectOptions(
 /**
  * Returns an array of months that are allowed for selection in the current year based on the minimum and maximum dates.
  * @param {number} currentYear The current year
- * @param {string[]} months An array of strings representing the months
+ * @param {string[]} monthNames An array of strings representing the month names
  * @param {Date | undefined} minDate The minimum date that is allowed for selection
  * @param {Date | undefined} maxDate The maximum date that is allowed for selection
- * @returns {string[]} An array of strings representing the months that are allowed for selection in the current year
+ * @returns {ValuePair[]} An array of ValuePairs representing the months that are allowed for selection in the current year
  */
 export function getMonthSelectOptions(
     currentYear: number,
-    months: string[],
+    monthNames: string[],
     minDate: Date | undefined,
     maxDate: Date | undefined,
-): string[] {
+): ValuePair[] {
     const minDateYear = minDate?.getFullYear() || currentYear;
     const minDateMonth = minDate?.getMonth() || 0;
     const maxDateYear = maxDate?.getFullYear() || currentYear;
@@ -121,7 +144,12 @@ export function getMonthSelectOptions(
         endMonth = maxDateMonth;
     }
 
-    const filteredMonths = months.filter((month, index) => index >= startMonth && index <= endMonth);
+    const filteredMonths = monthNames
+        .map((month, index) => ({
+            value: index.toString(),
+            label: month,
+        }))
+        .filter(({ value }) => parseInt(value) >= startMonth && parseInt(value) <= endMonth);
 
     return filteredMonths;
 }
@@ -675,4 +703,32 @@ export function getInitialDate(
         return !dateIsOutsideRange(defaultValueAsDate, minDate, maxDate) ? defaultValueAsDate : null;
     }
     return null;
+}
+
+/**
+ * Get the initial date to show in the calendar
+ *
+ * @param date The date set in the DatePicker (from props)
+ * @param defaultSelected The defaultSelected prop from DatePicker
+ * @param minDate The earliest selectable date, from props
+ * @param maxDate The latest selectable date, from props
+ * @returns The date to show in the calendar
+ */
+export function getInitialDateShown(
+    date: Date | null,
+    defaultSelected: Date | undefined,
+    minDate: Date | undefined,
+    maxDate: Date | undefined,
+): Date {
+    if (date) {
+        return date;
+    } else if (defaultSelected) {
+        return defaultSelected;
+    } else if (minDate && minDate > new Date()) {
+        return minDate;
+    } else if (maxDate && maxDate < new Date()) {
+        return maxDate;
+    } else {
+        return new Date();
+    }
 }
