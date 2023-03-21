@@ -103,7 +103,7 @@ export const Anchor: React.FC<{ children: React.ReactNode; className?: string; h
     }
 
     /** Use GatsbyLink for internal links */
-    if (props.href.startsWith("/")) {
+    if (props.href.startsWith("/") || props.href.startsWith(".")) {
         const { href, ...restProps } = props;
         return <GatsbyLink to={href} className="jkl-link" {...restProps} />;
     }

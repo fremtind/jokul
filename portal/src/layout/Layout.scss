@@ -1,18 +1,49 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
-    --portal-bg: #{jkl.$color-snohvit};
-    --portal-text-color: #{jkl.$color-granitt};
     --portal-subdued-text-color: #{jkl.$color-stein};
 }
 
 @include jkl.dark-mode-variables {
-    --portal-bg: #{jkl.$color-granitt};
-    --portal-text-color: #{jkl.$color-snohvit};
     --portal-subdued-text-color: #{jkl.$color-svaberg};
 }
 
 $_sidebar-width: jkl.rem(375px);
+$_paragraph-max-width: jkl.rem(750px);
+
+.jkl-portal-content {
+    max-width: $_paragraph-max-width;
+
+    &--break-left,
+    &--break-right {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: jkl.$spacing-24;
+
+        @include jkl.from-large-device {
+            gap: jkl.$spacing-40;
+            max-width: $_sidebar-width + $_paragraph-max-width;
+        }
+    }
+
+    &--break-left {
+        justify-content: flex-start;
+
+        @include jkl.from-large-device {
+            justify-content: flex-end;
+            margin-left: -#{$_sidebar-width};
+        }
+    }
+
+    &--break-right {
+        justify-content: flex-start;
+
+        @include jkl.from-large-device {
+            margin-right: -#{$_sidebar-width};
+        }
+    }
+}
 
 /**
  * [1]: https://github.com/reach/router/issues/63#issuecomment-695953011
@@ -30,7 +61,6 @@ $_sidebar-width: jkl.rem(375px);
 
     transition-property: color;
     transition-delay: jkl.timing("productive");
-    color: var(--portal-text-color);
 
     &__sidebar {
         display: none;

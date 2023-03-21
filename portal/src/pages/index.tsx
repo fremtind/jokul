@@ -100,9 +100,6 @@ const IndexPage: React.FC = () => {
 
                 <section className="jkl-portal-frontpage__section-principles">
                     <h2 className="jkl-sr-only">Hovedprinsipper</h2>
-                    <p className="jkl-heading-1 jkl-portal-frontpage__section-principles--heading">
-                        Hovedprinsipper du kan tenke på for å designe en løsning til vår profil på best mulig måte:
-                    </p>
                     <div className="jkl-portal-frontpage__section-principles__diamond-container">
                         <div className="jkl-portal-principle-diamond">
                             <PrincipleDiamond
@@ -131,7 +128,7 @@ const IndexPage: React.FC = () => {
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
                                         <p className="jkl-title" data-testid="title-elevasjon">
-                                            Elevasjon
+                                            Enkelt
                                         </p>
                                         <p className="jkl-heading-2">
                                             Vi løfter det som er viktig og skaper et naturlig informasjonshierarki.
@@ -147,7 +144,7 @@ const IndexPage: React.FC = () => {
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
                                         <p className="jkl-title" data-testid="title-bevegelse">
-                                            Bevegelse
+                                            Varmt
                                         </p>
                                         <p className="jkl-heading-2">
                                             Vi skal utforske, se fremover og være tilpasningsdyktige.
@@ -163,7 +160,7 @@ const IndexPage: React.FC = () => {
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
                                         <p className="jkl-title" data-testid="title-klarhet">
-                                            Klarhet
+                                            Tydelig
                                         </p>
                                         <p className="jkl-heading-2">
                                             Vi skal fremstå som ærlig og klar, med en tydelig og varm stemme

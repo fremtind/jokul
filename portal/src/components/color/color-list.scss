@@ -1,0 +1,8 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.jkl-portal-color-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: jkl.$spacing-8;
+}

@@ -1,9 +1,8 @@
 ---
 title: Ikoner
 path: /profil/ikoner
-react: icons-react
-scss: icons
 order: 10
+keywords: animasjon
 ---
 
 import { IconsExample, iconsExampleKnobs } from "../../../../packages/icons-react/documentation/IconsExample";
@@ -12,10 +11,9 @@ import {
     animatedIconsExampleKnobs,
 } from "../../../../packages/icons-react/documentation/AnimatedIconsExample";
 
-<Ingress>
-    Vi bruker sjelden ikoner. De ikonene vi har valgt å ha er funksjonelle, for eksempel til handlinger som å legge til
-    en fil, åpne noe eller lukke det igjen.
-</Ingress>
+# Ikoner
+
+Vi bruker sjelden ikoner. De ikonene vi har valgt å ha er funksjonelle, for eksempel til handlinger som å legge til en fil, åpne noe eller lukke det igjen.
 
 Vi bruker ikke ikoner til dekorasjon eller som illustrasjon, for eksempel av produkttype.
 
@@ -28,6 +26,7 @@ Ikonene vi bruker er gjerne en del av et skjemafelt, for eksempel [Select](/komp
 Et lite utvalg av ikonene våre er animerbare. For å bruke animasjonene trengs [CSSen fra ikonpakka](https://github.com/fremtind/jokul/tree/main/packages/icons).
 
 <ComponentExample title="Animated" component={AnimatedIconsExample} knobs={animatedIconsExampleKnobs} />
+
 ## Animasjon
 
 I noen situasjoner animerer vi ikonene våre fra én tilstand til en annen. Dette gjelder hovedsakelig Pil-ikonene, men også Legg til og Lukk. Se for eksempel [Accordion](/komponenter/accordion), eller oversikten over [alle de animerte ikonkomponentene](/komponenter/icons).

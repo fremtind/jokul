@@ -1,0 +1,103 @@
+---
+title: Farger
+path: /profil/farger
+order: 8
+keywords: hovedfarger grånyanser meldingsfarger granitt varde snøhvit hvot svart skifer stein svaberg dis sand feil advarsel informasjon suksess universell utforming uu
+---
+
+import { Color, ColorList } from "../../components/color";
+
+# Farger
+
+Vi har en fargepalett bestående av kalde og varme gråtoner inspirert av den norske fjellheimen.
+
+## Hovedfarger
+
+Hovedfargene våre er granitt, varde og snøhvit. Vi bruker vi både på trykk og i digitale flater. Disse bærer profilen vår og er de mest gjenkjennelige fargene i vårt uttrykk.
+
+<ColorList>
+    <Color name="granitt" hex="#1B1917" rgb="rgb(27, 25, 23)" hsl="hsl(30, 8, 10)" />
+    <Color name="varde" hex="#E4E0DB" rgb="rgb(236, 233, 229)" hsl="hsl(34, 16, 91)" />
+    <Color name="snøhvit" hex="#F9F9F9" rgb="rgb(249, 249, 249)" hsl="hsl(0, 0, 98)" />
+    <Color name="hvit" hex="#FFFFFF" rgb="rgb(255, 255, 255)" hsl="hsl(0, 0, 100)" />
+</ColorList>
+
+## Grånyanser
+
+Vi har også et utvalg grånyanser for funksjonell bruk på våre digitale kundeløsninger. Disse må brukes opp mot farger med nok kontrast.
+
+<ColorList>
+    <Color name="svart" hex="#000000" rgb="rgb(0, 0, 0)" hsl="hsl(0, 0, 0)" />
+    <Color name="skifer" hex="#313030" rgb="rgb(49, 48, 48)" hsl="hsl(0, 1, 19)" />
+    <Color name="stein" hex="#636060" rgb="rgb(99, 96, 96)" hsl="hsl(0, 2, 38)" />
+    <Color name="svaberg" hex="#C8C5C3" rgb="rgb(200, 197, 195)" hsl="hsl(24, 4, 77)" />
+    <Color name="dis" hex="#ECE9E5" rgb="rgb(236, 233, 229)" hsl="hsl(34, 16, 91)" />
+    <Color name="sand" hex="#F4F2EF" rgb="rgb(244, 242, 239)" hsl="hsl(36, 19, 95)" />
+</ColorList>
+
+## Meldingsfargene
+
+Meldingsfargene bruker vi på digitale flater, for eksempel når vi trenger å gi informasjon fra systemet. Eksempler på hva vi bruker meldingsfargene til:
+
+-   Feil.
+-   Advarsler.
+-   Informasjonsmeldinger.
+-   Grafer
+-   Fokusringer ved tastaturnavigasjon.
+
+Meldingsfargene skal bare brukes funksjonelt, det vil si ikke som rene dekorelementer.
+
+Vi bruker de samme fargene for mørk modus og lys modus.
+
+<ColorList>
+    <Color name="info" hex="#D9DDFF" rgb="rgb(217, 221, 255)" hsl="hsl(234, 100, 93)" />
+    <Color name="suksess" hex="#C8ECD2" rgb="rgb(200, 236, 210)" hsl="hsl(137, 49, 85)" />
+    <Color name="advarsel" hex="#FDEAB9" rgb="rgb(253, 234, 185)" hsl="hsl(43, 94, 86)" />
+    <Color name="feil" hex="#FFC9B2" rgb="rgb(255, 201, 178)" hsl="hsl(18, 100, 85)" />
+</ColorList>
+
+## Tilgjengelighet
+
+Tilgjengelighet er noe av det viktigste å tenke på når vi bruker farger i digitale løsninger. Vi skal alltid følge kravene til universell utforming. For farger betyr det AA-kravet for kontrast. Kontrastkravet gjelder ikke bare tekst på bakgrunn, men også komponentenes kontrast mot sin egen bakgrunn, når det har betydning for å forstå funksjonaliteten.
+
+I tillegg til å tenke på tekst mot knappebakgrunnen, må vi også tenke på knappebakgrunnen mot sidens bakgrunnsfarge dersom det er viktig for å forstå funksjonen til komponenten.
+
+### Plugins til Figma
+
+-   [A11y - Color Contrast Checker](https://www.figma.com/community/plugin/733159460536249875/A11y---Color-Contrast-Checker)
+-   Se også [denne listen](https://www.figma.com/blog/design-for-everyone-with-these-accessibility-focused-plugins/) over nyttige plugins.
+
+### Andre verktøy
+
+-   [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+-   [Colour Contrast Analyzer](https://developer.paciellogroup.com/resources/contrastanalyser/)
+
+## Eksempler
+
+For å skape en varm brukeropplevelse jobber vi med lyse bakgrunnsfarger.
+
+<Grid className="jkl-spacing-40--bottom">
+    <PortalImage
+        alt="Skjermbilde av en detaljside for en bilforsikring"
+        src="/assets/documentation/farger/bilforsikring_detaljside.png"
+    />
+    <PortalImage
+        alt="Skjermbilde av en fakturaoversikt med detaljvisning for en faktura"
+        src="/assets/documentation/farger/betaling_faktura.png"
+    />
+</Grid>
+<Grid className="jkl-spacing-40--bottom">
+    <PortalImage
+        alt="Skjermbilde av boligselgerforsikring, som har flere områder med sort kontrastfarge"
+        src="/assets/documentation/farger/bsf_forside.png"
+    />
+</Grid>
+
+Vi bruker fire meldingsfarger pluss to ekstra farger i hjelpetekster.
+
+<Grid className="jkl-spacing-40--bottom">
+    <PortalImage
+        alt="Skjermbilde av et skjema for kjøp av hundeforsikring med en valideringsfeil"
+        src="/assets/documentation/farger/hund_feilmelding.png"
+    />
+</Grid>
