@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@10.1.5...@fremtind/jkl-table-react@10.1.11) (2023-03-21)
+
+### Bug Fixes
+
+- gjør sorter-ikon bold for tabellheader ([83a5b11](https://github.com/fremtind/jokul/commit/83a5b11f8a5a2a03b6e1c65402921ae1f41293bb))
+
 ## 10.1.4 (2023-02-17)
 
 ### Bug Fixes
