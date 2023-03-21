@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [18.0.3](https://github.com/fremtind/jokul/compare/@fremtind/portal@18.0.2...@fremtind/portal@18.0.3) (2023-03-21)
+
+### Bug Fixes
+
+- legg til manglende luft under tagline ([2d78860](https://github.com/fremtind/jokul/commit/2d7886031242252b9ef14f1f3d6455bc3884874b))
+
 # [18.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@17.0.26...@fremtind/portal@18.0.0) (2023-03-20)
 
 ### Bug Fixes
