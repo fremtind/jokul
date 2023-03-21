@@ -21,12 +21,7 @@ $_paragraph-max-width: jkl.rem(750px);
 
 .jkl-portal-ul,
 .jkl-portal-ol,
-.jkl-portal-content,
 .jkl-portal-paragraph {
-    max-width: $_paragraph-max-width;
-}
-
-.jkl-portal-content {
     max-width: $_paragraph-max-width;
 }
 

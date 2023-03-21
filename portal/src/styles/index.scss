@@ -5,12 +5,12 @@
         margin-bottom: jkl.$spacing-3xl;
     }
 
+    &__tagline {
+        margin-block: jkl.$spacing-64;
+    }
+
     &__section {
         &-intro {
-            h2 {
-                margin-bottom: jkl.$spacing-3xl;
-            }
-
             &--image-container {
                 height: 65vh;
                 width: 60vw;
