@@ -65,7 +65,7 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>((props, r
                         "jkl-table-header__arrows--active": Boolean(sortable.direction),
                     })}
                 >
-                    {sortable.direction && <ArrowVerticalAnimated pointingDown={sortable.direction === "desc"} />}
+                    {sortable.direction && <ArrowVerticalAnimated pointingDown={sortable.direction === "desc"} bold />}
                 </div>
             )}
         </th>
