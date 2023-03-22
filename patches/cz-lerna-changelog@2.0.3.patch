@@ -1,8 +1,143 @@
+diff --git a/lib/index.js b/lib/index.js
+index eb64ee17e236ec834b4434e6a4329948d2555764..015a21b3df02794c9500369eecaf40502ed7a667 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -32,62 +32,12 @@ var _autocompleteQuestions2 = _interopRequireDefault(_autocompleteQuestions);
+ 
+ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+ 
+-var _require = require("@lerna/project"),
+-    getPackages = _require.getPackages;
+-
+ var commitAnalyzer = function commitAnalyzer(props, commits, then) {
+   return (0, _commitAnalyzer.analyzeCommits)(props, commits).then(function (result) {
+     return then(null, result);
+   }).catch(then);
+ };
+ 
+-function getAllPackages() {
+-  return getPackages();
+-}
+-
+-function getChangedPackages(allPackages) {
+-  var changedFiles = _shelljs2.default.exec('git diff --cached --name-only', { silent: true }).stdout.split('\n').map(_path2.default.normalize);
+-
+-  return allPackages.filter(function (pkg) {
+-    var packagePrefix = _path2.default.relative('.', pkg.location) + _path2.default.sep;
+-    var _iteratorNormalCompletion = true;
+-    var _didIteratorError = false;
+-    var _iteratorError = undefined;
+-
+-    try {
+-      for (var _iterator = changedFiles[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+-        var changedFile = _step.value;
+-
+-        if (changedFile.indexOf(packagePrefix) === 0) {
+-          return true;
+-        }
+-      }
+-    } catch (err) {
+-      _didIteratorError = true;
+-      _iteratorError = err;
+-    } finally {
+-      try {
+-        if (!_iteratorNormalCompletion && _iterator.return) {
+-          _iterator.return();
+-        }
+-      } finally {
+-        if (_didIteratorError) {
+-          throw _iteratorError;
+-        }
+-      }
+-    }
+-  }).map(function (pkg) {
+-    return pkg.name;
+-  });
+-}
+-
+-function makeAffectsLine(answers) {
+-  var selectedPackages = answers.packages;
+-  if (selectedPackages && selectedPackages.length) {
+-    return 'affects: ' + selectedPackages.join(', ');
+-  }
+-}
+-
+ function getCommitTypeMessage(type) {
+   if (!type) {
+     return 'This commit does not indicate any release';
+@@ -118,36 +68,25 @@ function makePrompter() {
+   };
+ 
+   return function (cz, commit) {
+-    getAllPackages().then(function (pkgs) {
+-      var allPackages = pkgs.map(function (pkg) {
+-        return pkg.name;
+-      });
+-      var changedPackages = getChangedPackages(pkgs);
+-
+-      var defaultQuestions = (0, _makeDefaultQuestions2.default)(allPackages, changedPackages);
+-      var customQuestions = makeCustomQuestions(allPackages, changedPackages);
+-      var questions = mergeQuestions(defaultQuestions, customQuestions);
+-
+-      console.log('\n\nLine 1 will be cropped at 100 characters. All other lines will be wrapped after 100 characters.\n');
+-
+-      cz.registerPrompt('autocomplete', _inquirerAutocompletePrompt2.default);
+-      cz.prompt((0, _autocompleteQuestions2.default)(questions)).then(function (answers) {
+-        var affectsLine = makeAffectsLine(answers);
+-        if (affectsLine) {
+-          answers.body = affectsLine + '\n' + answers.body;
+-        }
+-        var message = (0, _buildCommit2.default)(answers);
+-        var type = commitAnalyzer({}, {
+-          commits: [{
+-            hash: '',
+-            message: message
+-          }]
+-        }, function (err, type) {
+-          console.log(_chalk2.default.green('\n' + getCommitTypeMessage(type) + '\n'));
+-          console.log('\n\nCommit message:');
+-          console.log(_chalk2.default.blue('\n\n' + message + '\n'));
+-          commit(message);
+-        });
++    var defaultQuestions = (0, _makeDefaultQuestions2.default)();
++    var customQuestions = makeCustomQuestions();
++    var questions = mergeQuestions(defaultQuestions, customQuestions);
++
++    console.log('\n\nLine 1 will be cropped at 100 characters. All other lines will be wrapped after 100 characters.\n');
++
++    cz.registerPrompt('autocomplete', _inquirerAutocompletePrompt2.default);
++    cz.prompt((0, _autocompleteQuestions2.default)(questions)).then(function (answers) {
++      var message = (0, _buildCommit2.default)(answers);
++      var type = commitAnalyzer({}, {
++        commits: [{
++          hash: '',
++          message: message
++        }]
++      }, function (err, type) {
++        console.log(_chalk2.default.green('\n' + getCommitTypeMessage(type) + '\n'));
++        console.log('\n\nCommit message:');
++        console.log(_chalk2.default.blue('\n\n' + message + '\n'));
++        commit(message);
+       });
+     });
+   };
 diff --git a/lib/make-default-questions.js b/lib/make-default-questions.js
-index 9ac9c4871875650654c6aefb7b84813ebbf0fb2a..df139482d875d3e84ae0e6bfbe0d0f8aea770d2f 100644
+index 9ac9c4871875650654c6aefb7b84813ebbf0fb2a..9075d1793e12555fda2089c9d9b9e6db5ce925ef 100644
 --- a/lib/make-default-questions.js
 +++ b/lib/make-default-questions.js
-@@ -12,10 +12,6 @@ module.exports = function (allPackages, changedPackages) {
+@@ -1,21 +1,11 @@
+ 'use strict';
+ 
+-var _promise = require('promise');
+-
+-var _promise2 = _interopRequireDefault(_promise);
+-
+-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+-
+-module.exports = function (allPackages, changedPackages) {
++module.exports = function () {
+   return [{
+     type: 'autocomplete',
      name: 'type',
      message: 'Select the type of change that you\'re committing:',
      choices: [{ value: 'feat', name: 'feat:     ✨  A new feature (note: this will indicate a release)' }, { value: 'fix', name: 'fix:      🛠  A bug fix (note: this will indicate a release)' }, { value: 'docs', name: 'docs:     Documentation only changes' }, { value: 'style', name: 'style:    Changes that do not affect the meaning of the code\n            (white-space, formatting, missing semi-colons, etc)' }, { value: 'refactor', name: 'refactor: A code change that neither fixes a bug nor adds a feature' }, { value: 'perf', name: 'perf:     A code change that improves performance' }, { value: 'test', name: 'test:     Adding missing tests' }, { value: 'chore', name: 'chore:    Changes to the build process or auxiliary tools\n            and libraries such as documentation generation' }, { value: 'revert', name: 'revert:   Revert to a commit' }, { value: 'WIP', name: 'WIP:      Work in progress' }]
@@ -13,7 +148,7 @@ index 9ac9c4871875650654c6aefb7b84813ebbf0fb2a..df139482d875d3e84ae0e6bfbe0d0f8a
    }, {
      type: 'input',
      name: 'subject',
-@@ -38,17 +34,5 @@ module.exports = function (allPackages, changedPackages) {
+@@ -38,17 +28,5 @@ module.exports = function (allPackages, changedPackages) {
      type: 'input',
      name: 'footer',
      message: 'List any ISSUES CLOSED by this change (optional). E.g.: #31, #34:\n'
