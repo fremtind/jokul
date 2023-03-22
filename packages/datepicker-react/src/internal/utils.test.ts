@@ -138,19 +138,17 @@ describe("getYearSelectOptions", () => {
         expect(years.indexOf("2026")).not.toBe(-1);
     });
 
-    it("shows alternatives when min date is set after current year", () => {
+    it("shows first possible year when min date is set after current year", () => {
         const years = getYearSelectOptions(2023, new Date(2028, 2, 11), undefined);
 
         expect(years.indexOf("2023")).toBe(-1);
         expect(years.indexOf("2028")).not.toBe(-1);
-        expect(years.indexOf("2033")).not.toBe(-1);
     });
 
-    it("shows alternatives when max date is set before current year", () => {
+    it("shows last possible year when max date is set before current year", () => {
         const years = getYearSelectOptions(2023, undefined, new Date(2019, 2, 11));
 
         expect(years.indexOf("2023")).toBe(-1);
         expect(years.indexOf("2019")).not.toBe(-1);
-        expect(years.indexOf("2014")).not.toBe(-1);
     });
 });

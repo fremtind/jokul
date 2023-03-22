@@ -81,35 +81,21 @@ export function getYearSelectOptions(
     minDate: Date | undefined,
     maxDate: Date | undefined,
 ): string[] {
-    if (maxDate && minDate && maxDate < minDate) {
-        // Dette burde forhåpentligvis aldri skje, men sørg for at ikke
-        // kalenderen kræsjer hvis startdato er etter sluttdato (vis kun inneværende år)
-        return [currentYear.toString()];
+    if (minDate && minDate.getFullYear() > currentYear) {
+        return [minDate.getFullYear().toString()];
     }
 
-    if (maxDate && maxDate.getFullYear() < currentYear - 3) {
-        // Hvis sluttdato er satt mer enn 3 år før dagens,
-        // sørg for å vise noen år tilbake i tid
-        return Array(6)
-            .fill(null)
-            .map((_, index) => maxDate.getFullYear() - index)
-            .reverse()
-            .map((year) => year.toString());
-    }
-
-    if (minDate && minDate.getFullYear() > currentYear + 3) {
-        // Hvis startdato er satt mer enn 3 år etter dagens,
-        // sørg for å vise noen år frem i tid
-        return Array(6)
-            .fill(null)
-            .map((_, index) => minDate.getFullYear() + index)
-            .map((year) => year.toString());
+    if (maxDate && maxDate.getFullYear() < currentYear) {
+        return [maxDate.getFullYear().toString()];
     }
 
     let start = minDate ? Math.max(minDate.getFullYear(), currentYear - 3) : currentYear - 3;
     let end = maxDate ? Math.min(maxDate.getFullYear(), currentYear + 3) : currentYear + 3;
 
-    const range = [...Array(end - start + 1).keys()].map((x) => x + start);
+    // Sørg for å alltid vise minst ett år
+    const numYears = Math.max(end - start + 1, 1);
+
+    const range = [...Array(numYears).keys()].map((x) => x + start);
     const stringRange = range.map((item) => item.toString());
 
     return stringRange;
@@ -720,15 +706,15 @@ export function getInitialDateShown(
     minDate: Date | undefined,
     maxDate: Date | undefined,
 ): Date {
-    if (date) {
-        return date;
-    } else if (defaultSelected) {
-        return defaultSelected;
-    } else if (minDate && minDate > new Date()) {
-        return minDate;
-    } else if (maxDate && maxDate < new Date()) {
-        return maxDate;
-    } else {
-        return new Date();
+    let initialDate = date || defaultSelected || new Date();
+
+    if (minDate) {
+        initialDate = minDate > initialDate ? minDate : initialDate;
     }
+
+    if (maxDate) {
+        initialDate = maxDate < initialDate ? maxDate : initialDate;
+    }
+
+    return initialDate;
 }
