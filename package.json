@@ -35,7 +35,7 @@
         "reboot": "pnpm clean && pnpm boot",
         "scaffold": "node './scripts/scaffold'"
     },
-    "packageManager": "pnpm@7.21.0",
+    "packageManager": "pnpm@7.30.0",
     "pnpm": {
         "overrides": {
             "axe-core": "^4.6.3",
