@@ -16,7 +16,7 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     };
 }
 
-describe.skip("Datepicker", () => {
+describe("Datepicker", () => {
     beforeEach(() => {
         cleanup();
         jest.useFakeTimers();
