@@ -55,7 +55,7 @@
     margin: var(--jkl-calendar-date-margin);
 
     padding: 0;
-    padding-top: jkl.$spacing-3xs; // adjust visual alignment of text
+    padding-top: jkl.$spacing-2; // adjust visual alignment of text
     @include jkl.motion("entrance", "energetic");
     transition-property: color, background-color, box-shadow;
 

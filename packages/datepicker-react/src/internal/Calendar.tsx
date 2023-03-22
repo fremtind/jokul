@@ -310,8 +310,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                 offset += minDate.getMonth() - expectedDate.getMonth();
             }
 
-            console.table({ year, offset, expectedDate: expectedDate.getFullYear() });
-
             dispatch({
                 type: "ADD_OFFSET",
                 addedOffset: offset,
@@ -342,13 +340,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
     );
 
     const yearSelectOptions = getYearSelectOptions(shownYear, minDate, maxDate);
-
-    const monthSelectOptions = getMonthSelectOptions(shownYear, months, minDate, maxDate); /* .map(
-        (name: string, i: number) => ({
-            value: String(i),
-            label: name,
-        }),
-    ) */
+    const monthSelectOptions = getMonthSelectOptions(shownYear, months, minDate, maxDate);
 
     return (
         <div
