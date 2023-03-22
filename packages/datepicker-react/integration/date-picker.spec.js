@@ -23,7 +23,7 @@ describe("DatePicker", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.focusInput("datepicker").type("{tab}{space}");
+                cy.getByTestid("jkl-icon-button").first().click();
             },
         });
 
