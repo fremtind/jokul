@@ -87,8 +87,8 @@ export function getYearSelectOptions(
         return [currentYear.toString()];
     }
 
-    if (maxDate && !minDate && maxDate.getFullYear() < currentYear - 3) {
-        // Hvis sluttdato er satt mer enn 3 år før dagens, uten en startdato,
+    if (maxDate && maxDate.getFullYear() < currentYear - 3) {
+        // Hvis sluttdato er satt mer enn 3 år før dagens,
         // sørg for å vise noen år tilbake i tid
         return Array(6)
             .fill(null)
@@ -97,8 +97,8 @@ export function getYearSelectOptions(
             .map((year) => year.toString());
     }
 
-    if (minDate && !maxDate && minDate.getFullYear() > currentYear + 3) {
-        // Hvis startdato er satt mer enn 3 år etter dagens, uten en sluttdato,
+    if (minDate && minDate.getFullYear() > currentYear + 3) {
+        // Hvis startdato er satt mer enn 3 år etter dagens,
         // sørg for å vise noen år frem i tid
         return Array(6)
             .fill(null)
