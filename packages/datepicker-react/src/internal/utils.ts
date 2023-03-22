@@ -116,9 +116,9 @@ export function getMonthSelectOptions(
     maxDate: Date | undefined,
 ): ValuePair[] {
     const minDateYear = minDate?.getFullYear() || currentYear;
-    const minDateMonth = minDate?.getMonth() || 0;
+    const minDateMonth = minDate?.getMonth() === undefined ? 0 : minDate.getMonth();
     const maxDateYear = maxDate?.getFullYear() || currentYear;
-    const maxDateMonth = maxDate?.getMonth() || 11;
+    const maxDateMonth = maxDate?.getMonth() === undefined ? 11 : maxDate.getMonth();
 
     let startMonth = 0;
     let endMonth = 11;
