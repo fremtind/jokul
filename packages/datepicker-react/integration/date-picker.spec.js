@@ -25,6 +25,9 @@ describe("DatePicker", () => {
             setup: () => {
                 cy.getByTestid("jkl-icon-button").first().click();
             },
+            teardown: () => {
+                cy.getByTestid("jkl-icon-button").first().click();
+            },
         });
 
         cy.takeSnapshots({
