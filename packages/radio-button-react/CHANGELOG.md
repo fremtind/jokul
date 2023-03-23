@@ -3,20 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.1.0 (2023-03-01)
+
+### Features
+
+-   åpne for hjelpetekst på individuell radioknapp ([ab8a3cd](https://github.com/fremtind/jokul/commit/ab8a3cdc61a7506ee9e18e403e24d19b1733c5e7))
+
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@9.0.1...@fremtind/jkl-radio-button-react@10.0.0) (2023-01-30)
 
 ### Code Refactoring
 
-- bruk FieldGroup fra jkl-input-group/-react i RadioButtonGroup ([b7bcb3e](https://github.com/fremtind/jokul/commit/b7bcb3e15e018cf9444343e10d282e925b3bad63))
+-   bruk FieldGroup fra jkl-input-group/-react i RadioButtonGroup ([b7bcb3e](https://github.com/fremtind/jokul/commit/b7bcb3e15e018cf9444343e10d282e925b3bad63))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå impoertere stilarket til FieldGroup fra jkl-input-group i stedet for jkl-field-group
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå impoertere stilarket til FieldGroup fra jkl-input-group i stedet for jkl-field-group
 
 # 9.0.0 (2023-01-16)
 

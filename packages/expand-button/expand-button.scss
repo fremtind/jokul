@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @use "~@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
@@ -16,22 +17,11 @@
     }
 }
 
-@include jkl.comfortable-density-variables {
-    @include jkl.declare-font-variables("jkl-expand-button", "body");
-
-    --jkl-expand-button-arrow-size: calc(var(--jkl-expand-button-line-height) - #{jkl.rem(2px)});
-}
-
-@include jkl.compact-density-variables {
-    @include jkl.declare-font-variables("jkl-expand-button", "small");
-}
-
 .jkl-expand-button {
     $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
     $_focus-ring-width: jkl.rem(2px);
 
     @include jkl.reset-outline;
-    @include jkl.use-font-variables("jkl-expand-button");
 
     background-color: transparent;
     cursor: pointer;
@@ -88,7 +78,7 @@
 
         display: inline-block;
         margin-left: jkl.$spacing-2;
-        margin-bottom: jkl.rem(-8px);
+        margin-bottom: -0.4em;
 
         .jkl-animated-vertical-arrows__slider[data-show="up"] {
             // For å få pila på linje med teksten
@@ -100,10 +90,10 @@
 
     // Bevisst nøstet for høyere specificity enn core uavhengig av importrekkefølge.
     .jkl-expand-button__arrow {
-        --jkl-icon-size: var(--jkl-expand-button-arrow-size);
+        --jkl-icon-size: calc(1em / 20 * 30);
 
         .jkl-icon--inherit {
-            --jkl-icon-size: var(--jkl-expand-button-arrow-size);
+            --jkl-icon-size: calc(1em / 20 * 30);
         }
     }
 

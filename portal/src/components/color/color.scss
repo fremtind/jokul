@@ -1,0 +1,48 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/jkl/colors";
+
+$farger: (
+    "hvit": jkl.$color-hvit,
+    "snøhvit": jkl.$color-snohvit,
+    "sand": jkl.$color-sand,
+    "dis": jkl.$color-dis,
+    "varde": jkl.$color-varde,
+    "svaberg": jkl.$color-svaberg,
+    "stein": jkl.$color-stein,
+    "fjellgrå": jkl.$color-fjellgra,
+    "skifer": jkl.$color-skifer,
+    "granitt": jkl.$color-granitt,
+    "svart": jkl.$color-svart,
+    "suksess": colors.varslingsfarge("suksess"),
+    "feil": colors.varslingsfarge("feil"),
+    "info": colors.varslingsfarge("info"),
+    "advarsel": colors.varslingsfarge("advarsel"),
+);
+
+.jkl-portal-color {
+    display: flex;
+    flex-direction: column;
+    gap: jkl.$spacing-4;
+
+    &__swatch {
+        height: jkl.rem(80px);
+        width: jkl.rem(145px);
+    }
+
+    &__name {
+        @include jkl.text-style("small") {
+            font-weight: jkl.$typography-weight-bold;
+        }
+        margin-top: jkl.$spacing-4;
+    }
+
+    &__value {
+        @include jkl.text-style("small");
+    }
+}
+
+@each $property, $value in $farger {
+    .jkl-portal-color__swatch--#{$property} {
+        background-color: $value;
+    }
+}

@@ -28,8 +28,6 @@
 
 .jkl-nav-card {
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
     transform: translate3d(0, 0, 0);
     text-decoration: none;
     color: var(--jkl-color);
@@ -58,16 +56,16 @@
 
     &__link {
         @include jkl.use-font-variables("jkl-nav-card-link");
+        box-sizing: border-box;
+        position: relative;
 
-        .jkl-nav-card:hover:focus &::after,
-        .jkl-nav-card:hover:not(:focus) &::after {
-            padding-left: 0.7em;
-            padding-right: 0;
-        }
-
-        &:hover:not(:focus),
-        &:focus:focus {
-            color: var(--jkl-color);
+        &::after {
+            $_right-arrow: "\2192"; // unicode right arrow
+            @include jkl.decorative($content: $_right-arrow);
+            display: inline;
+            margin-left: -0.2em;
+            padding-left: 0.35em;
+            padding-right: 0.35em;
         }
     }
 

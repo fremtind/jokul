@@ -17,6 +17,7 @@ async function run(): Promise<void> {
         for (const [name, patterns] of Object.entries(filters)) {
             const matches = micromatch(files, patterns);
             core.setOutput(name, matches.length > 0);
+            core.setOutput(`${name}_files`, matches.join("\n").trimEnd());
             if (!hasMatches && matches.length > 0) {
                 hasMatches = true;
             }

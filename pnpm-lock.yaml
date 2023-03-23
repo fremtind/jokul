@@ -1,21 +1,22 @@
 lockfileVersion: 5.4
 
 overrides:
+  axe-core: ^4.6.3
   chokidar: ^3.5.3
   cz-lerna-changelog>shelljs: ^0.8.5
   glob-stream>glob-parent: ^5.1.2
   resolve-url-loader>loader-utils: ^1.4.2
 
 patchedDependencies:
+  '@frsource/cypress-plugin-visual-regression-diff@3.1.6':
+    hash: e6umj5xys57o3rbg6x3acuktgm
+    path: patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch
   cz-lerna-changelog@2.0.3:
     hash: rwhr2kgabnya2gbdqqa3lsmu4i
     path: patches/cz-lerna-changelog@2.0.3.patch
   gulp-sass@5.1.0:
     hash: z2duu6muooayewj4qeaynjtnaa
     path: patches/gulp-sass@5.1.0.patch
-  '@frsource/cypress-plugin-visual-regression-diff@3.1.6':
-    hash: e6umj5xys57o3rbg6x3acuktgm
-    path: patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch
   kbar@0.1.0-beta.39:
     hash: xz5kcti6rhkbtvejisfylwqd7u
     path: patches/kbar@0.1.0-beta.39.patch
@@ -71,6 +72,7 @@ importers:
       husky: ^8.0.2
       jest: ^29.3.1
       jest-axe: ^7.0.0
+      jest-canvas-mock: ^2.4.0
       jest-environment-jsdom: ^29.3.1
       jest-watch-typeahead: ^2.2.1
       lerna: ^6.3.0
@@ -142,6 +144,7 @@ importers:
       husky: 8.0.2
       jest: 29.3.1_@types+node@18.11.18
       jest-axe: 7.0.0
+      jest-canvas-mock: 2.4.0
       jest-environment-jsdom: 29.3.1
       jest-watch-typeahead: 2.2.1_jest@29.3.1
       lerna: 6.3.0
@@ -195,17 +198,17 @@ importers:
 
   packages/accordion:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/accordion-react:
     specifiers:
-      '@fremtind/jkl-accordion': ^10.0.2
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-list-react': ^9.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
+      '@fremtind/jkl-accordion': ^10.0.3
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-list-react': ^9.0.3
+      '@fremtind/jkl-react-hooks': ^11.1.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-accordion': link:../accordion
@@ -218,16 +221,16 @@ importers:
 
   packages/alert-message:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/alert-message-react:
     specifiers:
-      '@fremtind/jkl-alert-message': ^8.0.2
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
+      '@fremtind/jkl-alert-message': ^8.0.3
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-react-hooks': ^11.1.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-alert-message': link:../alert-message
@@ -238,14 +241,14 @@ importers:
 
   packages/breadcrumb:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/breadcrumb-react:
     specifiers:
-      '@fremtind/jkl-breadcrumb': ^4.0.2
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-breadcrumb': ^4.0.3
+      '@fremtind/jkl-core': ^12.0.3
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-breadcrumb': link:../breadcrumb
@@ -257,18 +260,18 @@ importers:
 
   packages/button:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/button-react:
     specifiers:
-      '@fremtind/jkl-button': ^10.0.2
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-loader-react': ^11.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-toggle-switch-react': ^11.0.2
+      '@fremtind/jkl-button': ^10.0.3
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-loader-react': ^11.0.3
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-toggle-switch-react': ^11.0.5
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-button': link:../button
@@ -282,18 +285,18 @@ importers:
 
   packages/card:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/card-react:
     specifiers:
-      '@fremtind/jkl-button-react': ^13.0.2
-      '@fremtind/jkl-card': ^8.0.2
-      '@fremtind/jkl-constants-util': ^2.0.5
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-image-react': ^5.0.2
-      '@fremtind/jkl-tag-react': ^4.0.3
+      '@fremtind/jkl-button-react': ^13.0.5
+      '@fremtind/jkl-card': ^9.0.1
+      '@fremtind/jkl-constants-util': ^2.0.12
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-image-react': ^5.0.4
+      '@fremtind/jkl-tag-react': ^4.0.7
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-button-react': link:../button-react
@@ -307,16 +310,16 @@ importers:
 
   packages/checkbox:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/checkbox-react:
     specifiers:
-      '@fremtind/jkl-checkbox': ^9.0.2
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-input-group-react': ^2.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
+      '@fremtind/jkl-checkbox': ^9.0.3
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-input-group-react': ^2.0.5
+      '@fremtind/jkl-react-hooks': ^11.1.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-checkbox': link:../checkbox
@@ -328,42 +331,93 @@ importers:
 
   packages/constants-util:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-table-react': ^10.1.4
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-table-react': ^10.1.11
     devDependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-table-react': link:../table-react
 
+  packages/contact-information:
+    specifiers:
+      '@fremtind/jkl-core': ^12.0.3
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/contact-information-react:
+    specifiers:
+      '@fremtind/jkl-contact-information': ^1.0.1
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-formatters-util': ^4.0.12
+      classnames: ^2.3.2
+    dependencies:
+      '@fremtind/jkl-contact-information': link:../contact-information
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-formatters-util': link:../formatters-util
+      classnames: 2.3.2
+
   packages/content-toggle:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/content-toggle-react:
     specifiers:
-      '@fremtind/jkl-content-toggle': ^5.0.2
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-content-toggle': ^5.0.3
+      '@fremtind/jkl-core': ^12.0.3
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-content-toggle': link:../content-toggle
       '@fremtind/jkl-core': link:../core
       classnames: 2.3.2
 
+  packages/contextual-menu:
+    specifiers:
+      '@fremtind/jkl-core': ^12.0.3
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/contextual-menu-react:
+    specifiers:
+      '@floating-ui/react': ^0.19.2
+      '@floating-ui/react-dom-interactions': ^0.12.0
+      '@fremtind/jkl-contextual-menu': ^1.0.3
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icon-button-react': ^3.0.5
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@types/react-is': ^17.0.3
+      classnames: ^2.3.2
+      framer-motion: ^7.10.3
+      react-is: ^18.2.0
+    dependencies:
+      '@floating-ui/react': 0.19.2
+      '@floating-ui/react-dom-interactions': 0.12.0
+      '@fremtind/jkl-contextual-menu': link:../contextual-menu
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      '@types/react-is': 17.0.3
+      classnames: 2.3.2
+      framer-motion: 7.10.3
+      react-is: 18.2.0
+    devDependencies:
+      '@fremtind/jkl-icon-button-react': link:../icon-button-react
+
   packages/cookie-consent:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/cookie-consent-react:
     specifiers:
-      '@fremtind/jkl-button-react': ^13.0.2
-      '@fremtind/jkl-checkbox-react': ^10.0.2
-      '@fremtind/jkl-cookie-consent': ^10.0.2
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-list-react': ^9.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
+      '@fremtind/jkl-button-react': ^13.0.5
+      '@fremtind/jkl-checkbox-react': ^10.0.5
+      '@fremtind/jkl-cookie-consent': ^10.0.3
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-list-react': ^9.0.3
+      '@fremtind/jkl-react-hooks': ^11.1.1
       react-a11y-dialog: ^6.2.0
     dependencies:
       '@fremtind/jkl-button-react': link:../button-react
@@ -382,9 +436,9 @@ importers:
 
   packages/datepicker:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-select': ^10.0.2
-      '@fremtind/jkl-text-input': ^11.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-select': ^10.0.3
+      '@fremtind/jkl-text-input': ^11.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-select': link:../select
@@ -392,13 +446,13 @@ importers:
 
   packages/datepicker-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-datepicker': ^11.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-input-group-react': ^2.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-select-react': ^13.0.4
-      '@fremtind/jkl-text-input-react': ^13.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-datepicker': ^11.0.3
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-input-group-react': ^2.0.5
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-select-react': ^13.0.9
+      '@fremtind/jkl-text-input-react': ^13.0.5
       '@jest/globals': ^29.3.1
       classnames: ^2.3.2
       date-fns: ^2.29.3
@@ -417,14 +471,14 @@ importers:
 
   packages/description-list:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/description-list-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-description-list': ^7.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-description-list': ^7.0.3
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -433,16 +487,16 @@ importers:
 
   packages/expand-button:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/expand-button-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-expand-button': ^4.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-expand-button': ^5.0.1
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-react-hooks': ^11.1.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -453,21 +507,21 @@ importers:
 
   packages/feedback:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/feedback-react:
     specifiers:
-      '@fremtind/jkl-button-react': ^13.0.2
-      '@fremtind/jkl-checkbox-react': ^10.0.2
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-feedback': ^12.0.2
-      '@fremtind/jkl-input-group-react': ^2.0.2
-      '@fremtind/jkl-message-box-react': ^10.0.2
-      '@fremtind/jkl-radio-button-react': ^10.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-text-input-react': ^13.0.2
+      '@fremtind/jkl-button-react': ^13.0.5
+      '@fremtind/jkl-checkbox-react': ^10.0.5
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-feedback': ^12.0.3
+      '@fremtind/jkl-input-group-react': ^2.0.5
+      '@fremtind/jkl-message-box-react': ^10.0.6
+      '@fremtind/jkl-radio-button-react': ^10.1.5
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-text-input-react': ^13.0.5
       '@fremtind/jkl-validators-util': ^2.5.3
       classnames: ^2.3.2
     dependencies:
@@ -485,16 +539,16 @@ importers:
 
   packages/footer:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/footer-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-footer': ^4.0.2
-      '@fremtind/jkl-formatters-util': ^4.0.5
-      '@fremtind/jkl-logo-react': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-footer': ^5.0.1
+      '@fremtind/jkl-formatters-util': ^4.0.12
+      '@fremtind/jkl-logo-react': ^12.0.4
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -505,10 +559,10 @@ importers:
 
   packages/formatters-util:
     specifiers:
-      '@fremtind/jkl-button': ^10.0.2
-      '@fremtind/jkl-constants-util': ^2.0.5
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-text-input': ^11.0.2
+      '@fremtind/jkl-button': ^10.0.3
+      '@fremtind/jkl-constants-util': ^2.0.12
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-text-input': ^11.0.3
       react-hook-form: ^7.41.3
     dependencies:
       '@fremtind/jkl-constants-util': link:../constants-util
@@ -520,16 +574,16 @@ importers:
 
   packages/hamburger:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/hamburger-react:
     specifiers:
-      '@fremtind/jkl-content-toggle-react': ^5.0.2
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-hamburger': ^12.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
+      '@fremtind/jkl-content-toggle-react': ^5.0.3
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-hamburger': ^12.0.3
+      '@fremtind/jkl-react-hooks': ^11.1.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-content-toggle-react': link:../content-toggle-react
@@ -540,16 +594,16 @@ importers:
 
   packages/icon-button:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/icon-button-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-icon-button': ^3.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-toggle-switch-react': ^11.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icon-button': ^3.0.3
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-toggle-switch-react': ^11.0.5
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -561,14 +615,14 @@ importers:
 
   packages/icons:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/icons-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-icons': ^7.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icons': ^7.0.3
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -577,14 +631,14 @@ importers:
 
   packages/image:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/image-react:
     specifiers:
-      '@fremtind/jkl-image': ^5.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
+      '@fremtind/jkl-image': ^5.0.3
+      '@fremtind/jkl-react-hooks': ^11.1.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-image': link:../image
@@ -593,16 +647,16 @@ importers:
 
   packages/input-group:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/input-group-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-input-group': ^2.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-tooltip-react': ^2.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-input-group': ^2.0.3
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-tooltip-react': ^2.0.5
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -613,14 +667,14 @@ importers:
 
   packages/list:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/list-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-list': ^9.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-list': ^9.0.3
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -629,14 +683,14 @@ importers:
 
   packages/loader:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/loader-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-loader': ^10.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-loader': ^10.0.3
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -645,15 +699,15 @@ importers:
 
   packages/logo:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/logo-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-logo': ^10.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-logo': ^10.0.3
+      '@fremtind/jkl-react-hooks': ^11.1.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -663,16 +717,16 @@ importers:
 
   packages/message-box:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/message-box-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-message-box': ^8.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-message-box': ^8.1.2
+      '@fremtind/jkl-react-hooks': ^11.1.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -683,16 +737,17 @@ importers:
 
   packages/radio-button:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/radio-button-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-input-group-react': ^2.0.2
-      '@fremtind/jkl-radio-button': ^9.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-formatters-util': ^4.0.12
+      '@fremtind/jkl-input-group-react': ^2.0.5
+      '@fremtind/jkl-radio-button': ^9.1.1
+      '@fremtind/jkl-react-hooks': ^11.1.1
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -700,10 +755,12 @@ importers:
       '@fremtind/jkl-radio-button': link:../radio-button
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
+    devDependencies:
+      '@fremtind/jkl-formatters-util': link:../formatters-util
 
   packages/react-hooks:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
       nanoid: ^3.3.4
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -711,18 +768,18 @@ importers:
 
   packages/select:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/select-react:
     specifiers:
-      '@fremtind/jkl-accordion-react': ^9.0.2
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-input-group-react': ^2.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-select': ^10.0.2
+      '@fremtind/jkl-accordion-react': ^9.0.5
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-input-group-react': ^2.0.5
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-select': ^10.0.3
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -749,14 +806,14 @@ importers:
 
   packages/summary-table:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/summary-table-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-summary-table': ^9.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-summary-table': ^9.0.3
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -765,20 +822,20 @@ importers:
 
   packages/table:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/table-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-expand-button-react': ^5.0.2
-      '@fremtind/jkl-icon-button-react': ^3.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-select-react': ^13.0.4
-      '@fremtind/jkl-table': ^8.1.2
-      '@fremtind/jkl-text-input-react': ^13.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-expand-button-react': ^5.0.6
+      '@fremtind/jkl-icon-button-react': ^3.0.5
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-select-react': ^13.0.9
+      '@fremtind/jkl-table': ^8.1.3
+      '@fremtind/jkl-text-input-react': ^13.0.5
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -793,15 +850,15 @@ importers:
 
   packages/tabs:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/tabs-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-tabs': ^4.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-tabs': ^4.0.3
       classnames: ^2.3.2
       nanoid: ^3.3.4
     dependencies:
@@ -813,16 +870,16 @@ importers:
 
   packages/tag:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/tag-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-icon-button-react': ^3.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-tag': ^4.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icon-button-react': ^3.0.5
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-tag': ^4.0.4
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -833,19 +890,19 @@ importers:
 
   packages/text-input:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/text-input-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-icon-button-react': ^3.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-input-group-react': ^2.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-text-input': ^11.0.2
-      '@fremtind/jkl-tooltip-react': ^2.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icon-button-react': ^3.0.5
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-input-group-react': ^2.0.5
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-text-input': ^11.0.3
+      '@fremtind/jkl-tooltip-react': ^2.0.5
       classnames: ^2.3.2
       downshift: ^7.0.5
       match-sorter: ^6.3.1
@@ -863,16 +920,16 @@ importers:
 
   packages/toggle-switch:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
   packages/toggle-switch-react:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-input-group-react': ^2.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-toggle-switch': ^11.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-input-group-react': ^2.0.5
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-toggle-switch': ^11.0.3
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -883,7 +940,7 @@ importers:
 
   packages/tooltip:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-core': ^12.0.3
     dependencies:
       '@fremtind/jkl-core': link:../core
 
@@ -891,10 +948,10 @@ importers:
     specifiers:
       '@floating-ui/react-dom': ^1.1.0
       '@floating-ui/react-dom-interactions': ^0.12.0
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-tooltip': ^2.0.2
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-tooltip': ^2.0.3
       classnames: ^2.3.2
       framer-motion: ^7.10.3
     dependencies:
@@ -915,43 +972,45 @@ importers:
 
   portal:
     specifiers:
-      '@fremtind/jkl-accordion-react': ^9.0.2
-      '@fremtind/jkl-alert-message-react': ^10.0.2
-      '@fremtind/jkl-breadcrumb-react': ^4.0.2
-      '@fremtind/jkl-button-react': ^13.0.2
-      '@fremtind/jkl-card-react': ^8.0.6
-      '@fremtind/jkl-checkbox-react': ^10.0.2
-      '@fremtind/jkl-constants-util': ^2.0.5
-      '@fremtind/jkl-content-toggle-react': ^5.0.2
-      '@fremtind/jkl-cookie-consent-react': ^8.0.2
-      '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-datepicker-react': ^14.1.4
-      '@fremtind/jkl-description-list-react': ^7.0.2
-      '@fremtind/jkl-expand-button-react': ^5.0.2
-      '@fremtind/jkl-feedback-react': ^16.0.2
-      '@fremtind/jkl-footer-react': ^4.0.5
-      '@fremtind/jkl-formatters-util': ^4.0.5
-      '@fremtind/jkl-hamburger-react': ^11.0.2
-      '@fremtind/jkl-icon-button-react': ^3.0.2
-      '@fremtind/jkl-icons-react': ^7.0.2
-      '@fremtind/jkl-image-react': ^5.0.2
-      '@fremtind/jkl-input-group-react': ^2.0.2
-      '@fremtind/jkl-list-react': ^9.0.2
-      '@fremtind/jkl-loader-react': ^11.0.2
-      '@fremtind/jkl-logo-react': ^12.0.2
-      '@fremtind/jkl-message-box-react': ^10.0.2
-      '@fremtind/jkl-radio-button-react': ^10.0.2
-      '@fremtind/jkl-react-hooks': ^11.0.2
-      '@fremtind/jkl-select-react': ^13.0.4
-      '@fremtind/jkl-summary-table-react': ^9.0.2
-      '@fremtind/jkl-table-react': ^10.1.4
-      '@fremtind/jkl-tabs-react': ^4.0.2
-      '@fremtind/jkl-tag-react': ^4.0.3
-      '@fremtind/jkl-text-input-react': ^13.0.2
-      '@fremtind/jkl-toggle-switch-react': ^11.0.2
-      '@fremtind/jkl-tooltip-react': ^2.0.2
+      '@fremtind/jkl-accordion-react': ^9.0.5
+      '@fremtind/jkl-alert-message-react': ^10.0.5
+      '@fremtind/jkl-breadcrumb-react': ^4.0.3
+      '@fremtind/jkl-button-react': ^13.0.5
+      '@fremtind/jkl-card-react': ^9.0.2
+      '@fremtind/jkl-checkbox-react': ^10.0.5
+      '@fremtind/jkl-constants-util': ^2.0.12
+      '@fremtind/jkl-contact-information-react': ^1.0.7
+      '@fremtind/jkl-content-toggle-react': ^5.0.3
+      '@fremtind/jkl-contextual-menu-react': ^1.0.3
+      '@fremtind/jkl-cookie-consent-react': ^8.0.5
+      '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-datepicker-react': ^14.1.9
+      '@fremtind/jkl-description-list-react': ^7.0.3
+      '@fremtind/jkl-expand-button-react': ^5.0.6
+      '@fremtind/jkl-feedback-react': ^16.0.9
+      '@fremtind/jkl-footer-react': ^5.0.7
+      '@fremtind/jkl-formatters-util': ^4.0.12
+      '@fremtind/jkl-hamburger-react': ^11.0.4
+      '@fremtind/jkl-icon-button-react': ^3.0.5
+      '@fremtind/jkl-icons-react': ^7.1.1
+      '@fremtind/jkl-image-react': ^5.0.4
+      '@fremtind/jkl-input-group-react': ^2.0.5
+      '@fremtind/jkl-list-react': ^9.0.3
+      '@fremtind/jkl-loader-react': ^11.0.3
+      '@fremtind/jkl-logo-react': ^12.0.4
+      '@fremtind/jkl-message-box-react': ^10.0.6
+      '@fremtind/jkl-radio-button-react': ^10.1.5
+      '@fremtind/jkl-react-hooks': ^11.1.1
+      '@fremtind/jkl-select-react': ^13.0.9
+      '@fremtind/jkl-summary-table-react': ^9.0.3
+      '@fremtind/jkl-table-react': ^10.1.11
+      '@fremtind/jkl-tabs-react': ^4.0.4
+      '@fremtind/jkl-tag-react': ^4.0.7
+      '@fremtind/jkl-text-input-react': ^13.0.5
+      '@fremtind/jkl-toggle-switch-react': ^11.0.5
+      '@fremtind/jkl-tooltip-react': ^2.0.5
       '@fremtind/jkl-validators-util': ^2.5.3
-      '@fremtind/jkl-webfonts': ^2.1.2
+      '@fremtind/jkl-webfonts': ^2.1.3
       '@jest/globals': ^29.3.1
       '@mdx-js/react': ^2.2.1
       '@sindresorhus/slugify': ^1.1.2
@@ -991,7 +1050,9 @@ importers:
       '@fremtind/jkl-card-react': link:../packages/card-react
       '@fremtind/jkl-checkbox-react': link:../packages/checkbox-react
       '@fremtind/jkl-constants-util': link:../packages/constants-util
+      '@fremtind/jkl-contact-information-react': link:../packages/contact-information-react
       '@fremtind/jkl-content-toggle-react': link:../packages/content-toggle-react
+      '@fremtind/jkl-contextual-menu-react': link:../packages/contextual-menu-react
       '@fremtind/jkl-cookie-consent-react': link:../packages/cookie-consent-react
       '@fremtind/jkl-core': link:../packages/core
       '@fremtind/jkl-datepicker-react': link:../packages/datepicker-react
@@ -2911,14 +2972,20 @@ packages:
       - supports-color
     dev: true
 
-  /@floating-ui/core/1.0.5:
-    resolution: {integrity: sha512-iDdOsaCHZH/0FM0yNBYt+cJxJF9S5jrYWNtDZOiDFMiZ7uxMJ/71h8eTwoVifEAruv9p9rlMPYCGIgMjOz95FQ==}
+  /@floating-ui/core/1.2.1:
+    resolution: {integrity: sha512-LSqwPZkK3rYfD7GKoIeExXOyYx6Q1O4iqZWwIehDNuv3Dv425FIAE8PRwtAx1imEolFTHgBEcoFHm9MDnYgPCg==}
     dev: false
 
   /@floating-ui/dom/1.1.0:
     resolution: {integrity: sha512-TSogMPVxbRe77QCj1dt8NmRiJasPvuc+eT5jnJ6YpLqgOD2zXc5UA3S1qwybN+GVCDNdKfpKy1oj8RpzLJvh6A==}
     dependencies:
-      '@floating-ui/core': 1.0.5
+      '@floating-ui/core': 1.2.1
+    dev: false
+
+  /@floating-ui/dom/1.2.1:
+    resolution: {integrity: sha512-Rt45SmRiV8eU+xXSB9t0uMYiQ/ZWGE/jumse2o3i5RGlyvcbqOF4q+1qBnzLE2kZ5JGhq0iMkcGXUKbFe7MpTA==}
+    dependencies:
+      '@floating-ui/core': 1.2.1
     dev: false
 
   /@floating-ui/react-dom-interactions/0.12.0:
@@ -2928,7 +2995,7 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@floating-ui/react-dom': 1.1.0
+      '@floating-ui/react-dom': 1.3.0
       aria-hidden: 1.2.2
       tabbable: 6.0.1
     transitivePeerDependencies:
@@ -2942,6 +3009,28 @@ packages:
       react-dom: '>=16.8.0'
     dependencies:
       '@floating-ui/dom': 1.1.0
+    dev: false
+
+  /@floating-ui/react-dom/1.3.0:
+    resolution: {integrity: sha512-htwHm67Ji5E/pROEAr7f8IKFShuiCKHwUC/UY4vC3I5jiSvGFAYnSYiZO5MlGmads+QqvUkR9ANHEguGrDv72g==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/dom': 1.2.1
+    dev: false
+
+  /@floating-ui/react/0.19.2:
+    resolution: {integrity: sha512-JyNk4A0Ezirq8FlXECvRtQOX/iBe5Ize0W/pLkrZjfHW9GUV7Xnq6zm6fyZuQzaHHqEnVizmvlA96e1/CkZv+w==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/react-dom': 1.3.0
+      aria-hidden: 1.2.2
+      tabbable: 6.0.1
+    transitivePeerDependencies:
+      - '@types/react'
     dev: false
 
   /@frsource/base64/1.0.4:
@@ -5839,7 +5928,7 @@ packages:
     resolution: {integrity: sha512-b8WDIdoeKtr/JDJ2+QjFXMuS8UhfdMA6+15Z5KjjIie3jQrSXD9KZWMSQxc0nPtx7L9rIFKdiDpQk+m7s4a/8w==}
     dependencies:
       '@types/jest': 29.2.5
-      axe-core: 3.5.6
+      axe-core: 4.6.3
     dev: true
 
   /@types/jest/29.2.5:
@@ -5972,6 +6061,12 @@ packages:
     dependencies:
       '@types/react': 18.0.26
     dev: true
+
+  /@types/react-is/17.0.3:
+    resolution: {integrity: sha512-aBTIWg1emtu95bLTLx0cpkxwGW3ueZv71nE2YFBpL8k/z5czEW8yYpOo8Dp+UUAFAtKwNaOsh/ioSeQnWlZcfw==}
+    dependencies:
+      '@types/react': 18.0.26
+    dev: false
 
   /@types/react-syntax-highlighter/15.5.5:
     resolution: {integrity: sha512-QH3JZQXa2usAvJvSsdSUJ4Yu4j8ReuZpgRrEW+XP+Rmosbn425YshW9iGEb/pAARm8496axHhHUPRH3UmTiB6A==}
@@ -7090,18 +7185,8 @@ packages:
     resolution: {integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==}
     dev: true
 
-  /axe-core/3.5.6:
-    resolution: {integrity: sha512-LEUDjgmdJoA3LqklSTwKYqkjcZ4HKc4ddIYGSAiSkr46NTjzg2L9RNB+lekO9P7Dlpa87+hBtzc2Fzn/+GUWMQ==}
-    engines: {node: '>=4'}
-    dev: true
-
-  /axe-core/4.5.1:
-    resolution: {integrity: sha512-1exVbW0X1O/HSr/WMwnaweyqcWOgZgLiVxdLG34pvSQk4NlYQr9OUy0JLwuhFfuVNQzzqgH57eYzkFBCb3bIsQ==}
-    engines: {node: '>=4'}
-    dev: true
-
-  /axe-core/4.6.1:
-    resolution: {integrity: sha512-lCZN5XRuOnpG4bpMq8v0khrWtUOn+i8lZSb6wHZH56ZfbIEv6XwJV84AAueh9/zi7qPVJ/E4yz6fmsiyOmXR4w==}
+  /axe-core/4.6.3:
+    resolution: {integrity: sha512-/BQzOX780JhsxDnPpH4ZiyrJAzcd8AfzFPkv+89veFSr1rcMjuq2JDCwypKaPeB6ljHp9KjXhPpjgCvQlWYuqg==}
     engines: {node: '>=4'}
 
   /axios/0.21.4_debug@3.2.7:
@@ -8885,6 +8970,10 @@ packages:
     resolution: {integrity: sha512-FAaLDaplstoRsDR8XGYH51znUN0UY7nMc6Z9/fvE8EXGwvJE9hu7W2vHwx1+bd6gCYnln9nLbzxFTrcO9YQDZw==}
     dev: false
 
+  /cssfontparser/1.2.1:
+    resolution: {integrity: sha512-6tun4LoZnj7VN6YeegOVb67KBX/7JJsqvj+pv3ZA7F878/eN33AbGa5b/S/wXxS/tcp8nc40xRUrsPlxIyNUPg==}
+    dev: true
+
   /cssnano-preset-default/5.2.13_postcss@8.4.20:
     resolution: {integrity: sha512-PX7sQ4Pb+UtOWuz8A1d+Rbi+WimBIxJTRyBdgGp1J75VU0r/HFQeLnMYgHiCAp6AR4rqrc7Y4R+1Rjk3KJz6DQ==}
     engines: {node: ^10 || ^12 || >=14.0}
@@ -10369,7 +10458,7 @@ packages:
       aria-query: 4.2.2
       array-includes: 3.1.6
       ast-types-flow: 0.0.7
-      axe-core: 4.6.1
+      axe-core: 4.6.3
       axobject-query: 2.2.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
@@ -10391,7 +10480,7 @@ packages:
       aria-query: 4.2.2
       array-includes: 3.1.6
       ast-types-flow: 0.0.7
-      axe-core: 4.6.1
+      axe-core: 4.6.3
       axobject-query: 2.2.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
@@ -14250,10 +14339,17 @@ packages:
     resolution: {integrity: sha512-y+TH+GGH7zOYABWv5IrtGx4ove1dYcVg9Nv9pJZcqKQ+2goJCkAYoHAqergPaV/y9hh1Q9vZykjSXC/2U0Mjyg==}
     engines: {node: '>= 14.0.0'}
     dependencies:
-      axe-core: 4.5.1
+      axe-core: 4.6.3
       chalk: 4.1.2
       jest-matcher-utils: 29.2.2
       lodash.merge: 4.6.2
+    dev: true
+
+  /jest-canvas-mock/2.4.0:
+    resolution: {integrity: sha512-mmMpZzpmLzn5vepIaHk5HoH3Ka4WykbSoLuG/EKoJd0x0ID/t+INo1l8ByfcUJuDM+RIsL4QDg/gDnBbrj2/IQ==}
+    dependencies:
+      cssfontparser: 1.2.1
+      moo-color: 1.0.3
     dev: true
 
   /jest-changed-files/29.2.0:
@@ -16463,6 +16559,12 @@ packages:
     resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
     dev: false
 
+  /moo-color/1.0.3:
+    resolution: {integrity: sha512-i/+ZKXMDf6aqYtBhuOcej71YSlbjT3wCO/4H1j8rPvxDJEifdwgg5MaFyu6iYAT8GBZJg2z0dkgK4YMzvURALQ==}
+    dependencies:
+      color-name: 1.1.4
+    dev: true
+
   /move-file/2.1.0:
     resolution: {integrity: sha512-i9qLW6gqboJ5Ht8bauZi7KlTnQ3QFpBCvMvFfEcHADKgHGeJ9BZMO7SFCTwHPV9Qa0du9DYY1Yx3oqlGt30nXA==}
     engines: {node: '>=10.17'}
@@ -18653,7 +18755,6 @@ packages:
 
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
-    dev: true
 
   /react-lifecycles-compat/3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}

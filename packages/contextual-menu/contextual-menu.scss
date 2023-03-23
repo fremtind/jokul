@@ -1,0 +1,38 @@
+@charset "UTF-8";
+@use "~@fremtind/jkl-core/jkl";
+@use "contextual-menu-item";
+@use "contextual-menu-divider";
+
+@include jkl.light-mode-variables {
+    --jkl-contextual-menu-bg-color: #{jkl.$color-hvit};
+    --jkl-contextual-menu-trigger-focus-color: #{jkl.$color-granitt};
+    --jkl-contextual-menu-border: none;
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-contextual-menu-bg-color: #{jkl.$color-svart};
+    --jkl-contextual-menu-trigger-focus-color: #{jkl.$color-snohvit};
+    --jkl-contextual-menu-border: 2px solid #{jkl.$color-snohvit};
+}
+
+.jkl-contextual-menu {
+    width: 100%;
+    max-width: jkl.rem(336px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    background-color: var(--jkl-contextual-menu-bg-color);
+    box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
+    border-radius: jkl.rem(2px);
+    border: var(--jkl-contextual-menu-border);
+    z-index: jkl.$z-index--dropdown;
+
+    &:focus-visible {
+        outline: none;
+    }
+
+    & &[data-placement="bottom-start"] {
+        box-shadow: rgba(0 0 0 / 20%) 0 -1px 2px 0, rgba(0 0 0 / 14%) -1px 2px 2px 0, rgba(0 0 0 / 12%) 3px 1px 5px 0;
+    }
+}

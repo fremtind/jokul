@@ -229,8 +229,57 @@ jobs:
             - name: Build site with path prefix
               run: pnpm build:docs
 
-            - name: Run Cypress
+            - name: Get changes in packages
+              uses: ./actions/paths-filter
+              id: subset
+              with:
+                  filters: |
+                      packages:
+                        - "packages/**/*.scss"
+                        - "packages/**/!(*.d|*.test).ts"
+                        - "packages/**/!(*.test).tsx"
+
+            - name: Calculate tests to run
+              if: steps.subset.outputs.has_matches == 'true'
+              run: |
+                  CHANGED_PACKAGES_STRING=$(echo "${{ steps.subset.outputs.packages_files }}" | cut -d/ -f 1-2)
+                  CHANGED_PACKAGES=(${CHANGED_PACKAGES_STRING//\\n/})
+                  RUN_ALL_SPECS=false
+                  CHANGED_SPECS=()
+
+                  if [ -n "$CHANGED_PACKAGES_STRING" ]; then
+                      printf "Changed package: %s\n" "${CHANGED_PACKAGES[@]}"
+                      for item in $CHANGED_PACKAGES
+                      do
+                          if [ "packages/core" == "$item" ]; then
+                              RUN_ALL_SPECS=true
+                          fi
+                          if [ "packages/input-group-react" == "$item" ]; then
+                              RUN_ALL_SPECS=true
+                          fi
+                          if [ "packages/input-group" == "$item" ]; then
+                              RUN_ALL_SPECS=true
+                          fi
+                      done
+
+                    if [ "$RUN_ALL_SPECS" = false ] ; then
+                          CHANGED_SPECS=$(printf "%s/**/*.spec.js\n" "${CHANGED_PACKAGES[@]}" | sort | uniq)
+                    fi
+                  fi
+
+                  if [ "$RUN_ALL_SPECS" = true ] ; then
+                    echo "RUN_ALL_SPECS=true" >> $GITHUB_ENV
+                  else
+                      echo "RUN_ALL_SPECS=false" >> $GITHUB_ENV
+                      EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+                      echo "CHANGED_SPECS<<$EOF" >> $GITHUB_ENV
+                      printf "%s\n" "${CHANGED_SPECS[@]}" >> $GITHUB_ENV
+                      echo "$EOF" >> $GITHUB_ENV
+                  fi
+
+            - name: Run all Cypress tests
               uses: cypress-io/github-action@v5
+              if: steps.subset.outputs.has_matches != 'true' || env.RUN_ALL_SPECS == true || env.RUN_ALL_SPECS == 'true'
               with:
                   # We install packages above
                   install: false
@@ -238,6 +287,21 @@ jobs:
                   start: pnpm serve
                   wait-on: "http://localhost:9000/${{ env.PREVIEW_PATH }}"
                   wait-on-timeout: 280
+              env:
+                  FORCED_COLORS: ${{ matrix.forced-colors }}
+
+            - name: Run Cypress tests on changed packages
+              uses: cypress-io/github-action@v5
+              if: steps.subset.outputs.has_matches == 'true' && (env.RUN_ALL_SPECS == false || env.RUN_ALL_SPECS == 'false')
+              with:
+                  # We install packages above
+                  install: false
+                  browser: chrome
+                  start: pnpm serve
+                  wait-on: "http://localhost:9000/${{ env.PREVIEW_PATH }}"
+                  wait-on-timeout: 280
+                  spec: |
+                      ${{ env.CHANGED_SPECS }}
               env:
                   FORCED_COLORS: ${{ matrix.forced-colors }}
 

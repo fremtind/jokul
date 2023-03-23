@@ -3,33 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@10.1.5...@fremtind/jkl-table-react@10.1.11) (2023-03-21)
+
+### Bug Fixes
+
+- gjør sorter-ikon bold for tabellheader ([83a5b11](https://github.com/fremtind/jokul/commit/83a5b11f8a5a2a03b6e1c65402921ae1f41293bb))
+
 ## 10.1.4 (2023-02-17)
 
 ### Bug Fixes
 
-- oppdater dependencies i table ([cf24e88](https://github.com/fremtind/jokul/commit/cf24e88dc912c48e777a7e489379fa5b9fc4a998))
+-   oppdater dependencies i table ([cf24e88](https://github.com/fremtind/jokul/commit/cf24e88dc912c48e777a7e489379fa5b9fc4a998))
 
 # 10.1.0 (2023-02-02)
 
 ### Bug Fixes
 
-- bruk fontstiler for riktig størrelse i kompakt ([825b1cd](https://github.com/fremtind/jokul/commit/825b1cdefdf988d9c5c7439594a230ef8e3f1e66))
-- oppdater pakker ([0fe09e3](https://github.com/fremtind/jokul/commit/0fe09e3f0dc8aa0070cb170fb806835d87165c9e))
+-   bruk fontstiler for riktig størrelse i kompakt ([825b1cd](https://github.com/fremtind/jokul/commit/825b1cdefdf988d9c5c7439594a230ef8e3f1e66))
+-   oppdater pakker ([0fe09e3](https://github.com/fremtind/jokul/commit/0fe09e3f0dc8aa0070cb170fb806835d87165c9e))
 
 ### Features
 
-- paginering i tabeller ([7fdf478](https://github.com/fremtind/jokul/commit/7fdf47899aa48fc6e2e893b8547d0a19d4b9944b))
-- støtte for sortering med tabellheader ([12a589d](https://github.com/fremtind/jokul/commit/12a589d6cce67c18ea45ae7da2b86a858822ceba))
+-   paginering i tabeller ([7fdf478](https://github.com/fremtind/jokul/commit/7fdf47899aa48fc6e2e893b8547d0a19d4b9944b))
+-   støtte for sortering med tabellheader ([12a589d](https://github.com/fremtind/jokul/commit/12a589d6cce67c18ea45ae7da2b86a858822ceba))
 
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@9.1.7...@fremtind/jkl-table-react@10.0.0) (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 # 9.1.0 (2022-11-30)
 

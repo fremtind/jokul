@@ -38,7 +38,7 @@ export const TypographyTableRow: React.FC<Props> = ({ variant, level }) => {
                         .replace(/ /g, "-")}`}
                     ref={ref}
                 >
-                    Eksempel
+                    {level}
                 </p>
             </TableCell>
             <TableCell data-th="Stilnavn">{level.replace(" ", unicode.nbsp)}</TableCell>

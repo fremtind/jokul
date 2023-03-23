@@ -3,17 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.1.2 (2023-03-21)
+
+### Bug Fixes
+
+- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+
+## 8.1.1 (2023-03-07)
+
+### Bug Fixes
+
+- align ikon med innhold både med og uten tittel ([409fcf9](https://github.com/fremtind/jokul/commit/409fcf94ce61b3a615b154a524d381a78d4d2bb3))
+
+# 8.1.0 (2023-03-06)
+
+### Features
+
+-   legg innhold under ikon/dismiss-knapp på smale skjermer ([ed1fc4a](https://github.com/fremtind/jokul/commit/ed1fc4ae6fe8d8843e3e8008ddfcbe8bb36e9bea)), closes [#3387](https://github.com/fremtind/jokul/issues/3387)
+
 # 8.0.0 (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
-- ta i bruk de nye ikonene i MessageBox ([ea6f952](https://github.com/fremtind/jokul/commit/ea6f95206ca475a7fcaef0403681543e915cbde2))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   ta i bruk de nye ikonene i MessageBox ([ea6f952](https://github.com/fremtind/jokul/commit/ea6f95206ca475a7fcaef0403681543e915cbde2))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå importere stilpakken til jkl-icons for å vise komponenten riktig
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå importere stilpakken til jkl-icons for å vise komponenten riktig
 
 ## 7.0.8 (2022-11-22)
 

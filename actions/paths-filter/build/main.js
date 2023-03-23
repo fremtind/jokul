@@ -16971,6 +16971,7 @@ async function run() {
     for (const [name, patterns] of Object.entries(filters)) {
       const matches = (0, import_micromatch.default)(files, patterns);
       core2.setOutput(name, matches.length > 0);
+      core2.setOutput(`${name}_files`, matches.join("\n").trimEnd());
       if (!hasMatches && matches.length > 0) {
         hasMatches = true;
       }

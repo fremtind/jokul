@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
 @use "~@fremtind/jkl-core/jkl/colors";
@@ -255,5 +256,11 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
                 left: rem(2px);
             }
         }
+    }
+
+    + .jkl-form-support-label {
+        margin-left: calc(var(--jkl-radio-button-size) + jkl.$spacing-8);
+        margin-top: jkl.rem(-6px);
+        margin-bottom: jkl.$spacing-8;
     }
 }

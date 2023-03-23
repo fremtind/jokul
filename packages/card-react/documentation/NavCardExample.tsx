@@ -43,7 +43,9 @@ export const NavCardExample: React.FC<ExampleComponentProps> = ({ boolValues, ch
 };
 
 export const navCardExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps) => {
-    const image = boolValues?.["Image"] ? '\n    image="wheat.jpg"' : "";
+    const image = boolValues?.["Image"]
+        ? '\n    image={{ src:"wheat.jpg", alt:"Nærbilde av strå, med en åker i bakgrunnen" }}'
+        : "";
     const tag = boolValues?.["Tag"] ? '\n    tag={{ type: "success", text: "Behandles" }}' : "";
     const description = boolValues?.["Description"] ? '\n    description="Balder"' : "";
     const paddingChoice = choiceValues?.["Padding"] || "l";
