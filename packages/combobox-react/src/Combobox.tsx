@@ -15,6 +15,7 @@ import React, {
     ChangeEvent,
     FocusEvent,
     MouseEvent,
+    useMemo,
 } from "react";
 
 export type ComboboxValuePair = ValuePair & {
@@ -92,10 +93,6 @@ export const Combobox: FC<ComboboxProps> = ({
         }
     }, [showMenu]);
 
-    const handleInputClick = useCallback(() => {
-        setShowMenu((prevState) => !prevState);
-    }, []);
-
     // Funksjon for å rendre verdi i input-feltet
     const getDisplay = () => {
         return (
@@ -122,6 +119,7 @@ export const Combobox: FC<ComboboxProps> = ({
                     data-testid="jkl-combobox__search-input"
                     onFocus={handleFocus}
                     onBlur={handleBlur}
+                    onKeyDown={handleSearchOnKeyDown}
                     value={searchValue}
                     ref={searchRef}
                     aria-controls={listId}
@@ -194,14 +192,18 @@ export const Combobox: FC<ComboboxProps> = ({
         setSearchValue(e.target.value);
     };
 
-    // Funkjson for å hente options
-    const getOptions = () => {
+    const options = useMemo(() => {
         if (!searchValue) {
             return items;
         }
 
         return items.filter((option) => option.label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0);
-    };
+    }, [searchValue, items]);
+
+    // Det første elementet i listen skal være aktivt fram til brukeren klikker på noe annet
+    const [activeDescendant, setActiveDescendant] = useState<string | undefined>(
+        options[0]?.value ? `${listId}-${options[0]?.value}` : undefined,
+    );
 
     // Håndtere arrow-state
     useEffect(() => {
@@ -255,6 +257,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 });
             }
             focusInsideRef.current = true;
+            setShowMenu(true);
         }
     }, [onFocus, selectedValue, name]);
 
@@ -315,6 +318,24 @@ export const Combobox: FC<ComboboxProps> = ({
         [setShowMenu, showMenu],
     );
 
+    const handleSearchOnKeyDown = useCallback(
+        (e: KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === "ArrowDown") {
+                e.preventDefault();
+                e.stopPropagation();
+                const listElement = dropdownRef.current;
+                if (listElement) {
+                    listElement.querySelector('[role="option"]')?.focus();
+                }
+            } else if (e.key === "Escape") {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowMenu(false);
+            }
+        },
+        [setShowMenu, dropdownRef],
+    );
+
     const handleOptionOnKeyDown = useCallback(
         (e: KeyboardEvent<HTMLButtonElement>) => {
             if (e.key === "Tab") {
@@ -363,7 +384,6 @@ export const Combobox: FC<ComboboxProps> = ({
                     <div
                         {...inputProps}
                         ref={inputRef}
-                        onClick={handleInputClick}
                         onKeyDown={handleOnKeyDown}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
@@ -385,11 +405,13 @@ export const Combobox: FC<ComboboxProps> = ({
                             ref={dropdownRef}
                             id={listId}
                             aria-labelledby={labelId}
+                            aria-multiselectable="true"
+                            aria-activedescendant={activeDescendant}
                             onFocus={handleFocus}
                             onBlur={handleBlur}
                             tabIndex={-1}
                         >
-                            {getOptions().map((option, i) => (
+                            {options.map((option, i) => (
                                 <button
                                     key={`${listId}-${option.value}`}
                                     type="button"
@@ -406,6 +428,7 @@ export const Combobox: FC<ComboboxProps> = ({
                                     onFocus={handleFocus}
                                     onKeyDown={handleOptionOnKeyDown}
                                     onClick={(e) => {
+                                        setActiveDescendant(`${listId}__${option.value}`); // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role#required_javascript_features
                                         e.stopPropagation();
                                         onItemClick(option.value);
                                         setSearchValue("");
