@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-datepicker",
-    "version": "11.0.3",
+    "version": "11.1.0",
     "publishConfig": {
         "access": "public"
     },

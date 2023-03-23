@@ -447,7 +447,7 @@ importers:
   packages/datepicker-react:
     specifiers:
       '@fremtind/jkl-core': ^12.0.3
-      '@fremtind/jkl-datepicker': ^11.0.3
+      '@fremtind/jkl-datepicker': ^11.1.0
       '@fremtind/jkl-icons-react': ^7.1.1
       '@fremtind/jkl-input-group-react': ^2.0.5
       '@fremtind/jkl-react-hooks': ^11.1.1
@@ -984,7 +984,7 @@ importers:
       '@fremtind/jkl-contextual-menu-react': ^1.0.3
       '@fremtind/jkl-cookie-consent-react': ^8.0.5
       '@fremtind/jkl-core': ^12.0.3
-      '@fremtind/jkl-datepicker-react': ^14.1.9
+      '@fremtind/jkl-datepicker-react': ^14.2.0
       '@fremtind/jkl-description-list-react': ^7.0.3
       '@fremtind/jkl-expand-button-react': ^5.0.6
       '@fremtind/jkl-feedback-react': ^16.0.9
