@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { act, render, cleanup, within, RenderOptions } from "@testing-library/react";
+import { act, render, cleanup, RenderOptions } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
@@ -171,8 +171,8 @@ describe("Datepicker", () => {
         expect(getByTestId("jkl-calendar")).toHaveClass("jkl-calendar--hidden");
     });
 
-    it("should close the datepicker when tab-navigating outside the date picker", async () => {
-        const { user, getByTestId, getByLabelText } = setup(<DatePicker label="Some datepicker" />);
+    it("should keep focus inside the calendar when open", async () => {
+        const { user, getByTestId, getByLabelText, getByTitle } = setup(<DatePicker label="Some datepicker" />);
         const input = getByLabelText("Some datepicker");
 
         expect(getByTestId("jkl-calendar")).toHaveClass("jkl-calendar--hidden");
@@ -181,7 +181,15 @@ describe("Datepicker", () => {
         });
         expect(getByTestId("jkl-calendar")).not.toHaveClass("jkl-calendar--hidden");
 
-        // Run user.tab() enough times to navigate out of calendar
+        // Tab inn i kalenderen
+        await act(async () => {
+            await user.tab();
+            await user.tab();
+        });
+
+        expect(getByTitle("Gå tilbake 1 måned")).toHaveFocus();
+
+        // Tab forbi alle kontroller og selve kalenderen
         await act(async () => {
             await user.tab();
             await user.tab();
@@ -190,7 +198,7 @@ describe("Datepicker", () => {
             await user.tab();
         });
 
-        expect(getByTestId("jkl-calendar")).toHaveClass("jkl-calendar--hidden");
+        expect(getByTitle("Gå tilbake 1 måned")).toHaveFocus();
     });
 
     it("should close the calendar when a valid date is entered in the field", async () => {
@@ -383,7 +391,6 @@ describe("Datepicker", () => {
                 defaultValue="24.12.2019"
                 label="Hva er tid?" /* label skal være kompakt */
                 helpLabel="Tid er en flat sirkel" /* hjelpeteksten skal være kompakt */
-                extended /* extended for å vise inputfelt i kalenderen, som også skal være kompakte */
                 density="compact"
             />,
         );
@@ -396,14 +403,6 @@ describe("Datepicker", () => {
 
         const helpText = getByText("Tid er en flat sirkel");
         expect(helpText).toHaveAttribute("data-density", "compact");
-
-        const calendarYear = getByTestId("jkl-text-input");
-        expect(within(calendarYear).getByLabelText("År")).toBeInTheDocument(); // bekreft at vi tester på riktig element
-        expect(calendarYear).toHaveAttribute("data-density", "compact");
-
-        const calendarMonth = getByTestId("jkl-select");
-        expect(within(calendarMonth).getByLabelText("Måned")).toBeInTheDocument(); // bekreft at vi tester på riktig element
-        expect(calendarMonth).toHaveAttribute("data-density", "compact");
     });
 
     describe("after user types string", () => {
@@ -499,20 +498,6 @@ describe("Datepicker", () => {
         it("default datepicker should be a11y compliant when closed", async () => {
             const { container } = setup(<DatePicker />);
             const results = await axe(container, {});
-
-            expect(results).toHaveNoViolations();
-        });
-
-        it("extended datepicker should be a11y compliant when expanded", async () => {
-            const { container } = setup(<DatePicker extended defaultShow />);
-            const results = await axe(container);
-
-            expect(results).toHaveNoViolations();
-        });
-
-        it("extended datepicker should be a11y compliant when closed", async () => {
-            const { container } = setup(<DatePicker extended />);
-            const results = await axe(container);
 
             expect(results).toHaveNoViolations();
         });

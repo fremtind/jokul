@@ -103,9 +103,7 @@ export interface DatePickerProps extends Omit<InputGroupProps, "label" | "childr
     invalid?: boolean;
     density?: Density;
     /**
-     * Vis et inputfelt og en select for å navigere mellom år og måneder, i stedet for piler frem og tilbake.
-     * Kan være nyttig om brukeren forventes å hoppe langt frem eller tilbake i tid.
-     * @default false
+     * @deprecated Kalenderen viser nå alltid kontroller for å navigere mellom år og måneder. Denne prop'en gjør ikke lenger noe og kan fjernes.
      */
     extended?: boolean;
     /**

@@ -1,6 +1,6 @@
 import { formatDate } from "../../../formatters-util/src";
 import { parseDateString } from "../utils";
-import { isSameDay, dateHasChanged, dateIsOutsideRange, getInitialDate } from "./utils";
+import { isSameDay, dateHasChanged, dateIsOutsideRange, getInitialDate, getYearSelectOptions } from "./utils";
 
 describe("formatDate", () => {
     it("renders the given date correctly", () => {
@@ -127,5 +127,28 @@ describe("getInitialDate", () => {
 
     it("returns value if both is defined and inside range", () => {
         expect(getInitialDate(value, initialDate, minDate, maxDate)).toEqual(expectedValue);
+    });
+});
+
+describe("getYearSelectOptions", () => {
+    it("returns three years before and after current year if no min or max is set", () => {
+        const years = getYearSelectOptions(2023, undefined, undefined);
+
+        expect(years.indexOf("2020")).not.toBe(-1);
+        expect(years.indexOf("2026")).not.toBe(-1);
+    });
+
+    it("shows first possible year when min date is set after current year", () => {
+        const years = getYearSelectOptions(2023, new Date(2028, 2, 11), undefined);
+
+        expect(years.indexOf("2023")).toBe(-1);
+        expect(years.indexOf("2028")).not.toBe(-1);
+    });
+
+    it("shows last possible year when max date is set before current year", () => {
+        const years = getYearSelectOptions(2023, undefined, new Date(2019, 2, 11));
+
+        expect(years.indexOf("2023")).toBe(-1);
+        expect(years.indexOf("2019")).not.toBe(-1);
     });
 });
