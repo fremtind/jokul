@@ -22,6 +22,7 @@
  * SOFTWARE.
  */
 
+import type { ValuePair } from "@fremtind/jkl-core";
 import addDays from "date-fns/addDays";
 import differenceInCalendarMonths from "date-fns/differenceInCalendarMonths";
 import isBefore from "date-fns/isBefore";
@@ -67,6 +68,79 @@ export function subtractMonth({
 }
 
 /**
+ * Generates an array of year strings for a year selector component, with min and max dates taken into account.
+ *
+ * @param {number} currentYear - The current year to center the list around
+ * @param {Date | undefined} [minDate] - The minimum date to include in the list of years
+ * @param {Date | undefined} [maxDate] - The maximum date to include in the list of years
+ *
+ * @returns {string[]} - An array of year strings, starting from the earliest year specified by minDate or currentYear - 3, and ending at the latest year specified by maxDate or currentYear + 3
+ */
+export function getYearSelectOptions(
+    currentYear: number,
+    minDate: Date | undefined,
+    maxDate: Date | undefined,
+): string[] {
+    if (minDate && minDate.getFullYear() > currentYear) {
+        return [minDate.getFullYear().toString()];
+    }
+
+    if (maxDate && maxDate.getFullYear() < currentYear) {
+        return [maxDate.getFullYear().toString()];
+    }
+
+    let start = minDate ? Math.max(minDate.getFullYear(), currentYear - 3) : currentYear - 3;
+    let end = maxDate ? Math.min(maxDate.getFullYear(), currentYear + 3) : currentYear + 3;
+
+    // Sørg for å alltid vise minst ett år
+    const numYears = Math.max(end - start + 1, 1);
+
+    const range = [...Array(numYears).keys()].map((x) => x + start);
+    const stringRange = range.map((item) => item.toString());
+
+    return stringRange;
+}
+
+/**
+ * Returns an array of months that are allowed for selection in the current year based on the minimum and maximum dates.
+ * @param {number} currentYear The current year
+ * @param {string[]} monthNames An array of strings representing the month names
+ * @param {Date | undefined} minDate The minimum date that is allowed for selection
+ * @param {Date | undefined} maxDate The maximum date that is allowed for selection
+ * @returns {ValuePair[]} An array of ValuePairs representing the months that are allowed for selection in the current year
+ */
+export function getMonthSelectOptions(
+    currentYear: number,
+    monthNames: string[],
+    minDate: Date | undefined,
+    maxDate: Date | undefined,
+): ValuePair[] {
+    const minDateYear = minDate?.getFullYear() || currentYear;
+    const minDateMonth = minDate?.getMonth() === undefined ? 0 : minDate.getMonth();
+    const maxDateYear = maxDate?.getFullYear() || currentYear;
+    const maxDateMonth = maxDate?.getMonth() === undefined ? 11 : maxDate.getMonth();
+
+    let startMonth = 0;
+    let endMonth = 11;
+
+    if (minDateYear === currentYear) {
+        startMonth = minDateMonth;
+    }
+    if (maxDateYear === currentYear) {
+        endMonth = maxDateMonth;
+    }
+
+    const filteredMonths = monthNames
+        .map((month, index) => ({
+            value: index.toString(),
+            label: month,
+        }))
+        .filter(({ value }) => parseInt(value) >= startMonth && parseInt(value) <= endMonth);
+
+    return filteredMonths;
+}
+
+/**s
  * Takes a calendars array and figures out the number of months to add
  * based on the current offset and the maxDate allowed.
  * @param {Object} param The param object
@@ -615,4 +689,32 @@ export function getInitialDate(
         return !dateIsOutsideRange(defaultValueAsDate, minDate, maxDate) ? defaultValueAsDate : null;
     }
     return null;
+}
+
+/**
+ * Get the initial date to show in the calendar
+ *
+ * @param date The date set in the DatePicker (from props)
+ * @param defaultSelected The defaultSelected prop from DatePicker
+ * @param minDate The earliest selectable date, from props
+ * @param maxDate The latest selectable date, from props
+ * @returns The date to show in the calendar
+ */
+export function getInitialDateShown(
+    date: Date | null,
+    defaultSelected: Date | undefined,
+    minDate: Date | undefined,
+    maxDate: Date | undefined,
+): Date {
+    let initialDate = date || defaultSelected || new Date();
+
+    if (minDate) {
+        initialDate = minDate > initialDate ? minDate : initialDate;
+    }
+
+    if (maxDate) {
+        initialDate = maxDate < initialDate ? maxDate : initialDate;
+    }
+
+    return initialDate;
 }

@@ -38,7 +38,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         errorLabel,
         invalid,
         density,
-        extended,
         days,
         months,
         monthLabel,
@@ -74,8 +73,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     const [error, setError] = useState<DateValidationError | null>(null);
 
     /// Calendar state
-
-    const defaultSelectedInCalendar = startOfDay(new Date());
 
     const [showCalendar, setShowCalendar] = useState(defaultShow);
     const [calendarRef] = useAnimatedHeight<HTMLDivElement>(showCalendar);
@@ -128,6 +125,8 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         (e: React.KeyboardEvent<HTMLButtonElement>) => {
             if (e.key === "Escape") {
                 setShowCalendar(false);
+                e.preventDefault();
+                e.stopPropagation();
             }
 
             if (action?.onKeyDown) {
@@ -141,6 +140,8 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         (e: React.KeyboardEvent<HTMLInputElement>) => {
             if (e.key === "Escape") {
                 setShowCalendar(false);
+                e.preventDefault();
+                e.stopPropagation();
             }
 
             if (onKeyDown) {
@@ -273,11 +274,14 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             supportLabelProps={supportLabelProps}
             tooltipProps={tooltipProps}
             render={(inputProps) => (
+                // The <div> element handles keyboard events that bubble up from <button> elements inside
+                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
                 <div
                     data-testid="jkl-datepicker__input-wrapper"
                     className="jkl-datepicker__input-wrapper"
                     data-density={density}
                     tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
+                    onKeyDown={handleKeyDown}
                 >
                     <BaseTextInput
                         ref={unifiedInputRef}
@@ -293,7 +297,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                         width={width}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
-                        onKeyDown={handleKeyDown}
                         onClick={clickInput}
                         onChange={handleChange}
                         {...inputProps}
@@ -309,7 +312,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     <div className="jkl-datepicker__calendar-wrapper">
                         <Calendar
                             ref={calendarRef}
-                            defaultSelected={defaultSelectedInCalendar}
                             density={density}
                             date={date}
                             minDate={minDate}
@@ -319,7 +321,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                             monthLabel={monthLabel}
                             yearLabel={yearLabel}
                             hidden={!showCalendar}
-                            extended={extended}
                             onDateSelected={handleClickCalendarDay}
                             onTabOutside={handleTabOutsideCalendar}
                         />

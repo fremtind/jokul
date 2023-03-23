@@ -1,14 +1,21 @@
 import { Density } from "@fremtind/jkl-core";
+import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { NativeSelect } from "@fremtind/jkl-select-react";
-import { TextInput } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
-import isAfter from "date-fns/isAfter";
-import isBefore from "date-fns/isBefore";
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useReducer, useRef } from "react";
 import { flushSync } from "react-dom";
+import { calendarInitializer, calendarReducer } from "./calendarReducer";
 import { useCalendar, UseCalendarProps } from "./useCalendar";
-import { addMonth, subtractMonth, isBackDisabled, isForwardDisabled } from "./utils";
+import {
+    addMonth,
+    subtractMonth,
+    isBackDisabled,
+    isForwardDisabled,
+    getYearSelectOptions,
+    getMonthSelectOptions,
+    DateInfo,
+    getInitialDateShown,
+} from "./utils";
 
 interface CalendarProps
     extends Omit<UseCalendarProps, "date" | "onOffsetChanged" | "offset" | "firstDayOfWeek" | "selected"> {
@@ -20,7 +27,6 @@ interface CalendarProps
     months?: string[];
     monthLabel?: string;
     yearLabel?: string;
-    extended?: boolean;
     onTabOutside: React.KeyboardEventHandler;
 }
 
@@ -43,7 +49,6 @@ const defaultDays = ["man", "tir", "ons", "tor", "fre", "lør", "søn"];
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) => {
     const {
-        extended,
         hidden,
         date,
         defaultSelected,
@@ -52,33 +57,40 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         maxDate,
         days = defaultDays,
         months = defaultMonths,
-        monthLabel = "Måned",
-        yearLabel = "År",
+        monthLabel = "Velg måned",
+        yearLabel = "Velg år",
         onTabOutside,
         ...rest
     } = props;
 
     const id = useId("jkl-calendar");
 
-    /// Calendar state
-
-    const [offset, setOffset] = useState(0);
-    const [selected, setSelected] = useState(date || defaultSelected);
-    useEffect(() => {
-        setOffset(0);
-        setSelected(date || defaultSelected);
-    }, [setOffset, date, defaultSelected]);
-
-    const onOffsetChanged = useCallback(
-        (newOffset: number) => {
-            setOffset(newOffset);
-        },
-        [setOffset],
+    const [{ offset, selectedDate, shownDate }, dispatch] = useReducer(
+        calendarReducer,
+        getInitialDateShown(date, defaultSelected, minDate, maxDate),
+        calendarInitializer,
     );
 
+    const shownMonth = shownDate.getMonth();
+    const shownYear = shownDate.getFullYear();
+
+    useEffect(() => {
+        dispatch({
+            type: "SET_SELECTED_DATE",
+            newDate: getInitialDateShown(date, defaultSelected, minDate, maxDate),
+        });
+    }, [date, defaultSelected, minDate, maxDate]);
+
+    const onOffsetChanged = useCallback((newOffset: number) => {
+        dispatch({
+            type: "SET_OFFSET",
+            newOffset,
+        });
+    }, []);
+
     const { calendars, getBackProps, getDateProps, getForwardProps, handleOffsetChanged } = useCalendar({
-        date: selected,
-        selected,
+        date: selectedDate,
+        selected: selectedDate,
         minDate,
         maxDate,
         offset,
@@ -98,14 +110,21 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
 
             const e = document.activeElement;
             const buttons = calendarPaddingRef.current.querySelectorAll<HTMLButtonElement>(
-                'button.jkl-calendar__date:not([data-adjacent="true"]',
+                'button.jkl-calendar-date-button:not([data-adjacent="true"]',
             );
+
+            const changeFocusTo = async (nextButton: HTMLButtonElement) => {
+                e?.setAttribute("tabindex", "-1");
+                nextButton.setAttribute("tabindex", "0");
+                nextButton.focus();
+            };
 
             buttons.forEach((el, i) => {
                 const newNodeKey = i + offsetDiff;
+
                 if (el == e) {
                     if (newNodeKey <= buttons.length - 1 && newNodeKey >= 0) {
-                        (buttons[newNodeKey] as HTMLButtonElement).focus();
+                        changeFocusTo(buttons[newNodeKey]);
                     } else if (offsetDiff < 0) {
                         if (isBackDisabled({ calendars, minDate })) {
                             return;
@@ -121,11 +140,13 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             return;
                         }
                         const newButtons = calendarPaddingRef.current.querySelectorAll<HTMLButtonElement>(
-                            'button.jkl-calendar__date:not([data-adjacent="true"]',
+                            'button.jkl-calendar-date-button:not([data-adjacent="true"]',
                         );
                         // + - = -
                         if (newButtons[newButtons.length + newNodeKey]) {
-                            newButtons[newButtons.length + newNodeKey].focus();
+                            // Sørg for at ikke både 1. i måneden og valgt dag er fokuserbare
+                            newButtons[0].setAttribute("tabindex", "-1");
+                            changeFocusTo(newButtons[newButtons.length + newNodeKey]);
                         }
                     } else {
                         if (isForwardDisabled({ calendars, maxDate })) {
@@ -142,12 +163,14 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                             return;
                         }
                         const newButtons = calendarPaddingRef.current.querySelectorAll<HTMLButtonElement>(
-                            'button.jkl-calendar__date:not([data-adjacent="true"]',
+                            'button.jkl-calendar-date-button:not([data-adjacent="true"]',
                         );
                         // NewNodeKey er basert på forrige måneds liste med knapper. For at verdien skal bli
                         // riktig i vår nye måned må vi trekke fra anntal dager fra forrige måned.
                         if (newButtons[newNodeKey - buttons.length]) {
-                            newButtons[newNodeKey - buttons.length].focus();
+                            // Sørg for at ikke både 1. i måneden og valgt dag er fokuserbare
+                            newButtons[0].setAttribute("tabindex", "-1");
+                            changeFocusTo(newButtons[newNodeKey - buttons.length]);
                         }
                     }
                 }
@@ -156,7 +179,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         [handleOffsetChanged, calendarPaddingRef, offset, calendars, maxDate, minDate],
     );
 
-    const onArrowNavigation = useCallback(
+    const handleArrowNavigation = useCallback(
         (event: React.KeyboardEvent) => {
             switch (event.key) {
                 case "ArrowUp":
@@ -182,103 +205,142 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         [doFocusChange],
     );
 
-    const handleTabOutside = useCallback(
-        (event: React.KeyboardEvent) => {
-            if (event.key === "Tab") {
-                // Shift + Tab flytter fokus til månedsvelger, noe vi ikke bryr oss om
-                if (event.shiftKey) {
-                    return;
-                }
-                // Når brukeren trykker på Tab fra en fokusert dato ønsker vi å lukke kalenderen
-                // og flytte fokus tilbake til IconButton
-                onTabOutside(event);
+    const handleTabInside: React.KeyboardEventHandler = useCallback((event) => {
+        if (event.key !== "Tab") return;
+
+        const focusableElements = calendarPaddingRef.current?.querySelectorAll<HTMLElement>(
+            'button:not([disabled]):not([tabindex="-1"]), select',
+        );
+
+        if (!focusableElements) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (!event.shiftKey && document.activeElement === lastElement) {
+            firstElement.focus();
+            event.preventDefault();
+        } else if (event.shiftKey && document.activeElement === firstElement) {
+            lastElement.focus();
+            event.preventDefault();
+        }
+    }, []);
+
+    const isFocusableDate = useCallback(
+        (dateInfo: DateInfo) => {
+            const { date, selected, selectable, prevMonth, nextMonth } = dateInfo;
+
+            // Datoen kan ikke velges
+            if (!selectable) {
+                return false;
             }
+            // Datoen er valgt dato
+            if (selected) {
+                return true;
+            }
+            // Datoen er første valgbare dato
+            if (date.toString() === minDate?.toString()) {
+                return true;
+            }
+
+            // Datoen er første i måneden som vises
+            if (
+                !prevMonth &&
+                !nextMonth &&
+                shownDate.getFullYear() === date.getFullYear() &&
+                selectedDate.getMonth() !== date.getMonth() &&
+                date.getDate() === 1
+            ) {
+                return true;
+            }
+
+            return false;
         },
-        [onTabOutside],
+        [shownDate, minDate, selectedDate],
     );
 
-    /// Extended variant state
-
-    const [extendedYear, setExtendedYear] = useState(String((selected || date || new Date()).getFullYear()));
-    const [extendedMonth, setExtendedMonth] = useState(String((selected || date || new Date()).getMonth()));
-
-    useEffect(() => {
-        setExtendedYear(String((selected || date || new Date()).getFullYear()));
-        setExtendedMonth(String((selected || date || new Date()).getMonth()));
-    }, [date, selected]);
+    const handleGotoEdgeMonth = useCallback(() => {
+        if (
+            // Vi er i ferd med å gå til første måned
+            minDate &&
+            shownDate.getFullYear() - minDate.getFullYear() === 0 &&
+            shownDate.getMonth() - minDate.getMonth() === 1
+        ) {
+            // Fokuser på "neste månded"-knappen
+            document.querySelectorAll<HTMLButtonElement>(".jkl-calendar-navigation__arrow")[1].focus();
+        } else if (
+            // Vi er i ferd med å gå til siste måned
+            maxDate &&
+            maxDate.getFullYear() - shownDate.getFullYear() === 0 &&
+            maxDate.getMonth() - shownDate.getMonth() === 1
+        ) {
+            // Fokuser på "forrige månded"-knappen
+            document.querySelectorAll<HTMLButtonElement>(".jkl-calendar-navigation__arrow")[0].focus();
+        }
+    }, [minDate, maxDate, shownDate]);
 
     /// Extended variant events
 
-    const handleYearChange = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            setExtendedYear(e.target.value);
-
-            if (e.target.value.length !== 4) {
+    const handleYearChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
+        (event) => {
+            if (event.target.value.length !== 4) {
                 return;
             }
 
-            const year: number = Number.parseInt(e.target.value);
+            const year: number = Number.parseInt(event.target.value);
             if (Number.isNaN(year)) {
                 return;
             }
 
-            const currentlySelected = new Date(selected || date || new Date());
-            const nextDate = new Date(currentlySelected);
-            nextDate.setFullYear(year);
+            let offset = (year - shownDate.getFullYear()) * 12;
+            const expectedDate = new Date(shownDate.getFullYear(), shownDate.getMonth() + offset, shownDate.getDate());
 
-            const withinLowerBound = !minDate || isBefore(minDate, nextDate);
-            if (!withinLowerBound) {
-                setSelected(minDate);
-                setExtendedYear(String(minDate.getFullYear()));
-                setExtendedMonth(String(minDate.getMonth()));
-                return;
+            // Pass på at vi ikke hopper forbi maks. eller min. dato
+            if (
+                maxDate &&
+                maxDate.getFullYear() === expectedDate.getFullYear() &&
+                maxDate.getMonth() < expectedDate.getMonth()
+            ) {
+                offset -= expectedDate.getMonth() - maxDate.getMonth();
+            } else if (
+                minDate &&
+                minDate.getFullYear() === expectedDate.getFullYear() &&
+                minDate.getMonth() > expectedDate.getMonth()
+            ) {
+                offset += minDate.getMonth() - expectedDate.getMonth();
             }
 
-            const withinUpperBound = !maxDate || isAfter(maxDate, nextDate);
-            if (!withinUpperBound) {
-                setSelected(maxDate);
-                setExtendedYear(String(maxDate.getFullYear()));
-                setExtendedMonth(String(maxDate.getMonth()));
-                return;
-            }
+            dispatch({
+                type: "ADD_OFFSET",
+                addedOffset: offset,
+            });
 
-            setSelected(nextDate);
+            return;
         },
-        [setSelected, setExtendedYear, selected, date, minDate, maxDate],
+        [shownDate, minDate, maxDate],
     );
 
     const handleMonthChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
-        (e) => {
-            setExtendedMonth(e.target.value);
-
-            if (!selected && !date) {
+        (event) => {
+            if (!selectedDate && !date) {
                 return;
             }
 
-            const currentlySelected = new Date(selected || date || new Date());
-            const nextDate = new Date(currentlySelected);
-            nextDate.setMonth(Number.parseInt(e.target.value));
+            const yearDiff = shownDate.getFullYear() - (selectedDate || new Date()).getFullYear();
+            const monthDiff = Number.parseInt(event.target.value) - (selectedDate || new Date()).getMonth();
 
-            const withinLowerBound = !minDate || isBefore(minDate, nextDate);
-            if (!withinLowerBound) {
-                setSelected(minDate);
-                setExtendedYear(String(minDate.getFullYear()));
-                setExtendedMonth(String(minDate.getMonth()));
-                return;
-            }
+            dispatch({
+                type: "SET_OFFSET",
+                newOffset: yearDiff * 12 + monthDiff,
+            });
 
-            const withinUpperBound = !maxDate || isAfter(maxDate, nextDate);
-            if (!withinUpperBound) {
-                setSelected(maxDate);
-                setExtendedYear(String(maxDate.getFullYear()));
-                setExtendedMonth(String(maxDate.getMonth()));
-                return;
-            }
-
-            setSelected(nextDate);
+            return;
         },
-        [setSelected, setExtendedMonth, selected, date, minDate, maxDate],
+        [selectedDate, date, shownDate],
     );
+
+    const yearSelectOptions = getYearSelectOptions(shownYear, minDate, maxDate);
+    const monthSelectOptions = getMonthSelectOptions(shownYear, months, minDate, maxDate);
 
     return (
         <div
@@ -286,57 +348,69 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
             id={id}
             className={cn("jkl-calendar", {
                 "jkl-calendar--hidden": hidden,
-                "jkl-calendar--extended": extended,
             })}
             data-testid="jkl-calendar"
         >
-            <div className="jkl-calendar__padding" ref={calendarPaddingRef}>
-                {extended && (
-                    <div className="jkl-calendar__navigation">
-                        <TextInput
-                            label={yearLabel}
-                            labelProps={{ variant: "small" }}
-                            density={density}
-                            type="number"
-                            className="jkl-calendar__year-selector"
-                            inputClassName="jkl-calendar__year-selector-input"
-                            width="5rem"
-                            onChange={handleYearChange}
-                            value={extendedYear}
-                        />
-                        <NativeSelect
-                            className="jkl-calendar__month-selector"
-                            selectClassName="jkl-calendar__month-selector-select"
-                            label={monthLabel}
-                            density={density}
-                            items={months.map((name: string, i: number) => ({
-                                value: String(i),
-                                label: name,
-                            }))}
-                            labelProps={{ variant: "small" }}
-                            value={extendedMonth}
-                            onChange={handleMonthChange}
-                            width="auto"
-                        />
-                    </div>
-                )}
-                {!extended && (
-                    <fieldset className="jkl-calendar__month-navigation">
-                        <button {...getBackProps({ calendars })} className="jkl-calendar__month-button" type="button">
-                            ←
-                        </button>
+            {/* Vi lytter på på trykk på Tab inne i kalenderen for å håndtere fokus */}
+            {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+            <div className="jkl-calendar__padding" ref={calendarPaddingRef} onKeyDown={handleTabInside}>
+                <fieldset className="jkl-calendar-navigation">
+                    <div>
                         <button
-                            {...getForwardProps({ calendars })}
-                            className="jkl-calendar__month-button jkl-calendar__month-button--right"
+                            {...getBackProps({ calendars, onClick: handleGotoEdgeMonth })}
+                            className="jkl-calendar-navigation__arrow"
                             type="button"
                         >
-                            →
+                            <ArrowLeftIcon variant="medium" bold />
                         </button>
-                    </fieldset>
-                )}
+                        <button
+                            {...getForwardProps({ calendars, onClick: handleGotoEdgeMonth })}
+                            className="jkl-calendar-navigation__arrow"
+                            type="button"
+                        >
+                            <ArrowRightIcon variant="medium" bold />
+                        </button>
+                    </div>
+                    <div>
+                        <div className="jkl-calendar-navigation-dropdown">
+                            <select
+                                onChange={handleMonthChange}
+                                className="jkl-calendar-navigation-dropdown__select"
+                                aria-label={monthLabel}
+                                value={shownMonth.toString()}
+                            >
+                                {monthSelectOptions.map(({ label, value }) => (
+                                    <option key={value} value={value}>
+                                        {label}
+                                    </option>
+                                ))}
+                            </select>
+                            <ChevronDownIcon bold className="jkl-calendar-navigation-dropdown__chevron" />
+                        </div>
+                        <div className="jkl-calendar-navigation-dropdown">
+                            <select
+                                onChange={handleYearChange}
+                                className="jkl-calendar-navigation-dropdown__select"
+                                aria-label={yearLabel}
+                                value={shownYear.toString()}
+                            >
+                                {yearSelectOptions.map((year) => (
+                                    <option key={year} value={year}>
+                                        {year}
+                                    </option>
+                                ))}
+                            </select>
+                            <ChevronDownIcon bold className="jkl-calendar-navigation-dropdown__chevron" />
+                        </div>
+                    </div>
+                </fieldset>
                 {calendars.map((calendar) => (
-                    <table key={`${calendar.month}${calendar.year}`} data-testid="jkl-datepicker-calendar">
-                        <caption>
+                    <table
+                        className="jkl-calendar-table"
+                        key={`${calendar.month}${calendar.year}`}
+                        data-testid="jkl-datepicker-calendar"
+                    >
+                        <caption className="jkl-sr-only">
                             {months[calendar.month]}, {calendar.year}
                         </caption>
                         <thead>
@@ -346,9 +420,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                 ))}
                             </tr>
                         </thead>
-                        {/* The <div> element handles keyboard events that bubble up from <button> elements inside */}
-                        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-element-interactions */}
-                        <tbody data-testid="jkl-datepicker-dates" onKeyDown={onArrowNavigation}>
+                        <tbody data-testid="jkl-datepicker-dates">
                             {calendar.weeks.map((week, weekIndex) => (
                                 <tr key={`${calendar.month}${calendar.year}${weekIndex}`}>
                                     {week.map((dateInfo, index) => {
@@ -360,7 +432,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                                 </td>
                                             );
                                         }
-                                        const { date, selected, selectable, today, prevMonth, nextMonth } = dateInfo;
+                                        const { date, selectable, today, prevMonth, nextMonth } = dateInfo;
+
                                         return (
                                             <td key={key}>
                                                 <button
@@ -368,15 +441,15 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
                                                         dateObj: dateInfo,
                                                     })}
                                                     type="button"
-                                                    className="jkl-calendar__date"
-                                                    tabIndex={selected ? 0 : -1}
+                                                    className="jkl-calendar-date-button"
+                                                    tabIndex={isFocusableDate(dateInfo) ? 0 : -1}
                                                     aria-label={`${date.getDate()}. ${months[
                                                         date.getMonth()
                                                     ].toLowerCase()}`}
                                                     aria-current={today ? "date" : undefined}
                                                     data-adjacent={prevMonth || nextMonth ? "true" : undefined}
                                                     disabled={!selectable}
-                                                    onKeyDown={handleTabOutside}
+                                                    onKeyDown={handleArrowNavigation}
                                                 >
                                                     <span aria-hidden="true">{date.getDate()}</span>
                                                 </button>

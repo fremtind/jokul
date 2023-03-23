@@ -23,6 +23,12 @@ describe("DatePicker", () => {
 
         cy.takeSnapshots({
             setup: () => {
+                cy.getByTestid("jkl-icon-button").first().click();
+            },
+        });
+
+        cy.takeSnapshots({
+            setup: () => {
                 cy.focusInput("datepicker").type("24.10.1990");
             },
             teardown: () => {
