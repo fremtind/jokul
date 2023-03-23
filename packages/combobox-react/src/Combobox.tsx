@@ -93,46 +93,6 @@ export const Combobox: FC<ComboboxProps> = ({
         }
     }, [showMenu]);
 
-    // Funksjon for å rendre verdi i input-feltet
-    const getDisplay = () => {
-        return (
-            <div className="jkl-combobox__tags">
-                {selectedValue.map(getComboboxValuePair).map((option) => (
-                    <Tag
-                        key={option.value}
-                        aria-hidden
-                        aria-selected={selectedValue === selectedValue}
-                        density="compact"
-                        className="jkl-tag"
-                        dismissAction={{
-                            onClick: (e) => onTagRemove(e, option.value),
-                            label: `Fjern ${option.value}`,
-                        }}
-                    >
-                        {option.tagLabel ? option.tagLabel : option.label}
-                    </Tag>
-                ))}
-                <input
-                    id={inputId}
-                    className="jkl-combobox__search-input"
-                    onChange={onSearch}
-                    data-testid="jkl-combobox__search-input"
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
-                    onKeyDown={handleSearchOnKeyDown}
-                    value={searchValue}
-                    ref={searchRef}
-                    aria-controls={listId}
-                    role="combobox"
-                    aria-autocomplete="list"
-                    aria-expanded={showMenu}
-                    placeholder={selectedValue.length > 0 ? "" : placeholder}
-                    autoComplete="off"
-                />
-            </div>
-        );
-    };
-
     // Funksjon for å stile valgt element
     const isSelected = (option: ValuePair) => {
         if (!selectedValue) {
@@ -303,21 +263,6 @@ export const Combobox: FC<ComboboxProps> = ({
     }, []);
 
     // Tastaturnavigasjon
-    const handleOnKeyDown = useCallback(
-        (e: KeyboardEvent<HTMLDivElement>) => {
-            if ((e.key === "ArrowDown" || e.key === " ") && !showMenu) {
-                e.preventDefault();
-                e.stopPropagation();
-                setShowMenu(true);
-            } else if (e.key === "Escape") {
-                e.preventDefault();
-                e.stopPropagation();
-                setShowMenu(false);
-            }
-        },
-        [setShowMenu, showMenu],
-    );
-
     const handleSearchOnKeyDown = useCallback(
         (e: KeyboardEvent<HTMLInputElement>) => {
             if (e.key === "ArrowDown") {
@@ -325,7 +270,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 e.stopPropagation();
                 const listElement = dropdownRef.current;
                 if (listElement) {
-                    listElement.querySelector('[role="option"]')?.focus();
+                    listElement.querySelector<HTMLButtonElement>('[role="option"]')?.focus();
                 }
             } else if (e.key === "Escape") {
                 e.preventDefault();
@@ -366,7 +311,7 @@ export const Combobox: FC<ComboboxProps> = ({
     return (
         <InputGroup
             label={label}
-            id={buttonId}
+            id={inputId}
             ref={componentRootElementRef}
             data-testid="jkl-combobox"
             className={cn("jkl-combobox", className, {
@@ -375,83 +320,111 @@ export const Combobox: FC<ComboboxProps> = ({
             labelProps={{
                 id: labelId,
                 ...labelProps,
-                htmlFor: buttonId,
             }}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             render={(inputProps) => (
                 <div className={`jkl-combobox__wrapper ${showMenu && "menu-open"}`} style={{ width }}>
-                    <div
+                    <div className="jkl-combobox__tags">
+                        {selectedValue.map(getComboboxValuePair).map((option) => (
+                            <Tag
+                                key={option.value}
+                                density="compact"
+                                className="jkl-tag"
+                                dismissAction={{
+                                    onClick: (e) => onTagRemove(e, option.value),
+                                    label: `Fjern ${option.value}`,
+                                }}
+                            >
+                                <span aria-hidden="true">{option.tagLabel ? option.tagLabel : option.label}</span>
+                            </Tag>
+                        ))}
+                    </div>
+                    <input
                         {...inputProps}
-                        ref={inputRef}
-                        onKeyDown={handleOnKeyDown}
+                        className="jkl-combobox__search-input"
+                        onChange={onSearch}
+                        data-testid="jkl-combobox__search-input"
                         onFocus={handleFocus}
                         onBlur={handleBlur}
-                        className={`jkl-combobox__button ${showMenu && "menu-open"}`}
-                        aria-label={`${selectedValue.map((value) => value.label) || "Velg"},${label}`}
-                        aria-expanded={showMenu}
+                        onKeyDown={handleSearchOnKeyDown}
+                        value={searchValue}
+                        ref={searchRef}
                         aria-controls={listId}
-                        role="button"
+                        role="combobox"
+                        aria-autocomplete="list"
+                        aria-expanded={showMenu}
+                        placeholder={selectedValue.length > 0 ? "" : placeholder}
+                        autoComplete="off"
+                    />
+                    <div
+                        className="jkl-combobox__menu"
+                        role="listbox"
+                        ref={dropdownRef}
+                        id={listId}
+                        aria-labelledby={labelId}
+                        aria-multiselectable="true"
+                        aria-activedescendant={activeDescendant}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
                         tabIndex={-1}
-                        onMouseDown={(e) => {
-                            e.preventDefault();
-                            inputRef.current?.focus();
-                        }}
                     >
-                        {getDisplay()}
-                        <div
-                            className="jkl-combobox__menu"
-                            role="listbox"
-                            ref={dropdownRef}
-                            id={listId}
-                            aria-labelledby={labelId}
-                            aria-multiselectable="true"
-                            aria-activedescendant={activeDescendant}
+                        {options.map((option, i) => (
+                            <button
+                                key={`${listId}-${option.value}`}
+                                type="button"
+                                id={`${listId}__${option.value}`}
+                                aria-selected={isSelected(option)}
+                                role="option"
+                                value={option.value}
+                                onBlur={handleBlur}
+                                className={`jkl-combobox__option ${
+                                    isSelected(option) && "jkl-combobox__option--selected"
+                                }`}
+                                data-testid="jkl-combobox__option"
+                                data-testautoid={`jkl-combobox__option-${i}`}
+                                onFocus={handleFocus}
+                                onKeyDown={handleOptionOnKeyDown}
+                                onClick={(e) => {
+                                    setActiveDescendant(`${listId}__${option.value}`); // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role#required_javascript_features
+                                    e.stopPropagation();
+                                    onItemClick(option.value);
+                                    setSearchValue("");
+                                }}
+                                onMouseOver={handleMouseOver}
+                            >
+                                {option.label}
+                                {isSelected(option) ? (
+                                    <span>
+                                        <CheckIcon />{" "}
+                                    </span>
+                                ) : null}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="jkl-combobox__actions">
+                        {selectedValue.length > 0 && (
+                            <IconButton onClick={() => onTagRemoveAll()} aria-label="Fjern valgte elementer">
+                                <CloseIcon />
+                            </IconButton>
+                        )}
+                        <IconButton
+                            id={buttonId}
                             onFocus={handleFocus}
                             onBlur={handleBlur}
+                            className={`jkl-combobox__button ${showMenu && "menu-open"}`}
+                            aria-label={`${selectedValue.map((value) => value.label) || "Velg"},${label}`}
+                            aria-expanded={showMenu}
+                            aria-controls={listId}
+                            role="button"
                             tabIndex={-1}
+                            onMouseDown={(e) => {
+                                e.preventDefault();
+                                inputRef.current?.focus();
+                            }}
                         >
-                            {options.map((option, i) => (
-                                <button
-                                    key={`${listId}-${option.value}`}
-                                    type="button"
-                                    id={`${listId}__${option.value}`}
-                                    aria-selected={isSelected(option)}
-                                    role="option"
-                                    value={option.value}
-                                    onBlur={handleBlur}
-                                    className={`jkl-combobox__option ${
-                                        isSelected(option) && "jkl-combobox__option--selected"
-                                    }`}
-                                    data-testid="jkl-combobox__option"
-                                    data-testautoid={`jkl-combobox__option-${i}`}
-                                    onFocus={handleFocus}
-                                    onKeyDown={handleOptionOnKeyDown}
-                                    onClick={(e) => {
-                                        setActiveDescendant(`${listId}__${option.value}`); // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role#required_javascript_features
-                                        e.stopPropagation();
-                                        onItemClick(option.value);
-                                        setSearchValue("");
-                                    }}
-                                    onMouseOver={handleMouseOver}
-                                >
-                                    {option.label}
-                                    {isSelected(option) ? (
-                                        <span>
-                                            <CheckIcon />{" "}
-                                        </span>
-                                    ) : null}
-                                </button>
-                            ))}
-                        </div>
-                        <div className="jkl-combobox__actions">
-                            {selectedValue.length > 0 && (
-                                <IconButton onClick={() => onTagRemoveAll()} aria-label="Fjern valgte elementer">
-                                    <CloseIcon />
-                                </IconButton>
-                            )}
                             <ArrowVerticalAnimated variant="medium" pointingDown={isPoitingDown} />
-                        </div>
+                        </IconButton>
                     </div>
                 </div>
             )}
