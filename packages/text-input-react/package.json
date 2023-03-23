@@ -32,7 +32,7 @@
         "build"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ build/ node_modules/",
+        "clean": "rimraf node_modules/ build/",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "node ./esbuild.prod.mjs",
         "build": "run-s build:*",
