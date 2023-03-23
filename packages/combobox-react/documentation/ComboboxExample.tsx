@@ -51,6 +51,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             id="produsent"
             name="produsent"
             placeholder="Søk"
+            width="206px"
             labelProps={{ variant }}
             helpLabel={helpLabel}
             errorLabel={errorLabel}

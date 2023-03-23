@@ -339,24 +339,25 @@ export const Combobox: FC<ComboboxProps> = ({
                                 <span aria-hidden="true">{option.tagLabel ? option.tagLabel : option.label}</span>
                             </Tag>
                         ))}
+                        <input
+                            {...inputProps}
+                            className="jkl-combobox__search-input"
+                            onChange={onSearch}
+                            data-testid="jkl-combobox__search-input"
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                            onKeyDown={handleSearchOnKeyDown}
+                            value={searchValue}
+                            ref={searchRef}
+                            aria-controls={listId}
+                            role="combobox"
+                            aria-autocomplete="list"
+                            aria-expanded={showMenu}
+                            placeholder={selectedValue.length > 0 ? "" : placeholder}
+                            autoComplete="off"
+                        />
                     </div>
-                    <input
-                        {...inputProps}
-                        className="jkl-combobox__search-input"
-                        onChange={onSearch}
-                        data-testid="jkl-combobox__search-input"
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
-                        onKeyDown={handleSearchOnKeyDown}
-                        value={searchValue}
-                        ref={searchRef}
-                        aria-controls={listId}
-                        role="combobox"
-                        aria-autocomplete="list"
-                        aria-expanded={showMenu}
-                        placeholder={selectedValue.length > 0 ? "" : placeholder}
-                        autoComplete="off"
-                    />
+
                     <div
                         className="jkl-combobox__menu"
                         role="listbox"
@@ -418,6 +419,7 @@ export const Combobox: FC<ComboboxProps> = ({
                             aria-controls={listId}
                             role="button"
                             tabIndex={-1}
+                            onClick={() => setShowMenu(true)}
                             onMouseDown={(e) => {
                                 e.preventDefault();
                                 inputRef.current?.focus();

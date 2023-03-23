@@ -48,10 +48,10 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-combobox", "body");
 
-    --jkl-combobox-button-padding: #{jkl.$spacing-8} #{jkl.rem(36px)} #{jkl.$spacing-8} #{jkl.$spacing-8};
+    --jkl-combobox-button-padding: #{jkl.rem(6px)} #{jkl.rem(36px)} #{jkl.rem(6px)} #{jkl.$spacing-8};
     --jkl-combobox-input-height: #{jkl.rem(48px)};
     --jkl-combobox-actions-right: #{jkl.$spacing-8};
-    --jkl-combobox-actions-top: 11px;
+    --jkl-combobox-actions-top: 10px;
     --jkl-combobox-search-input-padding: var(--jkl-combobox-button-padding);
     --jkl-combobox-native-padding: 0 #{jkl.$spacing-40} 0 #{jkl.$spacing-8};
     --jkl-combobox-option-padding: #{jkl.$spacing-8} #{jkl.$spacing-12};
@@ -67,10 +67,10 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
     --jkl-combobox-button-padding: #{jkl.rem(2px)} #{jkl.rem(30px)} #{jkl.rem(2px)} #{jkl.rem(2px)};
     --jkl-combobox-input-height: #{jkl.rem(32px)};
-    --jkl-combobox-actions-right: #{jkl.rem(4px)};
-    --jkl-combobox-actions-top: 5px;
+    --jkl-combobox-actions-right: #{jkl.rem(0)};
+    --jkl-combobox-actions-top: #{jkl.$spacing-2};
     --jkl-combobox-search-input-padding: #{jkl.$spacing-4} #{jkl.$spacing-8};
-    --jkl-combobox-native-padding: #{jkl.$spacing-4} #{jkl.$spacing-24} #{jkl.$spacing-4} #{jkl.$spacing-4};
+    --jkl-combobox-native-padding: #{jkl.$spacing-24} #{jkl.$spacing-4} #{jkl.$spacing-4};
     --jkl-combobox-option-padding: #{jkl.$spacing-4} #{jkl.$spacing-8};
     --jkl-combobox-option-line-height: 1.5rem;
 }
@@ -86,18 +86,13 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     &__wrapper {
         position: relative;
         min-width: 7rem;
-        width: 15rem;
         max-width: 100%;
-        min-height: 32px;
         display: flex;
-    }
 
-    &__button {
         padding: var(--jkl-combobox-button-padding);
         border-radius: jkl.rem(3px);
         border: jkl.rem(1px) solid var(--jkl-combobox-border-color);
         box-shadow: 0 0 0 jkl.rem(1px) transparent;
-
         @include jkl.motion;
         transition-property: color, border-color, box-shadow;
 
@@ -118,16 +113,20 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         }
     }
 
-    &__button.menu-open {
+    &__wrapper.menu-open {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         border-color: var(--jkl-combobox-focus-color);
         background-color: var(--jkl-combobox-open-color);
-        box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-combobox-focus-color);
+        box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-combobox-focus-color) inset;
 
         &:hover ~ .jkl-combobox__arrow {
             transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
         }
+    }
+
+    &__button {
+        padding: 0;
     }
 
     &__button,
@@ -152,7 +151,6 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         outline: none;
         align-self: end;
         flex: 1 1 1ch;
-        line-height: 10px;
     }
 
     &__arrow {
@@ -226,7 +224,6 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        margin-right: 25px;
     }
 
     &--invalid {
