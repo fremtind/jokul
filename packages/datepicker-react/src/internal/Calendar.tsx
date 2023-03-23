@@ -57,8 +57,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         maxDate,
         days = defaultDays,
         months = defaultMonths,
-        monthLabel = "Måned",
-        yearLabel = "År",
+        monthLabel = "Velg måned",
+        yearLabel = "Velg år",
         onTabOutside,
         ...rest
     } = props;
