@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@11.0.0...@fremtind/jkl-datepicker@11.1.0) (2023-03-23)
+
+### Bug Fixes
+
+- ikke hopp forbi første/siste måned med årsvelgeren ([39a9fd9](https://github.com/fremtind/jokul/commit/39a9fd99b4c6617dbe1b18603fde834b36a3d0c4))
+- legg til fokusramme for velgere for år og måned ([e81fd1b](https://github.com/fremtind/jokul/commit/e81fd1b0419d837f58f275d2b56917dc7f8c7399))
+- sørg for at dropdown i kalenderen støtter dark mode ([7e204bb](https://github.com/fremtind/jokul/commit/7e204bbc5105402e62714a08eda95bfba6eaf7c1))
+
+### Features
+
+-  bruk riktig verdi for kalenderstate, css ([d602714](https://github.com/fremtind/jokul/commit/d602714efcb97ec1b207866b616cd2ec870b6564))
+- fjern mer ubrukt kode, oppdater state for select ([434ce22](https://github.com/fremtind/jokul/commit/434ce2261dac78a21dd20587ceb98f44f91ed128))
+- fjern ubrukt css ([d21860a](https://github.com/fremtind/jokul/commit/d21860a02756858094770940854a9445aa02bdc7))
+- håndter blaing i kalenderen uten å endre valgt dato (pluss litt stiler) ([5ff3bee](https://github.com/fremtind/jokul/commit/5ff3bee30c3bf6752b0fc389b52c69ac86527993))
+
 ## 11.0.3 (2023-03-21)
 
 ### Bug Fixes
