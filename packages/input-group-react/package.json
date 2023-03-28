@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-input-group-react",
-    "version": "2.0.5",
+    "version": "2.0.6",
     "publishConfig": {
         "access": "public"
     },
@@ -40,7 +40,7 @@
         "@fremtind/jkl-core": "^12.0.3",
         "@fremtind/jkl-input-group": "^2.0.3",
         "@fremtind/jkl-react-hooks": "^11.1.1",
-        "@fremtind/jkl-tooltip-react": "^2.0.5",
+        "@fremtind/jkl-tooltip-react": "^2.0.6",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

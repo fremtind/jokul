@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.2 (2023-03-28)
+
+### Bug Fixes
+
+- rett opp typedefinisjon for ikoner bygget av factory ([8a3bb6d](https://github.com/fremtind/jokul/commit/8a3bb6de7f52cd06e9a1a8b3dbe912c523ed9f63))
+
 # 7.1.0 (2023-03-06)
 
 ### Bug Fixes
