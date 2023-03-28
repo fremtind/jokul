@@ -1,10 +1,12 @@
+import { type FC } from "react";
 import { makeIconComponent } from "../../IconFactory";
+import { type IconProps } from "../types";
 import { HamburgerMedium } from "./HamburgerMedium";
 import { HamburgerMediumBold } from "./HamburgerMediumBold";
 import { HamburgerSmall } from "./HamburgerSmall";
 import { HamburgerSmallBold } from "./HamburgerSmallBold";
 
-export const HamburgerIcon = makeIconComponent({
+export const HamburgerIcon: FC<IconProps> = makeIconComponent({
     bold: {
         small: HamburgerSmallBold,
         medium: HamburgerMediumBold,

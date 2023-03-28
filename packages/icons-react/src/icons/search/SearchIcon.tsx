@@ -1,10 +1,12 @@
+import { type FC } from "react";
 import { makeIconComponent } from "../../IconFactory";
+import { type IconProps } from "../types";
 import { SearchMedium } from "./SearchMedium";
 import { SearchMediumBold } from "./SearchMediumBold";
 import { SearchSmall } from "./SearchSmall";
 import { SearchSmallBold } from "./SearchSmallBold";
 
-export const SearchIcon = makeIconComponent({
+export const SearchIcon: FC<IconProps> = makeIconComponent({
     bold: {
         small: SearchSmallBold,
         medium: SearchMediumBold,

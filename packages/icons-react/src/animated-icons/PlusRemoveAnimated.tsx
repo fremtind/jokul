@@ -1,7 +1,7 @@
 import cx from "classnames";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { PlusIcon } from "../icons/plus/PlusIcon";
-import { IconVariant } from "../icons/types";
+import { type IconVariant } from "../icons/types";
 
 export interface PlusRemoveAnimatedProps {
     className?: string;
