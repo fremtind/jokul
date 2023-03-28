@@ -1,8 +1,10 @@
+import { type FC } from "react";
 import { makeIconComponent } from "../../IconFactory";
+import { type IconProps } from "../types";
 import { WarningMedium } from "./WarningMedium";
 import { WarningSmall } from "./WarningSmall";
 
-export const WarningIcon = makeIconComponent({
+export const WarningIcon: FC<IconProps> = makeIconComponent({
     bold: {
         small: WarningSmall,
         medium: WarningMedium,

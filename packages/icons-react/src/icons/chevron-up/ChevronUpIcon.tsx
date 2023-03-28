@@ -1,10 +1,12 @@
+import { type FC } from "react";
 import { makeIconComponent } from "../../IconFactory";
+import { type IconProps } from "../types";
 import { ChevronUpMedium } from "./ChevronUpMedium";
 import { ChevronUpMediumBold } from "./ChevronUpMediumBold";
 import { ChevronUpSmall } from "./ChevronUpSmall";
 import { ChevronUpSmallBold } from "./ChevronUpSmallBold";
 
-export const ChevronUpIcon = makeIconComponent({
+export const ChevronUpIcon: FC<IconProps> = makeIconComponent({
     bold: {
         small: ChevronUpSmallBold,
         medium: ChevronUpMediumBold,

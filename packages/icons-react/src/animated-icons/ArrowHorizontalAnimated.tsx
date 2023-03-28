@@ -1,8 +1,8 @@
 import cx from "classnames";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { ArrowLeftIcon } from "../icons/arrow-left/ArrowLeftIcon";
 import { ArrowRightIcon } from "../icons/arrow-right/ArrowRightIcon";
-import { IconVariant } from "../icons/types";
+import { type IconVariant } from "../icons/types";
 
 export interface ArrowHorizontalAnimatedProps {
     className?: string;
