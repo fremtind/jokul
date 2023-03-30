@@ -25,4 +25,11 @@ describe("PortalLogo", () => {
 
         expect(getByText("Jøkul")).toBeInTheDocument();
     });
+
+    it("becomes easterly on Easter", () => {
+        jest.setSystemTime(new Date("2023-04-04"));
+        const { getByText } = render(<PortalLogo />);
+
+        expect(getByText("Påskul 🐣")).toBeInTheDocument();
+    });
 });
