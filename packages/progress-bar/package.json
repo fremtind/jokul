@@ -1,0 +1,38 @@
+{
+    "name": "@fremtind/jkl-progress-bar",
+    "version": "5.0.0-alpha.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul style for progress bar",
+    "homepage": "https://jokul.fremtind.no",
+    "keywords": [
+        "progress bar",
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "!example",
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf node_modules/ .cache/ build/ dist/ public/ **/*.css",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "parcel example/index.html"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^12.0.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+}
