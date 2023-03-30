@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [18.0.7](https://github.com/fremtind/jokul/compare/@fremtind/portal@18.0.6...@fremtind/portal@18.0.7) (2023-03-30)
+
+### Bug Fixes
+
+- seasonal ([c3de52a](https://github.com/fremtind/jokul/commit/c3de52a2cae4a325883cbee4fe1434d5c75d6719))
+
 ## [18.0.3](https://github.com/fremtind/jokul/compare/@fremtind/portal@18.0.2...@fremtind/portal@18.0.3) (2023-03-21)
 
 ### Bug Fixes
