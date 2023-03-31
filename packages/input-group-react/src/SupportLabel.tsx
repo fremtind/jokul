@@ -1,4 +1,5 @@
 import { type Density } from "@fremtind/jkl-core";
+import { ErrorIcon, SuccessIcon, WarningIcon } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
 import React, { type FC, type ReactNode } from "react";
 
@@ -26,8 +27,8 @@ export interface SupportLabelProps {
      *      </select>
      *      <SupportLabel
      *        id={supportId}
-     *        helpLabel={helpLabel}
-     *        errorLabel={errorLabel}
+     *        label={errorLabel}
+     *        labelType="error"
      *        density={density}
      *      />
      *    </div>
@@ -35,8 +36,26 @@ export interface SupportLabelProps {
      *  ```
      */
     id: string;
+    /**
+     * @deprecated Bruk `label` for å få samme resultat.
+     */
     helpLabel?: ReactNode;
+    /**
+     * @deprecated Bruk `label` og `labelType="warning"` for å få samme resultat.
+     */
     errorLabel?: ReactNode;
+    label?: ReactNode;
+    /**
+     * Bestemmer hvilket ikon som skal vises:
+     *
+     * - "help" viser ikke noe ikon
+     * - "warning" viser WarningIcon, det som tidligere ble vist med `errorLabel`
+     * - "error" viser ErrorIcon
+     * - "success" viser SuccessIcon
+     *
+     * @default "help"
+     */
+    labelType?: "help" | "error" | "warning" | "success";
     density?: Density;
     className?: string;
     srOnly?: boolean;
@@ -46,41 +65,38 @@ export const SupportLabel: FC<SupportLabelProps> = ({
     id,
     helpLabel,
     errorLabel,
+    label,
+    labelType = "help",
     density,
     className,
     srOnly,
     ...rest
 }) => {
-    const hasLabel = errorLabel || helpLabel;
+    const hasLabel = errorLabel || helpLabel || label;
+
+    const isHelp = labelType === "help" || (helpLabel && !errorLabel);
+    const isWarning = labelType === "warning" || errorLabel;
+    const isError = labelType === "error";
+    const isSuccess = labelType === "success";
 
     const componentClassName = hasLabel
         ? cn("jkl-form-support-label", className, {
-              "jkl-form-support-label--error": errorLabel,
-              "jkl-form-support-label--help": !errorLabel,
               "jkl-form-support-label--sr-only": srOnly,
+              "jkl-form-support-label--help": isHelp,
+              "jkl-form-support-label--error": isError,
+              "jkl-form-support-label--warning": isWarning,
+              "jkl-form-support-label--success": isSuccess,
           })
         : "jkl-dormant-form-support-label";
 
     const restProps = hasLabel ? rest : {};
 
+    const Icon = isWarning ? WarningIcon : isError ? ErrorIcon : isSuccess ? SuccessIcon : null;
+
     return (
         <span id={id} className={componentClassName} {...restProps} data-density={density}>
-            <svg
-                className="jkl-form-support-label__icon"
-                aria-hidden
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M18.3588 20.5107L5.64157 20.5107C3.33259 20.5107 1.88917 18.0116 3.04301 16.0116L9.40163 4.98996C10.5561 2.98885 13.4443 2.98885 14.5987 4.98996L20.9574 16.0116C22.1112 18.0116 20.6678 20.5107 18.3588 20.5107ZM12.7515 13.6525L12.7515 7.63131L11.9988 7.63131L11.2462 7.63131L11.2462 13.6525L12.7515 13.6525ZM12.0012 15.0458C11.441 15.0458 10.9868 15.5 10.9868 16.0602C10.9868 16.6205 11.441 17.0747 12.0012 17.0747C12.5615 17.0747 13.0157 16.6205 13.0157 16.0602C13.0157 15.5 12.5615 15.0458 12.0012 15.0458Z"
-                    fill="currentColor"
-                />
-            </svg>
-
-            {errorLabel || helpLabel}
+            {Icon && <Icon className="jkl-form-support-label__icon" />}
+            {errorLabel || helpLabel || label}
         </span>
     );
 };

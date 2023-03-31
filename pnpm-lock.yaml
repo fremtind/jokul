@@ -684,12 +684,14 @@ importers:
   packages/input-group-react:
     specifiers:
       '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icons-react': ^7.1.2
       '@fremtind/jkl-input-group': ^2.0.3
       '@fremtind/jkl-react-hooks': ^11.1.1
       '@fremtind/jkl-tooltip-react': ^2.0.6
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-input-group': link:../input-group
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-tooltip-react': link:../tooltip-react
