@@ -1,10 +1,5 @@
-export { FileUploader } from "./FileUploader";
+export type { FileProps } from "./File";
+export { File } from "./File";
 export type { FileUploaderProps } from "./FileUploader";
-export { FileUploaderInput } from "./FileUploaderInput";
-export type { FileUploadState, FileUploadValidation, FileUploaderInputProps } from "./FileUploaderInput";
-export { FileUploaderPreview } from "./FileUploaderPreview";
-export type { FileUploaderPreviewProps } from "./FileUploaderPreview";
-export { FileUploaderPreviewList } from "./FileUploaderPreveiwList";
-export type { FileUploaderPreviewListProps } from "./FileUploaderPreveiwList";
-export { FileUploaderPreviewListItem } from "./FileUploaderPreveiwListItem";
-export type { FileUploaderPreviewListItemProps } from "./FileUploaderPreveiwListItem";
+export { FileUploader } from "./FileUploader";
+export type { FileUploadState, FileUploadValidation } from "./types";

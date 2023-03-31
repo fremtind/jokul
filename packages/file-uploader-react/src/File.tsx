@@ -7,7 +7,7 @@ import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { FC, MouseEvent } from "react";
 
-export interface FileUploaderPreviewProps {
+export interface FileProps {
     fileName: string;
     fileType: string;
     fileSize: number;
@@ -19,7 +19,7 @@ export interface FileUploaderPreviewProps {
     onRemove?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const FileUploaderPreview: FC<FileUploaderPreviewProps> = (props) => {
+export const File: FC<FileProps> = (props) => {
     const { fileName, fileType, fileSize, path, file, helpLabel, errorLabel, isUploading, onRemove } = props;
 
     const id = useId("jkl-file-preview");
@@ -30,19 +30,15 @@ export const FileUploaderPreview: FC<FileUploaderPreviewProps> = (props) => {
     return (
         <C
             id={id}
-            className={cn("jkl-file-uploader-preview", { "jkl-file-uploader-preview--invalid": errorLabel })}
+            className={cn("jkl-file", { "jkl-file--invalid": errorLabel })}
             href={path}
             target={path ? "_blank" : undefined}
         >
-            <div className="jkl-file-uploader-preview__info-wrapper">
+            <div className="jkl-file__info-wrapper">
                 {!isUploading && fileType.startsWith("image/") ? (
-                    <img
-                        className="jkl-file-uploader-preview__thumbnail"
-                        src={file ? URL.createObjectURL(file) : path}
-                        alt=""
-                    />
+                    <img className="jkl-file__thumbnail" src={file ? URL.createObjectURL(file) : path} alt="" />
                 ) : (
-                    <div className="jkl-file-uploader-preview__thumbnail">
+                    <div className="jkl-file__thumbnail">
                         {isUploading ? (
                             <div aria-live="polite">
                                 <Loader variant="small" textDescription={`Laster opp ${fileName}`} />
@@ -52,9 +48,9 @@ export const FileUploaderPreview: FC<FileUploaderPreviewProps> = (props) => {
                         )}
                     </div>
                 )}
-                <div className="jkl-file-uploader-preview__file-info">
-                    <div className="jkl-file-uploader-preview__file-name">{fileName}</div>
-                    <p className="jkl-file-uploader-preview__file-size">{formatBytes(fileSize)}</p>
+                <div className="jkl-file__file-info">
+                    <div className="jkl-file__file-name">{fileName}</div>
+                    <p className="jkl-file__file-size">{formatBytes(fileSize)}</p>
                 </div>
                 {onRemove && (
                     <IconButton onClick={onRemove} title={`Fjern ${fileName}`}>

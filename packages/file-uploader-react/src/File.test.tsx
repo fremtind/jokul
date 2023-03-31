@@ -2,7 +2,7 @@ import { render, RenderOptions } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { FileUploaderPreview } from ".";
+import { File } from ".";
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
@@ -11,15 +11,15 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     };
 }
 
-describe("FileUploaderPreview", () => {
+describe("File", () => {
     it("should render the given file name", () => {
         const onRemove = jest.fn();
         const { getByText } = setup(
-            <FileUploaderPreview
+            <File
                 fileName="test.txt"
                 fileType="application/text"
                 fileSize={1000}
-                file={new File([], "test.txt")}
+                file={new window.File([], "test.txt")}
                 isUploading={false}
                 onRemove={onRemove}
             />,
@@ -31,11 +31,11 @@ describe("FileUploaderPreview", () => {
     it("should render a progress indicator when uploading", () => {
         const onRemove = jest.fn();
         const { getByText } = setup(
-            <FileUploaderPreview
+            <File
                 fileName="test.txt"
                 fileType="application/text"
                 fileSize={1000}
-                file={new File([], "test.txt")}
+                file={new window.File([], "test.txt")}
                 isUploading={true}
                 onRemove={onRemove}
             />,
@@ -47,11 +47,11 @@ describe("FileUploaderPreview", () => {
     it("should call onRemove if the button is clicked", async () => {
         const onRemove = jest.fn();
         const { getByRole, user } = setup(
-            <FileUploaderPreview
+            <File
                 fileName="test.txt"
                 fileType="application/text"
                 fileSize={1000}
-                file={new File([], "test.txt")}
+                file={new window.File([], "test.txt")}
                 isUploading={false}
                 onRemove={onRemove}
             />,
@@ -65,11 +65,11 @@ describe("FileUploaderPreview", () => {
     it("should pass jext-axe tests in default state", async () => {
         const onRemove = jest.fn();
         const { container } = render(
-            <FileUploaderPreview
+            <File
                 fileName="test.tsx"
                 fileType="application/text"
                 fileSize={0}
-                file={new File([], "test.txt")}
+                file={new window.File([], "test.txt")}
                 isUploading={false}
                 onRemove={onRemove}
             />,
@@ -83,11 +83,11 @@ describe("FileUploaderPreview", () => {
     it("should pass jext-axe tests in uploading state", async () => {
         const onRemove = jest.fn();
         const { container } = render(
-            <FileUploaderPreview
+            <File
                 fileName="test.tsx"
                 fileType="application/text"
                 fileSize={0}
-                file={new File([], "test.txt")}
+                file={new window.File([], "test.txt")}
                 isUploading={true}
                 onRemove={onRemove}
             />,

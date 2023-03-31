@@ -1,5 +1,5 @@
 import { formatBytes } from "@fremtind/jkl-formatters-util";
-import type { FileUploadValidation } from "./FileUploaderInput";
+import type { FileUploadValidation } from "../types";
 
 export function validateFile(file: File, accept = "", maxSizeBytes?: number): FileUploadValidation | undefined {
     const acceptStrings = accept
