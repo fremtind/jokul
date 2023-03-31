@@ -1,4 +1,4 @@
-import { ValuePair } from "@fremtind/jkl-core";
+import { ValuePair, Density } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { ArrowVerticalAnimated, CheckIcon, CloseIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup, InputGroupProps, type LabelProps } from "@fremtind/jkl-input-group-react";
@@ -45,6 +45,7 @@ interface ComboboxProps extends InputGroupProps {
     label: string;
     name: string;
     value?: Array<ValuePair>;
+    density?: Density;
     width?: string;
     helpLabel?: string;
     errorLabel?: string;
@@ -68,6 +69,7 @@ export const Combobox: FC<ComboboxProps> = ({
     helpLabel,
     errorLabel,
     width,
+    density,
     name,
     className,
     invalid,
@@ -323,6 +325,7 @@ export const Combobox: FC<ComboboxProps> = ({
             }}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
+            density={density}
             render={(inputProps) => (
                 <div className={`jkl-combobox__wrapper ${showMenu && "menu-open"}`} style={{ width }}>
                     <div className="jkl-combobox__tags">
@@ -414,6 +417,7 @@ export const Combobox: FC<ComboboxProps> = ({
                             onFocus={handleFocus}
                             onBlur={handleBlur}
                             className={`jkl-combobox__button ${showMenu && "menu-open"}`}
+                            data-testid="jkl-combobox__button"
                             aria-label={`${selectedValue.map((value) => value.label) || "Velg"},${label}`}
                             aria-expanded={showMenu}
                             aria-controls={listId}
