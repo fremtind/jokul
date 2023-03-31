@@ -228,13 +228,13 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
     &--invalid {
         .jkl-combobox__search-input,
-        .jkl-combobox__button {
+        .jkl-combobox__wrapper {
             background-color: var(--jkl-combobox-error-background-color);
         }
 
         .jkl-combobox__search-input,
         .jkl-combobox__button,
-        .jkl-combobox__arrow {
+        .jkl-combobox__wrapper {
             color: var(--jkl-combobox-error-text-color);
         }
 
