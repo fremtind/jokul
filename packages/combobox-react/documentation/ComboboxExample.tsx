@@ -40,11 +40,9 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
     const [selectedValues, setSelectedValues] = useState<Array<ComboboxValuePair>>([]);
 
     const errorLabel =
-        boolValues && boolValues["Med feil"] ? "Du må velge leverandørene, for eksempel Apple og Samsung." : undefined;
+        boolValues && boolValues["Med feil"] ? "Du må velge sykdommer, for eksempel A090 og A150." : undefined;
     const helpLabel =
-        boolValues && boolValues["Med hjelpetekst"]
-            ? "Med leverandør mener vi for eksempel Apple og Samsung."
-            : undefined;
+        boolValues && boolValues["Med hjelpetekst"] ? "Med sykdommer mener vi for eksempel A090 og A090." : undefined;
 
     return (
         <Combobox
