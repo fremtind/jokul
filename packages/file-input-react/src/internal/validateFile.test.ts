@@ -28,7 +28,7 @@ describe("validateFile", () => {
 
         const result = validateFile(file, accept, maxSizeBytes);
         expect(result).toBeTruthy();
-        expect(result?.type).toBe("TOO_BIG");
+        expect(result?.type).toBe("TOO_LARGE");
         expect(result?.message).toMatch(/men kan maksimalt være/);
     });
 
@@ -41,7 +41,7 @@ describe("validateFile", () => {
 
         const result = validateFile(file, accept, maxSizeBytes);
         expect(result).toBeTruthy();
-        expect(result?.type).toBe("WRONG_FORMAT");
+        expect(result?.type).toBe("WRONG_TYPE");
         expect(result?.message).toMatch(/Filtypen/);
         expect(result?.message).toMatch(/støttes ikke/);
     });

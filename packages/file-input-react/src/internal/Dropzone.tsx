@@ -1,7 +1,7 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { forwardRef, useState } from "react";
-import { FileState } from "../types";
+import { FileInputFile } from "../types";
 import { useFileInputContext } from "./fileInputContext";
 import { validateFile } from "./validateFile";
 
@@ -38,9 +38,9 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>((props, ref) =
                 if (e.dataTransfer.files) {
                     onChange(
                         e,
-                        [...e.dataTransfer.files].map<FileState>((file) => ({
+                        [...e.dataTransfer.files].map<FileInputFile>((file) => ({
                             file,
-                            isUploading: false,
+                            state: "SELECTED",
                             validation: validateFile(file, accept, maxSizeBytes),
                         })),
                     );

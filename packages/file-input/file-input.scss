@@ -17,16 +17,23 @@
 
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-file-input-drag", "heading-2");
+    @include jkl.declare-font-variables("jkl-file-size-hint", "small");
 
-    --jkl-file-input-dropzone-padding: #{jkl.$spacing-40};
+    --jkl-file-input-dropzone-padding: #{jkl.$spacing-24};
     --jkl-file-input-dropzone-gap: #{jkl.$spacing-24};
+    --jkl-file-cta-gap: #{jkl.$spacing-24};
+    --jkl-file-cta-with-files-gap: #{jkl.$spacing-12};
+    --jkl-file-list-gap: #{jkl.$spacing-16};
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-file-input-drag", "body");
 
     --jkl-file-input-dropzone-padding: #{jkl.$spacing-16};
-    --jkl-file-input-dropzone-gap: #{jkl.$spacing-8};
+    --jkl-file-input-dropzone-gap: #{jkl.$spacing-16};
+    --jkl-file-cta-gap: #{jkl.$spacing-12};
+    --jkl-file-cta-with-files-gap: #{jkl.$spacing-4};
+    --jkl-file-list-gap: #{jkl.$spacing-8};
 }
 
 .jkl-file-input {
@@ -56,7 +63,20 @@
         }
     }
 
+    &__call-to-action {
+        gap: var(--jkl-file-cta-gap);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column nowrap;
+    }
+
+    &--has-files &__call-to-action {
+        gap: var(--jkl-file-cta-with-files-gap);
+    }
+
     &__max-size-text {
+        @include jkl.use-font-variables("jkl-file-size-hint");
         color: var(--jkl-file-input-color);
     }
 
@@ -64,6 +84,9 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--jkl-file-list-gap);
     }
 
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {

@@ -96,8 +96,20 @@
         overflow-wrap: break-word;
     }
 
-    &__file-name {
+    &__title {
         @include jkl.text-style("heading-5");
         overflow-wrap: anywhere;
+    }
+
+    &__description {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: jkl.$spacing-12;
+        align-items: center;
+        justify-content: flex-start;
+
+        &-slot {
+            width: 100%;
+        }
     }
 }

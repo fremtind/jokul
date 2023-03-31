@@ -1,17 +1,18 @@
 import { formatBytes } from "@fremtind/jkl-formatters-util";
 import { useId } from "@fremtind/jkl-react-hooks";
 import React, { forwardRef } from "react";
-import { FileState } from "../types";
+import { FileInputFile } from "../types";
 import { useFileInputContext } from "./fileInputContext";
 import { validateFile } from "./validateFile";
 
 interface FileInputProps {
     id?: string;
+    label: string;
     multiple: boolean;
 }
 
 export const Input = forwardRef<HTMLInputElement, FileInputProps>((props, ref) => {
-    const { multiple, id: idProp, ...rest } = props;
+    const { multiple, id: idProp, label, ...rest } = props;
 
     const id = useId(idProp || "jkl-file-input", { generateSuffix: !idProp });
     const maxSizeDescriptionId = id + "-description";
@@ -25,7 +26,7 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>((props, ref) =
     return (
         <>
             <label className="jkl-button jkl-button--secondary" htmlFor={id}>
-                Legg til fil
+                {label}
             </label>
             <input
                 {...rest}
@@ -40,9 +41,9 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>((props, ref) =
                     if (e.target.files) {
                         onChange(
                             e,
-                            [...e.target.files].map<FileState>((file) => ({
+                            [...e.target.files].map<FileInputFile>((file) => ({
                                 file,
-                                isUploading: false,
+                                state: "SELECTED",
                                 validation: validateFile(file, accept, maxSizeBytes),
                             })),
                         );
@@ -51,7 +52,7 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>((props, ref) =
             />
             {typeof maxSizeBytes !== "undefined" && (
                 <div id={maxSizeDescriptionId} className="jkl-file-input__max-size-text">
-                    Maksimum filstørrelse er {formatBytes(maxSizeBytes)}
+                    Maks {formatBytes(maxSizeBytes)} størrelse per fil
                 </div>
             )}
         </>

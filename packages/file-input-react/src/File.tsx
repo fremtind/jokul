@@ -32,35 +32,41 @@ export const File: FC<FileProps> = (props) => {
     const context = useFileInputContext();
     const isInFileInputContext = context !== null;
 
-    const C = isInFileInputContext ? "li" : path ? "a" : "div";
-
-    return (
-        <>
-            <C
-                id={id}
-                key={fileName}
-                className={cn("jkl-file", {
-                    "jkl-file--error": supportLabelType === "error",
-                    "jkl-file--warning": supportLabelType === "warning",
-                })}
-                href={path}
-                target={path ? "_blank" : undefined}
-            >
-                <Thumbnail fileName={fileName} fileType={fileType} file={file} path={path} state={state} />
-                <div className="jkl-file__file-info">
-                    <div className="jkl-file__title">{fileName}</div>
-                    <p className="jkl-file__description">
-                        <span>{formatBytes(fileSize)}</span>
-                        {children}
-                    </p>
-                </div>
-                {onRemove && (
-                    <IconButton onClick={onRemove} title={`Fjern ${fileName}`}>
-                        <CloseIcon />
-                    </IconButton>
-                )}
-            </C>
-            {supportLabel && <SupportLabel id={supportId} label={supportLabel} labelType={supportLabelType} />}
-        </>
+    const C = path ? "a" : "div";
+    const f = (
+        <C
+            id={id}
+            className={cn("jkl-file", {
+                "jkl-file--error": supportLabelType === "error",
+                "jkl-file--warning": supportLabelType === "warning",
+            })}
+            href={path}
+            target={path ? "_blank" : undefined}
+        >
+            <Thumbnail fileName={fileName} fileType={fileType} file={file} path={path} state={state} />
+            <div className="jkl-file__file-info">
+                <div className="jkl-file__title">{fileName}</div>
+                <p className="jkl-file__description">
+                    <span>{formatBytes(fileSize)}</span>
+                    <span className="jkl-file__description-slot">{children}</span>
+                </p>
+            </div>
+            {onRemove && (
+                <IconButton onClick={onRemove} title={`Fjern ${fileName}`}>
+                    <CloseIcon />
+                </IconButton>
+            )}
+        </C>
     );
+
+    if (isInFileInputContext) {
+        return (
+            <li key={fileName}>
+                {f}
+                {supportLabel && <SupportLabel id={supportId} label={supportLabel} labelType={supportLabelType} />}
+            </li>
+        );
+    }
+
+    return f;
 };

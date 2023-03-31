@@ -15,12 +15,12 @@ export function validateFile(file: File, accept = "", maxSizeBytes?: number): Fi
     );
 
     if (!isValidFormat) {
-        return { type: "WRONG_FORMAT", message: `Filtypen ${file.name?.split(".")[1] || ""} støttes ikke` };
+        return { type: "WRONG_TYPE", message: `Filtypen ${file.name?.split(".")[1] || ""} støttes ikke` };
     }
 
     if (typeof maxSizeBytes != "undefined" && file.size > maxSizeBytes) {
         return {
-            type: "TOO_BIG",
+            type: "TOO_LARGE",
             message: `Filen er ${formatBytes(file.size)}, men kan maksimalt være ${formatBytes(maxSizeBytes)}`,
         };
     }

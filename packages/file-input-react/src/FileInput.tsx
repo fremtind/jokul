@@ -4,7 +4,7 @@ import React, { forwardRef } from "react";
 import { Dropzone } from "./internal/Dropzone";
 import { FileInputContextProvider } from "./internal/fileInputContext";
 import { Input } from "./internal/Input";
-import { FileState } from "./types";
+import { FileInputFile } from "./types";
 
 export interface FileInputProps extends WithChildren {
     className?: string;
@@ -23,8 +23,11 @@ export interface FileInputProps extends WithChildren {
      * @default true
      */
     multiple?: boolean;
-    value: FileState[];
-    onChange: (e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>, files: FileState[]) => void;
+    value: FileInputFile[];
+    onChange: (
+        e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
+        files: FileInputFile[],
+    ) => void;
 }
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, ref) => {
@@ -43,8 +46,15 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, re
             >
                 <Dropzone>
                     {value.length > 0 && <ul className="jkl-file-input__files">{children}</ul>}
-                    {value.length === 0 && <p>Slipp filer her</p>}
-                    <Input id={id} multiple={multiple} ref={ref} />
+                    <div className="jkl-file-input__call-to-action">
+                        {value.length === 0 && <p>Slipp filer her</p>}
+                        <Input
+                            id={id}
+                            label={hasFiles ? "Legg til flere filer" : "Legg til filer"}
+                            multiple={multiple}
+                            ref={ref}
+                        />
+                    </div>
                 </Dropzone>
             </div>
         </FileInputContextProvider>

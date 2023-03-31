@@ -1,11 +1,14 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import React, { createContext, useContext } from "react";
-import { FileState } from "../types";
+import { FileInputFile } from "../types";
 
 type FileInputContext = {
     accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
     maxSizeBytes?: number;
-    onChange: (e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>, files: FileState[]) => void;
+    onChange: (
+        e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
+        files: FileInputFile[],
+    ) => void;
 };
 
 const fileInputContext = createContext<FileInputContext | null>(null);
