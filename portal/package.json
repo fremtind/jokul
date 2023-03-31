@@ -25,7 +25,7 @@
         "@fremtind/jkl-description-list-react": "^7.0.3",
         "@fremtind/jkl-expand-button-react": "^5.0.7",
         "@fremtind/jkl-feedback-react": "^16.0.10",
-        "@fremtind/jkl-file-uploader-react": "^1.0.0-alpha.0",
+        "@fremtind/jkl-file-input-react": "^1.0.0-alpha.0",
         "@fremtind/jkl-footer-react": "^5.0.8",
         "@fremtind/jkl-formatters-util": "^4.0.13",
         "@fremtind/jkl-hamburger-react": "^11.0.4",

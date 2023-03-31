@@ -2,7 +2,7 @@ import { render, RenderOptions } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { File, FileUploader, FileUploadState } from ".";
+import { File, FileInput, FileState } from ".";
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
@@ -11,13 +11,13 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     };
 }
 
-describe("FileUploader", () => {
-    const files: FileUploadState[] = [];
+describe("FileInput", () => {
+    const files: FileState[] = [];
 
     it("should render", () => {
         const onChange = jest.fn();
         const { getByText, queryByText } = setup(
-            <FileUploader onChange={onChange}>
+            <FileInput onChange={onChange}>
                 {files.map((file) => (
                     <File
                         key={file.file.name}
@@ -26,7 +26,7 @@ describe("FileUploader", () => {
                         fileSize={file.file.size}
                     />
                 ))}
-            </FileUploader>,
+            </FileInput>,
         );
 
         expect(getByText("Legg til fil")).toBeInTheDocument();
@@ -36,7 +36,7 @@ describe("FileUploader", () => {
     it("should render hint about max size if given one", () => {
         const onChange = jest.fn();
         const { getByText } = setup(
-            <FileUploader onChange={onChange}>
+            <FileInput onChange={onChange}>
                 {files.map((file) => (
                     <File
                         key={file.file.name}
@@ -45,7 +45,7 @@ describe("FileUploader", () => {
                         fileSize={file.file.size}
                     />
                 ))}
-            </FileUploader>,
+            </FileInput>,
         );
 
         expect(getByText(/^Maksimum filstørrelse er/)).toBeInTheDocument();
@@ -55,7 +55,7 @@ describe("FileUploader", () => {
     it("should pass jext-axe tests in default state", async () => {
         const onChange = jest.fn();
         const { container } = setup(
-            <FileUploader onChange={onChange}>
+            <FileInput onChange={onChange}>
                 {files.map((file) => (
                     <File
                         key={file.file.name}
@@ -64,7 +64,7 @@ describe("FileUploader", () => {
                         fileSize={file.file.size}
                     />
                 ))}
-            </FileUploader>,
+            </FileInput>,
         );
 
         const result = await axe(container);

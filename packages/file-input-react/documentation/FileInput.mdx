@@ -1,26 +1,24 @@
 ---
-title: FileUploader
-react: file-uploader-react
-scss: file-uploader
+title: FileInput
+react: file-input-react
+scss: file-input
 group: skjema
 keywords: filopplaster last opp filer
 ---
 
-import FileUploaderExample, { fileUploaderExampleCode, fileUploaderExampleKnobs } from "./FileUploaderExample";
+import FileInputExample, { fileInputExampleCode, fileInputExampleKnobs } from "./FileInputExample";
 import FilePreviewExample, { filePreviewExampleCode, filePreviewExampleKnobs } from "./FilePreviewExample";
 
-<Ingress>Filopplasteren lar brukeren dele filer med oss, for eksempel dokumentasjon i en sak.</Ingress>
+<Ingress>Filinput lar brukeren dele filer med oss, for eksempel dokumentasjon i en sak.</Ingress>
 
-<ComponentExample
-    component={FileUploaderExample}
-    codeExample={fileUploaderExampleCode}
-    knobs={fileUploaderExampleKnobs}
-/>
+<ComponentExample component={FileInputExample} codeExample={fileInputExampleCode} knobs={fileInputExampleKnobs} />
 
 Opplasting av filer skjer i to trinn:
 
 1.  Brukeren velger filer, enten med ved å dra de inn i slippfeltet, eller med filutforskeren som er innebygget i nettlesseren.
 2.  En handling fra brukeren starter selve opplastingen av filer.
+
+Komponenten tar seg av punkt 1. Selve opplastingen er opp til deg.
 
 ## Hjelp brukeren finne riktig fil
 
@@ -32,14 +30,14 @@ Komponenten bør konfigureres slik at kun filer av ønsket type kan markeres i f
     <picture className="jkl-portal-image">
         <source
             media="(prefers-color-scheme: dark)"
-            srcset="/assets/documentation/file-uploader/macos-filvelger-morkt.png"
+            srcset="/assets/documentation/file-input/macos-filvelger-morkt.png"
         />
         <img
             className="jkl-portal-image__img"
             alt=""
             loading="lazy"
             decoding="async"
-            src="/assets/documentation/file-uploader/macos-filvelger-lyst.png"
+            src="/assets/documentation/file-input/macos-filvelger-lyst.png"
         />
     </picture>
     <figcaption>Filvelgeren på macOS. I dette tilfellet kan ikke det komprimerte arkivet velges.</figcaption>

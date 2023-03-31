@@ -1,11 +1,11 @@
 {
-    "name": "@fremtind/jkl-file-uploader-react",
+    "name": "@fremtind/jkl-file-input-react",
     "version": "1.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react file-uploader",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/file-uploader-react",
+    "description": "Jøkul react file-input",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/file-input-react",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -30,7 +30,7 @@
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "node ./esbuild.prod.mjs",
         "build": "run-s build:*",
-        "test": "jest --testMatch '**/file-uploader-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
+        "test": "jest --testMatch '**/file-input-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
         "dev:server": "nodemon ./dist/server.js",
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
@@ -38,7 +38,7 @@
     "dependencies": {
         "@fremtind/jkl-button-react": "^13.0.0",
         "@fremtind/jkl-core": "^12.0.2",
-        "@fremtind/jkl-file-uploader": "^1.0.0-alpha.0",
+        "@fremtind/jkl-file-input": "^1.0.0-alpha.0",
         "@fremtind/jkl-formatters-util": "^4.0.8",
         "@fremtind/jkl-icon-button-react": "^3.0.0",
         "@fremtind/jkl-icons-react": "^7.0.0",

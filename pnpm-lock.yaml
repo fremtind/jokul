@@ -537,17 +537,17 @@ importers:
       '@fremtind/jkl-validators-util': link:../validators-util
       classnames: 2.3.2
 
-  packages/file-uploader:
+  packages/file-input:
     specifiers:
       '@fremtind/jkl-core': ^12.0.2
     dependencies:
       '@fremtind/jkl-core': link:../core
 
-  packages/file-uploader-react:
+  packages/file-input-react:
     specifiers:
       '@fremtind/jkl-button-react': ^13.0.0
       '@fremtind/jkl-core': ^12.0.2
-      '@fremtind/jkl-file-uploader': ^1.0.0-alpha.0
+      '@fremtind/jkl-file-input': ^1.0.0-alpha.0
       '@fremtind/jkl-formatters-util': ^4.0.8
       '@fremtind/jkl-icon-button-react': ^3.0.0
       '@fremtind/jkl-icons-react': ^7.0.0
@@ -558,7 +558,7 @@ importers:
     dependencies:
       '@fremtind/jkl-button-react': link:../button-react
       '@fremtind/jkl-core': link:../core
-      '@fremtind/jkl-file-uploader': link:../file-uploader
+      '@fremtind/jkl-file-input': link:../file-input
       '@fremtind/jkl-formatters-util': link:../formatters-util
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
       '@fremtind/jkl-icons-react': link:../icons-react
@@ -1030,7 +1030,7 @@ importers:
       '@fremtind/jkl-description-list-react': ^7.0.3
       '@fremtind/jkl-expand-button-react': ^5.0.7
       '@fremtind/jkl-feedback-react': ^16.0.10
-      '@fremtind/jkl-file-uploader-react': ^1.0.0-alpha.0
+      '@fremtind/jkl-file-input-react': ^1.0.0-alpha.0
       '@fremtind/jkl-footer-react': ^5.0.8
       '@fremtind/jkl-formatters-util': ^4.0.13
       '@fremtind/jkl-hamburger-react': ^11.0.4
@@ -1103,7 +1103,7 @@ importers:
       '@fremtind/jkl-description-list-react': link:../packages/description-list-react
       '@fremtind/jkl-expand-button-react': link:../packages/expand-button-react
       '@fremtind/jkl-feedback-react': link:../packages/feedback-react
-      '@fremtind/jkl-file-uploader-react': link:../packages/file-uploader-react
+      '@fremtind/jkl-file-input-react': link:../packages/file-input-react
       '@fremtind/jkl-footer-react': link:../packages/footer-react
       '@fremtind/jkl-formatters-util': link:../packages/formatters-util
       '@fremtind/jkl-hamburger-react': link:../packages/hamburger-react

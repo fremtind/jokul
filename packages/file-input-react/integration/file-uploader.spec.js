@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 /// <reference types="../../../cypress/support" />
 
-describe("FileUploader", () => {
+describe("FileInput", () => {
     beforeEach(() => {
-        cy.testComponent("fileuploader");
+        cy.testComponent("fileinput");
     });
 
     it("renders correctly", () => {

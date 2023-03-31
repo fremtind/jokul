@@ -1,0 +1,172 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/jkl/colors";
+
+@include jkl.light-mode-variables {
+    --jkl-file-input-color: var(--jkl-color, #{jkl.$color-granitt});
+    --jkl-file-input-drop-border-color: #{jkl.$color-fjellgra};
+    --jkl-file-input-background-color-active: #{jkl.$color-varde};
+    --jkl-file-input-border-color: #{jkl.$color-dis};
+    --jkl-file-input-support-color: #{jkl.$color-stein};
+    --jkl-file-input-thumbnail-background-color: #{jkl.$color-sand};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-file-input-color: var(--jkl-color, #{jkl.$color-snohvit});
+    --jkl-file-input-drop-border-color: #{jkl.$color-varde};
+    --jkl-file-input-background-color-active: #{jkl.$color-stein};
+    --jkl-file-input-border-color: #{jkl.$color-dis};
+    --jkl-file-input-support-color: #{jkl.$color-svaberg};
+    --jkl-file-input-thumbnail-background-color: #{jkl.$color-stein};
+}
+
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-file-input-drag", "heading-2");
+
+    --jkl-file-input-input-padding: #{jkl.$spacing-40};
+    --jkl-file-input-input-gap: #{jkl.$spacing-24};
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-file-input-drag", "body");
+
+    --jkl-file-input-input-padding: #{jkl.$spacing-16};
+    --jkl-file-input-input-gap: #{jkl.$spacing-8};
+}
+
+.jkl-file-input-input {
+    border: var(--jkl-file-input-drop-border-color) 1px dashed;
+    border-radius: jkl.rem(4px);
+    padding: var(--jkl-file-input-input-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    gap: var(--jkl-file-input-input-gap);
+    @include jkl.motion("standard", "productive");
+    transition-property: background-color;
+    background-color: transparent;
+
+    &--enter {
+        background-color: var(--jkl-file-input-background-color-active);
+        border-style: solid;
+    }
+
+    &__drag-text {
+        @include jkl.use-font-variables("jkl-file-input-drag");
+        @include jkl.small-device {
+            display: none;
+        }
+    }
+
+    &__max-size-text {
+        color: var(--jkl-file-input-color);
+    }
+
+    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
+        .jkl-button {
+            transform: scale(1.05);
+
+            &::after {
+                box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-button-focus-color);
+            }
+
+            &:active {
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+.jkl-file-input-previews {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@include jkl.comfortable-density-variables {
+    --jkl-file-input-preview-padding: #{jkl.$spacing-16} #{jkl.$spacing-12};
+    --jkl-file-input-preview-thumbnail-size: #{jkl.rem(64px)};
+    --jkl-file-input-preview-gap: #{jkl.$spacing-16};
+}
+
+@include jkl.compact-density-variables {
+    --jkl-file-input-preview-padding: #{jkl.$spacing-12} #{jkl.$spacing-8};
+    --jkl-file-input-preview-thumbnail-size: #{jkl.rem(44px)};
+    --jkl-file-input-preview-gap: #{jkl.$spacing-8};
+}
+
+.jkl-file-input-preview {
+    @include jkl.reset-outline;
+    @include jkl.text-style("small");
+    color: var(--jkl-file-input-color);
+    border-bottom: 1px var(--jkl-file-input-border-color) solid;
+    padding: var(--jkl-file-input-preview-padding);
+
+    &[href] {
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+
+        &:hover .jkl-file-input-preview__file-size {
+            @include jkl.no-grow-bold;
+        }
+
+        @include jkl.keyboard-navigation {
+            &:focus {
+                outline: jkl.rem(2px) solid var(--jkl-file-input-color);
+            }
+        }
+
+        @include jkl.forced-colors-mode {
+            outline: revert;
+            border: jkl.rem(2px) solid LinkText;
+        }
+    }
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+
+    &--invalid {
+        --jkl-label-error-color: #{jkl.$color-granitt}; // Vises på rød varslingsfarge
+        background-color: colors.varslingsfarge("feil");
+        color: jkl.$color-granitt;
+    }
+
+    &__info-wrapper {
+        display: flex;
+        flex-flow: nowrap row;
+        gap: var(--jkl-file-input-preview-gap);
+        align-items: center;
+    }
+
+    &__thumbnail {
+        width: var(--jkl-file-input-preview-thumbnail-size);
+        height: var(--jkl-file-input-preview-thumbnail-size);
+        flex: 0 0 var(--jkl-file-input-preview-thumbnail-size);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object-fit: contain;
+        border-radius: jkl.rem(4px);
+    }
+
+    &__thumbnail:not(img) {
+        background: var(--jkl-file-input-thumbnail-background-color);
+    }
+
+    &__file-info {
+        flex: 1 1 auto;
+        overflow-wrap: break-word;
+    }
+
+    &__file-name {
+        @include jkl.text-style("heading-5");
+        overflow-wrap: anywhere;
+    }
+}

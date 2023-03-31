@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { FileUploaderPreview, FileUploaderPreviewList, FileUploaderPreviewListItem } from "../src";
+import { File } from "../src";
 
 export const filePreviewExampleKnobs: ExampleKnobsProps = {};
 
@@ -24,18 +24,13 @@ export const FilePreviewExample: FC<ExampleComponentProps> = () => {
     return (
         <div>
             <p className="jkl-heading-4">Vedlegg til saken</p>
-            <FileUploaderPreviewList>
+            <ul>
                 {files.map((file) => (
-                    <FileUploaderPreviewListItem key={file.name}>
-                        <FileUploaderPreview
-                            fileName={file.name}
-                            fileType={file.type}
-                            fileSize={file.size}
-                            path={file.publicPath}
-                        />
-                    </FileUploaderPreviewListItem>
+                    <li key={file.name}>
+                        <File fileName={file.name} fileType={file.type} fileSize={file.size} path={file.publicPath} />
+                    </li>
                 ))}
-            </FileUploaderPreviewList>
+            </ul>
         </div>
     );
 };
@@ -60,17 +55,13 @@ const files: File[] = [
 ];
 
 return (
-    <FileUploaderPreviewList>
+    <p className="jkl-heading-4">Vedlegg til saken</p>
+    <ul>
         {files.map((file) => (
-            <FileUploaderPreviewListItem key={file.name}>
-                <FileUploaderPreview
-                    fileName={file.name}
-                    fileType={file.type}
-                    fileSize={file.size}
-                    path={file.publicPath}
-                />
-            </FileUploaderPreviewListItem>
+            <li key={file.name}>
+                <File fileName={file.name} fileType={file.type} fileSize={file.size} path={file.publicPath} />
+            </li>
         ))}
-    </FileUploaderPreviewList>
+    </ul>
 );
 `;

@@ -2,11 +2,11 @@ import type { WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { forwardRef, useState } from "react";
 import { Dropzone } from "./internal/Dropzone";
-import { FileInput } from "./internal/FileInput";
-import { FileUploaderContextProvider } from "./internal/fileUploaderContext";
-import { FileUploadState } from "./types";
+import { FileInputContextProvider } from "./internal/fileInputContext";
+import { Input } from "./internal/Input";
+import { FileState } from "./types";
 
-export interface FileUploaderProps extends WithChildren {
+export interface FileInputProps extends WithChildren {
     className?: string;
     id?: string;
     /**
@@ -22,29 +22,26 @@ export interface FileUploaderProps extends WithChildren {
      * @default true
      */
     multiple?: boolean;
-    defaultValue?: FileUploadState[];
-    onChange: (
-        e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
-        files: FileUploadState[],
-    ) => void;
+    defaultValue?: FileState[];
+    onChange: (e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>, files: FileState[]) => void;
 }
 
-export const FileUploader = forwardRef<HTMLInputElement, FileUploaderProps>((props, ref) => {
+export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, ref) => {
     const { accept, className, children, id, defaultValue = [], multiple = true, onChange, ...rest } = props;
 
-    const [files, setFiles] = useState<FileUploadState[]>(defaultValue);
+    const [files, setFiles] = useState<FileState[]>(defaultValue);
 
     return (
-        <FileUploaderContextProvider context={{ accept, onChange, files, setFiles }}>
-            <div className={cn("jkl-file-uploader", className)} {...rest}>
+        <FileInputContextProvider context={{ accept, onChange, files, setFiles }}>
+            <div className={cn("jkl-file-input", className)} {...rest}>
                 <Dropzone>
                     {files.length > 0 && children}
                     {files.length === 0 && <p>Slipp filer her</p>}
-                    <FileInput id={id} multiple={multiple} ref={ref} />
+                    <Input id={id} multiple={multiple} ref={ref} />
                 </Dropzone>
             </div>
-        </FileUploaderContextProvider>
+        </FileInputContextProvider>
     );
 });
 
-FileUploader.displayName = "FileUploader";
+FileInput.displayName = "FileInput";

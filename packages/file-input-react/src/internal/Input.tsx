@@ -1,8 +1,8 @@
 import { formatBytes } from "@fremtind/jkl-formatters-util";
 import { useId } from "@fremtind/jkl-react-hooks";
 import React, { forwardRef } from "react";
-import { FileUploadState } from "../types";
-import { useFileUploaderContext } from "./fileUploaderContext";
+import { FileState } from "../types";
+import { useFileInputContext } from "./fileInputContext";
 import { validateFile } from "./validateFile";
 
 interface FileInputProps {
@@ -10,11 +10,11 @@ interface FileInputProps {
     multiple: boolean;
 }
 
-export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, ref) => {
+export const Input = forwardRef<HTMLInputElement, FileInputProps>((props, ref) => {
     const { multiple, id: idProp, ...rest } = props;
-    const { accept, maxSizeBytes, onChange } = useFileUploaderContext();
+    const { accept, maxSizeBytes, onChange } = useFileInputContext();
 
-    const id = useId(idProp || "jkl-file-uploader", { generateSuffix: !idProp });
+    const id = useId(idProp || "jkl-file-input", { generateSuffix: !idProp });
     const maxSizeDescriptionId = id + "-description";
 
     return (
@@ -32,7 +32,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, re
                     if (e.target.files) {
                         onChange(
                             e,
-                            [...e.target.files].map<FileUploadState>((file) => ({
+                            [...e.target.files].map<FileState>((file) => ({
                                 file,
                                 isUploading: false,
                                 validation: validateFile(file, accept, maxSizeBytes),
@@ -42,7 +42,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, re
                 }}
             />
             {typeof maxSizeBytes !== "undefined" && (
-                <div id={maxSizeDescriptionId} className="jkl-file-uploader__max-size-text">
+                <div id={maxSizeDescriptionId} className="jkl-file-input__max-size-text">
                     Maksimum filstørrelse er {formatBytes(maxSizeBytes)}
                 </div>
             )}
@@ -50,4 +50,4 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, re
     );
 });
 
-FileInput.displayName = "FileInput";
+Input.displayName = "Input";
