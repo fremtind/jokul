@@ -6,8 +6,11 @@ export function formatBytes(bytes: number, options?: FormatNumberOptions): strin
         return `${formatNumber(Number(bytes / 1000 / 1000), {
             maximumFractionDigits: 1,
             ...options,
-        })}${unicode.nbsp}Mb`;
+        })}${unicode.nbsp}MB`;
     } else {
-        return `${formatNumber(bytes / 1000, options)}${unicode.nbsp}Kb`;
+        return `${formatNumber(bytes / 1000, {
+            maximumFractionDigits: 2,
+            ...options,
+        })}${unicode.nbsp}KB`;
     }
 }
