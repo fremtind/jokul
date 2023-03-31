@@ -12,13 +12,21 @@ interface FileInputProps {
 
 export const Input = forwardRef<HTMLInputElement, FileInputProps>((props, ref) => {
     const { multiple, id: idProp, ...rest } = props;
-    const { accept, maxSizeBytes, onChange } = useFileInputContext();
 
     const id = useId(idProp || "jkl-file-input", { generateSuffix: !idProp });
     const maxSizeDescriptionId = id + "-description";
 
+    const context = useFileInputContext();
+    if (!context) {
+        return <p>Input must be placed inside a FileInputContextProvider.</p>;
+    }
+    const { accept, maxSizeBytes, onChange } = context;
+
     return (
         <>
+            <label className="jkl-button jkl-button--secondary" htmlFor={id}>
+                Legg til fil
+            </label>
             <input
                 {...rest}
                 ref={ref}

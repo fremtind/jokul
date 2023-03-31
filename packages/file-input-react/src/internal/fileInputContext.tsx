@@ -6,19 +6,11 @@ type FileInputContext = {
     accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
     maxSizeBytes?: number;
     onChange: (e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>, files: FileState[]) => void;
-    files: FileState[];
-    setFiles: React.Dispatch<React.SetStateAction<FileState[]>>;
 };
 
-const fileInputContext = createContext<FileInputContext>({
-    accept: undefined,
-    maxSizeBytes: undefined,
-    onChange: () => undefined,
-    files: [],
-    setFiles: (prev) => prev,
-});
+const fileInputContext = createContext<FileInputContext | null>(null);
 
-export const useFileInputContext = (): FileInputContext => useContext(fileInputContext);
+export const useFileInputContext = (): FileInputContext | null => useContext(fileInputContext);
 
 export interface FileInputContextProviderProps extends WithChildren {
     context: FileInputContext;

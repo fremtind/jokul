@@ -9,9 +9,13 @@ interface DropzoneProps extends WithChildren {}
 
 export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>((props, ref) => {
     const { children, ...rest } = props;
-    const { maxSizeBytes, accept, onChange } = useFileInputContext();
-
     const [onDragClassName, setOnDragClassName] = useState<string>("");
+
+    const context = useFileInputContext();
+    if (!context) {
+        return <p>Dropzone must be placed inside a FileInputContextProvider.</p>;
+    }
+    const { maxSizeBytes, accept, onChange } = context;
 
     return (
         <div

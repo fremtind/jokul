@@ -1,6 +1,6 @@
-import type { WithChildren } from "@fremtind/jkl-core";
+import type { Density, WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef } from "react";
 import { Dropzone } from "./internal/Dropzone";
 import { FileInputContextProvider } from "./internal/fileInputContext";
 import { Input } from "./internal/Input";
@@ -9,6 +9,7 @@ import { FileState } from "./types";
 export interface FileInputProps extends WithChildren {
     className?: string;
     id?: string;
+    density?: Density;
     /**
      * En string som begrenser hvilke filtyper som kan velges.
      *
@@ -22,21 +23,27 @@ export interface FileInputProps extends WithChildren {
      * @default true
      */
     multiple?: boolean;
-    defaultValue?: FileState[];
+    value: FileState[];
     onChange: (e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>, files: FileState[]) => void;
 }
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, ref) => {
-    const { accept, className, children, id, defaultValue = [], multiple = true, onChange, ...rest } = props;
+    const { accept, className, children, id, value, density, multiple = true, maxSizeBytes, onChange, ...rest } = props;
 
-    const [files, setFiles] = useState<FileState[]>(defaultValue);
+    const hasFiles = value.length > 0;
 
     return (
-        <FileInputContextProvider context={{ accept, onChange, files, setFiles }}>
-            <div className={cn("jkl-file-input", className)} {...rest}>
+        <FileInputContextProvider context={{ accept, onChange, maxSizeBytes }}>
+            <div
+                className={cn("jkl-file-input", className, {
+                    "jkl-file-input--has-files": hasFiles,
+                })}
+                data-layout-density={density}
+                {...rest}
+            >
                 <Dropzone>
-                    {files.length > 0 && children}
-                    {files.length === 0 && <p>Slipp filer her</p>}
+                    {value.length > 0 && <ul className="jkl-file-input__files">{children}</ul>}
+                    {value.length === 0 && <p>Slipp filer her</p>}
                     <Input id={id} multiple={multiple} ref={ref} />
                 </Dropzone>
             </div>

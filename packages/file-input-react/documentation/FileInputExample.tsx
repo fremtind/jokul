@@ -9,7 +9,7 @@ export const fileInputExampleKnobs: ExampleKnobsProps = {
 };
 
 export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
-    const [fileStates, setFileStates] = useState<FileState[]>([]);
+    const [files, setFiles] = useState<FileState[]>([]);
 
     const [hasMounted, setHasMounted] = useState(false);
     useEffect(() => {
@@ -21,27 +21,28 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
             return;
         }
         // File er ikke tilgjengelig server-side
-        setFileStates([
+        setFiles([
             {
-                file: new window.File(iconBytes, "icon.png", {
+                file: new window.File(iconBytes, "symbol_round_black.png", {
                     type: "image/png",
                 }),
                 isUploading: false,
             },
         ]);
-    }, [hasMounted, setFileStates]);
+    }, [hasMounted, setFiles]);
 
     return (
         <div>
             <FileInput
                 className="jkl-spacing-16-24--bottom"
                 accept="image/*,.pdf"
-                onChange={(e, newFiles) => {
-                    setFileStates((currentFiles) => [...currentFiles, ...newFiles]);
-                }}
                 maxSizeBytes={8_000_000}
+                value={files}
+                onChange={(e, newFiles) => {
+                    setFiles((currentFiles) => [...currentFiles, ...newFiles]);
+                }}
             >
-                {fileStates.map((fileState, index) => (
+                {files.map((fileState, index) => (
                     <File
                         key={fileState.file.name}
                         fileName={fileState.file.name}
@@ -55,7 +56,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                                 : undefined
                         }
                         onRemove={(e) => {
-                            setFileStates([...fileStates.slice(0, index), ...fileStates.slice(index + 1)]);
+                            setFiles([...files.slice(0, index), ...files.slice(index + 1)]);
                         }}
                     />
                 ))}
@@ -65,14 +66,14 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                 type="button"
                 onClick={async () => {
                     // Vis isUploading-tilstand i en tilfeldig varighet. Kun for demoen, naturligvis.
-                    const promises = fileStates
+                    const promises = files
                         .filter((fileState) => typeof fileState.validation === "undefined")
                         .map(
                             (fileState, i) =>
                                 new Promise<void>((resolve) => {
                                     const timeout = Math.random() * 5_000;
                                     setTimeout(() => {
-                                        setFileStates((currentState) => {
+                                        setFiles((currentState) => {
                                             return [
                                                 ...currentState.slice(0, i),
                                                 { ...currentState[i], isUploading: false },
@@ -84,7 +85,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                                 }),
                         );
 
-                    setFileStates((fs) => fs.map((f) => ({ ...f, isUploading: true })));
+                    setFiles((fs) => fs.map((f) => ({ ...f, isUploading: true })));
 
                     await Promise.all(promises);
                 }}
@@ -97,6 +98,36 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
 
 export default FileInputExample;
 
-export const fileInputExampleCode: CodeExample = () => `
-TODO
+export const fileInputExampleCode: CodeExample = ({ boolValues }) => `
+const [files, setFiles] = useState<FileState[]>([]);
+return (
+    <FileInput
+        className="jkl-spacing-16-24--bottom"
+        accept="image/*,.pdf"
+        maxSizeBytes={8_000_000}
+        value={files}
+        onChange={(e, newFiles) => {
+            setFiles((currentFiles) => [...currentFiles, ...newFiles]);
+        }}
+    >
+        {files.map((fileState, index) => (
+            <File
+                key={fileState.file.name}
+                fileName={fileState.file.name}
+                fileType={fileState.file.type}
+                fileSize={fileState.file.size}
+                file={fileState.file}
+                isUploading={fileState.isUploading || Boolean(boolValues?.["Laster opp"])}${
+                    Boolean(boolValues?.["Med feil"])
+                        ? `
+                suppoert={\`Filtypen \${fileState.file.name?.split(".")[1] || ""} støttes ikke\`}`
+                        : ""
+                }
+                onRemove={(e) => {
+                    setFiles([...files.slice(0, index), ...files.slice(index + 1)]);
+                }}
+            />
+        ))}
+    </FileInput>
+)
 `;

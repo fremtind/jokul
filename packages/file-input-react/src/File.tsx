@@ -6,6 +6,7 @@ import { Loader } from "@fremtind/jkl-loader-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { FC, MouseEvent } from "react";
+import { useFileInputContext } from "./internal/fileInputContext";
 
 export interface FileProps {
     fileName: string;
@@ -25,11 +26,15 @@ export const File: FC<FileProps> = (props) => {
     const id = useId("jkl-file-preview");
     const supportId = id + "support";
 
-    const C = path ? "a" : "div";
+    const context = useFileInputContext();
+    const isInFileInputContext = context !== null;
+
+    const C = isInFileInputContext ? "li" : path ? "a" : "div";
 
     return (
         <C
             id={id}
+            key={fileName}
             className={cn("jkl-file", { "jkl-file--invalid": errorLabel })}
             href={path}
             target={path ? "_blank" : undefined}
