@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
-import { File, FileInput, FileState } from "../src";
+import { File, FileInput, FileInputFile } from "../src";
 import iconBytes from "./iconBytes";
 
 export const fileInputExampleKnobs: ExampleKnobsProps = {
@@ -9,7 +9,7 @@ export const fileInputExampleKnobs: ExampleKnobsProps = {
 };
 
 export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
-    const [files, setFiles] = useState<FileState[]>([]);
+    const [files, setFiles] = useState<FileInputFile[]>([]);
 
     const [hasMounted, setHasMounted] = useState(false);
     useEffect(() => {
@@ -26,7 +26,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                 file: new window.File(iconBytes, "symbol_round_black.png", {
                     type: "image/png",
                 }),
-                isUploading: false,
+                state: "SELECTED",
             },
         ]);
     }, [hasMounted, setFiles]);
@@ -42,17 +42,17 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                     setFiles((currentFiles) => [...currentFiles, ...newFiles]);
                 }}
             >
-                {files.map((fileState, index) => (
+                {files.map(({ state, file, validation }, index) => (
                     <File
-                        key={fileState.file.name}
-                        fileName={fileState.file.name}
-                        fileType={fileState.file.type}
-                        fileSize={fileState.file.size}
-                        file={fileState.file}
-                        isUploading={fileState.isUploading || Boolean(boolValues?.["Laster opp"])}
+                        key={file.name}
+                        fileName={file.name}
+                        fileType={file.type}
+                        fileSize={file.size}
+                        file={file}
+                        state={Boolean(boolValues?.["Laster opp"]) ? "UPLOADING" : state}
                         errorLabel={
-                            fileState.validation?.message || Boolean(boolValues?.["Med feil"])
-                                ? `Filtypen ${fileState.file.name?.split(".")[1] || ""} støttes ikke`
+                            validation?.message || Boolean(boolValues?.["Med feil"])
+                                ? `Filtypen ${file.name?.split(".")[1] || ""} støttes ikke`
                                 : undefined
                         }
                         onRemove={(e) => {

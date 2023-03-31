@@ -1,7 +1,7 @@
 import { formatBytes } from "@fremtind/jkl-formatters-util";
-import type { FileValidation } from "../types";
+import type { FileInputFileValidation } from "../types";
 
-export function validateFile(file: File, accept = "", maxSizeBytes?: number): FileValidation | undefined {
+export function validateFile(file: File, accept = "", maxSizeBytes?: number): FileInputFileValidation | undefined {
     const acceptStrings = accept
         .split(",")
         .map((s) => s.toLowerCase())

@@ -2,53 +2,49 @@
 @use "./file";
 
 @include jkl.light-mode-variables {
-    --jkl-file-input-color: var(--jkl-color, #{jkl.$color-granitt});
-    --jkl-file-input-drop-border-color: #{jkl.$color-fjellgra};
-    --jkl-file-input-background-color-active: #{jkl.$color-varde};
-    --jkl-file-input-border-color: #{jkl.$color-dis};
-    --jkl-file-input-support-color: #{jkl.$color-stein};
-    --jkl-file-input-thumbnail-background-color: #{jkl.$color-sand};
+    --jkl-file-input-color: var(--jkl-color);
+    --jkl-file-input-dropzone-background-color: #{jkl.$color-snohvit};
+    --jkl-file-input-dropzone-background-color-enter: #{jkl.$color-hvit};
+    --jkl-file-input-dropzone-border-color: #{jkl.$color-fjellgra};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-file-input-color: var(--jkl-color, #{jkl.$color-snohvit});
-    --jkl-file-input-drop-border-color: #{jkl.$color-varde};
-    --jkl-file-input-background-color-active: #{jkl.$color-stein};
-    --jkl-file-input-border-color: #{jkl.$color-dis};
-    --jkl-file-input-support-color: #{jkl.$color-svaberg};
-    --jkl-file-input-thumbnail-background-color: #{jkl.$color-stein};
+    --jkl-file-input-color: var(--jkl-color);
+    --jkl-file-input-dropzone-background-color: #{jkl.$color-granitt};
+    --jkl-file-input-dropzone-background-color-enter: #{jkl.$color-svart};
+    --jkl-file-input-dropzone-border-color: #{jkl.$color-varde};
 }
 
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-file-input-drag", "heading-2");
 
-    --jkl-file-input-input-padding: #{jkl.$spacing-40};
-    --jkl-file-input-input-gap: #{jkl.$spacing-24};
+    --jkl-file-input-dropzone-padding: #{jkl.$spacing-40};
+    --jkl-file-input-dropzone-gap: #{jkl.$spacing-24};
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-file-input-drag", "body");
 
-    --jkl-file-input-input-padding: #{jkl.$spacing-16};
-    --jkl-file-input-input-gap: #{jkl.$spacing-8};
+    --jkl-file-input-dropzone-padding: #{jkl.$spacing-16};
+    --jkl-file-input-dropzone-gap: #{jkl.$spacing-8};
 }
 
 .jkl-file-input {
     &__dropzone {
-        border: var(--jkl-file-input-drop-border-color) 1px dashed;
+        border: var(--jkl-file-input-dropzone-border-color) 1px dashed;
         border-radius: jkl.rem(4px);
-        padding: var(--jkl-file-input-input-padding);
+        padding: var(--jkl-file-input-dropzone-padding);
         display: flex;
         justify-content: center;
         align-items: center;
         flex-flow: column nowrap;
-        gap: var(--jkl-file-input-input-gap);
+        gap: var(--jkl-file-input-dropzone-gap);
         @include jkl.motion("standard", "productive");
         transition-property: background-color;
         background-color: transparent;
 
         &--enter {
-            background-color: var(--jkl-file-input-background-color-active);
+            background-color: var(--jkl-file-input-dropzone-background-color-enter);
             border-style: solid;
         }
 

@@ -1,10 +1,12 @@
-export interface FileValidation {
+export interface FileInputFileValidation {
     type: "TOO_BIG" | "WRONG_FORMAT";
     message: string;
 }
 
-export interface FileState {
+export type FileInputFileState = "SELECTED" | "UPLOADING" | "UPLOAD_ERROR";
+
+export interface FileInputFile {
     file: File;
-    validation?: FileValidation;
-    isUploading: boolean;
+    validation?: FileInputFileValidation;
+    state: FileInputFileState;
 }
