@@ -1,0 +1,93 @@
+---
+title: Høydepunkter fra mars 2023
+author: Jøkul-teamet
+publishDate: "2023.03.31"
+---
+
+import { DatepickerExample } from "../../../../../packages/datepicker-react/documentation/DatepickerExample";
+import { ContextualMenuExample } from "../../../../../packages/contextual-menu-react/documentation/ContextualMenuExample";
+
+<Ingress>
+    Om du jobber eller tar fri, holder deg i byen eller stikker til fjells – god påske, fra oss i Jøkul-teamet.
+</Ingress>
+
+Her er mars, kort oppsummert:
+
+-   Datovelgeren har fått et nytt design, som kombinerer det beste fra begge varianter vi hadde før.
+-   Kontekstuell meny er klar til bruk.
+-   En hel smørbrødliste med feilrettinger og forbedringer.
+
+Vi har også rigget om på [prosjekttavla vår](https://github.com/orgs/fremtind/projects/22/views/19). Blant annet har vi tatt i bruk _iterasjon_-feltet i Projects, sånn at det
+lettere går an å se hva vi jobber med akkurat nå, og hva vi planlegger å jobbe med framover.
+
+## Nytt design på datovelger
+
+[Datovelgeren](/komponenter/datepicker) ble redesignet under Jøkuluka, og nå er det klart for bruk. For kode er det ingen _breaking change_.
+
+Under ser du et eksempel på hvordan det kan se ut. Her har vi satt begrensninger på hvor langt frem og tilbake i tid man har lov til å velge, men dette er valgfritt og kan konfigureres.
+
+<ComponentExample title="DatePicker" component={DatepickerExample} />
+
+Det nye designet slår sammen den tidligere _utvidede_ datovelgeren og standard datovelger. De to variantene hadde hver sine svakheter.
+
+Med standard datovelger var det vanskelig å hoppe langt frem eller tilbake i tid, siden vi bare hadde knapper for å bla én måned frem eller tilbake.
+
+Med den utvidede velgeren var det vanskelig å skulle hoppe fra, for eksempel, januar 2023 til desember 2022. Først måtte man skrive 2022 inn i tekstfeltet, og så kunne man velge januar fra nedtrekkslisten.
+
+Som alltid er det mulig å skrive inn datoer manuelt, rett i tekstfeltet. Minner om at det i januar ble lagt til støtte for å [lime inn datoer i flere formater](https://github.com/fremtind/jokul/pull/3381).
+
+-   [#3391](https://github.com/fremtind/jokul/issues/3391)
+-   [#3415](https://github.com/fremtind/jokul/pull/3415)
+
+## Kontekstuell meny
+
+Nok en komponent fra Jøkuluka som er klar for bruk. Med en kontekstuell meny kan du vise et lite sett med handlinger som er relevante for brukeren, men som ikke er en essensiell del av flyten brukeren beveger seg i.
+
+<ComponentExample component={ContextualMenuExample} />
+
+Du kan lese mer om [anbefalinger rundt bruk av kontekstuell meny](/komponenter/contextualmenu) i dokumentasjonen til komponenten.
+
+-   [#3416](https://github.com/fremtind/jokul/pull/3416)
+-   [#3464](https://github.com/fremtind/jokul/pull/3464)
+
+## Diverse bugfikser og forbedringer
+
+### Figma
+
+-   Ga MessageBox en større clicktarget ([#3071](https://github.com/fremtind/jokul/issues/3071))
+-   Justerte avstand mellom pil og tekst i ExpandButton ([#3167](https://github.com/fremtind/jokul/issues/3167))
+-   Justerte utseendet til MessageBox så innhold får mer plass på mobil ([#3387](https://github.com/fremtind/jokul/issues/3387))
+-   Laget komponenter for å kunne lage DescriptionList på en enklere måte ([#3212](https://github.com/fremtind/jokul/issues/3212))
+-   Footer og header fra Jøkuluka merget inn ([#3399](https://github.com/fremtind/jokul/issues/3399))
+-   Fjernet animasjon av pil i NavCard for å unngå bevegelse i to retninger ([#3429](https://github.com/fremtind/jokul/issues/3429))
+-   La til manglende alilgn i TableHeader ([#3448](https://github.com/fremtind/jokul/issues/3448))
+-   Accordion åpnes nok til at text component vises i prototype ([#3449](https://github.com/fremtind/jokul/issues/3449))
+
+### GitHub
+
+-   Åpne for en SupportLabel for RadioButton ([#3410](https://github.com/fremtind/jokul/pull/3410))
+-   Utvid kodeeksempler for ikonene ([#3428](https://github.com/fremtind/jokul/pull/3428))
+-   Nytt design på error-ikon ([#3441](https://github.com/fremtind/jokul/pull/3441))
+-   Align ikonet i MessageBox med tittel, og med teksten hvis uten tittel ([#3446](https://github.com/fremtind/jokul/pull/3446))
+-   Select, unngå onChange når value endres fra utsiden ([#3443](https://github.com/fremtind/jokul/pull/3443))
+-   Rett feil i kodeeksempel for image-propen i kortkomponenter ([#3456](https://github.com/fremtind/jokul/pull/3456))
+-   Unngå at inline-elementer blir gjort til block i kortkomponenter ([#3451](https://github.com/fremtind/jokul/pull/3451))
+-   Sett UTF-8 som charset i stilark for å unngå encoding-bugs rundt piler ([#3468](https://github.com/fremtind/jokul/pull/3468))
+-   Kjør bare de Cypress-testene som trengs under pull requests ([#3466](https://github.com/fremtind/jokul/pull/3466))
+-   Gjør sorteringsikon bold i TableHeader ([#3442](https://github.com/fremtind/jokul/pull/3442))
+-   Oppdater deler av Profil-seksjonen i portalen, etter Jøkuluka ([#3469](https://github.com/fremtind/jokul/pull/3469))
+
+## Takk
+
+Takk til alle som har vært med å bygge videre på Jøkul, både på GitHub og i Figma!
+
+-   BjorneOma
+-   Chrihenn
+-   henrikhermansen
+-   ivnai
+-   joms
+-   kjetilbendik
+-   leon-ho
+-   maciejost
+
+En stor takk også til alle som er med på designsystemforum!
