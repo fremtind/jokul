@@ -14,9 +14,17 @@ import { Combobox } from "@fremtind/jkl-combobox-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-combobox/combobox.min.css";
+import "@fremtind/jkl-icons/icons.min.css";
+import "@fremtind/jkl-input-group/input-group.min.css";
+import "@fremtind/jkl-tag/tag.min.css";
+import "@fremtind/jkl-icon-button/icon-button.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-combobox/combobox";
+@use "@fremtind/jkl-icons/icons";
+@use "@fremtind/jkl-input-group/input-group";
+@use "@fremtind/jkl-tag/tag";
+@use "@fremtind/jkl-icon-button/icon-button";
 ```
