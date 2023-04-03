@@ -100,6 +100,17 @@ describe("Select", () => {
         expect(getByTestId("jkl-native-select")).toHaveValue("A");
     });
 
+    it("should not get stuck in a loop if value is not in items", () => {
+        const onChange = jest.fn();
+        const { getByTestId } = setup(
+            <Select label="Items" name="items" items={["A", "B", "C"]} value="D" onChange={onChange} />,
+        );
+
+        expect(getByTestId("jkl-select__button")).toHaveTextContent("Velg");
+        expect(getByTestId("jkl-native-select")).toHaveValue("");
+        expect(onChange).toHaveBeenCalledTimes(0);
+    });
+
     it("should not call onChange if value is undefined (#3421)", () => {
         const onChange = jest.fn();
         const { getByTestId } = setup(

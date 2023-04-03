@@ -144,10 +144,16 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             }),
         [items, isSearchable, searchValue, searchFn],
     );
+    const valueIsInItems: boolean = useMemo(() => {
+        if (typeof value === "undefined") {
+            return false;
+        }
+        return items.some((item) => (typeof item === "string" ? item === value : item.value === value));
+    }, [value, items]);
 
     /// Valg av <option>
 
-    const [selectedValue, setSelectedValue] = useState<string>(value || "");
+    const [selectedValue, setSelectedValue] = useState<string>(valueIsInItems && value !== undefined ? value : "");
     const hasSelectedValue = selectedValue !== "";
     const selectedValueLabel = useMemo(
         () => visibleItems.find((item) => item.value === selectedValue)?.label || defaultPrompt,
@@ -179,12 +185,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         if (value === previousValue) {
             return;
         }
-        if (typeof value === "undefined") {
+        if (typeof value === "undefined" || !valueIsInItems) {
             setSelectedValue("");
         } else {
             setSelectedValue(value);
         }
-    }, [setSelectedValue, value, previousValue]);
+    }, [setSelectedValue, value, previousValue, valueIsInItems]);
 
     const selectOption = useCallback(
         (item: Option) => {
