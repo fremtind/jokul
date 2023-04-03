@@ -104,6 +104,7 @@ describe("a11y", () => {
                     return;
                 }}
                 helpLabel="Velg to eller mer"
+                errorLabel="Du må velge to eller mer"
             />,
         );
         const results = await axe(container);
@@ -126,6 +127,7 @@ describe("a11y", () => {
                     { label: "Item 3", value: "3" },
                 ]}
                 helpLabel="Velg to eller mer"
+                errorLabel="Du må velge to eller mer"
             />,
         );
         const results = await axe(container);
