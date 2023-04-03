@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 13.0.11 (2023-04-03)
+
+### Bug Fixes
+
+- sørg for at Select ikke går i loop hvis value ikke finnes i items ([35b951f](https://github.com/fremtind/jokul/commit/35b951f7a1fe7089718e92f3a3f7cafbf393e48f)), closes [#3479](https://github.com/fremtind/jokul/issues/3479)
+
 ## [13.0.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@13.0.5...@fremtind/jkl-select-react@13.0.8) (2023-03-07)
 
 ### Bug Fixes
