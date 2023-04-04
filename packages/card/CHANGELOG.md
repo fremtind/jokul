@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.2 (2023-04-04)
+
+### Bug Fixes
+
+- gjør NavCard til et blokkelement ([6721de5](https://github.com/fremtind/jokul/commit/6721de548bc19b05f4daf066f00a966709f24e44)), closes [#3490](https://github.com/fremtind/jokul/issues/3490)
+
 ## [9.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@9.0.0...@fremtind/jkl-card@9.0.1) (2023-03-21)
 
 ### Bug Fixes
