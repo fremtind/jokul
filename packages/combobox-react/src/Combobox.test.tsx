@@ -1,8 +1,9 @@
+import { Tag } from "@fremtind/jkl-tag-react";
 import { render, RenderOptions, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
-import React from "react";
-import { Combobox } from ".";
+import React, { useState } from "react";
+import { Combobox, ComboboxValuePair } from ".";
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
@@ -86,6 +87,107 @@ describe("Combobox", () => {
         );
 
         expect(screen.getByTestId("jkl-combobox")).toHaveAttribute("data-density", "compact");
+    });
+
+    it("should change the value of the combobox when selecting two options", async () => {
+        function WrappedCombobox() {
+            const [selectedValues, setSelectedValues] = useState<Array<ComboboxValuePair>>([]);
+
+            const items: ComboboxValuePair[] = [
+                { label: "Item 1", value: "1" },
+                { label: "Item 2", value: "2" },
+                { label: "Item 3", value: "3" },
+            ];
+
+            return (
+                <Combobox
+                    name="items"
+                    placeholder="Søk"
+                    label="List of items"
+                    items={items}
+                    value={selectedValues}
+                    onChange={(event) => {
+                        setSelectedValues(event.target.selectedOptions);
+                    }}
+                />
+            );
+        }
+        const { getByRole, getByTestId, getAllByTestId } = setup(<WrappedCombobox />);
+        const openDropdownButtonElement = getByTestId("jkl-combobox__button");
+
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
+        });
+
+        const selectOption1Element = getByRole("option", { name: "Item 1" });
+
+        await act(async () => {
+            await userEvent.click(selectOption1Element);
+        });
+
+        const selectOption2Element = getByRole("option", { name: "Item 2" });
+
+        await act(async () => {
+            await userEvent.click(selectOption2Element);
+        });
+
+        const selectedTags = getAllByTestId("jkl-tag__content");
+        expect(selectedTags).toHaveLength(2);
+        expect(selectedTags[0]).toHaveTextContent("Item 1");
+        expect(selectedTags[1]).toHaveTextContent("Item 2");
+    });
+
+    it("should clear all values when clicking remove all button", async () => {
+        function WrappedCombobox() {
+            const [selectedValues, setSelectedValues] = useState<Array<ComboboxValuePair>>([]);
+
+            const items: ComboboxValuePair[] = [
+                { label: "Item 1", value: "1" },
+                { label: "Item 2", value: "2" },
+                { label: "Item 3", value: "3" },
+            ];
+
+            return (
+                <Combobox
+                    name="items"
+                    placeholder="Søk"
+                    label="List of items"
+                    items={items}
+                    value={selectedValues}
+                    onChange={(event) => {
+                        setSelectedValues(event.target.selectedOptions);
+                    }}
+                />
+            );
+        }
+        const { getByRole, getByTestId } = setup(<WrappedCombobox />);
+        const openDropdownButtonElement = getByTestId("jkl-combobox__button");
+
+        await act(async () => {
+            await userEvent.click(openDropdownButtonElement);
+        });
+
+        const selectOption1Element = getByRole("option", { name: "Item 1" });
+
+        await act(async () => {
+            await userEvent.click(selectOption1Element);
+        });
+
+        expect(getByTestId("jkl-tag").textContent).toBe("Item 1");
+
+        const selectOption2Element = getByRole("option", { name: "Item 2" });
+
+        await act(async () => {
+            await userEvent.click(selectOption2Element);
+        });
+
+        const removeOptionsButton = getByTestId("jkl-combobox__remove-all");
+
+        await act(async () => {
+            await userEvent.click(removeOptionsButton);
+        });
+
+        expect(getByTestId("jkl-combobox__tags")).not.toContain(<Tag />);
     });
 });
 

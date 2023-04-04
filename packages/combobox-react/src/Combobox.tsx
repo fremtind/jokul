@@ -328,18 +328,21 @@ export const Combobox: FC<ComboboxProps> = ({
             density={density}
             render={(inputProps) => (
                 <div className={`jkl-combobox__wrapper ${showMenu && "menu-open"}`} style={{ width }}>
-                    <div className="jkl-combobox__tags">
+                    <div className="jkl-combobox__tags" data-testid="jkl-combobox__tags">
                         {selectedValue.map(getComboboxValuePair).map((option) => (
                             <Tag
                                 key={option.value}
                                 density="compact"
                                 className="jkl-tag"
+                                data-testid="jkl-tag"
                                 dismissAction={{
                                     onClick: (e) => onTagRemove(e, option.value),
                                     label: `Fjern ${option.value}`,
                                 }}
                             >
-                                <span aria-hidden="true">{option.tagLabel ? option.tagLabel : option.label}</span>
+                                <span aria-hidden="true" data-testid="jkl-tag__content">
+                                    {option.tagLabel ? option.tagLabel : option.label}
+                                </span>
                             </Tag>
                         ))}
                         <input
@@ -408,7 +411,11 @@ export const Combobox: FC<ComboboxProps> = ({
                     </div>
                     <div className="jkl-combobox__actions">
                         {selectedValue.length > 0 && (
-                            <IconButton onClick={() => onTagRemoveAll()} aria-label="Fjern valgte elementer">
+                            <IconButton
+                                onClick={() => onTagRemoveAll()}
+                                data-testid="jkl-combobox__remove-all"
+                                aria-label="Fjern valgte elementer"
+                            >
                                 <CloseIcon />
                             </IconButton>
                         )}
