@@ -55,6 +55,7 @@
         "focus-trap-react": "^10.0.2",
         "framer-motion": "^7.10.3",
         "gatsby": "^4.25.1",
+        "gatsby-plugin-canonical-urls": "4.24.0",
         "gatsby-plugin-feed": "^4.25.0",
         "gatsby-plugin-image": "^2.25.0",
         "gatsby-plugin-layout": "^3.25.0",

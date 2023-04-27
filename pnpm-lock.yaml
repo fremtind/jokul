@@ -1020,6 +1020,7 @@ importers:
       focus-trap-react: ^10.0.2
       framer-motion: ^7.10.3
       gatsby: ^4.25.1
+      gatsby-plugin-canonical-urls: 4.24.0
       gatsby-plugin-feed: ^4.25.0
       gatsby-plugin-image: ^2.25.0
       gatsby-plugin-layout: ^3.25.0
@@ -1091,6 +1092,7 @@ importers:
       focus-trap-react: 10.0.2_biqbaboplfbrettd7655fr4n2y
       framer-motion: 7.10.3_biqbaboplfbrettd7655fr4n2y
       gatsby: 4.25.1_biqbaboplfbrettd7655fr4n2y
+      gatsby-plugin-canonical-urls: 4.24.0_gatsby@4.25.1
       gatsby-plugin-feed: 4.25.0_xzvt5uz46qfzbv6w24zc4gpmqi
       gatsby-plugin-image: 2.25.0_3pobvxhxbrxpzgjg53r2gvnch4
       gatsby-plugin-layout: 3.25.0_gatsby@4.25.1
@@ -10478,7 +10480,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/runtime': 7.20.7
+      '@babel/runtime': 7.21.0
       aria-query: 4.2.2
       array-includes: 3.1.6
       ast-types-flow: 0.0.7
@@ -11893,6 +11895,16 @@ packages:
       '@parcel/runtime-js': 2.6.2_@parcel+core@2.6.2
       '@parcel/transformer-js': 2.6.2_@parcel+core@2.6.2
       '@parcel/transformer-json': 2.6.2_@parcel+core@2.6.2
+    dev: false
+
+  /gatsby-plugin-canonical-urls/4.24.0_gatsby@4.25.1:
+    resolution: {integrity: sha512-EidU+iXmMYBeICCgDq1O+K5zlydW3bN+z1PlJSEF5ihXeCqduf4brP+yEEtIn4myJ68yh4WJe4UAjpTl3XH/Cw==}
+    engines: {node: '>=14.15.0'}
+    peerDependencies:
+      gatsby: ^4.0.0-next
+    dependencies:
+      '@babel/runtime': 7.21.0
+      gatsby: 4.25.1_biqbaboplfbrettd7655fr4n2y
     dev: false
 
   /gatsby-plugin-feed/4.25.0_xzvt5uz46qfzbv6w24zc4gpmqi:

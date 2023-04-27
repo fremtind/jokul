@@ -15,13 +15,15 @@ const ignoreNonMdx = [
     "**/node_modules/**",
 ];
 
+const siteUrl = "https://jokul.fremtind.no";
+
 module.exports = {
     pathPrefix: process.env.PREVIEW_PATH ? `/${process.env.PREVIEW_PATH}` : "/",
     siteMetadata: {
         title: `Jøkul Designsystem`,
         description: `Jøkul er designsystemet til Fremtind`,
         author: `Fremtind`,
-        siteUrl: "https://jokul.fremtind.no",
+        siteUrl,
     },
     flags: {
         DEV_SSR: true,
@@ -135,12 +137,15 @@ module.exports = {
                 ],
             },
         },
-        { resolve: "gatsby-plugin-sitemap", options: { excludes: ["/beta"] } },
-        {
-            resolve: "gatsby-plugin-robots-txt",
-            options: {
-                policy: [{ userAgent: "*", disallow: ["/beta", "/preview"] }],
-            },
-        },
-    ],
+        process.env.PREVIEW_PATH ? null : { resolve: "gatsby-plugin-sitemap", options: { excludes: ["/beta"] } },
+        process.env.PREVIEW_PATH
+            ? null
+            : {
+                  resolve: "gatsby-plugin-robots-txt",
+                  options: {
+                      policy: [{ userAgent: "*", disallow: ["/beta", "/preview"] }],
+                  },
+              },
+        process.env.PREVIEW_PATH ? null : { resolve: "gatsby-plugin-canonical-urls", options: { siteUrl } },
+    ].filter((plugin) => Boolean(plugin)),
 };
