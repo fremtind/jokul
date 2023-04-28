@@ -8,6 +8,13 @@ import iconBytes from "./iconBytes";
 
 export const fileInputExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Laster opp", "Med valideringsfeil", "Med feil", "Lastet opp"],
+    choiceProps: [
+        {
+            name: "Variant",
+            values: ["flexible", "small"],
+            defaultValue: 1,
+        },
+    ],
 };
 
 const FakeProgressBar: FC = () => {
@@ -21,7 +28,7 @@ const FakeProgressBar: FC = () => {
     return <ProgressBar aria-valuenow={progress} />;
 };
 
-export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
+export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [files, setFiles] = useState<FileInputFile[]>([]);
 
     const [hasMounted, setHasMounted] = useState(false);
@@ -55,6 +62,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                 accept="image/*,.pdf"
                 maxSizeBytes={maxSizeBytes}
                 value={files}
+                variant={choiceValues?.["Variant"] as "flexible" | "small"}
                 onChange={(e, newFiles) => {
                     setFiles((currentFiles) => [...currentFiles, ...newFiles]);
                 }}
@@ -146,7 +154,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
 
 export default FileInputExample;
 
-export const fileInputExampleCode: CodeExample = ({ boolValues }) => `
+export const fileInputExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
 // import { File, FileInput, type FileInputFile } from "@fremtind/jkl-file-input-react";
 
 const [files, setFiles] = useState<FileInputFile[]>([]);
@@ -155,10 +163,13 @@ const maxSizeBytes = 8_000_000;
 return (
     <div>
         <FileInput
+            legend="Vedlegg"
+            labelProps={{ variant: "medium" }}
             className="jkl-spacing-16-24--bottom"
             accept="image/*,.pdf"
             maxSizeBytes={maxSizeBytes}
             value={files}
+            variant={${choiceValues?.["Variant"]}}
             onChange={(e, newFiles) => {
                 setFiles((currentFiles) => [...currentFiles, ...newFiles]);
             }}

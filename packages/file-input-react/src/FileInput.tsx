@@ -25,6 +25,7 @@ export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
      */
     multiple?: boolean;
     value: FileInputFile[];
+    variant?: "flexible" | "small";
     onChange: (
         e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
         files: FileInputFile[],
@@ -32,9 +33,48 @@ export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
 }
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, ref) => {
-    const { accept, className, children, id, value, density, multiple = true, maxSizeBytes, onChange, ...rest } = props;
+    const {
+        accept,
+        className,
+        children,
+        id,
+        value,
+        density,
+        multiple = true,
+        maxSizeBytes,
+        onChange,
+        variant,
+        ...rest
+    } = props;
 
     const hasFiles = value.length > 0;
+
+    if (variant === "small") {
+        return (
+            <FileInputContextProvider context={{ accept, onChange, maxSizeBytes }}>
+                <FieldGroup
+                    className={cn("jkl-file-input", "jkl-file-input--small", className, {
+                        "jkl-file-input--has-files": hasFiles,
+                    })}
+                    data-layout-density={density ? density : "compact"}
+                    {...rest}
+                >
+                    <Dropzone>
+                        <div className="jkl-file-input__call-to-action">
+                            <Input
+                                id={id}
+                                label={multiple ? "Legg til filer" : "Legg til fil"}
+                                multiple={multiple}
+                                ref={ref}
+                            />
+                            <p>Slipp filer her</p>
+                        </div>
+                    </Dropzone>
+                    {value.length > 0 && <ul className="jkl-file-input__files">{children}</ul>}
+                </FieldGroup>
+            </FileInputContextProvider>
+        );
+    }
 
     return (
         <FileInputContextProvider context={{ accept, onChange, maxSizeBytes }}>
@@ -51,7 +91,13 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, re
                         {value.length === 0 && <p>Slipp filer her</p>}
                         <Input
                             id={id}
-                            label={hasFiles ? "Legg til flere filer" : "Legg til filer"}
+                            label={
+                                multiple && hasFiles
+                                    ? "Legg til flere filer"
+                                    : multiple
+                                    ? "Legg til filer"
+                                    : "Legg til fil"
+                            }
                             multiple={multiple}
                             ref={ref}
                         />
