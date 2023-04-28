@@ -60,6 +60,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                 {files.map(({ state, file, validation }, index) => {
                     let label: string | undefined = undefined;
                     let labelType: "warning" | "error" | "help" | "success" | undefined = undefined;
+                    let demoState: FileInputFileState = state;
 
                     const isUploading = Boolean(boolValues?.["Laster opp"]) || state === "UPLOADING";
 
@@ -69,14 +70,17 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                     } else if (Boolean(boolValues?.["Lastet opp"]) || state === "UPLOAD_SUCCESS") {
                         labelType = "success";
                         label = "Lastet opp";
+                        demoState = "UPLOAD_SUCCESS";
                     } else if (Boolean(boolValues?.["Med feil"]) || state === "UPLOAD_ERROR") {
                         labelType = "error";
                         label = "Filen lot seg ikke laste opp";
+                        demoState = "UPLOAD_ERROR";
                     } else if (validation?.type === "TOO_LARGE") {
                         labelType = "error";
                         label = `Filen er større enn ${formatBytes(maxSizeBytes)} og kan ikke lastes opp`;
                     } else if (isUploading) {
                         label = "Laster opp…";
+                        demoState = "UPLOADING";
                     }
 
                     return (
@@ -86,7 +90,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                             fileType={file.type}
                             fileSize={file.size}
                             file={file}
-                            state={Boolean(boolValues?.["Laster opp"]) ? "UPLOADING" : state}
+                            state={demoState}
                             supportLabel={label}
                             supportLabelType={labelType}
                             onRemove={(e) => {
