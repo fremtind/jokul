@@ -37,6 +37,7 @@
     border: 1px var(--jkl-file-border-color) solid;
     padding: var(--jkl-file-padding);
     margin: 0;
+    min-width: jkl.rem(240px);
 
     display: flex;
     flex-flow: nowrap row;
