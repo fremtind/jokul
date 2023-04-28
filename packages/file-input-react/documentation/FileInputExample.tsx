@@ -47,6 +47,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues, choice
                     type: "image/png",
                 }),
                 state: "SELECTED",
+                uploadProgress: 0,
             },
         ]);
     }, [hasMounted, setFiles]);
@@ -103,9 +104,13 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues, choice
                             state={demoState}
                             supportLabel={label}
                             supportLabelType={labelType}
-                            onRemove={(e) => {
-                                setFiles([...files.slice(0, index), ...files.slice(index + 1)]);
-                            }}
+                            onRemove={
+                                ["UPLOAD_ERROR", "SELECTED"].includes(state)
+                                    ? () => {
+                                          setFiles([...files.slice(0, index), ...files.slice(index + 1)]);
+                                      }
+                                    : undefined
+                            }
                         >
                             {isUploading && <FakeProgressBar />}
                         </File>
@@ -155,7 +160,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues, choice
 export default FileInputExample;
 
 export const fileInputExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
-// import { File, FileInput, type FileInputFile } from "@fremtind/jkl-file-input-react";
+// import { File, FileInput, type FileInputFile, upload } from "@fremtind/jkl-file-input-react";
 
 const [files, setFiles] = useState<FileInputFile[]>([]);
 const maxSizeBytes = 8_000_000;
@@ -174,7 +179,7 @@ return (
                 setFiles((currentFiles) => [...currentFiles, ...newFiles]);
             }}
         >
-            {files.map(({ state, file, validation }, index) => {
+            {files.map(({ state, file, validation, uploadProgress }, index) => {
                 let label: string | undefined = undefined;
                 let labelType: "warning" | "error" | "help" | "success" | undefined = undefined;
 
@@ -206,12 +211,15 @@ return (
                         state={state}
                         supportLabel={label}
                         supportLabelType={labelType}
-                        onRemove={(e) => {
-                            setFiles([...files.slice(0, index), ...files.slice(index + 1)]);
-                        }}
+                        onRemove={
+                            ["UPLOAD_ERROR", "SELECTED"].includes(state)
+                                ? () => {
+                                    setFiles([...files.slice(0, index), ...files.slice(index + 1)]);
+                                }
+                                : undefined
+                        }
                     >
-                        {state === "UPLOADING" && <ProgressBar aria-valuenow={50} />}
-                        {/* Bruk Loader om du ikke får kalkulert fremdrift: <Loader variant="small" textDescription="Vennligst vent" /> */}
+                        {state === "UPLOADING" && <ProgressBar aria-valuenow={uploadProgress} />}
                     </File>
                 );
             })}
@@ -224,24 +232,45 @@ return (
                     .filter((fileState) =>
                         typeof fileState.validation === "undefined" && fileState.state === "SELECTED",
                     )
-                    .map((fileState, i) =>
-                        new Promise<void>((resolve) => {
-                            // Vis tilstand i en tilfeldig varighet. Kun for demoen, naturligvis.
-                            const timeout = Math.random() * 5_000;
-                            setTimeout(() => {
-                                setFiles((currentState) => {
-                                    return [
-                                        ...currentState.slice(0, i),
-                                        { ...currentState[i], state: "UPLOAD_SUCCESS" },
-                                        ...currentState.slice(i + 1),
-                                    ];
-                                });
-                                resolve();
-                            }, timeout);
-                        }),
-                    );
+                    .map(async (fileState, i) =>
+                        setFiles((state) => [
+                            ...state.slice(0, i),
+                            { ...state[i], state: "UPLOADING" },
+                            ...state.slice(i + 1),
+                        ]);
 
-                setFiles((fs) => fs.map((f) => ({ ...f, state: "UPLOADING" })));
+                        const data = new FormData();
+                        data.append("file", fileState.file, fileState.file.name);
+
+                        try {
+                            await upload(
+                                "http://localhost:3000/api/upload",
+                                data,
+                                (uploadProgress) => {
+                                    setFiles((state) => [
+                                        ...state.slice(0, i),
+                                        {
+                                            ...state[i],
+                                            uploadProgress,
+                                        },
+                                        ...state.slice(i + 1),
+                                    ]);
+                                }
+                            );
+
+                            setFiles((state) => [
+                                ...state.slice(0, i),
+                                { ...state[i], state: "UPLOAD_SUCCESS" },
+                                ...state.slice(i + 1),
+                            ]);
+                        } catch (e) {
+                            setFiles((state) => [
+                                ...state.slice(0, i),
+                                { ...state[i], state: "UPLOAD_ERROR" },
+                                ...state.slice(i + 1),
+                            ]);
+                        }
+                    );
 
                 await Promise.all(promises);
             }}

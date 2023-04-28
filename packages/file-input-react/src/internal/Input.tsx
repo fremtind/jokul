@@ -45,6 +45,7 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>((props, ref) =
                                 file,
                                 state: "SELECTED",
                                 validation: validateFile(file, accept, maxSizeBytes),
+                                uploadProgress: 0,
                             })),
                         );
                     }

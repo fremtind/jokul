@@ -9,4 +9,5 @@ export interface FileInputFile {
     file: File;
     validation?: FileInputFileValidation;
     state: FileInputFileState;
+    uploadProgress: number;
 }
