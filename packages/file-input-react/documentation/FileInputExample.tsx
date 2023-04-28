@@ -49,6 +49,8 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     return (
         <div>
             <FileInput
+                legend="Vedlegg"
+                labelProps={{ variant: "medium" }}
                 className="jkl-spacing-16-24--bottom"
                 accept="image/*,.pdf"
                 maxSizeBytes={maxSizeBytes}

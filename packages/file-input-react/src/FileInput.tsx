@@ -1,4 +1,5 @@
-import type { Density, WithChildren } from "@fremtind/jkl-core";
+import type { Density } from "@fremtind/jkl-core";
+import { FieldGroup, type FieldGroupProps } from "@fremtind/jkl-input-group-react";
 import cn from "classnames";
 import React, { forwardRef } from "react";
 import { Dropzone } from "./internal/Dropzone";
@@ -6,7 +7,7 @@ import { FileInputContextProvider } from "./internal/fileInputContext";
 import { Input } from "./internal/Input";
 import { FileInputFile } from "./types";
 
-export interface FileInputProps extends WithChildren {
+export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
     className?: string;
     id?: string;
     density?: Density;
@@ -37,7 +38,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, re
 
     return (
         <FileInputContextProvider context={{ accept, onChange, maxSizeBytes }}>
-            <div
+            <FieldGroup
                 className={cn("jkl-file-input", className, {
                     "jkl-file-input--has-files": hasFiles,
                 })}
@@ -56,7 +57,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, re
                         />
                     </div>
                 </Dropzone>
-            </div>
+            </FieldGroup>
         </FileInputContextProvider>
     );
 });
