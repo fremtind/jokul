@@ -20,28 +20,11 @@ describe("File", () => {
                 fileType="application/text"
                 fileSize={1000}
                 file={new window.File([], "test.txt")}
-                isUploading={false}
                 onRemove={onRemove}
             />,
         );
 
         expect(getByText("test.txt")).toBeInTheDocument();
-    });
-
-    it("should render a progress indicator when uploading", () => {
-        const onRemove = jest.fn();
-        const { getByText } = setup(
-            <File
-                fileName="test.txt"
-                fileType="application/text"
-                fileSize={1000}
-                file={new window.File([], "test.txt")}
-                isUploading={true}
-                onRemove={onRemove}
-            />,
-        );
-
-        expect(getByText("Laster opp test.txt")).toBeInTheDocument();
     });
 
     it("should call onRemove if the button is clicked", async () => {
@@ -52,7 +35,6 @@ describe("File", () => {
                 fileType="application/text"
                 fileSize={1000}
                 file={new window.File([], "test.txt")}
-                isUploading={false}
                 onRemove={onRemove}
             />,
         );
@@ -70,25 +52,6 @@ describe("File", () => {
                 fileType="application/text"
                 fileSize={0}
                 file={new window.File([], "test.txt")}
-                isUploading={false}
-                onRemove={onRemove}
-            />,
-        );
-
-        const results = await axe(container);
-
-        expect(results).toHaveNoViolations();
-    });
-
-    it("should pass jext-axe tests in uploading state", async () => {
-        const onRemove = jest.fn();
-        const { container } = render(
-            <File
-                fileName="test.tsx"
-                fileType="application/text"
-                fileSize={0}
-                file={new window.File([], "test.txt")}
-                isUploading={true}
                 onRemove={onRemove}
             />,
         );

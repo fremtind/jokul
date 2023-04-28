@@ -2,7 +2,7 @@ import { render, RenderOptions } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { File, FileInput, FileState } from ".";
+import { File, FileInput, FileInputFile } from ".";
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
@@ -12,12 +12,12 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
 }
 
 describe("FileInput", () => {
-    const files: FileState[] = [];
+    const files: FileInputFile[] = [];
 
     it("should render", () => {
         const onChange = jest.fn();
         const { getByText, queryByText } = setup(
-            <FileInput onChange={onChange}>
+            <FileInput legend="Vedlegg" onChange={onChange} value={files}>
                 {files.map((file) => (
                     <File
                         key={file.file.name}
@@ -29,14 +29,14 @@ describe("FileInput", () => {
             </FileInput>,
         );
 
-        expect(getByText("Legg til fil")).toBeInTheDocument();
+        expect(getByText("Legg til filer")).toBeInTheDocument();
         expect(queryByText(/^Maksimum filstørrelse er/)).not.toBeInTheDocument();
     });
 
     it("should render hint about max size if given one", () => {
         const onChange = jest.fn();
         const { getByText } = setup(
-            <FileInput onChange={onChange}>
+            <FileInput legend="Vedlegg" onChange={onChange} value={files} maxSizeBytes={8_000_000}>
                 {files.map((file) => (
                     <File
                         key={file.file.name}
@@ -48,14 +48,13 @@ describe("FileInput", () => {
             </FileInput>,
         );
 
-        expect(getByText(/^Maksimum filstørrelse er/)).toBeInTheDocument();
-        expect(getByText(/Mb$/)).toBeInTheDocument();
+        expect(getByText(/størrelse per fil/)).toBeInTheDocument();
     });
 
     it("should pass jext-axe tests in default state", async () => {
         const onChange = jest.fn();
         const { container } = setup(
-            <FileInput onChange={onChange}>
+            <FileInput legend="Vedlegg" onChange={onChange} value={files}>
                 {files.map((file) => (
                     <File
                         key={file.file.name}
