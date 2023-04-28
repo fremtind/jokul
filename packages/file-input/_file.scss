@@ -30,6 +30,8 @@
 .jkl-file {
     @include jkl.reset-outline;
     @include jkl.text-style("small");
+    @include jkl.motion("standard", "snappy");
+    transition-property: background-color, border-color, color;
 
     color: var(--jkl-file-color);
     border: 1px var(--jkl-file-border-color) solid;
@@ -84,7 +86,19 @@
         justify-content: center;
         align-items: center;
         object-fit: contain;
+        opacity: 1;
         border-radius: jkl.rem(4px);
+
+        @include jkl.motion;
+        transition-property: opacity;
+
+        &--selected {
+            opacity: 0.7;
+        }
+
+        &--uploading {
+            opacity: 0.4;
+        }
     }
 
     &__thumbnail:not(img) {
