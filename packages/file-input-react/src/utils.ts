@@ -6,7 +6,7 @@
  * @param progress Callback som blir kalt med oppdatert progresjon
  * @returns {T} Svaret fra endepunktet
  */
-export async function upload<T>(url: string, data: FormData, progress?: (progress: number) => void): Promise<T> {
+export async function upload<T>(url: string, data: FormData, progress: (progress: number) => void): Promise<T> {
     // I skrivende stund er det ikke mulig å hente progress med fetch. Derfor bruker vi XMLHttpRequest.
     const xhr = new XMLHttpRequest();
     const request = new Promise<ProgressEvent<XMLHttpRequestEventTarget>>((resolve, reject) => {
