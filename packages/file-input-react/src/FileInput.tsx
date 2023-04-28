@@ -49,6 +49,8 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, re
 
     const hasFiles = value.length > 0;
 
+    const descriptor = multiple ? "filer" : "fil";
+
     if (variant === "small") {
         return (
             <FileInputContextProvider context={{ accept, onChange, maxSizeBytes }}>
@@ -61,13 +63,8 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, re
                 >
                     <Dropzone>
                         <div className="jkl-file-input__call-to-action">
-                            <Input
-                                id={id}
-                                label={multiple ? "Legg til filer" : "Legg til fil"}
-                                multiple={multiple}
-                                ref={ref}
-                            />
-                            <p>Slipp filer her</p>
+                            <Input id={id} label={`Legg til ${descriptor}`} multiple={multiple} ref={ref} />
+                            <p>Slipp {descriptor} her</p>
                         </div>
                     </Dropzone>
                     {value.length > 0 && <ul className="jkl-file-input__files">{children}</ul>}
@@ -88,16 +85,10 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, re
                 <Dropzone>
                     {value.length > 0 && <ul className="jkl-file-input__files">{children}</ul>}
                     <div className="jkl-file-input__call-to-action">
-                        {value.length === 0 && <p>Slipp filer her</p>}
+                        {value.length === 0 && <p>Slipp {descriptor} her</p>}
                         <Input
                             id={id}
-                            label={
-                                multiple && hasFiles
-                                    ? "Legg til flere filer"
-                                    : multiple
-                                    ? "Legg til filer"
-                                    : "Legg til fil"
-                            }
+                            label={multiple && hasFiles ? "Legg til flere filer" : `Legg til ${descriptor}`}
                             multiple={multiple}
                             ref={ref}
                         />
