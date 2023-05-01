@@ -116,7 +116,7 @@
         "prompt": "^1.3.0",
         "react-syntax-highlighter": "^15.5.0",
         "replace-in-file": "^6.3.5",
-        "rimraf": "^3.0.2",
+        "rimraf": "^5.0.0",
         "sass-embedded": "^1.57.1",
         "stylelint": "^14.16.1",
         "tiny-glob": "^0.2.9",
