@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * Felles håndtering av vanlige plugins og loaders.
  * Importeres av de enkelte pakkenes byggscript.
@@ -21,12 +20,12 @@ const __dirname = path.dirname(__filename);
  */
 export async function build(options) {
     const opts = Array.isArray(options) ? options : [options];
+    const watch = process.env.ESBUILD_WATCH === "true";
     await Promise.all(
-        opts.map((o) =>
-            esbuild.build({
+        opts.map(async (o) => {
+            const buildOptions = {
                 bundle: true,
                 sourcemap: true,
-                watch: process.env.ESBUILD_WATCH === "true",
                 loader: { ".woff": "file", ".woff2": "file", ".jpg": "file", ".png": "file" },
                 plugins: [
                     sassPlugin({
@@ -44,7 +43,12 @@ export async function build(options) {
                     }),
                 ],
                 ...o,
-            }),
-        ),
+            };
+            if (watch) {
+                const context = await esbuild.context(buildOptions);
+                return context.watch();
+            }
+            return esbuild.build(buildOptions);
+        }),
     );
 }
