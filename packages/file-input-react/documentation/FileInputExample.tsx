@@ -192,8 +192,6 @@ return (
                 let label: string | undefined = undefined;
                 let labelType: SupportLabelType | undefined = undefined;
 
-                const isUploading = ;
-
                 if (validation?.type === "WRONG_TYPE") {
                     labelType = "warning";
                     label = \`Filtypen \${file.name?.split(".")[1] || ""} støttes ikke\`;

@@ -24,7 +24,7 @@ export const FilePreviewExample: FC<ExampleComponentProps> = () => {
     return (
         <div>
             <p className="jkl-heading-4">Vedlegg til saken</p>
-            <ul>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
                 {files.map((file) => (
                     <li key={file.name}>
                         <File fileName={file.name} fileType={file.type} fileSize={file.size} path={file.publicPath} />
@@ -56,7 +56,7 @@ const files: File[] = [
 
 return (
     <p className="jkl-heading-4">Vedlegg til saken</p>
-    <ul>
+    <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
         {files.map((file) => (
             <li key={file.name}>
                 <File fileName={file.name} fileType={file.type} fileSize={file.size} path={file.publicPath} />
