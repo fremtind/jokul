@@ -1,6 +1,6 @@
-# [`@fremtind/jkl-progress-bar-react`](https://jokul.fremtind.no/komponenter/messagebox)
+# [`@fremtind/jkl-progress-bar-react`](https://jokul.fremtind.no/komponenter/progressbar)
 
-Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/messagebox).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/progressbar).
 
 ## Installasjon
 

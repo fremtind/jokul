@@ -3,6 +3,8 @@ import { ErrorIcon, SuccessIcon, WarningIcon } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
 import React, { type FC, type ReactNode } from "react";
 
+export type SupportLabelType = "help" | "error" | "warning" | "success";
+
 export interface SupportLabelProps {
     /**
      * En ID er påkrevd for å kunne referere til SupportLabel med aria-describedby.
@@ -55,7 +57,7 @@ export interface SupportLabelProps {
      *
      * @default "help"
      */
-    labelType?: "help" | "error" | "warning" | "success";
+    labelType?: SupportLabelType;
     density?: Density;
     className?: string;
     srOnly?: boolean;

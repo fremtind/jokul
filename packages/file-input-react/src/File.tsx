@@ -61,7 +61,7 @@ export const File: FC<FileProps> = (props) => {
 
     if (isInFileInputContext) {
         return (
-            <li key={fileName}>
+            <li>
                 {f}
                 {supportLabel && <SupportLabel id={supportId} label={supportLabel} labelType={supportLabelType} />}
             </li>

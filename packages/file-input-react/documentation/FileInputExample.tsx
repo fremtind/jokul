@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
 import { formatBytes } from "../../formatters-util/src";
+import type { SupportLabelType } from "../../input-group-react/src";
 import { ProgressBar } from "../../progress-bar-react/src";
 import { File, FileInput, FileInputFile, FileInputFileState } from "../src";
 import iconBytes from "./iconBytes";
@@ -77,7 +78,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues, choice
             >
                 {files.map(({ state, file, validation }, index) => {
                     let label: string | undefined = undefined;
-                    let labelType: "warning" | "error" | "help" | "success" | undefined = undefined;
+                    let labelType: SupportLabelType | undefined = undefined;
                     let demoState: FileInputFileState = state;
 
                     const isUploading = Boolean(boolValues?.["Laster opp"]) || state === "UPLOADING";
@@ -168,6 +169,7 @@ export default FileInputExample;
 
 export const fileInputExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
 // import { File, FileInput, type FileInputFile, upload } from "@fremtind/jkl-file-input-react";
+// import type { SupportLabelType } from "@fremtind/jkl-input-group-react";
 
 const [files, setFiles] = useState<FileInputFile[]>([]);
 const maxSizeBytes = 8_000_000;
@@ -188,7 +190,7 @@ return (
         >
             {files.map(({ state, file, validation, uploadProgress }, index) => {
                 let label: string | undefined = undefined;
-                let labelType: "warning" | "error" | "help" | "success" | undefined = undefined;
+                let labelType: SupportLabelType | undefined = undefined;
 
                 const isUploading = ;
 

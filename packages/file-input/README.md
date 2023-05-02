@@ -1,6 +1,6 @@
-# [`@fremtind/jkl-file-input`](https://jokul.fremtind.no/komponenter/file-input)
+# [`@fremtind/jkl-file-input`](https://jokul.fremtind.no/komponenter/fileinput)
 
-Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/file-input).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/fileinput).
 
 ## Installasjon
 

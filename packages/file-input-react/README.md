@@ -1,6 +1,6 @@
-# [`@fremtind/jkl-file-input-react`](https://jokul.fremtind.no/komponenter/file-input)
+# [`@fremtind/jkl-file-input-react`](https://jokul.fremtind.no/komponenter/fileinput)
 
-Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/file-input).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/fileinput).
 
 ## Installasjon
 
@@ -18,7 +18,7 @@ import "@fremtind/jkl-button/button.min.css";
 import "@fremtind/jkl-icon-button/icon-button.min.css";
 import "@fremtind/jkl-icons/icons.min.css";
 import "@fremtind/jkl-input-group/input-group.min.css";
-import "@fremtind/jkl-loader/loader.min.css";
+import "@fremtind/jkl-progress-bar/progress-bar.min.css";
 ```
 
 ```scss
@@ -28,5 +28,5 @@ import "@fremtind/jkl-loader/loader.min.css";
 @use "@fremtind/jkl-icon-button/icon-button";
 @use "@fremtind/jkl-icons/icons";
 @use "@fremtind/jkl-input-group/input-group";
-@use "@fremtind/jkl-loader/loader";
+@use "@fremtind/jkl-progress-bar/progress-bar";
 ```

@@ -552,7 +552,7 @@ importers:
       '@fremtind/jkl-icon-button-react': ^3.0.0
       '@fremtind/jkl-icons-react': ^7.0.0
       '@fremtind/jkl-input-group-react': ^2.0.3
-      '@fremtind/jkl-loader-react': ^11.0.0
+      '@fremtind/jkl-progress-bar-react': 5.0.0-alpha.0
       '@fremtind/jkl-react-hooks': ^11.0.0
       classnames: ^2.3.2
     dependencies:
@@ -563,7 +563,7 @@ importers:
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
       '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-input-group-react': link:../input-group-react
-      '@fremtind/jkl-loader-react': link:../loader-react
+      '@fremtind/jkl-progress-bar-react': link:../progress-bar-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
 
@@ -10528,7 +10528,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/runtime': 7.21.0
+      '@babel/runtime': 7.20.7
       aria-query: 4.2.2
       array-includes: 3.1.6
       ast-types-flow: 0.0.7

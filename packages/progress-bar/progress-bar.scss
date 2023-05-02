@@ -26,4 +26,12 @@
         transition-property: width;
         @include jkl.motion("easeInBounceOut", "productive");
     }
+
+    @include jkl.forced-colors-mode {
+        background-color: Canvas;
+
+        &__tracker {
+            background-color: CanvasText;
+        }
+    }
 }

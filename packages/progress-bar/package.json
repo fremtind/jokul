@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul style for progress bar",
-    "homepage": "https://jokul.fremtind.no",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/progress-bar",
     "keywords": [
         "progress bar",
         "jøkul",
@@ -33,6 +33,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "gitHead": "ffcb2803b73ddd6f1dd37bb0eed345ca801bfebb"
+    }
 }

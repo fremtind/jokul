@@ -3,7 +3,7 @@ title: FileInput
 react: file-input-react
 scss: file-input
 group: skjema
-keywords: filopplaster last opp filer
+keywords: filopplaster last opp filer upload fileuploader
 ---
 
 import FileInputExample, { fileInputExampleCode, fileInputExampleKnobs } from "./FileInputExample";
@@ -18,7 +18,7 @@ Opplasting av filer skjer i to trinn:
 1.  Brukeren velger filer, enten med ved å dra de inn i slippfeltet, eller med filutforskeren som er innebygget i nettlesseren.
 2.  En handling fra brukeren starter selve opplastingen av filer.
 
-Komponenten tar seg av punkt 1. Selve opplastingen er opp til deg.
+Komponenten tar seg av punkt 1. Å starte selve opplastingen er opp til deg, men det finnes en `upload`-funksjon du kan importere for å få hjelp med å sende filene til backend og beregne fremdriften.
 
 ## Hjelp brukeren finne riktig fil
 
@@ -52,8 +52,6 @@ Hva skjer når brukeren starter opplastingen av filer? Detaljene er opp til hver
 -   Et endepunkt som leser [_multi-part form data_](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data#a_special_case_sending_files), og som klarer dekode filinformasjonen i skjemaet.
 -   Et sted å lagre filene på disk. Dette trenger ikke være samme maskin som endepunktet.
 -   Ett eller flere endepunkt som kan spørres for å se filer brukeren har delt med oss tidligere, for eksempel tilknyttet en sak.
-
-Et forenklet eksempel som demonstrerer disse punktene finnes i dette GitHub-repoet **TODO**.
 
 ## Visning av filer brukeren har lastet opp tidligere
 
