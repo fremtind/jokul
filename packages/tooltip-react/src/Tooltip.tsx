@@ -9,7 +9,7 @@ import {
     useClick,
     useDismiss,
     useFocus,
-} from "@floating-ui/react-dom-interactions";
+} from "@floating-ui/react";
 import { QuestionIcon } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -32,8 +32,7 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
     const {
         x,
         y,
-        reference,
-        floating,
+        refs,
         placement,
         strategy,
         context,
@@ -61,7 +60,7 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                     type="button"
                     className="jkl-tooltip__button"
                     {...getReferenceProps({
-                        ref: reference,
+                        ref: refs.setReference,
                         onFocus: () => setButtonFocus(true),
                         onBlur: () => setButtonFocus(false),
                         onMouseOver: () => setButtonFocus(true),
@@ -83,7 +82,7 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                             className="jkl-tooltip__content"
                             {...getFloatingProps({
                                 id: tooltipId,
-                                ref: floating,
+                                ref: refs.floating,
                                 style: {
                                     position: strategy,
                                     top: y ?? "",

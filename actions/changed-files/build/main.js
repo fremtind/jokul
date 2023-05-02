@@ -5153,7 +5153,7 @@ var require_common = __commonJS({
             return;
           }
           const self = debug4;
-          const curr = Number(new Date());
+          const curr = Number(/* @__PURE__ */ new Date());
           const ms = curr - (prevTime || curr);
           self.diff = ms;
           self.prev = prevTime;
@@ -5714,7 +5714,7 @@ var require_node = __commonJS({
       if (exports.inspectOpts.hideDate) {
         return "";
       }
-      return new Date().toISOString() + " ";
+      return (/* @__PURE__ */ new Date()).toISOString() + " ";
     }
     function log(...args) {
       return process.stderr.write(util.format(...args) + "\n");
