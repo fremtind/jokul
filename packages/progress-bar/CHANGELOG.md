@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2023-05-02)
+
+### Features
+
+- gjeninnfør progressbar siden den trengs i filopplaster ([b317af7](https://github.com/fremtind/jokul/commit/b317af761ef126871ce8359821cacb2c05072fe1))
+
 ## 4.0.0 (2021-10-21)
 
 ### Features

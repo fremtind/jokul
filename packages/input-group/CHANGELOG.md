@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0 (2023-05-02)
+
+### Features
+
+- legg til mulighet for andre statuser i supportlabel ([403894c](https://github.com/fremtind/jokul/commit/403894c0a0d1c645682a0e5a2973deb0ca804ce6))
+
 ## 2.0.3 (2023-03-21)
 
 ### Bug Fixes

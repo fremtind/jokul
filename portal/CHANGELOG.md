@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [18.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@18.0.10...@fremtind/portal@18.1.0) (2023-05-02)
+
+### Bug Fixes
+
+- primary på label, og en liten todo ([92afc31](https://github.com/fremtind/jokul/commit/92afc310a7493b7d1fcf411e1338c14bf6eac9b9))
+
+### Features
+
+- gjenbruk preview til visning av allerede opplastede filer ([4578726](https://github.com/fremtind/jokul/commit/457872674ed2f78e184219be65af1a32607c8476))
+
 ## [18.0.7](https://github.com/fremtind/jokul/compare/@fremtind/portal@18.0.6...@fremtind/portal@18.0.7) (2023-03-30)
 
 ### Bug Fixes
