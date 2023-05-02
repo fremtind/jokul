@@ -55,7 +55,9 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: Canvas);
     }
 
-    &--error {
+    &--error,
+    &--warning,
+    &--success {
         color: var(--jkl-label-error-color);
 
         .jkl-form-support-label__icon {

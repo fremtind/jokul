@@ -1,0 +1,20 @@
+---
+title: ProgressBar
+react: "progress-bar-react"
+scss: "progress-bar"
+group: annet
+---
+
+import { ProgressBarExample, progressBarExampleCode, progressBarExampleKnobs } from "./ProgressBarExample";
+
+<Ingress>Fremdriftsindikator kan brukes for å vise brukeren hvor langt man er kommet i en lengre operasjon.</Ingress>
+
+<ComponentExample component={ProgressBarExample} knobs={progressBarExampleKnobs} codeExample={progressBarExampleCode} />
+
+## Når bruker vi ProgressBar?
+
+Vi bruker en fremdriftsindikator i de tilfellene hvor vi ville brukt en [Loader](/komponenter/loader), men hvor vi trenger å gi tilbakemelding til brukeren om hvor langt prosessen har kommet.
+
+For eksempel:
+
+-   [Filopplasting](/komponenter/fileinput), der vi forventer store filer som kan ta tid å laste opp. Filopplasteren har en hjelpefunksjon for å beregne verdien som skal vises i fremdriftsindikatoren.

@@ -1,0 +1,130 @@
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/jkl/colors";
+
+@include jkl.light-mode-variables {
+    --jkl-file-color: var(--jkl-color);
+    --jkl-file-thumbnail-background-color: #{jkl.$color-sand};
+    --jkl-file-border-color: #{jkl.$color-dis};
+    --jkl-file-border-color-active: #{jkl.$color-granitt};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-file-color: var(--jkl-color);
+    --jkl-file-thumbnail-background-color: #{jkl.$color-stein};
+    --jkl-file-border-color: #{jkl.$color-dis};
+    --jkl-file-border-color-active: #{jkl.$color-snohvit};
+}
+
+@include jkl.comfortable-density-variables {
+    --jkl-file-padding: #{jkl.$spacing-16} #{jkl.$spacing-12};
+    --jkl-file-thumbnail-size: #{jkl.rem(64px)};
+    --jkl-file-gap: #{jkl.$spacing-16};
+}
+
+@include jkl.compact-density-variables {
+    --jkl-file-padding: #{jkl.$spacing-12} #{jkl.$spacing-8};
+    --jkl-file-thumbnail-size: #{jkl.rem(44px)};
+    --jkl-file-gap: #{jkl.$spacing-8};
+}
+
+.jkl-file {
+    @include jkl.reset-outline;
+    @include jkl.text-style("small");
+    @include jkl.motion("standard", "snappy");
+    transition-property: background-color, border-color, color;
+
+    color: var(--jkl-file-color);
+    border: 1px var(--jkl-file-border-color) solid;
+    padding: var(--jkl-file-padding);
+    margin: 0;
+    min-width: jkl.rem(240px);
+
+    display: flex;
+    flex-flow: nowrap row;
+    gap: var(--jkl-file-gap);
+    align-items: center;
+
+    &[href] {
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+
+        &:hover .jkl-file__description {
+            @include jkl.no-grow-bold;
+        }
+
+        @include jkl.keyboard-navigation {
+            &:focus {
+                outline: jkl.rem(2px) solid var(--jkl-file-border-color-active);
+            }
+        }
+
+        @include jkl.forced-colors-mode {
+            outline: revert;
+            border: jkl.rem(2px) solid LinkText;
+        }
+    }
+
+    &--error {
+        background-color: colors.varslingsfarge("feil");
+    }
+
+    &--warning {
+        background-color: colors.varslingsfarge("advarsel");
+    }
+
+    &--error,
+    &--warning {
+        color: jkl.$color-granitt;
+        border-color: var(--jkl-file-border-color-active);
+    }
+
+    &__thumbnail {
+        width: var(--jkl-file-thumbnail-size);
+        height: var(--jkl-file-thumbnail-size);
+        flex: 0 0 var(--jkl-file-thumbnail-size);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object-fit: contain;
+        opacity: 1;
+        border-radius: jkl.rem(4px);
+
+        @include jkl.motion;
+        transition-property: opacity;
+
+        &--selected {
+            opacity: 0.7;
+        }
+
+        &--uploading {
+            opacity: 0.4;
+        }
+    }
+
+    &__thumbnail:not(img) {
+        background: var(--jkl-file-thumbnail-background-color);
+    }
+
+    &__file-info {
+        flex: 1 1 auto;
+        overflow-wrap: break-word;
+    }
+
+    &__title {
+        @include jkl.text-style("heading-5");
+        overflow-wrap: anywhere;
+    }
+
+    &__description {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: jkl.$spacing-12;
+        align-items: center;
+        justify-content: flex-start;
+
+        &-slot {
+            width: 100%;
+        }
+    }
+}

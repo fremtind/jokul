@@ -5,6 +5,7 @@
         "isolatedModules": true,
         "lib": [
             "dom",
+            "dom.iterable",
             "ESNext.Array",
             "ES2019.Object",
             "ES2021",

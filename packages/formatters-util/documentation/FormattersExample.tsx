@@ -11,6 +11,7 @@ import {
     formatOrganisasjonsnummer,
     formatTelefonnummer,
     formatValuta,
+    formatBytes,
 } from "../src";
 
 export const FormattersExample: FC<ExampleComponentProps> = () => (
@@ -48,6 +49,8 @@ export const FormattersExample: FC<ExampleComponentProps> = () => (
         <DescriptionDetail>{formatDate(new Date())}</DescriptionDetail>
         <DescriptionTerm>Organisasjonsnummer</DescriptionTerm>
         <DescriptionDetail>{formatOrganisasjonsnummer("915651232")}</DescriptionDetail>
+        <DescriptionTerm>Bytes</DescriptionTerm>
+        <DescriptionDetail>{formatBytes(8_888_000_000)}</DescriptionDetail>
     </DescriptionList>
 );
 
@@ -85,5 +88,7 @@ export const formattersExampleCode: CodeExample = `
     <DescriptionDetail>{formatDate(new Date())}</DescriptionDetail>
     <DescriptionTerm>Organisasjonsnummer</DescriptionTerm>
     <DescriptionDetail>{formatOrganisasjonsnummer("915651232")}</DescriptionDetail>
+    <DescriptionTerm>Bytes</DescriptionTerm>
+    <DescriptionDetail>{formatBytes(8_888_000_000)}</DescriptionDetail>
 </DescriptionList>
 `;

@@ -1,0 +1,69 @@
+---
+title: FileInput
+react: file-input-react
+scss: file-input
+group: skjema
+keywords: filopplaster last opp filer upload fileuploader
+---
+
+import FileInputExample, { fileInputExampleCode, fileInputExampleKnobs } from "./FileInputExample";
+import FilePreviewExample, { filePreviewExampleCode, filePreviewExampleKnobs } from "./FilePreviewExample";
+
+<Ingress>Filinput lar brukeren dele filer med oss, for eksempel dokumentasjon i en sak.</Ingress>
+
+<ComponentExample component={FileInputExample} codeExample={fileInputExampleCode} knobs={fileInputExampleKnobs} />
+
+Opplasting av filer skjer i to trinn:
+
+1.  Brukeren velger filer, enten med ved å dra de inn i slippfeltet, eller med filutforskeren som er innebygget i nettlesseren.
+2.  En handling fra brukeren starter selve opplastingen av filer.
+
+Komponenten tar seg av punkt 1. Å starte selve opplastingen er opp til deg, men det finnes en `upload`-funksjon du kan importere for å få hjelp med å sende filene til backend og beregne fremdriften.
+
+## Hjelp brukeren finne riktig fil
+
+Ofte ønsker vi at brukeren skal kunne dele bilder og PDF.
+
+Komponenten bør konfigureres slik at kun filer av ønsket type kan markeres i filvelgeren.
+
+<figure>
+    <picture className="jkl-portal-image">
+        <source
+            media="(prefers-color-scheme: dark)"
+            srcset="/assets/documentation/file-input/macos-filvelger-morkt.png"
+        />
+        <img
+            className="jkl-portal-image__img"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            src="/assets/documentation/file-input/macos-filvelger-lyst.png"
+        />
+    </picture>
+    <figcaption>Filvelgeren på macOS. I dette tilfellet kan ikke det komprimerte arkivet velges.</figcaption>
+</figure>
+
+Merk at dette ikke vil hindre en bruker i å dra en vilkårlig fil inn i slippfeltet i komponenten. Hvis dette skjer vil komponenten automatisk merke filen med valideringsfeil.
+
+## Håndtering av delte filer
+
+Hva skjer når brukeren starter opplastingen av filer? Detaljene er opp til hvert enkelt team, men grovt sett trengs:
+
+-   Et endepunkt som leser [_multi-part form data_](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data#a_special_case_sending_files), og som klarer dekode filinformasjonen i skjemaet.
+-   Et sted å lagre filene på disk. Dette trenger ikke være samme maskin som endepunktet.
+-   Ett eller flere endepunkt som kan spørres for å se filer brukeren har delt med oss tidligere, for eksempel tilknyttet en sak.
+
+Det finnes en `upload`-funksjon du kan importere fra denne pakka for å få hjelp med å sende filene til backend og beregne fremdriften.
+
+## Visning av filer brukeren har lastet opp tidligere
+
+Bruk gjerne samme komponent til forhåndsvisning av filer på siden for øvrig, som i filopplasteren.
+
+<ComponentExample
+    title="Gjenbruk av forhåndsvisning"
+    component={FilePreviewExample}
+    codeExample={filePreviewExampleCode}
+    knobs={filePreviewExampleKnobs}
+/>
+
+Gitt en URL vil komponenten rendres som en lenke, slik at brukeren kan klikke seg videre til å se selve filen i en ny fane.
