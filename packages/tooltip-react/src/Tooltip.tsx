@@ -36,6 +36,7 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
         placement,
         strategy,
         context,
+        isPositioned,
         middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
     } = useFloating({
         open,
@@ -82,11 +83,11 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                             className="jkl-tooltip__content"
                             {...getFloatingProps({
                                 id: tooltipId,
-                                ref: refs.floating,
+                                ref: refs.setFloating,
                                 style: {
                                     position: strategy,
-                                    top: y ?? "",
-                                    left: x ?? "",
+                                    top: isPositioned ? y : "",
+                                    left: isPositioned ? x : "",
                                 },
                             })}
                         >
@@ -102,8 +103,8 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                                 className="jkl-tooltip__arrow"
                                 ref={arrowElement}
                                 style={{
-                                    left: arrowX != null ? `${arrowX}px` : "",
-                                    top: arrowY != null ? `${arrowY}px` : "",
+                                    left: isPositioned ? `${arrowX}px` : "",
+                                    top: isPositioned ? `${arrowY}px` : "",
                                 }}
                             />
                         </motion.span>
