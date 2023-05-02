@@ -187,10 +187,10 @@ $_text-input-selection-color--inverted: color.scale(
             &::after {
                 content: "";
                 position: absolute;
-                top: var(--jkl-text-input-action-button-focus-position);
-                right: var(--jkl-text-input-action-button-focus-position);
-                bottom: var(--jkl-text-input-action-button-focus-position);
-                left: var(--jkl-text-input-action-button-focus-position);
+                inset: var(--jkl-text-input-action-button-focus-position)
+                    var(--jkl-text-input-action-button-focus-position)
+                    var(--jkl-text-input-action-button-focus-position)
+                    var(--jkl-text-input-action-button-focus-position);
                 box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-text-input-focus-color);
             }
         }

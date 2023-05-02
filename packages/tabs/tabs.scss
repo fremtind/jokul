@@ -90,10 +90,7 @@
         &::after {
             content: "";
             position: absolute;
-            top: jkl.rem(2px);
-            right: jkl.rem(6px); // Hold avstand til neste fane
-            bottom: jkl.rem(1px);
-            left: jkl.rem(-2px);
+            inset: jkl.rem(2px) jkl.rem(6px) jkl.rem(1px) jkl.rem(-2px); // Hold avstand til neste fane
             box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-tab-focus-border-color);
         }
 

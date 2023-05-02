@@ -85,18 +85,12 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     }
 
     &::after {
-        top: jkl.rem(-2px);
-        right: jkl.rem(-2px);
-        bottom: jkl.rem(-2px);
-        left: jkl.rem(-2px);
+        inset: jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px);
         box-shadow: 0 0 0 jkl.rem(2px) currentColor;
     }
 
     &::before {
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        inset: 0;
         box-shadow: 0 jkl.rem(2px) jkl.rem(30px) rgb(0 0 0 / 10%);
     }
 
