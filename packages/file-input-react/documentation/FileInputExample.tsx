@@ -12,12 +12,17 @@ export const fileInputExampleKnobs: ExampleKnobsProps = {
         {
             name: "Variant",
             values: ["flexible", "small"],
-            defaultValue: 1,
+            defaultValue: 0,
         },
     ],
 };
 
 const FakeProgressBar: FC = () => {
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+
     const [progress, setProgress] = useState(0);
     useEffect(() => {
         setTimeout(() => {
@@ -25,7 +30,9 @@ const FakeProgressBar: FC = () => {
         }, 20);
     }, [progress, setProgress]);
 
-    return <ProgressBar aria-valuenow={progress} />;
+    const isTestMode = hasMounted && window.location.search === "?mode=e2e" ? "e2e" : undefined;
+
+    return <ProgressBar aria-valuenow={isTestMode ? 50 : progress} />;
 };
 
 export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
