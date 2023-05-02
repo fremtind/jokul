@@ -23,14 +23,14 @@
     },
     "dependencies": {
         "stylelint-config-prettier": "^9.0.5",
-        "stylelint-config-standard": "^29.0.0",
-        "stylelint-config-standard-scss": "^6.1.0"
+        "stylelint-config-standard": "^33.0.0",
+        "stylelint-config-standard-scss": "^9.0.0"
     },
     "peerDependencies": {
-        "stylelint": "^14.0.0"
+        "stylelint": "^15.0.0"
     },
     "devDependencies": {
-        "stylelint": "^14.16.1"
+        "stylelint": "^15.6.0"
     },
     "repository": {
         "type": "git",
