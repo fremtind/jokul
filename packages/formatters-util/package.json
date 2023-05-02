@@ -42,7 +42,7 @@
     "devDependencies": {
         "@fremtind/jkl-button": "^10.0.3",
         "@fremtind/jkl-text-input": "^11.0.3",
-        "react-hook-form": "^7.41.3"
+        "react-hook-form": "^7.43.9"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

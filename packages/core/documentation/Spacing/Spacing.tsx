@@ -8,7 +8,7 @@ function stringLiteralArray<T extends string>(a: T[]) {
 
 const spacings = stringLiteralArray(["2", "4", "8", "12", "16", "24", "32", "40", "64", "104", "168"]);
 
-type Spacing = typeof spacings[number];
+type Spacing = (typeof spacings)[number];
 
 const SpacingTableRow: React.FC<{ spacing: Spacing }> = ({ spacing }) => {
     const getComputedProperty = (node: HTMLElement | null, cssProperty: string) => {
