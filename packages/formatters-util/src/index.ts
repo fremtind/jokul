@@ -11,6 +11,7 @@ export {
 } from "./util/registerWithMask";
 
 export { formatAvstand } from "./avstand/formatAvstand";
+export { formatBytes } from "./bytes/formatBytes";
 export { formatDate } from "./date/formatDate";
 export { FODSELSNUMMER_REGEX, formatFodselsnummer } from "./fodselsnummer/formatFodselsnummer";
 export { ORGANISASJONSNUMMER_REGEX, formatOrganisasjonsnummer } from "./organisasjonsnummer/formatOrganisasjonsnummer";

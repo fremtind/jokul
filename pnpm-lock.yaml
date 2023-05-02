@@ -537,6 +537,36 @@ importers:
       '@fremtind/jkl-validators-util': link:../validators-util
       classnames: 2.3.2
 
+  packages/file-input:
+    specifiers:
+      '@fremtind/jkl-core': ^12.0.2
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/file-input-react:
+    specifiers:
+      '@fremtind/jkl-button-react': ^13.0.0
+      '@fremtind/jkl-core': ^12.0.2
+      '@fremtind/jkl-file-input': ^1.0.0-alpha.0
+      '@fremtind/jkl-formatters-util': ^4.0.8
+      '@fremtind/jkl-icon-button-react': ^3.0.0
+      '@fremtind/jkl-icons-react': ^7.0.0
+      '@fremtind/jkl-input-group-react': ^2.0.3
+      '@fremtind/jkl-progress-bar-react': 5.0.0-alpha.0
+      '@fremtind/jkl-react-hooks': ^11.0.0
+      classnames: ^2.3.2
+    dependencies:
+      '@fremtind/jkl-button-react': link:../button-react
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-file-input': link:../file-input
+      '@fremtind/jkl-formatters-util': link:../formatters-util
+      '@fremtind/jkl-icon-button-react': link:../icon-button-react
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-input-group-react': link:../input-group-react
+      '@fremtind/jkl-progress-bar-react': link:../progress-bar-react
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      classnames: 2.3.2
+
   packages/footer:
     specifiers:
       '@fremtind/jkl-core': ^12.0.3
@@ -654,12 +684,14 @@ importers:
   packages/input-group-react:
     specifiers:
       '@fremtind/jkl-core': ^12.0.3
+      '@fremtind/jkl-icons-react': ^7.1.2
       '@fremtind/jkl-input-group': ^2.0.3
       '@fremtind/jkl-react-hooks': ^11.1.1
       '@fremtind/jkl-tooltip-react': ^2.0.6
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-input-group': link:../input-group
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-tooltip-react': link:../tooltip-react
@@ -734,6 +766,18 @@ importers:
       '@fremtind/jkl-message-box': link:../message-box
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
+
+  packages/progress-bar:
+    specifiers:
+      '@fremtind/jkl-core': ^12.0.3
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/progress-bar-react:
+    specifiers:
+      '@fremtind/jkl-progress-bar': ^5.0.0-alpha.0
+    dependencies:
+      '@fremtind/jkl-progress-bar': link:../progress-bar
 
   packages/radio-button:
     specifiers:
@@ -988,6 +1032,7 @@ importers:
       '@fremtind/jkl-description-list-react': ^7.0.3
       '@fremtind/jkl-expand-button-react': ^5.0.7
       '@fremtind/jkl-feedback-react': ^16.0.11
+      '@fremtind/jkl-file-input-react': ^1.0.0-alpha.0
       '@fremtind/jkl-footer-react': ^5.0.9
       '@fremtind/jkl-formatters-util': ^4.0.14
       '@fremtind/jkl-hamburger-react': ^11.0.4
@@ -999,6 +1044,7 @@ importers:
       '@fremtind/jkl-loader-react': ^11.0.3
       '@fremtind/jkl-logo-react': ^12.0.4
       '@fremtind/jkl-message-box-react': ^10.0.7
+      '@fremtind/jkl-progress-bar-react': 5.0.0-alpha.0
       '@fremtind/jkl-radio-button-react': ^10.1.7
       '@fremtind/jkl-react-hooks': ^11.1.1
       '@fremtind/jkl-select-react': ^13.0.11
@@ -1062,6 +1108,7 @@ importers:
       '@fremtind/jkl-description-list-react': link:../packages/description-list-react
       '@fremtind/jkl-expand-button-react': link:../packages/expand-button-react
       '@fremtind/jkl-feedback-react': link:../packages/feedback-react
+      '@fremtind/jkl-file-input-react': link:../packages/file-input-react
       '@fremtind/jkl-footer-react': link:../packages/footer-react
       '@fremtind/jkl-formatters-util': link:../packages/formatters-util
       '@fremtind/jkl-hamburger-react': link:../packages/hamburger-react
@@ -1073,6 +1120,7 @@ importers:
       '@fremtind/jkl-loader-react': link:../packages/loader-react
       '@fremtind/jkl-logo-react': link:../packages/logo-react
       '@fremtind/jkl-message-box-react': link:../packages/message-box-react
+      '@fremtind/jkl-progress-bar-react': link:../packages/progress-bar-react
       '@fremtind/jkl-radio-button-react': link:../packages/radio-button-react
       '@fremtind/jkl-react-hooks': link:../packages/react-hooks
       '@fremtind/jkl-select-react': link:../packages/select-react
@@ -10480,7 +10528,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/runtime': 7.21.0
+      '@babel/runtime': 7.20.7
       aria-query: 4.2.2
       array-includes: 3.1.6
       ast-types-flow: 0.0.7

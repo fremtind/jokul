@@ -7,24 +7,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- gjør NavCard til et blokkelement ([6721de5](https://github.com/fremtind/jokul/commit/6721de548bc19b05f4daf066f00a966709f24e44)), closes [#3490](https://github.com/fremtind/jokul/issues/3490)
+-   gjør NavCard til et blokkelement ([6721de5](https://github.com/fremtind/jokul/commit/6721de548bc19b05f4daf066f00a966709f24e44)), closes [#3490](https://github.com/fremtind/jokul/issues/3490)
 
 ## [9.0.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@9.0.0...@fremtind/jkl-card@9.0.1) (2023-03-21)
 
 ### Bug Fixes
 
-- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+-   sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
 
 # 9.0.0 (2023-03-20)
 
 ### Bug Fixes
 
-- fjern unødvendig bruk av flex ([b4c9fcd](https://github.com/fremtind/jokul/commit/b4c9fcd08eb07b267a737030c27ab92e5683b066)), closes [#3451](https://github.com/fremtind/jokul/issues/3451)
+-   fjern unødvendig bruk av flex ([b4c9fcd](https://github.com/fremtind/jokul/commit/b4c9fcd08eb07b267a737030c27ab92e5683b066)), closes [#3451](https://github.com/fremtind/jokul/issues/3451)
 
 ### BREAKING CHANGES
 
-- Om du har inline-elementer som direkte children til kortene vil disse ikke lenger ha display:block.
-Wrap de i en div om du trenger.
+-   Om du har inline-elementer som direkte children til kortene vil disse ikke lenger ha display:block.
+    Wrap de i en div om du trenger.
 
 ## 8.0.3 (2023-03-01)
 

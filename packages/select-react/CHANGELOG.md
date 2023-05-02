@@ -7,13 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- sørg for at Select ikke går i loop hvis value ikke finnes i items ([35b951f](https://github.com/fremtind/jokul/commit/35b951f7a1fe7089718e92f3a3f7cafbf393e48f)), closes [#3479](https://github.com/fremtind/jokul/issues/3479)
+-   sørg for at Select ikke går i loop hvis value ikke finnes i items ([35b951f](https://github.com/fremtind/jokul/commit/35b951f7a1fe7089718e92f3a3f7cafbf393e48f)), closes [#3479](https://github.com/fremtind/jokul/issues/3479)
 
 ## [13.0.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@13.0.5...@fremtind/jkl-select-react@13.0.8) (2023-03-07)
 
 ### Bug Fixes
 
-- ikke kall onChange om value endres utenfra ([27dce68](https://github.com/fremtind/jokul/commit/27dce680c873ce79bd664f39b30c1ffa6d9b1478)), closes [#3439](https://github.com/fremtind/jokul/issues/3439)
+-   ikke kall onChange om value endres utenfra ([27dce68](https://github.com/fremtind/jokul/commit/27dce680c873ce79bd664f39b30c1ffa6d9b1478)), closes [#3439](https://github.com/fremtind/jokul/issues/3439)
 
 ## 13.0.5 (2023-02-27)
 

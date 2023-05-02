@@ -1,0 +1,37 @@
+@use "~@fremtind/jkl-core/jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-progress-background-color: #{jkl.$color-dis};
+    --jkl-progress-tracker-color: #{jkl.$color-stein};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-progress-background-color: #{jkl.$color-stein};
+    --jkl-progress-tracker-color: #{jkl.$color-dis};
+}
+
+.jkl-progress-bar {
+    --jkl-progress-bar-height: #{jkl.rem(4px)};
+
+    background-color: var(--jkl-progress-background-color);
+    border-radius: jkl.rem(100px);
+    height: var(--jkl-progress-bar-height);
+    width: 100%;
+    overflow: hidden;
+
+    &__tracker {
+        display: block;
+        height: var(--jkl-progress-bar-height);
+        background-color: var(--jkl-progress-tracker-color);
+        transition-property: width;
+        @include jkl.motion("easeInBounceOut", "productive");
+    }
+
+    @include jkl.forced-colors-mode {
+        background-color: Canvas;
+
+        &__tracker {
+            background-color: CanvasText;
+        }
+    }
+}

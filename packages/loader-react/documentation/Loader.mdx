@@ -61,6 +61,8 @@ Dersom handlingen vanligvis tar under et halvt sekund, men _kan_ ta lenger tid e
     <DoDontExample type="dont" description="Vis et kort glimt av en loader" content={<QuickLoaderExampleDont />} />
 </Grid>
 
+Gi brukeren tilbakemelding dersom handlingen tar lang tid (over fem sekunder). Om du har en målbar prosess, for eksempel [filopplasting](/komponenter/fileinput), bør du gi brukeren tilbakemelding på hvor langt prosessen har kommet, og hvor langt de har igjen. Se [ProgressBar](/komponenter/progressbar).
+
 ## Skeleton loader
 
 En _skeleton loader_ er egentlig en samling med omriss som likner noenlunde på hva som vil vises når lastingen er ferdig. Her trenger det ikke være pixelperfekt. Poenget er at man skal få en bedre brukeropplevelse når siden etter hvert bytter ut lasteindikatoren med innholdet.
