@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.1.0 (2023-05-02)
+
+### Bug Fixes
+
+- rett opp i format på formatBytes ([50bb520](https://github.com/fremtind/jokul/commit/50bb5205a78cc134fd4db1e37699c608f61c42ec))
+
+### Features
+
+- ny formateringsfunksjon formatBytes ([27476fa](https://github.com/fremtind/jokul/commit/27476fa28d8982adcbe6f0474e183e4c6711c0d4))
+
 # [4.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@3.0.22...@fremtind/jkl-formatters-util@4.0.0) (2023-01-30)
 
 ### Features
