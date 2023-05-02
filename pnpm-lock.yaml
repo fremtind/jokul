@@ -40,6 +40,7 @@ importers:
       '@types/node': ^18.16.3
       '@types/react': ^18.2.0
       '@types/react-dom': ^18.2.1
+      '@types/react-is': ^18.2.0
       '@types/react-syntax-highlighter': ^15.5.6
       '@types/testing-library__jest-dom': ^5.14.5
       '@typescript-eslint/eslint-plugin': ^5.59.2
@@ -85,6 +86,7 @@ importers:
       prompt: ^1.3.0
       react: ^18.2.0
       react-dom: ^18.2.0
+      react-is: ^18.2.0
       react-syntax-highlighter: ^15.5.0
       replace-in-file: ^6.3.5
       rimraf: ^3.0.2
@@ -96,6 +98,7 @@ importers:
       nodemon: 2.0.22
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-is: 18.2.0
     devDependencies:
       '@commitlint/cli': 17.6.1
       '@commitlint/config-conventional': 17.6.1
@@ -111,6 +114,7 @@ importers:
       '@types/node': 18.16.3
       '@types/react': 18.2.0
       '@types/react-dom': 18.2.1
+      '@types/react-is': 18.2.0
       '@types/react-syntax-highlighter': 15.5.6
       '@types/testing-library__jest-dom': 5.14.5
       '@typescript-eslint/eslint-plugin': 5.59.2_nr77geh6egtp3eynhvdfit4gsu
@@ -384,20 +388,16 @@ importers:
       '@fremtind/jkl-icon-button-react': ^3.0.7
       '@fremtind/jkl-icons-react': ^7.1.2
       '@fremtind/jkl-react-hooks': ^11.1.1
-      '@types/react-is': ^17.0.4
       classnames: ^2.3.2
       framer-motion: ^7.10.3
-      react-is: ^18.2.0
     dependencies:
       '@floating-ui/react': 0.24.0
       '@fremtind/jkl-contextual-menu': link:../contextual-menu
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
-      '@types/react-is': 17.0.4
       classnames: 2.3.2
       framer-motion: 7.10.3
-      react-is: 18.2.0
     devDependencies:
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
 
@@ -6093,25 +6093,17 @@ packages:
       '@types/react': 18.2.0
     dev: true
 
-  /@types/react-is/17.0.4:
-    resolution: {integrity: sha512-FLzd0K9pnaEvKz4D1vYxK9JmgQPiGk1lu23o1kqGsLeT0iPbRSF7b76+S5T9fD8aRa0B8bY7I/3DebEj+1ysBA==}
+  /@types/react-is/18.2.0:
+    resolution: {integrity: sha512-1vz2yObaQkLL7YFe/pme2cpvDsCwI1WXIfL+5eLz0MI9gFG24Re16RzUsI8t9XZn9ZWvgLNDrJBmrqXJO7GNQQ==}
     dependencies:
-      '@types/react': 17.0.58
-    dev: false
+      '@types/react': 18.2.0
+    dev: true
 
   /@types/react-syntax-highlighter/15.5.6:
     resolution: {integrity: sha512-i7wFuLbIAFlabTeD2I1cLjEOrG/xdMa/rpx2zwzAoGHuXJDhSqp9BSfDlMHSh9JSuNfxHk9eEmMX6D55GiyjGg==}
     dependencies:
       '@types/react': 18.2.0
     dev: true
-
-  /@types/react/17.0.58:
-    resolution: {integrity: sha512-c1GzVY97P0fGxwGxhYq989j4XwlcHQoto6wQISOC2v6wm3h0PORRWJFHlkRjfGsiG3y1609WdQ+J+tKxvrEd6A==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.3
-      csstype: 3.1.2
-    dev: false
 
   /@types/react/18.2.0:
     resolution: {integrity: sha512-0FLj93y5USLHdnhIhABk83rm8XEGA7kH3cr+YUlvxoUGp1xNt/DINUMvqPxLyOQMzLmZe8i4RTHbvb8MC7NmrA==}
