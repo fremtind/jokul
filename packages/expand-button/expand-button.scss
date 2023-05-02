@@ -38,9 +38,8 @@
         transition: box-shadow $_animation-timing;
         content: "";
         position: absolute;
-        inset: -($_expand-button-border-width) -($_expand-button-border-width) -($_expand-button-border-width) -(
-                $_expand-button-border-width
-            );
+        inset: (-($_expand-button-border-width)) (-($_expand-button-border-width)) (-($_expand-button-border-width))
+            (-($_expand-button-border-width));
     }
 
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
