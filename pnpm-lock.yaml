@@ -12,7 +12,7 @@ patchedDependencies:
     hash: e6umj5xys57o3rbg6x3acuktgm
     path: patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch
   cz-lerna-changelog@2.0.3:
-    hash: rwhr2kgabnya2gbdqqa3lsmu4i
+    hash: d5y7rfk27oxlky7rx4ggfyqgva
     path: patches/cz-lerna-changelog@2.0.3.patch
   gulp-sass@5.1.0:
     hash: z2duu6muooayewj4qeaynjtnaa
@@ -122,7 +122,7 @@ importers:
       cssnano: 5.1.14_postcss@8.4.20
       cssnano-preset-lite: 2.1.3_postcss@8.4.20
       cypress: 11.2.0
-      cz-lerna-changelog: 2.0.3_rwhr2kgabnya2gbdqqa3lsmu4i_lerna@6.3.0
+      cz-lerna-changelog: 2.0.3_d5y7rfk27oxlky7rx4ggfyqgva_lerna@6.3.0
       esbuild: 0.16.12
       esbuild-plugin-browserslist: 0.6.0_yd4hzbpwgxd6db4cqpm3mwjyxu
       esbuild-sass-plugin: 2.4.5
@@ -9223,7 +9223,7 @@ packages:
       word-wrap: 1.1.0
     dev: true
 
-  /cz-lerna-changelog/2.0.3_rwhr2kgabnya2gbdqqa3lsmu4i_lerna@6.3.0:
+  /cz-lerna-changelog/2.0.3_d5y7rfk27oxlky7rx4ggfyqgva_lerna@6.3.0:
     resolution: {integrity: sha512-Sdksh3LknHZqWmOKjCd/onlL48CtLXyQKLUDywSAwAzACc9ZW4K0wrnNQ1090DQJa5miemyCaDjBdhx+LryiGw==}
     peerDependencies:
       lerna: ^3.0.0
