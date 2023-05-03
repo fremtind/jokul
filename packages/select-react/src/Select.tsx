@@ -165,16 +165,15 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
     const unifiedSelectRef = useCallback(
         (instance: HTMLSelectElement | null) => {
             selectRef.current = instance;
-            if (instance) {
-                setSelectedValue(instance.value);
-            }
-
             if (forwardedSelectRef) {
                 if (typeof forwardedSelectRef === "function") {
                     forwardedSelectRef(instance);
                 } else {
                     forwardedSelectRef.current = instance;
                 }
+            }
+            if (instance) {
+                setSelectedValue(instance.value);
             }
         },
         [selectRef, forwardedSelectRef],
