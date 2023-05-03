@@ -3,6 +3,7 @@ import { act, fireEvent, render, RenderOptions, waitFor } from "@testing-library
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Select } from ".";
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
@@ -159,6 +160,33 @@ describe("Select", () => {
         expect(getByTestId("jkl-select__button")).toHaveTextContent("B");
         expect(getByTestId("jkl-native-select")).toHaveValue("B");
         expect(onChange).toHaveBeenCalledTimes(0);
+    });
+
+    it("should show the defaultValue set by react-hook-form (#2924, #3500)", async () => {
+        type FormValues = {
+            stilling: string;
+        };
+
+        function WrappedSelect(props: { defaultValues: FormValues }) {
+            const { register } = useForm<FormValues>({
+                defaultValues: props.defaultValues,
+            });
+            return (
+                <form>
+                    <Select
+                        {...register("stilling", { required: "Du må oppgi eierens stilling" })}
+                        items={["Designer", "Utvikler", "Tester", "Leder", "Annet"]}
+                        label="Stilling"
+                    />
+                </form>
+            );
+        }
+
+        const defaultValue = "Tester";
+        const { getByTestId } = setup(<WrappedSelect defaultValues={{ stilling: defaultValue }} />);
+
+        expect(getByTestId("jkl-native-select")).toHaveValue(defaultValue); // Semantisk valgt
+        expect(getByTestId("jkl-select__button").textContent).toBe(defaultValue); // Visuelt valgt
     });
 
     it("should change the controlled value of the select when clicking on a option", async () => {
