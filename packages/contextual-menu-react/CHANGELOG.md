@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contextual-menu-react@1.0.5...@fremtind/jkl-contextual-menu-react@2.0.0) (2023-05-03)
+
+### chore
+
+- gjør react-is til en peerDependency ([a6e9011](https://github.com/fremtind/jokul/commit/a6e9011612d99c230e195cfed5160985037558d8))
+
+### BREAKING CHANGES
+
+- Du må installere react-is og @types/react-is selv
+
 ## 1.0.2 (2023-03-20)
 
 ### Bug Fixes

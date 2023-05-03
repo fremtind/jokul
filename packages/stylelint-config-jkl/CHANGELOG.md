@@ -1,7 +1,17 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 7.0.0 (2023-05-03)
+
+### chore
+
+- oppdater stylelint ([5f73b8f](https://github.com/fremtind/jokul/commit/5f73b8fbfb3585c05132b3c9f5f70f77226ea200))
+
+### BREAKING CHANGES
+
+- Dropper støtte for Stylelint 14, og legger til nye lintregler
 
 # 6.0.0 (2022-11-01)
 
