@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [13.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@13.0.12...@fremtind/jkl-select-react@13.0.13) (2023-05-03)
+
+### Bug Fixes
+
+- rett opp timingproblem for defaultValue ([e520625](https://github.com/fremtind/jokul/commit/e5206259e9cf4c25fe306adbacc77d24edd4ee7b)), closes [#3500](https://github.com/fremtind/jokul/issues/3500)
+
 ## 13.0.11 (2023-04-03)
 
 ### Bug Fixes
