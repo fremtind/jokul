@@ -100,7 +100,7 @@ describe("Select", () => {
         expect(getByTestId("jkl-native-select")).toHaveValue("A");
     });
 
-    it("should not get stuck in a loop if value is not in items", () => {
+    it("should not get stuck in a loop if value is not in items (#3479)", () => {
         const onChange = jest.fn();
         const { getByTestId } = setup(
             <Select label="Items" name="items" items={["A", "B", "C"]} value="D" onChange={onChange} />,
