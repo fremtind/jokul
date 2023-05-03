@@ -26,7 +26,7 @@
     @return url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='9.5' fill='#{$c1}'/%3E%3Cpath d='M4.75 11l2.35 2.36 7.84-7.84' stroke='#{$c2}' stroke-width='1.5'/%3E%3C/svg%3E%0A");
 }
 
-$_item-space-between: jkl.$spacing-xs;
+$_item-space-between: jkl.$spacing-8;
 
 @include jkl.light-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-granitt)};
@@ -46,7 +46,7 @@ $_item-space-between: jkl.$spacing-xs;
 
 .jkl-list {
     list-style: disc var(--jkl-list-marker-default);
-    padding-left: jkl.$spacing-l;
+    padding-left: jkl.rem(28px);
 
     & > .jkl-list__item {
         margin: $_item-space-between 0;
@@ -78,7 +78,10 @@ $_item-space-between: jkl.$spacing-xs;
     }
 
     &--ordered {
+        padding-left: revert;
+
         & > .jkl-list__item {
+            padding-left: revert;
             list-style: decimal;
         }
 
@@ -89,7 +92,7 @@ $_item-space-between: jkl.$spacing-xs;
 
     &__item {
         color: var(--jkl-list-text-color);
-        padding-left: jkl.rem(4px);
+        padding-left: jkl.rem(6px);
 
         &::marker {
             color: var(--jkl-list-text-color);
