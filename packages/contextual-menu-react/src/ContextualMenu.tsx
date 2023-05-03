@@ -87,7 +87,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
             enabled: openOnHover && allowHover,
             delay: { open: 75 },
             handleClose: safePolygon({
-                restMs: 25,
+                requireIntent: true,
                 blockPointerEvents: true,
             }),
         }),

@@ -127,10 +127,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
             --tap-increment: calc((var(--jkl-message-box-dismiss-button-size) - #{jkl.rem(20px)}) / 2 * -1);
             content: "";
             position: absolute;
-            bottom: var(--tap-increment);
-            left: var(--tap-increment);
-            right: var(--tap-increment);
-            top: var(--tap-increment);
+            inset: var(--tap-increment) var(--tap-increment) var(--tap-increment) var(--tap-increment);
         }
 
         &:hover {

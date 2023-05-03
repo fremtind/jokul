@@ -45,7 +45,7 @@ $breakpoint--xl: 1600px;
 ///         }
 ///     }
 @mixin screen-to($max) {
-    @media (min-width: 0) and (max-width: #{$max - 1px}) {
+    @media (width >= 0) and (max-width: #{$max - 1px}) {
         @content;
     }
 }
@@ -59,7 +59,7 @@ $breakpoint--xl: 1600px;
 ///         }
 ///     }
 @mixin small-device {
-    @media (min-width: 0) and (max-width: #{$breakpoint--medium - 1px}) {
+    @media (width >= 0) and (max-width: #{$breakpoint--medium - 1px}) {
         @content;
     }
 }

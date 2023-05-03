@@ -28,10 +28,7 @@
 
         &--fullscreen {
             position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            inset: 0;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -67,10 +64,7 @@
 
     &__bg-blur {
         position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        inset: 0;
         padding: jkl.$spacing-2xl;
         background-color: rgb(0 0 0 / 70%);
         z-index: jkl.$z-index--modal;

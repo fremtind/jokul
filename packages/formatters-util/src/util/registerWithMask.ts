@@ -45,10 +45,7 @@ const registerWithMask =
                 onChangeCaretPosition = event.target.selectionStart;
             }
 
-            form.setValue(
-                name as unknown as Path<T>,
-                formatters[formatter](event.target.value, { partial: true }) as PathValue<T, Path<T>>,
-            );
+            form.setValue(name, formatters[formatter](event.target.value, { partial: true }) as PathValue<T, Path<T>>);
 
             let newPosition: number | null = null;
 
@@ -73,7 +70,14 @@ const registerWithMask =
             }
         };
 
-        const register = form.register(name, { ...options, setValueAs, onChange });
+        const registerOptions: RegisterOptions<T, Path<T>> = {
+            setValueAs,
+            onChange,
+        };
+        if (options) {
+            Object.assign(registerOptions, options);
+        }
+        const register = form.register(name, registerOptions);
 
         // save the caret position before the change occured
         const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {

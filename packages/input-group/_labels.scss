@@ -47,8 +47,10 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     transition-property: color;
     transition-delay: jkl.timing("productive");
 
-    &__icon {
+    &__icon,
+    &__icon.jkl-icon {
         opacity: 0;
+        width: var(--jkl-form-support-label-icon-size);
         height: var(--jkl-form-support-label-icon-size);
         margin: var(--jkl-form-support-label-icon-margin);
 

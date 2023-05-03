@@ -153,10 +153,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
                     &::before {
                         border: 2px solid ButtonText;
                         position: absolute;
-                        top: rem(-1px);
-                        right: rem(-1px);
-                        bottom: rem(-1px);
-                        left: rem(-1px);
+                        inset: rem(-1px) rem(-1px) rem(-1px) rem(-1px);
                     }
                 }
             }
@@ -216,10 +213,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         &::before {
             content: "";
             position: absolute;
-            top: jkl.rem(-2px);
-            right: jkl.rem(-2px);
-            bottom: jkl.rem(-2px);
-            left: jkl.rem(-2px);
+            inset: jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px);
             border-radius: 50%;
 
             box-shadow: 0 0 0 jkl.rem(1px) transparent;
