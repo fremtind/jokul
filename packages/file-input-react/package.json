@@ -37,14 +37,14 @@
     },
     "dependencies": {
         "@fremtind/jkl-button-react": "^13.0.7",
-        "@fremtind/jkl-core": "^12.0.2",
+        "@fremtind/jkl-core": "^12.0.3",
         "@fremtind/jkl-file-input": "^1.0.0",
         "@fremtind/jkl-formatters-util": "^4.1.1",
         "@fremtind/jkl-icon-button-react": "^3.0.7",
-        "@fremtind/jkl-icons-react": "^7.0.0",
+        "@fremtind/jkl-icons-react": "^7.1.2",
         "@fremtind/jkl-input-group-react": "^2.1.0",
         "@fremtind/jkl-progress-bar-react": "^5.0.0",
-        "@fremtind/jkl-react-hooks": "^11.0.0",
+        "@fremtind/jkl-react-hooks": "^11.1.1",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

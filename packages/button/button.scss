@@ -133,20 +133,15 @@ a.jkl-button {
             transition: box-shadow $_animation-timing;
             content: "";
             position: absolute;
-            bottom: var(--jkl-button-focus-ring-placement);
-            left: var(--jkl-button-focus-ring-placement);
-            right: var(--jkl-button-focus-ring-placement);
-            top: var(--jkl-button-focus-ring-placement);
+            inset: var(--jkl-button-focus-ring-placement) var(--jkl-button-focus-ring-placement)
+                var(--jkl-button-focus-ring-placement) var(--jkl-button-focus-ring-placement);
         }
 
         &::before {
             content: "";
             position: absolute;
             border-radius: 999px;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            inset: 0;
         }
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
@@ -214,10 +209,8 @@ a.jkl-button {
             transition: box-shadow $_animation-timing;
             content: "";
             position: absolute;
-            bottom: -($_button-border-width);
-            left: -($_button-border-width);
-            right: -($_button-border-width);
-            top: -($_button-border-width);
+            inset: (-($_button-border-width)) (-($_button-border-width)) (-($_button-border-width))
+                (-($_button-border-width));
         }
 
         html[data-touchnavigation] &.jkl-button--pressed::before {

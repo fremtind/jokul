@@ -93,11 +93,11 @@ export const SupportLabel: FC<SupportLabelProps> = ({
 
     const restProps = hasLabel ? rest : {};
 
-    const Icon = isWarning ? WarningIcon : isError ? ErrorIcon : isSuccess ? SuccessIcon : null;
+    const Icon = isError ? ErrorIcon : isSuccess ? SuccessIcon : WarningIcon;
 
     return (
         <span id={id} className={componentClassName} {...restProps} data-density={density}>
-            {Icon && <Icon className="jkl-form-support-label__icon" />}
+            <Icon variant="small" className="jkl-form-support-label__icon" />
             {errorLabel || helpLabel || label}
         </span>
     );

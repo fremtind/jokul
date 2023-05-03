@@ -22,6 +22,7 @@ Så, etter å ha klonet repoet:
 ### Tips under utvikling
 
 -   Kjør `pnpm reboot` om du kommer tilbake til Jøkul-prosjektet etter en stund, eller noe ikke fungerer som du forventer.
+-   Om du opplever feil fra `nx`, prøv `pnpm dlx nx reset` og kjør kommandoen på nytt.
 -   `pnpm dev` har live reloading for _portalen_, ikke kildekoden til pakkene. Kjør `pnpm build` for pakken du endrer, så oppdaterer portalen seg.
 -   Hver pakke har sin egen devserver bak `pnpm dev` om du skal jobbe på noe isolert, og ikke trenger hele portalen.
 

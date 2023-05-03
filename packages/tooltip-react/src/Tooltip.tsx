@@ -9,7 +9,7 @@ import {
     useClick,
     useDismiss,
     useFocus,
-} from "@floating-ui/react-dom-interactions";
+} from "@floating-ui/react";
 import { QuestionIcon } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -32,11 +32,11 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
     const {
         x,
         y,
-        reference,
-        floating,
+        refs,
         placement,
         strategy,
         context,
+        isPositioned,
         middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
     } = useFloating({
         open,
@@ -61,7 +61,7 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                     type="button"
                     className="jkl-tooltip__button"
                     {...getReferenceProps({
-                        ref: reference,
+                        ref: refs.setReference,
                         onFocus: () => setButtonFocus(true),
                         onBlur: () => setButtonFocus(false),
                         onMouseOver: () => setButtonFocus(true),
@@ -83,11 +83,11 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                             className="jkl-tooltip__content"
                             {...getFloatingProps({
                                 id: tooltipId,
-                                ref: floating,
+                                ref: refs.setFloating,
                                 style: {
                                     position: strategy,
-                                    top: y ?? "",
-                                    left: x ?? "",
+                                    top: isPositioned ? y : "",
+                                    left: isPositioned ? x : "",
                                 },
                             })}
                         >
@@ -103,8 +103,8 @@ export const Tooltip = ({ content, initialPlacement = "top", className }: Toolti
                                 className="jkl-tooltip__arrow"
                                 ref={arrowElement}
                                 style={{
-                                    left: arrowX != null ? `${arrowX}px` : "",
-                                    top: arrowY != null ? `${arrowY}px` : "",
+                                    left: isPositioned ? `${arrowX}px` : "",
+                                    top: isPositioned ? `${arrowY}px` : "",
                                 }}
                             />
                         </motion.span>

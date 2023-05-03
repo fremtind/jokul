@@ -16,10 +16,7 @@ $_container-width--compact: jkl.rem(320px);
     & > .jkl-cookie-consent-modal__overlay {
         position: fixed;
         background: rgb(0 0 0 / 30%);
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         transition: 0.2s;
     }
 
