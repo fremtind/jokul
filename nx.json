@@ -26,9 +26,9 @@
         },
         "build:docs": {
             "inputs": [
-                "packages",
-                "documentation",
-                "portal",
+                "^packages",
+                "^documentation",
+                "^portal",
                 { "env": "PREVIEW_PATH" },
                 { "env": "MIXPANEL_PROJECT_ID" }
             ],
