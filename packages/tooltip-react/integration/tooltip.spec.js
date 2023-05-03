@@ -14,12 +14,12 @@ describe("Tooltip", () => {
                 cy.get(`button.jkl-tooltip__button`).first().click();
                 cy.get(`button.jkl-tooltip__button`).first().focus();
                 // eslint-disable-next-line cypress/no-unnecessary-waiting
-                cy.wait(120); // Vent på Framer Motion
+                cy.wait(320); // Vent på Framer Motion
             },
             teardown: () => {
                 cy.get(`button.jkl-tooltip__button`).first().click();
                 // eslint-disable-next-line cypress/no-unnecessary-waiting
-                cy.wait(120); // Vent på Framer Motion
+                cy.wait(320); // Vent på Framer Motion
             },
         });
     });
