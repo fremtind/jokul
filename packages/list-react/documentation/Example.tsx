@@ -4,5 +4,12 @@ import { ListExamples, listExamplesCode, listExamplesProps } from "./ListExample
 import "../../list/list.scss";
 
 export default function Example() {
-    return <DevExample component={ListExamples} knobs={listExamplesProps} codeExample={listExamplesCode} />;
+    return (
+        <DevExample
+            component={ListExamples}
+            knobs={listExamplesProps}
+            codeExample={listExamplesCode}
+            style={{ minWidth: "30ch" }}
+        />
+    );
 }
