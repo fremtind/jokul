@@ -22,6 +22,7 @@ export const ArrowVerticalAnimated: FC<ArrowVerticalAnimatedProps> = ({
         {...rest}
         className={cn(
             "jkl-icon",
+            "jkl-icon--animated",
             `jkl-icon--${variant}`,
             { "jkl-icon--bold": bold },
             "jkl-animated-vertical-arrows",
