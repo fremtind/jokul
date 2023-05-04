@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-input-group@2.1.1...@fremtind/jkl-input-group@2.1.2) (2023-05-04)
+
+### Bug Fixes
+
+- rett opp display i ikoner, oppførsel i supportlabel ([37c3d2f](https://github.com/fremtind/jokul/commit/37c3d2fbf3503ad8ad5aa9944f8136e1aff64248))
+
 ## [2.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-input-group@2.1.0...@fremtind/jkl-input-group@2.1.1) (2023-05-03)
 
 ### Bug Fixes
