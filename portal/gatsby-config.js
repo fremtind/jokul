@@ -25,6 +25,7 @@ module.exports = {
         author: `Fremtind`,
         siteUrl,
     },
+    trailingSlash: "always",
     flags: {
         DEV_SSR: true,
         FAST_DEV: true,
