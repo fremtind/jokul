@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "9.0.8",
+    "version": "9.0.9",
     "publishConfig": {
         "access": "public"
     },
@@ -44,7 +44,7 @@
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-list-react": "^9.0.4"
+        "@fremtind/jkl-list-react": "^9.0.5"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

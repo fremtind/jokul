@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list@9.0.4...@fremtind/jkl-list@9.0.5) (2023-05-04)
+
+### Bug Fixes
+
+- bruk samme plassering av listeindikator for ordered og unordered ([ce74c65](https://github.com/fremtind/jokul/commit/ce74c6577c770ab116ea6236dd830a70e4e83954)), closes [#3499](https://github.com/fremtind/jokul/issues/3499)
+
 ## 9.0.3 (2023-03-21)
 
 ### Bug Fixes
