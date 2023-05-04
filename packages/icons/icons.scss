@@ -4,6 +4,8 @@
 .jkl-icon {
     --jkl-icon-size: calc(1em / 20 * 24);
 
+    display: inline;
+
     width: var(--jkl-icon-size, #{jkl.rem(20px)});
     height: var(--jkl-icon-size, #{jkl.rem(20px)});
     color: currentColor;
