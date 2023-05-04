@@ -17,7 +17,10 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
     bold = false,
     ...rest
 }) => (
-    <div {...rest} className={cn("jkl-icon", `jkl-icon--${variant}`, { "jkl-icon--bold": bold }, className)}>
+    <div
+        {...rest}
+        className={cn("jkl-icon", "jkl-icon--animated", `jkl-icon--${variant}`, { "jkl-icon--bold": bold }, className)}
+    >
         <PlusIcon
             variant={variant}
             bold={bold}

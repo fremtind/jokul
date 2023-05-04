@@ -260,6 +260,12 @@ jobs:
                           if [ "packages/input-group" == "$item" ]; then
                               RUN_ALL_SPECS=true
                           fi
+                          if [ "packages/icons" == "$item" ]; then
+                              RUN_ALL_SPECS=true
+                          fi
+                          if [ "packages/icons-react" == "$item" ]; then
+                              RUN_ALL_SPECS=true
+                          fi
                       done
 
                     if [ "$RUN_ALL_SPECS" = false ] ; then

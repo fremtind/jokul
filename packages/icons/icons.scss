@@ -4,9 +4,18 @@
 .jkl-icon {
     --jkl-icon-size: calc(1em / 20 * 24);
 
-    width: var(--jkl-icon-size, #{jkl.rem(20px)});
-    height: var(--jkl-icon-size, #{jkl.rem(20px)});
-    color: currentColor;
+    display: inline;
+
+    &--animated {
+        display: block;
+    }
+
+    &,
+    &__icon {
+        width: var(--jkl-icon-size, #{jkl.rem(20px)});
+        height: var(--jkl-icon-size, #{jkl.rem(20px)});
+        color: currentColor;
+    }
 
     // Default: inherit, regular
     &__icon--small,
