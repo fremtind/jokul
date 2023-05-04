@@ -242,7 +242,7 @@ a.jkl-button {
     &--left-arrow {
         .jkl-button__arrow {
             display: inline-block;
-            margin-bottom: jkl.rem(-4px);
+            vertical-align: sub;
         }
     }
 
