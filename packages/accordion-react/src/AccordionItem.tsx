@@ -51,7 +51,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
             >
                 {title}
                 <ArrowVerticalAnimated
-                    variant="medium"
+                    variant="inherit"
                     className="jkl-accordion-item__arrow"
                     pointingDown={!isOpen}
                     bold={isOpen}
