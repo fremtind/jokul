@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons@7.0.4...@fremtind/jkl-icons@8.0.0) (2023-05-04)
+
+### Bug Fixes
+
+- bruk regular-ikon med headings også i compact ([a7ff6c6](https://github.com/fremtind/jokul/commit/a7ff6c6d0702c0597a9a8fe91bfc65a888ef231c))
+- gjør ikoner inline som de var ([6ed38a7](https://github.com/fremtind/jokul/commit/6ed38a7726446d0e42c32f7ae4feb9c6c2f17312))
+- rett opp display i ikoner, oppførsel i supportlabel ([37c3d2f](https://github.com/fremtind/jokul/commit/37c3d2fbf3503ad8ad5aa9944f8136e1aff64248))
+
+### Features
+
+- muliggjør styring av ikon-SVG gjennom CSS ([d83ed97](https://github.com/fremtind/jokul/commit/d83ed9760a6421189f35bcdb7fb52e3aa3aec8a6))
+
+### BREAKING CHANGES
+
+- Forventer ny struktur på ikonkomponent der hver SVG rendres i en div med visse klasser, for så å
+skjules med CSS. Se IconFactory.tsx
+
 ## 7.0.3 (2023-03-21)
 
 ### Bug Fixes
