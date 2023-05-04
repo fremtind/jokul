@@ -1,10 +1,10 @@
 export type IconVariant = "inherit" | "small" | "medium";
 
 export interface IconProps {
+    "data-testid"?: string;
     /**
      * Størrelsesvarianten til ikonet. `"small"` er 16px med 20px bounding box, og `"medium"` er 20px med 24px bounding box.
      * `"inherit"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).
-     * @default "inherit"
      */
     variant?: IconVariant;
     /**
@@ -13,4 +13,5 @@ export interface IconProps {
      */
     bold?: boolean;
     className?: string;
+    style?: React.CSSProperties;
 }

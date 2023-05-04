@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@7.1.3...@fremtind/jkl-icons-react@7.2.0) (2023-05-04)
+
+### Bug Fixes
+
+- bruk regular-ikon med headings også i compact ([a7ff6c6](https://github.com/fremtind/jokul/commit/a7ff6c6d0702c0597a9a8fe91bfc65a888ef231c))
+- rett opp display i ikoner, oppførsel i supportlabel ([37c3d2f](https://github.com/fremtind/jokul/commit/37c3d2fbf3503ad8ad5aa9944f8136e1aff64248))
+- rett opp i duplikat ID ([49b6538](https://github.com/fremtind/jokul/commit/49b65388a922c957acadaf3f76847d5239ce1882))
+
+### Features
+
+- muliggjør styring av ikon-SVG gjennom CSS ([96431f7](https://github.com/fremtind/jokul/commit/96431f7691c5307db961623010e0a5f4892c53d3))
+
 ## 7.1.2 (2023-03-28)
 
 ### Bug Fixes

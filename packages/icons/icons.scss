@@ -2,9 +2,30 @@
 @use "~@fremtind/jkl-core/jkl";
 
 .jkl-icon {
-    width: var(--jkl-icon-size, #{jkl.rem(20px)});
-    height: var(--jkl-icon-size, #{jkl.rem(20px)});
-    color: currentColor;
+    --jkl-icon-size: calc(1em / 20 * 24);
+
+    display: inline;
+
+    &--animated {
+        display: block;
+    }
+
+    &,
+    &__icon {
+        width: var(--jkl-icon-size, #{jkl.rem(20px)});
+        height: var(--jkl-icon-size, #{jkl.rem(20px)});
+        color: currentColor;
+    }
+
+    // Default: inherit, regular
+    &__icon--small,
+    &__icon--medium {
+        display: none;
+    }
+
+    &__icon--bold {
+        display: none;
+    }
 
     &--small {
         --jkl-icon-size: #{jkl.rem(20px)};
@@ -14,11 +35,109 @@
         --jkl-icon-size: #{jkl.rem(24px)};
     }
 
-    &--inherit {
-        --jkl-icon-size: calc(1em / 20 * 24);
+    @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+}
+
+$_icon-sizes: ("small", "medium", "inherit");
+$_icon-weights: ("regular", "bold");
+
+@each $size in $_icon-sizes {
+    .jkl-icon--#{$size}:not(.jkl-icon--bold) {
+        @each $_size in $_icon-sizes {
+            .jkl-icon__icon--#{$_size} {
+                &.jkl-icon__icon--regular {
+                    @if $_size == $size {
+                        display: unset;
+                    } @else {
+                        display: none;
+                    }
+                }
+
+                &.jkl-icon__icon--bold {
+                    display: none;
+                }
+            }
+        }
     }
 
-    @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+    .jkl-icon--#{$size}.jkl-icon--bold {
+        @each $_size in $_icon-sizes {
+            .jkl-icon__icon--#{$_size} {
+                &.jkl-icon__icon--regular {
+                    display: none;
+                }
+
+                &.jkl-icon__icon--bold {
+                    @if $_size == $size {
+                        display: unset;
+                    } @else {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+[data-layout-density="compact"],
+[data-density="compact"] {
+    @each $size in $_icon-sizes {
+        .jkl-icon--#{$size}:not(.jkl-icon--bold) {
+            .jkl-icon__icon--inherit,
+            .jkl-icon__icon--medium {
+                display: none;
+            }
+
+            .jkl-icon__icon--small.jkl-icon__icon--regular {
+                display: unset;
+            }
+        }
+
+        .jkl-icon--#{$size}.jkl-icon--bold {
+            .jkl-icon__icon--inherit,
+            .jkl-icon__icon--medium {
+                display: none;
+            }
+
+            .jkl-icon__icon--small.jkl-icon__icon--bold {
+                display: unset;
+            }
+        }
+    }
+}
+
+$_regular-headings: ("heading-1", "heading-2");
+$_bold-headings: ("heading-3", "heading-4", "heading-5");
+
+// Overstyr eventuell compact settings
+@each $_heading in $_regular-headings {
+    .jkl-#{$_heading} {
+        @each $_size in $_icon-sizes {
+            .jkl-icon--#{$_size} {
+                .jkl-icon__icon--#{$_size}.jkl-icon__icon--bold {
+                    display: none;
+                }
+                .jkl-icon__icon--#{$_size}.jkl-icon__icon--regular {
+                    display: unset;
+                }
+            }
+        }
+    }
+}
+
+@each $_heading in $_bold-headings {
+    .jkl-#{$_heading} {
+        @each $_size in $_icon-sizes {
+            .jkl-icon--#{$_size} {
+                .jkl-icon__icon--#{$_size}.jkl-icon__icon--regular {
+                    display: none;
+                }
+                .jkl-icon__icon--#{$_size}.jkl-icon__icon--bold {
+                    display: unset;
+                }
+            }
+        }
+    }
 }
 
 .jkl-animated-horizontal-arrows,

@@ -21,6 +21,29 @@ Et lite utvalg av ikonene våre er animerbare. For å bruke animasjonene trengs 
     codeExample={animatedIconsExampleCode}
 />
 
+## Om de ulike ikonvariantene
+
+Det er tegnet fire varianter av alle ikoner:
+
+-   medium regular
+-   small regular
+-   medium bold
+-   small bold
+
+Small er designet for bruk der hvor teksten er small i henhold til [typografiskalaen vår](/profil/typografi). Det vil typisk bety i kompaktversjoner av komponenter.
+
+Bold er designet for bruk sammen med bold brødtekst og bold overskrifter (Heading 3-5).
+
+Til vanlig bruker vi _medium regular_.
+
+Dersom du koder med bruk av `inherit`-varianten av ikoner (dette er standard) vil dette for det meste _bare funke_.
+
+-   Om ikonet vises inni en kompakt komponent eller layout brukes _small_.
+-   Hvis ikonet vises inni en komponent med _utility-klassen for en heading_ (`.jkl-heading-1` osv.) får du riktig ikonstørrelse (medium) og vekt automatisk, også i en kompakt layout.
+-   Ikonet skalerer til å matche fontstørrelsen.
+
+Hvis du trenger en fast størrelse og vekt kan du bruke egne props for dette.
+
 ## Hvordan bruker vi ikoner?
 
 Se [profildokumentasjonen](/profil/ikoner) for mer om hvordan vi bruker ikoner.
