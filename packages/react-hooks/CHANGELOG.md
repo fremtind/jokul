@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.2.0 (2023-05-08)
+
+### Features
+
+- legg til hook for listenavigasjon ([f2dfaa8](https://github.com/fremtind/jokul/commit/f2dfaa80f327c858fac6dcded162f709e3863370))
+
 # 11.1.0 (2023-03-07)
 
 ### Features

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.1.0 (2023-05-08)
+
+### Features
+
+- satt opp ny komponent – combobox ([6c71023](https://github.com/fremtind/jokul/commit/6c71023084243c736a0b89d36bcb1b08ddadb5ce))
+
 ## 10.0.3 (2023-03-21)
 
 ### Bug Fixes
