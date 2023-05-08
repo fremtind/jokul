@@ -101,6 +101,18 @@ jobs:
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+            - name: Restore registry
+              if: steps.lerna_changed.outcome == 'success'
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  cache: "pnpm"
+
+            - name: Restore workspace
+              if: steps.lerna_changed.outcome == 'success'
+              run: |
+                  pnpm install --frozen-lockfile
+
             - name: Build and deploy portal
               env:
                   GATSBY_MIXPANEL_PROJECT_ID: ${{ secrets.MIXPANEL_PROJECT_ID_PROD }}
