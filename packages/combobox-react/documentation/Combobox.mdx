@@ -1,0 +1,40 @@
+---
+title: Combobox
+react: combobox-react
+scss: combobox
+group: skjema
+keywords: dropdown multiselect combobox nedtrekksliste søkbar
+---
+
+import ComboboxExample, { comboboxExampleCode, comboboxExampleKnobs } from "./ComboboxExample";
+
+<Ingress>Combobox-komponenten lar brukeren velge flere alternativ fra en nedtrekksliste.</Ingress>
+
+<ComponentExample
+    component={ComboboxExample}
+    codeExample={comboboxExampleCode}
+    knobs={comboboxExampleKnobs}
+    title="Combobox"
+/>
+
+Komponenten er en kombinasjon av nedtrekksliste og søkefelt hvor brukeren enten kan skrive direkte inn i inputfeltet eller velge alternativ fra listen.
+
+<PortalImage src="/assets/documentation/combobox/combobox-eksempel.png" caption="Combobox-eksempel." />
+
+## Tekst og validering
+
+Unngå forkortelser og hold heller teksten kort og konsis.
+Hvis det trengs, kan du legge en hjelpetekst under listen for å forklare mer.
+
+Hvis nedtrekkslisten ikke validerer, viser systemet en feilmelding som forklarer hva som er galt. Feilmeldingen erstatter en eventuell hjelpetekst, så den må eventuelt gjenta informasjonen fra hjelpeteksten.
+
+Valgte alternativer vises i inputfeltet som [Tags](/komponenter/tag). Hvis teksten i tagen består av mer enn 10 karakterer, anbefaler vi at du bruker `tagLabel`.
+
+## Når bruker vi Combobox?
+
+Vi bruker combobox når brukeren har mer enn tre alternativ å velge mellom. Hvis brukeren kun har tre valgalternativer eller mindre, bruk heller [Checkbox](/komponenter/checkbox).
+
+Noen eksempler på bruk er:
+
+-   Til å velge diagnoser
+-   Til å velge skadeomfang

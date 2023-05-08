@@ -77,7 +77,6 @@ $_select-search-input-selection-color--inverted: color.scale(
     display: block;
     position: relative;
 
-    /* Resets for native styling, especially in Firefox/IE */
     & *:focus {
         outline: none;
     }
@@ -106,8 +105,6 @@ $_select-search-input-selection-color--inverted: color.scale(
         }
     }
 
-    /* End of resets */
-
     &__outer-wrapper {
         position: relative;
         width: 15rem;
@@ -120,7 +117,6 @@ $_select-search-input-selection-color--inverted: color.scale(
         padding: var(--jkl-select-search-input-padding);
         color: var(--jkl-select-text-color);
 
-        /* Color of text selection */
         &::selection {
             background-color: var(--jkl-select-search-input-selection-color);
 
@@ -130,7 +126,6 @@ $_select-search-input-selection-color--inverted: color.scale(
         }
     }
 
-    /* The main select element showing the current value */
     &__search-input,
     &__button {
         @include jkl.use-font-variables("jkl-select");
@@ -176,7 +171,6 @@ $_select-search-input-selection-color--inverted: color.scale(
         padding: var(--jkl-select-native-padding);
     }
 
-    /* The dropdown arrow */
     &__arrow {
         pointer-events: none;
         position: absolute;
@@ -190,7 +184,6 @@ $_select-search-input-selection-color--inverted: color.scale(
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
     }
 
-    /* The wrapper for the dropdown list */
     &__options-menu {
         @include jkl.motion;
         transition-property: height;
@@ -211,7 +204,6 @@ $_select-search-input-selection-color--inverted: color.scale(
         max-height: calc(calc(var(--jkl-select-max-shown-options, 5) + 0.5) * var(--jkl-select-input-height));
     }
 
-    /* A wrapper for the list items (<ul>) */
     &__option-wrapper {
         margin: 0;
         padding: 0;
@@ -220,7 +212,6 @@ $_select-search-input-selection-color--inverted: color.scale(
         -webkit-overflow-scrolling: touch;
     }
 
-    /* The individual options in the dropdown list */
     &__option {
         @include jkl.use-font-variables("jkl-select");
         color: unset;
