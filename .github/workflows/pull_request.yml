@@ -55,8 +55,10 @@ jobs:
                         - "packages/**/*.mdx"
                         - "**/*.js"
                         - "**/*.scss"
-                        - "**/!(*.d|*.test).ts"
-                        - "**/!(*.test).tsx"
+                        - "packages/core/!(*.d|*.test).ts"
+                        - "packages/core/!(*.test).tsx"
+                        - "packages/*-react/!(*.d|*.test).ts"
+                        - "packages/*-react/!(*.test).tsx"
                         - "pnpm-lock.yaml"
                       preview:
                         - "portal/src/texts/**"
