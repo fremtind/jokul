@@ -338,7 +338,13 @@ export const Combobox: FC<ComboboxProps> = ({
                                 className="jkl-tag"
                                 data-testid="jkl-tag"
                                 dismissAction={{
-                                    onClick: (e) => onTagRemove(e, option.value),
+                                    onClick: (e) => {
+                                        if (searchRef.current) {
+                                            searchRef.current.focus();
+                                        }
+                                        onTagRemove(e, option.value);
+                                    },
+                                    onBlur: handleBlur,
                                     label: `Fjern ${option.value}`,
                                 }}
                             >
@@ -415,7 +421,8 @@ export const Combobox: FC<ComboboxProps> = ({
                         {selectedValue.length > 0 && (
                             <IconButton
                                 onClick={() => onTagRemoveAll()}
-                                data-testid="jkl-combobox__remove-all"
+                                data-testid="jkl-combobox__button"
+                                className="jkl-combobox__button"
                                 aria-label="Fjern valgte elementer"
                             >
                                 <CloseIcon />
@@ -425,20 +432,19 @@ export const Combobox: FC<ComboboxProps> = ({
                             id={buttonId}
                             onFocus={handleFocus}
                             onBlur={handleBlur}
-                            className={`jkl-combobox__button ${showMenu && "menu-open"}`}
+                            className="jkl-combobox__button"
                             data-testid="jkl-combobox__button"
                             aria-label={`${selectedValue.map((value) => value.label) || "Velg"},${label}`}
                             aria-expanded={showMenu}
                             aria-controls={listId}
                             role="button"
-                            tabIndex={-1}
                             onClick={() => setShowMenu(true)}
                             onMouseDown={(e) => {
                                 e.preventDefault();
                                 inputRef.current?.focus();
                             }}
                         >
-                            <ArrowVerticalAnimated variant="medium" pointingDown={isPoitingDown} />
+                            <ArrowVerticalAnimated pointingDown={isPoitingDown} />
                         </IconButton>
                     </div>
                 </div>
