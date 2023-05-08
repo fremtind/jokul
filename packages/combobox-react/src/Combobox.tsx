@@ -286,16 +286,18 @@ export const Combobox: FC<ComboboxProps> = ({
     const handleOptionOnKeyDown = useCallback(
         (e: KeyboardEvent<HTMLButtonElement>) => {
             if (e.key === "Tab") {
-                e.preventDefault();
-                e.stopPropagation();
+                if (searchRef.current) {
+                    e.preventDefault();
+                    e.stopPropagation();
 
-                if (e.shiftKey && searchRef.current) {
-                    searchRef.current.focus();
-                } else if (inputRef.current) {
-                    // Mimic behaviour of Firefox and native select, where Tab selects the current item and closes the menu
-                    onItemClick(e.currentTarget.value);
-                    setShowMenu(false);
-                    inputRef.current.focus();
+                    if (e.shiftKey) {
+                        searchRef.current.focus();
+                    } else {
+                        // Mimic behaviour of Firefox and native select, where Tab selects the current item and closes the menu
+                        onItemClick(e.currentTarget.value);
+                        setShowMenu(false);
+                        searchRef.current.focus();
+                    }
                 }
             } else if (e.key === "ArrowUp") {
                 if (dropdownRef.current && searchRef.current) {
