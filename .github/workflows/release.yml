@@ -113,6 +113,10 @@ jobs:
               run: |
                   pnpm install --frozen-lockfile
 
+            - name: Build packages if needed
+              if: steps.lerna_changed.outcome != 'success'
+              run: pnpm build
+
             - name: Build and deploy portal
               env:
                   GATSBY_MIXPANEL_PROJECT_ID: ${{ secrets.MIXPANEL_PROJECT_ID_PROD }}
