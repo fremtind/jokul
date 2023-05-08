@@ -421,7 +421,7 @@ export const Combobox: FC<ComboboxProps> = ({
                         {selectedValue.length > 0 && (
                             <IconButton
                                 onClick={() => onTagRemoveAll()}
-                                data-testid="jkl-combobox__button"
+                                data-testid="jkl-combobox__remove-all"
                                 className="jkl-combobox__button"
                                 aria-label="Fjern valgte elementer"
                             >
