@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [18.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@18.1.5...@fremtind/portal@18.2.0) (2023-05-08)
+
+### Features
+
+- satt opp ny komponent – combobox ([6c71023](https://github.com/fremtind/jokul/commit/6c71023084243c736a0b89d36bcb1b08ddadb5ce))
+
 # [18.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@18.0.10...@fremtind/portal@18.1.0) (2023-05-02)
 
 ### Bug Fixes
