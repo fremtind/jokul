@@ -19,7 +19,7 @@ try {
 
     console.log(cypressTests.join("\n"));
 } catch (error) {
-    console.error(JSON.stringify(error));
-    console.error(error.message);
-    process.exit(1);
+    // Hvis lerna ikke finner noen endringer betyr det muligens en endring i lockfila.
+    // Kjør en full regresjonstest ved oppdatering av avhengigheter.
+    console.log("lerna changed ga exit-kode 1, kjører alle tester");
 }

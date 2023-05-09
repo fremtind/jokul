@@ -52,15 +52,15 @@ jobs:
                         - "pnpm-lock.yaml"
                       visual:
                         - "cypress/**"
-                        - "packages/**/*.mdx"
-                        - "**/*.js"
-                        - "**/*.scss"
+                        - "packages/**/*.spec.js"
+                        - "packages/**/*.scss"
                         - "packages/core/!(*.d|*.test).ts"
                         - "packages/core/!(*.test).tsx"
                         - "packages/*-react/!(*.d|*.test).ts"
                         - "packages/*-react/!(*.test).tsx"
                         - "pnpm-lock.yaml"
                       preview:
+                        - "packages/**/*.mdx"
                         - "portal/src/texts/**"
 
             - name: Setup pnpm
