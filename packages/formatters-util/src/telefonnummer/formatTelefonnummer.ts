@@ -1,10 +1,10 @@
 import { unicode } from "@fremtind/jkl-constants-util";
 
 export const TELEFONNUMMER_REGEX = {
-    mobil: /^([4|9|8]\d{2})(\d{2})(\d{3})$/,
-    fast: /^([2-7]\d)(\d{2})(\d{2})(\d{2})$/,
-    mobilPartial: /^([4|9|8]\d{2})(\d{1,2})?(\d{1,3})?$/,
-    fastPartial: /^([2-7]\d)(\d{1,2})?(\d{1,2})?(\d{1,2})?$/,
+    mobil: /^([8]\d{2})(\d{2})(\d{3})$/,
+    fast: /^([2-9]\d)(\d{2})(\d{2})(\d{2})$/,
+    mobilPartial: /^([8]\d{2})(\d{1,2})?(\d{1,3})?$/,
+    fastPartial: /^([2-9]\d)(\d{1,2})?(\d{1,2})?(\d{1,2})?$/,
 };
 
 type FormatTelefonnummerOptions = {
