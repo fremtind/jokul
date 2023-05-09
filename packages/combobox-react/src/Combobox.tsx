@@ -420,7 +420,13 @@ export const Combobox: FC<ComboboxProps> = ({
                     <div className="jkl-combobox__actions">
                         {selectedValue.length > 0 && (
                             <IconButton
-                                onClick={() => onTagRemoveAll()}
+                                onClick={() => {
+                                    if (searchRef.current) {
+                                        searchRef.current.focus();
+                                    }
+                                    onTagRemoveAll();
+                                }}
+                                onBlur={handleBlur}
                                 data-testid="jkl-combobox__remove-all"
                                 className="jkl-combobox__button"
                                 aria-label="Fjern valgte elementer"
