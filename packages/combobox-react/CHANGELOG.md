@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.1 (2023-05-09)
+
+### Bug Fixes
+
+- la på onblur og fokus på onClick ([79c6536](https://github.com/fremtind/jokul/commit/79c6536324cdc79ac339e80061081afc9d3c2ad0))
+
 # 1.0.0 (2023-05-08)
 
 ### Bug Fixes
