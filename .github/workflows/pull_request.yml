@@ -197,6 +197,11 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v3
+              with:
+                  fetch-depth: "0" # Hent hele git-historikken, for lerna changed, som brukes i beregning av hvilke tester som skal kjøre
+
+            - name: Fetch version tags
+              run: git fetch --depth=1 origin +refs/tags/*:refs/tags/* # Hent tags, for lerna changed, som brukes i beregning av hvilke tester som skal kjøre
 
             - name: Setup pnpm
               uses: pnpm/action-setup@v2
