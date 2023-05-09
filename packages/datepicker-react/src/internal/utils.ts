@@ -29,6 +29,7 @@ import isBefore from "date-fns/isBefore";
 import isToday from "date-fns/isToday";
 import startOfDay from "date-fns/startOfDay";
 import React from "react";
+import type { YearsToShow } from "../types";
 import { parseDateString } from "../utils";
 
 export function composeEventHandlers(...fns: Array<React.MouseEventHandler | undefined>) {
@@ -67,6 +68,8 @@ export function subtractMonth({
     return offset;
 }
 
+export const DEFAULT_YEARS_TO_SHOW = 3;
+
 /**
  * Generates an array of year strings for a year selector component, with min and max dates taken into account.
  *
@@ -80,6 +83,7 @@ export function getYearSelectOptions(
     currentYear: number,
     minDate: Date | undefined,
     maxDate: Date | undefined,
+    yearsToShow: YearsToShow,
 ): string[] {
     if (minDate && minDate.getFullYear() > currentYear) {
         return [minDate.getFullYear().toString()];
@@ -89,8 +93,25 @@ export function getYearSelectOptions(
         return [maxDate.getFullYear().toString()];
     }
 
-    let start = minDate ? Math.max(minDate.getFullYear(), currentYear - 3) : currentYear - 3;
-    let end = maxDate ? Math.min(maxDate.getFullYear(), currentYear + 3) : currentYear + 3;
+    let showAllYears = false;
+    let previousYearsToShow: number;
+    let comingYearsToShow: number;
+
+    if (yearsToShow === "all") {
+        showAllYears = true;
+        previousYearsToShow = DEFAULT_YEARS_TO_SHOW;
+        comingYearsToShow = DEFAULT_YEARS_TO_SHOW;
+    } else {
+        previousYearsToShow = typeof yearsToShow === "number" ? yearsToShow : yearsToShow.previous;
+        comingYearsToShow = typeof yearsToShow === "number" ? yearsToShow : yearsToShow.coming;
+    }
+
+    let start = minDate
+        ? Math.max(minDate.getFullYear(), showAllYears ? minDate.getFullYear() : currentYear - previousYearsToShow)
+        : currentYear - previousYearsToShow;
+    let end = maxDate
+        ? Math.min(maxDate.getFullYear(), showAllYears ? maxDate.getFullYear() : currentYear + comingYearsToShow)
+        : currentYear + comingYearsToShow;
 
     // Sørg for å alltid vise minst ett år
     const numYears = Math.max(end - start + 1, 1);
