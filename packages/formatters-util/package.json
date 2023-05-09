@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-formatters-util",
-    "version": "4.1.6",
+    "version": "4.1.7",
     "publishConfig": {
         "access": "public"
     },
