@@ -19,6 +19,7 @@
         "ci:test": "run-p test lint:eslint lint:stylelint typecheck",
         "ci:install": "pnpm install --frozen-lockfile && pnpm build",
         "ci:install-cypress": "pnpm ci:install && pnpm build:docs",
+        "ci:changed": "lerna changed --parseable --loglevel error",
         "test": "pnpm test:unit",
         "test:unit": "jest --testMatch '**/*.test.+(ts|tsx|js)'",
         "test:watch": "jest --watch",

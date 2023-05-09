@@ -52,13 +52,15 @@ jobs:
                         - "pnpm-lock.yaml"
                       visual:
                         - "cypress/**"
-                        - "packages/**/*.mdx"
-                        - "**/*.js"
-                        - "**/*.scss"
-                        - "**/!(*.d|*.test).ts"
-                        - "**/!(*.test).tsx"
+                        - "packages/**/*.spec.js"
+                        - "packages/**/*.scss"
+                        - "packages/core/!(*.d|*.test).ts"
+                        - "packages/core/!(*.test).tsx"
+                        - "packages/*-react/!(*.d|*.test).ts"
+                        - "packages/*-react/!(*.test).tsx"
                         - "pnpm-lock.yaml"
                       preview:
+                        - "packages/**/*.mdx"
                         - "portal/src/texts/**"
 
             - name: Setup pnpm
@@ -195,6 +197,11 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v3
+              with:
+                  fetch-depth: "0" # Hent hele git-historikken, for lerna changed, som brukes i beregning av hvilke tester som skal kjøre
+
+            - name: Fetch version tags
+              run: git fetch --depth=1 origin +refs/tags/*:refs/tags/* # Hent tags, for lerna changed, som brukes i beregning av hvilke tester som skal kjøre
 
             - name: Setup pnpm
               uses: pnpm/action-setup@v2
@@ -229,76 +236,16 @@ jobs:
             - name: Build site with path prefix
               run: pnpm build:docs
 
-            - name: Get changes in packages
-              uses: ./actions/paths-filter
-              id: subset
-              with:
-                  filters: |
-                      packages:
-                        - "packages/**/*.scss"
-                        - "packages/**/!(*.d|*.test).ts"
-                        - "packages/**/!(*.test).tsx"
-
-            - name: Calculate tests to run
-              if: steps.subset.outputs.has_matches == 'true'
+            - name: Calculate tests to run based on lerna changed
               run: |
-                  CHANGED_PACKAGES_STRING=$(echo "${{ steps.subset.outputs.packages_files }}" | cut -d/ -f 1-2)
-                  CHANGED_PACKAGES=(${CHANGED_PACKAGES_STRING//\\n/})
-                  RUN_ALL_SPECS=false
-                  CHANGED_SPECS=()
+                  CHANGED_SPECS=$(node scripts/calculate-cypress-tests.js)
+                  EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+                  echo "CHANGED_SPECS<<$EOF" >> $GITHUB_ENV
+                  printf "%s\n" "${CHANGED_SPECS[@]}" >> $GITHUB_ENV
+                  echo "$EOF" >> $GITHUB_ENV
 
-                  if [ -n "$CHANGED_PACKAGES_STRING" ]; then
-                      printf "Changed package: %s\n" "${CHANGED_PACKAGES[@]}"
-                      for item in $CHANGED_PACKAGES
-                      do
-                          if [ "packages/core" == "$item" ]; then
-                              RUN_ALL_SPECS=true
-                          fi
-                          if [ "packages/input-group-react" == "$item" ]; then
-                              RUN_ALL_SPECS=true
-                          fi
-                          if [ "packages/input-group" == "$item" ]; then
-                              RUN_ALL_SPECS=true
-                          fi
-                          if [ "packages/icons" == "$item" ]; then
-                              RUN_ALL_SPECS=true
-                          fi
-                          if [ "packages/icons-react" == "$item" ]; then
-                              RUN_ALL_SPECS=true
-                          fi
-                      done
-
-                    if [ "$RUN_ALL_SPECS" = false ] ; then
-                          CHANGED_SPECS=$(printf "%s-react/**/*.spec.js\n" "${CHANGED_PACKAGES[@]/-react/}" | sort | uniq)
-                    fi
-                  fi
-
-                  if [ "$RUN_ALL_SPECS" = true ] ; then
-                    echo "RUN_ALL_SPECS=true" >> $GITHUB_ENV
-                  else
-                      echo "RUN_ALL_SPECS=false" >> $GITHUB_ENV
-                      EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-                      echo "CHANGED_SPECS<<$EOF" >> $GITHUB_ENV
-                      printf "%s\n" "${CHANGED_SPECS[@]}" >> $GITHUB_ENV
-                      echo "$EOF" >> $GITHUB_ENV
-                  fi
-
-            - name: Run all Cypress tests
+            - name: Run Cypress tests
               uses: cypress-io/github-action@v5
-              if: steps.subset.outputs.has_matches != 'true' || env.RUN_ALL_SPECS == true || env.RUN_ALL_SPECS == 'true'
-              with:
-                  # We install packages above
-                  install: false
-                  browser: chrome
-                  start: pnpm serve
-                  wait-on: "http://localhost:9000/${{ env.PREVIEW_PATH }}"
-                  wait-on-timeout: 280
-              env:
-                  FORCED_COLORS: ${{ matrix.forced-colors }}
-
-            - name: Run Cypress tests on changed packages
-              uses: cypress-io/github-action@v5
-              if: steps.subset.outputs.has_matches == 'true' && (env.RUN_ALL_SPECS == false || env.RUN_ALL_SPECS == 'false')
               with:
                   # We install packages above
                   install: false
