@@ -131,22 +131,39 @@ describe("getInitialDate", () => {
 });
 
 describe("getYearSelectOptions", () => {
-    it("returns three years before and after current year if no min or max is set", () => {
-        const years = getYearSelectOptions(2023, undefined, undefined);
+    it("returns given number of years before and after current year if no min or max is set", () => {
+        const CURRENT_YEAR = 2023;
+        const NUMBER_OF_YEARS_TO_SHOW = 3;
+        const years = getYearSelectOptions(CURRENT_YEAR, undefined, undefined, NUMBER_OF_YEARS_TO_SHOW);
 
-        expect(years.indexOf("2020")).not.toBe(-1);
-        expect(years.indexOf("2026")).not.toBe(-1);
+        expect(years.indexOf((CURRENT_YEAR - NUMBER_OF_YEARS_TO_SHOW).toString())).not.toBe(-1);
+        expect(years.indexOf((CURRENT_YEAR + NUMBER_OF_YEARS_TO_SHOW).toString())).not.toBe(-1);
+    });
+
+    it("shows min and max dates when number of years to show is set to 'all'", () => {
+        const NUMBER_OF_YEARS_TO_SHOW = "all";
+        const MIN_YEAR = 2020;
+        const MAX_YEAR = 2030;
+        const years = getYearSelectOptions(
+            2023,
+            new Date(MIN_YEAR, 1, 1),
+            new Date(MAX_YEAR, 1, 1),
+            NUMBER_OF_YEARS_TO_SHOW,
+        );
+
+        expect(years.indexOf(MIN_YEAR.toString())).not.toBe(-1);
+        expect(years.indexOf(MAX_YEAR.toString())).not.toBe(-1);
     });
 
     it("shows first possible year when min date is set after current year", () => {
-        const years = getYearSelectOptions(2023, new Date(2028, 2, 11), undefined);
+        const years = getYearSelectOptions(2023, new Date(2028, 2, 11), undefined, 3);
 
         expect(years.indexOf("2023")).toBe(-1);
         expect(years.indexOf("2028")).not.toBe(-1);
     });
 
     it("shows last possible year when max date is set before current year", () => {
-        const years = getYearSelectOptions(2023, undefined, new Date(2019, 2, 11));
+        const years = getYearSelectOptions(2023, undefined, new Date(2019, 2, 11), 3);
 
         expect(years.indexOf("2023")).toBe(-1);
         expect(years.indexOf("2019")).not.toBe(-1);
