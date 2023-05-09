@@ -5,8 +5,8 @@ const { nbsp } = unicode;
 
 describe("formatTelefonnummer", () => {
     it("formats mobile numbers correctly", () => {
-        expect(formatTelefonnummer("98651731")).toEqual(`986${nbsp}51${nbsp}731`);
-        expect(formatTelefonnummer("48435298")).toEqual(`484${nbsp}35${nbsp}298`);
+        expect(formatTelefonnummer("98651731")).toEqual(`98${nbsp}65${nbsp}17${nbsp}31`);
+        expect(formatTelefonnummer("48435298")).toEqual(`48${nbsp}43${nbsp}52${nbsp}98`);
     });
 
     it("formats 800-numbers correctly", () => {
@@ -50,12 +50,12 @@ describe("formatTelefonnummer", () => {
 
 describe("formatTelefonnumer with partial option", () => {
     it("formats mobile numbers correctly", () => {
-        expect(formatTelefonnummer("9865", { partial: true })).toEqual(`986${nbsp}5`);
-        expect(formatTelefonnummer("986517", { partial: true })).toEqual(`986${nbsp}51${nbsp}7`);
-        expect(formatTelefonnummer("98651731", { partial: true })).toEqual(`986${nbsp}51${nbsp}731`);
-        expect(formatTelefonnummer("4843", { partial: true })).toEqual(`484${nbsp}3`);
-        expect(formatTelefonnummer("484352", { partial: true })).toEqual(`484${nbsp}35${nbsp}2`);
-        expect(formatTelefonnummer("48435298", { partial: true })).toEqual(`484${nbsp}35${nbsp}298`);
+        expect(formatTelefonnummer("9865", { partial: true })).toEqual(`98${nbsp}65`);
+        expect(formatTelefonnummer("986517", { partial: true })).toEqual(`98${nbsp}65${nbsp}17`);
+        expect(formatTelefonnummer("98651731", { partial: true })).toEqual(`98${nbsp}65${nbsp}17${nbsp}31`);
+        expect(formatTelefonnummer("4843", { partial: true })).toEqual(`48${nbsp}43`);
+        expect(formatTelefonnummer("484352", { partial: true })).toEqual(`48${nbsp}43${nbsp}52`);
+        expect(formatTelefonnummer("48435298", { partial: true })).toEqual(`48${nbsp}43${nbsp}52${nbsp}98`);
     });
 
     it("formats 800-numbers correctly", () => {
