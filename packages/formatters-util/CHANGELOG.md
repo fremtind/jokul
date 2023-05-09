@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@4.1.6...@fremtind/jkl-formatters-util@4.1.7) (2023-05-09)
+
+### Bug Fixes
+
+- endret formateringen til xx xx xx xx med unntak av 8xx-nummer ([b4099fe](https://github.com/fremtind/jokul/commit/b4099fe35046c04ccd18314a6c1c1d87caa847a0))
+
 # 4.1.0 (2023-05-02)
 
 ### Bug Fixes
