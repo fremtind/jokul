@@ -355,7 +355,9 @@ export const Combobox: FC<ComboboxProps> = ({
                         ))}
                         <input
                             {...inputProps}
-                            className="jkl-combobox__search-input"
+                            className={`jkl-combobox__search-input ${
+                                !showMenu && selectedValue.length >= 1 && "menu-closed"
+                            }`}
                             onChange={onSearch}
                             data-testid="jkl-combobox__search-input"
                             onFocus={handleFocus}

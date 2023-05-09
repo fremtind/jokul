@@ -157,6 +157,10 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         padding-right: var(--jkl-combobox-input-padding);
     }
 
+    &__search-input.menu-closed {
+        display: none;
+    }
+
     &__arrow {
         pointer-events: none;
         transform: translateY(-50%);
