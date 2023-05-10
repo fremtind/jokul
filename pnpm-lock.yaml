@@ -1004,12 +1004,14 @@ importers:
   packages/toggle-switch-react:
     specifiers:
       '@fremtind/jkl-core': ^12.0.4
+      '@fremtind/jkl-icons-react': ^7.1.2
       '@fremtind/jkl-input-group-react': ^2.1.3
       '@fremtind/jkl-react-hooks': ^11.2.0
       '@fremtind/jkl-toggle-switch': ^11.0.4
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-input-group-react': link:../input-group-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-toggle-switch': link:../toggle-switch

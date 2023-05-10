@@ -1,25 +1,10 @@
 import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
-import { ToggleSlider, ToggleSwitch } from "../src";
+import { ToggleSwitch, ToggleSlider } from "../src";
 
 export const toggleSwitchExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Deaktivert", "Med hjelpetekst"],
-};
-
-export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
-    const [isOn, setIsOn] = useState(false);
-    const helpLabel = boolValues?.["Med hjelpetekst"] ? "Veksle mellom lys og mørk grensesnitt" : undefined;
-    return (
-        <ToggleSwitch
-            pressed={isOn}
-            onClick={() => setIsOn(!isOn)}
-            disabled={boolValues?.["Deaktivert"]}
-            helpLabel={helpLabel}
-        >
-            Mørk modus
-        </ToggleSwitch>
-    );
 };
 
 export const toggleSliderExampleKnobs: ExampleKnobsProps = {};
@@ -41,18 +26,54 @@ export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ displayVa
     );
 };
 
-export const toggleSwitchCodeExample = ({ boolValues }: ExampleComponentProps): string => `
-    <ToggleSwitch
-        helpLabel={${boolValues?.["Med hjelpetekst"] ? `"Veksle mellom lys og mørk grensesnitt"` : `undefined`}}
-        disabled={${boolValues?.["Deaktivert"]}}
-    />
-`;
-
 export const toggleSliderCodeExample: CodeExample = (): string => `
     <ToggleSlider
         defaultValue="måned"
         labels={["måned", "år"]}
     />
+`;
+
+export const ToggleExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+    const [isOn, setIsOn] = useState(false);
+    const toggle = () => setIsOn((prev) => !prev);
+    const helpLabel = boolValues?.["Med hjelpetekst"] ? "Veksle mellom lyst og mørkt grensesnitt" : undefined;
+
+    return (
+        <ToggleSwitch
+            aria-pressed={isOn}
+            disabled={boolValues?.["Deaktivert"]}
+            onClick={toggle}
+            onSwipeLeft={() => setIsOn(false)}
+            onSwipeRight={() => setIsOn(true)}
+            helpLabel={helpLabel}
+        >
+            Mørk modus
+        </ToggleSwitch>
+    );
+};
+
+export const toggleCodeExample: CodeExample = ({ boolValues }) => `
+const [isOn, setIsOn] = useState(false);
+const toggle = () => setIsOn((prev) => !prev);
+
+<ToggleSwitch
+    aria-pressed={isOn}${
+        boolValues?.["Deaktivert"]
+            ? `
+    disabled`
+            : ""
+    }
+    onClick={toggle}
+    onSwipeLeft={() => setIsOn(false)}
+    onSwipeRight={() => setIsOn(true)}${
+        boolValues?.["Med hjelpetekst"]
+            ? `
+    helpLabel="Veksle mellom lyst og mørkt grensesnitt"`
+            : ""
+    }
+>
+    Mørk modus
+</ToggleSwitch>
 `;
 
 export const ToggleSwitchWrongExamples: React.FC<ExampleComponentProps> = () => {
@@ -79,7 +100,7 @@ export const ToggleSliderWrongExamples: React.FC<ExampleComponentProps> = () => 
 
 export const ToggleSwitchExamples: React.FC<ExampleComponentProps> = (props) => (
     <section>
-        <ToggleSwitchExample {...props} />
+        <ToggleExample {...props} />
         <div className="jkl-spacing-2xl--top">
             <ToggleSliderExample {...props} />
         </div>

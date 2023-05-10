@@ -3,207 +3,142 @@
 
 @use "./toggle-slider";
 
-@include jkl.light-mode-variables {
-    --jkl-toggle-switch-focus-outline-color: #{jkl.$color-focus-color};
-    --jkl-toggle-switch-main-slider-color: #{jkl.$color-granitt};
-    --jkl-toggle-switch-main-slider-background-color: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-expanding-pill-background-color: #{jkl.$color-varde};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-toggle-switch-focus-outline-color: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-main-slider-color: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-main-slider-background-color: #{jkl.$color-granitt};
-    --jkl-toggle-switch-expanding-pill-background-color: #{jkl.$color-fjellgra};
-}
-
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-toggle", "body");
 
-    --jkl-toggle-width: #{jkl.rem(48px)};
-    --jkl-toggle-height: #{jkl.rem(24px)};
-    --jkl-toggle-dot-white-line-inset: #{jkl.rem(5px)};
-    --jkl-toggle-line-left-right-margin: #{jkl.rem(8px)};
+    --jkl-toggle-switch-height: #{jkl.rem(28px)};
+    --jkl-toggle-switch-width: #{jkl.rem(48px)};
+    --jkl-toggle-switch-knob-size: #{jkl.rem(20px)};
+    --jkl-toggle-switch-border-width: #{jkl.rem(1px)};
+    --jkl-toggle-switch-padding: #{jkl.rem(4px)};
+    --jkl-toggle-switch-indicator-spacing: 0;
+    --jkl-toggle-switch-help-label-spacing: var(--jkl-spacing-2);
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-toggle", "small");
 
-    --jkl-toggle-width: #{jkl.rem(38px)};
-    --jkl-toggle-height: #{jkl.rem(20px)};
-    --jkl-toggle-dot-white-line-inset: #{jkl.rem(4px)};
-    --jkl-toggle-line-left-right-margin: #{jkl.rem(8px)};
+    --jkl-toggle-switch-height: #{jkl.rem(20px)};
+    --jkl-toggle-switch-width: #{jkl.rem(36px)};
+    --jkl-toggle-switch-knob-size: #{jkl.rem(12px)};
+    --jkl-toggle-switch-border-width: #{jkl.rem(1px)};
+    --jkl-toggle-switch-padding: #{jkl.rem(4px)};
+    --jkl-toggle-switch-indicator-spacing: #{jkl.rem(-2px)};
+    --jkl-toggle-switch-help-label-spacing: 0;
+}
+
+@include jkl.light-mode-variables {
+    --jkl-toggle-switch-border: #{jkl.$color-granitt};
+    --jkl-toggle-switch-background: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-knob-border: #{jkl.$color-granitt};
+    --jkl-toggle-switch-knob-background: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-indicator-color: transparent;
+    --jkl-toggle-switch-indicator-color--on: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-disabled-color: #{jkl.$color-svaberg};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-toggle-switch-border: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-background: #{jkl.$color-granitt};
+    --jkl-toggle-switch-knob-border: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-knob-background: #{jkl.$color-granitt};
+    --jkl-toggle-switch-indicator-color: transparent;
+    --jkl-toggle-switch-indicator-color--on: #{jkl.$color-granitt};
+    --jkl-toggle-switch-disabled-color: #{jkl.$color-stein};
 }
 
 .jkl-toggle-switch {
-    $_disabled-color: jkl.$color-stein;
-
     @include jkl.reset-outline;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    height: var(--jkl-toggle-height);
+    background: transparent;
+    color: var(--jkl-color);
     padding: 0;
-    align-items: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 
-    background-color: transparent;
-    color: currentColor;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: var(--jkl-spacing-8);
 
     @include jkl.use-font-variables("jkl-toggle");
 
-    &__container {
+    --jkl-toggle-switch-knob-position: 0;
+
+    &[aria-pressed="true"] {
+        --jkl-toggle-switch-background: var(--jkl-toggle-switch-border);
+        --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-knob-background);
+        --jkl-toggle-switch-indicator-color: var(--jkl-toggle-switch-indicator-color--on);
+        --jkl-toggle-switch-knob-position: calc(
+            var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) - var(--jkl-toggle-switch-padding) * 2
+        );
+    }
+
+    // TODO: Hvis vi fortsatt skal ha disabled state må den kanskje designes litt bedre
+    &[disabled] {
+        --jkl-toggle-switch-border: var(--jkl-toggle-switch-disabled-color);
+        --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-disabled-color);
+        cursor: auto;
+    }
+
+    &__wrapper {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
     }
 
     &__help-label {
-        margin-top: jkl.$spacing-s;
+        margin-top: var(--jkl-toggle-switch-help-label-spacing);
+        margin-left: calc(var(--jkl-toggle-switch-width) + var(--jkl-spacing-8));
+    }
+}
+
+.jkl-toggle-switch-widget {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: var(--jkl-toggle-switch-height);
+    width: var(--jkl-toggle-switch-width);
+    border-radius: 9999px;
+    box-shadow: inset 0 0 0 var(--jkl-toggle-switch-border-width) var(--jkl-toggle-switch-border);
+    overflow: hidden;
+    user-select: none;
+    padding: var(--jkl-toggle-switch-padding);
+    background-color: var(--jkl-toggle-switch-background);
+
+    :focus > & {
+        @include jkl.keyboard-navigation {
+            outline: jkl.rem(2px) solid var(--jkl-color);
+            outline-offset: jkl.rem(2px);
+        }
     }
 
     &__slider {
-        border-radius: 99rem;
-        display: inline-block;
-        height: var(--jkl-toggle-height);
         position: relative;
-        width: var(--jkl-toggle-width);
-        margin-right: jkl.$spacing-xs;
-        pointer-events: none;
-
-        /* The line the dot slides on */
-        &::before {
-            content: "";
-            background-color: var(--jkl-toggle-switch-main-slider-color);
-            height: 1px;
-            left: calc(var(--jkl-toggle-line-left-right-margin) * 0.5);
-            position: absolute;
-            top: 50%;
-            width: calc(var(--jkl-toggle-width) - var(--jkl-toggle-line-left-right-margin));
-        }
-
-        /* Sliding dot */
-        &::after {
-            box-shadow: inset 0 0 0 var(--jkl-toggle-dot-white-line-inset) var(--jkl-toggle-switch-main-slider-color),
-                inset 0 0 0 calc(var(--jkl-toggle-dot-white-line-inset) + jkl.rem(2px))
-                    var(--jkl-toggle-switch-main-slider-background-color);
-            content: "";
-            border-radius: 99rem;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: var(--jkl-toggle-height);
-            height: var(--jkl-toggle-height);
-            background-color: var(--jkl-toggle-switch-main-slider-color);
-            transition: transform 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-    }
-
-    &__expanding-pill {
-        background-color: var(--jkl-toggle-switch-expanding-pill-background-color);
-        border-radius: 99rem;
-        border: solid 1px var(--jkl-toggle-switch-main-slider-color);
         box-sizing: border-box;
-        height: var(--jkl-toggle-height);
-        left: 0;
+        height: var(--jkl-toggle-switch-knob-size);
+        width: var(--jkl-toggle-switch-knob-size);
+
+        @include jkl.motion;
+        transition-property: transform;
+        transform: translateX(var(--jkl-toggle-switch-knob-position));
+    }
+
+    &__knob {
         position: absolute;
-        top: 0;
-        transition: top 150ms ease 75ms, height 150ms ease 75ms, width 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        width: var(--jkl-toggle-height);
-
-        &::after {
-            // Focus ring for keyboard navigation
-            content: "";
-            position: absolute;
-            inset: -3px;
-            background-color: transparent;
-            border-radius: 99rem;
-            width: calc(var(--jkl-toggle-width) + jkl.rem(4px));
-            box-shadow: 0 0 0 jkl.rem(2px) transparent;
-            @include jkl.motion;
-            transition-property: box-shadow;
-        }
+        inset: 0;
+        border-radius: 9999px;
+        border: var(--jkl-toggle-switch-border-width) solid var(--jkl-toggle-switch-knob-border);
+        background-color: var(--jkl-toggle-switch-knob-background);
     }
 
-    &:disabled {
-        > .jkl-toggle-switch__slider,
-        ~ .jkl-toggle-switch__label {
-            cursor: default;
-        }
-
-        > .jkl-toggle-switch__slider {
-            &::before {
-                background-color: $_disabled-color;
-            }
-
-            &::after {
-                background-color: $_disabled-color;
-                box-shadow: inset 0 0 0 var(--jkl-toggle-dot-white-line-inset) $_disabled-color,
-                    inset 0 0 0 calc(var(--jkl-toggle-dot-white-line-inset) + jkl.rem(2px)) jkl.$color-hvit;
-            }
-
-            & .jkl-toggle-switch__expanding-pill {
-                background-color: transparent;
-                border-color: $_disabled-color;
-            }
-        }
-
-        &[aria-pressed="true"] > .jkl-toggle-switch__slider::before {
-            background-color: transparent;
-        }
-    }
-
-    /* Toggled/checked state */
-    &[aria-pressed="true"] > &__slider {
-        & > .jkl-toggle-switch__expanding-pill {
-            width: var(--jkl-toggle-width);
-            top: 0;
-            height: var(--jkl-toggle-height);
-        }
-
-        &::after {
-            transform: translateX(calc(var(--jkl-toggle-width) * 0.5));
-        }
-    }
-
-    /* Keyboard focused state */
-    html:not([data-mousenavigation]) &:focus > &__slider > &__expanding-pill::after {
-        box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-toggle-switch-focus-outline-color);
-    }
-
-    @include jkl.forced-colors-mode {
-        border: none; // Ett av få tilfeller hvor vi faktisk ikke vil ha noen border, selv i denne modusen
-        outline: revert;
-
-        overflow: hidden;
-        border-radius: 99rem;
-
-        & .jkl-toggle-switch__expanding-pill {
-            background-color: Highlight;
-        }
-
-        & .jkl-toggle-switch__slider {
-            &::before {
-                background-color: GrayText;
-            }
-
-            &::after {
-                background-color: ButtonText;
-            }
-        }
-
-        &:disabled {
-            .jkl-toggle-switch__expanding-pill {
-                background-color: GrayText;
-            }
-
-            .jkl-toggle-switch__slider {
-                &::before {
-                    background-color: GrayText;
-                }
-
-                &::after {
-                    background-color: ButtonFace;
-                }
-            }
-        }
+    &__indicator {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-right: var(--jkl-toggle-switch-indicator-spacing);
+        transform: translate(0, -50%);
+        color: var(--jkl-toggle-switch-indicator-color);
     }
 }

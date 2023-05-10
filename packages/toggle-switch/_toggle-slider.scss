@@ -46,6 +46,7 @@ $_slider-rounded: jkl.rem(100px);
     align-items: flex-start;
     width: 100%;
     flex-direction: column;
+    user-select: none;
 
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
         .jkl-toggle-slider__pill {
@@ -85,6 +86,7 @@ $_slider-rounded: jkl.rem(100px);
         cursor: pointer;
         padding: jkl.$spacing-3xs jkl.$spacing-m;
         color: var(--jkl-slider-pill-text);
+        -webkit-tap-highlight-color: transparent;
 
         /* Prevent really short labels to look like circles */
         min-width: 30px;

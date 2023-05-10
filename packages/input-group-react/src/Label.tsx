@@ -9,6 +9,7 @@ export interface LabelProps extends WithChildren {
     variant?: LabelVariant;
     density?: Density;
     srOnly?: boolean;
+    noSpacing?: boolean;
     standAlone?: boolean;
     htmlFor?: string;
     className?: string;
@@ -19,6 +20,7 @@ export const Label: FC<LabelProps> = ({
     variant = "small",
     density,
     srOnly,
+    noSpacing = false,
     children,
     standAlone,
     htmlFor,
@@ -28,6 +30,7 @@ export const Label: FC<LabelProps> = ({
     const labelClassNames = classNames("jkl-label", className, {
         [`jkl-label--${variant}`]: variant,
         "jkl-label--sr-only": srOnly,
+        "jkl-label--no-spacing": noSpacing,
     });
 
     const C = standAlone ? "label" : "span";

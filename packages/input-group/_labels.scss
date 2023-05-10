@@ -119,6 +119,10 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     &--sr-only {
         @include jkl.screenreader-only;
     }
+
+    &--no-spacing {
+        margin: 0;
+    }
 }
 
 @keyframes #{$_support-icon-entrance-animation-name} {
