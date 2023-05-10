@@ -20,8 +20,11 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
 
     return (
         <div className={cn("jkl-portal-footer", className)}>
-            <div className="jkl-portal-footer__feedback">
-                <div className="jkl-portal-footer__feedback-spacer"></div>
+            <div
+                className={cn("jkl-portal-footer__header", {
+                    "jkl-portal-footer__header--no-feedback": isFrontPage || consents.statistics !== "accepted",
+                })}
+            >
                 {!isFrontPage && consents.statistics === "accepted" && (
                     <Feedback
                         type="radio"
