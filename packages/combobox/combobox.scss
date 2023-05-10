@@ -251,7 +251,9 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
     &--menu-closed {
         .jkl-combobox__search-input {
-            display: none;
+            position: absolute;
+            padding: 0;
+            width: 95%;
         }
     }
 
