@@ -106,6 +106,7 @@
     user-select: none;
     padding: var(--jkl-toggle-switch-padding);
     background-color: var(--jkl-toggle-switch-background);
+    pointer-events: none;
 
     :focus > & {
         @include jkl.keyboard-navigation {
