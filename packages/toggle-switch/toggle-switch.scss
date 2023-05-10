@@ -119,6 +119,7 @@
         box-sizing: border-box;
         height: var(--jkl-toggle-switch-knob-size);
         width: var(--jkl-toggle-switch-knob-size);
+        color: var(--jkl-toggle-switch-indicator-color);
 
         @include jkl.motion;
         transition-property: transform;
@@ -139,6 +140,11 @@
         right: 100%;
         margin-right: var(--jkl-toggle-switch-indicator-spacing);
         transform: translate(0, -50%);
-        color: var(--jkl-toggle-switch-indicator-color);
+
+        & > .jkl-icon__icon {
+            // Uten dette får ikonet feil alignment. Mulig bug i ikonpakken?
+            position: absolute;
+            inset: 0;
+        }
     }
 }
