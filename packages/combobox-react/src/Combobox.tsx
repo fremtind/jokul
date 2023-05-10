@@ -320,6 +320,8 @@ export const Combobox: FC<ComboboxProps> = ({
             data-testid="jkl-combobox"
             className={cn("jkl-combobox", className, {
                 "jkl-combobox--invalid": !!errorLabel || invalid,
+                "jkl-combobox--menu-closed": !showMenu && selectedValue.length >= 1,
+                "jkl-combobox--menu-open": showMenu,
             })}
             labelProps={{
                 id: labelId,
@@ -329,7 +331,7 @@ export const Combobox: FC<ComboboxProps> = ({
             errorLabel={errorLabel}
             density={density}
             render={(inputProps) => (
-                <div className={`jkl-combobox__wrapper ${showMenu && "menu-open"}`} style={{ width }}>
+                <div className="jkl-combobox__wrapper" style={{ width }}>
                     <div className="jkl-combobox__tags" data-testid="jkl-combobox__tags">
                         {selectedValue.map(getComboboxValuePair).map((option) => (
                             <Tag
@@ -355,9 +357,7 @@ export const Combobox: FC<ComboboxProps> = ({
                         ))}
                         <input
                             {...inputProps}
-                            className={`jkl-combobox__search-input ${
-                                !showMenu && selectedValue.length >= 1 && "menu-closed"
-                            }`}
+                            className="jkl-combobox__search-input"
                             onChange={onSearch}
                             data-testid="jkl-combobox__search-input"
                             onFocus={handleFocus}

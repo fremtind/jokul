@@ -115,18 +115,6 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         }
     }
 
-    &__wrapper.menu-open {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        border-color: var(--jkl-combobox-focus-color);
-        background-color: var(--jkl-combobox-open-color);
-        box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-combobox-focus-color) inset;
-
-        &:hover ~ .jkl-combobox__arrow {
-            transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
-        }
-    }
-
     &__button {
         padding: 0;
     }
@@ -155,10 +143,6 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         flex: 1 1 1ch;
         max-height: 28px;
         padding-right: var(--jkl-combobox-input-padding);
-    }
-
-    &__search-input.menu-closed {
-        display: none;
     }
 
     &__arrow {
@@ -248,6 +232,26 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
         .jkl-combobox__search-input::selection {
             background-color: var(--jkl-combobox-search-input-selection-color);
+        }
+    }
+
+    &--menu-open {
+        .jkl-combobox__wrapper {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-color: var(--jkl-combobox-focus-color);
+            background-color: var(--jkl-combobox-open-color);
+            box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-combobox-focus-color) inset;
+
+            &:hover ~ .jkl-combobox__arrow {
+                transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
+            }
+        }
+    }
+
+    &--menu-closed {
+        .jkl-combobox__search-input {
+            display: none;
         }
     }
 
