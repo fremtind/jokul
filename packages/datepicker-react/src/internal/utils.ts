@@ -106,17 +106,22 @@ export function getYearSelectOptions(
         comingYearsToShow = typeof yearsToShow === "number" ? yearsToShow : yearsToShow.coming;
     }
 
-    let start = minDate
-        ? Math.max(minDate.getFullYear(), showAllYears ? minDate.getFullYear() : currentYear - previousYearsToShow)
-        : currentYear - previousYearsToShow;
-    let end = maxDate
-        ? Math.min(maxDate.getFullYear(), showAllYears ? maxDate.getFullYear() : currentYear + comingYearsToShow)
-        : currentYear + comingYearsToShow;
+    let startYear = currentYear - previousYearsToShow;
+    if (minDate) {
+        const earliestStartYear = showAllYears ? minDate.getFullYear() : startYear;
+        startYear = Math.max(minDate.getFullYear(), earliestStartYear);
+    }
+
+    let endYear = currentYear + comingYearsToShow;
+    if (maxDate) {
+        const latestEndYear = showAllYears ? maxDate.getFullYear() : endYear;
+        endYear = Math.min(maxDate.getFullYear(), latestEndYear);
+    }
 
     // Sørg for å alltid vise minst ett år
-    const numYears = Math.max(end - start + 1, 1);
+    const numYears = Math.max(endYear - startYear + 1, 1);
 
-    const range = [...Array(numYears).keys()].map((x) => x + start);
+    const range = [...Array(numYears).keys()].map((x) => x + startYear);
     const stringRange = range.map((item) => item.toString());
 
     return stringRange;
