@@ -33,7 +33,7 @@ export const toggleSliderCodeExample: CodeExample = (): string => `
     />
 `;
 
-export const ToggleExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     const [isOn, setIsOn] = useState(false);
     const toggle = () => setIsOn((prev) => !prev);
     const helpLabel = boolValues?.["Med hjelpetekst"] ? "Veksle mellom lyst og mørkt grensesnitt" : undefined;
@@ -52,7 +52,7 @@ export const ToggleExample: React.FC<ExampleComponentProps> = ({ boolValues }) =
     );
 };
 
-export const toggleCodeExample: CodeExample = ({ boolValues }) => `
+export const toggleSwitchCodeExample: CodeExample = ({ boolValues }) => `
 const [isOn, setIsOn] = useState(false);
 const toggle = () => setIsOn((prev) => !prev);
 
@@ -100,7 +100,7 @@ export const ToggleSliderWrongExamples: React.FC<ExampleComponentProps> = () => 
 
 export const ToggleSwitchExamples: React.FC<ExampleComponentProps> = (props) => (
     <section>
-        <ToggleExample {...props} />
+        <ToggleSwitchExample {...props} />
         <div className="jkl-spacing-2xl--top">
             <ToggleSliderExample {...props} />
         </div>

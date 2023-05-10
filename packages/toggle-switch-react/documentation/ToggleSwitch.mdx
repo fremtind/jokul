@@ -7,11 +7,11 @@ keywords: toggleswitch toggleslider slider
 ---
 
 import {
-    ToggleExample,
+    ToggleSwitchExample,
     ToggleSliderExample,
     ToggleSwitchWrongExamples,
     ToggleSliderWrongExamples,
-    toggleCodeExample,
+    toggleSwitchCodeExample,
     toggleSwitchExampleKnobs,
     toggleSliderExampleKnobs,
     toggleSliderCodeExample,
@@ -24,9 +24,9 @@ import {
 
 <ComponentExample
     title="ToggleSwitch"
-    component={ToggleExample}
+    component={ToggleSwitchExample}
     knobs={toggleSwitchExampleKnobs}
-    codeExample={toggleCodeExample}
+    codeExample={toggleSwitchCodeExample}
 />
 
 <ComponentExample
@@ -49,7 +49,7 @@ Ikke bruk veksleknapper dersom brukeren skal bekrefte et valg. Et eksempel på d
     <DoDontExample
         type="do"
         description="Skrur av/på mørk modus umidderlbart uten bekreftelse fra brukeren"
-        content={<ToggleExample />}
+        content={<ToggleSwitchExample />}
     />
     <DoDontExample
         type="dont"
