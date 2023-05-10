@@ -331,7 +331,12 @@ export const Combobox: FC<ComboboxProps> = ({
             errorLabel={errorLabel}
             density={density}
             render={(inputProps) => (
-                <div className="jkl-combobox__wrapper" style={{ width }}>
+                <div
+                    className="jkl-combobox__wrapper"
+                    style={{ width }}
+                    onClick={() => setShowMenu(true)}
+                    aria-hidden="true"
+                >
                     <div className="jkl-combobox__tags" data-testid="jkl-combobox__tags">
                         {selectedValue.map(getComboboxValuePair).map((option) => (
                             <Tag

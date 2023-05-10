@@ -161,7 +161,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         top: 100%;
         overflow-y: auto;
         position: absolute;
-
+        color: var(--jkl-combobox-text-color);
         z-index: jkl.$z-index--dropdown;
         left: jkl.rem(-1px);
         right: jkl.rem(-1px);
@@ -240,7 +240,6 @@ $_combobox-search-input-selection-color--inverted: color.scale(
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
             border-color: var(--jkl-combobox-focus-color);
-            background-color: var(--jkl-combobox-open-color);
             box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-combobox-focus-color) inset;
 
             &:hover ~ .jkl-combobox__arrow {
@@ -251,9 +250,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
     &--menu-closed {
         .jkl-combobox__search-input {
-            position: absolute;
-            padding: 0;
-            width: 95%;
+            display: none;
         }
     }
 
