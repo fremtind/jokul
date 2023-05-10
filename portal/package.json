@@ -38,6 +38,7 @@
         "@fremtind/jkl-loader-react": "^11.0.5",
         "@fremtind/jkl-logo-react": "^12.0.7",
         "@fremtind/jkl-message-box-react": "^10.0.11",
+        "@fremtind/jkl-modal-react": "^1.0.0-alpha.0",
         "@fremtind/jkl-progress-bar-react": "^5.0.1",
         "@fremtind/jkl-radio-button-react": "^10.1.19",
         "@fremtind/jkl-react-hooks": "^11.3.0",

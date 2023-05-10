@@ -1,6 +1,6 @@
 import React, { useEffect, type FC } from "react";
 import ReactDOM from "react-dom";
-import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps, CodeExample, useExampleContext } from "../../../doc-utils";
 import { PrimaryButton, TertiaryButton } from "../../button-react/src";
 import {
     Modal,
@@ -26,7 +26,10 @@ type ModalComponentProps = ExampleComponentProps & {
 function ModalComponent({ boolValues, dialogRef, onConfirm, onCancel }: ModalComponentProps) {
     const heading = "Bekreft sletting";
 
-    const [instance, { title, overlay, container, modal, closeButton }] = useModal({ title: heading });
+    const [instance, { title, overlay, container, modal, closeButton }] = useModal({
+        title: heading,
+        role: "dialog", // "dialog" er default. Kan også være "alertdialog".
+    });
 
     useEffect(() => {
         dialogRef(instance);
@@ -39,8 +42,10 @@ function ModalComponent({ boolValues, dialogRef, onConfirm, onCancel }: ModalCom
         };
     }, [dialogRef, instance]);
 
+    const { theme, density } = useExampleContext();
+
     return ReactDOM.createPortal(
-        <ModalContainer {...container}>
+        <ModalContainer {...container} data-theme={theme} data-layout-density={density}>
             <ModalOverlay
                 {...overlay}
                 onClick={() => {
@@ -64,7 +69,7 @@ function ModalComponent({ boolValues, dialogRef, onConfirm, onCancel }: ModalCom
                             onConfirm();
                         }}
                     >
-                        Bekreft
+                        Slett
                     </PrimaryButton>
                     <TertiaryButton
                         onClick={() => {
@@ -83,7 +88,7 @@ function ModalComponent({ boolValues, dialogRef, onConfirm, onCancel }: ModalCom
 export const ModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const dialogRef = React.useRef<ModalInstance | null>();
     return (
-        <>
+        <div>
             <PrimaryButton
                 onClick={() => {
                     dialogRef.current?.show();
@@ -105,7 +110,7 @@ export const ModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                     dialogRef.current?.hide();
                 }}
             />
-        </>
+        </div>
     );
 };
 
@@ -121,7 +126,11 @@ type ModalComponentProps = {
 function ModalComponent({ dialogRef, onConfirm, onCancel }: ModalComponentProps) {
     const heading = "Bekreft sletting";
 
-    const [instance, { title, overlay, container, modal, closeButton }] = useModal({ title: heading });
+    const [instance, { title, overlay, container, modal, closeButton }] = useModal({
+        title: heading,
+        role: "dialog", // "dialog" er default.
+        // Kan også være "alertdialog" for å skru av click outside og Esc.
+    });
 
     useEffect(() => {
         dialogRef(instance);
