@@ -446,16 +446,16 @@ importers:
       '@fremtind/jkl-cookie-consent': ^10.0.4
       '@fremtind/jkl-core': ^12.0.4
       '@fremtind/jkl-list-react': ^9.0.5
+      '@fremtind/jkl-modal-react': ^1.0.0-alpha.0
       '@fremtind/jkl-react-hooks': ^11.3.0
-      react-a11y-dialog: ^6.2.0
     dependencies:
       '@fremtind/jkl-button-react': link:../button-react
       '@fremtind/jkl-checkbox-react': link:../checkbox-react
       '@fremtind/jkl-cookie-consent': link:../cookie-consent
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-list-react': link:../list-react
+      '@fremtind/jkl-modal-react': link:../modal-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
-      react-a11y-dialog: 6.2.0
 
   packages/core:
     specifiers:
@@ -798,6 +798,32 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
 
+  packages/modal:
+    specifiers:
+      '@fremtind/jkl-core': ^11.0.0
+    dependencies:
+      '@fremtind/jkl-core': 11.4.0
+
+  packages/modal-react:
+    specifiers:
+      '@fremtind/jkl-core': ^12.0.4
+      '@fremtind/jkl-icon-button-react': ^3.0.10
+      '@fremtind/jkl-icons-react': ^7.2.1
+      '@fremtind/jkl-modal': ^1.0.0-alpha.0
+      '@fremtind/jkl-react-hooks': ^11.2.0
+      classnames: ^2.3.2
+      prop-types: ^15.8.1
+      react-a11y-dialog: ^6.2.0
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icon-button-react': link:../icon-button-react
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-modal': link:../modal
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      classnames: 2.3.2
+      prop-types: 15.8.1
+      react-a11y-dialog: 6.2.0_prop-types@15.8.1
+
   packages/progress-bar:
     specifiers:
       '@fremtind/jkl-core': ^12.0.4
@@ -1078,6 +1104,7 @@ importers:
       '@fremtind/jkl-loader-react': ^11.0.5
       '@fremtind/jkl-logo-react': ^12.0.7
       '@fremtind/jkl-message-box-react': ^10.0.11
+      '@fremtind/jkl-modal-react': ^1.0.0-alpha.0
       '@fremtind/jkl-progress-bar-react': ^5.0.1
       '@fremtind/jkl-radio-button-react': ^10.1.19
       '@fremtind/jkl-react-hooks': ^11.3.0
@@ -1154,6 +1181,7 @@ importers:
       '@fremtind/jkl-loader-react': link:../packages/loader-react
       '@fremtind/jkl-logo-react': link:../packages/logo-react
       '@fremtind/jkl-message-box-react': link:../packages/message-box-react
+      '@fremtind/jkl-modal-react': link:../packages/modal-react
       '@fremtind/jkl-progress-bar-react': link:../packages/progress-bar-react
       '@fremtind/jkl-radio-button-react': link:../packages/radio-button-react
       '@fremtind/jkl-react-hooks': link:../packages/react-hooks
@@ -3109,6 +3137,17 @@ packages:
       '@floating-ui/react-dom': 2.0.0
       aria-hidden: 1.2.3
       tabbable: 6.1.1
+    dev: false
+
+  /@fremtind/jkl-core/11.4.0:
+    resolution: {integrity: sha512-278WmOwjXvNlE5sXU4UDeyqnGwSxQl5cPXg33LGhGoHfGyYfUfK3SFnw/UbBPsKObpmRKhKmnlPPess7mc2IRg==}
+    peerDependencies:
+      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
+      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
+    dependencies:
+      classnames: 2.3.2
     dev: false
 
   /@fremtind/stylelint-config-jkl/6.0.5_j46hagaq63ohsfn3p3f6qemnym:
@@ -19121,7 +19160,7 @@ packages:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  /react-a11y-dialog/6.2.0:
+  /react-a11y-dialog/6.2.0_prop-types@15.8.1:
     resolution: {integrity: sha512-/oW5vUjBDD4FvbF8L8K4RKStdro3J7V65ghhEgfWZmfqGW/+5bxpA6OZlChYgIUh47IlZvaBhL78ItBNIp1zHg==}
     peerDependencies:
       prop-types: ^15.6.0
@@ -19129,6 +19168,7 @@ packages:
       react-dom: '>=16.0.0'
     dependencies:
       a11y-dialog: 7.5.2
+      prop-types: 15.8.1
     dev: false
 
   /react-dev-utils/12.0.1_gluwifzyulmwmockh2kbphcvqy:
