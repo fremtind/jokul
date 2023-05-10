@@ -4,20 +4,20 @@
 $_sidebar-width: rem(375px);
 
 .jkl-portal-footer {
-    padding-top: jkl.$spacing-l;
+    padding-top: jkl.$spacing-24;
 
     @include jkl.from-large-device {
         grid-area: footer;
     }
 
-    &__feedback {
+    &__header {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: jkl.$spacing-l;
+        padding: jkl.$spacing-24;
 
-        &-spacer {
-            display: none;
+        &--no-feedback {
+            justify-content: flex-end;
         }
 
         .jkl-feedback {
@@ -29,18 +29,18 @@ $_sidebar-width: rem(375px);
         }
 
         @include jkl.medium-device {
-            padding: jkl.$spacing-xl;
+            padding: jkl.$spacing-40;
         }
 
         @include jkl.from-large-device {
             flex-direction: row;
-            padding: jkl.$spacing-2xl;
-            padding-left: calc($_sidebar-width + jkl.$spacing-xl);
+            padding: jkl.$spacing-64;
+            padding-left: calc($_sidebar-width + jkl.$spacing-40);
         }
     }
 
     &__stamp {
-        margin-top: -#{jkl.$spacing-l};
+        margin-top: -#{jkl.$spacing-24};
         width: jkl.rem(185px);
         height: jkl.rem(185px);
         opacity: 1;
@@ -49,15 +49,5 @@ $_sidebar-width: rem(375px);
         @include jkl.xl-device {
             display: block;
         }
-    }
-}
-
-.jkl-portal__main--full-width ~ .jkl-portal-footer {
-    .jkl-feedback {
-        display: none;
-    }
-
-    .jkl-portal-footer__feedback-spacer {
-        display: block;
     }
 }
