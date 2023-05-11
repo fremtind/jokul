@@ -30,6 +30,8 @@ export type DatePickerMetadata = {
     value: string;
 };
 
+export type YearsToShow = number | "all" | { previous: number; coming: number };
+
 export interface DatePickerProps extends Omit<InputGroupProps, "label" | "children">, DataTestAutoId {
     /** Settes på rotnivå. */
     id?: string;
@@ -83,6 +85,14 @@ export interface DatePickerProps extends Omit<InputGroupProps, "label" | "childr
      * og gi valideringsfeil om dato som har blitt skrevet inn er utenfor.
      */
     disableAfterDate?: string;
+    /**
+     * Angir hvor mange år som skal vises i nedtrekkslisten i kalenderen. Du kan angi samme verdi
+     * for kommende og foregående år ved å sende inn et tall, eller sende inn et objekt med separate
+     * verdier for kommende og foregående år. Hvis du sender inn "all" vil alle år mellom min. og
+     * maks. dato vises i listen (eller default antall år hvis ikke min./maks. dato er angitt).
+     * @default 3
+     */
+    yearsToShow?: YearsToShow;
     /**
      * Settes på inputfeltet.
      */
