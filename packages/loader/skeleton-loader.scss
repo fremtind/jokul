@@ -61,6 +61,7 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
 }
 
 .jkl-skeleton-element {
+    border-radius: jkl.rem(2px);
     background-color: var(--jkl-skeleton-element-color);
 
     &--circle {
