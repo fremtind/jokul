@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
-import { ToggleSwitch, ToggleSlider, type ToggleHandler } from "../src";
+import { ToggleSwitch, ToggleSlider, type ToggleChangeHandler } from "../src";
 
 export const toggleSwitchExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Deaktivert", "Med hjelpetekst"],
@@ -34,14 +34,14 @@ export const toggleSliderCodeExample: CodeExample = (): string => `
 `;
 
 export const ToggleSwitchExample: React.FC<ExampleComponentProps> = () => {
-    const handleToggle: ToggleHandler<HTMLButtonElement> = (pressed, event) =>
+    const handleToggle: ToggleChangeHandler<HTMLButtonElement> = (event, pressed) =>
         console.log("Mørk modus satt til: ", pressed, event);
 
-    return <ToggleSwitch onToggle={handleToggle}>Mørk modus</ToggleSwitch>;
+    return <ToggleSwitch onChange={handleToggle}>Mørk modus</ToggleSwitch>;
 };
 
-export const toggleSwitchCodeExample: CodeExample = ({ boolValues }) => `
-const handleToggle: ToggleHandler<HTMLButtonElement> = (pressed, event) =>
+export const toggleSwitchCodeExample: CodeExample = () => `
+const handleToggle: ToggleHandler<HTMLButtonElement> = (event, pressed) =>
     console.log("Mørk modus satt til: ", pressed, event);
 
 <ToggleSwitch onToggle={handleToggle}>Mørk modus</ToggleSwitch>`;

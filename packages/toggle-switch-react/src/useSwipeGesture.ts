@@ -1,5 +1,5 @@
 import { type MouseEventHandler, type PointerEventHandler, useCallback, useRef } from "react";
-import { type ToggleHandler } from "./ToggleSwitch";
+import { type ToggleChangeHandler } from "./ToggleSwitch";
 
 type Point = { x: number; y: number };
 
@@ -12,7 +12,7 @@ function getGesturePointFromEvent<T extends HTMLElement>(event: React.PointerEve
 
 type SwipeGestureOptions<T extends HTMLElement> = {
     onClick?: MouseEventHandler<T>;
-    onToggle?: ToggleHandler<T>;
+    onChange?: ToggleChangeHandler<T>;
     onPointerDown?: PointerEventHandler<T>;
     onPointerUp?: PointerEventHandler<T>;
     onPointerMove?: PointerEventHandler<T>;
@@ -23,7 +23,7 @@ export function useSwipeGesture<T extends HTMLElement>(options: SwipeGestureOpti
     const swipeHandled = useRef<"on" | "off" | false>(false);
     const gestureStartPosition = useRef<Point>();
 
-    const { onClick, onToggle, onPointerCancel, onPointerDown, onPointerMove, onPointerUp } = options;
+    const { onClick, onChange, onPointerCancel, onPointerDown, onPointerMove, onPointerUp } = options;
 
     const handleClick: MouseEventHandler<T> = useCallback(
         (event) => {
@@ -59,19 +59,19 @@ export function useSwipeGesture<T extends HTMLElement>(options: SwipeGestureOpti
             const { x: currentX } = getGesturePointFromEvent(event);
             const { x: startX } = gestureStartPosition.current;
 
-            if (currentX - startX > 10 && onToggle && swipeHandled.current !== "on") {
-                onToggle?.(true, event);
+            if (currentX - startX > 10 && onChange && swipeHandled.current !== "on") {
+                onChange(event, true);
                 swipeHandled.current = "on";
                 gestureStartPosition.current = getGesturePointFromEvent(event);
-            } else if (startX - currentX > 10 && onToggle && swipeHandled.current !== "off") {
-                onToggle?.(false, event);
+            } else if (startX - currentX > 10 && onChange && swipeHandled.current !== "off") {
+                onChange(event, false);
                 swipeHandled.current = "off";
                 gestureStartPosition.current = getGesturePointFromEvent(event);
             }
 
             onPointerMove?.(event);
         },
-        [onPointerMove, onToggle],
+        [onPointerMove, onChange],
     );
 
     const handleGestureEnd: PointerEventHandler<T> = useCallback(

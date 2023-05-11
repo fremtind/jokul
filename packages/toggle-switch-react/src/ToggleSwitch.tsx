@@ -5,26 +5,26 @@ import cn from "classnames";
 import React, { type ButtonHTMLAttributes, type MouseEventHandler, forwardRef } from "react";
 import { useSwipeGesture } from "./useSwipeGesture";
 
-export type ToggleHandler<T extends HTMLElement> = (
-    pressed: boolean,
+export type ToggleChangeHandler<T extends HTMLElement> = (
     event: React.MouseEvent<T> | React.PointerEvent<T>,
+    pressed: boolean,
 ) => void;
 
-export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> & {
+export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "onChange"> & {
     density?: Density;
     /**
      * Handler for å håndtere toggling av knappen. Tar inn en boolean som indikerer om knappen er er togglet på
      * eller ikke, samt en MouseEvent eller en PointerEvent avhengig av om togglingen skjedde via klikk eller swipe.
      * @example
-     * function handleToggle(pressed) {
+     * function handleChange(event, pressed) {
      *    console.log(`ToggleSwitch er ${pressed ? "på" : "av"}`);
      * }
      */
-    onToggle?: ToggleHandler<HTMLButtonElement>;
+    onChange?: ToggleChangeHandler<HTMLButtonElement>;
 };
 
 export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
-    ({ children, className, density, id, onToggle, ...rest }, ref) => {
+    ({ children, className, density, id, onChange, ...rest }, ref) => {
         const uid = useId(id || "jkl-toggle-switch", { generateSuffix: !id });
         const [pressed, setPressed] = React.useState(false);
 
@@ -32,20 +32,20 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
 
         const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
             setPressed(!pressed);
-            onToggle?.(!pressed, event);
+            onChange?.(event, !pressed);
             onClick?.(event);
         };
 
-        const handleToggle: ToggleHandler<HTMLButtonElement> = (toggleTo, event) => {
+        const handleChange: ToggleChangeHandler<HTMLButtonElement> = (event, toggleTo) => {
             if (toggleTo !== pressed) {
                 setPressed(toggleTo);
-                onToggle?.(toggleTo, event);
+                onChange?.(event, toggleTo);
             }
         };
 
         const { gestureHandlers } = useSwipeGesture({
             onClick: handleClick,
-            onToggle: handleToggle,
+            onChange: handleChange,
             onPointerCancel,
             onPointerDown,
             onPointerMove,
