@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.0.0 (2023-05-11)
+
+### Bug Fixes
+
+- ikke la swipe styre disabled toggle ([9035b30](https://github.com/fremtind/jokul/commit/9035b309d4fdf9054cdbab1aed07bbefd92de28f))
+- sørg for at ikonet vises riktig ([ad65034](https://github.com/fremtind/jokul/commit/ad650348d3d58ff0f28bcb2d4cb6911357f16bd3))
+
+### Features
+
+- fjern disabled state og gjør swipe handlers påkrevd ([4caccea](https://github.com/fremtind/jokul/commit/4cacceaeb8d221eae26dd5e1d27297532b7124d1))
+- fjern hjelpetekst og lang vibrasjon ([f28e01e](https://github.com/fremtind/jokul/commit/f28e01e7851a0cded862adb170fda9ed5d754bd4))
+- oppdater design på ToggleSwitch og legg til støtte for swipe ([e34582b](https://github.com/fremtind/jokul/commit/e34582ba56e06ca8168356f3e619b21f39ba07a3)), closes [#3458](https://github.com/fremtind/jokul/issues/3458)
+
+### BREAKING CHANGES
+
+- Disabled state er ikke lenger støttet, og du må nå angi handlers for swipe høyre og venstre
+- Hjelpetekst er fjernet, og komponenten krever import av jkl-icons-react
+
 ## 11.0.3 (2023-03-21)
 
 ### Bug Fixes
