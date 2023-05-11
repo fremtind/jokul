@@ -40,7 +40,6 @@ export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValue
     return (
         <ToggleSwitch
             aria-pressed={isOn}
-            disabled={boolValues?.["Deaktivert"]}
             onClick={toggle}
             onSwipeLeft={() => setIsOn(false)}
             onSwipeRight={() => setIsOn(true)}
@@ -79,7 +78,12 @@ export const ToggleSwitchWrongExamples: React.FC<ExampleComponentProps> = () => 
 
     return (
         <form>
-            <ToggleSwitch pressed={isOn} onClick={() => setIsOn(!isOn)}>
+            <ToggleSwitch
+                aria-pressed={isOn}
+                onSwipeLeft={() => setIsOn(false)}
+                onSwipeRight={() => setIsOn(true)}
+                onClick={() => setIsOn(!isOn)}
+            >
                 Jeg samtykker
             </ToggleSwitch>
 

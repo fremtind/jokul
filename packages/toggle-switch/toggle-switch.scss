@@ -63,6 +63,11 @@
 
     @include jkl.use-font-variables("jkl-toggle");
 
+    @include jkl.forced-colors-mode {
+        border-color: transparent;
+        border-style: none;
+    }
+
     --jkl-toggle-switch-knob-position: 0;
 
     &[aria-pressed="true"] {
@@ -72,13 +77,6 @@
         --jkl-toggle-switch-knob-position: calc(
             var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) - var(--jkl-toggle-switch-padding) * 2
         );
-    }
-
-    // TODO: Hvis vi fortsatt skal ha disabled state må den kanskje designes litt bedre
-    &[disabled] {
-        --jkl-toggle-switch-border: var(--jkl-toggle-switch-disabled-color);
-        --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-disabled-color);
-        cursor: auto;
     }
 }
 
@@ -97,6 +95,10 @@
     padding: var(--jkl-toggle-switch-padding);
     background-color: var(--jkl-toggle-switch-background);
     pointer-events: none;
+
+    @include jkl.forced-colors-mode {
+        border: jkl.rem(1px) solid ButtonText;
+    }
 
     :focus > & {
         @include jkl.keyboard-navigation {
