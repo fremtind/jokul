@@ -36,7 +36,6 @@ export const toggleSliderCodeExample: CodeExample = (): string => `
 export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
     const [isOn, setIsOn] = useState(false);
     const toggle = () => setIsOn((prev) => !prev);
-    const helpLabel = boolValues?.["Med hjelpetekst"] ? "Veksle mellom lyst og mørkt grensesnitt" : undefined;
 
     return (
         <ToggleSwitch
@@ -45,7 +44,6 @@ export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValue
             onClick={toggle}
             onSwipeLeft={() => setIsOn(false)}
             onSwipeRight={() => setIsOn(true)}
-            helpLabel={helpLabel}
         >
             Mørk modus
         </ToggleSwitch>

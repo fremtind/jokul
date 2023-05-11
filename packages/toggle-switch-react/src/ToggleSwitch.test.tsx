@@ -72,7 +72,7 @@ describe("Toggle switch", () => {
 
     describe("a11y", () => {
         test("toggle-switch should be a11y compliant", async () => {
-            const { container } = render(<ToggleSwitch helpLabel="tip">Switch</ToggleSwitch>);
+            const { container } = render(<ToggleSwitch>Switch</ToggleSwitch>);
             const results = await axe(container);
 
             expect(results).toHaveNoViolations();

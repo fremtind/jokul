@@ -53,12 +53,10 @@ export function useSwipeGesture<T extends HTMLElement>(options: SwipeGestureOpti
 
             if (currentX - startX > 10 && onSwipeRight && !disabled) {
                 onSwipeRight(event);
-                window.navigator.vibrate?.(200);
                 swipeHandled.current = true;
                 gestureStartPosition.current = getGesturePointFromEvent(event);
             } else if (startX - currentX > 10 && onSwipeLeft && !disabled) {
                 onSwipeLeft(event);
-                window.navigator.vibrate?.(200);
                 swipeHandled.current = true;
                 gestureStartPosition.current = getGesturePointFromEvent(event);
             }

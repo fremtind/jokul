@@ -59,6 +59,7 @@
     flex-direction: row-reverse;
     align-items: center;
     gap: var(--jkl-spacing-8);
+    touch-action: none; // Forhindrer at siden flytter på seg når man drar i toggle
 
     @include jkl.use-font-variables("jkl-toggle");
 
@@ -78,17 +79,6 @@
         --jkl-toggle-switch-border: var(--jkl-toggle-switch-disabled-color);
         --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-disabled-color);
         cursor: auto;
-    }
-
-    &__wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    &__help-label {
-        margin-top: var(--jkl-toggle-switch-help-label-spacing);
-        margin-left: calc(var(--jkl-toggle-switch-width) + var(--jkl-spacing-8));
     }
 }
 
