@@ -1,2 +1,2 @@
-export { ToggleSwitch } from "./ToggleSwitch";
+export { ToggleSwitch, type ToggleChangeHandler } from "./ToggleSwitch";
 export { ToggleSlider } from "./ToggleSlider";

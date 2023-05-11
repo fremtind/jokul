@@ -1,25 +1,10 @@
 import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
-import { ToggleSlider, ToggleSwitch } from "../src";
+import { ToggleSwitch, ToggleSlider, type ToggleChangeHandler } from "../src";
 
 export const toggleSwitchExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Deaktivert", "Med hjelpetekst"],
-};
-
-export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
-    const [isOn, setIsOn] = useState(false);
-    const helpLabel = boolValues?.["Med hjelpetekst"] ? "Veksle mellom lys og mørk grensesnitt" : undefined;
-    return (
-        <ToggleSwitch
-            pressed={isOn}
-            onClick={() => setIsOn(!isOn)}
-            disabled={boolValues?.["Deaktivert"]}
-            helpLabel={helpLabel}
-        >
-            Mørk modus
-        </ToggleSwitch>
-    );
 };
 
 export const toggleSliderExampleKnobs: ExampleKnobsProps = {};
@@ -41,13 +26,6 @@ export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ displayVa
     );
 };
 
-export const toggleSwitchCodeExample = ({ boolValues }: ExampleComponentProps): string => `
-    <ToggleSwitch
-        helpLabel={${boolValues?.["Med hjelpetekst"] ? `"Veksle mellom lys og mørk grensesnitt"` : `undefined`}}
-        disabled={${boolValues?.["Deaktivert"]}}
-    />
-`;
-
 export const toggleSliderCodeExample: CodeExample = (): string => `
     <ToggleSlider
         defaultValue="måned"
@@ -55,14 +33,23 @@ export const toggleSliderCodeExample: CodeExample = (): string => `
     />
 `;
 
-export const ToggleSwitchWrongExamples: React.FC<ExampleComponentProps> = () => {
-    const [isOn, setIsOn] = useState(false);
+export const ToggleSwitchExample: React.FC<ExampleComponentProps> = () => {
+    const handleToggle: ToggleChangeHandler<HTMLButtonElement> = (event, pressed) =>
+        console.log("Mørk modus satt til: ", pressed, event);
 
+    return <ToggleSwitch onChange={handleToggle}>Mørk modus</ToggleSwitch>;
+};
+
+export const toggleSwitchCodeExample: CodeExample = () => `
+const handleToggle: ToggleHandler<HTMLButtonElement> = (event, pressed) =>
+    console.log("Mørk modus satt til: ", pressed, event);
+
+<ToggleSwitch onToggle={handleToggle}>Mørk modus</ToggleSwitch>`;
+
+export const ToggleSwitchWrongExamples: React.FC<ExampleComponentProps> = () => {
     return (
         <form>
-            <ToggleSwitch pressed={isOn} onClick={() => setIsOn(!isOn)}>
-                Jeg samtykker
-            </ToggleSwitch>
+            <ToggleSwitch>Jeg samtykker</ToggleSwitch>
 
             <PrimaryButton type="submit" className="jkl-spacing-l--top">
                 Send
