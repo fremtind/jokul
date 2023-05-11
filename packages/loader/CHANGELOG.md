@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.5 (2023-05-11)
+
+### Bug Fixes
+
+- legg til en border radius på skeleton ([9cb80fc](https://github.com/fremtind/jokul/commit/9cb80fc8b2aa6c1fe3cd2a1b2cb1691624fbf26a))
+
 ## 10.0.3 (2023-03-21)
 
 ### Bug Fixes

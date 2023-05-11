@@ -276,7 +276,7 @@ importers:
       '@fremtind/jkl-button': ^10.0.5
       '@fremtind/jkl-core': ^12.0.4
       '@fremtind/jkl-icons-react': ^7.2.1
-      '@fremtind/jkl-loader-react': ^11.0.4
+      '@fremtind/jkl-loader-react': ^11.0.5
       '@fremtind/jkl-react-hooks': ^11.2.0
       '@fremtind/jkl-toggle-switch-react': ^11.0.10
       classnames: ^2.3.2
@@ -298,7 +298,7 @@ importers:
 
   packages/card-react:
     specifiers:
-      '@fremtind/jkl-button-react': ^13.0.10
+      '@fremtind/jkl-button-react': ^13.0.11
       '@fremtind/jkl-card': ^9.0.3
       '@fremtind/jkl-constants-util': ^2.0.21
       '@fremtind/jkl-core': ^12.0.4
@@ -441,7 +441,7 @@ importers:
 
   packages/cookie-consent-react:
     specifiers:
-      '@fremtind/jkl-button-react': ^13.0.10
+      '@fremtind/jkl-button-react': ^13.0.11
       '@fremtind/jkl-checkbox-react': ^10.0.10
       '@fremtind/jkl-cookie-consent': ^10.0.4
       '@fremtind/jkl-core': ^12.0.4
@@ -542,7 +542,7 @@ importers:
 
   packages/feedback-react:
     specifiers:
-      '@fremtind/jkl-button-react': ^13.0.10
+      '@fremtind/jkl-button-react': ^13.0.11
       '@fremtind/jkl-checkbox-react': ^10.0.10
       '@fremtind/jkl-core': ^12.0.4
       '@fremtind/jkl-feedback': ^12.0.4
@@ -574,7 +574,7 @@ importers:
 
   packages/file-input-react:
     specifiers:
-      '@fremtind/jkl-button-react': ^13.0.10
+      '@fremtind/jkl-button-react': ^13.0.11
       '@fremtind/jkl-core': ^12.0.4
       '@fremtind/jkl-file-input': ^1.0.1
       '@fremtind/jkl-formatters-util': ^4.1.7
@@ -753,7 +753,7 @@ importers:
   packages/loader-react:
     specifiers:
       '@fremtind/jkl-core': ^12.0.4
-      '@fremtind/jkl-loader': ^10.0.4
+      '@fremtind/jkl-loader': ^10.0.5
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -1050,21 +1050,21 @@ importers:
       '@fremtind/jkl-accordion-react': ^9.0.11
       '@fremtind/jkl-alert-message-react': ^10.0.9
       '@fremtind/jkl-breadcrumb-react': ^4.0.4
-      '@fremtind/jkl-button-react': ^13.0.10
-      '@fremtind/jkl-card-react': ^9.0.12
+      '@fremtind/jkl-button-react': ^13.0.11
+      '@fremtind/jkl-card-react': ^9.0.13
       '@fremtind/jkl-checkbox-react': ^10.0.10
       '@fremtind/jkl-combobox-react': ^1.0.3
       '@fremtind/jkl-constants-util': ^2.0.21
       '@fremtind/jkl-contact-information-react': ^1.0.17
       '@fremtind/jkl-content-toggle-react': ^5.0.4
       '@fremtind/jkl-contextual-menu-react': ^2.0.2
-      '@fremtind/jkl-cookie-consent-react': ^8.0.12
+      '@fremtind/jkl-cookie-consent-react': ^8.0.13
       '@fremtind/jkl-core': ^12.0.4
       '@fremtind/jkl-datepicker-react': ^14.2.10
       '@fremtind/jkl-description-list-react': ^7.0.4
       '@fremtind/jkl-expand-button-react': ^5.0.10
-      '@fremtind/jkl-feedback-react': ^16.0.19
-      '@fremtind/jkl-file-input-react': ^1.0.7
+      '@fremtind/jkl-feedback-react': ^16.0.20
+      '@fremtind/jkl-file-input-react': ^1.0.8
       '@fremtind/jkl-footer-react': ^5.0.17
       '@fremtind/jkl-formatters-util': ^4.1.7
       '@fremtind/jkl-hamburger-react': ^11.0.6
@@ -1073,7 +1073,7 @@ importers:
       '@fremtind/jkl-image-react': ^5.0.6
       '@fremtind/jkl-input-group-react': ^2.1.3
       '@fremtind/jkl-list-react': ^9.0.5
-      '@fremtind/jkl-loader-react': ^11.0.4
+      '@fremtind/jkl-loader-react': ^11.0.5
       '@fremtind/jkl-logo-react': ^12.0.6
       '@fremtind/jkl-message-box-react': ^10.0.10
       '@fremtind/jkl-progress-bar-react': ^5.0.1
