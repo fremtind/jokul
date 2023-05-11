@@ -248,6 +248,15 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         }
     }
 
+    &--menu-closed {
+        .jkl-combobox__search-input {
+            position: absolute;
+            background-color: transparent;
+            width: 94%;
+            padding-right: 0;
+        }
+    }
+
     .jkl-tag {
         margin: 1px;
     }
