@@ -321,6 +321,7 @@ export const Combobox: FC<ComboboxProps> = ({
             className={cn("jkl-combobox", className, {
                 "jkl-combobox--invalid": !!errorLabel || invalid,
                 "jkl-combobox--menu-open": showMenu,
+                "jkl-combobox--menu-closed": !showMenu && selectedValue.length >= 1,
             })}
             labelProps={{
                 id: labelId,
