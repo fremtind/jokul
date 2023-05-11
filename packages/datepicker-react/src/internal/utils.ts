@@ -29,6 +29,7 @@ import isBefore from "date-fns/isBefore";
 import isToday from "date-fns/isToday";
 import startOfDay from "date-fns/startOfDay";
 import React from "react";
+import type { YearsToShow } from "../types";
 import { parseDateString } from "../utils";
 
 export function composeEventHandlers(...fns: Array<React.MouseEventHandler | undefined>) {
@@ -67,6 +68,8 @@ export function subtractMonth({
     return offset;
 }
 
+export const DEFAULT_YEARS_TO_SHOW = 3;
+
 /**
  * Generates an array of year strings for a year selector component, with min and max dates taken into account.
  *
@@ -80,6 +83,7 @@ export function getYearSelectOptions(
     currentYear: number,
     minDate: Date | undefined,
     maxDate: Date | undefined,
+    yearsToShow: YearsToShow,
 ): string[] {
     if (minDate && minDate.getFullYear() > currentYear) {
         return [minDate.getFullYear().toString()];
@@ -89,13 +93,35 @@ export function getYearSelectOptions(
         return [maxDate.getFullYear().toString()];
     }
 
-    let start = minDate ? Math.max(minDate.getFullYear(), currentYear - 3) : currentYear - 3;
-    let end = maxDate ? Math.min(maxDate.getFullYear(), currentYear + 3) : currentYear + 3;
+    let showAllYears = false;
+    let previousYearsToShow: number;
+    let comingYearsToShow: number;
+
+    if (yearsToShow === "all") {
+        showAllYears = true;
+        previousYearsToShow = DEFAULT_YEARS_TO_SHOW;
+        comingYearsToShow = DEFAULT_YEARS_TO_SHOW;
+    } else {
+        previousYearsToShow = typeof yearsToShow === "number" ? yearsToShow : yearsToShow.previous;
+        comingYearsToShow = typeof yearsToShow === "number" ? yearsToShow : yearsToShow.coming;
+    }
+
+    let startYear = currentYear - previousYearsToShow;
+    if (minDate) {
+        const earliestStartYear = showAllYears ? minDate.getFullYear() : startYear;
+        startYear = Math.max(minDate.getFullYear(), earliestStartYear);
+    }
+
+    let endYear = currentYear + comingYearsToShow;
+    if (maxDate) {
+        const latestEndYear = showAllYears ? maxDate.getFullYear() : endYear;
+        endYear = Math.min(maxDate.getFullYear(), latestEndYear);
+    }
 
     // Sørg for å alltid vise minst ett år
-    const numYears = Math.max(end - start + 1, 1);
+    const numYears = Math.max(endYear - startYear + 1, 1);
 
-    const range = [...Array(numYears).keys()].map((x) => x + start);
+    const range = [...Array(numYears).keys()].map((x) => x + startYear);
     const stringRange = range.map((item) => item.toString());
 
     return stringRange;

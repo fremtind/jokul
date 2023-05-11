@@ -4,6 +4,7 @@ import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { forwardRef, useCallback, useEffect, useReducer, useRef } from "react";
 import { flushSync } from "react-dom";
+import type { YearsToShow } from "../types";
 import { calendarInitializer, calendarReducer } from "./calendarReducer";
 import { useCalendar, UseCalendarProps } from "./useCalendar";
 import {
@@ -15,6 +16,7 @@ import {
     getMonthSelectOptions,
     DateInfo,
     getInitialDateShown,
+    DEFAULT_YEARS_TO_SHOW,
 } from "./utils";
 
 interface CalendarProps
@@ -27,6 +29,7 @@ interface CalendarProps
     months?: string[];
     monthLabel?: string;
     yearLabel?: string;
+    yearsToShow?: YearsToShow;
     onTabOutside: React.KeyboardEventHandler;
 }
 
@@ -59,6 +62,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         months = defaultMonths,
         monthLabel = "Velg måned",
         yearLabel = "Velg år",
+        yearsToShow = DEFAULT_YEARS_TO_SHOW,
         onTabOutside,
         ...rest
     } = props;
@@ -339,7 +343,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         [selectedDate, date, shownDate],
     );
 
-    const yearSelectOptions = getYearSelectOptions(shownYear, minDate, maxDate);
+    const yearSelectOptions = getYearSelectOptions(shownYear, minDate, maxDate, yearsToShow);
     const monthSelectOptions = getMonthSelectOptions(shownYear, months, minDate, maxDate);
 
     return (
