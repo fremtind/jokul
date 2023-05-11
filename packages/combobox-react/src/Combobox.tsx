@@ -320,6 +320,7 @@ export const Combobox: FC<ComboboxProps> = ({
             data-testid="jkl-combobox"
             className={cn("jkl-combobox", className, {
                 "jkl-combobox--invalid": !!errorLabel || invalid,
+                "jkl-combobox--menu-open": showMenu,
             })}
             labelProps={{
                 id: labelId,
@@ -329,7 +330,7 @@ export const Combobox: FC<ComboboxProps> = ({
             errorLabel={errorLabel}
             density={density}
             render={(inputProps) => (
-                <div className={`jkl-combobox__wrapper ${showMenu && "menu-open"}`} style={{ width }}>
+                <div className="jkl-combobox__wrapper" style={{ width }}>
                     <div className="jkl-combobox__tags" data-testid="jkl-combobox__tags">
                         {selectedValue.map(getComboboxValuePair).map((option) => (
                             <Tag
@@ -420,7 +421,13 @@ export const Combobox: FC<ComboboxProps> = ({
                     <div className="jkl-combobox__actions">
                         {selectedValue.length > 0 && (
                             <IconButton
-                                onClick={() => onTagRemoveAll()}
+                                onClick={() => {
+                                    if (searchRef.current) {
+                                        searchRef.current.focus();
+                                    }
+                                    onTagRemoveAll();
+                                }}
+                                onBlur={handleBlur}
                                 data-testid="jkl-combobox__remove-all"
                                 className="jkl-combobox__button"
                                 aria-label="Fjern valgte elementer"
