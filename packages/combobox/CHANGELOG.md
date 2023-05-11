@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox@1.0.1...@fremtind/jkl-combobox@1.0.2) (2023-05-11)
+
+### Bug Fixes
+
+- la til z index på tags ([2addb66](https://github.com/fremtind/jokul/commit/2addb6608c18766eb14fc021bec49b9cf29eb53b))
+- skjul input felt visult når menyen er lukket ([9799b28](https://github.com/fremtind/jokul/commit/9799b28047d7056de104ae6ff0e1145d17744428))
+
 ## 1.0.1 (2023-05-11)
 
 ### Bug Fixes

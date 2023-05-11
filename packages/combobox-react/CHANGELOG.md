@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@1.0.2...@fremtind/jkl-combobox-react@1.0.3) (2023-05-11)
+
+### Bug Fixes
+
+- skjul input felt visult når menyen er lukket ([9799b28](https://github.com/fremtind/jokul/commit/9799b28047d7056de104ae6ff0e1145d17744428))
+
 ## [1.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@1.0.1...@fremtind/jkl-combobox-react@1.0.2) (2023-05-11)
 
 ### Bug Fixes
