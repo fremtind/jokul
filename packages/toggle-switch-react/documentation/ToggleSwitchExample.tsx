@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../button-react/src";
-import { ToggleSwitch, ToggleSlider } from "../src";
+import { ToggleSwitch, ToggleSlider, type ToggleHandler } from "../src";
 
 export const toggleSwitchExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Deaktivert", "Med hjelpetekst"],
@@ -33,59 +33,23 @@ export const toggleSliderCodeExample: CodeExample = (): string => `
     />
 `;
 
-export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
-    const [isOn, setIsOn] = useState(false);
-    const toggle = () => setIsOn((prev) => !prev);
+export const ToggleSwitchExample: React.FC<ExampleComponentProps> = () => {
+    const handleToggle: ToggleHandler<HTMLButtonElement> = (pressed, event) =>
+        console.log("Mørk modus satt til: ", pressed, event);
 
-    return (
-        <ToggleSwitch
-            aria-pressed={isOn}
-            onClick={toggle}
-            onSwipeLeft={() => setIsOn(false)}
-            onSwipeRight={() => setIsOn(true)}
-        >
-            Mørk modus
-        </ToggleSwitch>
-    );
+    return <ToggleSwitch onToggle={handleToggle}>Mørk modus</ToggleSwitch>;
 };
 
 export const toggleSwitchCodeExample: CodeExample = ({ boolValues }) => `
-const [isOn, setIsOn] = useState(false);
-const toggle = () => setIsOn((prev) => !prev);
+const handleToggle: ToggleHandler<HTMLButtonElement> = (pressed, event) =>
+    console.log("Mørk modus satt til: ", pressed, event);
 
-<ToggleSwitch
-    aria-pressed={isOn}${
-        boolValues?.["Deaktivert"]
-            ? `
-    disabled`
-            : ""
-    }
-    onClick={toggle}
-    onSwipeLeft={() => setIsOn(false)}
-    onSwipeRight={() => setIsOn(true)}${
-        boolValues?.["Med hjelpetekst"]
-            ? `
-    helpLabel="Veksle mellom lyst og mørkt grensesnitt"`
-            : ""
-    }
->
-    Mørk modus
-</ToggleSwitch>
-`;
+<ToggleSwitch onToggle={handleToggle}>Mørk modus</ToggleSwitch>`;
 
 export const ToggleSwitchWrongExamples: React.FC<ExampleComponentProps> = () => {
-    const [isOn, setIsOn] = useState(false);
-
     return (
         <form>
-            <ToggleSwitch
-                aria-pressed={isOn}
-                onSwipeLeft={() => setIsOn(false)}
-                onSwipeRight={() => setIsOn(true)}
-                onClick={() => setIsOn(!isOn)}
-            >
-                Jeg samtykker
-            </ToggleSwitch>
+            <ToggleSwitch>Jeg samtykker</ToggleSwitch>
 
             <PrimaryButton type="submit" className="jkl-spacing-l--top">
                 Send
