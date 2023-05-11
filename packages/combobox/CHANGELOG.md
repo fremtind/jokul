@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.1 (2023-05-11)
+
+### Bug Fixes
+
+- endret notasjon på css klasser ([5b1fade](https://github.com/fremtind/jokul/commit/5b1faded363d4a91a9aa237f5d1eba75aaa25b88))
+- endret styling for input når meny er lukket slik at den fortsatt er klikkbar ([c276b92](https://github.com/fremtind/jokul/commit/c276b921cbdda647131d3175e9ad72f3a52445b0))
+- fjernet bakgrunnfarge på inputfelt, fant dark-mode bug på text color og gjorde hele elementet k ([6b95c14](https://github.com/fremtind/jokul/commit/6b95c14191fdb15783d69ed6f048f9d3f0149cbd))
+- gjorde om tweaking av input feltet. må tygge litt mer på den, men vil få ut bugfiks som denne p ([0667d62](https://github.com/fremtind/jokul/commit/0667d6248acc04539ffdb4c71e14a45a76043b31))
+- la til padding slik at tekst ikke kommer bak knappene ([dad5646](https://github.com/fremtind/jokul/commit/dad5646a6fa322a3b7733eff2941cc4f942d2e79))
+- skjul input felt dersom menyen er lukket og det er valgt én eller flere verdier ([ba5e9a7](https://github.com/fremtind/jokul/commit/ba5e9a7399a0bbbe23ba62f18a4da5fbbdee7859))
+
 # 1.0.0 (2023-05-08)
 
 ### Bug Fixes
