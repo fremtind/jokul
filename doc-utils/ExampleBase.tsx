@@ -93,6 +93,14 @@ export const ExampleBase: FC<Props> = ({
         return <C boolValues={boolValues} choiceValues={choiceValues} displayValues={{ density, theme }} />;
     }, [component, boolValues, choiceValues, density, theme]);
 
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+    if (!hasMounted) {
+        return null;
+    }
+
     return (
         <div className="jkl-spacing-2xl--bottom">
             <section
@@ -199,7 +207,7 @@ export const ExampleBase: FC<Props> = ({
                     </>
                 </aside>
             </section>
-            {codeExample && (
+            {hasMounted && codeExample && (
                 <CodeSection className="jkl-spacing-m--top">
                     <CodeBlock language="tsx">
                         {typeof codeExample === "string"
