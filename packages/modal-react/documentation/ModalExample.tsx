@@ -65,6 +65,7 @@ function ModalComponent({ boolValues, dialogRef, onConfirm, onCancel }: ModalCom
                 <ModalBody>Er du sikker på at du vil slette Foo Bar Baz?</ModalBody>
                 <ModalActions>
                     <PrimaryButton
+                        data-testid="confirm-modal"
                         onClick={() => {
                             onConfirm();
                         }}
@@ -90,6 +91,7 @@ export const ModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     return (
         <div>
             <PrimaryButton
+                data-testid="open-modal"
                 onClick={() => {
                     dialogRef.current?.show();
                 }}

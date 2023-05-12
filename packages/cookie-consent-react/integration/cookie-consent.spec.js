@@ -20,7 +20,7 @@ describe("Cookie Consent", () => {
 
         cy.takeSnapshots({
             skipDarkMode: true,
-            customSelector: () => cy.get(".jkl-cookie-consent-modal__content"),
+            customSelector: () => cy.get(".jkl-modal"),
             setup: () => {
                 cy.clearCookies();
                 cy.getByTestid("trigger-cookie-consent").first().click();
