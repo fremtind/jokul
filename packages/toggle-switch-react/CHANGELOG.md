@@ -7,35 +7,34 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- ikke la swipe styre disabled toggle ([9035b30](https://github.com/fremtind/jokul/commit/9035b309d4fdf9054cdbab1aed07bbefd92de28f))
-- sørg for at ikonet vises riktig ([ad65034](https://github.com/fremtind/jokul/commit/ad650348d3d58ff0f28bcb2d4cb6911357f16bd3))
+-   ikke la swipe styre disabled toggle ([9035b30](https://github.com/fremtind/jokul/commit/9035b309d4fdf9054cdbab1aed07bbefd92de28f))
+-   sørg for at ikonet vises riktig ([ad65034](https://github.com/fremtind/jokul/commit/ad650348d3d58ff0f28bcb2d4cb6911357f16bd3))
 
 ### Features
 
-- fjern disabled state og gjør swipe handlers påkrevd ([4caccea](https://github.com/fremtind/jokul/commit/4cacceaeb8d221eae26dd5e1d27297532b7124d1))
-- fjern hjelpetekst og lang vibrasjon ([f28e01e](https://github.com/fremtind/jokul/commit/f28e01e7851a0cded862adb170fda9ed5d754bd4))
-- nytt API for ToggleSwitch ([aae86fa](https://github.com/fremtind/jokul/commit/aae86faa438ff17e184413dae565732e69456584))
-- oppdater design på ToggleSwitch og legg til støtte for swipe ([e34582b](https://github.com/fremtind/jokul/commit/e34582ba56e06ca8168356f3e619b21f39ba07a3)), closes [#3458](https://github.com/fremtind/jokul/issues/3458)
+-   fjern disabled state ([4caccea](https://github.com/fremtind/jokul/commit/4cacceaeb8d221eae26dd5e1d27297532b7124d1))
+-   nytt API for ToggleSwitch ([aae86fa](https://github.com/fremtind/jokul/commit/aae86faa438ff17e184413dae565732e69456584))
+-   oppdater design på ToggleSwitch og legg til støtte for swipe ([e34582b](https://github.com/fremtind/jokul/commit/e34582ba56e06ca8168356f3e619b21f39ba07a3)), closes [#3458](https://github.com/fremtind/jokul/issues/3458)
 
 ### Reverts
 
-- tilbakestill endrede navn i eksempel ([13f790a](https://github.com/fremtind/jokul/commit/13f790a93cc7d2e52fdc2b0ede8096bd0677a14a))
+-   tilbakestill endrede navn i eksempel ([13f790a](https://github.com/fremtind/jokul/commit/13f790a93cc7d2e52fdc2b0ede8096bd0677a14a))
 
 ### BREAKING CHANGES
 
-- onSwipe-funksjonene finnes ikke lenger, men onToggle trigges ved swipe
-- Disabled state er ikke lenger støttet, og du må nå angi handlers for swipe høyre og venstre
-- Hjelpetekst er fjernet, og komponenten krever import av jkl-icons-react
+-   onClick er ertsattet av onChange, og komponenten styrer selv sin egen state
+-   Hjelpetekst er fjernet, og komponenten krever import av jkl-icons-react
+-   Disabled state finnes ikke lenger
 
 # [11.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@10.0.16...@fremtind/jkl-toggle-switch-react@11.0.0) (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 10.0.12 (2022-11-23)
 
