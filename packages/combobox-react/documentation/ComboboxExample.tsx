@@ -54,6 +54,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             label="Velg sykdommer"
+            noMatchingOption="Ingen valg matcher søket"
             items={items}
             value={selectedValues}
             onChange={(event) => {
@@ -75,6 +76,7 @@ export const comboboxExampleCode = ({ choiceValues, boolValues }: ExampleCompone
     helpLabel=${!!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`}
     errorLabel=${!!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`}
     label="Velg sykdommer"
+    noMatchingOption="Ingen valg matcher søket"
     items={[
         { value: "a080", label: "A080 - Rotavirusenteritt", tagLabel: "A080" },
         { value: "a081", label: "A081 - Akutt gastroenteritt som skyldes norovirus", tagLabel: "A081" },
