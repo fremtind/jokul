@@ -1,27 +1,33 @@
-import { SPACING_STEPS } from "./types";
+import { CSSProperties } from "react";
+import { NEW_SPACING_STEPS, SPACING_STEPS, isOldSpacingStep } from "./types";
 import type { BasePadding, PaddingShorthand, SpacingStep } from "./types";
 
-function getSpacingIndex(spacingStep?: SpacingStep, fallback: SpacingStep = "l") {
-    return SPACING_STEPS.indexOf(spacingStep || fallback);
+function getSpacingIndex(spacingStep?: SpacingStep, fallback: SpacingStep = "24"): number {
+    const value = spacingStep || fallback;
+    if (isOldSpacingStep(value)) {
+        return SPACING_STEPS.indexOf(value);
+    } else {
+        return NEW_SPACING_STEPS.indexOf(value);
+    }
 }
 
-export function getSpacingClasses(padding: BasePadding | PaddingShorthand) {
+export function getPaddingStyles(padding: BasePadding | PaddingShorthand): CSSProperties {
     if (typeof padding === "string") {
-        return `jkl-spacing-${padding}--all`;
+        return { padding: `var(--jkl-spacing-${NEW_SPACING_STEPS[getSpacingIndex(padding)]})` };
     }
 
-    // Sett sidepadding til den største av de to innsendte verdiene (eller "l")
+    // Sett sidepadding til den største av de to innsendte verdiene (eller "24")
     const sideSpacingIndex = Math.max(getSpacingIndex(padding.left), getSpacingIndex(padding.right));
-    const sidePadding = SPACING_STEPS[sideSpacingIndex];
+    const sidePadding = NEW_SPACING_STEPS[sideSpacingIndex];
 
     // Sett topp-/bunnpadding til det største av innsendt verdi og sidepadding
-    const topPadding = SPACING_STEPS[Math.max(sideSpacingIndex, getSpacingIndex(padding.top, sidePadding))];
-    const bottomPadding = SPACING_STEPS[Math.max(sideSpacingIndex, getSpacingIndex(padding.bottom, sidePadding))];
+    const topPadding = NEW_SPACING_STEPS[Math.max(sideSpacingIndex, getSpacingIndex(padding.top, sidePadding))];
+    const bottomPadding = NEW_SPACING_STEPS[Math.max(sideSpacingIndex, getSpacingIndex(padding.bottom, sidePadding))];
 
-    return [
-        `jkl-spacing-${topPadding}--top`,
-        `jkl-spacing-${sidePadding}--right`,
-        `jkl-spacing-${bottomPadding}--bottom`,
-        `jkl-spacing-${sidePadding}--left`,
-    ];
+    const top = `var(--jkl-spacing-${topPadding})`;
+    const right = `var(--jkl-spacing-${sidePadding})`;
+    const bottom = `var(--jkl-spacing-${bottomPadding})`;
+    const left = `var(--jkl-spacing-${sidePadding})`;
+
+    return { padding: `${top} ${right} ${bottom} ${left}` };
 }

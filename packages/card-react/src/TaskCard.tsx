@@ -2,7 +2,7 @@ import { Density, WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { FC } from "react";
 import { PaddingOptions } from "./types";
-import { getSpacingClasses } from "./utils";
+import { getPaddingStyles } from "./utils";
 
 export interface TaskCardProps extends PaddingOptions, WithChildren {
     /**
@@ -35,6 +35,8 @@ export const TaskCard: FC<TaskCardProps> = ({
         data-density={density}
         {...rest}
     >
-        <div className={cn("jkl-task-card__content-wrapper", getSpacingClasses(padding))}>{children}</div>
+        <div className="jkl-task-card__content-wrapper" style={getPaddingStyles(padding)}>
+            {children}
+        </div>
     </div>
 );
