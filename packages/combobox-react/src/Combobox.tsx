@@ -288,8 +288,12 @@ export const Combobox: FC<ComboboxProps> = ({
                 e.stopPropagation();
                 setShowMenu(false);
             }
+
+            if (e.key === "Backspace" && selectedValue.length > 0 && searchValue === "") {
+                setSelectedValue(selectedValue.slice(0, selectedValue.length - 1));
+            }
         },
-        [setShowMenu, dropdownRef],
+        [selectedValue, searchValue, dropdownRef],
     );
 
     const handleOptionOnKeyDown = useCallback(
