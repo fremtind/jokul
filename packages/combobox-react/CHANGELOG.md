@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@1.1.0...@fremtind/jkl-combobox-react@1.2.0) (2023-05-12)
+
+### Features
+
+- la til muligheten for å fjerne valgte tags med backspace ([e2ccba1](https://github.com/fremtind/jokul/commit/e2ccba154a27702225d944ead4e3d201b6232846))
+
 # [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@1.0.4...@fremtind/jkl-combobox-react@1.1.0) (2023-05-12)
 
 ### Features
