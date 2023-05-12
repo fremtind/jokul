@@ -42,6 +42,7 @@ interface ComboboxProps extends InputGroupProps {
     placeholder?: string;
     labelProps?: Omit<LabelProps, "children" | "density" | "htmlFor" | "standAlone">;
     items: Array<ValuePair>;
+    noMatchingOption?: string;
     label: string;
     name: string;
     value?: Array<ValuePair>;
@@ -65,6 +66,7 @@ export const Combobox: FC<ComboboxProps> = ({
     onBlur,
     value,
     label,
+    noMatchingOption,
     labelProps,
     helpLabel,
     errorLabel,
@@ -83,6 +85,7 @@ export const Combobox: FC<ComboboxProps> = ({
     const [isPoitingDown, setIsPointingDown] = useState<boolean>(true);
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
+    const [noResults, setNoResults] = useState(false);
 
     const searchRef = useRef<HTMLInputElement>(null);
     const inputRef = useRef<HTMLDivElement>(null);
@@ -159,7 +162,13 @@ export const Combobox: FC<ComboboxProps> = ({
             return items;
         }
 
-        return items.filter((option) => option.label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0);
+        const filteredOptions = items.filter(
+            (option) => option.label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0,
+        );
+
+        setNoResults(filteredOptions.length === 0);
+
+        return filteredOptions;
     }, [searchValue, items]);
 
     // Det første elementet i listen skal være aktivt fram til brukeren klikker på noe annet
@@ -418,6 +427,7 @@ export const Combobox: FC<ComboboxProps> = ({
                                 ) : null}
                             </button>
                         ))}
+                        {noResults && <div className="jkl-combobox__no-option">{noMatchingOption}</div>}
                     </div>
                     <div className="jkl-combobox__actions">
                         {selectedValue.length > 0 && (
