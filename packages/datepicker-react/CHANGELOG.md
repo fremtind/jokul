@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.3.0 (2023-05-11)
+
+### Features
+
+- legg til mulighet for å styre hvor mange år som vises i listen ([d9750c8](https://github.com/fremtind/jokul/commit/d9750c81422ddefe57543147b91b7cabb15e8fdd)), closes [#3478](https://github.com/fremtind/jokul/issues/3478)
+
 # [14.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@14.1.4...@fremtind/jkl-datepicker-react@14.2.0) (2023-03-23)
 
 ### Bug Fixes
