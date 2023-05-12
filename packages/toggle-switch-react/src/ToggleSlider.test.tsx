@@ -1,5 +1,4 @@
-import { render, screen, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen, act, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
 import { ToggleSlider } from ".";
@@ -30,7 +29,7 @@ describe("ToggleSlider", () => {
         expect(inputPaa.checked).toEqual(false);
 
         await act(async () => {
-            await userEvent.click(inputPaa);
+            fireEvent.click(inputPaa);
         });
 
         expect(inputAv.checked).toEqual(false);
@@ -57,14 +56,14 @@ describe("ToggleSlider", () => {
         const { inputAv, inputPaa } = getInputs();
 
         await act(async () => {
-            await userEvent.click(inputAv);
+            fireEvent.click(inputAv);
         });
 
         expect(fn).toBeCalledTimes(1);
         expect(fn).toBeCalledWith("av");
 
         await act(async () => {
-            await userEvent.click(inputPaa);
+            fireEvent.click(inputPaa);
         });
 
         expect(fn).toBeCalledTimes(2);
@@ -82,7 +81,7 @@ describe("ToggleSlider", () => {
         expect(inputAv.checked).toEqual(true);
 
         await act(async () => {
-            await userEvent.click(inputAv);
+            fireEvent.click(inputPaa);
         });
 
         expect(fn).toBeCalledTimes(1);

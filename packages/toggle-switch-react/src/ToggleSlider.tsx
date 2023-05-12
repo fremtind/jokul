@@ -74,6 +74,7 @@ export const ToggleSlider: FC<Props> = ({
                             name={id}
                             id={`${label}-${id}`}
                             onClick={onClick}
+                            onChange={() => {}}
                         />
                         <label
                             className={cn("jkl-toggle-slider__label", {
