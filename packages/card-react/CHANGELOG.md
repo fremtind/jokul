@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.0.15 (2023-05-12)
+
+### Bug Fixes
+
+- pruk padding i stedet for margin på innholdet i kort ([9ce285a](https://github.com/fremtind/jokul/commit/9ce285a78c7bb9de4cb04e85de2d0e8e611f2600))
+
 # [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@8.0.13...@fremtind/jkl-card-react@9.0.0) (2023-03-20)
 
 ### Bug Fixes

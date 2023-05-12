@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "9.0.14",
+    "version": "9.0.15",
     "publishConfig": {
         "access": "public"
     },
