@@ -4,7 +4,7 @@ import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "@fremtind/jkl-ta
 import cn from "classnames";
 import React, { ElementType, FC, AnchorHTMLAttributes } from "react";
 import { PaddingOptions } from "./types";
-import { getSpacingClasses } from "./utils";
+import { getPaddingStyles } from "./utils";
 
 export type TagType = "success" | "warning" | "info" | "error";
 
@@ -71,7 +71,7 @@ export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, Nav
     return (
         <Component ref={ref} className={cn("jkl-nav-card", className)} data-density={density} {...rest}>
             {image && <Image className="jkl-nav-card__image" {...image} />}
-            <div className={cn("jkl-nav-card__content", getSpacingClasses(padding))}>
+            <div className="jkl-nav-card__content" style={getPaddingStyles(padding)}>
                 {tag && <CardTag density={density}>{tag.text}</CardTag>}
                 <div>
                     <p className="jkl-nav-card__link">{title}</p>
