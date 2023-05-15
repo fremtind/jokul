@@ -204,6 +204,10 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         }
     }
 
+    &__no-option {
+        padding: var(--jkl-combobox-option-padding);
+    }
+
     &__actions {
         display: flex;
         position: absolute;

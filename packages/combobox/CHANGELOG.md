@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox@1.0.1...@fremtind/jkl-combobox@1.1.0) (2023-05-12)
+
+### Features
+
+- la til muligheten for å rendre ut feilmelding dersom valget ikke finnes i listen ([8451903](https://github.com/fremtind/jokul/commit/84519031c5dd076602abaef44fae17a8699c7f4a))
+
 ## [1.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox@1.0.1...@fremtind/jkl-combobox@1.0.2) (2023-05-11)
 
 ### Bug Fixes
