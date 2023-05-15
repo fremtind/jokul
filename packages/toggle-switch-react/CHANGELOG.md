@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@12.0.0...@fremtind/jkl-toggle-switch-react@12.1.0) (2023-05-15)
+
+### Features
+
+- legg til støtte for swipe på ToggleSlider ([414b21a](https://github.com/fremtind/jokul/commit/414b21ace4b3f1ceb4cfbaef259560b7d0f237ef))
+
 # 12.0.0 (2023-05-11)
 
 ### Bug Fixes
