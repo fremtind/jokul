@@ -8,6 +8,7 @@ group: skjema
 import { FieldGroup } from "@fremtind/jkl-input-group-react";
 import { Checkbox } from "../src";
 import { CheckboxExample, checkboxExampleCode, checkboxExampleKnobs } from "./CheckboxExample";
+import { SingleCheckboxExample, singleCheckboxExampleCode, singleCheckboxExampleKnobs } from "./SingleCheckboxExample";
 
 <Ingress>
     Vi bruker avmerkingsbokser når vi vil gi brukerne en liste med valg, der de kan velge ett eller flere alternativer.
@@ -25,9 +26,18 @@ Vi bruker flere avmerkingsbokser sammen i en [FieldGroup](/komponenter/inputgrou
 
 En gruppe avmerkingsbokser må ha en god overskrift, og ledeteksten til hver avmerkingsboks må beskrive alternativet.
 
-En avmerkingsboks som står alene trenger ikke noen overskrift, så lenge ledeteksten er god og beskrivende. Når en avmerkingsboks står alene, er det gjerne for å bekrefte noe, for eksempel: "Jeg bekrefter at opplysningene jeg har gitt er riktige".
-
 Du finner et [eksempel på en sjekkboks brukt i skjemakontekst](/demoer/skjemavalidering/) under Demoer. [Koden til eksempelet](https://github.com/fremtind/jokul/blob/main/portal/src/pages/demoer/skjemavalidering.tsx) finner du på GitHub.
+
+## Enkeltstående
+
+<ComponentExample
+    title="Enkeltstående checkbox"
+    component={SingleCheckboxExample}
+    knobs={singleCheckboxExampleKnobs}
+    codeExample={singleCheckboxExampleCode}
+/>
+
+En avmerkingsboks som står alene trenger ikke noen overskrift, så lenge ledeteksten er god og beskrivende. Når en avmerkingsboks står alene, er det gjerne for å bekrefte noe, for eksempel: "Jeg bekrefter at opplysningene jeg har gitt er riktige".
 
 <Grid>
     <DoDontExample
@@ -35,7 +45,7 @@ Du finner et [eksempel på en sjekkboks brukt i skjemakontekst](/demoer/skjemava
         description="Enkeltstående avmerkingsboks med beskrivende ledetekst"
         content={
             <Checkbox name="singledo" value="confirm">
-                Jeg bekrefter å ha lest vedlegget
+                Jeg har lest vedlegget
             </Checkbox>
         }
     />
