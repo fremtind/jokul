@@ -21,7 +21,7 @@ export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ displayVa
             >
                 Pris per
             </ToggleSlider>
-            <p className="jkl-spacing-l--top jkl-bold">100 kr/{value === "år" ? value : "mnd"}</p>
+            <p className="jkl-spacing-l--top jkl-bold">{value === "år" ? "1 200 kr/år" : "100 kr/mnd"}</p>
         </section>
     );
 };
