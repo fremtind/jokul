@@ -12,16 +12,23 @@ const defaultOptions: UseIdOptions = {
     generateSuffix: true,
 };
 
-const useLegacyId = (id: string, options = defaultOptions): string => {
-    const elementId = options.generateSuffix ? `${id}-${nanoid(8)}` : id;
-    const [elId] = React.useState(elementId);
+const useLegacyId = (id?: string, options = defaultOptions): string => {
+    const uid = nanoid(8);
+    let elementId: string | undefined = id;
+    if (id && options.generateSuffix) {
+        elementId = `${id}-${uid}`;
+    }
+    const [elId] = React.useState(elementId || uid);
     return elId;
 };
 
-const useModernId = (id: string, options = defaultOptions): string => {
-    const reactId = useReactId();
-    const elementId = options.generateSuffix ? `${id}-${reactId}` : id;
-    const [elId] = React.useState(elementId);
+const useModernId = (id?: string, options = defaultOptions): string => {
+    const uid = useReactId();
+    let elementId: string | undefined = id;
+    if (id && options.generateSuffix) {
+        elementId = `${id}-${uid}`;
+    }
+    const [elId] = React.useState(elementId || uid);
     return elId;
 };
 
