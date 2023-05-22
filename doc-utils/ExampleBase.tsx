@@ -7,6 +7,7 @@ import { useId } from "../packages/react-hooks";
 import { Select } from "../packages/select-react";
 import { CodeBlock } from "./CodeBlock";
 import { CodeSection } from "./CodeSection";
+import { ExampleContextProvider } from "./exampleContext";
 import { hyphenate } from "./internal/hypenate";
 import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from "./";
 
@@ -14,6 +15,7 @@ export interface Props {
     component: FC<ExampleComponentProps>;
     title?: string;
     scrollable?: boolean;
+    noDensity?: boolean;
     knobs?: {
         boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;
@@ -51,6 +53,7 @@ function useLocalStorage<T>(key: string, defaultValue: T): [T, (newValue: T) => 
 export const ExampleBase: FC<Props> = ({
     component,
     knobs,
+    noDensity = false,
     title = "Komponent",
     codeExample,
     scrollable,
@@ -93,121 +96,135 @@ export const ExampleBase: FC<Props> = ({
         return <C boolValues={boolValues} choiceValues={choiceValues} displayValues={{ density, theme }} />;
     }, [component, boolValues, choiceValues, density, theme]);
 
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+    if (!hasMounted) {
+        return null;
+    }
+
     return (
-        <div className="jkl-spacing-2xl--bottom">
-            <section
-                className={`jkl-portal-component-example ${isWide ? "jkl-portal-component-example--is-wide" : ""}`}
-            >
-                <div
-                    id={hyphenate(title)}
-                    data-layout-density={density}
-                    data-theme={theme}
-                    data-example-text={title}
-                    className={`jkl jkl-portal-component-example__example-wrapper ${
-                        theme === "dark" ? "jkl-portal-component-example__example-wrapper--dark" : ""
-                    } ${scrollable ? "jkl-portal-component-example__example-wrapper--scrollable" : ""} ${
-                        density === "comfortable" ? "jkl-body" : ""
-                    } ${density === "compact" ? "jkl-small" : ""}`.trim()}
-                    style={style}
+        <ExampleContextProvider state={{ theme, density }}>
+            <div className="jkl-spacing-2xl--bottom">
+                <section
+                    className={`jkl-portal-component-example ${isWide ? "jkl-portal-component-example--is-wide" : ""}`}
                 >
-                    {example}
-                </div>
-                <aside data-layout-density="compact" className="jkl-portal-component-example__example-options">
-                    <>
-                        {(knobs?.boolProps || knobs?.choiceProps) && (
+                    <div
+                        id={hyphenate(title)}
+                        data-layout-density={density}
+                        data-theme={theme}
+                        data-example-text={title}
+                        className={`jkl jkl-portal-component-example__example-wrapper ${
+                            theme === "dark" ? "jkl-portal-component-example__example-wrapper--dark" : ""
+                        } ${scrollable ? "jkl-portal-component-example__example-wrapper--scrollable" : ""} ${
+                            density === "comfortable" ? "jkl-body" : ""
+                        } ${density === "compact" ? "jkl-small" : ""}`.trim()}
+                        style={style}
+                    >
+                        {example}
+                    </div>
+                    <aside data-layout-density="compact" className="jkl-portal-component-example__example-options">
+                        <>
+                            {(knobs?.boolProps || knobs?.choiceProps) && (
+                                <FieldGroup
+                                    legend="Egenskaper"
+                                    labelProps={{ variant: "medium" }}
+                                    className="jkl-portal-component-example__example-options-header"
+                                >
+                                    {knobs?.boolProps && (
+                                        <>
+                                            {Object.entries(boolValues).map(([key, value]) => (
+                                                <Checkbox
+                                                    key={`${uid}-${hyphenate(key)}`}
+                                                    name={`${uid}-${hyphenate(key)}`}
+                                                    value={key}
+                                                    checked={value}
+                                                    onChange={(e) => setBoolValue(key, e.target.checked)}
+                                                >
+                                                    {key}
+                                                </Checkbox>
+                                            ))}
+                                        </>
+                                    )}
+                                    {knobs?.choiceProps && (
+                                        <>
+                                            {Object.entries(choiceValues).map(([key, value]) =>
+                                                choices[key].length < 4 ? (
+                                                    <RadioButtonGroup
+                                                        className="jkl-spacing-xs--top"
+                                                        name={`${uid}-${hyphenate(key)}`}
+                                                        key={`${uid}-${hyphenate(key)}`}
+                                                        legend={key}
+                                                        value={value}
+                                                        labelProps={{ variant: "small" }}
+                                                        onChange={(e) => setChoiceValue(key, e.target.value)}
+                                                    >
+                                                        {choices[key]?.map((choice) => (
+                                                            <RadioButton key={choice} value={choice}>
+                                                                {choice}
+                                                            </RadioButton>
+                                                        ))}
+                                                    </RadioButtonGroup>
+                                                ) : (
+                                                    <Select
+                                                        className="jkl-spacing-xs--top"
+                                                        value={value}
+                                                        onChange={(e) => setChoiceValue(key, e.target.value)}
+                                                        label={key}
+                                                        width="100%"
+                                                        key={`${uid}-${hyphenate(key)}`}
+                                                        name={key}
+                                                        items={choices[key]}
+                                                    />
+                                                ),
+                                            )}
+                                        </>
+                                    )}
+                                </FieldGroup>
+                            )}
                             <FieldGroup
-                                legend="Egenskaper"
+                                legend="Visning"
                                 labelProps={{ variant: "medium" }}
                                 className="jkl-portal-component-example__example-options-header"
                             >
-                                {knobs?.boolProps && (
-                                    <>
-                                        {Object.entries(boolValues).map(([key, value]) => (
-                                            <Checkbox
-                                                key={`${uid}-${hyphenate(key)}`}
-                                                name={`${uid}-${hyphenate(key)}`}
-                                                value={key}
-                                                checked={value}
-                                                onChange={(e) => setBoolValue(key, e.target.checked)}
-                                            >
-                                                {key}
-                                            </Checkbox>
-                                        ))}
-                                    </>
-                                )}
-                                {knobs?.choiceProps && (
-                                    <>
-                                        {Object.entries(choiceValues).map(([key, value]) =>
-                                            choices[key].length < 4 ? (
-                                                <RadioButtonGroup
-                                                    className="jkl-spacing-xs--top"
-                                                    name={`${uid}-${hyphenate(key)}`}
-                                                    key={`${uid}-${hyphenate(key)}`}
-                                                    legend={key}
-                                                    value={value}
-                                                    labelProps={{ variant: "small" }}
-                                                    onChange={(e) => setChoiceValue(key, e.target.value)}
-                                                >
-                                                    {choices[key]?.map((choice) => (
-                                                        <RadioButton key={choice} label={choice} value={choice} />
-                                                    ))}
-                                                </RadioButtonGroup>
-                                            ) : (
-                                                <Select
-                                                    className="jkl-spacing-xs--top"
-                                                    value={value}
-                                                    onChange={(e) => setChoiceValue(key, e.target.value)}
-                                                    label={key}
-                                                    width="100%"
-                                                    key={`${uid}-${hyphenate(key)}`}
-                                                    name={key}
-                                                    items={choices[key]}
-                                                />
-                                            ),
-                                        )}
-                                    </>
+                                <RadioButtonGroup
+                                    name={`${uid}-theme`}
+                                    legend="Tema"
+                                    value={theme}
+                                    labelProps={{ variant: "small" }}
+                                    onChange={(e) => setTheme(e.target.value as ColorScheme)}
+                                >
+                                    <RadioButton value="light">Light</RadioButton>
+                                    <RadioButton value="dark">Dark</RadioButton>
+                                </RadioButtonGroup>
+                                {noDensity ? null : (
+                                    <RadioButtonGroup
+                                        className="jkl-spacing-xs--top"
+                                        name={`${uid}-density`}
+                                        legend="Tetthet"
+                                        value={density}
+                                        labelProps={{ variant: "small" }}
+                                        onChange={(e) => setDensity(e.target.value as Density)}
+                                    >
+                                        <RadioButton value="comfortable">Default</RadioButton>
+                                        <RadioButton value="compact">Compact</RadioButton>
+                                    </RadioButtonGroup>
                                 )}
                             </FieldGroup>
-                        )}
-                        <FieldGroup
-                            legend="Visning"
-                            labelProps={{ variant: "medium" }}
-                            className="jkl-portal-component-example__example-options-header"
-                        >
-                            <RadioButtonGroup
-                                name={`${uid}-theme`}
-                                legend="Tema"
-                                value={theme}
-                                labelProps={{ variant: "small" }}
-                                onChange={(e) => setTheme(e.target.value as ColorScheme)}
-                            >
-                                <RadioButton label="Light" value="light" />
-                                <RadioButton label="Dark" value="dark" />
-                            </RadioButtonGroup>
-                            <RadioButtonGroup
-                                className="jkl-spacing-xs--top"
-                                name={`${uid}-density`}
-                                legend="Tetthet"
-                                value={density}
-                                labelProps={{ variant: "small" }}
-                                onChange={(e) => setDensity(e.target.value as Density)}
-                            >
-                                <RadioButton label="Default" value="comfortable" />
-                                <RadioButton label="Compact" value="compact" />
-                            </RadioButtonGroup>
-                        </FieldGroup>
-                    </>
-                </aside>
-            </section>
-            {codeExample && (
-                <CodeSection className="jkl-spacing-m--top">
-                    <CodeBlock language="tsx">
-                        {typeof codeExample === "string"
-                            ? codeExample.trim()
-                            : codeExample({ boolValues, choiceValues }).trim()}
-                    </CodeBlock>
-                </CodeSection>
-            )}
-        </div>
+                        </>
+                    </aside>
+                </section>
+                {hasMounted && codeExample && (
+                    <CodeSection className="jkl-spacing-m--top">
+                        <CodeBlock language="tsx">
+                            {typeof codeExample === "string"
+                                ? codeExample.trim()
+                                : codeExample({ boolValues, choiceValues }).trim()}
+                        </CodeBlock>
+                    </CodeSection>
+                )}
+            </div>
+        </ExampleContextProvider>
     );
 };

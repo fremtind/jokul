@@ -18,6 +18,7 @@ import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";
 // CookieConsent bruker flere andre komponenter og trenger stilarkene deres for å fungere.
 import "@fremtind/jkl-button/button.min.css";
 import "@fremtind/jkl-list/list.min.css";
+import "@fremtind/jkl-modal/modal.min.css";
 ```
 
 ```scss
@@ -25,4 +26,5 @@ import "@fremtind/jkl-list/list.min.css";
 @use "@fremtind/jkl-cookie-consent/cookie-consent";
 @use "@fremtind/jkl-button/button";
 @use "@fremtind/jkl-list/list";
+@use "@fremtind/jkl-modal/modal";
 ```
