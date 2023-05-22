@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2023-05-22)
+
+### chore
+
+- ta i bruk modal i cookieconsent ([9fded60](https://github.com/fremtind/jokul/commit/9fded6028f55393eb71baa3ad8a82078e4a193fe))
+
+### Features
+
+- modal ([e2ddf77](https://github.com/fremtind/jokul/commit/e2ddf77af01f9c7e0e662bf3c582fc470bb29d82))
+
+### BREAKING CHANGES
+
+- Du må inkludere CSSen til `@fremtind/jkl-modal`.
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@7.1.5...@fremtind/jkl-cookie-consent-react@8.0.0) (2023-01-30)
 
 ### Features

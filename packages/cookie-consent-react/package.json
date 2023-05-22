@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-cookie-consent-react",
-    "version": "8.0.16",
+    "version": "9.0.0",
     "publishConfig": {
         "access": "public"
     },
@@ -42,8 +42,8 @@
         "@fremtind/jkl-cookie-consent": "^10.0.4",
         "@fremtind/jkl-core": "^12.0.4",
         "@fremtind/jkl-list-react": "^9.0.5",
-        "@fremtind/jkl-react-hooks": "^11.3.0",
-        "@fremtind/jkl-modal-react": "^1.0.0-alpha.0"
+        "@fremtind/jkl-modal-react": "^1.0.0",
+        "@fremtind/jkl-react-hooks": "^11.3.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
