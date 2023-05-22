@@ -8,18 +8,21 @@ describe("Checkbox", () => {
 
     it("renders correctly", () => {
         cy.takeSnapshots({
+            eq: 0,
             setup: () => {
                 cy.focusInput("checklist");
             },
         });
 
         cy.takeSnapshots({
+            eq: 0,
             setup: () => {
                 cy.checkInput("checklist");
             },
         });
 
         cy.takeSnapshots({
+            eq: 0,
             setup: () => {
                 cy.get('input[value="Med hjelpetekst"]').check();
                 cy.checkInput("checklist");
@@ -27,6 +30,7 @@ describe("Checkbox", () => {
         });
 
         cy.takeSnapshots({
+            eq: 0,
             setup: () => {
                 cy.checkInput("checklist");
                 cy.setMedFeil();
@@ -37,6 +41,7 @@ describe("Checkbox", () => {
         });
 
         cy.takeSnapshots({
+            eq: 0,
             setup: () => {
                 cy.setDensity("compact");
                 cy.checkInput("checklist");

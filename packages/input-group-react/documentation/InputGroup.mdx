@@ -5,26 +5,69 @@ scss: input-group
 group: skjema
 ---
 
-import InputGroupExample, { inputGroupExampleCode, inputGroupExampleKnobs } from "./InputGroupExample";
+import {
+    CheckboxExample,
+    checkboxExampleCode,
+    checkboxExampleKnobs,
+} from "../../checkbox-react/documentation/CheckboxExample";
+import {
+    SingleCheckboxExample,
+    singleCheckboxExampleCode,
+    singleCheckboxExampleKnobs,
+} from "../../checkbox-react/documentation/SingleCheckboxExample";
+import { InputGroupExample, inputGroupExampleCode, inputGroupExampleKnobs } from "./InputGroupExample";
 
 <Ingress>
-    En inputgruppe er en hjelpekomponent for å enklere kunne lage skjemafelter. Den er mest tiltenkt intern bruk i
-    Jøkul.
+    Skjemafeltene våre har noen felles egenskaper. For å unngå duplisering av kode har vi laget en pakke for delte
+    komponenter.
 </Ingress>
 
-<ComponentExample component={InputGroupExample} codeExample={inputGroupExampleCode} knobs={inputGroupExampleKnobs} />
+Pakken har fire komponenter:
 
-InputGroup brukes i disse skjemakomponentene:
+-   [FieldGroup](#fieldgroup)
+-   [SupportLabel](#supportlabel)
+-   [InputGroup](#inputgroup)
+-   [Label](#label)
 
--   [DatePicker](/komponenter/datepicker)
--   [Select](/komponenter/select)
--   [NativeSelect](/komponenter/select)
--   [TextInput](/komponenter/textinput)
--   [TextArea](/komponenter/textinput)
--   [Autosuggest](/komponenter/autosuggest)
+## FieldGroup
 
-## Når bruker vi InputGroup?
+<ComponentExample
+    title="FieldGroup"
+    component={CheckboxExample}
+    knobs={checkboxExampleKnobs}
+    codeExample={checkboxExampleCode}
+/>
+
+FieldGroup er en komponent som brukes for å gruppere skjemafelt under en felles label, med mulighet for tooltip og hjelpetekst.
+
+Der du sannsynligvis vil støte på denne er i forbindelse med en liste med [Checkbox](/komponenter/checkbox), men den kan brukes med alle skjemafelt hvor du ønsker en felles label.
+
+## InputGroup
+
+<ComponentExample
+    title="InputGroup"
+    component={InputGroupExample}
+    codeExample={inputGroupExampleCode}
+    knobs={inputGroupExampleKnobs}
+/>
+
+InputGroup koordinerer plassering av Label, [SupportLabel](#supportlabel) og [Tooltip](/komponenter/tooltip) i forhold til skjemafeltet.
 
 Annet enn når du importerer CSS skal du vanligvis ikke trenge forholde deg til denne komponenten. InputGroup er mest tiltenkt intern bruk i Jøkul.
 
-Vi bruker den først og fremst for å gjenbruke kode, særlig rundt plassering av [Tooltip](/komponenter/tooltip) inline etter skjemafeltets label.
+## SupportLabel
+
+<ComponentExample
+    title="SupportLabel"
+    component={SingleCheckboxExample}
+    knobs={{
+        boolProps: [{ prop: "Med hjelpetekst", defaultValue: true }, "Med feil"],
+    }}
+    codeExample={singleCheckboxExampleCode}
+/>
+
+SupportLabel er en komponent som brukes for å vise hjelpetekst og feilmeldinger. Som oftest vil du bruke denne via [InputGroup](#inputgroup), men det finnes unntak, slik som enkeltstående [Checkbox](/komponenter/checkbox#enkeltstående).
+
+## Label
+
+Label er tilknyttet et skjemafelt via en InputGroup, eller flere skjemafelter via en FieldGroup.
