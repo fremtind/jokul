@@ -70,7 +70,10 @@ export function useAnimatedHeight<T extends HTMLElement>(
 
     const runAnimation = useCallback(() => {
         const element = getElement(elementRef);
-        if (!element) {
+
+        // Ikke kjør animasjonen hvis elementet ikke er rendret,
+        // eller hvis det er første render.
+        if (!element || wasOpen === undefined) {
             return;
         }
 
