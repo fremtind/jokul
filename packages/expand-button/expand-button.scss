@@ -71,7 +71,10 @@
         }
     }
 
-    &__arrow {
+    // Bevisst nøstet for høyere specificity enn icons uavhengig av importrekkefølge.
+    .jkl-expand-button__arrow {
+        --jkl-icon-size: calc(1em / 20 * 30);
+
         @include jkl.motion;
 
         display: inline-block;
@@ -84,11 +87,6 @@
         }
 
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
-    }
-
-    // Bevisst nøstet for høyere specificity enn core uavhengig av importrekkefølge.
-    .jkl-expand-button__arrow {
-        --jkl-icon-size: calc(1em / 20 * 30);
 
         .jkl-icon--inherit {
             --jkl-icon-size: calc(1em / 20 * 30);
