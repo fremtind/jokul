@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.3.0 (2023-05-22)
+
+### Features
+
+- useId kan kalles uten parametere ([3f070b8](https://github.com/fremtind/jokul/commit/3f070b826bfdd2451feb201ce988b54d44d029db))
+
 # 11.2.0 (2023-05-08)
 
 ### Features
