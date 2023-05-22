@@ -1,4 +1,4 @@
-import { type MouseEventHandler, type PointerEventHandler, useCallback, useRef } from "react";
+import { type MouseEventHandler, type PointerEventHandler, type MutableRefObject, useCallback, useRef } from "react";
 import { type ToggleChangeHandler } from "./ToggleSwitch";
 
 type Point = { x: number; y: number };
@@ -19,7 +19,18 @@ type SwipeGestureOptions<T extends HTMLElement> = {
     onPointerCancel?: PointerEventHandler<T>;
 };
 
-export function useSwipeGesture<T extends HTMLElement>(options: SwipeGestureOptions<T>) {
+export function useSwipeGesture<T extends HTMLElement>(
+    options: SwipeGestureOptions<T>,
+): {
+    swipeHandled: MutableRefObject<"on" | "off" | false>;
+    gestureHandlers: {
+        onClick: MouseEventHandler<T>;
+        onPointerDown: PointerEventHandler<T>;
+        onPointerMove: PointerEventHandler<T>;
+        onPointerUp: PointerEventHandler<T>;
+        onPointerCancel: PointerEventHandler<T>;
+    };
+} {
     const swipeHandled = useRef<"on" | "off" | false>(false);
     const gestureStartPosition = useRef<Point>();
 
