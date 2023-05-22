@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.3.1 (2023-05-22)
+
+### Bug Fixes
+
+- ikke kjør animasjon ved første render i useAnimatedHeight ([d19869a](https://github.com/fremtind/jokul/commit/d19869a61cf0ed3b195c7baf8c82c5e6617a7e07))
+
 # 11.3.0 (2023-05-22)
 
 ### Features
