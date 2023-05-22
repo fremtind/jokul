@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table-react",
-    "version": "10.1.23",
+    "version": "10.1.24",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^12.0.4",
-        "@fremtind/jkl-expand-button-react": "^5.0.11",
+        "@fremtind/jkl-expand-button-react": "^5.0.12",
         "@fremtind/jkl-icon-button-react": "^3.0.13",
         "@fremtind/jkl-icons-react": "^7.2.2",
         "@fremtind/jkl-react-hooks": "^11.3.0",
