@@ -800,9 +800,9 @@ importers:
 
   packages/modal:
     specifiers:
-      '@fremtind/jkl-core': ^11.0.0
+      '@fremtind/jkl-core': ^12.0.0
     dependencies:
-      '@fremtind/jkl-core': 11.4.0
+      '@fremtind/jkl-core': link:../core
 
   packages/modal-react:
     specifiers:
@@ -3137,17 +3137,6 @@ packages:
       '@floating-ui/react-dom': 2.0.0
       aria-hidden: 1.2.3
       tabbable: 6.1.1
-    dev: false
-
-  /@fremtind/jkl-core/11.4.0:
-    resolution: {integrity: sha512-278WmOwjXvNlE5sXU4UDeyqnGwSxQl5cPXg33LGhGoHfGyYfUfK3SFnw/UbBPsKObpmRKhKmnlPPess7mc2IRg==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      classnames: 2.3.2
     dev: false
 
   /@fremtind/stylelint-config-jkl/6.0.5_j46hagaq63ohsfn3p3f6qemnym:
