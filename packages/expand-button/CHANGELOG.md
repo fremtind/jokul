@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.3 (2023-05-22)
+
+### Bug Fixes
+
+- øk specificity også for display ([7e68db1](https://github.com/fremtind/jokul/commit/7e68db1e85c0e234698c3ae264178084792ac668)), closes [#3551](https://github.com/fremtind/jokul/issues/3551)
+
 ## 5.0.1 (2023-03-21)
 
 ### Bug Fixes
