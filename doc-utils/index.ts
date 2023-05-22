@@ -2,6 +2,7 @@ import { ColorScheme, Density } from "../packages/core/src";
 
 export { ComponentExample } from "./ComponentExample";
 export { DevExample } from "./DevExample";
+export { useExampleContext } from "./exampleContext";
 
 export interface Dictionary<T> {
     [key: string]: T;

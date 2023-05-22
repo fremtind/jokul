@@ -1,0 +1,44 @@
+---
+title: Modal
+react: modal-react
+scss: modal
+group: edit me!
+---
+
+import ModalExample, { dialogExampleCode, dialogExampleKnobs } from "./ModalExample";
+
+<Ingress>En modal brukes der vi trenger å avbryte den nåværende flyten for å gjøre en handling.</Ingress>
+
+<ComponentExample component={ModalExample} codeExample={dialogExampleCode} knobs={dialogExampleKnobs} noDensity />
+
+Modalen dimmer innholdet på siden, og legger seg sentrert i skjermen.
+
+Modalen har to mulige oppførsler. Standard er at den kan avfeies ved å klikke på utsiden av dialogen, eller ved å trykke `Esc`.
+
+Dersom modalen settes til typen `alertdialog` vil den ikke kunne avfeies på denne måten (se [CookieConsent](/komponenter/cookieconsent)). Denne typen modal er ment for å brukes der brukeren _må_ gjøre et valg før de kan gå videre.
+
+Foretrekk å bruke standard oppførsel, og anse avfeielse som en Avbryt-handling.
+
+Modalen kan ha én eller to knapper, venstrejustert i bunnen av modalen. Den venstre knappen skal alltid være en bekreftende handling, stilet som primærknapp. Den andre knappen skal alltid være en tertiærknapp, og vil som oftest være en avbryt-handling.
+
+## Tilgjengelighet
+
+Du må gi modalen en tittel for skjermlesere. Denne tittelen _kan_ være ulik den visuelle tittelen, dersom du ønsker det.
+
+Komponenten fanger tastaturfokus frem til den lukkes. Fokuset flyttes så til knappen som åpnet modalen. Du trenger ikke gjøre noe spesielt for å få denne oppførselen.
+
+## Når bruker vi Modal?
+
+En modal er disruptiv, og bør brukes med omhu. For mange modaler kan være frustrerende.
+
+Tenk igjennom om det er mulig å løse oppgaven på en annen måte før du bruker en modal:
+
+-   Kan handlingen gjøres som en del av hovedflyten?
+-   Kan innholdet i en modal heller vises på en egen side?
+-   Kan vi bruke en [kontekstuell meny](/komponenter/contextualmenu) i stedet for en modal?
+
+Om du skal bruke en modal må den være fokusert på én oppgave.
+
+-   Ha en kort og konsis overskrift.
+-   Unngå mange avsnitt med tekst.
+-   Maksimum to knapper – én som bekrefter en handling, og én som avbryter.
