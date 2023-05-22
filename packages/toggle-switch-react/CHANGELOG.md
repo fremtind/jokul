@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@12.1.2...@fremtind/jkl-toggle-switch-react@12.1.3) (2023-05-22)
+
+### Bug Fixes
+
+- wrap kodeeksempel i blokk, og unngå dynamisk import av react i typer ([9fe2885](https://github.com/fremtind/jokul/commit/9fe2885be4c86129826aba5cc137d1794ea06326))
+
 # [12.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@12.0.0...@fremtind/jkl-toggle-switch-react@12.1.0) (2023-05-15)
 
 ### Features
