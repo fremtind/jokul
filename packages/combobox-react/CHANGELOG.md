@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@1.2.1...@fremtind/jkl-combobox-react@1.2.2) (2023-05-22)
+
+### Bug Fixes
+
+- oppdaterte eksempelet til å kunne vise empty state ([ebc4014](https://github.com/fremtind/jokul/commit/ebc4014480c40ab239f1b4375dc4c92b67174bde))
+
 # [1.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@1.1.0...@fremtind/jkl-combobox-react@1.2.0) (2023-05-12)
 
 ### Features

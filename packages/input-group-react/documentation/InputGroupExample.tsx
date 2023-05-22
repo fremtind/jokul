@@ -1,6 +1,7 @@
 import { Link } from "@fremtind/jkl-core";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
+import { BaseTextInput } from "../../text-input-react/src/BaseTextInput";
 import { InputGroup, type LabelVariant } from "../src";
 
 export const inputGroupExampleKnobs: ExampleKnobsProps = {
@@ -40,7 +41,7 @@ export const InputGroupExample: FC<ExampleComponentProps> = ({ boolValues, choic
             labelProps={labelProps}
             tooltipProps={tooltip}
         >
-            <input type="text" />
+            <BaseTextInput />
         </InputGroup>
     );
 };
@@ -63,6 +64,6 @@ export const inputGroupExampleCode: CodeExample = ({ boolValues }) => `
         : ""
 }
 >
-    <input type="text" />
+    <BaseTextInput />
 </InputGroup>
 `;
