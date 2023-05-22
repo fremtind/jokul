@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Combobox, type ComboboxValuePair } from "../src";
 
 export const comboboxExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Med hjelpetekst", "Med feil"],
+    boolProps: ["Med hjelpetekst", "Med feil", "Med empty state"],
     choiceProps: [
         {
             name: "Variant",
@@ -43,6 +43,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
         boolValues && boolValues["Med feil"] ? "Du må velge sykdommer, for eksempel A090 og A150." : undefined;
     const helpLabel =
         boolValues && boolValues["Med hjelpetekst"] ? "Med sykdommer mener vi for eksempel A090 og A090." : undefined;
+    const noMatchingOption = boolValues && boolValues["Med empty state"] ? "Ingen valg matcher søket" : undefined;
 
     return (
         <Combobox
@@ -54,7 +55,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             label="Velg sykdommer"
-            noMatchingOption="Ingen valg matcher søket"
+            noMatchingOption={noMatchingOption}
             items={items}
             value={selectedValues}
             onChange={(event) => {

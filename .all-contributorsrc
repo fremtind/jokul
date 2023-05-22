@@ -539,6 +539,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "sigrande",
+      "name": "sigrande",
+      "avatar_url": "https://avatars.githubusercontent.com/u/122461187?v=4",
+      "profile": "https://github.com/sigrande",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

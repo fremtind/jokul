@@ -1,8 +1,10 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import React, { useState, Fragment, useRef, FC } from "react";
+import React, { useState, Fragment, useRef, FC, MouseEventHandler } from "react";
+import { type ToggleChangeHandler } from "./ToggleSwitch";
 import { usePillStyles } from "./usePillStyles";
+import { useSwipeGesture } from "./useSwipeGesture";
 
 interface Props extends WithChildren {
     labels: [string, string];
@@ -31,17 +33,19 @@ export const ToggleSlider: FC<Props> = ({
     const shouldTransform = currentLabel === labels[1];
     const pillStyles = usePillStyles(activeRef, shouldTransform, [density]);
 
-    const handleChange = (value: string) => {
-        setCurrentLabel(value);
-        return onToggle(value);
+    const handleChange: ToggleChangeHandler<HTMLElement> = (_, pressed) => {
+        setCurrentLabel(pressed ? labels[1] : labels[0]);
+        onToggle(pressed ? labels[1] : labels[0]);
     };
 
-    const toggle = (clickedLabel: string) => {
-        const nextLabel = labels.find((label) => label !== clickedLabel && clickedLabel === currentLabel);
-        if (nextLabel) {
-            handleChange(nextLabel);
-        }
+    const handleClick: MouseEventHandler<HTMLInputElement> = (event) => {
+        const { value } = event.currentTarget;
+        setCurrentLabel(value);
+        onToggle(value);
     };
+
+    const { gestureHandlers } = useSwipeGesture<HTMLDivElement>({ onClick: handleClick, onChange: handleChange });
+    const { onClick, ...swipeHandlers } = gestureHandlers;
 
     return (
         <fieldset
@@ -59,7 +63,7 @@ export const ToggleSlider: FC<Props> = ({
             >
                 {children}
             </div>
-            <div className="jkl-toggle-slider__inputs">
+            <div className="jkl-toggle-slider__inputs" {...swipeHandlers}>
                 {labels.map((label) => (
                     <Fragment key={label}>
                         <input
@@ -69,8 +73,8 @@ export const ToggleSlider: FC<Props> = ({
                             checked={label === currentLabel}
                             name={id}
                             id={`${label}-${id}`}
-                            onClick={() => toggle(label)}
-                            onChange={(e) => handleChange(e.target.value)}
+                            onClick={onClick}
+                            onChange={() => {}}
                         />
                         <label
                             className={cn("jkl-toggle-slider__label", {
