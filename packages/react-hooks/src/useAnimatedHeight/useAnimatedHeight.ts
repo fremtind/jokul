@@ -1,37 +1,8 @@
-import type { Easing, Timing } from "@fremtind/jkl-core";
 import { easings, timings } from "@fremtind/jkl-core";
-import { MutableRefObject, useEffect, useRef, RefObject, useCallback } from "react";
-import { useBrowserPreferences } from "./useBrowserPreferences/useBrowserPreferences";
-import { usePreviousValue } from "./usePreviousValue/usePreviousValue";
-
-interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
-    el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
-}
-
-export interface UseAnimatedHeightOptions<T extends HTMLElement = HTMLElement> {
-    display?: "block" | "grid" | "flex";
-    /**
-     * Overstyr standard easingfunksjon
-     * @default "standard"
-     */
-    easing?: Easing;
-    /**
-     * Overstyr standard timing
-     * @default "productive"
-     */
-    timing?: Timing;
-    onTransitionStart?: (isOpening: boolean, ref: RefObject<T>) => void;
-    /**
-     * Kalles rett etter at elementet har fått display: block; i stedet for hidden;
-     * Nyttig om du må flytte fokus inn i elementet og ikke vil vente til animasjonen er ferdig.
-     * Her er ikke innholdet _visuelt_ synlig ennå, men det er "synlig" for DOM i den
-     * forstand at det _ikke_ er display: hidden;
-     *
-     * `isOpen` er alltid `true`. Det sendes som første parameter for å ha lik funksjonssignatur som `onTransitionEnd`.
-     */
-    onFirstVisible?: (isOpen: boolean, ref: RefObject<T>) => void;
-    onTransitionEnd?: (isOpen: boolean, ref: RefObject<T>) => void;
-}
+import { type RefObject, useCallback, useEffect, useRef } from "react";
+import { useBrowserPreferences } from "../useBrowserPreferences/useBrowserPreferences";
+import { usePreviousValue } from "../usePreviousValue/usePreviousValue";
+import { UseAnimatedHeightOptions } from "./types";
 
 const defaultDisplay = "block";
 const defaultEasing = "standard";
@@ -54,7 +25,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
     const elementRef = useRef<T>(null);
 
     function handleTransitionEnd(event: TransitionEvent) {
-        const element = getElement(elementRef);
+        const element = elementRef.current;
 
         // Ignore bubbling transitions from within container
         if (element && event.target === element) {
@@ -69,7 +40,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
     }
 
     const runAnimation = useCallback(() => {
-        const element = getElement(elementRef);
+        const element = elementRef.current;
 
         // Ikke kjør animasjonen hvis elementet ikke er rendret,
         // eller hvis det er første render.
@@ -131,7 +102,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
     }, [isOpen, runAnimation]);
 
     useEffect(() => {
-        const element = getElement(elementRef);
+        const element = elementRef.current;
         if (element) {
             element.addEventListener("transitionend", handleTransitionEnd);
         }
@@ -154,10 +125,4 @@ export function useAnimatedHeight<T extends HTMLElement>(
     }, [raf1, raf2]);
 
     return [elementRef, runAnimation];
-}
-
-function getElement(elementRef: MutableRefObject<HTMLElementOrCoreToggleElement<HTMLElement> | null>) {
-    // Workaround to handle custom elements from NRK Core components until this lands:
-    // https://github.com/nrkno/custom-element-to-react/pull/17
-    return elementRef.current && (elementRef.current.el || elementRef.current);
 }
