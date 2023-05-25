@@ -10,13 +10,20 @@ export type UseAutoAnimatedHeightOptions<T extends HTMLElement> = {
     easing?: Easing;
     /**
      * Overstyr standard timing
-     * @default "productive"
+     * @default "expressive"
      */
     timing?: Timing;
     onTransitionStart?: (ref: RefObject<T>) => void;
     onTransitionEnd?: (ref: RefObject<T>) => void;
 };
 
+/**
+ * Gjør det enklere å animere høyden på et element når innholdet endrer seg, men kan brukes på mer generelt grunnlag.
+ * Hooken tar inn en triggerverdi, og når denne endrer seg animeres høyden på elementet dersom den har endret seg.
+ * @param trigger verdien som brukes til å trigge animasjonen. Dersom denne endrer seg animeres høyden på elementet.
+ * @param options konfigurasjon for animasjonen, og lyttere for når animasjonen starter og slutter
+ * @returns en referanse til elementet som skal animeres
+ */
 export function useAutoAnimatedHeight<T extends HTMLElement = HTMLElement>(
     trigger: any,
     options?: UseAutoAnimatedHeightOptions<T>,

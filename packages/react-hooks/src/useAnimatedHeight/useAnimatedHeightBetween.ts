@@ -73,6 +73,13 @@ function expandElement<T extends HTMLElement>(
     });
 }
 
+/**
+ * Lar deg enklere animere mellom to tilstander, gitt ved å sette `data-expanded` på et element til `true` eller `false`.
+ * Du bestemmer selv hvilke stiler elementet skal ha i de to tilstandene (vha CSS/Sass), og høyden animeres dersom den endrer seg.
+ * @param isExpanded indikerer om elementet skal være utvidet eller ikke
+ * @param options konfigurasjon for animasjonen, og lyttere for når animasjonen starter og slutter
+ * @returns En tuple med referanse til elementet og en funksjon som kan trigge animasjonen
+ */
 export function useAnimatedHeightBetween<T extends HTMLElement>(
     isExpanded: boolean,
     options?: Omit<UseAnimatedHeightOptions<T>, "display" | "onFirstVisible">,
