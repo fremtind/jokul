@@ -1,0 +1,101 @@
+---
+title: Høydepunkter fra april og mai 2023
+author: Jøkul-teamet
+publishDate: "2023.03.31"
+---
+
+import ComboboxExample, {
+    comboboxExampleCode,
+    comboboxExampleKnobs,
+} from "../../../../../packages/combobox-react/documentation/ComboboxExample";
+import FileInputExample, {
+    fileInputExampleCode,
+    fileInputExampleKnobs,
+} from "../../../../../packages/file-input-react/documentation/FileInputExample";
+import ModalExample, {
+    dialogExampleCode,
+    dialogExampleKnobs,
+} from "../../../../../packages/modal-react/documentation/ModalExample";
+
+<Ingress>
+    Sniktitt på det vi har jobbet med på ny dokumentasjonsportal for Jøkul, nye komponenter, og den sedvanlige
+    smørbrødlisten med større og mindre forbedringer. Her er en oppsummering av hva som har skjedd i april og mai.
+</Ingress>
+
+-   Flere nye komponenter, blant annet to som ble startet på i felleskap under Jøkuluka tidligere i år:
+    -   [Combobox](/komponenter/combobox)
+    -   [FileInput](/komponenter/fileinput)
+    -   [Modal](/komponenter/modal)
+-   Sniktitt på [ny dokumentasjonsportal](https://portalen.distlosn-ds-jkl-preprod.aws.fremtind.no) (vi vil _veldig_ gjerne høre hva du synes!)
+
+## Sniktitt på ny portal
+
+Dagens dokumentasjonsportal, siden du ser på nå, har tjent oss bra lenge, men Jøkul-teamet ser noen begrensninger, mangler, og forbedringspotensial som vi jobber med å løse.
+
+Vi har ønsket oss:
+
+-   en redaktøropplevelse som ikke krever at man setter seg inn i Markdown og GitHub.
+-   en navigasjonsstruktur som støtter gruppering av innhold i flere nivåer.
+-   et bedre søk, eller et søk i det hele tatt.
+
+I tillegg har vi gjennom intervjuer fått gode tilbakemeldinger på selve innholdet i portalen. Blant annet vet vi:
+
+-   det er teksttungt, lite visuelt.
+-   det savnes konkrete eksempler.
+
+Med [den nye teknisk plattformen](https://portalen.distlosn-ds-jkl-preprod.aws.fremtind.no) vi bygger, håper vi løse de tre første punktene. Samtidig designer vi for å løse ønskene om mer visuelt innhold og konkrete eksempler. Det er en større innholdsjobb som vil gjøres over tid.
+
+Du er hjertelig velkommen til å teste ut den nye portalen, og gi oss tilbakemeldinger på det du ser. Vi er spesielt interessert i å høre om:
+
+-   du finner det du leter etter.
+-   du synes eksemplene som finnes er gode.
+
+## Nye komponenter
+
+Mai (selv om den er "hullete") ga oss tid til å samle noen løse tråder etter Jøkuluka.
+
+### Combobox
+
+<ComponentExample
+    component={ComboboxExample}
+    codeExample={comboboxExampleCode}
+    knobs={comboboxExampleKnobs}
+    title="Combobox"
+/>
+
+Første versjon av [Combobox](/komponenter/combobox) er ute. Komponenten lar brukeren velge flere alternativ fra en nedtrekksliste. Den har vært designet rundt et behov i Flyt, men kan brukes i andre sammenhenger også der man har så mange potensielle valg at en liste med sjekkbokser ikke fungerer.
+
+### FileInput
+
+<ComponentExample
+    component={FileInputExample}
+    codeExample={fileInputExampleCode}
+    knobs={fileInputExampleKnobs}
+    title="FileInput"
+/>
+
+Det lengstlevende issuet i Jøkul-repoet ble lukket i mai 🥳 Filopplasteren finnes i to varianter, og med flere mulige konfigurasjoner. Se [komponentdokumentasjonen](/komponenter/fileinput) for alle detaljene. Det finnes også [en eksempelapp som inkluderer en backend](https://github.com/fremtind/jkl-file-input-demo) du kan se på.
+
+### Modal
+
+<ComponentExample
+    component={ModalExample}
+    codeExample={dialogExampleCode}
+    knobs={dialogExampleKnobs}
+    title="Modal"
+    noDensity
+/>
+
+Vi har gjort modalen fra Cookie-komponenten vår tilgjengelig som en egen komponent. Denne kommer med en oppfordring til å tenke gjennom om du virkelig trenger den, eller kan løse behovet på en annen måte. Se [komponentdokumentasjonen](/komponenter/modal) for mer informasjon.
+
+## Diverse bugfikser og forbedringer
+
+### Figma
+
+### GitHub
+
+## Takk
+
+Takk til alle som har vært med å bygge videre på Jøkul, både på GitHub og i Figma!
+
+En stor takk også til alle som er med på designsystemforum!
