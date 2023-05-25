@@ -6,6 +6,7 @@ group: hooks
 
 import AnimationExample, { animationExampleCode } from "./AnimationExample";
 import AnimationBetweenExample, { animationBetweenExampleCode } from "./AnimationBetweenExample";
+import AutoAnimationExample, { autoAnimationExampleCode } from "./AutoAnimationExample";
 
 <Ingress>
     Animering av ting inn og ut av DOMet i React er ikke lett, men med useAnimatedHeight blir jobben en god del lettere.
@@ -15,6 +16,8 @@ import AnimationBetweenExample, { animationBetweenExampleCode } from "./Animatio
 
 Hooken tar seg av all CSS for animasjonen selv. Du kan overstyre animasjonen om du trenger en annen timing eller easing-funksjon.
 
+## Animering mellom to høyder
+
 Dersom du ikke vil skjule elementet helt, men heller animere mellom to høyder, kan du bruke `useAnimatedHeightBetween`. Her styrer du selv
 høyden på elementet, og hooken tar seg av animasjonen. Hooken setter `data-expanded` til `true` når elementet er åpent, og `false` når det er lukket,
 og animerer høyden på elementet mellom de to tilstandene.
@@ -23,4 +26,15 @@ og animerer høyden på elementet mellom de to tilstandene.
     title="useAnimatedHeightBetween"
     component={AnimationBetweenExample}
     codeExample={animationBetweenExampleCode}
+/>
+
+## Animering basert på innhold
+
+Hvis du vil at elementet skal animeres når det får endret innhold kan du bruke `useAutoAnimatedHeight`. Her kan du sende inn innholdet, eller
+en annen verdi, som hooken lytter på endring i. Ved endring animeres elementet til sin nye høyde dersom den er endret.
+
+<ComponentExample
+    title="useAutoAnimatedHeight"
+    component={AutoAnimationExample}
+    codeExample={autoAnimationExampleCode}
 />
