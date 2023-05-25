@@ -16,23 +16,53 @@ import ModalExample, {
     dialogExampleCode,
     dialogExampleKnobs,
 } from "../../../../../packages/modal-react/documentation/ModalExample";
+import {
+    ToggleSwitchExample,
+    toggleSwitchCodeExample,
+    toggleSwitchExampleKnobs,
+    toggleSliderExampleKnobs,
+} from "../../../../../packages/toggle-switch-react/documentation/ToggleSwitchExample";
 
 <Ingress>
-    Sniktitt på det vi har jobbet med på ny dokumentasjonsportal for Jøkul, nye komponenter, og den sedvanlige
-    smørbrødlisten med større og mindre forbedringer. Her er en oppsummering av hva som har skjedd i april og mai.
+    Nye komponenter, en sniktitt på det vi har jobbet med på ny dokumentasjons&shy;portal for Jøkul, og den vanlige
+    listen med større og mindre forbedringer.
 </Ingress>
 
--   Flere nye komponenter, blant annet to som ble startet på i felleskap under Jøkuluka tidligere i år:
+Her er en oppsummering av hva som har skjedd i april og mai:
+
+-   Flere nye komponenter:
     -   [Combobox](/komponenter/combobox)
     -   [FileInput](/komponenter/fileinput)
     -   [Modal](/komponenter/modal)
--   Sniktitt på [ny dokumentasjonsportal](https://portalen.distlosn-ds-jkl-preprod.aws.fremtind.no) (vi vil _veldig_ gjerne høre hva du synes!)
+-   Sniktitt på [ny dokumentasjons&shy;portal](/beta)
+-   ToggleSwitch har fått nytt design
 
 ## Sniktitt på ny portal
 
-Dagens dokumentasjonsportal, siden du ser på nå, har tjent oss bra lenge, men Jøkul-teamet ser noen begrensninger, mangler, og forbedringspotensial som vi jobber med å løse.
+<figure>
+    <picture className="jkl-portal-image">
+        <source media="(prefers-color-scheme: dark)" srcset="/assets/blog/updates/april-mai-2023/beta-dark.png" />
+        <img
+            className="jkl-portal-image__img"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            src="/assets/blog/updates/april-mai-2023/beta-light.png"
+        />
+    </picture>
+    <figcaption>Skjermbilde av landingssiden i skrivende stund.</figcaption>
+</figure>
 
-Vi har ønsket oss:
+Du er hjertelig velkommen til å teste ut [en tidlig betaversjon av den nye portalen](/beta), og gi oss tilbakemeldinger på det du ser. Vi er spesielt interessert i å høre om:
+
+-   du finner det du leter etter.
+-   du synes eksemplene som finnes er gode.
+
+Vi vil _veldig_ gjerne høre hva du synes!
+
+### Hvorfor ny portal?
+
+Dagens dokumentasjonsportal, siden du ser på nå, har tjent oss bra lenge, men det er forbedringspotensial. Vi har ønsket oss:
 
 -   en redaktøropplevelse som ikke krever at man setter seg inn i Markdown og GitHub.
 -   en navigasjonsstruktur som støtter gruppering av innhold i flere nivåer.
@@ -40,19 +70,22 @@ Vi har ønsket oss:
 
 I tillegg har vi gjennom intervjuer fått gode tilbakemeldinger på selve innholdet i portalen. Blant annet vet vi:
 
--   det er teksttungt, lite visuelt.
+-   det er mye tekst, og lite visuelt.
 -   det savnes konkrete eksempler.
 
-Med [den nye teknisk plattformen](https://portalen.distlosn-ds-jkl-preprod.aws.fremtind.no) vi bygger, håper vi løse de tre første punktene. Samtidig designer vi for å løse ønskene om mer visuelt innhold og konkrete eksempler. Det er en større innholdsjobb som vil gjøres over tid.
+### Hvordan gir jeg tilbakemelding?
 
-Du er hjertelig velkommen til å teste ut den nye portalen, og gi oss tilbakemeldinger på det du ser. Vi er spesielt interessert i å høre om:
+Tilbakemeldinger kan du sende på flere måter:
 
--   du finner det du leter etter.
--   du synes eksemplene som finnes er gode.
+-   Send en melding i Support Designsystem på Teams.
+-   Prat med noen fra Jøkul-teamet.
+-   Start en diskusjonstråd eller et issue på GitHub.
 
 ## Nye komponenter
 
-Mai (selv om den er "hullete") ga oss tid til å samle noen løse tråder etter Jøkuluka.
+Mai (selv om den er "hullete") ga oss tid til å samle noen løse tråder etter Jøkuluka. I [forrige oppsummering](/blog/updates/mars-2023/) viste vi fram redesignet datovelger, og kontekstuell meny.
+
+Denne gangen er det tre nye komponenter som er klare for bruk.
 
 ### Combobox
 
@@ -63,7 +96,7 @@ Mai (selv om den er "hullete") ga oss tid til å samle noen løse tråder etter 
     title="Combobox"
 />
 
-Første versjon av [Combobox](/komponenter/combobox) er ute. Komponenten lar brukeren velge flere alternativ fra en nedtrekksliste. Den har vært designet rundt et behov i Flyt, men kan brukes i andre sammenhenger også der man har så mange potensielle valg at en liste med sjekkbokser ikke fungerer.
+Første versjon av [Combobox](/komponenter/combobox) er ute. Komponenten lar brukeren velge flere alternativ fra en nedtrekksliste. Brukes i sammenhenger der man har så mange potensielle valg at en liste med [sjekkbokser](/komponenter/checkbox) ikke fungerer.
 
 ### FileInput
 
@@ -74,7 +107,9 @@ Første versjon av [Combobox](/komponenter/combobox) er ute. Komponenten lar bru
     title="FileInput"
 />
 
-Det lengstlevende issuet i Jøkul-repoet ble lukket i mai 🥳 Filopplasteren finnes i to varianter, og med flere mulige konfigurasjoner. Se [komponentdokumentasjonen](/komponenter/fileinput) for alle detaljene. Det finnes også [en eksempelapp som inkluderer en backend](https://github.com/fremtind/jkl-file-input-demo) du kan se på.
+Det lengstlevende issuet i Jøkul-repoet ble lukket i mai 🥳
+
+Filopplasteren finnes i to varianter, og med flere mulige konfigurasjoner. Se [komponentdokumentasjonen](/komponenter/fileinput) for alle detaljene.
 
 ### Modal
 
@@ -88,14 +123,47 @@ Det lengstlevende issuet i Jøkul-repoet ble lukket i mai 🥳 Filopplasteren fi
 
 Vi har gjort modalen fra Cookie-komponenten vår tilgjengelig som en egen komponent. Denne kommer med en oppfordring til å tenke gjennom om du virkelig trenger den, eller kan løse behovet på en annen måte. Se [komponentdokumentasjonen](/komponenter/modal) for mer informasjon.
 
+## Nytt design på ToggleSwitch
+
+<ComponentExample
+    title="ToggleSwitch"
+    component={ToggleSwitchExample}
+    knobs={toggleSwitchExampleKnobs}
+    codeExample={toggleSwitchCodeExample}
+/>
+
+ToggleSwitch har fått et nytt design, for å tydeliggjøre tilstanden til komponenten. Den har også fått støtte for swipe-gesture så den oppleves likere tilsvarende native-komponenter.
+
 ## Diverse bugfikser og forbedringer
 
 ### Figma
 
+-   La til mobilvarianter av tabeller ([#3085](https://github.com/fremtind/jokul/issues/3085))
+
 ### GitHub
+
+-   Gjør NavCard til et blokkelement ([#3491](https://github.com/fremtind/jokul/pull/3491))
+-   Fiks feil hvor Select går i loop hvis verdien ikke finnes i items ([#3492](https://github.com/fremtind/jokul/pull/3492))
+-   Fikset bug hvor defaultverdi ikke ble vist i Select ([#3511](https://github.com/fremtind/jokul/pull/3511))
+-   Muliggjør styring av ikon-SVG med CSS ([#3412](https://github.com/fremtind/jokul/pull/3412))
+-   Align plassering av listeindikator for nummererte lister med unummererte lister ([#3512](https://github.com/fremtind/jokul/pull/3512))
+-   Følg språkrådets norm for visning av telefonnummer ([#3525](https://github.com/fremtind/jokul/pull/3525))
+-   Border radius på to pixler for _skeleton loaders_ ([#3533](https://github.com/fremtind/jokul/pull/3533))
+-   Mulighet for å styre antall år som vises i Datepicker sin select ([#3529](https://github.com/fremtind/jokul/pull/3529))
+-   Legg til støtte for swipe også på ToggleSlider ([#3544](https://github.com/fremtind/jokul/pull/3544))
+-   Bruk padding i stedet for margin på innhold i kort ([#3549](https://github.com/fremtind/jokul/pull/3549))
+-   Øk specificity på CSS i ExpandButton for å gjøre mer robust mtp importrekkefølge ([#3552](https://github.com/fremtind/jokul/pull/3552))
+-   Ikke kjør animasjonen på første render i useAnimatedHeight ([#3558](https://github.com/fremtind/jokul/pull/3558))
+-   Nye hooks for å animere mellom to høyder, eller basert på innhold ([#3561](https://github.com/fremtind/jokul/pull/3561))
 
 ## Takk
 
 Takk til alle som har vært med å bygge videre på Jøkul, både på GitHub og i Figma!
+
+-   bjorneoma
+-   henrikhermansen
+-   kennidenni
+-   joms
+-   sigrande
 
 En stor takk også til alle som er med på designsystemforum!
