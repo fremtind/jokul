@@ -52,7 +52,6 @@ function expandElement<T extends HTMLElement>(
 
     element.removeAttribute("style");
     const expandedHeight = element.scrollHeight;
-    console.log(`Expanding to ${expandedHeight}px`);
 
     raf1.current = requestAnimationFrame(() => {
         // Hent utvidet høyde
