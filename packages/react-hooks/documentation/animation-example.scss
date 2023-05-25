@@ -1,0 +1,51 @@
+@use "~@fremtind/jkl-core/jkl";
+
+.animation-between-example {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--jkl-spacing-16);
+    border: jkl.rem(1px) solid var(--jkl-color);
+    border-radius: jkl.rem(4px);
+    box-sizing: border-box;
+    padding: var(--jkl-spacing-24);
+    padding-bottom: var(--jkl-spacing-64);
+    width: 45ch;
+    max-width: 80%;
+
+    &[data-expanded="false"] {
+        height: 300px;
+        overflow-y: hidden;
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 50% 0 0;
+            background: linear-gradient(
+                0deg,
+                var(--jkl-background-color) 0%,
+                var(--jkl-background-color) 30%,
+                transparent 100%
+            );
+
+            @include jkl.motion("standard", "expressive");
+            transition-property: opacity;
+            opacity: 1;
+        }
+    }
+
+    &[data-expanded="true"] {
+        height: auto;
+
+        &::after {
+            opacity: 0;
+        }
+    }
+
+    & > button {
+        position: absolute;
+        bottom: var(--jkl-spacing-16);
+        align-self: center;
+        z-index: jkl.$z-index--overlay;
+    }
+}

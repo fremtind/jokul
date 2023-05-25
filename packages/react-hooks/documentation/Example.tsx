@@ -1,5 +1,6 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
+import AnimationBetweenExample from "./AnimationBetweenExample";
 import AnimationExample from "./AnimationExample";
 import BrowserPreferencesExample from "./BrowserPreferencesExample";
 import ClickOutsideExample from "./ClickOutsideExample";
@@ -17,6 +18,7 @@ export default function Example() {
     return (
         <>
             <DevExample component={AnimationExample} />
+            <DevExample component={AnimationBetweenExample} />
             <DevExample component={ClickOutsideExample} />
             <DevExample component={FocusOutsideExample} />
             <DevExample component={KeyListenerExample} />

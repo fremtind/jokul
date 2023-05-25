@@ -5,6 +5,7 @@ group: hooks
 ---
 
 import AnimationExample, { animationExampleCode } from "./AnimationExample";
+import AnimationBetweenExample, { animationBetweenExampleCode } from "./AnimationBetweenExample";
 
 <Ingress>
     Animering av ting inn og ut av DOMet i React er ikke lett, men med useAnimatedHeight blir jobben en god del lettere.
@@ -13,3 +14,13 @@ import AnimationExample, { animationExampleCode } from "./AnimationExample";
 <ComponentExample title="useAnimatedHeight" component={AnimationExample} codeExample={animationExampleCode} />
 
 Hooken tar seg av all CSS for animasjonen selv. Du kan overstyre animasjonen om du trenger en annen timing eller easing-funksjon.
+
+Dersom du ikke vil skjule elementet helt, men heller animere mellom to høyder, kan du bruke `useAnimatedHeightBetween`. Her styrer du selv
+høyden på elementet, og hooken tar seg av animasjonen. Hooken setter `data-expanded` til `true` når elementet er åpent, og `false` når det er lukket,
+og animerer høyden på elementet mellom de to tilstandene.
+
+<ComponentExample
+    title="useAnimatedHeightBetween"
+    component={AnimationBetweenExample}
+    codeExample={animationBetweenExampleCode}
+/>
