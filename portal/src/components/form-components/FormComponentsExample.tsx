@@ -38,11 +38,11 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
     console.table(formData);
 
     return (
-        <form className="jkl-spacing-40--left" onSubmit={handleSubmit((valid) => console.table(valid))}>
-            <p className="jkl-heading-4 jkl-spacing-16--bottom">Hvem er eier av forsikringen?</p>
+        <form className="ml-40" onSubmit={handleSubmit((valid) => console.table(valid))}>
+            <p className="h4 mb-16">Hvem er eier av forsikringen?</p>
             {radioButtonGroup && (
                 <RadioButtonGroup
-                    className="jkl-spacing-24--bottom"
+                    className="mb-24"
                     labelProps={{ variant: "small" }}
                     legend="Kjønn"
                     errorLabel={formState.errors.kjonn?.message}
@@ -69,13 +69,13 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
                                 message: "Fødselsnummeret må bestå av 11 siffer",
                             },
                         })}
-                        className="jkl-spacing-24--bottom"
+                        className="mb-24"
                         label="Fødselsnummer"
                         errorLabel={formState.errors.fodselsnummer?.message}
                     />
                     <TextInput
                         {...register("navn", { required: "Du må fylle ut eierens for- og etternavn" })}
-                        className="jkl-spacing-24--bottom"
+                        className="mb-24"
                         label="For- og etternavn"
                         errorLabel={formState.errors.navn?.message}
                     />
@@ -83,7 +83,7 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
             )}
             {datePickers && (
                 <DatePicker
-                    className="jkl-spacing-24--bottom"
+                    className="mb-24"
                     disableAfterDate={formatInput(new Date())}
                     errorLabel={formState.errors.fodselsdato?.message}
                     label="Fødselsdato"
@@ -102,7 +102,7 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
             {select && (
                 <Select
                     {...register("stilling", { required: "Du må oppgi eierens stilling" })}
-                    className="jkl-spacing-40--bottom"
+                    className="mb-40"
                     errorLabel={formState.errors.stilling?.message}
                     items={["Designer", "Utvikler", "Tester", "Leder", "Annet"]}
                     label="Stilling"

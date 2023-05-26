@@ -5,9 +5,7 @@ import { MainContent } from "../../layout/MainContent";
 
 const NotFoundPageWithMessage: FC = () => (
     <MainContent>
-        <h1 className="jkl-title jkl-spacing-64--bottom jkl-spacing-64--top">
-            Huff da, nå har det skjedd en feil hos oss!
-        </h1>
+        <h1 className="title my-64">Huff da, nå har det skjedd en feil hos oss!</h1>
         <div className="jkl-portal-paragraph">
             <ErrorMessageBox title="Feilmelding" role="none presentation">
                 Kunne ikke snakke med systemet

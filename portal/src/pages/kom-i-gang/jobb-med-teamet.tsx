@@ -45,7 +45,7 @@ const JobbMedTeamet: FC = () => (
         </UnorderedList>
         <NavCard
             href="mailto:fremtind.designsystem@fremtind.no?subject=Hjelp%20oss%20med%3A"
-            className="jkl-spacing-40--top"
+            className="mt-40"
             style={{ maxWidth: "25rem" }}
             title="Fasilitering med Jøkul-teamet"
             description="Få skreddersydd designsystem-analyse, coaching og rådgivning fra Jøkul-teamet."
@@ -89,7 +89,7 @@ const JobbMedTeamet: FC = () => (
             kontakt!
         </Paragraph>
         <NavCard
-            className="jkl-spacing-40--top"
+            className="mt-40"
             style={{ maxWidth: "25rem" }}
             to="/kom-i-gang/slik-er-jokul-satt-sammen"
             component={GatsbyLink}

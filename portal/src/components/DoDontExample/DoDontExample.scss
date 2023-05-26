@@ -2,14 +2,10 @@
 
 @include jkl.light-mode-variables {
     --do-dont-example-bg: #{jkl.$color-dis};
-    --do-dont-example-do-color: #{jkl.$color-suksess};
-    --do-dont-example-dont-color: #{jkl.$color-feil};
 }
 
 @include jkl.dark-mode-variables {
     --do-dont-example-bg: #{jkl.$color-skifer};
-    --do-dont-example-do-color: #{jkl.$color-suksess--darkbg};
-    --do-dont-example-dont-color: #{jkl.$color-feil--darkbg};
 }
 
 .jkl-portal-do-dont-example {

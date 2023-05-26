@@ -85,12 +85,10 @@ const includeJsDoc = (propTypes: { description: string; tags?: { param?: string;
 
 export const APIDocumentation: FC<APIDocumentationProps> = ({ types }) => {
     return (
-        <section className="jkl-spacing-104--bottom jkl-portal-paragraph">
-            <h2 className="jkl-heading-1 jkl-spacing-104--top">React API</h2>
-            <p className="jkl-body jkl-spacing-16--top">
-                Her finner du en oversikt over props på komponentene i pakken.
-            </p>
-            <Accordion className="jkl-spacing-40--top jkl-portal-api-docs">
+        <section className="mb-104 jkl-portal-paragraph">
+            <h2 className="h1 mt-104">React API</h2>
+            <p className="body mt-16">Her finner du en oversikt over props på komponentene i pakken.</p>
+            <Accordion className="mt-40 jkl-portal-api-docs">
                 {Object.entries(types).map(([displayName, propTypes]) => {
                     const ownProps = propTypes.props ? Object.values(propTypes.props).filter(isOwnProp) : [];
                     const externalProps = propTypes.props ? Object.values(propTypes.props).filter(isExternalProp) : [];

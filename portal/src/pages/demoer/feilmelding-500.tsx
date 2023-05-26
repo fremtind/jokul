@@ -4,9 +4,7 @@ import { MainContent } from "../../layout/MainContent";
 
 const NotFoundPage: FC = () => (
     <MainContent>
-        <h1 className="jkl-title jkl-spacing-64--bottom jkl-spacing-64--top">
-            Huff da, nå har det skjedd en feil hos oss!
-        </h1>
+        <h1 className="title my-64">Huff da, nå har det skjedd en feil hos oss!</h1>
         <p className="jkl-portal-paragraph">Vi setter i gang med å fikse feilen. Imens kan du prøve å:</p>
         <ul className="jkl-portal-paragraph">
             <li>

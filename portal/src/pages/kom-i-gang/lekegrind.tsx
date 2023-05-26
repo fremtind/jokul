@@ -10,7 +10,7 @@ import { MainContent } from "../../layout/MainContent";
 const pageTitle = "Lekegrind";
 
 const defaultCode = `
-<h2 className="jkl-heading-2 jkl-spacing-12--bottom">Velkommen hit</h2>
+<h2 className="h2 mb-12">Velkommen hit</h2>
 <p className="jkl-portal-paragraph">Her kan du teste Jøkuls komponenter direkte i nettleseren.</p>
 <p className="jkl-portal-paragraph">Bare finn komponenten du vil teste blant Jøkuls komponenter, og lim inn koden i tekstfeltet.</p>
 <NavCard href="/komponenter/card" padding="l" target="_blank" title="Jøkul-komponenter" style={{maxWidth:"360px"}} />
@@ -30,11 +30,11 @@ const Lekegrind: FC = () => {
             <PageTitle>{pageTitle}</PageTitle>
 
             <LiveProvider code={code?.trim()}>
-                <div className="jkl-spacing-24--bottom">
+                <div className="mb-24">
                     <LiveEditor onChange={handleChange} />
                 </div>
                 <LiveError />
-                <div className="jkl-spacing-64--bottom">
+                <div className="mb-64">
                     <LivePreview />
                 </div>
             </LiveProvider>
