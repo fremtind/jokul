@@ -1,0 +1,41 @@
+@use "../jkl/spacing";
+
+@each $spacing, $value in spacing.$spacing {
+    .m-#{$spacing} {
+        margin: $value;
+    }
+
+    .mx-#{$spacing} {
+        margin-left: $value;
+        margin-right: $value;
+    }
+
+    .ms-#{$spacing} {
+        margin-inline-start: $value;
+    }
+
+    .me-#{$spacing} {
+        margin-inline-end: $value;
+    }
+
+    .my-#{$spacing} {
+        margin-top: $value;
+        margin-bottom: $value;
+    }
+
+    .mt-#{$spacing} {
+        margin-top: $value;
+    }
+
+    .mr-#{$spacing} {
+        margin-right: $value;
+    }
+
+    .mb-#{$spacing} {
+        margin-bottom: $value;
+    }
+
+    .ml-#{$spacing} {
+        margin-left: $value;
+    }
+}

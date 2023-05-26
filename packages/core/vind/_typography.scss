@@ -1,0 +1,45 @@
+@use "../jkl";
+
+.title {
+    @include jkl.text-style("title");
+}
+
+.title-small {
+    @include jkl.text-style("title-small");
+}
+
+.h1 {
+    @include jkl.text-style("heading-1");
+}
+
+.h2 {
+    @include jkl.text-style("heading-2");
+}
+
+.h3 {
+    @include jkl.text-style("heading-3");
+}
+
+.h4 {
+    @include jkl.text-style("heading-4");
+}
+
+.h5 {
+    @include jkl.text-style("heading-5");
+}
+
+.body {
+    @include jkl.text-style("body");
+
+    &.font-bold {
+        @include jkl.no-grow-bold;
+    }
+}
+
+.small {
+    @include jkl.text-style("small");
+
+    &.font-bold {
+        @include jkl.no-grow-bold;
+    }
+}
