@@ -176,7 +176,7 @@ jobs:
                   restore-keys: |
                       nx-${{ hashFiles('pnpm-lock.yaml') }}-
 
-            - name: Install dependencies
+            - name: Install dependencies and build packages
               run: pnpm ci:install
 
             - name: Lint and test
