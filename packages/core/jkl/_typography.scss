@@ -88,114 +88,110 @@ $typography-line-height-6: $typography-line-height-64;
 $text-styles: (
     "title": (
         "small-screen": (
-            "font-size": $typography-font-size-9,
-            "line-height": $typography-line-height-5,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-title-small-font-size,
+            "line-height": $typography-title-small-line-height,
+            "font-weight": $typography-title-small-font-weight,
         ),
         "large-screen": (
-            "font-size": $typography-font-size-10,
-            "line-height": $typography-line-height-6,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-title-base-font-size,
+            "line-height": $typography-title-base-line-height,
+            "font-weight": $typography-title-base-font-weight,
         ),
     ),
     "title-small": (
-        // Legger til ny fontstørrelse her direkte uten variabler i påvente av en større omstrukturering med design tokens.
-        // Vi har to fontstørrelser her som ellers ville måtte bli skvist inn mellom det eksisterende nivå 8, 9 og 10
-        // i typografivariablene våre. Det samme problemet gjelder linjehøyden.
-        "small-screen":
-            (
-                "font-size": $typography-font-size-30,
-                "line-height": $typography-line-height-36,
-                "font-weight": $typography-weight-normal,
-            ),
+        "small-screen": (
+            "font-size": $typography-title-small-small-font-size,
+            "line-height": $typography-title-small-small-line-height,
+            "font-weight": $typography-title-small-small-font-weight,
+        ),
         "large-screen": (
-            "font-size": $typography-font-size-44,
-            "line-height": $typography-line-height-52,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-title-small-base-font-size,
+            "line-height": $typography-title-small-base-line-height,
+            "font-weight": $typography-title-small-base-font-weight,
         ),
     ),
     "heading-1": (
         "small-screen": (
-            "font-size": $typography-font-size-7,
-            "line-height": $typography-line-height-3,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-h1-small-font-size,
+            "line-height": $typography-h1-small-line-height,
+            "font-weight": $typography-h1-small-font-weight,
         ),
         "large-screen": (
-            "font-size": $typography-font-size-9,
-            "line-height": $typography-line-height-5,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-h1-base-font-size,
+            "line-height": $typography-h1-base-line-height,
+            "font-weight": $typography-h1-base-font-weight,
         ),
     ),
     "heading-2": (
         "small-screen": (
-            "font-size": $typography-font-size-5,
-            "line-height": $typography-line-height-3,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-h2-small-font-size,
+            "line-height": $typography-h2-small-line-height,
+            "font-weight": $typography-h2-small-font-weight,
         ),
         "large-screen": (
-            "font-size": $typography-font-size-8,
-            "line-height": $typography-line-height-4,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-h2-base-font-size,
+            "line-height": $typography-h2-base-line-height,
+            "font-weight": $typography-h2-base-font-weight,
         ),
     ),
     "heading-3": (
         "small-screen": (
-            "font-size": $typography-font-size-4,
-            "line-height": $typography-line-height-2,
-            "font-weight": $typography-weight-bold,
+            "font-size": $typography-h3-small-font-size,
+            "line-height": $typography-h3-small-line-height,
+            "font-weight": $typography-h3-small-font-weight,
         ),
         "large-screen": (
-            "font-size": $typography-font-size-6,
-            "line-height": $typography-line-height-3,
-            "font-weight": $typography-weight-bold,
+            "font-size": $typography-h3-base-font-size,
+            "line-height": $typography-h3-base-line-height,
+            "font-weight": $typography-h3-base-font-weight,
         ),
     ),
     "heading-4": (
         "small-screen": (
-            "font-size": $typography-font-size-2,
-            "line-height": $typography-line-height-1,
-            "font-weight": $typography-weight-bold,
+            "font-size": $typography-h4-small-font-size,
+            "line-height": $typography-h4-small-line-height,
+            "font-weight": $typography-h4-small-font-weight,
         ),
         "large-screen": (
-            "font-size": $typography-font-size-4,
-            "line-height": $typography-line-height-2,
-            "font-weight": $typography-weight-bold,
+            "font-size": $typography-h4-base-font-size,
+            "line-height": $typography-h4-base-line-height,
+            "font-weight": $typography-h4-base-font-weight,
         ),
     ),
     "heading-5": (
         "small-screen": (
-            "font-size": $typography-font-size-1,
-            "line-height": $typography-line-height-1,
-            "font-weight": $typography-weight-bold,
+            "font-size": $typography-h5-small-font-size,
+            "line-height": $typography-h5-small-line-height,
+            "font-weight": $typography-h5-small-font-weight,
         ),
         "large-screen": (
-            "font-size": $typography-font-size-1,
-            "line-height": $typography-line-height-1,
-            "font-weight": $typography-weight-bold,
+            "font-size": $typography-h5-base-font-size,
+            "line-height": $typography-h5-base-line-height,
+            "font-weight": $typography-h5-base-font-weight,
         ),
     ),
     "body": (
         "small-screen": (
-            "font-size": $typography-font-size-2,
-            "line-height": $typography-line-height-2,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-body-small-font-size,
+            "line-height": $typography-body-small-line-height,
+            "font-weight": $typography-body-small-font-weight,
         ),
         "large-screen": (
-            "font-size": $typography-font-size-3,
-            "line-height": $typography-line-height-3,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-body-base-font-size,
+            "line-height": $typography-body-base-line-height,
+            "font-weight": $typography-body-base-font-weight,
         ),
     ),
     "small": (
         "small-screen": (
-            "font-size": $typography-font-size-1,
-            "line-height": $typography-line-height-1,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-small-small-font-size,
+            "line-height": $typography-small-small-line-height,
+            "font-weight": $typography-small-small-font-weight,
         ),
         "large-screen": (
-            "font-size": $typography-font-size-1,
-            "line-height": $typography-line-height-1,
-            "font-weight": $typography-weight-normal,
+            "font-size": $typography-small-base-font-size,
+            "line-height": $typography-small-base-line-height,
+            "font-weight": $typography-small-base-font-weight,
         ),
     ),
 );
