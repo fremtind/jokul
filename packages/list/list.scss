@@ -28,19 +28,31 @@
 
 $_item-space-between: jkl.$spacing-8;
 
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
+$_color-suksess: #287e68;
+
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
+$_color-feil: #aa1f23;
+
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
+$_color-suksess--darkbg: #5effa0;
+
+/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
+$_color-feil--darkbg: #ff8b79;
+
 @include jkl.light-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-granitt)};
     --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-granitt)};
-    --jkl-list-marker-cross: #{_cross(jkl.$color-feil)};
-    --jkl-list-marker-check: #{_check(jkl.$color-suksess, jkl.$color-snohvit)};
+    --jkl-list-marker-cross: #{_cross($_color-feil)};
+    --jkl-list-marker-check: #{_check($_color-suksess, jkl.$color-snohvit)};
     --jkl-list-text-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-snohvit)};
     --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-snohvit)};
-    --jkl-list-marker-cross: #{_cross(jkl.$color-feil--darkbg)};
-    --jkl-list-marker-check: #{_check(jkl.$color-suksess--darkbg, jkl.$color-granitt)};
+    --jkl-list-marker-cross: #{_cross($_color-feil--darkbg)};
+    --jkl-list-marker-check: #{_check($_color-suksess--darkbg, jkl.$color-granitt)};
     --jkl-list-text-color: #{jkl.$color-snohvit};
 }
 
