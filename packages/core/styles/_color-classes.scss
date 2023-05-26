@@ -17,10 +17,6 @@ $_color-map: (
     "info": jkl.$color-info,
     "advarsel": jkl.$color-advarsel,
     "feil": jkl.$color-feil,
-    "suksess--darkbg": jkl.$color-suksess--darkbg,
-    "info--darkbg": jkl.$color-info--darkbg,
-    "advarsel--darkbg": jkl.$color-advarsel--darkbg,
-    "feil--darkbg": jkl.$color-feil--darkbg,
 );
 
 @each $property, $value in $_color-map {

@@ -29,6 +29,7 @@
     "scripts": {
         "clean": "rimraf node_modules/ build/ node_modules/ **/*.css",
         "build": "run-s build:*",
+        "build:tokens": "node tokens.build.mjs",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "node ./esbuild.prod.mjs",
@@ -46,6 +47,11 @@
     },
     "dependencies": {
         "classnames": "^2.3.2"
+    },
+    "devDependencies": {
+        "color2k": "^2.0.2",
+        "style-dictionary": "^3.8.0",
+        "style-dictionary-utils": "^1.1.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

@@ -2,86 +2,53 @@
 @use "sass:map";
 @use "sass:list";
 @use "screens";
+@use "tokens" as *;
 
-/// Tilsvarer 2px
-/// @type Number
-$spacing-2: 0.125rem;
 /// Tilsvarer 2px
 /// @deprecated Bruk heller $spacing-2
 /// @type Number
 $spacing-3xs: $spacing-2;
 
 /// Tilsvarer 4px
-/// @type Number
-$spacing-4: 0.25rem;
-/// Tilsvarer 4px
 /// @deprecated Bruk heller $spacing-4
 /// @type Number
 $spacing-2xs: $spacing-4;
 
-/// Tilsvarer 8px
-/// @type Number
-$spacing-8: 0.5rem;
 /// Tilsvarer 8px
 /// @deprecated Bruk heller $spacing-8
 /// @type Number
 $spacing-xs: $spacing-8;
 
 /// Tilsvarer 12px
-/// @type Number
-$spacing-12: 0.75rem;
-/// Tilsvarer 12px
 /// @deprecated Bruk heller $spacing-12
 /// @type Number
 $spacing-s: $spacing-12;
 
-/// Tilsvarer 16px
-/// @type Number
-$spacing-16: 1rem;
 /// Tilsvarer 16px
 /// @deprecated Bruk heller $spacing-16
 /// @type Number
 $spacing-m: $spacing-16;
 
 /// Tilsvarer 24px
-/// @type Number
-$spacing-24: 1.5rem;
-/// Tilsvarer 24px
 /// @deprecated Bruk heller $spacing-24
 /// @type Number
 $spacing-l: $spacing-24;
 
-/// Tilsvarer 32px
-/// @type Number
-$spacing-32: 2rem;
-
-/// Tilsvarer 40px
-/// @type Number
-$spacing-40: 2.5rem;
 /// Tilsvarer 40px
 /// @deprecated Bruk heller $spacing-40
 /// @type Number
 $spacing-xl: $spacing-40;
 
 /// Tilsvarer 64px
-/// @type Number
-$spacing-64: 4rem;
-/// Tilsvarer 64px
 /// @deprecated Bruk heller $spacing-64
 /// @type Number
 $spacing-2xl: $spacing-64;
 
 /// Tilsvarer 104px
-/// @type Number
-$spacing-104: 6.5rem;
-/// Tilsvarer 104px
 /// @deprecated Bruk heller $spacing-104
 /// @type Number
 $spacing-3xl: $spacing-104;
 
-/// Tilsvarer 168px
-/// @type Number
-$spacing-168: 10.5rem;
 /// Tilsvarer 168px
 /// @deprecated Bruk heller $spacing-168
 /// @type Number

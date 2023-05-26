@@ -2,61 +2,87 @@
 @use "sass:map";
 @use "sass:list";
 @use "screens";
-@use "responsive-units" as ru;
+@use "tokens" as *;
 
+/// Tilsvarer 16px
+/// @deprecated Bruk heller $typography-font-size-16
 /// @type Number
-$typography-weight-normal: 400;
+$typography-font-size-1: $typography-font-size-16;
 
+/// Tilsvarer 18px
+/// @deprecated Bruk heller $typography-font-size-18
 /// @type Number
-$typography-weight-bold: 700;
+$typography-font-size-2: $typography-font-size-18;
 
+/// Tilsvarer 20px
+/// @deprecated Bruk heller $typography-font-size-20
 /// @type Number
-$typography-font-size-1: ru.rem(16px);
+$typography-font-size-3: $typography-font-size-20;
 
+/// Tilsvarer 21px
+/// @deprecated Bruk heller $typography-font-size-21
 /// @type Number
-$typography-font-size-2: ru.rem(18px);
+$typography-font-size-4: $typography-font-size-21;
 
+/// Tilsvarer 23px
+/// @deprecated Bruk heller $typography-font-size-23
 /// @type Number
-$typography-font-size-3: ru.rem(20px);
+$typography-font-size-5: $typography-font-size-23;
 
+/// Tilsvarer 25px
+/// @deprecated Bruk heller $typography-font-size-25
 /// @type Number
-$typography-font-size-4: ru.rem(21px);
+$typography-font-size-6: $typography-font-size-25;
 
+/// Tilsvarer 26px
+/// @deprecated Bruk heller $typography-font-size-26
 /// @type Number
-$typography-font-size-5: ru.rem(23px);
+$typography-font-size-7: $typography-font-size-26;
 
+/// Tilsvarer 28px
+/// @deprecated Bruk heller $typography-font-size-28
 /// @type Number
-$typography-font-size-6: ru.rem(25px);
+$typography-font-size-8: $typography-font-size-28;
 
+/// Tilsvarer 36px
+/// @deprecated Bruk heller $typography-font-size-36
 /// @type Number
-$typography-font-size-7: ru.rem(26px);
+$typography-font-size-9: $typography-font-size-36;
 
+/// Tilsvarer 56px
+/// @deprecated Bruk heller $typography-font-size-56
 /// @type Number
-$typography-font-size-8: ru.rem(28px);
+$typography-font-size-10: $typography-font-size-56;
 
+/// Tilsvarer 24px
+/// @deprecated Bruk heller $typography-line-height-24
 /// @type Number
-$typography-font-size-9: ru.rem(36px);
+$typography-line-height-1: $typography-line-height-24;
 
+/// Tilsvarer 28px
+/// @deprecated Bruk heller $typography-line-height-28
 /// @type Number
-$typography-font-size-10: ru.rem(56px);
+$typography-line-height-2: $typography-line-height-28;
 
+/// Tilsvarer 32px
+/// @deprecated Bruk heller $typography-line-height-32
 /// @type Number
-$typography-line-height-1: ru.rem(24px);
+$typography-line-height-3: $typography-line-height-32;
 
+/// Tilsvarer 40px
+/// @deprecated Bruk heller $typography-line-height-40
 /// @type Number
-$typography-line-height-2: ru.rem(28px);
+$typography-line-height-4: $typography-line-height-40;
 
+/// Tilsvarer 44px
+/// @deprecated Bruk heller $typography-line-height-44
 /// @type Number
-$typography-line-height-3: ru.rem(32px);
+$typography-line-height-5: $typography-line-height-44;
 
+/// Tilsvarer 64px
+/// @deprecated Bruk heller $typography-line-height-64
 /// @type Number
-$typography-line-height-4: ru.rem(40px);
-
-/// @type Number
-$typography-line-height-5: ru.rem(44px);
-
-/// @type Number
-$typography-line-height-6: ru.rem(64px);
+$typography-line-height-6: $typography-line-height-64;
 
 /// @access private - forwardes ikke ut av modulen, men er tilgjengelig ved direkteimport. KUN FOR INTERN BRUK I JØKUL.
 $text-styles: (
@@ -78,13 +104,13 @@ $text-styles: (
         // i typografivariablene våre. Det samme problemet gjelder linjehøyden.
         "small-screen":
             (
-                "font-size": ru.rem(30px),
-                "line-height": ru.rem(36px),
+                "font-size": $typography-font-size-30,
+                "line-height": $typography-line-height-36,
                 "font-weight": $typography-weight-normal,
             ),
         "large-screen": (
-            "font-size": ru.rem(44px),
-            "line-height": ru.rem(52px),
+            "font-size": $typography-font-size-44,
+            "line-height": $typography-line-height-52,
             "font-weight": $typography-weight-normal,
         ),
     ),
