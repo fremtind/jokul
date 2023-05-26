@@ -1,4 +1,4 @@
-import type { ColorScheme } from "@fremtind/jkl-react-hooks";
+import { tokens, ColorScheme } from "@fremtind/jkl-core";
 import classNames from "classnames";
 import React from "react";
 import { PureCanvas } from "./PureCanvas";
@@ -109,7 +109,7 @@ export class PrincipleDiamond extends React.Component<Props> {
             if (this.props.forcedColors) {
                 ctx.fillStyle = "CanvasText";
             } else {
-                ctx.fillStyle = this.props.colorScheme === "dark" ? "#fff" : "#000";
+                ctx.fillStyle = this.props.colorScheme === "dark" ? tokens.color.hvit : tokens.color.svart;
             }
         }
 
