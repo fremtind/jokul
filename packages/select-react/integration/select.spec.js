@@ -53,5 +53,16 @@ describe("Select", () => {
                 cy.toggleSelectMenu("produsent");
             },
         });
+
+        cy.takeSnapshots({
+            setup: () => {
+                cy.get('input[value="Med sekundærtekst"]').check();
+                cy.toggleSelectMenu("produsent").focusSelectValue("1");
+            },
+            teardown: () => {
+                cy.get('input[value="Med sekundærtekst"]').uncheck();
+                cy.toggleSelectMenu("produsent");
+            },
+        });
     });
 });
