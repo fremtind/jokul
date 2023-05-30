@@ -32,10 +32,8 @@ interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>
 
 type ChangeEventHandler = (event: PartialChangeEvent) => void;
 
-interface Option {
+interface Option extends ValuePair {
     visible: boolean;
-    value: string;
-    label: string;
 }
 
 export interface SelectProps extends InputGroupProps, DataTestAutoId {
@@ -546,6 +544,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                                         onMouseOver={handleMouseOver}
                                     >
                                         {item.label}
+                                        {item.description ? (
+                                            <span className="jkl-select__option-description">{item.description}</span>
+                                        ) : null}
                                     </button>
                                 ) : null,
                             )}

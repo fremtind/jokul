@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Select, NativeSelect } from "../src";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Native", "Med hjelpetekst", "Med feil", "Med tooltip", "Med søk"],
+    boolProps: ["Native", "Med hjelpetekst", "Med feil", "Med tooltip", "Med søk", "Med sekundærtekst"],
     choiceProps: [
         {
             name: "Maks. viste valg",
@@ -38,7 +38,11 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
     const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
 
     const values = [
-        { value: "1", label: "Google Pixel" },
+        {
+            value: "1",
+            label: "Google Pixel",
+            description: boolValues?.["Med sekundærtekst"] ? "Gjelder også Nexus-serien" : undefined,
+        },
         { value: "2", label: "Apple" },
         { value: "3", label: "Samsung" },
         { value: "4", label: "LG" },
