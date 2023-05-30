@@ -463,16 +463,14 @@ importers:
 
   packages/core:
     specifiers:
+      change-case: ^4.1.2
       classnames: ^2.3.2
-      color2k: ^2.0.2
       style-dictionary: ^3.8.0
-      style-dictionary-utils: ^1.1.0
     dependencies:
       classnames: 2.3.2
     devDependencies:
-      color2k: 2.0.2
+      change-case: 4.1.2
       style-dictionary: 3.8.0
-      style-dictionary-utils: 1.1.0_zxiie7sefj5r6qntrgzbjhz6p4
 
   packages/datepicker:
     specifiers:
@@ -8315,10 +8313,6 @@ packages:
     dependencies:
       color-convert: 2.0.1
       color-string: 1.9.1
-
-  /color2k/2.0.2:
-    resolution: {integrity: sha512-kJhwH5nAwb34tmyuqq/lgjEKzlFXn1U99NlnB6Ws4qVaERcRUYeYP1cBw6BJ4vxaWStAUEef4WMr7WjOCnBt8w==}
-    dev: true
 
   /colord/2.9.3:
     resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==}
@@ -21073,18 +21067,6 @@ packages:
       '@tokenizer/token': 0.3.0
       peek-readable: 4.1.0
     dev: false
-
-  /style-dictionary-utils/1.1.0_zxiie7sefj5r6qntrgzbjhz6p4:
-    resolution: {integrity: sha512-EwR+UGbapY1E1EbYcmmwZJ+jHpoiUIpLaPWyPt1AO3jEJfY5yBhYumVHs1VeUBxNIssn1DhCS5ScpiIW81dO4g==}
-    peerDependencies:
-      color2k: ^2.0.0
-      json5: ^2.2.1
-      prettier: ^2.7.1
-      style-dictionary: '>= 3'
-    dependencies:
-      color2k: 2.0.2
-      style-dictionary: 3.8.0
-    dev: true
 
   /style-dictionary/3.8.0:
     resolution: {integrity: sha512-wHlB/f5eO3mDcYv6WtOz6gvQC477jBKrwuIXe+PtHskTCBsJdAOvL8hCquczJxDui2TnwpeNE+2msK91JJomZg==}

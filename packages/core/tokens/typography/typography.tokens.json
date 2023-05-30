@@ -80,7 +80,7 @@
                 }
             }
         },
-        "h1": {
+        "heading-1": {
             "small": {
                 "fontSize": {
                     "value": "{typography.font.size.26}"
@@ -104,7 +104,7 @@
                 }
             }
         },
-        "h2": {
+        "heading-2": {
             "small": {
                 "fontSize": {
                     "value": "{typography.font.size.23}"
@@ -128,7 +128,7 @@
                 }
             }
         },
-        "h3": {
+        "heading-3": {
             "small": {
                 "fontSize": {
                     "value": "{typography.font.size.21}"
@@ -152,7 +152,7 @@
                 }
             }
         },
-        "h4": {
+        "heading-4": {
             "small": {
                 "fontSize": {
                     "value": "{typography.font.size.18}"
@@ -176,7 +176,7 @@
                 }
             }
         },
-        "h5": {
+        "heading-5": {
             "small": {
                 "fontSize": {
                     "value": "{typography.font.size.16}"

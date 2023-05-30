@@ -148,23 +148,23 @@ Vi har egne utils for typografi som passer med vår egen typografiskala.
     @include jkl.text-style("title-small");
 }
 
-.h1 {
+.heading-1 {
     @include jkl.text-style("heading-1");
 }
 
-.h2 {
+.heading-2 {
     @include jkl.text-style("heading-2");
 }
 
-.h3 {
+.heading-3 {
     @include jkl.text-style("heading-3");
 }
 
-.h4 {
+.heading-4 {
     @include jkl.text-style("heading-4");
 }
 
-.h5 {
+.heading-5 {
     @include jkl.text-style("heading-5");
 }
 
@@ -223,34 +223,34 @@ export default {
                         ...tokens.typography.titleSmall.base,
                     },
                 },
-                ".h1": {
-                    ...tokens.typography.h1.small,
+                ".heading-1": {
+                    ...tokens.typography.heading_1.small,
                     [`@media (min-width: ${breakpoints.medium}px)`]: {
-                        ...tokens.typography.h1.base,
+                        ...tokens.typography.heading_1.base,
                     },
                 },
-                ".h2": {
-                    ...tokens.typography.h2.small,
+                ".heading-2": {
+                    ...tokens.typography.heading_2.small,
                     [`@media (min-width: ${breakpoints.medium}px)`]: {
-                        ...tokens.typography.h2.base,
+                        ...tokens.typography.heading_2.base,
                     },
                 },
-                ".h3": {
-                    ...tokens.typography.h3.small,
+                ".heading-3": {
+                    ...tokens.typography.heading_3.small,
                     [`@media (min-width: ${breakpoints.medium}px)`]: {
-                        ...tokens.typography.h3.base,
+                        ...tokens.typography.heading_3.base,
                     },
                 },
-                ".h4": {
-                    ...tokens.typography.h4.small,
+                ".heading-4": {
+                    ...tokens.typography.heading_4.small,
                     [`@media (min-width: ${breakpoints.medium}px)`]: {
-                        ...tokens.typography.h4.base,
+                        ...tokens.typography.heading_4.base,
                     },
                 },
-                ".h5": {
-                    ...tokens.typography.h5.small,
+                ".heading-5": {
+                    ...tokens.typography.heading_5.small,
                     [`@media (min-width: ${breakpoints.medium}px)`]: {
-                        ...tokens.typography.h5.base,
+                        ...tokens.typography.heading_5.base,
                     },
                 },
                 ".body": {

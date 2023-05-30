@@ -8,23 +8,23 @@
     @include jkl.text-style("title-small");
 }
 
-.h1 {
+.heading-1 {
     @include jkl.text-style("heading-1");
 }
 
-.h2 {
+.heading-2 {
     @include jkl.text-style("heading-2");
 }
 
-.h3 {
+.heading-3 {
     @include jkl.text-style("heading-3");
 }
 
-.h4 {
+.heading-4 {
     @include jkl.text-style("heading-4");
 }
 
-.h5 {
+.heading-5 {
     @include jkl.text-style("heading-5");
 }
 
