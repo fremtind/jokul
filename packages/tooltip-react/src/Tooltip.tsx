@@ -1,116 +1,100 @@
 import {
     useFloating,
-    shift,
-    flip,
+    type Placement,
+    autoUpdate,
     offset,
+    flip,
+    shift,
     arrow,
-    useRole,
     useInteractions,
     useClick,
     useDismiss,
     useFocus,
+    useRole,
+    useHover,
 } from "@floating-ui/react";
-import { QuestionIcon } from "@fremtind/jkl-icons-react";
-import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
-import { motion, AnimatePresence } from "framer-motion";
-import React, { ReactNode, useRef, useState } from "react";
+import { type WithChildren } from "@fremtind/jkl-core";
+import React, { FC, createContext, useContext, useRef, useState } from "react";
 
-export type Placement = "top" | "left" | "right" | "top-end" | "top-start";
+export type TooltipPlacement = Extract<Placement, "top-start" | "top-end" | "left" | "right" | "top">;
 
 export interface TooltipProps {
-    className?: string;
-    initialPlacement?: Placement;
-    content: ReactNode;
+    /**
+     * Sett til true dersom du ønsker at tooltipen skal være åpen som default
+     * @default false
+     */
+    initialOpen?: boolean;
+    /**
+     * Plassering av tooltipen i forhold til triggeren. Tooltipen vil automatisk
+     * bytte posisjon dersom det ikke er plass.
+     * @default "top"
+     */
+    placement?: TooltipPlacement;
+    /**
+     * Valgfri forsinkelse før tooltipen åpner. Ignoreres dersom triggerOn er satt til "click"
+     * @default 0
+     */
+    delay?: number;
+    /**
+     * Angir om tooltipen skal åpnes ved klikk eller hover
+     * @default "hover"
+     */
+    triggerOn?: "click" | "hover";
 }
 
-export const Tooltip = ({ content, initialPlacement = "top", className }: TooltipProps) => {
-    const tooltipId = useId("jkl-tooltip");
-    const [open, setOpen] = useState(false);
-    const [buttonHasFocus, setButtonFocus] = useState(false);
-    const arrowElement = useRef<HTMLDivElement>(null);
-    const {
-        x,
-        y,
-        refs,
-        placement,
-        strategy,
-        context,
-        isPositioned,
-        middlewareData: { arrow: { x: arrowX, y: arrowY } = {} },
-    } = useFloating({
-        open,
+export const useTooltip = ({
+    initialOpen = false,
+    placement = "top",
+    delay = 0,
+    triggerOn = "hover",
+}: TooltipProps) => {
+    const [isOpen, setOpen] = useState(initialOpen);
+    const arrowElement = useRef<HTMLElement>(null);
+
+    const data = useFloating({
+        open: isOpen,
         onOpenChange: setOpen,
-        placement: initialPlacement,
+        placement,
+        whileElementsMounted: autoUpdate,
         middleware: [offset(16), flip(), shift({ padding: 16 }), arrow({ element: arrowElement, padding: 20 })],
     });
 
-    const { getReferenceProps, getFloatingProps } = useInteractions([
-        useClick(context),
-        useDismiss(context, { referencePress: false }),
-        useFocus(context, { enabled: open }), // Lukk når fokus flyttes vekk
-        useRole(context, { role: "tooltip" }),
-    ]);
+    const dismiss = useDismiss(data.context, { referencePress: false });
+    const role = useRole(data.context, { role: "tooltip" });
+    const click = useClick(data.context);
+    const hover = useHover(data.context, { enabled: triggerOn === "hover", delay: isOpen ? 0 : delay });
+    const focus = useFocus(data.context, { enabled: triggerOn === "click" ? isOpen : true });
 
-    return (
-        <span className={cn("jkl-tooltip", className)}>
-            <span className="jkl-tooltip__wrapper">
-                <button
-                    aria-expanded={open}
-                    aria-controls={tooltipId}
-                    type="button"
-                    className="jkl-tooltip__button"
-                    {...getReferenceProps({
-                        ref: refs.setReference,
-                        onFocus: () => setButtonFocus(true),
-                        onBlur: () => setButtonFocus(false),
-                        onMouseOver: () => setButtonFocus(true),
-                        onMouseLeave: () => setButtonFocus(false),
-                    })}
-                >
-                    <QuestionIcon bold={buttonHasFocus} />
-                    <span className="jkl-sr-only">{`${open ? "Skjul" : "Vis"} hjelpetekst`}</span>
-                </button>
-                <AnimatePresence>
-                    {open && (
-                        <motion.span
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ ease: "easeIn", duration: 0.1 }}
-                            data-placement={placement}
-                            aria-live="assertive"
-                            className="jkl-tooltip__content"
-                            {...getFloatingProps({
-                                id: tooltipId,
-                                ref: refs.setFloating,
-                                style: {
-                                    position: strategy,
-                                    top: isPositioned ? y : "",
-                                    left: isPositioned ? x : "",
-                                },
-                            })}
-                        >
-                            <span
-                                style={{
-                                    whiteSpace: "normal", // Overstyr nowrap satt for å plassere tooltip riktig etter Label
-                                }}
-                            >
-                                {content}
-                            </span>
-                            <span
-                                aria-hidden
-                                className="jkl-tooltip__arrow"
-                                ref={arrowElement}
-                                style={{
-                                    left: isPositioned ? `${arrowX}px` : "",
-                                    top: isPositioned ? `${arrowY}px` : "",
-                                }}
-                            />
-                        </motion.span>
-                    )}
-                </AnimatePresence>
-            </span>
-        </span>
-    );
+    const interactions = useInteractions([dismiss, focus, role, click, hover]);
+
+    return {
+        triggerOn,
+        isOpen,
+        setOpen,
+        arrowElement,
+        ...data,
+        ...interactions,
+    };
+};
+
+export type TooltipContext = ReturnType<typeof useTooltip> | null;
+
+const tooltipContext = createContext<TooltipContext>(null);
+
+export const TooltipProvider = tooltipContext.Provider;
+
+export const useTooltipContext = () => {
+    const context = useContext(tooltipContext);
+
+    if (context === null) {
+        throw new Error("Tooltip-komponentene kan kun brukes inne i <Tooltip />");
+    }
+
+    return context;
+};
+
+export const Tooltip: FC<TooltipProps & WithChildren> = ({ children, ...options }) => {
+    const tooltip = useTooltip(options);
+
+    return <TooltipProvider value={tooltip}>{children}</TooltipProvider>;
 };
