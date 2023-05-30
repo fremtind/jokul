@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { formatValuta } from "../../formatters-util/src";
-import { Placement, Tooltip } from "../src";
+import { formatFodselsnummer } from "../../formatters-util/src";
+import { Tooltip, TooltipContent, type TooltipPlacement, TooltipTrigger } from "../src";
 
-function getPlacement(choice?: string): Placement {
+function getPlacement(choice?: string): TooltipPlacement {
     switch (choice) {
         case "Right":
             return "right";
@@ -19,25 +19,26 @@ function getPlacement(choice?: string): Placement {
     }
 }
 
-export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues, displayValues }) => {
-    const initialPlacement: Placement = getPlacement(choiceValues?.["Plassering"]);
-    const typo: string = displayValues?.density === "compact" ? "small" : "body";
+export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
+    const initialPlacement: TooltipPlacement = getPlacement(choiceValues?.["Plassering"]);
+    const [copied, setCopied] = useState(false);
+    const fodselsnummer = "08066215321";
 
     return (
-        <p className={`jkl-${typo.toLowerCase().replace(/ /g, "-")}`}>
-            Du betaler{" "}
-            <span style={{ whiteSpace: "nowrap" }}>
-                348 kr/mnd{" "}
-                <Tooltip
-                    content={
-                        <span>
-                            Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
-                            <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
-                        </span>
-                    }
-                    {...(initialPlacement && { initialPlacement })}
-                />
-            </span>
+        <p>
+            Fødselsnummer:{" "}
+            <Tooltip placement={initialPlacement} delay={250} triggerOn="hover">
+                <TooltipTrigger
+                    onClick={() => {
+                        navigator.clipboard.writeText(fodselsnummer);
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                    }}
+                >
+                    {formatFodselsnummer(fodselsnummer)}
+                </TooltipTrigger>
+                <TooltipContent>{copied ? "Kopiert" : "Klikk for å kopiere til utklippstavlen"}</TooltipContent>
+            </Tooltip>
         </p>
     );
 };
@@ -52,27 +53,25 @@ export const tooltipExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const tooltipExampleCode = ({ choiceValues, displayValues }: ExampleComponentProps): string => {
-    let initialPlacement: Placement = "top";
-    if (choiceValues && choiceValues["initialPlacement"]) {
-        initialPlacement = choiceValues["initialPlacement"] as Placement;
-    }
+export const tooltipExampleCode = ({
+    choiceValues,
+}: ExampleComponentProps): string => `const [copied, setCopied] = useState(false);
+const fodselsnummer = "08066215321";
 
-    const typo: string = displayValues?.density === "compact" ? "small" : choiceValues?.["Typografinivå"] || "body";
-
-    return `<p className={jkl-${typo.toLowerCase().replace(/ /g, "-")}}>
-    Du betaler{" "}
-    <span style={{ whiteSpace: "nowrap" }}>
-        348 kr/mnd{" "}
-        <Tooltip
-            content={
-                <span>
-                    Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
-                    <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
-                </span>
-            }
-            placement={${initialPlacement}}
-        />
-    </span>
-</p>>`;
-};
+return (
+    <p>
+        Fødselsnummer:{" "}
+        <Tooltip placement="${getPlacement(choiceValues?.["Plassering"])}" delay={250} triggerOn="hover">
+            <TooltipTrigger
+                onClick={() => {
+                    navigator.clipboard.writeText(fodselsnummer);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                }}
+            >
+                {formatFodselsnummer(fodselsnummer)}
+            </TooltipTrigger>
+            <TooltipContent>{copied ? "Kopiert" : "Klikk for å kopiere til utklippstavlen"}</TooltipContent>
+        </Tooltip>
+    </p>
+);`;
