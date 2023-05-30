@@ -196,7 +196,7 @@ Per nå har vi ikke noen ferdig konfigurasjon som er klar for Tailwind eller and
 Du kan importere tokensene i `tailwind.config.js` og bygge opp konfigurasjonen din på den måten:
 
 ```js
-import { tokens } from "@fremtind/jkl-core";
+import { tokens, breakpoints } from "@fremtind/jkl-core";
 import plugin from "tailwindcss/plugin";
 
 export default {
@@ -211,15 +211,60 @@ export default {
     plugins: [
         plugin(function ({ addComponents }) {
             addComponents({
-                ".title": tokens.typography.title.base,
-                ".title-small": tokens.typography.titleSmall.base,
-                ".h1": tokens.typography.h1.base,
-                ".h2": tokens.typography.h2.base,
-                ".h3": tokens.typography.h3.base,
-                ".h4": tokens.typography.h4.base,
-                ".h5": tokens.typography.h5.base,
-                ".body": tokens.typography.body.base,
-                ".small": tokens.typography.small.base,
+                ".title": {
+                    ...tokens.typography.title.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.title.base,
+                    },
+                },
+                ".title-small": {
+                    ...tokens.typography.titleSmall.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.titleSmall.base,
+                    },
+                },
+                ".h1": {
+                    ...tokens.typography.h1.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.h1.base,
+                    },
+                },
+                ".h2": {
+                    ...tokens.typography.h2.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.h2.base,
+                    },
+                },
+                ".h3": {
+                    ...tokens.typography.h3.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.h3.base,
+                    },
+                },
+                ".h4": {
+                    ...tokens.typography.h4.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.h4.base,
+                    },
+                },
+                ".h5": {
+                    ...tokens.typography.h5.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.h5.base,
+                    },
+                },
+                ".body": {
+                    ...tokens.typography.body.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.body.base,
+                    },
+                },
+                ".small": {
+                    ...tokens.typography.small.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.small.base,
+                    },
+                },
             });
         }),
     ],
