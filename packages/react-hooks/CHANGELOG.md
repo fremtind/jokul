@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.4.0 (2023-05-25)
+
+### Features
+
+- legg til hook for å animere et element basert på innholdet sitt ([763f58b](https://github.com/fremtind/jokul/commit/763f58bd7858e946afeed3b237bae5ea4b10e395))
+- legg til hook for å animere mellom to høyder ([d1a0836](https://github.com/fremtind/jokul/commit/d1a0836159048bb01bab12a8b2e91bdeb4930130))
+
 ## 11.3.1 (2023-05-22)
 
 ### Bug Fixes

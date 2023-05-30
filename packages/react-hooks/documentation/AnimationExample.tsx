@@ -17,7 +17,7 @@ const AnimationExample: FC = () => {
     return (
         <section>
             <button className="jkl-button jkl-button--secondary" onClick={() => setIsOpen((isOpen) => !isOpen)}>
-                Animate {isOpen ? "Out" : "In"}
+                Animer {isOpen ? "ut" : "inn"}
             </button>
             <div ref={animationRef}>
                 <div className="lorem-text">

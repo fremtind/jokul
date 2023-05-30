@@ -1,5 +1,10 @@
-export type { UseAnimatedHeightOptions } from "./useAnimatedHeight";
-export { useAnimatedHeight } from "./useAnimatedHeight";
+export {
+    useAnimatedHeight,
+    useAnimatedHeightBetween,
+    useAutoAnimatedHeight,
+    type UseAutoAnimatedHeightOptions,
+    type UseAnimatedHeightOptions,
+} from "./useAnimatedHeight";
 export type { UseAriaLiveRegionOptions } from "./useAriaLiveRegion";
 export { useAriaLiveRegion } from "./useAriaLiveRegion";
 export { useClickOutside } from "./useClickOutside";
