@@ -9,13 +9,7 @@
         }
     },
     "namedInputs": {
-        "packages": [
-            "{workspaceRoot}/packages/*/build/*",
-            "{workspaceRoot}/packages/core/jkl/_tokens.scss",
-            "{workspaceRoot}/packages/core/src/tokens.ts",
-            "{workspaceRoot}/packages/core/styles/_tokens.scss",
-            "{workspaceRoot}/packages/*/*.css"
-        ],
+        "packages": ["{workspaceRoot}/packages/*/build/*", "{workspaceRoot}/packages/*/*.css"],
         "documentation": ["{workspaceRoot}/packages/**/documentation/**/*"],
         "portal": [
             "{workspaceRoot}/portal/images/**/*",

@@ -28,8 +28,8 @@
     },
     "scripts": {
         "clean": "rimraf node_modules/ build/ **/*.css src/tokens.ts jkl/_tokens.scss styles/_tokens.scss",
+        "generate:tokens": "node tokens.build.mjs",
         "build": "run-s build:*",
-        "build:tokens": "node tokens.build.mjs",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "node ./esbuild.prod.mjs",
