@@ -9,6 +9,9 @@ export interface SkeletonAnimationProps extends Pick<HTMLProps<HTMLDivElement>, 
     density?: Density;
     /** @default "Vennligst vent" */
     textDescription?: string;
+    /**
+     * @default "presentation"
+     */
     role?: AriaRole;
     /**
      * Antall millisekunder komponenten vil vente før den rendrer
@@ -22,6 +25,7 @@ export const SkeletonAnimation = ({
     delay = 0,
     density,
     textDescription = "Vennligst vent",
+    role = "presentation",
     ...rest
 }: SkeletonAnimationProps) => {
     const renderComponent = useDelayedRender(delay);
@@ -35,6 +39,7 @@ export const SkeletonAnimation = ({
             className={cn("jkl-skeleton-animation", className)}
             aria-busy="true"
             aria-label={textDescription}
+            role={role}
             {...rest}
             data-density={density}
         />
