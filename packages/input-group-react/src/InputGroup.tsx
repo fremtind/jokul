@@ -1,6 +1,6 @@
 import { type WithOptionalChildren, type Density, type DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { Tooltip, type TooltipProps } from "@fremtind/jkl-tooltip-react";
+import { PopupTip, type PopupTipProps } from "@fremtind/jkl-tooltip-react";
 import cn from "classnames";
 import React, { forwardRef, type CSSProperties, type ReactNode } from "react";
 import { Label, type LabelProps } from "./Label";
@@ -23,7 +23,7 @@ export interface InputGroupProps extends WithOptionalChildren, DataTestAutoId {
     label: ReactNode;
     labelProps?: Omit<LabelProps, "children" | "density">;
     supportLabelProps?: Omit<SupportLabelProps, "id" | "errorLabel" | "helpLabel" | "density">;
-    tooltipProps?: TooltipProps;
+    tooltipProps?: PopupTipProps;
     style?: CSSProperties;
     render?: (props: InputProps) => JSX.Element;
 }
@@ -91,7 +91,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>((props, re
                     <>
                         <span style={{ whiteSpace: "normal" }}>{label}</span>
                         {`\u00A0`}
-                        {tooltipProps && <Tooltip {...tooltipProps} />}
+                        <PopupTip {...tooltipProps} />
                     </>
                 )}
             </Label>
