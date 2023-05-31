@@ -11,7 +11,6 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(fu
     const childrenRef = (children as any).ref;
     const ref = useMergeRefs([childrenRef, refs.setReference, forwardedRef]);
 
-    const WrapperElement = triggerOn === "click" ? "button" : "span";
     const handleBlur = () => {
         triggerOn === "click" && setOpen(false);
     };
@@ -28,7 +27,6 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(fu
                 style: { ...children.props.style },
                 tabIndex: triggerOn === "click" ? 0 : undefined,
                 onBlur: () => {
-                    console.log(children.props.onBlur);
                     children.props.onBlur && children.props.onBlur();
                     handleBlur();
                 },
@@ -37,17 +35,19 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(fu
     }
 
     return (
-        <WrapperElement
-            className={cn(className, "jkl-tooltip-trigger")}
+        <button
             data-tooltip-shown={isOpen}
             {...getReferenceProps({
-                type: triggerOn === "click" ? "button" : undefined,
+                className: cn(className, "jkl-tooltip-trigger"),
+                // Sørg for at vi ikke sender inn skjemaer ved klikk på knappen
+                // type: triggerOn === "click" ? "button" : undefined,
+                type: "button",
                 ref,
                 onBlur: handleBlur,
                 ...props,
             })}
         >
             {children}
-        </WrapperElement>
+        </button>
     );
 });

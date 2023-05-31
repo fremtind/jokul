@@ -34,7 +34,11 @@ $_focus-ring-width: jkl.rem(2px);
 }
 
 .jkl-tooltip-trigger {
-    cursor: help;
+    background-color: unset;
+    padding: unset;
+    color: unset;
+    // Den visuelle endringen ved fokus er selve Tooltipen, så vi fjerner fokusringen
+    @include jkl.reset-outline;
 }
 
 .jkl-tooltip-content {
@@ -43,7 +47,7 @@ $_focus-ring-width: jkl.rem(2px);
     color: jkl.$color-snohvit;
     display: inline-block;
     min-width: fit-content;
-    max-width: jkl.rem(310px); // 10px mindre enn smaleste støttede skjerm
+    max-width: min(jkl.rem(310px), max-content); // 10px mindre enn smaleste støttede skjerm
     padding: var(--jkl-tooltip-content-padding);
     position: absolute;
     z-index: jkl.$z-index--floating;
@@ -97,85 +101,5 @@ $_focus-ring-width: jkl.rem(2px);
     &:focus,
     &:hover {
         color: var(--jkl-tooltip-active-button-color);
-    }
-}
-
-.jkl-tooltip {
-    position: relative;
-
-    /* Plasser knappen i forhold til teksten */
-    display: inline-block;
-    vertical-align: middle;
-    height: 1em;
-    margin-top: max(-0.16em, jkl.rem(-4px)); // Cap på -4px margin
-
-    &__wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1em;
-        vertical-align: middle;
-    }
-
-    &__button {
-        @include jkl.reset-outline;
-        @include jkl.motion("exit", "snappy");
-        transition-property: color;
-        cursor: pointer;
-        background-color: transparent;
-        padding: 0;
-        display: inline-flex;
-        align-items: center;
-        color: var(--jkl-tooltip-button-color);
-
-        &:focus,
-        &:hover {
-            color: var(--jkl-tooltip-active-button-color);
-        }
-    }
-
-    &__content {
-        @include jkl.text-style("small");
-        background-color: var(--jkl-tooltip-bg-color);
-        color: jkl.$color-snohvit;
-        display: inline-block;
-        min-width: fit-content;
-        max-width: jkl.rem(310px); // 10px mindre enn smaleste støttede skjerm
-        padding: var(--jkl-tooltip-content-padding);
-        position: absolute;
-        z-index: jkl.$z-index--floating;
-
-        &[data-placement^="top"] > .jkl-tooltip__arrow {
-            bottom: -#{$_tooltip-arrow-height};
-        }
-
-        &[data-placement^="bottom"] > .jkl-tooltip__arrow {
-            top: -#{$_tooltip-arrow-height};
-        }
-
-        &[data-placement^="left"] > .jkl-tooltip__arrow {
-            right: -#{$_tooltip-arrow-height};
-        }
-
-        &[data-placement^="right"] > .jkl-tooltip__arrow {
-            left: -#{$_tooltip-arrow-height};
-        }
-
-        @include jkl.forced-colors-mode {
-            border: 1px solid CanvasText;
-        }
-    }
-
-    &__arrow {
-        overflow: hidden;
-        position: absolute;
-        background-color: var(--jkl-tooltip-bg-color);
-        transform: rotate(45deg);
-        height: $_tooltip-arrow-height * 2;
-        width: $_tooltip-arrow-height * 2;
-
-        @include jkl.forced-colors-mode {
-            background-color: CanvasText;
-        }
     }
 }

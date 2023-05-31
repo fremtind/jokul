@@ -1,6 +1,6 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import { TooltipClickExample, tooltipClickExampleCode } from "./TooltipClickExample";
+import { PopupTipExample, popupTipExampleCode } from "./PopupTipExample";
 import { TooltipExample, tooltipExampleCode, tooltipExampleKnobs } from "./TooltipExample";
 import "../../tooltip/tooltip.scss";
 
@@ -15,9 +15,9 @@ export default function Example() {
             />
             <DevExample
                 title="Tooltip Click"
-                component={TooltipClickExample}
+                component={PopupTipExample}
                 knobs={tooltipExampleKnobs}
-                codeExample={tooltipClickExampleCode}
+                codeExample={popupTipExampleCode}
             />
         </>
     );

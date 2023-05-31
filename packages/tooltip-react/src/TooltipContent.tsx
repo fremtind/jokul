@@ -37,6 +37,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
     forwardedRef,
 ) {
     const {
+        triggerOn,
         arrowElement,
         isOpen,
         getFloatingProps,
@@ -62,7 +63,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                     }}
                     transition={{ ease: "easeOut", duration: 0.25 }}
                     data-placement={placement}
-                    aria-live="assertive"
+                    aria-live={triggerOn === "click" ? "assertive" : undefined}
                     className={cn("jkl jkl-tooltip-content", className)}
                     {...getFloatingProps(props)}
                     style={{ ...floatingStyles }}

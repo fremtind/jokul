@@ -1,17 +1,17 @@
 import {
-    useFloating,
     type Placement,
-    autoUpdate,
-    offset,
-    flip,
-    shift,
     arrow,
-    useInteractions,
+    autoUpdate,
+    flip,
+    offset,
+    shift,
     useClick,
     useDismiss,
+    useFloating,
     useFocus,
-    useRole,
     useHover,
+    useInteractions,
+    useRole,
 } from "@floating-ui/react";
 import { type WithChildren } from "@fremtind/jkl-core";
 import React, { FC, createContext, useContext, useRef, useState } from "react";
@@ -59,9 +59,9 @@ export const useTooltip = ({
         middleware: [offset(16), flip(), shift({ padding: 16 }), arrow({ element: arrowElement, padding: 20 })],
     });
 
-    const dismiss = useDismiss(data.context, { referencePress: false });
     const role = useRole(data.context, { role: "tooltip" });
-    const click = useClick(data.context);
+    const dismiss = useDismiss(data.context, { referencePress: false });
+    const click = useClick(data.context, { enabled: triggerOn === "click" && !isOpen });
     const hover = useHover(data.context, { enabled: triggerOn === "hover", delay: isOpen ? 0 : delay });
     const focus = useFocus(data.context, { enabled: triggerOn === "click" ? isOpen : true });
 
