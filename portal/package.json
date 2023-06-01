@@ -56,9 +56,9 @@
         "@sindresorhus/slugify": "^1.1.2",
         "classnames": "^2.3.2",
         "dotenv": "^8.6.0",
-        "focus-trap-react": "^10.1.1",
+        "focus-trap-react": "^10.1.4",
         "framer-motion": "^7.10.3",
-        "gatsby": "^4.25.6",
+        "gatsby": "^4.25.7",
         "gatsby-plugin-canonical-urls": "4.24.0",
         "gatsby-plugin-feed": "^4.25.0",
         "gatsby-plugin-image": "^2.25.0",
@@ -80,8 +80,8 @@
         "mixpanel-browser": "^2.47.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-hook-form": "^7.43.9",
-        "react-live": "^4.0.1"
+        "react-hook-form": "^7.44.3",
+        "react-live": "^4.1.2"
     },
     "browserslist": [
         ">0.2% in no",
