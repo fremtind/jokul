@@ -1,0 +1,212 @@
+@charset "UTF-8";
+@use "sass:string";
+@use "~@fremtind/jkl-core/jkl";
+@use "~@fremtind/jkl-core/jkl/colors";
+
+@include jkl.light-mode-variables {
+    --jkl-toast-color: #{jkl.$color-granitt};
+    --jkl-toast-background-color: #{jkl.$color-hvit};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-toast-color: #{jkl.$color-snohvit};
+    --jkl-toast-background-color: #{jkl.$color-svart};
+}
+
+.jkl-toast-region {
+    z-index: jkl.$z-index--floating;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: jkl.$spacing-24;
+    right: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+
+    &__toasts {
+        min-width: 18rem;
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: jkl.$spacing-16;
+    }
+
+    &--left {
+        justify-content: flex-start;
+        left: jkl.$spacing-24;
+    }
+}
+
+.jkl-toast {
+    @include jkl.text-style("body");
+    color: var(--jkl-toast-color);
+    background-color: var(--jkl-toast-background-color);
+    border-radius: jkl.rem(2px);
+    box-sizing: border-box;
+    display: grid;
+    align-items: start;
+    overflow: hidden;
+    width: 100%;
+    max-width: min(30rem, 85vw);
+    $_inline-padding: jkl.$spacing-16;
+    padding: 0 #{$_inline-padding} #{jkl.$spacing-16} #{$_inline-padding};
+
+    @include jkl.small-device {
+        grid-template-areas:
+            "progress progress"
+            "icon dismiss"
+            "content content";
+    }
+
+    @include jkl.from-medium-device {
+        grid-template-areas:
+            "progress progress progress"
+            "icon content dismiss";
+        grid-template-columns: auto 1fr auto;
+    }
+
+    &__progress {
+        --jkl-progress-background-color: transparent;
+        grid-area: progress;
+        margin-bottom: jkl.$spacing-16;
+        margin-inline: -#{$_inline-padding}; // Motvirk padding for å gå kant i kant.
+
+        .jkl-countdown {
+            border-radius: 0;
+        }
+    }
+
+    &__icon {
+        grid-area: icon;
+        width: jkl.$spacing-24;
+        margin-right: jkl.$spacing-16;
+        @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+    }
+
+    &__content {
+        grid-area: content;
+    }
+
+    &__message {
+        margin-top: jkl.rem(-2px); // Offset for å aligne med ikon hvis uten tittel.
+    }
+
+    &__title {
+        @include jkl.text-style("heading-4");
+        margin: 0 0 jkl.$spacing-8 0;
+
+        & ~ .jkl-toast__message {
+            margin-top: 0; // Unset offset satt for å aligne med ikon hvis uten tittel.
+        }
+    }
+
+    &__dismiss-button {
+        @include jkl.reset-outline;
+        grid-area: dismiss;
+        justify-self: end;
+        position: relative;
+        margin-left: var(--jkl-toast-gap);
+
+        background-color: transparent;
+        border-radius: jkl.rem(3px);
+        padding: 0;
+        cursor: pointer;
+
+        color: inherit;
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+        @include jkl.forced-colors-mode {
+            background-color: ButtonFace;
+        }
+
+        // Sørg for å ha en stor nok touch target.
+        &::after {
+            --tap-increment: calc((#{jkl.rem(44px)} - #{jkl.rem(20px)}) / 2 * -1);
+            content: "";
+            position: absolute;
+            inset: var(--tap-increment) var(--tap-increment) var(--tap-increment) var(--tap-increment);
+        }
+
+        &:focus {
+            @include jkl.keyboard-navigation {
+                outline: 2px solid var(--jkl-color);
+
+                @include jkl.forced-colors-mode {
+                    outline: 2px solid ButtonText;
+                    outline-offset: 2px;
+                }
+            }
+        }
+    }
+
+    &--info {
+        background-color: colors.varslingsfarge("info");
+    }
+
+    &--warning {
+        background-color: colors.varslingsfarge("advarsel");
+    }
+
+    &--error {
+        background-color: colors.varslingsfarge("feil");
+    }
+
+    &--success {
+        background-color: colors.varslingsfarge("suksess");
+    }
+
+    @include jkl.forced-colors-mode {
+        border: 2px solid CanvasText;
+
+        &--info {
+            border-style: dotted;
+        }
+
+        &--warning {
+            border-style: dashed;
+        }
+
+        &--error {
+            border-style: double;
+            border-width: 4px;
+        }
+    }
+}
+
+$_entering: jkl-entering-#{string.unique-id()};
+$_exiting: jkl-exiting-#{string.unique-id()};
+
+.jkl-toast[data-animation="entering"],
+.jkl-toast[data-animation="queued"] {
+    animation: $_entering jkl.timing("productive") jkl.easing("entrance") forwards;
+}
+
+.jkl-toast[data-animation="exiting"] {
+    animation: $_exiting jkl.timing("snappy") jkl.easing("exit") forwards;
+}
+
+@keyframes #{$_entering} {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 50%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes #{$_exiting} {
+    from {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(0, 50%, 0);
+    }
+}

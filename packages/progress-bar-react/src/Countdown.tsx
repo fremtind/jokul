@@ -40,7 +40,7 @@ export const Countdown: FC<CountdownProps> = ({ className, from, isPaused, ...re
                 }
                 data-testid="jkl-countdown__tracker"
             />
-            <span>{remainingSeconds}</span>
+            <span className="jkl-sr-only">{remainingSeconds}</span>
         </div>
     );
 };
