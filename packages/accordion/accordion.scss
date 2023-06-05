@@ -81,7 +81,7 @@
         @include jkl.use-font-variables("jkl-accordion-title");
         @include jkl.reset-outline;
 
-        color: inherit;
+        color: var(--jkl-color);
         background-color: transparent;
         position: relative;
         padding: var(--jkl-accordion-title-padding);
@@ -110,7 +110,7 @@
         position: absolute;
         right: var(--jkl-accordion-arrow-right);
         top: var(--jkl-accordion-arrow-top);
-        color: inherit;
+        color: var(--jkl-color);
 
         @include jkl.motion("exit", "snappy");
         transition-property: top;
@@ -125,7 +125,7 @@
 
     &__content {
         @include jkl.use-font-variables("jkl-accordion-title");
-        color: inherit;
+        color: var(--jkl-color);
         height: auto;
         padding: var(--jkl-accordion-content-padding);
     }
