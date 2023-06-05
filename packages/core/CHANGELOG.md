@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.1.0 (2023-06-05)
+
+### Features
+
+- legg til valgfri description på ValuePair ([6e0ee84](https://github.com/fremtind/jokul/commit/6e0ee84d4f8820a6c29e1116551d4c270c4a9c64))
+
 ## 12.0.3 (2023-03-21)
 
 ### Bug Fixes

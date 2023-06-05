@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2023-06-05)
+
+### Features
+
+- legg til støtte for sekundærtekst ([220396c](https://github.com/fremtind/jokul/commit/220396c58530865704a857282ddd0c8dd4bbd092))
+
 ## [1.2.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@1.2.1...@fremtind/jkl-combobox-react@1.2.2) (2023-05-22)
 
 ### Bug Fixes
