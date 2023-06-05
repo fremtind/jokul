@@ -10,6 +10,7 @@ export type ColorScheme = "light" | "dark";
 export type ValuePair = {
     value: string;
     label: string;
+    description?: string;
 };
 
 /**
