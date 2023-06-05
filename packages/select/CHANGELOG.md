@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.2.0 (2023-06-05)
+
+### Features
+
+- åpne for sekundærtekst på Select ([42c7c99](https://github.com/fremtind/jokul/commit/42c7c99c64fc3a22ecb8860bc72b4ff00d3b0c53))
+
 # 10.1.0 (2023-05-08)
 
 ### Features

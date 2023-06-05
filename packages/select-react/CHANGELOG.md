@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.1.0 (2023-06-05)
+
+### Features
+
+- åpne for sekundærtekst på Select ([42c7c99](https://github.com/fremtind/jokul/commit/42c7c99c64fc3a22ecb8860bc72b4ff00d3b0c53))
+
 ## [13.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@13.0.12...@fremtind/jkl-select-react@13.0.13) (2023-05-03)
 
 ### Bug Fixes

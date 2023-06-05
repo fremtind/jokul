@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "9.0.14",
+    "version": "9.0.15",
     "publishConfig": {
         "access": "public"
     },
@@ -37,14 +37,14 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "^10.0.4",
-        "@fremtind/jkl-core": "^12.0.4",
-        "@fremtind/jkl-icons-react": "^7.2.4",
-        "@fremtind/jkl-react-hooks": "^11.4.0",
+        "@fremtind/jkl-accordion": "^10.0.5",
+        "@fremtind/jkl-core": "^12.1.0",
+        "@fremtind/jkl-icons-react": "^7.2.5",
+        "@fremtind/jkl-react-hooks": "^11.4.1",
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-list-react": "^9.0.5"
+        "@fremtind/jkl-list-react": "^9.0.6"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
