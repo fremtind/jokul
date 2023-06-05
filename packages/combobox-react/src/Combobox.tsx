@@ -423,7 +423,14 @@ export const Combobox: FC<ComboboxProps> = ({
                                 }}
                                 onMouseOver={handleMouseOver}
                             >
-                                {option.label}
+                                {option.description ? (
+                                    <span>
+                                        {option.label}
+                                        <span className="jkl-combobox__option-description">{option.description}</span>
+                                    </span>
+                                ) : (
+                                    option.label
+                                )}
                                 {isSelected(option) ? (
                                     <span>
                                         <CheckIcon />{" "}

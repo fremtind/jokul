@@ -27,6 +27,7 @@ $_select-search-input-selection-color--inverted: color.scale(
     --jkl-select-error-text-color: #{jkl.$color-granitt};
     --jkl-select-hover-option-color: #{jkl.$color-granitt};
     --jkl-select-hover-option-background-color: #{jkl.$color-varde};
+    --jkl-select-option-description-color: #{jkl.$color-stein};
     --jkl-select-search-input-selection-color: #{$_select-search-input-selection-color};
     --jkl-select-search-input-error-selection-color: #{$_select-search-input-selection-color};
 }
@@ -42,6 +43,7 @@ $_select-search-input-selection-color--inverted: color.scale(
     --jkl-select-error-text-color: #{jkl.$color-granitt};
     --jkl-select-hover-option-color: #{jkl.$color-snohvit};
     --jkl-select-hover-option-background-color: #{jkl.$color-stein};
+    --jkl-select-option-description-color: #{jkl.$color-dis};
     --jkl-select-search-input-selection-color: #{$_select-search-input-selection-color--inverted};
     --jkl-select-search-input-error-selection-color: #{$_select-search-input-selection-color};
 }
@@ -215,8 +217,6 @@ $_select-search-input-selection-color--inverted: color.scale(
     &__option {
         @include jkl.use-font-variables("jkl-select");
         color: unset;
-        display: flex; // avoids wrapping long names "under" the focus arrow
-        align-items: flex-start;
         border: 0; // removes native styling
         width: 100%;
         background-color: inherit;
@@ -235,6 +235,13 @@ $_select-search-input-selection-color--inverted: color.scale(
         :not([data-focus="controlled"]) > &:hover {
             color: var(--jkl-select-hover-option-color);
             background-color: var(--jkl-select-hover-option-background-color);
+        }
+
+        &-description {
+            @include jkl.text-style("small");
+            color: var(--jkl-select-option-description-color);
+            display: block;
+            width: 100%;
         }
     }
 
