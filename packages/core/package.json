@@ -21,13 +21,14 @@
     "browser": "./build/esm/index.js",
     "sideEffects": [
         "*.css",
-        "*.scss"
+        "*.scss",
+        "*.less"
     ],
     "directories": {
         "lib": "build"
     },
     "scripts": {
-        "clean": "rimraf node_modules/ build/ **/*.css src/tokens.ts jkl/_tokens.scss styles/_tokens.scss",
+        "clean": "rimraf node_modules/ build/ **/*.css",
         "generate:tokens": "node tokens.build.mjs",
         "build": "run-s build:*",
         "build:style": "gulp build",

@@ -76,6 +76,16 @@ const myStyleDictionary = StyleDictionary.extend({
                 },
             ],
         },
+        less: {
+            transformGroup: "less",
+            buildPath: "./",
+            files: [
+                {
+                    destination: "tokens.less",
+                    format: "less/variables",
+                },
+            ],
+        },
     },
 });
 
