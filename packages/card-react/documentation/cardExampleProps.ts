@@ -5,7 +5,7 @@ export const baseCardExampleProps = {
     choiceProps: [
         {
             name: "Padding",
-            values: ["0", "m", "l", "xl", "blandet"],
+            values: ["0", "16", "24", "40", "blandet"],
             defaultValue: 2,
         },
     ],
@@ -31,8 +31,8 @@ export const infoCardExampleProps: ExampleKnobsProps = {
 };
 
 export const mixedPadding: PaddingShorthand = {
-    top: "2xl",
-    right: "xl",
-    bottom: "m",
-    left: "l",
+    top: "64",
+    right: "40",
+    bottom: "16",
+    left: "24",
 };

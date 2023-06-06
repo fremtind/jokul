@@ -18,7 +18,7 @@ export const NavCardExample: React.FC<ExampleComponentProps> = ({ boolValues, ch
     const image = boolValues?.["Image"] ? imageProps : undefined;
     const tag = boolValues?.["Tag"] ? ({ type: "success", text: "Behandles" } as NavCardProps["tag"]) : undefined;
     const description = boolValues?.["Description"] ? "Balder" : undefined;
-    const paddingChoice = (choiceValues?.["Padding"] as "m" | "l" | "xl" | "blandet") || "l";
+    const paddingChoice = (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") || "24";
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (
@@ -52,10 +52,10 @@ export const navCardExampleCode = ({ boolValues, choiceValues }: ExampleComponen
     const padding =
         paddingChoice === "blandet"
             ? `{{
-        top: "2xl",
-        right: "xl",
-        bottom: "m",
-        left: "l",
+        top: "64",
+        right: "40",
+        bottom: "16",
+        left: "24",
     }}`
             : `"${paddingChoice}"`;
     const children = !boolValues?.["Ekstra info"]
