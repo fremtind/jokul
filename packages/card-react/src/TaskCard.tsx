@@ -7,9 +7,14 @@ import { getPaddingStyles } from "./utils";
 export interface TaskCardProps extends PaddingOptions, WithChildren {
     /**
      * Bakgrunnsfargen til kortet
-     * @default "hvit"
+     * @deprecated Bruk `background` i stedet
      */
     bgColor?: "hvit" | "snohvit" | "sand" | "dis";
+    /**
+     * Bestemmer bakgrunnsfargen til kortet, på tvers av mørkt eller lyst tema
+     * @default "highlighted"
+     */
+    background?: "highlighted" | "normal" | "subdued" | "very-subdued";
     /**
      * Skal kortet ha skygge?
      * @default false
@@ -20,7 +25,8 @@ export interface TaskCardProps extends PaddingOptions, WithChildren {
 }
 
 export const TaskCard: FC<TaskCardProps> = ({
-    bgColor = "hvit",
+    bgColor,
+    background = "highlighted",
     withShadow = false,
     padding = "l",
     className,
@@ -29,7 +35,10 @@ export const TaskCard: FC<TaskCardProps> = ({
     ...rest
 }) => (
     <div
-        className={cn("jkl-task-card", `jkl-task-card--${bgColor}`, className, {
+        className={cn("jkl-task-card", className, {
+            // Vi bruker kun background hvis bgColor ikke er satt, for å ikke bryte eksisterende kode
+            [`jkl-task-card--${background}`]: !bgColor,
+            [`jkl-task-card--${bgColor}`]: !!bgColor,
             "jkl-task-card--with-shadow": withShadow,
         })}
         data-density={density}
