@@ -23,10 +23,12 @@ describe("DatePicker", () => {
 
         cy.takeSnapshots({
             setup: () => {
+                cy.clock(new Date(2023, 4, 4));
                 cy.getByTestid("jkl-icon-button").first().click();
             },
             teardown: () => {
                 cy.getByTestid("jkl-icon-button").first().click();
+                cy.clock().invoke("restore");
             },
         });
 

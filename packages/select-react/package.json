@@ -48,7 +48,7 @@
     },
     "devDependencies": {
         "@fremtind/jkl-accordion-react": "^9.0.15",
-        "react-hook-form": "^7.43.9"
+        "react-hook-form": "^7.44.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
