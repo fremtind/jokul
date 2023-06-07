@@ -5867,7 +5867,7 @@ var core2 = __toESM(require_core());
 var core = __toESM(require_core());
 var import_micromatch = __toESM(require_micromatch());
 
-// ../../node_modules/.pnpm/simple-git@3.18.0/node_modules/simple-git/dist/esm/index.js
+// ../../node_modules/.pnpm/simple-git@3.19.0/node_modules/simple-git/dist/esm/index.js
 var import_file_exists = __toESM(require_dist(), 1);
 var import_debug = __toESM(require_src(), 1);
 var import_child_process = require("child_process");
@@ -5913,9 +5913,9 @@ var __reExport = (target, module2, copyDefault, desc) => {
   }
   return target;
 };
-var __toCommonJS2 = /* @__PURE__ */ ((cache) => {
+var __toCommonJS2 = /* @__PURE__ */ ((cache2) => {
   return (module2, temp) => {
-    return cache && cache.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache && cache.set(module2, temp), temp);
+    return cache2 && cache2.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache2 && cache2.set(module2, temp), temp);
   };
 })(typeof WeakMap !== "undefined" ? /* @__PURE__ */ new WeakMap() : 0);
 var __async = (__this, __arguments, generator) => {
@@ -5938,6 +5938,18 @@ var __async = (__this, __arguments, generator) => {
     step((generator = generator.apply(__this, __arguments)).next());
   });
 };
+function isPathSpec(path) {
+  return path instanceof String && cache.has(path);
+}
+function toPaths(pathSpec) {
+  return cache.get(pathSpec) || [];
+}
+var cache;
+var init_pathspec = __esm2({
+  "src/lib/args/pathspec.ts"() {
+    cache = /* @__PURE__ */ new WeakMap();
+  }
+});
 var GitError;
 var init_git_error = __esm2({
   "src/lib/errors/git-error.ts"() {
@@ -6086,7 +6098,8 @@ function filterType(input, filter, def) {
   return arguments.length > 2 ? def : void 0;
 }
 function filterPrimitives(input, omit) {
-  return /number|string|boolean/.test(typeof input) && (!omit || !omit.includes(typeof input));
+  const type = isPathSpec(input) ? "string" : typeof input;
+  return /number|string|boolean/.test(type) && (!omit || !omit.includes(type));
 }
 function filterPlainObject(input) {
   return !!input && objectToString(input) === "[object Object]";
@@ -6102,6 +6115,7 @@ var filterHasLength;
 var init_argument_filters = __esm2({
   "src/lib/utils/argument-filters.ts"() {
     init_util();
+    init_pathspec();
     filterArray = (input) => {
       return Array.isArray(input);
     };
@@ -6223,7 +6237,9 @@ function appendTaskOptions(options, commands = []) {
   }
   return Object.keys(options).reduce((commands2, key) => {
     const value = options[key];
-    if (filterPrimitives(value, ["boolean"])) {
+    if (isPathSpec(value)) {
+      commands2.push(value);
+    } else if (filterPrimitives(value, ["boolean"])) {
       commands2.push(key + "=" + value);
     } else {
       commands2.push(key);
@@ -6260,6 +6276,7 @@ var init_task_options = __esm2({
   "src/lib/utils/task-options.ts"() {
     init_argument_filters();
     init_util();
+    init_pathspec();
   }
 });
 function callTaskParser(parser3, streams) {
@@ -9394,6 +9411,7 @@ var require_git = __commonJS2({
     module2.exports = Git2;
   }
 });
+init_pathspec();
 init_git_error();
 var GitConstructError = class extends GitError {
   constructor(config, message) {
@@ -9700,6 +9718,29 @@ function timeoutPlugin({
     };
   }
 }
+init_pathspec();
+function suffixPathsPlugin() {
+  return {
+    type: "spawn.args",
+    action(data) {
+      const prefix = [];
+      const suffix = [];
+      for (let i = 0; i < data.length; i++) {
+        const param = data[i];
+        if (isPathSpec(param)) {
+          suffix.push(...toPaths(param));
+          continue;
+        }
+        if (param === "--") {
+          suffix.push(...data.slice(i + 1).flatMap((item) => isPathSpec(item) && toPaths(item) || item));
+          break;
+        }
+        prefix.push(param);
+      }
+      return !suffix.length ? prefix : [...prefix, "--", ...suffix.map(String)];
+    }
+  };
+}
 init_utils();
 var Git = require_git();
 function gitInstanceFactory(baseDir, options) {
@@ -9712,6 +9753,7 @@ function gitInstanceFactory(baseDir, options) {
     plugins.add(commandConfigPrefixingPlugin(config.config));
   }
   plugins.add(blockUnsafeOperationsPlugin(config.unsafe));
+  plugins.add(suffixPathsPlugin());
   plugins.add(completionDetectionPlugin(config.completion));
   config.abort && plugins.add(abortPlugin(config.abort));
   config.progress && plugins.add(progressMonitorPlugin(config.progress));
