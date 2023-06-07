@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.7 (2023-06-07)
+
+### Bug Fixes
+
+- senk inline padding for tertiærknappen ([fd2171c](https://github.com/fremtind/jokul/commit/fd2171ca6346058c03f2bb69a335dd467950f3df)), closes [#3556](https://github.com/fremtind/jokul/issues/3556)
+
 ## 10.0.3 (2023-03-21)
 
 ### Bug Fixes

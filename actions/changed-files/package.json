@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-action-changed-files",
-    "version": "1.0.15",
+    "version": "1.0.16",
     "private": true,
     "description": "Find files that were changed during the run of the action, using simple-git, with an option to upload the files as an artifact",
     "main": "build/main.js",
@@ -23,7 +23,7 @@
     "dependencies": {
         "@actions/core": "^1.10.0",
         "micromatch": "^4.0.5",
-        "simple-git": "^3.18.0"
+        "simple-git": "^3.19.0"
     },
     "devDependencies": {
         "@jest/globals": "^29.5.0",
