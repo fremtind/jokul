@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.8 (2023-06-07)
+
+### Bug Fixes
+
+- sync med figma etter review ([3685f51](https://github.com/fremtind/jokul/commit/3685f51711ca74f9193a458859f3acfc33157c57)), closes [#3556](https://github.com/fremtind/jokul/issues/3556)
+
 ## 10.0.7 (2023-06-07)
 
 ### Bug Fixes
