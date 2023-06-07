@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@9.0.25...@fremtind/jkl-card-react@9.1.0) (2023-06-07)
+
+### Features
+
+- legg til støtte for semantiske bakgrunnsfarger i TaskCard ([1f2cadb](https://github.com/fremtind/jokul/commit/1f2cadb9fe7ed2ee22d38362fa41825d0359c782))
+
 ## 9.0.15 (2023-05-12)
 
 ### Bug Fixes
