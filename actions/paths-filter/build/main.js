@@ -8291,9 +8291,9 @@ var require_encoding = __commonJS({
   }
 });
 
-// ../../node_modules/.pnpm/node-fetch@2.6.9/node_modules/node-fetch/lib/index.js
+// ../../node_modules/.pnpm/node-fetch@2.6.11/node_modules/node-fetch/lib/index.js
 var require_lib4 = __commonJS({
-  "../../node_modules/.pnpm/node-fetch@2.6.9/node_modules/node-fetch/lib/index.js"(exports, module2) {
+  "../../node_modules/.pnpm/node-fetch@2.6.11/node_modules/node-fetch/lib/index.js"(exports, module2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function _interopDefault(ex) {
