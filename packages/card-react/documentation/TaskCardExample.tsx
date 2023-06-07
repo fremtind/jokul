@@ -13,11 +13,11 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
     const [selected, setSelected] = useState(false);
     const [contentRef] = useAnimatedHeight<HTMLDivElement>(selected);
 
-    const paddingChoice = (choiceValues?.["Padding"] as "0" | "m" | "l" | "xl" | "blandet") || "l";
+    const paddingChoice = (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") || "24";
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (
-        <TaskCard bgColor={selected ? "hvit" : "dis"} withShadow={selected} padding={padding}>
+        <TaskCard background={selected ? "highlighted" : "very-subdued"} withShadow={selected} padding={padding}>
             <Checkbox
                 id="veterinar-checkbox"
                 aria-controls="expanded-content"
@@ -28,7 +28,7 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
             >
                 Veterinærutgifter
             </Checkbox>
-            <p className="jkl-body jkl-spacing-s--top">
+            <p className="jkl-body jkl-spacing-12--top">
                 Dekker veterinærutgifter og medisiner på resept, som ofte kan bli dyrt.
             </p>
             <div
@@ -42,21 +42,21 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
                 <Select
                     label="Forsikringssum"
                     name="forsikringssum"
-                    className="jkl-spacing-xl--top"
+                    className="jkl-spacing-40--top"
                     items={["10 000 kr", "20 000 kr", "30 000 kr"]}
                 />
                 <Select
                     label="Velg egenandel"
                     name="egenandel"
-                    className="jkl-spacing-l--top"
+                    className="jkl-spacing-24--top"
                     items={["1 500 kr", "2 500 kr", "3 000 kr"]}
                 />
-                <FieldGroup className="jkl-spacing-l--top" legend="Tilleggsforsikring">
+                <FieldGroup className="jkl-spacing-24--top" legend="Tilleggsforsikring">
                     <Checkbox name="tilleggsforsikring" value="rehab">
                         Dekning av rehabilitering
                     </Checkbox>
                 </FieldGroup>
-                <p className="jkl-body jkl-spacing-xl--top">
+                <p className="jkl-body jkl-spacing-40--top">
                     Dersom du ønsker ekstra forsikring av valpekull, må du ta kontakt med en rådgiver.
                 </p>
             </div>
@@ -65,14 +65,14 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
 };
 
 export const taskCardExampleCode = ({ choiceValues }: ExampleComponentProps) => {
-    const paddingChoice = choiceValues?.["Padding"] || "l";
+    const paddingChoice = choiceValues?.["Padding"] || "24";
     const padding =
         paddingChoice === "blandet"
             ? `{{
-        top: "2xl",
-        right: "xl",
-        bottom: "m",
-        left: "l",
+        top: "64",
+        right: "40",
+        bottom: "16",
+        left: "24",
     }}`
             : `"${paddingChoice}"`;
 
@@ -80,7 +80,7 @@ export const taskCardExampleCode = ({ choiceValues }: ExampleComponentProps) => 
 const [contentRef] = useAnimatedHeight<HTMLDivElement>(selected);
 
 return (
-    <TaskCard bgColor={selected ? "hvit" : "dis"} withShadow={selected} padding=${padding}>
+    <TaskCard background={selected ? "highlighted" : "very-subdued"} withShadow={selected} padding=${padding}>
         <Checkbox
             id="veterinar-checkbox"
             aria-controls="veterinar-expanded-content"
@@ -91,7 +91,7 @@ return (
         >
             Veterinærutgifter
         </Checkbox>
-        <p className="jkl-body jkl-spacing-s--top">
+        <p className="jkl-body jkl-spacing-12--top">
             Dekker veterinærutgifter og medisiner på resept, som ofte kan bli dyrt.
         </p>
         <div
@@ -105,21 +105,21 @@ return (
             <Select
                 label="Forsikringssum"
                 name="forsikringssum"
-                className="jkl-spacing-xl--top"
+                className="jkl-spacing-40--top"
                 items={["10 000 kr", "20 000 kr", "30 000 kr"]}
             />
             <Select
                 label="Velg egenandel"
                 name="egenandel"
-                className="jkl-spacing-l--top"
+                className="jkl-spacing-24--top"
                 items={["1 500 kr", "2 500 kr", "3 000 kr"]}
             />
-            <FieldGroup className="jkl-spacing-l--top" legend="Tilleggsforsikring">
+            <FieldGroup className="jkl-spacing-24--top" legend="Tilleggsforsikring">
                 <Checkbox name="tilleggsforsikring" value="rehab">
                     Dekning av rehabilitering
                 </Checkbox>
             </FieldGroup>
-            <p className="jkl-body jkl-spacing-xl--top">
+            <p className="jkl-body jkl-spacing-40--top">
                 Dersom du ønsker ekstra forsikring av valpekull, må du ta kontakt med en rådgiver.
             </p>
         </div>

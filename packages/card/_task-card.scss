@@ -1,18 +1,18 @@
 @use "~@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-task-card-background--hvit: #{jkl.$color-hvit};
-    --jkl-task-card-background--snohvit: #{jkl.$color-snohvit};
-    --jkl-task-card-background--sand: #{jkl.$color-sand};
-    --jkl-task-card-background--dis: #{jkl.$color-dis};
+    --jkl-task-card-background--highlighted: #{jkl.$color-hvit};
+    --jkl-task-card-background--normal: #{jkl.$color-snohvit};
+    --jkl-task-card-background--subdued: #{jkl.$color-sand};
+    --jkl-task-card-background--very-subdued: #{jkl.$color-dis};
     --jkl-task-card-shadow: #{jkl.$shadow-task-card};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-task-card-background--hvit: #{jkl.$color-svart};
-    --jkl-task-card-background--snohvit: #{jkl.$color-granitt};
-    --jkl-task-card-background--sand: #{jkl.$color-skifer};
-    --jkl-task-card-background--dis: #{jkl.$color-fjellgra};
+    --jkl-task-card-background--highlighted: #{jkl.$color-svart};
+    --jkl-task-card-background--normal: #{jkl.$color-granitt};
+    --jkl-task-card-background--subdued: #{jkl.$color-skifer};
+    --jkl-task-card-background--very-subdued: #{jkl.$color-fjellgra};
     --jkl-task-card-shadow: none;
 }
 
@@ -27,20 +27,24 @@
         display: block;
     }
 
-    &--hvit {
-        background-color: var(--jkl-task-card-background--hvit);
+    &--hvit,
+    &--highlighted {
+        background-color: var(--jkl-task-card-background--highlighted);
     }
 
-    &--snohvit {
-        background-color: var(--jkl-task-card-background--snohvit);
+    &--snohvit,
+    &--normal {
+        background-color: var(--jkl-task-card-background--normal);
     }
 
-    &--sand {
-        background-color: var(--jkl-task-card-background--sand);
+    &--sand,
+    &--subdued {
+        background-color: var(--jkl-task-card-background--subdued);
     }
 
-    &--dis {
-        background-color: var(--jkl-task-card-background--dis);
+    &--dis,
+    &--very-subdued {
+        background-color: var(--jkl-task-card-background--very-subdued);
     }
 
     &--with-shadow {

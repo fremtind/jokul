@@ -20,7 +20,7 @@ const imageProps = {
 export const InfoCardExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const image = boolValues?.["Image"] ? imageProps : undefined;
     const title = boolValues?.["Title"] ? `Samle forsikringer –${unicode.nbsp}få${unicode.nbsp}rabatt` : undefined;
-    const paddingChoice = (choiceValues?.["Padding"] as "m" | "l" | "xl" | "blandet") || "l";
+    const paddingChoice = (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") || "24";
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (
@@ -39,10 +39,10 @@ export const infoCardExampleCode = ({ boolValues, choiceValues }: ExampleCompone
     const padding =
         paddingChoice === "blandet"
             ? `{{
-        top: "2xl",
-        right: "xl",
-        bottom: "m",
-        left: "l",
+        top: "64",
+        right: "40",
+        bottom: "16",
+        left: "24",
     }}`
             : `"${paddingChoice}"`;
 
