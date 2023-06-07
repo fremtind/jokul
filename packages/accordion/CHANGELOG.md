@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@10.0.5...@fremtind/jkl-accordion@10.0.6) (2023-06-07)
+
+### Bug Fixes
+
+- bruk fargen til temaet, ikke parent ([9fe89bf](https://github.com/fremtind/jokul/commit/9fe89bf1532dd2aa4ba643effa84237aa6553649))
+
 ## 10.0.3 (2023-03-21)
 
 ### Bug Fixes

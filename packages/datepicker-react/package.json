@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-datepicker-react",
-    "version": "14.3.8",
+    "version": "14.3.9",
     "publishConfig": {
         "access": "public"
     },
@@ -42,7 +42,7 @@
         "@fremtind/jkl-icons-react": "^7.2.5",
         "@fremtind/jkl-input-group-react": "^2.1.8",
         "@fremtind/jkl-react-hooks": "^11.4.1",
-        "@fremtind/jkl-select-react": "^13.1.1",
+        "@fremtind/jkl-select-react": "^13.1.2",
         "@fremtind/jkl-text-input-react": "^13.0.18",
         "classnames": "^2.3.2",
         "date-fns": "^2.30.0"
