@@ -180,11 +180,11 @@ $_exiting: jkl-exiting-#{string.unique-id()};
 
 .jkl-toast[data-animation="entering"],
 .jkl-toast[data-animation="queued"] {
-    animation: $_entering jkl.timing("productive") jkl.easing("entrance") forwards;
+    animation: $_entering jkl.timing("polite") jkl.easing("entrance") forwards;
 }
 
 .jkl-toast[data-animation="exiting"] {
-    animation: $_exiting jkl.timing("snappy") jkl.easing("exit") forwards;
+    animation: $_exiting jkl.timing("productive") jkl.easing("exit") forwards;
 }
 
 @keyframes #{$_entering} {
