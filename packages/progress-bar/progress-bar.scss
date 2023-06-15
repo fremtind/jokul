@@ -1,3 +1,4 @@
+@use "sass:string";
 @use "~@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
@@ -10,7 +11,8 @@
     --jkl-progress-tracker-color: #{jkl.$color-dis};
 }
 
-.jkl-progress-bar {
+.jkl-progress-bar,
+.jkl-countdown {
     --jkl-progress-bar-height: #{jkl.rem(4px)};
 
     background-color: var(--jkl-progress-background-color);
@@ -23,8 +25,6 @@
         display: block;
         height: var(--jkl-progress-bar-height);
         background-color: var(--jkl-progress-tracker-color);
-        transition-property: width;
-        @include jkl.motion("easeInBounceOut", "productive");
     }
 
     @include jkl.forced-colors-mode {
@@ -33,5 +33,31 @@
         &__tracker {
             background-color: CanvasText;
         }
+    }
+}
+
+.jkl-progress-bar {
+    &__tracker {
+        transition-property: width;
+        @include jkl.motion("standard", "productive");
+    }
+}
+
+$_downcount: jkl-downcount-#{string.unique-id()};
+
+.jkl-countdown {
+    &__tracker {
+        animation: $_downcount var(--duration) linear forwards;
+        animation-play-state: var(--play-state, running);
+    }
+}
+
+@keyframes #{$_downcount} {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
     }
 }

@@ -1,0 +1,135 @@
+---
+title: Toast
+react: toast-react
+scss: toast
+group: edit me!
+---
+
+import { ToastExample, toastExampleKnobs } from "./ToastExample";
+import { ToastStickerSheet, toastStickerSheetKnobs, toastStickerSheetCode } from "./ToastStickerSheet";
+
+<Ingress>
+    Vi bruker toast som kort og konsis tilbakemelding til brukeren på en handling som vises subtilt på
+    brukergrensesnittet.
+</Ingress>
+
+<ComponentExample
+    title="Toast"
+    component={ToastStickerSheet}
+    codeExample={toastStickerSheetCode}
+    knobs={toastStickerSheetKnobs}
+    noDensity
+/>
+
+## Bruk
+
+Toast har som mål å være så lite påtrengende som mulig, men likevel vise brukeren informasjonen de skal se. Den skal gi brukeren en kort statusrapport om hvilke prosesser som nettopp er fullført.
+
+Vi trenger toast når vi:
+
+-   ønsker å gi brukeren tilbakemelding.
+-   ikke ønsker å distrahere dem fra andre aktiviteter.
+
+Disse hendelsesdrevne meldingene vises ved å overlegge innhold nederst i midten av skjermen og dukke opp fra navigasjonssidefeltet.
+
+### Farger
+
+Fargene i toasts har en betydning på samme måte som [Tag](/komponenter/tag) og [MessageBox](/komponenter/messagebox):
+
+-   Hvis i tvil, bruk den nøytrale varianten.
+-   Grønt betyr at noe er vellykket eller ferdig
+-   Gult informerer om noe som kan ha innvirkning på brukeren, men hvor det ikke kreves en handling
+-   Rødt betyr at en handling kreves eller noe har gått galt så handlingen ikke kunne gjennomføres
+
+Blått kan brukes om de andre kategoriene ikke passer, men bare dersom samme sted vil kunne vise en annen statusfarge hvis situasjonen var annerledes. Blått er med andre ord ikke en nøytral farge som kan brukes til informasjon utenfor statuskategorien.
+
+### Plassering
+
+Vi legger alltid toasten i den nedre delen av skjermen, eller på nedre venstre kant.
+
+<Grid>
+    <DoDontExample
+        type="do"
+        description="Vi legger toast bunn sentrert i de fleste tilfeller."
+        image="/assets/documentation/toast/plassering-do.svg"
+    />
+    <DoDontExample
+        type="dont"
+        description="Vi viser ikke toast fra toppen på siden. Bruk AlertMessage om du vil vise innhold her."
+        image="/assets/documentation/toast/plassering-dont.svg"
+    />
+</Grid>
+
+### Gruppering
+
+Flere toasts kan vises på samme tid, vertikalt stablet med spacing mellom. De siste meldingene vises øverst.
+
+<Grid>
+    <DoDontExample
+        type="do"
+        description="Grupper med spacing, gjerne nede til venstre, vekk fra hovedinnholdet."
+        image="/assets/documentation/toast/gruppering-do.svg"
+    />
+    <DoDontExample
+        type="dont"
+        description="Ikke samle flere meldinger i samme toast."
+        image="/assets/documentation/toast/gruppering-dont.svg"
+    />
+</Grid>
+
+#### Unngå mange samtidige toasts
+
+Selv om en toast ikke er like forstyrrende som en dialog, tiltrekker den likevel brukerens oppmerksomhet. Hyppige avbrudd forstyrrer brukervennligheten, spesielt for personer med visuelle og kognitive funksjonsnedsettelser.
+
+### Eksempel på plassering
+
+<ComponentExample
+    title="Plassering"
+    component={ToastExample}
+    codeExample={toastStickerSheetCode}
+    knobs={toastExampleKnobs}
+    noDensity
+/>
+
+## Når bruker vi Toast?
+
+For enkle feedback og lavprioriterte advarsler er det hensiktsmessig å bruke toast.
+
+Så snart handlingen trenger mer oppmerksomhet fra brukeren, for eksempel for å få svar på en handling, er det bedre å bruke [MessageBox](/komponenter/messagebox).
+
+## Animasjon
+
+En toast går inn i viewporten fra bunnen, sentrert eller venstrejustert, og går tilbake samme vei den kom fra når den lukkes.
+
+## Universell utforming
+
+Vær oppmerksom på hvor ofte du utløser toasts. Hyppige avbrudd forstyrrer brukervennligheten, spesielt for personer med visuelle og kognitive funksjonsnedsettelser.
+
+### Skjermlesere
+
+Toasts vises i en _landmark region_ for å gjøre det enklere for brukere å navigere til dem. De er også merket som `status` for å varsle brukere om innholdet, men uten å avbryte.
+
+### Automatisk lukking
+
+Standard er at toasts forsvinner etter fem sekunder. Nedtellingen til dette settes på pause ved hover og fokus. Brukeren kan også lukke toasten før tiden har gått ut, ved å trykke på krysset.
+
+### Tastaturfokus
+
+Om fokus er plassert i en toast i det den lukkes, flyttes automatisk fokus til neste åpne toast, hvis noen. Om det er siste toast som lukkes, flyttes tastaturfokus tilbake dit det var før det ble flyttet til toast-regionen.
+
+### Mer om universell utforming
+
+Se gjerne [dokumentasjonen til React Aria](https://react-spectrum.adobe.com/react-aria/useToast.html), som denne komponenten er basert på, for flere detaljer om universell utforming.
+
+## Tekst
+
+En toast har begrenset plass til innhold, og derfor må innholdet være kort og konsist.
+
+<Grid>
+    <DoDontExample type="do" description="Hold meldingen kort." image="/assets/documentation/toast/tekst-do.png" />
+    <DoDontExample
+        type="dont"
+        description="Ikke bruk vage titler, lange setninger, eller handlinger."
+        image="/assets/documentation/toast/tekst-dont.png"
+    />
+</Grid>

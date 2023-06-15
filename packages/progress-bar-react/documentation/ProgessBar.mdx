@@ -3,9 +3,11 @@ title: ProgressBar
 react: "progress-bar-react"
 scss: "progress-bar"
 group: annet
+keywords: nedtelling countdown fremdrift indicator
 ---
 
 import { ProgressBarExample, progressBarExampleCode, progressBarExampleKnobs } from "./ProgressBarExample";
+import { CountdownExample, countdownExampleCode, countdownExampleKnobs } from "./CountdownExample";
 
 <Ingress>Fremdriftsindikator kan brukes for å vise brukeren hvor langt man er kommet i en lengre operasjon.</Ingress>
 
@@ -18,3 +20,14 @@ Vi bruker en fremdriftsindikator i de tilfellene hvor vi ville brukt en [Loader]
 For eksempel:
 
 -   [Filopplasting](/komponenter/fileinput), der vi forventer store filer som kan ta tid å laste opp. Filopplasteren har en hjelpefunksjon for å beregne verdien som skal vises i fremdriftsindikatoren.
+
+## Nedtelling
+
+Ved nedtelling brukes det en komponent som er visuelt lik, men [semantisk ulik](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/timer_role). Animasjonen er også lineær, siden den er en visuell representasjon av tid.
+
+<ComponentExample
+    title="Countdown"
+    component={CountdownExample}
+    knobs={countdownExampleKnobs}
+    codeExample={countdownExampleCode}
+/>
