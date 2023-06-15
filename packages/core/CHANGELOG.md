@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.2.0 (2023-06-15)
+
+### Features
+
+- legg til ny timingverdi for animasjoner på 200ms ([aac907c](https://github.com/fremtind/jokul/commit/aac907cdb7ac05f840c176cba184e7b5c75e046c))
+
 # 12.1.0 (2023-06-05)
 
 ### Features

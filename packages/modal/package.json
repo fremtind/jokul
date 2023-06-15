@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-modal",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from modal-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^12.1.0"
+        "@fremtind/jkl-core": "^12.2.0"
     },
     "repository": {
         "type": "git",
