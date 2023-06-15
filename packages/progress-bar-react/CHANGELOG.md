@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.1.0 (2023-06-15)
+
+### Features
+
+- countdown ([4172b31](https://github.com/fremtind/jokul/commit/4172b319c8275d0bab09478fa15636100c7ad552))
+- toast ([cbaeb46](https://github.com/fremtind/jokul/commit/cbaeb46dd805e21fe14d7a1debec206519c41d50))
+
 # 5.0.0 (2023-05-02)
 
 ### Features

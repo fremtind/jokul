@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-alert-message-react",
-    "version": "10.0.13",
+    "version": "10.0.14",
     "publishConfig": {
         "access": "public"
     },
@@ -38,10 +38,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-alert-message": "^8.0.5",
-        "@fremtind/jkl-core": "^12.1.0",
-        "@fremtind/jkl-icons-react": "^7.2.5",
-        "@fremtind/jkl-react-hooks": "^11.4.1",
+        "@fremtind/jkl-alert-message": "^8.0.6",
+        "@fremtind/jkl-core": "^12.2.0",
+        "@fremtind/jkl-icons-react": "^7.2.6",
+        "@fremtind/jkl-react-hooks": "^11.4.2",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
