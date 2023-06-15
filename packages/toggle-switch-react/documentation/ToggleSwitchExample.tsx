@@ -27,10 +27,19 @@ export const ToggleSliderExample: React.FC<ExampleComponentProps> = ({ displayVa
 };
 
 export const toggleSliderCodeExample: CodeExample = (): string => `
-    <ToggleSlider
-        defaultValue="måned"
-        labels={["måned", "år"]}
-    />
+const [value, setValue] = useState("måned");
+return (
+    <section style={{ width: "100%" }}>
+        <ToggleSlider
+            defaultValue="måned"
+            labels={["måned", "år"]}
+            onToggle={setValue}
+        >
+            Pris per
+        </ToggleSlider>
+        <p className="jkl-spacing-l--top jkl-bold">{value === "år" ? "1 200 kr/år" : "100 kr/mnd"}</p>
+    </section>
+);
 `;
 
 export const ToggleSwitchExample: React.FC<ExampleComponentProps> = () => {
