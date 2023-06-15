@@ -49,6 +49,7 @@
         "@fremtind/jkl-tag-react": "^4.0.20",
         "@fremtind/jkl-text-input-react": "^13.0.18",
         "@fremtind/jkl-toggle-switch-react": "^12.1.6",
+        "@fremtind/jkl-toast-react": "^1.0.0-alpha.0",
         "@fremtind/jkl-tooltip-react": "^2.0.14",
         "@fremtind/jkl-validators-util": "^2.5.3",
         "@fremtind/jkl-webfonts": "^2.1.3",
