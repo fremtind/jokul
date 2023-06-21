@@ -15,6 +15,13 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(fu
         triggerOn === "click" && setOpen(false);
     };
 
+    const ariaLabel = [
+        (refs.reference.current as HTMLElement | null)?.textContent,
+        refs.description.current?.textContent,
+    ]
+        .filter(Boolean)
+        .join(". ");
+
     if (React.isValidElement(children)) {
         return React.cloneElement(
             children,
@@ -40,10 +47,10 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(fu
             {...getReferenceProps({
                 className: cn(className, "jkl-tooltip-trigger"),
                 // Sørg for at vi ikke sender inn skjemaer ved klikk på knappen
-                // type: triggerOn === "click" ? "button" : undefined,
                 type: "button",
                 ref,
                 onBlur: handleBlur,
+                "aria-label": ariaLabel,
                 ...props,
             })}
         >

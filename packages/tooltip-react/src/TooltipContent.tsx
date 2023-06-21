@@ -1,4 +1,5 @@
 import { type Placement, useMergeRefs } from "@floating-ui/react";
+import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { HTMLProps, forwardRef } from "react";
@@ -48,9 +49,17 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
         refs,
     } = useTooltipContext();
     const ref = useMergeRefs([forwardedRef, refs.setFloating]);
+    const descriptionId = useId("jkl-tooltip-description");
 
     return (
         <AnimatePresence>
+            {/* For å kunne bruke tekstinnholdet i tooltip som beskrivende tekst, selv når ikke
+            tooltip er synlig, må vi rendre et element å referere til for å hente innholdet. */}
+            {triggerOn === "hover" && (
+                <div id={descriptionId} ref={refs.setDescription} className="jkl-sr-only" aria-hidden>
+                    {children}
+                </div>
+            )}
             {isOpen && (
                 <motion.div
                     ref={ref}

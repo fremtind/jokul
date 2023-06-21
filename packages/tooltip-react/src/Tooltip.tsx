@@ -50,6 +50,8 @@ export const useTooltip = ({
 }: TooltipProps) => {
     const [isOpen, setOpen] = useState(initialOpen);
     const arrowElement = useRef<HTMLElement>(null);
+    const description = useRef<HTMLElement | null>(null);
+    const setDescription = (element: HTMLElement | null) => (description.current = element);
 
     const data = useFloating({
         open: isOpen,
@@ -73,6 +75,11 @@ export const useTooltip = ({
         setOpen,
         arrowElement,
         ...data,
+        refs: {
+            ...data.refs,
+            description,
+            setDescription,
+        },
         ...interactions,
     };
 };
