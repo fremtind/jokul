@@ -1,12 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
 import React from "react";
 import { Tooltip } from "./Tooltip";
 import { TooltipContent } from "./TooltipContent";
 import { TooltipTrigger } from "./TooltipTrigger";
-
-// Polyfill for ResizeObserver, siden JSDom ikke støtter det
-global.ResizeObserver = require("resize-observer-polyfill");
 
 describe("Tooltip", () => {
     it("should show tooltip when hovering over trigger", async () => {
@@ -104,6 +102,19 @@ describe("Tooltip", () => {
 
             const tooltipContent = screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" });
             expect(tooltipContent).toBeInTheDocument();
+        });
+    });
+
+    describe("a11y", () => {
+        test("tooltip should be a11y compliant", async () => {
+            const { container } = render(
+                <Tooltip initialOpen>
+                    <TooltipContent>Forklarende tekst</TooltipContent>
+                </Tooltip>,
+            );
+            const results = await axe(container);
+
+            expect(results).toHaveNoViolations();
         });
     });
 });

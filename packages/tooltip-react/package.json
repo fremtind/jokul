@@ -57,8 +57,5 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
-    },
-    "devDependencies": {
-        "resize-observer-polyfill": "^1.5.1"
     }
 }

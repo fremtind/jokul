@@ -3,6 +3,9 @@ import "@testing-library/jest-dom/extend-expect";
 import prettier from "prettier";
 import { toHaveNoViolations } from "jest-axe";
 
+// Polyfill for ResizeObserver, siden JSDom ikke støtter det
+global.ResizeObserver = require("resize-observer-polyfill");
+
 // @ts-ignore https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#configuring-your-testing-environment
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 

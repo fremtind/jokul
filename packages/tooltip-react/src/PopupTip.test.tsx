@@ -1,10 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { axe } from "jest-axe";
 import React from "react";
 import { PopupTip } from "./PopupTip";
-
-// Polyfill for ResizeObserver, siden JSDom ikke støtter det
-global.ResizeObserver = require("resize-observer-polyfill");
 
 describe("PopupTip", () => {
     it("should render as the correct button", () => {
@@ -52,5 +50,16 @@ describe("PopupTip", () => {
         expect(handleMouseOut).toHaveBeenCalledTimes(1);
         expect(handleFocus).toHaveBeenCalledTimes(1);
         expect(handleBlur).toHaveBeenCalledTimes(1);
+    });
+
+    describe("a11y", () => {
+        test("PopupTip should be a11y compliant", async () => {
+            const { container } = render(<PopupTip initialOpen content="Forklarende tekst" />);
+
+            await act(async () => {
+                const results = await axe(container);
+                expect(results).toHaveNoViolations();
+            });
+        });
     });
 });
