@@ -49,19 +49,20 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
         refs,
     } = useTooltipContext();
     const ref = useMergeRefs([forwardedRef, refs.setFloating]);
-    const descriptionId = useId("jkl-tooltip-description");
+    const contentId = useId("jkl-tooltip-content");
 
     return (
         <AnimatePresence>
             {/* For å kunne bruke tekstinnholdet i tooltip som beskrivende tekst, selv når ikke
-            tooltip er synlig, må vi rendre et element å referere til for å hente innholdet. */}
+            tooltip er synlig, må vi rendre et skjult element å referere til for å hente innholdet. */}
             {triggerOn === "hover" && (
-                <div id={descriptionId} ref={refs.setDescription} className="jkl-sr-only" aria-hidden>
+                <span ref={refs.setDescription} hidden>
                     {children}
-                </div>
+                </span>
             )}
             {isOpen && (
-                <motion.div
+                <motion.span
+                    key={contentId}
                     ref={ref}
                     initial={{ opacity: 0, ...getPositionAnimation(placement, 5) }}
                     animate={{ opacity: 1, ...getPositionAnimation(placement, 0) }}
@@ -74,7 +75,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                     data-placement={placement}
                     aria-live={triggerOn === "click" ? "assertive" : undefined}
                     className={cn("jkl jkl-tooltip-content", className)}
-                    {...getFloatingProps(props)}
+                    {...getFloatingProps({ ...props, id: contentId })}
                     style={{ ...floatingStyles }}
                 >
                     {children}
@@ -87,7 +88,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                             top: isPositioned ? `${arrow?.y}px` : "",
                         }}
                     />
-                </motion.div>
+                </motion.span>
             )}
         </AnimatePresence>
     );
