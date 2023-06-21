@@ -19,10 +19,10 @@ describe("Tooltip", () => {
 
         const user = userEvent.setup();
         const tooltipTrigger = screen.queryByText(/Tekst som skal forklares/);
-        expect(screen.queryByText(/Forklarende tekst/)).not.toBeInTheDocument();
+        expect(screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" })).not.toBeInTheDocument();
 
         await user.hover(tooltipTrigger as HTMLElement);
-        expect(screen.queryByText(/Forklarende tekst/)).toBeInTheDocument();
+        expect(screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" })).toBeVisible();
     });
 
     it("should NOT show tooltip on hover when triggerOn is 'click'", async () => {
@@ -54,7 +54,7 @@ describe("Tooltip", () => {
         expect(screen.queryByText(/Forklarende tekst/)).not.toBeInTheDocument();
 
         await user.click(tooltipTrigger as HTMLElement);
-        expect(screen.queryByText(/Forklarende tekst/)).toBeInTheDocument();
+        expect(screen.queryByText(/Forklarende tekst/)).toBeVisible();
     });
 
     describe("Trigger", () => {
@@ -66,23 +66,12 @@ describe("Tooltip", () => {
             );
 
             const tooltipTrigger = screen.queryByText(/Tekst som skal forklares/);
-            expect(tooltipTrigger).toBeInTheDocument();
+            expect(tooltipTrigger).toBeVisible();
         });
 
-        it("should render as a span element by default", () => {
+        it("should render as a button element by default", () => {
             render(
                 <Tooltip>
-                    <TooltipTrigger>Tekst som skal forklares</TooltipTrigger>
-                </Tooltip>,
-            );
-
-            const tooltipTrigger = screen.queryByText(/Tekst som skal forklares/);
-            expect(tooltipTrigger?.tagName).toBe("SPAN");
-        });
-
-        it("should render as a button element when onTrigger is 'click'", () => {
-            render(
-                <Tooltip triggerOn="click">
                     <TooltipTrigger>Tekst som skal forklares</TooltipTrigger>
                 </Tooltip>,
             );
@@ -113,8 +102,8 @@ describe("Tooltip", () => {
                 </Tooltip>,
             );
 
-            const tooltipTrigger = screen.queryByText(/Forklarende tekst/);
-            expect(tooltipTrigger).toBeInTheDocument();
+            const tooltipContent = screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" });
+            expect(tooltipContent).toBeInTheDocument();
         });
     });
 });
