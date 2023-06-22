@@ -37,8 +37,13 @@ $_focus-ring-width: jkl.rem(2px);
     background-color: unset;
     padding: unset;
     color: unset;
-    // Den visuelle endringen ved fokus er selve Tooltipen, så vi fjerner fokusringen
     @include jkl.reset-outline;
+
+    &:focus {
+        @include jkl.keyboard-navigation {
+            @include jkl.no-grow-bold;
+        }
+    }
 }
 
 .jkl-tooltip-content {
