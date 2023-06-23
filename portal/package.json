@@ -95,7 +95,6 @@
     "license": "MIT",
     "scripts": {
         "clean": "rimraf node_modules/ .cache/ public/",
-        "clean:portal": "gatsby clean",
         "build:docs": "gatsby build",
         "build:test": "gatsby build && gatsby serve",
         "dev": "gatsby develop --host 0.0.0.0 --port 8000",

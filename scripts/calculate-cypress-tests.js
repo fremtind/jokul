@@ -21,5 +21,5 @@ try {
 } catch (error) {
     // Hvis lerna ikke finner noen endringer betyr det muligens en endring i lockfila.
     // Kjør en full regresjonstest ved oppdatering av avhengigheter.
-    console.log("lerna changed ga exit-kode 1, kjører alle tester");
+    console.log("packages/**/*-react/**/*.spec.js");
 }
