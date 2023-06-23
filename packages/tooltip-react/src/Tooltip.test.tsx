@@ -9,7 +9,7 @@ import { TooltipTrigger } from "./TooltipTrigger";
 describe("Tooltip", () => {
     it("should show tooltip when hovering over trigger", async () => {
         render(
-            <Tooltip>
+            <Tooltip delay={0}>
                 <TooltipTrigger>Tekst som skal forklares</TooltipTrigger>
                 <TooltipContent>Forklarende tekst</TooltipContent>
             </Tooltip>,
