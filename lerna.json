@@ -1,7 +1,6 @@
 {
-    "packages": ["packages/*"],
+    "packages": ["packages/*", "portal"],
     "version": "independent",
-    "useWorkspaces": true,
     "npmClient": "pnpm",
     "command": {
         "publish": {
@@ -26,5 +25,6 @@
             ],
             "message": "chore(release): publish [ci skip release]"
         }
-    }
+    },
+    "$schema": "node_modules/lerna/schemas/lerna-schema.json"
 }
