@@ -6,6 +6,7 @@ import { getPlacement } from "./getPlacement";
 
 export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const initialPlacement: TooltipPlacement = getPlacement(choiceValues?.["Plassering"]);
+    const delay = choiceValues?.["Forsinkelse (ms)"] ? parseInt(choiceValues?.["Forsinkelse (ms)"]) : undefined;
     const [copied, setCopied] = useState(false);
     const kontonummer = "16024454979";
 
@@ -18,7 +19,7 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     return (
         <p>
             Kontonummer:{" "}
-            <Tooltip placement={initialPlacement} delay={250}>
+            <Tooltip placement={initialPlacement} delay={delay}>
                 <TooltipTrigger onClick={copyToClipboard}>{formatKontonummer(kontonummer)}</TooltipTrigger>
                 <TooltipContent>
                     {copied ? <span aria-live="assertive">Kopiert</span> : "Klikk for å kopiere til utklippstavlen"}
@@ -34,6 +35,11 @@ export const tooltipExampleKnobs: ExampleKnobsProps = {
             name: "Plassering",
             values: ["Top", "Top start", "Top end", "Left", "Right"],
             defaultValue: 0,
+        },
+        {
+            name: "Forsinkelse (ms)",
+            values: ["0", "150", "250", "500", "1000"],
+            defaultValue: 2,
         },
     ],
 };
@@ -52,7 +58,9 @@ function copyToClipboard() {
 return (
     <p>
         Kontonummer:{" "}
-        <Tooltip placement="${getPlacement(choiceValues?.["Plassering"])}" delay={250}>
+        <Tooltip placement="${getPlacement(choiceValues?.["Plassering"])}" delay={${
+    choiceValues?.["Forsinkelse (ms)"] || 250
+}}>
             <TooltipTrigger onClick={copyToClipboard}>{formatKontonummer(kontonummer)}</TooltipTrigger>
             <TooltipContent>
                 {copied ? <span aria-live="assertive">Kopiert</span> : "Klikk for å kopiere til utklippstavlen"}

@@ -32,7 +32,7 @@ export interface TooltipProps {
     placement?: TooltipPlacement;
     /**
      * Valgfri forsinkelse før tooltipen åpner. Ignoreres dersom triggerOn er satt til "click"
-     * @default 0
+     * @default 250
      */
     delay?: number;
     /**
@@ -45,7 +45,7 @@ export interface TooltipProps {
 export const useTooltip = ({
     initialOpen = false,
     placement = "top",
-    delay = 0,
+    delay = 250,
     triggerOn = "hover",
 }: TooltipProps) => {
     const [isOpen, setOpen] = useState(initialOpen);
