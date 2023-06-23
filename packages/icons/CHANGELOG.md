@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons@8.0.2...@fremtind/jkl-icons@8.0.3) (2023-06-23)
+
+### Bug Fixes
+
+- gjenopprett animasjon av PlusRemoveAnimated ([e6c288a](https://github.com/fremtind/jokul/commit/e6c288ada0d56df14e46950059adadc475cb471a)), closes [#3581](https://github.com/fremtind/jokul/issues/3581)
+
 # [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons@7.0.4...@fremtind/jkl-icons@8.0.0) (2023-05-04)
 
 ### Bug Fixes
