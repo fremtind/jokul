@@ -1,5 +1,5 @@
 {
-    "packages": ["packages/*", "portal/*"],
+    "packages": ["packages/*", "portal"],
     "version": "independent",
     "npmClient": "pnpm",
     "command": {
