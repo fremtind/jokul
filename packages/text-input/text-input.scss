@@ -147,6 +147,10 @@ $_text-input-selection-color--inverted: color.scale(
                 }
             }
         }
+
+        & ~ .jkl-text-input__unit {
+            color: var(--jkl-text-input-error-text-color);
+        }
     }
 }
 
