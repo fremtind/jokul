@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@11.0.6...@fremtind/jkl-text-input@11.0.7) (2023-06-26)
+
+### Bug Fixes
+
+- bruk riktig tekstfarge på benevnelse ved valideringsfeil ([e4e677b](https://github.com/fremtind/jokul/commit/e4e677b343b4804531afbb3a8481bef3d9a5ad42)), closes [#3579](https://github.com/fremtind/jokul/issues/3579)
+
 ## 11.0.3 (2023-03-21)
 
 ### Bug Fixes
