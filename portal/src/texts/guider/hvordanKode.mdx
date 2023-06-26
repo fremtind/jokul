@@ -207,7 +207,7 @@ Du kan se på dokumentasjonen for [Tag](/komponenter/tag) og [Alert message](/ko
 
 ### Slik lenker du pakker sammen
 
-Hvis du vil legge til en pakke i en annen, kan du fra hvor som helst i prosjektet kjøre `pnpm lerna add <pakke-som-skal-legges-til> --scope=<pakken-den-skal-inn-i>`. For eksempel vil `pnpm lerna add @fremtind/jkl-core scope=@fremtind/jkl-button` legge til `jkl-core` som en avhengighet i `jkl-button`-pakken. Når du legger til avhengigheter på denne måten, kan Lerna bruke den lokale versjonen av `jkl-core` i stedet for å laste ned fra NPM, slik at du kan utvikle raskere. Dette fungerer bare for andre pakker i Jøkul.
+Hvis du vil legge til en pakke i en annen, installerer du den som en vanlig avhengighet.
 
 ### Slik legger du til en avhengighet
 
