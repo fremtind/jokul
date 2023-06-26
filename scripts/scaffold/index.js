@@ -65,7 +65,7 @@ const main = async () => {
 
         spawnSync("pnpm", ["install"], { stdio: "inherit" });
 
-        spawnSync("pnpm", ["lerna", "run", "--scope", `@fremtind/jkl-${componentName}`, "build"], { stdio: "inherit" });
+        spawnSync("pnpm", ["--filter", `@fremtind/jkl-${componentName}*`, "build"], { stdio: "inherit" });
     } catch (error) {
         console.error(error);
         process.exit(1);

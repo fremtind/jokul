@@ -29,11 +29,16 @@
                 "^packages",
                 "^documentation",
                 "^portal",
-                { "env": "PREVIEW_PATH" },
-                { "env": "MIXPANEL_PROJECT_ID" }
+                {
+                    "env": "PREVIEW_PATH"
+                },
+                {
+                    "env": "MIXPANEL_PROJECT_ID"
+                }
             ],
             "dependsOn": ["build"],
             "outputs": ["{workspaceRoot}/portal/public"]
         }
-    }
+    },
+    "$schema": "./node_modules/nx/schemas/nx-schema.json"
 }

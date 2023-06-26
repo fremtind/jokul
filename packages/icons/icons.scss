@@ -183,15 +183,17 @@ $_bold-headings: ("heading-3", "heading-4", "heading-5");
 }
 
 .jkl-icons-animated__plus {
-    @include jkl.motion("easeInBounceOut", "expressive");
-    transition-property: transform;
-    transform-origin: 50% 50%;
+    svg {
+        @include jkl.motion("easeInBounceOut", "expressive");
+        transition-property: transform;
+        transform-origin: 50% 50%;
+    }
 
-    &--plus {
+    &--plus svg {
         transform: rotate(0);
     }
 
-    &--close {
+    &--close svg {
         transform: rotate(135deg);
     }
 }
