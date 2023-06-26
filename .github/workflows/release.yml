@@ -95,6 +95,9 @@ jobs:
               if: steps.lerna_changed.outcome == 'success'
               run: git checkout .npmrc
 
+            - name: Reinstall packages after running actions/setup-node
+              run: pnpm install --frozen-lockfile
+
             - name: Publish packages to GitHub Packages
               if: steps.lerna_changed.outcome == 'success'
               run: pnpm release-gh --yes
