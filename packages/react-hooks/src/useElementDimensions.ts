@@ -26,6 +26,11 @@ export type Dimensions = {
     width: number;
 };
 
+/**
+ * Lar deg måle størrelsen på et element, og oppdatere målene når vinduet endrer størrelse.
+ * @param throttleDelay Antall milisekunder som skal gå mellom hver gang dimensjonene oppdateres.
+ * @returns Ref til elementet som skal måles, og dimensjonene til elementet.
+ */
 export function useElementDimensions<T extends HTMLElement>(throttleDelay = 200): [RefObject<T>, Dimensions] {
     const elementRef = useRef<T>(null);
     const [dimensions, setDimensions] = useState<Dimensions>({ height: 0, width: 0 });

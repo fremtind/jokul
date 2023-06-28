@@ -1,5 +1,11 @@
 import { RefObject, useEffect } from "react";
 
+/**
+ * Lar deg sette opp en tastaturlytter på et element.
+ * @param ref Element som skal observeres
+ * @param keys Taster som skal lyttes på
+ * @param fn Funksjon som kalles når en tastetrykk observeres
+ */
 export function useKeyListener(
     ref: RefObject<HTMLElement> | null,
     keys: string[] | string | null,

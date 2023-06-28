@@ -15,30 +15,18 @@ function isNodeList(target: Target | ValidElement): target is NodeListOf<ValidEl
 const hasWindowWithIntersectionObserver = () =>
     typeof window !== "undefined" && typeof IntersectionObserver !== "undefined";
 
+/**
+ * Hook som gjør det enkelt å observere om et element er synlig i viewporten.
+ *
+ * @param target Elementet eller elementene som skal observeres. Du kan sende in en React ref til et HTMLElement eller SVG Element, eller en NodeList av samme type elementer (returneres f.eks. av document.querySelectorAll), eller en React ref med en NodeList av samme type elementer.
+ * @param onIntersect Callback-funksjon som utføres når et av elementene som observeres overlapper angitt mål. Se https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#parameters for mer info.
+ * @param fallback Funksjon som kalles dersom nettleseren ikke støtter IntersectionOpserver-APIet.
+ * @param options Objekt med innstillinger for oberveren. Se https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#parameters for mer info.
+ */
 export const useIntersectionObserver = (
-    /**
-     * Elementet eller elementene som skal observeres. Du kan sende in en React ref
-     * til et HTMLElement eller SVG Element, eller en NodeList av samme type elementer
-     * (returneres f.eks. av document.querySelectorAll), eller en React ref med en
-     * NodeList av samme type elementer.
-     */
     target: Target,
-    /**
-     * Callback-funksjon som utføres når et av elementene
-     * som observeres overlapper angitt mål. Se
-     * https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#parameters
-     * for mer info.
-     */
     onIntersect: IntersectionObserverCallback,
-    /**
-     * Funksjon som kalles dersom nettleseren ikke støtter IntersectionOpserver-APIet.
-     */
     fallback?: VoidFunction | null,
-    /**
-     * Objekt med innstillinger for oberveren. Se
-     * https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#parameters
-     * for mer info.
-     */
     options?: Partial<IntersectionObserverInit>,
 ): void => {
     const observerRef = useRef<IntersectionObserver>(null);

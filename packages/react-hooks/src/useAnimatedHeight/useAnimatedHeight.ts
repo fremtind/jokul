@@ -8,6 +8,13 @@ const defaultDisplay = "block";
 const defaultEasing = "standard";
 const defaultTiming = "productive";
 
+/**
+ * Lar deg animere et element opp til sin maksimale høyde, eller ned til 0.
+ *
+ * @param isOpen Om elementet er åpent eller lukket.
+ * @param options Konfigurer display-property, easing og timing, og eventuelle callbacks for life cycle til animasjonen.
+ * @returns Ref til elementet som skal animeres, og en funksjon for å trigge animasjonen manuelt.
+ */
 export function useAnimatedHeight<T extends HTMLElement>(
     isOpen: boolean,
     options?: UseAnimatedHeightOptions<T>,
