@@ -12,7 +12,13 @@ const defaultOptions: FormatNumberOptions = {
     locale: "no-NB",
 };
 
-export function formatNumber(input: string | number, options?: FormatNumberOptions) {
+/**
+ * Formaterer et tall med norsk locale.
+ * @param input Verdien som skal formateres
+ * @param options Innstillinger for formateringen. Se https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options for detaljer.
+ * @returns Den formatererte verdien
+ */
+export function formatNumber(input: string | number, options?: FormatNumberOptions): string {
     const number = parseNumber(input);
     if (!number) {
         return input.toString();

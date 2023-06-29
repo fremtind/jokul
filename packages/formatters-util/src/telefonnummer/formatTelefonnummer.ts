@@ -12,6 +12,12 @@ type FormatTelefonnummerOptions = {
     countryCode?: string;
 };
 
+/**
+ * Formaterer et telefonnummer etter språkrådets anbefalinger. Delene av telefonnummeret skilles med non-breaking space.
+ * @param input Verdien som skal formateres
+ * @param options Inkluder en valgfri landkode, eller angi at verdien er et ufullstendig telefonnummer og likevel skal formateres.
+ * @returns Den formatererte verdien
+ */
 export function formatTelefonnummer(input: string, options?: FormatTelefonnummerOptions) {
     const strippedInput = input.replace(/\W/g, "");
     const mobilRegex = options?.partial ? TELEFONNUMMER_REGEX.mobilPartial : TELEFONNUMMER_REGEX.mobil;

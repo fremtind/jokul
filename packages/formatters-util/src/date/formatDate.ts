@@ -1,8 +1,7 @@
 /**
- * Format a Date object as a string with Norwegian locale
- *
- * @param date the Date object to format
- * @return returns a date with "dd.mm.yyyy"-format
+ * Formaterer en dato med "dd.mm.yyyy"-format.
+ * @param date Verdien som skal formateres
+ * @returns Verdien i "dd.mm.yyyy"-format
  */
 export function formatDate(date: Date): string {
     const day = `${date.getDate()}`.padStart(2, "0");

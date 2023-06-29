@@ -9,6 +9,12 @@ type FormatKortnummerOptions = {
     partial?: boolean;
 };
 
+/**
+ * Formaterer et kortnummer. Delene av kortnummeret skilles med non-breaking space.
+ * @param input Verdien som skal formateres
+ * @param options Angi at verdien er et ufullstendig kortnummer og likevel skal formateres.
+ * @returns Den formaterte verdien
+ */
 export function formatKortnummer(input: string, options?: FormatKortnummerOptions) {
     const strippedInput = input.replace(/[\s-.]/g, "");
     const regex = options?.partial ? KORTNUMMER_REGEX.partial : KORTNUMMER_REGEX.full;
