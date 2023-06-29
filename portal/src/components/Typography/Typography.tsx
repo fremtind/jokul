@@ -81,14 +81,14 @@ interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
 }
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({ children, language, ...rest }) => {
-    const child: ReactElement = React.Children.only(children) as ReactElement;
-    if (!child.props) {
+    try {
+        const child: ReactElement = React.Children.only(children) as ReactElement;
+        const displayLanguage = child.props?.className?.replace("language-", "") || language;
+        return <FTCodeBlock language={displayLanguage}>{child.props.children}</FTCodeBlock>;
+    } catch (e) {
         // if there is more than one child, or it is text return a normal pre
         return <pre {...rest}>{children}</pre>;
     }
-
-    const displayLanguage = child.props?.className?.replace("language-", "") || language;
-    return <FTCodeBlock language={displayLanguage}>{child.props.children}</FTCodeBlock>;
 };
 
 export const ListItem: React.FC<WithChildren> = ({ children }) => (
