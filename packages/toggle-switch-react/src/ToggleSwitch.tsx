@@ -26,9 +26,9 @@ export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disable
 };
 
 export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
-    ({ children, className, density, id, onChange, ...rest }, ref) => {
+    ({ "aria-pressed": ariaPressed = false, children, className, density, id, onChange, ...rest }, ref) => {
         const uid = useId(id || "jkl-toggle-switch", { generateSuffix: !id });
-        const [pressed, setPressed] = React.useState(false);
+        const [pressed, setPressed] = React.useState(ariaPressed);
 
         const { onClick, onPointerCancel, onPointerDown, onPointerMove, onPointerUp, ...buttonProps } = rest;
 
