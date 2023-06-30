@@ -22,6 +22,7 @@ import {
 } from "@floating-ui/react";
 import { WithChildren, type DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useRef, useState } from "react";
 import * as ReactIs from "react-is";
@@ -136,7 +137,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                         returnFocus={!isNested}
                     >
                         <motion.div
-                            className="jkl-contextual-menu"
+                            className={cn("jkl-contextual-menu", className)}
                             role="menu"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
