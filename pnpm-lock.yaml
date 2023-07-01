@@ -421,7 +421,7 @@ importers:
       '@fremtind/jkl-icons-react': ^7.2.7
       '@fremtind/jkl-react-hooks': ^11.4.2
       classnames: ^2.3.2
-      framer-motion: ^7.10.3
+      framer-motion: ^10.12.18
     dependencies:
       '@floating-ui/react': 0.24.2
       '@fremtind/jkl-contextual-menu': link:../contextual-menu
@@ -429,7 +429,7 @@ importers:
       '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
-      framer-motion: 7.10.3
+      framer-motion: 10.12.18
     devDependencies:
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
 
@@ -1083,7 +1083,7 @@ importers:
       '@fremtind/jkl-react-hooks': ^11.4.2
       '@fremtind/jkl-tooltip': ^2.0.6
       classnames: ^2.3.2
-      framer-motion: ^7.10.3
+      framer-motion: ^10.12.18
     dependencies:
       '@floating-ui/react': 0.24.2
       '@fremtind/jkl-core': link:../core
@@ -1091,7 +1091,7 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-tooltip': link:../tooltip
       classnames: 2.3.2
-      framer-motion: 7.10.3
+      framer-motion: 10.12.18
 
   packages/validators-util:
     specifiers: {}
@@ -1152,7 +1152,7 @@ importers:
       classnames: ^2.3.2
       dotenv: ^8.6.0
       focus-trap-react: ^10.1.4
-      framer-motion: ^7.10.3
+      framer-motion: ^10.12.18
       gatsby: ^4.25.7
       gatsby-plugin-canonical-urls: 4.24.0
       gatsby-plugin-feed: ^4.25.0
@@ -1228,7 +1228,7 @@ importers:
       classnames: 2.3.2
       dotenv: 8.6.0
       focus-trap-react: 10.1.4_biqbaboplfbrettd7655fr4n2y
-      framer-motion: 7.10.3_biqbaboplfbrettd7655fr4n2y
+      framer-motion: 10.12.18_biqbaboplfbrettd7655fr4n2y
       gatsby: 4.25.7_biqbaboplfbrettd7655fr4n2y
       gatsby-plugin-canonical-urls: 4.24.0_gatsby@4.25.7
       gatsby-plugin-feed: 4.25.0_mjo6toh5vuxsjxw4fsodfcibo4
@@ -4359,53 +4359,6 @@ packages:
       '@lezer/common': 0.15.12
       '@lezer/lr': 0.15.8
       json5: 2.2.3
-    dev: false
-
-  /@motionone/animation/10.15.1:
-    resolution: {integrity: sha512-mZcJxLjHor+bhcPuIFErMDNyrdb2vJur8lSfMCsuCB4UyV8ILZLvK+t+pg56erv8ud9xQGK/1OGPt10agPrCyQ==}
-    dependencies:
-      '@motionone/easing': 10.15.1
-      '@motionone/types': 10.15.1
-      '@motionone/utils': 10.15.1
-      tslib: 2.5.3
-    dev: false
-
-  /@motionone/dom/10.16.2:
-    resolution: {integrity: sha512-bnuHdNbge1FutZXv+k7xub9oPWcF0hsu8y1HTH/qg6av58YI0VufZ3ngfC7p2xhMJMnoh0LXFma2EGTgPeCkeg==}
-    dependencies:
-      '@motionone/animation': 10.15.1
-      '@motionone/generators': 10.15.1
-      '@motionone/types': 10.15.1
-      '@motionone/utils': 10.15.1
-      hey-listen: 1.0.8
-      tslib: 2.4.0
-    dev: false
-
-  /@motionone/easing/10.15.1:
-    resolution: {integrity: sha512-6hIHBSV+ZVehf9dcKZLT7p5PEKHGhDwky2k8RKkmOvUoYP3S+dXsKupyZpqx5apjd9f+php4vXk4LuS+ADsrWw==}
-    dependencies:
-      '@motionone/utils': 10.15.1
-      tslib: 2.5.3
-    dev: false
-
-  /@motionone/generators/10.15.1:
-    resolution: {integrity: sha512-67HLsvHJbw6cIbLA/o+gsm7h+6D4Sn7AUrB/GPxvujse1cGZ38F5H7DzoH7PhX+sjvtDnt2IhFYF2Zp1QTMKWQ==}
-    dependencies:
-      '@motionone/types': 10.15.1
-      '@motionone/utils': 10.15.1
-      tslib: 2.5.3
-    dev: false
-
-  /@motionone/types/10.15.1:
-    resolution: {integrity: sha512-iIUd/EgUsRZGrvW0jqdst8st7zKTzS9EsKkP+6c6n4MPZoQHwiHuVtTQLD6Kp0bsBLhNzKIBlHXponn/SDT4hA==}
-    dev: false
-
-  /@motionone/utils/10.15.1:
-    resolution: {integrity: sha512-p0YncgU+iklvYr/Dq4NobTRdAPv9PveRDUXabPEeOjBLSO/1FNB2phNTZxOxpi1/GZwYpAoECEa0Wam+nsmhSw==}
-    dependencies:
-      '@motionone/types': 10.15.1
-      hey-listen: 1.0.8
-      tslib: 2.5.3
     dev: false
 
   /@msgpackr-extract/msgpackr-extract-darwin-arm64/3.0.2:
@@ -11527,30 +11480,36 @@ packages:
       map-cache: 0.2.2
     dev: true
 
-  /framer-motion/7.10.3:
-    resolution: {integrity: sha512-k2ccYeZNSpPg//HTaqrU+4pRq9f9ZpaaN7rr0+Rx5zA4wZLbk547wtDzge2db1sB+1mnJ6r59P4xb+aEIi/W+w==}
+  /framer-motion/10.12.18:
+    resolution: {integrity: sha512-cfhiUpPbj+0eEWKjuD+5cz5cMqH71xOtMxGiS/cSGfHn2OlHIEAqFnFyzEMENw5PxWR9bMVhatzzpD6lexmHZQ==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
-      '@motionone/dom': 10.16.2
-      hey-listen: 1.0.8
-      tslib: 2.4.0
+      tslib: 2.5.3
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
 
-  /framer-motion/7.10.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-k2ccYeZNSpPg//HTaqrU+4pRq9f9ZpaaN7rr0+Rx5zA4wZLbk547wtDzge2db1sB+1mnJ6r59P4xb+aEIi/W+w==}
+  /framer-motion/10.12.18_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-cfhiUpPbj+0eEWKjuD+5cz5cMqH71xOtMxGiS/cSGfHn2OlHIEAqFnFyzEMENw5PxWR9bMVhatzzpD6lexmHZQ==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
-      '@motionone/dom': 10.16.2
-      hey-listen: 1.0.8
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      tslib: 2.4.0
+      tslib: 2.5.3
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
     dev: false
@@ -13339,10 +13298,6 @@ packages:
     dependencies:
       capital-case: 1.0.4
       tslib: 2.5.3
-    dev: false
-
-  /hey-listen/1.0.8:
-    resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
     dev: false
 
   /highlight.js/10.7.3:
