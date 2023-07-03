@@ -20,6 +20,7 @@ interface EventDetails extends ListDetails {
     event: KeyboardEvent;
 }
 type UseListNavigationProps<T> = {
+    /** Ref til et element med rollen `listbox` */
     ref: RefObject<T>;
 };
 

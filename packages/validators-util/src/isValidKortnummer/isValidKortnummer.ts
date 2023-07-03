@@ -23,6 +23,11 @@ const luhn = (input: string) => {
     return checkDigit;
 };
 
+/**
+ * Sjekker at verdien er et gyldig kortnummer, mot Luhn-algoritmen (https://en.wikipedia.org/wiki/Luhn_algorithm).
+ * @param input Verdien som skal valideres
+ * @returns Om verdien validerer som et gyldig kortnummer
+ */
 export const isValidKortnummer = (input: string) => {
     if (!KORTNUMMER_REGEX.test(input)) {
         return false;

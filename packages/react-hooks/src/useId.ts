@@ -32,4 +32,9 @@ const useModernId = (id?: string, options = defaultOptions): string => {
     return elId;
 };
 
+/**
+ * Hook som genererer en unik ID. For React 18 brukes React.useId, ellers brukes nanoid.
+ * @param id En valgfri eksisterende ID som kan brukes som prefix.
+ * @param options Objekt med innstillinger, dersom du angir et prefix.
+ */
 export const useId = typeof useReactId !== "undefined" ? useModernId : useLegacyId;
