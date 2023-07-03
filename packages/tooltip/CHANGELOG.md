@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip@2.0.6...@fremtind/jkl-tooltip@3.0.0) (2023-07-03)
+
+### Bug Fixes
+
+- bruk bedre verdier for min- og maksbredde ([8476c0a](https://github.com/fremtind/jokul/commit/8476c0aa2e3022c5f05435d7a2fa461f8a8ffc51))
+- legg til fokusindikasjon på standard triggerkomponent ([b8dbaf9](https://github.com/fremtind/jokul/commit/b8dbaf9aec449ee0504252543dd329ab42a568c6))
+
+### Features
+
+- ny komponent PopupTip for håndtering av tooltip i labels mm ([23d0453](https://github.com/fremtind/jokul/commit/23d0453926913d28bfa8588518ff28619731cdfc))
+- ny, modulær Tooltip-komponent ([c5aa7e5](https://github.com/fremtind/jokul/commit/c5aa7e5726028357ccb9f91c26e53f0da2ca7173))
+
+### BREAKING CHANGES
+
+- Nytt API for Tooltip-komponenten
+
 ## 2.0.3 (2023-03-21)
 
 ### Bug Fixes
