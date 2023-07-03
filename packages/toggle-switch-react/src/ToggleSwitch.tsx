@@ -29,6 +29,9 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
     ({ "aria-pressed": ariaPressed = false, children, className, density, id, onChange, ...rest }, ref) => {
         const uid = useId(id || "jkl-toggle-switch", { generateSuffix: !id });
         const [pressed, setPressed] = React.useState(ariaPressed);
+        React.useEffect(() => {
+            setPressed(ariaPressed);
+        }, [ariaPressed]);
 
         const { onClick, onPointerCancel, onPointerDown, onPointerMove, onPointerUp, ...buttonProps } = rest;
 
