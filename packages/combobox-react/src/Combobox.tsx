@@ -254,7 +254,7 @@ export const Combobox: FC<ComboboxProps> = ({
                         type: "blur",
                         target: {
                             name,
-                            value: selectedValue?.[0].value || "",
+                            value: selectedValue?.[0]?.value || "",
                             selectedOptions: selectedValue,
                         },
                     });
