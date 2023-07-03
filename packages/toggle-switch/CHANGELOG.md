@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.1.0 (2023-07-03)
+
+### Features
+
+- åpne for å vise en toggle som child av aria-checked ([65985a4](https://github.com/fremtind/jokul/commit/65985a406cd3ba95bc286027b24773a604c67d51))
+
 # 12.0.0 (2023-05-11)
 
 ### Bug Fixes

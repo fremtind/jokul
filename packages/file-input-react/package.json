@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-file-input-react",
-    "version": "1.0.23",
+    "version": "1.0.24",
     "publishConfig": {
         "access": "public"
     },
@@ -36,15 +36,15 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button-react": "^13.0.23",
+        "@fremtind/jkl-button-react": "^13.0.24",
         "@fremtind/jkl-core": "^12.2.0",
         "@fremtind/jkl-file-input": "^1.0.3",
-        "@fremtind/jkl-formatters-util": "^4.1.22",
-        "@fremtind/jkl-icon-button-react": "^3.0.20",
-        "@fremtind/jkl-icons-react": "^7.2.7",
-        "@fremtind/jkl-input-group-react": "^2.1.10",
+        "@fremtind/jkl-formatters-util": "^4.1.23",
+        "@fremtind/jkl-icon-button-react": "^3.0.21",
+        "@fremtind/jkl-icons-react": "^7.2.8",
+        "@fremtind/jkl-input-group-react": "^2.1.11",
         "@fremtind/jkl-progress-bar-react": "^5.1.0",
-        "@fremtind/jkl-react-hooks": "^11.4.2",
+        "@fremtind/jkl-react-hooks": "^11.5.0",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
