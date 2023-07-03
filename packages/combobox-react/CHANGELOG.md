@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@1.3.7...@fremtind/jkl-combobox-react@1.3.8) (2023-07-03)
+
+### Bug Fixes
+
+- rett en typeerror ved onBlur og tom input ([f91de7c](https://github.com/fremtind/jokul/commit/f91de7c5383bddf567ee82ea1327db29b25faac6))
+
 # 1.3.0 (2023-06-05)
 
 ### Features
