@@ -39,6 +39,11 @@ export const getChecksumDigits = (fnr: string) => {
     return [k1, getChecksumDigit(fnr + k1, K2_FACTORS)];
 };
 
+/**
+ * Sjekker om verdien validerer som et gyldig fødselsnummer.
+ * @param value Verdien som skal valideres
+ * @returns Om verdien er et gyldig fødselsnummer
+ */
 export const isValidFodselsnummer = (value: string): boolean => {
     if (!value || value.length !== 11 || value === "00000000000") {
         return false;

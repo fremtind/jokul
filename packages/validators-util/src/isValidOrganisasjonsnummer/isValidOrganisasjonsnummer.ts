@@ -11,6 +11,11 @@ const calculateChecksum = (reversedNumbers: number[]) => {
     return result === 11 ? 0 : result;
 };
 
+/**
+ * Sjekker om verdien validerer som et gyldig organisasjonsnummer etter Modulus 11-algoritmen (https://no.wikipedia.org/wiki/MOD11).
+ * @param value Verdien som skal valideres
+ * @returns Om verdien er et gyldig organisasjonsnummer
+ */
 export const isValidOrganisasjonsnummer = (value: string) => {
     if (!value || value.length !== 9) {
         return false;

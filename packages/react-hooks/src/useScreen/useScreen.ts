@@ -17,6 +17,10 @@ const createAction = (property: keyof ScreenState): ScreenAction => ({
     property,
 });
 
+/**
+ * Finn størrelsen og orienteringen til skjermen.
+ * @returns Et objekt med boolean som indikerer om skjermstørrelsen er liten, medium, stor eller ekstra stor, og om skjermen er i portrett- eller landskapsmodus.
+ */
 export const useScreen = (): ScreenState => {
     const [hasMounted, setHasMounted] = useState(false);
 

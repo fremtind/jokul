@@ -16,6 +16,11 @@ const replaceAllButLastOccurence = (input: string | string[], search: string) =>
     );
 };
 
+/**
+ * Parser en formatert string til et Number.
+ * @param input Kandidaten som skal parses til et tall
+ * @returns Verdien som et Number
+ */
 export function parseNumber(input: string | number) {
     if (typeof input === "number") {
         return input;
