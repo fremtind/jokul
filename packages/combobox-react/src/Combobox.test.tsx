@@ -90,6 +90,7 @@ describe("Combobox", () => {
     });
 
     it("should change the value of the combobox when selecting two options", async () => {
+        const onChangeSpy = jest.fn();
         function WrappedCombobox() {
             const [selectedValues, setSelectedValues] = useState<Array<ComboboxValuePair>>([]);
 
@@ -107,6 +108,7 @@ describe("Combobox", () => {
                     items={items}
                     value={selectedValues}
                     onChange={(event) => {
+                        onChangeSpy(event);
                         setSelectedValues(event.target.selectedOptions);
                     }}
                 />
@@ -135,9 +137,22 @@ describe("Combobox", () => {
         expect(selectedTags).toHaveLength(2);
         expect(selectedTags[0]).toHaveTextContent("Item 1");
         expect(selectedTags[1]).toHaveTextContent("Item 2");
+
+        expect(onChangeSpy).toHaveBeenCalledTimes(2);
+        expect(onChangeSpy).toHaveBeenLastCalledWith(
+            expect.objectContaining({
+                target: expect.objectContaining({
+                    selectedOptions: [
+                        expect.objectContaining({ label: "Item 1", value: "1" }),
+                        expect.objectContaining({ label: "Item 2", value: "2" }),
+                    ],
+                }),
+            }),
+        );
     });
 
     it("should clear all values when clicking remove all button", async () => {
+        const onChangeSpy = jest.fn();
         function WrappedCombobox() {
             const [selectedValues, setSelectedValues] = useState<Array<ComboboxValuePair>>([]);
 
@@ -155,6 +170,7 @@ describe("Combobox", () => {
                     items={items}
                     value={selectedValues}
                     onChange={(event) => {
+                        onChangeSpy(event);
                         setSelectedValues(event.target.selectedOptions);
                     }}
                 />
@@ -188,6 +204,16 @@ describe("Combobox", () => {
         });
 
         expect(getByTestId("jkl-combobox__tags")).not.toContain(<Tag />);
+
+        expect(onChangeSpy).toHaveBeenCalledTimes(3);
+        expect(onChangeSpy).toHaveBeenLastCalledWith(
+            expect.objectContaining({
+                target: expect.objectContaining({
+                    value: "",
+                    selectedOptions: [],
+                }),
+            }),
+        );
     });
 });
 
