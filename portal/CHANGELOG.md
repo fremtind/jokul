@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [18.4.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@18.3.4...@fremtind/portal@18.4.0) (2023-07-03)
+
+### Bug Fixes
+
+- rett en feil i CodeBlock ([4e5bcb0](https://github.com/fremtind/jokul/commit/4e5bcb0797e9f92449c194eaa623e012ad8d83ac))
+
+### Features
+
+- vis jsdoc om vi har den ([4f2d51c](https://github.com/fremtind/jokul/commit/4f2d51cc4bf928f4d4711a341ba7beda60699581))
+
 # [18.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@18.2.26...@fremtind/portal@18.3.0) (2023-06-15)
 
 ### Features

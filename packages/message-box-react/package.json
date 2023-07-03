@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-message-box-react",
-    "version": "10.0.17",
+    "version": "10.0.18",
     "publishConfig": {
         "access": "public"
     },
@@ -39,9 +39,9 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^12.2.0",
-        "@fremtind/jkl-icons-react": "^7.2.8",
+        "@fremtind/jkl-icons-react": "^7.2.9",
         "@fremtind/jkl-message-box": "^8.1.5",
-        "@fremtind/jkl-react-hooks": "^11.5.0",
+        "@fremtind/jkl-react-hooks": "^11.5.1",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
