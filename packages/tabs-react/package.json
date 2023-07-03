@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tabs-react",
-    "version": "4.0.12",
+    "version": "4.0.13",
     "publishConfig": {
         "access": "public"
     },
@@ -37,7 +37,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^12.2.0",
-        "@fremtind/jkl-react-hooks": "^11.5.0",
+        "@fremtind/jkl-react-hooks": "^11.5.1",
         "@fremtind/jkl-tabs": "^4.0.6",
         "classnames": "^2.3.2",
         "nanoid": "^3.3.6"
