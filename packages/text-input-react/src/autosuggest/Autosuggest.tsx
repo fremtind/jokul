@@ -1,6 +1,6 @@
 import type { Density } from "@fremtind/jkl-core";
 import type { LabelProps, SupportLabelProps } from "@fremtind/jkl-input-group-react";
-import type { TooltipProps } from "@fremtind/jkl-tooltip-react";
+import type { PopupTipProps } from "@fremtind/jkl-tooltip-react";
 import type { StateChangeOptions } from "downshift";
 import React, { type ReactNode, useEffect, useState } from "react";
 import BaseAutosuggest from "./BaseAutosuggest";
@@ -27,7 +27,7 @@ export type CommonProps = (
     errorLabel?: string;
     helpLabel?: string;
     supportLabelProps?: Omit<SupportLabelProps, "id" | "errorLabel" | "helpLabel" | "density">;
-    tooltipProps?: TooltipProps;
+    tooltipProps?: PopupTipProps;
     variant?: "large" | "medium" | "small";
     density?: Density;
     placeholder?: string;

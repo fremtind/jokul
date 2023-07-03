@@ -91,6 +91,7 @@ importers:
       react-is: ^18.2.0
       react-syntax-highlighter: ^15.5.0
       replace-in-file: ^7.0.1
+      resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
       sass-embedded: ^1.62.0
       stylelint: ^15.7.0
@@ -163,6 +164,7 @@ importers:
       prompt: 1.3.0
       react-syntax-highlighter: 15.5.0_react@18.2.0
       replace-in-file: 7.0.1
+      resize-observer-polyfill: 1.5.1
       rimraf: 3.0.2
       sass-embedded: 1.62.0
       stylelint: 15.7.0
@@ -19748,6 +19750,10 @@ packages:
 
   /requires-port/1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
+    dev: true
+
+  /resize-observer-polyfill/1.5.1:
+    resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
     dev: true
 
   /resolve-alpn/1.2.1:

@@ -6,20 +6,34 @@ group: annet
 ---
 
 import { TooltipExample, tooltipExampleCode, tooltipExampleKnobs } from "./TooltipExample";
+import { PopupTipExample, popupTipExampleCode } from "./PopupTipExample";
 import "@fremtind/jkl-tooltip/tooltip.css";
 
-<Ingress>
-    En tooltip lar oss skjule informasjon på en måte som samtidig gjør den tilgjenglig i kontekst for de brukerne som
-    ser etter den.
-</Ingress>
+<Ingress>Et tooltip er en kort melding som gir mer informasjon om et interaktivt element på nettsiden.</Ingress>
 
-    Som hovedregel skal vi ikke skjule informasjon som kan være til hjelp for brukeren. Hvis det trengs en forklaring
-    bør den ofte være synlig. Likevel trenger vi noen ganger å vike fra det prinsippet. Der kommer Tooltip inn.
+Interaktive elementer bør ha en selvforklarende funksjon, så i de fleste tilfeller er det bedre å vise
+informasjonen direkte heller enn å skjule den bak et tooltip. Hvis informasjonen eller handlingen ikke
+er nødvendig for å gjennomføre flyten brukeren er i kan det likevel være fornuftig å bruke et tooltip.
 
 <ComponentExample
     title="Tooltip"
     component={TooltipExample}
     codeExample={tooltipExampleCode}
+    knobs={tooltipExampleKnobs}
+/>
+
+## Informasjons-tooltip
+
+Vi kan også bruke tooltip sammen med et spørsmålstegnikon for å gi brukeren tilleggsinformasjon.
+Dette kan være nyttig hvis vi vil forklare mer om noe som et fåtall av brukerne kanskje lurer på.
+
+I disse tilfellene skal tooltipet utløses ved klikk, og ikke ved hover. Vi tilbyr en egen
+komponent, PopupTip, for dette mønsteret.
+
+<ComponentExample
+    title="PopupTip"
+    component={PopupTipExample}
+    codeExample={popupTipExampleCode}
     knobs={tooltipExampleKnobs}
 />
 
