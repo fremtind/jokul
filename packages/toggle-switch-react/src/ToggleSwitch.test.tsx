@@ -40,7 +40,7 @@ describe("Toggle switch", () => {
         expect(button).toHaveAttribute("aria-pressed", "true");
     });
 
-    it("should be unchecked if pressed is true and input is clicked", function () {
+    it("should be unchecked if pressed is true and input is clicked", async function () {
         const TestToggleSwitch = () => {
             const [pressed, toggle] = React.useState(true);
             return (
@@ -54,6 +54,14 @@ describe("Toggle switch", () => {
         const button = screen.getByText("I am groot!");
 
         expect(button).toHaveAttribute("aria-pressed", "true");
+
+        await act(async () => {
+            // Av en eller annen grunn fungerer ikke testen med userEvent.click()
+            // Alle former for aktivering fungerer i browser (klikk, trykk, space, enter, aktivering via VoiceOver)
+            fireEvent(button, new MouseEvent("click", { bubbles: true, cancelable: true }));
+        });
+
+        expect(button).toHaveAttribute("aria-pressed", "false");
     });
 
     it("should call the passed onClick method when clicked", async () => {
@@ -68,6 +76,28 @@ describe("Toggle switch", () => {
         });
 
         expect(onClick).toHaveBeenCalled();
+    });
+
+    it("should pass the correct pressed value to onChange when starting as pressed", async () => {
+        const TestToggleSwitch = () => {
+            const [pressed, setPressed] = React.useState(true);
+            return (
+                <ToggleSwitch aria-pressed={pressed} onChange={(_, pressed) => setPressed(pressed)}>
+                    I am groot!
+                </ToggleSwitch>
+            );
+        };
+        render(<TestToggleSwitch />);
+
+        const button = screen.getByText("I am groot!");
+
+        await act(async () => {
+            // Av en eller annen grunn fungerer ikke testen med userEvent.click()
+            // Alle former for aktivering fungerer i browser (klikk, trykk, space, enter, aktivering via VoiceOver)
+            fireEvent(button, new MouseEvent("click", { bubbles: true, cancelable: true }));
+        });
+
+        expect(button).toHaveAttribute("aria-pressed", "false");
     });
 
     describe("a11y", () => {
