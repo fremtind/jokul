@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-image-react",
-    "version": "5.0.12",
+    "version": "5.0.13",
     "publishConfig": {
         "access": "public"
     },
@@ -45,7 +45,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-image": "^5.0.6",
-        "@fremtind/jkl-react-hooks": "^11.5.0",
+        "@fremtind/jkl-react-hooks": "^11.5.1",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
