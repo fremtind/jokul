@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@1.3.8...@fremtind/jkl-combobox-react@1.3.9) (2023-07-03)
+
+### Bug Fixes
+
+- send det som blir verdien etter endring i onChange ([babf95a](https://github.com/fremtind/jokul/commit/babf95acd0820c516340b524dd8b8fa02c2fb04c))
+
 ## [1.3.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@1.3.7...@fremtind/jkl-combobox-react@1.3.8) (2023-07-03)
 
 ### Bug Fixes
