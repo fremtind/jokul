@@ -120,13 +120,17 @@ export const Combobox: FC<ComboboxProps> = ({
         setSelectedValue(newValue);
         onChange({
             type: "change",
-            target: { name, value: option, selectedOptions: selectedValue },
+            target: { name, value: option, selectedOptions: newValue },
         });
         e.stopPropagation();
     };
 
     const onTagRemoveAll = () => {
         setSelectedValue([]);
+        onChange({
+            type: "change",
+            target: { name, value: "", selectedOptions: [] },
+        });
     };
 
     // Håndtere valgt verdi i listen
@@ -144,7 +148,7 @@ export const Combobox: FC<ComboboxProps> = ({
             setSelectedValue(newValue);
             onChange({
                 type: "change",
-                target: { name, value: option, selectedOptions: selectedValue },
+                target: { name, value: option, selectedOptions: newValue },
             });
         },
         [selectedValue, setSelectedValue, onChange, name, removeOption, items],
