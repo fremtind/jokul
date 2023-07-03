@@ -157,10 +157,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                             })}
                         >
                             {React.Children.map(children, (child, index) => {
-                                if (
-                                    React.isValidElement(child) &&
-                                    (child.type === "button" || ReactIs.isForwardRef(child))
-                                ) {
+                                if (React.isValidElement(child) && ReactIs.isForwardRef(child)) {
                                     return React.cloneElement(
                                         child,
                                         getItemProps({
@@ -176,6 +173,20 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                                                     return;
                                                 }
                                                 tree?.events.emit("click");
+                                            },
+                                            onKeyDown(event) {
+                                                child.props.onKeyDown?.(event);
+                                                if (event.defaultPrevented) {
+                                                    return;
+                                                }
+                                                tree?.events.emit("keydown");
+                                                if (
+                                                    event.currentTarget.role === "menuitemcheckbox" &&
+                                                    event.key === "Enter"
+                                                ) {
+                                                    // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role#keyboard_interactions
+                                                    setIsOpen(false);
+                                                }
                                             },
                                             onMouseEnter() {
                                                 if (allowHover && isOpen) {
