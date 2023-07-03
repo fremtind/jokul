@@ -1,14 +1,10 @@
 import { Density } from "@fremtind/jkl-core";
 import { CheckIcon } from "@fremtind/jkl-icons-react";
-import { useId } from "@fremtind/jkl-react-hooks";
+import { useId, useSwipeGesture, type SwipeChangeHandler } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { type ButtonHTMLAttributes, type MouseEventHandler, forwardRef } from "react";
-import { useSwipeGesture } from "./useSwipeGesture";
 
-export type ToggleChangeHandler<T extends HTMLElement> = (
-    event: React.MouseEvent<T> | React.PointerEvent<T>,
-    pressed: boolean,
-) => void;
+export type ToggleChangeHandler<T extends HTMLElement> = SwipeChangeHandler<T>;
 
 export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "onChange"> & {
     density?: Density;

@@ -1,10 +1,9 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
-import { useId } from "@fremtind/jkl-react-hooks";
+import { useId, useSwipeGesture } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { useState, Fragment, useRef, FC, MouseEventHandler } from "react";
 import { type ToggleChangeHandler } from "./ToggleSwitch";
 import { usePillStyles } from "./usePillStyles";
-import { useSwipeGesture } from "./useSwipeGesture";
 
 interface Props extends WithChildren {
     labels: [string, string];
