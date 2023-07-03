@@ -172,6 +172,9 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                                             },
                                             onClick(event) {
                                                 child.props.onClick?.(event as React.MouseEvent<HTMLButtonElement>);
+                                                if (event.defaultPrevented) {
+                                                    return;
+                                                }
                                                 tree?.events.emit("click");
                                             },
                                             onMouseEnter() {
