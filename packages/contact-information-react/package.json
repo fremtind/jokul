@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-contact-information-react",
-    "version": "1.0.32",
+    "version": "1.0.33",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
     "dependencies": {
         "@fremtind/jkl-contact-information": "^1.0.4",
         "@fremtind/jkl-core": "^12.2.0",
-        "@fremtind/jkl-formatters-util": "^4.1.22",
+        "@fremtind/jkl-formatters-util": "^4.1.23",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

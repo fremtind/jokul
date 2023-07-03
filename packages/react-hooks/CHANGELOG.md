@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.5.0 (2023-07-03)
+
+### Features
+
+- ny hook useSwipeGesture ([2b6d47c](https://github.com/fremtind/jokul/commit/2b6d47c812bcd0fe6de2727a91b676d8af648dbb))
+
 # 11.4.0 (2023-05-25)
 
 ### Features

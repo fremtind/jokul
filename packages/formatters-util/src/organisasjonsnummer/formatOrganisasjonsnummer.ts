@@ -9,6 +9,12 @@ type FormatOrganisasjonsnummerOptions = {
     partial?: boolean;
 };
 
+/**
+ * Formaterer et organisasjonsnummer. Delene av organisasjonsnummeret skilles med non-breaking space.
+ * @param input Verdien som skal formateres
+ * @param options Angi at verdien er et ufullstendig organisasjonsnummer og likevel skal formateres.
+ * @returns Den formaterte verdien
+ */
 export function formatOrganisasjonsnummer(input: string, options?: FormatOrganisasjonsnummerOptions) {
     const strippedInput = input.replace(/[\s-.]/g, "");
     const regex = options?.partial ? ORGANISASJONSNUMMER_REGEX.partial : ORGANISASJONSNUMMER_REGEX.full;

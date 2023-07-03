@@ -108,6 +108,9 @@ export const registerWithKontonummerMask = registerWithMask("kontonummer");
 /** @deprecated Bruk `registerWithMasks` i stedet */
 export const registerWithTelefonnummerMask = registerWithMask("telefonnummer");
 
+/**
+ * Hjelpefunksjon for React Hook Form som lar deg bruke formateringsfunksjonene i denne pakken som inputmasker.
+ */
 export const registerWithMasks = <T extends FieldValues>(form: UseFormReturn<T>) => ({
     registerWithFodselsnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
         registerWithMask("fodselsnummer")<T>(form, name, options),

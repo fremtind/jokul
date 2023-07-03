@@ -36,6 +36,12 @@ const defaultOptions: FormatNumberOptions = {
     unit: "kilometer",
 };
 
+/**
+ * Formaterer en avstand med norsk locale på tallverdien.
+ * @param input Verdien som skal formateres
+ * @param options Lengdeenheten som skal vises for tallet, f.eks. "kilometer" eller "foot". Default: "kilometer". Kan også angi en valgfri suffix, f.eks. "/år".
+ * @returns Den formaterte verdien.
+ */
 export function formatAvstand(input: string | number, options?: FormatAvstandOptions) {
     const number = parseNumber(input);
     if (!number) {

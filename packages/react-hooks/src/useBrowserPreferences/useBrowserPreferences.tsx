@@ -67,6 +67,10 @@ const reducer: Reducer<BrowserPreferences, Action> = (state, action) => {
     }
 };
 
+/**
+ * Hook som gir informasjon om brukerens foretrukne konfigurasjon.
+ * @returns Objekt med informasjon om brukerens foretrukne tema (lyst vs mørkt), redusert bevegelse, og høykontrast (forced colors).
+ */
 export const useBrowserPreferences = (): BrowserPreferences => {
     const [hasMounted, setHasMounted] = useState(false);
 
