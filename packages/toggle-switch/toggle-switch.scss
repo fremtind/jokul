@@ -70,7 +70,8 @@
 
     --jkl-toggle-switch-knob-position: 0;
 
-    &[aria-pressed="true"] {
+    &[aria-pressed="true"],
+    [aria-checked="true"] > & {
         --jkl-toggle-switch-background: var(--jkl-toggle-switch-border);
         --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-knob-background);
         --jkl-toggle-switch-indicator-color: var(--jkl-toggle-switch-indicator-color--on);

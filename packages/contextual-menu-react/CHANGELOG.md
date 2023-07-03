@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.1.0 (2023-07-03)
+
+### Bug Fixes
+
+- bruk className-propen som blir sendt inn ([85ed532](https://github.com/fremtind/jokul/commit/85ed53227fb2b45b7a28ad320facfba51cb0c6ad))
+- la onClick stoppe default oppførsel for event ([aaefdf2](https://github.com/fremtind/jokul/commit/aaefdf23ad5fdd056a6102c09205d88a7ace7dbd))
+
+### Features
+
+- ny komponent for toggles i kontekstuell meny ([a79cce8](https://github.com/fremtind/jokul/commit/a79cce8e2677bd522db64306549e206abae47f1d))
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contextual-menu-react@1.0.5...@fremtind/jkl-contextual-menu-react@2.0.0) (2023-05-03)
 
 ### chore
