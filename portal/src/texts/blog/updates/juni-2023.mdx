@@ -1,0 +1,57 @@
+---
+title: Høydepunkter fra juni 2023
+author: Jøkul-teamet
+publishDate: "2023.06.30"
+---
+
+import { ToastExample } from "../../../../../packages/toast-react/documentation/ToastExample";
+import { SelectExample } from "../../../../../packages/select-react/documentation/SelectExample";
+
+<Ingress>Ny komponent, ny feature i Select og snart sommerferie. God sommer fra oss i Jøkul-teamet.</Ingress>
+
+Her er måneden kort oppsummert:
+
+-   Ny komponent: Toast
+-   Mulighet for sekundærtekst i Select
+
+## Ny komponent: Toast
+
+Med en Toast kan du gi korte tilbakemeldinger til brukeren etter handlinger de har gjort. Les mer om hvordan du bruker komponenten i [dokumentasjonen](https://jokul.fremtind.no/komponenter/toast/).
+
+<ComponentExample component={ToastExample} />
+
+-   [#3574](https://github.com/fremtind/jokul/pull/3574)
+
+## Mulighet for sekundærtekst i Select
+
+[Select](/komponenter/select) har fått støtte for sekundærtekst.
+
+<ComponentExample
+    component={SelectExample}
+    knobs={{
+        boolProps: [{ prop: "Med sekundærtekst", defaultValue: true }],
+    }}
+/>
+
+-   [#3563](https://github.com/fremtind/jokul/pull/3563)
+
+## Diverse bugfikser og forbedringer
+
+### Figma
+
+-   Ny padding på tertiærknappen ([#3556](https://github.com/fremtind/jokul/issues/3556))
+-   Animasjon i mikroanimasjoner ([#3073](https://github.com/fremtind/jokul/issues/3073))
+
+### GitHub
+
+-   Ny padding på tertiærknappen ([#3572](https://github.com/fremtind/jokul/pull/3572))
+-   Semantiske bakgrunnsfarger for TaskCard ([#3576](https://github.com/fremtind/jokul/pull/3576))
+-   Bruk riktige farger for Accordion i dark mode ([#3575](https://github.com/fremtind/jokul/pull/3575))
+-   Animert ikon for pluss/lukk er nå animert igjen ([#3586](https://github.com/fremtind/jokul/pull/3586))
+-   Benevnelse i inputfelt har riktig farge i dark mode ([#3585](https://github.com/fremtind/jokul/pull/3585))
+
+## Takk
+
+Takk til alle som har vært med å bygge videre på Jøkul, både på GitHub og i Figma!
+
+En stor takk også til alle som er med på designsystemforum!
