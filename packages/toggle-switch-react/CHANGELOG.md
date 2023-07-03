@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.1.9 (2023-07-03)
+
+### Bug Fixes
+
+- la komponenten være controlled ([4f5be87](https://github.com/fremtind/jokul/commit/4f5be87e83d7b202964dc4fc008ed5f6d09e525a))
+- send riktig pressed i onChange når kontrollert og default checked ([34461f7](https://github.com/fremtind/jokul/commit/34461f798deb27b1c66ee879a86dee541e7943f2))
+
 ## [12.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@12.1.2...@fremtind/jkl-toggle-switch-react@12.1.3) (2023-05-22)
 
 ### Bug Fixes

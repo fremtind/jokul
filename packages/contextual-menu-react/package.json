@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-contextual-menu-react",
-    "version": "2.0.12",
+    "version": "2.1.0",
     "publishConfig": {
         "access": "public"
     },
@@ -39,14 +39,14 @@
         "@floating-ui/react": "^0.24.2",
         "@fremtind/jkl-contextual-menu": "^1.0.6",
         "@fremtind/jkl-core": "^12.2.0",
-        "@fremtind/jkl-icons-react": "^7.2.7",
-        "@fremtind/jkl-react-hooks": "^11.4.2",
-        "@fremtind/jkl-toggle-switch": "^12.0.2",
+        "@fremtind/jkl-icons-react": "^7.2.8",
+        "@fremtind/jkl-react-hooks": "^11.5.0",
+        "@fremtind/jkl-toggle-switch": "^12.1.0",
         "classnames": "^2.3.2",
         "framer-motion": "^7.10.3"
     },
     "devDependencies": {
-        "@fremtind/jkl-icon-button-react": "^3.0.20"
+        "@fremtind/jkl-icon-button-react": "^3.0.21"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
