@@ -6,6 +6,10 @@ group: meny
 ---
 
 import ContextualMenuExample, { contextualMenuExampleCode, contextualMenuExampleKnobs } from "./ContextualMenuExample";
+import ContextualMenuToggleSwitchExample, {
+    contextualMenuToggleSwitchExampleCode,
+    contextualMenuToggleSwitchExampleKnobs,
+} from "./ContextualMenuToggleSwitchExample";
 
 <Ingress>
     En kontekstuell meny lar brukeren utføre handlinger relatert til deler av innholdet på en side, men som ikke er
@@ -44,3 +48,14 @@ Bruk en kontekstuell meny når det finnes handlinger som er relevante for bruker
 -   Tekst
 -   Ikon og tekst
 -   Knapp > forskjellige interaktive elementer.
+-   ToggleSwitch
+
+### Eksempel med ToggleSwitch
+
+Menyelementer som skrur av og på en innstilling har en egen komponent, for å få en semantisk riktig struktur og forventet oppførsel. Dette mønsteret kan for eksempel brukes for å styre valgt tema, uten å måtte endre innstillinger i operativsystemet.
+
+<ComponentExample
+    component={ContextualMenuToggleSwitchExample}
+    codeExample={contextualMenuToggleSwitchExampleCode}
+    knobs={contextualMenuToggleSwitchExampleKnobs}
+/>

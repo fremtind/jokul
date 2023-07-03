@@ -1,14 +1,10 @@
 import { Density } from "@fremtind/jkl-core";
 import { CheckIcon } from "@fremtind/jkl-icons-react";
-import { useId } from "@fremtind/jkl-react-hooks";
+import { useId, useSwipeGesture, type SwipeChangeHandler } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { type ButtonHTMLAttributes, type MouseEventHandler, forwardRef } from "react";
-import { useSwipeGesture } from "./useSwipeGesture";
 
-export type ToggleChangeHandler<T extends HTMLElement> = (
-    event: React.MouseEvent<T> | React.PointerEvent<T>,
-    pressed: boolean,
-) => void;
+export type ToggleChangeHandler<T extends HTMLElement> = SwipeChangeHandler<T>;
 
 export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "onChange"> & {
     density?: Density;
@@ -26,9 +22,12 @@ export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disable
 };
 
 export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
-    ({ children, className, density, id, onChange, ...rest }, ref) => {
+    ({ "aria-pressed": ariaPressed = false, children, className, density, id, onChange, ...rest }, ref) => {
         const uid = useId(id || "jkl-toggle-switch", { generateSuffix: !id });
-        const [pressed, setPressed] = React.useState(false);
+        const [pressed, setPressed] = React.useState(ariaPressed);
+        React.useEffect(() => {
+            setPressed(ariaPressed);
+        }, [ariaPressed]);
 
         const { onClick, onPointerCancel, onPointerDown, onPointerMove, onPointerUp, ...buttonProps } = rest;
 

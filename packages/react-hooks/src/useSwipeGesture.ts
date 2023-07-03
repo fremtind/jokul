@@ -1,5 +1,9 @@
 import { type MouseEventHandler, type PointerEventHandler, type MutableRefObject, useCallback, useRef } from "react";
-import { type ToggleChangeHandler } from "./ToggleSwitch";
+
+export type SwipeChangeHandler<T extends HTMLElement> = (
+    event: React.MouseEvent<T> | React.PointerEvent<T>,
+    pressed: boolean,
+) => void;
 
 type Point = { x: number; y: number };
 
@@ -12,13 +16,19 @@ function getGesturePointFromEvent<T extends HTMLElement>(event: React.PointerEve
 
 type SwipeGestureOptions<T extends HTMLElement> = {
     onClick?: MouseEventHandler<T>;
-    onChange?: ToggleChangeHandler<T>;
+    onChange?: SwipeChangeHandler<T>;
     onPointerDown?: PointerEventHandler<T>;
     onPointerUp?: PointerEventHandler<T>;
     onPointerMove?: PointerEventHandler<T>;
     onPointerCancel?: PointerEventHandler<T>;
 };
 
+/**
+ * Logikk for å håndtere en swipe, for eksempel brukt i toggle switch.
+ *
+ * @param options Callbacks for de ulike stegene i en swipe-gesture
+ * @returns Handlers for de ulike stegene i en swipe-gesture
+ */
 export function useSwipeGesture<T extends HTMLElement>(
     options: SwipeGestureOptions<T>,
 ): {
