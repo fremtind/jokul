@@ -1,43 +1,30 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { formatValuta } from "../../formatters-util/src";
-import { Placement, Tooltip } from "../src";
+import { formatKontonummer } from "../../formatters-util/src";
+import { Tooltip, TooltipContent, type TooltipPlacement, TooltipTrigger } from "../src";
+import { getPlacement } from "./getPlacement";
 
-function getPlacement(choice?: string): Placement {
-    switch (choice) {
-        case "Right":
-            return "right";
-        case "Left":
-            return "left";
-        case "Top end":
-            return "top-end";
-        case "Top start":
-            return "top-start";
-        case "Top":
-        default:
-            return "top";
+export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
+    const initialPlacement: TooltipPlacement = getPlacement(choiceValues?.["Plassering"]);
+    const delay = choiceValues?.["Forsinkelse (ms)"] ? parseInt(choiceValues?.["Forsinkelse (ms)"]) : undefined;
+    const [copied, setCopied] = useState(false);
+    const kontonummer = "16024454979";
+
+    function copyToClipboard() {
+        navigator.clipboard.writeText(kontonummer);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
     }
-}
-
-export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues, displayValues }) => {
-    const initialPlacement: Placement = getPlacement(choiceValues?.["Plassering"]);
-    const typo: string = displayValues?.density === "compact" ? "small" : "body";
 
     return (
-        <p className={`jkl-${typo.toLowerCase().replace(/ /g, "-")}`}>
-            Du betaler{" "}
-            <span style={{ whiteSpace: "nowrap" }}>
-                348 kr/mnd{" "}
-                <Tooltip
-                    content={
-                        <span>
-                            Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
-                            <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
-                        </span>
-                    }
-                    {...(initialPlacement && { initialPlacement })}
-                />
-            </span>
+        <p>
+            Kontonummer:{" "}
+            <Tooltip placement={initialPlacement} delay={delay}>
+                <TooltipTrigger onClick={copyToClipboard}>{formatKontonummer(kontonummer)}</TooltipTrigger>
+                <TooltipContent>
+                    {copied ? <span aria-live="assertive">Kopiert</span> : "Klikk for å kopiere til utklippstavlen"}
+                </TooltipContent>
+            </Tooltip>
         </p>
     );
 };
@@ -49,30 +36,35 @@ export const tooltipExampleKnobs: ExampleKnobsProps = {
             values: ["Top", "Top start", "Top end", "Left", "Right"],
             defaultValue: 0,
         },
+        {
+            name: "Forsinkelse (ms)",
+            values: ["0", "150", "250", "500", "1000"],
+            defaultValue: 2,
+        },
     ],
 };
 
-export const tooltipExampleCode = ({ choiceValues, displayValues }: ExampleComponentProps): string => {
-    let initialPlacement: Placement = "top";
-    if (choiceValues && choiceValues["initialPlacement"]) {
-        initialPlacement = choiceValues["initialPlacement"] as Placement;
-    }
+export const tooltipExampleCode = ({
+    choiceValues,
+}: ExampleComponentProps): string => `const [copied, setCopied] = useState(false);
+const kontonummer = "16024454979";
 
-    const typo: string = displayValues?.density === "compact" ? "small" : choiceValues?.["Typografinivå"] || "body";
+function copyToClipboard() {
+    navigator.clipboard.writeText(kontonummer);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+}
 
-    return `<p className={jkl-${typo.toLowerCase().replace(/ /g, "-")}}>
-    Du betaler{" "}
-    <span style={{ whiteSpace: "nowrap" }}>
-        348 kr/mnd{" "}
-        <Tooltip
-            content={
-                <span>
-                    Månedsprisen vil variere på fakturaen din gjennom året. Årsprisen er{" "}
-                    <strong>{formatValuta(4176, { suffix: "kr" })}</strong>.
-                </span>
-            }
-            placement={${initialPlacement}}
-        />
-    </span>
-</p>>`;
-};
+return (
+    <p>
+        Kontonummer:{" "}
+        <Tooltip placement="${getPlacement(choiceValues?.["Plassering"])}" delay={${
+    choiceValues?.["Forsinkelse (ms)"] || 250
+}}>
+            <TooltipTrigger onClick={copyToClipboard}>{formatKontonummer(kontonummer)}</TooltipTrigger>
+            <TooltipContent>
+                {copied ? <span aria-live="assertive">Kopiert</span> : "Klikk for å kopiere til utklippstavlen"}
+            </TooltipContent>
+        </Tooltip>
+    </p>
+);`;
