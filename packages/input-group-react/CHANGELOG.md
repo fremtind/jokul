@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-input-group-react@2.1.12...@fremtind/jkl-input-group-react@2.2.0) (2023-07-03)
+
+### Features
+
+- bruk PopupTip for tooltip i skjemaelementer ([a359ca2](https://github.com/fremtind/jokul/commit/a359ca2a16bdb5b3fb09be69f0ec335eb6ef36d3))
+
 ## [2.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-input-group-react@2.1.0...@fremtind/jkl-input-group-react@2.1.1) (2023-05-03)
 
 ### Bug Fixes

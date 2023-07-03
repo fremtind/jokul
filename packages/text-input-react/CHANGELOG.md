@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [13.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@13.0.23...@fremtind/jkl-text-input-react@13.1.0) (2023-07-03)
+
+### Features
+
+- bruk PopupTip for tooltip i skjemaelementer ([a359ca2](https://github.com/fremtind/jokul/commit/a359ca2a16bdb5b3fb09be69f0ec335eb6ef36d3))
+
 ## 13.0.1 (2023-02-10)
 
 ### Bug Fixes

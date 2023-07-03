@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@2.0.18...@fremtind/jkl-tooltip-react@3.0.0) (2023-07-03)
+
+### Bug Fixes
+
+- bruk bedre verdier for min- og maksbredde ([8476c0a](https://github.com/fremtind/jokul/commit/8476c0aa2e3022c5f05435d7a2fa461f8a8ffc51))
+- bruk span for TooltipContent så den kan brukes i avsnitt ([8721bc2](https://github.com/fremtind/jokul/commit/8721bc2b0863f85f0b4a5e8923ab685b681ce7bf))
+
+### Features
+
+- endre default delay til 250ms ([3bf8007](https://github.com/fremtind/jokul/commit/3bf80078a22a3a7b13e49df0db83799f501d0865))
+- ny komponent PopupTip for håndtering av tooltip i labels mm ([23d0453](https://github.com/fremtind/jokul/commit/23d0453926913d28bfa8588518ff28619731cdfc))
+- ny, modulær Tooltip-komponent ([c5aa7e5](https://github.com/fremtind/jokul/commit/c5aa7e5726028357ccb9f91c26e53f0da2ca7173))
+- sørg for at tooltip leses av skjermlesere som en del av innholdet i trigger ([63f3462](https://github.com/fremtind/jokul/commit/63f346203798a3fae462bcba3a01f0d230cc9d1a))
+
+### BREAKING CHANGES
+
+- Nytt API for Tooltip-komponenten
+
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@1.0.24...@fremtind/jkl-tooltip-react@2.0.0) (2023-01-30)
 
 ### Code Refactoring
