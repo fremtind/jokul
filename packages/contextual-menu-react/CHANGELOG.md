@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.3 (2023-07-04)
+
+### Bug Fixes
+
+- spesifiser type for eksportert hook som typescript ikke får inferred ([a12a6fa](https://github.com/fremtind/jokul/commit/a12a6fa3178d98d7a703f0f6e7bae2dac593efaf))
+
 # 2.1.0 (2023-07-03)
 
 ### Bug Fixes
