@@ -1,7 +1,15 @@
 import { FloatingTreeType } from "@floating-ui/react";
 import { useEffect, useState } from "react";
 
-export const useMenuWideEvents = (tree: FloatingTreeType | null, nodeId: string, parentId: string | null) => {
+export const useMenuWideEvents = (
+    tree: FloatingTreeType | null,
+    nodeId: string,
+    parentId: string | null,
+): {
+    allowHover: boolean;
+    isOpen: boolean;
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+} => {
     const [allowHover, setAllowHover] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
