@@ -83,7 +83,7 @@ const Skjemavalideringseksempel: FC = () => {
                         isSubmitted={isSubmitted}
                         isValid={isValid}
                     />
-                    <p className="h4 mb-16">Hvem er eier av forsikringen?</p>
+                    <p className="heading-4 mb-16">Hvem er eier av forsikringen?</p>
                     <TextInput
                         {...register("fodselsnummer", {
                             required: "Du må fylle ut eierens fødselsnummer",

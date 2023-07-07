@@ -10,7 +10,7 @@ import { MainContent } from "../../layout/MainContent";
 const pageTitle = "Lekegrind";
 
 const defaultCode = `
-<h2 className="h2 mb-12">Velkommen hit</h2>
+<h2 className="heading-2 mb-12">Velkommen hit</h2>
 <p className="jkl-portal-paragraph">Her kan du teste Jøkuls komponenter direkte i nettleseren.</p>
 <p className="jkl-portal-paragraph">Bare finn komponenten du vil teste blant Jøkuls komponenter, og lim inn koden i tekstfeltet.</p>
 <NavCard href="/komponenter/card" padding="l" target="_blank" title="Jøkul-komponenter" style={{maxWidth:"360px"}} />
