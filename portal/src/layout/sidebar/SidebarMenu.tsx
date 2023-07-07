@@ -92,7 +92,7 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                         className="jkl-portal-sidebar-menu-item"
                         key={`li-none`}
                     >
-                        <p className="jkl-small">
+                        <p className="small">
                             {filter && (
                                 <>
                                     Fant ingen <span style={{ fontWeight: "bold" }}>{filter} </span> i{" "}

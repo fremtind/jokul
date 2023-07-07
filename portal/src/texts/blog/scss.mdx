@@ -6,53 +6,54 @@ publishDate: "2021.02.12"
 ---
 
 <Ingress>
-    Med Jøkul prøver vi å holde oss oppdatert, både kodemessig, depdencecier, design og med andre ting og trender som beveger seg rundt oss. Nå har Sass-teamet kommet med noen oppdatering, som påvirker hvordan man skal bruke sass filene fra Jøkul.
+    Med Jøkul prøver vi å holde oss oppdatert, både kodemessig, depdencecier, design og med andre ting og trender som
+    beveger seg rundt oss. Nå har Sass-teamet kommet med noen oppdatering, som påvirker hvordan man skal bruke sass
+    filene fra Jøkul.
 </Ingress>
 
 La meg starte med en viktig poeng, dette er nytt, vi har ikke dårlig tid på oss å få fikset dette, men er greit å ta tak i det når det passer. Det er ikke alle implementasjoner av Sass som har full støtte for dette enda, men om du bruker `sass` eller `dart-sass` kan du migrere nå. `node-sass` har ikke støtte per i dag, men om du bruker den bør du vurdere å migrere til referanse implementasjonen `sass`. Det viktige endringen for oss er at `@import` syntaxen gies tilbake til CSS. Per i dag er det måten vi har hentet funksjonalitet og stiler mellom ulike filer, det erstattes nå av `@use` og `@forward`. Dette gjelder kun ved importer av `.scss` filer i `.scss` filer, det påvirker ikke importen til JavaScript eller import av våre bydge `.css` filer.
 
 ```scss
-@import '~@fremtind/jkl-core/_functions.scss';
+@import "@fremtind/jkl-core/_functions.scss";
 
 .my-class {
     height: rem(300px);
 }
-
 ```
 
 Dette blir nå:
+
 ```scss
-@use '~@fremtind/jkl-core/_functions.scss';
+@use "@fremtind/jkl-core/_functions.scss";
 
 .my-class {
     height: functions.rem(300px);
 }
-
 ```
 
 Import blir byttet ut med use, men importen er nå scopet til et namespace, så for å finne funksjonen må den kalles fra namespace. Du kan også sette det namespacet selv om du ønsker.
 
 ```scss
-@use '~@fremtind/jkl-core/mixins/_all.scss' as mix;
+@use "@fremtind/jkl-core/mixins/_all.scss" as mix;
 
 .my-class {
     @include mix.small-device {
         display: none;
     }
 }
-
 ```
 
 Med nye syntaxen har ikke lengre den importete filen tilgang til variablene satt i fila den blir importert til. Det treffer oss for å sette opp fonten vår. For å fikse det må man gi den importerende fila tilgang via `with` syntaxen.
 
 ```scss
 $webfonts-dir: "/relative/path/to/font/files";
-@import "~@fremtind/jkl-webfonts/webfonts.scss";
+@import "@fremtind/jkl-webfonts/webfonts.scss";
 ```
 
 blir til
+
 ```scss
-@use '~@fremtind/jkl-webfonts/webfonts.scss' with (
+@use "@fremtind/jkl-webfonts/webfonts.scss" with (
     $webfonts-dir: "/privat/forsikring/open/fonts"
 );
 ```
@@ -60,6 +61,7 @@ blir til
 Dette er litt kjipt å fikse, men heldigvis har sass-teamet lagd et migrasjonsverktøy som kan fikse de fleste importen (ikke webfonts). [https://sass-lang.com/documentation/cli/migrator](https://sass-lang.com/documentation/cli/migrator).
 
 For å ta alle scss filene i samme slengen kan du gjøre noe ala dette på linux:
+
 ```
 $ find . -type f -name '*.scss' | xargs npx sass-migrator module --verbose --migrate-deps
 ```

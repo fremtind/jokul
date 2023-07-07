@@ -6,20 +6,17 @@ import "./form-field-anatomy.scss";
 
 export const FormFieldAnatomy: FC = () => {
     return (
-        <div className="jkl-spacing-64--bottom">
+        <div className="mb-64">
             <section className="jkl-portal-component-example">
                 <div className="jkl-portal-component-example__example-wrapper">
-                    <form
-                        className="jkl-portal-form-field-anatomy jkl-spacing-40--left"
-                        onSubmit={(e) => e.preventDefault()}
-                    >
+                    <form className="jkl-portal-form-field-anatomy ml-40" onSubmit={(e) => e.preventDefault()}>
                         <span
                             className="jkl-portal-form-field-anatomy__indicator jkl-portal-form-field-anatomy__indicator--heading"
                             aria-hidden="true"
                         >
                             <span className="jkl-portal-form-field-anatomy__indicator-number">1</span>
                         </span>
-                        <p className="jkl-heading-4 jkl-spacing-16--bottom">Forsikringseier</p>
+                        <p className="h4 mb-16">Forsikringseier</p>
                         <span
                             className="jkl-portal-form-field-anatomy__indicator jkl-portal-form-field-anatomy__indicator--label"
                             aria-hidden="true"
@@ -39,7 +36,7 @@ export const FormFieldAnatomy: FC = () => {
                             <span className="jkl-portal-form-field-anatomy__indicator-number">4</span>
                         </span>
                         <TextInput
-                            className="jkl-spacing-24--bottom"
+                            className="mb-24"
                             name="fodselsnummer"
                             label="Fødselsnummer"
                             defaultValue="Input"

@@ -5,7 +5,7 @@ import "./style.scss";
 export const ContentLink: FC<WithChildren> = ({ children }) => (
     <Link
         id="content-skip-link"
-        className="jkl-body jkl-sr-only jkl-sr-only--focusable jkl-portal__skip-to-content"
+        className="body jkl-sr-only jkl-sr-only--focusable jkl-portal__skip-to-content"
         href="#innhold"
     >
         {children}

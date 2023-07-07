@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-validators-util",
-    "version": "2.5.4",
+    "version": "3.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },

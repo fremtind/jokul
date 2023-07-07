@@ -5,7 +5,7 @@ import React from "react";
 export const Experimental: React.FC<WithChildren> = ({ children }) => {
     return (
         <WarningMessageBox
-            className="jkl-portal-paragraph jkl-spacing-40--top jkl-spacing-40--bottom"
+            className="jkl-portal-paragraph my-40"
             title="Eksperimentell komponent"
             role="none presentation"
         >

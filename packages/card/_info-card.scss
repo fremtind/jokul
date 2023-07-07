@@ -1,4 +1,4 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 @include jkl.comfortable-density-variables {
     --jkl-info-card-content-wrapper-gap: #{jkl.$spacing-m};

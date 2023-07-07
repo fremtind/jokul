@@ -11,6 +11,7 @@
 @forward "shadows";
 @forward "spacing" hide $spacing, $combinations, $positions;
 @forward "theme";
+@forward "tokens";
 @forward "typography" hide $text-styles;
 @forward "underline";
 @forward "z-index";

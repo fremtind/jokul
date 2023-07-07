@@ -1,4 +1,4 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-table-header", "body");

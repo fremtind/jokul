@@ -18,7 +18,7 @@ const DemoPage: FC = () => (
         transition={{ duration: 0.35 }}
         className="jkl-portal__main jkl-portal__main--full-width"
     >
-        <h1 className="jkl-title jkl-spacing-2xl--bottom jkl-spacing-2xl--top">Demoer</h1>
+        <h1 className="title my-64">Demoer</h1>
         <p className="jkl-portal-paragraph">
             Demoer viser eksempler på bruk av komponenter i en større sammenheng. Hvert eksempel opner seg i en egen
             fane.

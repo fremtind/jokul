@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 $_card-corner-radius: jkl.rem(2px);
 $_container-width: jkl.rem(660px);

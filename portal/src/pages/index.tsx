@@ -61,7 +61,7 @@ const IndexPage: React.FC = () => {
             <div className="jkl-portal-frontpage">
                 <section className="jkl-portal-frontpage__section-intro">
                     <h1 className="jkl-sr-only">Jøkul Designsystem</h1>
-                    <p className="jkl-heading-1 jkl-portal-frontpage__tagline" data-testid="front-page__tagline">
+                    <p className="h1 jkl-portal-frontpage__tagline" data-testid="front-page__tagline">
                         Velkommen til Jøkul — design&shy;systemet til Fremtind. Her har vi samlet alt du trenger for å
                         lage løsninger i vår profil.
                     </p>
@@ -127,10 +127,10 @@ const IndexPage: React.FC = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <p className="jkl-title" data-testid="title-elevasjon">
+                                        <p className="title" data-testid="title-elevasjon">
                                             Enkelt
                                         </p>
-                                        <p className="jkl-heading-2">
+                                        <p className="h2">
                                             Vi løfter det som er viktig og skaper et naturlig informasjonshierarki.
                                         </p>
                                     </div>
@@ -143,12 +143,10 @@ const IndexPage: React.FC = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <p className="jkl-title" data-testid="title-bevegelse">
+                                        <p className="title" data-testid="title-bevegelse">
                                             Varmt
                                         </p>
-                                        <p className="jkl-heading-2">
-                                            Vi skal utforske, se fremover og være tilpasningsdyktige.
-                                        </p>
+                                        <p className="h2">Vi skal utforske, se fremover og være tilpasningsdyktige.</p>
                                     </div>
                                 </div>
                             )}
@@ -159,10 +157,10 @@ const IndexPage: React.FC = () => {
                             render={(ref) => (
                                 <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <p className="jkl-title" data-testid="title-klarhet">
+                                        <p className="title" data-testid="title-klarhet">
                                             Tydelig
                                         </p>
-                                        <p className="jkl-heading-2">
+                                        <p className="h2">
                                             Vi skal fremstå som ærlig og klar, med en tydelig og varm stemme
                                         </p>
                                     </div>
@@ -174,13 +172,13 @@ const IndexPage: React.FC = () => {
 
                 <section className="jkl-portal-frontpage__section-contribute">
                     <div className="jkl-portal-frontpage__section--wrapper">
-                        <h2 className="jkl-heading-1">Bidra</h2>
-                        <p className="jkl-heading-2">
+                        <h2 className="h1">Bidra</h2>
+                        <p className="h2">
                             Jøkul er et levende designsystem. For at vi skal holde det relevant, er det viktig at alle
                             som bruker designsystemet og merkevareprofilen vår hjelper til med å forbedre det vi har.
                             Send oss en mail eller bidra i GitHub.
                         </p>
-                        <p className="jkl-heading-2">
+                        <p className="h2">
                             Finn oss i Teams kanalen “Support Designsystem” eller kom på åpent forum hver tirsdag 14 til
                             14.30. Her informerer vi om hva som skjer og tar imot innspill.
                         </p>

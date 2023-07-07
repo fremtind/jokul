@@ -18,10 +18,10 @@ I Jøkul har vi en spacing-skala som er basert på pikselstørrelser. Du kan bru
 
 ### Variabler
 
-Sass-variablene kan importeres fra `~@fremtind/jkl-core/jkl`. Husk å bruke riktig importsyntaks for byggverktøyet ditt når du importerer. De kan da brukes slik:
+Sass-variablene kan importeres fra `@fremtind/jkl-core/jkl`. Husk å bruke riktig importsyntaks for byggverktøyet ditt når du importerer. De kan da brukes slik:
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 .jkl-your-component {
     padding-left: jkl.$spacing-12;
@@ -52,7 +52,7 @@ Nytteklassene setter en verdi fra spacingskalaene som margin på elementet som h
 Sass-mixinen `jkl.spacing()` fungerer på samme måte som nytteklassene, ved at den setter marginer på elementet som har klassen den brukes i. Du kan sette samme margin på alle sider, eller spesifisere en av sidene `top`, `right`, `bottom` eller `left`:
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 .jkl-your-component {
     @include jkl.spacing("12"); // tilsvarer margin: jkl.$spacing-12;
@@ -70,7 +70,7 @@ Både CSS-variablene, Sass-mixinen og nytteklassene støtter at spacingen endrer
 Der det veksles mellom to størrelser skjer byttet ved overgangen fra liten til mellomstor skjerm, og der det er tre verdier skjer byttene ved henholdsvis liten/mellomstor- og mellomstor/stor-overgangene.
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 // 16px på små skjermer og 24px på medium skjermer og oppover:
 .jkl-your-component {

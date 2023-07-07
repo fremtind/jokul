@@ -61,9 +61,9 @@ const Skjemavalideringseksempel: FC = () => {
     const onSubmit = (valid: FormValues) => console.table(valid);
 
     return (
-        <MainContent className="jkl-spacing-40--bottom">
-            <div className=" jkl-spacing-64--bottom">
-                <h1 className="jkl-title jkl-spacing-40--bottom">Skjema&shy;validerings&shy;eksempel</h1>
+        <MainContent className="mb-40">
+            <div className="mb-64">
+                <h1 className="title mb-40">Skjema&shy;validerings&shy;eksempel</h1>
             </div>
             <div>
                 <ToggleSlider hideLegend defaultValue={value} labels={["Vanlig", "Kompakt"]} onToggle={setValue}>
@@ -83,7 +83,7 @@ const Skjemavalideringseksempel: FC = () => {
                         isSubmitted={isSubmitted}
                         isValid={isValid}
                     />
-                    <p className="jkl-heading-4 jkl-spacing-16--bottom">Hvem er eier av forsikringen?</p>
+                    <p className="h4 mb-16">Hvem er eier av forsikringen?</p>
                     <TextInput
                         {...register("fodselsnummer", {
                             required: "Du må fylle ut eierens fødselsnummer",
@@ -92,7 +92,7 @@ const Skjemavalideringseksempel: FC = () => {
                                 message: "Fødselsnummeret må bestå av 11 siffer",
                             },
                         })}
-                        className="jkl-spacing-24--bottom"
+                        className="mb-24"
                         label="Fødselsnummer"
                         errorLabel={formState.errors.fodselsnummer?.message}
                     />
@@ -100,7 +100,7 @@ const Skjemavalideringseksempel: FC = () => {
                         {...register("fornavn", {
                             required: "Du må fylle ut eierens fornavn",
                         })}
-                        className="jkl-spacing-24--bottom"
+                        className="mb-24"
                         autoComplete="given-name"
                         label="Fornavn"
                         errorLabel={formState.errors.fornavn?.message}
@@ -109,13 +109,13 @@ const Skjemavalideringseksempel: FC = () => {
                         {...register("etternavn", {
                             required: "Du må fylle ut eierens etternavn",
                         })}
-                        className="jkl-spacing-24--bottom"
+                        className="mb-24"
                         autoComplete="family-name"
                         label="Etternavn"
                         errorLabel={formState.errors.etternavn?.message}
                     />
                     <DatePicker
-                        className="jkl-spacing-24--bottom"
+                        className="mb-24"
                         disableAfterDate={formatInput(new Date())}
                         errorLabel={formState.errors.fodselsdato?.message}
                         label="Fødselsdato"
@@ -132,14 +132,14 @@ const Skjemavalideringseksempel: FC = () => {
                     />
                     <Select
                         {...register("stilling", { required: "Du må oppgi eierens stilling" })}
-                        className="jkl-spacing-40--bottom"
+                        className="mb-40"
                         errorLabel={formState.errors.stilling?.message}
                         items={["Designer", "Utvikler", "Tester", "Leder", "Annet"]}
                         label="Stilling"
                         width="14rem"
                     />
                     <RadioButtonGroup
-                        className="jkl-spacing-24--bottom"
+                        className="mb-24"
                         labelProps={{ variant: "small" }}
                         legend="Under 23"
                         errorLabel={formState.errors.u23?.message}
@@ -161,7 +161,7 @@ const Skjemavalideringseksempel: FC = () => {
                     </RadioButtonGroup>
                     <FieldGroup
                         legend="Er klient"
-                        className="jkl-spacing-40--bottom"
+                        className="mb-40"
                         labelProps={{ variant: "small" }}
                         errorLabel={formState.errors.klient?.message}
                     >

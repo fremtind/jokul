@@ -1,0 +1,177 @@
+---
+title: Tokens, utilityklasser og Jøkul Core versjon 13
+author: William Killerud
+publishDate: "2023.07.07"
+---
+
+<div className="jkl-portal-paragraph">
+    <SuccessMessageBox role="none presentation" fullWidth title="Nye features">
+        <ul className="jkl-list">
+            <li className="jkl-list__item">Variabler (også kjent som design tokens) i Sass, TypeScript, CSS og Less</li>
+            <li className="jkl-list__item">Utilityklasser for layout, inspirert av Tailwind</li>
+        </ul>
+    </SuccessMessageBox>
+</div>
+<div className="jkl-portal-paragraph">
+    <WarningMessageBox role="none presentation" fullWidth title="Breaking changes">
+        <ul className="jkl-list">
+            <li className="jkl-list__item">Utdaterte farger som har vært merket deprecated lenge er nå fjernet.</li>
+            <li className="jkl-list__item">Utilityklasser for farger er fjernet.</li>
+            <li className="jkl-list__item">
+                Tilde-prefikset er fjernet i Sass-koden i Jøkul, noe som kanskje vil trenge konfigurasjonsendringer.
+            </li>
+        </ul>
+    </WarningMessageBox>
+</div>
+
+## Hvorfor en breaking change?
+
+Figma har fått en oppgradering nå i sommer, hvor variabler (også kjent som design tokens) er den nye store snakkisen. Vi ønsker å være i forkant, og generere kode basert på de samme variablene.
+
+Det samlet seg også del teknisk gjeld i Jøkul som det var på tide å gjøre noe med:
+
+-   TypeScript 5 har vært tilgjengelig en stund, men vi ville vente for ikke å risikere typefeil.
+-   Vi har brukt en deprecated feature i Sass, i form av `~`-prefiks i importer fra `node_modules`.
+-   Farger som ikke er en del av profilen har ligget lenge i kode, merket som deprecated.
+-   Vi har hatt et ymse utvalg av utilityklasser, som ikke har vært godt dokumentert eller særlig ergonomiske.
+
+## Hvordan migrere?
+
+### Fjerning av deprecatede farger
+
+Deprecatede fargevariabler er slettet, uten noen erstatning. Fargene skal ha vært ubrukte lenge. Om du fremdeles bruker dem, må du erstatte dem med andre farger. Hvis du er i tvil, velg [en av hovedfargene våre](https://jokul.fremtind.no/profil/farger/).
+
+Det gjelder:
+
+```scss
+jkl.$color-suksess--darkbg;
+jkl.$color-info--darkbg;
+jkl.$color-advarsel--darkbg;
+jkl.$color-feil--darkbg;
+jkl.$color-error-color;
+jkl.$color-error-color--darkbg;
+
+colors.varslingsfarger("feil--alt");
+colors.varslingsfarger("suksess--alt");
+```
+
+### Fjerning av utility-klasser for farger
+
+Disse CSS-klassene er fjernet, uten noen direkte erstatning. Om du trenger én konkret farge kan du bruke CSS-variabler (mer om det lenger ned).
+
+```
+.jkl-color-hvit
+.jkl-bgcolor-hvit
+.jkl-color-snohvit
+.jkl-bgcolor-snohvit
+.jkl-color-sand
+.jkl-bgcolor-sand
+.jkl-color-dis
+.jkl-bgcolor-dis
+.jkl-color-varde
+.jkl-bgcolor-varde
+.jkl-color-svaberg
+.jkl-bgcolor-svaberg
+.jkl-color-stein
+.jkl-bgcolor-stein
+.jkl-color-fjellgra
+.jkl-bgcolor-fjellgra
+.jkl-color-skifer
+.jkl-bgcolor-skifer
+.jkl-color-granitt
+.jkl-bgcolor-granitt
+.jkl-color-svart
+.jkl-bgcolor-svart
+.jkl-color-suksess
+.jkl-bgcolor-suksess
+.jkl-color-info
+.jkl-bgcolor-info
+.jkl-color-advarsel
+.jkl-bgcolor-advarsel
+.jkl-color-feil
+.jkl-bgcolor-feil
+.jkl-color-suksess--darkbg
+.jkl-bgcolor-suksess--darkbg
+.jkl-color-info--darkbg
+.jkl-bgcolor-info--darkbg
+.jkl-color-advarsel--darkbg
+.jkl-bgcolor-advarsel--darkbg
+.jkl-color-feil--darkbg
+.jkl-bgcolor-feil--darbg
+```
+
+#### Bruk CSS-variabler i stedet for utility-klasser for farger
+
+Om du trenger én konkret farge kan du bruke CSS-variabler.
+
+På sikt vil det komme variabler med semantisk betydning, for eksempel for tekstfarge, som automatisk endrer seg med lyst og mørkt tema.
+
+```css
+/** Disse variablene er fremdeles tilgjengelige */
+var(--jkl-color-svart);
+var(--jkl-color-granitt);
+var(--jkl-color-skifer);
+var(--jkl-color-fjellgra);
+var(--jkl-color-stein);
+var(--jkl-color-svaberg);
+var(--jkl-color-varde);
+var(--jkl-color-dis);
+var(--jkl-color-sand);
+var(--jkl-color-snohvit);
+var(--jkl-color-hvit);
+var(--jkl-color-suksess);
+var(--jkl-color-feil);
+var(--jkl-color-info);
+var(--jkl-color-advarsel);
+```
+
+### Fjerning av tilde-prefiks i Sass
+
+Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin `loadPaths` så den
+inkluderer `node_modules`. Om du har konfigurert f. eks. Vite til å tåle tilder i paths kan den konfigurasjonen fjernes.
+
+Her er et eksempel på endring i Gulp:
+
+```diff
+ sass({
++    loadPaths: ["./node_modules"],
+-    importers: [
+-        {
+-            findFileUrl(url) {
+-                if (!url.startsWith("~")) return null;
+-                // Point to the packages node_modules (gulp is invoked in each individual package)
+-                const base = path.join(process.cwd(), "node_modules", "/"); // base must end in /, -otherwise node_modules/ is discarded from the URL.
+-                const resolved = new URL(url.substring(1), pathToFileURL(base));
+-                return resolved;
+-            },
+-        },
+-    ],
+ }).on("error", throwSassError),
+```
+
+## Variabler
+
+Med variabler i Figma åpner det seg store muligheter i måten vi jobber på.
+
+-   Designere og utviklere kan forholde seg til de samme variablene, ikke bare komponenter.
+-   Inspectoren i Figma kan vise konkrete variabelnavn, i stedet for en pixelverdi eller farge som utvikler så må finne igjen i kode.
+
+Rent teknisk vil variabler fra Figma listes opp i en [Style Dictionary](https://amzn.github.io/style-dictionary/), noe som lar oss generere kode for ulike språk.
+
+Vi genererer variabler for:
+
+-   Sass
+-   TypeScript/JavaScript
+-   Less
+-   CSS
+
+Du kan lese mer om hvordan ta de i bruk i en egen [bloggpost om variabler](/blog/variabler).
+
+## Vind – utilityklasser for layout
+
+På frontendforum har det vært diskusjoner om Tailwind og andre utility-baserte verktøy for CSS. Konsensus har vært at det for _layout_ er ganske deilig å ikke måtte navngi og lage egne klasser bare for å få en margin eller standard flex-container.
+
+Siden Jøkul tar seg av styling av komponenter, er layout en av de tingene som gjøres mest ute i teamene. For å gjøre det enklere å lage layouter med Jøkuls spacingverdier, har vi laget et subset av Tailwind som er opt-in.
+
+Les [mer om Vind](/blog/vind) i en egen bloggpost.

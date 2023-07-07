@@ -1,4 +1,4 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 @function _play($color) {
     $c: jkl.urlencodecolor($color);

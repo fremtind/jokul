@@ -84,7 +84,7 @@ export const Image: FC<ImageProps> = ({ className, children, caption, disableFul
                         {children}
                     </motion.div>
                     {!disableFullscreen && !isFullscreen && (
-                        <p className="jkl jkl-small">
+                        <p className="jkl small">
                             {caption && caption} Klikk for å se større{caption && "."}
                         </p>
                     )}
@@ -94,7 +94,7 @@ export const Image: FC<ImageProps> = ({ className, children, caption, disableFul
                         <motion.div layout className="jkl-portal-image__img">
                             {children}
                         </motion.div>
-                        <div className="jkl-small">&nbsp;</div>
+                        <div className="small">&nbsp;</div>
                     </div>
                 )}
             </div>

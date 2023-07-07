@@ -22,9 +22,9 @@ const HeroImage: React.FC<Props> = ({ title, children }) => {
                     }
                     className="jkl-portal-hero__card"
                 >
-                    <h1 className="jkl-title jkl-spacing-40--bottom">{title}</h1>
-                    <p className="jkl-body">{children}</p>
-                    <div className="jkl-portal-hero__card__arrow jkl-title-small jkl-spacing-24--top">↓</div>
+                    <h1 className="title mb-40">{title}</h1>
+                    <p className="body">{children}</p>
+                    <div className="jkl-portal-hero__card__arrow title-small mt-24">↓</div>
                 </button>
             </div>
         </div>

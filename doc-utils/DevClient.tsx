@@ -3,6 +3,7 @@ import { hydrateRoot } from "react-dom/client";
 import { initTabListener } from "../packages/core";
 import "../packages/checkbox/checkbox.scss";
 import "../packages/core/core.scss";
+import "../packages/core/vind.scss";
 import "../packages/expand-button/expand-button.scss";
 import "../packages/icons/icons.scss";
 import "../packages/input-group/input-group.scss";
