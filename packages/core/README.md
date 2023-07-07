@@ -31,6 +31,11 @@ import "@fremtind/jkl-core/core.min.css";
 }
 ```
 
+```less
+// Du finner også variablene fra Jøkul i Less-format her
+@import "@fremtind/jkl-core/tokens.less";
+```
+
 ## Bruk
 
 ### Klassen `jkl`
@@ -140,49 +145,15 @@ Du finner igjen disse tingene du kanskje kjenner fra Tailwind:
 Vi har egne utils for typografi som passer med vår egen typografiskala.
 
 ```scss
-.title {
-    @include jkl.text-style("title");
-}
-
-.title-small {
-    @include jkl.text-style("title-small");
-}
-
-.heading-1 {
-    @include jkl.text-style("heading-1");
-}
-
-.heading-2 {
-    @include jkl.text-style("heading-2");
-}
-
-.heading-3 {
-    @include jkl.text-style("heading-3");
-}
-
-.heading-4 {
-    @include jkl.text-style("heading-4");
-}
-
-.heading-5 {
-    @include jkl.text-style("heading-5");
-}
-
-.body {
-    @include jkl.text-style("body");
-
-    &.font-bold {
-        @include jkl.no-grow-bold;
-    }
-}
-
-.small {
-    @include jkl.text-style("small");
-
-    &.font-bold {
-        @include jkl.no-grow-bold;
-    }
-}
+.title
+.title-small
+.heading-1
+.heading-2
+.heading-3
+.heading-4
+.heading-5
+.body
+.small
 ```
 
 #### Savner du noe fra Tailwind?

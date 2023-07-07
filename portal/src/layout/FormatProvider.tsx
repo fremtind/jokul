@@ -2,7 +2,7 @@ import { NavCard } from "@fremtind/jkl-card-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
-import { InfoMessageBox, WarningMessageBox } from "@fremtind/jkl-message-box-react";
+import { InfoMessageBox, SuccessMessageBox, WarningMessageBox } from "@fremtind/jkl-message-box-react";
 import {
     Table,
     TableBody,
@@ -87,6 +87,7 @@ const components = {
     Experimental,
     InfoMessageBox,
     WarningMessageBox,
+    SuccessMessageBox,
     CodeDemo,
     PortalImage,
     NavCard: withClassName(NavCard, "jkl-portal-nav-card"),
