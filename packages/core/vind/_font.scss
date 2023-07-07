@@ -1,17 +1,19 @@
 @use "../jkl";
 
-.font-sans {
-    @include jkl.use-font-family("Fremtind Grotesk");
-}
+.jkl {
+    .font-sans {
+        @include jkl.use-font-family("Fremtind Grotesk");
+    }
 
-.font-mono {
-    @include jkl.use-font-family("Fremtind Grotesk Mono");
-}
+    .font-mono {
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
+    }
 
-.font-normal {
-    font-weight: jkl.$typography-weight-normal;
-}
+    .font-normal {
+        font-weight: jkl.$typography-weight-normal;
+    }
 
-.font-bold {
-    font-weight: jkl.$typography-weight-bold;
+    .font-bold {
+        font-weight: jkl.$typography-weight-bold;
+    }
 }

@@ -112,7 +112,7 @@ Vind er et subset av [Tailwind CSS](https://tailwindcss.com), med grunnlag i Jø
 
 ```js
 import "@fremtind/jkl-core/core.min.css";
-// Vind trenger core for å fungere
+// Vind trenger core og klassen jkl på rotnivå for å fungere
 import "@fremtind/jkl-core/vind.min.css";
 ```
 
@@ -120,7 +120,7 @@ import "@fremtind/jkl-core/vind.min.css";
 
 ```scss
 @use "@fremtind/jkl-core/core";
-// Vind trenger core for å fungere
+// Vind trenger core og klassen jkl på rotnivå for å fungere
 @use "@fremtind/jkl-core/vind";
 ```
 

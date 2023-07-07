@@ -1,41 +1,43 @@
 @use "../jkl/spacing";
 
-@each $spacing, $value in spacing.$spacing {
-    .p-#{$spacing} {
-        padding: $value;
-    }
+.jkl {
+    @each $spacing, $value in spacing.$spacing {
+        .p-#{$spacing} {
+            padding: $value;
+        }
 
-    .px-#{$spacing} {
-        padding-left: $value;
-        padding-right: $value;
-    }
+        .px-#{$spacing} {
+            padding-left: $value;
+            padding-right: $value;
+        }
 
-    .ps-#{$spacing} {
-        padding-inline-start: $value;
-    }
+        .ps-#{$spacing} {
+            padding-inline-start: $value;
+        }
 
-    .pe-#{$spacing} {
-        padding-inline-end: $value;
-    }
+        .pe-#{$spacing} {
+            padding-inline-end: $value;
+        }
 
-    .py-#{$spacing} {
-        padding-top: $value;
-        padding-bottom: $value;
-    }
+        .py-#{$spacing} {
+            padding-top: $value;
+            padding-bottom: $value;
+        }
 
-    .pt-#{$spacing} {
-        padding-top: $value;
-    }
+        .pt-#{$spacing} {
+            padding-top: $value;
+        }
 
-    .pr-#{$spacing} {
-        padding-right: $value;
-    }
+        .pr-#{$spacing} {
+            padding-right: $value;
+        }
 
-    .pb-#{$spacing} {
-        padding-bottom: $value;
-    }
+        .pb-#{$spacing} {
+            padding-bottom: $value;
+        }
 
-    .pl-#{$spacing} {
-        padding-left: $value;
+        .pl-#{$spacing} {
+            padding-left: $value;
+        }
     }
 }
