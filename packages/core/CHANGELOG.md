@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.0.0 (2023-07-07)
+
+### Bug Fixes
+
+- bruk font-weight for løpende tekst ([7337501](https://github.com/fremtind/jokul/commit/733750134ee1ce741cabb71843f5a54677547558))
+- namespace vind ([07ae4d1](https://github.com/fremtind/jokul/commit/07ae4d1d65df1b39034542dde7d779f56333393e))
+
+### chore
+
+- fjern deprecated fargeklasser ([816d967](https://github.com/fremtind/jokul/commit/816d9673a646f0750a0601384f17c5da257dd78d))
+- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+
+### Features
+
+- generer kjerneverdier ut fra delbare tokens ([a0ab556](https://github.com/fremtind/jokul/commit/a0ab556e823368f1d15970d112bfabb5564a51c4))
+- generer tokens-fil i Less-format ([57aaed8](https://github.com/fremtind/jokul/commit/57aaed8136e52485082090fd9c8f0aaf9c83fdc5))
+- typografitokens ([ed32219](https://github.com/fremtind/jokul/commit/ed322193cc247668b2668e1bcd832f2ff20b5cdf))
+- vind ([1ee7a8e](https://github.com/fremtind/jokul/commit/1ee7a8ecff7bf1b57b73afbc5293f953c86128a7))
+
+### BREAKING CHANGES
+
+- Avhenger av ny majorversjon av core
+- CSS-klassene for farger og bakgrunnsfarger er fjernet. Bruk CSS- eller Sass-variabler og egne
+klasser, og husk å ta høyde for lyst og mørkt tema.
+- Deprecatede fargevariabler og klasser er slettet, uten noen erstatning. Fargene skal ikke lenger
+brukes.
+
 # 12.2.0 (2023-06-15)
 
 ### Features
