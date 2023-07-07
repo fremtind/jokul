@@ -36,7 +36,7 @@ Alle de nye spacingstegene er tilgjengelige som variabler i Sass når du har tat
 
 ```scss
 // For å bruke Sass-variablene må du ta inn jkl-biblioteket
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 .min-komponent {
     padding-top: jkl.$spacing-16;
@@ -69,7 +69,7 @@ Du kan enkelt konvertere fra de gamle til de nye nytteklassene ved å gjøre en 
 Dette er en helt ny mixin som kommer med `jkl`-biblioteket. Akkurat som nytteklassene setter den marginer i klassen de er en del av. Du bruker mixinen slik:
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 .min-komponent {
     @include jkl-spacing("64"); // Setter spacingen på alle sider, lik margin: jkl.$spacing-64;
@@ -99,7 +99,7 @@ Det finnes variabler og nytteklasser med både to og tre steg: Det første stege
 ```
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 .min-komponent {
     @include jkl-spacing("64/104");

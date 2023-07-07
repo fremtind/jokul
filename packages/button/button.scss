@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
 $_flash-animation-name: jkl-flash-#{string.unique-id()};

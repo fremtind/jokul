@@ -1,0 +1,146 @@
+---
+title: Variabler, i Figma og i kode
+author: William Killerud
+publishDate: "2023.07.07"
+---
+
+<div className="jkl-portal-paragraph">
+    <SuccessMessageBox role="none presentation" fullWidth title="Nye features">
+        <ul className="jkl-list">
+            <li className="jkl-list__item">Variabler (også kjent som design tokens) i Figma (ALPHA)</li>
+            <li className="jkl-list__item">Kode generert fra variabler i forskjellige språk</li>
+        </ul>
+    </SuccessMessageBox>
+</div>
+
+Med variabler i Figma åpner det seg store muligheter i måten vi jobber på.
+
+-   Designere og utviklere kan forholde seg til de samme variablene, ikke bare komponenter.
+-   Inspectoren i Figma kan vise konkrete variabelnavn, i stedet for en pixelverdi eller farge som utvikler så må finne igjen i kode.
+
+### Variabler i Figma (ALPHA)
+
+I Figma er arbeidet i gang med å definere semantiske variabler, sånn at vi lettere kan finne fram til riktig farge for riktig situasjon. Heller enn å gjette på hvilken farge som skal brukes ved hover (stein? fjellgrå?), vil du finne en variabel med et navn som beskriver hva den brukes til.
+
+Figma-variablene i Jøkul er fortsatt i ALPHA-stadiet, og vil kunne endre seg uten forvarsel. Om du kan leve med litt brekkasjer her og der ønsker vi likevel at du tester dem og gir oss tilbakemeldinger 🙇
+
+### Nye variabler i kode
+
+På kodesiden vil variabler fra Figma listes opp i en [Style Dictionary](https://amzn.github.io/style-dictionary/), noe som lar oss generere kode for ulike språk.
+
+Vi tyvstarter i [Core 13](/blog/core-13) med varibler for spacing, kjernefarger og typografi – i prinsippet de samme variablene vi har i dag.
+
+Vi genererer variabler for:
+
+-   Sass
+-   TypeScript/JavaScript
+-   Less
+-   CSS
+
+#### Sass
+
+Dette vil fungere som før. Variabelnavnene er uendret, du bruker de akkurat som før.
+
+#### TypeScript/JavaScript
+
+Dette åpner blant annet for at du kan konfigurere opp verktøy som Tailwind eller styled-components til å bruke Jøkul sine variabler.
+
+Her er et eksempel på Tailwind-config:
+
+```js
+import { tokens, breakpoints } from "@fremtind/jkl-core";
+import plugin from "tailwindcss/plugin";
+
+export default {
+    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+    theme: {
+        extend: {},
+        colors: tokens.color,
+        spacing: tokens.spacing,
+        fontSize: null,
+        lineHeight: null,
+    },
+    plugins: [
+        plugin(function ({ addComponents }) {
+            addComponents({
+                ".title": {
+                    ...tokens.typography.title.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.title.base,
+                    },
+                },
+                ".title-small": {
+                    ...tokens.typography.titleSmall.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.titleSmall.base,
+                    },
+                },
+                ".heading-1": {
+                    ...tokens.typography.heading_1.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.heading_1.base,
+                    },
+                },
+                ".heading-2": {
+                    ...tokens.typography.heading_2.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.heading_2.base,
+                    },
+                },
+                ".heading-3": {
+                    ...tokens.typography.heading_3.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.heading_3.base,
+                    },
+                },
+                ".heading-4": {
+                    ...tokens.typography.heading_4.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.heading_4.base,
+                    },
+                },
+                ".heading-5": {
+                    ...tokens.typography.heading_5.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.heading_5.base,
+                    },
+                },
+                ".body": {
+                    ...tokens.typography.body.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.body.base,
+                    },
+                },
+                ".small": {
+                    ...tokens.typography.small.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.small.base,
+                    },
+                },
+            });
+        }),
+    ],
+};
+```
+
+#### Less
+
+Du finner variablene fra Jøkul i Less-format i `@fremtind/jkl-core/tokens.less`.
+
+```less
+@import "@fremtind/jkl-core/tokens.less";
+
+.app-section {
+    margin-block: @spacing-64;
+}
+```
+
+#### CSS-variabler
+
+Om du bruker en annen pre/post-prosessor enn Sass eller Less, kan du bruke CSS-variabler. Disse følger med ut av boksen i `core.css`.
+
+```css
+.app-section {
+    margin-block: var(--jkl-spacing-64);
+}
+```

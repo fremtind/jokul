@@ -1,5 +1,5 @@
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/jkl/colors";
+@use "@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl/colors";
 
 @include jkl.light-mode-variables {
     --jkl-file-color: var(--jkl-color);

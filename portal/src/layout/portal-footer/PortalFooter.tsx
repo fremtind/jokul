@@ -51,7 +51,7 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
                             title: "Takk! Jøkul blir enda bedre med dine tilbakemeldinger.",
                             children: (
                                 <>
-                                    <p className="jkl-spacing-12--bottom">
+                                    <p className="mb-12">
                                         Spill gjerne inn på GitHub, eller delta på forum (hver tirsdag{" "}
                                         <time dateTime="14:00">kl. 14</time>)!
                                     </p>

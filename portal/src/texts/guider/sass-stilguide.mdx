@@ -229,17 +229,17 @@ Mappenavn og filnavn er **ikke** en del av APIet til en pakke og kan endres uten
 **Stabilt**
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-table/table";
+@use "@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-table/table";
 ```
 
 **Ikke stabilt**
 
 ```scss
-@use "~@fremtind/jkl-core/functions";
-@use "~@fremtind/jkl-core/mixins";
-@use "~@fremtind/jkl-core/variables";
-@use "~@fremtind/jkl-table/table-row";
+@use "@fremtind/jkl-core/functions";
+@use "@fremtind/jkl-core/mixins";
+@use "@fremtind/jkl-core/variables";
+@use "@fremtind/jkl-table/table-row";
 ```
 
 ## Variabler
@@ -260,7 +260,7 @@ Alle CSS-variabler prefixes med `jkl` for å synliggjøre at en variabel kommer 
 Noen ganger trengs CSS-variabler internt i komponenten, uten intensjon om at de skal kunne endres utenfra. Om navnet starter med underscore betyr det at variabelen er privat. Disse er ikke en del av APIet og kan endres uten forvarsel.
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
     --jkl-table-row-border-color: #{jkl.$color-svaberg};
@@ -281,7 +281,7 @@ Noen ganger trengs CSS-variabler internt i komponenten, uten intensjon om at de 
 Sass-variabler behandler vi som konstanter som har en fast verdi. Denne verdien kan gi mening å skille ut i en variabel for å unngå duplisering, eller for å tydeliggjøre en relasjon mellom verdier.
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 .jkl-table-row {
     $_border-width: jkl.rem(1px);

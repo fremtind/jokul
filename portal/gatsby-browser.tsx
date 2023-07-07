@@ -8,6 +8,7 @@ import { GatsbyBrowser } from "gatsby";
 import React from "react";
 import { SharedProviders } from "./gatsby-shared-providers";
 import "@fremtind/jkl-core/core.min.css";
+import "@fremtind/jkl-core/vind.min.css";
 import "@fremtind/jkl-accordion/accordion.min.css";
 import "@fremtind/jkl-alert-message/alert-message.min.css";
 import "@fremtind/jkl-breadcrumb/breadcrumb.min.css";

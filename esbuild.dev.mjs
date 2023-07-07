@@ -29,17 +29,7 @@ export async function build(options) {
                 loader: { ".woff": "file", ".woff2": "file", ".jpg": "file", ".png": "file" },
                 plugins: [
                     sassPlugin({
-                        importers: [
-                            {
-                                findFileUrl(url) {
-                                    if (!url.startsWith("~")) return null;
-                                    // Piggypack off the fact portal has them all
-                                    const base = path.join(__dirname, "portal", "node_modules", "/"); // base must end in /, otherwise node_modules/ is discarded from the URL.
-                                    const resolved = new URL(url.substring(1), pathToFileURL(base));
-                                    return resolved;
-                                },
-                            },
-                        ],
+                        loadPaths: ["node_modules"],
                     }),
                 ],
                 ...o,

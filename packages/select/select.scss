@@ -1,8 +1,8 @@
 @charset "UTF-8";
 @use "sass:color";
 @use "sass:math";
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/jkl/colors";
+@use "@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl/colors";
 
 $_select-focus-color: jkl.$color-granitt;
 $_select-search-input-selection-color: color.scale(

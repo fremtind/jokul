@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/jkl/colors";
+@use "@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl/colors";
 
 $_radio-button-dot-padding: jkl.rem(4px);
 $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};

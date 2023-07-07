@@ -62,7 +62,7 @@ export const PortalImage: FC<Props> = ({
                 >
                     <AnimatedImage src={src} alt={alt} {...rest} />
                     {!disableFullscreen && !isFullscreen && !noMargin && (
-                        <p className="jkl jkl-small">
+                        <p className="jkl small">
                             {caption && caption} Klikk for å se større{caption && "."}
                         </p>
                     )}
@@ -70,7 +70,7 @@ export const PortalImage: FC<Props> = ({
                 {isFullscreen && (
                     <div className="jkl-portal-image__content jkl-portal-paragraph">
                         <AnimatedImage src={src} alt={alt} {...rest} />
-                        {!noMargin && <div className="jkl-small">&nbsp;</div>}
+                        {!noMargin && <div className="small">&nbsp;</div>}
                     </div>
                 )}
             </div>

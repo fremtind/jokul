@@ -31,6 +31,11 @@ import "@fremtind/jkl-core/core.min.css";
 }
 ```
 
+```less
+// Du finner også variablene fra Jøkul i Less-format her
+@import "@fremtind/jkl-core/tokens.less";
+```
+
 ## Bruk
 
 ### Klassen `jkl`
@@ -94,4 +99,145 @@ return choices.map(getValuePair).map((choice) => (
         choice.label
     </option>
 ));
+```
+
+### Vind
+
+Vind er et subset av [Tailwind CSS](https://tailwindcss.com), med grunnlag i Jøkuls design tokens, som fokuserer på:
+
+-   Layout, som Flex, Padding, og Margin
+-   Typografi
+
+#### Bruk med Webpack, Vite og liknende
+
+```js
+import "@fremtind/jkl-core/core.min.css";
+// Vind trenger core og klassen jkl på rotnivå for å fungere
+import "@fremtind/jkl-core/vind.min.css";
+```
+
+#### Bruk med Sass
+
+```scss
+@use "@fremtind/jkl-core/core";
+// Vind trenger core og klassen jkl på rotnivå for å fungere
+@use "@fremtind/jkl-core/vind";
+```
+
+#### API
+
+Du finner igjen disse tingene du kanskje kjenner fra Tailwind:
+
+-   [Flex Direction](https://tailwindcss.com/docs/flex-direction)
+-   [Flex Grow](https://tailwindcss.com/docs/flex-grow)
+-   [Flex Shrink](https://tailwindcss.com/docs/flex-shrink)
+-   [Gap](https://tailwindcss.com/docs/gap)
+-   [Justify Content](https://tailwindcss.com/docs/justify-content)
+-   [Align Items](https://tailwindcss.com/docs/align-items)
+-   [Padding](https://tailwindcss.com/docs/padding)
+-   [Margin](https://tailwindcss.com/docs/margin)
+-   [Space Between](https://tailwindcss.com/docs/space)
+-   [Font Family](https://tailwindcss.com/docs/font-family) (`font-serif` finnes ikke)
+-   [Font Weight](https://tailwindcss.com/docs/font-weight) (kun `font-normal` og `font-bold`)
+
+##### Typografi
+
+Vi har egne utils for typografi som passer med vår egen typografiskala.
+
+```scss
+.title
+.title-small
+.heading-1
+.heading-2
+.heading-3
+.heading-4
+.heading-5
+.body
+.small
+```
+
+#### Savner du noe fra Tailwind?
+
+Åpne et issue med feature-ønsker, så kan vi finne ut av det sammen.
+
+#### Jeg vil bruke Tailwind for å bygge løsningene mine. Hvordan bruker jeg Jøkul-verdier?
+
+Per nå har vi ikke noen ferdig konfigurasjon som er klar for Tailwind eller andre utility-baserte verktøy, men vi eksporterer alle design tokens som JavaScript.
+
+Du kan importere tokensene i `tailwind.config.js` og bygge opp konfigurasjonen din på den måten:
+
+```js
+import { tokens, breakpoints } from "@fremtind/jkl-core";
+import plugin from "tailwindcss/plugin";
+
+export default {
+    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+    theme: {
+        extend: {},
+        colors: tokens.color,
+        spacing: tokens.spacing,
+        fontSize: null,
+        lineHeight: null,
+    },
+    plugins: [
+        plugin(function ({ addComponents }) {
+            addComponents({
+                ".title": {
+                    ...tokens.typography.title.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.title.base,
+                    },
+                },
+                ".title-small": {
+                    ...tokens.typography.titleSmall.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.titleSmall.base,
+                    },
+                },
+                ".heading-1": {
+                    ...tokens.typography.heading_1.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.heading_1.base,
+                    },
+                },
+                ".heading-2": {
+                    ...tokens.typography.heading_2.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.heading_2.base,
+                    },
+                },
+                ".heading-3": {
+                    ...tokens.typography.heading_3.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.heading_3.base,
+                    },
+                },
+                ".heading-4": {
+                    ...tokens.typography.heading_4.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.heading_4.base,
+                    },
+                },
+                ".heading-5": {
+                    ...tokens.typography.heading_5.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.heading_5.base,
+                    },
+                },
+                ".body": {
+                    ...tokens.typography.body.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.body.base,
+                    },
+                },
+                ".small": {
+                    ...tokens.typography.small.small,
+                    [`@media (min-width: ${breakpoints.medium}px)`]: {
+                        ...tokens.typography.small.base,
+                    },
+                },
+            });
+        }),
+    ],
+};
 ```

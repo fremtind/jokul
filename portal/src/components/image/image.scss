@@ -1,4 +1,4 @@
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 .jkl-portal-image {
     margin-top: jkl.$spacing-xl;
@@ -38,7 +38,7 @@
             }
         }
 
-        > .jkl-small {
+        > .small {
             margin-top: jkl.$spacing-s;
             text-align: left;
         }

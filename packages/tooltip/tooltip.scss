@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 $_tooltip-border-width: jkl.rem(1px);
 $_tooltip-arrow-height: jkl.rem(8px);

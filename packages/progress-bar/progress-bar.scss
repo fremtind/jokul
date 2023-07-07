@@ -1,5 +1,5 @@
 @use "sass:string";
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
     --jkl-progress-background-color: #{jkl.$color-dis};

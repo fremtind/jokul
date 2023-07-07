@@ -1,0 +1,49 @@
+{
+    "color": {
+        "svart": {
+            "value": "#000"
+        },
+        "granitt": {
+            "value": "#1b1917"
+        },
+        "skifer": {
+            "value": "#313030"
+        },
+        "fjellgra": {
+            "value": "#444141"
+        },
+        "stein": {
+            "value": "#636060"
+        },
+        "svaberg": {
+            "value": "#c8c5c3"
+        },
+        "varde": {
+            "value": "#e0dbd4"
+        },
+        "dis": {
+            "value": "#ece9e5"
+        },
+        "sand": {
+            "value": "#f4f2ef"
+        },
+        "snohvit": {
+            "value": "#f9f9f9"
+        },
+        "hvit": {
+            "value": "#fff"
+        },
+        "suksess": {
+            "value": "#c8ecd2"
+        },
+        "feil": {
+            "value": "#ffc9b2"
+        },
+        "info": {
+            "value": "#d9ddff"
+        },
+        "advarsel": {
+            "value": "#fdeab9"
+        }
+    }
+}

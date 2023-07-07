@@ -17,7 +17,7 @@ export const ComponentPageHeader: FC<ComponentHeaderProps> = ({ title, scss, rea
     }
     return (
         <>
-            <h1 className="jkl-title">{title}</h1>
+            <h1 className="title">{title}</h1>
             <GitHubLinks react={react} scss={scss} versions={versions} />
         </>
     );

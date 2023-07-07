@@ -106,7 +106,7 @@ export const ExampleBase: FC<Props> = ({
 
     return (
         <ExampleContextProvider state={{ theme, density }}>
-            <div className="jkl-spacing-2xl--bottom">
+            <div className="mb-64">
                 <section
                     className={`jkl-portal-component-example ${isWide ? "jkl-portal-component-example--is-wide" : ""}`}
                 >
@@ -152,7 +152,7 @@ export const ExampleBase: FC<Props> = ({
                                             {Object.entries(choiceValues).map(([key, value]) =>
                                                 choices[key].length < 4 ? (
                                                     <RadioButtonGroup
-                                                        className="jkl-spacing-xs--top"
+                                                        className="mt-8"
                                                         name={`${uid}-${hyphenate(key)}`}
                                                         key={`${uid}-${hyphenate(key)}`}
                                                         legend={key}
@@ -168,7 +168,7 @@ export const ExampleBase: FC<Props> = ({
                                                     </RadioButtonGroup>
                                                 ) : (
                                                     <Select
-                                                        className="jkl-spacing-xs--top"
+                                                        className="mt-8"
                                                         value={value}
                                                         onChange={(e) => setChoiceValue(key, e.target.value)}
                                                         label={key}
@@ -200,7 +200,7 @@ export const ExampleBase: FC<Props> = ({
                                 </RadioButtonGroup>
                                 {noDensity ? null : (
                                     <RadioButtonGroup
-                                        className="jkl-spacing-xs--top"
+                                        className="mt-8"
                                         name={`${uid}-density`}
                                         legend="Tetthet"
                                         value={density}
@@ -216,7 +216,7 @@ export const ExampleBase: FC<Props> = ({
                     </aside>
                 </section>
                 {hasMounted && codeExample && (
-                    <CodeSection className="jkl-spacing-m--top">
+                    <CodeSection className="mt-16">
                         <CodeBlock language="tsx">
                             {typeof codeExample === "string"
                                 ? codeExample.trim()

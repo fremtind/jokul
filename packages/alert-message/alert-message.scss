@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "~@fremtind/jkl-core/jkl";
-@use "~@fremtind/jkl-core/jkl/colors";
+@use "@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl/colors";
 
 $_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
 $_dismiss-animation-duration: jkl.timing("lazy");

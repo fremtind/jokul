@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo-react",
-    "version": "12.0.13",
+    "version": "13.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
@@ -37,9 +37,9 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^12.2.0",
-        "@fremtind/jkl-logo": "^10.0.6",
-        "@fremtind/jkl-react-hooks": "^11.5.1",
+        "@fremtind/jkl-core": "^13.0.0-alpha.0",
+        "@fremtind/jkl-logo": "^11.0.0-alpha.0",
+        "@fremtind/jkl-react-hooks": "^12.0.0-alpha.0",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

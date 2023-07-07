@@ -1,5 +1,116 @@
 # Migrasjonsguide
 
+## Til `jkl-core@13.0.0`
+
+### Endring i byggoppsett for Sass
+
+Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin `loadPaths` så den
+inkluderer `node_modules`. Om du har konfigurert f. eks. Vite til å tåle tilder i paths kan den konfigurasjonen fjernes.
+
+Her er et eksempel på endring i Gulp:
+
+```diff
+ sass({
++    loadPaths: ["./node_modules"],
+-    importers: [
+-        {
+-            findFileUrl(url) {
+-                if (!url.startsWith("~")) return null;
+-                // Point to the packages node_modules (gulp is invoked in each individual package)
+-                const base = path.join(process.cwd(), "node_modules", "/"); // base must end in /, -otherwise node_modules/ is discarded from the URL.
+-                const resolved = new URL(url.substring(1), pathToFileURL(base));
+-                return resolved;
+-            },
+-        },
+-    ],
+ }).on("error", throwSassError),
+```
+
+### Fjerning av deprecatede farger
+
+Deprecatede fargevariabler er slettet, uten noen erstatning. Fargene skal ha vært ubrukte lenge. Om du fremdeles bruker dem, må du erstatte dem med andre farger. Hvis du er i tvil, velg [en av hovedfargene våre](https://jokul.fremtind.no/profil/farger/).
+
+Det gjelder:
+
+```scss
+jkl.$color-suksess--darkbg;
+jkl.$color-info--darkbg;
+jkl.$color-advarsel--darkbg;
+jkl.$color-feil--darkbg;
+jkl.$color-error-color;
+jkl.$color-error-color--darkbg;
+
+colors.varslingsfarger("feil--alt");
+colors.varslingsfarger("suksess--alt");
+```
+
+### Fjerning av utility-klasser for farger
+
+Disse CSS-klassene er fjernet, uten noen direkte erstatning:
+
+```
+.jkl-color-hvit
+.jkl-bgcolor-hvit
+.jkl-color-snohvit
+.jkl-bgcolor-snohvit
+.jkl-color-sand
+.jkl-bgcolor-sand
+.jkl-color-dis
+.jkl-bgcolor-dis
+.jkl-color-varde
+.jkl-bgcolor-varde
+.jkl-color-svaberg
+.jkl-bgcolor-svaberg
+.jkl-color-stein
+.jkl-bgcolor-stein
+.jkl-color-fjellgra
+.jkl-bgcolor-fjellgra
+.jkl-color-skifer
+.jkl-bgcolor-skifer
+.jkl-color-granitt
+.jkl-bgcolor-granitt
+.jkl-color-svart
+.jkl-bgcolor-svart
+.jkl-color-suksess
+.jkl-bgcolor-suksess
+.jkl-color-info
+.jkl-bgcolor-info
+.jkl-color-advarsel
+.jkl-bgcolor-advarsel
+.jkl-color-feil
+.jkl-bgcolor-feil
+.jkl-color-suksess--darkbg
+.jkl-bgcolor-suksess--darkbg
+.jkl-color-info--darkbg
+.jkl-bgcolor-info--darkbg
+.jkl-color-advarsel--darkbg
+.jkl-bgcolor-advarsel--darkbg
+.jkl-color-feil--darkbg
+.jkl-bgcolor-feil--darbg
+```
+
+Du kan bruke CSS-variabler for fargene som fremdeles er en del av profilen:
+
+```css
+/** Disse variablene er fremdeles tilgjengelige */
+var(--jkl-color-svart);
+var(--jkl-color-granitt);
+var(--jkl-color-skifer);
+var(--jkl-color-fjellgra);
+var(--jkl-color-stein);
+var(--jkl-color-svaberg);
+var(--jkl-color-varde);
+var(--jkl-color-dis);
+var(--jkl-color-sand);
+var(--jkl-color-snohvit);
+var(--jkl-color-hvit);
+var(--jkl-color-suksess);
+var(--jkl-color-feil);
+var(--jkl-color-info);
+var(--jkl-color-advarsel);
+```
+
 ## Til `jkl-core@12.0.0` - Flytting av labels og ikonstiler
 
 Fra versjon 12 av `jkl-core` er komponentene `Label` og `SupportLabel`, samt deres stiler og typer, flyttet til `jkl-input-group` og `jkl-input-group-react`. I tillegg er stilene for ikonene våre flyttet ut til ikon-pakken.
@@ -241,7 +352,7 @@ I denne oppdateringen er det følgende som blir videresendt: `breakpoints`, `sha
 Under ser du et eksempel:
 
 ```scss
-@use "~@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
+@use "@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
 
 .min-komponent {
     box-shadow: jkl.$drop-shadow--medium; //shadow
@@ -375,7 +486,7 @@ For å ta i bruk fontskalaen i en løsning kan man fortsatt bruke nytteklasser e
 Sass-mixinen har fått et nytt navn, og et litt annet API. Den importeres også fra den nye `jkl`-eksporten i `jkl-core` på samme måte som de nye fargeverdiene fra v5.0.0. Alle typografi-elementer som eksporteres fra denne filen har prefix `typography-`.
 
 ```scss
-@use "~@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
+@use "@fremtind/jkl-core/jkl"; // får automatisk namespace jkl.
 
 .min-komponent {
     // automatisk bytte for stor/liten skjerm:
@@ -402,7 +513,7 @@ Hvis du trenger å overstyre fontvekt eller linjehøyde på tekststilen kan du l
 Variabler for fontvekt eksporteres også fra den nye `jkl`-eksporten, også de med prefix `typography-`.
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 jkl.$typography-weight-normal; // normal fontvekt
 jkl.$typography-weight-bold; // fet fontvekt
@@ -421,7 +532,7 @@ Alle nytteklasser (unntatt `jkl-body` og `jkl-small`) må byttes ut med riktig n
 Sørg for at du importerer `jkl` i alle stilark der du bruker typografi fra Jøkul:
 
 ```scss
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 ```
 
 | Der du før brukte...                              | ...bruk nå                                       |
@@ -491,9 +602,9 @@ Ta gjerne en titt på componentene i portalen eller ta kontakt i Support Designs
 
 ### Hvordan bruke de nye fargestilene i CSS/Sass
 
-Vi har laget en ny eksport fil med `color-`-prefix som vi anbefaler at du tar i bruk. Du skriver da `@use "~@fremtind/jkl-core/jkl";` og skriver `jkl.$color-snovhit` for å bruke den i din stil-fil.
+Vi har laget en ny eksport fil med `color-`-prefix som vi anbefaler at du tar i bruk. Du skriver da `@use "@fremtind/jkl-core/jkl";` og skriver `jkl.$color-snovhit` for å bruke den i din stil-fil.
 Dette ble gjort slik at det skal bli likt når typografi endringen kommer (skal også få prefix);
-Om du ikke har lyst til å endre imports så eksponerer vi også alle fargene som før via `@use "~@fremtind/jkl-core/variables/_colors.scss";`.
+Om du ikke har lyst til å endre imports så eksponerer vi også alle fargene som før via `@use "@fremtind/jkl-core/variables/_colors.scss";`.
 
 Dersom du har brukt de gamle valørene som bakgrunnsfarge eller lignende, kan du bruke denne tabellen som et cheat sheet når du tar i bruk `jkl-core@5.0.0`.
 

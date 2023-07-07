@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "~@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
     --jkl-tab-text-color: #{jkl.$color-granitt};

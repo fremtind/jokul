@@ -5,7 +5,7 @@ import { MainContent } from "../layout/MainContent";
 
 const NotFoundPage: FC = () => (
     <MainContent>
-        <h1 className="jkl-title jkl-spacing-64--bottom jkl-spacing-64--top">Oj sann, der fikk du en blank side!</h1>
+        <h1 className="title my-64">Oj sann, der fikk du en blank side!</h1>
         <p className="jkl-portal-paragraph">
             Det beklager vi. Du kan prøve å:
             <ul>
