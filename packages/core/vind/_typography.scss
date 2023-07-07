@@ -32,7 +32,7 @@
     @include jkl.text-style("body");
 
     &.font-bold {
-        @include jkl.no-grow-bold;
+        font-weight: jkl.$typography-weight-bold;
     }
 }
 
@@ -40,6 +40,6 @@
     @include jkl.text-style("small");
 
     &.font-bold {
-        @include jkl.no-grow-bold;
+        font-weight: jkl.$typography-weight-bold;
     }
 }
