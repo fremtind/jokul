@@ -16,7 +16,7 @@ export const FormFieldAnatomy: FC = () => {
                         >
                             <span className="jkl-portal-form-field-anatomy__indicator-number">1</span>
                         </span>
-                        <p className="h4 mb-16">Forsikringseier</p>
+                        <p className="heading-4 mb-16">Forsikringseier</p>
                         <span
                             className="jkl-portal-form-field-anatomy__indicator jkl-portal-form-field-anatomy__indicator--label"
                             aria-hidden="true"

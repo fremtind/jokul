@@ -39,7 +39,7 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
 
     return (
         <form className="ml-40" onSubmit={handleSubmit((valid) => console.table(valid))}>
-            <p className="h4 mb-16">Hvem er eier av forsikringen?</p>
+            <p className="heading-4 mb-16">Hvem er eier av forsikringen?</p>
             {radioButtonGroup && (
                 <RadioButtonGroup
                     className="mb-24"
