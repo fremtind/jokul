@@ -1,12 +1,17 @@
 @use "@fremtind/jkl-core/jkl";
 
 .jkl-portal-portrait-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: jkl.$spacing-m;
-    row-gap: jkl.$spacing-l;
+    display: grid;
+    column-gap: jkl.$spacing-16;
+    row-gap: jkl.$spacing-24;
     max-width: jkl.rem(750px);
 
-    margin-top: jkl.$spacing-l;
-    margin-bottom: jkl.$spacing-xl;
+    margin-top: jkl.$spacing-24;
+    margin-bottom: jkl.$spacing-40;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    @include jkl.from-medium-device {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
