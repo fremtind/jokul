@@ -16,7 +16,7 @@
     @include jkl.declare-font-variables("jkl-modal-title", "heading-3");
 
     --jkl-modal-padding: #{jkl.$spacing-40};
-    --jkl-modal-min-width: #{jkl.rem(320px)};
+    --jkl-modal-min-width: #{jkl.rem(220px)};
     --jkl-modal-max-width: #{jkl.rem(660px)};
 }
 
@@ -68,6 +68,10 @@
 
     @include jkl.forced-colors-mode {
         border-color: CanvasText;
+    }
+
+    @include jkl.small-device {
+        margin: auto jkl.$spacing-24;
     }
 }
 
