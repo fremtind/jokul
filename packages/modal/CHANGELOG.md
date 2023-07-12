@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.1 (2023-07-12)
+
+### Bug Fixes
+
+- changed margin on jkl-modal for small devices ([a32323c](https://github.com/fremtind/jokul/commit/a32323c46654641b3571b7066fab82eb0fe43608))
+
 # 2.0.0 (2023-07-07)
 
 ### chore
