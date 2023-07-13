@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.1 (2023-07-13)
+
+### Bug Fixes
+
+- rett feil i selector for handlingsknapp i input ([eb46eb3](https://github.com/fremtind/jokul/commit/eb46eb34b569a5859e97c2a4285c324c5734d9df))
+
 # 12.0.0 (2023-07-07)
 
 ### chore
