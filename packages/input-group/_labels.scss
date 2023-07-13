@@ -19,6 +19,7 @@
     pointer-events: none;
 }
 
+$_support-icon-wrapper-entrance-animation-name: jkl-support-icon-wrapper-entrance-#{string.unique-id()};
 $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.unique-id()};
 
 @include jkl.comfortable-density-variables {
@@ -41,11 +42,16 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     @include jkl.use-font-variables("jkl-form-support-label");
     @include jkl.motion("standard", "lazy");
 
-    display: block;
+    display: flex;
     margin: var(--jkl-form-support-label-margin);
     color: var(--jkl-label-support-color);
     transition-property: color;
     transition-delay: jkl.timing("productive");
+
+    &__icon.jkl-icon {
+        display: inline-block;
+        width: 0;
+    }
 
     &__icon .jkl-icon__icon {
         opacity: 0;
@@ -60,6 +66,11 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     &--warning,
     &--success {
         color: var(--jkl-label-error-color);
+
+        .jkl-form-support-label__icon {
+            animation: jkl.timing("lazy") cubic-bezier(0, 0, 0.3, 1) jkl.timing("expressive")
+                $_support-icon-wrapper-entrance-animation-name forwards;
+        }
 
         .jkl-form-support-label__icon .jkl-icon__icon {
             animation: jkl.timing("lazy") cubic-bezier(0, 0, 0.3, 1) jkl.timing("expressive")
@@ -118,6 +129,17 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
 
     &--sr-only {
         @include jkl.screenreader-only;
+    }
+}
+
+@keyframes #{$_support-icon-wrapper-entrance-animation-name} {
+    0% {
+        width: 0;
+    }
+
+    30%,
+    100% {
+        width: calc(var(--jkl-form-support-label-icon-size) + var(--jkl-spacing-12));
     }
 }
 
