@@ -37,6 +37,7 @@ const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(({ className, cl
                         clickable.onClick(e);
                     }
                 }}
+                data-testid="jkl-clickable-table-row"
                 className={cx("jkl-table-row", "jkl-table-row--clickable", className, {
                     ["jkl-table-row--clicked"]: clickable?.markClickedRows && clicked,
                 })}
