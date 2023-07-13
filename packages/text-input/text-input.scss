@@ -132,7 +132,7 @@ $_text-input-selection-color--inverted: color.scale(
             background-color: var(--jkl-text-input-error-selection-color-color);
         }
 
-        & ~ .jkl-text-input__action-button {
+        & ~ .jkl-text-input-action-button {
             color: var(--jkl-text-input-error-placeholder-color);
 
             &:hover {
