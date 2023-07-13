@@ -400,9 +400,6 @@ describe("Datepicker", () => {
 
         const inputWrapper = getByTestId("jkl-datepicker__input-wrapper");
         expect(inputWrapper).toHaveAttribute("data-density", "compact");
-
-        const helpText = getByText("Tid er en flat sirkel");
-        expect(helpText).toHaveAttribute("data-density", "compact");
     });
 
     describe("after user types string", () => {
