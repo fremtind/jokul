@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@11.0.1...@fremtind/jkl-table-react@11.1.0) (2023-07-13)
+
+### Features
+
+- expandableTableRow kan kontrolleres med isOpen ([9be84f1](https://github.com/fremtind/jokul/commit/9be84f193fe9ed4a39291539d03e146e157a49b3)), closes [#3597](https://github.com/fremtind/jokul/issues/3597)
+
 # 11.0.0 (2023-07-07)
 
 ### chore
