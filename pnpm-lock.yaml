@@ -1016,7 +1016,7 @@ importers:
       '@fremtind/jkl-text-input': ^12.0.1
       '@fremtind/jkl-tooltip-react': ^4.0.0
       classnames: ^2.3.2
-      downshift: ^7.6.0
+      downshift: ^8.0.0
       match-sorter: ^6.3.1
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -1027,7 +1027,7 @@ importers:
       '@fremtind/jkl-text-input': link:../text-input
       '@fremtind/jkl-tooltip-react': link:../tooltip-react
       classnames: 2.3.2
-      downshift: 7.6.0
+      downshift: 8.0.0
       match-sorter: 6.3.1
 
   packages/toast:
@@ -4387,7 +4387,7 @@ packages:
       '@motionone/types': 10.15.1
       '@motionone/utils': 10.15.1
       hey-listen: 1.0.8
-      tslib: 2.4.0
+      tslib: 2.5.3
     dev: false
 
   /@motionone/easing/10.15.1:
@@ -9750,8 +9750,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /downshift/7.6.0:
-    resolution: {integrity: sha512-VSoTVynTAsabou/hbZ6HJHUVhtBiVOjQoBsCPcQq5eAROIGP+9XKMp9asAKQ3cEcUP4oe0fFdD2pziUjhFY33Q==}
+  /downshift/8.0.0:
+    resolution: {integrity: sha512-VKO6qjV9OfhhTb0HPLgXANKnRrpLYgmJSwKu0JhlQF/SYl9q/1cYbrBdGGC5BsdRSr95o90m+oa2Ya8w13njvg==}
     peerDependencies:
       react: '>=16.12.0'
     dependencies:
@@ -12970,19 +12970,19 @@ packages:
 
   /graphql-compose/9.0.10:
     resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
-    peerDependencies:
-      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql-type-json: 0.3.2
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /graphql-compose/9.0.10_graphql@15.8.0:
     resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
-    peerDependencies:
-      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql: 15.8.0
       graphql-type-json: 0.3.2_graphql@15.8.0
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /graphql-playground-html/1.6.30:
