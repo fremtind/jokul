@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.1.0 (2023-08-07)
+
+### Features
+
+- add support for isOpen and onToggle props ([e3c641f](https://github.com/fremtind/jokul/commit/e3c641f80f7635625f542a4abd758fdaf520e399)), closes [#3626](https://github.com/fremtind/jokul/issues/3626)
+
 # [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contextual-menu-react@2.1.3...@fremtind/jkl-contextual-menu-react@3.0.0) (2023-07-07)
 
 ### chore
