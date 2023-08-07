@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [19.0.5](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.0.4...@fremtind/portal@19.0.5) (2023-08-07)
+
+### Bug Fixes
+
+- fix color code for varde color ([26d1359](https://github.com/fremtind/jokul/commit/26d13592c91764e7b182bfdf68de230a40f191e0)), closes [#3627](https://github.com/fremtind/jokul/issues/3627)
+
 ## [19.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.0.0...@fremtind/portal@19.0.1) (2023-07-07)
 
 ### Bug Fixes
