@@ -50,6 +50,44 @@ describe("ContextualMenu", () => {
         expect(queryByRole("menuitem")).not.toBeInTheDocument();
     });
 
+    test("should render as open if isOpen prop is true", async () => {
+        const { getByRole } = setup(
+            <ContextualMenu
+                initialPlacement="bottom-start"
+                isOpen={true}
+                triggerElement={
+                    <IconButton title="En kontekstuell meny">
+                        <DotsIcon bold />
+                    </IconButton>
+                }
+            >
+                <ContextualMenuItem>Menyvalg</ContextualMenuItem>
+            </ContextualMenu>,
+        );
+
+        expect(getByRole("menuitem", { name: "Menyvalg" })).toBeInTheDocument();
+    });
+
+    test("should not open if isOpen prop is set to false", async () => {
+        const { getByRole, queryByRole, user } = setup(
+            <ContextualMenu
+                initialPlacement="bottom-start"
+                isOpen={false}
+                triggerElement={
+                    <IconButton title="En kontekstuell meny">
+                        <DotsIcon bold />
+                    </IconButton>
+                }
+            >
+                <ContextualMenuItem>Menyvalg</ContextualMenuItem>
+            </ContextualMenu>,
+        );
+
+        await user.click(getByRole("button", { name: "En kontekstuell meny" }));
+
+        expect(queryByRole("menuitem", { name: "Menyvalg" })).not.toBeInTheDocument();
+    });
+
     test("should open menu options when clicking on trigger element", async () => {
         const { getByRole, user } = setup(
             <ContextualMenu
@@ -99,6 +137,32 @@ describe("ContextualMenu", () => {
 
         const ekspandert = await findByRole("menuitem", { name: "Ekspandert" });
         expect(ekspandert).toBeInTheDocument();
+    });
+
+    test("should call onToggle callback when opening and closing", async () => {
+        const onToggle = jest.fn();
+
+        const { getByRole, user } = setup(
+            <ContextualMenu
+                onToggle={onToggle}
+                initialPlacement="bottom-start"
+                triggerElement={
+                    <IconButton title="En kontekstuell meny">
+                        <DotsIcon bold />
+                    </IconButton>
+                }
+            >
+                <ContextualMenuItem>Menyvalg</ContextualMenuItem>
+            </ContextualMenu>,
+        );
+
+        await user.click(getByRole("button", { name: "En kontekstuell meny" }));
+        await user.click(getByRole("button", { name: "En kontekstuell meny" }));
+
+        // Called with false on mount since menu starts out closed
+        expect(onToggle).toHaveBeenNthCalledWith(1, false);
+        expect(onToggle).toHaveBeenNthCalledWith(2, true);
+        expect(onToggle).toHaveBeenNthCalledWith(3, false);
     });
 
     test("should pass jest-axe tests in default state", async () => {
