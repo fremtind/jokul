@@ -6,9 +6,19 @@ import React, { type FC, useCallback, useState, useRef } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
 import { ContextualMenu, ContextualMenuItemCheckbox } from "../src";
 
-export const contextualMenuToggleSwitchExampleKnobs: ExampleKnobsProps = {};
+export const contextualMenuToggleSwitchExampleKnobs: ExampleKnobsProps = {
+    choiceProps: [
+        {
+            name: "isOpen",
+            values: ["true", "false", "tom"],
+            defaultValue: 2,
+        },
+    ],
+};
 
-export const ContextualMenuToggleSwitchExample: FC<ExampleComponentProps> = () => {
+export const ContextualMenuToggleSwitchExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
+    const isOpen = choiceValues?.["isOpen"] !== "tom" ? choiceValues?.["isOpen"] === "true" : undefined;
+
     const pref = useBrowserPreferences();
     const [colorScheme, setColorScheme] = useState(pref.prefersColorScheme);
 
@@ -48,6 +58,7 @@ export const ContextualMenuToggleSwitchExample: FC<ExampleComponentProps> = () =
         >
             <ContextualMenu
                 initialPlacement="bottom-start"
+                isOpen={isOpen}
                 triggerElement={
                     <IconButton className="jkl-portal-navigation__contextual-menu-trigger" title="Åpne innstillinger">
                         <DotsIcon variant="medium" bold />

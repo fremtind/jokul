@@ -24,7 +24,7 @@ import { WithChildren, type DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useRef, useState } from "react";
+import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useEffect, useRef, useState } from "react";
 import * as ReactIs from "react-is";
 import { useMenuWideEvents } from "./useMenuWideEvents";
 
@@ -51,10 +51,28 @@ export interface ContextualMenuProps
      * `ContextualMenuTriggerButton` fra denne pakken.
      */
     triggerElement: ReactNode;
+    /**
+     * Kan brukes til å styre utenfra om menyen skal være åpen eller ikke.
+     * @default false
+     */
+    isOpen?: boolean;
+    /**
+     * Callback som kalles når menyen åpnes eller lukkes.
+     */
+    onToggle?: (isOpen: boolean) => void;
 }
 
 const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, forwardedRef) => {
-    const { children, className, initialPlacement, openOnHover = false, triggerElement, ...triggerProps } = props;
+    const {
+        children,
+        className,
+        initialPlacement,
+        openOnHover = false,
+        triggerElement,
+        isOpen: isOpenOverride,
+        onToggle,
+        ...triggerProps
+    } = props;
 
     const contextualMenuId = useId("jkl-contextual-menu");
 
@@ -65,7 +83,11 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
 
     const listItemsRef = useRef<Array<HTMLButtonElement | null>>([]);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
-    const { allowHover, isOpen, setIsOpen } = useMenuWideEvents(tree, nodeId, parentId);
+    const { allowHover, isOpen: isOpenDefault, setIsOpen } = useMenuWideEvents(tree, nodeId, parentId);
+
+    const isOpen = isOpenOverride !== undefined ? isOpenOverride : isOpenDefault;
+
+    useEffect(() => onToggle?.(isOpen), [isOpen, onToggle]);
 
     const { x, y, refs, placement, strategy, context } = useFloating({
         nodeId,
