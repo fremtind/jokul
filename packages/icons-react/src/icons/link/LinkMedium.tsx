@@ -1,7 +1,7 @@
 import React, { FC, SVGAttributes } from "react";
 
-export const LinkSmall: FC<SVGAttributes<SVGElement>> = (props) => (
-    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+export const LinkMedium: FC<SVGAttributes<SVGElement>> = (props) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
             fillRule="evenodd"
             clipRule="evenodd"
