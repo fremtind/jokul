@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@8.1.0...@fremtind/jkl-icons-react@8.1.1) (2023-08-08)
+
+### Bug Fixes
+
+- added bold versions of LinkIcon plus fixed file names and a couple of bugs in the d-prop for <p ([409cb62](https://github.com/fremtind/jokul/commit/409cb6238c45d7b5fcb45d177f5224fae4a5b1d4))
+
 # 8.1.0 (2023-08-08)
 
 ### Features
