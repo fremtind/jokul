@@ -24,6 +24,7 @@ import {
     ErrorIcon,
     WarningIcon,
     SuccessIcon,
+    LinkIcon,
 } from "../src";
 import { IconVariant } from "../src/icons/types";
 import { IconExample } from "./internal/IconExample";
@@ -63,6 +64,7 @@ const allIcons = [
     ErrorIcon,
     WarningIcon,
     SuccessIcon,
+    LinkIcon,
 ];
 
 export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
