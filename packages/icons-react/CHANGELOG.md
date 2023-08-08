@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.1.0 (2023-08-08)
+
+### Features
+
+- added new icon LinkIcon ([9454624](https://github.com/fremtind/jokul/commit/9454624ec6f80907ff632d75d9f1cee262eba61d))
+
 # 8.0.0 (2023-07-07)
 
 ### chore
