@@ -26,7 +26,8 @@ describe("TextInput", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.focusInput("boareal").type("Å være eller ikke være");
+                cy.focusInput("boareal");
+                cy.type("Å være eller ikke være");
             },
             teardown: () => {
                 cy.get(".jkl-portal-component-example__example-wrapper input").clear();
@@ -37,7 +38,8 @@ describe("TextInput", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.get('input[value="Med handling"]').check();
-                cy.focusInput("boareal").type("Å være eller ikke være");
+                cy.focusInput("boareal");
+                cy.type("Å være eller ikke være");
             },
             teardown: () => {
                 cy.get('input[value="Med handling"]').check();
@@ -49,7 +51,8 @@ describe("TextInput", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.get('input[value="Med benevnelse"]').check();
-                cy.focusInput("boareal").type("Å være eller ikke være");
+                cy.focusInput("boareal");
+                cy.type("Å være eller ikke være");
             },
             teardown: () => {
                 cy.get('input[value="Med benevnelse"]').check();
@@ -60,7 +63,8 @@ describe("TextInput", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+                cy.focusTextArea("beskrivelse");
+                cy.type("Å være eller ikke være");
             },
             teardown: () => {
                 cy.get(".jkl-portal-component-example__example-wrapper textarea").clear();
@@ -71,7 +75,8 @@ describe("TextInput", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.get('input[value="Med teller"]').check();
-                cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+                cy.focusTextArea("beskrivelse");
+                cy.type("Å være eller ikke være");
             },
             teardown: () => {
                 cy.get('input[value="Med teller"]').check();
@@ -83,7 +88,8 @@ describe("TextInput", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.get('input[value="Med teller"]').check();
-                cy.focusTextArea("beskrivelse").type(
+                cy.focusTextArea("beskrivelse");
+                cy.type(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas sed tempus urna et pharetra pharetra massa massa ultricies. Mollis aliquam ut porttitor leo.",
                 );
             },
@@ -98,7 +104,8 @@ describe("TextInput", () => {
             setup: () => {
                 cy.get('input[value="Med teller"]').check();
                 cy.get('input[value="Skjul progress"]').check();
-                cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+                cy.focusTextArea("beskrivelse");
+                cy.type("Å være eller ikke være");
             },
             teardown: () => {
                 cy.get('input[value="Med teller"]').uncheck();
@@ -112,7 +119,8 @@ describe("TextInput", () => {
             setup: () => {
                 cy.get('input[value="Med teller"]').check();
                 cy.setMedFeil();
-                cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+                cy.focusTextArea("beskrivelse");
+                cy.type("Å være eller ikke være");
             },
             teardown: () => {
                 cy.get('input[value="Med teller"]').uncheck();
@@ -125,7 +133,8 @@ describe("TextInput", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.get('input[value="Med handling"]').check();
-                cy.focusTextArea("beskrivelse").type("Å være eller ikke være");
+                cy.focusTextArea("beskrivelse");
+                cy.type("Å være eller ikke være");
             },
             teardown: () => {
                 cy.get('input[value="Med handling"]').check();

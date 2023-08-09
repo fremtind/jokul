@@ -107,5 +107,16 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "pnpm": {
+        "overrides": {
+            "got@<11.8.5": ">=11.8.5",
+            "engine.io@>=5.1.0 <6.4.2": ">=6.4.2",
+            "semver@<5.7.2": ">=5.7.2",
+            "semver@>=6.0.0 <6.3.1": ">=6.3.1",
+            "semver@>=7.0.0 <7.5.2": ">=7.5.2",
+            "tough-cookie@<4.1.3": ">=4.1.3",
+            "word-wrap@<1.2.4": ">=1.2.4"
+        }
     }
 }

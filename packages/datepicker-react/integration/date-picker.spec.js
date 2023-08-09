@@ -34,7 +34,8 @@ describe("DatePicker", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.focusInput("datepicker").type("24.10.1990");
+                cy.focusInput("datepicker");
+                cy.type("24.10.1990");
             },
             teardown: () => {
                 cy.get(".jkl-datepicker input").clear();
@@ -54,7 +55,8 @@ describe("DatePicker", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.setMedFeil();
-                cy.focusInput("datepicker").type("24.10.1990");
+                cy.focusInput("datepicker");
+                cy.type("24.10.1990");
             },
             teardown: () => {
                 cy.resetMedFeil();
@@ -65,7 +67,8 @@ describe("DatePicker", () => {
         cy.takeSnapshots({
             setup: () => {
                 cy.setDensity("compact").setMedFeil();
-                cy.focusInput("datepicker").type("24.10.1990");
+                cy.focusInput("datepicker");
+                cy.type("24.10.1990");
             },
             teardown: () => {
                 cy.setDensity("comfortable").resetMedFeil();
