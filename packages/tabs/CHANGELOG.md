@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.1 (2023-08-10)
+
+### Bug Fixes
+
+- changed padding on small screens ([db6ca44](https://github.com/fremtind/jokul/commit/db6ca44745ba464994e507a3975f9e358664a240)), closes [#3638](https://github.com/fremtind/jokul/issues/3638)
+
 # 5.0.0 (2023-07-07)
 
 ### chore
