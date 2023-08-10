@@ -80,6 +80,10 @@
     text-decoration: none;
     white-space: nowrap;
 
+    @include jkl.small-device {
+        padding: #{jkl.$spacing-8} #{jkl.$spacing-24} #{jkl.$spacing-12} #{jkl.$spacing-2};
+    }
+
     &:hover {
         color: var(--jkl-tab-hover-color);
     }
