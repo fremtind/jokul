@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-button",
-    "version": "11.0.0",
+    "version": "11.0.1",
     "publishConfig": {
         "access": "public"
     },
@@ -28,7 +28,7 @@
         "dev": "echo \"Error: run dev from button-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^13.0.0"
+        "@fremtind/jkl-core": "^13.0.1"
     },
     "repository": {
         "type": "git",
