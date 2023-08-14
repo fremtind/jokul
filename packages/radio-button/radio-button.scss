@@ -153,7 +153,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
                     &::before {
                         border: 2px solid ButtonText;
                         position: absolute;
-                        inset: rem(-1px) rem(-1px) rem(-1px) rem(-1px);
+                        inset: jkl.rem(-1px) jkl.rem(-1px) jkl.rem(-1px) jkl.rem(-1px);
                     }
                 }
             }
@@ -204,8 +204,8 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             transition-property: transform;
 
             @include jkl.forced-colors-mode {
-                top: rem(3px);
-                left: rem(3px);
+                top: jkl.rem(3px);
+                left: jkl.rem(3px);
             }
         }
 
@@ -246,8 +246,8 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     @include jkl.small-device {
         .jkl-radio-button__dot::after {
             @include jkl.forced-colors-mode {
-                top: rem(2.35px);
-                left: rem(2px);
+                top: jkl.rem(2.35px);
+                left: jkl.rem(2px);
             }
         }
     }

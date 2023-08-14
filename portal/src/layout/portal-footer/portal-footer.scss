@@ -1,7 +1,7 @@
 @use "@fremtind/jkl-core/jkl";
 @use "./cookies";
 
-$_sidebar-width: rem(375px);
+$_sidebar-width: jkl.rem(375px);
 
 .jkl-portal-footer {
     padding-top: jkl.$spacing-24;
