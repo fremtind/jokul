@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.2 (2023-08-14)
+
+### Bug Fixes
+
+- make jokul compatible with sass >= 1.65 ([1e8c79d](https://github.com/fremtind/jokul/commit/1e8c79d897d45f0f2668a574facb27f5d3b90898)), closes [#3642](https://github.com/fremtind/jokul/issues/3642)
+
 ## 12.0.1 (2023-07-13)
 
 ### Bug Fixes
