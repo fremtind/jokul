@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [19.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.0.9...@fremtind/portal@19.1.0) (2023-08-15)
+
+### Features
+
+- pek /beta på prodmiljøet av ny portal ([a1298e7](https://github.com/fremtind/jokul/commit/a1298e73980c5cd4125d5959ea3761abe24f9456))
+
 ## [19.0.9](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.0.8...@fremtind/portal@19.0.9) (2023-08-14)
 
 ### Bug Fixes
