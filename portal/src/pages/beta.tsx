@@ -4,7 +4,7 @@ import { MainContent } from "../layout/MainContent";
 
 export const Head: React.FC = () => <Seo title="Beta av den nye Jøkul-portalen" />;
 
-const betaLink = "https://portalen.distlosn-ds-jkl-preprod.aws.fremtind.no";
+const betaLink = "https://jkl-portal.aws.fremtind.no";
 
 const BetaPage: React.FC = () => {
     if (window.location) {
