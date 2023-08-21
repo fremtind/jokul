@@ -28,6 +28,11 @@
         padding: 0;
         padding-inline-end: var(--chevron-size);
 
+        & option {
+            color: var(--jkl-select-text-color);
+            background-color: var(--jkl-select-open-background-color);
+        }
+
         @include jkl.keyboard-navigation {
             &:focus {
                 outline: jkl.rem(2px) solid var(--jkl-calendar-focus-color);
