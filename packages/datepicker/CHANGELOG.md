@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.3 (2023-08-21)
+
+### Bug Fixes
+
+- explicitly style colors of option element ([55657de](https://github.com/fremtind/jokul/commit/55657de8532e28d53ecf9ad96b5d7ebe995068ed)), closes [#3645](https://github.com/fremtind/jokul/issues/3645)
+
 # 12.0.0 (2023-07-07)
 
 ### chore
