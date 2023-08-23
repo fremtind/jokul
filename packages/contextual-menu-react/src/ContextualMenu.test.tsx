@@ -208,7 +208,12 @@ describe("ContextualMenu", () => {
         await user.click(getByRole("button", { name: "En kontekstuell meny" }));
         expect(getByRole("menuitem", { name: "Ekspanderende" })).toBeInTheDocument();
 
-        const results = await axe(container);
+        const results = await axe(container, {
+            rules: {
+                // Denne klager over focus guards fra FloatingUI, som ikke skal leses opp
+                "aria-command-name": { enabled: false },
+            },
+        });
 
         expect(results).toHaveNoViolations();
     });
@@ -242,7 +247,12 @@ describe("ContextualMenu", () => {
 
         await act(async () => {}); // La @floating-ui posisjonere undermenyen ferdig (https://floating-ui.com/docs/react#testing)
 
-        const results = await axe(container);
+        const results = await axe(container, {
+            rules: {
+                // Denne klager over focus guards fra FloatingUI, som ikke skal leses opp
+                "aria-command-name": { enabled: false },
+            },
+        });
 
         expect(results).toHaveNoViolations();
     });
