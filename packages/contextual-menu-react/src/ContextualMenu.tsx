@@ -173,7 +173,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                             returnFocus={!isNested}
                         >
                             <motion.div
-                                className={cn("jkl-contextual-menu", className)}
+                                className={cn("jkl jkl-contextual-menu", className)}
                                 data-theme={theme}
                                 role="menu"
                                 initial={{ opacity: 0 }}
