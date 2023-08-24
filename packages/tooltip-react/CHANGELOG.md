@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.1.0 (2023-08-24)
+
+### Features
+
+- rendre tooltip i en portal på rot av ([89a5544](https://github.com/fremtind/jokul/commit/89a5544f41c2652f34a3b34b4accf686f42201b3))
+
 # 4.0.0 (2023-07-07)
 
 ### chore

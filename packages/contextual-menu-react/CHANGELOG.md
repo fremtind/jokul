@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.2.0 (2023-08-24)
+
+### Bug Fixes
+
+- sett jkl rotklasse på kontekstuell meny ([871daba](https://github.com/fremtind/jokul/commit/871daba12cd8120b2f86187f3a1754b5cf01354e))
+
+### Features
+
+- rendre contextual meny i en portal på rot ([a3a6407](https://github.com/fremtind/jokul/commit/a3a64074d6e77bbe8f9349df9de8b76e42e8ee8f))
+
 # 3.1.0 (2023-08-07)
 
 ### Features
