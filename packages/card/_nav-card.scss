@@ -8,7 +8,7 @@
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-nav-card-background: #{jkl.$color-svart};
+    --jkl-nav-card-background: #{jkl.$color-skifer};
     --jkl-nav-card-shadow: none;
     --jkl-nav-card-shadow--hover: none;
     --jkl-nav-card-info-border-color: #{jkl.$color-stein};
