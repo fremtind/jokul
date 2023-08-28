@@ -10,7 +10,7 @@
 @include jkl.dark-mode-variables {
     --jkl-accordion-border: #{jkl.$color-stein};
     --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
-    --jkl-accordion-expanded-background: #{jkl.$color-svart};
+    --jkl-accordion-expanded-background: #{jkl.$color-skifer};
 }
 
 @include jkl.comfortable-density-variables {
