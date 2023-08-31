@@ -86,6 +86,8 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const { allowHover, isOpen: isOpenDefault, setIsOpen } = useMenuWideEvents(tree, nodeId, parentId);
 
+    const rootRef = useRef<HTMLDivElement | null>(null);
+
     const isOpen = isOpenOverride !== undefined ? isOpenOverride : isOpenDefault;
 
     useEffect(() => onToggle?.(isOpen), [isOpen, onToggle]);
@@ -142,6 +144,34 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
         theme = parseInt(backgroundColor.replace("#", ""), 16) < 0xffffff / 2 ? "dark" : "light";
     }
 
+    const [density, setDensity] = useState<string | null>(null);
+
+    useEffect(() => {
+        // Vi har samme problemet med density som vi hadde med dark/light men løsnignen er ikke like enkel.
+        // Vi må rett og slett grave oss fram til om det finnes et sted over oss der density settes og passe
+        // på at vi holder oss i sync.
+        if (rootRef.current) {
+            let node = rootRef.current as HTMLElement;
+            let density: string | null = null;
+            while (node && !density) {
+                density = node.getAttribute?.("data-layout-density");
+                if (!density) {
+                    node = node.parentNode as HTMLElement;
+                }
+            }
+            setDensity(density);
+
+            const observer = new MutationObserver(() => {
+                setDensity(node.getAttribute("data-layout-density"));
+            });
+            if (density && node) {
+                observer.observe(node, { attributes: true, attributeFilter: ["data-layout-density"] });
+            }
+            return () => observer.disconnect();
+        }
+        return () => {};
+    }, [setDensity, rootRef.current?.getAttribute]);
+
     return (
         <FloatingNode id={nodeId}>
             {React.isValidElement(triggerElement) &&
@@ -162,83 +192,88 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                   triggerElement}
             <AnimatePresence>
                 {isOpen && (
-                    <FloatingPortal>
-                        <FloatingFocusManager
-                            context={context}
-                            // Prevent outside content interference.
-                            modal={false}
-                            // Only initially focus the root floating menu.
-                            initialFocus={isNested ? -1 : 0}
-                            // Only return focus to the root menu's reference when menus close.
-                            returnFocus={!isNested}
-                        >
-                            <motion.div
-                                className={cn("jkl jkl-contextual-menu", className)}
-                                data-theme={theme}
-                                role="menu"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ ease: "easeIn", duration: 0.1 }}
-                                data-placement={placement}
-                                aria-live="assertive"
-                                aria-hidden={!isOpen}
-                                ref={refs.setFloating}
-                                {...getFloatingProps({
-                                    id: contextualMenuId,
-                                    style: {
-                                        position: strategy,
-                                        top: y ?? "",
-                                        left: x ?? "",
-                                    },
-                                })}
+                    <div ref={rootRef}>
+                        <FloatingPortal>
+                            <FloatingFocusManager
+                                context={context}
+                                // Prevent outside content interference.
+                                modal={false}
+                                // Only initially focus the root floating menu.
+                                initialFocus={isNested ? -1 : 0}
+                                // Only return focus to the root menu's reference when menus close.
+                                returnFocus={!isNested}
                             >
-                                {React.Children.map(children, (child, index) => {
-                                    if (React.isValidElement(child) && ReactIs.isForwardRef(child)) {
-                                        return React.cloneElement(
-                                            child,
-                                            getItemProps({
-                                                ...child.props,
-                                                tabIndex: activeIndex === index ? 0 : -1,
-                                                role: "menuitem",
-                                                ref(node: HTMLButtonElement) {
-                                                    listItemsRef.current[index] = node;
-                                                },
-                                                onClick(event) {
-                                                    child.props.onClick?.(event as React.MouseEvent<HTMLButtonElement>);
-                                                    if (event.defaultPrevented) {
-                                                        return;
-                                                    }
-                                                    tree?.events.emit("click");
-                                                },
-                                                onKeyDown(event) {
-                                                    child.props.onKeyDown?.(event);
-                                                    if (event.defaultPrevented) {
-                                                        return;
-                                                    }
-                                                    tree?.events.emit("keydown");
-                                                    if (
-                                                        event.currentTarget.role === "menuitemcheckbox" &&
-                                                        event.key === "Enter"
-                                                    ) {
-                                                        // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role#keyboard_interactions
-                                                        setIsOpen(false);
-                                                    }
-                                                },
-                                                onMouseEnter() {
-                                                    if (allowHover && isOpen) {
-                                                        setActiveIndex(index);
-                                                    }
-                                                },
-                                            }),
-                                        );
-                                    }
+                                <motion.div
+                                    className={cn("jkl jkl-contextual-menu", className)}
+                                    data-theme={theme}
+                                    data-layout-density={density}
+                                    role="menu"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ ease: "easeIn", duration: 0.1 }}
+                                    data-placement={placement}
+                                    aria-live="assertive"
+                                    aria-hidden={!isOpen}
+                                    ref={refs.setFloating}
+                                    {...getFloatingProps({
+                                        id: contextualMenuId,
+                                        style: {
+                                            position: strategy,
+                                            top: y ?? "",
+                                            left: x ?? "",
+                                        },
+                                    })}
+                                >
+                                    {React.Children.map(children, (child, index) => {
+                                        if (React.isValidElement(child) && ReactIs.isForwardRef(child)) {
+                                            return React.cloneElement(
+                                                child,
+                                                getItemProps({
+                                                    ...child.props,
+                                                    tabIndex: activeIndex === index ? 0 : -1,
+                                                    role: "menuitem",
+                                                    ref(node: HTMLButtonElement) {
+                                                        listItemsRef.current[index] = node;
+                                                    },
+                                                    onClick(event) {
+                                                        child.props.onClick?.(
+                                                            event as React.MouseEvent<HTMLButtonElement>,
+                                                        );
+                                                        if (event.defaultPrevented) {
+                                                            return;
+                                                        }
+                                                        tree?.events.emit("click");
+                                                    },
+                                                    onKeyDown(event) {
+                                                        child.props.onKeyDown?.(event);
+                                                        if (event.defaultPrevented) {
+                                                            return;
+                                                        }
+                                                        tree?.events.emit("keydown");
+                                                        if (
+                                                            event.currentTarget.role === "menuitemcheckbox" &&
+                                                            event.key === "Enter"
+                                                        ) {
+                                                            // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role#keyboard_interactions
+                                                            setIsOpen(false);
+                                                        }
+                                                    },
+                                                    onMouseEnter() {
+                                                        if (allowHover && isOpen) {
+                                                            setActiveIndex(index);
+                                                        }
+                                                    },
+                                                }),
+                                            );
+                                        }
 
-                                    return child;
-                                })}
-                            </motion.div>
-                        </FloatingFocusManager>
-                    </FloatingPortal>
+                                        return child;
+                                    })}
+                                </motion.div>
+                            </FloatingFocusManager>
+                        </FloatingPortal>
+                    </div>
                 )}
             </AnimatePresence>
         </FloatingNode>

@@ -1,22 +1,26 @@
 @use "@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-contextual-menu-item-hover-background-color: #{jkl.$color-sand};
+    --jkl-contextual-menu-item-hover-background-color: #{jkl.$color-dis};
+    --jkl-contextual-menu-item-focus-background-color: #{jkl.$color-varde};
     --jkl-contextual-menu-item-disabled-color: #{jkl.$color-svaberg};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-contextual-menu-item-hover-background-color: #{jkl.$color-skifer};
+    --jkl-contextual-menu-item-hover-background-color: #{jkl.$color-stein};
+    --jkl-contextual-menu-item-focus-background-color: #{jkl.$color-fjellgra};
     --jkl-contextual-menu-item-disabled-color: #{jkl.$color-stein};
 }
 
 @include jkl.comfortable-density-variables {
-    --jkl-contextual-menu-item-height: jkl.rem(48px);
+    --jkl-contextual-menu-item-height: #{jkl.rem(48px)};
+    --jkl-contextual-menu-item-padding: #{jkl.$spacing-8} #{jkl.$spacing-24};
     @include jkl.declare-font-variables("jkl-contextual-menu-item", "body");
 }
 
 @include jkl.compact-density-variables {
     --jkl-contextual-menu-item-height: jkl.rem(32px);
+    --jkl-contextual-menu-item-padding: #{jkl.$spacing-4} #{jkl.$spacing-12};
     @include jkl.declare-font-variables("jkl-contextual-menu-item", "small");
 }
 
@@ -31,13 +35,15 @@
     @include jkl.use-font-variables("jkl-contextual-menu-item");
     display: flex;
     align-items: center;
-    gap: var(--jkl-spacing-8);
+    gap: jkl.$spacing-8;
     width: 100%;
     height: var(--jkl-contextual-menu-item-height);
-    padding: var(--jkl-spacing-8);
+    padding: var(--jkl-contextual-menu-item-padding);
 
     &__content {
-        text-align: start;
+        display: flex;
+        gap: jkl.$spacing-4;
+        justify-content: flex-start;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -53,6 +59,11 @@
     }
 
     &__arrow {
+        display: flex;
+        align-items: center;
+    }
+
+    &__chevron {
         flex-shrink: 0;
     }
 
@@ -61,6 +72,6 @@
     }
 
     &:focus {
-        background-color: var(--jkl-contextual-menu-item-hover-background-color);
+        background-color: var(--jkl-contextual-menu-item-focus-background-color);
     }
 }
