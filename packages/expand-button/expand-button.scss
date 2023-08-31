@@ -4,11 +4,13 @@
 @include jkl.light-mode-variables {
     --jkl-expand-button-text-color: #{jkl.$color-granitt};
     --jkl-expand-button-focus-color: #{jkl.$color-granitt};
+    --jkl-expand-button-hover-color: #{jkl.$color-stein};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-expand-button-text-color: #{jkl.$color-snohvit};
     --jkl-expand-button-focus-color: #{jkl.$color-snohvit};
+    --jkl-expand-button-hover-color: #{jkl.$color-svaberg};
 }
 
 @mixin _expanded-arrow($px) {
@@ -43,17 +45,17 @@
     }
 
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
+        @include _expanded-arrow(3px);
         border: none;
+        color: var(--jkl-expand-button-focus-color);
 
         &::after {
             box-shadow: 0 0 0 $_focus-ring-width var(--jkl-expand-button-focus-color);
         }
     }
 
-    &:hover,
-    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
-        @include _expanded-arrow(3px);
-        color: var(--jkl-expand-button-focus-color);
+    &:hover {
+        color: var(--jkl-expand-button-hover-color);
     }
 
     &--expanded {
