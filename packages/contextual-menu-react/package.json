@@ -36,7 +36,7 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@floating-ui/react": "^0.24.2",
+        "@floating-ui/react": "^0.25.2",
         "@fremtind/jkl-contextual-menu": "^2.0.1",
         "@fremtind/jkl-core": "^13.0.1",
         "@fremtind/jkl-icons-react": "^8.1.2",
