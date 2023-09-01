@@ -245,7 +245,7 @@ jobs:
                   echo "$EOF" >> $GITHUB_ENV
 
             - name: Run Cypress tests
-              uses: cypress-io/github-action@v5
+              uses: cypress-io/github-action@v6
               with:
                   # We install packages above
                   install: false
