@@ -14,7 +14,7 @@ export interface TaskCardProps extends PaddingOptions, WithChildren {
      * Bestemmer bakgrunnsfargen til kortet, på tvers av mørkt eller lyst tema
      * @default "highlighted"
      */
-    background?: "highlighted" | "normal" | "subdued" | "very-subdued";
+    background?: "highlighted" | "normal" | "subdued";
     /**
      * Skal kortet ha skygge?
      * @default false
