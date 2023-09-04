@@ -11,7 +11,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     --jkl-radio-button-background-color: #{jkl.$color-snohvit};
     --jkl-radio-button-focus-color: #{jkl.$color-granitt};
     --jkl-radio-button-focus-background-color: #{jkl.$color-hvit};
-    --jkl-radio-button-error-background-color: #{colors.varslingsfarge("feil")};
+    --jkl-radio-button-error-background-color: #{jkl.$color-feil};
     --jkl-radio-button-error-dot-color: #{jkl.$color-granitt};
     --jkl-radio-button-default-color: #{jkl.$color-stein};
 }
@@ -21,7 +21,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     --jkl-radio-button-background-color: transparent;
     --jkl-radio-button-focus-color: #{jkl.$color-snohvit};
     --jkl-radio-button-focus-background-color: #{jkl.$color-svart};
-    --jkl-radio-button-error-background-color: #{colors.varslingsfarge("feil")};
+    --jkl-radio-button-error-background-color: #{jkl.$color-feil};
     --jkl-radio-button-error-dot-color: #{jkl.$color-granitt};
     --jkl-radio-button-default-color: #{jkl.$color-svaberg};
 }
@@ -51,10 +51,9 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         --jkl-radio-button-height: #{$_mobile-radio-button-height};
         --jkl-radio-button-line-height: #{$_mobile-radio-button-line-height};
         --jkl-radio-button-size: #{$_mobile-radio-button-size};
-        --jkl-radio-button-text-margin: #{(($_mobile-radio-button-height - $_mobile-radio-button-line-height) * 0.5)} 0;
+        --jkl-radio-button-text-margin: #{jkl.$spacing-8} 0;
         --jkl-radio-button-text-transform: translate3d(0, 0, 0);
-        --jkl-radio-button-dot-margin: #{(($_mobile-radio-button-height - $_mobile-radio-button-size) * 0.5)} #{jkl.$spacing-xs}
-            #{(($_mobile-radio-button-height - $_mobile-radio-button-size) * 0.5)} 0;
+        --jkl-radio-button-dot-margin: #{jkl.rem(10px)} #{jkl.$spacing-xs} #{jkl.rem(10px)} 0;
         --jkl-radio-button-dot-size: #{$_mobile-radio-button-size - (2 * $_radio-button-dot-padding)};
     }
 }
@@ -69,10 +68,9 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     --jkl-radio-button-height: #{$_compact-radio-button-height};
     --jkl-radio-button-line-height: #{$_compact-radio-button-line-height};
     --jkl-radio-button-size: #{$_compact-radio-button-size};
-    --jkl-radio-button-text-margin: #{(($_compact-radio-button-height - $_compact-radio-button-line-height) * 0.5)} 0;
+    --jkl-radio-button-text-margin: #{jkl.$spacing-4} 0;
     --jkl-radio-button-text-transform: translate3d(0, 0, 0);
-    --jkl-radio-button-dot-margin: #{(($_compact-radio-button-height - $_compact-radio-button-size) * 0.5)} #{jkl.$spacing-xs}
-        #{(($_compact-radio-button-height - $_compact-radio-button-size) * 0.5)} 0;
+    --jkl-radio-button-dot-margin: #{jkl.rem(7px)} #{jkl.$spacing-xs} #{jkl.rem(7px)} 0;
     --jkl-radio-button-dot-size: #{$_compact-radio-button-size - (2 * $_radio-button-dot-padding)};
 }
 
@@ -253,7 +251,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     }
 
     + .jkl-form-support-label {
-        margin-left: calc(var(--jkl-radio-button-size) + jkl.$spacing-8);
+        margin-left: calc(var(--jkl-radio-button-size) + #{jkl.$spacing-8});
         margin-top: jkl.rem(-6px);
         margin-bottom: jkl.$spacing-8;
     }
