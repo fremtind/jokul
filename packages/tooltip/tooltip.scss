@@ -10,12 +10,14 @@ $_focus-ring-width: jkl.rem(2px);
     --jkl-tooltip-button-color: #{jkl.$color-stein};
     --jkl-tooltip-active-button-color: #{jkl.$color-skifer};
     --jkl-tooltip-bg-color: #{jkl.$color-granitt};
+    --jkl-tooltip-text-color: #{jkl.$color-snohvit};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-tooltip-button-color: #{jkl.$color-svaberg};
     --jkl-tooltip-active-button-color: #{jkl.$color-sand};
-    --jkl-tooltip-bg-color: #{jkl.$color-stein};
+    --jkl-tooltip-bg-color: #{jkl.$color-snohvit};
+    --jkl-tooltip-text-color: #{jkl.$color-granitt};
 }
 
 @include jkl.comfortable-density-variables {
@@ -49,7 +51,7 @@ $_focus-ring-width: jkl.rem(2px);
 .jkl-tooltip-content {
     @include jkl.text-style("small");
     background-color: var(--jkl-tooltip-bg-color);
-    color: jkl.$color-snohvit;
+    color: var(--jkl-tooltip-text-color);
     display: inline-block;
     min-width: min-content;
     max-width: min(jkl.rem(310px), 100%); // 10px mindre enn smaleste støttede skjerm
