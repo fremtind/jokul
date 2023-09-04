@@ -28,8 +28,6 @@ export const PopupTip: FC<PopupTipProps> = ({ content, triggerProps, ...tooltipP
         triggerProps?.onBlur?.(event);
     };
 
-    console.log(isBold);
-
     return (
         <Tooltip triggerOn="click" {...tooltipProps}>
             <TooltipTrigger>
