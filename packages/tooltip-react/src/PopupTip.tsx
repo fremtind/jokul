@@ -1,6 +1,6 @@
 import { QuestionIcon } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
-import React, { useState, type FC, type ReactNode, HTMLProps, FocusEventHandler, MouseEventHandler } from "react";
+import React, { useState, type FC, type ReactNode, HTMLProps, FocusEventHandler } from "react";
 import { Tooltip, type TooltipProps } from "./Tooltip";
 import { TooltipContent } from "./TooltipContent";
 import { TooltipTrigger } from "./TooltipTrigger";
@@ -27,14 +27,8 @@ export const PopupTip: FC<PopupTipProps> = ({ content, triggerProps, ...tooltipP
         setIsBold(false);
         triggerProps?.onBlur?.(event);
     };
-    const handleMouseOver: MouseEventHandler<HTMLButtonElement> = (event) => {
-        setIsBold(true);
-        triggerProps?.onMouseOver?.(event);
-    };
-    const handleMouseOut: MouseEventHandler<HTMLButtonElement> = (event) => {
-        setIsBold(false);
-        triggerProps?.onMouseOut?.(event);
-    };
+
+    console.log(isBold);
 
     return (
         <Tooltip triggerOn="click" {...tooltipProps}>
@@ -42,9 +36,7 @@ export const PopupTip: FC<PopupTipProps> = ({ content, triggerProps, ...tooltipP
                 <button
                     {...triggerProps}
                     onFocus={handleFocus}
-                    onMouseOver={handleMouseOver}
                     onBlur={handleBlur}
-                    onMouseOut={handleMouseOut}
                     type="button"
                     className={cn("jkl-tooltip-question-button", triggerProps?.className)}
                 >

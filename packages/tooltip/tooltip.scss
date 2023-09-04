@@ -7,15 +7,15 @@ $_focus-ring-distance: jkl.rem(-1px); // Negativ margin for å unngå subpixel m
 $_focus-ring-width: jkl.rem(2px);
 
 @include jkl.light-mode-variables {
-    --jkl-tooltip-button-color: #{jkl.$color-stein};
-    --jkl-tooltip-active-button-color: #{jkl.$color-skifer};
+    --jkl-tooltip-button-color: #{jkl.$color-granitt};
+    --jkl-tooltip-active-button-color: #{jkl.$color-stein};
     --jkl-tooltip-bg-color: #{jkl.$color-granitt};
     --jkl-tooltip-text-color: #{jkl.$color-snohvit};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-tooltip-button-color: #{jkl.$color-svaberg};
-    --jkl-tooltip-active-button-color: #{jkl.$color-sand};
+    --jkl-tooltip-button-color: #{jkl.$color-snohvit};
+    --jkl-tooltip-active-button-color: #{jkl.$color-svaberg};
     --jkl-tooltip-bg-color: #{jkl.$color-snohvit};
     --jkl-tooltip-text-color: #{jkl.$color-granitt};
 }
@@ -105,7 +105,6 @@ $_focus-ring-width: jkl.rem(2px);
     color: var(--jkl-tooltip-button-color);
     transform: translateY(max(0.16em, jkl.rem(4px))); // Cap på 4px
 
-    &:focus,
     &:hover {
         color: var(--jkl-tooltip-active-button-color);
     }
