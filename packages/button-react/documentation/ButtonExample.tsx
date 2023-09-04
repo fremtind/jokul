@@ -9,8 +9,8 @@ export const buttonExampleKnobs: ExampleKnobsProps = {
     boolProps: ["withLoader", "isLoading"],
     choiceProps: [
         {
-            name: "Pil",
-            values: ["uten", "left", "right"],
+            name: "Ikon",
+            values: ["uten", "arrow-left", "arrow-right"],
             defaultValue: 0,
         },
     ],

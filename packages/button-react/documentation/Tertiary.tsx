@@ -5,7 +5,8 @@ import { TertiaryButton } from "../src";
 export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [showLoader, setShowLoader] = useState(false);
     const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
-    const arrow = choiceValues?.["Pil"] === "uten" ? undefined : (choiceValues?.["Pil"] as "left" | "right");
+    const icon =
+        choiceValues?.["Ikon"] === "uten" ? undefined : (choiceValues?.["Ikon"] as "arrow-left" | "arrow-right");
 
     const simulateLoading = () => {
         console.log("Hello!");
@@ -20,7 +21,7 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVa
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
-            arrow={arrow}
+            icon={icon}
         >
             Avbryt
         </TertiaryButton>
@@ -39,7 +40,7 @@ export const tertiaryCode = ({ boolValues, choiceValues }: ExampleComponentProps
     }}
     onClick={simulateLoading}
     className="jkl-spacing-l--right"
-    ${choiceValues?.["Pil"] === "uten" ? "" : `arrow="${choiceValues?.["Pil"]}"`}
+    ${choiceValues?.["Ikon"] === "uten" ? "" : `arrow="${choiceValues?.["Pil"]}"`}
 >
     Avbryt
 </TertiaryButton>
