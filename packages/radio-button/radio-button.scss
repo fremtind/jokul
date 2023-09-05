@@ -105,7 +105,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
                 background-color: currentColor;
 
                 @include jkl.forced-colors-mode {
-                    background-color: Highlight;
+                    background-color: ButtonText;
                 }
             }
 
