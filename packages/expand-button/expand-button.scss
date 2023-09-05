@@ -55,6 +55,7 @@
     }
 
     &:hover {
+        @include _expanded-arrow(3px);
         color: var(--jkl-expand-button-hover-color);
     }
 
