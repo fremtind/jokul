@@ -1,3 +1,4 @@
+import { ArrowLeftIcon, ArrowRightIcon } from "@fremtind/jkl-icons-react";
 import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { PrimaryButton } from "../src";
@@ -21,7 +22,8 @@ export const Primary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
-            icon={icon}
+            iconLeft={icon === "arrow-left" ? <ArrowLeftIcon /> : null}
+            iconRight={icon === "arrow-right" ? <ArrowRightIcon /> : null}
         >
             Lagre og send inn
         </PrimaryButton>

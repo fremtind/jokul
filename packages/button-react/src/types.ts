@@ -8,30 +8,8 @@ export interface Props extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, 
         showLoader: boolean;
         textDescription: string;
     };
-    icon?:
-        | "arrow-left"
-        | "arrow-right"
-        | "plus"
-        | "close"
-        | "check"
-        | "search"
-        | "hamburger"
-        | "calendar"
-        | "arrow-north-east"
-        | "arrow-up"
-        | "arrow-down"
-        | "chevron-down"
-        | "chevron-left"
-        | "chevron-right"
-        | "chevron-up"
-        | "copy"
-        | "dots"
-        | "question"
-        | "info"
-        | "error"
-        | "warning"
-        | "success"
-        | "link";
+    iconLeft?: ReactNode;
+    iconRight?: ReactNode;
     children: ReactNode;
 }
 

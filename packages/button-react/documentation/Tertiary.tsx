@@ -1,3 +1,4 @@
+import { ArrowLeftIcon, ArrowRightIcon } from "@fremtind/jkl-icons-react";
 import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { TertiaryButton } from "../src";
@@ -21,7 +22,8 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVa
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
-            icon={icon}
+            iconLeft={icon === "arrow-left" ? <ArrowLeftIcon /> : null}
+            iconRight={icon === "arrow-right" ? <ArrowRightIcon /> : null}
         >
             Avbryt
         </TertiaryButton>

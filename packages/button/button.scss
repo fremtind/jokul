@@ -36,8 +36,8 @@ $_focus-ring-width: jkl.rem(2px);
     --jkl-button-min-width: #{jkl.rem(104px)};
     --jkl-button-padding: 0 #{jkl.$spacing-24};
     --jkl-button-tertiary-padding: 0 #{jkl.$spacing-2};
-    --jkl-button-children-padding-with-arrow: #{jkl.$spacing-2};
-    --jkl-button-tertiary-padding-with-arrow: 0;
+    --jkl-button-children-padding-with-icon: #{jkl.$spacing-2};
+    --jkl-button-tertiary-padding-with-icon: 0;
     --jkl-button-focus-ring-placement: -#{($_button-border-width + $_focus-ring-distance)};
 
     @include jkl.small-device {
@@ -52,8 +52,8 @@ $_focus-ring-width: jkl.rem(2px);
     --jkl-button-min-width: #{jkl.rem(76px)};
     --jkl-button-padding: 0 #{jkl.$spacing-12};
     --jkl-button-tertiary-padding: 0 #{jkl.$spacing-2};
-    --jkl-button-children-padding-with-arrow: #{jkl.$spacing-2};
-    --jkl-button-tertiary-padding-with-arrow: #{jkl.$spacing-2};
+    --jkl-button-children-padding-with-icon: #{jkl.$spacing-2};
+    --jkl-button-tertiary-padding-with-icon: #{jkl.$spacing-2};
     --jkl-button-focus-ring-placement: -#{($_button-border-width + calc($_focus-ring-distance / 2))};
 }
 
@@ -238,56 +238,35 @@ a.jkl-button {
         }
     }
 
-    &--right-arrow,
-    &--left-arrow,
-    &--plus,
-    &--close,
-    &--check,
-    &--search,
-    &--hamburger,
-    &--calendar,
-    &--arrow-north-east,
-    &--arrow-up,
-    &--arrow-down,
-    &--chevron-down,
-    &--chevron-left,
-    &--chevron-right,
-    &--chevron-up,
-    &--copy,
-    &--dots,
-    &--question,
-    &--info,
-    &--error,
-    &--warning,
-    &--success,
-    &--link {
+    &--icon-left,
+    &--icon-right {
         .jkl-button__icon {
             display: inline-block;
             vertical-align: sub;
         }
     }
 
-    &--left-arrow {
+    &--icon-left {
         padding-left: jkl.$spacing-8;
 
         .jkl-button__children {
-            padding-left: var(--jkl-button-children-padding-with-arrow);
+            padding-left: var(--jkl-button-children-padding-with-icon);
         }
 
         &.jkl-button--tertiary {
-            padding-left: var(--jkl-button-tertiary-padding-with-arrow);
+            padding-left: var(--jkl-button-tertiary-padding-with-icon);
         }
     }
 
-    &--right-arrow {
+    &--icon-right {
         padding-right: jkl.$spacing-8;
 
         .jkl-button__children {
-            padding-right: var(--jkl-button-children-padding-with-arrow);
+            padding-right: var(--jkl-button-children-padding-with-icon);
         }
 
         &.jkl-button--tertiary {
-            padding-right: var(--jkl-button-tertiary-padding-with-arrow);
+            padding-right: var(--jkl-button-tertiary-padding-with-icon);
         }
     }
 
