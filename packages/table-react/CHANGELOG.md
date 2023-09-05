@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.1.5 (2023-09-05)
+
+### Bug Fixes
+
+- deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
+
 # [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@11.0.1...@fremtind/jkl-table-react@11.1.0) (2023-07-13)
 
 ### Features
