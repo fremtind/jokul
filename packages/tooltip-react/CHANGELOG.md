@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.2.0 (2023-09-05)
+
+### Features
+
+- changed stateful styling for QuestionIcon ([dcd9cb6](https://github.com/fremtind/jokul/commit/dcd9cb6c2b9e3df2bfa0cfc99d1a3619daf2a01c))
+
 # 4.1.0 (2023-08-24)
 
 ### Features
