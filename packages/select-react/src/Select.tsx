@@ -488,7 +488,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                             hidden={showSearchInputField}
                             type="button"
                             name={`${name}-btn`}
-                            className="jkl-select__button"
+                            className={cn("jkl-select__button", {
+                                "jkl-select__button--active-value": !!selectedValue,
+                            })}
                             data-testid="jkl-select__button"
                             aria-label={`${selectedValueLabel || "Velg"},${label}`}
                             aria-expanded={dropdownIsShown}
