@@ -1,7 +1,7 @@
 import type { LabelVariant } from "@fremtind/jkl-input-group-react";
-import React, { useState, FC } from "react";
+import React, { FC, useState } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { Select, NativeSelect } from "../src";
+import { NativeSelect, Select } from "../src";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Native", "Med hjelpetekst", "Med feil", "Med tooltip", "Med søk", "Med sekundærtekst"],
@@ -35,7 +35,8 @@ const getMaxChoices = (rawMaxChoices?: string) => {
 };
 
 export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const C = boolValues && boolValues["Native"] ? NativeSelect : Select;
+    const isNativeSelect = boolValues && boolValues["Native"];
+    const C = isNativeSelect ? NativeSelect : Select;
 
     const values = [
         {
@@ -103,7 +104,7 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
             onBlur={(event) => {
                 console.log("Blur: ", event);
             }}
-            maxShownOptions={maxChoices}
+            {...(isNativeSelect ? {} : { maxShownOptions: maxChoices })}
         />
     );
 };
