@@ -3,72 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 15.0.7 (2023-09-05)
+
+### Bug Fixes
+
+-   deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
+
 # 15.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # 14.3.0 (2023-05-11)
 
 ### Features
 
-- legg til mulighet for å styre hvor mange år som vises i listen ([d9750c8](https://github.com/fremtind/jokul/commit/d9750c81422ddefe57543147b91b7cabb15e8fdd)), closes [#3478](https://github.com/fremtind/jokul/issues/3478)
+-   legg til mulighet for å styre hvor mange år som vises i listen ([d9750c8](https://github.com/fremtind/jokul/commit/d9750c81422ddefe57543147b91b7cabb15e8fdd)), closes [#3478](https://github.com/fremtind/jokul/issues/3478)
 
 # [14.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@14.1.4...@fremtind/jkl-datepicker-react@14.2.0) (2023-03-23)
 
 ### Bug Fixes
 
-- bedre håndtering av fokus i kalenderen ([9964651](https://github.com/fremtind/jokul/commit/996465151af4610d42b90ab1db83cd9fb67a99f0))
-- flytt kalenderkontroller utenfor loop ([b56e419](https://github.com/fremtind/jokul/commit/b56e4192fea6f87650639efd574fa3ee42ff6973))
-- gjenoprett expanded-prop som deprecated for å unngå breaking change ([1414d69](https://github.com/fremtind/jokul/commit/1414d694699d042cd7e414e43e4823209d453b2b))
-- håndter fokus av datoer der du ikke kan velge den første i måneden ([bcdd7c2](https://github.com/fremtind/jokul/commit/bcdd7c207f63a151d433ef2123b2fa427818e03d))
-- håndter inntasting av ufullstendige datoer ([b60993f](https://github.com/fremtind/jokul/commit/b60993fe63c5193ffb51236cf22349e5dac27998))
-- håndter tastaturfokus når man går til første eller siste måned ([8d4c453](https://github.com/fremtind/jokul/commit/8d4c4533a969ec43d743c11f5d5e9e22d7c63309))
-- håndter visning i kalenderen hvis dagens dato er utenfor valgbare datoer ([40bf72c](https://github.com/fremtind/jokul/commit/40bf72c0f3e41d3617a941ce4d75c215f9105241))
-- ikke gå ut av fullskjerm når du trykker escape for å lukke kalenderen ([b01edc4](https://github.com/fremtind/jokul/commit/b01edc4125f5089e07b0ebb0ee884f53bb96b097))
-- ikke hopp forbi første/siste måned med årsvelgeren ([39a9fd9](https://github.com/fremtind/jokul/commit/39a9fd99b4c6617dbe1b18603fde834b36a3d0c4))
-- ikke vis alle måneder i dropdown hvis siste valgbare måned er januar ([5f07ae3](https://github.com/fremtind/jokul/commit/5f07ae32166d5493658ff5302aa37779fe3c0be2))
-- la kalenderen alltid forholde seg til min- og maksdato ved åpning ([e76c9dd](https://github.com/fremtind/jokul/commit/e76c9dd945962dc4fb7a20194072ee2d938ac36a))
-- sørg for at dropdown i kalenderen støtter dark mode ([7e204bb](https://github.com/fremtind/jokul/commit/7e204bbc5105402e62714a08eda95bfba6eaf7c1))
-- sørg for at ikke to datoer i samme måned kan fokuseres ([de96ab9](https://github.com/fremtind/jokul/commit/de96ab9266d7c4c51fb7faad95034a7dcf8ef810))
+-   bedre håndtering av fokus i kalenderen ([9964651](https://github.com/fremtind/jokul/commit/996465151af4610d42b90ab1db83cd9fb67a99f0))
+-   flytt kalenderkontroller utenfor loop ([b56e419](https://github.com/fremtind/jokul/commit/b56e4192fea6f87650639efd574fa3ee42ff6973))
+-   gjenoprett expanded-prop som deprecated for å unngå breaking change ([1414d69](https://github.com/fremtind/jokul/commit/1414d694699d042cd7e414e43e4823209d453b2b))
+-   håndter fokus av datoer der du ikke kan velge den første i måneden ([bcdd7c2](https://github.com/fremtind/jokul/commit/bcdd7c207f63a151d433ef2123b2fa427818e03d))
+-   håndter inntasting av ufullstendige datoer ([b60993f](https://github.com/fremtind/jokul/commit/b60993fe63c5193ffb51236cf22349e5dac27998))
+-   håndter tastaturfokus når man går til første eller siste måned ([8d4c453](https://github.com/fremtind/jokul/commit/8d4c4533a969ec43d743c11f5d5e9e22d7c63309))
+-   håndter visning i kalenderen hvis dagens dato er utenfor valgbare datoer ([40bf72c](https://github.com/fremtind/jokul/commit/40bf72c0f3e41d3617a941ce4d75c215f9105241))
+-   ikke gå ut av fullskjerm når du trykker escape for å lukke kalenderen ([b01edc4](https://github.com/fremtind/jokul/commit/b01edc4125f5089e07b0ebb0ee884f53bb96b097))
+-   ikke hopp forbi første/siste måned med årsvelgeren ([39a9fd9](https://github.com/fremtind/jokul/commit/39a9fd99b4c6617dbe1b18603fde834b36a3d0c4))
+-   ikke vis alle måneder i dropdown hvis siste valgbare måned er januar ([5f07ae3](https://github.com/fremtind/jokul/commit/5f07ae32166d5493658ff5302aa37779fe3c0be2))
+-   la kalenderen alltid forholde seg til min- og maksdato ved åpning ([e76c9dd](https://github.com/fremtind/jokul/commit/e76c9dd945962dc4fb7a20194072ee2d938ac36a))
+-   sørg for at dropdown i kalenderen støtter dark mode ([7e204bb](https://github.com/fremtind/jokul/commit/7e204bbc5105402e62714a08eda95bfba6eaf7c1))
+-   sørg for at ikke to datoer i samme måned kan fokuseres ([de96ab9](https://github.com/fremtind/jokul/commit/de96ab9266d7c4c51fb7faad95034a7dcf8ef810))
 
 ### Features
 
--  bruk riktig verdi for kalenderstate, css ([d602714](https://github.com/fremtind/jokul/commit/d602714efcb97ec1b207866b616cd2ec870b6564))
-- bedre aria-labels for nedtrekkslister i kalenderen ([099d0e6](https://github.com/fremtind/jokul/commit/099d0e6ed83fb524eb2a1d4803dca51997fe7e27))
-- extend supported date format variants ([d81bfc0](https://github.com/fremtind/jokul/commit/d81bfc087313d18edfba0b891e18d909d4d277ae))
-- fjern mer ubrukt kode, oppdater state for select ([434ce22](https://github.com/fremtind/jokul/commit/434ce2261dac78a21dd20587ceb98f44f91ed128))
-- fjern ubrukt css ([d21860a](https://github.com/fremtind/jokul/commit/d21860a02756858094770940854a9445aa02bdc7))
-- fjern utvidet velger, legg til nytt oppsett ([73e6472](https://github.com/fremtind/jokul/commit/73e6472057d547a3c874e59ebe7e8811544616ed))
-- håndter blaing i kalenderen uten å endre valgt dato (pluss litt stiler) ([5ff3bee](https://github.com/fremtind/jokul/commit/5ff3bee30c3bf6752b0fc389b52c69ac86527993))
-- legg til ekstra år dersom vi ikke har min/max-datoer ([e8d7063](https://github.com/fremtind/jokul/commit/e8d706317929c16b04c78f83a78ea8d89f31113e))
-- legg til util for bygging av options-array for år ([5b2081a](https://github.com/fremtind/jokul/commit/5b2081a9f6ed4b1799dac9f308c32245ca2c1820))
+-   bruk riktig verdi for kalenderstate, css ([d602714](https://github.com/fremtind/jokul/commit/d602714efcb97ec1b207866b616cd2ec870b6564))
+-   bedre aria-labels for nedtrekkslister i kalenderen ([099d0e6](https://github.com/fremtind/jokul/commit/099d0e6ed83fb524eb2a1d4803dca51997fe7e27))
+-   extend supported date format variants ([d81bfc0](https://github.com/fremtind/jokul/commit/d81bfc087313d18edfba0b891e18d909d4d277ae))
+-   fjern mer ubrukt kode, oppdater state for select ([434ce22](https://github.com/fremtind/jokul/commit/434ce2261dac78a21dd20587ceb98f44f91ed128))
+-   fjern ubrukt css ([d21860a](https://github.com/fremtind/jokul/commit/d21860a02756858094770940854a9445aa02bdc7))
+-   fjern utvidet velger, legg til nytt oppsett ([73e6472](https://github.com/fremtind/jokul/commit/73e6472057d547a3c874e59ebe7e8811544616ed))
+-   håndter blaing i kalenderen uten å endre valgt dato (pluss litt stiler) ([5ff3bee](https://github.com/fremtind/jokul/commit/5ff3bee30c3bf6752b0fc389b52c69ac86527993))
+-   legg til ekstra år dersom vi ikke har min/max-datoer ([e8d7063](https://github.com/fremtind/jokul/commit/e8d706317929c16b04c78f83a78ea8d89f31113e))
+-   legg til util for bygging av options-array for år ([5b2081a](https://github.com/fremtind/jokul/commit/5b2081a9f6ed4b1799dac9f308c32245ca2c1820))
 
 # [14.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@14.0.0...@fremtind/jkl-datepicker-react@14.1.0) (2023-02-02)
 
 ### Features
 
-- extend supported date format variants ([d81bfc0](https://github.com/fremtind/jokul/commit/d81bfc087313d18edfba0b891e18d909d4d277ae))
+-   extend supported date format variants ([d81bfc0](https://github.com/fremtind/jokul/commit/d81bfc087313d18edfba0b891e18d909d4d277ae))
 
 # [14.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@13.0.1...@fremtind/jkl-datepicker-react@14.0.0) (2023-01-30)
 
 ### Bug Fixes
 
-- bruk nytt API for BaseTextInput i DatePicker ([422cab2](https://github.com/fremtind/jokul/commit/422cab25e7e751ad54c6629e3417107a9761229f))
+-   bruk nytt API for BaseTextInput i DatePicker ([422cab2](https://github.com/fremtind/jokul/commit/422cab25e7e751ad54c6629e3417107a9761229f))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- du må nå importere stilen til jkl-icon for at DatePicker skal vises riktig
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   du må nå importere stilen til jkl-icon for at DatePicker skal vises riktig
 
 # [13.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@12.0.36...@fremtind/jkl-datepicker-react@13.0.0) (2023-01-16)
 

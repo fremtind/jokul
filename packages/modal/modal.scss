@@ -18,6 +18,14 @@
     --jkl-modal-padding: #{jkl.$spacing-40};
     --jkl-modal-min-width: #{jkl.rem(220px)};
     --jkl-modal-max-width: #{jkl.rem(660px)};
+    --jkl-modal-header-margin: 0 0 #{jkl.$spacing-24};
+    --jkl-modal-actions-margin: #{jkl.$spacing-40} 0 0 0;
+
+    @include jkl.small-device {
+        --jkl-modal-padding: #{jkl.$spacing-32};
+        --jkl-modal-header-margin: 0 0 #{jkl.$spacing-16};
+        --jkl-modal-actions-margin: #{jkl.$spacing-32} 0 0 0;
+    }
 }
 
 @include jkl.compact-density-variables {
@@ -25,6 +33,8 @@
     @include jkl.declare-font-variables("jkl-modal-title", "heading-4");
 
     --jkl-modal-padding: #{jkl.$spacing-24};
+    --jkl-modal-header-margin: 0 0 #{jkl.$spacing-12};
+    --jkl-modal-actions-margin: #{jkl.$spacing-24} 0 0 0;
     --jkl-modal-min-width: #{jkl.rem(220px)};
 }
 
@@ -80,7 +90,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--jkl-spacing-24);
+    margin: var(--jkl-modal-header-margin);
     gap: var(--jkl-modal-gap);
 }
 
@@ -93,7 +103,7 @@
 }
 
 .jkl-modal-actions {
-    margin-top: var(--jkl-spacing-40);
+    margin: var(--jkl-modal-actions-margin);
     display: flex;
     flex-direction: row;
     gap: jkl.$spacing-16;

@@ -3,29 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.5 (2023-09-05)
+
+### Bug Fixes
+
+-   deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
+
 # 5.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # [4.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tag-react@3.0.20...@fremtind/jkl-tag-react@4.0.0) (2023-01-30)
 
 ### Bug Fixes
 
-- juster padding og spacing i tag for nytt ikon ([e557691](https://github.com/fremtind/jokul/commit/e5576913baee9a9f33e7f00cf5a082b73429b1b6))
+-   juster padding og spacing i tag for nytt ikon ([e557691](https://github.com/fremtind/jokul/commit/e5576913baee9a9f33e7f00cf5a082b73429b1b6))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 3.0.13 (2022-11-22)
 
