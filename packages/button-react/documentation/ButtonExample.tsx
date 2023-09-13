@@ -10,7 +10,7 @@ export const buttonExampleKnobs: ExampleKnobsProps = {
     choiceProps: [
         {
             name: "Ikon",
-            values: ["uten", "arrow-left", "arrow-right"],
+            values: ["uten", "arrow-left", "arrow-right", "begge"],
             defaultValue: 0,
         },
     ],

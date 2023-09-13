@@ -7,7 +7,9 @@ export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues, choiceV
     const [showLoader, setShowLoader] = useState(false);
     const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
     const icon =
-        choiceValues?.["Ikon"] === "uten" ? undefined : (choiceValues?.["Ikon"] as "arrow-left" | "arrow-right");
+        choiceValues?.["Ikon"] === "uten"
+            ? undefined
+            : (choiceValues?.["Ikon"] as "arrow-left" | "arrow-right" | "begge");
 
     const simulateLoading = () => {
         console.log("Hello!");
@@ -22,8 +24,8 @@ export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues, choiceV
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
-            iconLeft={icon === "arrow-left" ? <ArrowLeftIcon /> : null}
-            iconRight={icon === "arrow-right" ? <ArrowRightIcon /> : null}
+            iconLeft={icon === "arrow-left" || icon === "begge" ? <ArrowLeftIcon /> : null}
+            iconRight={icon === "arrow-right" || icon === "begge" ? <ArrowRightIcon /> : null}
         >
             Lagre
         </SecondaryButton>
@@ -42,7 +44,10 @@ export const secondaryCode = ({ boolValues, choiceValues }: ExampleComponentProp
     }}
     onClick={simulateLoading}
     className="jkl-spacing-l--right"
-    ${choiceValues?.["Ikon"] === "uten" ? "" : `"${choiceValues?.["Ikon"]}"`}
+    iconLeft={${choiceValues?.["Ikon"] === "arrow-left" || choiceValues?.["Ikon"] === "begge" ? `<ArrowLeft />` : null}}
+    iconRight={${
+        choiceValues?.["Ikon"] === "arrow-right" || choiceValues?.["Ikon"] === "begge" ? `<ArrowRight />` : null
+    }}
 >
     Lagre
 </SecondaryButton>
