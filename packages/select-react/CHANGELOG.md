@@ -3,33 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.1.0 (2023-09-13)
+
+### Features
+
+- updated to match Figma changes ([58b9a58](https://github.com/fremtind/jokul/commit/58b9a5872af595c07d8e68a70d04e876cd7ec5af)), closes [#3662](https://github.com/fremtind/jokul/issues/3662)
+
 ## 14.0.5 (2023-09-05)
 
 ### Bug Fixes
 
-- deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
+-   deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
 
 # 14.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # 13.1.0 (2023-06-05)
 
 ### Features
 
-- åpne for sekundærtekst på Select ([42c7c99](https://github.com/fremtind/jokul/commit/42c7c99c64fc3a22ecb8860bc72b4ff00d3b0c53))
+-   åpne for sekundærtekst på Select ([42c7c99](https://github.com/fremtind/jokul/commit/42c7c99c64fc3a22ecb8860bc72b4ff00d3b0c53))
 
 ## [13.0.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@13.0.12...@fremtind/jkl-select-react@13.0.13) (2023-05-03)
 
 ### Bug Fixes
 
-- rett opp timingproblem for defaultValue ([e520625](https://github.com/fremtind/jokul/commit/e5206259e9cf4c25fe306adbacc77d24edd4ee7b)), closes [#3500](https://github.com/fremtind/jokul/issues/3500)
+-   rett opp timingproblem for defaultValue ([e520625](https://github.com/fremtind/jokul/commit/e5206259e9cf4c25fe306adbacc77d24edd4ee7b)), closes [#3500](https://github.com/fremtind/jokul/issues/3500)
 
 ## 13.0.11 (2023-04-03)
 

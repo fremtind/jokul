@@ -7,36 +7,36 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
+-   deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
 
 # 13.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 ## 12.1.9 (2023-07-03)
 
 ### Bug Fixes
 
-- la komponenten være controlled ([4f5be87](https://github.com/fremtind/jokul/commit/4f5be87e83d7b202964dc4fc008ed5f6d09e525a))
-- send riktig pressed i onChange når kontrollert og default checked ([34461f7](https://github.com/fremtind/jokul/commit/34461f798deb27b1c66ee879a86dee541e7943f2))
+-   la komponenten være controlled ([4f5be87](https://github.com/fremtind/jokul/commit/4f5be87e83d7b202964dc4fc008ed5f6d09e525a))
+-   send riktig pressed i onChange når kontrollert og default checked ([34461f7](https://github.com/fremtind/jokul/commit/34461f798deb27b1c66ee879a86dee541e7943f2))
 
 ## [12.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@12.1.2...@fremtind/jkl-toggle-switch-react@12.1.3) (2023-05-22)
 
 ### Bug Fixes
 
-- wrap kodeeksempel i blokk, og unngå dynamisk import av react i typer ([9fe2885](https://github.com/fremtind/jokul/commit/9fe2885be4c86129826aba5cc137d1794ea06326))
+-   wrap kodeeksempel i blokk, og unngå dynamisk import av react i typer ([9fe2885](https://github.com/fremtind/jokul/commit/9fe2885be4c86129826aba5cc137d1794ea06326))
 
 # [12.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toggle-switch-react@12.0.0...@fremtind/jkl-toggle-switch-react@12.1.0) (2023-05-15)
 
 ### Features
 
-- legg til støtte for swipe på ToggleSlider ([414b21a](https://github.com/fremtind/jokul/commit/414b21ace4b3f1ceb4cfbaef259560b7d0f237ef))
+-   legg til støtte for swipe på ToggleSlider ([414b21a](https://github.com/fremtind/jokul/commit/414b21ace4b3f1ceb4cfbaef259560b7d0f237ef))
 
 # 12.0.0 (2023-05-11)
 

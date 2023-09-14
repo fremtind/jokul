@@ -329,6 +329,8 @@ export const Combobox: FC<ComboboxProps> = ({
         [setShowMenu, onItemClick, dropdownRef],
     );
 
+    const hasSelection = selectedValue.length >= 1;
+
     return (
         <InputGroup
             label={label}
@@ -338,7 +340,7 @@ export const Combobox: FC<ComboboxProps> = ({
             className={cn("jkl-combobox", className, {
                 "jkl-combobox--invalid": !!errorLabel || invalid,
                 "jkl-combobox--menu-open": showMenu,
-                "jkl-combobox--menu-closed": !showMenu && selectedValue.length >= 1,
+                "jkl-combobox--menu-closed": !showMenu && hasSelection,
             })}
             labelProps={{
                 id: labelId,
@@ -348,12 +350,14 @@ export const Combobox: FC<ComboboxProps> = ({
             errorLabel={errorLabel}
             density={density}
             render={(inputProps) => (
-                <div className="jkl-combobox__wrapper" style={{ width }}>
+                <div
+                    className={cn("jkl-combobox__wrapper", { "jkl-combobox__wrapper--active-value": hasSelection })}
+                    style={{ width }}
+                >
                     <div className="jkl-combobox__tags" data-testid="jkl-combobox__tags">
                         {selectedValue.map(getComboboxValuePair).map((option) => (
                             <Tag
                                 key={option.value}
-                                density="compact"
                                 className="jkl-tag"
                                 data-testid="jkl-tag"
                                 dismissAction={{

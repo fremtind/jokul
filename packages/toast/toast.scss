@@ -10,7 +10,19 @@
 
 @include jkl.dark-mode-variables {
     --jkl-toast-color: #{jkl.$color-snohvit};
-    --jkl-toast-background-color: #{jkl.$color-svart};
+    --jkl-toast-background-color: #{jkl.$color-skifer};
+}
+
+@include jkl.comfortable-density-variables {
+    --jkl-toast-padding: #{jkl.$spacing-16};
+
+    @include jkl.small-device {
+        --jkl-toast-padding: #{jkl.$spacing-12};
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-toast-padding: #{jkl.$spacing-8};
 }
 
 .jkl-toast-region {
@@ -44,15 +56,15 @@
     @include jkl.text-style("body");
     color: var(--jkl-toast-color);
     background-color: var(--jkl-toast-background-color);
-    border-radius: jkl.rem(2px);
+    border-radius: 4px;
     box-sizing: border-box;
     display: grid;
     align-items: start;
     overflow: hidden;
     width: 100%;
     max-width: min(30rem, 85vw);
-    $_inline-padding: jkl.$spacing-16;
-    padding: 0 #{$_inline-padding} #{jkl.$spacing-16} #{$_inline-padding};
+    padding: var(--jkl-toast-padding);
+    padding-top: 0;
 
     @include jkl.small-device {
         grid-template-areas:
@@ -72,7 +84,7 @@
         --jkl-progress-background-color: transparent;
         grid-area: progress;
         margin-bottom: jkl.$spacing-16;
-        margin-inline: -#{$_inline-padding}; // Motvirk padding for å gå kant i kant.
+        margin-inline: calc(-1 * var(--jkl-toast-padding)); // Motvirk padding for å gå kant i kant.
 
         .jkl-countdown {
             border-radius: 0;
@@ -96,7 +108,7 @@
 
     &__title {
         @include jkl.text-style("heading-4");
-        margin: 0 0 jkl.$spacing-8 0;
+        margin: 0 0 jkl.$spacing-4 0;
 
         & ~ .jkl-toast__message {
             margin-top: 0; // Unset offset satt for å aligne med ikon hvis uten tittel.
