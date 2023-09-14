@@ -7,62 +7,62 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- changed stateful styling for QuestionIcon ([dcd9cb6](https://github.com/fremtind/jokul/commit/dcd9cb6c2b9e3df2bfa0cfc99d1a3619daf2a01c))
-- new colors for light/dark mode ([7085c87](https://github.com/fremtind/jokul/commit/7085c879673b9dcd6641fc19bc8bd6823c70b4d1))
+-   changed stateful styling for QuestionIcon ([dcd9cb6](https://github.com/fremtind/jokul/commit/dcd9cb6c2b9e3df2bfa0cfc99d1a3619daf2a01c))
+-   new colors for light/dark mode ([7085c87](https://github.com/fremtind/jokul/commit/7085c879673b9dcd6641fc19bc8bd6823c70b4d1))
 
 # 4.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 # [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip@2.0.6...@fremtind/jkl-tooltip@3.0.0) (2023-07-03)
 
 ### Bug Fixes
 
-- bruk bedre verdier for min- og maksbredde ([8476c0a](https://github.com/fremtind/jokul/commit/8476c0aa2e3022c5f05435d7a2fa461f8a8ffc51))
-- legg til fokusindikasjon på standard triggerkomponent ([b8dbaf9](https://github.com/fremtind/jokul/commit/b8dbaf9aec449ee0504252543dd329ab42a568c6))
+-   bruk bedre verdier for min- og maksbredde ([8476c0a](https://github.com/fremtind/jokul/commit/8476c0aa2e3022c5f05435d7a2fa461f8a8ffc51))
+-   legg til fokusindikasjon på standard triggerkomponent ([b8dbaf9](https://github.com/fremtind/jokul/commit/b8dbaf9aec449ee0504252543dd329ab42a568c6))
 
 ### Features
 
-- ny komponent PopupTip for håndtering av tooltip i labels mm ([23d0453](https://github.com/fremtind/jokul/commit/23d0453926913d28bfa8588518ff28619731cdfc))
-- ny, modulær Tooltip-komponent ([c5aa7e5](https://github.com/fremtind/jokul/commit/c5aa7e5726028357ccb9f91c26e53f0da2ca7173))
+-   ny komponent PopupTip for håndtering av tooltip i labels mm ([23d0453](https://github.com/fremtind/jokul/commit/23d0453926913d28bfa8588518ff28619731cdfc))
+-   ny, modulær Tooltip-komponent ([c5aa7e5](https://github.com/fremtind/jokul/commit/c5aa7e5726028357ccb9f91c26e53f0da2ca7173))
 
 ### BREAKING CHANGES
 
-- Nytt API for Tooltip-komponenten
+-   Nytt API for Tooltip-komponenten
 
 ## 2.0.3 (2023-03-21)
 
 ### Bug Fixes
 
-- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+-   sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
 
 # 2.0.0 (2023-01-30)
 
 ### Code Refactoring
 
-- bruk spørsmålsikon fra ikonpakka i Tooltip ([a6a8fae](https://github.com/fremtind/jokul/commit/a6a8fae77178f3401514c5f574b81ba05a92a5d5))
+-   bruk spørsmålsikon fra ikonpakka i Tooltip ([a6a8fae](https://github.com/fremtind/jokul/commit/a6a8fae77178f3401514c5f574b81ba05a92a5d5))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå importere stilarket fra jkl-icons dersom du bruker Tooltip
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå importere stilarket fra jkl-icons dersom du bruker Tooltip
 
 ## 1.0.7 (2022-11-22)
 

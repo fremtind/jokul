@@ -7,17 +7,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
+-   deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
 
 # 6.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # [5.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-footer-react@4.0.5...@fremtind/jkl-footer-react@5.0.0) (2023-02-23)
 
