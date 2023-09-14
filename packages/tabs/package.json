@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tabs",
-    "version": "5.0.2",
+    "version": "5.0.3",
     "publishConfig": {
         "access": "public"
     },
@@ -24,7 +24,7 @@
         "dev": "echo \"Error: run dev from tabs-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^13.0.1"
+        "@fremtind/jkl-core": "^13.1.0"
     },
     "repository": {
         "type": "git",
