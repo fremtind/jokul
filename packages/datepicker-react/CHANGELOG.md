@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@15.0.7...@fremtind/jkl-datepicker-react@15.1.0) (2023-09-14)
+
+### Features
+
+- updated to match Figma changes ([c739e4c](https://github.com/fremtind/jokul/commit/c739e4cac27ffe18e2eccad7472d4db12ea8d4a1)), closes [#3664](https://github.com/fremtind/jokul/issues/3664)
+
 ## 15.0.7 (2023-09-05)
 
 ### Bug Fixes
