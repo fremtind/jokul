@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.1.0 (2023-09-14)
+
+### Features
+
+- updated to match Figma changes ([e20e8d2](https://github.com/fremtind/jokul/commit/e20e8d248158615387900acab2650b0566153c54)), closes [#3666](https://github.com/fremtind/jokul/issues/3666)
+
 ## 13.0.1 (2023-08-14)
 
 ### Bug Fixes
