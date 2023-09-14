@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@6.0.2...@fremtind/jkl-expand-button@6.1.0) (2023-09-14)
+
+### Features
+
+- updated to match Figma changes ([f8fae4a](https://github.com/fremtind/jokul/commit/f8fae4aa20a339362689298217fa0e5770935107)), closes [#3665](https://github.com/fremtind/jokul/issues/3665)
+
 # 6.0.0 (2023-07-07)
 
 ### chore
