@@ -1,4 +1,3 @@
-import { ArrowLeftIcon, ArrowRightIcon } from "@fremtind/jkl-icons-react";
 import { Loader } from "@fremtind/jkl-loader-react";
 import { useAriaLiveRegion } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -7,7 +6,7 @@ import { BaseButton } from "./BaseButton";
 import { Props, ValidButtons } from "./types";
 const makeButtonComponent = (buttonType: ValidButtons) => {
     const Button = forwardRef<HTMLButtonElement, Props>((props, ref) => {
-        const { children, className, density, onClick, onTouchStart, loader, arrow, ...rest } = props;
+        const { children, className, density, onClick, onTouchStart, loader, iconLeft, iconRight, ...rest } = props;
 
         const handleTouch = useCallback(
             (event: TouchEvent<HTMLButtonElement>) => {
@@ -33,8 +32,8 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                 {...ariaLive}
                 data-density={density}
                 className={cn("jkl-button", "jkl-button--" + buttonType, className, {
-                    "jkl-button--left-arrow": arrow === "left",
-                    "jkl-button--right-arrow": arrow === "right",
+                    "jkl-button--icon-left": iconLeft,
+                    "jkl-button--icon-right": iconRight,
                 })}
                 disabled={loader?.showLoader}
                 onClick={onClick}
@@ -48,9 +47,9 @@ const makeButtonComponent = (buttonType: ValidButtons) => {
                             "jkl-button__slider--show-loader": !!loader?.showLoader,
                         })}
                     >
-                        {arrow === "left" && <ArrowLeftIcon className="jkl-button__arrow" bold />}
+                        {iconLeft && <span className="jkl-button__icon">{iconLeft}</span>}
                         <span className="jkl-button__children">{children}</span>
-                        {arrow === "right" && <ArrowRightIcon className="jkl-button__arrow" bold />}
+                        {iconRight && <span className="jkl-button__icon">{iconRight}</span>}
 
                         {loader && (
                             <div className="jkl-button__loader">
