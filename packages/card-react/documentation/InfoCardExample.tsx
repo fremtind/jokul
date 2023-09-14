@@ -3,37 +3,21 @@ import React from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { InfoCard } from "../src/InfoCard";
 import { mixedPadding } from "./cardExampleProps";
-import car1200 from "./img/car-1200.jpg";
-import car1500 from "./img/car-1500.jpg";
-import car400 from "./img/car-400.jpg";
-import car800 from "./img/car-800.jpg";
-import carThumbnail from "./img/car-thumbnail.jpg";
 import "./info-card-example.scss";
 
-const imageProps = {
-    src: car400,
-    srcSet: `${car400} 400w, ${car800} 800w, ${car1200} 1200w, ${car1500} 1500w`,
-    placeholder: carThumbnail,
-    alt: "En person bak rattet på en bil, sett over skulderen på personen som kjører",
-};
-
 export const InfoCardExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const image = boolValues?.["Image"] ? imageProps : undefined;
     const title = boolValues?.["Title"] ? `Samle forsikringer –${unicode.nbsp}få${unicode.nbsp}rabatt` : undefined;
     const paddingChoice = (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") || "24";
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (
-        <InfoCard title={title} image={image} padding={padding} className="example-info-card">
+        <InfoCard title={title} padding={padding} className="example-info-card">
             <p className="jkl-body">Har du tre eller flere forsikringer får du samlerabatt</p>
         </InfoCard>
     );
 };
 
 export const infoCardExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps) => {
-    const image = boolValues?.["Image"]
-        ? '\n    image={{ src:"car.jpg", alt:"En person bak rattet på en bil, sett over skulderen på personen som kjører" }}'
-        : "";
     const title = boolValues?.["Title"] ? "title=`Samle forsikringer –${unicode.nbsp}få${unicode.nbsp}rabatt`" : "";
     const paddingChoice = choiceValues?.["Padding"] || "l";
     const padding =
@@ -48,7 +32,7 @@ export const infoCardExampleCode = ({ boolValues, choiceValues }: ExampleCompone
 
     return `<InfoCard
     padding=${padding}
-    ${title}${image}
+    ${title}
 >
     <p className="jkl-body">Har du tre eller flere forsikringer får du samlerabatt</p>
 </InfoCard>`;

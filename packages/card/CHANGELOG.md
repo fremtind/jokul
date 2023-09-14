@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.0.0 (2023-09-14)
+
+### Features
+
+- changed backgroundcolor for card in dark mode ([63e5fbb](https://github.com/fremtind/jokul/commit/63e5fbb6822253f31aa56eb0202e7d44d7ca979d))
+- taskCard has now only three possible background colors ([3877af0](https://github.com/fremtind/jokul/commit/3877af04457980cbdf78ed0a873b1901d079178a))
+
+### BREAKING CHANGES
+
+- very-subdued background color does no longer exist
+
 # 10.0.0 (2023-07-07)
 
 ### chore
