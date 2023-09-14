@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [14.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@14.0.6...@fremtind/jkl-text-input-react@14.1.0) (2023-09-14)
+
+### Features
+
+- updated to match Figma changes ([3912ae2](https://github.com/fremtind/jokul/commit/3912ae27cd11ffc42bb9e144cc0e100dbab77ba3)), closes [#3671](https://github.com/fremtind/jokul/issues/3671)
+
 ## 14.0.6 (2023-09-05)
 
 ### Bug Fixes
