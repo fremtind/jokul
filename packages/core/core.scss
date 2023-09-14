@@ -4,6 +4,14 @@
 @use "jkl/typography";
 @use "styles";
 
+/* Used by contextual-menu to figure out if it should render a compact or comfortable view */
+@include jkl.comfortable-density-variables {
+    --jkl-density: "comfortable";
+}
+@include jkl.compact-density-variables {
+    --jkl-density: "compact";
+}
+
 @include jkl.light-mode-variables {
     --jkl-background-color: #{jkl.$color-snohvit};
     --jkl-color: #{jkl.$color-granitt};

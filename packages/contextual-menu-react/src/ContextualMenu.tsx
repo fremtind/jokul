@@ -3,6 +3,7 @@ import {
     flip,
     FloatingFocusManager,
     FloatingNode,
+    FloatingPortal,
     FloatingTree,
     offset,
     type Placement,
@@ -19,9 +20,8 @@ import {
     useListNavigation,
     useMergeRefs,
     useRole,
-    FloatingPortal,
 } from "@floating-ui/react";
-import { WithChildren, type DataTestAutoId } from "@fremtind/jkl-core";
+import { type DataTestAutoId, WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
@@ -135,42 +135,20 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
     // Siden menyen rendres på rot må vi hente lokal dark/light-verdi fra triggeren
     // Vi må gjøre dette for å ta hensyn til at tema kan styres lokalt for deler av UIet
     let theme: string | undefined;
+    let density: string | undefined;
     if (refs.reference.current) {
-        const backgroundColor = getComputedStyle(refs.reference.current as HTMLElement).getPropertyValue(
-            "--jkl-background-color",
-        );
+        const computedStyles = getComputedStyle(refs.reference.current as HTMLElement);
+
         // Sett theme til dark hvis bakgrunnsfargen er mørkere enn 50% av hvit
         // dette gir oss slingringsmonn i tilfelle verdien av Jøkuls bakgrunnsfarge endres
-        theme = parseInt(backgroundColor.replace("#", ""), 16) < 0xffffff / 2 ? "dark" : "light";
+        theme =
+            parseInt(computedStyles.getPropertyValue("--jkl-background-color").replace("#", ""), 16) < 0xffffff / 2
+                ? "dark"
+                : "light";
+
+        // Sett density basert på verdien av en global CSS variabel
+        density = computedStyles.getPropertyValue("--jkl-density") === '"compact"' ? "compact" : "comfortable";
     }
-
-    const [density, setDensity] = useState<string | null>(null);
-
-    useEffect(() => {
-        // Vi har samme problemet med density som vi hadde med dark/light men løsnignen er ikke like enkel.
-        // Vi må rett og slett grave oss fram til om det finnes et sted over oss der density settes og passe
-        // på at vi holder oss i sync.
-        if (rootRef.current) {
-            let node = rootRef.current as HTMLElement;
-            let density: string | null = null;
-            while (node && !density) {
-                density = node.getAttribute?.("data-layout-density");
-                if (!density) {
-                    node = node.parentNode as HTMLElement;
-                }
-            }
-            setDensity(density);
-
-            const observer = new MutationObserver(() => {
-                setDensity(node.getAttribute("data-layout-density"));
-            });
-            if (density && node) {
-                observer.observe(node, { attributes: true, attributeFilter: ["data-layout-density"] });
-            }
-            return () => observer.disconnect();
-        }
-        return () => {};
-    }, [setDensity, rootRef.current?.getAttribute]);
 
     return (
         <FloatingNode id={nodeId}>
