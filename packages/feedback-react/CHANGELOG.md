@@ -7,32 +7,32 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- updated to match Figma changes ([e0d1806](https://github.com/fremtind/jokul/commit/e0d1806b328a549f76ce8d4718a94cd880f491cf)), closes [#3668](https://github.com/fremtind/jokul/issues/3668)
+-   updated to match Figma changes ([e0d1806](https://github.com/fremtind/jokul/commit/e0d1806b328a549f76ce8d4718a94cd880f491cf)), closes [#3668](https://github.com/fremtind/jokul/issues/3668)
 
 # 17.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # [16.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@15.0.1...@fremtind/jkl-feedback-react@16.0.0) (2023-01-30)
 
 ### Code Refactoring
 
-- bruk FieldGroup fra input-group-react i spørsmålskomponentene ([029aeef](https://github.com/fremtind/jokul/commit/029aeef8f3a2920f420d0d6a28132bfc10c7e56b))
+-   bruk FieldGroup fra input-group-react i spørsmålskomponentene ([029aeef](https://github.com/fremtind/jokul/commit/029aeef8f3a2920f420d0d6a28132bfc10c7e56b))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå importere stilarket til jkl-input-group for at komponenten skal se riktig ut
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå importere stilarket til jkl-input-group for at komponenten skal se riktig ut
 
 # [15.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@14.1.20...@fremtind/jkl-feedback-react@15.0.0) (2023-01-16)
 
