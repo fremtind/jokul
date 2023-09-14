@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.5 (2023-09-14)
+
+### Bug Fixes
+
+- deleted snapshots folder ([b742384](https://github.com/fremtind/jokul/commit/b74238480f6131af19b9f70b796377a4978a6ce3))
+
 ## 10.0.4 (2023-09-14)
 
 ### Bug Fixes
