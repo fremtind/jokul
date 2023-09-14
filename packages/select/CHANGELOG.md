@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.1.0 (2023-09-13)
+
+### Features
+
+- updated to match Figma changes ([58b9a58](https://github.com/fremtind/jokul/commit/58b9a5872af595c07d8e68a70d04e876cd7ec5af)), closes [#3662](https://github.com/fremtind/jokul/issues/3662)
+
 # 11.0.0 (2023-07-07)
 
 ### chore
