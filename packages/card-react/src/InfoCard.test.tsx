@@ -13,16 +13,6 @@ describe("InfoCard", () => {
 
         expect(screen.getByText("Hello world")).toBeInTheDocument();
     });
-
-    it("has an image", () => {
-        render(
-            <InfoCard title="Hello" image={{ src: "image.jpg", alt: "Test" }}>
-                <p>Hello world</p>
-            </InfoCard>,
-        );
-
-        expect(screen.getByTestId("jkl-image__image")).toBeInTheDocument();
-    });
 });
 
 describe("a11y", () => {

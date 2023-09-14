@@ -42,7 +42,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
     const errorLabel =
         boolValues && boolValues["Med feil"] ? "Du må velge sykdommer, for eksempel A090 og A150." : undefined;
     const helpLabel =
-        boolValues && boolValues["Med hjelpetekst"] ? "Med sykdommer mener vi for eksempel A090 og A090." : undefined;
+        boolValues && boolValues["Med hjelpetekst"] ? "Med sykdommer mener vi for eksempel A090 og A150." : undefined;
     const noMatchingOption = boolValues && boolValues["Med empty state"] ? "Ingen valg matcher søket" : undefined;
 
     return (
@@ -50,7 +50,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             id="produsent"
             name="produsent"
             placeholder="Søk"
-            width="206px"
+            width="220px"
             labelProps={{ variant }}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
