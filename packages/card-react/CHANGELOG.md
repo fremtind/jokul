@@ -3,45 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@10.0.8...@fremtind/jkl-card-react@11.0.0) (2023-09-14)
+
+### Bug Fixes
+
+-   deleted snapshots ([a9c92ce](https://github.com/fremtind/jokul/commit/a9c92ce300b4fadac843605dc74c8e4210db8ab0))
+-   slettet snapshots ([d053741](https://github.com/fremtind/jokul/commit/d053741f933a5ec4c117777dd647cfa4e49eb8fa))
+
+### Features
+
+-   removed possibility to insert an image in InfoCard ([dec3c38](https://github.com/fremtind/jokul/commit/dec3c3810945a5fea203c1f58205f710f7b9caa2))
+-   taskCard has now only three possible background colors ([3877af0](https://github.com/fremtind/jokul/commit/3877af04457980cbdf78ed0a873b1901d079178a))
+
+### BREAKING CHANGES
+
+-   There is no longer possible to add an image to InfoCard
+-   very-subdued background color does no longer exist
+
+## 10.0.7 (2023-09-05)
+
+### Bug Fixes
+
+-   deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
+
 # 10.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 # [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@9.0.25...@fremtind/jkl-card-react@9.1.0) (2023-06-07)
 
 ### Features
 
-- legg til støtte for semantiske bakgrunnsfarger i TaskCard ([1f2cadb](https://github.com/fremtind/jokul/commit/1f2cadb9fe7ed2ee22d38362fa41825d0359c782))
+-   legg til støtte for semantiske bakgrunnsfarger i TaskCard ([1f2cadb](https://github.com/fremtind/jokul/commit/1f2cadb9fe7ed2ee22d38362fa41825d0359c782))
 
 ## 9.0.15 (2023-05-12)
 
 ### Bug Fixes
 
-- pruk padding i stedet for margin på innholdet i kort ([9ce285a](https://github.com/fremtind/jokul/commit/9ce285a78c7bb9de4cb04e85de2d0e8e611f2600))
+-   pruk padding i stedet for margin på innholdet i kort ([9ce285a](https://github.com/fremtind/jokul/commit/9ce285a78c7bb9de4cb04e85de2d0e8e611f2600))
 
 # [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@8.0.13...@fremtind/jkl-card-react@9.0.0) (2023-03-20)
 
 ### Bug Fixes
 
-- fjern unødvendig bruk av flex ([b4c9fcd](https://github.com/fremtind/jokul/commit/b4c9fcd08eb07b267a737030c27ab92e5683b066)), closes [#3451](https://github.com/fremtind/jokul/issues/3451)
+-   fjern unødvendig bruk av flex ([b4c9fcd](https://github.com/fremtind/jokul/commit/b4c9fcd08eb07b267a737030c27ab92e5683b066)), closes [#3451](https://github.com/fremtind/jokul/issues/3451)
 
 ### BREAKING CHANGES
 
-- Om du har inline-elementer som direkte children til kortene vil disse ikke lenger ha display:block.
-Wrap de i en div om du trenger.
+-   Om du har inline-elementer som direkte children til kortene vil disse ikke lenger ha display:block.
+    Wrap de i en div om du trenger.
 
 ## [8.0.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@8.0.7...@fremtind/jkl-card-react@8.0.10) (2023-03-01)
 

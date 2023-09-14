@@ -3,15 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button-react@11.0.6...@fremtind/jkl-radio-button-react@11.1.0) (2023-09-04)
+
+### Features
+
+-   updated to match Figma changes ([e0d1806](https://github.com/fremtind/jokul/commit/e0d1806b328a549f76ce8d4718a94cd880f491cf)), closes [#3668](https://github.com/fremtind/jokul/issues/3668)
+
 # 11.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # 10.1.0 (2023-03-01)
 

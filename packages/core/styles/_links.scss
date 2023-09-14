@@ -48,7 +48,6 @@ $_link-underline-thickness--focus: jkl.rem(2px);
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include jkl.no-grow-bold;
         @include _link-outline;
         background: none;
     }
@@ -101,7 +100,6 @@ $_link-underline-thickness--focus: jkl.rem(2px);
     }
 
     html:not([data-mousenavigation]) &:focus {
-        @include jkl.no-grow-bold;
         @include _link-outline;
 
         &::after {
