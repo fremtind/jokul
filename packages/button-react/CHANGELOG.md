@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@14.0.6...@fremtind/jkl-button-react@15.0.0) (2023-09-14)
+
+### Bug Fixes
+
+- oppdaterte kodeeksempel til å stemme overens med nye props ([df56b72](https://github.com/fremtind/jokul/commit/df56b72774133635a55f0ebf2823cf1f1835a6d1))
+
+### Features
+
+- added possibility to use all icons ([fcf6be6](https://github.com/fremtind/jokul/commit/fcf6be63a7e0f66f45adf0ca5c9a937cb59f47d2))
+- changed render of icon and changed name of icon-prop and you can use both props at the same ti ([e7af26f](https://github.com/fremtind/jokul/commit/e7af26f52d21b6984773fa66704e568f51269058))
+
+### BREAKING CHANGES
+
+- Prop name arrow is now iconLeft and/or iconRight
+- It's now possible to use all icons and not just left and right arrow. Therefore the arrow prop is
+now re-named to icon
+
 ## 14.0.5 (2023-09-05)
 
 ### Bug Fixes
