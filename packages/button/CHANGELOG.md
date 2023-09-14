@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@11.0.2...@fremtind/jkl-button@12.0.0) (2023-09-14)
+
+### Features
+
+- added possibility to use all icons ([fcf6be6](https://github.com/fremtind/jokul/commit/fcf6be63a7e0f66f45adf0ca5c9a937cb59f47d2))
+- changed render of icon and changed name of icon-prop and you can use both props at the same ti ([e7af26f](https://github.com/fremtind/jokul/commit/e7af26f52d21b6984773fa66704e568f51269058))
+
+### BREAKING CHANGES
+
+- Prop name arrow is now iconLeft and/or iconRight
+- It's now possible to use all icons and not just left and right arrow. Therefore the arrow prop is
+now re-named to icon
+
 # 11.0.0 (2023-07-07)
 
 ### chore
