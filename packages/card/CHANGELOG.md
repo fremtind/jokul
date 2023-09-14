@@ -7,35 +7,35 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- changed backgroundcolor for card in dark mode ([63e5fbb](https://github.com/fremtind/jokul/commit/63e5fbb6822253f31aa56eb0202e7d44d7ca979d))
-- taskCard has now only three possible background colors ([3877af0](https://github.com/fremtind/jokul/commit/3877af04457980cbdf78ed0a873b1901d079178a))
+-   changed backgroundcolor for card in dark mode ([63e5fbb](https://github.com/fremtind/jokul/commit/63e5fbb6822253f31aa56eb0202e7d44d7ca979d))
+-   taskCard has now only three possible background colors ([3877af0](https://github.com/fremtind/jokul/commit/3877af04457980cbdf78ed0a873b1901d079178a))
 
 ### BREAKING CHANGES
 
-- very-subdued background color does no longer exist
+-   very-subdued background color does no longer exist
 
 # 10.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 # [9.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@9.0.4...@fremtind/jkl-card@9.1.0) (2023-06-07)
 
 ### Features
 
-- legg til støtte for semantiske bakgrunnsfarger i TaskCard ([1f2cadb](https://github.com/fremtind/jokul/commit/1f2cadb9fe7ed2ee22d38362fa41825d0359c782))
+-   legg til støtte for semantiske bakgrunnsfarger i TaskCard ([1f2cadb](https://github.com/fremtind/jokul/commit/1f2cadb9fe7ed2ee22d38362fa41825d0359c782))
 
 ## 9.0.2 (2023-04-04)
 
