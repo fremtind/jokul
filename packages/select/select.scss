@@ -318,8 +318,8 @@ $_select-search-input-selection-color--inverted: color.scale(
             &:hover,
             &:focus {
                 @include jkl.no-grow-bold;
-                border-top: 1px solid Highlight;
-                border-bottom: 1px solid Highlight;
+                border-top: 1px solid SelectedItem;
+                border-bottom: 1px solid SelectedItem;
             }
         }
     }
