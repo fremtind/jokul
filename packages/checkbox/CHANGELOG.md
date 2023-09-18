@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@10.1.1...@fremtind/jkl-checkbox@10.1.2) (2023-09-18)
+
+### Bug Fixes
+
+- tweak colors in forced-colors mode ([1dd726f](https://github.com/fremtind/jokul/commit/1dd726fbc9e5cd653da49cb0a91b47ef29b83a4e))
+
 # 10.1.0 (2023-09-06)
 
 ### Features
