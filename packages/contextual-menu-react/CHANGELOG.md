@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.3.0 (2023-09-18)
+
+### Bug Fixes
+
+- pR Feedback ([f5c012d](https://github.com/fremtind/jokul/commit/f5c012db6f4e5fd21656e129300cb0ccb3714754))
+
+### Features
+
+- feat: updated to match Figma changes ([6df220a](https://github.com/fremtind/jokul/commit/6df220a7e6f06379ecddea16450894eedb844b36)), closes [#3663](https://github.com/fremtind/jokul/issues/3663)
+
 # 3.2.0 (2023-08-24)
 
 ### Bug Fixes

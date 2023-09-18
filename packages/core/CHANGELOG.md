@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 13.1.1 (2023-09-18)
+
+### Bug Fixes
+
+- pR Feedback ([f5c012d](https://github.com/fremtind/jokul/commit/f5c012db6f4e5fd21656e129300cb0ccb3714754))
+
 # 13.1.0 (2023-09-14)
 
 ### Features
