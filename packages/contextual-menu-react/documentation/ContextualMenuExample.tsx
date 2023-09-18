@@ -15,8 +15,11 @@ export const contextualMenuExampleKnobs: ExampleKnobsProps = {
         },
     ],
 };
-export const ContextualMenuExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
+export const ContextualMenuExample: FC<ExampleComponentProps> = ({ choiceValues, displayValues }) => {
     const isOpen = choiceValues?.["isOpen"] !== "tom" ? choiceValues?.["isOpen"] === "true" : undefined;
+
+    /* Force a re-render whenever theme or density changes */
+    const key = displayValues?.theme || "none" + displayValues?.density || "none";
 
     return (
         <div
@@ -25,6 +28,7 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = ({ choiceValues 
             }}
         >
             <ContextualMenu
+                id={key}
                 initialPlacement="bottom-start"
                 isOpen={isOpen}
                 triggerElement={
