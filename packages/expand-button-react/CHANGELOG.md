@@ -7,27 +7,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- try removing accordion snapshots to see diff ([9a6cd15](https://github.com/fremtind/jokul/commit/9a6cd15065eb2809b3210bb61fda54deabb012cb))
+-   try removing accordion snapshots to see diff ([9a6cd15](https://github.com/fremtind/jokul/commit/9a6cd15065eb2809b3210bb61fda54deabb012cb))
 
 # 6.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # [5.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button-react@4.0.17...@fremtind/jkl-expand-button-react@5.0.0) (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 4.0.12 (2022-11-22)
 

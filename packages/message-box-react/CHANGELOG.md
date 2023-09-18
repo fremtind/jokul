@@ -7,40 +7,40 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- try removing accordion snapshots to see diff ([9a6cd15](https://github.com/fremtind/jokul/commit/9a6cd15065eb2809b3210bb61fda54deabb012cb))
+-   try removing accordion snapshots to see diff ([9a6cd15](https://github.com/fremtind/jokul/commit/9a6cd15065eb2809b3210bb61fda54deabb012cb))
 
 # 11.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 ## [10.0.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@10.0.4...@fremtind/jkl-message-box-react@10.0.5) (2023-03-07)
 
 ### Bug Fixes
 
-- ikke rendre tittelelementet om title er tom string ([8c9db6f](https://github.com/fremtind/jokul/commit/8c9db6f44d11e8c33999adf6a3d8dd72e32063bc)), closes [#3445](https://github.com/fremtind/jokul/issues/3445)
-- rett en animasjonsfeil i formerrormessagebox ([af3b21e](https://github.com/fremtind/jokul/commit/af3b21e5ce20d87d5d3c3e750a0d6e6d3c14bab0))
+-   ikke rendre tittelelementet om title er tom string ([8c9db6f](https://github.com/fremtind/jokul/commit/8c9db6f44d11e8c33999adf6a3d8dd72e32063bc)), closes [#3445](https://github.com/fremtind/jokul/issues/3445)
+-   rett en animasjonsfeil i formerrormessagebox ([af3b21e](https://github.com/fremtind/jokul/commit/af3b21e5ce20d87d5d3c3e750a0d6e6d3c14bab0))
 
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@9.0.11...@fremtind/jkl-message-box-react@10.0.0) (2023-01-30)
 
 ### Bug Fixes
 
-- bruk riktig versjon av jkl-icon-react i MessageBox ([0d32576](https://github.com/fremtind/jokul/commit/0d32576b0a450e03f945a473f7d136cd98c166ef))
+-   bruk riktig versjon av jkl-icon-react i MessageBox ([0d32576](https://github.com/fremtind/jokul/commit/0d32576b0a450e03f945a473f7d136cd98c166ef))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
-- ta i bruk de nye ikonene i MessageBox ([ea6f952](https://github.com/fremtind/jokul/commit/ea6f95206ca475a7fcaef0403681543e915cbde2))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   ta i bruk de nye ikonene i MessageBox ([ea6f952](https://github.com/fremtind/jokul/commit/ea6f95206ca475a7fcaef0403681543e915cbde2))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå importere stilpakken til jkl-icons for å vise komponenten riktig
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå importere stilpakken til jkl-icons for å vise komponenten riktig
 
 ## 9.0.8 (2022-11-22)
 

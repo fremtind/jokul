@@ -7,61 +7,61 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- updated to match Figma changes ([c739e4c](https://github.com/fremtind/jokul/commit/c739e4cac27ffe18e2eccad7472d4db12ea8d4a1)), closes [#3664](https://github.com/fremtind/jokul/issues/3664)
+-   updated to match Figma changes ([c739e4c](https://github.com/fremtind/jokul/commit/c739e4cac27ffe18e2eccad7472d4db12ea8d4a1)), closes [#3664](https://github.com/fremtind/jokul/issues/3664)
 
 ## 12.0.3 (2023-08-21)
 
 ### Bug Fixes
 
-- explicitly style colors of option element ([55657de](https://github.com/fremtind/jokul/commit/55657de8532e28d53ecf9ad96b5d7ebe995068ed)), closes [#3645](https://github.com/fremtind/jokul/issues/3645)
+-   explicitly style colors of option element ([55657de](https://github.com/fremtind/jokul/commit/55657de8532e28d53ecf9ad96b5d7ebe995068ed)), closes [#3645](https://github.com/fremtind/jokul/issues/3645)
 
 # 12.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 # [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@11.0.0...@fremtind/jkl-datepicker@11.1.0) (2023-03-23)
 
 ### Bug Fixes
 
-- ikke hopp forbi første/siste måned med årsvelgeren ([39a9fd9](https://github.com/fremtind/jokul/commit/39a9fd99b4c6617dbe1b18603fde834b36a3d0c4))
-- legg til fokusramme for velgere for år og måned ([e81fd1b](https://github.com/fremtind/jokul/commit/e81fd1b0419d837f58f275d2b56917dc7f8c7399))
-- sørg for at dropdown i kalenderen støtter dark mode ([7e204bb](https://github.com/fremtind/jokul/commit/7e204bbc5105402e62714a08eda95bfba6eaf7c1))
+-   ikke hopp forbi første/siste måned med årsvelgeren ([39a9fd9](https://github.com/fremtind/jokul/commit/39a9fd99b4c6617dbe1b18603fde834b36a3d0c4))
+-   legg til fokusramme for velgere for år og måned ([e81fd1b](https://github.com/fremtind/jokul/commit/e81fd1b0419d837f58f275d2b56917dc7f8c7399))
+-   sørg for at dropdown i kalenderen støtter dark mode ([7e204bb](https://github.com/fremtind/jokul/commit/7e204bbc5105402e62714a08eda95bfba6eaf7c1))
 
 ### Features
 
--  bruk riktig verdi for kalenderstate, css ([d602714](https://github.com/fremtind/jokul/commit/d602714efcb97ec1b207866b616cd2ec870b6564))
-- fjern mer ubrukt kode, oppdater state for select ([434ce22](https://github.com/fremtind/jokul/commit/434ce2261dac78a21dd20587ceb98f44f91ed128))
-- fjern ubrukt css ([d21860a](https://github.com/fremtind/jokul/commit/d21860a02756858094770940854a9445aa02bdc7))
-- håndter blaing i kalenderen uten å endre valgt dato (pluss litt stiler) ([5ff3bee](https://github.com/fremtind/jokul/commit/5ff3bee30c3bf6752b0fc389b52c69ac86527993))
+-   bruk riktig verdi for kalenderstate, css ([d602714](https://github.com/fremtind/jokul/commit/d602714efcb97ec1b207866b616cd2ec870b6564))
+-   fjern mer ubrukt kode, oppdater state for select ([434ce22](https://github.com/fremtind/jokul/commit/434ce2261dac78a21dd20587ceb98f44f91ed128))
+-   fjern ubrukt css ([d21860a](https://github.com/fremtind/jokul/commit/d21860a02756858094770940854a9445aa02bdc7))
+-   håndter blaing i kalenderen uten å endre valgt dato (pluss litt stiler) ([5ff3bee](https://github.com/fremtind/jokul/commit/5ff3bee30c3bf6752b0fc389b52c69ac86527993))
 
 ## 11.0.3 (2023-03-21)
 
 ### Bug Fixes
 
-- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+-   sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
 
 # 11.0.0 (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 10.0.3 (2023-01-16)
 

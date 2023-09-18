@@ -7,7 +7,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- updated to match Figma changes ([43bad28](https://github.com/fremtind/jokul/commit/43bad2814d706bb9f78c95c514688d530af96f01)), closes [#3662](https://github.com/fremtind/jokul/issues/3662)
+-   updated to match Figma changes ([43bad28](https://github.com/fremtind/jokul/commit/43bad2814d706bb9f78c95c514688d530af96f01)), closes [#3662](https://github.com/fremtind/jokul/issues/3662)
 
 ## 2.0.5 (2023-09-05)
 

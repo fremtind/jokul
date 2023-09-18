@@ -7,18 +7,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- deleted snapshots ([a9c92ce](https://github.com/fremtind/jokul/commit/a9c92ce300b4fadac843605dc74c8e4210db8ab0))
-- slettet snapshots ([d053741](https://github.com/fremtind/jokul/commit/d053741f933a5ec4c117777dd647cfa4e49eb8fa))
+-   deleted snapshots ([a9c92ce](https://github.com/fremtind/jokul/commit/a9c92ce300b4fadac843605dc74c8e4210db8ab0))
+-   slettet snapshots ([d053741](https://github.com/fremtind/jokul/commit/d053741f933a5ec4c117777dd647cfa4e49eb8fa))
 
 ### Features
 
-- removed possibility to insert an image in InfoCard ([dec3c38](https://github.com/fremtind/jokul/commit/dec3c3810945a5fea203c1f58205f710f7b9caa2))
-- taskCard has now only three possible background colors ([3877af0](https://github.com/fremtind/jokul/commit/3877af04457980cbdf78ed0a873b1901d079178a))
+-   removed possibility to insert an image in InfoCard ([dec3c38](https://github.com/fremtind/jokul/commit/dec3c3810945a5fea203c1f58205f710f7b9caa2))
+-   taskCard has now only three possible background colors ([3877af0](https://github.com/fremtind/jokul/commit/3877af04457980cbdf78ed0a873b1901d079178a))
 
 ### BREAKING CHANGES
 
-- There is no longer possible to add an image to InfoCard
-- very-subdued background color does no longer exist
+-   There is no longer possible to add an image to InfoCard
+-   very-subdued background color does no longer exist
 
 ## 10.0.7 (2023-09-05)
 
