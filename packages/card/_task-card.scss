@@ -3,16 +3,14 @@
 @include jkl.light-mode-variables {
     --jkl-task-card-background--highlighted: #{jkl.$color-hvit};
     --jkl-task-card-background--normal: #{jkl.$color-snohvit};
-    --jkl-task-card-background--subdued: #{jkl.$color-sand};
-    --jkl-task-card-background--very-subdued: #{jkl.$color-dis};
+    --jkl-task-card-background--subdued: #{jkl.$color-dis};
     --jkl-task-card-shadow: #{jkl.$shadow-task-card};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-task-card-background--highlighted: #{jkl.$color-svart};
-    --jkl-task-card-background--normal: #{jkl.$color-granitt};
-    --jkl-task-card-background--subdued: #{jkl.$color-skifer};
-    --jkl-task-card-background--very-subdued: #{jkl.$color-fjellgra};
+    --jkl-task-card-background--highlighted: #{jkl.$color-skifer};
+    --jkl-task-card-background--normal: #{jkl.$color-skifer};
+    --jkl-task-card-background--subdued: #{jkl.$color-svart};
     --jkl-task-card-shadow: none;
 }
 

@@ -3,56 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.1.0 (2023-09-14)
+
+### Features
+
+-   updated to match Figma changes ([3912ae2](https://github.com/fremtind/jokul/commit/3912ae27cd11ffc42bb9e144cc0e100dbab77ba3)), closes [#3671](https://github.com/fremtind/jokul/issues/3671)
+
 ## 12.0.2 (2023-08-14)
 
 ### Bug Fixes
 
-- make jokul compatible with sass >= 1.65 ([1e8c79d](https://github.com/fremtind/jokul/commit/1e8c79d897d45f0f2668a574facb27f5d3b90898)), closes [#3642](https://github.com/fremtind/jokul/issues/3642)
+-   make jokul compatible with sass >= 1.65 ([1e8c79d](https://github.com/fremtind/jokul/commit/1e8c79d897d45f0f2668a574facb27f5d3b90898)), closes [#3642](https://github.com/fremtind/jokul/issues/3642)
 
 ## 12.0.1 (2023-07-13)
 
 ### Bug Fixes
 
-- rett feil i selector for handlingsknapp i input ([eb46eb3](https://github.com/fremtind/jokul/commit/eb46eb34b569a5859e97c2a4285c324c5734d9df))
+-   rett feil i selector for handlingsknapp i input ([eb46eb3](https://github.com/fremtind/jokul/commit/eb46eb34b569a5859e97c2a4285c324c5734d9df))
 
 # 12.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 ## [11.0.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@11.0.6...@fremtind/jkl-text-input@11.0.7) (2023-06-26)
 
 ### Bug Fixes
 
-- bruk riktig tekstfarge på benevnelse ved valideringsfeil ([e4e677b](https://github.com/fremtind/jokul/commit/e4e677b343b4804531afbb3a8481bef3d9a5ad42)), closes [#3579](https://github.com/fremtind/jokul/issues/3579)
+-   bruk riktig tekstfarge på benevnelse ved valideringsfeil ([e4e677b](https://github.com/fremtind/jokul/commit/e4e677b343b4804531afbb3a8481bef3d9a5ad42)), closes [#3579](https://github.com/fremtind/jokul/issues/3579)
 
 ## 11.0.3 (2023-03-21)
 
 ### Bug Fixes
 
-- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+-   sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
 
 # 11.0.0 (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 10.0.3 (2023-01-16)
 

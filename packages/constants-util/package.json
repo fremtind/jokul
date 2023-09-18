@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-constants-util",
-    "version": "3.0.7",
+    "version": "3.0.12",
     "publishConfig": {
         "access": "public"
     },
@@ -22,8 +22,8 @@
         "build"
     ],
     "devDependencies": {
-        "@fremtind/jkl-core": "^13.0.1",
-        "@fremtind/jkl-table-react": "^11.1.5"
+        "@fremtind/jkl-core": "^13.1.0",
+        "@fremtind/jkl-table-react": "^11.1.10"
     },
     "scripts": {
         "clean": "rimraf node_modules/ build/ node_modules/",

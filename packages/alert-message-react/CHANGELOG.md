@@ -3,31 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.0.4 (2023-09-14)
+
+### Bug Fixes
+
+-   try removing accordion snapshots to see diff ([9a6cd15](https://github.com/fremtind/jokul/commit/9a6cd15065eb2809b3210bb61fda54deabb012cb))
+
 # 11.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message-react@9.0.17...@fremtind/jkl-alert-message-react@10.0.0) (2023-01-30)
 
 ### Bug Fixes
 
-- la ikonet endre størrelse i compact-variant ([6c0c5aa](https://github.com/fremtind/jokul/commit/6c0c5aaaba5b868d21c97d4b3e0a0212a2ef6f44))
+-   la ikonet endre størrelse i compact-variant ([6c0c5aa](https://github.com/fremtind/jokul/commit/6c0c5aaaba5b868d21c97d4b3e0a0212a2ef6f44))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
-- ta i bruk de nye ikonene i AlertMessage ([de50d55](https://github.com/fremtind/jokul/commit/de50d5503356467e2d99de894a6a77f215bbf827))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   ta i bruk de nye ikonene i AlertMessage ([de50d55](https://github.com/fremtind/jokul/commit/de50d5503356467e2d99de894a6a77f215bbf827))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå importere jkl-icons for å vise komponenten riktig
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå importere jkl-icons for å vise komponenten riktig
 
 ## 9.0.14 (2022-11-23)
 

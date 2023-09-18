@@ -3,70 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.1.0 (2023-09-14)
+
+### Features
+
+-   updated to match Figma changes ([e20e8d2](https://github.com/fremtind/jokul/commit/e20e8d248158615387900acab2650b0566153c54)), closes [#3666](https://github.com/fremtind/jokul/issues/3666)
+
 ## 13.0.1 (2023-08-14)
 
 ### Bug Fixes
 
-- make jokul compatible with sass >= 1.65 ([1e8c79d](https://github.com/fremtind/jokul/commit/1e8c79d897d45f0f2668a574facb27f5d3b90898)), closes [#3642](https://github.com/fremtind/jokul/issues/3642)
+-   make jokul compatible with sass >= 1.65 ([1e8c79d](https://github.com/fremtind/jokul/commit/1e8c79d897d45f0f2668a574facb27f5d3b90898)), closes [#3642](https://github.com/fremtind/jokul/issues/3642)
 
 # 13.0.0 (2023-07-07)
 
 ### Bug Fixes
 
-- bruk font-weight for løpende tekst ([7337501](https://github.com/fremtind/jokul/commit/733750134ee1ce741cabb71843f5a54677547558))
-- namespace vind ([07ae4d1](https://github.com/fremtind/jokul/commit/07ae4d1d65df1b39034542dde7d779f56333393e))
+-   bruk font-weight for løpende tekst ([7337501](https://github.com/fremtind/jokul/commit/733750134ee1ce741cabb71843f5a54677547558))
+-   namespace vind ([07ae4d1](https://github.com/fremtind/jokul/commit/07ae4d1d65df1b39034542dde7d779f56333393e))
 
 ### chore
 
-- fjern deprecated fargeklasser ([816d967](https://github.com/fremtind/jokul/commit/816d9673a646f0750a0601384f17c5da257dd78d))
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   fjern deprecated fargeklasser ([816d967](https://github.com/fremtind/jokul/commit/816d9673a646f0750a0601384f17c5da257dd78d))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Features
 
-- generer kjerneverdier ut fra delbare tokens ([a0ab556](https://github.com/fremtind/jokul/commit/a0ab556e823368f1d15970d112bfabb5564a51c4))
-- generer tokens-fil i Less-format ([57aaed8](https://github.com/fremtind/jokul/commit/57aaed8136e52485082090fd9c8f0aaf9c83fdc5))
-- typografitokens ([ed32219](https://github.com/fremtind/jokul/commit/ed322193cc247668b2668e1bcd832f2ff20b5cdf))
-- vind ([1ee7a8e](https://github.com/fremtind/jokul/commit/1ee7a8ecff7bf1b57b73afbc5293f953c86128a7))
+-   generer kjerneverdier ut fra delbare tokens ([a0ab556](https://github.com/fremtind/jokul/commit/a0ab556e823368f1d15970d112bfabb5564a51c4))
+-   generer tokens-fil i Less-format ([57aaed8](https://github.com/fremtind/jokul/commit/57aaed8136e52485082090fd9c8f0aaf9c83fdc5))
+-   typografitokens ([ed32219](https://github.com/fremtind/jokul/commit/ed322193cc247668b2668e1bcd832f2ff20b5cdf))
+-   vind ([1ee7a8e](https://github.com/fremtind/jokul/commit/1ee7a8ecff7bf1b57b73afbc5293f953c86128a7))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- CSS-klassene for farger og bakgrunnsfarger er fjernet. Bruk CSS- eller Sass-variabler og egne
-klasser, og husk å ta høyde for lyst og mørkt tema.
-- Deprecatede fargevariabler og klasser er slettet, uten noen erstatning. Fargene skal ikke lenger
-brukes.
+-   Avhenger av ny majorversjon av core
+-   CSS-klassene for farger og bakgrunnsfarger er fjernet. Bruk CSS- eller Sass-variabler og egne
+    klasser, og husk å ta høyde for lyst og mørkt tema.
+-   Deprecatede fargevariabler og klasser er slettet, uten noen erstatning. Fargene skal ikke lenger
+    brukes.
 
 # 12.2.0 (2023-06-15)
 
 ### Features
 
-- legg til ny timingverdi for animasjoner på 200ms ([aac907c](https://github.com/fremtind/jokul/commit/aac907cdb7ac05f840c176cba184e7b5c75e046c))
+-   legg til ny timingverdi for animasjoner på 200ms ([aac907c](https://github.com/fremtind/jokul/commit/aac907cdb7ac05f840c176cba184e7b5c75e046c))
 
 # 12.1.0 (2023-06-05)
 
 ### Features
 
-- legg til valgfri description på ValuePair ([6e0ee84](https://github.com/fremtind/jokul/commit/6e0ee84d4f8820a6c29e1116551d4c270c4a9c64))
+-   legg til valgfri description på ValuePair ([6e0ee84](https://github.com/fremtind/jokul/commit/6e0ee84d4f8820a6c29e1116551d4c270c4a9c64))
 
 ## 12.0.3 (2023-03-21)
 
 ### Bug Fixes
 
-- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+-   sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
 
 # 12.0.0 (2023-01-30)
 
 ### Code Refactoring
 
-- fjern Label og SupportLabel fra core ([00177af](https://github.com/fremtind/jokul/commit/00177af2ed09997ba96cff5b61cc3a96d384935b))
-- flytt CSS for ikoner til ikonpakka ([0f79524](https://github.com/fremtind/jokul/commit/0f795242dc247842bc45784b161be2d174684e11))
+-   fjern Label og SupportLabel fra core ([00177af](https://github.com/fremtind/jokul/commit/00177af2ed09997ba96cff5b61cc3a96d384935b))
+-   flytt CSS for ikoner til ikonpakka ([0f79524](https://github.com/fremtind/jokul/commit/0f795242dc247842bc45784b161be2d174684e11))
 
 ### BREAKING CHANGES
 
-- Komponentene Label og SupportLabel, samt deres typer og stiler, ligger ikke lenger i core. De kan i
-stedet importeres fra jkl-input-group-react (komponenter og typer) og jkl-input-group (stiler)
-- Klassen jkl-icon og modifiers er ikke del av core lenger. Du vil måtte importere CSSen til
-ikonpakken.
+-   Komponentene Label og SupportLabel, samt deres typer og stiler, ligger ikke lenger i core. De kan i
+    stedet importeres fra jkl-input-group-react (komponenter og typer) og jkl-input-group (stiler)
+-   Klassen jkl-icon og modifiers er ikke del av core lenger. Du vil måtte importere CSSen til
+    ikonpakken.
 
 # 11.4.0 (2023-01-16)
 
