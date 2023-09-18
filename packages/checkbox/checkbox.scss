@@ -150,7 +150,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         &:disabled + .jkl-checkbox__label {
             color: var(--jkl-checkbox-disabled-color);
 
-            &:hover .jkl-checkbox__decoration {
+            &:hover .jkl-checkbox__mark {
                 box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
             }
         }
@@ -166,7 +166,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         &:hover {
             color: var(--jkl-checkbox-focus-color);
 
-            .jkl-checkbox__decoration {
+            .jkl-checkbox__mark {
                 box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) currentColor;
 
                 @include jkl.forced-colors-mode {
@@ -182,7 +182,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         &:active {
             color: var(--jkl-checkbox-color);
 
-            .jkl-checkbox__decoration {
+            .jkl-checkbox__mark {
                 box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
                 background-color: var(--jkl-checkbox-focus-background-color);
             }
