@@ -34,16 +34,28 @@
             "value": "#fff"
         },
         "suksess": {
-            "value": "#c8ecd2"
+            "value": "#acd3b5"
+        },
+        "suksess-dark": {
+            "value": "#94b79b"
         },
         "feil": {
-            "value": "#ffc9b2"
+            "value": "#f6b3b3"
+        },
+        "feil-dark": {
+            "value": "#de9e9e"
         },
         "info": {
-            "value": "#d9ddff"
+            "value": "#d3d3f6"
+        },
+        "info-dark": {
+            "value": "#a9a9ca"
         },
         "advarsel": {
-            "value": "#fdeab9"
+            "value": "#efdd9e"
+        },
+        "advarsel-dark": {
+            "value": "#decc8d"
         }
     }
 }

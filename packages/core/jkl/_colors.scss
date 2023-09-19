@@ -11,9 +11,13 @@ $color-focus-color--darkbg: $color-snohvit;
 // Kun til bruk som bakgrunn i komponenter som gir varslinger til bruker.
 $_varslingsfarger: (
     "suksess": $color-suksess,
+    "suksess-dark": $color-suksess-dark,
     "feil": $color-feil,
+    "feil-dark": $color-feil-dark,
     "info": $color-info,
+    "info-dark": $color-info-dark,
     "advarsel": $color-advarsel,
+    "advarsel-dark": $color-advarsel-dark,
 );
 
 /// Hent fargekoden til en navngitt varslingsfarge
