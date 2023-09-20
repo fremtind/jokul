@@ -15,11 +15,19 @@
 @include jkl.light-mode-variables {
     --jkl-background-color: #{jkl.$color-snohvit};
     --jkl-color: #{jkl.$color-granitt};
+    --jkl-error: #{jkl.$color-feil};
+    --jkl-info: #{jkl.$color-info};
+    --jkl-warning: #{jkl.$color-advarsel};
+    --jkl-success: #{jkl.$color-suksess};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-background-color: #{jkl.$color-granitt};
     --jkl-color: #{jkl.$color-snohvit};
+    --jkl-error: #{jkl.$color-feil-dark};
+    --jkl-info: #{jkl.$color-info-dark};
+    --jkl-warning: #{jkl.$color-advarsel-dark};
+    --jkl-success: #{jkl.$color-suksess-dark};
 }
 
 :root {

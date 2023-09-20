@@ -66,11 +66,10 @@ function messageFactory(messageType: messageTypes) {
                     "jkl-message-box--dismissed": dismissed,
                 })}
                 role={role}
-                data-theme="light"
                 data-density={density}
             >
                 {getIcon(messageType)}
-                <div className="jkl-message-box__content">
+                <div className="jkl-message-box__content" data-theme="light">
                     {title && <p className="jkl-message-box__title">{title}</p>}
                     <div className="jkl-message-box__message">{newChildren}</div>
                 </div>
