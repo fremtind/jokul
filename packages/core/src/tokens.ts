@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 06 Jun 2023 11:36:22 GMT
+ * Generated on Tue, 19 Sep 2023 07:25:30 GMT
  */
 
 export default {
@@ -16,10 +16,14 @@ export default {
         sand: "#f4f2ef",
         snohvit: "#f9f9f9",
         hvit: "#fff",
-        suksess: "#c8ecd2",
-        feil: "#ffc9b2",
-        info: "#d9ddff",
-        advarsel: "#fdeab9",
+        suksess: "#acd3b5",
+        suksessDark: "#94b79b",
+        feil: "#f6b3b3",
+        feilDark: "#de9e9e",
+        info: "#d3d3f6",
+        infoDark: "#a9a9ca",
+        advarsel: "#efdd9e",
+        advarselDark: "#decc8d",
     },
     spacing: {
         0: "0",

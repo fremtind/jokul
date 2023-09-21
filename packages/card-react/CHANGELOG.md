@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.0.7...@fremtind/jkl-card-react@11.1.0) (2023-09-21)
+
+### Features
+
+- deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
+
 # [11.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@10.0.8...@fremtind/jkl-card-react@11.0.0) (2023-09-14)
 
 ### Bug Fixes

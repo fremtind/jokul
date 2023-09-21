@@ -13,10 +13,11 @@
     @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' width='9px' height='9px' fill='transparent'%3E%3Cpath stroke='#{$c}' d='M4.002.707l3.295 3.295-3.295 3.295L.707 4.002z'/%3E%3C/svg%3E");
 }
 
-@function _cross($color) {
-    $c: jkl.urlencodecolor($color);
+@function _cross($color1, $color2) {
+    $c1: jkl.urlencodecolor($color1);
+    $c2: jkl.urlencodecolor($color2);
 
-    @return url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='8.75' stroke='#{$c}' stroke-width='1.5'/%3E%3Cpath fill='#{$c}' d='M5.54 12.68l7.14-7.1.84.85-7.13 7.09z'/%3E%3Cpath fill='#{$c}' d='M12.67 13.47l-7.13-7.1.85-.83 7.13 7.1z'/%3E%3C/svg%3E%0A");
+    @return url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='8.75' fill='#{$c1}'/%3E%3Cpath fill='#{$c2}' d='M5.54 12.68l7.14-7.1.84.85-7.13 7.09z'/%3E%3Cpath fill='#{$c2}' d='M12.67 13.47l-7.13-7.1.85-.83 7.13 7.1z'/%3E%3C/svg%3E%0A");
 }
 
 @function _check($color1, $color2) {
@@ -43,16 +44,16 @@ $_color-feil--darkbg: #ff8b79;
 @include jkl.light-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-granitt)};
     --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-granitt)};
-    --jkl-list-marker-cross: #{_cross($_color-feil)};
-    --jkl-list-marker-check: #{_check($_color-suksess, jkl.$color-snohvit)};
+    --jkl-list-marker-cross: #{_cross(jkl.$color-feil, jkl.$color-granitt)};
+    --jkl-list-marker-check: #{_check(jkl.$color-suksess, jkl.$color-granitt)};
     --jkl-list-text-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-snohvit)};
     --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-snohvit)};
-    --jkl-list-marker-cross: #{_cross($_color-feil--darkbg)};
-    --jkl-list-marker-check: #{_check($_color-suksess--darkbg, jkl.$color-granitt)};
+    --jkl-list-marker-cross: #{_cross(jkl.$color-feil-dark, jkl.$color-granitt)};
+    --jkl-list-marker-check: #{_check(jkl.$color-suksess-dark, jkl.$color-granitt)};
     --jkl-list-text-color: #{jkl.$color-snohvit};
 }
 
@@ -153,7 +154,7 @@ $_color-feil--darkbg: #ff8b79;
             }
 
             &--cross::before {
-                background-image: _cross(CanvasText);
+                background-image: _cross(CanvasText, Canvas);
             }
         }
     }
