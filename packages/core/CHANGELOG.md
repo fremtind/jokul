@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [13.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@13.1.1...@fremtind/jkl-core@13.2.0) (2023-09-21)
+
+### Features
+
+- oppdaterte core med nye varslingsfarger ([45687ae](https://github.com/fremtind/jokul/commit/45687ae3fc0c35bc89fd38c6d575c717afad499b))
+- oppdaterte globale variabler for light/dark mode med funksjonsfarger ([4666eca](https://github.com/fremtind/jokul/commit/4666ecae207c17adc3b174528b9b9f3e917df42e))
+
 ## 13.1.1 (2023-09-18)
 
 ### Bug Fixes

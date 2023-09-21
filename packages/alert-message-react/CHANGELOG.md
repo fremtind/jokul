@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message-react@11.0.5...@fremtind/jkl-alert-message-react@11.1.0) (2023-09-21)
+
+### Features
+
+- deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
+- oppdaterte globale variabler for light/dark mode med funksjonsfarger ([4666eca](https://github.com/fremtind/jokul/commit/4666ecae207c17adc3b174528b9b9f3e917df42e))
+
 ## 11.0.4 (2023-09-14)
 
 ### Bug Fixes

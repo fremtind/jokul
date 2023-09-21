@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo",
-    "version": "11.0.3",
+    "version": "11.0.4",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "echo \"Error: run dev from logo-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^13.1.1"
+        "@fremtind/jkl-core": "^13.2.0"
     },
     "repository": {
         "type": "git",

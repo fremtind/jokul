@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.0.15...@fremtind/jkl-file-input-react@2.1.0) (2023-09-21)
+
+### Features
+
+- deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
+
 ## 2.0.7 (2023-09-05)
 
 ### Bug Fixes
