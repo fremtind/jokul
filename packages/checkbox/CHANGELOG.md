@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@10.1.4...@fremtind/jkl-checkbox@11.0.0) (2023-09-21)
+
+### Bug Fixes
+
+- use correct CSS class names ([772e41d](https://github.com/fremtind/jokul/commit/772e41d1ca0fe78cc58b8a99de3ff30b02a8f236))
+
+### Features
+
+- add support for an indeterminate prop ([1628063](https://github.com/fremtind/jokul/commit/1628063331cf595b2fda1bbc84e44ab6f9b8706a)), closes [#3675](https://github.com/fremtind/jokul/issues/3675)
+
+### BREAKING CHANGES
+
+- CSS class names and DOM structure for the checkbox label has been changed.
+
+Markup needs to be updated from
+```
+<label className="jkl-checkbox__label">
+  <span className="jkl-checkbox__check-mark" />
+  <span className="jkl-checkbox__check-text">Text</span>
+</label>
+```
+
+to
+
+```
+<label className="jkl-checkbox__label">
+  <span className="jkl-checkbox__mark">
+    <span className="jkl-checkbox__indeterminate-mark" />
+    <span className="jkl-checkbox__check-mark" />
+  </span>
+  <span className="jkl-checkbox__text">Text</span>
+</label>
+```
+
 ## [10.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@10.1.1...@fremtind/jkl-checkbox@10.1.2) (2023-09-18)
 
 ### Bug Fixes

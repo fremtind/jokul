@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@11.0.10...@fremtind/jkl-checkbox-react@11.1.0) (2023-09-21)
+
+### Features
+
+- add support for an indeterminate prop ([1628063](https://github.com/fremtind/jokul/commit/1628063331cf595b2fda1bbc84e44ab6f9b8706a)), closes [#3675](https://github.com/fremtind/jokul/issues/3675)
+
 ## 11.0.5 (2023-09-05)
 
 ### Bug Fixes

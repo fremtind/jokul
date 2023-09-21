@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-feedback-react",
-    "version": "17.1.11",
+    "version": "17.1.12",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-button-react": "^15.0.2",
-        "@fremtind/jkl-checkbox-react": "^11.0.10",
+        "@fremtind/jkl-checkbox-react": "^11.1.0",
         "@fremtind/jkl-core": "^13.2.0",
         "@fremtind/jkl-feedback": "^13.0.4",
         "@fremtind/jkl-input-group-react": "^3.0.8",
