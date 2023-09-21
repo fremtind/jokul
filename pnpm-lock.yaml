@@ -325,7 +325,7 @@ importers:
 
   packages/checkbox-react:
     specifiers:
-      '@fremtind/jkl-checkbox': ^10.1.4
+      '@fremtind/jkl-checkbox': ^11.0.0
       '@fremtind/jkl-core': ^13.2.0
       '@fremtind/jkl-input-group-react': ^3.0.8
       '@fremtind/jkl-react-hooks': ^12.0.4
@@ -446,7 +446,7 @@ importers:
   packages/cookie-consent-react:
     specifiers:
       '@fremtind/jkl-button-react': ^15.0.2
-      '@fremtind/jkl-checkbox-react': ^11.0.10
+      '@fremtind/jkl-checkbox-react': ^11.1.0
       '@fremtind/jkl-cookie-consent': ^11.0.4
       '@fremtind/jkl-core': ^13.2.0
       '@fremtind/jkl-list-react': ^10.0.4
@@ -552,7 +552,7 @@ importers:
   packages/feedback-react:
     specifiers:
       '@fremtind/jkl-button-react': ^15.0.2
-      '@fremtind/jkl-checkbox-react': ^11.0.10
+      '@fremtind/jkl-checkbox-react': ^11.1.0
       '@fremtind/jkl-core': ^13.2.0
       '@fremtind/jkl-feedback': ^13.0.4
       '@fremtind/jkl-input-group-react': ^3.0.8
@@ -1115,18 +1115,18 @@ importers:
       '@fremtind/jkl-breadcrumb-react': ^5.0.4
       '@fremtind/jkl-button-react': ^15.0.2
       '@fremtind/jkl-card-react': ^11.1.0
-      '@fremtind/jkl-checkbox-react': ^11.0.10
+      '@fremtind/jkl-checkbox-react': ^11.1.0
       '@fremtind/jkl-combobox-react': ^2.1.5
       '@fremtind/jkl-constants-util': ^3.0.15
       '@fremtind/jkl-contact-information-react': ^2.0.16
       '@fremtind/jkl-content-toggle-react': ^6.0.4
       '@fremtind/jkl-contextual-menu-react': ^3.3.1
-      '@fremtind/jkl-cookie-consent-react': ^10.0.13
+      '@fremtind/jkl-cookie-consent-react': ^10.0.14
       '@fremtind/jkl-core': ^13.2.0
       '@fremtind/jkl-datepicker-react': ^15.1.5
       '@fremtind/jkl-description-list-react': ^8.0.4
       '@fremtind/jkl-expand-button-react': ^6.0.7
-      '@fremtind/jkl-feedback-react': ^17.1.11
+      '@fremtind/jkl-feedback-react': ^17.1.12
       '@fremtind/jkl-file-input-react': ^2.1.0
       '@fremtind/jkl-footer-react': ^6.0.16
       '@fremtind/jkl-formatters-util': ^5.0.16
