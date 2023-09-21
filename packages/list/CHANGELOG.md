@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list@10.0.3...@fremtind/jkl-list@10.1.0) (2023-09-21)
+
+### Features
+
+- oppdaterte dekningsliste med nye funksjonsfarger ([12ce5a0](https://github.com/fremtind/jokul/commit/12ce5a004441752250bb8a82871171994f7dad6c))
+
 # 10.0.0 (2023-07-07)
 
 ### chore
