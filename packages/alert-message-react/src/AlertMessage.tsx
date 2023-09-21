@@ -46,11 +46,11 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
                     "jkl-alert-message--dismissed": dismissed,
                 })}
                 data-density={density}
-                data-theme="light"
             >
                 <div
                     className="jkl-alert-message__content"
                     data-testid="alert-message-content"
+                    data-theme="light"
                     style={{
                         maxWidth: maxContentWidth,
                         paddingLeft,
