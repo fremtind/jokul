@@ -25,6 +25,7 @@ export { DotsIcon } from "./icons/dots/DotsIcon";
 export { ErrorIcon } from "./icons/error/ErrorIcon";
 export { HamburgerIcon } from "./icons/hamburger/HamburgerIcon";
 export { InfoIcon } from "./icons/info/InfoIcon";
+export { LinkIcon } from "./icons/link/LinkIcon";
 export { PlusIcon } from "./icons/plus/PlusIcon";
 export { QuestionIcon } from "./icons/question/QuestionIcon";
 export { SearchIcon } from "./icons/search/SearchIcon";

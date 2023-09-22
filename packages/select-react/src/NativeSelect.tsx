@@ -58,7 +58,9 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>((pr
                 <div className="jkl-select__outer-wrapper" style={{ width }}>
                     <select
                         ref={ref}
-                        className={cn("jkl-select__button", selectClassName)}
+                        className={cn("jkl-select__button", selectClassName, {
+                            "jkl-select__button--active-value": !!value,
+                        })}
                         defaultValue={value ? undefined : ""}
                         value={value}
                         {...inputProps}

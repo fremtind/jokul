@@ -3,21 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.1.5 (2023-09-05)
+
+### Bug Fixes
+
+-   deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
+
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@11.0.1...@fremtind/jkl-table-react@11.1.0) (2023-07-13)
+
+### Features
+
+-   expandableTableRow kan kontrolleres med isOpen ([9be84f1](https://github.com/fremtind/jokul/commit/9be84f193fe9ed4a39291539d03e146e157a49b3)), closes [#3597](https://github.com/fremtind/jokul/issues/3597)
+
 # 11.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 ## [10.1.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@10.1.5...@fremtind/jkl-table-react@10.1.11) (2023-03-21)
 
 ### Bug Fixes
 
-- gjør sorter-ikon bold for tabellheader ([83a5b11](https://github.com/fremtind/jokul/commit/83a5b11f8a5a2a03b6e1c65402921ae1f41293bb))
+-   gjør sorter-ikon bold for tabellheader ([83a5b11](https://github.com/fremtind/jokul/commit/83a5b11f8a5a2a03b6e1c65402921ae1f41293bb))
 
 ## 10.1.4 (2023-02-17)
 

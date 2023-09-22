@@ -42,11 +42,12 @@ $_text-input-selection-color--inverted: color.scale(
     --jkl-text-input-unit-color: #{jkl.$color-granitt};
     --jkl-text-input-background-color: #{jkl.$color-hvit};
     --jkl-text-input-focus-color: #{$_text-input-focus-color};
-    --jkl-text-input-error-background-color: #{colors.varslingsfarge("feil")};
+    --jkl-text-input-error-background-color: #{jkl.$color-feil};
     --jkl-text-input-error-text-color: #{jkl.$color-granitt};
     --jkl-text-input-error-placeholder-color: #{jkl.$color-stein};
     --jkl-text-input-selection-color: #{$_text-input-selection-color};
-    --jkl-text-input-error-selection-color-color: #{$_text-input-selection-color};
+    --jkl-text-input-error-selection-color: #{$_text-input-selection-color};
+    --jkl-text-area-counter-count-color: #{jkl.$color-stein};
 }
 
 @include jkl.dark-mode-variables {
@@ -54,13 +55,14 @@ $_text-input-selection-color--inverted: color.scale(
     --jkl-text-input-text-color: #{jkl.$color-snohvit};
     --jkl-text-input-placeholder-color: #{jkl.$color-svaberg};
     --jkl-text-input-unit-color: #{jkl.$color-snohvit};
-    --jkl-text-input-background-color: #{jkl.$color-svart};
+    --jkl-text-input-background-color: #{jkl.$color-skifer};
     --jkl-text-input-focus-color: #{$_text-input-focus-color--inverted};
     --jkl-text-input-selection-color: #{$_text-input-selection-color--inverted};
-    --jkl-text-input-error-background-color: #{colors.varslingsfarge("feil")};
+    --jkl-text-input-error-background-color: #{jkl.$color-feil};
     --jkl-text-input-error-text-color: #{jkl.$color-granitt};
     --jkl-text-input-error-placeholder-color: #{jkl.$color-stein};
-    --jkl-text-input-error-selection-color-color: #{$_text-input-selection-color};
+    --jkl-text-input-error-selection-color: #{$_text-input-selection-color};
+    --jkl-text-area-counter-count-color: #{jkl.$color-svaberg};
 }
 
 @include jkl.comfortable-density-variables {
@@ -129,7 +131,7 @@ $_text-input-selection-color--inverted: color.scale(
 
         // Color of text selection
         &::selection {
-            background-color: var(--jkl-text-input-error-selection-color-color);
+            background-color: var(--jkl-text-input-error-selection-color);
         }
 
         & ~ .jkl-text-input-action-button {
@@ -180,7 +182,7 @@ $_text-input-selection-color--inverted: color.scale(
         color: var(--jkl-text-input-focus-color);
 
         @include jkl.forced-colors-mode {
-            border: rem(2px) inset ButtonText;
+            border: jkl.rem(2px) inset ButtonText;
         }
     }
 
@@ -339,6 +341,7 @@ $_text-input-selection-color--inverted: color.scale(
             &-count {
                 @include jkl.text-style("small");
                 padding: var(--jkl-text-input-padding);
+                color: var(--jkl-text-area-counter-count-color);
             }
 
             &-progress {

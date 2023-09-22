@@ -3,48 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.2.0 (2023-09-05)
+
+### Features
+
+-   changed stateful styling for QuestionIcon ([dcd9cb6](https://github.com/fremtind/jokul/commit/dcd9cb6c2b9e3df2bfa0cfc99d1a3619daf2a01c))
+
+# 4.1.0 (2023-08-24)
+
+### Features
+
+-   rendre tooltip i en portal på rot av ([89a5544](https://github.com/fremtind/jokul/commit/89a5544f41c2652f34a3b34b4accf686f42201b3))
+
 # 4.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@2.0.18...@fremtind/jkl-tooltip-react@3.0.0) (2023-07-03)
 
 ### Bug Fixes
 
-- bruk bedre verdier for min- og maksbredde ([8476c0a](https://github.com/fremtind/jokul/commit/8476c0aa2e3022c5f05435d7a2fa461f8a8ffc51))
-- bruk span for TooltipContent så den kan brukes i avsnitt ([8721bc2](https://github.com/fremtind/jokul/commit/8721bc2b0863f85f0b4a5e8923ab685b681ce7bf))
+-   bruk bedre verdier for min- og maksbredde ([8476c0a](https://github.com/fremtind/jokul/commit/8476c0aa2e3022c5f05435d7a2fa461f8a8ffc51))
+-   bruk span for TooltipContent så den kan brukes i avsnitt ([8721bc2](https://github.com/fremtind/jokul/commit/8721bc2b0863f85f0b4a5e8923ab685b681ce7bf))
 
 ### Features
 
-- endre default delay til 250ms ([3bf8007](https://github.com/fremtind/jokul/commit/3bf80078a22a3a7b13e49df0db83799f501d0865))
-- ny komponent PopupTip for håndtering av tooltip i labels mm ([23d0453](https://github.com/fremtind/jokul/commit/23d0453926913d28bfa8588518ff28619731cdfc))
-- ny, modulær Tooltip-komponent ([c5aa7e5](https://github.com/fremtind/jokul/commit/c5aa7e5726028357ccb9f91c26e53f0da2ca7173))
-- sørg for at tooltip leses av skjermlesere som en del av innholdet i trigger ([63f3462](https://github.com/fremtind/jokul/commit/63f346203798a3fae462bcba3a01f0d230cc9d1a))
+-   endre default delay til 250ms ([3bf8007](https://github.com/fremtind/jokul/commit/3bf80078a22a3a7b13e49df0db83799f501d0865))
+-   ny komponent PopupTip for håndtering av tooltip i labels mm ([23d0453](https://github.com/fremtind/jokul/commit/23d0453926913d28bfa8588518ff28619731cdfc))
+-   ny, modulær Tooltip-komponent ([c5aa7e5](https://github.com/fremtind/jokul/commit/c5aa7e5726028357ccb9f91c26e53f0da2ca7173))
+-   sørg for at tooltip leses av skjermlesere som en del av innholdet i trigger ([63f3462](https://github.com/fremtind/jokul/commit/63f346203798a3fae462bcba3a01f0d230cc9d1a))
 
 ### BREAKING CHANGES
 
-- Nytt API for Tooltip-komponenten
+-   Nytt API for Tooltip-komponenten
 
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@1.0.24...@fremtind/jkl-tooltip-react@2.0.0) (2023-01-30)
 
 ### Code Refactoring
 
-- bruk spørsmålsikon fra ikonpakka i Tooltip ([a6a8fae](https://github.com/fremtind/jokul/commit/a6a8fae77178f3401514c5f574b81ba05a92a5d5))
+-   bruk spørsmålsikon fra ikonpakka i Tooltip ([a6a8fae](https://github.com/fremtind/jokul/commit/a6a8fae77178f3401514c5f574b81ba05a92a5d5))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå importere stilarket fra jkl-icons dersom du bruker Tooltip
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå importere stilarket fra jkl-icons dersom du bruker Tooltip
 
 ## 1.0.15 (2022-12-02)
 

@@ -4,13 +4,15 @@
 @include jkl.light-mode-variables {
     --jkl-accordion-border: #{jkl.$color-svaberg};
     --jkl-accordion-focus: #{jkl.$color-focus-color};
+    --jkl-accordion-hover: #{jkl.$color-stein};
     --jkl-accordion-expanded-background: #{jkl.$color-hvit};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-accordion-border: #{jkl.$color-stein};
     --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
-    --jkl-accordion-expanded-background: #{jkl.$color-svart};
+    --jkl-accordion-hover: #{jkl.$color-svaberg};
+    --jkl-accordion-expanded-background: #{jkl.$color-skifer};
 }
 
 @include jkl.comfortable-density-variables {
@@ -22,7 +24,7 @@
     @include jkl.declare-font-variables("jkl-accordion-content", "body");
 
     @include jkl.small-device {
-        --jkl-accordion-title-padding: var(--jkl-spacing-16) #{jkl.rem(44px)} var(--jkl-spacing-16) var(--jkl-spacing-12);
+        --jkl-accordion-title-padding: var(--jkl-spacing-12) #{jkl.rem(44px)} var(--jkl-spacing-12) var(--jkl-spacing-12);
         --jkl-accordion-content-padding: var(--jkl-spacing-8) var(--jkl-spacing-12) var(--jkl-spacing-16)
             var(--jkl-spacing-12);
         --jkl-accordion-arrow-top: #{jkl.rem(23px)};
@@ -90,6 +92,7 @@
 
         &:hover {
             cursor: pointer;
+            color: var(--jkl-accordion-hover);
 
             .jkl-accordion-item__arrow {
                 top: calc(var(--jkl-accordion-arrow-top) + #{jkl.rem(4px)});

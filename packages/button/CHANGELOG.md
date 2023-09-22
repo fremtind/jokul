@@ -3,54 +3,67 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@11.0.2...@fremtind/jkl-button@12.0.0) (2023-09-14)
+
+### Features
+
+-   added possibility to use all icons ([fcf6be6](https://github.com/fremtind/jokul/commit/fcf6be63a7e0f66f45adf0ca5c9a937cb59f47d2))
+-   changed render of icon and changed name of icon-prop and you can use both props at the same ti ([e7af26f](https://github.com/fremtind/jokul/commit/e7af26f52d21b6984773fa66704e568f51269058))
+
+### BREAKING CHANGES
+
+-   Prop name arrow is now iconLeft and/or iconRight
+-   It's now possible to use all icons and not just left and right arrow. Therefore the arrow prop is
+    now re-named to icon
+
 # 11.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 ## 10.0.8 (2023-06-07)
 
 ### Bug Fixes
 
-- sync med figma etter review ([3685f51](https://github.com/fremtind/jokul/commit/3685f51711ca74f9193a458859f3acfc33157c57)), closes [#3556](https://github.com/fremtind/jokul/issues/3556)
+-   sync med figma etter review ([3685f51](https://github.com/fremtind/jokul/commit/3685f51711ca74f9193a458859f3acfc33157c57)), closes [#3556](https://github.com/fremtind/jokul/issues/3556)
 
 ## 10.0.7 (2023-06-07)
 
 ### Bug Fixes
 
-- senk inline padding for tertiærknappen ([fd2171c](https://github.com/fremtind/jokul/commit/fd2171ca6346058c03f2bb69a335dd467950f3df)), closes [#3556](https://github.com/fremtind/jokul/issues/3556)
+-   senk inline padding for tertiærknappen ([fd2171c](https://github.com/fremtind/jokul/commit/fd2171ca6346058c03f2bb69a335dd467950f3df)), closes [#3556](https://github.com/fremtind/jokul/issues/3556)
 
 ## 10.0.3 (2023-03-21)
 
 ### Bug Fixes
 
-- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+-   sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
 
 # 10.0.0 (2023-01-30)
 
 ### Bug Fixes
 
-- juster plassering av ikon etter nye SVGer ([15f126f](https://github.com/fremtind/jokul/commit/15f126f31e78f8378ac4e7961392d6bf537284f6))
+-   juster plassering av ikon etter nye SVGer ([15f126f](https://github.com/fremtind/jokul/commit/15f126f31e78f8378ac4e7961392d6bf537284f6))
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 9.0.8 (2022-11-22)
 

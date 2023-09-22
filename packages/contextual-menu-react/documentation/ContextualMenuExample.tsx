@@ -6,8 +6,21 @@ import { ContextualMenu } from "../src/ContextualMenu";
 import { ContextualMenuDivider } from "../src/ContextualMenuDivider";
 import { ContextualMenuItem } from "../src/ContextualMenuItem";
 
-export const contextualMenuExampleKnobs: ExampleKnobsProps = {};
-export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
+export const contextualMenuExampleKnobs: ExampleKnobsProps = {
+    choiceProps: [
+        {
+            name: "isOpen",
+            values: ["true", "false", "tom"],
+            defaultValue: 2,
+        },
+    ],
+};
+export const ContextualMenuExample: FC<ExampleComponentProps> = ({ choiceValues, displayValues }) => {
+    const isOpen = choiceValues?.["isOpen"] !== "tom" ? choiceValues?.["isOpen"] === "true" : undefined;
+
+    /* Force a re-render whenever theme or density changes */
+    const key = displayValues?.theme || "none" + displayValues?.density || "none";
+
     return (
         <div
             style={{
@@ -15,7 +28,9 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = () => {
             }}
         >
             <ContextualMenu
+                id={key}
                 initialPlacement="bottom-start"
+                isOpen={isOpen}
                 triggerElement={
                     <IconButton
                         data-testid="trigger-contextual-menu"

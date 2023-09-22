@@ -50,5 +50,12 @@ describe("Checkbox", () => {
                 cy.setDensity("comfortable");
             },
         });
+
+        cy.takeSnapshots({
+            eq: 0,
+            setup: () => {
+                cy.get('input[value="Indeterminate state"]').check();
+            },
+        });
     });
 });

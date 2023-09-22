@@ -57,12 +57,11 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         ...rest
     } = props;
 
-    if (value && defaultValue) {
+    if (process.env.NODE_ENV !== "production" && value && defaultValue) {
         console.warn(
             "DatePicker må enten være controlled eller uncontrolled. Hvis du bruker defaultValue og value sammen vil defaultValue bli ignorert.",
         );
     }
-
     /// Input state
 
     const disableBeforeDate = parseDateString(disableBefore);

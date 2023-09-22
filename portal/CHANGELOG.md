@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [19.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.0.9...@fremtind/portal@19.1.0) (2023-08-15)
+
+### Features
+
+- pek /beta på prodmiljøet av ny portal ([a1298e7](https://github.com/fremtind/jokul/commit/a1298e73980c5cd4125d5959ea3761abe24f9456))
+
+## [19.0.9](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.0.8...@fremtind/portal@19.0.9) (2023-08-14)
+
+### Bug Fixes
+
+- make jokul compatible with sass >= 1.65 ([1e8c79d](https://github.com/fremtind/jokul/commit/1e8c79d897d45f0f2668a574facb27f5d3b90898)), closes [#3642](https://github.com/fremtind/jokul/issues/3642)
+
+## [19.0.5](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.0.4...@fremtind/portal@19.0.5) (2023-08-07)
+
+### Bug Fixes
+
+- fix color code for varde color ([26d1359](https://github.com/fremtind/jokul/commit/26d13592c91764e7b182bfdf68de230a40f191e0)), closes [#3627](https://github.com/fremtind/jokul/issues/3627)
+
 ## [19.0.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.0.0...@fremtind/portal@19.0.1) (2023-07-07)
 
 ### Bug Fixes

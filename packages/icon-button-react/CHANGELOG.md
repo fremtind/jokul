@@ -3,27 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.5 (2023-09-05)
+
+### Bug Fixes
+
+-   deleted snapshot files ([5cad560](https://github.com/fremtind/jokul/commit/5cad560a9757a56715ed64f93265e56efffaa427))
+
 # 4.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@2.0.19...@fremtind/jkl-icon-button-react@3.0.0) (2023-01-30)
 
 ### Features
 
-- åpne for bruk av ikoner fra icons-react i icon-button ([e6ec85f](https://github.com/fremtind/jokul/commit/e6ec85f5e8871751459cf9fa8303c9fad6759723))
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   åpne for bruk av ikoner fra icons-react i icon-button ([e6ec85f](https://github.com/fremtind/jokul/commit/e6ec85f5e8871751459cf9fa8303c9fad6759723))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Krever nå at du sender inn en ikonkomponent som children. ButtonTitle er renamet til bare title.
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Krever nå at du sender inn en ikonkomponent som children. ButtonTitle er renamet til bare title.
 
 ## [2.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button-react@2.0.14...@fremtind/jkl-icon-button-react@2.0.15) (2022-11-28)
 

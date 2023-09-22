@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.1.0 (2023-09-14)
+
+### Features
+
+- added hover color to text and changed padding on mobile ([1b482fd](https://github.com/fremtind/jokul/commit/1b482fdf791390d81fe4b574170952b4fc7f5974))
+- changed backgroundcolor when expanded to skifer ([39baa03](https://github.com/fremtind/jokul/commit/39baa03a1baa407e6cdd6d44181e69caf390ec65))
+
 # 11.0.0 (2023-07-07)
 
 ### chore

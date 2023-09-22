@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.3.0 (2023-09-18)
+
+### Bug Fixes
+
+- pR Feedback ([f5c012d](https://github.com/fremtind/jokul/commit/f5c012db6f4e5fd21656e129300cb0ccb3714754))
+
+### Features
+
+- feat: updated to match Figma changes ([6df220a](https://github.com/fremtind/jokul/commit/6df220a7e6f06379ecddea16450894eedb844b36)), closes [#3663](https://github.com/fremtind/jokul/issues/3663)
+
+# 3.2.0 (2023-08-24)
+
+### Bug Fixes
+
+- sett jkl rotklasse på kontekstuell meny ([871daba](https://github.com/fremtind/jokul/commit/871daba12cd8120b2f86187f3a1754b5cf01354e))
+
+### Features
+
+- rendre contextual meny i en portal på rot ([a3a6407](https://github.com/fremtind/jokul/commit/a3a64074d6e77bbe8f9349df9de8b76e42e8ee8f))
+
+# 3.1.0 (2023-08-07)
+
+### Features
+
+- add support for isOpen and onToggle props ([e3c641f](https://github.com/fremtind/jokul/commit/e3c641f80f7635625f542a4abd758fdaf520e399)), closes [#3626](https://github.com/fremtind/jokul/issues/3626)
+
 # [3.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contextual-menu-react@2.1.3...@fremtind/jkl-contextual-menu-react@3.0.0) (2023-07-07)
 
 ### chore

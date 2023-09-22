@@ -4,7 +4,7 @@ import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../
 import { Checkbox } from "../src";
 
 export const checkboxExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],
+    boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip", "Indeterminate state"],
     choiceProps: [
         {
             name: "Variant",
@@ -23,6 +23,7 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
 
     const helpText = boolValues?.["Med hjelpetekst"];
     const invalid = boolValues?.["Med feil"];
+    const indeterminate = boolValues?.["Indeterminate state"];
 
     const tooltip = boolValues?.["Med tooltip"]
         ? {
@@ -44,6 +45,7 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
                 checked={phone}
                 invalid={invalid}
                 onChange={() => setPhone(!phone)}
+                indeterminate={indeterminate}
             >
                 Telefon
             </Checkbox>
@@ -53,6 +55,7 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
                 checked={email}
                 invalid={invalid}
                 onChange={() => setEmail(!email)}
+                indeterminate={indeterminate}
             >
                 E-post
             </Checkbox>
@@ -62,6 +65,7 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
                 checked={snailMail}
                 invalid={invalid}
                 onChange={() => setSnailMail(!snailMail)}
+                indeterminate={indeterminate}
             >
                 Brev
             </Checkbox>

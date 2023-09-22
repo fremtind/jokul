@@ -3,28 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.5 (2023-09-14)
+
+### Bug Fixes
+
+- deleted snapshots folder ([b742384](https://github.com/fremtind/jokul/commit/b74238480f6131af19b9f70b796377a4978a6ce3))
+
+## 10.0.4 (2023-09-14)
+
+### Bug Fixes
+
+-   try removing accordion snapshots to see diff ([9a6cd15](https://github.com/fremtind/jokul/commit/9a6cd15065eb2809b3210bb61fda54deabb012cb))
+
 # 10.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # [9.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@8.0.15...@fremtind/jkl-accordion-react@9.0.0) (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
-- gjør pilen fet når AccorionItem er åpent ([736f11d](https://github.com/fremtind/jokul/commit/736f11d3e76aec60b8edfd66186cf769c8241f48))
-- ta i bruk nye ikoner i AccordionItem ([f9c6a32](https://github.com/fremtind/jokul/commit/f9c6a32f9a924721e71f2e111f6260b052ee5bd0))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   gjør pilen fet når AccorionItem er åpent ([736f11d](https://github.com/fremtind/jokul/commit/736f11d3e76aec60b8edfd66186cf769c8241f48))
+-   ta i bruk nye ikoner i AccordionItem ([f9c6a32](https://github.com/fremtind/jokul/commit/f9c6a32f9a924721e71f2e111f6260b052ee5bd0))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå importere stilarket fra jkl-icons fr at komponentnen skal se riktig ut
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå importere stilarket fra jkl-icons fr at komponentnen skal se riktig ut
 
 ## 8.0.12 (2022-11-22)
 

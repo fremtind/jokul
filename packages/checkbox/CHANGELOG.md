@@ -3,38 +3,84 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@10.1.4...@fremtind/jkl-checkbox@11.0.0) (2023-09-21)
+
+### Bug Fixes
+
+- use correct CSS class names ([772e41d](https://github.com/fremtind/jokul/commit/772e41d1ca0fe78cc58b8a99de3ff30b02a8f236))
+
+### Features
+
+- add support for an indeterminate prop ([1628063](https://github.com/fremtind/jokul/commit/1628063331cf595b2fda1bbc84e44ab6f9b8706a)), closes [#3675](https://github.com/fremtind/jokul/issues/3675)
+
+### BREAKING CHANGES
+
+- CSS class names and DOM structure for the checkbox label has been changed.
+
+Markup needs to be updated from
+```
+<label className="jkl-checkbox__label">
+  <span className="jkl-checkbox__check-mark" />
+  <span className="jkl-checkbox__check-text">Text</span>
+</label>
+```
+
+to
+
+```
+<label className="jkl-checkbox__label">
+  <span className="jkl-checkbox__mark">
+    <span className="jkl-checkbox__indeterminate-mark" />
+    <span className="jkl-checkbox__check-mark" />
+  </span>
+  <span className="jkl-checkbox__text">Text</span>
+</label>
+```
+
+## [10.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@10.1.1...@fremtind/jkl-checkbox@10.1.2) (2023-09-18)
+
+### Bug Fixes
+
+- tweak colors in forced-colors mode ([1dd726f](https://github.com/fremtind/jokul/commit/1dd726fbc9e5cd653da49cb0a91b47ef29b83a4e))
+
+# 10.1.0 (2023-09-06)
+
+### Features
+
+-   updated to match Figma changes ([af6c436](https://github.com/fremtind/jokul/commit/af6c436075e704e2169c7f07cfdc2cab4a3f5a63)), closes [#3661](https://github.com/fremtind/jokul/issues/3661)
+
 # 10.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 ## 9.0.3 (2023-03-21)
 
 ### Bug Fixes
 
-- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+-   sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
 
 # 9.0.0 (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 8.0.8 (2022-11-22)
 

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-datepicker",
-    "version": "12.0.1",
+    "version": "12.1.4",
     "publishConfig": {
         "access": "public"
     },
@@ -25,9 +25,9 @@
         "dev": "echo \"Error: run dev from datepicker-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^13.0.0",
-        "@fremtind/jkl-select": "^11.0.0",
-        "@fremtind/jkl-text-input": "^12.0.1"
+        "@fremtind/jkl-core": "^13.2.0",
+        "@fremtind/jkl-select": "^11.1.4",
+        "@fremtind/jkl-text-input": "^12.1.3"
     },
     "repository": {
         "type": "git",

@@ -26,7 +26,7 @@ export const taskCardExampleProps: ExampleKnobsProps = {
 };
 
 export const infoCardExampleProps: ExampleKnobsProps = {
-    boolProps: ["Image", { prop: "Title", defaultValue: true }],
+    boolProps: [{ prop: "Title", defaultValue: true }],
     choiceProps: [...baseCardExampleProps.choiceProps],
 };
 
