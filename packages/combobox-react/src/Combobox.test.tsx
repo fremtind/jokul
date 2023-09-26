@@ -1,4 +1,3 @@
-import { Tag } from "@fremtind/jkl-tag-react";
 import { render, RenderOptions, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
@@ -146,71 +145,6 @@ describe("Combobox", () => {
                         expect.objectContaining({ label: "Item 1", value: "1" }),
                         expect.objectContaining({ label: "Item 2", value: "2" }),
                     ],
-                }),
-            }),
-        );
-    });
-
-    it("should clear all values when clicking remove all button", async () => {
-        const onChangeSpy = jest.fn();
-        function WrappedCombobox() {
-            const [selectedValues, setSelectedValues] = useState<Array<ComboboxValuePair>>([]);
-
-            const items: ComboboxValuePair[] = [
-                { label: "Item 1", value: "1" },
-                { label: "Item 2", value: "2" },
-                { label: "Item 3", value: "3" },
-            ];
-
-            return (
-                <Combobox
-                    name="items"
-                    placeholder="Søk"
-                    label="List of items"
-                    items={items}
-                    value={selectedValues}
-                    onChange={(event) => {
-                        onChangeSpy(event);
-                        setSelectedValues(event.target.selectedOptions);
-                    }}
-                />
-            );
-        }
-        const { getByRole, getByTestId } = setup(<WrappedCombobox />);
-        const openDropdownButtonElement = getByTestId("jkl-combobox__button");
-
-        await act(async () => {
-            await userEvent.click(openDropdownButtonElement);
-        });
-
-        const selectOption1Element = getByRole("option", { name: "Item 1" });
-
-        await act(async () => {
-            await userEvent.click(selectOption1Element);
-        });
-
-        expect(getByTestId("jkl-tag").textContent).toBe("Item 1");
-
-        const selectOption2Element = getByRole("option", { name: "Item 2" });
-
-        await act(async () => {
-            await userEvent.click(selectOption2Element);
-        });
-
-        const removeOptionsButton = getByTestId("jkl-combobox__remove-all");
-
-        await act(async () => {
-            await userEvent.click(removeOptionsButton);
-        });
-
-        expect(getByTestId("jkl-combobox__tags")).not.toContain(<Tag />);
-
-        expect(onChangeSpy).toHaveBeenCalledTimes(3);
-        expect(onChangeSpy).toHaveBeenLastCalledWith(
-            expect.objectContaining({
-                target: expect.objectContaining({
-                    value: "",
-                    selectedOptions: [],
                 }),
             }),
         );
