@@ -14,8 +14,9 @@ export const contextualMenuExampleKnobs: ExampleKnobsProps = {
             defaultValue: 2,
         },
     ],
+    boolProps: ["Ikke lukk ved klikk utenfor"],
 };
-export const ContextualMenuExample: FC<ExampleComponentProps> = ({ choiceValues, displayValues }) => {
+export const ContextualMenuExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues, displayValues }) => {
     const isOpen = choiceValues?.["isOpen"] !== "tom" ? choiceValues?.["isOpen"] === "true" : undefined;
 
     /* Force a re-render whenever theme or density changes */
@@ -31,6 +32,7 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = ({ choiceValues,
                 id={key}
                 initialPlacement="bottom-start"
                 isOpen={isOpen}
+                keepOpenOnClickOutside={boolValues?.["Ikke lukk ved klikk utenfor"]}
                 triggerElement={
                     <IconButton
                         data-testid="trigger-contextual-menu"
@@ -65,9 +67,13 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = ({ choiceValues,
 };
 
 export default ContextualMenuExample;
-export const contextualMenuExampleCode: CodeExample = () => `
+export const contextualMenuExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
+    const isOpen = !choiceValues || choiceValues["isOpen"] === "tom" ? `` : `\n    isOpen={${choiceValues["isOpen"]}}`;
+    const keepOpen = choiceValues?.["Ikke lukk ved klikk utenfor"] ? `\n    keepOpenOnClickOutside` : ``;
+
+    return `
 <ContextualMenu
-    initialPlacement="bottom-start"
+    initialPlacement="bottom-start"${isOpen}${keepOpen}
     triggerElement={
         <IconButton title="En kontekstuell meny med eksempelvalg for å demonstrere mulighetene i komponenten">
             <DotsIcon bold />
@@ -95,3 +101,4 @@ export const contextualMenuExampleCode: CodeExample = () => `
     </ContextualMenu>
 </ContextualMenu>
 `;
+};
