@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contextual-menu-react@3.3.2...@fremtind/jkl-contextual-menu-react@3.4.0) (2023-09-27)
+
+### Features
+
+- legg til mulighet for å hindre lukk ved klikk utenfor ([1298e8c](https://github.com/fremtind/jokul/commit/1298e8ccab37cea7769e11dadd04a04e14aa1faf))
+- legg til prop for å styre ekstern pil ([9b8975c](https://github.com/fremtind/jokul/commit/9b8975c2ae02eee8e7f89a5b06895ddec13237f1))
+
 # 3.3.0 (2023-09-18)
 
 ### Bug Fixes
