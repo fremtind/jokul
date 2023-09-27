@@ -46,6 +46,11 @@ export interface ContextualMenuProps
      */
     openOnHover?: boolean;
     /**
+     * Angir om menyen skal holdes åpen når man klikker utenfor menyen
+     * @default false
+     */
+    keepOpenOnClickOutside?: boolean;
+    /**
      * Elementet som fungerer som trigger for menyen. Dersom elementet ikke er en `<button>`
      * eller en `forwardRef<HTMLButtonElement>` vil det bli lagt inne i en knapp
      * med forhåndsdefinert stil. For å komme raskt i gang kan du bruke komponenten
@@ -69,6 +74,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
         className,
         initialPlacement,
         openOnHover = false,
+        keepOpenOnClickOutside = false,
         triggerElement,
         isOpen: isOpenOverride,
         onToggle,
@@ -120,7 +126,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
         useClick(context, {
             event: "mousedown",
         }),
-        useDismiss(context),
+        useDismiss(context, { outsidePress: !keepOpenOnClickOutside }),
         useRole(context, { role: "menu" }),
         useListNavigation(context, {
             listRef: listItemsRef,
