@@ -47,7 +47,8 @@ describe("Select", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.toggleSelectMenu("produsent").selectValue("3").toggleSelectMenu("produsent").focusSelectValue("1");
+                cy.toggleSelectMenu("produsent").selectValue("3");
+                cy.toggleSelectMenu("produsent").focusSelectValue("1");
             },
             teardown: () => {
                 cy.toggleSelectMenu("produsent");
