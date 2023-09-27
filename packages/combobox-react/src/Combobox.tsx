@@ -295,7 +295,6 @@ export const Combobox: FC<ComboboxProps> = ({
                 }));
                 setSelectedValue(updatedSelectedValue);
             } else if (e.key === "Backspace") {
-                e.preventDefault();
                 e.stopPropagation();
 
                 // Sjekk om selectedValue er markert
