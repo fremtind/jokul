@@ -59,9 +59,9 @@ Cypress.Commands.add("getComponent", () => {
 
 const setMode = (action, reset) => () => {
     if (reset) {
-        return cy.get(`input[value="${action}"]:checked`).click({ multiple: true });
+        return cy.get(`input[value="${action}"]`).uncheck();
     }
-    return cy.get(`input[value="${action}"]:not(:checked)`).click({ multiple: true });
+    return cy.get(`input[value="${action}"]`).check();
 };
 
 Cypress.Commands.add("setChoice", (choice, value) =>
