@@ -108,7 +108,6 @@ export const Combobox: FC<ComboboxProps> = ({
         }
     };
 
-    // Fjerne ett eller flere valg
     const removeOption = useCallback(
         (option: string) => {
             return selectedValue.filter((value) => value.value !== option);
