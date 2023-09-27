@@ -23,7 +23,7 @@ declare namespace Cypress {
         checkInput: (inputName: string) => Chainable<Subject>;
         uncheckInput: (inputName: string) => Chainable<Subject>;
         /** For radioknapper */
-        setChoice: (inputName: string) => Chainable<Subject>;
+        setChoice: (inputName: string, value: string) => Chainable<Subject>;
         toggleSelectMenu: (inputName: string) => Chainable<Subject>;
         selectValue: (inputName: string) => Chainable<Subject>;
         focusSelectValue: (inputName: string) => Chainable<Subject>;
@@ -49,6 +49,7 @@ declare namespace Cypress {
         resetisLoading: () => Chainable<Subject>;
         setDismissable: () => Chainable<Subject>;
         resetDismissable: () => Chainable<Subject>;
+        setSelectChoice: (choice: string, value: string) => Chainable<Subject>;
     }
 
     type TakeSnapshotsOptions<Subject> = {
