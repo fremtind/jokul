@@ -69,7 +69,7 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = ({ boolValues, c
 export default ContextualMenuExample;
 export const contextualMenuExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
     const isOpen = !choiceValues || choiceValues["isOpen"] === "tom" ? `` : `\n    isOpen={${choiceValues["isOpen"]}}`;
-    const keepOpen = choiceValues?.["Ikke lukk ved klikk utenfor"] ? `\n    keepOpenOnClickOutside` : ``;
+    const keepOpen = boolValues?.["Ikke lukk ved klikk utenfor"] ? `\n    keepOpenOnClickOutside` : ``;
 
     return `
 <ContextualMenu
