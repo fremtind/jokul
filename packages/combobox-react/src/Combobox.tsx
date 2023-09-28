@@ -296,6 +296,7 @@ export const Combobox: FC<ComboboxProps> = ({
             } else if (e.key === "Backspace") {
                 e.stopPropagation();
 
+                // Sjekk om selectedValue er markert
                 const selectedValueIsMarked = selectedValue.some((item) => item.isMarked);
 
                 if (selectedValueIsMarked) {
@@ -303,6 +304,7 @@ export const Combobox: FC<ComboboxProps> = ({
                     setSelectedValue(updatedSelectedValue);
                     setSearchValue("");
                 } else if (selectedValue.length > 0 && searchValue === "") {
+                    // Hvis ingen items er markert, fjern siste valgte item
                     setSelectedValue(selectedValue.slice(0, selectedValue.length - 1));
                 }
             }
