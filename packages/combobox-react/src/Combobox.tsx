@@ -285,7 +285,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 setShowMenu(false);
             }
 
-            if (e.ctrlKey && e.key === "a") {
+            if (e.ctrlKey || (e.metaKey && e.key === "a")) {
                 e.preventDefault();
                 e.stopPropagation();
                 const updatedSelectedValue = selectedValue.map((item) => ({
