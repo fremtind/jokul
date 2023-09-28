@@ -303,6 +303,7 @@ export const Combobox: FC<ComboboxProps> = ({
                     // Fjern items hvis de er markert
                     const updatedSelectedValue = selectedValue.filter((item) => !item.isMarked);
                     setSelectedValue(updatedSelectedValue);
+                    setSearchValue("");
                 } else if (selectedValue.length > 0 && searchValue === "") {
                     // Hvis ingen items er markert, fjern siste valgte item
                     setSelectedValue(selectedValue.slice(0, selectedValue.length - 1));
