@@ -17,7 +17,7 @@ jobs:
             deployments: write
         steps:
             - name: Checkout branch
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
               with:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   fetch-depth: "0" # fetch entire git history

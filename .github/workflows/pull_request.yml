@@ -36,7 +36,7 @@ jobs:
         steps:
             - name: Checkout
               if: "!contains(github.event.sender.login, 'fremtind-bot')"
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
 
             - name: Check for changes that require extra verification
               if: "!contains(github.event.sender.login, 'fremtind-bot')"
@@ -154,7 +154,7 @@ jobs:
             contents: read
         steps:
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
 
             - name: Setup pnpm
               uses: pnpm/action-setup@v2
@@ -196,7 +196,7 @@ jobs:
             contents: read
         steps:
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
               with:
                   fetch-depth: "0" # Hent hele git-historikken, for lerna changed, som brukes i beregning av hvilke tester som skal kjøre
 
@@ -303,7 +303,7 @@ jobs:
             contents: write
         steps:
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
               with:
                   ref: ${{ github.event.pull_request.head.ref }}
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
