@@ -76,7 +76,7 @@
         "gatsby-source-filesystem": "^4.25.0",
         "gatsby-source-package": "^1.0.1",
         "gatsby-transformer-react-docgen": "^7.25.0",
-        "gatsby-transformer-sharp": "^4.25.0",
+        "gatsby-transformer-sharp": "^5.12.0",
         "kbar": "0.1.0-beta.39",
         "mixpanel-browser": "^2.47.0",
         "react": "^18.2.0",
