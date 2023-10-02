@@ -57,13 +57,6 @@ Cypress.Commands.add("getComponent", () => {
     cy.get(".jkl-portal-component-example__example-wrapper");
 });
 
-const setMode = (action, reset) => () => {
-    if (reset) {
-        return cy.get(`input[value="${action}"]`).uncheck();
-    }
-    return cy.get(`input[value="${action}"]`).check();
-};
-
 Cypress.Commands.add("setChoice", (choice, value) =>
     cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).click({ multiple: true }),
 );
@@ -80,6 +73,13 @@ Cypress.Commands.add("setSelectChoice", (choice, value) => {
     cy.toggleSelectMenu(choice);
     cy.selectValue(value);
 });
+
+const setMode = (action, reset) => () => {
+    if (reset) {
+        return cy.get(`input[value="${action}"]`).uncheck();
+    }
+    return cy.get(`input[value="${action}"]`).check();
+};
 
 const setModeFactory = (knob) => {
     Cypress.Commands.add(`set${pascalCase(knob)}`, setMode(knob, false));
@@ -128,6 +128,8 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
             title: forcedColorsActive ? `${Cypress.currentTest.titlePath.join(" ")} in high contrast` : undefined,
         };
 
+        cy.get("#screenshot-mode-toggle").trigger("click", { force: true });
+
         if (typeof options.customSelector === "function") {
             options.customSelector().matchImage(snapshotConfig);
         } else {
@@ -137,6 +139,8 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
         if (pause) {
             cy.pause();
         }
+
+        cy.get("#screenshot-mode-toggle").trigger("click", { force: true });
 
         if (typeof options.teardown === "function") {
             options.teardown();
