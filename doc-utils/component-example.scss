@@ -54,6 +54,15 @@
             content: attr(data-example-text);
         }
 
+        &[data-test-mode="e2e-screenshot"] {
+            position: absolute;
+            z-index: 9001;
+            width: 600px;
+            height: 600px;
+            margin: auto;
+            inset: 0;
+        }
+
         &--scrollable {
             overflow-x: scroll;
         }

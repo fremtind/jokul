@@ -63,6 +63,7 @@ export const ExampleBase: FC<Props> = ({
     const uid = useId("example");
     const [theme, setTheme] = useLocalStorage<ColorScheme>("jkl-example-theme", "light");
     const [density, setDensity] = useLocalStorage<Density>("jkl-example-density", "comfortable");
+    const [screenshotMode, setScreenshotMode] = useState(false);
 
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>(
         knobs?.boolProps?.reduce((acc, boolProp) => {
@@ -106,6 +107,11 @@ export const ExampleBase: FC<Props> = ({
 
     return (
         <ExampleContextProvider state={{ theme, density }}>
+            <button
+                id="screenshot-mode-toggle"
+                hidden={true}
+                onClick={() => setScreenshotMode(!screenshotMode)}
+            ></button>
             <div className="mb-64">
                 <section
                     className={`jkl-portal-component-example ${isWide ? "jkl-portal-component-example--is-wide" : ""}`}
@@ -121,6 +127,7 @@ export const ExampleBase: FC<Props> = ({
                             density === "comfortable" ? "jkl-body" : ""
                         } ${density === "compact" ? "jkl-small" : ""}`.trim()}
                         style={style}
+                        data-test-mode={screenshotMode ? "e2e-screenshot" : null}
                     >
                         {example}
                     </div>
