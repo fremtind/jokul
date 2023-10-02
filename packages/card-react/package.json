@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "11.1.1",
+    "version": "11.1.2",
     "publishConfig": {
         "access": "public"
     },
@@ -35,15 +35,15 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button-react": "^15.0.3",
+        "@fremtind/jkl-button-react": "^15.0.4",
         "@fremtind/jkl-card": "^11.0.4",
         "@fremtind/jkl-core": "^13.2.1",
         "@fremtind/jkl-image-react": "^6.0.5",
-        "@fremtind/jkl-tag-react": "^5.1.1",
+        "@fremtind/jkl-tag-react": "^5.1.2",
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-constants-util": "^3.0.16"
+        "@fremtind/jkl-constants-util": "^3.0.17"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
