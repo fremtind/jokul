@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@4.2.5...@fremtind/jkl-tooltip-react@4.2.6) (2023-10-03)
+
+### Bug Fixes
+
+- ikke la jkl-klassen overstyre bakgrunnsfarge ([b330a9d](https://github.com/fremtind/jokul/commit/b330a9dbfce3b816ae87af0aea74c84e3a56d691))
+
 # 4.2.0 (2023-09-05)
 
 ### Features
