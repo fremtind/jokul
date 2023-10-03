@@ -74,35 +74,37 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                     </span>
                 )}
                 {isOpen && (
-                    <motion.span
-                        key={contentId}
-                        ref={ref}
-                        initial={{ opacity: 0, ...getPositionAnimation(placement, 5) }}
-                        animate={{ opacity: 1, ...getPositionAnimation(placement, 0) }}
-                        exit={{
-                            opacity: 0,
-                            ...getPositionAnimation(placement, -5),
-                            transition: { ease: "easeIn", duration: 0.15 },
-                        }}
-                        transition={{ ease: "easeOut", duration: 0.25 }}
-                        data-placement={placement}
-                        aria-live={triggerOn === "click" ? "assertive" : undefined}
-                        className={cn("jkl jkl-tooltip-content", className)}
-                        {...getFloatingProps({ ...props, id: contentId })}
-                        style={{ ...floatingStyles }}
-                        data-theme={theme}
-                    >
-                        {children}
-                        <span
-                            aria-hidden
-                            className="jkl-tooltip-content__arrow"
-                            ref={arrowElement}
-                            style={{
-                                left: isPositioned ? `${arrow?.x}px` : "",
-                                top: isPositioned ? `${arrow?.y}px` : "",
+                    <span className="jkl">
+                        <motion.span
+                            key={contentId}
+                            ref={ref}
+                            initial={{ opacity: 0, ...getPositionAnimation(placement, 5) }}
+                            animate={{ opacity: 1, ...getPositionAnimation(placement, 0) }}
+                            exit={{
+                                opacity: 0,
+                                ...getPositionAnimation(placement, -5),
+                                transition: { ease: "easeIn", duration: 0.15 },
                             }}
-                        />
-                    </motion.span>
+                            transition={{ ease: "easeOut", duration: 0.25 }}
+                            data-placement={placement}
+                            aria-live={triggerOn === "click" ? "assertive" : undefined}
+                            className={cn("jkl-tooltip-content", className)}
+                            {...getFloatingProps({ ...props, id: contentId })}
+                            style={{ ...floatingStyles }}
+                            data-theme={theme}
+                        >
+                            {children}
+                            <span
+                                aria-hidden
+                                className="jkl-tooltip-content__arrow"
+                                ref={arrowElement}
+                                style={{
+                                    left: isPositioned ? `${arrow?.x}px` : "",
+                                    top: isPositioned ? `${arrow?.y}px` : "",
+                                }}
+                            />
+                        </motion.span>
+                    </span>
                 )}
             </AnimatePresence>
         </FloatingPortal>
