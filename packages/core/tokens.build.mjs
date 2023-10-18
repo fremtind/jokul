@@ -110,7 +110,7 @@ StyleDictionary.registerFilter({
 const legacyDictionary = StyleDictionary.extend({
     source: ["tokens/legacy/*.json"],
     platforms: {
-        css: {
+        scss: {
             transformGroup: "scss",
             buildPath: "jkl/",
             prefix: "jkl",
@@ -118,6 +118,17 @@ const legacyDictionary = StyleDictionary.extend({
                 {
                     destination: "_legacy-tokens.scss",
                     format: "scss/variables",
+                },
+            ],
+        },
+        css: {
+            transformGroup: "scss",
+            buildPath: "styles/",
+            prefix: "jkl",
+            files: [
+                {
+                    destination: "_legacy-tokens.scss",
+                    format: "css/variables",
                 },
             ],
         },
