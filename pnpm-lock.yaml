@@ -92,7 +92,7 @@ importers:
       react-syntax-highlighter: ^15.5.0
       replace-in-file: ^7.0.1
       resize-observer-polyfill: ^1.5.1
-      rimraf: ^3.0.2
+      rimraf: ^4.4.1
       sass-embedded: ^1.64.2
       stylelint: ^15.7.0
       tiny-glob: ^0.2.9
@@ -165,7 +165,7 @@ importers:
       react-syntax-highlighter: 15.5.0_react@18.2.0
       replace-in-file: 7.0.1
       resize-observer-polyfill: 1.5.1
-      rimraf: 3.0.2
+      rimraf: 4.4.1
       sass-embedded: 1.64.2
       stylelint: 15.7.0
       tiny-glob: 0.2.9
@@ -13035,19 +13035,19 @@ packages:
 
   /graphql-compose/9.0.10:
     resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
-    peerDependencies:
-      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql-type-json: 0.3.2
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /graphql-compose/9.0.10_graphql@15.8.0:
     resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
-    peerDependencies:
-      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql: 15.8.0
       graphql-type-json: 0.3.2_graphql@15.8.0
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /graphql-playground-html/1.6.30:
