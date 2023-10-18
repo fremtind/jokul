@@ -1,0 +1,246 @@
+{
+    "color": {
+        "background": {
+            "page": {
+                "light": {
+                    "value": "{color.brand.sand.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.granitt.value}"
+                }
+            },
+            "page-variant": {
+                "light": {
+                    "value": "{color.brand.snohvit.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.granitt.value}"
+                }
+            },
+            "container": {
+                "light": {
+                    "value": "{color.brand.snohvit.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.skifer.value}"
+                }
+            },
+            "container-low": {
+                "light": {
+                    "value": "{color.brand.dis.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.svart.value}"
+                }
+            },
+            "container-high": {
+                "light": {
+                    "value": "{color.brand.hvit.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.skifer.value}"
+                }
+            },
+            "input": {
+                "base": {
+                    "light": {
+                        "value": "transparent"
+                    },
+                    "dark": {
+                        "value": "transparent"
+                    }
+                },
+                "focus": {
+                    "light": {
+                        "value": "{color.brand.hvit.value}"
+                    },
+                    "dark": {
+                        "value": "{color.brand.skifer.value}"
+                    }
+                }
+            },
+            "action": {
+                "light": {
+                    "value": "{color.brand.granitt.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.snohvit.value}"
+                }
+            },
+            "interactive": {
+                "light": {
+                    "value": "transparent"
+                },
+                "dark": {
+                    "value": "transparent"
+                }
+            },
+            "interactive-hover": {
+                "light": {
+                    "value": "{color.brand.dis.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.stein.value}"
+                }
+            },
+            "interactive-selected": {
+                "light": {
+                    "value": "{color.brand.varde.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.fjellgra.value}"
+                }
+            },
+            "alert": {
+                "neutral": {
+                    "light": {
+                        "value": "{color.brand.varde.value}"
+                    },
+                    "dark": {
+                        "value": "{color.brand.varde.value}"
+                    }
+                },
+                "info": {
+                    "light": {
+                        "value": "{color.functional.info.value}"
+                    },
+                    "dark": {
+                        "value": "{color.functional.info-dark.value}"
+                    }
+                },
+                "success": {
+                    "light": {
+                        "value": "{color.functional.success.value}"
+                    },
+                    "dark": {
+                        "value": "{color.functional.success-dark.value}"
+                    }
+                },
+                "warning": {
+                    "light": {
+                        "value": "{color.functional.warning.value}"
+                    },
+                    "dark": {
+                        "value": "{color.functional.warning-dark.value}"
+                    }
+                },
+                "error": {
+                    "light": {
+                        "value": "{color.functional.error.value}"
+                    },
+                    "dark": {
+                        "value": "{color.functional.error-dark.value}"
+                    }
+                }
+            }
+        },
+        "text": {
+            "default": {
+                "light": {
+                    "value": "{color.brand.granitt.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.snohvit.value}"
+                }
+            },
+            "subdued": {
+                "light": {
+                    "value": "{color.brand.stein.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.svaberg.value}"
+                }
+            },
+            "inverted": {
+                "light": {
+                    "value": "{color.brand.snohvit.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.granitt.value}"
+                }
+            },
+            "on-action": {
+                "light": {
+                    "value": "{color.brand.snohvit.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.granitt.value}"
+                }
+            },
+            "interactive": {
+                "light": {
+                    "value": "{color.brand.granitt.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.snohvit.value}"
+                }
+            },
+            "interactive-hover": {
+                "light": {
+                    "value": "{color.brand.stein.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.svaberg.value}"
+                }
+            },
+            "on-alert": {
+                "light": {
+                    "value": "{color.brand.granitt.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.granitt.value}"
+                }
+            }
+        },
+        "border": {
+            "action": {
+                "light": {
+                    "value": "{color.brand.granitt.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.snohvit.value}"
+                }
+            },
+            "input": {
+                "light": {
+                    "value": "{color.brand.stein.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.svaberg.value}"
+                }
+            },
+            "input-focus": {
+                "light": {
+                    "value": "{color.brand.granitt.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.snohvit.value}"
+                }
+            },
+            "separator": {
+                "light": {
+                    "value": "{color.brand.svaberg.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.stein.value}"
+                }
+            },
+            "separator-strong": {
+                "light": {
+                    "value": "{color.brand.stein.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.svaberg.value}"
+                }
+            },
+            "separator-hover": {
+                "light": {
+                    "value": "{color.brand.granitt.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.snohvit.value}"
+                }
+            }
+        }
+    }
+}
