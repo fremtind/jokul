@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.3.0 (2023-10-18)
+
+### Bug Fixes
+
+- fortsett å eksponere css-variabler for legacy variabler ([580d2cf](https://github.com/fremtind/jokul/commit/580d2cfad65cfe4fc6a8b17ab15995e5b103ba34))
+
+### Features
+
+- legg til alpha-versjon av semantiske variabler ([df0bfbd](https://github.com/fremtind/jokul/commit/df0bfbd97e99c2d9ff021dfb13a16498c292e93e))
+
 # [13.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@13.1.1...@fremtind/jkl-core@13.2.0) (2023-09-21)
 
 ### Features
