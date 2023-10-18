@@ -12,6 +12,7 @@
 @forward "spacing" hide $spacing, $combinations, $positions;
 @forward "theme";
 @forward "tokens";
+@forward "legacy-tokens";
 @forward "typography" hide $text-styles;
 @forward "underline";
 @forward "z-index";
