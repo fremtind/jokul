@@ -121,7 +121,7 @@
         "react-syntax-highlighter": "^15.5.0",
         "replace-in-file": "^7.0.1",
         "resize-observer-polyfill": "^1.5.1",
-        "rimraf": "^3.0.2",
+        "rimraf": "^4.4.1",
         "sass-embedded": "^1.64.2",
         "stylelint": "^15.7.0",
         "tiny-glob": "^0.2.9",
