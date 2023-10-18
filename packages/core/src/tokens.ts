@@ -1,10 +1,159 @@
 /**
  * Do not edit directly
- * Generated on Tue, 19 Sep 2023 07:25:30 GMT
+ * Generated on Wed, 18 Oct 2023 10:36:56 GMT
  */
 
 export default {
     color: {
+        brand: {
+            snohvit: "#F9F9F9",
+            varde: "#E0DBD4",
+            granitt: "#1B1917",
+            hvit: "#FFFFFF",
+            svart: "#000000",
+            skifer: "#313030",
+            fjellgra: "#444141",
+            stein: "#636060",
+            svaberg: "#C8C5C3",
+            dis: "#ECE9E5",
+            sand: "#F4F2EF",
+        },
+        functional: {
+            info: "#D3D3F6",
+            infoDark: "#A9A9CA",
+            success: "#ACD3B5",
+            successDark: "#94B79B",
+            warning: "#EFDD9E",
+            warningDark: "#DECC8D",
+            error: "#F6B3B3",
+            errorDark: "#DE9E9E",
+        },
+        background: {
+            page: {
+                light: "#F4F2EF",
+                dark: "#1B1917",
+            },
+            pageVariant: {
+                light: "#F9F9F9",
+                dark: "#1B1917",
+            },
+            container: {
+                light: "#F9F9F9",
+                dark: "#313030",
+            },
+            containerLow: {
+                light: "#ECE9E5",
+                dark: "#000000",
+            },
+            containerHigh: {
+                light: "#FFFFFF",
+                dark: "#313030",
+            },
+            input: {
+                base: {
+                    light: "transparent",
+                    dark: "transparent",
+                },
+                focus: {
+                    light: "#FFFFFF",
+                    dark: "#313030",
+                },
+            },
+            action: {
+                light: "#1B1917",
+                dark: "#F9F9F9",
+            },
+            interactive: {
+                light: "transparent",
+                dark: "transparent",
+            },
+            interactiveHover: {
+                light: "#ECE9E5",
+                dark: "#636060",
+            },
+            interactiveSelected: {
+                light: "#E0DBD4",
+                dark: "#444141",
+            },
+            alert: {
+                neutral: {
+                    light: "#E0DBD4",
+                    dark: "#E0DBD4",
+                },
+                info: {
+                    light: "#D3D3F6",
+                    dark: "#A9A9CA",
+                },
+                success: {
+                    light: "#ACD3B5",
+                    dark: "#94B79B",
+                },
+                warning: {
+                    light: "#EFDD9E",
+                    dark: "#DECC8D",
+                },
+                error: {
+                    light: "#F6B3B3",
+                    dark: "#DE9E9E",
+                },
+            },
+        },
+        text: {
+            default: {
+                light: "#1B1917",
+                dark: "#F9F9F9",
+            },
+            subdued: {
+                light: "#636060",
+                dark: "#C8C5C3",
+            },
+            inverted: {
+                light: "#F9F9F9",
+                dark: "#1B1917",
+            },
+            onAction: {
+                light: "#F9F9F9",
+                dark: "#1B1917",
+            },
+            interactive: {
+                light: "#1B1917",
+                dark: "#F9F9F9",
+            },
+            interactiveHover: {
+                light: "#636060",
+                dark: "#C8C5C3",
+            },
+            onAlert: {
+                light: "#1B1917",
+                dark: "#1B1917",
+            },
+        },
+        border: {
+            action: {
+                light: "#1B1917",
+                dark: "#F9F9F9",
+            },
+            input: {
+                light: "#636060",
+                dark: "#C8C5C3",
+            },
+            inputFocus: {
+                light: "#1B1917",
+                dark: "#F9F9F9",
+            },
+            separator: {
+                light: "#C8C5C3",
+                dark: "#636060",
+            },
+            separatorStrong: {
+                light: "#636060",
+                dark: "#C8C5C3",
+            },
+            separatorHover: {
+                light: "#1B1917",
+                dark: "#F9F9F9",
+            },
+        },
         svart: "#000",
         granitt: "#1b1917",
         skifer: "#313030",

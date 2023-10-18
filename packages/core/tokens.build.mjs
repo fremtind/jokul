@@ -42,6 +42,88 @@ StyleDictionary.registerFormat({
     },
 });
 
+const formatValueAsScssVar = (originalValue) => {
+    const parsedName = originalValue
+        .replace(/({|})/g, "")
+        .split(".")
+        .filter((word) => word !== "value")
+        .join("-");
+    return `#{jkl.\$${parsedName}}`;
+};
+
+StyleDictionary.registerFormat({
+    name: "css/variables-ref-scss",
+    formatter: function ({ dictionary, file, platform }) {
+        let output = StyleDictionary.formatHelpers.fileHeader({ file }) + `@use "../jkl";\n\n`;
+        const { prefix } = platform;
+
+        // Light mode
+        output += `@include jkl.light-mode-variables {\n    `;
+        output += dictionary.allTokens
+            .filter((token) => token.path.includes("light"))
+            .map((token) => {
+                const value = dictionary.usesReference(token.original.value)
+                    ? formatValueAsScssVar(token.original.value)
+                    : token.value;
+                const name = [prefix, ...token.path.filter((step) => !["dark", "light"].includes(step))].join("-");
+
+                return `--${name}: ${value};`;
+            })
+            .join("\n    ");
+        output += "\n}\n";
+
+        // Dark mode
+        output += `@include jkl.dark-mode-variables {\n    `;
+        output += dictionary.allTokens
+            .filter((token) => token.path.includes("dark"))
+            .map((token) => {
+                const value = dictionary.usesReference(token.original.value)
+                    ? formatValueAsScssVar(token.original.value)
+                    : token.value;
+                const name = [prefix, ...token.path.filter((step) => !["dark", "light"].includes(step))].join("-");
+
+                return `--${name}: ${value};`;
+            })
+            .join("\n    ");
+        output += "\n}\n";
+
+        return output;
+    },
+});
+
+StyleDictionary.registerFilter({
+    name: "isBaseVariable",
+    matcher: function (token) {
+        const baseCategories = ["brand", "functional", "spacing", "typography"];
+        return token.path.some((word) => baseCategories.includes(word));
+    },
+});
+
+StyleDictionary.registerFilter({
+    name: "isNotBaseVariable",
+    matcher: function (token) {
+        const baseCategories = ["brand", "functional", "spacing", "typography"];
+        return !token.path.some((word) => baseCategories.includes(word));
+    },
+});
+
+const legacyDictionary = StyleDictionary.extend({
+    source: ["tokens/legacy/*.json"],
+    platforms: {
+        css: {
+            transformGroup: "scss",
+            buildPath: "jkl/",
+            prefix: "jkl",
+            files: [
+                {
+                    destination: "_legacy-tokens.scss",
+                    format: "scss/variables",
+                },
+            ],
+        },
+    },
+});
+
 const myStyleDictionary = StyleDictionary.extend({
     source: ["tokens/**/*.json"],
     platforms: {
@@ -73,6 +155,12 @@ const myStyleDictionary = StyleDictionary.extend({
                 {
                     destination: "_tokens.scss",
                     format: "css/variables",
+                    filter: "isBaseVariable",
+                },
+                {
+                    destination: "_color-tokens.scss",
+                    format: "css/variables-ref-scss",
+                    filter: (token) => token.path.includes("light") || token.path.includes("dark"),
                 },
             ],
         },
@@ -90,3 +178,4 @@ const myStyleDictionary = StyleDictionary.extend({
 });
 
 myStyleDictionary.buildAllPlatforms();
+legacyDictionary.buildAllPlatforms();

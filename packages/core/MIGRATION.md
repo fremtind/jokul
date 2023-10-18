@@ -1,5 +1,21 @@
 # Migrasjonsguide
 
+## Semantiske variabler (ALPHA)
+
+`jkl.core@13.3.0` introduserer semanstiske fargevariabler basert på variablene i Figma. Akkurat som i Figma er disse variablene i **alpha**. Det vil si at de kan, og sannsynligvis vil, endre navn underveis.
+
+Variablene endrer automatisk verdi basert på dark/light mode. Navnene er direkte speilinger av navnene i Figma, med alle skråstreker og mellomrom erstattet av bindestrek, og prefixet med `jkl-color`. For eksempel blir "Background/Interactive Selected" til `--jkl-color-background-interactive-selected`.
+
+De semantiske variablene kan brukes direkte i stilkode for å gi riktig farge ut fra funksjon:
+
+```scss
+.my-product-page {
+    background-color: var(--jkl-color-background-page);
+}
+```
+
+Variablene gis verdier slik at det alltid vil være tilstrekkelig kontrast mellom variabler som hører sammen, slik som f.eks. `jkl-color-background-action` og `jkl-color-text-on-action`.
+
 ## Til `jkl-core@13.0.0`
 
 ### Endring i byggoppsett for Sass
