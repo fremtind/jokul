@@ -22,6 +22,7 @@ export { ChevronUpIcon } from "./icons/chevron-up/ChevronUpIcon";
 export { CloseIcon } from "./icons/close/CloseIcon";
 export { CopyIcon } from "./icons/copy/CopyIcon";
 export { DotsIcon } from "./icons/dots/DotsIcon";
+export { DragIcon } from "./icons/drag/DragIcon";
 export { ErrorIcon } from "./icons/error/ErrorIcon";
 export { HamburgerIcon } from "./icons/hamburger/HamburgerIcon";
 export { InfoIcon } from "./icons/info/InfoIcon";
