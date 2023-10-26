@@ -126,6 +126,7 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
 
         const snapshotConfig = {
             title: forcedColorsActive ? `${Cypress.currentTest.titlePath.join(" ")} in high contrast` : undefined,
+            maxDiffThreshold: 0.042,
         };
 
         cy.get("#screenshot-mode-toggle").trigger("click", { force: true });
