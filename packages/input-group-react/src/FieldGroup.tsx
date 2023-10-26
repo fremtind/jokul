@@ -35,8 +35,11 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
 
     const uid = useId(id || "jkl-field-group", { generateSuffix: !id });
     const supportId = `${uid}_support-label`;
-    const hasSupportText = helpLabel || errorLabel;
-    const describedBy = hasSupportText ? supportId : undefined;
+
+    const supportText = errorLabel || helpLabel;
+    const supportTextType = errorLabel ? "error" : helpLabel ? "help" : undefined;
+
+    const describedBy = supportText ? supportId : undefined;
 
     return (
         <fieldset
@@ -63,10 +66,10 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
             {(helpLabel || errorLabel) && (
                 <SupportLabel
                     {...supportLabelProps}
+                    label={supportText}
+                    labelType={supportTextType}
                     id={supportId}
                     density={density}
-                    helpLabel={helpLabel}
-                    errorLabel={errorLabel}
                 />
             )}
         </fieldset>
