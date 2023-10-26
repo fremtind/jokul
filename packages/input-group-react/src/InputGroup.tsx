@@ -47,8 +47,11 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>((props, re
 
     const uid = useId(id || "jkl-input", { generateSuffix: !id });
     const supportId = useId("jkl-support-label");
-    const hasSupportText = helpLabel || errorLabel;
-    const describedBy = hasSupportText ? supportId : undefined;
+
+    const supportText = errorLabel || helpLabel;
+    const supportTextType = errorLabel ? "error" : helpLabel ? "help" : undefined;
+
+    const describedBy = supportText ? supportId : undefined;
 
     const inputProps: InputProps = {
         "aria-describedby": describedBy,
@@ -99,8 +102,8 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>((props, re
             <SupportLabel
                 srOnly={inline}
                 {...supportLabelProps}
-                errorLabel={errorLabel}
-                helpLabel={helpLabel}
+                label={supportText}
+                labelType={supportTextType}
                 id={supportId}
                 density={density}
             />
