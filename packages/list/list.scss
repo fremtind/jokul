@@ -13,6 +13,11 @@
     @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' width='9px' height='9px' fill='transparent'%3E%3Cpath stroke='#{$c}' d='M4.002.707l3.295 3.295-3.295 3.295L.707 4.002z'/%3E%3C/svg%3E");
 }
 
+/*
+ * NOTE: These icon also exists as a copy in the jkl-icons-react package.
+ *       If you're here to change them, consider changing them there as well, or
+ *       finding a technical solution to sharing the SVG markup
+ */
 @function _cross($color1, $color2) {
     $c1: jkl.urlencodecolor($color1);
     $c2: jkl.urlencodecolor($color2);
@@ -44,16 +49,16 @@ $_color-feil--darkbg: #ff8b79;
 @include jkl.light-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-granitt)};
     --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-granitt)};
-    --jkl-list-marker-cross: #{_cross(jkl.$color-feil, jkl.$color-granitt)};
-    --jkl-list-marker-check: #{_check(jkl.$color-suksess, jkl.$color-granitt)};
+    --jkl-list-marker-cross: #{_cross(jkl.$color-background-alert-error-light, jkl.$color-granitt)};
+    --jkl-list-marker-check: #{_check(jkl.$color-background-alert-success-light, jkl.$color-granitt)};
     --jkl-list-text-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-snohvit)};
     --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-snohvit)};
-    --jkl-list-marker-cross: #{_cross(jkl.$color-feil-dark, jkl.$color-granitt)};
-    --jkl-list-marker-check: #{_check(jkl.$color-suksess-dark, jkl.$color-granitt)};
+    --jkl-list-marker-cross: #{_cross(jkl.$color-background-alert-error-dark, jkl.$color-granitt)};
+    --jkl-list-marker-check: #{_check(jkl.$color-background-alert-success-dark, jkl.$color-granitt)};
     --jkl-list-text-color: #{jkl.$color-snohvit};
 }
 

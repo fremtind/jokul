@@ -26,6 +26,8 @@ import {
     SuccessIcon,
     LinkIcon,
     DragIcon,
+    GreenCheckIcon,
+    RedCrossIcon,
 } from "../src";
 import { IconVariant } from "../src/icons/types";
 import { IconExample } from "./internal/IconExample";
@@ -61,7 +63,9 @@ const allIcons = [
     CopyIcon,
     DotsIcon,
     DragIcon,
+    GreenCheckIcon,
     QuestionIcon,
+    RedCrossIcon,
     InfoIcon,
     ErrorIcon,
     WarningIcon,
