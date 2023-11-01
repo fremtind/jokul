@@ -39,7 +39,7 @@ jobs:
                       - args: [--global, lerna-clean-changelogs-cli@^2.0.18]
 
             - name: Setup Node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: 18
                   cache: "pnpm"
@@ -85,7 +85,7 @@ jobs:
 
             - name: Switch registry
               if: steps.lerna_changed.outcome == 'success'
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   registry-url: "https://npm.pkg.github.com"
                   # Defaults to the user or organization that owns the workflow file
@@ -106,7 +106,7 @@ jobs:
 
             - name: Restore registry
               if: steps.lerna_changed.outcome == 'success'
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: 18
                   cache: "pnpm"
