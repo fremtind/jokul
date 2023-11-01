@@ -1156,7 +1156,7 @@ importers:
       '@fremtind/jkl-webfonts': ^3.0.0
       '@jest/globals': ^29.5.0
       '@mdx-js/react': ^2.3.0
-      '@sindresorhus/slugify': ^1.1.2
+      '@sindresorhus/slugify': ^2.2.1
       '@types/mixpanel-browser': ^2.38.1
       classnames: ^2.3.2
       dotenv: ^8.6.0
@@ -1233,7 +1233,7 @@ importers:
       '@fremtind/jkl-validators-util': link:../packages/validators-util
       '@fremtind/jkl-webfonts': link:../packages/webfonts
       '@mdx-js/react': 2.3.0_react@18.2.0
-      '@sindresorhus/slugify': 1.1.2
+      '@sindresorhus/slugify': 2.2.1
       classnames: 2.3.2
       dotenv: 8.6.0
       focus-trap-react: 10.1.4_biqbaboplfbrettd7655fr4n2y
@@ -5535,12 +5535,27 @@ packages:
       escape-string-regexp: 4.0.0
     dev: false
 
+  /@sindresorhus/slugify/2.2.1:
+    resolution: {integrity: sha512-MkngSCRZ8JdSOCHRaYd+D01XhvU3Hjy6MGl06zhOk614hp9EOAp5gIkBeQg7wtmxpitU6eAL4kdiRMcJa2dlrw==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@sindresorhus/transliterate': 1.6.0
+      escape-string-regexp: 5.0.0
+    dev: false
+
   /@sindresorhus/transliterate/0.1.2:
     resolution: {integrity: sha512-5/kmIOY9FF32nicXH+5yLNTX4NJ4atl7jRgqAJuIn/iyDFXBktOKDxCvyGE/EzmF4ngSUvjXxQUQlQiZ5lfw+w==}
     engines: {node: '>=10'}
     dependencies:
       escape-string-regexp: 2.0.0
       lodash.deburr: 4.1.0
+    dev: false
+
+  /@sindresorhus/transliterate/1.6.0:
+    resolution: {integrity: sha512-doH1gimEu3A46VX6aVxpHTeHrytJAG6HgdxntYnCFiIFHEM/ZGpG8KiZGBChchjQmG0XFIBL552kBTjVcMZXwQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      escape-string-regexp: 5.0.0
     dev: false
 
   /@sinonjs/commons/3.0.0:
@@ -10205,7 +10220,6 @@ packages:
   /escape-string-regexp/5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
-    dev: true
 
   /escodegen/2.0.0:
     resolution: {integrity: sha512-mmHKys/C8BFUGI+MAWNcSYoORYLMdPzjrknd2Vc+bUsjN5bXcr8EhrNB+UTqfL1y3I9c4fw2ihgtMPQLBRiQxw==}
@@ -13035,19 +13049,19 @@ packages:
 
   /graphql-compose/9.0.10:
     resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
-    peerDependencies:
-      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql-type-json: 0.3.2
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /graphql-compose/9.0.10_graphql@15.8.0:
     resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
-    peerDependencies:
-      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql: 15.8.0
       graphql-type-json: 0.3.2_graphql@15.8.0
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /graphql-playground-html/1.6.30:
