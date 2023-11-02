@@ -102,11 +102,6 @@ const variableFormatter =
             return `${variableDenotion}${path}: var(--jkl-${path});`;
         };
 
-        const test = dictionary.allTokens
-            .filter((token) => token.path.some((word) => ["light", "dark"].includes(word)))
-            .map(formatProperty)
-            .join("\n");
-
         const colorVariables = dictionary.allTokens
             .filter((token) => token.path.some((word) => word === "light"))
             .map((token) => ({
@@ -219,13 +214,19 @@ const myStyleDictionary = StyleDictionary.extend({
                 },
             ],
         },
+    },
+});
+
+const lessStyleDictionary = StyleDictionary.extend({
+    source: ["tokens/**/*.json"],
+    platforms: {
         less: {
             transformGroup: "less",
             buildPath: "./",
             files: [
                 {
                     destination: "tokens.less",
-                    format: "less/vars",
+                    format: "less/variables",
                 },
             ],
         },
@@ -233,4 +234,5 @@ const myStyleDictionary = StyleDictionary.extend({
 });
 
 myStyleDictionary.buildAllPlatforms();
+lessStyleDictionary.buildAllPlatforms();
 legacyDictionary.buildAllPlatforms();
