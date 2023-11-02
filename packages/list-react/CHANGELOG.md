@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.1.0 (2023-10-31)
+
+### Features
+
+- update green-check and red-cross list coverage icons ([9f07d05](https://github.com/fremtind/jokul/commit/9f07d059f1f3ff879f84a750723446f55b6b4005)), closes [#3733](https://github.com/fremtind/jokul/issues/3733)
+
 ## 10.0.2 (2023-09-14)
 
 ### Bug Fixes

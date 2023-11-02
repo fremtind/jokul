@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-input-group-react@3.0.13...@fremtind/jkl-input-group-react@3.0.14) (2023-10-26)
+
+### Bug Fixes
+
+- use ErrorIcon for errors ([5f327b9](https://github.com/fremtind/jokul/commit/5f327b9ff4f06f61a7d4e3d6f15fd65a3284b7e7)), closes [#3729](https://github.com/fremtind/jokul/issues/3729)
+
 # 3.0.0 (2023-07-07)
 
 ### chore

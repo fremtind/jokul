@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.1.0 (2023-10-31)
+
+### Features
+
+- added green-check and red-cross icons ([f39119d](https://github.com/fremtind/jokul/commit/f39119d8c2123c047dfd2e6426f6a6931106bc01)), closes [#3733](https://github.com/fremtind/jokul/issues/3733)
+
 # 9.0.0 (2023-07-07)
 
 ### chore

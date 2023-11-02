@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.3.0 (2023-10-31)
+
+### Features
+
+- added green-check and red-cross icons ([f39119d](https://github.com/fremtind/jokul/commit/f39119d8c2123c047dfd2e6426f6a6931106bc01)), closes [#3733](https://github.com/fremtind/jokul/issues/3733)
+
+# [8.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@8.1.8...@fremtind/jkl-icons-react@8.2.0) (2023-10-26)
+
+### Features
+
+- added Drag icon ([aac0d89](https://github.com/fremtind/jokul/commit/aac0d890f04392bd64816cf13379ec62fb6dfa3c)), closes [#3731](https://github.com/fremtind/jokul/issues/3731)
+- dots icon has had a slight change in size ([1360622](https://github.com/fremtind/jokul/commit/1360622224b47d8070de8b528a536de7c2cd138b)), closes [#3732](https://github.com/fremtind/jokul/issues/3732)
+
 ## [8.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@8.1.0...@fremtind/jkl-icons-react@8.1.1) (2023-08-08)
 
 ### Bug Fixes
