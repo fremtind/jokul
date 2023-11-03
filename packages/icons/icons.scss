@@ -1,22 +1,12 @@
 @charset "UTF-8";
 @use "@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --green-check-path: #{jkl.$color-brand-granitt};
-    --green-check-circle: #{jkl.$color-background-alert-success-light};
-    --red-cross-path: #{jkl.$color-brand-granitt};
-    --red-cross-circle: #{jkl.$color-background-alert-error-light};
-}
-
-@include jkl.dark-mode-variables {
-    --green-check-path: #{jkl.$color-brand-granitt};
-    --green-check-circle: #{jkl.$color-background-alert-success-dark};
-    --red-cross-path: #{jkl.$color-brand-granitt};
-    --red-cross-circle: #{jkl.$color-background-alert-error-dark};
-}
-
 .jkl-icon {
     --jkl-icon-size: calc(1em / 20 * 24);
+    --green-check-circle: var(--jkl-color-background-alert-success);
+    --green-check-path: #{jkl.$color-brand-granitt};
+    --red-cross-circle: var(--jkl-color-background-alert-error);
+    --red-cross-path: #{jkl.$color-brand-granitt};
 
     display: inline;
 
