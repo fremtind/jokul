@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.2.0 (2023-11-07)
+
+### Features
+
+- la til styling ved markerte tags ([5509def](https://github.com/fremtind/jokul/commit/5509def412d9668c09a6bcfed2d97fd01440ffaa))
+- removed function that removes all selected tags and added keys for removing selected tags inst ([8aca586](https://github.com/fremtind/jokul/commit/8aca586ecc75d6b383f09deaee72c43344776dfa))
+
 # 2.1.0 (2023-09-13)
 
 ### Features
