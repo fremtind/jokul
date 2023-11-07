@@ -7,14 +7,14 @@ $_focus-ring-width: jkl.rem(2px);
     --jkl-table-row-border-color: #{jkl.$color-svaberg};
     --jkl-table-row-border-none-color: #{rgba(jkl.$color-svaberg, 0)};
     --jkl-table-row-hover-border-color: #{jkl.$color-granitt};
-    --jkl-table-row-highlight-color: #{jkl.$color-hvit};
+    --jkl-table-row-highlight-color: #{jkl.$color-dis};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-table-row-border-color: #{jkl.$color-stein};
     --jkl-table-row-border-none-color: #{rgba(jkl.$color-stein, 0)};
     --jkl-table-row-hover-border-color: #{jkl.$color-snohvit};
-    --jkl-table-row-highlight-color: #{jkl.$color-svart};
+    --jkl-table-row-highlight-color: #{jkl.$color-fjellgra};
 }
 
 .jkl-table-row {
