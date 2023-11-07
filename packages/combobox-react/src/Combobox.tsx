@@ -87,6 +87,7 @@ export const Combobox: FC<ComboboxProps> = ({
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
     const [noResults, setNoResults] = useState(false);
+    const [marked, setMarked] = useState<boolean>(false);
 
     const searchRef = useRef<HTMLInputElement>(null);
     const inputRef = useRef<HTMLDivElement>(null);
@@ -124,6 +125,10 @@ export const Combobox: FC<ComboboxProps> = ({
             target: { name, value: option, selectedOptions: newValue },
         });
         e.stopPropagation();
+
+        if (newValue.length === 0) {
+            setMarked(false);
+        }
     };
 
     // Håndtere valgt verdi i listen
@@ -286,16 +291,18 @@ export const Combobox: FC<ComboboxProps> = ({
                 setShowMenu(false);
             }
 
-            if (e.ctrlKey || (e.metaKey && e.key === "a")) {
+            if ((e.metaKey && e.key === "a") || (e.ctrlKey && e.key === "a")) {
                 e.preventDefault();
                 e.stopPropagation();
                 const updatedSelectedValue = selectedValue.map((item) => ({
                     ...item,
                     isMarked: true,
                 }));
+                setMarked(true);
                 setSelectedValue(updatedSelectedValue);
             } else if (e.key === "Backspace") {
                 e.stopPropagation();
+                setMarked(false);
 
                 // Sjekk om selectedValue er markert
                 const selectedValueIsMarked = selectedValue.some((item) => item.isMarked);
@@ -371,7 +378,7 @@ export const Combobox: FC<ComboboxProps> = ({
                         {selectedValue.map(getComboboxValuePair).map((option) => (
                             <Tag
                                 key={option.value}
-                                className="jkl-tag"
+                                className={`jkl-tag ${marked && "jkl-tag__marked"}`}
                                 data-testid="jkl-tag"
                                 dismissAction={{
                                     onClick: (e) => {

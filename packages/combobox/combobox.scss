@@ -30,6 +30,8 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-option-description-color: #{jkl.$color-stein};
     --jkl-combobox-search-input-selection-color: #{$_combobox-search-input-selection-color};
     --jkl-combobox-search-input-error-selection-color: #{$_combobox-search-input-selection-color};
+    --jkl-combobox-marked-value-border: #{jkl.$color-granitt};
+    --jkl-combobox-marked-value-shadow: #{jkl.$color-snohvit};
 }
 
 @include jkl.dark-mode-variables {
@@ -47,6 +49,8 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-option-description-color: #{jkl.$color-dis};
     --jkl-combobox-search-input-selection-color: #{$_combobox-search-input-selection-color--inverted};
     --jkl-combobox-search-input-error-selection-color: #{$_combobox-search-input-selection-color};
+    --jkl-combobox-marked-value-border: #{jkl.$color-snohvit};
+    --jkl-combobox-marked-value-shadow: #{jkl.$color-granitt};
 }
 
 @include jkl.comfortable-density-variables {
@@ -245,6 +249,14 @@ $_combobox-search-input-selection-color--inverted: color.scale(
             margin: 1px 4px;
             z-index: 1;
             padding: var(--jkl-combobox-tag-padding);
+
+            &__marked {
+                border-radius: 6px;
+                box-shadow: 0 0 0 2px var(--jkl-combobox-marked-value-shadow) inset;
+                box-sizing: border-box;
+                border: 1px solid var(--jkl-combobox-marked-value-border);
+                margin: 0 4px;
+            }
         }
     }
 
