@@ -1,6 +1,6 @@
 import { ValuePair, Density } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { ArrowVerticalAnimated, CheckIcon, CloseIcon } from "@fremtind/jkl-icons-react";
+import { ArrowVerticalAnimated, CheckIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup, InputGroupProps, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { useId, useAnimatedHeight, useListNavigation } from "@fremtind/jkl-react-hooks";
 import { Tag } from "@fremtind/jkl-tag-react";
@@ -20,6 +20,7 @@ import React, {
 
 export type ComboboxValuePair = ValuePair & {
     tagLabel?: string;
+    isMarked?: boolean;
 };
 
 export function getComboboxValuePair(item: string | ComboboxValuePair): ComboboxValuePair {
@@ -81,11 +82,12 @@ export const Combobox: FC<ComboboxProps> = ({
     const buttonId = `${listId}_button`;
     const inputId = `${listId}_search-input`;
 
-    const [selectedValue, setSelectedValue] = useState<Array<ValuePair>>(value || []);
+    const [selectedValue, setSelectedValue] = useState<Array<ComboboxValuePair>>(value || []);
     const [isPoitingDown, setIsPointingDown] = useState<boolean>(true);
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
     const [noResults, setNoResults] = useState(false);
+    const [marked, setMarked] = useState<boolean>(false);
 
     const searchRef = useRef<HTMLInputElement>(null);
     const inputRef = useRef<HTMLDivElement>(null);
@@ -123,14 +125,10 @@ export const Combobox: FC<ComboboxProps> = ({
             target: { name, value: option, selectedOptions: newValue },
         });
         e.stopPropagation();
-    };
 
-    const onTagRemoveAll = () => {
-        setSelectedValue([]);
-        onChange({
-            type: "change",
-            target: { name, value: "", selectedOptions: [] },
-        });
+        if (newValue.length === 0) {
+            setMarked(false);
+        }
     };
 
     // Håndtere valgt verdi i listen
@@ -293,8 +291,30 @@ export const Combobox: FC<ComboboxProps> = ({
                 setShowMenu(false);
             }
 
-            if (e.key === "Backspace" && selectedValue.length > 0 && searchValue === "") {
-                setSelectedValue(selectedValue.slice(0, selectedValue.length - 1));
+            if ((e.metaKey && e.key === "a") || (e.ctrlKey && e.key === "a")) {
+                e.preventDefault();
+                e.stopPropagation();
+                const updatedSelectedValue = selectedValue.map((item) => ({
+                    ...item,
+                    isMarked: true,
+                }));
+                setMarked(true);
+                setSelectedValue(updatedSelectedValue);
+            } else if (e.key === "Backspace") {
+                e.stopPropagation();
+                setMarked(false);
+
+                // Sjekk om selectedValue er markert
+                const selectedValueIsMarked = selectedValue.some((item) => item.isMarked);
+
+                if (selectedValueIsMarked) {
+                    const updatedSelectedValue = selectedValue.filter((item) => !item.isMarked);
+                    setSelectedValue(updatedSelectedValue);
+                    setSearchValue("");
+                } else if (selectedValue.length > 0 && searchValue === "") {
+                    // Hvis ingen items er markert, fjern siste valgte item
+                    setSelectedValue(selectedValue.slice(0, selectedValue.length - 1));
+                }
             }
         },
         [selectedValue, searchValue, dropdownRef],
@@ -358,7 +378,7 @@ export const Combobox: FC<ComboboxProps> = ({
                         {selectedValue.map(getComboboxValuePair).map((option) => (
                             <Tag
                                 key={option.value}
-                                className="jkl-tag"
+                                className={`jkl-tag ${marked && "jkl-tag__marked"}`}
                                 data-testid="jkl-tag"
                                 dismissAction={{
                                     onClick: (e) => {
@@ -449,22 +469,6 @@ export const Combobox: FC<ComboboxProps> = ({
                         {noResults && <div className="jkl-combobox__no-option">{noMatchingOption}</div>}
                     </div>
                     <div className="jkl-combobox__actions">
-                        {selectedValue.length > 0 && (
-                            <IconButton
-                                onClick={() => {
-                                    if (searchRef.current) {
-                                        searchRef.current.focus();
-                                    }
-                                    onTagRemoveAll();
-                                }}
-                                onBlur={handleBlur}
-                                data-testid="jkl-combobox__remove-all"
-                                className="jkl-combobox__button"
-                                aria-label="Fjern valgte elementer"
-                            >
-                                <CloseIcon />
-                            </IconButton>
-                        )}
                         <IconButton
                             id={buttonId}
                             onFocus={handleFocus}
