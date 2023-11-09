@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list@10.2.0...@fremtind/jkl-list@10.2.1) (2023-11-09)
+
+### Bug Fixes
+
+- bruk funksjonelle fargevariabler i listeikoner ([e459ac3](https://github.com/fremtind/jokul/commit/e459ac3042c3a6edb8518f0697de383eece97702))
+
 # 10.2.0 (2023-10-31)
 
 ### Features

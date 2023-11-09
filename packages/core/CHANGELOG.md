@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [13.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@13.3.0...@fremtind/jkl-core@13.4.0) (2023-11-09)
+
+### Bug Fixes
+
+- legg tilbake legacy tokens i less-fila ([12af73d](https://github.com/fremtind/jokul/commit/12af73d2131af19ec7692e055d71c32345bbeba3))
+
+### Features
+
+- bedre semantiske variabler for sass/less ([13cc998](https://github.com/fremtind/jokul/commit/13cc998f14393c02624a1c8233d5334d349d3b7e))
+
 # 13.3.0 (2023-10-18)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-toast",
-    "version": "2.1.5",
+    "version": "2.1.6",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from toast-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^13.3.0"
+        "@fremtind/jkl-core": "^13.4.0"
     },
     "repository": {
         "type": "git",
