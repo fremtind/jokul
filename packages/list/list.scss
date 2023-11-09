@@ -49,16 +49,16 @@ $_color-feil--darkbg: #ff8b79;
 @include jkl.light-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-granitt)};
     --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-granitt)};
-    --jkl-list-marker-cross: #{_cross(jkl.$color-background-alert-error-light, jkl.$color-granitt)};
-    --jkl-list-marker-check: #{_check(jkl.$color-background-alert-success-light, jkl.$color-granitt)};
+    --jkl-list-marker-cross: #{_cross(jkl.$color-functional-error, jkl.$color-granitt)};
+    --jkl-list-marker-check: #{_check(jkl.$color-functional-success, jkl.$color-granitt)};
     --jkl-list-text-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-snohvit)};
     --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-snohvit)};
-    --jkl-list-marker-cross: #{_cross(jkl.$color-background-alert-error-dark, jkl.$color-granitt)};
-    --jkl-list-marker-check: #{_check(jkl.$color-background-alert-success-dark, jkl.$color-granitt)};
+    --jkl-list-marker-cross: #{_cross(jkl.$color-functional-error-dark, jkl.$color-granitt)};
+    --jkl-list-marker-check: #{_check(jkl.$color-functional-success-dark, jkl.$color-granitt)};
     --jkl-list-text-color: #{jkl.$color-snohvit};
 }
 

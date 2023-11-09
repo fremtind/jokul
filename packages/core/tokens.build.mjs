@@ -91,6 +91,46 @@ StyleDictionary.registerFormat({
     },
 });
 
+const { formattedVariables, fileHeader } = StyleDictionary.formatHelpers;
+const variableFormatter =
+    (format = "sass") =>
+    ({ dictionary, file }) => {
+        const variableDenotion = format == "sass" ? "$" : "@";
+        const formatProperty = (token) => {
+            const path = token.path.filter((word) => !["light", "dark"].includes(word)).join("-");
+
+            return `${variableDenotion}${path}: var(--jkl-${path});`;
+        };
+
+        const colorVariables = dictionary.allTokens
+            .filter((token) => token.path.some((word) => word === "light"))
+            .map((token) => ({
+                ...token,
+                path: token.path.filter((word) => word !== "light"),
+            }));
+
+        const otherVariables = dictionary.allTokens.filter(
+            (token) =>
+                !token.path.some((word) => ["light", "dark"].includes(word)) && !token.filePath.includes("legacy"),
+        );
+
+        return `${fileHeader({ file })}
+${formattedVariables({ dictionary: { ...dictionary, allTokens: otherVariables }, format: format })}
+
+// Dynamiske variabler for farge, via referanse til CSS-variabler
+${colorVariables.map(formatProperty).join("\n")}`;
+    };
+
+StyleDictionary.registerFormat({
+    name: "scss/vars",
+    formatter: variableFormatter("sass"),
+});
+
+StyleDictionary.registerFormat({
+    name: "less/vars",
+    formatter: variableFormatter("less"),
+});
+
 StyleDictionary.registerFilter({
     name: "isBaseVariable",
     matcher: function (token) {
@@ -113,7 +153,6 @@ const legacyDictionary = StyleDictionary.extend({
         scss: {
             transformGroup: "scss",
             buildPath: "jkl/",
-            prefix: "jkl",
             files: [
                 {
                     destination: "_legacy-tokens.scss",
@@ -154,7 +193,7 @@ const myStyleDictionary = StyleDictionary.extend({
             files: [
                 {
                     destination: "_tokens.scss",
-                    format: "scss/variables",
+                    format: "scss/vars",
                 },
             ],
         },
@@ -175,6 +214,12 @@ const myStyleDictionary = StyleDictionary.extend({
                 },
             ],
         },
+    },
+});
+
+const lessStyleDictionary = StyleDictionary.extend({
+    source: ["tokens/**/*.json"],
+    platforms: {
         less: {
             transformGroup: "less",
             buildPath: "./",
@@ -189,4 +234,5 @@ const myStyleDictionary = StyleDictionary.extend({
 });
 
 myStyleDictionary.buildAllPlatforms();
+lessStyleDictionary.buildAllPlatforms();
 legacyDictionary.buildAllPlatforms();
