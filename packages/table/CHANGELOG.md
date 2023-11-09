@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.0.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@9.0.7...@fremtind/jkl-table@9.0.8) (2023-11-09)
+
+### Bug Fixes
+
+- make table hover consistent with select ([6ce0019](https://github.com/fremtind/jokul/commit/6ce0019e400e33cc86fa60c9c376f5d875cf763c)), closes [#3730](https://github.com/fremtind/jokul/issues/3730)
+
 # 9.0.0 (2023-07-07)
 
 ### chore
