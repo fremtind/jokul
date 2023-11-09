@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons@9.1.0...@fremtind/jkl-icons@9.1.1) (2023-11-09)
+
+### Bug Fixes
+
+- bruk semantiske variabler i dekningsikoner ([59c2868](https://github.com/fremtind/jokul/commit/59c286833bb78d4c0e54695229cff84c03acb9cb))
+
 # 9.1.0 (2023-10-31)
 
 ### Features
