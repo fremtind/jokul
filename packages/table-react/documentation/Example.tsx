@@ -76,8 +76,6 @@ export default function Example() {
                 codeExample={expandableTableExampleCode}
             />
             <DevExample
-                style={{ height: "200px" }}
-                scrollable={true}
                 title="Tabell med sticky header"
                 component={StickyTableExample}
                 codeExample={stickyTableExampleCode}
