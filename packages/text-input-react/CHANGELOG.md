@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.2.0 (2023-11-16)
+
+### Features
+
+- legg til støtte for type på action i textinput ([9e1a161](https://github.com/fremtind/jokul/commit/9e1a16141460b1abe66b51775e74d8a44b1238be))
+
 # [14.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@14.0.6...@fremtind/jkl-text-input-react@14.1.0) (2023-09-14)
 
 ### Features
