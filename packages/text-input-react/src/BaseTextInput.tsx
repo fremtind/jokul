@@ -26,12 +26,23 @@ function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | un
     return undefined;
 }
 
-export interface Action extends Exclude<HTMLProps<HTMLButtonElement>, "disabled"> {
+interface ActionBaseProps extends Exclude<HTMLProps<HTMLButtonElement>, "disabled"> {
     icon: React.ReactElement<IconProps>;
     label: string;
-    onClick: MouseEventHandler<HTMLButtonElement>;
     buttonRef?: React.Ref<HTMLButtonElement>;
 }
+
+export interface ActionButton extends ActionBaseProps {
+    type?: HTMLButtonElement["type"];
+    onClick: MouseEventHandler<HTMLButtonElement>;
+}
+
+export interface ActionSubmit extends ActionBaseProps {
+    type: "submit";
+    onClick?: MouseEventHandler<HTMLButtonElement>;
+}
+
+export type Action = ActionButton | ActionSubmit;
 
 export interface BaseTextInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
     /**
@@ -89,6 +100,7 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
                     onFocus={action.onFocus}
                     onBlur={action.onBlur}
                     ref={action.buttonRef}
+                    type={action.type}
                 >
                     {action.icon}
                 </IconButton>
