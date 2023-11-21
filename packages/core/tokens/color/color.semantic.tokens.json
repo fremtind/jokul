@@ -80,7 +80,7 @@
                     "value": "{color.brand.dis.value}"
                 },
                 "dark": {
-                    "value": "{color.brand.stein.value}"
+                    "value": "{color.brand.fjellgra.value}"
                 }
             },
             "interactive-selected": {
