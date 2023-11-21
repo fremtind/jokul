@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 13.4.1 (2023-11-21)
+
+### Bug Fixes
+
+- bruk riktig fargeverdi for interactive hover ([580288d](https://github.com/fremtind/jokul/commit/580288dcbf7b071edb8f2c03c7c9c4017e24a888))
+
 # [13.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@13.3.0...@fremtind/jkl-core@13.4.0) (2023-11-09)
 
 ### Bug Fixes
