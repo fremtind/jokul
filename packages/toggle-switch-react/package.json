@@ -3,7 +3,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "version": "13.0.17",
+    "version": "13.0.18",
     "description": "Jøkul react toggle switch component",
     "homepage": "https://github.com/fremtind/jokul/tree/main/packages/toggle-switch-react",
     "keywords": [
@@ -39,11 +39,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^13.4.1",
-        "@fremtind/jkl-icons-react": "^8.3.2",
-        "@fremtind/jkl-input-group-react": "^3.0.17",
-        "@fremtind/jkl-react-hooks": "^12.0.8",
-        "@fremtind/jkl-toggle-switch": "^13.0.8",
+        "@fremtind/jkl-core": "^13.4.2",
+        "@fremtind/jkl-icons-react": "^8.3.3",
+        "@fremtind/jkl-input-group-react": "^3.0.18",
+        "@fremtind/jkl-react-hooks": "^12.0.9",
+        "@fremtind/jkl-toggle-switch": "^13.0.9",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

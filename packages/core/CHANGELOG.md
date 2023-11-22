@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [13.4.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@13.4.1...@fremtind/jkl-core@13.4.2) (2023-11-22)
+
+### Bug Fixes
+
+- genere riktige fargeverdier fra endrede tokens ([738becf](https://github.com/fremtind/jokul/commit/738becfc0e18d84c0178649111cb0da38a381b4d))
+
 ## 13.4.1 (2023-11-21)
 
 ### Bug Fixes
