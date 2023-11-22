@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 02 Nov 2023 10:39:06 GMT
+ * Generated on Wed, 22 Nov 2023 09:07:30 GMT
  */
 
 export default {
@@ -69,7 +69,7 @@ export default {
             },
             interactiveHover: {
                 light: "#ECE9E5",
-                dark: "#636060",
+                dark: "#444141",
             },
             interactiveSelected: {
                 light: "#E0DBD4",
