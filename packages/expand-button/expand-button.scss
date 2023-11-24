@@ -32,6 +32,7 @@
     transition: transform $_animation-timing, border $_animation-timing;
     min-width: unset;
     position: relative;
+    display: block;
 
     &::after {
         $_expand-button-border-width: jkl.rem(1px);

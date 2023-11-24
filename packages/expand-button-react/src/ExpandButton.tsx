@@ -6,6 +6,7 @@ import React from "react";
 export type ExpandDirection = "up" | "down";
 
 export interface ExpandButtonProps extends WithChildren {
+    as?: "summary" | "button";
     /** Må settes dersom du ikke bruker CoreToggle. Verdien skal være IDen til innholdet du ekspanderer. */
     "aria-controls"?: string;
     /** Må settes dersom du ikke bruker CoreToggle. IDen her skal brukes som verdien til aria-labelledby på innholdet du ekspanderer. */
@@ -30,6 +31,7 @@ export interface ExpandButtonProps extends WithChildren {
 }
 
 export const ExpandButton = ({
+    as = "button",
     className,
     children,
     density,
@@ -40,11 +42,15 @@ export const ExpandButton = ({
 }: ExpandButtonProps): JSX.Element => {
     const ContentWrapper = hideLabel ? ScreenReaderOnly : React.Fragment;
     const pointingDown = expandDirection === "down" ? !isExpanded : isExpanded;
+
+    const Tag = as;
+    const type = Tag === "button" ? "button" : undefined;
+
     return (
-        <button
+        <Tag
             aria-expanded={isExpanded}
             data-testid="jkl-expand-button"
-            type="button"
+            type={type}
             className={cx("jkl-expand-button", className, {
                 "jkl-expand-button--expanded": isExpanded,
                 "jkl-expand-button--icon-only": !children,
@@ -58,6 +64,6 @@ export const ExpandButton = ({
                 </ContentWrapper>
             )}
             <ArrowVerticalAnimated className="jkl-expand-button__arrow" pointingDown={pointingDown} />
-        </button>
+        </Tag>
     );
 };
