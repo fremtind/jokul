@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-expand-button",
-    "version": "6.1.7",
+    "version": "6.2.0",
     "publishConfig": {
         "access": "public"
     },

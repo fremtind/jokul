@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@6.1.7...@fremtind/jkl-expand-button@6.2.0) (2023-11-24)
+
+### Features
+
+- support rendering ExpandButton as a summary element ([b3e1006](https://github.com/fremtind/jokul/commit/b3e1006c44f4690be30c7620a717c869a5dac3b4)), closes [#3751](https://github.com/fremtind/jokul/issues/3751)
+
 # [6.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@6.0.2...@fremtind/jkl-expand-button@6.1.0) (2023-09-14)
 
 ### Features

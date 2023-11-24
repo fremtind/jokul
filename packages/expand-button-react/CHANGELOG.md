@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button-react@6.0.15...@fremtind/jkl-expand-button-react@6.1.0) (2023-11-24)
+
+### Features
+
+- make use of details and summary to have ExpandSection work without JS ([462cad4](https://github.com/fremtind/jokul/commit/462cad4397da6d67f371d3f2eca8f718cc1c9678)), closes [#3751](https://github.com/fremtind/jokul/issues/3751)
+- support rendering ExpandButton as a summary element ([b3e1006](https://github.com/fremtind/jokul/commit/b3e1006c44f4690be30c7620a717c869a5dac3b4)), closes [#3751](https://github.com/fremtind/jokul/issues/3751)
+
 ## 6.0.4 (2023-09-14)
 
 ### Bug Fixes
