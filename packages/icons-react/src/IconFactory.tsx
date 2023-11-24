@@ -22,9 +22,9 @@ export const makeIconComponent = (variants: IconVariants) => {
         const SmallIconComponent = variants["regular"]["small"];
         const SmallBoldIconComponent = variants["bold"]["small"];
 
-        const Tag = as;
+        const El = as;
         return (
-            <Tag
+            <El
                 className={cn(className, "jkl-icon", `jkl-icon--${variant}`, { "jkl-icon--bold": bold })}
                 aria-hidden="true"
                 style={style}
@@ -48,7 +48,7 @@ export const makeIconComponent = (variants: IconVariants) => {
                     className="jkl-icon__icon jkl-icon__icon--small jkl-icon__icon--bold"
                     {...rest}
                 />
-            </Tag>
+            </El>
         );
     };
 
