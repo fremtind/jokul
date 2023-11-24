@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.4.0 (2023-11-24)
+
+### Features
+
+- support rendering icons as either "div" or "span" using the as prop ([5233ece](https://github.com/fremtind/jokul/commit/5233ece895cbeb194eb70a2e0b4e54af73a8c436)), closes [#3753](https://github.com/fremtind/jokul/issues/3753)
+
 # 8.3.0 (2023-10-31)
 
 ### Features
