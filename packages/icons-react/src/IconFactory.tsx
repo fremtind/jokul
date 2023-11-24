@@ -7,6 +7,7 @@ export type IconVariants = Record<"bold" | "regular", IconSet>;
 
 export const makeIconComponent = (variants: IconVariants) => {
     const Icon: React.FC<IconProps> = ({
+        as = "div",
         bold = false,
         className,
         variant = "inherit",
@@ -20,8 +21,10 @@ export const makeIconComponent = (variants: IconVariants) => {
         const MediumBoldIconComponent = variants["bold"]["medium"];
         const SmallIconComponent = variants["regular"]["small"];
         const SmallBoldIconComponent = variants["bold"]["small"];
+
+        const Tag = as;
         return (
-            <div
+            <Tag
                 className={cn(className, "jkl-icon", `jkl-icon--${variant}`, { "jkl-icon--bold": bold })}
                 aria-hidden="true"
                 style={style}
@@ -45,7 +48,7 @@ export const makeIconComponent = (variants: IconVariants) => {
                     className="jkl-icon__icon jkl-icon__icon--small jkl-icon__icon--bold"
                     {...rest}
                 />
-            </div>
+            </Tag>
         );
     };
 
