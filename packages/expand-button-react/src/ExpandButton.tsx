@@ -43,11 +43,11 @@ export const ExpandButton = ({
     const ContentWrapper = hideLabel ? ScreenReaderOnly : React.Fragment;
     const pointingDown = expandDirection === "down" ? !isExpanded : isExpanded;
 
-    const Tag = as;
-    const type = Tag === "button" ? "button" : undefined;
+    const El = as;
+    const type = El === "button" ? "button" : undefined;
 
     return (
-        <Tag
+        <El
             aria-expanded={isExpanded}
             data-testid="jkl-expand-button"
             type={type}
@@ -64,6 +64,6 @@ export const ExpandButton = ({
                 </ContentWrapper>
             )}
             <ArrowVerticalAnimated className="jkl-expand-button__arrow" pointingDown={pointingDown} />
-        </Tag>
+        </El>
     );
 };
