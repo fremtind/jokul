@@ -36,8 +36,8 @@ describe("Expand", () => {
         render(<ExpandSectionExample />);
         screen.getByText("Vis den skjulte seksjonen");
 
-        const contentToggle = screen.getByTestId("jkl-expand-section__content-wrapper");
-        expect(contentToggle).toHaveProperty("hidden", true);
+        const detailsWrapper = screen.getByTestId("jkl-expand-section__wrapper");
+        expect(detailsWrapper).toHaveProperty("open", false);
     });
 
     it("should render the expand button expanded with the isExpanded prop set to true", () => {
@@ -49,8 +49,8 @@ describe("Expand", () => {
         );
         screen.getByText("Skjult seksjon");
 
-        const contentToggle = screen.getByTestId("jkl-expand-section__content-wrapper");
-        expect(contentToggle).toHaveProperty("hidden", false);
+        const detailsWrapper = screen.getByTestId("jkl-expand-section__wrapper");
+        expect(detailsWrapper).toHaveProperty("open", true);
     });
 
     it("should trigger onClick handler on click and expand the content", async () => {
@@ -63,8 +63,8 @@ describe("Expand", () => {
 
         expect(onClickSpy).toHaveBeenCalledTimes(1);
 
-        const contentToggle = screen.getByTestId("jkl-expand-section__content-wrapper");
-        expect(contentToggle).toHaveProperty("hidden", false);
+        const detailsWrapper = screen.getByTestId("jkl-expand-section__wrapper");
+        expect(detailsWrapper).toHaveProperty("open", true);
     });
 });
 
