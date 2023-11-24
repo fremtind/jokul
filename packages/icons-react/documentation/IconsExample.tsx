@@ -93,7 +93,7 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
             <IconsExampleGrid style={{ fontSize }} columns="four">
                 {allIcons.map((Ico) => (
                     <IconExample
-                        key={Ico.name}
+                        key={Ico.displayName}
                         renderIcon={() => <Ico bold={bold} variant={variant} />}
                         name={Ico.displayName}
                     />
