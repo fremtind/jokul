@@ -52,14 +52,8 @@ export const ExpandSection = ({
     };
 
     return (
-        <details
-            open={isExpanded ? true : undefined}
-            className={cx("jkl-expand-section", className)}
-            data-testid="jkl-expand-section__wrapper"
-            {...rest}
-        >
+        <div className={cx("jkl-expand-section", className)} {...rest}>
             <ExpandButton
-                as={"summary"}
                 {...expandButtonProps}
                 id={buttonId}
                 aria-controls={contentId}
@@ -72,12 +66,14 @@ export const ExpandSection = ({
             <div
                 id={contentId}
                 ref={elementRef}
+                data-testid="jkl-expand-section__content-wrapper"
                 className="jkl-expand-section__content-wrapper"
+                hidden={!expanded}
                 role="group"
                 aria-labelledby={buttonId}
             >
                 <div className="jkl-expand-section__content">{children}</div>
             </div>
-        </details>
+        </div>
     );
 };
