@@ -9,6 +9,12 @@ export interface AccordionProps extends WithChildren {
 
 export const Accordion: FC<AccordionProps> = ({ className, density, ...rest }) => {
     return (
-        <div data-testid="jkl-accordion" className={cn("jkl-accordion", className)} data-density={density} {...rest} />
+        <section
+            role="group"
+            data-testid="jkl-accordion"
+            className={cn("jkl-accordion", className)}
+            data-density={density}
+            {...rest}
+        />
     );
 };
