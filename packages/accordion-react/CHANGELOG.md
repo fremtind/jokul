@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@10.0.16...@fremtind/jkl-accordion-react@10.1.0) (2023-12-04)
+
+### Features
+
+- accordion uses details/summary elements ([b898531](https://github.com/fremtind/jokul/commit/b8985319b59a8b3f1f36972a1aa4cfebf0a0bd61)), closes [#3767](https://github.com/fremtind/jokul/issues/3767)
+
 ## 10.0.5 (2023-09-14)
 
 ### Bug Fixes
