@@ -11,10 +11,10 @@ describe("Accordion", () => {
 
         cy.takeSnapshots({
             setup: () => {
-                cy.getByTestid("jkl-accordion-item").first().click();
+                cy.getByTestid("jkl-accordion-item__title").first().click();
             },
             teardown: () => {
-                cy.getByTestid("jkl-accordion-item").first().click();
+                cy.getByTestid("jkl-accordion-item__title").first().click();
             },
         });
     });

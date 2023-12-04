@@ -71,7 +71,7 @@
         }
     }
 
-    &--expanded {
+    &[open] {
         background-color: var(--jkl-accordion-expanded-background);
 
         .jkl-accordion-item__title {
@@ -83,12 +83,18 @@
         @include jkl.use-font-variables("jkl-accordion-title");
         @include jkl.reset-outline;
 
+        &::-webkit-details-marker {
+            display: none;
+        }
+        list-style: none;
+
         color: var(--jkl-color);
         background-color: transparent;
         position: relative;
         padding: var(--jkl-accordion-title-padding);
         text-align: left;
         width: 100%;
+        box-sizing: border-box;
 
         &:hover {
             cursor: pointer;

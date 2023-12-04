@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
@@ -37,7 +37,7 @@ describe("Accordion", () => {
             </Accordion>,
         );
 
-        expect(getByTestId("jkl-accordion-item__content-wrapper")).toHaveProperty("hidden", true);
+        expect(getByTestId("jkl-accordion-item")).toHaveProperty("open", false);
     });
 
     it("should start open if told to", () => {
@@ -49,13 +49,13 @@ describe("Accordion", () => {
             </Accordion>,
         );
 
-        expect(getByTestId("jkl-accordion-item__content-wrapper")).toHaveProperty("hidden", false);
+        expect(getByTestId("jkl-accordion-item")).toHaveProperty("open", true);
     });
 
     it("onClick sends the open/closed state as an argument", async () => {
         let openingAccordion = false;
 
-        const { getByRole } = render(
+        const { getByText } = render(
             <Accordion>
                 <AccordionItem
                     title="Hello"
@@ -69,10 +69,10 @@ describe("Accordion", () => {
         );
 
         await act(async () => {
-            await userEvent.click(getByRole("button"));
+            await userEvent.click(getByText("Hello"));
         });
 
-        expect(openingAccordion).toBe(true);
+        await waitFor(() => expect(openingAccordion).toBe(true));
     });
 
     it("should pass jest-axe tests in default state", async () => {
