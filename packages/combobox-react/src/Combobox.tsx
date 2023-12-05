@@ -4,6 +4,7 @@ import { ArrowVerticalAnimated, CheckIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup, InputGroupProps, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { useId, useAnimatedHeight, useListNavigation } from "@fremtind/jkl-react-hooks";
 import { Tag } from "@fremtind/jkl-tag-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@fremtind/jkl-tooltip-react";
 import cn from "classnames";
 import React, {
     FC,
@@ -53,6 +54,7 @@ interface ComboboxProps extends InputGroupProps {
     errorLabel?: string;
     className?: string;
     invalid?: boolean;
+    hasTagHover?: boolean;
     onChange: ChangeEventHandler;
     onBlur?: ChangeEventHandler;
     onFocus?: ChangeEventHandler;
@@ -76,6 +78,7 @@ export const Combobox: FC<ComboboxProps> = ({
     name,
     className,
     invalid,
+    hasTagHover,
 }) => {
     const listId = useId(id || "jkl-combobox", { generateSuffix: !id });
     const labelId = `${listId}_label`;
@@ -391,9 +394,21 @@ export const Combobox: FC<ComboboxProps> = ({
                                     label: `Fjern ${option.value}`,
                                 }}
                             >
-                                <span aria-hidden="true" data-testid="jkl-tag__content">
-                                    {option.tagLabel ? option.tagLabel : option.label}
-                                </span>
+                                {hasTagHover ? (
+                                    <Tooltip key={option.value}>
+                                        <TooltipTrigger>
+                                            {" "}
+                                            <span aria-hidden="true" data-testid="jkl-tag__content">
+                                                {option.tagLabel ? option.tagLabel : option.label}
+                                            </span>
+                                        </TooltipTrigger>
+                                        <TooltipContent>{option.label}</TooltipContent>
+                                    </Tooltip>
+                                ) : (
+                                    <span aria-hidden="true" data-testid="jkl-tag__content">
+                                        {option.tagLabel ? option.tagLabel : option.label}
+                                    </span>
+                                )}
                             </Tag>
                         ))}
                         <input
