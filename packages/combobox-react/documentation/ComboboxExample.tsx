@@ -4,7 +4,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Combobox, type ComboboxValuePair } from "../src";
 
 export const comboboxExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Med hjelpetekst", "Med feil", "Med empty state"],
+    boolProps: ["Med hjelpetekst", "Med feil", "Med empty state", "Med tagHover"],
     choiceProps: [
         {
             name: "Variant",
@@ -44,6 +44,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
     const helpLabel =
         boolValues && boolValues["Med hjelpetekst"] ? "Med sykdommer mener vi for eksempel A090 og A150." : undefined;
     const noMatchingOption = boolValues && boolValues["Med empty state"] ? "Ingen valg matcher søket" : undefined;
+    const hasTagHover = boolValues && boolValues["Med tagHover"] ? true : undefined;
 
     return (
         <Combobox
@@ -56,6 +57,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             errorLabel={errorLabel}
             label="Velg sykdommer"
             noMatchingOption={noMatchingOption}
+            hasTagHover={hasTagHover}
             items={items}
             value={selectedValues}
             onChange={(event) => {
@@ -77,7 +79,8 @@ export const comboboxExampleCode = ({ choiceValues, boolValues }: ExampleCompone
     helpLabel=${!!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`}
     errorLabel=${!!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`}
     label="Velg sykdommer"
-    noMatchingOption="Ingen valg matcher søket"
+    noMatchingOption=${!!boolValues?.["Med empty state"] ? `"Ingen valg matcher søket"` : `{undefined}`}
+    hasTagHover=${!!boolValues?.["Med tagHover"] ? `{true}` : `{undefined}`}
     items={[
         { value: "a080", label: "A080 - Rotavirusenteritt", tagLabel: "A080" },
         { value: "a081", label: "A081 - Akutt gastroenteritt som skyldes norovirus", tagLabel: "A081" },
