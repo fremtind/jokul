@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 6.1.2 (2023-12-05)
+
+### Bug Fixes
+
+- revert commit 462cad439 to restore functionality in Safari/FF ([3505245](https://github.com/fremtind/jokul/commit/3505245e300ed74feb1bfcc83c95cb384fb552c7))
+
 # [6.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button-react@6.0.15...@fremtind/jkl-expand-button-react@6.1.0) (2023-11-24)
 
 ### Features
