@@ -25,6 +25,11 @@
 
     @include jkl.reset-outline;
 
+    &::-webkit-details-marker {
+        display: none;
+    }
+    list-style: none;
+
     background-color: transparent;
     cursor: pointer;
     color: var(--jkl-expand-button-text-color);
@@ -32,7 +37,6 @@
     transition: transform $_animation-timing, border $_animation-timing;
     min-width: unset;
     position: relative;
-    display: block;
 
     &::after {
         $_expand-button-border-width: jkl.rem(1px);
