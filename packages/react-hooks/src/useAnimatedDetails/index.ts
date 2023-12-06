@@ -1,0 +1,1 @@
+export { useAnimatedDetails } from "./useAnimatedDetails";
