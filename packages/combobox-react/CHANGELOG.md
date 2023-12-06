@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.3.0 (2023-12-06)
+
+### Features
+
+- la til prop for å ha hover på valgte tags ([ad5cc80](https://github.com/fremtind/jokul/commit/ad5cc80805feddae7cda06260d672dd4331add04))
+
 # [2.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@2.1.12...@fremtind/jkl-combobox-react@2.2.0) (2023-11-07)
 
 ### Features
