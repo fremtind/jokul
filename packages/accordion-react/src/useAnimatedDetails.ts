@@ -6,7 +6,12 @@ export const useAnimatedDetails = ({
 }: {
     onOpenChange: (open: boolean, e: React.MouseEvent<HTMLElement>) => void;
     startExpanded: boolean;
-}) => {
+}): {
+    detailsRef: React.RefObject<HTMLDetailsElement>;
+    summaryRef: React.RefObject<HTMLDivElement>;
+    contentRef: React.RefObject<HTMLDivElement>;
+    onSummaryClick: React.MouseEventHandler<HTMLElement>;
+} => {
     const detailsRef = useRef<HTMLDetailsElement>(null);
     const summaryRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
