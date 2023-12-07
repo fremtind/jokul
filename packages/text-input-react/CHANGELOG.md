@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.2.4 (2023-12-07)
+
+### Bug Fixes
+
+- make sure IconButtons have a default type of "button" ([e48946b](https://github.com/fremtind/jokul/commit/e48946b2510fe5e164c515aa87dfda15f0a22f92)), closes [#3776](https://github.com/fremtind/jokul/issues/3776)
+
 # 14.2.0 (2023-11-16)
 
 ### Features
