@@ -74,6 +74,7 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
         width,
         ...rest
     } = props;
+
     return (
         <div
             className="jkl-text-input-wrapper"
@@ -100,7 +101,7 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
                     onFocus={action.onFocus}
                     onBlur={action.onBlur}
                     ref={action.buttonRef}
-                    type={action.type}
+                    type={action.type || "button"}
                 >
                     {action.icon}
                 </IconButton>
