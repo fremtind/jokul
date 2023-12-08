@@ -1,5 +1,5 @@
 import { Density } from "@fremtind/jkl-core";
-import { UseAnimatedHeightOptions, useId, useAnimatedHeight } from "@fremtind/jkl-react-hooks";
+import { UseAnimatedHeightOptions, useAnimatedDetails } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
 import React, { ReactNode, useEffect, useState } from "react";
 import type { ExpandButtonProps } from "./ExpandButton";
@@ -16,7 +16,7 @@ export interface ExpandSectionProps {
     title: string;
     className?: string;
     density?: Density;
-    onClick?: (e: React.MouseEvent<HTMLButtonElement>, isExpanded: boolean) => void;
+    onClick?: (e: React.MouseEvent<HTMLElement>, isExpanded: boolean) => void;
     expandButtonProps?: Omit<ExpandButtonProps, "id" | "isExpanded" | "onClick" | "hideLabel">;
     useAnimatedHeightOptions?: UseAnimatedHeightOptions;
     /** Om du ønsker å styre komponenten utenfra */
@@ -34,46 +34,46 @@ export const ExpandSection = ({
     useAnimatedHeightOptions,
     ...rest
 }: ExpandSectionProps): JSX.Element => {
-    const buttonId = useId("button");
-    const contentId = useId("content");
     const [expanded, setIsExpanded] = useState(isExpanded);
-    const [elementRef] = useAnimatedHeight<HTMLDivElement>(expanded, useAnimatedHeightOptions);
 
     useEffect(() => {
         setIsExpanded(isExpanded);
     }, [isExpanded]);
 
-    const onExpandButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const nextValue = !expanded;
-        setIsExpanded(nextValue);
-        if (onClick) {
-            onClick(e, nextValue);
-        }
-    };
+    const { detailsRef, summaryRef, contentRef, onSummaryClick } = useAnimatedDetails({
+        onOpenChange: (open, e) => {
+            setIsExpanded(open);
+            if (onClick) {
+                onClick(e, open);
+            }
+        },
+        isExpanded,
+    });
 
     return (
-        <div className={cx("jkl-expand-section", className)} {...rest}>
+        <details
+            data-testid={"jkl-expand-section"}
+            className={cx("jkl-expand-section", className)}
+            {...rest}
+            ref={detailsRef}
+        >
             <ExpandButton
+                as={"summary"}
                 {...expandButtonProps}
-                id={buttonId}
-                aria-controls={contentId}
                 density={density}
                 isExpanded={expanded}
-                onClick={onExpandButtonClick}
+                onClick={onSummaryClick}
+                ref={summaryRef}
             >
                 {title}
             </ExpandButton>
             <div
-                id={contentId}
-                ref={elementRef}
                 data-testid="jkl-expand-section__content-wrapper"
                 className="jkl-expand-section__content-wrapper"
-                hidden={!expanded}
-                role="group"
-                aria-labelledby={buttonId}
+                ref={contentRef}
             >
                 <div className="jkl-expand-section__content">{children}</div>
             </div>
-        </div>
+        </details>
     );
 };

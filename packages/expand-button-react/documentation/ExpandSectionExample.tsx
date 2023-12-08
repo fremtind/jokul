@@ -1,9 +1,10 @@
 import React, { FC, useState } from "react";
-import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { ExpandSection } from "../src";
 
 export const ExpandSectionExample: FC<ExampleComponentProps> = () => {
     const [isExpanded, setIsExpanded] = useState(false);
+
     return (
         <div>
             <p className="jkl-spacing-l--bottom">

@@ -33,7 +33,7 @@ interface ActionBaseProps extends Exclude<HTMLProps<HTMLButtonElement>, "disable
 }
 
 export interface ActionButton extends ActionBaseProps {
-    type?: HTMLButtonElement["type"];
+    type?: "button" | "reset";
     onClick: MouseEventHandler<HTMLButtonElement>;
 }
 

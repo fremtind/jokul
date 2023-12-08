@@ -1,7 +1,7 @@
 import { Density, ScreenReaderOnly, WithChildren } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import cx from "classnames";
-import React from "react";
+import React, { ForwardedRef } from "react";
 
 export type ExpandDirection = "up" | "down";
 
@@ -30,40 +30,48 @@ export interface ExpandButtonProps extends WithChildren {
     hideLabel?: boolean;
 }
 
-export const ExpandButton = ({
-    as = "button",
-    className,
-    children,
-    density,
-    expandDirection = "down",
-    isExpanded = false,
-    hideLabel = false,
-    ...rest
-}: ExpandButtonProps): JSX.Element => {
-    const ContentWrapper = hideLabel ? ScreenReaderOnly : React.Fragment;
-    const pointingDown = expandDirection === "down" ? !isExpanded : isExpanded;
+export const ExpandButton = React.forwardRef(
+    (
+        {
+            as = "button",
+            className,
+            children,
+            density,
+            expandDirection = "down",
+            isExpanded = false,
+            hideLabel = false,
+            ...rest
+        }: ExpandButtonProps,
+        ref: ForwardedRef<HTMLButtonElement>,
+    ): JSX.Element => {
+        const ContentWrapper = hideLabel ? ScreenReaderOnly : React.Fragment;
+        const pointingDown = expandDirection === "down" ? !isExpanded : isExpanded;
 
-    const El = as;
-    const type = El === "button" ? "button" : undefined;
+        const El = as;
+        const type = El === "button" ? "button" : undefined;
 
-    return (
-        <El
-            aria-expanded={isExpanded}
-            data-testid="jkl-expand-button"
-            type={type}
-            className={cx("jkl-expand-button", className, {
-                "jkl-expand-button--expanded": isExpanded,
-                "jkl-expand-button--icon-only": !children,
-            })}
-            {...rest}
-            data-density={density}
-        >
-            {children && (
-                <ContentWrapper>
-                    <span className="jkl-expand-button__text">{children}</span>
-                </ContentWrapper>
-            )}
-            <ArrowVerticalAnimated className="jkl-expand-button__arrow" pointingDown={pointingDown} />
-        </El>
-    );
-};
+        return (
+            <El
+                aria-expanded={isExpanded}
+                data-testid="jkl-expand-button"
+                type={type}
+                className={cx("jkl-expand-button", className, {
+                    "jkl-expand-button--expanded": isExpanded,
+                    "jkl-expand-button--icon-only": !children,
+                })}
+                {...rest}
+                data-density={density}
+                ref={ref}
+            >
+                {children && (
+                    <ContentWrapper>
+                        <span className="jkl-expand-button__text">{children}</span>
+                    </ContentWrapper>
+                )}
+                <ArrowVerticalAnimated className="jkl-expand-button__arrow" pointingDown={pointingDown} />
+            </El>
+        );
+    },
+);
+
+ExpandButton.displayName = "ExpandButton";
