@@ -1,4 +1,4 @@
-import { act, render, screen } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useState, FC } from "react";
@@ -36,8 +36,8 @@ describe("Expand", () => {
         render(<ExpandSectionExample />);
         screen.getByText("Vis den skjulte seksjonen");
 
-        const contentToggle = screen.getByTestId("jkl-expand-section__content-wrapper");
-        expect(contentToggle).toHaveProperty("hidden", true);
+        const contentToggle = screen.getByTestId("jkl-expand-section");
+        expect(contentToggle).toHaveProperty("open", false);
     });
 
     it("should render the expand button expanded with the isExpanded prop set to true", () => {
@@ -49,22 +49,22 @@ describe("Expand", () => {
         );
         screen.getByText("Skjult seksjon");
 
-        const contentToggle = screen.getByTestId("jkl-expand-section__content-wrapper");
-        expect(contentToggle).toHaveProperty("hidden", false);
+        const contentToggle = screen.getByTestId("jkl-expand-section");
+        expect(contentToggle).toHaveProperty("open", true);
     });
 
     it("should trigger onClick handler on click and expand the content", async () => {
         render(<ExpandSectionExample />);
 
-        const button = screen.getByRole("button");
+        const button = screen.getByText("Vis den skjulte seksjonen");
         await act(async () => {
             await userEvent.click(button);
         });
 
-        expect(onClickSpy).toHaveBeenCalledTimes(1);
+        const contentToggle = screen.getByTestId("jkl-expand-section");
+        expect(contentToggle).toHaveProperty("open", true);
 
-        const contentToggle = screen.getByTestId("jkl-expand-section__content-wrapper");
-        expect(contentToggle).toHaveProperty("hidden", false);
+        await waitFor(() => expect(onClickSpy).toHaveBeenCalledTimes(1));
     });
 });
 

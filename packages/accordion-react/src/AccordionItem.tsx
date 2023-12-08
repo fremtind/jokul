@@ -1,8 +1,8 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
+import { useAnimatedDetails } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { FC, useState } from "react";
-import { useAnimatedDetails } from "./useAnimatedDetails";
 
 export interface AccordionItemProps extends WithChildren {
     title: string;
@@ -20,6 +20,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
     ...rest
 }) => {
     const [isOpen, setIsOpen] = useState(startExpanded);
+    const [expandOnMount] = useState(() => startExpanded);
 
     const { detailsRef, summaryRef, contentRef, onSummaryClick } = useAnimatedDetails({
         onOpenChange: (open, e) => {
@@ -28,7 +29,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
                 onClick(e, open);
             }
         },
-        startExpanded: startExpanded,
+        isExpanded: expandOnMount,
     });
 
     return (

@@ -1,14 +1,30 @@
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Lar deg animere et HTML details element med en summary trigger og noe innhold.
+ * HTML strukturen din bør se ut som omtrent
+ * <details ref={detailsRef}>
+ *     <summary ref={summaryRef} onClick={onSummaryClick}>Trigger for å åpne</summary>
+ *     <div ref={contentRef}>Ekspanderbart innhold</div>
+ *  </details>
+ *
+ * @param onOpenChange Callback med informasjon om når elementet åpner/lukker seg.
+ * @param isExpanded Styr åpning/lukking utenfra.
+ */
 export const useAnimatedDetails = ({
     onOpenChange,
-    startExpanded,
+    isExpanded,
 }: {
     onOpenChange: (open: boolean, e: React.MouseEvent<HTMLElement>) => void;
-    startExpanded: boolean;
-}) => {
+    isExpanded: boolean;
+}): {
+    detailsRef: React.RefObject<HTMLDetailsElement>;
+    summaryRef: React.RefObject<HTMLButtonElement>;
+    contentRef: React.RefObject<HTMLDivElement>;
+    onSummaryClick: React.MouseEventHandler<HTMLElement>;
+} => {
     const detailsRef = useRef<HTMLDetailsElement>(null);
-    const summaryRef = useRef<HTMLDivElement>(null);
+    const summaryRef = useRef<HTMLButtonElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const animation = useRef<Animation | null>(null);
 
@@ -16,11 +32,8 @@ export const useAnimatedDetails = ({
     const [isExpanding, setIsExpanding] = useState(false);
 
     useEffect(() => {
-        if (detailsRef.current) {
-            detailsRef.current.open = startExpanded;
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        onAnimationFinish(isExpanded);
+    }, [isExpanded]);
 
     const onAnimationFinish = (open: boolean) => {
         if (detailsRef.current && summaryRef.current) {
