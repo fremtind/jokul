@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.0.0 (2023-12-08)
+
+### Features
+
+- make ExpandButton work before React has mounted clientside ([9ce4216](https://github.com/fremtind/jokul/commit/9ce42163c04cc9977cad3787b7e47710e454febb))
+
+### BREAKING CHANGES
+
+- Typing for the event in the onClick callback changed from React.MouseEvent<HTMLButtonElement> to
+React.MouseEvent<HTMLElement>
+
 # [10.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@10.0.16...@fremtind/jkl-accordion-react@10.1.0) (2023-12-04)
 
 ### Features

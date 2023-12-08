@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.0.0 (2023-12-08)
+
+### Features
+
+- make ExpandButton work before React has mounted clientside ([9ce4216](https://github.com/fremtind/jokul/commit/9ce42163c04cc9977cad3787b7e47710e454febb))
+
+### BREAKING CHANGES
+
+- Typing for the event in the onClick callback changed from React.MouseEvent<HTMLButtonElement> to
+React.MouseEvent<HTMLElement>
+
 # [6.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expand-button@6.1.7...@fremtind/jkl-expand-button@6.2.0) (2023-11-24)
 
 ### Features
