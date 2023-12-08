@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.2.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@14.2.4...@fremtind/jkl-text-input-react@14.2.5) (2023-12-08)
+
+### Bug Fixes
+
+- make typescript happy by limiting the possible options for "type" ([56e483b](https://github.com/fremtind/jokul/commit/56e483b044827f2151fb6babac2360013052bf21))
+
 ## 14.2.4 (2023-12-07)
 
 ### Bug Fixes
