@@ -346,7 +346,7 @@ importers:
 
   packages/combobox-react:
     specifiers:
-      '@fremtind/jkl-combobox': ^2.2.3
+      '@fremtind/jkl-combobox': ^2.2.4
       '@fremtind/jkl-core': ^13.4.2
       '@fremtind/jkl-icon-button-react': ^4.0.20
       '@fremtind/jkl-icons-react': ^8.4.1
@@ -1118,7 +1118,7 @@ importers:
       '@fremtind/jkl-button-react': ^15.0.14
       '@fremtind/jkl-card-react': ^11.1.18
       '@fremtind/jkl-checkbox-react': ^11.1.12
-      '@fremtind/jkl-combobox-react': ^2.3.1
+      '@fremtind/jkl-combobox-react': ^2.3.2
       '@fremtind/jkl-constants-util': ^3.0.33
       '@fremtind/jkl-contact-information-react': ^2.0.34
       '@fremtind/jkl-content-toggle-react': ^6.0.10
