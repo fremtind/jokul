@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "19.1.39",
+    "version": "19.1.40",
     "devDependencies": {
         "@jest/globals": "^29.5.0",
         "@types/mixpanel-browser": "^2.38.1",
@@ -15,7 +15,7 @@
         "@fremtind/jkl-button-react": "^15.0.14",
         "@fremtind/jkl-card-react": "^11.1.18",
         "@fremtind/jkl-checkbox-react": "^11.1.12",
-        "@fremtind/jkl-combobox-react": "^2.3.1",
+        "@fremtind/jkl-combobox-react": "^2.3.2",
         "@fremtind/jkl-constants-util": "^3.0.33",
         "@fremtind/jkl-contact-information-react": "^2.0.34",
         "@fremtind/jkl-content-toggle-react": "^6.0.10",

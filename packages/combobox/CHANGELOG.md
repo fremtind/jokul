@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.4 (2023-12-11)
+
+### Bug Fixes
+
+- endret font weight på tags som har hasTagHover ([acafb5d](https://github.com/fremtind/jokul/commit/acafb5d07c269f7807d74cd6441225b4975dd43e))
+
 # 2.2.0 (2023-11-07)
 
 ### Features
