@@ -257,6 +257,10 @@ $_combobox-search-input-selection-color--inverted: color.scale(
                 border: 1px solid var(--jkl-combobox-marked-value-border);
                 margin: 0 4px;
             }
+
+            .jkl-tooltip-trigger {
+                font-weight: 700;
+            }
         }
     }
 
