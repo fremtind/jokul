@@ -31,10 +31,10 @@ jobs:
 
             - name: Initialize CodeQL
               if: "!contains(github.event.head_commit.message, '[ci skip release]')"
-              uses: github/codeql-action/init@v2
+              uses: github/codeql-action/init@v3
               with:
                   languages: ${{ matrix.language }}
 
             - name: Perform CodeQL Analysis
               if: "!contains(github.event.head_commit.message, '[ci skip release]')"
-              uses: github/codeql-action/analyze@v2
+              uses: github/codeql-action/analyze@v3
