@@ -259,7 +259,7 @@ jobs:
                   FORCED_COLORS: ${{ matrix.forced-colors }}
 
             - name: Upload screenshots
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               if: failure()
               with:
                   name: cypress-screenshots-${{ matrix.forced-colors }}
@@ -282,7 +282,7 @@ jobs:
                       **/__image_snapshots__/*
 
             - name: Upload snapshots
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v4
               if: steps.lfcf.outputs.has_changed_files == 'true'
               with:
                   name: cypress-snapshots-${{ matrix.forced-colors }}
