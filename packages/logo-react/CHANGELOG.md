@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.1.0 (2024-01-02)
+
+### Features
+
+- add TS support for inline-styles ([6dc4702](https://github.com/fremtind/jokul/commit/6dc470264577bdca3029d3c0bc793ccab20bc468)), closes [#3752](https://github.com/fremtind/jokul/issues/3752)
+
 ## 13.0.2 (2023-09-14)
 
 ### Bug Fixes
