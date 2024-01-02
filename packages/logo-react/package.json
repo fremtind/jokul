@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-logo-react",
-    "version": "13.0.11",
+    "version": "13.1.0",
     "publishConfig": {
         "access": "public"
     },
