@@ -1,12 +1,13 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import React, { useRef } from "react";
+import React, { CSSProperties, useRef } from "react";
 import { useTextSpinner } from "./useTextSpinner";
 
 export interface LogoStampProps extends WithChildren {
     className?: string;
     id?: string;
+    style?: CSSProperties;
     /**
      * Beskrivelse av logostempelet tilgjengelig for skjermlesere.
      * Teksten i logostempelet er en path, og ikke tilgjengelig for skjermlesere.

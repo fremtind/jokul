@@ -1,10 +1,11 @@
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import React from "react";
+import React, { CSSProperties } from "react";
 
 export interface LogoProps {
     className?: string;
     id?: string;
+    style?: CSSProperties;
     /** Sentrerer logosymbolet i viewboksen i stedet for den vanlige venstrejusteringen */
     centered?: boolean;
     /** Animerer overgangen mellom logo og logosymbol */
