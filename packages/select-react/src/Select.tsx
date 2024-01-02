@@ -362,9 +362,17 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     e.stopPropagation();
                     focusSelected(listElement, selectedValue);
                 }
+            } else if (e.key === "Enter" && dropdownIsShown) {
+                // This component already deviates from how a native select would react
+                // to Enter keypresses (a native <select> would submit the form, not open itself)
+                // and  to create some symmetry with how Enter works make sure a second event
+                // closes the dropdown instead of suddenly triggering a submit.
+                e.preventDefault();
+                e.stopPropagation();
+                setShown(false);
             }
         },
-        [setShown, dropdownRef, selectedValue, isSearchable],
+        [setShown, dropdownRef, selectedValue, isSearchable, dropdownIsShown],
     );
 
     // onKeyDown so this Tab listener isn't triggered by tabbing from search field to option
