@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select-react",
-    "version": "14.1.18",
+    "version": "14.1.19",
     "publishConfig": {
         "access": "public"
     },
