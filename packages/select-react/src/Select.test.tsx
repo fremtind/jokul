@@ -574,6 +574,48 @@ describe("Searchable select", () => {
         expect(searchInputElement).toBeVisible();
     });
 
+    it("should open and close on Enter keypress events", async () => {
+        function WrappedSelect() {
+            const [state, setState] = useState<string>("");
+
+            const items = [
+                { label: "Item 1", value: "1" },
+                { label: "Item 2", value: "2" },
+                { label: "Item 3", value: "3" },
+            ];
+            return (
+                <Select
+                    name="items"
+                    searchable
+                    label="List of items"
+                    items={items}
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
+                />
+            );
+        }
+        const screen = setup(<WrappedSelect />);
+
+        const openDropdownButtonElement = screen.getByText("Velg");
+        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
+
+        expect(searchInputElement).not.toBeVisible();
+
+        await act(async () => {
+            openDropdownButtonElement.focus();
+            await userEvent.keyboard("{Enter}");
+        });
+
+        expect(searchInputElement).toBeVisible();
+
+        await act(async () => {
+            searchInputElement.focus();
+            await userEvent.keyboard("{Enter}");
+        });
+
+        expect(searchInputElement).not.toBeVisible();
+    });
+
     it("should keep all items visible when nothing has been typed into search input", async () => {
         function WrappedSelect() {
             const [state, setState] = useState<string>("");
