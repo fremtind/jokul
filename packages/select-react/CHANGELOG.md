@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.1.19 (2024-01-03)
+
+### Bug Fixes
+
+- pressing Enter key after opening searchable select does not submit form ([8fcf147](https://github.com/fremtind/jokul/commit/8fcf14740b4b94a8cd64caa9411dc1cb0a99f8a2)), closes [#3783](https://github.com/fremtind/jokul/issues/3783)
+
 ## [14.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@14.1.2...@fremtind/jkl-select-react@14.1.3) (2023-09-18)
 
 ### Bug Fixes
