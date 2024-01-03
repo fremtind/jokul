@@ -23,6 +23,9 @@ export type ModalInstance = ReturnType<typeof useModal>[0];
 
 export interface ModalConfig extends Omit<A11yDialogConfig, "dialog"> {
     modal: A11yDialogConfig["dialog"];
+    closeButton: A11yDialogConfig["closeButton"] & {
+        "aria-label": string;
+    };
 }
 
 /**
@@ -75,9 +78,7 @@ export function useModal(props: UseModalOptions) {
 
     const [instance, config] = useA11yDialog({
         id,
-        closeButtonPosition: "first",
         role,
-        closeButtonLabel,
         ...rest,
     });
 
@@ -86,6 +87,10 @@ export function useModal(props: UseModalOptions) {
     const modalConfig: ModalConfig = {
         modal: config.dialog,
         ...restConfig,
+        closeButton: {
+            ...config.closeButton,
+            "aria-label": closeButtonLabel,
+        },
     };
 
     return [instance, modalConfig] as const;
