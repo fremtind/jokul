@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.1.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@14.1.19...@fremtind/jkl-select-react@14.1.20) (2024-01-04)
+
+### Bug Fixes
+
+- instead of closing the modal, just ignore the key event ([64246f2](https://github.com/fremtind/jokul/commit/64246f2eb2f83e1332a366cb24bb50d3b2542a53)), closes [#3783](https://github.com/fremtind/jokul/issues/3783)
+
 ## 14.1.19 (2024-01-03)
 
 ### Bug Fixes
