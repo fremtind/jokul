@@ -11,7 +11,7 @@ import "./index.scss";
 
 export default function Example() {
     return (
-        <>
+        <div style={{ maxWidth: "547px" }}>
             <DevExample
                 title="TextInput"
                 component={TextInputExample}
@@ -30,6 +30,6 @@ export default function Example() {
                 knobs={autosuggestExampleKnobs}
                 codeExample={autosuggestExampleCode}
             />
-        </>
+        </div>
     );
 }
