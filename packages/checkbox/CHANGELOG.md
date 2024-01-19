@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.0.6 (2024-01-19)
+
+### Bug Fixes
+
+- align checkbox mot toppen for å støtte label over flere linjer ([d953c17](https://github.com/fremtind/jokul/commit/d953c17143a6509d0a692f129af2a4a5e141090a))
+
 # [11.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox@10.1.4...@fremtind/jkl-checkbox@11.0.0) (2023-09-21)
 
 ### Bug Fixes
