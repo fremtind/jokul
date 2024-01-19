@@ -35,7 +35,7 @@
     --jkl-checkbox-height: #{$_checkbox-height};
     --jkl-checkbox-box-size: #{$_checkbox-box-size};
     --jkl-checkbox-line-height: #{$_checkbox-line-height};
-    --jkl-checkbox-mark-margin: #{jkl.rem(8px)} #{jkl.$spacing-xs} #{jkl.rem(8px)} 0;
+    --jkl-checkbox-mark-margin: #{jkl.rem(11px)} #{jkl.$spacing-xs} #{jkl.rem(8px)} 0;
     --jkl-checkbox-text-translate: translate3d(0, #{jkl.rem(1px)}, 0);
     --jkl-checkbox-text-margin: #{(($_checkbox-height - $_checkbox-line-height) * 0.5)} 0;
 
@@ -62,7 +62,7 @@
     --jkl-checkbox-height: #{$_checkbox-height--compact};
     --jkl-checkbox-box-size: #{$_checkbox-box-size--compact};
     --jkl-checkbox-line-height: #{$_checkbox-line-height--compact};
-    --jkl-checkbox-mark-margin: #{jkl.rem(4px)} #{jkl.$spacing-xs} #{jkl.rem(4px)} 0;
+    --jkl-checkbox-mark-margin: #{jkl.rem(5px)} #{jkl.$spacing-xs} #{jkl.rem(4px)} 0;
     --jkl-checkbox-text-translate: translate3d(0, 0, 0);
     --jkl-checkbox-text-margin: #{(($_checkbox-height--compact - $_checkbox-line-height--compact) * 0.5)} 0;
 }
@@ -204,7 +204,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         width: var(--jkl-checkbox-box-size);
 
         margin: var(--jkl-checkbox-mark-margin);
-        align-self: center;
+        align-self: flex-start;
         flex-shrink: 0; // Don't allow the mark to shrink in case of really long text
 
         outline: none;
