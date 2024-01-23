@@ -9,7 +9,7 @@ export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
      * Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal innholdet være venstrejustert, men for eksempel summer er høyrejustert.
      * @default "left"
      */
-    align?: "left" | "right";
+    align?: "left" | "center" | "right";
     /**
      * Velg mellom vertikal sentrering av innholdet eller toppjustering. Typisk skal innholdet være toppjustert, men dersom raden har knapper kan midtstilling fungere bedre.
      * @default "top"
@@ -24,7 +24,8 @@ const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
             <td
                 className={cx("jkl-table-cell", className, {
                     ["jkl-table-cell--align-right"]: align === "right",
-                    ["jkl-table-cell--align-center"]: verticalAlign === "center",
+                    ["jkl-table-cell--align-center"]: align === "center",
+                    ["jkl-table-cell--vertical-align-center"]: verticalAlign === "center",
                 })}
                 {...rest}
                 data-density={density || contextDensity}

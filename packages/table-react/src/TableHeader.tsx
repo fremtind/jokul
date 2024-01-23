@@ -14,7 +14,7 @@ export interface TableHeaderProps extends ThHTMLAttributes<HTMLTableCellElement>
      * Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal header følge innholdet i radene.
      * @default "left"
      */
-    align?: "left" | "right";
+    align?: "left" | "center" | "right";
     /**
      * Si om headeren gjelder for en kolonne eller en rad
      * @default "col"
@@ -49,6 +49,7 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>((props, r
             className={cn("jkl-table-header", className, {
                 ["jkl-table-header--bold"]: bold,
                 ["jkl-table-header--align-right"]: align === "right",
+                ["jkl-table-header--align-center"]: align === "center",
                 ["jkl-table-header--sr-only"]: srOnly,
                 ["jkl-table-header--sortable"]: typeof sortable !== "undefined",
             })}
