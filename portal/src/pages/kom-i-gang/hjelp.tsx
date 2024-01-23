@@ -50,7 +50,7 @@ const DegOgJokul: FC = () => (
         </Paragraph>
         <UnorderedList className="jkl-portal-ul">
             <ListItem>
-                Mandager og tirsdager <time dateTime="13:00">13:00</time> til <time dateTime="14:00">14:00</time>.
+                Tirsdager <time dateTime="09:00">09:00</time> til <time dateTime="11:00">11:00</time>.
             </ListItem>
             <ListItem>Drop-in en-til-en support.</ListItem>
             <ListItem>En designer og en utvikler er tilgjengelig.</ListItem>
