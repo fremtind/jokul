@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.1.0 (2024-01-23)
+
+### Features
+
+- legg til støtte for å midtstille tekst i celle og header ([9e82d87](https://github.com/fremtind/jokul/commit/9e82d878fdf06f8de7374c5f2c9d31d50977e542))
+
 ## [9.0.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@9.0.7...@fremtind/jkl-table@9.0.8) (2023-11-09)
 
 ### Bug Fixes

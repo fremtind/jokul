@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.2.0 (2024-01-23)
+
+### Features
+
+- legg til støtte for å midtstille tekst i celle og header ([9e82d87](https://github.com/fremtind/jokul/commit/9e82d878fdf06f8de7374c5f2c9d31d50977e542))
+
 ## 11.1.5 (2023-09-05)
 
 ### Bug Fixes
