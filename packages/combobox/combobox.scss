@@ -66,7 +66,9 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-option-padding: #{jkl.$spacing-8} #{jkl.$spacing-12};
     --jkl-combobox-option-line-height: 2rem;
     --jkl-combobox-input-padding: #{jkl.rem(60px)};
+    --jkl-combobox-search-input-height: #{jkl.rem(28px)};
     --jkl-combobox-tag-padding: #{jkl.rem(2px)};
+    --jkl-combobox-tag-height: #{jkl.rem(24px)};
 
     @include jkl.small-device {
         --jkl-combobox-input-height: #{jkl.rem(44px)};
@@ -80,13 +82,15 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-button-active-value-padding: #{jkl.$spacing-4} #{jkl.rem(30px)} #{jkl.$spacing-4} #{jkl.$spacing-8};
     --jkl-combobox-input-height: #{jkl.rem(32px)};
     --jkl-combobox-actions-right: #{jkl.rem(0)};
-    --jkl-combobox-actions-top: #{jkl.rem(8px)};
+    --jkl-combobox-actions-top: #{jkl.rem(6px)};
     --jkl-combobox-search-input-padding: #{jkl.$spacing-4} #{jkl.$spacing-8};
     --jkl-combobox-native-padding: #{jkl.$spacing-24} #{jkl.$spacing-4} #{jkl.$spacing-4};
     --jkl-combobox-option-padding: #{jkl.$spacing-4} #{jkl.$spacing-8};
     --jkl-combobox-option-line-height: 1.5rem;
     --jkl-combobox-input-padding: #{jkl.$spacing-12};
+    --jkl-combobox-search-input-height: #{jkl.rem(20px)};
     --jkl-combobox-tag-padding: 0 0.25rem;
+    --jkl-combobox-tag-height: #{jkl.rem(20px)};
 }
 
 .jkl-combobox {
@@ -157,7 +161,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         outline: none;
         align-self: end;
         flex: 1 1 1ch;
-        max-height: 28px;
+        max-height: var(--jkl-combobox-search-input-height);
         padding-right: var(--jkl-combobox-input-padding);
     }
 
@@ -249,6 +253,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
             margin: 1px 4px;
             z-index: 1;
             padding: var(--jkl-combobox-tag-padding);
+            height: var(--jkl-combobox-tag-height);
 
             &__marked {
                 border-radius: 6px;
