@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.2.1 (2024-01-24)
+
+### Bug Fixes
+
+- referer til jkl-klasser i stedet for elementer ([520e732](https://github.com/fremtind/jokul/commit/520e73240bb39fbbfd00ee4339ed362c83d9bbcb))
+
 # 11.2.0 (2024-01-23)
 
 ### Features
