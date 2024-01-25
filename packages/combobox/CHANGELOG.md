@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.5 (2024-01-25)
+
+### Bug Fixes
+
+- endret størrelse på tag og høyde slik at komponenten matcher andre som text input, select osv ([ef2a849](https://github.com/fremtind/jokul/commit/ef2a849639cd88e54b6baf6a9c0a34abe42ff5d4))
+
 ## 2.2.4 (2023-12-11)
 
 ### Bug Fixes
