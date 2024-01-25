@@ -25,6 +25,8 @@ export function hydrateClient(rootComponent: React.ReactElement, options = defau
     initTabListener();
 
     const root = document.getElementById(opts.rootId);
+    // I can't for the life of me figure out where this template lives so forgive me...
+    root?.setAttribute("style", "width: 100%");
 
     if (root) {
         hydrateRoot(root, rootComponent);
