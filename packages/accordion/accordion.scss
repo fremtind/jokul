@@ -40,6 +40,19 @@
     @include jkl.declare-font-variables("jkl-accordion-content", "small");
 }
 
+@mixin hover {
+    border-top: jkl.rem(1px) solid;
+    border-top-color: var(--jkl-accordion-border);
+
+    &:hover {
+        border-top-color: var(--jkl-accordion-focus);
+
+        + .jkl-accordion-item {
+            border-top-color: var(--jkl-accordion-focus);
+        }
+    }
+}
+
 .jkl-accordion {
     width: 100%;
 }
@@ -50,16 +63,7 @@
     transition-property: border-top-color, border-bottom-color;
 
     &:nth-child(n) {
-        border-top: jkl.rem(1px) solid;
-        border-top-color: var(--jkl-accordion-border);
-
-        &:hover {
-            border-top-color: var(--jkl-accordion-focus);
-
-            + .jkl-accordion-item {
-                border-top-color: var(--jkl-accordion-focus);
-            }
-        }
+        @include hover;
     }
 
     &:last-child {
@@ -71,8 +75,16 @@
         }
     }
 
+    &:first-child {
+        border-top: none;
+    }
+
     &[open] {
         background-color: var(--jkl-accordion-expanded-background);
+
+        &:first-child {
+            @include hover;
+        }
 
         .jkl-accordion-item__title {
             @include jkl.no-grow-bold;
