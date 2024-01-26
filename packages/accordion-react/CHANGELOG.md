@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.0.1 (2024-01-26)
+
+### Bug Fixes
+
+- first accordion has no top border when closed ([e3526e9](https://github.com/fremtind/jokul/commit/e3526e979f883b2a68593cbd9cf0a17848a7c7f0)), closes [#3794](https://github.com/fremtind/jokul/issues/3794)
+
 # 11.0.0 (2023-12-08)
 
 ### Features
