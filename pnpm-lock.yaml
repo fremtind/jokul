@@ -558,7 +558,7 @@ importers:
       '@fremtind/jkl-core': ^13.4.2
       '@fremtind/jkl-feedback': ^13.0.9
       '@fremtind/jkl-input-group-react': ^3.0.20
-      '@fremtind/jkl-message-box-react': ^11.1.10
+      '@fremtind/jkl-message-box-react': ^11.1.11
       '@fremtind/jkl-radio-button-react': ^11.1.33
       '@fremtind/jkl-react-hooks': ^12.0.10
       '@fremtind/jkl-text-input-react': ^14.2.5
@@ -799,7 +799,7 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^13.4.2
       '@fremtind/jkl-icons-react': ^8.4.1
-      '@fremtind/jkl-message-box': ^9.0.9
+      '@fremtind/jkl-message-box': ^9.0.10
       '@fremtind/jkl-react-hooks': ^12.0.10
       classnames: ^2.3.2
     dependencies:
@@ -1128,7 +1128,7 @@ importers:
       '@fremtind/jkl-datepicker-react': ^15.1.23
       '@fremtind/jkl-description-list-react': ^8.0.10
       '@fremtind/jkl-expand-button-react': ^7.0.0
-      '@fremtind/jkl-feedback-react': ^17.1.36
+      '@fremtind/jkl-feedback-react': ^17.1.37
       '@fremtind/jkl-file-input-react': ^2.1.23
       '@fremtind/jkl-footer-react': ^6.0.40
       '@fremtind/jkl-formatters-util': ^5.0.39
@@ -1140,7 +1140,7 @@ importers:
       '@fremtind/jkl-list-react': ^10.1.3
       '@fremtind/jkl-loader-react': ^12.0.10
       '@fremtind/jkl-logo-react': ^13.1.0
-      '@fremtind/jkl-message-box-react': ^11.1.10
+      '@fremtind/jkl-message-box-react': ^11.1.11
       '@fremtind/jkl-modal-react': ^2.1.16
       '@fremtind/jkl-progress-bar-react': ^6.0.9
       '@fremtind/jkl-radio-button-react': ^11.1.33

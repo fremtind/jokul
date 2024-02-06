@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.1.37](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@17.1.36...@fremtind/jkl-feedback-react@17.1.37) (2024-02-06)
+
+### Bug Fixes
+
+- icon and heading on mobile acts like on desktop ([7156db0](https://github.com/fremtind/jokul/commit/7156db0d808b8f32ac3a3effdcfd392bf368c438)), closes [#3651](https://github.com/fremtind/jokul/issues/3651)
+
 # [17.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@17.0.6...@fremtind/jkl-feedback-react@17.1.0) (2023-09-04)
 
 ### Features
