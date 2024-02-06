@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.1.11 (2024-02-06)
+
+### Bug Fixes
+
+- icon and heading on mobile acts like on desktop ([7156db0](https://github.com/fremtind/jokul/commit/7156db0d808b8f32ac3a3effdcfd392bf368c438)), closes [#3651](https://github.com/fremtind/jokul/issues/3651)
+
 # [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@11.0.5...@fremtind/jkl-message-box-react@11.1.0) (2023-09-21)
 
 ### Features
