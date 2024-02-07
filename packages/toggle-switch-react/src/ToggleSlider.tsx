@@ -46,6 +46,12 @@ export const ToggleSlider: FC<Props> = ({
     const { gestureHandlers } = useSwipeGesture<HTMLDivElement>({ onClick: handleClick, onChange: handleChange });
     const { onClick, ...swipeHandlers } = gestureHandlers;
 
+    if (process.env.NODE_ENV !== "production") {
+        console.error(
+            "WARNING: ToggleSlider component has been deprecated and will be removed in some future version of the library",
+        );
+    }
+
     return (
         <fieldset
             {...rest}
