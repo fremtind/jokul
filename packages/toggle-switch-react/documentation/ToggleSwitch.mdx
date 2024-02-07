@@ -3,18 +3,14 @@ title: Toggle
 react: toggle-switch-react
 scss: toggle-switch
 group: knapper
-keywords: toggleswitch toggleslider slider
+keywords: toggleswitch slider
 ---
 
 import {
     ToggleSwitchExample,
-    ToggleSliderExample,
     ToggleSwitchWrongExamples,
-    ToggleSliderWrongExamples,
     toggleSwitchCodeExample,
     toggleSwitchExampleKnobs,
-    toggleSliderExampleKnobs,
-    toggleSliderCodeExample,
 } from "./ToggleSwitchExample";
 
 <Ingress>
@@ -27,13 +23,6 @@ import {
     component={ToggleSwitchExample}
     knobs={toggleSwitchExampleKnobs}
     codeExample={toggleSwitchCodeExample}
-/>
-
-<ComponentExample
-    title="ToggleSlider"
-    component={ToggleSliderExample}
-    knobs={toggleSliderExampleKnobs}
-    codeExample={toggleSliderCodeExample}
 />
 
 ## Bruk
@@ -69,15 +58,6 @@ I tillegg bør man etterstrebe å følge disse prinsippene:
 
 -   Bruk korte og beskrivende navn.
 -   Mellomrom bør unngås hvis mulig.
-
-<Grid>
-    <DoDontExample type="do" description="Korte og beskrivende valg uten mellomrom" content={<ToggleSliderExample />} />
-    <DoDontExample
-        type="dont"
-        description="Unødvendig lange valg med mellomrom"
-        content={<ToggleSliderWrongExamples />}
-    />
-</Grid>
 
 ### Eksempler på bruk
 

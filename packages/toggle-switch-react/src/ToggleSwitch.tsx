@@ -6,7 +6,7 @@ import React, { type ButtonHTMLAttributes, type MouseEventHandler, forwardRef } 
 
 export type ToggleChangeHandler<T extends HTMLElement> = SwipeChangeHandler<T>;
 
-export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "onChange"> & {
+export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange"> & {
     density?: Density;
     /**
      * Handler for å håndtere toggling av knappen. Tar inn en boolean som indikerer om knappen er er togglet på
@@ -61,7 +61,7 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
                 aria-pressed={pressed}
                 data-density={density}
                 {...buttonProps}
-                {...gestureHandlers}
+                {...(buttonProps.disabled ? {} : gestureHandlers)}
             >
                 {children}
                 <div aria-hidden className="jkl-toggle-switch-widget">
