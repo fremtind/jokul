@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.1.0 (2024-02-07)
+
+### Bug Fixes
+
+- deprecate ToggleSlider ([3939e1b](https://github.com/fremtind/jokul/commit/3939e1b17cc3007862439d36b4f77dc3e09154ed)), closes [#3677](https://github.com/fremtind/jokul/issues/3677)
+
+### Features
+
+- toggleSwitch now supports the disabled prop ([5973df5](https://github.com/fremtind/jokul/commit/5973df556acae73b407e2e039bae69422d623975)), closes [#3803](https://github.com/fremtind/jokul/issues/3803)
+
 ## 13.0.5 (2023-09-05)
 
 ### Bug Fixes

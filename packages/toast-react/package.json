@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-toast-react",
-    "version": "2.1.15",
+    "version": "2.2.0",
     "publishConfig": {
         "access": "public"
     },
@@ -37,7 +37,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^13.4.2",
-        "@fremtind/jkl-icon-button-react": "^4.0.20",
+        "@fremtind/jkl-icon-button-react": "^4.0.21",
         "@fremtind/jkl-icons-react": "^8.4.1",
         "@fremtind/jkl-progress-bar-react": "^6.0.9",
         "@fremtind/jkl-toast": "^2.1.8",
