@@ -23,7 +23,7 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
 
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-form-support-label", "small");
-    $_icon-size: jkl.rem(24px);
+    $_icon-size: jkl.rem(20px);
 
     --jkl-form-support-label-margin: #{jkl.$spacing-xs} 0 0;
     --jkl-form-support-label-icon-size: #{$_icon-size};
@@ -41,15 +41,15 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     @include jkl.use-font-variables("jkl-form-support-label");
     @include jkl.motion("standard", "lazy");
 
-    display: block;
+    display: flex;
     margin: var(--jkl-form-support-label-margin);
     color: var(--jkl-label-support-color);
     transition-property: color;
     transition-delay: jkl.timing("productive");
 
-    &__icon .jkl-icon__icon {
+    &__icon,
+    &__icon.jkl-icon {
         opacity: 0;
-        width: var(--jkl-form-support-label-icon-size);
         height: var(--jkl-form-support-label-icon-size);
         margin: var(--jkl-form-support-label-icon-margin);
 
@@ -61,7 +61,7 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     &--success {
         color: var(--jkl-label-error-color);
 
-        .jkl-form-support-label__icon .jkl-icon__icon {
+        .jkl-form-support-label__icon {
             animation: jkl.timing("lazy") cubic-bezier(0, 0, 0.3, 1) jkl.timing("expressive")
                 $_support-icon-entrance-animation-name forwards;
         }
