@@ -32,19 +32,31 @@
     --jkl-toggle-switch-background: #{jkl.$color-snohvit};
     --jkl-toggle-switch-knob-border: #{jkl.$color-granitt};
     --jkl-toggle-switch-knob-background: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-knob-background--on: #{jkl.$color-snohvit};
     --jkl-toggle-switch-indicator-color: transparent;
     --jkl-toggle-switch-indicator-color--on: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-disabled-color: #{jkl.$color-svaberg};
+    --jkl-toggle-switch-border--disabled: #{jkl.$color-svaberg};
+    --jkl-toggle-switch-knob-border--disabled: #{jkl.$color-svaberg};
+    --jkl-toggle-switch-knob-background--disabled: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-border--disabled-on: #{jkl.$color-svaberg};
+    --jkl-toggle-switch-knob-border--disabled-on: #{jkl.$color-snohvit};
+    --jkl-toggle-switch-knob-background--disabled-on: #{jkl.$color-snohvit};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-toggle-switch-border: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-background: #{jkl.$color-granitt};
+    --jkl-toggle-switch-background: #{jkl.$color-skifer};
     --jkl-toggle-switch-knob-border: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-knob-background: #{jkl.$color-granitt};
+    --jkl-toggle-switch-knob-background: #{jkl.$color-skifer};
+    --jkl-toggle-switch-knob-background--on: #{jkl.$color-granitt};
     --jkl-toggle-switch-indicator-color: transparent;
     --jkl-toggle-switch-indicator-color--on: #{jkl.$color-granitt};
-    --jkl-toggle-switch-disabled-color: #{jkl.$color-stein};
+    --jkl-toggle-switch-border--disabled: #{jkl.$color-stein};
+    --jkl-toggle-switch-knob-border--disabled: #{jkl.$color-stein};
+    --jkl-toggle-switch-knob-background--disabled: #{jkl.$color-skifer};
+    --jkl-toggle-switch-border--disabled-on: #{jkl.$color-stein};
+    --jkl-toggle-switch-knob-border--disabled-on: #{jkl.$color-granitt};
+    --jkl-toggle-switch-knob-background--disabled-on: #{jkl.$color-granitt};
 }
 
 .jkl-toggle-switch {
@@ -74,10 +86,27 @@
     [aria-checked="true"] > & {
         --jkl-toggle-switch-background: var(--jkl-toggle-switch-border);
         --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-knob-background);
+        --jkl-toggle-switch-knob-background: var(--jkl-toggle-switch-knob-background--on);
         --jkl-toggle-switch-indicator-color: var(--jkl-toggle-switch-indicator-color--on);
         --jkl-toggle-switch-knob-position: calc(
             var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) - var(--jkl-toggle-switch-padding) * 2
         );
+    }
+
+    &[disabled] {
+        cursor: revert;
+        color: var(--jkl-color-text-subdued);
+
+        --jkl-toggle-switch-border: var(--jkl-toggle-switch-border--disabled);
+        --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-knob-border--disabled);
+        --jkl-toggle-switch-knob-background: var(--jkl-toggle-switch-knob-background--disabled);
+
+        &[aria-pressed="true"],
+        [aria-checked="true"] > & {
+            --jkl-toggle-switch-border: var(--jkl-toggle-switch-border--disabled-on);
+            --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-knob-border--disabled-on);
+            --jkl-toggle-switch-knob-background: var(--jkl-toggle-switch-knob-background--disabled-on);
+        }
     }
 }
 
