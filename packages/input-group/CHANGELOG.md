@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.10 (2024-02-08)
+
+### Bug Fixes
+
+- legg tekst ved siden av ikonet i error-label under tekstfelt ([003bb66](https://github.com/fremtind/jokul/commit/003bb66a3cb2172b9502e3731c7f112a3c2118ad))
+
 # 3.0.0 (2023-07-07)
 
 ### chore
