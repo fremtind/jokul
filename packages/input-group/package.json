@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-input-group",
-    "version": "3.0.9",
+    "version": "3.0.10",
     "publishConfig": {
         "access": "public"
     },
