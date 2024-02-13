@@ -68,6 +68,14 @@
             padding-left: 0.35em;
             padding-right: 0.35em;
         }
+
+        &[target="_blank"],
+        &--external {
+            &::after {
+                $_north-east-arrow: "\2197"; // unicode north east arrow (up/right)
+                @include jkl.decorative($content: $_north-east-arrow);
+            }
+        }
     }
 
     &__description {
