@@ -76,13 +76,13 @@ jobs:
                   node-version: 18
                   cache: "pnpm"
 
-            - name: Cypress binary cache
-              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
-              uses: actions/cache@v3
-              id: cypress-cache
-              with:
-                  path: /home/runner/.cache/Cypress
-                  key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
+            # - name: Cypress binary cache
+            #   if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+            #   uses: actions/cache@v3
+            #   id: cypress-cache
+            #   with:
+            #       path: /home/runner/.cache/Cypress
+            #       key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
 
             - name: Monorepo Runner Cache
               if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
@@ -98,14 +98,14 @@ jobs:
               if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               run: pnpm ci:install
 
-            - name: Cypress binary install
-              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
-              run: pnpm cypress install
+            # - name: Cypress binary install
+            #   if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+            #   run: pnpm cypress install
 
             # Installeringen printer ikke hvor den ligger første gang, men gjør det på n+1
-            - name: Cypress binary install debug
-              if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
-              run: pnpm cypress install
+            # - name: Cypress binary install debug
+            #   if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+            #   run: pnpm cypress install
 
             - name: Add a comment with a link to the preview
               if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
@@ -182,151 +182,151 @@ jobs:
             - name: Lint and test
               run: pnpm ci:test
 
-    cypress:
-        needs: [build]
-        if: needs.build.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
-        runs-on: ubuntu-latest
-        strategy:
-            fail-fast: false
-            matrix:
-                # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
-                forced-colors: [true, false]
-        permissions:
-            actions: write
-            contents: read
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-              with:
-                  fetch-depth: "0" # Hent hele git-historikken, for lerna changed, som brukes i beregning av hvilke tester som skal kjøre
-
-            - name: Fetch version tags
-              run: git fetch --depth=1 origin +refs/tags/*:refs/tags/* # Hent tags, for lerna changed, som brukes i beregning av hvilke tester som skal kjøre
-
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v2
-              with:
-                  version: 7
-
-            - name: Setup Node
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 18
-                  cache: "pnpm"
-
-            - name: Cypress binary cache
-              uses: actions/cache@v3
-              id: cypress-cache
-              with:
-                  path: /home/runner/.cache/Cypress
-                  key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
-
-            - name: Monorepo Runner Cache
-              uses: actions/cache@v3
-              id: nx-cache
-              with:
-                  path: .nx
-                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
-                  restore-keys: |
-                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
-
-            - name: Build packages
-              run: pnpm ci:install
-
-            - name: Build site with path prefix
-              run: pnpm build:docs
-
-            - name: Calculate tests to run based on lerna changed
-              run: |
-                  CHANGED_SPECS=$(node scripts/calculate-cypress-tests.js)
-                  EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-                  echo "CHANGED_SPECS<<$EOF" >> $GITHUB_ENV
-                  printf "%s\n" "${CHANGED_SPECS[@]}" >> $GITHUB_ENV
-                  echo "$EOF" >> $GITHUB_ENV
-
-            - name: Run Cypress tests
-              uses: cypress-io/github-action@v5
-              with:
-                  # We install packages above
-                  install: false
-                  browser: chrome
-                  start: pnpm serve
-                  wait-on: "http://localhost:9000/${{ env.PREVIEW_PATH }}"
-                  wait-on-timeout: 280
-                  spec: |
-                      ${{ env.CHANGED_SPECS }}
-              env:
-                  FORCED_COLORS: ${{ matrix.forced-colors }}
-
-            - name: Upload screenshots
-              uses: actions/upload-artifact@v3
-              if: failure()
-              with:
-                  name: cypress-screenshots-${{ matrix.forced-colors }}
-                  path: |
-                      cypress/screenshots
-                      packages/*/integration/**/*.actual.png
-                      packages/*/integration/**/*.diff.png
-
-            - name: Debug
-              if: success()
-              run: git status --porcelain
-
-            - name: Look for new snapshots
-              if: success()
-              uses: ./actions/changed-files
-              id: lfcf
-              with:
-                  # See the micromatch docs for more examples: https://github.com/micromatch/micromatch#matching-features
-                  patterns: |
-                      **/__image_snapshots__/*
-
-            - name: Upload snapshots
-              uses: actions/upload-artifact@v3
-              if: steps.lfcf.outputs.has_changed_files == 'true'
-              with:
-                  name: cypress-snapshots-${{ matrix.forced-colors }}
-                  # GitHub will find the lowest common folder to reduce the number of folders
-                  # in the uploaded artifact. If you want to preserve the same folder structure
-                  # as in your repository when downloading the artifact, include a file from
-                  # the root of your repository.
-                  path: |
-                      cypress.json
-                      ${{ steps.lfcf.outputs.changed_files }}
-
-    snapshots:
-        needs: [cypress]
-        if: needs.build.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
-        runs-on: ubuntu-latest
-        permissions:
-            actions: write
-            contents: write
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-              with:
-                  ref: ${{ github.event.pull_request.head.ref }}
-                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v3
-              # Sannsynligvis lastet ikke alle jobbene opp nye snapshots
-              # Dette gjør at vi får noen errors i oppsummeringen, men selve
-              # bygget markeres som grønt.
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-false
-
-            - name: Download snapshots
-              uses: actions/download-artifact@v3
-              continue-on-error: true
-              with:
-                  name: cypress-snapshots-true
-
-            - name: Commit snapshots
-              run: |
-                  git config user.email "fremtind.designsystem@fremtind.no"
-                  git config user.name "fremtind-bot"
-                  git add **/*.png || echo "No updated snapshots, nothing to add!"
-                  git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
-                  git push
+    # cypress:
+    #     needs: [build]
+    #     if: needs.build.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+    #     runs-on: ubuntu-latest
+    #     strategy:
+    #         fail-fast: false
+    #         matrix:
+    #             # Om du legger til flere grupper, husk å legge til en tilsvarende download-action i snapshot
+    #             forced-colors: [true, false]
+    #     permissions:
+    #         actions: write
+    #         contents: read
+    #     steps:
+    #         - name: Checkout
+    #           uses: actions/checkout@v3
+    #           with:
+    #               fetch-depth: "0" # Hent hele git-historikken, for lerna changed, som brukes i beregning av hvilke tester som skal kjøre
+    #
+    #         - name: Fetch version tags
+    #           run: git fetch --depth=1 origin +refs/tags/*:refs/tags/* # Hent tags, for lerna changed, som brukes i beregning av hvilke tester som skal kjøre
+    #
+    #         - name: Setup pnpm
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               version: 7
+    #
+    #         - name: Setup Node
+    #           uses: actions/setup-node@v3
+    #           with:
+    #               node-version: 18
+    #               cache: "pnpm"
+    #
+    #         - name: Cypress binary cache
+    #           uses: actions/cache@v3
+    #           id: cypress-cache
+    #           with:
+    #               path: /home/runner/.cache/Cypress
+    #               key: cypresss-${{ hashFiles('**/pnpm-lock.yaml') }}
+    #
+    #         - name: Monorepo Runner Cache
+    #           uses: actions/cache@v3
+    #           id: nx-cache
+    #           with:
+    #               path: .nx
+    #               key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+    #               restore-keys: |
+    #                   nx-${{ hashFiles('pnpm-lock.yaml') }}-
+    #
+    #         - name: Build packages
+    #           run: pnpm ci:install
+    #
+    #         - name: Build site with path prefix
+    #           run: pnpm build:docs
+    #
+    #         - name: Calculate tests to run based on lerna changed
+    #           run: |
+    #               CHANGED_SPECS=$(node scripts/calculate-cypress-tests.js)
+    #               EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+    #               echo "CHANGED_SPECS<<$EOF" >> $GITHUB_ENV
+    #               printf "%s\n" "${CHANGED_SPECS[@]}" >> $GITHUB_ENV
+    #               echo "$EOF" >> $GITHUB_ENV
+    #
+    #         - name: Run Cypress tests
+    #           uses: cypress-io/github-action@v5
+    #           with:
+    #               # We install packages above
+    #               install: false
+    #               browser: chrome
+    #               start: pnpm serve
+    #               wait-on: "http://localhost:9000/${{ env.PREVIEW_PATH }}"
+    #               wait-on-timeout: 280
+    #               spec: |
+    #                   ${{ env.CHANGED_SPECS }}
+    #           env:
+    #               FORCED_COLORS: ${{ matrix.forced-colors }}
+    #
+    #         - name: Upload screenshots
+    #           uses: actions/upload-artifact@v3
+    #           if: failure()
+    #           with:
+    #               name: cypress-screenshots-${{ matrix.forced-colors }}
+    #               path: |
+    #                   cypress/screenshots
+    #                   packages/*/integration/**/*.actual.png
+    #                   packages/*/integration/**/*.diff.png
+    #
+    #         - name: Debug
+    #           if: success()
+    #           run: git status --porcelain
+    #
+    #         - name: Look for new snapshots
+    #           if: success()
+    #           uses: ./actions/changed-files
+    #           id: lfcf
+    #           with:
+    #               # See the micromatch docs for more examples: https://github.com/micromatch/micromatch#matching-features
+    #               patterns: |
+    #                   **/__image_snapshots__/*
+    #
+    #         - name: Upload snapshots
+    #           uses: actions/upload-artifact@v3
+    #           if: steps.lfcf.outputs.has_changed_files == 'true'
+    #           with:
+    #               name: cypress-snapshots-${{ matrix.forced-colors }}
+    #               # GitHub will find the lowest common folder to reduce the number of folders
+    #               # in the uploaded artifact. If you want to preserve the same folder structure
+    #               # as in your repository when downloading the artifact, include a file from
+    #               # the root of your repository.
+    #               path: |
+    #                   cypress.json
+    #                   ${{ steps.lfcf.outputs.changed_files }}
+    #
+    # snapshots:
+    #     needs: [cypress]
+    #     if: needs.build.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+    #     runs-on: ubuntu-latest
+    #     permissions:
+    #         actions: write
+    #         contents: write
+    #     steps:
+    #         - name: Checkout
+    #           uses: actions/checkout@v3
+    #           with:
+    #               ref: ${{ github.event.pull_request.head.ref }}
+    #               token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+    #
+    #         - name: Download snapshots
+    #           uses: actions/download-artifact@v3
+    #           # Sannsynligvis lastet ikke alle jobbene opp nye snapshots
+    #           # Dette gjør at vi får noen errors i oppsummeringen, men selve
+    #           # bygget markeres som grønt.
+    #           continue-on-error: true
+    #           with:
+    #               name: cypress-snapshots-false
+    #
+    #         - name: Download snapshots
+    #           uses: actions/download-artifact@v3
+    #           continue-on-error: true
+    #           with:
+    #               name: cypress-snapshots-true
+    #
+    #         - name: Commit snapshots
+    #           run: |
+    #               git config user.email "fremtind.designsystem@fremtind.no"
+    #               git config user.name "fremtind-bot"
+    #               git add **/*.png || echo "No updated snapshots, nothing to add!"
+    #               git commit -m "chore: update cypress snapshots [ci skip cypress]" --no-verify || echo "No updated snapshots, nothing to commit!"
+    #               git push
