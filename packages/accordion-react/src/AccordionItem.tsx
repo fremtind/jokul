@@ -9,6 +9,7 @@ export interface AccordionItemProps extends WithChildren {
     startExpanded?: boolean;
     className?: string;
     onClick?: (e: React.MouseEvent, isOpen: boolean) => void;
+    id?: string;
 }
 
 export const AccordionItem: FC<AccordionItemProps> = ({
@@ -17,6 +18,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
     className,
     startExpanded = false,
     onClick,
+    id,
     ...rest
 }) => {
     const [isOpen, setIsOpen] = useState(startExpanded);
@@ -38,6 +40,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
             {...rest}
             className={cn("jkl-accordion-item", className)}
             ref={detailsRef}
+            id={id}
         >
             <summary
                 data-testid="jkl-accordion-item__title"
