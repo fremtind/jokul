@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.1.0 (2024-02-20)
+
+### Features
+
+- legg til støtte for å ha flere tags i navcard ([f836890](https://github.com/fremtind/jokul/commit/f836890c3742984afb72b02587b589740c7d1d29))
+
 # 11.0.0 (2023-09-14)
 
 ### Features

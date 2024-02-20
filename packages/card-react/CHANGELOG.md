@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.1.26...@fremtind/jkl-card-react@11.2.0) (2024-02-20)
+
+### Features
+
+- legg til støtte for å ha flere tags i navcard ([f836890](https://github.com/fremtind/jokul/commit/f836890c3742984afb72b02587b589740c7d1d29))
+
 # [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.0.7...@fremtind/jkl-card-react@11.1.0) (2023-09-21)
 
 ### Features

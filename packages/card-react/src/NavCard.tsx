@@ -1,6 +1,6 @@
 import { WithChildren, Density } from "@fremtind/jkl-core";
 import { Image, ImageProps } from "@fremtind/jkl-image-react";
-import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "@fremtind/jkl-tag-react";
+import { ErrorTag, InfoTag, SuccessTag, Tag, TagProps, WarningTag } from "@fremtind/jkl-tag-react";
 import cn from "classnames";
 import React, { ElementType, FC, AnchorHTMLAttributes } from "react";
 import { PaddingOptions } from "./types";
@@ -14,14 +14,16 @@ export type TagType = "success" | "warning" | "info" | "error";
  */
 export const InfoBlock: FC<WithChildren> = ({ children }) => <div className="jkl-nav-card__info">{children}</div>;
 
+interface CardTag {
+    /**
+     * @default <none> Rendres som nøytral tag
+     */
+    type?: TagType;
+    text: string;
+}
+
 export interface NavCardProps extends PaddingOptions, AnchorHTMLAttributes<HTMLAnchorElement> {
-    tag?: {
-        /**
-         * @default <none> Rendres som nøytral tag
-         */
-        type?: TagType;
-        text: string;
-    };
+    tag?: CardTag | Array<CardTag>;
     title: string;
     href?: string;
     to?: string;
@@ -51,6 +53,10 @@ const getTag = (type?: TagType) => {
             return Tag;
     }
 };
+const NavCardTag = ({ text, type, density }: CardTag & Pick<TagProps, "density">) => {
+    const CardTag = getTag(type);
+    return <CardTag density={density}>{text}</CardTag>;
+};
 
 export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, NavCardProps>((props, ref) => {
     const {
@@ -67,14 +73,21 @@ export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, Nav
         ...rest
     } = props;
 
-    const CardTag = getTag(tag?.type);
     const Component = component;
+
+    const tagArr = !tag ? undefined : Array.isArray(tag) ? tag : [tag];
 
     return (
         <Component ref={ref} className={cn("jkl-nav-card", className)} data-density={density} {...rest}>
             {image && <Image className="jkl-nav-card__image" {...image} />}
             <div className="jkl-nav-card__content" style={getPaddingStyles(padding)}>
-                {tag && <CardTag density={density}>{tag.text}</CardTag>}
+                {tagArr && (
+                    <div className="jkl-nav-card__tag-wrapper">
+                        {tagArr.map((t, index) => (
+                            <NavCardTag type={t.type} text={t.text} key={index} />
+                        ))}
+                    </div>
+                )}
                 <div>
                     <p className={cn("jkl-nav-card__link", external ? "jkl-nav-card__link--external" : "")}>{title}</p>
                     {description && <p className="jkl-nav-card__description jkl-spacing-xs--top">{description}</p>}
