@@ -81,6 +81,12 @@
         width: 100%;
     }
 
+    &__tag-wrapper {
+        display: flex;
+        gap: jkl.$spacing-12 jkl.$spacing-24;
+        flex-wrap: wrap;
+    }
+
     &:hover {
         box-shadow: var(--jkl-nav-card-shadow--hover);
         transform: translate3d(0, jkl.rem(-4px), 0);
