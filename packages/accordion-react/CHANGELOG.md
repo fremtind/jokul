@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.1.0 (2024-02-13)
+
+### Features
+
+- legg til id-prop på accordion ([b640d76](https://github.com/fremtind/jokul/commit/b640d76537f0b4f99895f729bbea8d82d2b5034b))
+
 ## 11.0.1 (2024-01-26)
 
 ### Bug Fixes
