@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-checkbox-react",
-    "version": "11.1.14",
+    "version": "11.1.15",
     "publishConfig": {
         "access": "public"
     },
@@ -44,7 +44,7 @@
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-input-group-react": "^3.0.21"
+        "@fremtind/jkl-input-group-react": "^3.0.22"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
