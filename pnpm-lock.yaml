@@ -13037,19 +13037,19 @@ packages:
 
   /graphql-compose/9.0.10:
     resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
-    peerDependencies:
-      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql-type-json: 0.3.2
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /graphql-compose/9.0.10_graphql@15.8.0:
     resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
-    peerDependencies:
-      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql: 15.8.0
       graphql-type-json: 0.3.2_graphql@15.8.0
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /graphql-playground-html/1.6.30:
@@ -13844,8 +13844,8 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /ip/2.0.0:
-    resolution: {integrity: sha512-WKa+XuLG1A1R0UWhl2+1XQSi+fZWMsYKffMZTTYsiZaUD8k2yDAj5atimTUD2TZkyCkNEeYE5NhFZmupOGtjYQ==}
+  /ip/2.0.1:
+    resolution: {integrity: sha512-lJUL9imLTNi1ZfXT+DU6rBBdbiKGBuay9B6xGSPVjUeQwaH1RIGqef8RZkUtHioLmSNpPR5M4HVKJGm1j8FWVQ==}
     dev: true
 
   /ipaddr.js/1.9.1:
@@ -20681,7 +20681,7 @@ packages:
     resolution: {integrity: sha512-7maUZy1N7uo6+WVEX6psASxtNlKaNVMlGQKkG/63nEDdLOWNbiUMoLK7X4uYoLhQstau72mLgfEWcXcwsaHbYQ==}
     engines: {node: '>= 10.13.0', npm: '>= 3.0.0'}
     dependencies:
-      ip: 2.0.0
+      ip: 2.0.1
       smart-buffer: 4.2.0
     dev: true
 
