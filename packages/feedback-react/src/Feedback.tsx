@@ -30,6 +30,13 @@ interface Props {
         title: string;
         children: ReactNode;
     };
+    /**
+     * Funksjon for å håndtere innsending av tilbakemelding
+     * @param value Verdien av tilbakemeldingen. Dette er et objekt med følgende egenskaper:
+     * - `feedbackValue`: Selve verdien av tilbakemeldingen (format varierer etter spørsmålstype)
+     * - `intentionalSubmit`: Er `true` hvis brukeren aktivt sendte inn skjemaet, `false` hvis skjemaet ble sendt inn automatisk
+     * - `message`: Eventuell utfyllende melding fra bruker. Blir kun sendt inn ved aktiv innsending
+     */
     onSubmit: (value: FeedbackType) => void;
 
     followup?: FollowupProps;
