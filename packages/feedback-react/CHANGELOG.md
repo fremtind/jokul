@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [17.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@17.1.41...@fremtind/jkl-feedback-react@17.2.0) (2024-02-22)
+
+### Features
+
+- la feedback differensiere på aktivt innsendte svar ([9ac7160](https://github.com/fremtind/jokul/commit/9ac71608fd09cee5dca9fd4cd6b8a8fde98f009a))
+
 ## [17.1.37](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@17.1.36...@fremtind/jkl-feedback-react@17.1.37) (2024-02-06)
 
 ### Bug Fixes
