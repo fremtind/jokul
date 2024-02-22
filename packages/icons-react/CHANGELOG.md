@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.5.0 (2024-02-21)
+
+### Features
+
+- added a minus-icon ([84d8231](https://github.com/fremtind/jokul/commit/84d823163e495da27d5580fc56930e1718898b04)), closes [#3818](https://github.com/fremtind/jokul/issues/3818)
+
 # 8.4.0 (2023-11-24)
 
 ### Features

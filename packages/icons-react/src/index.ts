@@ -34,3 +34,4 @@ export { RedCrossIcon } from "./icons/red-cross/RedCrossIcon";
 export { SearchIcon } from "./icons/search/SearchIcon";
 export { SuccessIcon } from "./icons/success/SuccessIcon";
 export { WarningIcon } from "./icons/warning/WarningIcon";
+export { MinusIcon } from "./icons/minus/MinusIcon";
