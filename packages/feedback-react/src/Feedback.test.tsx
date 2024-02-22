@@ -51,7 +51,7 @@ describe("Feedback", () => {
         await screen.findByTestId("feedback");
 
         expect(mockFn).toBeCalledTimes(1);
-        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", message: undefined });
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", intentionalSubmit: true });
     });
 
     it("calls onSubmit function with feedback value and message", async () => {
@@ -66,7 +66,11 @@ describe("Feedback", () => {
         await screen.findByTestId("feedback");
 
         expect(mockFn).toBeCalledTimes(1);
-        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", message: "This is very nice" });
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({
+            feedbackValue: "ja",
+            intentionalSubmit: true,
+            message: "This is very nice",
+        });
     });
 
     it("calls onSubmit function with feedback value and message with changes", async () => {
@@ -81,7 +85,11 @@ describe("Feedback", () => {
         await screen.findByTestId("feedback");
 
         expect(mockFn).toBeCalledTimes(1);
-        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "nei", message: "This is very nice" });
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({
+            feedbackValue: "nei",
+            intentionalSubmit: true,
+            message: "This is very nice",
+        });
     });
 
     it("calls onSubmit function if the component is unmounted", async () => {
@@ -93,6 +101,32 @@ describe("Feedback", () => {
         unmount();
 
         expect(mockFn).toBeCalledTimes(1);
+    });
+
+    it("sets intentionalSubmit to false if submitted on unload", async () => {
+        const { unmount } = render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
+
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+        });
+        unmount();
+
+        expect(mockFn).toBeCalledTimes(1);
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", intentionalSubmit: false });
+    });
+
+    it("does not submit message if submitted on unload", async () => {
+        const { unmount } = render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
+
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+        });
+
+        unmount();
+
+        expect(mockFn).toBeCalledTimes(1);
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", intentionalSubmit: false });
     });
 
     it("does not call onSubmit on unmount if feedback already is submitted", async () => {
