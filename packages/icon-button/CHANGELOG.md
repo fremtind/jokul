@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.10 (2024-02-26)
+
+### Bug Fixes
+
+- the icon inside IconButton is now centered vertically ([fb407b3](https://github.com/fremtind/jokul/commit/fb407b325dcd8f10187d77deb522c4ff8487899d)), closes [#3823](https://github.com/fremtind/jokul/issues/3823)
+
 # 4.0.0 (2023-07-07)
 
 ### chore
