@@ -31,7 +31,8 @@
     border-radius: jkl.rem(3px);
 
     .jkl-icon {
-        vertical-align: middle;
+        display: flex;
+        align-items: center;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 

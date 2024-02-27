@@ -28,6 +28,7 @@ import {
     DragIcon,
     GreenCheckIcon,
     RedCrossIcon,
+    MinusIcon,
 } from "../src";
 import { IconVariant } from "../src/icons/types";
 import { IconExample } from "./internal/IconExample";
@@ -48,6 +49,7 @@ const allIcons = [
     CloseIcon,
     CheckIcon,
     PlusIcon,
+    MinusIcon,
     SearchIcon,
     HamburgerIcon,
     CalendarIcon,

@@ -34,31 +34,35 @@ export const useMainQuestion = (onSubmit: (f: FeedbackType) => void): MainQuesti
         };
     }, [onSubmit, currentValue, message, submitted]);
 
-    const _handleSubmit = useCallback(() => {
-        const refValue = feedbackRef.current;
-        if (!refValue.submitted && refValue.currentValue !== undefined) {
-            const feedbackValue = Array.isArray(refValue.currentValue)
-                ? refValue.currentValue.map((option) => option.value)
-                : refValue.currentValue?.value;
-            feedbackRef.current.onSubmit({
+    const submitHandler = useCallback((intentionalSubmit = true) => {
+        const { message, currentValue, submitted, onSubmit } = feedbackRef.current;
+
+        if (!submitted && currentValue !== undefined) {
+            const feedbackValue = Array.isArray(currentValue)
+                ? currentValue.map((option) => option.value)
+                : currentValue?.value;
+            onSubmit({
                 feedbackValue,
-                message: feedbackRef.current.message,
+                intentionalSubmit,
+                ...(intentionalSubmit && message ? { message } : {}),
             });
         }
     }, []);
 
+    const autoSubmit = useCallback(() => submitHandler(false), [submitHandler]);
+
     useEffect(() => {
         if (typeof window !== "undefined") {
-            window.addEventListener("beforeunload", _handleSubmit);
+            window.addEventListener("beforeunload", autoSubmit);
         }
         return () => {
-            _handleSubmit();
-            window.removeEventListener("beforeunload", _handleSubmit);
+            autoSubmit();
+            window.removeEventListener("beforeunload", autoSubmit);
         };
-    }, [_handleSubmit]);
+    }, [autoSubmit]);
 
     const handleSubmit = () => {
-        _handleSubmit();
+        submitHandler();
         setSubmitted(true);
     };
 

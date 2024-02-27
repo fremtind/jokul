@@ -58,7 +58,11 @@ interface SingleFeedbackAnswer extends BaseFeedbackAnswer {
 export type FeedbackAnswer = SingleFeedbackAnswer | MultiFeedbackAnswer;
 
 export type FeedbackType = {
+    /** Feedbackverdien, format avhenger av typen spørsmål */
     feedbackValue: number | string | Array<string | number>;
+    /** Angir hvorvidt brukeren aktivt sendte inn tilbakemeldingen. Dersom `false` ble skjemaet sendt inn da brukeren forlot siden */
+    intentionalSubmit: boolean;
+    /** Eventuell utfyllende melding fra brukeren. Blir bare sendt inn dersom brukeren aktivt sender inn tilbakemelding */
     message?: string;
 };
 
