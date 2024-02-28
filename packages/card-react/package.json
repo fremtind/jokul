@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "11.2.2",
+    "version": "11.3.0",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-button-react": "^15.0.17",
-        "@fremtind/jkl-card": "^11.1.0",
+        "@fremtind/jkl-card": "^11.2.0",
         "@fremtind/jkl-core": "^13.4.2",
         "@fremtind/jkl-image-react": "^6.0.10",
         "@fremtind/jkl-tag-react": "^5.2.3",

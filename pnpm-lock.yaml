@@ -301,7 +301,7 @@ importers:
   packages/card-react:
     specifiers:
       '@fremtind/jkl-button-react': ^15.0.17
-      '@fremtind/jkl-card': ^11.1.0
+      '@fremtind/jkl-card': ^11.2.0
       '@fremtind/jkl-constants-util': ^3.0.43
       '@fremtind/jkl-core': ^13.4.2
       '@fremtind/jkl-image-react': ^6.0.10
@@ -1116,7 +1116,7 @@ importers:
       '@fremtind/jkl-alert-message-react': ^11.1.11
       '@fremtind/jkl-breadcrumb-react': ^5.0.10
       '@fremtind/jkl-button-react': ^15.0.17
-      '@fremtind/jkl-card-react': ^11.2.2
+      '@fremtind/jkl-card-react': ^11.3.0
       '@fremtind/jkl-checkbox-react': ^11.1.15
       '@fremtind/jkl-combobox-react': ^2.3.11
       '@fremtind/jkl-constants-util': ^3.0.43
