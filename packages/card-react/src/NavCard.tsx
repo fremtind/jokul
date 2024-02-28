@@ -27,6 +27,7 @@ export interface NavCardProps extends PaddingOptions, AnchorHTMLAttributes<HTMLA
     title: string;
     href?: string;
     to?: string;
+    external?: boolean;
     description?: string;
     image?: Omit<ImageProps, "className">;
     className?: string;
@@ -64,6 +65,7 @@ export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, Nav
         image,
         tag,
         title,
+        external,
         description,
         children,
         className,
@@ -87,7 +89,7 @@ export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, Nav
                     </div>
                 )}
                 <div>
-                    <p className="jkl-nav-card__link">{title}</p>
+                    <p className={cn("jkl-nav-card__link", external ? "jkl-nav-card__link--external" : "")}>{title}</p>
                     {description && <p className="jkl-nav-card__description jkl-spacing-xs--top">{description}</p>}
                 </div>
                 {children}

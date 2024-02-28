@@ -17,6 +17,7 @@ export const navCardExampleProps: ExampleKnobsProps = {
         { prop: "Tag", defaultValue: true },
         { prop: "Description", defaultValue: true },
         { prop: "Ekstra info", defaultValue: true },
+        { prop: "Ekstern lenke", defaultValue: false },
     ],
     choiceProps: [...baseCardExampleProps.choiceProps],
 };
