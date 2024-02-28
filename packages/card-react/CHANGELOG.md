@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.2.2...@fremtind/jkl-card-react@11.3.0) (2024-02-28)
+
+### Features
+
+- legg til prop for å definere ekstern lenke ([d5700d0](https://github.com/fremtind/jokul/commit/d5700d0ad88eb9fbc2d11452041b1858d6a8adf2))
+
 # [11.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.1.26...@fremtind/jkl-card-react@11.2.0) (2024-02-20)
 
 ### Features
