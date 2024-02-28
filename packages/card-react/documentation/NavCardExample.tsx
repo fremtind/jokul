@@ -20,6 +20,7 @@ export const NavCardExample: React.FC<ExampleComponentProps> = ({ boolValues, ch
     const description = boolValues?.["Description"] ? "Balder" : undefined;
     const paddingChoice = (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") || "24";
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
+    const external = boolValues?.["Ekstern lenke"] ? true : undefined;
 
     return (
         <NavCard
@@ -30,6 +31,7 @@ export const NavCardExample: React.FC<ExampleComponentProps> = ({ boolValues, ch
             title="Behandlings- og Veterinærutgifter"
             description={description}
             tag={tag}
+            external={external}
         >
             {boolValues?.["Ekstra info"] && (
                 <InfoBlock>
@@ -49,6 +51,7 @@ export const navCardExampleCode = ({ boolValues, choiceValues }: ExampleComponen
     const tag = boolValues?.["Tag"] ? '\n    tag={{ type: "success", text: "Behandles" }}' : "";
     const description = boolValues?.["Description"] ? '\n    description="Balder"' : "";
     const paddingChoice = choiceValues?.["Padding"] || "l";
+    const external = boolValues?.["Ekstern lenke"] ? "\n    external={true}" : "";
     const padding =
         paddingChoice === "blandet"
             ? `{{
@@ -72,6 +75,6 @@ export const navCardExampleCode = ({ boolValues, choiceValues }: ExampleComponen
     return `<NavCard
     padding=${padding}
     href="#"
-    title="Behandlings- og Veterinærutgifter"${description}${tag}${image}
+    title="Behandlings- og Veterinærutgifter"${external}${description}${tag}${image}
 ${children}`;
 };
