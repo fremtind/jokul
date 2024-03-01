@@ -1161,7 +1161,7 @@ importers:
       '@sindresorhus/slugify': ^1.1.2
       '@types/mixpanel-browser': ^2.38.1
       classnames: ^2.3.2
-      dotenv: ^8.6.0
+      dotenv: ^16.4.5
       focus-trap-react: ^10.1.4
       framer-motion: ^7.10.3
       gatsby: ^4.25.7
@@ -1237,7 +1237,7 @@ importers:
       '@mdx-js/react': 2.3.0_react@18.2.0
       '@sindresorhus/slugify': 1.1.2
       classnames: 2.3.2
-      dotenv: 8.6.0
+      dotenv: 16.4.5
       focus-trap-react: 10.1.4_biqbaboplfbrettd7655fr4n2y
       framer-motion: 7.10.3_biqbaboplfbrettd7655fr4n2y
       gatsby: 4.25.7_biqbaboplfbrettd7655fr4n2y
@@ -9807,6 +9807,11 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /dotenv/16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
+    dev: false
+
   /dotenv/7.0.0:
     resolution: {integrity: sha512-M3NhsLbV1i6HuGzBUH8vXrtxOk+tWmzWKDMbAVSUp3Zsjm7ywFeuwrUXhmhQyRK1q5B5GGy7hcXPbj3bnfZg2g==}
     engines: {node: '>=6'}
@@ -13037,19 +13042,19 @@ packages:
 
   /graphql-compose/9.0.10:
     resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
-    peerDependencies:
-      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql-type-json: 0.3.2
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /graphql-compose/9.0.10_graphql@15.8.0:
     resolution: {integrity: sha512-UsVoxfi2+c8WbHl2pEB+teoRRZoY4mbWBoijeLDGpAZBSPChnqtSRjp+T9UcouLCwGr5ooNyOQLoI3OVzU1bPQ==}
-    peerDependencies:
-      graphql: ^14.2.0 || ^15.0.0 || ^16.0.0
     dependencies:
       graphql: 15.8.0
       graphql-type-json: 0.3.2_graphql@15.8.0
+    transitivePeerDependencies:
+      - graphql
     dev: false
 
   /graphql-playground-html/1.6.30:
