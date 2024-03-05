@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.12 (2024-03-05)
+
+### Bug Fixes
+
+- oppdatere state når man fjerner tags med keys ([62a60fc](https://github.com/fremtind/jokul/commit/62a60fcc7dd263ec814af12aab3c811d9af8f819))
+
 # 2.3.0 (2023-12-06)
 
 ### Features
