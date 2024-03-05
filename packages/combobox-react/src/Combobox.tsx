@@ -120,19 +120,25 @@ export const Combobox: FC<ComboboxProps> = ({
         [selectedValue],
     );
 
-    const onTagRemove = (e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>, option: string) => {
-        let newValue = removeOption(option);
-        setSelectedValue(newValue);
-        onChange({
-            type: "change",
-            target: { name, value: option, selectedOptions: newValue },
-        });
-        e.stopPropagation();
+    const onTagRemove = useCallback(
+        (
+            e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent> | React.KeyboardEvent<HTMLInputElement>,
+            option: string,
+        ) => {
+            let newValue = removeOption(option);
+            setSelectedValue(newValue);
+            onChange({
+                type: "change",
+                target: { name, value: option, selectedOptions: newValue },
+            });
+            e.stopPropagation();
 
-        if (newValue.length === 0) {
-            setMarked(false);
-        }
-    };
+            if (newValue.length === 0) {
+                setMarked(false);
+            }
+        },
+        [removeOption, setSelectedValue, onChange, name, setMarked],
+    );
 
     // Håndtere valgt verdi i listen
     const onItemClick = useCallback(
@@ -316,11 +322,11 @@ export const Combobox: FC<ComboboxProps> = ({
                     setSearchValue("");
                 } else if (selectedValue.length > 0 && searchValue === "") {
                     // Hvis ingen items er markert, fjern siste valgte item
-                    setSelectedValue(selectedValue.slice(0, selectedValue.length - 1));
+                    onTagRemove(e, selectedValue[selectedValue.length - 1].value);
                 }
             }
         },
-        [selectedValue, searchValue, dropdownRef],
+        [selectedValue, searchValue, dropdownRef, onTagRemove],
     );
 
     const handleOptionOnKeyDown = useCallback(
