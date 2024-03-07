@@ -40,6 +40,7 @@
         "@fremtind/jkl-icon-button-react": "^4.0.24",
         "@fremtind/jkl-icons-react": "^8.5.0",
         "@fremtind/jkl-progress-bar-react": "^6.0.9",
+        "@fremtind/jkl-react-hooks": "^12.0.10",
         "@fremtind/jkl-toast": "^2.1.8",
         "@react-aria/toast": "^3.0.0-beta.1",
         "@react-stately/toast": "^3.0.0-beta.0",
