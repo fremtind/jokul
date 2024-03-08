@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.4 (2024-03-08)
+
+### Bug Fixes
+
+- properly remove Toast when prefers-reduced-motion: reduce ([d5d84b5](https://github.com/fremtind/jokul/commit/d5d84b56ac63a429c78f32e47af8d73d6f98c1d6)), closes [#3834](https://github.com/fremtind/jokul/issues/3834)
+
 # 2.2.0 (2024-02-07)
 
 ### Features
