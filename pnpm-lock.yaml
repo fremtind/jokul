@@ -1044,6 +1044,7 @@ importers:
       '@fremtind/jkl-icon-button-react': ^4.0.24
       '@fremtind/jkl-icons-react': ^8.5.0
       '@fremtind/jkl-progress-bar-react': ^6.0.9
+      '@fremtind/jkl-react-hooks': ^12.0.10
       '@fremtind/jkl-toast': ^2.1.8
       '@react-aria/toast': ^3.0.0-beta.1
       '@react-stately/toast': ^3.0.0-beta.0
@@ -1053,6 +1054,7 @@ importers:
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
       '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-progress-bar-react': link:../progress-bar-react
+      '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-toast': link:../toast
       '@react-aria/toast': 3.0.0-beta.1
       '@react-stately/toast': 3.0.0-beta.0
