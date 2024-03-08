@@ -18,7 +18,6 @@ type ToastContext = {
 
 const context = createContext<ToastContext>({
     add: () => {
-        console.log("missing provider");
         return "missing-provider";
     },
 });

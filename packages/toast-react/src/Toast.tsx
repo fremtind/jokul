@@ -1,10 +1,11 @@
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { CloseIcon, ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "@fremtind/jkl-icons-react";
 import { Countdown } from "@fremtind/jkl-progress-bar-react";
+import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 import { type AriaToastProps, useToast } from "@react-aria/toast";
 import { QueuedToast, type ToastState } from "@react-stately/toast";
 import cn from "classnames";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { ToastContent, ToastOptions } from "./types";
 
 interface ToastProps<T extends ToastContent> extends AriaToastProps<T> {
@@ -37,6 +38,17 @@ export function Toast<T extends ToastContent>({ className, state, ...props }: To
 
     // @ts-ignore Proxy for å sjekke om timeren er pauset: https://github.com/adobe/react-spectrum/blob/b1545c0d225b12672fb6a4e7b787268591d66b90/packages/%40react-stately/toast/src/useToastState.ts#L222
     const isPaused = props.toast.timer?.timerId == null;
+
+    const { prefersReducedMotion } = useBrowserPreferences();
+
+    useEffect(() => {
+        if (prefersReducedMotion && props.toast.animation === "exiting") {
+            // If user has prefers-reduced-motion the exit animation won't run and our
+            // onAnimationEnd callback won't be invoked. In this case, remove the toast
+            // manually.
+            state.remove(props.toast.key);
+        }
+    }, [prefersReducedMotion, props.toast.animation, props.toast.key, state]);
 
     return (
         <div
