@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.4.16 (2024-03-14)
+
+### Bug Fixes
+
+- remove superfluous div ([ee3b095](https://github.com/fremtind/jokul/commit/ee3b095191e11b678325311cf3944fe8d61a33c9)), closes [#3813](https://github.com/fremtind/jokul/issues/3813)
+
 # [3.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contextual-menu-react@3.3.2...@fremtind/jkl-contextual-menu-react@3.4.0) (2023-09-27)
 
 ### Features
