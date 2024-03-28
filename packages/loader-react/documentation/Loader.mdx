@@ -74,6 +74,12 @@ En _skeleton loader_ er egentlig en samling med omriss som likner noenlunde på 
     codeExample={skeletonLoaderExampleCode}
 />
 
+### Universell utforming
+
+Du må wrappe innholdet i en [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) for at endringer skal plukkes opp av skjermlesere. Wrapperen må også merkes med [`aria-busy="true"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-busy), og sette denne til `"false"` når du erstatter skeleton loaders med det faktiske innholdet.
+
+### Juster hastigheten og fargen på animasjonen
+
 For at animasjonen skal fungere best mulig er det to CSS-variabler det er greit å ha et forhold til:
 
 1. `--jkl-skeleton-sweeper-color`
