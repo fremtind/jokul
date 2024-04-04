@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.11 (2024-04-04)
+
+### Bug Fixes
+
+- revert display for animated icons ([3dac0fe](https://github.com/fremtind/jokul/commit/3dac0fead8529ec12b93872dc65065acb080c1fe)), closes [#3837](https://github.com/fremtind/jokul/issues/3837)
+
 ## 4.0.10 (2024-02-26)
 
 ### Bug Fixes
