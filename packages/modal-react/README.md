@@ -18,10 +18,11 @@ import {
     ModalTitle,
     ModalCloseButton,
     ModalBody,
-    ModalFooter,
     ModalActions,
     useModal,
 } from "@fremtind/jkl-modal-react";
+
+import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-modal/modal.min.css";
@@ -30,6 +31,7 @@ import "@fremtind/jkl-icons/icons.min.css";
 
 // Bruk av komponentene
 const heading = "Bekreft sletting";
+const role = "dialog";
 const [instance, { title, overlay, container, modal, closeButton }] = useModal({ title: heading, role });
 
 useEffect(() => {
@@ -48,12 +50,10 @@ return ReactDOM.createPortal(
                 <ModalCloseButton {...closeButton} />
             </ModalHeader>
             <ModalBody>Er du sikker på at du vil slette Foo Bar Baz?</ModalBody>
-            <ModalFooter>
-                <ModalActions>
-                    <PrimaryButton onClick={() => instance?.hide()}>Bekreft</PrimaryButton>
-                    <TertiaryButton onClick={() => instance?.hide()}>Avbryt</TertiaryButton>
-                </ModalActions>
-            </ModalFooter>
+            <ModalActions>
+                <PrimaryButton onClick={() => instance?.hide()}>Bekreft</PrimaryButton>
+                <TertiaryButton onClick={() => instance?.hide()}>Avbryt</TertiaryButton>
+            </ModalActions>
         </Modal>
     </ModalContainer>,
     document.body,
