@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@5.0.45...@fremtind/jkl-formatters-util@5.1.0) (2024-04-11)
+
+### Features
+
+- legg til formatterer og maske for datofelter ([2e3e888](https://github.com/fremtind/jokul/commit/2e3e8882cb3181d3fb9b0be68cc38fa1c39d55f3)), closes [#3648](https://github.com/fremtind/jokul/issues/3648)
+- tillat kun punktum i datoer og legg til test ([aa95431](https://github.com/fremtind/jokul/commit/aa95431fa2ce25195f59cb92542ae4998c33bd8b))
+
 # 5.0.0 (2023-07-07)
 
 ### chore
