@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.6 (2024-04-11)
+
+### Bug Fixes
+
+- fjernet marked color fra selected options ([e2d5ec6](https://github.com/fremtind/jokul/commit/e2d5ec6e8c70003e0d252c8b23e7686b0f5fd221))
+
 ## 2.2.5 (2024-01-25)
 
 ### Bug Fixes
