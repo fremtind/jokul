@@ -224,7 +224,6 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
     &__option--selected {
         justify-content: space-between;
-        background-color: var(--jkl-combobox-selected-background);
 
         &:hover {
             background-color: var(--jkl-combobox-hover-option-background-color);
