@@ -1,13 +1,16 @@
-import React, { Fragment, useState, FC } from "react";
+import React, { FC, Fragment, useState } from "react";
 import { useForm } from "react-hook-form";
-import { ExampleComponentProps, CodeExample } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../../packages/button-react/src";
-import { DescriptionList, DescriptionTerm, DescriptionDetail } from "../../../packages/description-list-react/src";
+import { DatePicker } from "../../../packages/datepicker-react/src";
+import { DescriptionDetail, DescriptionList, DescriptionTerm } from "../../../packages/description-list-react/src";
 import { TextInput } from "../../../packages/text-input-react/src";
 import { registerWithMasks } from "../src";
 import "./input-mask-example.scss";
 
 interface Skjema {
+    dato: string;
+    datepicker: string;
     telefonnr: string;
     fodselsnr: string;
     kortnr: string;
@@ -21,6 +24,7 @@ export const InputMaskExample: FC<ExampleComponentProps> = () => {
     const [formData, setFormData] = useState<Skjema>();
 
     const {
+        registerWithDateMask,
         registerWithFodselsnummerMask,
         registerWithKontonummerMask,
         registerWithKortnummerMask,
@@ -32,6 +36,8 @@ export const InputMaskExample: FC<ExampleComponentProps> = () => {
     return (
         <>
             <form className="input-mask-example-form" onSubmit={form.handleSubmit(setFormData)}>
+                <TextInput label="Dato" maxLength={10} {...registerWithDateMask("dato")} />
+                <DatePicker label="Dato brukt i datovelger" {...registerWithDateMask("datepicker")} />
                 <TextInput
                     label="Telefonnummer"
                     // Husk å gi plass til mellomrommene som settes inn!
