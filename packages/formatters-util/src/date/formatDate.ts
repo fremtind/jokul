@@ -10,14 +10,13 @@ export function formatDate(date: Date): string {
 }
 
 export const DATE_REGEX = {
-    // Tillater datoer på formene DD-MM-YY og DD-MM-YYYY
+    // Tillater datoer på formene DDMMYY og DDMMYYYY
     full: /^(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[0-2])(\d{2}|\d{4})$/,
     partial: /^(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[0-2])?(\d{1,4})?$/,
 };
 
 type FormatDateStringOptions = {
     partial?: boolean;
-    separator?: "." | "-" | " " | "/";
 };
 
 export function formatDateString(input: string, options?: FormatDateStringOptions): string {
@@ -30,8 +29,5 @@ export function formatDateString(input: string, options?: FormatDateStringOption
         return input;
     }
 
-    return match
-        .slice(1)
-        .filter(Boolean)
-        .join(options?.separator || ".");
+    return match.slice(1).filter(Boolean).join(".");
 }
