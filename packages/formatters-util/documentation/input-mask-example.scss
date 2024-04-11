@@ -1,6 +1,7 @@
 @use "@fremtind/jkl-core/jkl";
-@use "@fremtind/jkl-text-input/text-input";
 @use "@fremtind/jkl-button/button";
+@use "@fremtind/jkl-datepicker/datepicker";
+@use "@fremtind/jkl-text-input/text-input";
 
 .input-mask-example-form {
     width: 100%;

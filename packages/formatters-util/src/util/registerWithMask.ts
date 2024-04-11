@@ -7,6 +7,7 @@ import type {
     UseFormRegisterReturn,
     UseFormReturn,
 } from "react-hook-form";
+import { formatDateString } from "../date/formatDate";
 import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer";
 import { formatKontonummer } from "../kontonummer/formatKontonummer";
 import { formatKortnummer } from "../kortnummer/formatKortnummer";
@@ -15,6 +16,7 @@ import { formatTelefonnummer } from "../telefonnummer/formatTelefonnummer";
 import { formatNumber } from "./formatNumber";
 
 const formatters = {
+    date: formatDateString,
     fodselsnummer: formatFodselsnummer,
     kortnummer: formatKortnummer,
     kontonummer: formatKontonummer,
@@ -122,6 +124,8 @@ export const registerWithMasks = <T extends FieldValues>(form: UseFormReturn<T>)
         registerWithMask("telefonnummer")<T>(form, name, options),
     registerWithOrganisasjonsnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
         registerWithMask("organisasjonsnummer")<T>(form, name, options),
+    registerWithDateMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
+        registerWithMask("date")<T>(form, name, options),
     registerWithNumber: (
         name: Path<T>,
         options?: RegisterWithMaskOptions<T>,

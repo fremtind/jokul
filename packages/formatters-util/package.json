@@ -41,6 +41,7 @@
     },
     "devDependencies": {
         "@fremtind/jkl-button": "^12.0.7",
+        "@fremtind/jkl-datepicker": "^12.1.9",
         "@fremtind/jkl-text-input": "^12.1.8",
         "react-hook-form": "^7.44.3"
     },
