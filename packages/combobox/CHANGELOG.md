@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox@2.2.6...@fremtind/jkl-combobox@2.2.7) (2024-04-12)
+
+### Bug Fixes
+
+- fjernet ubrukt variabel ([fc8cba0](https://github.com/fremtind/jokul/commit/fc8cba0afb855616aa05fe9af781ea12272390a8))
+
 ## 2.2.6 (2024-04-11)
 
 ### Bug Fixes
