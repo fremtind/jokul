@@ -382,6 +382,9 @@ export const Combobox: FC<ComboboxProps> = ({
                 <div
                     className={cn("jkl-combobox__wrapper", { "jkl-combobox__wrapper--active-value": hasSelection })}
                     style={{ width }}
+                    tabIndex={-1}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
                 >
                     <div className="jkl-combobox__tags" data-testid="jkl-combobox__tags">
                         {selectedValue.map(getComboboxValuePair).map((option) => (
