@@ -36,44 +36,45 @@ interface Option extends ValuePair {
     visible: boolean;
 }
 
-export interface SelectProps extends InputGroupProps, DataTestAutoId {
-    id?: string;
-    name: string;
-    label: string;
-    labelProps?: Omit<LabelProps, "children" | "density" | "htmlFor" | "standAlone">;
-    items: Array<string | ValuePair>;
-    /**
-     * @default false
-     */
-    inline?: boolean;
-    /**
-     * @default "Velg"
-     */
-    defaultPrompt?: string;
-    className?: string;
-    value?: string;
-    helpLabel?: string;
-    errorLabel?: string;
-    /**
-     * @default false
-     */
-    searchable?: boolean | ((searchValue: string, searchItem: string | ValuePair) => boolean);
-    density?: Density;
-    width?: string;
-    onChange?: ChangeEventHandler;
-    onBlur?: ChangeEventHandler;
-    onFocus?: ChangeEventHandler;
-    /**
-     * Merk som ugyldig uten å sende inn en errorLabel.
-     * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
-     */
-    invalid?: boolean;
-    /**
-     * Hvor mange valg skal vises i listen før den begynner å scrolle.
-     * @default 5
-     */
-    maxShownOptions?: number;
-}
+export type SelectProps = InputGroupProps &
+    DataTestAutoId & {
+        id?: string;
+        name: string;
+        label: string;
+        labelProps?: Omit<LabelProps, "children" | "density" | "htmlFor" | "standAlone">;
+        items: Array<string | ValuePair>;
+        /**
+         * @default false
+         */
+        inline?: boolean;
+        /**
+         * @default "Velg"
+         */
+        defaultPrompt?: string;
+        className?: string;
+        value?: string;
+        helpLabel?: string;
+        errorLabel?: string;
+        /**
+         * @default false
+         */
+        searchable?: boolean | ((searchValue: string, searchItem: string | ValuePair) => boolean);
+        density?: Density;
+        width?: string;
+        onChange?: ChangeEventHandler;
+        onBlur?: ChangeEventHandler;
+        onFocus?: ChangeEventHandler;
+        /**
+         * Merk som ugyldig uten å sende inn en errorLabel.
+         * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
+         */
+        invalid?: boolean;
+        /**
+         * Hvor mange valg skal vises i listen før den begynner å scrolle.
+         * @default 5
+         */
+        maxShownOptions?: number;
+    };
 
 const noop = () => {
     return;
