@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@2.3.16...@fremtind/jkl-combobox-react@2.3.17) (2024-04-15)
+
+### Bug Fixes
+
+- gjorde slik at hele komponenten får fokus ([b280714](https://github.com/fremtind/jokul/commit/b28071490132470c0207834e517735f3df1e2011))
+
 ## 2.3.12 (2024-03-05)
 
 ### Bug Fixes
