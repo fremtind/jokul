@@ -12,21 +12,22 @@ export interface InputProps {
     id?: string;
 }
 
-export interface InputGroupProps extends WithOptionalChildren, DataTestAutoId {
-    id?: string;
-    className?: string;
-    "data-testid"?: string;
-    density?: Density;
-    errorLabel?: ReactNode;
-    helpLabel?: ReactNode;
-    inline?: boolean;
-    label: ReactNode;
-    labelProps?: Omit<LabelProps, "children" | "density">;
-    supportLabelProps?: Omit<SupportLabelProps, "id" | "errorLabel" | "helpLabel" | "density">;
-    tooltipProps?: PopupTipProps;
-    style?: CSSProperties;
-    render?: (props: InputProps) => JSX.Element;
-}
+export type InputGroupProps = WithOptionalChildren &
+    DataTestAutoId & {
+        id?: string;
+        className?: string;
+        "data-testid"?: string;
+        density?: Density;
+        errorLabel?: ReactNode;
+        helpLabel?: ReactNode;
+        inline?: boolean;
+        label: ReactNode;
+        labelProps?: Omit<LabelProps, "children" | "density">;
+        supportLabelProps?: Omit<SupportLabelProps, "id" | "errorLabel" | "helpLabel" | "density">;
+        tooltipProps?: PopupTipProps;
+        style?: CSSProperties;
+        render?: (props: InputProps) => JSX.Element;
+    };
 
 export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>((props, ref) => {
     const {
