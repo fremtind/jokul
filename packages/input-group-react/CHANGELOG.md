@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.23 (2024-04-15)
+
+### Bug Fixes
+
+- switch from exporting interfaces to exporting types ([e36a70a](https://github.com/fremtind/jokul/commit/e36a70a5a4e05e2c01a9ad807943617d2640d469)), closes [#3855](https://github.com/fremtind/jokul/issues/3855)
+
 ## [3.0.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-input-group-react@3.0.13...@fremtind/jkl-input-group-react@3.0.14) (2023-10-26)
 
 ### Bug Fixes
