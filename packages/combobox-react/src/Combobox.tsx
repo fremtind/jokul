@@ -309,6 +309,9 @@ export const Combobox: FC<ComboboxProps> = ({
                 }));
                 setMarked(true);
                 setSelectedValue(updatedSelectedValue);
+            } else if ((marked && e.metaKey && e.key === "d") || (marked && e.ctrlKey && e.key === "d")) {
+                e.stopPropagation();
+                setMarked(false);
             } else if (e.key === "Backspace") {
                 e.stopPropagation();
                 setMarked(false);
@@ -326,7 +329,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 }
             }
         },
-        [selectedValue, searchValue, dropdownRef, onTagRemove],
+        [marked, selectedValue, searchValue, dropdownRef, onTagRemove],
     );
 
     const handleOptionOnKeyDown = useCallback(
