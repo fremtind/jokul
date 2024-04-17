@@ -11,6 +11,7 @@ on:
             - "**/*.tsx"
             - "pnpm-lock.yaml"
     schedule:
+        # At 18:00 on Wednesday
         - cron: "0 18 * * 3"
 
 jobs:

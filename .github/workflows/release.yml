@@ -34,7 +34,7 @@ jobs:
             - name: Setup pnpm
               uses: pnpm/action-setup@v2
               with:
-                  version: 7
+                  version: 9
                   run_install: |
                       - args: [--global, lerna-clean-changelogs-cli@^2.0.18]
 

@@ -67,7 +67,7 @@ jobs:
               if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
               uses: pnpm/action-setup@v2
               with:
-                  version: 7
+                  version: 9
 
             - name: Setup Node
               uses: actions/setup-node@v3
