@@ -44,6 +44,7 @@
         "@fremtind/jkl-input-group-react": "^3.0.23",
         "@fremtind/jkl-react-hooks": "^12.0.10",
         "@fremtind/jkl-select": "^11.1.9",
+        "@fremtind/jkl-tooltip-react": "^4.2.15",
         "classnames": "^2.3.2"
     },
     "devDependencies": {
