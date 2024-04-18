@@ -86,7 +86,7 @@ export const Combobox: FC<ComboboxProps> = ({
     const inputId = `${listId}_search-input`;
 
     const [selectedValue, setSelectedValue] = useState<Array<ComboboxValuePair>>(value || []);
-    const [isPoitingDown, setIsPointingDown] = useState<boolean>(true);
+    const [isPointingDown, setIsPointingDown] = useState<boolean>(true);
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
     const [noResults, setNoResults] = useState(false);
@@ -339,8 +339,6 @@ export const Combobox: FC<ComboboxProps> = ({
                     if (e.shiftKey) {
                         searchRef.current.focus();
                     } else {
-                        // Mimic behaviour of Firefox and native select, where Tab selects the current item and closes the menu
-                        onItemClick(e.currentTarget.value);
                         setShowMenu(false);
                         searchRef.current.focus();
                     }
@@ -355,7 +353,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 }
             }
         },
-        [setShowMenu, onItemClick, dropdownRef],
+        [setShowMenu, dropdownRef],
     );
 
     const hasSelection = selectedValue.length >= 1;
@@ -509,7 +507,7 @@ export const Combobox: FC<ComboboxProps> = ({
                                 inputRef.current?.focus();
                             }}
                         >
-                            <ArrowVerticalAnimated pointingDown={isPoitingDown} />
+                            <ArrowVerticalAnimated pointingDown={isPointingDown} />
                         </IconButton>
                     </div>
                 </div>
