@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.18](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@2.3.17...@fremtind/jkl-combobox-react@2.3.18) (2024-04-19)
+
+### Bug Fixes
+
+- using tab with focus on an option no longer selects that option ([c6b203e](https://github.com/fremtind/jokul/commit/c6b203e8f782e42202d615db5ae41db961b8968e)), closes [#3858](https://github.com/fremtind/jokul/issues/3858)
+
 ## [2.3.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@2.3.16...@fremtind/jkl-combobox-react@2.3.17) (2024-04-15)
 
 ### Bug Fixes
