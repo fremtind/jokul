@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-combobox-react",
-    "version": "2.3.17",
+    "version": "2.3.18",
     "publishConfig": {
         "access": "public"
     },

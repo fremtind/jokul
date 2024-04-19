@@ -1122,7 +1122,7 @@ importers:
       '@fremtind/jkl-button-react': ^15.0.18
       '@fremtind/jkl-card-react': ^11.3.2
       '@fremtind/jkl-checkbox-react': ^11.1.16
-      '@fremtind/jkl-combobox-react': ^2.3.17
+      '@fremtind/jkl-combobox-react': ^2.3.18
       '@fremtind/jkl-constants-util': ^3.0.45
       '@fremtind/jkl-contact-information-react': ^2.1.7
       '@fremtind/jkl-content-toggle-react': ^6.0.10
