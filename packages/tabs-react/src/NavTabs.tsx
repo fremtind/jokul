@@ -23,6 +23,13 @@ export const NavTabs = ({
     const tablistRef = useRef<HTMLDivElement>(null);
     const activeRef = useRef<HTMLElement>(null);
 
+    const selectedIndex = React.Children.toArray(children).findIndex((navTab) => {
+        if (!React.isValidElement(navTab)) {
+            return false;
+        }
+        return navTab.props["aria-selected"] === true;
+    });
+
     useEffect(() => {
         if (tablistRef.current) {
             setTabsRect(tablistRef.current.getBoundingClientRect());
@@ -30,36 +37,18 @@ export const NavTabs = ({
         if (activeRef.current) {
             setActiveRect(activeRef.current.getBoundingClientRect());
         }
-    }, [density]);
-
-    const path = typeof window !== "undefined" ? window?.location?.pathname : "";
-    useEffect(() => {
-        if (scrollRef.current) {
-            const currentTab = scrollRef.current.querySelector(`[href="${path}"]`);
-            if (currentTab) {
-                setActiveRect(currentTab.getBoundingClientRect());
-            }
-        }
-    }, [path]);
-
-    // Scroll fanelisten og posisjoner markøren i tilfelle direktelink eller refresh
-    useEffect(() => {
-        if (scrollRef.current) {
-            let currentTab = scrollRef.current.querySelector(`[href="${path}"]`);
-            if (currentTab) {
-                const rect = currentTab.getBoundingClientRect();
-                scrollRef.current.scrollTo(rect.x, 0);
-                // Rekalkuler rect etter scroll
-                setActiveRect(currentTab.getBoundingClientRect());
-            }
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [selectedIndex, density]);
 
     return (
         <div {...rest} data-layout-density={density} className={cn("jkl-tabs", className)} ref={scrollRef}>
             <div role="tablist" aria-label={ariaLabel} ref={tablistRef} className="jkl-tablist">
-                {children}
+                {React.Children.map(children, (child, index) => {
+                    return React.isValidElement(child)
+                        ? React.cloneElement<any>(child, {
+                              ref: selectedIndex === index ? activeRef : undefined,
+                          })
+                        : null;
+                })}
                 <span
                     className="jkl-tablist__indicator"
                     style={{
