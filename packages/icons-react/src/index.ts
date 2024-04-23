@@ -35,4 +35,4 @@ export { SearchIcon } from "./icons/search/SearchIcon";
 export { SuccessIcon } from "./icons/success/SuccessIcon";
 export { WarningIcon } from "./icons/warning/WarningIcon";
 export { MinusIcon } from "./icons/minus/MinusIcon";
-export { TrashIcon } from "./icons/trash/TrashIcon";
+export { TrashCanIcon } from "./icons/trash/TrashCanIcon";
