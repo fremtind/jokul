@@ -29,7 +29,7 @@ import {
     GreenCheckIcon,
     RedCrossIcon,
     MinusIcon,
-    TrashIcon,
+    TrashCanIcon,
 } from "../src";
 import { IconVariant } from "../src/icons/types";
 import { IconExample } from "./internal/IconExample";
@@ -74,7 +74,7 @@ const allIcons = [
     WarningIcon,
     SuccessIcon,
     LinkIcon,
-    TrashIcon,
+    TrashCanIcon,
 ];
 
 export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
