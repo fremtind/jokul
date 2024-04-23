@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 8.6.0 (2024-04-23)
+
+### Bug Fixes
+
+- endret litt på navnet :D ([f2d6a84](https://github.com/fremtind/jokul/commit/f2d6a849bef0c11ebdcb4cfd1115f5b8b0f6a5d3))
+- one that got away ([eca39fe](https://github.com/fremtind/jokul/commit/eca39fe723fabc0d8036aa3c2bc5a0080eb8546e))
+
+### Features
+
+- la til søppelbøtte-ikon ([fdf8bd6](https://github.com/fremtind/jokul/commit/fdf8bd6101be152f927ae74e7091bf8cc32dc2dc))
+
 # 8.5.0 (2024-02-21)
 
 ### Features
