@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 6.0.0 (2024-04-23)
+
+### Bug Fixes
+
+- navTabs uses aria-selected to find active tab ([c894d59](https://github.com/fremtind/jokul/commit/c894d591827161cd817737c0201ec0713847e737)), closes [#3863](https://github.com/fremtind/jokul/issues/3863)
+
+### BREAKING CHANGES
+
+- If you are not providing aria-selected to the active tab, either because you silenced the TS warning
+or are not using TS the active component will no longer have an underline
+
 ## 5.0.3 (2023-09-14)
 
 ### Bug Fixes
