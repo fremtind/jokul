@@ -7,3 +7,9 @@
 .jkl-text-input-action-button {
     @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonFace);
 }
+
+.jkl-input-group {
+    > label + .jkl-form-support-label {
+        margin: 0 0 #{jkl.$spacing-xs};
+    }
+}
