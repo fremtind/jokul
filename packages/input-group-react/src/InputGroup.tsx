@@ -1,10 +1,10 @@
-import { type WithOptionalChildren, type Density, type DataTestAutoId } from "@fremtind/jkl-core";
+import { type DataTestAutoId, type Density, type WithOptionalChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { PopupTip, type PopupTipProps } from "@fremtind/jkl-tooltip-react";
 import cn from "classnames";
-import React, { forwardRef, type CSSProperties, type ReactNode } from "react";
+import React, { type CSSProperties, forwardRef, type ReactNode } from "react";
 import { Label, type LabelProps } from "./Label";
-import { SupportLabel, type SupportLabelProps } from "./SupportLabel";
+import { SupportLabel } from "./SupportLabel";
 
 export interface InputProps {
     "aria-describedby"?: string;
@@ -23,7 +23,6 @@ export type InputGroupProps = WithOptionalChildren &
         inline?: boolean;
         label: ReactNode;
         labelProps?: Omit<LabelProps, "children" | "density">;
-        supportLabelProps?: Omit<SupportLabelProps, "id" | "errorLabel" | "helpLabel" | "density">;
         tooltipProps?: PopupTipProps;
         style?: CSSProperties;
         render?: (props: InputProps) => JSX.Element;
@@ -40,7 +39,6 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>((props, re
         label,
         labelProps,
         render,
-        supportLabelProps,
         tooltipProps,
         id,
         ...rest
@@ -102,7 +100,6 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>((props, re
             {renderInput()}
             <SupportLabel
                 srOnly={inline}
-                {...supportLabelProps}
                 label={supportText}
                 labelType={supportTextType}
                 id={supportId}

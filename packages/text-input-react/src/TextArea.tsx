@@ -17,7 +17,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, r
         label,
         labelProps,
         startOpen,
-        supportLabelProps,
         tooltipProps,
         ...rest
     } = props;
@@ -28,7 +27,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, r
         helpLabel,
         labelProps,
         inline,
-        supportLabelProps,
         tooltipProps,
     };
     const textAreaProps = { autoExpand, counter, startOpen };
