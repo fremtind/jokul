@@ -12,6 +12,7 @@ For å starte utviklingsserveren for Jøkul lokalt må du først ha installert:
 
 -   [Node]-versjonen definert i [`.nvmrc`](./.nvmrc), gjerne via [Node Version Manager (NVM)](https://github.com/nvm-sh/nvm).
 -   [pnpm](https://pnpm.io/installation#using-corepack), gjerne via `corepack` eller `npm`.
+    -   På de nye Fremtind-Macene kan det hende at du må installere `corepack` via Homebrew for at det skal fungere ordentlig: Installer med `brew install corepack`, og gjør klar med `corepack install` inne i Jøkul-mappa.
 
 Så, etter å ha klonet repoet:
 
