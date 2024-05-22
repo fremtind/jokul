@@ -67,10 +67,10 @@ describe("TextInput", () => {
         expect(component).toBeInTheDocument();
     });
 
-    it("does not render helpLabel if both helpLabel and errorLabel is given", () => {
+    it("renders helpLabel and errorLabel if both is given", () => {
         render(<TextInput label="testing" helpLabel="help" errorLabel="error" />);
 
-        expect(screen.queryByText("help")).not.toBeInTheDocument();
+        expect(screen.queryByText("help")).toBeInTheDocument();
         expect(screen.getByText("error")).toBeInTheDocument();
     });
 

@@ -38,14 +38,6 @@ export interface SupportLabelProps {
      *  ```
      */
     id: string;
-    /**
-     * @deprecated Bruk `label` for å få samme resultat.
-     */
-    helpLabel?: ReactNode;
-    /**
-     * @deprecated Bruk `label` og `labelType="warning"` for å få samme resultat.
-     */
-    errorLabel?: ReactNode;
     label?: ReactNode;
     /**
      * Bestemmer hvilket ikon som skal vises:
@@ -65,8 +57,6 @@ export interface SupportLabelProps {
 
 export const SupportLabel: FC<SupportLabelProps> = ({
     id,
-    helpLabel,
-    errorLabel,
     label,
     labelType = "help",
     density,
@@ -74,10 +64,10 @@ export const SupportLabel: FC<SupportLabelProps> = ({
     srOnly,
     ...rest
 }) => {
-    const hasLabel = errorLabel || helpLabel || label;
+    const hasLabel = !!label;
 
-    const isHelp = labelType === "help" || (helpLabel && !errorLabel);
-    const isWarning = labelType === "warning" || errorLabel;
+    const isHelp = labelType === "help";
+    const isWarning = labelType === "warning";
     const isError = labelType === "error";
     const isSuccess = labelType === "success";
 
@@ -98,7 +88,7 @@ export const SupportLabel: FC<SupportLabelProps> = ({
     return (
         <span id={id} className={componentClassName} {...restProps} data-density={density}>
             <Icon variant="small" className="jkl-form-support-label__icon" />
-            {errorLabel || helpLabel || label}
+            {label}
         </span>
     );
 };

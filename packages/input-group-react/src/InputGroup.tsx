@@ -1,10 +1,10 @@
-import { type WithOptionalChildren, type Density, type DataTestAutoId } from "@fremtind/jkl-core";
+import { type DataTestAutoId, type Density, type WithOptionalChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { PopupTip, type PopupTipProps } from "@fremtind/jkl-tooltip-react";
 import cn from "classnames";
-import React, { forwardRef, type CSSProperties, type ReactNode } from "react";
+import React, { type CSSProperties, forwardRef, ReactElement, type ReactNode } from "react";
 import { Label, type LabelProps } from "./Label";
-import { SupportLabel, type SupportLabelProps } from "./SupportLabel";
+import { SupportLabel, SupportLabelProps } from "./SupportLabel";
 
 export interface InputProps {
     "aria-describedby"?: string;
@@ -23,7 +23,6 @@ export type InputGroupProps = WithOptionalChildren &
         inline?: boolean;
         label: ReactNode;
         labelProps?: Omit<LabelProps, "children" | "density">;
-        supportLabelProps?: Omit<SupportLabelProps, "id" | "errorLabel" | "helpLabel" | "density">;
         tooltipProps?: PopupTipProps;
         style?: CSSProperties;
         render?: (props: InputProps) => JSX.Element;
@@ -40,22 +39,18 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>((props, re
         label,
         labelProps,
         render,
-        supportLabelProps,
         tooltipProps,
         id,
         ...rest
     } = props;
 
     const uid = useId(id || "jkl-input", { generateSuffix: !id });
-    const supportId = useId("jkl-support-label");
-
-    const supportText = errorLabel || helpLabel;
-    const supportTextType = errorLabel ? "error" : helpLabel ? "help" : undefined;
-
-    const describedBy = supportText ? supportId : undefined;
+    const helpId = useId("jkl-support-label");
+    const errorId = useId("jkl-error-label");
+    const describedBy = `${!!helpLabel ? helpId : ""} ${!!errorLabel ? errorId : ""}`;
 
     const inputProps: InputProps = {
-        "aria-describedby": describedBy,
+        "aria-describedby": describedBy.trim() || undefined,
         "aria-invalid": Boolean(errorLabel) ? true : undefined,
         id: uid,
     };
@@ -99,15 +94,25 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>((props, re
                     </>
                 )}
             </Label>
+            {!!helpLabel &&
+                (React.isValidElement(helpLabel) && helpLabel.type === SupportLabel ? (
+                    React.cloneElement(helpLabel as ReactElement<SupportLabelProps>, { id: helpId })
+                ) : (
+                    <SupportLabel srOnly={inline} label={helpLabel} labelType={"help"} id={helpId} density={density} />
+                ))}
             {renderInput()}
-            <SupportLabel
-                srOnly={inline}
-                {...supportLabelProps}
-                label={supportText}
-                labelType={supportTextType}
-                id={supportId}
-                density={density}
-            />
+            {!!errorLabel &&
+                (React.isValidElement(errorLabel) && errorLabel.type === SupportLabel ? (
+                    React.cloneElement(errorLabel as ReactElement<SupportLabelProps>, { id: errorId })
+                ) : (
+                    <SupportLabel
+                        srOnly={inline}
+                        label={errorLabel}
+                        labelType={"error"}
+                        id={errorId}
+                        density={density}
+                    />
+                ))}
         </div>
     );
 });

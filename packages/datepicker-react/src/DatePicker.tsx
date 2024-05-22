@@ -52,7 +52,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         action,
         showCalendarLabel = "Åpne kalender",
         hideCalendarLabel = "Lukk kalender",
-        supportLabelProps,
         tooltipProps,
         ...rest
     } = props;
@@ -271,7 +270,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             density={density}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
-            supportLabelProps={supportLabelProps}
             tooltipProps={tooltipProps}
             render={(inputProps) => (
                 // The <div> element handles keyboard events that bubble up from <button> elements inside

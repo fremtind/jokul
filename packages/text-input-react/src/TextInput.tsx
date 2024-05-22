@@ -19,7 +19,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>((props, re
         inline,
         inputClassName,
         labelProps,
-        supportLabelProps,
         tooltipProps,
         ...rest
     } = props;
@@ -30,7 +29,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>((props, re
         helpLabel,
         labelProps,
         inline,
-        supportLabelProps,
         tooltipProps,
     };
     return (
