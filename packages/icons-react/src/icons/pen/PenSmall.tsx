@@ -1,12 +1,12 @@
 import React, { FC, SVGAttributes } from "react";
 
-export const TrashCanSmallBold: FC<SVGAttributes<SVGElement>> = (props) => (
+export const PenSmall: FC<SVGAttributes<SVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" {...props}>
         <g clipPath="url(#a)">
             <path
                 fill="currentColor"
                 fillRule="evenodd"
-                d="M13.75 2.75h-7.5V5H3v1.5h1.63L5.5 17h9l.88-10.5H17V5h-3.25V2.75ZM12.25 5v-.75h-4.5V5h4.5ZM6.13 6.5h7.74l-.75 9H6.88l-.75-9ZM8 8v6h1.5V8H8Zm2.5 6V8H12v6h-1.5Z"
+                d="m13.57 3.3 2.89 2.88-2.29 2.3-6.94 6.93-3.62.73.73-3.62 6.94-6.94 2.29-2.29Zm-1.23 2.63 1.48 1.48 1.22-1.23-1.47-1.47-1.23 1.22Zm.77 2.19-1.47-1.48-6.38 6.38-.37 1.84 1.84-.37 6.38-6.37Z"
                 clipRule="evenodd"
             />
         </g>

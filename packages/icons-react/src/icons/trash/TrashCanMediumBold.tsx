@@ -1,12 +1,19 @@
 import React, { FC, SVGAttributes } from "react";
 
 export const TrashCanMediumBold: FC<SVGAttributes<SVGElement>> = (props) => (
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M17 2H7V5H4H2V7H4.11073L4.94118 22H19.0588L19.8893 7H22V5H20H17V2ZM15 5V4H9V5H15ZM6.11379 7H17.8862L17.1665 20H6.83351L6.11379 7ZM9 18L9 9H11V18H9ZM13 9V18H15V9H13Z"
-            fill="currentColor"
-        />
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" {...props}>
+        <g clipPath="url(#a)">
+            <path
+                fill="currentColor"
+                fillRule="evenodd"
+                d="M17 3H7v3H3v2h2.13L6 21h12l.87-13H21V6h-4V3Zm-2 3V5H9v1h6ZM7.14 8h9.72l-.73 11H7.87L7.14 8ZM9 17v-7h2v7H9Zm4-7v7h2v-7h-2Z"
+                clipRule="evenodd"
+            />
+        </g>
+        <defs>
+            <clipPath id="a">
+                <path fill="#fff" d="M0 0h24v24H0z" />
+            </clipPath>
+        </defs>
     </svg>
 );
