@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@8.7.0...@fremtind/jkl-icons-react@8.7.1) (2024-05-22)
+
+### Bug Fixes
+
+- update pen and trash icons ([78252ee](https://github.com/fremtind/jokul/commit/78252ee947a0750a0bee6257eaa0d82434dc8a4d)), closes [#3888](https://github.com/fremtind/jokul/issues/3888)
+
 # [8.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@8.6.0...@fremtind/jkl-icons-react@8.7.0) (2024-05-16)
 
 ### Features
