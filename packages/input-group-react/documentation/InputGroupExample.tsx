@@ -17,7 +17,12 @@ export const inputGroupExampleKnobs: ExampleKnobsProps = {
 
 export const InputGroupExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const helpLabel = boolValues?.["Med hjelpetekst"] ? "Fødselsnummer består av 11 siffer" : undefined;
-    const errorLabel = boolValues?.["Med feil"] ? "Du må fylle ut fødselsnummer, 11 siffer" : undefined;
+    const errorLabel = boolValues?.["Med feil"] ? (
+        <>
+            Du må fylle ut fødelsnummer eller D-nummer. Se <Link href="">guiden vår</Link> hvis du er usikker på hvordan
+            du finner D-nummer.
+        </>
+    ) : undefined;
     const labelProps = {
         variant: choiceValues?.["Variant"] as LabelVariant,
     };
@@ -52,7 +57,14 @@ export const inputGroupExampleCode: CodeExample = ({ boolValues }) => `
 <InputGroup
     label="Fødselsnummer"
     helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Fødselsnummer består av 11 siffer"` : `{undefined}`}
-    errorLabel=${boolValues?.["Med feil"] ? `"Du må fylle ut fødselsnummer, 11 siffer"` : `{undefined}`}${
+    errorLabel=${
+        boolValues?.["Med feil"]
+            ? `<>
+            Du må fylle ut fødelsnummer eller D-nummer. Se <Link href="">guiden vår</Link> hvis du er usikker på hvordan
+            du finner D-nummer.
+        </>`
+            : `{undefined}`
+    }${
     boolValues?.["Med tooltip"]
         ? `
     tooltipProps={{ content: (

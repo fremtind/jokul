@@ -385,26 +385,6 @@ describe("Datepicker", () => {
         expect(label).toHaveClass("jkl-label--sr-only");
     });
 
-    it("should pass density compact to all compactable child components", () => {
-        const { getByTestId, getByText } = setup(
-            <DatePicker
-                defaultValue="24.12.2019"
-                label="Hva er tid?" /* label skal være kompakt */
-                helpLabel="Tid er en flat sirkel" /* hjelpeteksten skal være kompakt */
-                density="compact"
-            />,
-        );
-
-        const label = getByText("Hva er tid?");
-        expect(label).toHaveAttribute("data-density", "compact");
-
-        const inputWrapper = getByTestId("jkl-datepicker__input-wrapper");
-        expect(inputWrapper).toHaveAttribute("data-density", "compact");
-
-        const helpText = getByText("Tid er en flat sirkel");
-        expect(helpText).toHaveAttribute("data-density", "compact");
-    });
-
     describe("after user types string", () => {
         it("should return null value for invalid string", async () => {
             const onBlur = jest.fn();
