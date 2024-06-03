@@ -1,16 +1,27 @@
-import { Density } from "@fremtind/jkl-core";
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { Density, PolymorphicPropsWithRef } from "@fremtind/jkl-core";
 
-export interface Props extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
-    density?: Density;
-    className?: string;
-    loader?: {
-        showLoader: boolean;
-        textDescription: string;
-    };
-    iconLeft?: ReactNode;
-    iconRight?: ReactNode;
-    children: ReactNode;
-}
+export const buttonVariants = ["primary", "secondary", "tertiary"] as const;
+export type ButtonVariant = (typeof buttonVariants)[number];
 
-export type ValidButtons = "primary" | "secondary" | "tertiary";
+export type ButtonProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
+    ElementType,
+    {
+        density?: Density;
+        /**
+         * Hvilken variant av knappen skal vises
+         * @default "secondary"
+         */
+        variant?: ButtonVariant;
+        className?: string;
+        loader?: {
+            showLoader: boolean;
+            textDescription: string;
+        };
+        iconLeft?: React.ReactNode;
+        iconRight?: React.ReactNode;
+    }
+>;
+
+export type ButtonComponent = <ElementType extends React.ElementType = "button">(
+    props: ButtonProps<ElementType>,
+) => React.ReactElement | null;

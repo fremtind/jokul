@@ -2,31 +2,25 @@ import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useState } from "react";
-import { PrimaryButton, SecondaryButton, TertiaryButton } from ".";
-
-const buttonVariants = [
-    { name: "primary", component: PrimaryButton },
-    { name: "secondary", component: SecondaryButton },
-    { name: "tertiary", component: TertiaryButton },
-];
+import { Button } from "./Button";
+import { buttonVariants } from "./types";
 
 describe("Button", () => {
     buttonVariants.map((buttonVariant) => {
-        it(`renders the ${buttonVariant.name} button correctly`, () => {
-            const { name, component: Button } = buttonVariant;
+        it(`renders the ${buttonVariant} button correctly`, () => {
             render(
-                <Button data-testid={name} onClick={() => {}}>
-                    {name}
+                <Button variant={buttonVariant} data-testid={buttonVariant} onClick={() => {}}>
+                    {buttonVariant}
                 </Button>,
             );
 
-            expect(screen.getByTestId(name)).toHaveClass(`jkl-button--${name}`);
+            expect(screen.getByTestId(buttonVariant)).toHaveClass(`jkl-button--${buttonVariant}`);
         });
     });
 
     it("calls the onClick handler when clicked", async () => {
         const clickHandler = jest.fn();
-        render(<PrimaryButton onClick={clickHandler}>I am groot!</PrimaryButton>);
+        render(<Button onClick={clickHandler}>I am groot!</Button>);
 
         const button = screen.getByText("I am groot!");
 
@@ -39,9 +33,9 @@ describe("Button", () => {
 
     it("applies passed classNames", () => {
         render(
-            <PrimaryButton data-testid="test" className="test-class" onClick={() => {}}>
+            <Button data-testid="test" className="test-class" onClick={() => {}}>
                 test
-            </PrimaryButton>,
+            </Button>,
         );
 
         expect(screen.getByTestId("test")).toHaveClass("test-class");
@@ -49,9 +43,9 @@ describe("Button", () => {
 
     it("applies compact mode", () => {
         render(
-            <PrimaryButton data-testid="test" density="compact" onClick={() => {}}>
+            <Button data-testid="test" density="compact" onClick={() => {}}>
                 test
-            </PrimaryButton>,
+            </Button>,
         );
 
         expect(screen.getByTestId("test")).toHaveAttribute("data-density", "compact");
@@ -77,13 +71,14 @@ describe("Button", () => {
                     >
                         Increment
                     </button>
-                    <PrimaryButton
+                    <Button
+                        variant="primary"
                         onClick={() => {
                             props.onClick(counter);
                         }}
                     >
                         Submit form
-                    </PrimaryButton>
+                    </Button>
                 </div>
             );
         }
@@ -105,19 +100,21 @@ describe("Button", () => {
 
 describe("a11y", () => {
     buttonVariants.map((buttonVariant) => {
-        it(`${buttonVariant.name} should be a11y compliant`, async () => {
-            const { name, component: Button } = buttonVariant;
-            const { container } = render(<Button onClick={() => {}}>{name}</Button>);
+        it(`${buttonVariant} should be a11y compliant`, async () => {
+            const { container } = render(
+                <Button variant={buttonVariant} onClick={() => {}}>
+                    {buttonVariant}
+                </Button>,
+            );
             const results = await axe(container);
 
             expect(results).toHaveNoViolations();
         });
 
-        it(`${buttonVariant.name} should be a11y compliant in compact mode`, async () => {
-            const { name, component: Button } = buttonVariant;
+        it(`${buttonVariant} should be a11y compliant in compact mode`, async () => {
             const { container } = render(
-                <Button density="compact" onClick={() => {}}>
-                    {name}
+                <Button variant={buttonVariant} density="compact" onClick={() => {}}>
+                    {buttonVariant}
                 </Button>,
             );
             const results = await axe(container);
@@ -126,13 +123,16 @@ describe("a11y", () => {
         });
 
         [false, true].map((showLoader) => {
-            it(`${buttonVariant.name} sets aria-hidden="${String(
+            it(`${buttonVariant} sets aria-hidden="${String(
                 !showLoader,
             )}" on loader when showLoader is ${showLoader}`, async () => {
-                const { name, component: Button } = buttonVariant;
                 render(
-                    <Button loader={{ showLoader, textDescription: "Vennligst vent" }} onClick={() => {}}>
-                        {name}
+                    <Button
+                        variant={buttonVariant}
+                        loader={{ showLoader, textDescription: "Vennligst vent" }}
+                        onClick={() => {}}
+                    >
+                        {buttonVariant}
                     </Button>,
                 );
                 const loader = screen.getByTestId("jkl-loader");

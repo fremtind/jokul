@@ -1,7 +1,7 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "@fremtind/jkl-icons-react";
 import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-import { TertiaryButton } from "../src";
+import { Button } from "../src";
 
 export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [showLoader, setShowLoader] = useState(false);
@@ -20,7 +20,8 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVa
     };
 
     return (
-        <TertiaryButton
+        <Button
+            variant="tertiary"
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
@@ -28,12 +29,13 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVa
             iconRight={icon === "arrow-right" || icon === "begge" ? <ArrowRightIcon bold /> : null}
         >
             Avbryt
-        </TertiaryButton>
+        </Button>
     );
 };
 
 export const tertiaryCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-<TertiaryButton
+<Button
+    variant="tertiary"
     loader={${
         !!boolValues?.["withLoader"]
             ? `{
@@ -52,5 +54,5 @@ export const tertiaryCode = ({ boolValues, choiceValues }: ExampleComponentProps
     }}
 >
     Avbryt
-</TertiaryButton>
+</Button>
 `;
