@@ -5,3 +5,4 @@ export type { LinkProps, NavLinkProps, ScreenReaderOnlyProps } from "./component
 export { Link, NavLink, ScreenReaderOnly } from "./components";
 export type { ColorScheme, DataTestAutoId, ValuePair, WithChildren, WithOptionalChildren } from "./types";
 export { default as tokens } from "./tokens";
+export type { PolymorphicProps, PolymorphicPropsWithRef, PolymorphicRef } from "./polymorphism";
