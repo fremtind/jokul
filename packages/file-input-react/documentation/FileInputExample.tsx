@@ -8,7 +8,7 @@ import { File, FileInput, FileInputFile, FileInputFileState } from "../src";
 import iconBytes from "./iconBytes";
 
 export const fileInputExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Laster opp", "Med valideringsfeil", "Med feil", "Lastet opp"],
+    boolProps: ["Laster opp", "Med valideringsfeil", "Med feil", "Lastet opp", "Filer med path"],
     choiceProps: [
         {
             name: "Variant",
@@ -108,6 +108,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues, choice
                             fileName={file.name}
                             fileType={file.type}
                             fileSize={file.size}
+                            path={boolValues?.["Filer med path"] ? `/path/fil-${index}` : undefined}
                             file={file}
                             state={demoState}
                             supportLabel={label}
@@ -215,6 +216,7 @@ return (
                         fileType={file.type}
                         fileSize={file.size}
                         file={file}
+                        path={boolValues?.["Filer med path"] ? "/path/file.ext" : undefined
                         state={state}
                         supportLabel={label}
                         supportLabelType={labelType}
