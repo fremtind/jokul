@@ -1,6 +1,6 @@
 import { Density, PolymorphicPropsWithRef } from "@fremtind/jkl-core";
 
-export const buttonVariants = ["primary", "secondary", "tertiary"] as const;
+export const buttonVariants = ["primary", "secondary", "tertiary", "ghost"] as const;
 export type ButtonVariant = (typeof buttonVariants)[number];
 
 export type ButtonProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<

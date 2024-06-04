@@ -9,6 +9,7 @@ keywords: primary secondary tertiary primær sekundær tertiær
 import { Primary, primaryCode } from "./Primary";
 import { Secondary, secondaryCode } from "./Secondary";
 import { Tertiary, tertiaryCode } from "./Tertiary";
+import { Ghost, ghostCode } from "./Ghost";
 import { Anchors, AnchorsCode } from "./Anchors";
 import { buttonExampleKnobs } from "./ButtonExample";
 
@@ -35,13 +36,17 @@ import { Button } from "../src";
 
 <ComponentExample title="TertiaryButton" component={Tertiary} knobs={buttonExampleKnobs} codeExample={tertiaryCode} />
 
+**Ghost-knapp:** brukes til sekundære handlinger som å åpne menyer. Bruk den gjerne som triggerelement for [ContextualMenu](/komponenter/contextualmenu)
+
+<ComponentExample title="GhostButton" component={Ghost} codeExample={ghostCode} />
+
 ## Lastemodus
 
 Hvis du skal bruke lastemodus i knappen må du sørge for at `@fremtind/jkl-loader/loader.min.css` er lastet inn i klienten.
 
 ## Knappetyper
 
-De tre knappene har et hierarki. Når brukeren har flere knapper å velge mellom, skal vi kun ha én primærknapp.
+Knappene våre har et hierarki. Når brukeren har flere knapper å velge mellom, skal vi kun ha én primærknapp.
 
 ## Tekst på knapper
 

@@ -79,14 +79,28 @@ export const Button = React.forwardRef(function Button<ElementType extends React
     );
 }) as ButtonComponent;
 
-export function PrimaryButton<ElementType extends React.ElementType = "button">(props: ButtonProps<ElementType>) {
-    return <Button {...props} variant="primary" />;
+export function PrimaryButton<ElementType extends React.ElementType = "button">(
+    props: Omit<ButtonProps<ElementType>, "variant">,
+) {
+    const buttonProps = { ...props, variant: "primary" } as ButtonProps<ElementType>;
+    return <Button {...buttonProps} />;
 }
 
-export function SecondaryButton<ElementType extends React.ElementType = "button">(props: ButtonProps<ElementType>) {
-    return <Button {...props} variant="secondary" />;
+export function SecondaryButton<ElementType extends React.ElementType = "button">(
+    props: Omit<ButtonProps<ElementType>, "variant">,
+) {
+    const buttonProps = { ...props, variant: "secondary" } as ButtonProps<ElementType>;
+    return <Button {...buttonProps} />;
 }
 
 export function TertiaryButton<ElementType extends React.ElementType = "button">(props: ButtonProps<ElementType>) {
-    return <Button {...props} variant="tertiary" />;
+    const buttonProps = { ...props, variant: "tertiary" } as ButtonProps<ElementType>;
+    return <Button {...buttonProps} />;
+}
+
+export function GhostButton<ElementType extends React.ElementType = "button">(
+    props: Omit<ButtonProps<ElementType>, "variant" | "loader">,
+) {
+    const buttonProps = { ...props, variant: "ghost" } as ButtonProps<ElementType>;
+    return <Button {...buttonProps} />;
 }
