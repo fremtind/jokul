@@ -1,9 +1,8 @@
-import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { CopyIcon, DotsIcon, InfoIcon } from "@fremtind/jkl-icons-react";
+import { ErrorIcon, ChevronDownIcon } from "@fremtind/jkl-icons-react";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
+import { Button } from "../../button-react";
 import { ContextualMenu } from "../src/ContextualMenu";
-import { ContextualMenuDivider } from "../src/ContextualMenuDivider";
 import { ContextualMenuItem } from "../src/ContextualMenuItem";
 
 export const contextualMenuExampleKnobs: ExampleKnobsProps = {
@@ -26,41 +25,23 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = ({ boolValues, c
         <div
             style={{
                 width: "500px",
+                textAlign: "center",
             }}
         >
             <ContextualMenu
                 id={key}
-                initialPlacement="bottom-start"
+                initialPlacement="bottom-end"
                 isOpen={isOpen}
                 keepOpenOnClickOutside={boolValues?.["Ikke lukk ved klikk utenfor"]}
                 triggerElement={
-                    <IconButton
-                        data-testid="trigger-contextual-menu"
-                        title="En kontekstuell meny med eksempelvalg for å demonstrere mulighetene i komponenten"
-                    >
-                        <DotsIcon bold />
-                    </IconButton>
+                    <Button variant="ghost" iconRight={<ChevronDownIcon bold />}>
+                        Ola Nordmann
+                    </Button>
                 }
             >
-                <ContextualMenuItem icon={<InfoIcon />}>Menyvalg 1</ContextualMenuItem>
-                <ContextualMenuItem onClick={() => console.log("Hei fra Menyvalg 2")}>Menyvalg 2</ContextualMenuItem>
-                <ContextualMenuDivider />
-                <ContextualMenu
-                    openOnHover
-                    triggerElement={
-                        <ContextualMenuItem expandable>Ekspanderende menyvalg med veldig lang tekst</ContextualMenuItem>
-                    }
-                >
-                    <ContextualMenuItem icon={<InfoIcon />}>Ekspandert menyvalg</ContextualMenuItem>
-                    <ContextualMenuItem>Ekspandert menyvalg med mer tekst</ContextualMenuItem>
-                </ContextualMenu>
-                <ContextualMenu
-                    openOnHover
-                    triggerElement={<ContextualMenuItem expandable>Ekspanderende menyvalg</ContextualMenuItem>}
-                >
-                    <ContextualMenuItem icon={<CopyIcon />}>Ekspandert menyvalg</ContextualMenuItem>
-                    <ContextualMenuItem>Ekspandert menyvalg med mer tekst</ContextualMenuItem>
-                </ContextualMenu>
+                <ContextualMenuItem>Forsikringsprofil</ContextualMenuItem>
+                <ContextualMenuItem onClick={() => console.log("Hei fra Dokumenter")}>Dokumenter</ContextualMenuItem>
+                <ContextualMenuItem icon={<ErrorIcon />}>Skadesaker</ContextualMenuItem>
             </ContextualMenu>
         </div>
     );
@@ -73,32 +54,16 @@ export const contextualMenuExampleCode: CodeExample = ({ boolValues, choiceValue
 
     return `
 <ContextualMenu
-    initialPlacement="bottom-start"${isOpen}${keepOpen}
+    initialPlacement="bottom-end"${isOpen}${keepOpen}
     triggerElement={
-        <IconButton title="En kontekstuell meny med eksempelvalg for å demonstrere mulighetene i komponenten">
-            <DotsIcon bold />
-        </IconButton>
+        <Button variant="ghost" iconRight={<ChevronDownIcon bold />}>
+            Ola Nordmann
+        </Button>
     }
 >
-    <ContextualMenuItem icon={<InfoIcon />}>Menyvalg 1</ContextualMenuItem>
-    <ContextualMenuItem onClick={() => console.log("Hei fra Menyvalg 2")}>Menyvalg 2</ContextualMenuItem>
-    <ContextualMenuDivider />
-    <ContextualMenu
-        openOnHover
-        triggerElement={
-            <ContextualMenuItem expandable>Ekspanderende menyvalg med veldig lang tekst</ContextualMenuItem>
-        }
-    >
-        <ContextualMenuItem icon={<InfoIcon />}>Ekspandert menyvalg</ContextualMenuItem>
-        <ContextualMenuItem>Ekspandert menyvalg med mer tekst</ContextualMenuItem>
-    </ContextualMenu>
-    <ContextualMenu
-        openOnHover
-        triggerElement={<ContextualMenuItem expandable>Ekspanderende menyvalg</ContextualMenuItem>}
-    >
-        <ContextualMenuItem icon={<CopyIcon />}>Ekspandert menyvalg</ContextualMenuItem>
-        <ContextualMenuItem>Ekspandert menyvalg med mer tekst</ContextualMenuItem>
-    </ContextualMenu>
+    <ContextualMenuItem>Forsikringsprofil</ContextualMenuItem>
+    <ContextualMenuItem onClick={() => console.log("Hei fra Skadesaker")}>Dokumenter</ContextualMenuItem>
+    <ContextualMenuItem icon={<ErrorIcon />}>Skadesaker</ContextualMenuItem>
 </ContextualMenu>
 `;
 };
