@@ -137,12 +137,20 @@ a.jkl-button {
     &--ghost {
         --border-color: transparent;
         border-radius: jkl.rem(4px);
-        padding: 0 jkl.$spacing-12;
+        padding: 0 jkl.$spacing-4;
 
         html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
         html:not([data-touchnavigation]) &:hover {
             --background-color: var(--jkl-color-background-interactive-hover);
             transform: scale(1);
+        }
+
+        &.jkl-button--icon-left .jkl-button__children {
+            padding-left: var(--jkl-button-children-padding-with-icon);
+        }
+
+        &.jkl-button--icon-right .jkl-button__children {
+            padding-right: var(--jkl-button-children-padding-with-icon);
         }
     }
 
