@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.0.10 (2024-06-06)
+
+### Bug Fixes
+
+- handle Files with path set better ([696f155](https://github.com/fremtind/jokul/commit/696f155853f7cfc06153d1a8c4b0019facb7a10d)), closes [#3891](https://github.com/fremtind/jokul/issues/3891)
+
 # 2.0.0 (2023-07-07)
 
 ### chore
