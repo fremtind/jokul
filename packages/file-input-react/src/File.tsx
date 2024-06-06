@@ -32,20 +32,20 @@ export const File: FC<FileProps> = (props) => {
     const context = useFileInputContext();
     const isInFileInputContext = context !== null;
 
-    const C = path ? "a" : "div";
+    const TitleComponent = path ? "a" : "div";
     const f = (
-        <C
+        <div
             id={id}
             className={cn("jkl-file", {
                 "jkl-file--error": supportLabelType === "error",
                 "jkl-file--warning": supportLabelType === "warning",
             })}
-            href={path}
-            target={path ? "_blank" : undefined}
         >
             <Thumbnail fileName={fileName} fileType={fileType} file={file} path={path} state={state} />
             <div className="jkl-file__file-info">
-                <div className="jkl-file__title">{fileName}</div>
+                <TitleComponent href={path} target={path ? "_blank" : undefined} className="jkl-file__title">
+                    {fileName}
+                </TitleComponent>
                 <p className="jkl-file__description">
                     <span>{formatBytes(fileSize)}</span>
                     <span className="jkl-file__description-slot">{children}</span>
@@ -56,7 +56,7 @@ export const File: FC<FileProps> = (props) => {
                     <CloseIcon />
                 </IconButton>
             )}
-        </C>
+        </div>
     );
 
     if (isInFileInputContext) {

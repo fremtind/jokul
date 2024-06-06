@@ -44,12 +44,12 @@
     gap: var(--jkl-file-gap);
     align-items: center;
 
-    &[href] {
+    a {
         cursor: pointer;
         text-decoration: none;
-        display: block;
+        color: var(--jkl-file-color);
 
-        &:hover .jkl-file__description {
+        &:hover ~ .jkl-file__description {
             @include jkl.no-grow-bold;
         }
 
