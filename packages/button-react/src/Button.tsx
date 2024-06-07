@@ -36,7 +36,12 @@ export const Button = React.forwardRef(function Button<ElementType extends React
                 target.style.setProperty("--jkl-touch-xcoord", Xcoord.toPrecision(4) + "px");
                 target.style.setProperty("--jkl-touch-ycoord", Ycoord.toPrecision(4) + "px");
                 target.classList.add("jkl-button--pressed");
-                setTimeout(() => target.classList.remove("jkl-button--pressed"), 400);
+
+                setTimeout(() => {
+                    target.classList.remove("jkl-button--pressed");
+                    target.style.removeProperty("--jkl-touch-xcoord");
+                    target.style.removeProperty("--jkl-touch-ycoord");
+                }, 400);
             }
         },
         [onTouchStart],

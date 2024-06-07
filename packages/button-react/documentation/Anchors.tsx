@@ -5,7 +5,7 @@ import "./style.scss";
 
 export const Anchors: React.FC<ExampleComponentProps> = () => {
     return (
-        <div className="jkl-button-example" style={{ textAlign: "center" }}>
+        <div className="jkl-button-example">
             <div>
                 <Button as="a" variant="primary" href="/komponenter/buttons#knapper-rendret-som-andre-elementer">
                     Send inn
