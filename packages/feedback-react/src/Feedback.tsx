@@ -18,13 +18,13 @@ interface Props {
     helpLabel?: string;
     /** Svaralternativer til spørsmålet */
     options: FeedbackOption[];
-    /** Dersom du vil stille et åpent spørsmål i tillegg kan du legge det til her */
-    addOnQuestion?: {
-        /** Spørsmålet du vil stille */
-        label: string;
-        /** Eventuell hjelpetekst. Om du ikke spesifiserer en vil det vises en påminnelse om å ikke skrive inn personling informasjon. */
-        helpLabel?: string;
-    };
+    /** Dersom du vil stille et åpent spørsmål i tillegg kan du sette denne til en truthy verdi */
+    addOnQuestion?:
+        | {
+              /** Eventuell hjelpetekst. Om du ikke spesifiserer en vil det vises en påminnelse om å ikke skrive inn personling informasjon. */
+              helpLabel?: string;
+          }
+        | boolean;
     /** Lar deg tilpasse meldingen som kommer når brukeren sender inn tilbakemeldingen.  */
     successMessage?: {
         title: string;

@@ -4,24 +4,22 @@ import { useFeedbackContext } from "../feedbackContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 
 interface Props {
-    label: string;
     helpLabel?: string;
 }
 
 export const AddonQuestion: React.FC<Props> = ({
-    label,
     helpLabel = "Ikke skriv personlige opplysninger. Tilbakemeldinger som kommer inn her blir ikke besvart, men brukt i videre arbeid med å forbedre tjenestene våre.",
 }) => {
     const { maxLength } = useFeedbackContext();
     const context = useMainQuestionContext();
-    const [dynamicLabel, setDynamicLabel] = useState(label);
+    const [dynamicLabel, setDynamicLabel] = useState<string>();
 
     useEffect(() => {
         const labelFromValue = Array.isArray(context?.currentValue)
             ? context?.currentValue[0].textAreaLabel?.toString()
             : context?.currentValue?.textAreaLabel?.toString();
-        setDynamicLabel(labelFromValue || label);
-    }, [context?.currentValue, label]);
+        setDynamicLabel(labelFromValue);
+    }, [context?.currentValue]);
 
     if (!context) {
         console.error("Addon question must be used inside a MainQuestion context provider");

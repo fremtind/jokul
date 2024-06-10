@@ -9,7 +9,7 @@ const smileyQuestion: PresetProperties = {
     type: "smiley",
     label: "Hvor fornøyd er du med denne nettsiden?",
     options: smileyOptions,
-    addOnQuestion: { label: "Vil du legge til noe mer?" },
+    addOnQuestion: true,
 };
 
 export const PRESETS: Record<string, PresetProperties> = {
@@ -28,7 +28,7 @@ export const PRESETS: Record<string, PresetProperties> = {
                 textAreaLabel: "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
             },
         ],
-        addOnQuestion: { label: "Vil du legge til noe mer?" },
+        addOnQuestion: true,
     },
     "Fikk du gjort": {
         type: "radio",
@@ -45,7 +45,7 @@ export const PRESETS: Record<string, PresetProperties> = {
                 textAreaLabel: "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
             },
         ],
-        addOnQuestion: { label: "Vil du legge til noe mer?" },
+        addOnQuestion: true,
     },
     "Hvor fornøyd 5": smileyQuestion,
     Smileys: smileyQuestion,
