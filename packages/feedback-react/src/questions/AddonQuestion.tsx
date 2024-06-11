@@ -10,7 +10,7 @@ interface Props {
 export const AddonQuestion: React.FC<Props> = ({
     helpLabel = "Ikke skriv personlige opplysninger. Tilbakemeldinger som kommer inn her blir ikke besvart, men brukt i videre arbeid med å forbedre tjenestene våre.",
 }) => {
-    const { maxLength } = useFeedbackContext();
+    const { counter } = useFeedbackContext();
     const context = useMainQuestionContext();
     const [dynamicLabel, setDynamicLabel] = useState<string>();
 
@@ -47,7 +47,7 @@ export const AddonQuestion: React.FC<Props> = ({
                 helpLabel={helpLabel}
                 value={message || ""}
                 onChange={handleChange}
-                maxLength={maxLength}
+                counter={counter}
             />
         </>
     );

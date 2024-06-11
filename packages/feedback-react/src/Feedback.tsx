@@ -1,3 +1,4 @@
+import { BaseTextAreaProps } from "@fremtind/jkl-text-input-react/src/BaseTextArea";
 import React, { ReactElement, ReactNode, useState, ComponentProps } from "react";
 import { FeedbackContextProvider } from "./feedbackContext";
 import { Followup } from "./followup/Followup";
@@ -8,7 +9,7 @@ import { FeedbackOption, FeedbackType } from "./types";
 type FollowupProps = ComponentProps<typeof Followup>;
 type ContactQuestionProps = ComponentProps<typeof ContactQuestion>;
 
-interface Props {
+type Props = {
     className?: string;
     /** Velg typen alternativer, Smiley eller RadioButtons. */
     type: "radio" | "smiley";
@@ -41,15 +42,13 @@ interface Props {
 
     followup?: FollowupProps;
     contactQuestion?: ContactQuestionProps;
-    /** Begrenser tekstlengde i TextArea **/
-    maxLength?: number;
-}
+} & Pick<BaseTextAreaProps, "counter">;
 
 export const Feedback = ({
     className,
     followup,
     contactQuestion,
-    maxLength,
+    counter,
     ...mainQuestionProps
 }: Props): ReactElement => {
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
@@ -65,7 +64,7 @@ export const Feedback = ({
                     followupStarted,
                     followupSubmitted,
                     contactSubmitted,
-                    maxLength,
+                    counter,
                     setFeedbackSubmitted,
                     setFollowupStarted,
                     setFollowupSubmitted,
