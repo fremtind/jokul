@@ -1,24 +1,30 @@
 import React from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
+import { Button } from "../src";
 import "./style.scss";
 
 export const Anchors: React.FC<ExampleComponentProps> = () => {
     return (
         <div className="jkl-button-example">
             <div>
-                <a className="jkl-button jkl-button--primary" href="/komponenter/buttons#knapper-som-er-lenker">
+                <Button as="a" variant="primary" href="/komponenter/buttons#knapper-rendret-som-andre-elementer">
                     Send inn
-                </a>
+                </Button>
             </div>
             <div>
-                <a className="jkl-button jkl-button--secondary" href="/komponenter/buttons#knapper-som-er-lenker">
+                <Button variant="secondary" as="a" href="/komponenter/buttons#knapper-rendret-som-andre-elementer">
                     Lagre
-                </a>
+                </Button>
             </div>
             <div>
-                <a className="jkl-button jkl-button--tertiary" href="/komponenter/buttons#knapper-som-er-lenker">
+                <Button variant="tertiary" as="a" href="/komponenter/buttons#knapper-rendret-som-andre-elementer">
                     Avbryt
-                </a>
+                </Button>
+            </div>
+            <div>
+                <Button variant="ghost" as="a" href="/komponenter/buttons#knapper-rendret-som-andre-elementer">
+                    Vis mer
+                </Button>
             </div>
         </div>
     );
@@ -26,27 +32,30 @@ export const Anchors: React.FC<ExampleComponentProps> = () => {
 
 export const AnchorsCode = `
 <div>
-    <a
-        className="jkl-button jkl-button--primary"
-        href="/komponenter/buttons#knapper-som-er-lenker"
+    <Button
+        variant="primary"
+        as="a"
+        href="/komponenter/buttons#knapper-rendret-som-andre-elementer"
     >
         Send inn
-    </a>
+    </Button>
 </div>
 <div>
-    <a
-        className="jkl-button jkl-button--secondary"
-        href="/komponenter/buttons#knapper-som-er-lenker"
+    <Button
+        variant="secondary" // Kan unnlates, secondary er standard variant
+        as="a"
+        href="/komponenter/buttons#knapper-rendret-som-andre-elementer"
     >
         Lagre
-    </a>
+    </Button>
 </div>
 <div>
-    <a
-        className="jkl-button jkl-button--tertiary"
-        href="/komponenter/buttons#knapper-som-er-lenker"
+    <Button
+        variant="tertiary"
+        as="a"
+        href="/komponenter/buttons#knapper-rendret-som-andre-elementer"
     >
         Avbryt
-    </a>
+    </Button>
 </div>
 `;

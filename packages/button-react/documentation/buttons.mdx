@@ -9,10 +9,11 @@ keywords: primary secondary tertiary primær sekundær tertiær
 import { Primary, primaryCode } from "./Primary";
 import { Secondary, secondaryCode } from "./Secondary";
 import { Tertiary, tertiaryCode } from "./Tertiary";
+import { Ghost, ghostCode } from "./Ghost";
 import { Anchors, AnchorsCode } from "./Anchors";
 import { buttonExampleKnobs } from "./ButtonExample";
 
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
+import { Button } from "../src";
 
 <Ingress>
     Knapper starter en handling. Teksten på knappen forteller hva som vil skje når brukeren klikker på den.
@@ -35,25 +36,49 @@ import { PrimaryButton, SecondaryButton, TertiaryButton } from "../src";
 
 <ComponentExample title="TertiaryButton" component={Tertiary} knobs={buttonExampleKnobs} codeExample={tertiaryCode} />
 
+**Ghost-knapp:** brukes til sekundære handlinger som å åpne menyer. Bruk den gjerne som triggerelement for [ContextualMenu](/komponenter/contextualmenu)
+
+<ComponentExample title="GhostButton" component={Ghost} codeExample={ghostCode} />
+
 ## Lastemodus
 
 Hvis du skal bruke lastemodus i knappen må du sørge for at `@fremtind/jkl-loader/loader.min.css` er lastet inn i klienten.
 
 ## Knappetyper
 
-De tre knappene har et hierarki. Når brukeren har flere knapper å velge mellom, skal vi kun ha én primærknapp.
+Knappene våre har et hierarki. Når brukeren har flere knapper å velge mellom, skal vi kun ha én primærknapp.
 
 ## Tekst på knapper
 
 Knappetekster skal være så enkle og korte som mulig og skal oppfordre til handling. Bruk helst bare to ord:
 
-<PrimaryButton className="jkl-spacing-xl--right">Send inn</PrimaryButton>
-<SecondaryButton className="jkl-spacing-xl--right">Lagre</SecondaryButton>
-<TertiaryButton className="jkl-spacing-xl--right">Avbryt</TertiaryButton>
+<Button variant="primary" className="jkl-spacing-xl--right">
+    Send inn
+</Button>
+<Button className="jkl-spacing-xl--right">Lagre</Button>
+<Button variant="tertiary" className="jkl-spacing-xl--right">
+    Avbryt
+</Button>
 
-## Knapper som er lenker
+## Knapper rendret som andre elementer
 
-Avhengig av situasjonen kan det hende en knapp teknisk sett er et `<a />`-element. Jøkul støtter å ha knappeklasser på `<a />`.
+I noen tilfeller representerer en knapp et annet semantisk element, for eksempel en lenke. Knappekomponentene i Jøkul er derfor _polymorfe_, og kan ta inn en React-komponent eller et HTML-element den skal rendre ut.
+
+```tsx
+// Rendrer en vanlig HTML-lenke til gitt href:
+<Button type="primary" as="a" href="/order">
+    Bestill nå
+</Button>;
+
+// Rendrer en Remix-lenke som bruker rammeverkets ruting:
+import { Link } from "@remix-run/react";
+
+<Button as={Link} to="/products">
+    Se alle produkter
+</Button>;
+```
+
+Knappen tar automatisk imot riktige props og riktig `ref` for komponenten som sendes inn, slik at du får typesikkerhet.
 
 <ComponentExample component={Anchors} codeExample={AnchorsCode} />
 

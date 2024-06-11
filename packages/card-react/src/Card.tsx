@@ -1,12 +1,10 @@
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
+import { Button, type ButtonVariant } from "@fremtind/jkl-button-react";
 import { WithOptionalChildren } from "@fremtind/jkl-core";
 import classNames from "classnames";
 import React, { MouseEventHandler, FC } from "react";
 
-type validButtons = "primary" | "secondary" | "tertiary";
-
 type Action = {
-    type: validButtons;
+    type: ButtonVariant;
     name: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
 };
@@ -40,20 +38,6 @@ export const Card: FC<Props> = ({ title, children, className, media, action, dar
         "jkl-card--clickable": clickable,
     });
 
-    let Button = PrimaryButton;
-    if (action) {
-        switch (action.type) {
-            case "secondary":
-                Button = SecondaryButton;
-                break;
-            case "tertiary":
-                Button = TertiaryButton;
-                break;
-            default:
-                break;
-        }
-    }
-
     return (
         <div data-testid="jkl-card" className={componentClassName}>
             {media && (
@@ -73,7 +57,9 @@ export const Card: FC<Props> = ({ title, children, className, media, action, dar
             <div className="jkl-card__children">{children}</div>
             {action && (
                 <div className="jkl-card__action">
-                    <Button onClick={action.onClick}>{action.name}</Button>
+                    <Button variant={action.type || "primary"} onClick={action.onClick}>
+                        {action.name}
+                    </Button>
                 </div>
             )}
         </div>
