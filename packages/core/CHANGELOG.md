@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.5.0 (2024-06-11)
+
+### Features
+
+- legg til typer for polymorfe komponenter ([027979c](https://github.com/fremtind/jokul/commit/027979c9d5d39cf926dc1e31e0b45cfea8d22cd9))
+
 ## [13.4.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@13.4.1...@fremtind/jkl-core@13.4.2) (2023-11-22)
 
 ### Bug Fixes

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@15.0.22...@fremtind/jkl-button-react@15.1.0) (2024-06-11)
+
+### Bug Fixes
+
+- fix typing av onClick i kodeeksempel ([7950193](https://github.com/fremtind/jokul/commit/79501934a0c4c2e2487705bb45f169b429fc3e81))
+- fjern variabler etter klikkanimasjon, pluss noen doc-fikser ([9613267](https://github.com/fremtind/jokul/commit/9613267ed7a8a5933ecdfd95097daa310b81d8b9))
+
+### Features
+
+- gjør knappekomponenten polymorf ([7673632](https://github.com/fremtind/jokul/commit/76736326b7f87c3de91ad56f18428e3a0080f6c3))
+- ny knappevariant, GhostButton ([4721168](https://github.com/fremtind/jokul/commit/472116874fb445b11644d0a33059c71a92869c1b))
+
 # [15.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@14.0.6...@fremtind/jkl-button-react@15.0.0) (2023-09-14)
 
 ### Bug Fixes
