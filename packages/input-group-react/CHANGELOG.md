@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.0.27 (2024-06-11)
+
+### Bug Fixes
+
+- handle inline elements in support labels ([11f3df9](https://github.com/fremtind/jokul/commit/11f3df91f59b09a809f009d4f7a959f6636e8e73)), closes [#3892](https://github.com/fremtind/jokul/issues/3892)
+
 ## 3.0.23 (2024-04-15)
 
 ### Bug Fixes
