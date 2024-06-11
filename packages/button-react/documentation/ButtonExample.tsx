@@ -1,5 +1,6 @@
 import React from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { Ghost } from "./Ghost";
 import { Primary } from "./Primary";
 import { Secondary } from "./Secondary";
 import { Tertiary } from "./Tertiary";
@@ -27,6 +28,9 @@ export const ButtonExample: React.FC<ExampleComponentProps> = ({ boolValues, cho
             </div>
             <div>
                 <Tertiary boolValues={boolValues} choiceValues={choiceValues} />
+            </div>
+            <div>
+                <Ghost boolValues={boolValues} choiceValues={choiceValues} />
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "@fremtind/jkl-icons-react";
 import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-import { SecondaryButton } from "../src";
+import { Button } from "../src";
 
 export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [showLoader, setShowLoader] = useState(false);
@@ -20,7 +20,7 @@ export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues, choiceV
     };
 
     return (
-        <SecondaryButton
+        <Button
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
@@ -28,12 +28,12 @@ export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues, choiceV
             iconRight={icon === "arrow-right" || icon === "begge" ? <ArrowRightIcon /> : null}
         >
             Lagre
-        </SecondaryButton>
+        </Button>
     );
 };
 
 export const secondaryCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
-<SecondaryButton
+<Button
     loader={${
         !!boolValues?.["withLoader"]
             ? `{
@@ -50,5 +50,5 @@ export const secondaryCode = ({ boolValues, choiceValues }: ExampleComponentProp
     }}
 >
     Lagre
-</SecondaryButton>
+</Button>
 `;
