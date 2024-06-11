@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.1.0 (2024-06-11)
+
+### Bug Fixes
+
+- bruk riktig padding på ghost button ([85b907a](https://github.com/fremtind/jokul/commit/85b907a6a2d5332542c812f3a9222e38e3636d30))
+
+### Features
+
+- ny knappevariant, GhostButton ([4721168](https://github.com/fremtind/jokul/commit/472116874fb445b11644d0a33059c71a92869c1b))
+
 # [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button@11.0.2...@fremtind/jkl-button@12.0.0) (2023-09-14)
 
 ### Features

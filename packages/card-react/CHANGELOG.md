@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.3.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.3.6...@fremtind/jkl-card-react@11.3.7) (2024-06-11)
+
+### Bug Fixes
+
+- fiks bruk av knapp i gammelt kort ([05d4ee1](https://github.com/fremtind/jokul/commit/05d4ee1467cb6191a1dbfb436d5ed63ce30bba3e))
+
 # [11.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.2.2...@fremtind/jkl-card-react@11.3.0) (2024-02-28)
 
 ### Features
