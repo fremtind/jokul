@@ -2,7 +2,7 @@ import type { PolymorphicRef } from "@fremtind/jkl-core";
 import { Loader } from "@fremtind/jkl-loader-react";
 import { useAriaLiveRegion } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import React, { type TouchEvent, useCallback } from "react";
+import React, { ButtonHTMLAttributes, type TouchEvent, useCallback } from "react";
 import type { ButtonComponent, ButtonProps } from "./types";
 
 export const Button = React.forwardRef(function Button<ElementType extends React.ElementType = "button">(
@@ -85,20 +85,25 @@ export const Button = React.forwardRef(function Button<ElementType extends React
 }) as ButtonComponent;
 
 export function PrimaryButton<ElementType extends React.ElementType = "button">(
-    props: Omit<ButtonProps<ElementType>, "variant">,
+    props: Omit<ButtonProps<ElementType>, "variant" | "onClick" | "as"> &
+        Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">,
 ) {
     const buttonProps = { ...props, variant: "primary" } as ButtonProps<ElementType>;
     return <Button {...buttonProps} />;
 }
 
 export function SecondaryButton<ElementType extends React.ElementType = "button">(
-    props: Omit<ButtonProps<ElementType>, "variant">,
+    props: Omit<ButtonProps<ElementType>, "variant" | "onClick" | "as"> &
+        Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">,
 ) {
     const buttonProps = { ...props, variant: "secondary" } as ButtonProps<ElementType>;
     return <Button {...buttonProps} />;
 }
 
-export function TertiaryButton<ElementType extends React.ElementType = "button">(props: ButtonProps<ElementType>) {
+export function TertiaryButton<ElementType extends React.ElementType = "button">(
+    props: Omit<ButtonProps<ElementType>, "variant" | "onClick" | "as"> &
+        Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">,
+) {
     const buttonProps = { ...props, variant: "tertiary" } as ButtonProps<ElementType>;
     return <Button {...buttonProps} />;
 }
