@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [18.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@17.2.10...@fremtind/jkl-feedback-react@18.0.0) (2024-06-12)
+
+### Bug Fixes
+
+- the \`label\` prop on \`addOnQuestion\` was removed ([f8fc003](https://github.com/fremtind/jokul/commit/f8fc0036c4e0004f89f8d4f804c61f6299a0ef74))
+
+### Features
+
+- feedback supports taking a \`counter\` prop for its TextAreas ([bb72983](https://github.com/fremtind/jokul/commit/bb72983907b2913bf2bb124386e4e8f7621adec2))
+
+### BREAKING CHANGES
+
+- The ´maxLength\` prop on \`TextArea\` was deprecated and has been removed
+also from Feedback.
+It is replaced with a new `counter` prop. To migrate your code, replace
+`maxLength={250}` with `counter={{ maxLength: 250 }}´.
+- TS types have changed
+
 # [17.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@17.1.41...@fremtind/jkl-feedback-react@17.2.0) (2024-02-22)
 
 ### Features

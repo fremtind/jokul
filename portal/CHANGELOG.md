@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.1.77...@fremtind/portal@20.0.0) (2024-06-12)
+
+### Bug Fixes
+
+- the \`label\` prop on \`addOnQuestion\` was removed ([f8fc003](https://github.com/fremtind/jokul/commit/f8fc0036c4e0004f89f8d4f804c61f6299a0ef74))
+
+### BREAKING CHANGES
+
+- TS types have changed
+
 # [19.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.0.9...@fremtind/portal@19.1.0) (2023-08-15)
 
 ### Features

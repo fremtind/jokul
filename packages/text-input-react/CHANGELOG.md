@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@14.2.17...@fremtind/jkl-text-input-react@15.0.0) (2024-06-12)
+
+### Code Refactoring
+
+- remove deprecated property \`maxLength\` ([cbade50](https://github.com/fremtind/jokul/commit/cbade50bf65b3c6fa4e1f1276f864eab15900c1c))
+
+### BREAKING CHANGES
+
+- TS types have changed
+
 ## [14.2.5](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@14.2.4...@fremtind/jkl-text-input-react@14.2.5) (2023-12-08)
 
 ### Bug Fixes
