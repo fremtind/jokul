@@ -27,6 +27,7 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(fu
             children,
             getReferenceProps({
                 ref,
+                "aria-label": ariaLabel,
                 ...children.props,
                 ...props,
                 className: cn(children.props.className, className),
