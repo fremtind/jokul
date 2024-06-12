@@ -49,6 +49,8 @@ export const FeedbackExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
           }
         : undefined;
     const contact = boolValues?.["Med kontakt-spørsmål"] ? contactQuestion : undefined;
+    const counter = boolValues?.["Med teller"] ? { maxLength: 250 } : undefined;
+
     const preset = choiceValues?.["Forhåndsvalg"]
         ? PRESETS[choiceValues["Forhåndsvalg"] as keyof typeof PRESETS]
         : PRESETS["Smileys"];
@@ -62,7 +64,7 @@ export const FeedbackExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
             onSubmit={console.log}
             followup={followup}
             contactQuestion={contact}
-            maxLength={250}
+            counter={counter}
         />
     );
 };
@@ -114,6 +116,6 @@ export const feedbackCode = ({ boolValues, choiceValues }: ExampleComponentProps
     }}`
         : ""
 }
-    maxLength={250}
+${!!boolValues?.["Med teller"] ? `    counter={{ maxLength: 250 }}` : ""}
 />
 `;

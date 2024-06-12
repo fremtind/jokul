@@ -24,13 +24,8 @@ type Counter = {
 export interface BaseTextAreaProps extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "children"> {
     /**
      * Viser en teller i tekstfeltet når det har fokus.
-     * Denne er ulik den innebyggede maxLength i at den ikke setter en
-     * stopper for å gå over grensen, slik at brukeren kan fullføre en
-     * tankerekke.
      */
     counter?: Counter;
-    /** @deprecated Foretrekk counter-propen sin maxLength for å la brukerne fullføre en tankerekke før de redigerer seg innenfor maksgrensen */
-    maxLength?: number;
     /** Sett antall rader skjemafeltet ekspanderes til ved focus. Innholdet scroller om feltet fylles med mer innhold enn det er plass til. */
     rows?: number;
     inline?: boolean;
