@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@4.2.19...@fremtind/jkl-tooltip-react@4.2.20) (2024-06-12)
+
+### Bug Fixes
+
+- bruk riktig aria-label på TooltipTrigger ([b8a81b3](https://github.com/fremtind/jokul/commit/b8a81b3c7e765c5df588ad7bf533e2d5c4066d32))
+
 ## [4.2.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@4.2.5...@fremtind/jkl-tooltip-react@4.2.6) (2023-10-03)
 
 ### Bug Fixes
