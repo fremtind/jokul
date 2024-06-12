@@ -7,6 +7,8 @@ import {
     contextualMenuToggleSwitchExampleKnobs,
 } from "./ContextualMenuToggleSwitchExample";
 import "../../icons/icons.scss";
+import "../../button/button.scss";
+import "../../tooltip/tooltip.scss";
 import "../../icon-button/icon-button.scss";
 import "../../contextual-menu/contextual-menu.scss";
 import "../../toggle-switch/toggle-switch.scss";
