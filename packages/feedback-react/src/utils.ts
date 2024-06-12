@@ -14,19 +14,6 @@ export function getChildrenOfType<P>(...allowedTypes: Array<string | JSXElementC
         });
 }
 
-export const getTypeFromComponent = (component: React.ReactElement): QuestionType => {
-    switch (component.type) {
-        case RadioQuestion:
-            return "radio";
-        case CheckboxQuestion:
-            return "checkbox";
-        case TextQuestion:
-            return "text";
-        default:
-            return "radio";
-    }
-};
-
 export const getQuestionFromType = (type: QuestionType): FC<QuestionProps> => {
     switch (type) {
         case "radio":

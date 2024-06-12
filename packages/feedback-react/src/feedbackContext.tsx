@@ -1,17 +1,17 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import React, { createContext, useContext, FC } from "react";
+import { BaseTextAreaProps } from "@fremtind/jkl-text-input-react/src/BaseTextArea";
+import React, { createContext, FC, useContext } from "react";
 
-interface FeedbackContext {
+type FeedbackContext = {
     feedbackSubmitted: boolean;
     followupStarted: boolean;
     followupSubmitted: boolean;
     contactSubmitted: boolean;
-    maxLength?: number;
     setFeedbackSubmitted: (state: boolean) => void;
     setFollowupStarted: (state: boolean) => void;
     setFollowupSubmitted: (state: boolean) => void;
     setContactSubmitted: (state: boolean) => void;
-}
+} & Pick<BaseTextAreaProps, "counter">;
 
 const initialState: FeedbackContext = {
     feedbackSubmitted: false,

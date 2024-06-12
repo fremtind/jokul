@@ -43,7 +43,6 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
                             },
                         ]}
                         addOnQuestion={{
-                            label: "Vil du legge til noe mer?",
                             helpLabel:
                                 "Ikke del personlige opplysninger. Vi behandler dine data i henhold til vår personvernserklæring.",
                         }}

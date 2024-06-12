@@ -11,7 +11,7 @@ export const TextQuestion: React.FC<QuestionProps> = ({
     helpLabel = "Ikke skriv personlige opplysninger. Tilbakemeldinger som kommer inn her blir ikke besvart, men brukt i videre arbeid med å forbedre tjenestene våre.",
     autoFocus = false,
 }) => {
-    const { maxLength } = useFeedbackContext();
+    const { counter } = useFeedbackContext();
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
     const context = followupContext || feedbackContext;
@@ -57,7 +57,7 @@ export const TextQuestion: React.FC<QuestionProps> = ({
             value={currentValue}
             onChange={handleChange}
             helpLabel={helpLabel}
-            maxLength={maxLength}
+            counter={counter}
         />
     );
 };
