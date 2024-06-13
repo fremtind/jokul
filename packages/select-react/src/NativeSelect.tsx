@@ -10,6 +10,11 @@ export interface NativeSelectProps extends Omit<InputGroupProps, "children">, Se
      * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
      */
     invalid?: boolean;
+    /**
+     * Setter inn et placeholderelement som vises når ingenting er valgt i nedtrekkslisten.
+     * @default "Velg"
+     */
+    placeholder?: string;
     items: Array<string | ValuePair>;
     selectClassName?: string;
     width?: string;
@@ -26,7 +31,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>((pr
         invalid,
         items,
         labelProps,
-        placeholder,
+        placeholder = "Velg",
         selectClassName,
         supportLabelProps,
         tooltipProps,
