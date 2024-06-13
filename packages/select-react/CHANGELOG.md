@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.1.32 (2024-06-13)
+
+### Bug Fixes
+
+- sørg for at native select ikke viser første element som placeholder ([0f53700](https://github.com/fremtind/jokul/commit/0f53700a7296f5e181c79f49d41b3bbb97a2344b))
+
 ## 14.1.25 (2024-04-15)
 
 ### Bug Fixes
