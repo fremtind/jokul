@@ -22,6 +22,8 @@ type Props = {
     /** Dersom du vil stille et åpent spørsmål i tillegg kan du sette denne til en truthy verdi */
     addOnQuestion?:
         | {
+              /** Spørsmålet du vil stille */
+              label?: string;
               /** Eventuell hjelpetekst. Om du ikke spesifiserer en vil det vises en påminnelse om å ikke skrive inn personling informasjon. */
               helpLabel?: string;
           }
