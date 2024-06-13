@@ -65,6 +65,7 @@ export const MainQuestion: FC<Props> = ({
                         {addOnQuestion && (
                             <AddonQuestion
                                 helpLabel={typeof addOnQuestion === "object" ? addOnQuestion.helpLabel : undefined}
+                                label={typeof addOnQuestion === "object" ? addOnQuestion.label : undefined}
                             />
                         )}
                         <div className="jkl-spacing-xl--top">
