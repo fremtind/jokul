@@ -115,3 +115,10 @@ $webfonts-dir: "/fonts" !default;
     descent-override: normal;
     line-gap-override: 27%;
 }
+@font-face {
+    font-family: "Fremtind Material Symbols";
+    font-weight: 300 500;
+    font-style: normal;
+    src: url("https://fonts.gstatic.com/s/materialsymbolsoutlined/v192/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsLjBuVY.woff2")
+        format("woff2");
+}
