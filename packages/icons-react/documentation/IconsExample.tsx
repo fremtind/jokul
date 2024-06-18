@@ -32,7 +32,7 @@ import {
     TrashCanIcon,
     PenIcon,
 } from "../src";
-import { IconVariant } from "../src/icons/types";
+import { IconVariant } from "../src/types";
 import { IconExample } from "./internal/IconExample";
 import { IconsExampleGrid } from "./internal/IconsExampleGrid";
 
