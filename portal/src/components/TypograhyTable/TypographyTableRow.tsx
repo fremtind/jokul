@@ -12,7 +12,6 @@ export type TypographyLevels =
     | "Heading 4"
     | "Heading 5"
     | "Body"
-    | "Bold"
     | "Small";
 
 interface Props {
