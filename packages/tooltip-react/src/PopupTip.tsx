@@ -38,7 +38,7 @@ export const PopupTip: FC<PopupTipProps> = ({ content, triggerProps, ...tooltipP
                     type="button"
                     className={cn("jkl-tooltip-question-button", triggerProps?.className)}
                 >
-                    <QuestionIcon bold={isBold} />
+                    <QuestionIcon variant="inherit" bold={isBold} />
                     <span className="jkl-sr-only">Vis hjelpetekst</span>
                 </button>
             </TooltipTrigger>

@@ -11,13 +11,13 @@
 
 .jkl-icon {
     --jkl-icon-size: calc(1em / 20 * 24);
+    --jkl-icon-fill: 0;
 
     font-family: "Fremtind Material Symbols", Arial, Helvetica, sans-serif;
-    font-variation-settings: "FILL" 0, "GRAD" var(--jkl-icon-grade);
+    font-variation-settings: "FILL" var(--jkl-icon-fill), "GRAD" var(--jkl-icon-grade), "opsz" var(--jkl-icon-opsz);
     font-feature-settings: "liga";
     -webkit-font-feature-settings: "liga";
     font-size: jkl.rem(24px);
-    font-optical-sizing: 24;
     font-weight: 300;
     line-height: 1;
     display: inline-block;
@@ -31,23 +31,24 @@
     }
 
     &--filled {
-        font-variation-settings: "FILL" 1, "GRAD" var(--jkl-icon-grade);
+        --jkl-icon-fill: 1;
     }
 
     &--medium {
         --jkl-icon-size: #{jkl.rem(24px)};
+        --jkl-icon-opsz: 24;
         font-size: jkl.rem(24px);
     }
 
     &--small {
         --jkl-icon-size: #{jkl.rem(20px)};
+        --jkl-icon-opsz: 20;
         font-size: jkl.rem(20px);
-        font-optical-sizing: 20;
     }
 
     &--inherit {
+        --jkl-icon-opsz: 20;
         font-size: 1em;
-        font-optical-sizing: unset;
     }
 
     &--animated {
