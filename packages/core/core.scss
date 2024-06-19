@@ -53,6 +53,11 @@
 
     background-color: var(--jkl-background-color);
     color: var(--jkl-color);
+
+    strong {
+        --jkl-icon-weight: #{jkl.$icon-weight-bold};
+        font-weight: jkl.$typography-weight-bold;
+    }
 }
 
 @include jkl.prefers-reduced-motion {

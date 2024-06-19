@@ -6,7 +6,8 @@
 
 .jkl-bold {
     @include jkl.text-style("body") {
-        @include jkl.no-grow-bold;
+        --jkl-icon-weight: #{jkl.$icon-weight-bold};
+        font-weight: jkl.$typography-weight-bold;
     }
 }
 

@@ -13,11 +13,12 @@
     --jkl-icon-fill: 0;
 
     font-family: "Fremtind Material Symbols", Arial, Helvetica, sans-serif;
-    font-variation-settings: "FILL" var(--jkl-icon-fill), "GRAD" var(--jkl-icon-grade), "opsz" var(--jkl-icon-opsz);
+    font-variation-settings: "FILL" var(--jkl-icon-fill, 0), "GRAD" var(--jkl-icon-grade, 0),
+        "opsz" var(--jkl-icon-opsz, 20);
     font-feature-settings: "liga";
     -webkit-font-feature-settings: "liga";
     font-size: jkl.rem(24px);
-    font-weight: 300;
+    font-weight: var(--jkl-icon-weight, 300);
     line-height: 1;
     display: inline-block;
     -webkit-font-smoothing: antialiased;
@@ -26,7 +27,7 @@
     transition-property: font-variation-settings;
 
     &--bold {
-        font-weight: 500;
+        --jkl-icon-weight: 500;
     }
 
     &--filled {
