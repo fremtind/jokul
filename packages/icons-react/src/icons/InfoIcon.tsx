@@ -4,6 +4,6 @@ import { type IconProps } from "../types";
 
 export const InfoIcon = (props: IconProps) => (
     <Icon bold filled {...props}>
-        info
+        {"\ue88e"}
     </Icon>
 );

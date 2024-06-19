@@ -4,6 +4,6 @@ import { type IconProps } from "../types";
 
 export const WarningIcon = (props: IconProps) => (
     <Icon bold filled {...props}>
-        warning
+        {"\uf083"}
     </Icon>
 );

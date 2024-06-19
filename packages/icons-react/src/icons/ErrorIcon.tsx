@@ -4,6 +4,6 @@ import { type IconProps } from "../types";
 
 export const ErrorIcon = (props: IconProps) => (
     <Icon bold filled {...props}>
-        error
+        {"\uf8b6"}
     </Icon>
 );
