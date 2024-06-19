@@ -10,7 +10,6 @@
 }
 
 .jkl-icon {
-    --jkl-icon-size: calc(1em / 20 * 24);
     --jkl-icon-fill: 0;
 
     font-family: "Fremtind Material Symbols", Arial, Helvetica, sans-serif;
@@ -35,13 +34,11 @@
     }
 
     &--medium {
-        --jkl-icon-size: #{jkl.rem(24px)};
         --jkl-icon-opsz: 24;
         font-size: jkl.rem(24px);
     }
 
     &--small {
-        --jkl-icon-size: #{jkl.rem(20px)};
         --jkl-icon-opsz: 20;
         font-size: jkl.rem(20px);
     }
@@ -91,8 +88,8 @@
 .jkl-animated-horizontal-arrows,
 .jkl-animated-vertical-arrows {
     overflow: hidden;
-    width: var(--jkl-icon-size);
-    height: var(--jkl-icon-size);
+    width: 1em;
+    height: 1em;
 
     &__slider {
         display: flex;
@@ -108,7 +105,7 @@
 
 .jkl-animated-vertical-arrows__slider {
     flex-direction: column;
-    height: calc(var(--jkl-icon-size) * 2);
+    height: 2em;
 
     &[data-show="down"] {
         transform: translate3d(0, 0, 0);
@@ -121,7 +118,7 @@
 
 .jkl-animated-horizontal-arrows__slider {
     flex-direction: row;
-    width: calc(var(--jkl-icon-size) * 2);
+    width: 2em;
 
     &[data-show="right"] {
         transform: translate3d(0, 0, 0);
