@@ -35,10 +35,10 @@ export const Icon = React.forwardRef(function Icon<
     return (
         <span
             ref={ref}
-            className={cn("jkl-icon-new", className, {
-                "jkl-icon-new--filled": filled,
-                "jkl-icon-new--bold": bold,
-                [`jkl-icon-new--${variant}`]: !!variant,
+            className={cn("jkl-icon", className, {
+                "jkl-icon--filled": filled,
+                "jkl-icon--bold": bold,
+                [`jkl-icon--${variant}`]: !!variant,
             })}
             {...iconProps}
         >

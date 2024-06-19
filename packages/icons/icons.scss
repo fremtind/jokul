@@ -9,7 +9,7 @@
     --jkl-icon-grade: -25;
 }
 
-.jkl-icon-new {
+.jkl-icon {
     --jkl-icon-size: calc(1em / 20 * 24);
 
     font-family: "Fremtind Material Symbols", Arial, Helvetica, sans-serif;
@@ -49,22 +49,10 @@
         font-size: 1em;
         font-optical-sizing: unset;
     }
-}
-
-.jkl-icon {
-    --jkl-icon-size: calc(1em / 20 * 24);
-
-    display: inline;
 
     &--animated {
         display: block;
     }
-
-    &--medium {
-        --jkl-icon-size: #{jkl.rem(24px)};
-    }
-
-    @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
 }
 
 .jkl-icon-red-cross {
