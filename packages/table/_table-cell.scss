@@ -1,11 +1,5 @@
 @use "@fremtind/jkl-core/jkl";
 
-@mixin _expanded-arrow($px) {
-    .jkl-expand-button__arrow {
-        transform: translateY(jkl.rem($px));
-    }
-}
-
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-table-cell", "body");
 
@@ -83,12 +77,7 @@
     &:hover,
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
         .jkl-table-row-expand-button {
-            @include _expanded-arrow(3px);
             color: var(--expand-button-focus-color);
-
-            &--expanded {
-                @include _expanded-arrow(0);
-            }
         }
     }
 }
