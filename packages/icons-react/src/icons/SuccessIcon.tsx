@@ -3,7 +3,7 @@ import { Icon } from "../Icon";
 import { type IconProps } from "../types";
 
 export const SuccessIcon = (props: IconProps) => (
-    <Icon {...props} bold filled>
+    <Icon bold filled {...props}>
         check_circle
     </Icon>
 );
