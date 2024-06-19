@@ -107,11 +107,11 @@
     flex-direction: column;
     height: 2em;
 
-    &[data-show="down"] {
+    &[data-show="up"] {
         transform: translate3d(0, 0, 0);
     }
 
-    &[data-show="up"] {
+    &[data-show="down"] {
         transform: translate3d(0, -50%, 0);
     }
 }
@@ -120,11 +120,11 @@
     flex-direction: row;
     width: 2em;
 
-    &[data-show="right"] {
+    &[data-show="left"] {
         transform: translate3d(0, 0, 0);
     }
 
-    &[data-show="left"] {
+    &[data-show="right"] {
         transform: translate3d(-50%, 0, 0);
     }
 }
