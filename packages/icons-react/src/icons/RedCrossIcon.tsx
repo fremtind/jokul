@@ -36,3 +36,4 @@ export const RedCrossIcon: FC<IconProps> = ({
         </El>
     );
 };
+RedCrossIcon.displayName = "RedCrossIcon";

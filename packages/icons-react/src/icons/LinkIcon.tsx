@@ -1,5 +1,6 @@
 import React from "react";
-import { Icon } from "../Icon";
+import { Icon, type IconComponent } from "../Icon";
 import { type IconProps } from "../types";
 
-export const LinkIcon = (props: IconProps) => <Icon {...props}>{"\ue250"}</Icon>;
+export const LinkIcon: IconComponent = (props: IconProps) => <Icon {...props}>{"\ue250"}</Icon>;
+LinkIcon.displayName = "LinkIcon";

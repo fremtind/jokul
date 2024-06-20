@@ -99,9 +99,9 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
             <IconsExampleGrid style={{ fontSize }} columns="four">
                 {allIcons.map((Ico) => (
                     <IconExample
-                        key={Ico.name}
+                        key={Ico.displayName}
                         renderIcon={() => <Ico bold={bold} variant={variant} />}
-                        name={Ico.name}
+                        name={Ico.displayName}
                     />
                 ))}
             </IconsExampleGrid>
@@ -111,5 +111,8 @@ export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, bo
 
 export const iconsExampleCode: CodeExample = ({ boolValues, choiceValues }) =>
     allIcons
-        .map((icon) => `<${icon.name} variant="${choiceValues?.["Variant"]}"${boolValues?.["Bold"] ? " bold" : ""} />`)
+        .map(
+            (icon) =>
+                `<${icon.displayName} variant="${choiceValues?.["Variant"]}"${boolValues?.["Bold"] ? " bold" : ""} />`,
+        )
         .join("\n");

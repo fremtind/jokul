@@ -23,11 +23,11 @@ type IconComponentProps<ElementType extends Extract<React.ElementType, "span" | 
     }
 >;
 
-type IconComponent = <ElementType extends Extract<React.ElementType, "span" | "div"> = "span">(
+export type IconComponent = (<ElementType extends Extract<React.ElementType, "span" | "div"> = "span">(
     props: IconComponentProps<ElementType>,
-) => React.ReactElement | null;
+) => React.ReactElement | null) & { displayName?: string };
 
-export const Icon = React.forwardRef(function Icon<
+export const Icon: IconComponent = React.forwardRef(function Icon<
     ElementType extends Extract<React.ElementType, "span" | "div"> = "span",
 >(props: IconComponentProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
     const { bold, children, className, filled, variant, ...iconProps } = props;
