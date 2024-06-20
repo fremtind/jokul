@@ -1,5 +1,6 @@
 import React from "react";
-import { Icon } from "../Icon";
+import { Icon, type IconComponent } from "../Icon";
 import { type IconProps } from "../types";
 
-export const MinusIcon = (props: IconProps) => <Icon {...props}>{"\ue15b"}</Icon>;
+export const MinusIcon: IconComponent = (props: IconProps) => <Icon {...props}>{"\ue15b"}</Icon>;
+MinusIcon.displayName = "MinusIcon";

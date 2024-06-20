@@ -1,5 +1,6 @@
 import React from "react";
-import { Icon } from "../Icon";
+import { Icon, type IconComponent } from "../Icon";
 import { type IconProps } from "../types";
 
-export const CloseIcon = (props: IconProps) => <Icon {...props}>{"\ue5cd"}</Icon>;
+export const CloseIcon: IconComponent = (props: IconProps) => <Icon {...props}>{"\ue5cd"}</Icon>;
+CloseIcon.displayName = "CloseIcon";

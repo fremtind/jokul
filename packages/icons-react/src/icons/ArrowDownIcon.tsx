@@ -1,5 +1,6 @@
 import React from "react";
-import { Icon } from "../Icon";
+import { Icon, type IconComponent } from "../Icon";
 import { type IconProps } from "../types";
 
-export const ArrowDownIcon = (props: IconProps) => <Icon {...props}>{"\ue5db"}</Icon>;
+export const ArrowDownIcon: IconComponent = (props: IconProps) => <Icon {...props}>{"\ue5db"}</Icon>;
+ArrowDownIcon.displayName = "ArrowDownIcon";

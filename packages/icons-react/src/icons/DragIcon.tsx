@@ -1,5 +1,6 @@
 import React from "react";
-import { Icon } from "../Icon";
+import { Icon, type IconComponent } from "../Icon";
 import { type IconProps } from "../types";
 
-export const DragIcon = (props: IconProps) => <Icon {...props}>{"\ue945"}</Icon>;
+export const DragIcon: IconComponent = (props: IconProps) => <Icon {...props}>{"\ue945"}</Icon>;
+DragIcon.displayName = "DragIcon";

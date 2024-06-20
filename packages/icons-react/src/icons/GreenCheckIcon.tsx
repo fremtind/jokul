@@ -39,3 +39,4 @@ export const GreenCheckIcon: FC<IconProps> = ({
         </El>
     );
 };
+GreenCheckIcon.displayName = "GreenCheckIcon";
