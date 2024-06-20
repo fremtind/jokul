@@ -34,6 +34,7 @@ export const Icon: IconComponent = React.forwardRef(function Icon<
 
     return (
         <span
+            aria-hidden
             ref={ref}
             className={cn("jkl-icon", className, {
                 "jkl-icon--filled": filled,
