@@ -14,7 +14,7 @@ import {
 } from "../src";
 
 export const sortableTableExamplesProps: ExampleKnobsProps = {
-    boolProps: ["Med snarvei"],
+    boolProps: [],
     choiceProps: [],
 };
 
