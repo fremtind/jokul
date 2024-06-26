@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.4.0 (2024-06-26)
+
+### Features
+
+- optional props for custom labels for TablePagination ([afc1e50](https://github.com/fremtind/jokul/commit/afc1e5039907128d5793a34309eab12b75fe27ad)), closes [#3907](https://github.com/fremtind/jokul/issues/3907)
+
 # 11.3.0 (2024-02-07)
 
 ### Features
