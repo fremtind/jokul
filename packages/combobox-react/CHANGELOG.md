@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.26 (2024-06-26)
+
+### Bug Fixes
+
+- la combobox kunne brukes som controlled component ([729b56c](https://github.com/fremtind/jokul/commit/729b56c9484abaca5599358993575ff5ba64ce90))
+
 ## [2.3.18](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@2.3.17...@fremtind/jkl-combobox-react@2.3.18) (2024-04-19)
 
 ### Bug Fixes
