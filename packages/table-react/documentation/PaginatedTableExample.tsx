@@ -14,7 +14,7 @@ import {
 import { columns, rows } from "./paginated-table-data";
 
 export const paginatedTableExamplesProps: ExampleKnobsProps = {
-    boolProps: ["Med snarvei"],
+    boolProps: ["Med snarvei", "Med custom labels"],
     choiceProps: [],
 };
 
@@ -76,7 +76,22 @@ export const PaginatedTableExample: FC<ExampleComponentProps> = ({ boolValues, c
                                     });
                                 }
                             }}
-                            withGoToPage={boolValues?.["Med snarvei"]}
+                            withGoToPage={
+                                boolValues?.["Med snarvei"]
+                                    ? boolValues?.["Med custom labels"]
+                                        ? { gotoLabel: "Label for hopp til side" }
+                                        : true
+                                    : false
+                            }
+                            labels={
+                                boolValues?.["Med custom labels"]
+                                    ? {
+                                          rowsPerPage: "Label for rader per side",
+                                          next: "Label for neste side",
+                                          previous: "Label for forrige side",
+                                      }
+                                    : undefined
+                            }
                         />
                     </TableCell>
                 </TableRow>
