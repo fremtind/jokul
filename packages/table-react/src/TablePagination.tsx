@@ -31,11 +31,24 @@ export interface TablePaginationProps {
     totalNumberOfRows: number;
     /**
      * Viser et valgfritt inputfelt for å hoppe raskt til en spesifik side.
+     * Du kan også sende inn en custom label hvis du ønsker det, ellers bruke
+     * true for default label
      * @default false
      */
-    withGoToPage?: boolean;
+    withGoToPage?: boolean | { gotoLabel: string };
     onChange: (e: React.SyntheticEvent, toPage: number, fromPage: number) => void;
     onChangeRowsPerPage: ChangeEventHandler<HTMLSelectElement>;
+    /**
+     * Dersom du ønsker å ha custom labels kan du sende inn disse. "rowsPerPage"
+     * vises alltid på skjerm mens "next" og "previous" brukes som hint til
+     * skjermlesere for ikon-knappene til Neste/Forrige side
+     * @default { rowsPerPage: "Rader per side", previous: "Forrige", next: "Neste" }
+     */
+    labels?: {
+        rowsPerPage: string;
+        previous: string;
+        next: string;
+    };
 }
 
 function clamp(min: number, num: number, max: number): number {
@@ -59,6 +72,11 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
         withGoToPage = false,
         onChange,
         onChangeRowsPerPage,
+        labels = {
+            rowsPerPage: "Rader per side",
+            previous: "Forrige",
+            next: "Neste",
+        },
         ...rest
     } = props;
 
@@ -142,11 +160,11 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
             <div className="jkl-table-pagination__left">
                 <div className="jkl-table-pagination__picker jkl-table-pagination__picker--rows">
                     <span className="jkl-table-pagination__picker-label" aria-hidden="true">
-                        Rader per side:
+                        {labels.rowsPerPage}:
                     </span>
                     <NativeSelect
                         className="jkl-table-pagination__picker-input"
-                        label="Rader per side"
+                        label={labels.rowsPerPage}
                         labelProps={{ srOnly: true }}
                         name={`${id}-rows-per-page`}
                         items={rowsPerPageItems.map((i) =>
@@ -165,12 +183,12 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                         {withGoToPage && (
                             <div className="jkl-table-pagination__picker jkl-table-pagination__picker--page">
                                 <span className="jkl-table-pagination__picker-label" aria-hidden="true">
-                                    Gå til side:
+                                    {typeof withGoToPage === "object" ? withGoToPage.gotoLabel : "Gå til side"}:
                                 </span>
                                 {/* onChange først ved enter/submit */}
                                 <TextInput
                                     className="jkl-table-pagination__picker-input"
-                                    label="Gå til side"
+                                    label={typeof withGoToPage === "object" ? withGoToPage.gotoLabel : "Gå til side"}
                                     labelProps={{ srOnly: true }}
                                     name={`${id}-go-to-page`}
                                     value={pagePickerValue}
@@ -188,7 +206,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                             <li>
                                 <IconButton
                                     className="jkl-table-pagination__previous"
-                                    title="Forrige"
+                                    title={labels.previous}
                                     onClick={onPrevious}
                                 >
                                     <ChevronLeftIcon />
@@ -201,7 +219,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                                 onPageClick={onPageClick}
                             />
                             <li>
-                                <IconButton className="jkl-table-pagination__next" title="Neste" onClick={onNext}>
+                                <IconButton className="jkl-table-pagination__next" title={labels.next} onClick={onNext}>
                                     <ChevronRightIcon />
                                 </IconButton>
                             </li>
