@@ -103,6 +103,10 @@ export const Combobox: FC<ComboboxProps> = ({
         }
     }, [showMenu]);
 
+    useEffect(() => {
+        setSelectedValue((prev) => value || prev);
+    }, [value]);
+
     // Funksjon for å stile valgt element
     const isSelected = (option: ValuePair) => {
         if (!selectedValue) {
