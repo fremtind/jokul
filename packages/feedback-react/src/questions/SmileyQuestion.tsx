@@ -1,5 +1,5 @@
 import { FieldGroup } from "@fremtind/jkl-input-group-react";
-import React, { Fragment, ChangeEventHandler, useMemo } from "react";
+import React, { Fragment, ChangeEventHandler, useMemo, useId } from "react";
 import { useFollowUpContext } from "../followup/followupContext";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext";
 import { FeedbackOption, QuestionProps } from "../types";
@@ -17,8 +17,10 @@ export const SmileyQuestion: React.FC<QuestionProps> = ({
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
     const context = followupContext || feedbackContext;
+    const id = useId();
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+        console.log(e.target.value);
         const option = options?.find((option) => option.value.toString() === e.target.value);
         context?.setCurrentValue(option);
     };
@@ -45,14 +47,14 @@ export const SmileyQuestion: React.FC<QuestionProps> = ({
                     <Fragment key={option.value}>
                         <input
                             className="jkl-sr-only"
-                            id={`${name}-${option.value}`}
-                            name={name}
+                            id={`${id}-${name}-${option.value}`}
+                            name={`${id}-${name}`}
                             type="radio"
                             value={option.value}
                             onChange={handleChange}
                             checked={selectedValue === option.value}
                         />
-                        <label className="jkl-feedback-smiley-option" htmlFor={`${name}-${option.value}`}>
+                        <label className="jkl-feedback-smiley-option" htmlFor={`${id}-${name}-${option.value}`}>
                             <span className="jkl-sr-only">{option.label}</span>
                             {getSmiley(Number(option.value))}
                         </label>
