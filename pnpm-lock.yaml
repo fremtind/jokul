@@ -1132,7 +1132,7 @@ importers:
       '@fremtind/jkl-datepicker-react': ^15.1.38
       '@fremtind/jkl-description-list-react': ^8.0.11
       '@fremtind/jkl-expand-button-react': ^7.0.5
-      '@fremtind/jkl-feedback-react': ^18.0.3
+      '@fremtind/jkl-feedback-react': ^18.0.4
       '@fremtind/jkl-file-input-react': ^2.2.17
       '@fremtind/jkl-footer-react': ^6.1.16
       '@fremtind/jkl-formatters-util': ^5.1.10
