@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 18.0.4 (2024-06-27)
+
+### Bug Fixes
+
+- gi smileys og radio buttons i feedback unike ider ([841b081](https://github.com/fremtind/jokul/commit/841b081d98d7bd73e2b82d2ebfa7f18a7f636692))
+
 ## [18.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@18.0.1...@fremtind/jkl-feedback-react@18.0.2) (2024-06-13)
 
 ### Bug Fixes
