@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.4.1 (2024-07-01)
+
+### Bug Fixes
+
+- gjør det mulig å bruke TableRow controlled ([c07787c](https://github.com/fremtind/jokul/commit/c07787c08180cfa79900756a9646fb63692ecde9))
+
 # 11.4.0 (2024-06-26)
 
 ### Features
