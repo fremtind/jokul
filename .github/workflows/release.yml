@@ -32,7 +32,7 @@ jobs:
                   git remote set-url origin https://fremtind-bot:$BOT_PUBLISH_TOKEN@github.com/fremtind/jokul
 
             - name: Setup pnpm
-              uses: pnpm/action-setup@v2
+              uses: pnpm/action-setup@v4
               with:
                   version: 7
                   run_install: |
