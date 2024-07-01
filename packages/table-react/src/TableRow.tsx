@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { forwardRef, HTMLAttributes, useState } from "react";
+import React, { forwardRef, HTMLAttributes, useEffect, useState } from "react";
 import { useTableContext } from "./tableContext";
 import { useTableSectionContext } from "./tableSectionContext";
 
@@ -22,6 +22,10 @@ const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(({ className, cl
     const { isTableBody } = useTableSectionContext();
 
     const [clicked, setClicked] = useState(clickable?.isClicked || false);
+
+    useEffect(() => {
+        setClicked((prev) => (clickable?.isClicked !== undefined ? clickable.isClicked : prev));
+    }, [clickable?.isClicked]);
 
     if (isTableBody && clickable) {
         return (
