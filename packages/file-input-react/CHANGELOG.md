@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.2.18...@fremtind/jkl-file-input-react@2.3.0) (2024-07-02)
+
+### Features
+
+- legg til mulighet for å sette headers på uploads ([74ef8c9](https://github.com/fremtind/jokul/commit/74ef8c967da5df8b5165be00f92eaf1a032ae86b))
+
 ## [2.2.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.2.10...@fremtind/jkl-file-input-react@2.2.11) (2024-06-06)
 
 ### Bug Fixes
