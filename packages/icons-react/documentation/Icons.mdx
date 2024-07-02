@@ -44,6 +44,20 @@ Dersom du koder med bruk av `inherit`-varianten av ikoner (dette er standard) vi
 
 Hvis du trenger en fast størrelse og vekt kan du bruke egne props for dette.
 
+## Unngå flash of unstyled content
+
+Ikonfilen er stor. For å unngå et _flash of unstyled content_ før filen er lastet inn, anbefaler vi at du preloader ikonfilen i løsningen du lager. Legg inn koden under i head for å gjøre det.
+
+```html
+<link
+    rel="preload"
+    href="<sti til dine fontfiler>/Fremtind_Material_Symbols.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+/>
+```
+
 ## Hvordan bruker vi ikoner?
 
 Se [profildokumentasjonen](/profil/ikoner) for mer om hvordan vi bruker ikoner.
