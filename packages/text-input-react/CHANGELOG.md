@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 15.1.0 (2024-07-04)
+
+### Features
+
+- eksporter base text area og typer ([d26fe97](https://github.com/fremtind/jokul/commit/d26fe97a4813dd99e2641102fac6dbd9e8709587))
+
 # [15.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@14.2.17...@fremtind/jkl-text-input-react@15.0.0) (2024-06-12)
 
 ### Code Refactoring
