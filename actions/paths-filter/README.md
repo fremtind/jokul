@@ -30,7 +30,5 @@ Inspired by [dorny/paths-filter](https://github.com/dorny/paths-filter), but sim
 
 - name: Setup pnpm
   if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')
-  uses: pnpm/action-setup@v2
-  with:
-      version: 7
+  uses: pnpm/action-setup@v4
 ```
