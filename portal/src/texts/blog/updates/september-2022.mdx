@@ -4,7 +4,7 @@ author: William Killerud
 publishDate: "2022.09.30"
 ---
 
-import { NON_BREAKING_SPACE } from "@fremtind/jkl-constants-util/src/unicode";
+import { unicode } from "@fremtind/jkl-constants-util";
 import { Tooltip } from "@fremtind/jkl-tooltip-react";
 
 <Ingress>
@@ -30,7 +30,7 @@ Vi skal ikke gjenta oss for mye, så les gjerne [Kompaktvarianter har landet](/b
 
 <div className="jkl-portal-paragraph">
     {/* prettier-ignore */}
-    <p className="jkl-bold">tl;dr{NON_BREAKING_SPACE}<Tooltip content="Too long; didn't read" /></p>
+    <p className="jkl-bold">tl;dr{unicode.NON_BREAKING_SPACE}<Tooltip content="Too long; didn't read" /></p>
 </div>
 
 Konseptet vi ble enige om i sommer for kompakt modus er ute både i Figma og i kode. Kompakt er nå sin egen ting, ikke "mobil på desktop".

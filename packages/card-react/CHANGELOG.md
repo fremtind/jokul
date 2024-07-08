@@ -3,39 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.2-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@12.0.1...@fremtind/jkl-card-react@12.0.2-alpha.0) (2024-08-26)
+
+**Note:** Version bump only for package @fremtind/jkl-card-react
+
 # [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.3.17...@fremtind/jkl-card-react@12.0.0) (2024-08-14)
 
 ### Features
 
-- erstatt utgått kortkomponent med ny overordnet variant ([c2258d4](https://github.com/fremtind/jokul/commit/c2258d4ced7add2167ae46c539d11dbc633a815a))
+-   erstatt utgått kortkomponent med ny overordnet variant ([c2258d4](https://github.com/fremtind/jokul/commit/c2258d4ced7add2167ae46c539d11dbc633a815a))
 
 ### BREAKING CHANGES
 
-- Den gamle Card-komponenten er erstattet med ny
+-   Den gamle Card-komponenten er erstattet med ny
 
 ## [11.3.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.3.6...@fremtind/jkl-card-react@11.3.7) (2024-06-11)
 
 ### Bug Fixes
 
-- fiks bruk av knapp i gammelt kort ([05d4ee1](https://github.com/fremtind/jokul/commit/05d4ee1467cb6191a1dbfb436d5ed63ce30bba3e))
+-   fiks bruk av knapp i gammelt kort ([05d4ee1](https://github.com/fremtind/jokul/commit/05d4ee1467cb6191a1dbfb436d5ed63ce30bba3e))
 
 # [11.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.2.2...@fremtind/jkl-card-react@11.3.0) (2024-02-28)
 
 ### Features
 
-- legg til prop for å definere ekstern lenke ([d5700d0](https://github.com/fremtind/jokul/commit/d5700d0ad88eb9fbc2d11452041b1858d6a8adf2))
+-   legg til prop for å definere ekstern lenke ([d5700d0](https://github.com/fremtind/jokul/commit/d5700d0ad88eb9fbc2d11452041b1858d6a8adf2))
 
 # [11.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.1.26...@fremtind/jkl-card-react@11.2.0) (2024-02-20)
 
 ### Features
 
-- legg til støtte for å ha flere tags i navcard ([f836890](https://github.com/fremtind/jokul/commit/f836890c3742984afb72b02587b589740c7d1d29))
+-   legg til støtte for å ha flere tags i navcard ([f836890](https://github.com/fremtind/jokul/commit/f836890c3742984afb72b02587b589740c7d1d29))
 
 # [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.0.7...@fremtind/jkl-card-react@11.1.0) (2023-09-21)
 
 ### Features
 
-- deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
+-   deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
 
 # [11.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@10.0.8...@fremtind/jkl-card-react@11.0.0) (2023-09-14)
 

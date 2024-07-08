@@ -3,11 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.24-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contact-information-react@2.1.23...@fremtind/jkl-contact-information-react@2.1.24-alpha.0) (2024-08-26)
+
+**Note:** Version bump only for package @fremtind/jkl-contact-information-react
+
 # 2.1.0 (2024-02-07)
 
 ### Features
 
-- toggleSwitch now supports the disabled prop ([5973df5](https://github.com/fremtind/jokul/commit/5973df556acae73b407e2e039bae69422d623975)), closes [#3803](https://github.com/fremtind/jokul/issues/3803)
+-   toggleSwitch now supports the disabled prop ([5973df5](https://github.com/fremtind/jokul/commit/5973df556acae73b407e2e039bae69422d623975)), closes [#3803](https://github.com/fremtind/jokul/issues/3803)
 
 ## 2.0.7 (2023-09-05)
 

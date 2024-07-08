@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion",
-    "version": "11.2.4",
+    "version": "11.3.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
@@ -12,15 +12,14 @@
         "fremtind"
     ],
     "files": [
-        "!example",
         "*.css",
         "*.scss"
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf .turbo **/*.css",
-        "build": "gulp build",
-        "build:watch": "gulp build:watch",
+        "clean": "rimraf .turbo *.css",
+        "build": "node build.js",
+        "build:watch": "nodemon build.js",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "echo \"Error: run dev from accordion-react\" && exit 1"
     },

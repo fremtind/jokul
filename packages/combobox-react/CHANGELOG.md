@@ -3,42 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.31-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@2.3.30...@fremtind/jkl-combobox-react@2.3.31-alpha.0) (2024-08-26)
+
+**Note:** Version bump only for package @fremtind/jkl-combobox-react
+
 ## 2.3.26 (2024-06-26)
 
 ### Bug Fixes
 
-- la combobox kunne brukes som controlled component ([729b56c](https://github.com/fremtind/jokul/commit/729b56c9484abaca5599358993575ff5ba64ce90))
+-   la combobox kunne brukes som controlled component ([729b56c](https://github.com/fremtind/jokul/commit/729b56c9484abaca5599358993575ff5ba64ce90))
 
 ## [2.3.18](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@2.3.17...@fremtind/jkl-combobox-react@2.3.18) (2024-04-19)
 
 ### Bug Fixes
 
-- using tab with focus on an option no longer selects that option ([c6b203e](https://github.com/fremtind/jokul/commit/c6b203e8f782e42202d615db5ae41db961b8968e)), closes [#3858](https://github.com/fremtind/jokul/issues/3858)
+-   using tab with focus on an option no longer selects that option ([c6b203e](https://github.com/fremtind/jokul/commit/c6b203e8f782e42202d615db5ae41db961b8968e)), closes [#3858](https://github.com/fremtind/jokul/issues/3858)
 
 ## [2.3.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@2.3.16...@fremtind/jkl-combobox-react@2.3.17) (2024-04-15)
 
 ### Bug Fixes
 
-- gjorde slik at hele komponenten får fokus ([b280714](https://github.com/fremtind/jokul/commit/b28071490132470c0207834e517735f3df1e2011))
+-   gjorde slik at hele komponenten får fokus ([b280714](https://github.com/fremtind/jokul/commit/b28071490132470c0207834e517735f3df1e2011))
 
 ## 2.3.12 (2024-03-05)
 
 ### Bug Fixes
 
-- oppdatere state når man fjerner tags med keys ([62a60fc](https://github.com/fremtind/jokul/commit/62a60fcc7dd263ec814af12aab3c811d9af8f819))
+-   oppdatere state når man fjerner tags med keys ([62a60fc](https://github.com/fremtind/jokul/commit/62a60fcc7dd263ec814af12aab3c811d9af8f819))
 
 # 2.3.0 (2023-12-06)
 
 ### Features
 
-- la til prop for å ha hover på valgte tags ([ad5cc80](https://github.com/fremtind/jokul/commit/ad5cc80805feddae7cda06260d672dd4331add04))
+-   la til prop for å ha hover på valgte tags ([ad5cc80](https://github.com/fremtind/jokul/commit/ad5cc80805feddae7cda06260d672dd4331add04))
 
 # [2.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@2.1.12...@fremtind/jkl-combobox-react@2.2.0) (2023-11-07)
 
 ### Features
 
-- la til styling ved markerte tags ([5509def](https://github.com/fremtind/jokul/commit/5509def412d9668c09a6bcfed2d97fd01440ffaa))
-- removed function that removes all selected tags and added keys for removing selected tags inst ([8aca586](https://github.com/fremtind/jokul/commit/8aca586ecc75d6b383f09deaee72c43344776dfa))
+-   la til styling ved markerte tags ([5509def](https://github.com/fremtind/jokul/commit/5509def412d9668c09a6bcfed2d97fd01440ffaa))
+-   removed function that removes all selected tags and added keys for removing selected tags inst ([8aca586](https://github.com/fremtind/jokul/commit/8aca586ecc75d6b383f09deaee72c43344776dfa))
 
 # 2.1.0 (2023-09-13)
 

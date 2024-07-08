@@ -3,32 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.62-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-constants-util@3.0.61...@fremtind/jkl-constants-util@3.0.62-alpha.0) (2024-08-26)
+
+**Note:** Version bump only for package @fremtind/jkl-constants-util
+
 # 3.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 # [2.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-constants-util@1.0.16...@fremtind/jkl-constants-util@2.0.0) (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 1.0.7 (2022-11-22)
 
