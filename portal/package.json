@@ -9,6 +9,7 @@
         "react-docgen-typescript": "^2.2.2"
     },
     "dependencies": {
+        "@fremtind/jkl-accordion": "^11.2.2",
         "@fremtind/jkl-accordion-react": "^11.1.5",
         "@fremtind/jkl-alert-message-react": "^11.1.15",
         "@fremtind/jkl-breadcrumb-react": "^5.0.11",

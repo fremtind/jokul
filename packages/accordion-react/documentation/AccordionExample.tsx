@@ -1,7 +1,8 @@
 import { UnorderedList, ListItem } from "@fremtind/jkl-list-react";
 import React, { useId } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../utils/documentation";
 import { Accordion, AccordionItem } from "../src";
+import "@fremtind/jkl-accordion/accordion.scss";
 
 export const accordionExampleKnobs: ExampleKnobsProps = {};
 

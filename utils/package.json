@@ -1,0 +1,41 @@
+{
+    "name": "@internal/utils",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "clean": "rimraf build/ node_modules/",
+        "build": "vite build --config vite.build.config.ts",
+        "build:watch": "vite build --config vite.build.config.ts --watch",
+        "typecheck": "tsc",
+        "test": "echo TODO"
+    },
+    "dependencies": {
+        "@emotion/is-prop-valid": "^1.2.2",
+        "@fremtind/jkl-button": "^12.1.0",
+        "@fremtind/jkl-checkbox": "^11.0.6",
+        "@fremtind/jkl-checkbox-react": "^11.1.17",
+        "@fremtind/jkl-core": "^13.5.0",
+        "@fremtind/jkl-expand-button-react": "^7.0.2",
+        "@fremtind/jkl-icons": "^9.1.3",
+        "@fremtind/jkl-input-group": "^3.0.9",
+        "@fremtind/jkl-input-group-react": "^3.0.24",
+        "@fremtind/jkl-loader-react": "^12.0.11",
+        "@fremtind/jkl-radio-button": "^10.1.9",
+        "@fremtind/jkl-radio-button-react": "^11.1.42",
+        "@fremtind/jkl-react-hooks": "^12.0.11",
+        "@fremtind/jkl-select": "^11.1.9",
+        "@fremtind/jkl-select-react": "^14.1.26",
+        "@fremtind/jkl-webfonts": "^3.0.0",
+        "case": "^1.6.3",
+        "react-syntax-highlighter": "^15.5.0"
+    },
+    "devDependencies": {
+        "@types/react-syntax-highlighter": "^15.5.10",
+        "@vitejs/plugin-react-swc": "^3.5.0",
+        "glob": "^8.1.0",
+        "rimraf": "^5.0.7",
+        "typescript": "^5.2.2",
+        "vite": "^5.2.0",
+        "vite-plugin-dts": "^3.9.0"
+    }
+}
