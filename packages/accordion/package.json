@@ -12,17 +12,14 @@
         "fremtind"
     ],
     "files": [
-        "!example",
-        "build/*.css",
-        "build/*.scss"
+        "*.css",
+        "*.scss"
     ],
     "license": "MIT",
     "scripts": {
-        "sass": "sass --load-path=node_modules --no-source-map src:build/",
-        "postcss": "rimraf *.min.css && postcss build/*.css -d build --ext min.css --verbose",
-        "clean": "rimraf .turbo build",
-        "build": "pnpm sass && pnpm postcss",
-        "build:watch": "sass --watch --load-path=node_modules src:build/",
+        "clean": "rimraf .turbo *.css",
+        "build": "node build.js",
+        "build:watch": "nodemon build.js",
         "test": "echo \"Error: run tests from root\" && exit 1",
         "dev": "echo \"Error: run dev from accordion-react\" && exit 1"
     },
