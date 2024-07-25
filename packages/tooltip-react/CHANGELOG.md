@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.21 (2024-07-25)
+
+### Bug Fixes
+
+- duplicate key error with tooltip triggered by hover ([dbb9c37](https://github.com/fremtind/jokul/commit/dbb9c37d13fa87ba7ae17fded76941373c8d1d98)), closes [#3918](https://github.com/fremtind/jokul/issues/3918)
+
 ## [4.2.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@4.2.19...@fremtind/jkl-tooltip-react@4.2.20) (2024-06-12)
 
 ### Bug Fixes
