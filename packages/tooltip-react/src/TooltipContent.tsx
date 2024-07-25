@@ -69,12 +69,12 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                 {/* For å kunne bruke tekstinnholdet i tooltip som beskrivende tekst, selv når ikke
             tooltip er synlig, må vi rendre et skjult element å referere til for å hente innholdet. */}
                 {triggerOn === "hover" && (
-                    <span ref={refs.setDescription} hidden>
+                    <span ref={refs.setDescription} hidden key={`${contentId}-trigger`}>
                         {children}
                     </span>
                 )}
                 {isOpen && (
-                    <span className="jkl">
+                    <span className="jkl" key={`${contentId}-wrapper`}>
                         <motion.span
                             key={contentId}
                             ref={ref}
