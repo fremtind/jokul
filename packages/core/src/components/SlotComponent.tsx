@@ -10,10 +10,10 @@ export const SlotComponent = React.forwardRef<HTMLElement, SlotComponentProps>(f
     forwardedRef,
 ) {
     if (React.isValidElement(children)) {
-        return React.cloneElement(children, {
+        return React.cloneElement(children as React.ReactElement, {
             ...mergeProps(slotProps, children.props),
             ref: mergeRefs(forwardedRef, (children as any).ref),
-        } as React.Attributes); // TODO: TypeScript klager på ref uten casting her. Hvorfor?
+        });
     }
 
     if (React.Children.count(children) > 1) {
