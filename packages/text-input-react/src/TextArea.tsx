@@ -37,7 +37,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, r
             className={cn("jkl-text-area", className, {
                 "jkl-text-area--start-open": startOpen,
                 "jkl-text-area--auto-expand": autoExpand,
-                "jkl-text-area--with-counter": typeof counter !== "undefined",
             })}
             data-testid="jkl-text-area"
             {...inputGroupProps}
