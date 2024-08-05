@@ -315,7 +315,7 @@ $_text-input-selection-color--inverted: color.scale(
         }
     }
 
-    &--with-counter {
+    &:has(.jkl-text-area__counter) {
         $progress-bar-height: jkl.rem(4px);
 
         .jkl-text-input-wrapper {

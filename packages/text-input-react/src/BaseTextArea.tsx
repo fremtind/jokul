@@ -6,6 +6,7 @@ import React, {
     useRef,
     useState,
     useEffect,
+    ChangeEvent,
 } from "react";
 
 type Counter = {
@@ -46,9 +47,19 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>((
         style,
         value,
         "aria-invalid": ariaInvalid,
+        onChange,
         ...rest
     } = props;
 
+    const [counterCurrent, setCounterCurrent] = useState(() => {
+        if (typeof value === "undefined") {
+            return 0;
+        } else if (typeof value === "number") {
+            return String(value).length;
+        } else {
+            return value.length;
+        }
+    });
     const [textAreaFocused, setTextAreaFocused] = useState(false);
     const internalRef = useRef<HTMLTextAreaElement>(null);
     const textAreaRef = (ref as RefObject<HTMLTextAreaElement>) || internalRef;
@@ -84,7 +95,13 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>((
         }
     }
 
-    const counterCurrent: number = textAreaRef.current?.value.length || 0;
+    function handleOnChange(e: ChangeEvent<HTMLTextAreaElement>) {
+        setCounterCurrent(e.target.value.length);
+        if (onChange) {
+            onChange(e);
+        }
+    }
+
     const counterTotal: number = counter?.maxLength || 0;
     const progressCurrent: number = counterTotal - counterCurrent;
     function calculatePercentage(current: number, total: number): number {
@@ -111,6 +128,7 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>((
                 className={`jkl-text-area__text-area jkl-text-area__text-area--${rows}-rows`}
                 onBlur={handleOnBlur}
                 onFocus={handleOnFocus}
+                onChange={handleOnChange}
                 ref={textAreaRef}
                 style={{ ...style, ...overflowStyle }}
                 placeholder={placeholder}
