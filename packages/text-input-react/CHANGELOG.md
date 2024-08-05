@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@15.1.1...@fremtind/jkl-text-input-react@15.1.2) (2024-08-05)
+
+### Bug Fixes
+
+- remove need for --with-counter modifier on input-group ([1c4c1cb](https://github.com/fremtind/jokul/commit/1c4c1cbaa695a03824597faf01b15dfc31d3380d)), closes [#3921](https://github.com/fremtind/jokul/issues/3921)
+- the counter in TextArea now works properly if used as an uncontrolled component ([cff88a6](https://github.com/fremtind/jokul/commit/cff88a6623da03ac1eb639a0db694e3b46d37c19)), closes [#3921](https://github.com/fremtind/jokul/issues/3921)
+
 # 15.1.0 (2024-07-04)
 
 ### Features
