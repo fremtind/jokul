@@ -1,5 +1,6 @@
 import { fileURLToPath } from "node:url";
 import { extname, relative, resolve } from "path";
+import terser from "@rollup/plugin-terser";
 import react from "@vitejs/plugin-react-swc";
 import glob from "glob";
 import nodeExternals from "rollup-plugin-node-externals";
@@ -34,6 +35,7 @@ export default defineConfig({
                 entryFileNames: (chunkInfo) => {
                     return "[format]/[name].js";
                 },
+                plugins: [terser()],
                 globals: {
                     react: "react",
                     "react-dom": "ReactDOM",
