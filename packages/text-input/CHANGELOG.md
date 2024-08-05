@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.1.10 (2024-08-05)
+
+### Bug Fixes
+
+- remove need for --with-counter modifier on input-group ([1c4c1cb](https://github.com/fremtind/jokul/commit/1c4c1cbaa695a03824597faf01b15dfc31d3380d)), closes [#3921](https://github.com/fremtind/jokul/issues/3921)
+
 # 12.1.0 (2023-09-14)
 
 ### Features
