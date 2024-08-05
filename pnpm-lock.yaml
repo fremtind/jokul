@@ -232,6 +232,7 @@ importers:
       '@fremtind/jkl-list-react': ^10.1.6
       '@fremtind/jkl-react-hooks': ^12.1.2
       classnames: ^2.3.2
+      rollup-plugin-node-externals: ^7.1.2
       vite: ^5.2.0
     dependencies:
       '@fremtind/jkl-accordion': link:../accordion
@@ -244,6 +245,7 @@ importers:
       '@fremtind/jkl-expand-button': link:../expand-button
       '@fremtind/jkl-icons': link:../icons
       '@fremtind/jkl-list-react': link:../list-react
+      rollup-plugin-node-externals: 7.1.2
       vite: 5.3.3
 
   packages/alert-message:
@@ -7209,7 +7211,7 @@ packages:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.6.13
-      vite: 5.3.3
+      vite: 5.3.3_czjqhc3tzcfvh4oy6zvnlg2eim
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -21140,6 +21142,13 @@ packages:
     hasBin: true
     dependencies:
       glob: 10.4.5
+    dev: true
+
+  /rollup-plugin-node-externals/7.1.2:
+    resolution: {integrity: sha512-cVJFKs+ulZxpMmn/s+oi431d93Jq5+G7Sc5ixWDrL2k+Gj+MqXg0KMNWgKf8Mw5qpaG4jVDpsvuqFfiCvRcGeA==}
+    engines: {node: '>= 21 || ^20.6.0 || ^18.19.0'}
+    peerDependencies:
+      rollup: ^3.0.0 || ^4.0.0
     dev: true
 
   /rollup/4.18.1:
