@@ -4,6 +4,7 @@ import terser from "@rollup/plugin-terser";
 import react from "@vitejs/plugin-react-swc";
 import glob from "glob";
 import nodeExternals from "rollup-plugin-node-externals";
+import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
@@ -12,6 +13,10 @@ export default defineConfig({
         nodeExternals({ deps: true, devDeps: true, peerDeps: true, optDeps: true }),
         react(),
         dts({ include: ["src"], exclude: ["src/**/*.test.tsx"] }),
+        visualizer({
+            emitFile: true,
+            filename: "build-stats.html",
+        }),
     ],
     build: {
         outDir: "build",
