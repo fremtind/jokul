@@ -16,15 +16,36 @@ export type CardProps<ElementType extends React.ElementType> = PolymorphicPropsW
     ElementType,
     {
         className?: string;
+        /**
+         * Setter padding på kortet. Tilsvarer samme property i Figma.
+         * @default "none"
+         */
         padding?: CardPadding;
+        /**
+         * Setter bakgrunnsfarge på kortet til en av bakgrunnsfargene
+         * for "container" i Jøkul.
+         * @default "default" (tilsvarer --jkl-color-background-container)
+         */
         background?: ContainerColor;
+        /**
+         * Angir om kortet visuelt skal fremstå som klikkbart. Du må selv rendre
+         * kortet som et klikkbart element (f.eks. `<a>` eller en `<Link>` fra
+         * et ruting-bibliotek) og gi det en `href` eller `onClick`-handler.
+         */
         clickable?: boolean;
     }
 >;
+
 type CardComponent = <ElementType extends React.ElementType = "div">(
     props: CardProps<ElementType> & AsChildProps,
 ) => React.ReactElement | null;
 
+/**
+ * En allsidig kortkomponent som brukes for å gruppere innhold på en side.
+ * Komponenten rendres til vanlig som en `<div>`, men du kan velge å rendre
+ * den som andre elementer eller komponenter der du trenger annen semantikk
+ * eller funksjonalitet.
+ */
 export const Card = React.forwardRef(function Card<ElementType extends React.ElementType = "div">(
     props: CardProps<ElementType>,
     ref?: PolymorphicRef<ElementType>,
