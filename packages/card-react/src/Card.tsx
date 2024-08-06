@@ -1,7 +1,7 @@
 import {
+    type AsChildProps,
     type PolymorphicPropsWithRef,
     type PolymorphicRef,
-    type AsChildProps,
     SlotComponent,
 } from "@fremtind/jkl-core";
 import cn from "classnames";
@@ -73,6 +73,7 @@ export const Card = React.forwardRef(function Card<ElementType extends React.Ele
 
     return (
         <Component
+            data-testid="jkl-card"
             data-clickable={clickable}
             data-padding={padding}
             data-background={background}
