@@ -1,0 +1,78 @@
+@use "@fremtind/jkl-core/jkl";
+
+.jkl-unordered-link-list,
+.jkl-ordered-link-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    border-bottom: 1.44px solid var(--jkl-color-border-separator);
+    height: min-content;
+    counter-reset: link-list;
+
+    --color: var(--jkl-color);
+
+    @media (hover: hover) {
+        &:has(:focus-visible),
+        &:has(:hover) {
+            --color: var(--jkl-color-border-separator);
+
+            .jkl-link-list-link:has(:focus-visible),
+            .jkl-link-list-link:hover {
+                --color: var(--jkl-color);
+            }
+        }
+    }
+}
+
+.jkl-link-list-item {
+    display: flex;
+    counter-increment: link-list;
+}
+
+.jkl-link-list-link {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--jkl-spacing-16);
+    padding: var(--jkl-spacing-16) 0;
+    border-top: 1.44px solid var(--jkl-color-border-separator);
+    width: 100%;
+    text-decoration: none;
+    color: var(--color);
+    cursor: pointer;
+
+    &,
+    & svg {
+        @include jkl.motion("standard", "productive");
+        transition-property: color, border-color, background-color;
+    }
+
+    .jkl-unordered-link-list & {
+        svg {
+            border-radius: 50%;
+        }
+
+        &:hover,
+        &:focus {
+            svg {
+                background-color: var(--jkl-color-background-interactive-selected);
+            }
+        }
+    }
+
+    .jkl-ordered-link-list & {
+        justify-content: flex-start;
+
+        &__arrow {
+            display: none;
+        }
+
+        &::before {
+            content: counter(link-list, decimal-leading-zero);
+
+            @include jkl.use-font-family("Fremtind Grotesk Mono");
+            color: var(--jkl-color-text-interactive);
+            font-size: 14px;
+        }
+    }
+}
