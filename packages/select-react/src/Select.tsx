@@ -1,7 +1,7 @@
 import { ValuePair, getValuePair, DataTestAutoId, Density } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
-import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
+import { InputGroupProps } from "@fremtind/jkl-input-group-react";
 import { useId, useAnimatedHeight, usePreviousValue, useListNavigation } from "@fremtind/jkl-react-hooks";
 import clsx from "clsx";
 import React, {
