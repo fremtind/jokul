@@ -109,17 +109,11 @@ export interface LiveProviderProps extends Omit<ReactLiveProviderProps, "ref"> {
     code: string;
 }
 
-export const LiveProvider: FC<LiveProviderProps> = ({
-    code,
-    noInline,
-    transformCode,
-    scope: additionalScope,
-    ...rest
-}) => {
+export const LiveProvider: FC<LiveProviderProps> = ({ code, noInline, transformCode, ...rest }) => {
     return (
         <ReactLiveProvider
             code={code}
-            scope={{ ...scope, ...additionalScope }}
+            scope={scope}
             transformCode={transformCode || noInline ? transformNoInlineCode : transformInlineCode}
             noInline={noInline}
             {...rest}

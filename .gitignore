@@ -19,3 +19,5 @@ cypress/videos
 .stylelintcache
 .turbo
 .nx
+test-results/
+playwright-report/
