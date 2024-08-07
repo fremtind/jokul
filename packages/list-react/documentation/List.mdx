@@ -7,6 +7,12 @@ keywords: ordered unordered iconlist
 ---
 
 import { OrderedList, UnorderedList, ListItem } from "../src";
+import {
+    orderedLinkListExample,
+    unorderedLinkListExample,
+    OrderedLinkListExample,
+    UnorderedLinkListExample,
+} from "./LinkListExample";
 import { ListExamples, listExamplesCode, listExamplesProps } from "./ListExample";
 
 <Ingress>
@@ -74,3 +80,23 @@ Vi kan bruke innrykk under et enkelt listepunkt når det punktet har tilleggsinf
 ## Lister med ikon
 
 Vi bruker lite ikoner i profilen, men det er enkelte unntak. Brukes typisk i en oversikt over hva som er dekket og hva som ikke dekkes.
+
+## Link lister
+
+Vi bruker link-lister for å presentere en liste med lenker. Dette kan være foreksempel være nyttig når du ønsker å lenke innad i en side eller til eksterne sider.
+
+### Nummererte link-lister
+
+Vi bruker nummererte link-lister når vi skal lenke innad i en side, der rekkefølgen er viktig.
+
+<ComponentExample title="OrderedLinkList" component={OrderedLinkListExample} codeExample={orderedLinkListExample} />
+
+### Unummererte link-lister
+
+Vi bruker unummererte link-lister når vi skal lenke til eksterne sider, der rekkefølgen ikke er viktig.
+
+<ComponentExample
+    title="UnorderedLinkList"
+    component={UnorderedLinkListExample}
+    codeExample={unorderedLinkListExample}
+/>
