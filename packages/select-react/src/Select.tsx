@@ -3,7 +3,7 @@ import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import { InputGroup, type LabelProps } from "@fremtind/jkl-input-group-react";
 import { InputGroupProps } from "@fremtind/jkl-input-group-react/src";
 import { useId, useAnimatedHeight, usePreviousValue, useListNavigation } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, {
     FocusEvent,
     forwardRef,
@@ -439,7 +439,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             <InputGroup
                 ref={componentRootElementRef}
                 data-testid="jkl-select"
-                className={cn("jkl-select", className, {
+                className={clsx("jkl-select", className, {
                     "jkl-select--inline": inline,
                     "jkl-select--open": dropdownIsShown && visibleItems.some((item) => item.visible),
                     "jkl-select--no-value": !hasSelectedValue,
@@ -493,7 +493,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                             hidden={showSearchInputField}
                             type="button"
                             name={`${name}-btn`}
-                            className={cn("jkl-select__button", {
+                            className={clsx("jkl-select__button", {
                                 "jkl-select__button--active-value": !!selectedValue,
                             })}
                             data-testid="jkl-select__button"

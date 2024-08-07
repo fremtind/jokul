@@ -1,6 +1,6 @@
 import { PrimaryButton, TertiaryButton } from "@fremtind/jkl-button-react";
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { ReactNode, useEffect, FC, ComponentProps } from "react";
 import { Feedback } from "../Feedback";
 import { useFeedbackContext } from "../feedbackContext";
@@ -57,7 +57,7 @@ export const MainQuestion: FC<Props> = ({
                     <MainQuestionComp label={label} options={options} helpLabel={helpLabel} />
                     <div
                         ref={submitWrapperRef}
-                        className={cn({
+                        className={clsx({
                             "jkl-feedback__submit-wrapper": true,
                             "jkl-feedback__submit-wrapper--hidden": currentValue === undefined,
                         })}

@@ -1,5 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import classnames from "classnames";
+import clsx from "clsx";
 import React, { FC } from "react";
 
 export interface DescriptionListProps extends WithChildren {
@@ -8,7 +8,7 @@ export interface DescriptionListProps extends WithChildren {
 
 export const DescriptionList: FC<DescriptionListProps> = ({ children, className, ...rest }) => {
     return (
-        <dl {...rest} className={classnames("jkl-description-list", className)}>
+        <dl {...rest} className={clsx("jkl-description-list", className)}>
             {children}
         </dl>
     );
@@ -20,7 +20,7 @@ export interface DescriptionTermProps extends WithChildren {
 
 export const DescriptionTerm: FC<DescriptionTermProps> = ({ children, className, ...rest }) => {
     return (
-        <dt {...rest} className={classnames("jkl-description-list__term", className)}>
+        <dt {...rest} className={clsx("jkl-description-list__term", className)}>
             {children}
         </dt>
     );
@@ -32,7 +32,7 @@ export interface DescriptionDetailProps extends WithChildren {
 
 export const DescriptionDetail: FC<DescriptionDetailProps> = ({ children, className, ...rest }) => {
     return (
-        <dd {...rest} className={classnames("jkl-description-list__detail", className)}>
+        <dd {...rest} className={clsx("jkl-description-list__detail", className)}>
             {children}
         </dd>
     );

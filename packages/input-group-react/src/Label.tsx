@@ -1,5 +1,5 @@
 import type { WithChildren, Density } from "@fremtind/jkl-core";
-import classNames from "classnames";
+import clsx from "clsx";
 import React, { type CSSProperties, type FC } from "react";
 
 export type LabelVariant = "small" | "medium" | "large";
@@ -25,7 +25,7 @@ export const Label: FC<LabelProps> = ({
     className = "",
     ...rest
 }) => {
-    const labelClassNames = classNames("jkl-label", className, {
+    const labelClassNames = clsx("jkl-label", className, {
         [`jkl-label--${variant}`]: variant,
         "jkl-label--sr-only": srOnly,
     });

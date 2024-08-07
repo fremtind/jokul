@@ -1,5 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import cx from "classnames";
+import clsx from "clsx";
 import React from "react";
 
 export interface TabPanelProps extends WithChildren {
@@ -12,7 +12,7 @@ export interface TabPanelProps extends WithChildren {
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
 export const TabPanel = ({ children, ...props }: TabPanelProps) => {
-    const classes = cx("jkl-tabpanel", props.className);
+    const classes = clsx("jkl-tabpanel", props.className);
 
     return (
         <div role="tabpanel" {...props} className={classes}>

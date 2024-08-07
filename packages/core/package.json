@@ -46,9 +46,6 @@
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
     },
-    "dependencies": {
-        "classnames": "^2.3.2"
-    },
     "devDependencies": {
         "change-case": "^4.1.2",
         "style-dictionary": "^3.8.0"

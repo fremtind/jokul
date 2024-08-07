@@ -1,7 +1,7 @@
 import { Density } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { CloseIcon } from "@fremtind/jkl-icons-react";
-import cx from "classnames";
+import clsx from "clsx";
 import React, { ButtonHTMLAttributes, FC, HTMLAttributes, MouseEventHandler } from "react";
 
 export interface DismissAction extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
@@ -34,7 +34,7 @@ function getDisplayName(variant?: Variant) {
 function tagFactory(variant?: Variant) {
     const Tag: FC<TagProps> = ({ className, density, dismissAction, children, ...rest }) => (
         <span
-            className={cx(
+            className={clsx(
                 "jkl-tag",
                 {
                     "jkl-tag--info": variant === "info",

@@ -1,6 +1,6 @@
 import { Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { ChangeEventHandler, forwardRef } from "react";
 import { RadioButtonProps } from "./RadioButton";
 
@@ -18,7 +18,7 @@ export const BaseRadioButton = forwardRef<HTMLInputElement, BaseRadioButtonProps
 
     return (
         <div
-            className={cn("jkl-radio-button", className, {
+            className={clsx("jkl-radio-button", className, {
                 "jkl-radio-button--inline": inline,
                 "jkl-radio-button--error": invalid,
             })}

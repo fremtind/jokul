@@ -1,5 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import cx from "classnames";
+import clsx from "clsx";
 import React, { FC } from "react";
 
 export interface ListItemProps extends WithChildren {
@@ -12,7 +12,7 @@ function makeListItem(listItemType: ValidListItems): FC<ListItemProps> {
     const ListItem: FC<ListItemProps> = ({ className, children, ...rest }) => {
         return (
             <li
-                className={cx("jkl-list__item", className, {
+                className={clsx("jkl-list__item", className, {
                     "jkl-list__item--iconed": listItemType !== "normal",
                     "jkl-list__item--check": listItemType === "check",
                     "jkl-list__item--cross": listItemType === "cross",

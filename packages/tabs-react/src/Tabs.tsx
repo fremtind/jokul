@@ -1,6 +1,6 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import { nanoid } from "nanoid";
 import React, { useState, useCallback, useEffect } from "react";
 import { InjectedProps, TabListProps } from "./TabList";
@@ -82,7 +82,7 @@ export const Tabs = ({ onChange, defaultTab, density, ...props }: TabsProps) => 
 
     return (
         <TabsContextProvider state={{ density }}>
-            <div {...props} className={cn("jkl-tabs", props.className)} data-density={density}>
+            <div {...props} className={clsx("jkl-tabs", props.className)} data-density={density}>
                 {renderTabList()}
                 {renderTabPanels()}
             </div>

@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import { PropGetters } from "downshift";
 import React, { ReactNode } from "react";
 
@@ -47,7 +47,7 @@ function Menu<T>({
                         <li
                             {...getItemProps({
                                 item,
-                                className: cn("jkl-autosuggest__item", {
+                                className: clsx("jkl-autosuggest__item", {
                                     "jkl-autosuggest__item--active": index === highlightedIndex,
                                 }),
                             })}

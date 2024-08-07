@@ -40,8 +40,7 @@
         "@fremtind/jkl-content-toggle-react": "^6.0.11",
         "@fremtind/jkl-core": "^13.5.0",
         "@fremtind/jkl-hamburger": "^13.0.10",
-        "@fremtind/jkl-react-hooks": "^12.0.11",
-        "classnames": "^2.3.2"
+        "@fremtind/jkl-react-hooks": "^12.0.11"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

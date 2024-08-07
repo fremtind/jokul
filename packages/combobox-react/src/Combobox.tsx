@@ -5,7 +5,7 @@ import { InputGroup, InputGroupProps, type LabelProps } from "@fremtind/jkl-inpu
 import { useId, useAnimatedHeight, useListNavigation } from "@fremtind/jkl-react-hooks";
 import { Tag } from "@fremtind/jkl-tag-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@fremtind/jkl-tooltip-react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, {
     FC,
     useEffect,
@@ -368,7 +368,7 @@ export const Combobox: FC<ComboboxProps> = ({
             id={inputId}
             ref={componentRootElementRef}
             data-testid="jkl-combobox"
-            className={cn("jkl-combobox", className, {
+            className={clsx("jkl-combobox", className, {
                 "jkl-combobox--invalid": !!errorLabel || invalid,
                 "jkl-combobox--menu-open": showMenu,
                 "jkl-combobox--menu-closed": !showMenu && hasSelection,
@@ -382,7 +382,7 @@ export const Combobox: FC<ComboboxProps> = ({
             density={density}
             render={(inputProps) => (
                 <div
-                    className={cn("jkl-combobox__wrapper", { "jkl-combobox__wrapper--active-value": hasSelection })}
+                    className={clsx("jkl-combobox__wrapper", { "jkl-combobox__wrapper--active-value": hasSelection })}
                     style={{ width }}
                     tabIndex={-1}
                     onFocus={handleFocus}

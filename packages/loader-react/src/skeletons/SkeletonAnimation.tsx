@@ -1,5 +1,5 @@
 import { Density } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { AriaRole, HTMLProps, ReactNode } from "react";
 import { useDelayedRender } from "../useDelayedRender";
 
@@ -32,7 +32,7 @@ export const SkeletonAnimation = ({
 
     return (
         <div
-            className={cn("jkl-skeleton-animation", className)}
+            className={clsx("jkl-skeleton-animation", className)}
             aria-busy="true"
             aria-label={textDescription}
             {...rest}

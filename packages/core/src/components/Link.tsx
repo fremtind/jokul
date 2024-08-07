@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { AnchorHTMLAttributes, FC } from "react";
 
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -7,7 +7,7 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export const Link: FC<LinkProps> = ({ external = false, className = "", children, ...rest }) => (
     <a
-        className={cn("jkl-link", className, {
+        className={clsx("jkl-link", className, {
             "jkl-link--external": external,
         })}
         {...rest}

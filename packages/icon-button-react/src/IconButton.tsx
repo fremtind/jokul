@@ -1,5 +1,5 @@
 import { Density } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
 
 export interface IconButtonProps extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
@@ -12,7 +12,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>((props,
         <button
             ref={ref}
             type="button"
-            className={cn("jkl-icon-button", className)}
+            className={clsx("jkl-icon-button", className)}
             data-testid="jkl-icon-button"
             data-density={density}
             {...rest}

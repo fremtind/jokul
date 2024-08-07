@@ -1,7 +1,7 @@
 import type { Density, DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { PopupTip, type PopupTipProps } from "@fremtind/jkl-tooltip-react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC, FieldsetHTMLAttributes } from "react";
 import { Label, type LabelProps } from "./Label";
 import { SupportLabel, type SupportLabelProps } from "./SupportLabel";
@@ -44,7 +44,7 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
     return (
         <fieldset
             id={uid}
-            className={cn("jkl-field-group", className)}
+            className={clsx("jkl-field-group", className)}
             data-testautoid={testAutoId}
             {...rest}
             aria-describedby={describedBy}

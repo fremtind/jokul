@@ -1,5 +1,5 @@
 import { useElementDimensions } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC } from "react";
 import { useImageLoadingStatus } from "./useImageLoadingStatus";
 
@@ -22,7 +22,7 @@ export const Image: FC<ImageProps> = ({ className, placeholder, alt, ...imagePro
     return (
         <div
             ref={containerRef}
-            className={cn("jkl-image", className, {
+            className={clsx("jkl-image", className, {
                 "jkl-image--loading": !imageLoaded,
             })}
         >

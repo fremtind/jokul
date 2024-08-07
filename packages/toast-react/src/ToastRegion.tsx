@@ -1,6 +1,6 @@
 import { type AriaToastRegionProps, useToastRegion } from "@react-aria/toast";
 import { useToastQueue, type ToastState, ToastQueue } from "@react-stately/toast";
-import cn from "classnames";
+import clsx from "clsx";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Toast } from "./Toast";
@@ -17,7 +17,7 @@ function Region<T extends ToastContent>({ placement, state, ...props }: ToastReg
 
     return (
         <div
-            className={cn("jkl", "jkl-toast-region", {
+            className={clsx("jkl", "jkl-toast-region", {
                 "jkl-toast-region--left": placement === "left",
             })}
         >

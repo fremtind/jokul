@@ -1,7 +1,7 @@
 import { type WithOptionalChildren, type Density, type DataTestAutoId } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { PopupTip, type PopupTipProps } from "@fremtind/jkl-tooltip-react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, type CSSProperties, type ReactNode } from "react";
 import { Label, type LabelProps } from "./Label";
 import { SupportLabel, type SupportLabelProps } from "./SupportLabel";
@@ -76,7 +76,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>((props, re
     return (
         <div
             ref={ref}
-            className={cn(className, "jkl-input-group", {
+            className={clsx(className, "jkl-input-group", {
                 "jkl-input-group--inline": inline,
             })}
             data-density={density}

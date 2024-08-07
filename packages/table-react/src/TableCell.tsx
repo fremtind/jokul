@@ -1,5 +1,5 @@
 import { Density } from "@fremtind/jkl-core";
-import cx from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, TdHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 
@@ -22,7 +22,7 @@ const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
         const { density: contextDensity } = useTableContext();
         return (
             <td
-                className={cx("jkl-table-cell", className, {
+                className={clsx("jkl-table-cell", className, {
                     ["jkl-table-cell--align-right"]: align === "right",
                     ["jkl-table-cell--align-center"]: align === "center",
                     ["jkl-table-cell--vertical-align-center"]: verticalAlign === "center",

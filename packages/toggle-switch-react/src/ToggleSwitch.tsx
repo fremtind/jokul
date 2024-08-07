@@ -1,7 +1,7 @@
 import { Density } from "@fremtind/jkl-core";
 import { CheckIcon } from "@fremtind/jkl-icons-react";
 import { useId, useSwipeGesture, type SwipeChangeHandler } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { type ButtonHTMLAttributes, type MouseEventHandler, forwardRef } from "react";
 
 export type ToggleChangeHandler<T extends HTMLElement> = SwipeChangeHandler<T>;
@@ -55,7 +55,7 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
 
         return (
             <button
-                className={cn("jkl-toggle-switch", className)}
+                className={clsx("jkl-toggle-switch", className)}
                 id={uid}
                 ref={ref}
                 aria-pressed={pressed}

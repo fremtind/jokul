@@ -1,5 +1,5 @@
 import { useAnimatedHeight } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, useEffect, useRef } from "react";
 import { MessageBoxProps, ErrorMessageBox } from "./MessageBox";
 
@@ -34,7 +34,7 @@ export const FormErrorMessageBox = forwardRef<HTMLDivElement, FormErrorMessageBo
         const hasNewErrors = errors.length > previousErrors.current.length;
 
         return (
-            <div ref={forwardedRef} className={cn("jkl-form-error-message-box", className)} {...rest}>
+            <div ref={forwardedRef} className={clsx("jkl-form-error-message-box", className)} {...rest}>
                 <ErrorMessageBox
                     {...defaultMessageBoxProps}
                     {...messageBoxProps}

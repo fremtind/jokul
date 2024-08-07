@@ -4,7 +4,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import { NativeSelect } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, {
     forwardRef,
     useCallback,
@@ -151,7 +151,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
 
     return (
         <div
-            className={cn("jkl-table-pagination", className)}
+            className={clsx("jkl-table-pagination", className)}
             {...rest}
             id={id}
             data-density={density || contextDensity}
@@ -243,7 +243,7 @@ const PaginationPages: FC<{
                 {Array.from({ length: numberOfPages }).map((_, i) => (
                     <li key={`${id}-page-${i}`}>
                         <button
-                            className={cn("jkl-table-pagination__page", {
+                            className={clsx("jkl-table-pagination__page", {
                                 "jkl-table-pagination__page--active": activePage === i,
                             })}
                             type="button"
@@ -336,7 +336,7 @@ const PaginationPageButton: FC<{
     onClick: MouseEventHandler;
 }> = ({ isActive, number, onClick, ...rest }) => (
     <button
-        className={cn("jkl-table-pagination__page", {
+        className={clsx("jkl-table-pagination__page", {
             "jkl-table-pagination__page--active": isActive,
         })}
         type="button"

@@ -1,5 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import cx from "classnames";
+import clsx from "clsx";
 import React from "react";
 
 export interface TabProps extends WithChildren {
@@ -12,7 +12,7 @@ export interface TabProps extends WithChildren {
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
 export const Tab = React.forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
-    const classes = cx("jkl-tab", props.className);
+    const classes = clsx("jkl-tab", props.className);
 
     return <button role="tab" type="button" ref={ref} {...props} className={classes} />;
 });

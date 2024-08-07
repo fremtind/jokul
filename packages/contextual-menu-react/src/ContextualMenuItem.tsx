@@ -1,5 +1,5 @@
 import { ArrowNorthEastIcon, ChevronRightIcon } from "@fremtind/jkl-icons-react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 
 export interface ContextualMenuItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
@@ -23,7 +23,13 @@ export const ContextualMenuItem = forwardRef<HTMLButtonElement, ContextualMenuIt
     const { className, children, icon, expandable = false, external = false, ...rest } = props;
 
     return (
-        <button ref={ref} type="button" role="menuitem" className={cn("jkl-contextual-menu-item", className)} {...rest}>
+        <button
+            ref={ref}
+            type="button"
+            role="menuitem"
+            className={clsx("jkl-contextual-menu-item", className)}
+            {...rest}
+        >
             {icon && <span className="jkl-contextual-menu-item__icon">{icon}</span>}
             <div className="jkl-contextual-menu-item__content">
                 {children}

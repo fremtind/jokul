@@ -1,5 +1,5 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC } from "react";
 import { PaddingOptions } from "./types";
 import { getPaddingStyles } from "./utils";
@@ -35,7 +35,7 @@ export const TaskCard: FC<TaskCardProps> = ({
     ...rest
 }) => (
     <div
-        className={cn("jkl-task-card", className, {
+        className={clsx("jkl-task-card", className, {
             // Vi bruker kun background hvis bgColor ikke er satt, for å ikke bryte eksisterende kode
             [`jkl-task-card--${background}`]: !bgColor,
             [`jkl-task-card--${bgColor}`]: !!bgColor,

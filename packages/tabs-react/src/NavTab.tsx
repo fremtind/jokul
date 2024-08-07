@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { type ElementType, forwardRef, useCallback, type AnchorHTMLAttributes } from "react";
 
 export interface NavTabProps<T extends object = Record<string, unknown>>
@@ -90,7 +90,7 @@ export const NavTab = forwardRef<HTMLAnchorElement, NavTabProps>((props, ref) =>
             {...componentProps}
             role="tab"
             aria-selected={selected}
-            className={cn("jkl-tab", className)}
+            className={clsx("jkl-tab", className)}
             onKeyDown={handleOnKeyDown}
             // En faneliste skal være én fokuserbar gruppe.
             // Piltaster brukes for å veksle mellom faner.

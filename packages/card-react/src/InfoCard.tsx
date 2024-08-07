@@ -1,5 +1,5 @@
 import { WithChildren, Density } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC } from "react";
 import { PaddingOptions, SpacingStep } from "./types";
 import { getPaddingStyles } from "./utils";
@@ -15,8 +15,8 @@ export interface InfoCardProps extends PaddingOptions, WithChildren {
 }
 
 export const InfoCard: FC<InfoCardProps> = ({ title, children, density, className, padding = "l", ...rest }) => (
-    <div {...rest} className={cn("jkl-info-card", className)} data-density={density}>
-        <div className={cn("jkl-info-card__content-wrapper")} style={getPaddingStyles(padding)}>
+    <div {...rest} className={clsx("jkl-info-card", className)} data-density={density}>
+        <div className={clsx("jkl-info-card__content-wrapper")} style={getPaddingStyles(padding)}>
             {title && <p className="jkl-info-card__title">{title}</p>}
             {children}
         </div>

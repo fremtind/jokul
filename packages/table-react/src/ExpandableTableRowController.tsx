@@ -1,5 +1,5 @@
 import { ExpandButton } from "@fremtind/jkl-expand-button-react";
-import cx from "classnames";
+import clsx from "clsx";
 import React, { forwardRef } from "react";
 import type { TableCellProps } from "./TableCell";
 import { TableCell } from "./TableCell";
@@ -27,7 +27,7 @@ const ExpandableTableRowController = forwardRef<HTMLTableCellElement, Expandable
 
         return (
             <TableCell
-                className={cx(
+                className={clsx(
                     "jkl-table-cell--expand",
                     { ["jkl-table-cell--expand-without-text"]: !children },
                     className,
@@ -36,7 +36,7 @@ const ExpandableTableRowController = forwardRef<HTMLTableCellElement, Expandable
                 ref={ref}
             >
                 <ExpandButton
-                    className={cx("jkl-table-row-expand-button", {
+                    className={clsx("jkl-table-row-expand-button", {
                         ["jkl-table-row-expand-button--expanded"]: isOpen,
                     })}
                     id={id}

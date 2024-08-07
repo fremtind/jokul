@@ -1,5 +1,5 @@
 import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
-import cx from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, useEffect, useState } from "react";
 import { ExpandableTableRowController, ExpandableTableRowControllerProps } from "./ExpandableTableRowController";
 import type { TableRowProps } from "./TableRow";
@@ -51,11 +51,11 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
         setIsOpen(newIsOpen);
     };
 
-    const tableRowClassName = cx("jkl-table-row--expandable", className, {
+    const tableRowClassName = clsx("jkl-table-row--expandable", className, {
         ["jkl-table-row--expanded"]: isOpen,
         ["jkl-expandable-table-row--clickable-external"]: clickable,
     });
-    const childWrapperClassName = cx("jkl-expandable-table-row__expanded-row", {
+    const childWrapperClassName = clsx("jkl-expandable-table-row__expanded-row", {
         ["jkl-expandable-table-row__expanded-row--expanded"]: isOpen,
     });
 

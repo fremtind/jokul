@@ -1,6 +1,6 @@
 import { DataTestAutoId, Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, {
     ReactNode,
     forwardRef,
@@ -57,7 +57,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref)
 
     return (
         <div
-            className={cn("jkl-checkbox", className, {
+            className={clsx("jkl-checkbox", className, {
                 "jkl-checkbox--inline": inline,
                 "jkl-checkbox--error": invalid,
             })}

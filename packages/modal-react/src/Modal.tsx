@@ -1,7 +1,7 @@
 import type { WithOptionalChildren } from "@fremtind/jkl-core";
 import { IconButton, type IconButtonProps } from "@fremtind/jkl-icon-button-react";
 import { CloseIcon } from "@fremtind/jkl-icons-react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { ModalConfig } from "./useModal";
 
@@ -23,7 +23,7 @@ type BaseModalProps = Omit<ModalProps, "padding" | "component">;
  */
 export const ModalContainer = forwardRef<HTMLDivElement, ModalConfig["container"] & BaseModalProps>(
     ({ className, ...rest }, ref) => {
-        return <div className={cn("jkl-modal-container", className)} {...rest} ref={ref} />;
+        return <div className={clsx("jkl-modal-container", className)} {...rest} ref={ref} />;
     },
 );
 ModalContainer.displayName = "ModalContainer";
@@ -42,7 +42,7 @@ type ModalOverlayProps = ModalConfig["overlay"] &
 export const ModalOverlay = forwardRef<HTMLDivElement, ModalOverlayProps>(
     ({ className, transparent, ...rest }, ref) => (
         <div
-            className={cn("jkl-modal-overlay", className, {
+            className={clsx("jkl-modal-overlay", className, {
                 "jkl-modal-overlay--transparent": transparent,
             })}
             {...rest}
@@ -60,7 +60,7 @@ export const Modal = forwardRef<HTMLElement, ModalConfig["modal"] & ModalProps>(
         const C = component || "div";
         return (
             <C
-                className={cn("jkl jkl-modal", className)}
+                className={clsx("jkl jkl-modal", className)}
                 style={
                     {
                         "--jkl-modal-padding": padding ? `var(--jkl-spacing-${padding})` : undefined,
@@ -79,7 +79,7 @@ Modal.displayName = "Modal";
  * Ment å brukes med `useModal`.
  */
 export const ModalHeader = forwardRef<HTMLDivElement, BaseModalProps>(({ className, ...rest }, ref) => (
-    <div className={cn("jkl-modal-header", className)} {...rest} ref={ref} />
+    <div className={clsx("jkl-modal-header", className)} {...rest} ref={ref} />
 ));
 ModalHeader.displayName = "ModalHeader";
 
@@ -87,7 +87,7 @@ ModalHeader.displayName = "ModalHeader";
  * Ment å brukes med `useModal`.
  */
 export const ModalTitle = forwardRef<HTMLParagraphElement, ModalConfig["title"] & BaseModalProps>(
-    ({ className, ...rest }, ref) => <p className={cn("jkl-modal-title", className)} {...rest} ref={ref} />,
+    ({ className, ...rest }, ref) => <p className={clsx("jkl-modal-title", className)} {...rest} ref={ref} />,
 );
 ModalTitle.displayName = "ModalTitle";
 
@@ -98,7 +98,7 @@ export const ModalCloseButton = forwardRef<
     HTMLButtonElement,
     Omit<ModalConfig["closeButton"], "onClick"> & BaseModalProps & IconButtonProps
 >(({ className, ...rest }, ref) => (
-    <IconButton className={cn("jkl-modal-close", className)} data-testautoid="jkl-modal-close" {...rest} ref={ref}>
+    <IconButton className={clsx("jkl-modal-close", className)} data-testautoid="jkl-modal-close" {...rest} ref={ref}>
         <CloseIcon variant="medium" />
     </IconButton>
 ));
@@ -108,7 +108,7 @@ ModalCloseButton.displayName = "ModalCloseButton";
  * Ment å brukes med `useModal`.
  */
 export const ModalBody = forwardRef<HTMLDivElement, BaseModalProps>(({ className, ...rest }, ref) => (
-    <div className={cn("jkl-modal-body", className)} {...rest} ref={ref} />
+    <div className={clsx("jkl-modal-body", className)} {...rest} ref={ref} />
 ));
 ModalBody.displayName = "ModalBody";
 
@@ -116,6 +116,6 @@ ModalBody.displayName = "ModalBody";
  * Ment å brukes med `useModal`.
  */
 export const ModalActions = forwardRef<HTMLDivElement, BaseModalProps>(({ className, ...rest }, ref) => (
-    <div className={cn("jkl-modal-actions", className)} {...rest} ref={ref} />
+    <div className={clsx("jkl-modal-actions", className)} {...rest} ref={ref} />
 ));
 ModalActions.displayName = "ModalActions";

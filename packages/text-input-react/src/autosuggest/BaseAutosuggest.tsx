@@ -1,6 +1,6 @@
 import { InputGroup } from "@fremtind/jkl-input-group-react";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import Downshift, { type DownshiftProps } from "downshift";
 import React, { type ReactNode } from "react";
 import { type CommonProps } from "./Autosuggest";
@@ -69,7 +69,7 @@ function BaseAutosuggest<T>({
                     <InputGroup
                         {...getRootProps()}
                         label={label}
-                        className={cn("jkl-autosuggest", className)}
+                        className={clsx("jkl-autosuggest", className)}
                         density={density}
                         labelProps={{
                             variant,
@@ -86,7 +86,7 @@ function BaseAutosuggest<T>({
                             <>
                                 {leadText && (
                                     <p
-                                        className={cn("jkl-spacing-l--bottom", {
+                                        className={clsx("jkl-spacing-l--bottom", {
                                             "jkl-body": density !== "compact",
                                             "jkl-small": density === "compact",
                                         })}

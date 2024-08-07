@@ -1,5 +1,5 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC } from "react";
 
 export interface AccordionProps extends WithChildren {
@@ -13,7 +13,7 @@ export const Accordion: FC<AccordionProps> = ({ className, density, id, ...rest 
         <section
             role="group"
             data-testid="jkl-accordion"
-            className={cn("jkl-accordion", className)}
+            className={clsx("jkl-accordion", className)}
             data-density={density}
             id={id}
             {...rest}

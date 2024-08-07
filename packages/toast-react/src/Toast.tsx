@@ -4,7 +4,7 @@ import { Countdown } from "@fremtind/jkl-progress-bar-react";
 import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 import { type AriaToastProps, useToast } from "@react-aria/toast";
 import { QueuedToast, type ToastState } from "@react-stately/toast";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { useEffect, useRef } from "react";
 import { ToastContent, ToastOptions } from "./types";
 
@@ -54,7 +54,7 @@ export function Toast<T extends ToastContent>({ className, state, ...props }: To
         <div
             {...toastProps}
             ref={ref}
-            className={cn(
+            className={clsx(
                 "jkl-toast",
                 {
                     "jkl-toast--info": props.toast.variant === "info",
