@@ -27,3 +27,4 @@ export type { Dimensions } from "./useElementDimensions";
 export { useListNavigation } from "./useListNavigation";
 export { useSwipeGesture, type SwipeChangeHandler } from "./useSwipeGesture";
 export { useAnimatedDetails } from "./useAnimatedDetails";
+export { useLocalStorage } from "./useLocalStorage/useLocalStorage";
