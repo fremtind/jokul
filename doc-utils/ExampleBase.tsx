@@ -1,15 +1,15 @@
-import React, { useState, FC, useMemo, useEffect } from "react";
+import React, { FC, useEffect, useMemo, useState } from "react";
 import { Checkbox } from "../packages/checkbox-react";
 import { ColorScheme, Density } from "../packages/core";
 import { FieldGroup } from "../packages/input-group-react";
 import { RadioButton, RadioButtonGroup } from "../packages/radio-button-react";
-import { useId } from "../packages/react-hooks";
+import { useId, useLocalStorage } from "../packages/react-hooks";
 import { Select } from "../packages/select-react";
 import { CodeBlock } from "./CodeBlock";
 import { CodeSection } from "./CodeSection";
 import { ExampleContextProvider } from "./exampleContext";
 import { hyphenate } from "./internal/hypenate";
-import { Dictionary, ChoiceProp, ExampleComponentProps, BoolProp, CodeExample } from "./";
+import { BoolProp, ChoiceProp, CodeExample, Dictionary, ExampleComponentProps } from "./";
 
 export interface Props {
     component: FC<ExampleComponentProps>;
@@ -23,31 +23,6 @@ export interface Props {
     codeExample?: CodeExample;
     isWide?: boolean;
     style?: React.CSSProperties;
-}
-
-function useLocalStorage<T>(key: string, defaultValue: T): [T, (newValue: T) => void] {
-    const [state, setState] = useState<T>(defaultValue);
-
-    useEffect(() => {
-        if (!localStorage) {
-            return;
-        }
-        const storedValue = localStorage.getItem(key);
-        if (storedValue) {
-            setState(JSON.parse(storedValue));
-        }
-        // Kjøres bare én gang ved oppstart
-    }, [key]);
-
-    useEffect(() => {
-        if (!localStorage) {
-            return;
-        }
-
-        localStorage.setItem(key, JSON.stringify(state));
-    }, [key, state]);
-
-    return [state, setState];
 }
 
 export const ExampleBase: FC<Props> = ({
