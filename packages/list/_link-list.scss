@@ -17,9 +17,17 @@
         &:has(:hover) {
             --color: var(--jkl-color-border-separator);
 
+            .jkl-link-list-link::before {
+                color: var(--color);
+            }
+
             .jkl-link-list-link:has(:focus-visible),
             .jkl-link-list-link:hover {
                 --color: var(--jkl-color);
+
+                &::before {
+                    color: var(--color);
+                }
             }
         }
     }
@@ -76,7 +84,7 @@
 
             @include jkl.use-font-family("Fremtind Grotesk Mono");
             color: var(--jkl-color-text-interactive);
-            font-size: 14px;
+            font-size: var(--jkl-small-font-size);
         }
     }
 }
