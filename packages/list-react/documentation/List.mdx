@@ -6,7 +6,7 @@ group: layout
 keywords: ordered unordered iconlist
 ---
 
-import { OrderedList, UnorderedList, ListItem } from "../src";
+import { OrderedList, UnorderedList, ListItem, LinkList } from "../src";
 import {
     orderedLinkListExample,
     unorderedLinkListExample,
@@ -100,3 +100,62 @@ Vi bruker unummererte link-lister når vi skal lenke til eksterne sider, der rek
     component={UnorderedLinkListExample}
     codeExample={unorderedLinkListExample}
 />
+
+### Eksterne vs interne lenker
+
+Når vi bruker lenkelister, anbefales det å benytte ordnet liste for interne lenker og uordnet liste for eksterne lenker. Dette skaper en klarere struktur og gjør det enklere for brukeren å skille mellom interne og eksterne lenker. I tillegg bør den ordnede versjonen wrappes i en ´<nav>-tag´, siden den brukes til navigering internt i løsningen.
+
+<Grid>
+    <DoDontExample
+        type="do"
+        description="Ta i bruk eksterne lenker i en uordnet liste"
+        content={
+            <LinkList variant="unordered">
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring.html">
+                        SpareBank 1
+                    </LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.dnb.no/forsikring">DNB</LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring/lofavor-forsikring.html">
+                        LOfavør
+                    </LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.dnb.no/kundeprogram/avtaler/norsk-sykepleierforbund">
+                        Norsk Sykepleierforbund
+                    </LinkList.Link>
+                </LinkList.Item>
+            </LinkList>
+        }
+    />
+    <DoDontExample
+        type="dont"
+        description="Ikke ta i bruk eksterne lenker i en nummerert liste"
+        content={
+            <LinkList variant="ordered">
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring.html">
+                        SpareBank 1
+                    </LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.dnb.no/forsikring">DNB</LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring/lofavor-forsikring.html">
+                        LOfavør
+                    </LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.dnb.no/kundeprogram/avtaler/norsk-sykepleierforbund">
+                        Norsk Sykepleierforbund
+                    </LinkList.Link>
+                </LinkList.Item>
+            </LinkList>
+        }
+    />
+</Grid>
