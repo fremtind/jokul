@@ -1,12 +1,20 @@
 @use "@fremtind/jkl-core/jkl";
 
+@include jkl.comfortable-density-variables {
+    --jkl-link-list-padding: var(--jkl-spacing-8);
+}
+
+@include jkl.compact-density-variables {
+    --jkl-link-list-padding: var(--jkl-spacing-4);
+}
+
 .jkl-unordered-link-list,
 .jkl-ordered-link-list {
     display: flex;
     flex-direction: column;
+    gap: var(--jkl-spacing-24);
     width: 100%;
     padding: 0;
-    border-bottom: 1.44px solid var(--jkl-color-border-separator);
     height: min-content;
     counter-reset: link-list;
 
@@ -42,7 +50,8 @@
     display: flex;
     justify-content: space-between;
     gap: var(--jkl-spacing-16);
-    padding: var(--jkl-spacing-16) 0;
+    padding: var(--jkl-link-list-padding) 0;
+    border-bottom: 1.44px solid var(--jkl-color-border-separator);
     border-top: 1.44px solid var(--jkl-color-border-separator);
     width: 100%;
     text-decoration: none;
