@@ -3,6 +3,7 @@ import { DevExample } from "../../../doc-utils";
 import "../../cookie-consent/cookie-consent.scss";
 import "../../button/button.scss";
 import "../../list/list.scss";
+import "../../modal/modal.scss";
 import {
     CookieConsentModalExample,
     cookieConsentModalExampleCode,
