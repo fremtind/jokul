@@ -198,7 +198,9 @@ export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept, ..
                         )}
                     </ModalBody>
                     <ModalActions>
-                        <PrimaryButton data-testid="jkl-cookie-consent-godta">Godta</PrimaryButton>
+                        <PrimaryButton type="submit" data-testid="jkl-cookie-consent-godta">
+                            Godta
+                        </PrimaryButton>
                     </ModalActions>
                 </Modal>
             )}
