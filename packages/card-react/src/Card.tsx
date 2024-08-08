@@ -1,6 +1,6 @@
 import { Button, type ButtonVariant } from "@fremtind/jkl-button-react";
 import { WithOptionalChildren } from "@fremtind/jkl-core";
-import classNames from "classnames";
+import clsx from "clsx";
 import React, { MouseEventHandler, FC } from "react";
 
 type Action = {
@@ -33,7 +33,7 @@ interface Props extends WithOptionalChildren {
  * Se https://jokul.fremtind.no/komponenter/card for informasjon om bruk
  */
 export const Card: FC<Props> = ({ title, children, className, media, action, dark, clickable }) => {
-    const componentClassName = classNames("jkl-card", className, {
+    const componentClassName = clsx("jkl-card", className, {
         "jkl-card--dark": dark,
         "jkl-card--clickable": clickable,
     });

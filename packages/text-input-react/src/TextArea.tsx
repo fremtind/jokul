@@ -1,5 +1,5 @@
 import { InputGroup, type InputGroupProps } from "@fremtind/jkl-input-group-react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { BaseTextArea, BaseTextAreaProps } from "./BaseTextArea";
 
@@ -34,7 +34,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, r
     const textAreaProps = { autoExpand, counter, startOpen };
     return (
         <InputGroup
-            className={cn("jkl-text-area", className, {
+            className={clsx("jkl-text-area", className, {
                 "jkl-text-area--start-open": startOpen,
                 "jkl-text-area--auto-expand": autoExpand,
             })}

@@ -1,5 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import cx from "classnames";
+import clsx from "clsx";
 import React, { FC } from "react";
 
 export interface ListProps extends WithChildren {
@@ -14,7 +14,7 @@ function makeListComponent(listType: ValidLists): FC<ListProps> {
 
         return (
             <C
-                className={cx("jkl-list", className, {
+                className={clsx("jkl-list", className, {
                     "jkl-list--ordered": listType === "ordered",
                 })}
                 data-testid="jkl-list"

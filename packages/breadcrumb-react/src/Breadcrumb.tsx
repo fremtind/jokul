@@ -1,5 +1,5 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React from "react";
 import { BreadcrumbItemProps } from "./BreadcrumbItem";
 
@@ -11,7 +11,7 @@ export interface BreadcrumbProps extends WithChildren {
 export const Breadcrumb = ({ className, children, density, ...rest }: BreadcrumbProps): JSX.Element => {
     const numberOfChildren = React.Children.count(children);
     return (
-        <nav aria-label="Sti" className={cn("jkl-breadcrumb", className)} data-layout-density={density} {...rest}>
+        <nav aria-label="Sti" className={clsx("jkl-breadcrumb", className)} data-layout-density={density} {...rest}>
             <ol className="jkl-breadcrumb__list">
                 {React.Children.map(children, (child, index) => {
                     const isLastElement = index + 1 === numberOfChildren;

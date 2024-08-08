@@ -1,4 +1,4 @@
-import cx from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, HTMLAttributes, useEffect, useState } from "react";
 import { useTableContext } from "./tableContext";
 import { useTableSectionContext } from "./tableSectionContext";
@@ -42,7 +42,7 @@ const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(({ className, cl
                     }
                 }}
                 data-testid="jkl-clickable-table-row"
-                className={cx("jkl-table-row", "jkl-table-row--clickable", className, {
+                className={clsx("jkl-table-row", "jkl-table-row--clickable", className, {
                     ["jkl-table-row--clicked"]: clickable?.markClickedRows && clicked,
                 })}
                 aria-label="Klikkbar rad"
@@ -58,7 +58,7 @@ const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(({ className, cl
     }
 
     return (
-        <tr className={cx("jkl-table-row", className)} {...rest} ref={ref} data-density={density}>
+        <tr className={clsx("jkl-table-row", className)} {...rest} ref={ref} data-density={density}>
             {children}
         </tr>
     );

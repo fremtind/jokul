@@ -37,8 +37,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-breadcrumb": "^5.0.10",
-        "@fremtind/jkl-core": "^13.5.0",
-        "classnames": "^2.3.2"
+        "@fremtind/jkl-core": "^13.5.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

@@ -1,5 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { ReactNode, FC, useState, useEffect } from "react";
 
 export interface ContentToggleProps extends WithChildren {
@@ -32,7 +32,7 @@ export const ContentToggle: FC<ContentToggleProps> = ({
     }, [showSecondary, initialShowSecondary]);
 
     return (
-        <span {...rest} className={cn("jkl-content-toggle", `jkl-content-toggle--${variant}`, className)}>
+        <span {...rest} className={clsx("jkl-content-toggle", `jkl-content-toggle--${variant}`, className)}>
             <span
                 className="jkl-content-toggle__slider"
                 data-show={showSecondary ? "second" : "first"}

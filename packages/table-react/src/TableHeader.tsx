@@ -1,6 +1,6 @@
 import { Density } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, MouseEventHandler, ThHTMLAttributes } from "react";
 import { useTableContext } from "./tableContext";
 import { TableSortProps } from "./utils";
@@ -46,7 +46,7 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>((props, r
 
     return (
         <th
-            className={cn("jkl-table-header", className, {
+            className={clsx("jkl-table-header", className, {
                 ["jkl-table-header--bold"]: bold,
                 ["jkl-table-header--align-right"]: align === "right",
                 ["jkl-table-header--align-center"]: align === "center",
@@ -62,7 +62,7 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>((props, r
             {children}
             {sortable && (
                 <div
-                    className={cn("jkl-table-header__arrows", {
+                    className={clsx("jkl-table-header__arrows", {
                         "jkl-table-header__arrows--active": Boolean(sortable.direction),
                     })}
                 >

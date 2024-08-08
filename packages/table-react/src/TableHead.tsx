@@ -1,4 +1,4 @@
-import cx from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, HTMLAttributes } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext";
 
@@ -11,7 +11,7 @@ const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(({ classNa
     return (
         <TableSectionContextProvider state={{ isTableHead: true, isTableBody: false, isTableFooter: false }}>
             <thead
-                className={cx("jkl-table-head", className, {
+                className={clsx("jkl-table-head", className, {
                     ["jkl-table-head--sr-only"]: srOnly,
                     ["jkl-table-head--sticky"]: sticky,
                 })}

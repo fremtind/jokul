@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { AnchorHTMLAttributes, FC } from "react";
 
 export interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -8,7 +8,7 @@ export interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export const NavLink: FC<NavLinkProps> = ({ active = false, back = false, className, children, ...rest }) => (
     <a
-        className={cn(
+        className={clsx(
             "jkl-nav-link",
             {
                 "jkl-nav-link--active": active,

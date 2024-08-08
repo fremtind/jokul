@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import React, { AriaRole } from "react";
 import { useDelayedRender } from "./useDelayedRender";
 
@@ -33,7 +33,7 @@ export const Loader = ({
         return null;
     }
 
-    const componentClassName = classNames("jkl-loader", className, {
+    const componentClassName = clsx("jkl-loader", className, {
         "jkl-loader--medium": variant === "medium",
         "jkl-loader--small": variant === "small",
         "jkl-loader--inline": inline,

@@ -1,6 +1,6 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React from "react";
 import { DismissButton } from "./common/DismissButton";
 import { MessageIcon } from "./common/MessageIcon";
@@ -42,7 +42,7 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
                 role={role}
                 {...rest}
                 id={alertId}
-                className={cn("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
+                className={clsx("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
                     "jkl-alert-message--dismissed": dismissed,
                 })}
                 data-density={density}

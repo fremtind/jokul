@@ -1,6 +1,6 @@
 import { DataTestAutoId, Density, Link, WithChildren, NavLink, WithOptionalChildren } from "@fremtind/jkl-core";
 import { formatTelefonnummer } from "@fremtind/jkl-formatters-util";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { HTMLAttributes, FC, ReactNode } from "react";
 
 export interface FooterProps extends DataTestAutoId, HTMLAttributes<HTMLElement> {
@@ -10,7 +10,7 @@ export interface FooterProps extends DataTestAutoId, HTMLAttributes<HTMLElement>
 
 export const ContactInformation: FC<FooterProps> = ({ headingComponent, className, density, children, ...rest }) => {
     return (
-        <div className={cn("jkl-contact-info", className)} data-density={density} {...rest}>
+        <div className={clsx("jkl-contact-info", className)} data-density={density} {...rest}>
             {headingComponent}
             {children}
         </div>

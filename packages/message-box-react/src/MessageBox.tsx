@@ -1,7 +1,7 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
 import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { AriaRole, forwardRef } from "react";
 import { DismissButton } from "./DismissButton";
 
@@ -61,7 +61,7 @@ function messageFactory(messageType: messageTypes) {
                 {...rest}
                 id={id}
                 ref={ref}
-                className={cn("jkl-message-box", "jkl-message-box--" + messageType, className, {
+                className={clsx("jkl-message-box", "jkl-message-box--" + messageType, className, {
                     "jkl-message-box--full": fullWidth,
                     "jkl-message-box--dismissed": dismissed,
                 })}

@@ -4,7 +4,7 @@ import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { CloseIcon } from "@fremtind/jkl-icons-react";
 import { SupportLabel } from "@fremtind/jkl-input-group-react";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC, MouseEvent } from "react";
 import { useFileInputContext } from "./internal/fileInputContext";
 import { Thumbnail } from "./internal/Thumbnail";
@@ -36,7 +36,7 @@ export const File: FC<FileProps> = (props) => {
     const f = (
         <div
             id={id}
-            className={cn("jkl-file", {
+            className={clsx("jkl-file", {
                 "jkl-file--error": supportLabelType === "error",
                 "jkl-file--warning": supportLabelType === "warning",
             })}

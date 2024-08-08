@@ -1,6 +1,6 @@
 import { Density, ScreenReaderOnly, WithChildren } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
-import cx from "classnames";
+import clsx from "clsx";
 import React, { ForwardedRef } from "react";
 
 export type ExpandDirection = "up" | "down";
@@ -55,7 +55,7 @@ export const ExpandButton = React.forwardRef(
                 aria-expanded={isExpanded}
                 data-testid="jkl-expand-button"
                 type={type}
-                className={cx("jkl-expand-button", className, {
+                className={clsx("jkl-expand-button", className, {
                     "jkl-expand-button--expanded": isExpanded,
                     "jkl-expand-button--icon-only": !children,
                 })}

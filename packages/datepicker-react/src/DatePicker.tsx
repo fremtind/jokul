@@ -2,7 +2,7 @@ import { CalendarIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup } from "@fremtind/jkl-input-group-react";
 import { useAnimatedHeight, useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
 import { BaseTextInput } from "@fremtind/jkl-text-input-react";
-import cn from "classnames";
+import clsx from "clsx";
 import startOfDay from "date-fns/startOfDay";
 import React, {
     ChangeEvent,
@@ -261,7 +261,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     return (
         <InputGroup
             id={id}
-            className={cn("jkl-datepicker", className, {
+            className={clsx("jkl-datepicker", className, {
                 "jkl-datepicker--open": showCalendar,
             })}
             {...rest}

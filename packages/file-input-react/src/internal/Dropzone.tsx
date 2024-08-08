@@ -1,5 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, useState } from "react";
 import { FileInputFile } from "../types";
 import { useFileInputContext } from "./fileInputContext";
@@ -21,7 +21,7 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>((props, ref) =
         <div
             {...rest}
             ref={ref}
-            className={cn("jkl-file-input__dropzone", onDragClassName)}
+            className={clsx("jkl-file-input__dropzone", onDragClassName)}
             onDragEnter={(e) => {
                 setOnDragClassName("jkl-file-input__dropzone--enter");
                 e.preventDefault();

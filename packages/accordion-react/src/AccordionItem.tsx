@@ -1,7 +1,7 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
 import { useAnimatedDetails } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC, useState } from "react";
 
 export interface AccordionItemProps extends WithChildren {
@@ -38,7 +38,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
         <details
             data-testid="jkl-accordion-item"
             {...rest}
-            className={cn("jkl-accordion-item", className)}
+            className={clsx("jkl-accordion-item", className)}
             ref={detailsRef}
             id={id}
         >

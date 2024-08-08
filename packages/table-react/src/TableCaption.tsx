@@ -1,4 +1,4 @@
-import cx from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, HTMLAttributes } from "react";
 
 export interface TableCaptionProps extends HTMLAttributes<HTMLTableCaptionElement> {
@@ -8,7 +8,11 @@ export interface TableCaptionProps extends HTMLAttributes<HTMLTableCaptionElemen
 
 const TableCaption = forwardRef<HTMLTableCaptionElement, TableCaptionProps>(({ srOnly = true, ...rest }, ref) => {
     return (
-        <caption className={cx("jkl-table-caption", { ["jkl-table-caption--sr-only"]: srOnly })} {...rest} ref={ref} />
+        <caption
+            className={clsx("jkl-table-caption", { ["jkl-table-caption--sr-only"]: srOnly })}
+            {...rest}
+            ref={ref}
+        />
     );
 });
 

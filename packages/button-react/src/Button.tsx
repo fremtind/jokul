@@ -1,7 +1,7 @@
 import type { PolymorphicRef } from "@fremtind/jkl-core";
 import { Loader } from "@fremtind/jkl-loader-react";
 import { useAriaLiveRegion } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { ButtonHTMLAttributes, type TouchEvent, useCallback } from "react";
 import type { ButtonComponent, ButtonProps } from "./types";
 
@@ -53,7 +53,7 @@ export const Button = React.forwardRef(function Button<ElementType extends React
         <Component
             {...ariaLive}
             data-density={density}
-            className={cn("jkl-button", "jkl-button--" + variant, className, {
+            className={clsx("jkl-button", "jkl-button--" + variant, className, {
                 "jkl-button--icon-left": iconLeft,
                 "jkl-button--icon-right": iconRight,
             })}
@@ -65,7 +65,7 @@ export const Button = React.forwardRef(function Button<ElementType extends React
         >
             <div className="jkl-button__content">
                 <div
-                    className={cn("jkl-button__slider", {
+                    className={clsx("jkl-button__slider", {
                         "jkl-button__slider--show-loader": !!loader?.showLoader,
                     })}
                 >

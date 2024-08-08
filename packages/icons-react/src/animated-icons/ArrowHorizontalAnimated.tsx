@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { type FC } from "react";
 import { ArrowLeftIcon } from "../icons/arrow-left/ArrowLeftIcon";
 import { ArrowRightIcon } from "../icons/arrow-right/ArrowRightIcon";
@@ -20,7 +20,7 @@ export const ArrowHorizontalAnimated: FC<ArrowHorizontalAnimatedProps> = ({
 }) => (
     <div
         {...rest}
-        className={cn(
+        className={clsx(
             "jkl-icon",
             "jkl-icon--animated",
             `jkl-icon--${variant}`,

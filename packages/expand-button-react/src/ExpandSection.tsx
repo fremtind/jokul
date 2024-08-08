@@ -1,6 +1,6 @@
 import { Density } from "@fremtind/jkl-core";
 import { UseAnimatedHeightOptions, useAnimatedDetails } from "@fremtind/jkl-react-hooks";
-import cx from "classnames";
+import clsx from "clsx";
 import React, { ReactNode, useEffect, useState } from "react";
 import type { ExpandButtonProps } from "./ExpandButton";
 import { ExpandButton } from "./ExpandButton";
@@ -53,7 +53,7 @@ export const ExpandSection = ({
     return (
         <details
             data-testid={"jkl-expand-section"}
-            className={cx("jkl-expand-section", className)}
+            className={clsx("jkl-expand-section", className)}
             {...rest}
             ref={detailsRef}
         >

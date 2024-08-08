@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { SVGAttributes } from "react";
 import { IconProps, IconVariant } from "./icons/types";
 
@@ -25,7 +25,7 @@ export const makeIconComponent = (variants: IconVariants) => {
         const El = as;
         return (
             <El
-                className={cn(className, "jkl-icon", `jkl-icon--${variant}`, { "jkl-icon--bold": bold })}
+                className={clsx(className, "jkl-icon", `jkl-icon--${variant}`, { "jkl-icon--bold": bold })}
                 aria-hidden="true"
                 style={style}
                 data-testid={testId}

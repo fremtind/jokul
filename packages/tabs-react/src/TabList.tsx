@@ -1,5 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useTabsContext } from "./tabsContext";
 
@@ -66,7 +66,7 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
     }, []);
 
     return (
-        <div role="tablist" ref={tabsRef} {...rest} className={cn("jkl-tablist", className)}>
+        <div role="tablist" ref={tabsRef} {...rest} className={clsx("jkl-tablist", className)}>
             {React.Children.map(children, (tab, tabIndex) => {
                 const isActive = activeIndex === tabIndex;
 

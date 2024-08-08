@@ -1,5 +1,5 @@
 import { WithChildren } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { AnchorHTMLAttributes } from "react";
 
 export interface BreadcrumbItemProps extends WithChildren {
@@ -13,7 +13,7 @@ export interface BreadcrumbItemProps extends WithChildren {
 
 export const BreadcrumbItem = ({ className, children, isLastElement, ...rest }: BreadcrumbItemProps): JSX.Element => {
     return (
-        <li className={cn("jkl-breadcrumb__item", className)} {...rest}>
+        <li className={clsx("jkl-breadcrumb__item", className)} {...rest}>
             {React.Children.map(children, (child) => {
                 if (React.isValidElement<AnchorHTMLAttributes<HTMLAnchorElement>>(child)) {
                     return React.cloneElement<AnchorHTMLAttributes<HTMLAnchorElement>>(child, {

@@ -1,6 +1,6 @@
 import { ContentToggle } from "@fremtind/jkl-content-toggle-react";
 import { Density } from "@fremtind/jkl-core";
-import classnames from "classnames";
+import clsx from "clsx";
 import React from "react";
 
 export interface HamburgerProps {
@@ -47,12 +47,12 @@ export const Hamburger = ({
     actionLabel,
     ...rest
 }: HamburgerProps): JSX.Element => {
-    const componentClassname = classnames("jkl-hamburger", className, {
+    const componentClassname = clsx("jkl-hamburger", className, {
         "jkl-hamburger--label-before": actionLabel?.position === "before",
         "jkl-hamburger--label-after": actionLabel && actionLabel.position !== "before",
     });
 
-    const labelClassname = classnames("jkl-hamburger__label", {
+    const labelClassname = clsx("jkl-hamburger__label", {
         "jkl-hamburger__label--animated": actionLabel?.animated,
     });
 

@@ -23,7 +23,7 @@ import {
 } from "@floating-ui/react";
 import { type DataTestAutoId, WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useEffect, useRef, useState } from "react";
 import * as ReactIs from "react-is";
@@ -185,7 +185,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                             returnFocus={!isNested}
                         >
                             <motion.div
-                                className={cn("jkl jkl-contextual-menu", className)}
+                                className={clsx("jkl jkl-contextual-menu", className)}
                                 data-theme={theme}
                                 data-layout-density={density}
                                 role="menu"

@@ -1,6 +1,6 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
 import { useId, useSwipeGesture } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { useState, Fragment, useRef, FC, MouseEventHandler } from "react";
 import { type ToggleChangeHandler } from "./ToggleSwitch";
 import { usePillStyles } from "./usePillStyles";
@@ -55,14 +55,14 @@ export const ToggleSlider: FC<Props> = ({
     return (
         <fieldset
             {...rest}
-            className={cn("jkl-toggle-slider", className)}
+            className={clsx("jkl-toggle-slider", className)}
             aria-labelledby={legendId}
             data-testid="jkl-toggle-slider"
             data-density={density}
         >
             <div
                 id={legendId}
-                className={cn("jkl-toggle-slider__legend", {
+                className={clsx("jkl-toggle-slider__legend", {
                     "jkl-toggle-slider__legend--sr-only": hideLegend,
                 })}
             >
@@ -82,7 +82,7 @@ export const ToggleSlider: FC<Props> = ({
                             onChange={() => {}}
                         />
                         <label
-                            className={cn("jkl-toggle-slider__label", {
+                            className={clsx("jkl-toggle-slider__label", {
                                 "jkl-toggle-slider__label--selected": label === currentLabel,
                             })}
                             ref={label === currentLabel ? activeRef : undefined}

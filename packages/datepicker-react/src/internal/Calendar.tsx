@@ -1,7 +1,7 @@
 import { Density } from "@fremtind/jkl-core";
 import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, useCallback, useEffect, useReducer, useRef } from "react";
 import { flushSync } from "react-dom";
 import type { YearsToShow } from "../types";
@@ -350,7 +350,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         <div
             ref={ref}
             id={id}
-            className={cn("jkl-calendar", {
+            className={clsx("jkl-calendar", {
                 "jkl-calendar--hidden": hidden,
             })}
             data-testid="jkl-calendar"

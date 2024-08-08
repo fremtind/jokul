@@ -1,5 +1,5 @@
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { CSSProperties } from "react";
 
 export interface LogoProps {
@@ -30,7 +30,7 @@ export const Logo = ({
     return (
         <svg
             {...rest}
-            className={cn("jkl-logo", className, {
+            className={clsx("jkl-logo", className, {
                 "jkl-logo--animated": animated,
                 "jkl-logo--symbol-only": isSymbol,
                 "jkl-logo--centered": centered && isSymbol,

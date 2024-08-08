@@ -1,5 +1,5 @@
 import type { Density, WithChildren } from "@fremtind/jkl-core";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
 
 export interface NavTabsProps extends WithChildren {
@@ -40,7 +40,7 @@ export const NavTabs = ({
     }, [selectedIndex, density]);
 
     return (
-        <div {...rest} data-layout-density={density} className={cn("jkl-tabs", className)} ref={scrollRef}>
+        <div {...rest} data-layout-density={density} className={clsx("jkl-tabs", className)} ref={scrollRef}>
             <div role="tablist" aria-label={ariaLabel} ref={tablistRef} className="jkl-tablist">
                 {React.Children.map(children, (child, index) => {
                     return React.isValidElement(child)

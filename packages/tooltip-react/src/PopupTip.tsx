@@ -1,5 +1,5 @@
 import { QuestionIcon } from "@fremtind/jkl-icons-react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { useState, type FC, type ReactNode, HTMLProps, FocusEventHandler } from "react";
 import { Tooltip, type TooltipProps } from "./Tooltip";
 import { TooltipContent } from "./TooltipContent";
@@ -36,7 +36,7 @@ export const PopupTip: FC<PopupTipProps> = ({ content, triggerProps, ...tooltipP
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     type="button"
-                    className={cn("jkl-tooltip-question-button", triggerProps?.className)}
+                    className={clsx("jkl-tooltip-question-button", triggerProps?.className)}
                 >
                     <QuestionIcon bold={isBold} />
                     <span className="jkl-sr-only">Vis hjelpetekst</span>

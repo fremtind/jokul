@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC, SVGAttributes } from "react";
 
 /*
@@ -11,7 +11,7 @@ export const GreenCheck: FC<SVGAttributes<SVGElement>> = (props) => (
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         {...props}
-        className={cn(props.className, "jkl-icon--green-check")}
+        className={clsx(props.className, "jkl-icon--green-check")}
     >
         <circle cx="12" cy="12" r="10" />
         <path

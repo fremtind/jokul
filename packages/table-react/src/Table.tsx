@@ -1,5 +1,5 @@
 import { Density } from "@fremtind/jkl-core";
-import cx from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, TableHTMLAttributes } from "react";
 import { TableContextProvider } from "./tableContext";
 
@@ -16,7 +16,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
         return (
             <TableContextProvider state={{ density, collapseToList }}>
                 <table
-                    className={cx("jkl-table", className, {
+                    className={clsx("jkl-table", className, {
                         ["jkl-table--full-width"]: fullWidth,
                         ["jkl-table--collapse-to-list"]: collapseToList,
                     })}

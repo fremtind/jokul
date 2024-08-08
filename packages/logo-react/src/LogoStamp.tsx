@@ -1,6 +1,6 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { CSSProperties, useRef } from "react";
 import { useTextSpinner } from "./useTextSpinner";
 
@@ -37,7 +37,7 @@ export const LogoStamp = ({
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
             aria-labelledby={uniqueId}
-            className={cn("jkl-logo-stamp", className, {
+            className={clsx("jkl-logo-stamp", className, {
                 "jkl-logo-stamp--animated": animated,
             })}
             data-rotate={animated && (visible || hasAnimated)}
