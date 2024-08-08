@@ -1,6 +1,6 @@
+import { Density, PolymorphicPropsWithRef, PolymorphicRef } from "@fremtind/jkl-core";
 import { ArrowRightIcon } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
-import { PolymorphicPropsWithRef, PolymorphicRef } from "packages/core/build";
 import React, { ComponentProps, FC } from "react";
 
 const Item: FC<ComponentProps<"li">> = ({ className, ...rest }) => {
@@ -33,12 +33,14 @@ type OrderedLinkListProps = React.HTMLAttributes<HTMLOListElement> & {
     variant: "ordered";
 };
 
-type LinkListProps = UnorderedLinkListProps | OrderedLinkListProps;
+type LinkListProps = (UnorderedLinkListProps | OrderedLinkListProps) & {
+    density?: Density;
+};
 
-export const LinkList = ({ variant, className, ...rest }: LinkListProps): React.JSX.Element => {
+export const LinkList = ({ variant, className, density, ...rest }: LinkListProps): React.JSX.Element => {
     const Component = variant === "ordered" ? "ol" : "ul";
 
-    return <Component className={cn(`jkl-${variant}-link-list`, className)} {...rest} />;
+    return <Component className={cn(`jkl-${variant}-link-list`, className)} data-density={density} {...rest} />;
 };
 
 LinkList.Link = Link;
