@@ -1,77 +1,76 @@
 import React, { FC } from "react";
-import { OrderedLinkList } from "../src/OrderedLinkList";
-import { UnorderedLinkList } from "../src/UnorderedLinkList";
-
-export const UnorderedLinkListExample: FC = () => (
-    <UnorderedLinkList>
-        <UnorderedLinkList.Item>
-            <UnorderedLinkList.Link>SpareBank 1</UnorderedLinkList.Link>
-        </UnorderedLinkList.Item>
-        <UnorderedLinkList.Item>
-            <UnorderedLinkList.Link>DNB</UnorderedLinkList.Link>
-        </UnorderedLinkList.Item>
-        <UnorderedLinkList.Item>
-            <UnorderedLinkList.Link>LOfavør</UnorderedLinkList.Link>
-        </UnorderedLinkList.Item>
-        <UnorderedLinkList.Item>
-            <UnorderedLinkList.Link>Norsk Sykepleierforbund</UnorderedLinkList.Link>
-        </UnorderedLinkList.Item>
-    </UnorderedLinkList>
-);
-
-export const unorderedLinkListExample = () => `
-<UnorderedLinkList>
-    <UnorderedLinkList.Item>
-        <UnorderedLinkList.Link>SpareBank 1</UnorderedLinkList.Link>
-    </UnorderedLinkList.Item>
-    <UnorderedLinkList.Item>
-        <UnorderedLinkList.Link>DNB</UnorderedLinkList.Link>
-    </UnorderedLinkList.Item>
-    <UnorderedLinkList.Item>
-        <UnorderedLinkList.Link>LOfavør</UnorderedLinkList.Link>
-    </UnorderedLinkList.Item>
-    <UnorderedLinkList.Item>
-        <UnorderedLinkList.Link>Norsk Sykepleierforbund</UnorderedLinkList.Link>
-    </UnorderedLinkList.Item>
-</UnorderedLinkList>
-`;
+import { LinkList } from "../src";
 
 export const OrderedLinkListExample: FC = () => (
-    <OrderedLinkList>
-        <OrderedLinkList.Item>
-            <OrderedLinkList.Link>Ledige stillinger</OrderedLinkList.Link>
-        </OrderedLinkList.Item>
-        <OrderedLinkList.Item>
-            <OrderedLinkList.Link>Hvorfor Fremtind?</OrderedLinkList.Link>
-        </OrderedLinkList.Item>
-        <OrderedLinkList.Item>
-            <OrderedLinkList.Link>Fordeler og goder</OrderedLinkList.Link>
-        </OrderedLinkList.Item>
-        <OrderedLinkList.Item>
-            <OrderedLinkList.Link>Kultur</OrderedLinkList.Link>
-        </OrderedLinkList.Item>
-        <OrderedLinkList.Item>
-            <OrderedLinkList.Link>Teknologi</OrderedLinkList.Link>
-        </OrderedLinkList.Item>
-    </OrderedLinkList>
+    <LinkList variant="ordered">
+        <LinkList.Item>
+            <LinkList.Link>SpareBank 1</LinkList.Link>
+        </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link>DNB</LinkList.Link>
+        </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link>LOfavør</LinkList.Link>
+        </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link>Norsk Sykepleierforbund</LinkList.Link>
+        </LinkList.Item>
+    </LinkList>
 );
 
 export const orderedLinkListExample = () => `
-<OrderedLinkList>
-    <OrderedLinkList.Item>
-        <OrderedLinkList.Link>Ledige stillinger</OrderedLinkList.Link>
-    </OrderedLinkList.Item>
-    <OrderedLinkList.Item>
-        <OrderedLinkList.Link>Hvorfor Fremtind?</OrderedLinkList.Link>
-    </OrderedLinkList.Item>
-    <OrderedLinkList.Item>
-        <OrderedLinkList.Link>Fordeler og goder</OrderedLinkList.Link>
-    </OrderedLinkList.Item>
-    <OrderedLinkList.Item>
-        <OrderedLinkList.Link>Kultur</OrderedLinkList.Link>
-    </OrderedLinkList.Item>
-    <OrderedLinkList.Item>
-        <OrderedLinkList.Link>Teknologi</OrderedLinkList.Link>
-    </OrderedLinkList.Item>
-</OrderedLinkList>
+<LinkList variant="ordered">
+    <LinkList.Item>
+        <LinkList.Link>SpareBank 1</LinkList.Link>
+    </LinkList.Item>
+    <LinkList.Item>
+        <LinkList.Link>DNB</LinkList.Link>
+    </LinkList.Item>
+    <LinkList.Item>
+        <LinkList.Link>LOfavør</LinkList.Link>
+    </LinkList.Item>
+    <LinkList.Item>
+        <LinkList.Link>Norsk Sykepleierforbund</LinkList.Link>
+    </LinkList.Item>
+</LinkList>
+`;
+
+export const UnorderedLinkListExample: FC = () => (
+    <LinkList variant="unordered">
+        <LinkList.Item>
+            <LinkList.Link>Ledige stillinger</LinkList.Link>
+        </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link>Hvorfor Fremtind?</LinkList.Link>
+        </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link>Fordeler og goder</LinkList.Link>
+        </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link>Kultur</LinkList.Link>
+        </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link>Teknologi</LinkList.Link>
+        </LinkList.Item>
+    </LinkList>
+);
+
+export const unorderedLinkListExample = () => `
+<LinkList variant="unordered">
+    <LinkList.Item>
+        <LinkList.Link>Ledige stillinger</LinkList.Link>
+    </LinkList.Item>
+    <LinkList.Item>
+        <LinkList.Link>Hvorfor Fremtind?</LinkList.Link>
+    </LinkList.Item>
+    <LinkList.Item>
+        <LinkList.Link>Fordeler og goder</LinkList.Link>
+    </LinkList.Item>
+    <LinkList.Item>
+        <LinkList.Link>Kultur</LinkList.Link>
+    </LinkList.Item>
+    <LinkList.Item>
+        <LinkList.Link>Teknologi</LinkList.Link>
+    </LinkList.Item>
+</LinkList>
 `;
