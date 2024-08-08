@@ -18,7 +18,6 @@ export const Button = React.forwardRef(function Button<ElementType extends React
         loader,
         iconLeft,
         iconRight,
-        type = as === "button" ? "button" : undefined,
         variant = "secondary",
         ...rest
     } = props;
@@ -60,7 +59,6 @@ export const Button = React.forwardRef(function Button<ElementType extends React
             disabled={as === "button" ? loader?.showLoader : undefined}
             onTouchStart={handleTouch}
             {...rest}
-            type={type}
             ref={ref}
         >
             <div className="jkl-button__content">
