@@ -104,6 +104,7 @@ $_focus-ring-width: jkl.rem(2px);
     align-items: center;
     color: var(--jkl-tooltip-button-color);
     transform: translateY(max(0.16em, jkl.rem(4px))); // Cap på 4px
+    font-size: 1.2em;
 
     &:hover {
         color: var(--jkl-tooltip-active-button-color);
