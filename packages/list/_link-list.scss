@@ -60,6 +60,10 @@
         }
     }
 
+    &__arrow {
+        align-self: center;
+    }
+
     .jkl-ordered-link-list & {
         justify-content: flex-start;
 
