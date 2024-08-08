@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.0.42 (2024-08-08)
+
+### Bug Fixes
+
+- the button in the modal consent form submits again ([5e21a6f](https://github.com/fremtind/jokul/commit/5e21a6f02ffd90a06027f1755bb8f7cbedbe31ba))
+
 ## 10.0.6 (2023-09-05)
 
 ### Bug Fixes
