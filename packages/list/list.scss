@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @use "@fremtind/jkl-core/jkl";
+@use "link-list";
 
 @function _solid-diamond($color) {
     $c: jkl.urlencodecolor($color);
