@@ -1,0 +1,22 @@
+@use "@fremtind/jkl-icons/icons";
+@use "@fremtind/jkl-checkbox/checkbox";
+@use "@fremtind/jkl-input-group/input-group";
+@use "@fremtind/jkl-button/button";
+@use "@fremtind/jkl-select/select";
+@use "@fremtind/jkl-radio-button/radio-button";
+@use "@fremtind/jkl-core/jkl";
+
+@use "component-example";
+
+@use "@fremtind/jkl-webfonts/webfonts" with (
+    $webfonts-dir: "../node_modules/@fremtind/jkl-webfonts/fonts"
+);
+
+.jkl-dev-example {
+    max-width: 100vw;
+    width: 100%;
+
+    & .jkl-portal-component-example {
+        max-width: unset;
+    }
+}

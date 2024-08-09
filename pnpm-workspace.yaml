@@ -2,3 +2,4 @@ packages:
     - "actions/*"
     - "packages/*"
     - "portal"
+    - "utils"

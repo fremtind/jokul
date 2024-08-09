@@ -10,3 +10,4 @@ esbuild.*
 gulpfile.js
 MIGRATION.md
 tsconfig*
+build-stats.html
