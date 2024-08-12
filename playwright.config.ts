@@ -36,7 +36,7 @@ export default defineConfig({
         toHaveScreenshot: { maxDiffPixelRatio: 0.3 },
     },
 
-    snapshotPathTemplate: ".{/testFileDir}/__screenshots__/{testName}-{platform}-{arg}.png",
+    snapshotPathTemplate: ".{/testFileDir}/__screenshots__/{testName}-{arg}.png",
 
     /* Configure projects for major browsers */
     projects: [

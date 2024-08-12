@@ -1,0 +1,15 @@
+.interactive-code {
+    border: none;
+    background: none;
+}
+
+.interactive-code__preview {
+    position: absolute;
+    inset: 0;
+}
+
+.interactive-code__title,
+.interactive-code__controls,
+.interactive-code__editor {
+    display: none;
+}

@@ -10,6 +10,7 @@ test.beforeEach(async ({ page }, workerInfo) => {
         projectName: workerInfo.project.name,
     });
     await helper.init();
+    console.log(workerInfo.project.name);
 });
 
 test.afterEach(async () => {

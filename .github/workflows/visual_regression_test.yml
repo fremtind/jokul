@@ -1,0 +1,85 @@
+name: Visual regression tests
+
+on:
+  push:
+    branches:
+      - vite-playwright
+  #pull_request:
+  #  branches:
+  #    - main
+
+jobs:
+  build:
+    outputs:
+      visual: ${{ steps.changes.outputs.visual }}
+      preview: ${{ steps.changes.outputs.preview }}
+      testlint: ${{ steps.changes.outputs.testlint }}
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout
+        if: "!contains(github.event.sender.login, 'fremtind-bot')"
+        uses: actions/checkout@v3
+
+      #- name: Check for changes that require extra verification
+      #  if: "!contains(github.event.sender.login, 'fremtind-bot')"
+      #  uses: ./actions/paths-filter
+      #  id: changes
+      #  with:
+      #    filters: |
+      #      testlint:
+      #        - "**/*.js"
+      #        - "**/*.scss"
+      #        - "**/*.ts"
+      #        - "**/*.tsx"
+      #        - "pnpm-lock.yaml"
+      #      visual:
+      #        - "utils/playwright/**"
+      #        - "packages/**/*.spec.js"
+      #        - "packages/**/*.scss"
+      #        - "packages/core/**/!(*.d|*.test).ts"
+      #        - "packages/core/**/!(*.test).tsx"
+      #        - "packages/*-react/**/!(*.d|*.test).ts"
+      #        - "packages/*-react/**/!(*.test).tsx"
+      #        - "pnpm-lock.yaml"
+      #      preview:
+      #        - "packages/**/*.mdx"
+      #        - "portal/src/texts/**"
+
+      - name: Setup pnpm
+        #if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        #if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+        with:
+            node-version: 18
+            cache: "pnpm"
+
+      - name: Monorepo Runner Cache
+        #if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+        uses: actions/cache@v3
+        id: nx-cache
+        with:
+          path: .nx
+          key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+          restore-keys: |
+            nx-${{ hashFiles('pnpm-lock.yaml') }}-
+
+      - name: Install dependencies and build packages
+        #if: steps.changes.outputs.has_matches == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+        run: pnpm ci:install
+
+      # TODO cache playwright binaries (?)
+
+      - name: Playwright binaries
+        #if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+        run: pnpm exec playwright install --with-deps
+
+      - name: Run tests
+        #if: needs.build.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+        run: pnpm test:ui
