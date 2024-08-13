@@ -47,6 +47,8 @@
 }
 
 .jkl-link-list-link {
+    @include jkl.text-style("body");
+
     display: flex;
     justify-content: space-between;
     gap: var(--jkl-spacing-16);
