@@ -159,3 +159,21 @@ Når vi bruker lenkelister, anbefales det å benytte ordnet liste for interne le
         }
     />
 </Grid>
+
+## Bruk av `as`-egenskapen
+
+Ved å spesifisere `as`-egenskapen, kan du kontrollere hvilket element eller hvilken komponent `LinkList.Link`-komponenten blir gjengitt som. For eksempel kan du sende inn en `Link`-komponent fra et tredjepartssystem for å håndtere lenker på en bestemt måte.
+
+```tsx
+import { Link } = from "react-router-dom";
+
+return (
+    <LinkList variant="ordered">
+        <LinkList.Item>
+            <LinkList.Link as={Link}>
+                SpareBank 1
+            </LinkList.Link>
+        </LinkList.Item>
+    </LinkList>
+);
+```
