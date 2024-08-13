@@ -68,7 +68,8 @@ export const statuskortExampleCode = ({ boolValues, choiceValues }: ExampleCompo
     style={{ maxWidth: "350px" }}
     className="flex flex-column gap-24 items-start"
 >
-    <CardImage placement="top" {...imageProps} />
+    {/* Vi bruker Image-komponenten fra Jøkul for å håndtere responsivitet i bildet */}
+    <CardImage as={Image} placement="top" {...imageProps} />
     <SuccessTag>Behandles</SuccessTag>
     <div className="flex flex-column gap-4">
         <p className="jkl-heading-2">

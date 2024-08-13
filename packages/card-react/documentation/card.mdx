@@ -7,6 +7,8 @@ keywords: navcard taskcard infocard
 ---
 
 import { NavCardExample, navCardExampleCode } from "./NavCardExample";
+import { FakturainfoExample, fakturainfoExampleCode, fakturainfoExampleProps } from "./FakturainfoExample";
+import { StatuskortExample, statuskortExampleCode, statuskortExampleProps } from "./StatuskortExample";
 import { TaskCardExample, taskCardExampleCode } from "./TaskCardExample";
 import { InfoCardExample, infoCardExampleCode } from "./InfoCardExample";
 import { TopExample, topExampleCode } from "./TopExample";
@@ -17,14 +19,31 @@ import {
     taskCardExampleProps,
 } from "./cardExampleProps";
 
-<Ingress>
-    Kortkomponentene lar oss løfte frem informasjon eller oppgaver som hører sammen. Det finnes tre varianter av kort,
-    hver med sitt bruksområde og utseende.
-</Ingress>
+<Ingress>Kort lar oss løfte frem oppgaver eller innhold som henger sammen.</Ingress>
 
-<ComponentExample title="Card" component={TopExample} knobs={baseCardExampleProps} codeExample={topExampleCode} />
+<ComponentExample
+    title="Informasjon om forfalt faktura"
+    component={FakturainfoExample}
+    codeExample={fakturainfoExampleCode}
+    knobs={fakturainfoExampleProps}
+/>
 
-De tre kortkomponentene i Jøkul er **navigasjonskort**, **oppgavekort** og **infokort**. Alle tre har ulike bruksområder, og er derfor utformet på forskjellig måte. Velg varianten som løser ditt problem på best måte.
+Som hovedsak brukes kort for å vise innhold som hører tett sammen, og eventuelle handlinger som hører til innholdet. Plasser elementer i kortet på en måte som er enkel å skumme for nyttig informasjon, og som gir et tydelig hierarki.
+
+Kortkomponenten setter kun noen få egenskaper og stiler, og det er opp til deg å bygge innholdet i kortet ut fra behov og informasjon.
+
+Hele kortet kan være **klikkbart**. Dette indikeres med at kortet får skygge, og en effekt ved hover og fokus. Ikke plasser andre interaktive elementer i et kort som er klikkbart.
+
+## CardImage
+
+I pakken finnes også en `CardImage`-komponent som gjør det enkelt å legge inn bilder som blør ut i kantene av kortet, selv om man har padding på resten av innholdet. Komponenten rendres i utgamgspunktet som et vanlig `<img>`-element, men du kan også sende inn en egen komponent gjennom `as`-propen. Dermed kan du for eksempel bruke `Image`-komponenten fra Jøkul, eller tilsvarende komponenter fra et rammeverk eller CMS, for å håndtere bilder mer avansert.
+
+<ComponentExample
+    title="Statuskort for forsikring med bilde"
+    component={StatuskortExample}
+    codeExample={statuskortExampleCode}
+    knobs={statuskortExampleProps}
+/>
 
 ## Navigasjonskort
 
