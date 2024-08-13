@@ -7,6 +7,7 @@ import nodeExternals from "rollup-plugin-node-externals";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import copyJklFonts from "../../utils/vite/copy-jkl-fonts";
 
 export default defineConfig({
     plugins: [
@@ -17,6 +18,7 @@ export default defineConfig({
             emitFile: true,
             filename: "build-stats.html",
         }),
+        copyJklFonts(resolve(__dirname, "public", "fonts")),
     ],
     build: {
         outDir: "build",

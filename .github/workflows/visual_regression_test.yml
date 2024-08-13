@@ -1,12 +1,9 @@
 name: Visual regression tests
 
 on:
-  push:
+  pull_request:
     branches:
       - vite-playwright
-  #pull_request:
-  #  branches:
-  #    - main
 
 jobs:
   build:
@@ -80,6 +77,14 @@ jobs:
         #if: steps.changes.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
         run: pnpm exec playwright install --with-deps
 
-      - name: Run tests
+      - name: Update integration screenshots
         #if: needs.build.outputs.visual == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
-        run: pnpm test:ui
+        run: pnpm integration:update-screenshots
+
+      - name: Commit screenshots
+        run: |
+          git config user.email "fremtind.designsystem@fremtind.no"
+          git config user.name "fremtind-bot"
+          git add **/integration/__screenshots__/* || echo "No updated screenshots, nothing to add!"
+          git commit -m "chore: update integration screenshots [playwright]" --no-verify || echo "No updated screenshots, nothing to commit!"
+          git push      

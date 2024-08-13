@@ -22,3 +22,4 @@ cypress/videos
 .nx
 test-results/
 playwright-report/
+packages/**/public

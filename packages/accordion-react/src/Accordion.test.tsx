@@ -1,8 +1,7 @@
-import { render, waitFor } from "@testing-library/react";
+import { act, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { act } from "react-dom/test-utils";
 import { Accordion, AccordionItem } from ".";
 
 describe("Accordion", () => {

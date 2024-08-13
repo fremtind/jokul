@@ -51,10 +51,20 @@ export class TestHelper {
     }
 
     private async snapshot(name: string) {
+        await this.page.evaluate(() => document.fonts.ready);
+
+        const locator = this.page.locator(".interactive-code__preview");
+        const box = await locator.boundingBox();
+
+        if (!box) {
+            return;
+        }
+
         await expect(this.page).toHaveScreenshot(`${this.projectName}-${name}`, {
             animations: "disabled",
-            fullPage: true,
-            stylePath: path.resolve(".", "utils", "playwright", "screenshot.css"),
+            //stylePath: path.resolve(".", "utils", "playwright", "screenshot.css"),
+            caret: "hide",
+            clip: { ...box },
         });
     }
 

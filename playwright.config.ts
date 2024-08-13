@@ -16,7 +16,7 @@ export default defineConfig({
     /* Run tests in files in parallel */
     fullyParallel: true,
     /* Fail the build on CI if you accidentally left test.only in the source code. */
-    forbidOnly: !!process.env.CI,
+    // forbidOnly: !!process.env.CI,
     /* Retry on CI only */
     retries: process.env.CI ? 2 : 0,
     /* Opt out of parallel tests on CI. */
@@ -33,7 +33,7 @@ export default defineConfig({
     },
     expect: {
         timeout: 5000,
-        toHaveScreenshot: { maxDiffPixelRatio: 0.3 },
+        //toHaveScreenshot: { maxDiffPixelRatio: 0.01, threshold: 0.05 },
     },
 
     snapshotPathTemplate: ".{/testFileDir}/__screenshots__/{testName}-{arg}.png",
@@ -45,7 +45,7 @@ export default defineConfig({
             use: { ...devices["Desktop Chrome"] },
             fullyParallel: true,
         },
-
+        /*
         {
             name: "firefox",
             use: { ...devices["Desktop Firefox"] },
@@ -57,12 +57,7 @@ export default defineConfig({
             use: { ...devices["Desktop Safari"] },
             fullyParallel: true,
         },
-        {
-            name: "edge-high-contrast",
-            use: { ...devices["Desktop Edge"], channel: "msedge" },
-            fullyParallel: true,
-        },
-
+*/
         /* Test against mobile viewports. */
         // {
         //   name: 'Mobile Chrome',

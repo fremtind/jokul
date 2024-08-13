@@ -34,8 +34,8 @@
         "boot": "pnpm install && husky install && pnpm build",
         "reboot": "pnpm clean && pnpm boot",
         "scaffold": "node './scripts/scaffold'",
-        "test:ui": "playwright test",
-        "test:ui:interactive": "playwright test --ui"
+        "integration:update-screenshots": "rimraf **/integration/__screenshots__/* && playwright test --update-snapshots",
+        "integration:interactive": "playwright test --ui"
     },
     "packageManager": "pnpm@7.32.2",
     "pnpm": {

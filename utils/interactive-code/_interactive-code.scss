@@ -5,6 +5,7 @@
 @use "@fremtind/jkl-select/select";
 @use "@fremtind/jkl-radio-button/radio-button";
 @use "@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-webfonts/webfonts";
 
 @include jkl.light-mode-variables {
     --interactive-code-background: #{jkl.$color-hvit};

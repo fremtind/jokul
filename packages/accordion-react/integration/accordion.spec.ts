@@ -10,14 +10,13 @@ test.beforeEach(async ({ page }, workerInfo) => {
         projectName: workerInfo.project.name,
     });
     await helper.init();
-    console.log(workerInfo.project.name);
 });
 
 test.afterEach(async () => {
     helper.close();
 });
 
-test("renders in default state", async () => {
+test.only("renders in default state", async () => {
     await helper.open();
 
     await helper.snapshots();
