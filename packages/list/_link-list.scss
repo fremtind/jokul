@@ -14,6 +14,7 @@
     flex-direction: column;
     width: 100%;
     padding: 0;
+    margin: 0;
     border-bottom: 1.44px solid var(--jkl-color-border-separator);
     height: min-content;
     counter-reset: link-list;
@@ -47,8 +48,6 @@
 }
 
 .jkl-link-list-link {
-    @include jkl.text-style("body");
-
     display: flex;
     justify-content: space-between;
     gap: var(--jkl-spacing-16);
