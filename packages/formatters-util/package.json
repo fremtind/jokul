@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-formatters-util",
-    "version": "5.1.14",
+    "version": "5.1.15",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-constants-util": "^3.0.58",
+        "@fremtind/jkl-constants-util": "^3.0.59",
         "@fremtind/jkl-core": "^13.5.0"
     },
     "devDependencies": {
