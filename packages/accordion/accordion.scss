@@ -9,7 +9,7 @@
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-stein};
+    --jkl-accordion-border: #{jkl.$color-advarsel};
     --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
     --jkl-accordion-hover: #{jkl.$color-svaberg};
     --jkl-accordion-expanded-background: #{jkl.$color-skifer};
