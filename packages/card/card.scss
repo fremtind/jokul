@@ -1,5 +1,109 @@
 @charset "UTF-8";
-@use "deprecated-card";
+@use "@fremtind/jkl-core/jkl";
 @use "info-card";
 @use "nav-card";
 @use "task-card";
+
+@include jkl.comfortable-density-variables {
+    --jkl-card-padding-none: 0;
+    --jkl-card-padding-xs: #{jkl.$spacing-4};
+    --jkl-card-padding-s: #{jkl.$spacing-8};
+    --jkl-card-padding-m: #{jkl.$spacing-12};
+    --jkl-card-padding-l: #{jkl.$spacing-16};
+    --jkl-card-padding-xl: #{jkl.$spacing-24};
+
+    @include jkl.from-medium-device {
+        --jkl-card-padding-none: 0;
+        --jkl-card-padding-xs: #{jkl.$spacing-8};
+        --jkl-card-padding-s: #{jkl.$spacing-12};
+        --jkl-card-padding-m: #{jkl.$spacing-16};
+        --jkl-card-padding-l: #{jkl.$spacing-24};
+        --jkl-card-padding-xl: #{jkl.$spacing-32};
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-card-padding-none: 0;
+    --jkl-card-padding-xs: #{jkl.$spacing-2};
+    --jkl-card-padding-s: #{jkl.$spacing-4};
+    --jkl-card-padding-m: #{jkl.$spacing-8};
+    --jkl-card-padding-l: #{jkl.$spacing-12};
+    --jkl-card-padding-xl: #{jkl.$spacing-16};
+}
+
+.jkl-card {
+    --padding: 0;
+    --border-radius: #{jkl.rem(4px)};
+    --background-color: var(--jkl-color-background-container);
+
+    &[data-padding="xs"] {
+        --padding: var(--jkl-card-padding-xs);
+    }
+
+    &[data-padding="s"] {
+        --padding: var(--jkl-card-padding-s);
+    }
+
+    &[data-padding="m"] {
+        --padding: var(--jkl-card-padding-m);
+    }
+
+    &[data-padding="l"] {
+        --padding: var(--jkl-card-padding-l);
+    }
+
+    &[data-padding="xl"] {
+        --padding: var(--jkl-card-padding-xl);
+    }
+
+    &[data-background="high"] {
+        --background-color: var(--jkl-color-background-container-high);
+    }
+
+    &[data-background="low"] {
+        --background-color: var(--jkl-color-background-container-low);
+    }
+
+    &[data-background="subdued"] {
+        --background-color: var(--jkl-color-background-container-subdued);
+    }
+
+    &[data-background="inverted"] {
+        --background-color: var(--jkl-color-background-container-inverted);
+    }
+
+    &[data-clickable="true"] {
+        @include jkl.motion("standard", "productive");
+        transition-property: box-shadow;
+        box-shadow: jkl.$shadow-navigation;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: jkl.$shadow-navigation--hover;
+        }
+    }
+
+    overflow: hidden;
+    display: block;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+    text-decoration: none;
+    color: var(--jkl-color-text-default);
+}
+
+.jkl-card-image {
+    --margin: calc(var(--padding) * -1); // Sett negativ margin tilsvarende padding (fra Card)
+
+    width: calc(100% + 2 * var(--padding, 0));
+    aspect-ratio: var(--image-aspect-ratio, 3/2);
+    margin-inline: var(--margin, 0);
+
+    &--top {
+        margin-top: var(--margin, 0);
+    }
+
+    &--bottom {
+        margin-bottom: var(--margin, 0);
+    }
+}

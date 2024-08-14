@@ -1,67 +1,86 @@
-import { Button, type ButtonVariant } from "@fremtind/jkl-button-react";
-import { WithOptionalChildren } from "@fremtind/jkl-core";
-import classNames from "classnames";
-import React, { MouseEventHandler, FC } from "react";
+import {
+    type AsChildProps,
+    type PolymorphicPropsWithRef,
+    type PolymorphicRef,
+    SlotComponent,
+} from "@fremtind/jkl-core";
+import cn from "classnames";
+import React from "react";
 
-type Action = {
-    type: ButtonVariant;
-    name: string;
-    onClick: MouseEventHandler<HTMLButtonElement>;
-};
+export const CARD_PADDINGS = ["none", "xs", "s", "m", "l", "xl"] as const;
+export type CardPadding = (typeof CARD_PADDINGS)[number];
+export const CONTAINER_COLORS = ["default", "high", "low", "subdued"] as const;
+export type ContainerColor = (typeof CONTAINER_COLORS)[number];
 
-type Media = {
-    src: string;
-    alt: string;
-};
+export type CardProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
+    ElementType,
+    {
+        className?: string;
+        /**
+         * Setter padding på kortet. Tilsvarer samme property i Figma.
+         * @default "none"
+         */
+        padding?: CardPadding;
+        /**
+         * Setter bakgrunnsfarge på kortet til en av bakgrunnsfargene
+         * for "container" i Jøkul.
+         * @default "default" (tilsvarer --jkl-color-background-container)
+         */
+        background?: ContainerColor;
+        /**
+         * Angir om kortet visuelt skal fremstå som klikkbart. Du må selv rendre
+         * kortet som et klikkbart element (f.eks. `<a>` eller en `<Link>` fra
+         * et ruting-bibliotek) og gi det en `href` eller `onClick`-handler.
+         */
+        clickable?: boolean;
+    }
+>;
 
-type Clickable = {
-    href?: string;
-    onClick?: MouseEventHandler<HTMLAnchorElement>;
-};
-
-interface Props extends WithOptionalChildren {
-    title?: string;
-    className?: string;
-    media?: Media;
-    action?: Action;
-    dark?: boolean;
-    clickable?: Clickable;
-}
+type CardComponent = <ElementType extends React.ElementType = "div">(
+    props: CardProps<ElementType> & AsChildProps,
+) => React.ReactElement | null;
 
 /**
- * @deprecated bruk NavCard, TaskCard eller InfoCard i stedet.
- * Se https://jokul.fremtind.no/komponenter/card for informasjon om bruk
+ * En allsidig kortkomponent som brukes for å gruppere innhold på en side.
+ * Komponenten rendres til vanlig som en `<div>`, men du kan velge å rendre
+ * den som andre elementer eller komponenter der du trenger annen semantikk
+ * eller funksjonalitet.
  */
-export const Card: FC<Props> = ({ title, children, className, media, action, dark, clickable }) => {
-    const componentClassName = classNames("jkl-card", className, {
-        "jkl-card--dark": dark,
-        "jkl-card--clickable": clickable,
-    });
+export const Card = React.forwardRef(function Card<ElementType extends React.ElementType = "div">(
+    props: CardProps<ElementType>,
+    ref?: PolymorphicRef<ElementType>,
+) {
+    const {
+        className,
+        clickable = false,
+        padding = "none",
+        background = "default",
+        asChild,
+        as = "div",
+        ...componentProps
+    } = props;
+
+    const Component = asChild ? SlotComponent : as;
+
+    const style = {
+        "--padding": `var(--jkl-card-padding-${padding})`,
+        "--background-color":
+            background === "default"
+                ? "var(--jkl-color-background-container)"
+                : `var(--jkl-color-background-container-${background})`,
+        ...componentProps.style,
+    } as React.CSSProperties;
 
     return (
-        <div data-testid="jkl-card" className={componentClassName}>
-            {media && (
-                <img className="jkl-card__media" src={media.src} alt={media.alt} loading="lazy" decoding="async"></img>
-            )}
-            {title && (
-                <div data-testid="jkl-card__title" className="jkl-card__title jkl-h3">
-                    {clickable ? (
-                        <a className="jkl-card__link" href={clickable.href} onClick={clickable.onClick}>
-                            {title}
-                        </a>
-                    ) : (
-                        title
-                    )}
-                </div>
-            )}
-            <div className="jkl-card__children">{children}</div>
-            {action && (
-                <div className="jkl-card__action">
-                    <Button variant={action.type || "primary"} onClick={action.onClick}>
-                        {action.name}
-                    </Button>
-                </div>
-            )}
-        </div>
+        <Component
+            data-testid="jkl-card"
+            data-clickable={clickable}
+            data-padding={padding}
+            data-background={background}
+            className={cn("jkl-card", className)}
+            {...componentProps}
+            style={style}
+            ref={ref}
+        />
     );
-};
+}) as CardComponent;
