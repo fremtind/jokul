@@ -20,7 +20,7 @@ const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: bool
     statistics = false,
     marketing = false,
 }) => {
-    const { openConsentModalWithSettings } = useCookieConsent();
+    const { openConsentModalWithDefaults } = useCookieConsent();
 
     // Start: Kun for demoen
     const { dispatch } = useCookieConsentState();
@@ -42,7 +42,7 @@ const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: bool
 
     return (
         <>
-            <TertiaryButton data-testid="trigger-cookie-consent" onClick={openConsentModalWithSettings}>
+            <TertiaryButton data-testid="trigger-cookie-consent" onClick={openConsentModalWithDefaults}>
                 Informasjonskapsler
             </TertiaryButton>
             <CookieConsent blocking onAccept={console.log} />
@@ -51,7 +51,7 @@ const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: bool
 };
 
 export const cookieConsentModalExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Functional", "Statistics", "Marketing"],
+    boolProps: [{ prop: "Functional", defaultValue: true }, "Statistics", "Marketing"],
 };
 
 export const CookieConsentModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {

@@ -142,6 +142,7 @@ const useCookieConsentState = (): UseCookieConsentState => {
 
 type UseCookieConsent = {
     openConsentModalWithSettings: () => void;
+    openConsentModalWithDefaults: () => void;
     /** Se hvilke samtykker som er gitt, om du for eksempel trenger styre UI basert på samtykker. */
     consents: Consent;
 };
@@ -158,9 +159,14 @@ const useCookieConsent = (): UseCookieConsent => {
         context.dispatch({ type: "SET_SHOW_SETTINGS", payload: true });
     };
 
+    const openConsentModalWithDefaults = () => {
+        context.dispatch({ type: "SET_SHOW_CONSENT", payload: true });
+        context.dispatch({ type: "SET_SHOW_SETTINGS", payload: false });
+    };
+
     const consents = context.state.consent;
 
-    return { openConsentModalWithSettings, consents };
+    return { openConsentModalWithSettings, openConsentModalWithDefaults, consents };
 };
 
 export { CookieConsentProvider, useCookieConsentState, useCookieConsent };
