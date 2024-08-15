@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input-react",
-    "version": "15.1.2",
+    "version": "15.1.4",
     "publishConfig": {
         "access": "public"
     },
@@ -42,13 +42,13 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^13.5.0",
-        "@fremtind/jkl-icon-button-react": "^4.0.33",
-        "@fremtind/jkl-icons-react": "^8.7.2",
-        "@fremtind/jkl-input-group-react": "^3.0.30",
-        "@fremtind/jkl-react-hooks": "^12.0.11",
-        "@fremtind/jkl-text-input": "^12.1.10",
-        "@fremtind/jkl-tooltip-react": "^4.2.21",
+        "@fremtind/jkl-core": "^14.0.0",
+        "@fremtind/jkl-icon-button-react": "^4.0.35",
+        "@fremtind/jkl-icons-react": "^8.7.4",
+        "@fremtind/jkl-input-group-react": "^3.0.32",
+        "@fremtind/jkl-react-hooks": "^12.1.1",
+        "@fremtind/jkl-text-input": "^12.1.11",
+        "@fremtind/jkl-tooltip-react": "^4.2.23",
         "classnames": "^2.3.2",
         "downshift": "^7.6.0",
         "match-sorter": "^6.3.1"

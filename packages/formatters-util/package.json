@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-formatters-util",
-    "version": "5.1.14",
+    "version": "5.1.16",
     "publishConfig": {
         "access": "public"
     },
@@ -36,13 +36,13 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-constants-util": "^3.0.58",
-        "@fremtind/jkl-core": "^13.5.0"
+        "@fremtind/jkl-constants-util": "^3.0.60",
+        "@fremtind/jkl-core": "^14.0.0"
     },
     "devDependencies": {
-        "@fremtind/jkl-button": "^12.1.0",
-        "@fremtind/jkl-datepicker": "^12.1.11",
-        "@fremtind/jkl-text-input": "^12.1.10",
+        "@fremtind/jkl-button": "^12.1.1",
+        "@fremtind/jkl-datepicker": "^12.1.12",
+        "@fremtind/jkl-text-input": "^12.1.11",
         "react-hook-form": "^7.44.3"
     },
     "peerDependencies": {

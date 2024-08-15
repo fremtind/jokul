@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.1.0 (2024-08-14)
+
+### Features
+
+- added useLocalStorage hook ([baf6bb8](https://github.com/fremtind/jokul/commit/baf6bb874691d905670d7dec17d60daffa2e5f0a)), closes [#3923](https://github.com/fremtind/jokul/issues/3923)
+
 # 12.0.0 (2023-07-07)
 
 ### chore

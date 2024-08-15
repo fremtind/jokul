@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "11.1.5",
+    "version": "11.1.7",
     "publishConfig": {
         "access": "public"
     },
@@ -45,17 +45,17 @@
         "dev": "vite --config vite.dev.config.ts --port 3000"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "^11.2.2",
-        "@fremtind/jkl-core": "^13.5.0",
-        "@fremtind/jkl-icons-react": "^8.7.2",
-        "@fremtind/jkl-react-hooks": "^12.0.11",
+        "@fremtind/jkl-accordion": "^11.2.3",
+        "@fremtind/jkl-core": "^14.0.0",
+        "@fremtind/jkl-icons-react": "^8.7.4",
+        "@fremtind/jkl-react-hooks": "^12.1.1",
         "classnames": "^2.3.2"
     },
     "devDependencies": {
         "@fremtind/jkl-button": "^12.1.0",
         "@fremtind/jkl-expand-button": "^7.0.1",
         "@fremtind/jkl-icons": "^9.1.4",
-        "@fremtind/jkl-list-react": "^10.1.4",
+        "@fremtind/jkl-list-react": "^10.1.5",
         "@rollup/plugin-terser": "^0.4.4",
         "rollup-plugin-node-externals": "^7.1.2",
         "rollup-plugin-visualizer": "^5.12.0",

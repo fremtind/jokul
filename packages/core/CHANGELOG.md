@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.0.0 (2024-08-14)
+
+### Features
+
+- erstatt utgått kortkomponent med ny overordnet variant ([c2258d4](https://github.com/fremtind/jokul/commit/c2258d4ced7add2167ae46c539d11dbc633a815a))
+- legg til funksjoner og komponenter for slots/asChild ([d05c052](https://github.com/fremtind/jokul/commit/d05c05246d941f801749142a5162e21ddb7bf4d7))
+
+### BREAKING CHANGES
+
+- Den gamle Card-komponenten er erstattet med ny
+
 # 13.5.0 (2024-06-11)
 
 ### Features

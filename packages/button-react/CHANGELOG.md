@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 15.1.3 (2024-08-13)
+
+### Bug Fixes
+
+- no longer default button type to "button" ([4df6178](https://github.com/fremtind/jokul/commit/4df61782b09880b689ffda636badb414700c6461))
+
 # [15.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-button-react@15.0.22...@fremtind/jkl-button-react@15.1.0) (2024-06-11)
 
 ### Bug Fixes

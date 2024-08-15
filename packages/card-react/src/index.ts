@@ -1,4 +1,5 @@
 export { Card } from "./Card";
+export { CardImage } from "./CardImage";
 
 export { NavCard, InfoBlock } from "./NavCard";
 export { TaskCard } from "./TaskCard";

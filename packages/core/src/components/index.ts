@@ -6,3 +6,5 @@ export { NavLink } from "./NavLink";
 
 export type { ScreenReaderOnlyProps } from "./ScreenReaderOnly";
 export { ScreenReaderOnly } from "./ScreenReaderOnly";
+
+export { SlotComponent } from "./SlotComponent";
