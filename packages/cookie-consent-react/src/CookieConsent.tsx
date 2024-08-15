@@ -11,7 +11,7 @@ export interface CookieConsentProps {
 }
 
 export const CookieConsent = ({ blocking, onAccept, ...rest }: CookieConsentProps): JSX.Element | null => {
-    const { dispatch, consent } = useCookieConsentState();
+    const { dispatch, consent, cookieName } = useCookieConsentState();
     const prevConsent = usePreviousValue(consent);
 
     useEffect(() => {
@@ -50,7 +50,7 @@ export const CookieConsent = ({ blocking, onAccept, ...rest }: CookieConsentProp
 
         dispatch({ type: "UPDATE_CONSENT", payload: updatedConsent });
         dispatch({ type: "SET_SHOW_CONSENT", payload: false });
-        setConsentCookie(updatedConsent);
+        setConsentCookie({ consent: updatedConsent, name: cookieName });
     };
 
     // This returns different variants of consents based on the behavior required to get the consent

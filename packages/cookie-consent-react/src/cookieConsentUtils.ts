@@ -1,8 +1,6 @@
 import type { Consent, ConsentState, ConsentRequirement } from "./types";
 
-const COOKIE_NAME = "fremtind-cookie-consent";
-
-const getCookie = (name = COOKIE_NAME) => {
+const getCookie = (name: string) => {
     if (typeof document === "undefined") {
         return undefined;
     }
@@ -22,8 +20,14 @@ const getCookie = (name = COOKIE_NAME) => {
     return cookie;
 };
 
-export const getConsentCookie = (adapter?: () => Consent | undefined): Consent | undefined => {
-    const cookie = getCookie();
+export const getConsentCookie = ({
+    adapter,
+    name,
+}: {
+    adapter?: () => Consent | undefined;
+    name: string;
+}): Consent | undefined => {
+    const cookie = getCookie(name);
 
     if (cookie) {
         const consent = JSON.parse(cookie[1]);
@@ -41,7 +45,15 @@ export const getConsentCookie = (adapter?: () => Consent | undefined): Consent |
 // 120 days
 const DEFAULT_MAX_AGE = 10368000;
 
-export const setConsentCookie = (consent: Consent, maxAge = DEFAULT_MAX_AGE, name = COOKIE_NAME): void => {
+export const setConsentCookie = ({
+    consent,
+    maxAge = DEFAULT_MAX_AGE,
+    name,
+}: {
+    consent: Consent;
+    maxAge?: number;
+    name: string;
+}): void => {
     const cookie = [];
 
     cookie.push(`${name}=${JSON.stringify(consent)}`);

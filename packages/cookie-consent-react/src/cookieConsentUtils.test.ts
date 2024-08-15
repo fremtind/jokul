@@ -21,6 +21,8 @@ const generateConsent = (marketing: ConsentState, functional: ConsentState, stat
     statistics,
 });
 
+const COOKIE_NAME = "fremtind-cookie-consent";
+
 describe("cookieConsentUtils/getConsentCookie", () => {
     const setDocumentCookieState = (consents: [string, string][]) => {
         Object.defineProperty(document, "cookie", {
@@ -38,19 +40,19 @@ describe("cookieConsentUtils/getConsentCookie", () => {
 
     it("henter fremtind-cookie", () => {
         const consent = generateConsent(null, "accepted", null);
-        setDocumentCookieState([["fremtind-cookie-consent", JSON.stringify(consent)]]);
-        expect(getConsentCookie()).toEqual(consent);
+        setDocumentCookieState([[COOKIE_NAME, JSON.stringify(consent)]]);
+        expect(getConsentCookie({ name: COOKIE_NAME })).toEqual(consent);
     });
 
     it("returnerer undefined når ingen consent cookie er satt", () => {
         setDocumentCookieState([]);
-        expect(getConsentCookie()).toBeUndefined();
+        expect(getConsentCookie({ name: COOKIE_NAME })).toBeUndefined();
     });
 
     it("henter fremtind-cookie", () => {
         const consent = generateConsent(null, "accepted", "accepted");
-        setDocumentCookieState([["fremtind-cookie-consent", JSON.stringify(consent)]]);
-        expect(getConsentCookie()).toEqual(consent);
+        setDocumentCookieState([[COOKIE_NAME, JSON.stringify(consent)]]);
+        expect(getConsentCookie({ name: COOKIE_NAME })).toEqual(consent);
     });
 });
 
@@ -62,18 +64,16 @@ describe("cookieConsentUtils/setConsentCookie", () => {
             configurable: true,
         });
 
-        setConsentCookie(generateConsent(null, null, null));
+        setConsentCookie({ consent: generateConsent(null, null, null), name: COOKIE_NAME });
         expect(mockGet).toHaveBeenCalled();
         expect(mockGet).toHaveBeenCalledWith(
-            `fremtind-cookie-consent=${JSON.stringify(
-                generateConsent(null, null, null),
-            )};max-age=10368000;SameSite=Lax`,
+            `${COOKIE_NAME}=${JSON.stringify(generateConsent(null, null, null))};max-age=10368000;SameSite=Lax`,
         );
 
-        setConsentCookie(generateConsent(null, "accepted", "denied"));
+        setConsentCookie({ consent: generateConsent(null, "accepted", "denied"), name: COOKIE_NAME });
         expect(mockGet).toHaveBeenCalled();
         expect(mockGet).toHaveBeenCalledWith(
-            `fremtind-cookie-consent=${JSON.stringify(
+            `${COOKIE_NAME}=${JSON.stringify(
                 generateConsent(null, "accepted", "denied"),
             )};max-age=10368000;SameSite=Lax`,
         );

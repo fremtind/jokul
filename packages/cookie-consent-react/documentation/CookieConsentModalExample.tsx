@@ -2,18 +2,19 @@ import { TertiaryButton } from "@fremtind/jkl-button-react";
 import React, { useEffect, useState, FC } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
-import { useCookieConsentState } from "../src/CookieConsentContext";
+import { DEFAULT_COOKIE_NAME, useCookieConsentState } from "../src/CookieConsentContext";
 import { setConsentCookie } from "../src/cookieConsentUtils";
 
 function clearConsentCookie() {
-    setConsentCookie(
-        {
+    setConsentCookie({
+        consent: {
             functional: null,
             statistics: null,
             marketing: null,
         },
-        -1,
-    );
+        maxAge: -1,
+        name: DEFAULT_COOKIE_NAME,
+    });
 }
 const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: boolean }> = ({
     functional = false,
@@ -73,6 +74,7 @@ export const CookieConsentModalExample: FC<ExampleComponentProps> = ({ boolValue
             functional={boolValues?.["Functional"]}
             statistics={boolValues?.["Statistics"]}
             marketing={boolValues?.["Marketing"]}
+            cookieName={DEFAULT_COOKIE_NAME}
         >
             <Example
                 functional={boolValues?.["Functional"]}
@@ -102,6 +104,7 @@ export const App = () => {
             functional={${boolValues?.["Functional"]}}
             statistics={${boolValues?.["Statistics"]}}
             marketing={${boolValues?.["Marketing"]}}
+            cookieName={DEFAULT_COOKIE_NAME}
         >
             <Example />
         </CookieConsentProvider>

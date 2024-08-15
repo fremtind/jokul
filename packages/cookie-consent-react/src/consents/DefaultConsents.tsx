@@ -49,7 +49,7 @@ export const DefaultConsents: FC<Props> = ({ modalConfig, handleAccept }) => {
                 </UnorderedList>
             </ModalBody>
             <ModalActions>
-                <PrimaryButton data-testid="jkl-cookie-consent-godta" {...modalConfig.closeButton}>
+                <PrimaryButton data-testid="jkl-cookie-consent-godta" {...modalConfig.closeButton} type={"submit"}>
                     Godta
                 </PrimaryButton>
 

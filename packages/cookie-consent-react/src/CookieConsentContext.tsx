@@ -35,7 +35,11 @@ interface State {
     consent: Consent;
 }
 
-const CookieConsentContext = React.createContext<{ state: State; dispatch: Dispatch } | undefined>(undefined);
+export const DEFAULT_COOKIE_NAME = "fremtind-cookie-consent";
+
+const CookieConsentContext = React.createContext<{ state: State; dispatch: Dispatch; cookieName: string } | undefined>(
+    undefined,
+);
 
 const cookieConsentReducer = (state: State, action: Action): State => {
     switch (action.type) {
@@ -75,6 +79,7 @@ const cookieConsentReducer = (state: State, action: Action): State => {
 
 export interface CookieConsentProviderProps extends Partial<ConsentRequirement>, WithChildren {
     cookieAdapter?: () => Consent | undefined;
+    cookieName?: string;
 }
 
 const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
@@ -83,17 +88,18 @@ const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     marketing,
     functional,
     statistics,
+    cookieName = DEFAULT_COOKIE_NAME,
 }) => {
     // Load existing consent at initial render
     const consentCookie = useMemo(() => {
         return (
-            getConsentCookie(cookieAdapter) ?? {
+            getConsentCookie({ adapter: cookieAdapter, name: cookieName }) ?? {
                 marketing: null,
                 functional: null,
                 statistics: null,
             }
         );
-    }, [cookieAdapter]);
+    }, [cookieAdapter, cookieName]);
 
     const requirement = useMemo(
         () => ({
@@ -119,12 +125,13 @@ const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
         }
     }, [requirement, consentCookie]);
 
-    const value = { state, dispatch };
+    const value = { state, dispatch, cookieName };
     return <CookieConsentContext.Provider value={value}>{children}</CookieConsentContext.Provider>;
 };
 
 interface UseCookieConsentState extends State {
     dispatch: Dispatch;
+    cookieName: string;
 }
 
 // control and state for internal use
@@ -136,6 +143,7 @@ const useCookieConsentState = (): UseCookieConsentState => {
 
     return {
         dispatch: context.dispatch,
+        cookieName: context.cookieName,
         ...context.state,
     };
 };
