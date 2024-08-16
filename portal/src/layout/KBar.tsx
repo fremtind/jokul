@@ -48,7 +48,6 @@ export const KBar: FC = () => {
             id: "hjem",
             name: "Hjem",
             keywords: "index landing",
-            shortcut: ["g", "h"],
             section: "Områder",
             perform: () => navigate("/"),
         },
@@ -56,7 +55,6 @@ export const KBar: FC = () => {
             id: PageType.KOMIGANG,
             name: pageNames[PageType.KOMIGANG],
             keywords: "start introduksjon",
-            shortcut: ["g", "i"],
             section: "Områder",
         },
         ...getStartedDocPages.map((page) =>
@@ -70,7 +68,6 @@ export const KBar: FC = () => {
         {
             id: PageType.PROFIL,
             name: pageNames[PageType.PROFIL],
-            shortcut: ["g", "p"],
             keywords: "typografi font logo farger spacing stil tone stemme",
             section: "Områder",
         },
@@ -85,7 +82,6 @@ export const KBar: FC = () => {
         {
             id: PageType.KOMPONENTER,
             name: pageNames[PageType.KOMPONENTER],
-            shortcut: ["g", "k"],
             section: "Områder",
         },
         ...componentDocPages.map((page) =>
@@ -99,7 +95,6 @@ export const KBar: FC = () => {
         {
             id: PageType.DEMOER,
             name: pageNames[PageType.DEMOER],
-            shortcut: ["g", "d"],
             section: "Områder",
         },
         ...demoPages.map((page) =>
@@ -113,7 +108,6 @@ export const KBar: FC = () => {
         {
             id: PageType.UU,
             name: pageNames[PageType.UU],
-            shortcut: ["g", "u"],
             section: "Områder",
         },
         ...uuDocPages.map((page) =>
@@ -127,7 +121,6 @@ export const KBar: FC = () => {
         {
             id: PageType.GUIDER,
             name: pageNames[PageType.GUIDER],
-            shortcut: ["g", "g"],
             section: "Områder",
         },
         ...guiderDocPages.map((page) =>
@@ -141,7 +134,6 @@ export const KBar: FC = () => {
         {
             id: PageType.BLOG,
             name: pageNames[PageType.BLOG],
-            shortcut: ["g", "b"],
             section: "Områder",
         },
         ...blogPages.map((page) =>
