@@ -1,0 +1,83 @@
+name: Publish release
+
+on:
+    push:
+        branches:
+            - alpha-*
+
+jobs:
+    build-and-publish:
+        name: Build and publish alpha
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[ci skip release]')"
+        permissions:
+            actions: write
+            contents: write
+            packages: write
+            deployments: write
+        steps:
+            - name: Checkout branch
+              uses: actions/checkout@v3
+              with:
+                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+                  fetch-depth: "0" # fetch entire git history
+
+            - name: Fetch version tags
+              run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+
+            - name: Configure CI Git User
+              run: |
+                  git config --global user.name '@fremtind-bot'
+                  git config --global user.email 'fremtind-bot@users.noreply.github.com'
+                  git remote set-url origin https://fremtind-bot:$BOT_PUBLISH_TOKEN@github.com/fremtind/jokul
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  run_install: |
+                      - args: [--global, lerna-clean-changelogs-cli@^2.0.18]
+
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  cache: "pnpm"
+
+            - name: Install Packages
+              run: |
+                  pnpm install --frozen-lockfile
+
+            - name: Monorepo Runner Cache
+              uses: actions/cache@v3
+              id: nx-cache
+              with:
+                  path: .nx
+                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+                  restore-keys: |
+                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
+
+            - name: Try logout
+              continue-on-error: true
+              run: npm logout
+
+            - name: Verify release is needed
+              id: lerna_changed
+              continue-on-error: true
+              run: pnpm version:check
+
+            - name: Authenticate with Registry
+              if: steps.lerna_changed.outcome == 'success'
+              run: |
+                  echo "registry=http://registry.npmjs.org/" >> .npmrc
+                  echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+                  npm whoami
+              env:
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+            - name: Publish packages to NPM
+              if: steps.lerna_changed.outcome == 'success' # only run if there are changes to publish
+              run: pnpm release:alpha --yes
+              env:
+                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
