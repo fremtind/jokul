@@ -38,7 +38,15 @@ type LinkListProps = UnorderedLinkListProps | OrderedLinkListProps;
 export const LinkList = ({ variant, className, ...rest }: LinkListProps): React.JSX.Element => {
     const Component = variant === "ordered" ? "ol" : "ul";
 
-    return <Component className={cn(`jkl-${variant}-link-list`, className)} {...rest} />;
+    return (
+        <Component
+            className={cn("jkl-link-list", className, {
+                "jkl-link-list--ordered": variant === "ordered",
+                "jkl-link-list--unordered": variant === "unordered",
+            })}
+            {...rest}
+        />
+    );
 };
 
 LinkList.Link = Link;

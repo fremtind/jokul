@@ -8,8 +8,7 @@
     --jkl-link-list-padding: var(--jkl-spacing-4);
 }
 
-.jkl-unordered-link-list,
-.jkl-ordered-link-list {
+.jkl-link-list {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -64,7 +63,7 @@
         transition-property: color, border-color, background-color;
     }
 
-    .jkl-unordered-link-list & {
+    .jkl-link-list--unordered & {
         svg {
             border-radius: 50%;
         }
@@ -81,7 +80,7 @@
         align-self: center;
     }
 
-    .jkl-ordered-link-list & {
+    .jkl-link-list--ordered & {
         justify-content: flex-start;
 
         &__arrow {
