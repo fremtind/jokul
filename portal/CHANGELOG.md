@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.0.15](https://github.com/fremtind/jokul/compare/@fremtind/portal@20.0.14...@fremtind/portal@20.0.15) (2024-08-16)
+
+### Bug Fixes
+
+- fjern problematiske tastatursnarveier i portalen ([0447d18](https://github.com/fremtind/jokul/commit/0447d18d1ef915a6c5a587e1701d1782ea6d247e))
+
 # [20.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@19.1.77...@fremtind/portal@20.0.0) (2024-06-12)
 
 ### Bug Fixes
