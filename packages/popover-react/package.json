@@ -1,0 +1,57 @@
+{
+    "name": "@fremtind/jkl-popover-react",
+    "version": "1.0.0-alpha.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul react popover",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/popover-react",
+    "keywords": [
+        "jøkul",
+        "fremtind"
+    ],
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/esm/index.js",
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
+    "scripts": {
+        "clean": "rimraf node_modules/ build/ node_modules/ ",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "node ./esbuild.prod.mjs",
+        "build": "run-s build:*",
+        "test": "jest --testMatch '**/popover-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
+        "dev:server": "nodemon ./dist/server.js",
+        "dev": "run-p dev:*"
+    },
+    "dependencies": {
+        "@floating-ui/react": "^0.24.2",
+        "@fremtind/jkl-core": "^12.0.0",
+        "@fremtind/jkl-popover": "^1.0.0-alpha.0",
+        "classnames": "^2.5.1"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

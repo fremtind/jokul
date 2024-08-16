@@ -867,6 +867,24 @@ importers:
       prop-types: 15.8.1
       react-a11y-dialog: 6.2.0_prop-types@15.8.1
 
+  packages/popover:
+    specifiers:
+      '@fremtind/jkl-core': ^12.0.0
+    dependencies:
+      '@fremtind/jkl-core': 12.2.0
+
+  packages/popover-react:
+    specifiers:
+      '@floating-ui/react': ^0.24.2
+      '@fremtind/jkl-core': ^12.0.0
+      '@fremtind/jkl-popover': ^1.0.0-alpha.0
+      classnames: ^2.5.1
+    dependencies:
+      '@floating-ui/react': 0.24.2
+      '@fremtind/jkl-core': 12.2.0
+      '@fremtind/jkl-popover': link:../popover
+      classnames: 2.5.1
+
   packages/progress-bar:
     specifiers:
       '@fremtind/jkl-core': ^14.4.0
@@ -9077,6 +9095,7 @@ packages:
 
   /classnames/2.5.1:
     resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+    dev: false
 
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
