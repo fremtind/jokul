@@ -8,7 +8,7 @@
             "registry": "https://registry.npmjs.org/",
             "access": "public",
             "npmClient": "pnpm",
-            "allowBranch": ["main", "release"],
+            "allowBranch": ["main", "release", "alpha-*"],
             "ignoreChanges": [
                 ".eslintrc",
                 ".prettierrc",
