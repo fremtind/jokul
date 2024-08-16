@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.0.0 (2024-08-14)
+
+### Features
+
+- erstatt utgått kortkomponent med ny overordnet variant ([c2258d4](https://github.com/fremtind/jokul/commit/c2258d4ced7add2167ae46c539d11dbc633a815a))
+
+### BREAKING CHANGES
+
+- Den gamle Card-komponenten er erstattet med ny
+
 # [11.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@11.1.0...@fremtind/jkl-card@11.2.0) (2024-02-28)
 
 ### Features

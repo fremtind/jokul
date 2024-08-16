@@ -1,13 +1,14 @@
-import { act, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { Card } from ".";
+import { formatValuta } from "../../formatters-util";
+import { ErrorTag } from "../../tag-react";
+import { Card, CARD_PADDINGS, CONTAINER_COLORS } from "./Card";
 
 describe("Card", () => {
-    it("renders without exploding", () => {
+    it("rendrer uten å kræsje", () => {
         render(
-            <Card title="Hello">
+            <Card>
                 <p>Hello world</p>
             </Card>,
         );
@@ -15,80 +16,88 @@ describe("Card", () => {
         expect(screen.getByText("Hello world")).toBeInTheDocument();
     });
 
-    it("renders the given title", () => {
-        render(<Card title="Fremtind" />);
-        expect(screen.getByText("Fremtind")).toBeInTheDocument();
+    CONTAINER_COLORS.forEach((color) => {
+        it("setter riktig attributt for bakgrunnsfarge", () => {
+            render(<Card background={color}>Hello, world</Card>);
+            expect(screen.getByText("Hello, world")).toHaveAttribute("data-background", color);
+        });
     });
 
-    it("renders without title", () => {
-        const { queryByTestId } = render(<Card />);
-        expect(queryByTestId("jkl-card__title")).not.toBeInTheDocument();
+    CARD_PADDINGS.forEach((padding) => {
+        it("setter riktig attributt for padding", () => {
+            render(<Card padding={padding}>Hello, world</Card>);
+            expect(screen.getByText("Hello, world")).toHaveAttribute("data-padding", padding);
+        });
     });
 
-    it("has an image", () => {
-        render(<Card title="Test" media={{ src: "image.jpg", alt: "Image" }} />);
-
-        const component = screen.getByRole("img");
-        expect(component).toBeInTheDocument();
-    });
-
-    it("renders image with label", () => {
-        render(<Card title="Test" media={{ src: "image.jpg", alt: "Man with dog" }} />);
-        expect(screen.getByAltText("Man with dog")).toBeInTheDocument();
-    });
-
-    it("renders with darkmode", () => {
-        render(<Card title="Test" dark />);
+    it("setter riktig klasse for klikkbart kort", () => {
+        render(<Card clickable>Hello, world</Card>);
 
         const component = screen.getByTestId("jkl-card");
-        expect(component).toHaveClass("jkl-card--dark");
+        expect(component).toHaveAttribute("data-clickable");
     });
 
-    it("uses the passed class name", () => {
-        render(<Card title="Test" className="test-class" />);
+    it("bruker innsendte klassenavn", () => {
+        render(<Card className="test-class">Hello, world</Card>);
 
         const component = screen.getByTestId("jkl-card");
         expect(component).toHaveClass("test-class");
     });
 
-    it("has a button", () => {
-        render(<Card title="Test" action={{ type: "secondary", name: "Test", onClick: () => {} }} />);
+    it("rendrer som et div-element som standard", () => {
+        render(<Card>Hello, world</Card>);
 
-        const component = screen.getByRole("button");
-        expect(component).toBeInTheDocument();
+        expect(screen.getByText("Hello, world").tagName).toEqual("DIV");
     });
 
-    it("renders the given button", () => {
-        render(<Card title="Test" action={{ type: "tertiary", name: "Click me", onClick: () => {} }}></Card>);
+    it("rendrer som innsendt HTML-element", () => {
+        render(
+            <Card as="a" href="/">
+                Hello, world
+            </Card>,
+        );
 
-        const component = screen.getByRole("button");
-        expect(component).toHaveClass("jkl-button--tertiary");
+        expect(screen.getByText("Hello, world").tagName).toEqual("A");
     });
 
-    it("executes the onclick function on button", async () => {
-        const clickHandler = jest.fn();
-        render(<Card title="Test" action={{ type: "primary", name: "Click me", onClick: clickHandler }} />);
+    it("rendrer som child med riktige attributter", () => {
+        render(
+            <Card asChild data-foo="bar" className="my-card">
+                <a href="/" className="my-link">
+                    Hello, world
+                </a>
+            </Card>,
+        );
 
-        const button = screen.getByText("Click me");
+        const component = screen.getByText("Hello, world");
 
-        await act(async () => {
-            await userEvent.click(button);
-        });
-
-        expect(clickHandler).toHaveBeenCalled();
+        expect(component.tagName).toEqual("A");
+        expect(component).toHaveAttribute("data-foo", "bar");
+        expect(component).toHaveAttribute("href", "/");
+        expect(component).toHaveClass("my-card");
+        expect(component).toHaveClass("my-link");
     });
 });
 
 describe("a11y", () => {
     test("card should be a11y compliant", async () => {
-        const { container } = render(<Card title="Card" clickable={{ href: "#" }} />);
-        const results = await axe(container);
-
-        expect(results).toHaveNoViolations();
-    });
-
-    test("dark card should be a11y compliant", async () => {
-        const { container } = render(<Card title="Dark Card" clickable={{ href: "#" }} dark />);
+        const { container } = render(
+            <Card asChild clickable padding="s" background="high">
+                <a href="/faktura/12345" className="flex gap-x-40">
+                    <div className="flex flex-column gap-4">
+                        <p className="jkl-heading-2">
+                            {formatValuta(18856)}
+                            <span aria-hidden> →</span>
+                        </p>
+                        <p className="jkl-body">Frist 20.03.2023</p>
+                    </div>
+                    <div className="flex flex-column gap-12">
+                        <ErrorTag>Ubetalt</ErrorTag>
+                        <p className="jkl-body">Purring</p>
+                    </div>
+                </a>
+            </Card>,
+        );
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
