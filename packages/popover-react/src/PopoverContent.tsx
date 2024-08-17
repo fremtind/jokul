@@ -9,7 +9,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(fun
     { className, ...rest },
     ref,
 ) {
-    return <div {...rest} ref={ref} className={classNames("jkl--popover__content", className)} />;
+    return <div {...rest} ref={ref} className={classNames("jkl-popover__content", className)} />;
 });
 
 export default PopoverContent;

@@ -1,7 +1,6 @@
 import { autoUpdate, flip, offset as flOffset, shift, useFloating, useMergeRefs } from "@floating-ui/react";
 import classNames from "classnames";
-import { useClientLayoutEffect } from "packages/react-hooks/src";
-import React, { HTMLAttributes } from "react";
+import React, { HTMLAttributes, useLayoutEffect } from "react";
 import PopoverContent, { PopoverContentProps } from "./PopoverContent";
 
 interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
@@ -31,8 +30,8 @@ interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
      */
     offset?: number;
     /**
-     * Changes what CSS position property to use
-     * You want to use "fixed" if reference element is inside a fixed container, but popover is not
+     * Changes what CSS position property to use.
+     * You want to use "fixed" if reference element is inside a fixed container, but popover is not.
      * @default "absolute"
      */
     strategy?: "absolute" | "fixed";
@@ -78,13 +77,13 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function Popover(
         ],
     });
 
-    useClientLayoutEffect(() => {
+    useLayoutEffect(() => {
         refs.setReference(anchorEl);
-    }, [anchorEl]);
+    }, [anchorEl, refs]);
 
     const floatingRef = useMergeRefs([refs.setFloating, ref]);
 
-    useClientLayoutEffect(() => {
+    useLayoutEffect(() => {
         if (!refs.reference.current || !refs.floating.current || !open) return;
 
         const cleanup = autoUpdate(refs.reference.current, refs.floating.current, update);
@@ -100,6 +99,7 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function Popover(
                 "jkl-popover--hidden": !open || !anchorEl,
             })}
             style={{ ...rest.style, ...floatingStyles }}
+            data-placement={flPlacement}
             aria-hidden={!open || !anchorEl}
         >
             {children}

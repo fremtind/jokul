@@ -3,4 +3,13 @@
 
 .jkl-popover {
     z-index: jkl.$z-index--floating;
+    box-shadow: jkl.$shadow-task-card;
+
+    &--hidden {
+        display: none;
+    }
+
+    &__content {
+        padding: jkl.$spacing-24;
+    }
 }
