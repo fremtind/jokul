@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-input-group",
-    "version": "3.0.12",
+    "version": "3.0.13",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from input-group-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.0.0"
+        "@fremtind/jkl-core": "^14.1.0"
     },
     "repository": {
         "type": "git",

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.4.7 (2024-08-19)
+
+### Bug Fixes
+
+- piler i ekspanderende tabell ([401c479](https://github.com/fremtind/jokul/commit/401c4795079071dec58c8906862dba0a93087f3d))
+
 ## 11.4.1 (2024-07-01)
 
 ### Bug Fixes

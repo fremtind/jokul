@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.24 (2024-08-19)
+
+### Bug Fixes
+
+- riktig størrelse av ikon i tooltip ([f09d757](https://github.com/fremtind/jokul/commit/f09d757b26a78459a1a89c91a9781f7448c0cdb6))
+
 ## 4.2.21 (2024-07-25)
 
 ### Bug Fixes

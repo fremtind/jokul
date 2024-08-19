@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.8 (2024-08-19)
+
+### Bug Fixes
+
+- juster plassering av pil i expandbutton ([cc9d4bd](https://github.com/fremtind/jokul/commit/cc9d4bdac5f06d81e7b7edfcc31c448e631fca25))
+
 # 7.0.0 (2023-12-08)
 
 ### Features
