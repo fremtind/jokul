@@ -39,7 +39,7 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
         setIsOpen(isOpenProp);
     }, [isOpenProp]);
 
-    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
+    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, { timing: "expressive" });
 
     const toggleOpen = () => {
         const newIsOpen = !isOpen;

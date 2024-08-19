@@ -60,17 +60,11 @@
     }
 
     &:hover {
-        @include _expanded-arrow(3px);
         color: var(--jkl-expand-button-hover-color);
     }
 
     &--expanded {
-        @include _expanded-arrow(3px);
         @include jkl.no-grow-bold;
-
-        &:hover {
-            @include _expanded-arrow(0);
-        }
     }
 
     &--icon-only {
@@ -81,24 +75,12 @@
 
     // Bevisst nøstet for høyere specificity enn icons uavhengig av importrekkefølge.
     .jkl-expand-button__arrow {
-        --jkl-icon-size: calc(1em / 20 * 30);
-
         @include jkl.motion;
+        transition-property: transform;
 
         display: inline-block;
         margin-left: jkl.$spacing-2;
-        margin-bottom: -0.4em;
-
-        .jkl-animated-vertical-arrows__slider[data-show="up"] {
-            // For å få pila på linje med teksten
-            transform: translate3d(0, -56%, 0);
-        }
-
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
-
-        .jkl-icon--inherit {
-            --jkl-icon-size: calc(1em / 20 * 30);
-        }
+        margin-bottom: -0.15em;
     }
 
     @include jkl.forced-colors-mode {

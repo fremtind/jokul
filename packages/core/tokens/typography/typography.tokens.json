@@ -1,4 +1,10 @@
 {
+    "icon": {
+        "weight": {
+            "normal": { "value": "300" },
+            "bold": { "value": "500" }
+        }
+    },
     "typography": {
         "weight": {
             "normal": { "value": "400" },
