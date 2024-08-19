@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 22 Nov 2023 09:07:30 GMT
+ * Generated on Wed, 19 Jun 2024 10:02:18 GMT
  */
 
 export default {
@@ -187,6 +187,12 @@ export default {
         64: "4rem",
         104: "6.5rem",
         168: "10.5rem",
+    },
+    icon: {
+        weight: {
+            normal: "300",
+            bold: "500",
+        },
     },
     typography: {
         weight: {

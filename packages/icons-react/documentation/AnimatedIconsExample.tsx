@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { TextInput } from "../../text-input-react/src";
 import { ArrowVerticalAnimated, PlusRemoveAnimated, ArrowHorizontalAnimated } from "../src";
-import { IconVariant } from "../src/icons/types";
+import { IconVariant } from "../src/types";
 import { AnimatedIcon } from "./internal/AnimatedIcon";
 import { IconsExampleGrid } from "./internal/IconsExampleGrid";
 
