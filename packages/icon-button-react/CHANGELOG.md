@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.0.0 (2024-08-19)
+
+### Features
+
+- bruk Material Symbols i stedet for custom ikoner ([9ba1f01](https://github.com/fremtind/jokul/commit/9ba1f0162cce5a235588baf0d7ffb0b6037391dd))
+
+### BREAKING CHANGES
+
+- Avhenger av ny webfont
+
 ## 4.0.5 (2023-09-05)
 
 ### Bug Fixes

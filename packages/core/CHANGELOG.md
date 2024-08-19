@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.1.0 (2024-08-19)
+
+### Features
+
+- legg til automatisk vekt for ikoner ([d8ab329](https://github.com/fremtind/jokul/commit/d8ab32975aa28d591713cfca8e80f13416d5a206))
+
 # 14.0.0 (2024-08-14)
 
 ### Features

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.1.13 (2024-08-19)
+
+### Bug Fixes
+
+- juster vertikal alignment i datepicker ([f0cf3b7](https://github.com/fremtind/jokul/commit/f0cf3b747c4dae3b119d0e6bfe7868169e3cef68))
+
 # 12.1.0 (2023-09-14)
 
 ### Features

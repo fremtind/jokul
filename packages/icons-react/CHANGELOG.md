@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.0.0 (2024-08-19)
+
+### Bug Fixes
+
+- animer de animerte pilene i riktig retning ([a4db8a5](https://github.com/fremtind/jokul/commit/a4db8a52bf319c8c8f7ea465d4d2ec36c59bdb8a))
+- bruk unicode for standard ikoner ([3bfeae7](https://github.com/fremtind/jokul/commit/3bfeae755b7585ce709b22915a0f5d9eabdb60c8))
+- gjør ikoner aria-hidden igjen ([285cbcc](https://github.com/fremtind/jokul/commit/285cbcc26b8af6630e93a2b90311f94ff1feab3a))
+- la bruker overstyre bold og filled i alle ikoner ([812c1df](https://github.com/fremtind/jokul/commit/812c1df4569d1e05f7596773dae6ab7910a9295a))
+- riktig klasse på ikoner og bold versjon av varselsikonene ([e0f679c](https://github.com/fremtind/jokul/commit/e0f679c50fcd7be0c5f0cc0453adb94fd5381dee))
+
+### Features
+
+- bruk Material Symbols i stedet for custom ikoner ([9ba1f01](https://github.com/fremtind/jokul/commit/9ba1f0162cce5a235588baf0d7ffb0b6037391dd))
+
+### BREAKING CHANGES
+
+- Avhenger av ny webfont
+
 ## [8.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@8.7.0...@fremtind/jkl-icons-react@8.7.1) (2024-05-22)
 
 ### Bug Fixes

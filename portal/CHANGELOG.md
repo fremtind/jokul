@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [20.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@20.0.15...@fremtind/portal@20.1.0) (2024-08-19)
+
+### Bug Fixes
+
+- bruk sharp-varianten av material symbols ([c899a00](https://github.com/fremtind/jokul/commit/c899a00260f0f992db38f05093b413d65c7760dd))
+- preload ikonfont i portalen ([62de1c3](https://github.com/fremtind/jokul/commit/62de1c34aadb1ad59da99c8a8140b18f6723eb5d))
+
+### Features
+
+- bruk lokal fontfil for ikonene ([b79d401](https://github.com/fremtind/jokul/commit/b79d4013659bf04e668adf4b7c462b1fe2d82c2f))
+- legg til automatisk vekt for ikoner ([d8ab329](https://github.com/fremtind/jokul/commit/d8ab32975aa28d591713cfca8e80f13416d5a206))
+
 ## [20.0.15](https://github.com/fremtind/jokul/compare/@fremtind/portal@20.0.14...@fremtind/portal@20.0.15) (2024-08-16)
 
 ### Bug Fixes
