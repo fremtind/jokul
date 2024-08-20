@@ -2,7 +2,7 @@
 name: Rapporter en bug
 about: Du har funnet en bug i designsystemet
 title: "Feil: "
-labels: "\U0001F41D bug"
+labels: "\U0001F41D Bug"
 assignees: ""
 ---
 
