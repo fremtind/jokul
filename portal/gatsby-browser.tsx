@@ -46,6 +46,7 @@ import "@fremtind/jkl-contextual-menu/contextual-menu.min.css";
 import "@fremtind/jkl-expand-button/expand-button.min.css";
 import "@fremtind/jkl-footer/footer.min.css";
 import "@fremtind/jkl-progress-bar/progress-bar.min.css";
+import "@fremtind/jkl-popover/popover.min.css";
 import "./src/components/Typography/typography.scss";
 
 initTabListener();

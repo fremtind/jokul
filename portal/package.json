@@ -38,6 +38,7 @@
         "@fremtind/jkl-message": "^1.1.1",
         "@fremtind/jkl-message-react": "^1.1.1",
         "@fremtind/jkl-modal-react": "^2.1.40",
+        "@fremtind/jkl-popover-react": "1.0.0-alpha.0",
         "@fremtind/jkl-progress-bar-react": "^6.1.0",
         "@fremtind/jkl-radio-button-react": "^11.1.76",
         "@fremtind/jkl-react-hooks": "^12.1.8",

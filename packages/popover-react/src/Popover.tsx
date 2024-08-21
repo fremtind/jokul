@@ -1,4 +1,13 @@
-import { autoUpdate, flip, offset as flOffset, shift, useFloating, useMergeRefs } from "@floating-ui/react";
+import {
+    type Placement,
+    type Strategy,
+    autoUpdate,
+    flip,
+    offset as flOffset,
+    shift,
+    useFloating,
+    useMergeRefs,
+} from "@floating-ui/react";
 import classNames from "classnames";
 import React, { HTMLAttributes, useLayoutEffect } from "react";
 import PopoverContent, { PopoverContentProps } from "./PopoverContent";
@@ -11,7 +20,7 @@ interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Popover placement
      */
-    placement?: "top" | "right" | "bottom" | "left";
+    placement?: Placement;
     /**
      * Element popover anchors to
      */
@@ -34,7 +43,7 @@ interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
      * You want to use "fixed" if reference element is inside a fixed container, but popover is not.
      * @default "absolute"
      */
-    strategy?: "absolute" | "fixed";
+    strategy?: Strategy;
     /**
      * Changes placement of the floating element in order to keep it in view.
      * @default true
@@ -50,8 +59,8 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function Popover(
     {
         className,
         children,
-        strategy,
-        placement = "top",
+        strategy = "absolute",
+        placement = "bottom-start",
         offset = 4,
         open,
         onClose,

@@ -1,6 +1,6 @@
-import { Button } from "packages/button-react/src";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
+import { Button } from "../../button-react/src";
 import { Popover } from "../src";
 
 export const popoverExampleKnobs: ExampleKnobsProps = {};
@@ -11,10 +11,16 @@ export const PopoverExample: FC<ExampleComponentProps> = () => {
 
     return (
         <>
-            <Button ref={buttonRef} onClick={() => setOpenState(!openState)}>
+            <Button
+                variant="ghost"
+                ref={buttonRef}
+                onClick={() => setOpenState(!openState)}
+                aria-expanded={openState}
+                aria-controls="popover"
+            >
                 Toggle Popover
             </Button>
-            <Popover open={openState} onClose={() => setOpenState(false)} anchorEl={buttonRef.current}>
+            <Popover id="popover" open={openState} onClose={() => setOpenState(false)} anchorEl={buttonRef.current}>
                 <Popover.Content>Some Content</Popover.Content>
             </Popover>
         </>
