@@ -847,19 +847,19 @@ importers:
 
   packages/popover:
     specifiers:
-      '@fremtind/jkl-core': ^12.0.0
+      '@fremtind/jkl-core': ^14.0.0
     dependencies:
-      '@fremtind/jkl-core': 12.2.0
+      '@fremtind/jkl-core': link:../core
 
   packages/popover-react:
     specifiers:
       '@floating-ui/react': ^0.24.2
-      '@fremtind/jkl-core': ^12.0.0
+      '@fremtind/jkl-core': ^14.0.0
       '@fremtind/jkl-popover': ^1.0.0-alpha.0
       classnames: ^2.5.1
     dependencies:
       '@floating-ui/react': 0.24.2
-      '@fremtind/jkl-core': 12.2.0
+      '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-popover': link:../popover
       classnames: 2.5.1
 
@@ -1194,6 +1194,7 @@ importers:
       '@fremtind/jkl-message-box-react': ^11.1.28
       '@fremtind/jkl-message-react': ^1.0.0
       '@fremtind/jkl-modal-react': ^2.1.40
+      '@fremtind/jkl-popover-react': 1.0.0-alpha.0
       '@fremtind/jkl-progress-bar-react': ^6.1.0
       '@fremtind/jkl-radio-button-react': ^11.1.75
       '@fremtind/jkl-react-hooks': ^12.1.8
@@ -1273,6 +1274,7 @@ importers:
       '@fremtind/jkl-message-box-react': link:../packages/message-box-react
       '@fremtind/jkl-message-react': link:../packages/message-react
       '@fremtind/jkl-modal-react': link:../packages/modal-react
+      '@fremtind/jkl-popover-react': link:../packages/popover-react
       '@fremtind/jkl-progress-bar-react': link:../packages/progress-bar-react
       '@fremtind/jkl-radio-button-react': link:../packages/radio-button-react
       '@fremtind/jkl-react-hooks': link:../packages/react-hooks
