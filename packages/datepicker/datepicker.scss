@@ -28,8 +28,8 @@
 
     & &__input {
         // Juster padding for bedre balanse når det vises tall
-        padding-top: calc(var(--jkl-text-input-vertical-padding) + 0.05em);
-        padding-bottom: calc(var(--jkl-text-input-vertical-padding) - 0.05em);
+        padding-top: calc(var(--jkl-text-input-vertical-padding) + 0.08em);
+        padding-bottom: calc(var(--jkl-text-input-vertical-padding) - 0.08em);
     }
 
     &__calendar-wrapper {

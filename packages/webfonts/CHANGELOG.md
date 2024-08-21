@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.0.0 (2024-08-19)
+
+### Bug Fixes
+
+- bruk sharp-varianten av material symbols ([c899a00](https://github.com/fremtind/jokul/commit/c899a00260f0f992db38f05093b413d65c7760dd))
+
+### Features
+
+- bruk lokal fontfil for ikonene ([b79d401](https://github.com/fremtind/jokul/commit/b79d4013659bf04e668adf4b7c462b1fe2d82c2f))
+- bruk Material Symbols i stedet for custom ikoner ([9ba1f01](https://github.com/fremtind/jokul/commit/9ba1f0162cce5a235588baf0d7ffb0b6037391dd))
+
+### BREAKING CHANGES
+
+- Avhenger av ny webfont
+
 # 3.0.0 (2023-07-07)
 
 ### chore

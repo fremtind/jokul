@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.0.0 (2024-08-19)
+
+### Bug Fixes
+
+- animer de animerte pilene i riktig retning ([a4db8a5](https://github.com/fremtind/jokul/commit/a4db8a52bf319c8c8f7ea465d4d2ec36c59bdb8a))
+- juster plassering av pil i expandbutton ([cc9d4bd](https://github.com/fremtind/jokul/commit/cc9d4bdac5f06d81e7b7edfcc31c448e631fca25))
+- riktig klasse på ikoner og bold versjon av varselsikonene ([e0f679c](https://github.com/fremtind/jokul/commit/e0f679c50fcd7be0c5f0cc0453adb94fd5381dee))
+- riktig størrelse av ikon i tooltip ([f09d757](https://github.com/fremtind/jokul/commit/f09d757b26a78459a1a89c91a9781f7448c0cdb6))
+
+### Features
+
+- bruk Material Symbols i stedet for custom ikoner ([9ba1f01](https://github.com/fremtind/jokul/commit/9ba1f0162cce5a235588baf0d7ffb0b6037391dd))
+- legg til automatisk vekt for ikoner ([d8ab329](https://github.com/fremtind/jokul/commit/d8ab32975aa28d591713cfca8e80f13416d5a206))
+
+### BREAKING CHANGES
+
+- Avhenger av ny webfont
+
 ## [9.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons@9.1.0...@fremtind/jkl-icons@9.1.1) (2023-11-09)
 
 ### Bug Fixes

@@ -13,7 +13,6 @@ const levels: TypographyLevels[] = [
     "Heading 4",
     "Heading 5",
     "Body",
-    "Bold",
     "Small",
 ];
 

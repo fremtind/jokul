@@ -1,8 +1,8 @@
 ---
-name: Ny oppgave
+name: Forslag
 about: Du har en idé til noe som kan endres på eller legges til i designsystemet
 title: ""
-labels: "✨ enhancement"
+labels: "✨ Forslag"
 assignees: ""
 ---
 
