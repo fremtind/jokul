@@ -67,10 +67,14 @@ jobs:
 
             - name: Authenticate with Registry
               if: steps.lerna_changed.outcome == 'success'
+              # no idea why we need to tell git to ignore the changed .npmrc file
+              # in this flow when the the regular one seems to handle the local
+              # changes just fine when releasing
               run: |
                   echo "registry=http://registry.npmjs.org/" >> .npmrc
                   echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
                   npm whoami
+                  git update-index --assume-unchanged .npmrc
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 

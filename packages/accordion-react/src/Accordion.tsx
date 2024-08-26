@@ -8,15 +8,13 @@ export interface AccordionProps extends WithChildren {
     id?: string;
 }
 
-export const Accordion: FC<AccordionProps> = ({ className, density, id, ...rest }) => {
-    return (
-        <section
-            role="group"
-            data-testid="jkl-accordion"
-            className={cn("jkl-accordion", className)}
-            data-density={density}
-            id={id}
-            {...rest}
-        />
-    );
-};
+export const Accordion: FC<AccordionProps> = ({ className, density, id, ...rest }) => (
+    <section
+        role="group"
+        data-testid="jkl-accordion"
+        className={cn("jkl-accordion", className)}
+        data-density={density}
+        id={id}
+        {...rest}
+    />
+);
