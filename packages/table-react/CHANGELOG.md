@@ -3,41 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.4.8-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table-react@11.4.7...@fremtind/jkl-table-react@11.4.8-alpha.0) (2024-08-26)
+
+**Note:** Version bump only for package @fremtind/jkl-table-react
+
 ## 11.4.7 (2024-08-19)
 
 ### Bug Fixes
 
-- piler i ekspanderende tabell ([401c479](https://github.com/fremtind/jokul/commit/401c4795079071dec58c8906862dba0a93087f3d))
+-   piler i ekspanderende tabell ([401c479](https://github.com/fremtind/jokul/commit/401c4795079071dec58c8906862dba0a93087f3d))
 
 ## 11.4.1 (2024-07-01)
 
 ### Bug Fixes
 
-- gjør det mulig å bruke TableRow controlled ([c07787c](https://github.com/fremtind/jokul/commit/c07787c08180cfa79900756a9646fb63692ecde9))
+-   gjør det mulig å bruke TableRow controlled ([c07787c](https://github.com/fremtind/jokul/commit/c07787c08180cfa79900756a9646fb63692ecde9))
 
 # 11.4.0 (2024-06-26)
 
 ### Features
 
-- optional props for custom labels for TablePagination ([afc1e50](https://github.com/fremtind/jokul/commit/afc1e5039907128d5793a34309eab12b75fe27ad)), closes [#3907](https://github.com/fremtind/jokul/issues/3907)
+-   optional props for custom labels for TablePagination ([afc1e50](https://github.com/fremtind/jokul/commit/afc1e5039907128d5793a34309eab12b75fe27ad)), closes [#3907](https://github.com/fremtind/jokul/issues/3907)
 
 # 11.3.0 (2024-02-07)
 
 ### Features
 
-- toggleSwitch now supports the disabled prop ([5973df5](https://github.com/fremtind/jokul/commit/5973df556acae73b407e2e039bae69422d623975)), closes [#3803](https://github.com/fremtind/jokul/issues/3803)
+-   toggleSwitch now supports the disabled prop ([5973df5](https://github.com/fremtind/jokul/commit/5973df556acae73b407e2e039bae69422d623975)), closes [#3803](https://github.com/fremtind/jokul/issues/3803)
 
 ## 11.2.1 (2024-01-24)
 
 ### Bug Fixes
 
-- referer til jkl-klasser i stedet for elementer ([520e732](https://github.com/fremtind/jokul/commit/520e73240bb39fbbfd00ee4339ed362c83d9bbcb))
+-   referer til jkl-klasser i stedet for elementer ([520e732](https://github.com/fremtind/jokul/commit/520e73240bb39fbbfd00ee4339ed362c83d9bbcb))
 
 # 11.2.0 (2024-01-23)
 
 ### Features
 
-- legg til støtte for å midtstille tekst i celle og header ([9e82d87](https://github.com/fremtind/jokul/commit/9e82d878fdf06f8de7374c5f2c9d31d50977e542))
+-   legg til støtte for å midtstille tekst i celle og header ([9e82d87](https://github.com/fremtind/jokul/commit/9e82d878fdf06f8de7374c5f2c9d31d50977e542))
 
 ## 11.1.5 (2023-09-05)
 

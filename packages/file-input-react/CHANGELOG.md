@@ -3,29 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.8-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.3.7...@fremtind/jkl-file-input-react@2.3.8-alpha.0) (2024-08-26)
+
+**Note:** Version bump only for package @fremtind/jkl-file-input-react
+
 # [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.2.18...@fremtind/jkl-file-input-react@2.3.0) (2024-07-02)
 
 ### Features
 
-- legg til mulighet for å sette headers på uploads ([74ef8c9](https://github.com/fremtind/jokul/commit/74ef8c967da5df8b5165be00f92eaf1a032ae86b))
+-   legg til mulighet for å sette headers på uploads ([74ef8c9](https://github.com/fremtind/jokul/commit/74ef8c967da5df8b5165be00f92eaf1a032ae86b))
 
 ## [2.2.11](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.2.10...@fremtind/jkl-file-input-react@2.2.11) (2024-06-06)
 
 ### Bug Fixes
 
-- handle Files with path set better ([696f155](https://github.com/fremtind/jokul/commit/696f155853f7cfc06153d1a8c4b0019facb7a10d)), closes [#3891](https://github.com/fremtind/jokul/issues/3891)
+-   handle Files with path set better ([696f155](https://github.com/fremtind/jokul/commit/696f155853f7cfc06153d1a8c4b0019facb7a10d)), closes [#3891](https://github.com/fremtind/jokul/issues/3891)
 
 # 2.2.0 (2024-02-07)
 
 ### Features
 
-- toggleSwitch now supports the disabled prop ([5973df5](https://github.com/fremtind/jokul/commit/5973df556acae73b407e2e039bae69422d623975)), closes [#3803](https://github.com/fremtind/jokul/issues/3803)
+-   toggleSwitch now supports the disabled prop ([5973df5](https://github.com/fremtind/jokul/commit/5973df556acae73b407e2e039bae69422d623975)), closes [#3803](https://github.com/fremtind/jokul/issues/3803)
 
 # [2.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.0.15...@fremtind/jkl-file-input-react@2.1.0) (2023-09-21)
 
 ### Features
 
-- deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
+-   deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
 
 ## 2.0.7 (2023-09-05)
 

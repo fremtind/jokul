@@ -3,47 +3,51 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [18.0.13-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@18.0.12...@fremtind/jkl-feedback-react@18.0.13-alpha.0) (2024-08-26)
+
+**Note:** Version bump only for package @fremtind/jkl-feedback-react
+
 ## 18.0.4 (2024-06-27)
 
 ### Bug Fixes
 
-- gi smileys og radio buttons i feedback unike ider ([841b081](https://github.com/fremtind/jokul/commit/841b081d98d7bd73e2b82d2ebfa7f18a7f636692))
+-   gi smileys og radio buttons i feedback unike ider ([841b081](https://github.com/fremtind/jokul/commit/841b081d98d7bd73e2b82d2ebfa7f18a7f636692))
 
 ## [18.0.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@18.0.1...@fremtind/jkl-feedback-react@18.0.2) (2024-06-13)
 
 ### Bug Fixes
 
-- the addOnQuestion.label property has been restored ([97963ac](https://github.com/fremtind/jokul/commit/97963ac90d8d6e332f255ebf194cd9f8328ec34f))
+-   the addOnQuestion.label property has been restored ([97963ac](https://github.com/fremtind/jokul/commit/97963ac90d8d6e332f255ebf194cd9f8328ec34f))
 
 # [18.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@17.2.10...@fremtind/jkl-feedback-react@18.0.0) (2024-06-12)
 
 ### Bug Fixes
 
-- the \`label\` prop on \`addOnQuestion\` was removed ([f8fc003](https://github.com/fremtind/jokul/commit/f8fc0036c4e0004f89f8d4f804c61f6299a0ef74))
+-   the \`label\` prop on \`addOnQuestion\` was removed ([f8fc003](https://github.com/fremtind/jokul/commit/f8fc0036c4e0004f89f8d4f804c61f6299a0ef74))
 
 ### Features
 
-- feedback supports taking a \`counter\` prop for its TextAreas ([bb72983](https://github.com/fremtind/jokul/commit/bb72983907b2913bf2bb124386e4e8f7621adec2))
+-   feedback supports taking a \`counter\` prop for its TextAreas ([bb72983](https://github.com/fremtind/jokul/commit/bb72983907b2913bf2bb124386e4e8f7621adec2))
 
 ### BREAKING CHANGES
 
-- The ´maxLength\` prop on \`TextArea\` was deprecated and has been removed
-also from Feedback.
-It is replaced with a new `counter` prop. To migrate your code, replace
-`maxLength={250}` with `counter={{ maxLength: 250 }}´.
-- TS types have changed
+-   The ´maxLength\` prop on \`TextArea\` was deprecated and has been removed
+    also from Feedback.
+    It is replaced with a new `counter` prop. To migrate your code, replace
+    `maxLength={250}` with `counter={{ maxLength: 250 }}´.
+-   TS types have changed
 
 # [17.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@17.1.41...@fremtind/jkl-feedback-react@17.2.0) (2024-02-22)
 
 ### Features
 
-- la feedback differensiere på aktivt innsendte svar ([9ac7160](https://github.com/fremtind/jokul/commit/9ac71608fd09cee5dca9fd4cd6b8a8fde98f009a))
+-   la feedback differensiere på aktivt innsendte svar ([9ac7160](https://github.com/fremtind/jokul/commit/9ac71608fd09cee5dca9fd4cd6b8a8fde98f009a))
 
 ## [17.1.37](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@17.1.36...@fremtind/jkl-feedback-react@17.1.37) (2024-02-06)
 
 ### Bug Fixes
 
-- icon and heading on mobile acts like on desktop ([7156db0](https://github.com/fremtind/jokul/commit/7156db0d808b8f32ac3a3effdcfd392bf368c438)), closes [#3651](https://github.com/fremtind/jokul/issues/3651)
+-   icon and heading on mobile acts like on desktop ([7156db0](https://github.com/fremtind/jokul/commit/7156db0d808b8f32ac3a3effdcfd392bf368c438)), closes [#3651](https://github.com/fremtind/jokul/issues/3651)
 
 # [17.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@17.0.6...@fremtind/jkl-feedback-react@17.1.0) (2023-09-04)
 

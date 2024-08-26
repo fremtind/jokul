@@ -3,11 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.1.45-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@15.1.44...@fremtind/jkl-datepicker-react@15.1.45-alpha.0) (2024-08-26)
+
+**Note:** Version bump only for package @fremtind/jkl-datepicker-react
+
 ## 15.1.34 (2024-06-11)
 
 ### Bug Fixes
 
-- handle inline elements in support labels ([11f3df9](https://github.com/fremtind/jokul/commit/11f3df91f59b09a809f009d4f7a959f6636e8e73)), closes [#3892](https://github.com/fremtind/jokul/issues/3892)
+-   handle inline elements in support labels ([11f3df9](https://github.com/fremtind/jokul/commit/11f3df91f59b09a809f009d4f7a959f6636e8e73)), closes [#3892](https://github.com/fremtind/jokul/issues/3892)
 
 # [15.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@15.0.7...@fremtind/jkl-datepicker-react@15.1.0) (2023-09-14)
 

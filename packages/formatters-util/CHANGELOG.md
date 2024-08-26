@@ -3,55 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.18-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@5.1.17...@fremtind/jkl-formatters-util@5.1.18-alpha.0) (2024-08-26)
+
+**Note:** Version bump only for package @fremtind/jkl-formatters-util
+
 # [5.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@5.0.45...@fremtind/jkl-formatters-util@5.1.0) (2024-04-11)
 
 ### Features
 
-- legg til formatterer og maske for datofelter ([2e3e888](https://github.com/fremtind/jokul/commit/2e3e8882cb3181d3fb9b0be68cc38fa1c39d55f3)), closes [#3648](https://github.com/fremtind/jokul/issues/3648)
-- tillat kun punktum i datoer og legg til test ([aa95431](https://github.com/fremtind/jokul/commit/aa95431fa2ce25195f59cb92542ae4998c33bd8b))
+-   legg til formatterer og maske for datofelter ([2e3e888](https://github.com/fremtind/jokul/commit/2e3e8882cb3181d3fb9b0be68cc38fa1c39d55f3)), closes [#3648](https://github.com/fremtind/jokul/issues/3648)
+-   tillat kun punktum i datoer og legg til test ([aa95431](https://github.com/fremtind/jokul/commit/aa95431fa2ce25195f59cb92542ae4998c33bd8b))
 
 # 5.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 ## [4.1.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@4.1.6...@fremtind/jkl-formatters-util@4.1.7) (2023-05-09)
 
 ### Bug Fixes
 
-- endret formateringen til xx xx xx xx med unntak av 8xx-nummer ([b4099fe](https://github.com/fremtind/jokul/commit/b4099fe35046c04ccd18314a6c1c1d87caa847a0))
+-   endret formateringen til xx xx xx xx med unntak av 8xx-nummer ([b4099fe](https://github.com/fremtind/jokul/commit/b4099fe35046c04ccd18314a6c1c1d87caa847a0))
 
 # 4.1.0 (2023-05-02)
 
 ### Bug Fixes
 
-- rett opp i format på formatBytes ([50bb520](https://github.com/fremtind/jokul/commit/50bb5205a78cc134fd4db1e37699c608f61c42ec))
+-   rett opp i format på formatBytes ([50bb520](https://github.com/fremtind/jokul/commit/50bb5205a78cc134fd4db1e37699c608f61c42ec))
 
 ### Features
 
-- ny formateringsfunksjon formatBytes ([27476fa](https://github.com/fremtind/jokul/commit/27476fa28d8982adcbe6f0474e183e4c6711c0d4))
+-   ny formateringsfunksjon formatBytes ([27476fa](https://github.com/fremtind/jokul/commit/27476fa28d8982adcbe6f0474e183e4c6711c0d4))
 
 # [4.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@3.0.22...@fremtind/jkl-formatters-util@4.0.0) (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
+-   Avhenger av en versjon av jkl-core med breaking changes
 
 ## 3.0.8 (2022-11-22)
 

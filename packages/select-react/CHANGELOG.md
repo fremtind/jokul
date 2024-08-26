@@ -3,35 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.1.37-alpha.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@14.1.36...@fremtind/jkl-select-react@14.1.37-alpha.0) (2024-08-26)
+
+**Note:** Version bump only for package @fremtind/jkl-select-react
+
 ## 14.1.32 (2024-06-13)
 
 ### Bug Fixes
 
-- sørg for at native select ikke viser første element som placeholder ([0f53700](https://github.com/fremtind/jokul/commit/0f53700a7296f5e181c79f49d41b3bbb97a2344b))
+-   sørg for at native select ikke viser første element som placeholder ([0f53700](https://github.com/fremtind/jokul/commit/0f53700a7296f5e181c79f49d41b3bbb97a2344b))
 
 ## 14.1.25 (2024-04-15)
 
 ### Bug Fixes
 
-- switch from exporting interfaces to exporting types ([e36a70a](https://github.com/fremtind/jokul/commit/e36a70a5a4e05e2c01a9ad807943617d2640d469)), closes [#3855](https://github.com/fremtind/jokul/issues/3855)
+-   switch from exporting interfaces to exporting types ([e36a70a](https://github.com/fremtind/jokul/commit/e36a70a5a4e05e2c01a9ad807943617d2640d469)), closes [#3855](https://github.com/fremtind/jokul/issues/3855)
 
 ## [14.1.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@14.1.19...@fremtind/jkl-select-react@14.1.20) (2024-01-04)
 
 ### Bug Fixes
 
-- instead of closing the modal, just ignore the key event ([64246f2](https://github.com/fremtind/jokul/commit/64246f2eb2f83e1332a366cb24bb50d3b2542a53)), closes [#3783](https://github.com/fremtind/jokul/issues/3783)
+-   instead of closing the modal, just ignore the key event ([64246f2](https://github.com/fremtind/jokul/commit/64246f2eb2f83e1332a366cb24bb50d3b2542a53)), closes [#3783](https://github.com/fremtind/jokul/issues/3783)
 
 ## 14.1.19 (2024-01-03)
 
 ### Bug Fixes
 
-- pressing Enter key after opening searchable select does not submit form ([8fcf147](https://github.com/fremtind/jokul/commit/8fcf14740b4b94a8cd64caa9411dc1cb0a99f8a2)), closes [#3783](https://github.com/fremtind/jokul/issues/3783)
+-   pressing Enter key after opening searchable select does not submit form ([8fcf147](https://github.com/fremtind/jokul/commit/8fcf14740b4b94a8cd64caa9411dc1cb0a99f8a2)), closes [#3783](https://github.com/fremtind/jokul/issues/3783)
 
 ## [14.1.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@14.1.2...@fremtind/jkl-select-react@14.1.3) (2023-09-18)
 
 ### Bug Fixes
 
-- tweak colors in forced-colors mode ([1dd726f](https://github.com/fremtind/jokul/commit/1dd726fbc9e5cd653da49cb0a91b47ef29b83a4e))
+-   tweak colors in forced-colors mode ([1dd726f](https://github.com/fremtind/jokul/commit/1dd726fbc9e5cd653da49cb0a91b47ef29b83a4e))
 
 # 14.1.0 (2023-09-13)
 
