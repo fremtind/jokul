@@ -2,17 +2,17 @@
 @use "@fremtind/jkl-core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-accordion-expanded-background: #{jkl.$color-hvit};
     --jkl-accordion-border: #{jkl.$color-svaberg};
     --jkl-accordion-focus: #{jkl.$color-focus-color};
     --jkl-accordion-hover: #{jkl.$color-stein};
+    --jkl-accordion-expanded-background: #{jkl.$color-hvit};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-accordion-expanded-background: #{jkl.$color-skifer};
     --jkl-accordion-border: #{jkl.$color-stein};
     --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
     --jkl-accordion-hover: #{jkl.$color-svaberg};
+    --jkl-accordion-expanded-background: #{jkl.$color-skifer};
 }
 
 @include jkl.comfortable-density-variables {
