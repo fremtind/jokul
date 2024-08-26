@@ -27,7 +27,7 @@
         "cypress:open": "ELECTRON_EXTRA_LAUNCH_ARGS=\"--force-prefers-reduced-motion\" cypress open --project .",
         "cypress:dev": "cypress open --project . --config baseUrl=http://localhost:8000",
         "release": "pnpm build && lerna publish --conventional-graduate",
-        "release:alpha": "pnpm build && lerna publish --conventional-prerelease --no-git-tag-version --no-changelog",
+        "release:alpha": "pnpm build && lerna publish --conventional-prerelease --no-git-tag-version --no-changelog --no-private",
         "release-gh": "lerna publish from-package",
         "dev": "pnpm --filter \"@fremtind/portal\" dev",
         "start": "pnpm dev",
