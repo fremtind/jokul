@@ -5,7 +5,7 @@ import { Popover } from ".";
 describe("Popover", () => {
     test("open", () => {
         render(
-            <Popover open anchorEl={document.createElement("div")} onClose={() => null} data-testid="popover-id">
+            <Popover open data-testid="popover-id">
                 <div />
             </Popover>,
         );

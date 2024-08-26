@@ -1,45 +1,57 @@
 import {
-    autoUpdate,
-    flip,
-    offset,
-    Placement,
-    shift,
-    Strategy,
-    useClick,
-    useDismiss,
+    type Placement,
+    type Strategy,
     useFloating,
     useFocus,
     useHover,
-    useInteractions,
-    useMergeRefs,
+    useClick,
+    useDismiss,
+    autoUpdate,
     useRole,
+    useMergeRefs,
+    offset,
+    flip,
+    shift,
+    useInteractions,
+    FloatingPortal,
+    FloatingFocusManager,
 } from "@floating-ui/react";
 import { Props as UseClickProps } from "@floating-ui/react/src/hooks/useClick";
 import { Props as UseFocusProps } from "@floating-ui/react/src/hooks/useFocus";
 import { Props as UseHoverProps } from "@floating-ui/react/src/hooks/useHover";
 import { Props as UseRoleProps } from "@floating-ui/react/src/hooks/useRole";
 import classNames from "classnames";
-import React, { CSSProperties, HTMLAttributes, useLayoutEffect } from "react";
-import PopoverContent, { PopoverContentProps } from "./PopoverContent";
+import * as React from "react";
+import { Button } from "../../button-react/src";
 
-interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
+interface PopoverOptions {
     /**
-     * Popover content.
+     * Initial open state of the popover.
+     * @default false
+     * @see https://floating-ui.com/docs/useFloating#open
      */
-    children: React.ReactNode;
+    initialOpen?: boolean;
     /**
-     * Padding of the popover element.
-     * @default "none"
+     * Determines if focus is “modal”, meaning focus is fully trapped inside the floating element and outside content cannot be accessed. This includes screen reader virtual cursors.
+     * @see https://floating-ui.com/docs/floatingfocusmanager#modal
+     * @default true
      */
-    padding?: 8 | 16 | 24;
+    modal?: boolean;
     /**
-     * Whether the popover is open or not.
+     * Controlled open state of the popover.
+     * @see https://floating-ui.com/docs/useFloating#open
      */
-    open: boolean;
+    open?: boolean;
     /**
-     * onClose callback.
+     * Callback to change the open state of the popover.
      */
-    onClose: React.Dispatch<React.SetStateAction<boolean>>;
+    onOpenChange?: (open: boolean) => void;
+    /**
+     * Offset of the floating element.
+     * @see https://floating-ui.com/docs/offset
+     * @default 4
+     */
+    offset?: number;
     /**
      * Strategy for positioning the floating element.
      * @default absolute
@@ -52,128 +64,202 @@ interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
      * @see https://floating-ui.com/docs/useFloating#placement
      */
     placement?: Placement;
-    /**
-     * Offset of the floating element.
-     * @see https://floating-ui.com/docs/offset
-     * @default 4
-     */
-    offset?: number;
     /** Hover options
      * @see {@link UseHoverProps}
      * @see https://floating-ui.com/docs/useHover
      * @default { enabled: false }
      */
-    useHoverProps?: UseHoverProps;
+    hoverProps?: UseHoverProps;
     /** Focus options
      * @see {@link UseFocusProps}
      * @see https://floating-ui.com/docs/useFocus
      * @default { enabled: false }
      */
-    useFocusProps?: UseFocusProps;
+    focusProps?: UseFocusProps;
     /** Click options
      * @see {@link UseClickProps}
      * @see https://floating-ui.com/docs/useClick
      * @default { enabled: false }
      */
-    useClickProps?: UseClickProps;
+    clickProps?: UseClickProps;
     /**
      * Role options
      * @see {@link UseRoleProps}
      * @see https://floating-ui.com/docs/useRole
      * @default { enabled: true, role: "dialog" }
      */
-    useRoleProps?: UseRoleProps;
+    roleProps?: UseRoleProps;
     /**
-     * Reference to the element the popover should be anchored to.
+     * Floating options
+     * @see https://floating-ui.com/docs/useFloating
      */
-    referenceElement: (props: { ref: React.Ref<HTMLButtonElement> }) => React.ReactNode;
 }
 
-interface PopoverComponent extends React.ForwardRefExoticComponent<PopoverProps & React.RefAttributes<HTMLDivElement>> {
-    Content: React.ForwardRefExoticComponent<PopoverContentProps & React.RefAttributes<HTMLDivElement>>;
-}
+const usePopover = ({
+    initialOpen = false,
+    strategy = "absolute",
+    placement = "bottom-start",
+    offset: _offset = 4,
+    modal = false,
+    open: controlledOpen,
+    onOpenChange: setControlledOpen,
+    hoverProps,
+    focusProps,
+    clickProps,
+    roleProps,
+}: PopoverOptions) => {
+    const [uncontrolledOpen, setUncontrolledOpen] = React.useState(initialOpen);
 
-const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function Popover(
-    {
-        className,
-        children,
-        open: isOpen,
-        padding = "none",
-        strategy = "absolute",
-        placement = "bottom-start",
-        useHoverProps: { enabled: enableHover = false, ...restHoverProps } = {},
-        useFocusProps: { enabled: enableFocus = false, ...restFocusProps } = {},
-        useClickProps: { enabled: enableClick = false, ...restClickProps } = {},
-        useRoleProps: { enabled: enableRole = true, ...restRoleProps } = {},
-        onClose,
-        referenceElement,
-        ...restProps
-    },
-    ref,
-) {
-    const {
-        context,
-        update,
-        placement: flPlacement,
-        refs,
-        floatingStyles,
-        elements,
-    } = useFloating({
-        open: isOpen,
-        strategy,
+    const open = controlledOpen ?? uncontrolledOpen;
+    const setOpen = setControlledOpen ?? setUncontrolledOpen;
+
+    const data = useFloating({
+        open,
         placement,
-        middleware: [offset(4), flip({ padding: 5, fallbackPlacements: ["bottom", "top"] }), shift({ padding: 12 })],
-        onOpenChange: onClose,
+        strategy,
+        onOpenChange: setOpen,
+        whileElementsMounted: autoUpdate,
+        middleware: [
+            offset(_offset),
+            flip({ crossAxis: placement.includes("-"), padding: 5, fallbackPlacements: ["bottom", "top"] }),
+            shift({ padding: 12 }),
+        ],
     });
 
-    const role = useRole(context, { enabled: enableRole, ...restRoleProps });
+    const context = data.context;
 
-    const click = useClick(context, { enabled: enableClick, ...restClickProps });
+    const role = useRole(context, {
+        ...roleProps,
+        enabled: roleProps?.enabled ?? true,
+        role: roleProps?.role ?? "dialog",
+    });
 
-    const hover = useHover(context, { enabled: enableHover, ...restHoverProps });
+    const click = useClick(context, {
+        ...clickProps,
+        enabled: (controlledOpen || clickProps?.enabled) ?? false,
+    });
+    const hover = useHover(context, { ...hoverProps, enabled: hoverProps?.enabled ?? false });
+    const focus = useFocus(context, { ...focusProps, enabled: focusProps?.enabled ?? false });
+    const dismiss = useDismiss(context);
 
-    const focus = useFocus(context, { enabled: enableFocus, ...restFocusProps });
+    const interactions = useInteractions([click, dismiss, focus, hover, , role]);
 
-    const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, click, role]);
+    return React.useMemo(
+        () => ({
+            open,
+            setOpen,
+            ...interactions,
+            ...data,
+            modal,
+        }),
+        [open, setOpen, interactions, data, modal],
+    );
+};
 
-    const floatingRef = useMergeRefs([refs.setFloating, ref]);
+type PopoverContextType = ReturnType<typeof usePopover> | null;
 
-    useDismiss(context);
+const PopoverContext = React.createContext<PopoverContextType>(null);
 
-    useLayoutEffect(() => {
-        if (!isOpen || !elements.reference || !elements.floating) return;
+const usePopoverContext = () => {
+    const context = React.useContext(PopoverContext);
 
-        const cleanup = autoUpdate(elements.reference, elements.floating, update);
+    if (context == null) {
+        throw new Error("Popover komponenter må brukes innenfor en <Popover /> komponent");
+    }
 
-        return () => cleanup();
-    }, [elements, update, isOpen]);
+    return context;
+};
 
-    return (
-        <>
-            {referenceElement({ ref: refs.setReference, ...getReferenceProps() })}
-            <div
-                ref={floatingRef}
-                {...restProps}
-                className={classNames("jkl-popover", className, {
-                    "jkl-popover--hidden": !isOpen || !referenceElement,
-                })}
-                style={
-                    {
-                        ...restProps.style,
-                        ...floatingStyles,
-                        "--popover-padding": `var(--jkl-spacing-${padding})`,
-                    } as CSSProperties
-                }
-                data-placement={flPlacement}
-                aria-hidden={!isOpen || !referenceElement}
-                {...getFloatingProps()}
+const Popover = ({
+    children,
+    modal = false,
+    ...restOptions
+}: {
+    children: React.ReactNode;
+} & PopoverOptions) => {
+    const popover = usePopover({ modal, ...restOptions });
+    return <PopoverContext.Provider value={popover}>{children}</PopoverContext.Provider>;
+};
+
+interface PopoverTriggerProps {
+    children: React.ReactNode;
+    /**
+     * Render the trigger as a child of the popover.
+     * @default false
+     */
+    asChild?: boolean;
+}
+
+const PopoverTrigger = React.forwardRef<HTMLElement, React.HTMLProps<HTMLElement> & PopoverTriggerProps>(
+    function PopoverTrigger({ children, asChild = false, ...props }, propRef) {
+        const { refs, getReferenceProps, open, setOpen } = usePopoverContext();
+        const childrenRef = (children as any).ref;
+        const ref = useMergeRefs([refs.setReference, propRef, childrenRef]);
+
+        if (asChild && React.isValidElement(children)) {
+            return React.cloneElement(
+                children,
+                getReferenceProps({
+                    ref,
+                    ...props,
+                    ...children.props,
+                }),
+            );
+        }
+
+        return (
+            <Button
+                variant="ghost"
+                ref={ref}
+                onClick={() => setOpen?.(!open)}
+                aria-expanded={open}
+                {...getReferenceProps(props)}
             >
                 {children}
-            </div>
-        </>
-    );
-}) as PopoverComponent;
+            </Button>
+        );
+    },
+);
 
+interface PopoverContentProps {
+    /**
+     * Padding of the popover content element.
+     * @default 0
+     */
+    padding?: 0 | 8 | 16 | 24;
+}
+
+const PopoverContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement> & PopoverContentProps>(
+    function PopoverContent({ style, className, padding, ...props }, propRef) {
+        const { context: floatingContext, ...context } = usePopoverContext();
+        const ref = useMergeRefs([context.refs.setFloating, propRef]);
+
+        if (!floatingContext.open) return null;
+
+        return (
+            <FloatingPortal>
+                <FloatingFocusManager context={floatingContext} modal={context.modal}>
+                    <div
+                        className={classNames("jkl-popover", className)}
+                        ref={ref}
+                        style={
+                            {
+                                ...style,
+                                ...context.floatingStyles,
+                                "--popover-padding": `var(--jkl-spacing-${padding})`,
+                            } as React.CSSProperties
+                        }
+                        {...context.getFloatingProps(props)}
+                    >
+                        {props.children}
+                    </div>
+                </FloatingFocusManager>
+            </FloatingPortal>
+        );
+    },
+);
+
+Popover.Trigger = PopoverTrigger;
 Popover.Content = PopoverContent;
 
 export default Popover;
