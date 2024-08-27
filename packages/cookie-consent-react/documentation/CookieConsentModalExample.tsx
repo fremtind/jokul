@@ -12,8 +12,8 @@ function clearConsentCookie() {
             statistics: null,
             marketing: null,
         },
-        maxAge: -1,
         name: DEFAULT_COOKIE_NAME,
+        maxAge: -1,
     });
 }
 const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: boolean }> = ({
@@ -74,7 +74,6 @@ export const CookieConsentModalExample: FC<ExampleComponentProps> = ({ boolValue
             functional={boolValues?.["Functional"]}
             statistics={boolValues?.["Statistics"]}
             marketing={boolValues?.["Marketing"]}
-            cookieName={DEFAULT_COOKIE_NAME}
         >
             <Example
                 functional={boolValues?.["Functional"]}
@@ -104,7 +103,6 @@ export const App = () => {
             functional={${boolValues?.["Functional"]}}
             statistics={${boolValues?.["Statistics"]}}
             marketing={${boolValues?.["Marketing"]}}
-            cookieName={DEFAULT_COOKIE_NAME}
         >
             <Example />
         </CookieConsentProvider>
