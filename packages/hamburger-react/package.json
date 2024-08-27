@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-hamburger-react",
-    "version": "12.0.15",
+    "version": "12.0.16",
     "publishConfig": {
         "access": "public"
     },
@@ -39,7 +39,7 @@
     "dependencies": {
         "@fremtind/jkl-content-toggle-react": "^6.0.13",
         "@fremtind/jkl-core": "^14.1.0",
-        "@fremtind/jkl-hamburger": "^13.0.12",
+        "@fremtind/jkl-hamburger": "^13.0.13",
         "@fremtind/jkl-react-hooks": "^12.1.2",
         "classnames": "^2.3.2"
     },
