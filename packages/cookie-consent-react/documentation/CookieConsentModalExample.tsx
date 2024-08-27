@@ -2,25 +2,26 @@ import { TertiaryButton } from "@fremtind/jkl-button-react";
 import React, { useEffect, useState, FC } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
-import { useCookieConsentState } from "../src/CookieConsentContext";
+import { DEFAULT_COOKIE_NAME, useCookieConsentState } from "../src/CookieConsentContext";
 import { setConsentCookie } from "../src/cookieConsentUtils";
 
 function clearConsentCookie() {
-    setConsentCookie(
-        {
+    setConsentCookie({
+        consent: {
             functional: null,
             statistics: null,
             marketing: null,
         },
-        -1,
-    );
+        name: DEFAULT_COOKIE_NAME,
+        maxAge: -1,
+    });
 }
 const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: boolean }> = ({
     functional = false,
     statistics = false,
     marketing = false,
 }) => {
-    const { openConsentModalWithSettings } = useCookieConsent();
+    const { openConsentModalWithDefaults } = useCookieConsent();
 
     // Start: Kun for demoen
     const { dispatch } = useCookieConsentState();
@@ -42,7 +43,7 @@ const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: bool
 
     return (
         <>
-            <TertiaryButton data-testid="trigger-cookie-consent" onClick={openConsentModalWithSettings}>
+            <TertiaryButton data-testid="trigger-cookie-consent" onClick={openConsentModalWithDefaults}>
                 Informasjonskapsler
             </TertiaryButton>
             <CookieConsent blocking onAccept={console.log} />
@@ -51,7 +52,7 @@ const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: bool
 };
 
 export const cookieConsentModalExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Functional", "Statistics", "Marketing"],
+    boolProps: [{ prop: "Functional", defaultValue: true }, "Statistics", "Marketing"],
 };
 
 export const CookieConsentModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {

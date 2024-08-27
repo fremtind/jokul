@@ -1,8 +1,6 @@
-import type { Consent, ConsentState, ConsentRequirement } from "./types";
+import type { Consent, ConsentRequirement, ConsentState } from "./types";
 
-const COOKIE_NAME = "fremtind-cookie-consent";
-
-const getCookie = (name = COOKIE_NAME) => {
+const getCookie = (name: string) => {
     if (typeof document === "undefined") {
         return undefined;
     }
@@ -22,8 +20,14 @@ const getCookie = (name = COOKIE_NAME) => {
     return cookie;
 };
 
-export const getConsentCookie = (adapter?: () => Consent | undefined): Consent | undefined => {
-    const cookie = getCookie();
+export const getConsentCookie = ({
+    adapter,
+    name,
+}: {
+    adapter?: () => Consent | undefined;
+    name: string;
+}): Consent | undefined => {
+    const cookie = getCookie(name);
 
     if (cookie) {
         const consent = JSON.parse(cookie[1]);
@@ -41,13 +45,25 @@ export const getConsentCookie = (adapter?: () => Consent | undefined): Consent |
 // 120 days
 const DEFAULT_MAX_AGE = 10368000;
 
-export const setConsentCookie = (consent: Consent, maxAge = DEFAULT_MAX_AGE, name = COOKIE_NAME): void => {
-    const cookie = [];
-
-    cookie.push(`${name}=${JSON.stringify(consent)}`);
-    cookie.push(`max-age=${maxAge}`);
-    cookie.push(`SameSite=Lax`);
-    document.cookie = cookie.join(";");
+export const setConsentCookie = ({
+    consent,
+    maxAge = DEFAULT_MAX_AGE,
+    name,
+    domain,
+}: {
+    consent: Consent;
+    maxAge?: number;
+    name: string;
+    domain?: string;
+}): void => {
+    document.cookie = [
+        `${name}=${JSON.stringify(consent)}`,
+        `max-age=${maxAge}`,
+        `SameSite=Lax`,
+        !!domain && `domain=${domain}`,
+    ]
+        .filter((f) => f)
+        .join(";");
 };
 
 export const shouldShowConsentDialog = (requirement: ConsentRequirement, consent: Consent | undefined): boolean => {

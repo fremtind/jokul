@@ -64,3 +64,13 @@ Det er opp til hvert enkelt nettsted å **sørge for at brukerens valg faktisk r
     }}
 />
 ```
+
+## Tilpassninger av cookien som lagres
+
+Dersom du har et behov for å styre navnet på cookien som blir lagret kan du gjøre dette via `cookieName` prop på `CookieConsentProvider`.
+Default-verdien dersom ingenting angis er `"fremtind-cookie-consent"`.
+
+Ønsker du kontroll over hvilket domene cookien settes for kan du gjøre dette via `cookieDomain` prop på `CookieConsentProvider`.
+Merk at denne verdien vil brukes direkte i `domain=<domain>;` delen av cookien som lagres.
+Det er ditt ansvar at det som sendes inn er gyldig og at du bruker en verdi som gir deg tilgang til å lese cookien senere.
+Dersom det ikke angis noen custom verdi brukes det domenet siden er på og dette er mest sannsynlig det du ønsker.
