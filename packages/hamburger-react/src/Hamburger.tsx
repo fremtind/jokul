@@ -38,6 +38,10 @@ export interface HamburgerProps {
     };
 }
 
+/**
+ * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
+ * Bruk heller `HamburgerIcon` fra ikonpakka https://jokul.fremtind.no/komponenter/icons/
+ */
 export const Hamburger = ({
     "aria-label": ariaLabel = "Hovedmeny",
     isOpen,
