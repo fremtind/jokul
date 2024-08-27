@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@11.1.8...@fremtind/jkl-accordion-react@12.0.0) (2024-08-27)
+
+### Features
+
+- replace gulp/esbuild with sass-dart/vite ([ee18263](https://github.com/fremtind/jokul/commit/ee182639eaa5e717c8a3f938fefa9325cc35aa16))
+
+### BREAKING CHANGES
+
+- There is a risk that replacing the entire build-chain has
+introduced regressions but internal testing has found
+no issues.
+
+The accordion packages are now defined as ES modules but this
+should not affect consumers unless packages are being linked
+locally
+
 # 11.1.0 (2024-02-13)
 
 ### Features
