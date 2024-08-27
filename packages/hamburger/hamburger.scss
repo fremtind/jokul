@@ -38,6 +38,8 @@ $_hamburger-line-height: jkl.rem(2px);
     --jkl-hamburger-expanded-hover-scale: scale3d(1.1, 1, 1);
 }
 
+/// @deprecated Denne komponenten bør ikke lenger brukes. Bruk heller
+/// HamburgerIcon fra ikonpakka
 .jkl-hamburger {
     @include jkl.reset-outline;
     cursor: pointer;
