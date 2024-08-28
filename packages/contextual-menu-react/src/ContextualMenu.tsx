@@ -27,6 +27,7 @@ import cn from "classnames";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useEffect, useRef, useState } from "react";
 import * as ReactIs from "react-is";
+import { getThemeAndDensity } from "../../../portal/src/utils/getThemeAndDensity";
 import { useMenuWideEvents } from "./useMenuWideEvents";
 
 export interface ContextualMenuProps
@@ -136,23 +137,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
 
     const referenceRef = useMergeRefs([refs.setReference, forwardedRef]);
 
-    // Siden menyen rendres på rot må vi hente lokal dark/light-verdi fra triggeren
-    // Vi må gjøre dette for å ta hensyn til at tema kan styres lokalt for deler av UIet
-    let theme: string | undefined;
-    let density: string | undefined;
-    if (refs.reference.current) {
-        const computedStyles = getComputedStyle(refs.reference.current as HTMLElement);
-
-        // Sett theme til dark hvis bakgrunnsfargen er mørkere enn 50% av hvit
-        // dette gir oss slingringsmonn i tilfelle verdien av Jøkuls bakgrunnsfarge endres
-        theme =
-            parseInt(computedStyles.getPropertyValue("--jkl-background-color").replace("#", ""), 16) < 0xffffff / 2
-                ? "dark"
-                : "light";
-
-        // Sett density basert på verdien av en global CSS variabel
-        density = computedStyles.getPropertyValue("--jkl-density") === '"compact"' ? "compact" : "comfortable";
-    }
+    const { theme, density } = getThemeAndDensity(refs.reference.current as HTMLElement);
 
     return (
         <FloatingNode id={nodeId}>
