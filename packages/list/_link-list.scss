@@ -1,0 +1,98 @@
+@use "@fremtind/jkl-core/jkl";
+
+@include jkl.comfortable-density-variables {
+    --jkl-link-list-padding: var(--jkl-spacing-8);
+}
+
+@include jkl.compact-density-variables {
+    --jkl-link-list-padding: var(--jkl-spacing-4);
+}
+
+.jkl-link-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1.44px solid var(--jkl-color-border-separator);
+    height: min-content;
+    counter-reset: link-list;
+
+    --color: var(--jkl-color);
+
+    @media (hover: hover) {
+        &:has(:focus-visible),
+        &:has(:hover) {
+            --color: var(--jkl-color-border-separator);
+
+            .jkl-link-list-link::before {
+                color: var(--color);
+            }
+
+            .jkl-link-list-link:has(:focus-visible),
+            .jkl-link-list-link:hover {
+                --color: var(--jkl-color);
+
+                &::before {
+                    color: var(--color);
+                }
+            }
+        }
+    }
+}
+
+.jkl-link-list-item {
+    display: flex;
+    counter-increment: link-list;
+}
+
+.jkl-link-list-link {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--jkl-spacing-16);
+    padding: var(--jkl-link-list-padding) 0;
+    border-top: 1.44px solid var(--jkl-color-border-separator);
+    width: 100%;
+    text-decoration: none;
+    color: var(--color);
+    cursor: pointer;
+
+    &,
+    & svg {
+        @include jkl.motion("standard", "productive");
+        transition-property: color, border-color, background-color;
+    }
+
+    .jkl-link-list--unordered & {
+        svg {
+            border-radius: 50%;
+        }
+
+        &:hover,
+        &:focus {
+            svg {
+                background-color: var(--jkl-color-background-interactive-selected);
+            }
+        }
+    }
+
+    &__arrow {
+        align-self: center;
+    }
+
+    .jkl-link-list--ordered & {
+        justify-content: flex-start;
+
+        &__arrow {
+            display: none;
+        }
+
+        &::before {
+            content: counter(link-list, decimal-leading-zero);
+
+            @include jkl.use-font-family("Fremtind Grotesk Mono");
+            color: var(--jkl-color-text-interactive);
+            font-size: var(--jkl-small-font-size);
+        }
+    }
+}

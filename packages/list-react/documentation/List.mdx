@@ -6,7 +6,13 @@ group: layout
 keywords: ordered unordered iconlist
 ---
 
-import { OrderedList, UnorderedList, ListItem } from "../src";
+import { OrderedList, UnorderedList, ListItem, LinkList } from "../src";
+import {
+    orderedLinkListExample,
+    unorderedLinkListExample,
+    OrderedLinkListExample,
+    UnorderedLinkListExample,
+} from "./LinkListExample";
 import { ListExamples, listExamplesCode, listExamplesProps } from "./ListExample";
 
 <Ingress>
@@ -74,3 +80,115 @@ Vi kan bruke innrykk under et enkelt listepunkt når det punktet har tilleggsinf
 ## Lister med ikon
 
 Vi bruker lite ikoner i profilen, men det er enkelte unntak. Brukes typisk i en oversikt over hva som er dekket og hva som ikke dekkes.
+
+## Lenkelister
+
+Vi bruker komponenten `LinkList` for å presentere en liste med lenker. Dette kan foreksempel være nyttig når du ønsker å lenke innad i en side eller til eksterne sider.
+
+Vi anbefaler å bruke `LinkList` med varianten `ordered` wrappet i en `<nav>`-tag. Sørg for å inkludere en tittel som tydelig beskriver hvilken type navigasjon det er, ettersom dette elementet brukes til intern navigasjon i løsningen.
+
+```tsx
+<nav aria-labelledby="menu-label">
+    <h2 id="menu-label" className="visuallyHidden">
+        Meny
+    </h2>
+    <LinkList variant="ordered">
+        <LinkList.Item>
+            <LinkList.Link>SpareBank 1</LinkList.Link>
+        </LinkList.Item>
+    </LinkList>
+</nav>
+```
+
+### Nummererte lenkelister
+
+Vi bruker `ListLink` med varianten `ordered` når vi skal lenke innad i en side, der rekkefølgen er viktig.
+
+<ComponentExample title="LinkList ordered" component={OrderedLinkListExample} codeExample={orderedLinkListExample} />
+
+### Unummererte lenkelister
+
+Vi bruker `ListLink` med varianten `unordered` når vi skal lenke til eksterne sider, der rekkefølgen ikke er viktig.
+
+<ComponentExample
+    title="LinkList unordered"
+    component={UnorderedLinkListExample}
+    codeExample={unorderedLinkListExample}
+/>
+
+### Eksterne vs interne lenker
+
+Når vi bruker lenkelister, anbefales det å benytte varianten `ordered` for interne lenker og `unordered` for eksterne lenker. Dette skaper en klarere struktur og gjør det enklere for brukeren å skille mellom interne og eksterne lenker.
+
+<Grid>
+    <DoDontExample
+        type="do"
+        description="Ta i bruk eksterne lenker i en uordnet liste"
+        content={
+            <LinkList variant="unordered">
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring.html">
+                        SpareBank 1
+                    </LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.dnb.no/forsikring">DNB</LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring/lofavor-forsikring.html">
+                        LOfavør
+                    </LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.dnb.no/kundeprogram/avtaler/norsk-sykepleierforbund">
+                        Norsk Sykepleierforbund
+                    </LinkList.Link>
+                </LinkList.Item>
+            </LinkList>
+        }
+    />
+    <DoDontExample
+        type="dont"
+        description="Ikke ta i bruk eksterne lenker i en nummerert liste"
+        content={
+            <LinkList variant="ordered">
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring.html">
+                        SpareBank 1
+                    </LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.dnb.no/forsikring">DNB</LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring/lofavor-forsikring.html">
+                        LOfavør
+                    </LinkList.Link>
+                </LinkList.Item>
+                <LinkList.Item>
+                    <LinkList.Link href="https://www.dnb.no/kundeprogram/avtaler/norsk-sykepleierforbund">
+                        Norsk Sykepleierforbund
+                    </LinkList.Link>
+                </LinkList.Item>
+            </LinkList>
+        }
+    />
+</Grid>
+
+## Bruk av `as`-egenskapen
+
+Ved å spesifisere `as`-egenskapen, kan du kontrollere hvilket element eller hvilken komponent `LinkList.Link`-komponenten blir gjengitt som. For eksempel kan du sende inn en `Link`-komponent fra et tredjepartssystem for å håndtere lenker på en bestemt måte.
+
+```tsx
+import { Link } = from "react-router-dom";
+
+return (
+    <LinkList variant="ordered">
+        <LinkList.Item>
+            <LinkList.Link as={Link} to="/sparebank-1">
+                SpareBank 1
+            </LinkList.Link>
+        </LinkList.Item>
+    </LinkList>
+);
+```

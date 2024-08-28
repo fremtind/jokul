@@ -7,15 +7,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- domain of the cookie is now configurable ([f9fb6e2](https://github.com/fremtind/jokul/commit/f9fb6e23dcfff6dacca018c5c3e46e7b8738fed4)), closes [#3906](https://github.com/fremtind/jokul/issues/3906)
-- name of the cookie is now configurable ([debd977](https://github.com/fremtind/jokul/commit/debd9773f0e7401e3a781d4f654491a5034a1e21)), closes [#3906](https://github.com/fremtind/jokul/issues/3906)
-- useCookieConsent hook also returns openConsentModalWithDefaults ([7b45f0a](https://github.com/fremtind/jokul/commit/7b45f0a5bf732b9977c070532d67df1c43ae5021))
+-   domain of the cookie is now configurable ([f9fb6e2](https://github.com/fremtind/jokul/commit/f9fb6e23dcfff6dacca018c5c3e46e7b8738fed4)), closes [#3906](https://github.com/fremtind/jokul/issues/3906)
+-   name of the cookie is now configurable ([debd977](https://github.com/fremtind/jokul/commit/debd9773f0e7401e3a781d4f654491a5034a1e21)), closes [#3906](https://github.com/fremtind/jokul/issues/3906)
+-   useCookieConsent hook also returns openConsentModalWithDefaults ([7b45f0a](https://github.com/fremtind/jokul/commit/7b45f0a5bf732b9977c070532d67df1c43ae5021))
 
 ## 10.0.42 (2024-08-08)
 
 ### Bug Fixes
 
-- the button in the modal consent form submits again ([5e21a6f](https://github.com/fremtind/jokul/commit/5e21a6f02ffd90a06027f1755bb8f7cbedbe31ba))
+-   the button in the modal consent form submits again ([5e21a6f](https://github.com/fremtind/jokul/commit/5e21a6f02ffd90a06027f1755bb8f7cbedbe31ba))
 
 ## 10.0.6 (2023-09-05)
 
