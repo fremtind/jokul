@@ -3,40 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@11.1.8...@fremtind/jkl-accordion-react@12.0.0) (2024-08-27)
+
+### Features
+
+-   replace gulp/esbuild with sass-dart/vite ([ee18263](https://github.com/fremtind/jokul/commit/ee182639eaa5e717c8a3f938fefa9325cc35aa16))
+
+### BREAKING CHANGES
+
+-   There is a risk that replacing the entire build-chain has
+    introduced regressions but internal testing has found
+    no issues.
+
+The accordion packages are now defined as ES modules but this
+should not affect consumers unless packages are being linked
+locally
+
 # 11.1.0 (2024-02-13)
 
 ### Features
 
-- legg til id-prop på accordion ([b640d76](https://github.com/fremtind/jokul/commit/b640d76537f0b4f99895f729bbea8d82d2b5034b))
+-   legg til id-prop på accordion ([b640d76](https://github.com/fremtind/jokul/commit/b640d76537f0b4f99895f729bbea8d82d2b5034b))
 
 ## 11.0.1 (2024-01-26)
 
 ### Bug Fixes
 
-- first accordion has no top border when closed ([e3526e9](https://github.com/fremtind/jokul/commit/e3526e979f883b2a68593cbd9cf0a17848a7c7f0)), closes [#3794](https://github.com/fremtind/jokul/issues/3794)
+-   first accordion has no top border when closed ([e3526e9](https://github.com/fremtind/jokul/commit/e3526e979f883b2a68593cbd9cf0a17848a7c7f0)), closes [#3794](https://github.com/fremtind/jokul/issues/3794)
 
 # 11.0.0 (2023-12-08)
 
 ### Features
 
-- make ExpandButton work before React has mounted clientside ([9ce4216](https://github.com/fremtind/jokul/commit/9ce42163c04cc9977cad3787b7e47710e454febb))
+-   make ExpandButton work before React has mounted clientside ([9ce4216](https://github.com/fremtind/jokul/commit/9ce42163c04cc9977cad3787b7e47710e454febb))
 
 ### BREAKING CHANGES
 
-- Typing for the event in the onClick callback changed from React.MouseEvent<HTMLButtonElement> to
-React.MouseEvent<HTMLElement>
+-   Typing for the event in the onClick callback changed from React.MouseEvent<HTMLButtonElement> to
+    React.MouseEvent<HTMLElement>
 
 # [10.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion-react@10.0.16...@fremtind/jkl-accordion-react@10.1.0) (2023-12-04)
 
 ### Features
 
-- accordion uses details/summary elements ([b898531](https://github.com/fremtind/jokul/commit/b8985319b59a8b3f1f36972a1aa4cfebf0a0bd61)), closes [#3767](https://github.com/fremtind/jokul/issues/3767)
+-   accordion uses details/summary elements ([b898531](https://github.com/fremtind/jokul/commit/b8985319b59a8b3f1f36972a1aa4cfebf0a0bd61)), closes [#3767](https://github.com/fremtind/jokul/issues/3767)
 
 ## 10.0.5 (2023-09-14)
 
 ### Bug Fixes
 
-- deleted snapshots folder ([b742384](https://github.com/fremtind/jokul/commit/b74238480f6131af19b9f70b796377a4978a6ce3))
+-   deleted snapshots folder ([b742384](https://github.com/fremtind/jokul/commit/b74238480f6131af19b9f70b796377a4978a6ce3))
 
 ## 10.0.4 (2023-09-14)
 

@@ -35,7 +35,11 @@ interface State {
     consent: Consent;
 }
 
-const CookieConsentContext = React.createContext<{ state: State; dispatch: Dispatch } | undefined>(undefined);
+export const DEFAULT_COOKIE_NAME = "fremtind-cookie-consent";
+
+const CookieConsentContext = React.createContext<
+    { state: State; dispatch: Dispatch; cookieName: string; cookieDomain?: string } | undefined
+>(undefined);
 
 const cookieConsentReducer = (state: State, action: Action): State => {
     switch (action.type) {
@@ -75,6 +79,8 @@ const cookieConsentReducer = (state: State, action: Action): State => {
 
 export interface CookieConsentProviderProps extends Partial<ConsentRequirement>, WithChildren {
     cookieAdapter?: () => Consent | undefined;
+    cookieName?: string;
+    cookieDomain?: string;
 }
 
 const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
@@ -83,17 +89,19 @@ const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     marketing,
     functional,
     statistics,
+    cookieName = DEFAULT_COOKIE_NAME,
+    cookieDomain,
 }) => {
     // Load existing consent at initial render
     const consentCookie = useMemo(() => {
         return (
-            getConsentCookie(cookieAdapter) ?? {
+            getConsentCookie({ adapter: cookieAdapter, name: cookieName }) ?? {
                 marketing: null,
                 functional: null,
                 statistics: null,
             }
         );
-    }, [cookieAdapter]);
+    }, [cookieAdapter, cookieName]);
 
     const requirement = useMemo(
         () => ({
@@ -119,12 +127,14 @@ const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
         }
     }, [requirement, consentCookie]);
 
-    const value = { state, dispatch };
+    const value = { state, dispatch, cookieName, cookieDomain };
     return <CookieConsentContext.Provider value={value}>{children}</CookieConsentContext.Provider>;
 };
 
 interface UseCookieConsentState extends State {
     dispatch: Dispatch;
+    cookieName: string;
+    cookieDomain?: string;
 }
 
 // control and state for internal use
@@ -136,12 +146,15 @@ const useCookieConsentState = (): UseCookieConsentState => {
 
     return {
         dispatch: context.dispatch,
+        cookieName: context.cookieName,
+        cookieDomain: context.cookieDomain,
         ...context.state,
     };
 };
 
 type UseCookieConsent = {
     openConsentModalWithSettings: () => void;
+    openConsentModalWithDefaults: () => void;
     /** Se hvilke samtykker som er gitt, om du for eksempel trenger styre UI basert på samtykker. */
     consents: Consent;
 };
@@ -158,9 +171,14 @@ const useCookieConsent = (): UseCookieConsent => {
         context.dispatch({ type: "SET_SHOW_SETTINGS", payload: true });
     };
 
+    const openConsentModalWithDefaults = () => {
+        context.dispatch({ type: "SET_SHOW_CONSENT", payload: true });
+        context.dispatch({ type: "SET_SHOW_SETTINGS", payload: false });
+    };
+
     const consents = context.state.consent;
 
-    return { openConsentModalWithSettings, consents };
+    return { openConsentModalWithSettings, openConsentModalWithDefaults, consents };
 };
 
 export { CookieConsentProvider, useCookieConsentState, useCookieConsent };

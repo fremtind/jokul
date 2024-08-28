@@ -3,65 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@11.2.4...@fremtind/jkl-accordion@12.0.0) (2024-08-27)
+
+### Features
+
+-   replace gulp/esbuild with sass-dart/vite ([ee18263](https://github.com/fremtind/jokul/commit/ee182639eaa5e717c8a3f938fefa9325cc35aa16))
+
+### BREAKING CHANGES
+
+-   There is a risk that replacing the entire build-chain has
+    introduced regressions but internal testing has found
+    no issues.
+
+The accordion packages are now defined as ES modules but this
+should not affect consumers unless packages are being linked
+locally
+
 ## 11.2.1 (2024-01-26)
 
 ### Bug Fixes
 
-- first accordion has no top border when closed ([e3526e9](https://github.com/fremtind/jokul/commit/e3526e979f883b2a68593cbd9cf0a17848a7c7f0)), closes [#3794](https://github.com/fremtind/jokul/issues/3794)
+-   first accordion has no top border when closed ([e3526e9](https://github.com/fremtind/jokul/commit/e3526e979f883b2a68593cbd9cf0a17848a7c7f0)), closes [#3794](https://github.com/fremtind/jokul/issues/3794)
 
 # 11.2.0 (2023-12-04)
 
 ### Features
 
-- accordion uses details/summary elements ([b898531](https://github.com/fremtind/jokul/commit/b8985319b59a8b3f1f36972a1aa4cfebf0a0bd61)), closes [#3767](https://github.com/fremtind/jokul/issues/3767)
+-   accordion uses details/summary elements ([b898531](https://github.com/fremtind/jokul/commit/b8985319b59a8b3f1f36972a1aa4cfebf0a0bd61)), closes [#3767](https://github.com/fremtind/jokul/issues/3767)
 
 # 11.1.0 (2023-09-14)
 
 ### Features
 
-- added hover color to text and changed padding on mobile ([1b482fd](https://github.com/fremtind/jokul/commit/1b482fdf791390d81fe4b574170952b4fc7f5974))
-- changed backgroundcolor when expanded to skifer ([39baa03](https://github.com/fremtind/jokul/commit/39baa03a1baa407e6cdd6d44181e69caf390ec65))
+-   added hover color to text and changed padding on mobile ([1b482fd](https://github.com/fremtind/jokul/commit/1b482fdf791390d81fe4b574170952b4fc7f5974))
+-   changed backgroundcolor when expanded to skifer ([39baa03](https://github.com/fremtind/jokul/commit/39baa03a1baa407e6cdd6d44181e69caf390ec65))
 
 # 11.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 ## [10.0.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@10.0.5...@fremtind/jkl-accordion@10.0.6) (2023-06-07)
 
 ### Bug Fixes
 
-- bruk fargen til temaet, ikke parent ([9fe89bf](https://github.com/fremtind/jokul/commit/9fe89bf1532dd2aa4ba643effa84237aa6553649))
+-   bruk fargen til temaet, ikke parent ([9fe89bf](https://github.com/fremtind/jokul/commit/9fe89bf1532dd2aa4ba643effa84237aa6553649))
 
 ## 10.0.3 (2023-03-21)
 
 ### Bug Fixes
 
-- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+-   sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
 
 # 10.0.0 (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
-- ta i bruk nye ikoner i AccordionItem ([f9c6a32](https://github.com/fremtind/jokul/commit/f9c6a32f9a924721e71f2e111f6260b052ee5bd0))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   ta i bruk nye ikoner i AccordionItem ([f9c6a32](https://github.com/fremtind/jokul/commit/f9c6a32f9a924721e71f2e111f6260b052ee5bd0))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå importere stilarket fra jkl-icons fr at komponentnen skal se riktig ut
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå importere stilarket fra jkl-icons fr at komponentnen skal se riktig ut
 
 ## 9.0.5 (2022-11-22)
 
