@@ -152,9 +152,11 @@ export const PopoverControlledExample: FC<ExampleComponentProps> = () => {
 
     return (
         <Popover
-            open={open}
-            onOpenChange={setOpen}
-            roleProps={{
+            floatingOptions={{
+                open,
+                onOpenChange: setOpen,
+            }}
+            roleOptions={{
                 role: "menu",
             }}
         >
@@ -171,7 +173,7 @@ export const PopoverControlledExample: FC<ExampleComponentProps> = () => {
 export const PopoverUnControlledExample: FC<ExampleComponentProps> = () => {
     return (
         <Popover
-            roleProps={{
+            roleOptions={{
                 role: "menu",
             }}
         >
