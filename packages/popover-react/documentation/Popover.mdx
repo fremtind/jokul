@@ -5,11 +5,31 @@ scss: popover
 group: edit me!
 ---
 
-import PopoverExample, { popoverExampleCode, popoverExampleKnobs } from "./PopoverExample";
+import {
+    PopoverControlledExample,
+    PopoverUnControlledExample,
+    popoverControlledExampleCode,
+    popoverUnControlledExampleCode,
+    popoverExampleKnobs,
+} from "./PopoverExample";
 
-<Ingress>Ingress med kort beskrivelse av komponenten</Ingress>
+<Ingress>
+    En popover brukes til å vise innhold i et flytende vindu og legger seg over alle andre elementer i grensesnittet.
+    Man styrer selv hvordan den vises og interageres med, ofte ved å klikke på et element som en knapp.
+</Ingress>
 
-<ComponentExample component={PopoverExample} codeExample={popoverExampleCode} knobs={popoverExampleKnobs} />
+** Popover er en kontrollert komponent som viser innhold i en boks som dukker opp ved siden av en trigger. **
+
+<ComponentExample
+    component={PopoverControlledExample}
+    codeExample={popoverControlledExampleCode}
+    knobs={popoverExampleKnobs}
+/>
+<ComponentExample
+    component={PopoverUnControlledExample}
+    codeExample={popoverUnControlledExampleCode}
+    knobs={popoverExampleKnobs}
+/>
 
 Første eksempel må være synlig uten å scrolle og skal ha et kodeeksempel som oppdateres til å matche valgte parametere.
 

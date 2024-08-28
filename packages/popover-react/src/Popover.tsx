@@ -22,7 +22,7 @@ import { Props as UseHoverProps } from "@floating-ui/react/src/hooks/useHover";
 import { Props as UseRoleProps } from "@floating-ui/react/src/hooks/useRole";
 import classNames from "classnames";
 import * as React from "react";
-import { Button } from "../../button-react/src";
+import { Button } from "../../button-react";
 
 interface PopoverOptions {
     /**
@@ -240,7 +240,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivE
             <FloatingPortal>
                 <FloatingFocusManager context={floatingContext} modal={context.modal}>
                     <div
-                        className={classNames("jkl-popover", className)}
+                        className={classNames("jkl jkl-popover", className)}
                         ref={ref}
                         style={
                             {
