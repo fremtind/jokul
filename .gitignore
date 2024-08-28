@@ -19,3 +19,4 @@ cypress/videos
 .stylelintcache
 .turbo
 .nx
+**/public/fonts

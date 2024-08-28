@@ -1,4 +1,11 @@
 @use "@fremtind/jkl-core/jkl";
+@use "@fremtind/jkl-icons/icons";
+@use "@fremtind/jkl-checkbox/checkbox";
+@use "@fremtind/jkl-input-group/input-group";
+@use "@fremtind/jkl-button/button";
+@use "@fremtind/jkl-select/select";
+@use "@fremtind/jkl-radio-button/radio-button";
+@use "@fremtind/jkl-webfonts/webfonts";
 
 @include jkl.light-mode-variables {
     --interactive-code-background: #{jkl.$color-hvit};

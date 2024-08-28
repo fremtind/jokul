@@ -1,7 +1,6 @@
 import babelParser from "prettier/parser-babel";
 import * as prettier from "prettier/standalone";
 import React from "react";
-import "../../../utils/documentation/dev-example.scss";
 import { InteractiveCode } from "../../../utils/interactive-code";
 import { scope } from "./AccordionExample";
 // @ts-ignore

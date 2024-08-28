@@ -126,7 +126,6 @@
         "resize-observer-polyfill": "^1.5.1",
         "rimraf": "^4.4.1",
         "sass": "^1.77.6",
-        "sass-embedded": "^1.64.2",
         "stylelint": "^15.7.0",
         "tiny-glob": "^0.2.9",
         "typescript": "^5.0.4",
