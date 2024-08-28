@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list@10.2.6...@fremtind/jkl-list@10.3.0) (2024-08-28)
+
+### Features
+
+- add arrow styling to link list ([82bae30](https://github.com/fremtind/jokul/commit/82bae30e0cf07ddac468a414b580f47e0160168b))
+- legg til styling basert på density ([eca8079](https://github.com/fremtind/jokul/commit/eca8079585441a74b7e347731735ed7e2f2f67a7))
+- legg til unordered/orderedlinklist ([0115fba](https://github.com/fremtind/jokul/commit/0115fbaea5419cc785fdb66737b1696b88fd2de5))
+- øke font-size størrelse på numrene i ol lister og subdued numrene ved hover/focus ([e86d52c](https://github.com/fremtind/jokul/commit/e86d52ccb7905dffb43507e8fe6df116ae56b136))
+- revert link list styling ([caf8369](https://github.com/fremtind/jokul/commit/caf8369e3a345010a78e52ee70de2b3f2f205753))
+
 ## [10.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list@10.2.0...@fremtind/jkl-list@10.2.1) (2023-11-09)
 
 ### Bug Fixes

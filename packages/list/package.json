@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-list",
-    "version": "10.2.6",
+    "version": "10.3.0",
     "publishConfig": {
         "access": "public"
     },

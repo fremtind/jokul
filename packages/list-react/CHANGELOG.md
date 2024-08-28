@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list-react@10.1.6...@fremtind/jkl-list-react@10.2.0) (2024-08-28)
+
+### Features
+
+- add support for specifying custom rendering component in linklist.link ([27e36c0](https://github.com/fremtind/jokul/commit/27e36c0459e84330a7f767e3433fef82cc91906d))
+- create tests ([34984ac](https://github.com/fremtind/jokul/commit/34984ac950dba5ade3d3d5ad7cb9d7df96ed2a4c))
+- eksporter unordered og orderedlinklist ([eb809c3](https://github.com/fremtind/jokul/commit/eb809c363d5bdd3a239665744c0abcbafe2ee2e8))
+- legg til støtte for compact og comfortable visning i linklist ([01aa90e](https://github.com/fremtind/jokul/commit/01aa90ebe46cc37c0dc84a8f2facc95c9f03c470))
+- legg til unordered og orderedlinklist dokumentasjon ([be4b7a6](https://github.com/fremtind/jokul/commit/be4b7a66e2aa5f15e432960eb5b99521b849e4ba))
+- legg til unordered/orderedlinklist ([0115fba](https://github.com/fremtind/jokul/commit/0115fbaea5419cc785fdb66737b1696b88fd2de5))
+- oppdater dokumentasjon for bruk av listlink komponent ([c0ce3c1](https://github.com/fremtind/jokul/commit/c0ce3c1b9171f79a25d76f26381c876086cea24e))
+- oppdater dokumentasjon for listlink komponenten ([3b9f225](https://github.com/fremtind/jokul/commit/3b9f225ae50cc26433871ba2514b6a474f7576e8))
+- refactor linklist component ([f8ae931](https://github.com/fremtind/jokul/commit/f8ae9316800053c9a9155bf352f4705fd032b29f))
+
 # 10.1.0 (2023-10-31)
 
 ### Features
