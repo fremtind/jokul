@@ -3,111 +3,117 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.1.0 (2024-08-28)
+
+### Features
+
+-   legg til ikoner for tommel opp og tommel ned ([908ba1c](https://github.com/fremtind/jokul/commit/908ba1ceba6bf4fed08727d6eb9a5c33b7b74408))
+
 # 9.0.0 (2024-08-19)
 
 ### Bug Fixes
 
-- animer de animerte pilene i riktig retning ([a4db8a5](https://github.com/fremtind/jokul/commit/a4db8a52bf319c8c8f7ea465d4d2ec36c59bdb8a))
-- bruk unicode for standard ikoner ([3bfeae7](https://github.com/fremtind/jokul/commit/3bfeae755b7585ce709b22915a0f5d9eabdb60c8))
-- gjør ikoner aria-hidden igjen ([285cbcc](https://github.com/fremtind/jokul/commit/285cbcc26b8af6630e93a2b90311f94ff1feab3a))
-- la bruker overstyre bold og filled i alle ikoner ([812c1df](https://github.com/fremtind/jokul/commit/812c1df4569d1e05f7596773dae6ab7910a9295a))
-- riktig klasse på ikoner og bold versjon av varselsikonene ([e0f679c](https://github.com/fremtind/jokul/commit/e0f679c50fcd7be0c5f0cc0453adb94fd5381dee))
+-   animer de animerte pilene i riktig retning ([a4db8a5](https://github.com/fremtind/jokul/commit/a4db8a52bf319c8c8f7ea465d4d2ec36c59bdb8a))
+-   bruk unicode for standard ikoner ([3bfeae7](https://github.com/fremtind/jokul/commit/3bfeae755b7585ce709b22915a0f5d9eabdb60c8))
+-   gjør ikoner aria-hidden igjen ([285cbcc](https://github.com/fremtind/jokul/commit/285cbcc26b8af6630e93a2b90311f94ff1feab3a))
+-   la bruker overstyre bold og filled i alle ikoner ([812c1df](https://github.com/fremtind/jokul/commit/812c1df4569d1e05f7596773dae6ab7910a9295a))
+-   riktig klasse på ikoner og bold versjon av varselsikonene ([e0f679c](https://github.com/fremtind/jokul/commit/e0f679c50fcd7be0c5f0cc0453adb94fd5381dee))
 
 ### Features
 
-- bruk Material Symbols i stedet for custom ikoner ([9ba1f01](https://github.com/fremtind/jokul/commit/9ba1f0162cce5a235588baf0d7ffb0b6037391dd))
+-   bruk Material Symbols i stedet for custom ikoner ([9ba1f01](https://github.com/fremtind/jokul/commit/9ba1f0162cce5a235588baf0d7ffb0b6037391dd))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny webfont
+-   Avhenger av ny webfont
 
 ## [8.7.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@8.7.0...@fremtind/jkl-icons-react@8.7.1) (2024-05-22)
 
 ### Bug Fixes
 
-- update pen and trash icons ([78252ee](https://github.com/fremtind/jokul/commit/78252ee947a0750a0bee6257eaa0d82434dc8a4d)), closes [#3888](https://github.com/fremtind/jokul/issues/3888)
+-   update pen and trash icons ([78252ee](https://github.com/fremtind/jokul/commit/78252ee947a0750a0bee6257eaa0d82434dc8a4d)), closes [#3888](https://github.com/fremtind/jokul/issues/3888)
 
 # [8.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@8.6.0...@fremtind/jkl-icons-react@8.7.0) (2024-05-16)
 
 ### Features
 
-- add a "pen" icon ([3c60e4a](https://github.com/fremtind/jokul/commit/3c60e4a3276df29a37a4d99e7062f06492ba5494)), closes [#3888](https://github.com/fremtind/jokul/issues/3888)
+-   add a "pen" icon ([3c60e4a](https://github.com/fremtind/jokul/commit/3c60e4a3276df29a37a4d99e7062f06492ba5494)), closes [#3888](https://github.com/fremtind/jokul/issues/3888)
 
 # 8.6.0 (2024-04-23)
 
 ### Bug Fixes
 
-- endret litt på navnet :D ([f2d6a84](https://github.com/fremtind/jokul/commit/f2d6a849bef0c11ebdcb4cfd1115f5b8b0f6a5d3))
-- one that got away ([eca39fe](https://github.com/fremtind/jokul/commit/eca39fe723fabc0d8036aa3c2bc5a0080eb8546e))
+-   endret litt på navnet :D ([f2d6a84](https://github.com/fremtind/jokul/commit/f2d6a849bef0c11ebdcb4cfd1115f5b8b0f6a5d3))
+-   one that got away ([eca39fe](https://github.com/fremtind/jokul/commit/eca39fe723fabc0d8036aa3c2bc5a0080eb8546e))
 
 ### Features
 
-- la til søppelbøtte-ikon ([fdf8bd6](https://github.com/fremtind/jokul/commit/fdf8bd6101be152f927ae74e7091bf8cc32dc2dc))
+-   la til søppelbøtte-ikon ([fdf8bd6](https://github.com/fremtind/jokul/commit/fdf8bd6101be152f927ae74e7091bf8cc32dc2dc))
 
 # 8.5.0 (2024-02-21)
 
 ### Features
 
-- added a minus-icon ([84d8231](https://github.com/fremtind/jokul/commit/84d823163e495da27d5580fc56930e1718898b04)), closes [#3818](https://github.com/fremtind/jokul/issues/3818)
+-   added a minus-icon ([84d8231](https://github.com/fremtind/jokul/commit/84d823163e495da27d5580fc56930e1718898b04)), closes [#3818](https://github.com/fremtind/jokul/issues/3818)
 
 # 8.4.0 (2023-11-24)
 
 ### Features
 
-- support rendering icons as either "div" or "span" using the as prop ([5233ece](https://github.com/fremtind/jokul/commit/5233ece895cbeb194eb70a2e0b4e54af73a8c436)), closes [#3753](https://github.com/fremtind/jokul/issues/3753)
+-   support rendering icons as either "div" or "span" using the as prop ([5233ece](https://github.com/fremtind/jokul/commit/5233ece895cbeb194eb70a2e0b4e54af73a8c436)), closes [#3753](https://github.com/fremtind/jokul/issues/3753)
 
 # 8.3.0 (2023-10-31)
 
 ### Features
 
-- added green-check and red-cross icons ([f39119d](https://github.com/fremtind/jokul/commit/f39119d8c2123c047dfd2e6426f6a6931106bc01)), closes [#3733](https://github.com/fremtind/jokul/issues/3733)
+-   added green-check and red-cross icons ([f39119d](https://github.com/fremtind/jokul/commit/f39119d8c2123c047dfd2e6426f6a6931106bc01)), closes [#3733](https://github.com/fremtind/jokul/issues/3733)
 
 # [8.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@8.1.8...@fremtind/jkl-icons-react@8.2.0) (2023-10-26)
 
 ### Features
 
-- added Drag icon ([aac0d89](https://github.com/fremtind/jokul/commit/aac0d890f04392bd64816cf13379ec62fb6dfa3c)), closes [#3731](https://github.com/fremtind/jokul/issues/3731)
-- dots icon has had a slight change in size ([1360622](https://github.com/fremtind/jokul/commit/1360622224b47d8070de8b528a536de7c2cd138b)), closes [#3732](https://github.com/fremtind/jokul/issues/3732)
+-   added Drag icon ([aac0d89](https://github.com/fremtind/jokul/commit/aac0d890f04392bd64816cf13379ec62fb6dfa3c)), closes [#3731](https://github.com/fremtind/jokul/issues/3731)
+-   dots icon has had a slight change in size ([1360622](https://github.com/fremtind/jokul/commit/1360622224b47d8070de8b528a536de7c2cd138b)), closes [#3732](https://github.com/fremtind/jokul/issues/3732)
 
 ## [8.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@8.1.0...@fremtind/jkl-icons-react@8.1.1) (2023-08-08)
 
 ### Bug Fixes
 
-- added bold versions of LinkIcon plus fixed file names and a couple of bugs in the d-prop for <p ([409cb62](https://github.com/fremtind/jokul/commit/409cb6238c45d7b5fcb45d177f5224fae4a5b1d4))
+-   added bold versions of LinkIcon plus fixed file names and a couple of bugs in the d-prop for <p ([409cb62](https://github.com/fremtind/jokul/commit/409cb6238c45d7b5fcb45d177f5224fae4a5b1d4))
 
 # 8.1.0 (2023-08-08)
 
 ### Features
 
-- added new icon LinkIcon ([9454624](https://github.com/fremtind/jokul/commit/9454624ec6f80907ff632d75d9f1cee262eba61d))
+-   added new icon LinkIcon ([9454624](https://github.com/fremtind/jokul/commit/9454624ec6f80907ff632d75d9f1cee262eba61d))
 
 # 8.0.0 (2023-07-07)
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
+-   Avhenger av ny majorversjon av core
 
 # [7.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@7.1.3...@fremtind/jkl-icons-react@7.2.0) (2023-05-04)
 
 ### Bug Fixes
 
-- bruk regular-ikon med headings også i compact ([a7ff6c6](https://github.com/fremtind/jokul/commit/a7ff6c6d0702c0597a9a8fe91bfc65a888ef231c))
-- rett opp display i ikoner, oppførsel i supportlabel ([37c3d2f](https://github.com/fremtind/jokul/commit/37c3d2fbf3503ad8ad5aa9944f8136e1aff64248))
-- rett opp i duplikat ID ([49b6538](https://github.com/fremtind/jokul/commit/49b65388a922c957acadaf3f76847d5239ce1882))
+-   bruk regular-ikon med headings også i compact ([a7ff6c6](https://github.com/fremtind/jokul/commit/a7ff6c6d0702c0597a9a8fe91bfc65a888ef231c))
+-   rett opp display i ikoner, oppførsel i supportlabel ([37c3d2f](https://github.com/fremtind/jokul/commit/37c3d2fbf3503ad8ad5aa9944f8136e1aff64248))
+-   rett opp i duplikat ID ([49b6538](https://github.com/fremtind/jokul/commit/49b65388a922c957acadaf3f76847d5239ce1882))
 
 ### Features
 
-- muliggjør styring av ikon-SVG gjennom CSS ([96431f7](https://github.com/fremtind/jokul/commit/96431f7691c5307db961623010e0a5f4892c53d3))
+-   muliggjør styring av ikon-SVG gjennom CSS ([96431f7](https://github.com/fremtind/jokul/commit/96431f7691c5307db961623010e0a5f4892c53d3))
 
 ## 7.1.2 (2023-03-28)
 
 ### Bug Fixes
 
-- rett opp typedefinisjon for ikoner bygget av factory ([8a3bb6d](https://github.com/fremtind/jokul/commit/8a3bb6de7f52cd06e9a1a8b3dbe912c523ed9f63))
+-   rett opp typedefinisjon for ikoner bygget av factory ([8a3bb6d](https://github.com/fremtind/jokul/commit/8a3bb6de7f52cd06e9a1a8b3dbe912c523ed9f63))
 
 # 7.1.0 (2023-03-06)
 
