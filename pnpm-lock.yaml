@@ -96,7 +96,6 @@ importers:
       resize-observer-polyfill: ^1.5.1
       rimraf: ^4.4.1
       sass: ^1.77.6
-      sass-embedded: ^1.64.2
       stylelint: ^15.7.0
       tiny-glob: ^0.2.9
       typescript: ^5.0.4
@@ -133,7 +132,7 @@ importers:
       '@vitejs/plugin-react-swc': 3.7.0_vite@5.4.2
       autoprefixer: 10.4.14_postcss@8.4.24
       browserslist: 4.21.7
-      commitizen: 4.3.0
+      commitizen: 4.3.0_dm6y56nr5wgy7tu6xusupvnt5e
       cssnano: 6.0.1_postcss@8.4.24
       cssnano-preset-lite: 3.0.0_postcss@8.4.24
       cypress: 13.2.0
@@ -174,11 +173,10 @@ importers:
       resize-observer-polyfill: 1.5.1
       rimraf: 4.4.1
       sass: 1.77.8
-      sass-embedded: 1.64.2
       stylelint: 15.7.0
       tiny-glob: 0.2.9
       typescript: 5.1.6
-      vite: 5.4.2_plwputohu73hvjkorle36me3pa
+      vite: 5.4.2_qly2xqze27fzfdjycmqvs326c4
       vite-plugin-dts: 3.9.1_kg7rakl4raemk6gc5ty2frrwrq
 
   actions/changed-files:
@@ -1300,54 +1298,54 @@ importers:
   utils:
     specifiers:
       '@emotion/is-prop-valid': ^1.2.2
-      '@fremtind/jkl-accordion-react': ^11.1.5
-      '@fremtind/jkl-alert-message-react': ^11.1.15
-      '@fremtind/jkl-breadcrumb-react': ^5.0.11
-      '@fremtind/jkl-button': ^12.1.0
-      '@fremtind/jkl-button-react': ^15.1.1
-      '@fremtind/jkl-card-react': ^11.3.13
-      '@fremtind/jkl-checkbox': ^11.0.6
-      '@fremtind/jkl-checkbox-react': ^11.1.22
-      '@fremtind/jkl-combobox-react': ^2.3.26
-      '@fremtind/jkl-contact-information-react': ^2.1.18
-      '@fremtind/jkl-content-toggle-react': ^6.0.11
-      '@fremtind/jkl-contextual-menu-react': ^3.4.24
-      '@fremtind/jkl-cookie-consent-react': ^10.0.40
-      '@fremtind/jkl-core': ^13.5.0
-      '@fremtind/jkl-datepicker-react': ^15.1.39
-      '@fremtind/jkl-description-list-react': ^8.0.11
-      '@fremtind/jkl-expand-button-react': ^7.0.5
-      '@fremtind/jkl-feedback-react': ^18.0.6
-      '@fremtind/jkl-file-input-react': ^2.3.1
-      '@fremtind/jkl-footer-react': ^6.1.18
-      '@fremtind/jkl-formatters-util': ^5.1.12
-      '@fremtind/jkl-hamburger-react': ^12.0.12
-      '@fremtind/jkl-icon-button-react': ^4.0.32
-      '@fremtind/jkl-icons': ^9.1.3
-      '@fremtind/jkl-icons-react': ^8.7.2
-      '@fremtind/jkl-image-react': ^6.0.11
-      '@fremtind/jkl-input-group': ^3.0.9
-      '@fremtind/jkl-input-group-react': ^3.0.29
-      '@fremtind/jkl-list-react': ^10.1.4
-      '@fremtind/jkl-loader-react': ^12.0.11
-      '@fremtind/jkl-logo-react': ^13.1.1
-      '@fremtind/jkl-message-box-react': ^11.1.16
-      '@fremtind/jkl-modal-react': ^2.1.28
-      '@fremtind/jkl-progress-bar-react': ^6.0.10
-      '@fremtind/jkl-radio-button': ^10.1.9
-      '@fremtind/jkl-radio-button-react': ^11.1.52
-      '@fremtind/jkl-react-hooks': ^12.0.11
-      '@fremtind/jkl-select': ^11.1.9
-      '@fremtind/jkl-select-react': ^14.1.32
-      '@fremtind/jkl-summary-table-react': ^10.0.11
-      '@fremtind/jkl-table-react': ^11.4.2
-      '@fremtind/jkl-tabs-react': ^6.0.1
-      '@fremtind/jkl-tag-react': ^5.2.11
-      '@fremtind/jkl-text-input-react': ^15.1.0
-      '@fremtind/jkl-toast-react': ^2.2.12
-      '@fremtind/jkl-toggle-switch-react': ^13.1.9
-      '@fremtind/jkl-tooltip-react': ^4.2.20
-      '@fremtind/jkl-webfonts': ^3.0.0
+      '@fremtind/jkl-accordion-react': ^12.0.0
+      '@fremtind/jkl-alert-message-react': ^11.1.18
+      '@fremtind/jkl-breadcrumb-react': ^5.0.13
+      '@fremtind/jkl-button': ^12.1.2
+      '@fremtind/jkl-button-react': ^15.1.6
+      '@fremtind/jkl-card-react': ^12.0.2
+      '@fremtind/jkl-checkbox': ^11.0.9
+      '@fremtind/jkl-checkbox-react': ^11.1.26
+      '@fremtind/jkl-combobox-react': ^2.3.31
+      '@fremtind/jkl-contact-information-react': ^2.1.24
+      '@fremtind/jkl-content-toggle-react': ^6.0.13
+      '@fremtind/jkl-contextual-menu-react': ^3.4.28
+      '@fremtind/jkl-cookie-consent-react': ^10.1.0
+      '@fremtind/jkl-core': ^14.1.0
+      '@fremtind/jkl-datepicker-react': ^15.1.45
+      '@fremtind/jkl-description-list-react': ^8.0.13
+      '@fremtind/jkl-expand-button-react': ^7.0.8
+      '@fremtind/jkl-feedback-react': ^18.0.13
+      '@fremtind/jkl-file-input-react': ^2.3.8
+      '@fremtind/jkl-footer-react': ^6.1.24
+      '@fremtind/jkl-formatters-util': ^5.1.18
+      '@fremtind/jkl-hamburger-react': ^12.0.16
+      '@fremtind/jkl-icon-button-react': ^5.0.0
+      '@fremtind/jkl-icons': ^10.0.0
+      '@fremtind/jkl-icons-react': ^9.0.0
+      '@fremtind/jkl-image-react': ^6.0.14
+      '@fremtind/jkl-input-group': ^3.0.13
+      '@fremtind/jkl-input-group-react': ^3.0.33
+      '@fremtind/jkl-list-react': ^10.1.6
+      '@fremtind/jkl-loader-react': ^12.0.13
+      '@fremtind/jkl-logo-react': ^13.1.4
+      '@fremtind/jkl-message-box-react': ^11.1.19
+      '@fremtind/jkl-modal-react': ^2.1.32
+      '@fremtind/jkl-progress-bar-react': ^6.0.12
+      '@fremtind/jkl-radio-button': ^10.1.12
+      '@fremtind/jkl-radio-button-react': ^11.1.58
+      '@fremtind/jkl-react-hooks': ^12.1.2
+      '@fremtind/jkl-select': ^11.1.12
+      '@fremtind/jkl-select-react': ^14.1.37
+      '@fremtind/jkl-summary-table-react': ^10.0.13
+      '@fremtind/jkl-table-react': ^11.4.8
+      '@fremtind/jkl-tabs-react': ^6.0.4
+      '@fremtind/jkl-tag-react': ^5.2.15
+      '@fremtind/jkl-text-input-react': ^15.1.5
+      '@fremtind/jkl-toast-react': ^2.2.16
+      '@fremtind/jkl-toggle-switch-react': ^13.1.13
+      '@fremtind/jkl-tooltip-react': ^4.2.24
+      '@fremtind/jkl-webfonts': ^4.0.0
       '@types/react-syntax-highlighter': ^15.5.10
       '@vitejs/plugin-react-swc': ^3.5.0
       babel: ^6.23.0
@@ -1365,12 +1363,12 @@ importers:
       vite-plugin-dts: ^3.9.0
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
-      '@fremtind/jkl-accordion-react': 11.1.8
+      '@fremtind/jkl-accordion-react': link:../packages/accordion-react
       '@fremtind/jkl-alert-message-react': link:../packages/alert-message-react
       '@fremtind/jkl-breadcrumb-react': link:../packages/breadcrumb-react
       '@fremtind/jkl-button': link:../packages/button
       '@fremtind/jkl-button-react': link:../packages/button-react
-      '@fremtind/jkl-card-react': 11.3.17
+      '@fremtind/jkl-card-react': link:../packages/card-react
       '@fremtind/jkl-checkbox': link:../packages/checkbox
       '@fremtind/jkl-checkbox-react': link:../packages/checkbox-react
       '@fremtind/jkl-combobox-react': link:../packages/combobox-react
@@ -1378,7 +1376,7 @@ importers:
       '@fremtind/jkl-content-toggle-react': link:../packages/content-toggle-react
       '@fremtind/jkl-contextual-menu-react': link:../packages/contextual-menu-react
       '@fremtind/jkl-cookie-consent-react': link:../packages/cookie-consent-react
-      '@fremtind/jkl-core': 13.5.0
+      '@fremtind/jkl-core': link:../packages/core
       '@fremtind/jkl-datepicker-react': link:../packages/datepicker-react
       '@fremtind/jkl-description-list-react': link:../packages/description-list-react
       '@fremtind/jkl-expand-button-react': link:../packages/expand-button-react
@@ -1387,9 +1385,9 @@ importers:
       '@fremtind/jkl-footer-react': link:../packages/footer-react
       '@fremtind/jkl-formatters-util': link:../packages/formatters-util
       '@fremtind/jkl-hamburger-react': link:../packages/hamburger-react
-      '@fremtind/jkl-icon-button-react': 4.0.35
-      '@fremtind/jkl-icons': 9.1.5
-      '@fremtind/jkl-icons-react': 8.7.4
+      '@fremtind/jkl-icon-button-react': link:../packages/icon-button-react
+      '@fremtind/jkl-icons': link:../packages/icons
+      '@fremtind/jkl-icons-react': link:../packages/icons-react
       '@fremtind/jkl-image-react': link:../packages/image-react
       '@fremtind/jkl-input-group': link:../packages/input-group
       '@fremtind/jkl-input-group-react': link:../packages/input-group-react
@@ -1412,7 +1410,7 @@ importers:
       '@fremtind/jkl-toast-react': link:../packages/toast-react
       '@fremtind/jkl-toggle-switch-react': link:../packages/toggle-switch-react
       '@fremtind/jkl-tooltip-react': link:../packages/tooltip-react
-      '@fremtind/jkl-webfonts': 3.0.0
+      '@fremtind/jkl-webfonts': link:../packages/webfonts
       babel: 6.23.0
       case: 1.6.3
       classnames: 2.5.1
@@ -3089,10 +3087,6 @@ packages:
   /@bcoe/v8-coverage/0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  /@bufbuild/protobuf/1.2.1:
-    resolution: {integrity: sha512-cwwGvLGqvoaOZmoP5+i4v/rbW+rHkguvTehuZyM2p/xpmaNSdT2h3B7kHw33aiffv35t1XrYHIkdJSEkSEMJuA==}
-    dev: true
-
   /@builder.io/partytown/0.5.4:
     resolution: {integrity: sha512-qnikpQgi30AS01aFlNQV6l8/qdZIcP76mp90ti+u4rucXHsn4afSKivQXApqxvrQG9+Ibv45STyvHizvxef/7A==}
     hasBin: true
@@ -3139,12 +3133,12 @@ packages:
       ajv: 8.12.0
     dev: true
 
-  /@commitlint/config-validator/17.6.7:
-    resolution: {integrity: sha512-vJSncmnzwMvpr3lIcm0I8YVVDJTzyjy7NZAeXbTXy+MPUdAr9pKyyg7Tx/ebOQ9kqzE6O9WT6jg2164br5UdsQ==}
-    engines: {node: '>=v14'}
+  /@commitlint/config-validator/19.0.3:
+    resolution: {integrity: sha512-2D3r4PKjoo59zBc2auodrSCaUnCSALCx54yveOFwwP/i2kfEAQrygwOleFWswLqK0UL/F9r07MFi5ev2ohyM4Q==}
+    engines: {node: '>=v18'}
     dependencies:
-      '@commitlint/types': 17.4.4
-      ajv: 8.12.0
+      '@commitlint/types': 19.0.3
+      ajv: 8.17.1
     dev: true
     optional: true
 
@@ -3164,6 +3158,12 @@ packages:
     resolution: {integrity: sha512-LIgYXuCSO5Gvtc0t9bebAMSwd68ewzmqLypqI2Kke1rqOqqDbMpYcYfoPfFlv9eyLIh4jocHWwCK5FS7z9icUA==}
     engines: {node: '>=v14'}
     dev: true
+
+  /@commitlint/execute-rule/19.0.0:
+    resolution: {integrity: sha512-mtsdpY1qyWgAO/iOK0L6gSGeR7GFcdW7tIjcNFxcWkfLDF5qVbPHKuGATFqRMsxcO8OUKNj0+3WOHB7EHm4Jdw==}
+    engines: {node: '>=v18'}
+    dev: true
+    optional: true
 
   /@commitlint/format/17.4.4:
     resolution: {integrity: sha512-+IS7vpC4Gd/x+uyQPTAt3hXs5NxnkqAZ3aqrHd5Bx/R9skyCAWusNlNbw3InDbAK6j166D9asQM8fnmYIa+CXQ==}
@@ -3214,28 +3214,24 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /@commitlint/load/17.7.1:
-    resolution: {integrity: sha512-S/QSOjE1ztdogYj61p6n3UbkUvweR17FQ0zDbNtoTLc+Hz7vvfS7ehoTMQ27hPSjVBpp7SzEcOQu081RLjKHJQ==}
-    engines: {node: '>=v14'}
+  /@commitlint/load/19.4.0_dm6y56nr5wgy7tu6xusupvnt5e:
+    resolution: {integrity: sha512-I4lCWaEZYQJ1y+Y+gdvbGAx9pYPavqZAZ3/7/8BpWh+QjscAn8AjsUpLV2PycBsEx7gupq5gM4BViV9xwTIJuw==}
+    engines: {node: '>=v18'}
     requiresBuild: true
     dependencies:
-      '@commitlint/config-validator': 17.6.7
-      '@commitlint/execute-rule': 17.4.0
-      '@commitlint/resolve-extends': 17.6.7
-      '@commitlint/types': 17.4.4
-      '@types/node': 20.4.7
-      chalk: 4.1.2
-      cosmiconfig: 8.2.0
-      cosmiconfig-typescript-loader: 4.3.0_voqefzu5zevyzwttkbfuirwnoq
+      '@commitlint/config-validator': 19.0.3
+      '@commitlint/execute-rule': 19.0.0
+      '@commitlint/resolve-extends': 19.1.0
+      '@commitlint/types': 19.0.3
+      chalk: 5.3.0
+      cosmiconfig: 9.0.0_typescript@5.1.6
+      cosmiconfig-typescript-loader: 5.0.0_mlfozahac5apbdrn3wdy4my2ey
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
-      resolve-from: 5.0.0
-      ts-node: 10.9.1_z6vzjy6rcpeylpjecdakoh74zi
-      typescript: 5.4.2
     transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
+      - '@types/node'
+      - typescript
     dev: true
     optional: true
 
@@ -3276,16 +3272,16 @@ packages:
       resolve-global: 1.0.0
     dev: true
 
-  /@commitlint/resolve-extends/17.6.7:
-    resolution: {integrity: sha512-PfeoAwLHtbOaC9bGn/FADN156CqkFz6ZKiVDMjuC2N5N0740Ke56rKU7Wxdwya8R8xzLK9vZzHgNbuGhaOVKIg==}
-    engines: {node: '>=v14'}
+  /@commitlint/resolve-extends/19.1.0:
+    resolution: {integrity: sha512-z2riI+8G3CET5CPgXJPlzftH+RiWYLMYv4C9tSLdLXdr6pBNimSKukYP9MS27ejmscqCTVA4almdLh0ODD2KYg==}
+    engines: {node: '>=v18'}
     dependencies:
-      '@commitlint/config-validator': 17.6.7
-      '@commitlint/types': 17.4.4
-      import-fresh: 3.3.0
+      '@commitlint/config-validator': 19.0.3
+      '@commitlint/types': 19.0.3
+      global-directory: 4.0.1
+      import-meta-resolve: 4.1.0
       lodash.mergewith: 4.6.2
       resolve-from: 5.0.0
-      resolve-global: 1.0.0
     dev: true
     optional: true
 
@@ -3318,6 +3314,15 @@ packages:
     dependencies:
       chalk: 4.1.2
     dev: true
+
+  /@commitlint/types/19.0.3:
+    resolution: {integrity: sha512-tpyc+7i6bPG9mvaBbtKUeghfyZSDgWquIDfMgqYtTbmZ9Y9VzEm2je9EYcQ0aoz5o7NvGS+rcDec93yO08MHYA==}
+    engines: {node: '>=v18'}
+    dependencies:
+      '@types/conventional-commits-parser': 5.0.0
+      chalk: 5.3.0
+    dev: true
+    optional: true
 
   /@cspotcode/source-map-support/0.8.1:
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -3935,97 +3940,6 @@ packages:
       tslib: 2.5.3
     dev: false
 
-  /@fremtind/jkl-accordion-react/11.1.8:
-    resolution: {integrity: sha512-45xIAywdPfLXge31gum9sin6YaTr2ELcQ4K5c4zQy0JfCVpKVDQHcxciT+tdWZoSwdSvsuwSKgssEu7kUJxn4A==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-accordion': 11.2.4
-      '@fremtind/jkl-core': 14.1.0
-      '@fremtind/jkl-icons-react': 9.0.0
-      '@fremtind/jkl-react-hooks': 12.1.2
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-accordion/11.2.4:
-    resolution: {integrity: sha512-pZOcd4OEd23Ilpw8bOeWL6izWdagBDHjM6F2/tCesy0xp0fLSolPoe+BaIziJneTwfbHKVJOIxikSFdAuwntlQ==}
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
-
-  /@fremtind/jkl-button-react/15.1.6:
-    resolution: {integrity: sha512-Fiyg2ndkv/XwtkIRkjfmjdqN1I2TxFFsQ9srustKXhaz5cUMug2GCim/yw9OHUa3GTvt8ez2JHLoF89m11raYA==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-button': 12.1.2
-      '@fremtind/jkl-core': 14.1.0
-      '@fremtind/jkl-icons-react': 9.0.0
-      '@fremtind/jkl-loader-react': 12.0.13
-      '@fremtind/jkl-react-hooks': 12.1.2
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-button/12.1.2:
-    resolution: {integrity: sha512-CyV6IUBmCtlfnEmph3DIFq//7LDS6kDB05nX1ABwCWrWsvZXgKOK+BEyYj9G2WDRZT0CJDpHoHAD5veYYU/ieg==}
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
-
-  /@fremtind/jkl-card-react/11.3.17:
-    resolution: {integrity: sha512-xRb9cFgChtEoPvkOOlnOdcPS0C2a3zyTWeYIyaR41ISahSR/B1J9a5inD6TUKYLq2wj5n9QhF0hY5YAM/dXXgg==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-button-react': 15.1.6
-      '@fremtind/jkl-card': 11.2.1
-      '@fremtind/jkl-core': 13.5.0
-      '@fremtind/jkl-image-react': 6.0.14
-      '@fremtind/jkl-tag-react': 5.2.15
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-card/11.2.1:
-    resolution: {integrity: sha512-2XCAcW9a8TIj3d1K3HwXovWiD+Fm5sH/DnluKYawB1qsrePh+tBs2gT/2gjYORgka/iYMTS2Zp0ItojAubdNjA==}
-    dependencies:
-      '@fremtind/jkl-core': 13.5.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
-
-  /@fremtind/jkl-core/13.5.0:
-    resolution: {integrity: sha512-6RFzzR7RHY/l6joGdBq5dmh0WIHBYkYjYTrGmey7Xnb1NiZCkZmL5FFZfCzMnFskierYlyS3EK1p9+u5jP721A==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      classnames: 2.5.1
-    dev: false
-
   /@fremtind/jkl-core/14.1.0:
     resolution: {integrity: sha512-h5TCs6ybXEZ/hy80ePuaeiK1CPSMH7URlxRJwxU6I2cBeuFS0Xy/DKe3toaolF27rczSBd04eI5J/iTgsnb+LA==}
     peerDependencies:
@@ -4035,82 +3949,7 @@ packages:
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
       classnames: 2.5.1
-
-  /@fremtind/jkl-icon-button-react/4.0.35:
-    resolution: {integrity: sha512-0kjAps8zQ54SH2F48otcGNI7oiekYqxjjT9KOTyXsYnIqyONCA+G0PKeZludxDL60OLJTzMvdQ1dRqVFwT1bYA==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-      '@fremtind/jkl-icon-button': 4.0.14
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-icon-button-react/5.0.0:
-    resolution: {integrity: sha512-hgGo33z5yUIM4Yqu8gJ9DKAHLY7BDQPVUeqhQp4asdV+F85gmJTZk46CvIr0iYJHHpAM4qaYQ9tH0oCp5ZW/0g==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-      '@fremtind/jkl-icon-button': 4.0.14
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-icon-button/4.0.14:
-    resolution: {integrity: sha512-wp2RAy3WbJD0fJgUb6juSv8w4wb9+rPDAAvpV/k47KUU1DEi++EoEZ9wyYA6RgaSHsl61rzFtoxyVonO7XAxGg==}
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
-
-  /@fremtind/jkl-icons-react/8.7.4:
-    resolution: {integrity: sha512-lHO+8F/phYBauQoURQKC552qbaSZ39IBS/zx33nfB2zn0n6jOhJtUK0TjSA1A4gcQYzTOiTsEktwaVQ2ZvEPnA==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-      '@fremtind/jkl-icons': 9.1.5
-      '@fremtind/jkl-react-hooks': 12.1.2
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-icons-react/9.0.0:
-    resolution: {integrity: sha512-hhiOBnyo+vZSuFNxtPAInewGbassPSmk1aAuYP0ug/MiOeyyxFNHUcZlgdQQzzYjwF4kF8OKEnBdT6/LqTaQJA==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-      '@fremtind/jkl-icons': 10.0.0
-      '@fremtind/jkl-react-hooks': 12.1.2
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-icons/10.0.0:
-    resolution: {integrity: sha512-PIYiniRzAi5P4K+hg4JX+oxGhCoFbrcOUzuogHWvGcNnMD6xdNxVThr9Ruq81E4sby8Ha/Wa3IrihldatTCfmw==}
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
+    dev: true
 
   /@fremtind/jkl-icons/9.1.5:
     resolution: {integrity: sha512-JDn9qAWTc68CI0Ua41MJ7/NOcOQBHr8T0mr2Qcwd1nTJPVuNRD7X+RHNs54bMykugp24hq+xbPGQWShOnb6qSQ==}
@@ -4121,96 +3960,7 @@ packages:
       - '@types/react-dom'
       - react
       - react-dom
-
-  /@fremtind/jkl-image-react/6.0.14:
-    resolution: {integrity: sha512-9IPxIW1Z0VBxmBTGSfb9ut+NKpRj6n3jYsVT24MZthKiC9UvQEGsiBRUZE91BPA9lJGXEXOskvtLsoDAoGgVgQ==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-image': 6.0.12
-      '@fremtind/jkl-react-hooks': 12.1.2
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-image/6.0.12:
-    resolution: {integrity: sha512-q+jpz8IMDbeQI96lfGLpBUu13VdK+gkRobrprEzDQrYp2TqKJSFybQds/VAgnorkbLGw6/ASbYvrKxpRG2m9FA==}
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
-
-  /@fremtind/jkl-loader-react/12.0.13:
-    resolution: {integrity: sha512-rbxFO76l2MhAj30B2ws9Fj0i03iOyNKCGxOgZSd+Grtn+2Cz/jMq8higiqBfImnLeZBpTx/A1ZHkEznV6y+wxg==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-      '@fremtind/jkl-loader': 11.0.12
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-loader/11.0.12:
-    resolution: {integrity: sha512-KOYBE7A8kHnPWT/PiSiK66nrvU6A2nU8AtO4jpd7DO7I3js4GwdG+0z6aRq7/pegiM6xJIafIzB2TCe1OK71Iw==}
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
-
-  /@fremtind/jkl-react-hooks/12.1.2:
-    resolution: {integrity: sha512-NHnooJSHSrmfzQhRt2OaiJRQlvckqjhSD565WrNllSGG5BHAPriAKOwEb/iszU5CVcjB6pSIGlALBH2bDc3+rw==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-      nanoid: 3.3.7
-    dev: false
-
-  /@fremtind/jkl-tag-react/5.2.15:
-    resolution: {integrity: sha512-XnVujs8PXBv7XA9WN+dLHwyorEZ+CaJdOalckgpqEB+IY3vLLR5Ymoz4qrFRxhECX77KEjFQndNXnVdoV+ru6g==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-      '@fremtind/jkl-icon-button-react': 5.0.0
-      '@fremtind/jkl-icons-react': 9.0.0
-      '@fremtind/jkl-tag': 5.0.12
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-tag/5.0.12:
-    resolution: {integrity: sha512-Tdf0ct4yXlqLJg4DIfKaWUiFURDbwzFgYl4m7avCvwAaK3cl1VYTwZTqPpGSL2T4jow/gMw5obhpk8fdfCHifw==}
-    dependencies:
-      '@fremtind/jkl-core': 14.1.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
-
-  /@fremtind/jkl-webfonts/3.0.0:
-    resolution: {integrity: sha512-fLB2obF6nSLTilH66B5fMDtkxv6/MS3+fi0tH/8WgL8xjSnqFPnzgdkaqm5Enbq0yyrrfEZDlk0y9ippB0deqQ==}
-    dev: false
+    dev: true
 
   /@frsource/base64/1.0.4:
     resolution: {integrity: sha512-IphM1ro1cvV5CqJWzX/LvPJcUE26cwgt/zMtBdssvTrfSNhh9KjfS2VXTA8SivkvPHK1DsdPnoMoXitmx8c3Cg==}
@@ -6877,6 +6627,13 @@ packages:
       '@types/node': 18.18.0
     dev: true
 
+  /@types/conventional-commits-parser/5.0.0:
+    resolution: {integrity: sha512-loB369iXNmAZglwWATL+WRe+CRMmmBPtpolYzIebFaX4YA3x+BEfLqhUAV9WanycKI3TG1IMr5bMJDajDKLlUQ==}
+    dependencies:
+      '@types/node': 18.16.16
+    dev: true
+    optional: true
+
   /@types/cookie/0.4.1:
     resolution: {integrity: sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q==}
     dev: false
@@ -7109,11 +6866,6 @@ packages:
   /@types/node/18.18.0:
     resolution: {integrity: sha512-3xA4X31gHT1F1l38ATDIL9GpRLdwVhnEFC8Uikv5ZLlXATwrCYyPq7ZWHxzxc3J/30SUiwiYT+bQe0/XvKlWbw==}
 
-  /@types/node/20.4.7:
-    resolution: {integrity: sha512-bUBrPjEry2QUTsnuEjzjbS7voGWCc30W0qzgMf90GPeDGFRakvrz47ju+oqDAKCXLUCe39u57/ORMl/O/04/9g==}
-    dev: true
-    optional: true
-
   /@types/node/8.10.66:
     resolution: {integrity: sha512-tktOkFUA4kXx2hhhrB8bIFb5TbwzS4uOhKEmwiD+NoiL0qtP2OQ9mFldbgD4dV1djrlBYP6eBuQZiWjuHUpqFw==}
     dev: false
@@ -7274,8 +7026,8 @@ packages:
       '@types/yargs-parser': 21.0.0
     dev: true
 
-  /@types/yauzl/2.10.0:
-    resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
+  /@types/yauzl/2.10.3:
+    resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
       '@types/node': 18.18.0
@@ -7915,6 +7667,16 @@ packages:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
       uri-js: 4.4.1
+
+  /ajv/8.17.1:
+    resolution: {integrity: sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==}
+    dependencies:
+      fast-deep-equal: 3.1.3
+      fast-uri: 3.0.1
+      json-schema-traverse: 1.0.0
+      require-from-string: 2.0.2
+    dev: true
+    optional: true
 
   /anser/2.1.1:
     resolution: {integrity: sha512-nqLm4HxOTpeLOxcmB3QWmV5TcDFhW9y/fyQ+hivtDFcK4OQ+pQ5fzPnXHM1Mfcm0VkLtvVi1TCPr++Qy0Q/3EQ==}
@@ -8884,10 +8646,6 @@ packages:
     dependencies:
       node-int64: 0.4.0
 
-  /buffer-builder/0.2.0:
-    resolution: {integrity: sha512-7VPMEPuYznPSoR21NE1zvd2Xna6c/CloiZCfcMXR1Jny6PjX0N4Nsa38zcBFo/FMK+BlA+FLKbJCQ0i2yxp+Xg==}
-    dev: true
-
   /buffer-crc32/0.2.13:
     resolution: {integrity: sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==}
     dev: true
@@ -9205,6 +8963,12 @@ packages:
     resolution: {integrity: sha512-ree3Gqw/nazQAPuJJEy+avdl7QfZMcUvmHIKgEZkGL+xOBzRvup5Hxo6LHuMceSxOabuJLJm5Yp/92R9eMmMvA==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
     dev: true
+
+  /chalk/5.3.0:
+    resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
+    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
+    dev: true
+    optional: true
 
   /change-case-all/1.0.14:
     resolution: {integrity: sha512-CWVm2uT7dmSHdO/z1CXT/n47mWonyypzBbuCy5tN7uMg22BsfkhwT6oHmFCAk+gL1LOOxhdbB9SZz3J1KTY3gA==}
@@ -9682,13 +9446,13 @@ packages:
     dev: true
     optional: true
 
-  /commitizen/4.3.0:
+  /commitizen/4.3.0_dm6y56nr5wgy7tu6xusupvnt5e:
     resolution: {integrity: sha512-H0iNtClNEhT0fotHvGV3E9tDejDeS04sN1veIebsKYGMuGscFaswRoYJKmT3eW85eIJAs0F28bG2+a/9wCOfPw==}
     engines: {node: '>= 12'}
     hasBin: true
     dependencies:
       cachedir: 2.3.0
-      cz-conventional-changelog: 3.3.0
+      cz-conventional-changelog: 3.3.0_dm6y56nr5wgy7tu6xusupvnt5e
       dedent: 0.7.0
       detect-indent: 6.1.0
       find-node-modules: 2.1.3
@@ -9702,8 +9466,8 @@ packages:
       strip-bom: 4.0.0
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
+      - '@types/node'
+      - typescript
     dev: true
 
   /common-path-prefix/3.0.0:
@@ -10043,22 +9807,6 @@ packages:
       vary: 1.1.2
     dev: false
 
-  /cosmiconfig-typescript-loader/4.3.0_voqefzu5zevyzwttkbfuirwnoq:
-    resolution: {integrity: sha512-NTxV1MFfZDLPiBMjxbHRwSh5LaLcPMwNdCutmnHJCKoVnlvldPWlllonKwrsRJ5pYZBIBGRWWU2tfvzxgeSW5Q==}
-    engines: {node: '>=12', npm: '>=6'}
-    peerDependencies:
-      '@types/node': '*'
-      cosmiconfig: '>=7'
-      ts-node: '>=10'
-      typescript: '>=3'
-    dependencies:
-      '@types/node': 20.4.7
-      cosmiconfig: 8.2.0
-      ts-node: 10.9.1_z6vzjy6rcpeylpjecdakoh74zi
-      typescript: 5.4.2
-    dev: true
-    optional: true
-
   /cosmiconfig-typescript-loader/4.3.0_ye4sm4d7xxwyiswigtwlovrhwq:
     resolution: {integrity: sha512-NTxV1MFfZDLPiBMjxbHRwSh5LaLcPMwNdCutmnHJCKoVnlvldPWlllonKwrsRJ5pYZBIBGRWWU2tfvzxgeSW5Q==}
     engines: {node: '>=12', npm: '>=6'}
@@ -10073,6 +9821,21 @@ packages:
       ts-node: 10.9.1_gedxg67i5grvedgj23pdpbcqyq
       typescript: 5.4.2
     dev: true
+
+  /cosmiconfig-typescript-loader/5.0.0_mlfozahac5apbdrn3wdy4my2ey:
+    resolution: {integrity: sha512-+8cK7jRAReYkMwMiG+bxhcNKiHJDM6bR9FD/nGBXOWdMLuYawjF5cGrtLilJ+LGd3ZjCXnJjR5DkfWPoIVlqJA==}
+    engines: {node: '>=v16'}
+    peerDependencies:
+      '@types/node': '*'
+      cosmiconfig: '>=8.2'
+      typescript: '>=4'
+    dependencies:
+      '@types/node': 18.16.16
+      cosmiconfig: 9.0.0_typescript@5.1.6
+      jiti: 1.21.6
+      typescript: 5.1.6
+    dev: true
+    optional: true
 
   /cosmiconfig/6.0.0:
     resolution: {integrity: sha512-xb3ZL6+L8b9JLLCx3ZdoZy4+2ECphCMo2PwqgP1tlfVq6M6YReyzBJtvWWtbDSpNr9hn96pkCiZqUcFEc+54Qg==}
@@ -10104,6 +9867,23 @@ packages:
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
+
+  /cosmiconfig/9.0.0_typescript@5.1.6:
+    resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      typescript: '>=4.9.5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      env-paths: 2.2.1
+      import-fresh: 3.3.0
+      js-yaml: 4.1.0
+      parse-json: 5.2.0
+      typescript: 5.1.6
+    dev: true
+    optional: true
 
   /create-gatsby/2.25.0:
     resolution: {integrity: sha512-96Kl/6Far2j65/vFv/6Mb9+T+/4oW8hlC3UmdfjgBgUIzTPFmezY1ygPu2dfCKjprWkArB8DpE7EsAaJoRKB1Q==}
@@ -10263,7 +10043,7 @@ packages:
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
     dependencies:
       mdn-data: 2.0.30
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
 
   /css-what/6.1.0:
     resolution: {integrity: sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==}
@@ -10512,21 +10292,21 @@ packages:
       yauzl: 2.10.0
     dev: true
 
-  /cz-conventional-changelog/3.3.0:
+  /cz-conventional-changelog/3.3.0_dm6y56nr5wgy7tu6xusupvnt5e:
     resolution: {integrity: sha512-U466fIzU5U22eES5lTNiNbZ+d8dfcHcssH4o7QsdWaCcRs/feIPCxKYSWkYBNs5mny7MvEfwpTLWjvbm94hecw==}
     engines: {node: '>= 10'}
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.3.0
+      commitizen: 4.3.0_dm6y56nr5wgy7tu6xusupvnt5e
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 17.7.1
+      '@commitlint/load': 19.4.0_dm6y56nr5wgy7tu6xusupvnt5e
     transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
+      - '@types/node'
+      - typescript
     dev: true
 
   /cz-customizable/4.0.0:
@@ -12384,7 +12164,7 @@ packages:
       get-stream: 5.2.0
       yauzl: 2.10.0
     optionalDependencies:
-      '@types/yauzl': 2.10.0
+      '@types/yauzl': 2.10.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -12450,6 +12230,11 @@ packages:
 
   /fast-levenshtein/2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
+
+  /fast-uri/3.0.1:
+    resolution: {integrity: sha512-MWipKbbYiYI0UC7cl8m/i/IWTqfC8YXsqjzybjddLsFjStroQzsHXkc73JutMvBiXmOvapk+axIl79ig5t55Bw==}
+    dev: true
+    optional: true
 
   /fastest-levenshtein/1.0.16:
     resolution: {integrity: sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==}
@@ -14157,6 +13942,14 @@ packages:
       path-scurry: 1.9.2
     dev: true
 
+  /global-directory/4.0.1:
+    resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
+    engines: {node: '>=18'}
+    dependencies:
+      ini: 4.1.1
+    dev: true
+    optional: true
+
   /global-dirs/0.1.1:
     resolution: {integrity: sha512-NknMLn7F2J7aflwFOlGdNIuCDpN3VGoSoB+aap3KABFWbHVn1TCgFC+np23J8W2BiZbjfEw3BFBycSMv1AFblg==}
     engines: {node: '>=4'}
@@ -14943,10 +14736,6 @@ packages:
     engines: {node: '>=0.8.0'}
     dev: false
 
-  /immutable/4.3.0:
-    resolution: {integrity: sha512-0AOCmOip+xgJwEVTQj1EfiDDOkPmuyllDuTuEX+DDXUgapLAsBIfkg3sxCYyCEA8mQqZrrxPUGjcOQ2JS3WLkg==}
-    dev: true
-
   /immutable/4.3.2:
     resolution: {integrity: sha512-oGXzbEDem9OOpDWZu88jGiYCvIsLHMvGw+8OXlpsvTFvIQplQbjg1B1cvKg8f7Hoch6+NGjpPsH1Fr+Mc2D1aA==}
     dev: true
@@ -14988,6 +14777,11 @@ packages:
       resolve-cwd: 3.0.0
     dev: true
 
+  /import-meta-resolve/4.1.0:
+    resolution: {integrity: sha512-I6fiaX09Xivtk+THaMfAwnA3MVA5Big1WHF1Dfx9hFuvNIWpXnorlkzhcQf6ehrqQiiZECRt1poOAkPmer3ruw==}
+    dev: true
+    optional: true
+
   /imurmurhash/0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
     engines: {node: '>=0.8.19'}
@@ -15025,6 +14819,12 @@ packages:
   /ini/2.0.0:
     resolution: {integrity: sha512-7PnF4oN3CvZF23ADhA5wRaYEQpJ8qygSkbtTXWBeXWXmEVRXK+1ITciHWwHhsjv1TmW0MgacIv6hEi5pX5NQdA==}
     engines: {node: '>=10'}
+
+  /ini/4.1.1:
+    resolution: {integrity: sha512-QQnnxNyfvmHFIsj7gkPcYymR8Jdw/o7mp5ZFihxn6h8Ci6fh3Dx4E1gPjpQEpIuPo9XVNY/ZUwh4BPMjGyL01g==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+    dev: true
+    optional: true
 
   /init-package-json/5.0.0:
     resolution: {integrity: sha512-kBhlSheBfYmq3e0L1ii+VKe3zBTLL5lDCDWR+f9dLmEGSB3MqLlMlsolubSsyI88Bg6EA+BIMlomAnQ1SwgQBw==}
@@ -16293,6 +16093,12 @@ packages:
       - supports-color
       - ts-node
     dev: true
+
+  /jiti/1.21.6:
+    resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
+    hasBin: true
+    dev: true
+    optional: true
 
   /jju/1.4.0:
     resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
@@ -21564,107 +21370,6 @@ packages:
   /safer-buffer/2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  /sass-embedded-darwin-arm64/1.64.2:
-    resolution: {integrity: sha512-fcshwAvM+FOMSe6yU2w27+cZXPdzgCucAMAfB+dgDhI6kLHCpJpiUI+vsdhA+kOGH4T6FuuaYTRuj6wOBv9Lug==}
-    engines: {node: '>=14.0.0'}
-    cpu: [arm64]
-    os: [darwin]
-    hasBin: true
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /sass-embedded-darwin-x64/1.64.2:
-    resolution: {integrity: sha512-4tyadrM8MeE1PPHum4yUTnAoxNhAdVZ+0IAhJyLfoP/PlPwc4OP6wjqZT9cjpynRRAv7eHJt8jcAzN3FDrT1mQ==}
-    engines: {node: '>=14.0.0'}
-    cpu: [x64]
-    os: [darwin]
-    hasBin: true
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /sass-embedded-linux-arm/1.64.2:
-    resolution: {integrity: sha512-/aqnEvwTxtE7Qg/PIr5B50Yk4j/69NveEsqe52V/F448Zm5lBYY0oRtizm/kOxaB8wEpiDOODz2F0gFdrAL9Ng==}
-    engines: {node: '>=14.0.0'}
-    cpu: [arm]
-    os: [linux]
-    hasBin: true
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /sass-embedded-linux-arm64/1.64.2:
-    resolution: {integrity: sha512-unWmtcfBqk4PdAV+WRwaxeNAcNQUVlbVGvt5uXcfzbaF4gLZq+hDw41TmhuQFailgljLTa3TJ8ApubFk79um2w==}
-    engines: {node: '>=14.0.0'}
-    cpu: [arm64]
-    os: [linux]
-    hasBin: true
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /sass-embedded-linux-ia32/1.64.2:
-    resolution: {integrity: sha512-bAWBrQxD4Y4AczoTYI3qBHEDSqhjHnyW+IpvDtgKgvx/6Je1rlgU5Eg+No5tQGo3s8Qi/9didZDwTOl67TS8AQ==}
-    engines: {node: '>=14.0.0'}
-    cpu: [ia32]
-    os: [linux]
-    hasBin: true
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /sass-embedded-linux-x64/1.64.2:
-    resolution: {integrity: sha512-Weagae2MyCNNqR0NiKj0BPZA7xfirPAexJr4gx8Z/m2d+bHFxVZbnE5aC+86dTQZlhk9AN1kZ4aMVOwJhmpXPQ==}
-    engines: {node: '>=14.0.0'}
-    cpu: [x64]
-    os: [linux]
-    hasBin: true
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /sass-embedded-win32-ia32/1.64.2:
-    resolution: {integrity: sha512-EMRa/yCNocblDFz88PY7bd0OMsOhHi47BQ/tJ1uiuIt/gGVg1/JemR9xkKfmMUbCdAop3KtH0bUD9HaI69Q0AQ==}
-    engines: {node: '>=14.0.0'}
-    cpu: [ia32]
-    os: [win32]
-    hasBin: true
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /sass-embedded-win32-x64/1.64.2:
-    resolution: {integrity: sha512-6NlGz5ZMwp0dxKduLzWm4EuF8ZRbxUd80VrcQe5hT6WKt/Vd5KG3crtNBb8sWLR+sEQaClc99Q9t4vlpPxifUw==}
-    engines: {node: '>=14.0.0'}
-    cpu: [x64]
-    os: [win32]
-    hasBin: true
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /sass-embedded/1.64.2:
-    resolution: {integrity: sha512-BSBudEBf83mUVTJLr7tpXkYn2xLn4MHN9ss+TiYV7LQeaAyW9TCPMz/tTr82UOUjK/140OhgJUwBJ/jMYvBUsQ==}
-    engines: {node: '>=14.0.0'}
-    dependencies:
-      '@bufbuild/protobuf': 1.2.1
-      buffer-builder: 0.2.0
-      immutable: 4.3.0
-      rxjs: 7.8.1
-      supports-color: 8.1.1
-      varint: 6.0.0
-    optionalDependencies:
-      sass-embedded-darwin-arm64: 1.64.2
-      sass-embedded-darwin-x64: 1.64.2
-      sass-embedded-linux-arm: 1.64.2
-      sass-embedded-linux-arm64: 1.64.2
-      sass-embedded-linux-ia32: 1.64.2
-      sass-embedded-linux-x64: 1.64.2
-      sass-embedded-win32-ia32: 1.64.2
-      sass-embedded-win32-x64: 1.64.2
-    dev: true
-
   /sass-loader/10.4.1:
     resolution: {integrity: sha512-aX/iJZTTpNUNx/OSYzo2KsjIUQHqvWsAhhUijFjAPdZTEhstjZI9zTNvkTTwsx+uNUJqUwOw5gacxQMx4hJxGQ==}
     engines: {node: '>= 10.13.0'}
@@ -21695,7 +21400,7 @@ packages:
     dependencies:
       chokidar: 3.5.3
       immutable: 4.3.2
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
     dev: true
 
   /sax/1.2.4:
@@ -23328,38 +23033,6 @@ packages:
       yn: 3.1.1
     dev: true
 
-  /ts-node/10.9.1_z6vzjy6rcpeylpjecdakoh74zi:
-    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
-    hasBin: true
-    peerDependencies:
-      '@swc/core': '>=1.2.50'
-      '@swc/wasm': '>=1.2.50'
-      '@types/node': '*'
-      typescript: '>=2.7'
-    peerDependenciesMeta:
-      '@swc/core':
-        optional: true
-      '@swc/wasm':
-        optional: true
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.9
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
-      '@types/node': 20.4.7
-      acorn: 8.8.2
-      acorn-walk: 8.2.0
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 5.4.2
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-    dev: true
-    optional: true
-
   /tsconfig-paths/3.14.2:
     resolution: {integrity: sha512-o/9iXgCYc5L/JxCHPe3Hvh8Q/2xm5Z+p18PESBU6Ff33695QnCHBEjcytY2q19ua7Mbl/DavtBOLq+oG0RCL+g==}
     dependencies:
@@ -24039,10 +23712,6 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /varint/6.0.0:
-    resolution: {integrity: sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==}
-    dev: true
-
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
@@ -24143,7 +23812,7 @@ packages:
       kolorist: 1.8.0
       magic-string: 0.30.11
       typescript: 5.1.6
-      vite: 5.4.2_plwputohu73hvjkorle36me3pa
+      vite: 5.4.2_qly2xqze27fzfdjycmqvs326c4
       vue-tsc: 1.8.27_typescript@5.1.6
     transitivePeerDependencies:
       - '@types/node'
@@ -24214,7 +23883,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vite/5.4.2_plwputohu73hvjkorle36me3pa:
+  /vite/5.4.2_qly2xqze27fzfdjycmqvs326c4:
     resolution: {integrity: sha512-dDrQTRHp5C1fTFzcSaMxjk6vdpKvT+2/mIdE07Gw2ykehT49O0z/VHS3zZ8iV/Gh8BJJKHWOe5RjaNrW5xf/GA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -24250,7 +23919,6 @@ packages:
       postcss: 8.4.41
       rollup: 4.21.1
       sass: 1.77.8
-      sass-embedded: 1.64.2
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
