@@ -31,6 +31,8 @@ import {
     MinusIcon,
     TrashCanIcon,
     PenIcon,
+    ThumbDownIcon,
+    ThumbUpIcon,
 } from "../src";
 import { IconVariant } from "../src/types";
 import { IconExample } from "./internal/IconExample";
@@ -75,6 +77,8 @@ const allIcons = [
     WarningIcon,
     SuccessIcon,
     LinkIcon,
+    ThumbDownIcon,
+    ThumbUpIcon,
     TrashCanIcon,
     PenIcon,
 ];

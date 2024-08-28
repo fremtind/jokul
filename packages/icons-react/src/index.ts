@@ -37,5 +37,7 @@ export { SearchIcon } from "./icons/SearchIcon";
 export { SuccessIcon } from "./icons/SuccessIcon";
 export { WarningIcon } from "./icons/WarningIcon";
 export { MinusIcon } from "./icons/MinusIcon";
+export { ThumbDownIcon } from "./icons/ThumbDownIcon";
+export { ThumbUpIcon } from "./icons/ThumbUpIcon";
 export { TrashCanIcon } from "./icons/TrashCanIcon";
 export { PenIcon } from "./icons/PenIcon";
