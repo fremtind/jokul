@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 9.1.0 (2024-08-28)
+
+### Features
+
+- legg til ikoner for tommel opp og tommel ned ([908ba1c](https://github.com/fremtind/jokul/commit/908ba1ceba6bf4fed08727d6eb9a5c33b7b74408))
+
 # 9.0.0 (2024-08-19)
 
 ### Bug Fixes
