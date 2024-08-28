@@ -83,12 +83,12 @@ Vi bruker lite ikoner i profilen, men det er enkelte unntak. Brukes typisk i en 
 
 ## Lenkelister
 
-Vi bruker komponenten `ListLink` for å presentere en liste med lenker. Dette kan foreksempel være nyttig når du ønsker å lenke innad i en side eller til eksterne sider.
+Vi bruker komponenten `LinkList` for å presentere en liste med lenker. Dette kan foreksempel være nyttig når du ønsker å lenke innad i en side eller til eksterne sider.
 
 Vi anbefaler å bruke `LinkList` med varianten `ordered` wrappet i en `<nav>`-tag. Sørg for å inkludere en tittel som tydelig beskriver hvilken type navigasjon det er, ettersom dette elementet brukes til intern navigasjon i løsningen.
 
 ```tsx
-<nav arial-labelledby="menu-label">
+<nav aria-labelledby="menu-label">
     <h2 id="menu-label" className="visuallyHidden">
         Meny
     </h2>
