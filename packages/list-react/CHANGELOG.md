@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list-react@10.2.0...@fremtind/jkl-list-react@10.2.1) (2024-08-29)
+
+### Bug Fixes
+
+- oppdater til siste versjon av ikonene ([885fc4e](https://github.com/fremtind/jokul/commit/885fc4ed8fc34264bb679630a55b4ec343f601da))
+
 # [10.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list-react@10.1.6...@fremtind/jkl-list-react@10.2.0) (2024-08-28)
 
 ### Features
