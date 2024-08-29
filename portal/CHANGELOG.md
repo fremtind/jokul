@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.1.8](https://github.com/fremtind/jokul/compare/@fremtind/portal@20.1.7...@fremtind/portal@20.1.8) (2024-08-29)
+
+### Bug Fixes
+
+- fjern pakker for hamburger-komponenten ([e0d0099](https://github.com/fremtind/jokul/commit/e0d0099cce9c747d3a480b783cc74de61d50fae0)), closes [#3950](https://github.com/fremtind/jokul/issues/3950)
+
 # [20.1.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@20.0.15...@fremtind/portal@20.1.0) (2024-08-19)
 
 ### Bug Fixes
