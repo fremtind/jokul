@@ -1,17 +1,17 @@
 {
-    "name": "@fremtind/jkl-alert-message",
-    "version": "9.0.17",
+    "name": "@fremtind/jkl-system-message",
+    "version": "9.0.12",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul alert message style",
+    "description": "Jøkul system message style",
     "keywords": [
         "Jøkul",
         "Fremtind",
-        "alert",
+        "system",
         "message"
     ],
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/alert-message",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/system-message",
     "files": [
         "!example",
         "*.css",
@@ -23,7 +23,7 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "echo \"Error: run dev from alert-message-react\" && exit 1"
+        "dev": "echo \"Error: run dev from system-message-react\" && exit 1"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^14.2.2"

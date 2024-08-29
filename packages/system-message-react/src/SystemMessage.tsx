@@ -22,8 +22,8 @@ interface Props extends WithChildren {
     };
 }
 
-function alertFactory(messageType: messageTypes): React.FC<Props> {
-    const AlertMessage: React.FC<Props> = ({
+function systemFactory(messageType: messageTypes): React.FC<Props> {
+    const SystemMessage: React.FC<Props> = ({
         id,
         className,
         density,
@@ -35,21 +35,21 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
         children,
         ...rest
     }) => {
-        const alertId = useId(id || "jkl-alert-message", { generateSuffix: !id });
+        const systemId = useId(id || "jkl-system-message", { generateSuffix: !id });
 
         return (
             <div
                 role={role}
                 {...rest}
-                id={alertId}
-                className={cn("jkl-alert-message", "jkl-alert-message--" + messageType, className, {
-                    "jkl-alert-message--dismissed": dismissed,
+                id={systemId}
+                className={cn("jkl-system-message", "jkl-system-message--" + messageType, className, {
+                    "jkl-system-message--dismissed": dismissed,
                 })}
                 data-density={density}
             >
                 <div
-                    className="jkl-alert-message__content"
-                    data-testid="alert-message-content"
+                    className="jkl-system-message__content"
+                    data-testid="system-message-content"
                     data-theme="light"
                     style={{
                         maxWidth: maxContentWidth,
@@ -57,11 +57,11 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
                     }}
                 >
                     <MessageIcon messageType={messageType} />
-                    <span className="jkl-alert-message__message">{children}</span>
+                    <span className="jkl-system-message__message">{children}</span>
                     {dismissAction?.handleDismiss && (
                         <DismissButton
-                            aria-controls={alertId}
-                            className="jkl-alert-message__dismiss-button"
+                            aria-controls={systemId}
+                            className="jkl-system-message__dismiss-button"
                             label={dismissAction.buttonTitle || "Lukk"}
                             onClick={dismissAction.handleDismiss}
                         />
@@ -70,30 +70,14 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
             </div>
         );
     };
-    return AlertMessage;
+    return SystemMessage;
 }
 
-/**
- * @deprecated Denne komponenten vedlikeholdes ikke lenger.
- * Bruk SystemMessage i stedet.
- */
-export const InfoAlertMessage = alertFactory("info");
-InfoAlertMessage.displayName = "InfoAlertMessage";
-/**
- * @deprecated Denne komponenten vedlikeholdes ikke lenger.
- * Bruk SystemMessage i stedet.
- */
-export const ErrorAlertMessage = alertFactory("error");
-ErrorAlertMessage.displayName = "ErrorAlertMessage";
-/**
- * @deprecated Denne komponenten vedlikeholdes ikke lenger.
- * Bruk SystemMessage i stedet.
- */
-export const WarningAlertMessage = alertFactory("warning");
-WarningAlertMessage.displayName = "WarningAlertMessage";
-/**
- * @deprecated Denne komponenten vedlikeholdes ikke lenger.
- * Bruk SystemMessage i stedet.
- */
-export const SuccessAlertMessage = alertFactory("success");
-SuccessAlertMessage.displayName = "SuccessAlertMessage";
+export const InfoSystemMessage = systemFactory("info");
+InfoSystemMessage.displayName = "InfoSystemMessage";
+export const ErrorSystemMessage = systemFactory("error");
+ErrorSystemMessage.displayName = "ErrorSystemMessage";
+export const WarningSystemMessage = systemFactory("warning");
+WarningSystemMessage.displayName = "WarningSystemMessage";
+export const SuccessSystemMessage = systemFactory("success");
+SuccessSystemMessage.displayName = "SuccessSystemMessage";

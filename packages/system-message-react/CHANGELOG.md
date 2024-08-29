@@ -3,12 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message-react@11.0.5...@fremtind/jkl-alert-message-react@11.1.0) (2023-09-21)
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-system-message-react@11.0.5...@fremtind/jkl-system-message-react@11.1.0) (2023-09-21)
 
 ### Features
 
-- deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
-- oppdaterte globale variabler for light/dark mode med funksjonsfarger ([4666eca](https://github.com/fremtind/jokul/commit/4666ecae207c17adc3b174528b9b9f3e917df42e))
+-   deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
+-   oppdaterte globale variabler for light/dark mode med funksjonsfarger ([4666eca](https://github.com/fremtind/jokul/commit/4666ecae207c17adc3b174528b9b9f3e917df42e))
 
 ## 11.0.4 (2023-09-14)
 
@@ -26,7 +26,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   Avhenger av ny majorversjon av core
 
-# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message-react@9.0.17...@fremtind/jkl-alert-message-react@10.0.0) (2023-01-30)
+# [10.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-system-message-react@9.0.17...@fremtind/jkl-system-message-react@10.0.0) (2023-01-30)
 
 ### Bug Fixes
 
@@ -35,7 +35,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 -   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
--   ta i bruk de nye ikonene i AlertMessage ([de50d55](https://github.com/fremtind/jokul/commit/de50d5503356467e2d99de894a6a77f215bbf827))
+-   ta i bruk de nye ikonene i SystemMessage ([de50d55](https://github.com/fremtind/jokul/commit/de50d5503356467e2d99de894a6a77f215bbf827))
 
 ### BREAKING CHANGES
 
@@ -71,13 +71,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 -   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
--   kompakt alert message ([33e249d](https://github.com/fremtind/jokul/commit/33e249d3c99cfa97333d25d50bedff9e36ef29e9))
+-   kompakt system message ([33e249d](https://github.com/fremtind/jokul/commit/33e249d3c99cfa97333d25d50bedff9e36ef29e9))
 
 ### BREAKING CHANGES
 
 -   data-compactlayout er nå data-layout-density="compact"
 
-## [8.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message-react@8.0.3...@fremtind/jkl-alert-message-react@8.0.4) (2022-06-13)
+## [8.0.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-system-message-react@8.0.3...@fremtind/jkl-system-message-react@8.0.4) (2022-06-13)
 
 ### Bug Fixes
 
@@ -93,7 +93,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 -   rett opp avhengighet av icon-button ([d179921](https://github.com/fremtind/jokul/commit/d1799213a7859e3e72d4aecc69a74f7c6b399d54))
 
-# [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message-react@7.0.17...@fremtind/jkl-alert-message-react@8.0.0) (2022-06-07)
+# [8.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-system-message-react@7.0.17...@fremtind/jkl-system-message-react@8.0.0) (2022-06-07)
 
 ### chore
 
@@ -123,13 +123,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   gi AlertMessage riktig displayName, typing ([e32bdaa](https://github.com/fremtind/jokul/commit/e32bdaa81a097b4e5b130b1447346b40774ff2f7))
+-   gi SystemMessage riktig displayName, typing ([e32bdaa](https://github.com/fremtind/jokul/commit/e32bdaa81a097b4e5b130b1447346b40774ff2f7))
 
 ## 6.0.0 (2021-10-28)
 
 ### Bug Fixes
 
--   remove inverted option from alertMessage and always light mode inside component ([9b2466c](https://github.com/fremtind/jokul/commit/9b2466cf55cd093be9fed1ea5bb2ed86b92568b1))
+-   remove inverted option from systemMessage and always light mode inside component ([9b2466c](https://github.com/fremtind/jokul/commit/9b2466cf55cd093be9fed1ea5bb2ed86b92568b1))
 
 ### BREAKING CHANGES
 
@@ -149,13 +149,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   always light mode inside MessageBox and AlertMessage ([547311f](https://github.com/fremtind/jokul/commit/547311f7e36aa0aef937dc62007225d9ad23b73c))
+-   always light mode inside MessageBox and SystemMessage ([547311f](https://github.com/fremtind/jokul/commit/547311f7e36aa0aef937dc62007225d9ad23b73c))
 
 ## 4.2.0 (2021-10-13)
 
 ### Features
 
--   implement new alert message design ([657861c](https://github.com/fremtind/jokul/commit/657861ccdd0789b7935357cb8dd5a9fdbe2ecc3d))
+-   implement new system message design ([657861c](https://github.com/fremtind/jokul/commit/657861ccdd0789b7935357cb8dd5a9fdbe2ecc3d))
 
 ## 4.1.0 (2021-09-13)
 
@@ -203,7 +203,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   add close button to alert messages ([71e6438](https://github.com/fremtind/jokul/commit/71e6438b3a4532eac238fc6f207bbf75f26cd467))
+-   add close button to system messages ([71e6438](https://github.com/fremtind/jokul/commit/71e6438b3a4532eac238fc6f207bbf75f26cd467))
 
 ## 1.5.5 (2021-02-12)
 
@@ -244,5 +244,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   **alert-message:** rename and split messages package ([11373ac](https://github.com/fremtind/jokul/commit/11373ac88cbfc5ed2604846c742e8a05f8c0561d))
+-   **system-message:** rename and split messages package ([11373ac](https://github.com/fremtind/jokul/commit/11373ac88cbfc5ed2604846c742e8a05f8c0561d))
 -   **portal:** lagt til do's and dont's ([122474c](https://github.com/fremtind/jokul/commit/122474c618ffaafde8e1117df2e985df09166cda))

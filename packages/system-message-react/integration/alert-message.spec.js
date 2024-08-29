@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
 /// <reference types="../../../cypress/support" />
 
-context("AlertMessage", () => {
+context("SystemMessage", () => {
     beforeEach(() => {
-        cy.testComponent("alertmessage");
+        cy.testComponent("systemmessage");
     });
 
     it("renders correctly", () => {

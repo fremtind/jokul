@@ -1,5 +1,4 @@
 import * as accordionReact from "@fremtind/jkl-accordion-react";
-import * as alertMessageReact from "@fremtind/jkl-alert-message-react";
 import * as breadcrumbReact from "@fremtind/jkl-breadcrumb-react";
 import * as buttonReact from "@fremtind/jkl-button-react";
 import * as cardReact from "@fremtind/jkl-card-react";
@@ -28,12 +27,13 @@ import * as tabsReact from "@fremtind/jkl-tabs-react";
 import * as tagReact from "@fremtind/jkl-tag-react";
 import * as textInputReact from "@fremtind/jkl-text-input-react";
 import * as toggleSwitchReact from "@fremtind/jkl-toggle-switch-react";
+import * as systemMessageReact from "packages/system-message-react/build";
 import React, { FC } from "react";
 import { LiveProvider as ReactLiveProvider } from "react-live";
 
 const scope = {
     ...accordionReact,
-    ...alertMessageReact,
+    ...systemMessageReact,
     ...breadcrumbReact,
     ...cardReact,
     ...checkboxReact,
