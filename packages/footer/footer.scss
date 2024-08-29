@@ -1,8 +1,7 @@
 @charset "UTF-8";
 @use "@fremtind/jkl-core/jkl";
 
-/// @deprecated Denne komponenten bør ikke lenger brukes. Bruk heller
-/// HamburgerIcon fra ikonpakka
+/// @deprecated Denne komponenten bør ikke lenger brukes.
 
 @include jkl.light-mode-variables {
     --jkl-footer-background-color: #{jkl.$color-hvit};
