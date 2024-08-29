@@ -1,0 +1,62 @@
+name: Visual regression tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    if: "!contains(github.event.sender.login, 'fremtind-bot')"
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+            node-version: 18
+            cache: "pnpm"
+
+      - name: Monorepo Runner Cache
+        uses: actions/cache@v3
+        id: nx-cache
+        with:
+          path: .nx
+          key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+          restore-keys: |
+            nx-${{ hashFiles('pnpm-lock.yaml') }}-
+
+      - name: Install dependencies and build packages
+        run: pnpm ci:install
+
+      - name: Playwright binary cache
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+            path: /home/runner/.cache/ms-playwright
+            key: playwright-${{ hashFiles('pnpm-lock.yaml') }}            
+
+      - name: Playwright binaries
+        run: pnpm exec playwright install --with-deps
+
+      - name: Update integration screenshots
+        run: pnpm integration:update-screenshots
+
+      - name: Commit screenshots
+        run: |
+          git config user.email "fremtind.designsystem@fremtind.no"
+          git config user.name "fremtind-bot"
+          git add **/integration/__screenshots__/* || echo "No updated screenshots, nothing to add!"
+          git commit -m "chore: update integration screenshots [playwright]" --no-verify || echo "No updated screenshots, nothing to commit!"
+          git push      
