@@ -7,36 +7,36 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### chore
 
-- oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
+-   oppdater versjon på grunn av breaking change i core ([57ece48](https://github.com/fremtind/jokul/commit/57ece48fa0192fe825b544fdac24cdd56e58d0df))
 
 ### Code Refactoring
 
-- migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
+-   migrer vekk fra deprecated tilde-importer i Sass ([7ef2cf7](https://github.com/fremtind/jokul/commit/7ef2cf7a510122c69b2c5658c402f3dd9f5322f7)), closes [#3418](https://github.com/fremtind/jokul/issues/3418)
 
 ### BREAKING CHANGES
 
-- Avhenger av ny majorversjon av core
-- Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
-ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
-inkluderer node_modules.
+-   Avhenger av ny majorversjon av core
+-   Tilde-prefikset er fjernet i all Sass-kode. Avhengig av oppsettet ditt kan det hende du
+    ikke trenger gjøre noe. Om bygget ditt brekker, konfigurer Sass sin loadPaths så den
+    inkluderer node_modules.
 
 ## 8.0.3 (2023-03-21)
 
 ### Bug Fixes
 
-- sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
+-   sett charset i CSS-filene som genereres ([7346cb8](https://github.com/fremtind/jokul/commit/7346cb8644dd4b99bf0ae4d11c78a967b7b01618)), closes [#3467](https://github.com/fremtind/jokul/issues/3467)
 
 # 8.0.0 (2023-01-30)
 
 ### Features
 
-- bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
-- ta i bruk de nye ikonene i AlertMessage ([de50d55](https://github.com/fremtind/jokul/commit/de50d5503356467e2d99de894a6a77f215bbf827))
+-   bump majorversjon av core ([0b25b9c](https://github.com/fremtind/jokul/commit/0b25b9ccb4d35214037e45158264fab2da196a5f))
+-   ta i bruk de nye ikonene i SystemMessage ([de50d55](https://github.com/fremtind/jokul/commit/de50d5503356467e2d99de894a6a77f215bbf827))
 
 ### BREAKING CHANGES
 
-- Avhenger av en versjon av jkl-core med breaking changes
-- Du må nå importere jkl-icons for å vise komponenten riktig
+-   Avhenger av en versjon av jkl-core med breaking changes
+-   Du må nå importere jkl-icons for å vise komponenten riktig
 
 ## 7.0.9 (2022-11-22)
 
@@ -55,18 +55,18 @@ inkluderer node_modules.
 ### Bug Fixes
 
 -   ikonstørrelse i små containers ([e129ee6](https://github.com/fremtind/jokul/commit/e129ee62e14232169ae54326f296933919fe6f92))
--   ikonstørrelse kompakt alertmessage ([88fee9b](https://github.com/fremtind/jokul/commit/88fee9b07bbe8adf925efb7e7268b6b305f26b0e))
+-   ikonstørrelse kompakt systemmessage ([88fee9b](https://github.com/fremtind/jokul/commit/88fee9b07bbe8adf925efb7e7268b6b305f26b0e))
 
 ### Features
 
 -   innfør konseptet density med navn i stedet for boolean prop compact ([fd96f78](https://github.com/fremtind/jokul/commit/fd96f78685ef9e3979dd43625491e868efbc3068))
--   kompakt alert message ([33e249d](https://github.com/fremtind/jokul/commit/33e249d3c99cfa97333d25d50bedff9e36ef29e9))
+-   kompakt system message ([33e249d](https://github.com/fremtind/jokul/commit/33e249d3c99cfa97333d25d50bedff9e36ef29e9))
 
 ### BREAKING CHANGES
 
 -   data-compactlayout er nå data-layout-density="compact"
 
-# [6.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message@5.0.23...@fremtind/jkl-alert-message@6.0.0) (2022-06-07)
+# [6.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-system-message@5.0.23...@fremtind/jkl-system-message@6.0.0) (2022-06-07)
 
 ### Code Refactoring
 
@@ -82,12 +82,12 @@ inkluderer node_modules.
 -   Sass-variabler, mixins og CSS-animasjoner fra pakker annet enn core er gjort private
 -   Avhenger av ny majorversjon av core
 
-## [5.0.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-alert-message@5.0.19...@fremtind/jkl-alert-message@5.0.20) (2022-04-19)
+## [5.0.20](https://github.com/fremtind/jokul/compare/@fremtind/jkl-system-message@5.0.19...@fremtind/jkl-system-message@5.0.20) (2022-04-19)
 
 ### Bug Fixes
 
--   bruk fallbackfarger for AlertMessage SVGer ([5ce4131](https://github.com/fremtind/jokul/commit/5ce41314d369a57c5a0f878812918e3b97fd51fc))
--   gjør alert-message tilgjengelig i forced-colors ([85d84e1](https://github.com/fremtind/jokul/commit/85d84e171ec72e9fdb80e361dedb5f04467c7124))
+-   bruk fallbackfarger for systemMessage SVGer ([5ce4131](https://github.com/fremtind/jokul/commit/5ce41314d369a57c5a0f878812918e3b97fd51fc))
+-   gjør system-message tilgjengelig i forced-colors ([85d84e1](https://github.com/fremtind/jokul/commit/85d84e171ec72e9fdb80e361dedb5f04467c7124))
 -   skriv om svgmixin etter å ha sett Icons ([093e5ec](https://github.com/fremtind/jokul/commit/093e5ec2e71e5819e68ee2383463096185f9c1f3))
 -   tag i forced-colors ([d67839d](https://github.com/fremtind/jokul/commit/d67839d13b5966c17241126c5f943bc0c7eeed15))
 
@@ -111,7 +111,7 @@ inkluderer node_modules.
 
 ### Features
 
--   implement new alert message design ([657861c](https://github.com/fremtind/jokul/commit/657861ccdd0789b7935357cb8dd5a9fdbe2ecc3d))
+-   implement new system message design ([657861c](https://github.com/fremtind/jokul/commit/657861ccdd0789b7935357cb8dd5a9fdbe2ecc3d))
 
 ## 4.0.0 (2021-07-09)
 
@@ -131,7 +131,7 @@ inkluderer node_modules.
 
 ### Features
 
--   **alert-message:** add automatic dark mode ([4a184b7](https://github.com/fremtind/jokul/commit/4a184b795a1ebb3493cf6688ea317b4aa54afd85))
+-   **system-message:** add automatic dark mode ([4a184b7](https://github.com/fremtind/jokul/commit/4a184b795a1ebb3493cf6688ea317b4aa54afd85))
 
 ### BREAKING CHANGES
 
@@ -151,13 +151,13 @@ inkluderer node_modules.
 
 ### Features
 
--   add close button to alert messages ([71e6438](https://github.com/fremtind/jokul/commit/71e6438b3a4532eac238fc6f207bbf75f26cd467))
+-   add close button to system messages ([71e6438](https://github.com/fremtind/jokul/commit/71e6438b3a4532eac238fc6f207bbf75f26cd467))
 
 ## 1.2.4 (2020-09-21)
 
 ### Bug Fixes
 
--   fix a bug where alert-message would go outside screen bounds ([db41eba](https://github.com/fremtind/jokul/commit/db41ebae9406ada218feed0b57f8ce2d35cee990))
+-   fix a bug where system-message would go outside screen bounds ([db41eba](https://github.com/fremtind/jokul/commit/db41ebae9406ada218feed0b57f8ce2d35cee990))
 
 ## 1.2.0 (2020-09-01)
 
@@ -169,4 +169,4 @@ inkluderer node_modules.
 
 ### Features
 
--   **alert-message:** rename and split messages package ([11373ac](https://github.com/fremtind/jokul/commit/11373ac88cbfc5ed2604846c742e8a05f8c0561d))
+-   **system-message:** rename and split messages package ([11373ac](https://github.com/fremtind/jokul/commit/11373ac88cbfc5ed2604846c742e8a05f8c0561d))

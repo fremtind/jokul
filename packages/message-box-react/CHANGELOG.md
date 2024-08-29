@@ -7,14 +7,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- icon and heading on mobile acts like on desktop ([7156db0](https://github.com/fremtind/jokul/commit/7156db0d808b8f32ac3a3effdcfd392bf368c438)), closes [#3651](https://github.com/fremtind/jokul/issues/3651)
+-   icon and heading on mobile acts like on desktop ([7156db0](https://github.com/fremtind/jokul/commit/7156db0d808b8f32ac3a3effdcfd392bf368c438)), closes [#3651](https://github.com/fremtind/jokul/issues/3651)
 
 # [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-message-box-react@11.0.5...@fremtind/jkl-message-box-react@11.1.0) (2023-09-21)
 
 ### Features
 
-- deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
-- oppdaterte globale variabler for light/dark mode med funksjonsfarger ([4666eca](https://github.com/fremtind/jokul/commit/4666ecae207c17adc3b174528b9b9f3e917df42e))
+-   deleted snapshots ([545e346](https://github.com/fremtind/jokul/commit/545e3460f3834ff07c2161ee0b6a6dc11286c6dd))
+-   oppdaterte globale variabler for light/dark mode med funksjonsfarger ([4666eca](https://github.com/fremtind/jokul/commit/4666ecae207c17adc3b174528b9b9f3e917df42e))
 
 ## 11.0.4 (2023-09-14)
 
@@ -192,7 +192,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
--   always light mode inside MessageBox and AlertMessage ([547311f](https://github.com/fremtind/jokul/commit/547311f7e36aa0aef937dc62007225d9ad23b73c))
+-   always light mode inside MessageBox and SystemMessage ([547311f](https://github.com/fremtind/jokul/commit/547311f7e36aa0aef937dc62007225d9ad23b73c))
 
 ## 4.2.0 (2021-10-13)
 
@@ -274,7 +274,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
--   **alert-message:** rename and split messages package ([11373ac](https://github.com/fremtind/jokul/commit/11373ac88cbfc5ed2604846c742e8a05f8c0561d))
+-   **system-message:** rename and split messages package ([11373ac](https://github.com/fremtind/jokul/commit/11373ac88cbfc5ed2604846c742e8a05f8c0561d))
 -   **message-box:** make title optional in message-box ([540b463](https://github.com/fremtind/jokul/commit/540b463f0c94a6267a27c8723762559e54a12943))
 -   **message-box:** refactor icon styling in message-box ([36c81b5](https://github.com/fremtind/jokul/commit/36c81b5935095984ec79a6059693909411d076b5))
 -   **messages:** add messages package ([6193027](https://github.com/fremtind/jokul/commit/619302746062ecc789252fea6201c359fe88995f))

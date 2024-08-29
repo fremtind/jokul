@@ -15,27 +15,26 @@ $_bg-color--info: colors.varslingsfarge("info");
 $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
 @include jkl.comfortable-density-variables {
-    --jkl-alert-message-icon-height: #{jkl.rem(24px)};
-    --jkl-alert-message-icon-padding: #{jkl.rem(3px)} 0 0 0;
-    --jkl-alert-message-content-padding: #{jkl.$spacing-l};
-    --jkl-alert-message-dismiss-button-size: #{jkl.rem(44px)};
-    --jkl-alert-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)} auto;
-    --jkl-alert-message-message-margin: 0 #{jkl.$spacing-m};
-    @include jkl.declare-font-variables("jkl-alert-message-message", "body");
+    --jkl-system-message-icon-height: #{jkl.rem(24px)};
+    --jkl-system-message-icon-padding: #{jkl.rem(3px)} 0 0 0;
+    --jkl-system-message-content-padding: #{jkl.$spacing-l};
+    --jkl-system-message-dismiss-button-size: #{jkl.rem(44px)};
+    --jkl-system-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)} auto;
+    --jkl-system-message-message-margin: 0 #{jkl.$spacing-m};
+    @include jkl.declare-font-variables("jkl-system-message-message", "body");
 }
 
 @include jkl.compact-density-variables {
-    --jkl-alert-message-icon-height: #{jkl.rem(20px)};
-    --jkl-alert-message-icon-padding: #{jkl.rem(1px)} 0 0 0;
-    --jkl-alert-message-content-padding: #{jkl.$spacing-xs};
-    --jkl-alert-message-dismiss-button-size: #{jkl.rem(32px)};
-    --jkl-alert-message-dismiss-button-margin: -#{jkl.rem(3px)} -#{jkl.rem(6px)} -#{jkl.rem(4.5px)} auto;
-    --jkl-alert-message-message-margin: 0 #{jkl.$spacing-s};
-    @include jkl.declare-font-variables("jkl-alert-message-message", "small");
+    --jkl-system-message-icon-height: #{jkl.rem(20px)};
+    --jkl-system-message-icon-padding: #{jkl.rem(1px)} 0 0 0;
+    --jkl-system-message-content-padding: #{jkl.$spacing-xs};
+    --jkl-system-message-dismiss-button-size: #{jkl.rem(32px)};
+    --jkl-system-message-dismiss-button-margin: -#{jkl.rem(3px)} -#{jkl.rem(6px)} -#{jkl.rem(4.5px)} auto;
+    --jkl-system-message-message-margin: 0 #{jkl.$spacing-s};
+    @include jkl.declare-font-variables("jkl-system-message-message", "small");
 }
 
-/// @deprecated Denne komponenten vedlikeholdes ikke lenger. Bruk .jkl-system-message i stedet
-.jkl-alert-message {
+.jkl-system-message {
     width: 100%;
     background-color: $_bg-color--default;
     color: jkl.$color-granitt;
@@ -43,7 +42,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__content {
         box-sizing: border-box;
-        padding: var(--jkl-alert-message-content-padding);
+        padding: var(--jkl-system-message-content-padding);
         display: flex;
         align-items: flex-start;
         width: 100%;
@@ -52,16 +51,16 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
     &__icon {
         align-self: flex-start;
-        height: var(--jkl-alert-message-icon-height);
-        margin: var(--jkl-alert-message-icon-padding);
+        height: var(--jkl-system-message-icon-height);
+        margin: var(--jkl-system-message-icon-padding);
         flex-shrink: 0;
 
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
 
     &__message {
-        @include jkl.use-font-variables("jkl-alert-message-message");
-        margin: var(--jkl-alert-message-message-margin);
+        @include jkl.use-font-variables("jkl-system-message-message");
+        margin: var(--jkl-system-message-message-margin);
     }
 
     &__dismiss-button {
@@ -74,9 +73,9 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         justify-content: center;
 
         // Sørg for å ha en stor nok touch target.
-        width: var(--jkl-alert-message-dismiss-button-size);
-        height: var(--jkl-alert-message-dismiss-button-size);
-        margin: var(--jkl-alert-message-dismiss-button-margin);
+        width: var(--jkl-system-message-dismiss-button-size);
+        height: var(--jkl-system-message-dismiss-button-size);
+        margin: var(--jkl-system-message-dismiss-button-margin);
 
         color: inherit;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);

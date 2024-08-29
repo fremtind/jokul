@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { InfoAlertMessage, ErrorAlertMessage, WarningAlertMessage, SuccessAlertMessage } from ".";
+import { InfoSystemMessage, ErrorSystemMessage, WarningSystemMessage, SuccessSystemMessage } from ".";
 
 const messageWithStyles = {
     maxContentWidth: "1234px",
@@ -13,13 +13,13 @@ const messageWitoutStyles = {
 };
 
 const types = [
-    ["InfoAlertMessage", InfoAlertMessage],
-    ["WarningAlertMessage", WarningAlertMessage],
-    ["ErrorAlertMessage", ErrorAlertMessage],
-    ["SuccessAlertMessage", SuccessAlertMessage],
+    ["InfoSystemMessage", InfoSystemMessage],
+    ["WarningSystemMessage", WarningSystemMessage],
+    ["ErrorSystemMessage", ErrorSystemMessage],
+    ["SuccessSystemMessage", SuccessSystemMessage],
 ];
 
-describe("Alert messages", () => {
+describe("System messages", () => {
     [messageWithStyles, messageWitoutStyles].forEach((messageStyleProps) => {
         types.map(([name, E]) => {
             it(name + " should render message content", () => {
@@ -32,10 +32,10 @@ describe("Alert messages", () => {
         types.map(([name, E]) => {
             it(name + " should take css properties", () => {
                 render(<E {...messageStyleProps}>content</E>);
-                expect(screen.getByTestId("alert-message-content")).toHaveStyle(
+                expect(screen.getByTestId("system-message-content")).toHaveStyle(
                     `padding-left: ${messageStyleProps.paddingLeft}`,
                 );
-                expect(screen.getByTestId("alert-message-content")).toHaveStyle(
+                expect(screen.getByTestId("system-message-content")).toHaveStyle(
                     `max-width: ${messageStyleProps.maxContentWidth}`,
                 );
             });
@@ -45,7 +45,7 @@ describe("Alert messages", () => {
         types.map(([name, E]) => {
             it(name + " should not add style attribute if styles are undefined", () => {
                 render(<E {...messageStyleProps}>content</E>);
-                expect(screen.getByTestId("alert-message-content")).not.toHaveAttribute("style");
+                expect(screen.getByTestId("system-message-content")).not.toHaveAttribute("style");
             });
         });
     });
@@ -53,28 +53,28 @@ describe("Alert messages", () => {
 
 describe("a11y", () => {
     it("InfoMessage should be a11y compliant", async () => {
-        const { container } = render(<InfoAlertMessage>Lorem Ipsum</InfoAlertMessage>);
+        const { container } = render(<InfoSystemMessage>Lorem Ipsum</InfoSystemMessage>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
 
     it("ErrorMessage should be a11y compliant", async () => {
-        const { container } = render(<ErrorAlertMessage>Lorem Ipsum</ErrorAlertMessage>);
+        const { container } = render(<ErrorSystemMessage>Lorem Ipsum</ErrorSystemMessage>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
 
     it("WarningMessage should be a11y compliant", async () => {
-        const { container } = render(<WarningAlertMessage>Lorem Ipsum</WarningAlertMessage>);
+        const { container } = render(<WarningSystemMessage>Lorem Ipsum</WarningSystemMessage>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
 
     it("SuccessMessage should be a11y compliant", async () => {
-        const { container } = render(<SuccessAlertMessage>Lorem Ipsum</SuccessAlertMessage>);
+        const { container } = render(<SuccessSystemMessage>Lorem Ipsum</SuccessSystemMessage>);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
