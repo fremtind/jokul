@@ -8,11 +8,12 @@
     &__data,
     &__header {
         padding: jkl.$spacing-xs;
-        @include jkl.text-style("body");
         text-align: left;
         vertical-align: top;
         border-bottom: jkl.rem(1px) solid;
         box-sizing: border-box;
+
+        @include jkl.text-style("body");
     }
 
     &__header {
