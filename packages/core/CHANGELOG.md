@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.1.1 (2024-08-29)
+
+### Bug Fixes
+
+- følg ny konvensjon i sass ([9f451db](https://github.com/fremtind/jokul/commit/9f451dbe0cf00187f9be8f61b69d2f9cf22a67b5))
+
 # 14.1.0 (2024-08-19)
 
 ### Features
