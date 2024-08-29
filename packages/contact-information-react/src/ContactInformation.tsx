@@ -3,6 +3,9 @@ import { formatTelefonnummer } from "@fremtind/jkl-formatters-util";
 import cn from "classnames";
 import React, { HTMLAttributes, FC, ReactNode } from "react";
 
+/**
+ * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
+ */
 export interface FooterProps extends DataTestAutoId, HTMLAttributes<HTMLElement> {
     headingComponent: ReactNode;
     density?: Density;
