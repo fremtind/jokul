@@ -1,9 +1,9 @@
 @use "../../jkl";
 
 .keyboard-demo {
-    @include jkl.reset-outline;
-
     padding: 24px 48px;
+
+    @include jkl.reset-outline;
 
     &:hover {
         @include jkl.keyboard-navigation {
