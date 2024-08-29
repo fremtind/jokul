@@ -29,7 +29,6 @@
         "@fremtind/jkl-file-input-react": "^2.3.12",
         "@fremtind/jkl-footer-react": "^6.1.28",
         "@fremtind/jkl-formatters-util": "^5.1.22",
-        "@fremtind/jkl-hamburger-react": "^12.0.16",
         "@fremtind/jkl-icon-button-react": "^5.0.1",
         "@fremtind/jkl-icons-react": "^9.1.0",
         "@fremtind/jkl-image-react": "^6.0.14",

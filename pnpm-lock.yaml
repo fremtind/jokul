@@ -666,26 +666,6 @@ importers:
       '@fremtind/jkl-text-input': link:../text-input
       react-hook-form: 7.44.3
 
-  packages/hamburger:
-    specifiers:
-      '@fremtind/jkl-core': ^14.1.0
-    dependencies:
-      '@fremtind/jkl-core': link:../core
-
-  packages/hamburger-react:
-    specifiers:
-      '@fremtind/jkl-content-toggle-react': ^6.0.13
-      '@fremtind/jkl-core': ^14.1.0
-      '@fremtind/jkl-hamburger': ^13.0.13
-      '@fremtind/jkl-react-hooks': ^12.1.2
-      classnames: ^2.3.2
-    dependencies:
-      '@fremtind/jkl-content-toggle-react': link:../content-toggle-react
-      '@fremtind/jkl-core': link:../core
-      '@fremtind/jkl-hamburger': link:../hamburger
-      '@fremtind/jkl-react-hooks': link:../react-hooks
-      classnames: 2.3.2
-
   packages/icon-button:
     specifiers:
       '@fremtind/jkl-core': ^14.1.0
@@ -1160,7 +1140,6 @@ importers:
       '@fremtind/jkl-file-input-react': ^2.3.12
       '@fremtind/jkl-footer-react': ^6.1.28
       '@fremtind/jkl-formatters-util': ^5.1.22
-      '@fremtind/jkl-hamburger-react': ^12.0.16
       '@fremtind/jkl-icon-button-react': ^5.0.1
       '@fremtind/jkl-icons-react': ^9.1.0
       '@fremtind/jkl-image-react': ^6.0.14
@@ -1238,7 +1217,6 @@ importers:
       '@fremtind/jkl-file-input-react': link:../packages/file-input-react
       '@fremtind/jkl-footer-react': link:../packages/footer-react
       '@fremtind/jkl-formatters-util': link:../packages/formatters-util
-      '@fremtind/jkl-hamburger-react': link:../packages/hamburger-react
       '@fremtind/jkl-icon-button-react': link:../packages/icon-button-react
       '@fremtind/jkl-icons-react': link:../packages/icons-react
       '@fremtind/jkl-image-react': link:../packages/image-react
@@ -1321,7 +1299,6 @@ importers:
       '@fremtind/jkl-file-input-react': ^2.3.8
       '@fremtind/jkl-footer-react': ^6.1.24
       '@fremtind/jkl-formatters-util': ^5.1.18
-      '@fremtind/jkl-hamburger-react': ^12.0.16
       '@fremtind/jkl-icon-button-react': ^5.0.0
       '@fremtind/jkl-icons': ^10.0.0
       '@fremtind/jkl-icons-react': ^9.0.0
@@ -1386,7 +1363,6 @@ importers:
       '@fremtind/jkl-file-input-react': link:../packages/file-input-react
       '@fremtind/jkl-footer-react': link:../packages/footer-react
       '@fremtind/jkl-formatters-util': link:../packages/formatters-util
-      '@fremtind/jkl-hamburger-react': link:../packages/hamburger-react
       '@fremtind/jkl-icon-button-react': link:../packages/icon-button-react
       '@fremtind/jkl-icons': link:../packages/icons
       '@fremtind/jkl-icons-react': link:../packages/icons-react
