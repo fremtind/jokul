@@ -74,11 +74,12 @@ $_link-underline-thickness--focus: jkl.rem(2px);
 .jkl-nav-link {
     color: var(--jkl-link-color);
 
-    @include jkl.reset-outline;
     box-sizing: border-box;
     font-weight: jkl.$typography-weight-normal;
     text-decoration: none;
     position: relative;
+
+    @include jkl.reset-outline;
 
     &::after {
         @include jkl.decorative($content: $_right-arrow);
