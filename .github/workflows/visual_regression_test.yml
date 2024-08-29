@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  snapshots:
     runs-on: ubuntu-latest
     permissions:
       actions: write
