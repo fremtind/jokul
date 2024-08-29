@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-feedback-react",
-    "version": "18.0.16",
+    "version": "18.0.17",
     "publishConfig": {
         "access": "public"
     },
@@ -43,7 +43,7 @@
         "@fremtind/jkl-feedback": "^13.0.12",
         "@fremtind/jkl-input-group-react": "^3.0.34",
         "@fremtind/jkl-message-box-react": "^11.1.20",
-        "@fremtind/jkl-radio-button-react": "^11.1.61",
+        "@fremtind/jkl-radio-button-react": "^11.1.62",
         "@fremtind/jkl-react-hooks": "^12.1.2",
         "@fremtind/jkl-text-input-react": "^15.1.6",
         "@fremtind/jkl-validators-util": "^3.0.0",
