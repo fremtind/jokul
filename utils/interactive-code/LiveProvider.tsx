@@ -17,7 +17,6 @@ import * as feedbackReact from "@fremtind/jkl-feedback-react";
 import * as fileInputReact from "@fremtind/jkl-file-input-react";
 import * as footerReact from "@fremtind/jkl-footer-react";
 import * as formatters from "@fremtind/jkl-formatters-util";
-import * as hamburgerReact from "@fremtind/jkl-hamburger-react";
 import * as iconButtonReact from "@fremtind/jkl-icon-button-react";
 import * as iconsReact from "@fremtind/jkl-icons-react";
 import * as imageReact from "@fremtind/jkl-image-react";
@@ -63,7 +62,6 @@ const scope = {
     ...feedbackReact,
     ...fileInputReact,
     ...footerReact,
-    ...hamburgerReact,
     ...hooks,
     ...iconButtonReact,
     ...iconsReact,

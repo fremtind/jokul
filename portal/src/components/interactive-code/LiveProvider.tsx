@@ -12,7 +12,6 @@ import * as descriptionListReact from "@fremtind/jkl-description-list-react";
 import * as expandButtonReact from "@fremtind/jkl-expand-button-react";
 import * as feedbackReact from "@fremtind/jkl-feedback-react";
 import * as footerReact from "@fremtind/jkl-footer-react";
-import * as hamburgerReact from "@fremtind/jkl-hamburger-react";
 import * as iconButtonReact from "@fremtind/jkl-icon-button-react";
 import * as iconsReact from "@fremtind/jkl-icons-react";
 import * as imageReact from "@fremtind/jkl-image-react";
@@ -45,7 +44,6 @@ const scope = {
     ...expandButtonReact,
     ...feedbackReact,
     ...footerReact,
-    ...hamburgerReact,
     ...iconButtonReact,
     ...iconsReact,
     ...imageReact,

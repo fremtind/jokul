@@ -1,12 +1,13 @@
-import { Hamburger } from "@fremtind/jkl-hamburger-react";
+import { Button } from "@fremtind/jkl-button-react";
+import { CloseIcon, HamburgerIcon } from "@fremtind/jkl-icons-react";
 import { useAnimatedHeight, useScreen } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { useEffect } from "react";
 import { isLeafItem, MenuItemList, RootItem, useFullscreenMenuContext } from "../../fullscreenMenuContext";
 import { FullScreenMenuItem } from "./FullScreenMenuItem";
+import "./MainMenu.scss";
 import { MainMenuItem } from "./MainMenuItem";
 import { useFullScreenMenuAnimaiton } from "./useFullScreenMenuAnimation";
-import "./MainMenu.scss";
 
 interface MainMenuProps {
     className?: string;
@@ -63,7 +64,10 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
     return (
         <nav className={cn("jkl-portal-main-menu", className)} aria-label="Hovedmeny">
             {isSmallScreen && (
-                <Hamburger
+                <Button
+                    variant="ghost"
+                    iconLeft={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                    aria-label={`${isOpen ? "Lukk" : "Åpne"} meny`}
                     id="jkl-portal-main-menu-hamburger"
                     aria-controls="jkl-portal-main-menu-overlay"
                     onClick={() => {
@@ -72,7 +76,6 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
                         }
                         setIsOpen(!isOpen);
                     }}
-                    isOpen={isOpen}
                 />
             )}
             <div
