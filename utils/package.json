@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
-        "clean": "rimraf build/ node_modules/",
+        "clean": "git clean -xfd",
         "build": "vite build --config vite.build.config.ts",
         "build:watch": "vite build --config vite.build.config.ts --watch",
         "typecheck": "tsc",
@@ -71,7 +71,6 @@
         "@types/react-syntax-highlighter": "^15.5.10",
         "@vitejs/plugin-react-swc": "^3.5.0",
         "glob": "^8.1.0",
-        "rimraf": "^5.0.7",
         "typescript": "^5.2.2",
         "vite": "^5.2.0",
         "vite-plugin-dts": "^3.9.0"

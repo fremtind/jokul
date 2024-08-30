@@ -19,7 +19,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf node_modules/ **/*.css",
+        "clean": "git clean -xfd",
         "build": "gulp build",
         "dev": "echo \"Error: run dev from root\" && exit 1"
     },
