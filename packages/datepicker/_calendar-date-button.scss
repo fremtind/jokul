@@ -38,7 +38,6 @@
 
 .jkl-calendar-date-button {
     @include jkl.use-font-variables("jkl-calendar-date");
-    @include jkl.reset-outline;
     appearance: none;
     position: relative;
 
@@ -58,6 +57,8 @@
     padding-top: jkl.$spacing-2; // adjust visual alignment of text
     @include jkl.motion("entrance", "energetic");
     transition-property: color, background-color, box-shadow;
+
+    @include jkl.reset-outline;
 
     &[data-adjacent="true"] {
         @include jkl.text-style("small");

@@ -13,7 +13,6 @@
 
     &__select {
         appearance: none;
-        @include jkl.reset-outline;
         @include jkl.text-style("small") {
             font-weight: jkl.$typography-weight-bold;
         }
@@ -27,6 +26,8 @@
         margin: 0;
         padding: 0;
         padding-inline-end: var(--chevron-size);
+
+        @include jkl.reset-outline;
 
         & option {
             color: var(--jkl-select-text-color);
