@@ -72,7 +72,7 @@ export const Followup: FC<Props> = ({ questions, successMessage = defaultSuccess
                             Steg {step.number + 1} av {questions.length}
                         </p>
                         {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-                        <QuestionComponent {...questions[step.number]} autoFocus />
+                        <QuestionComponent {...questions[step.number]} autoFocus key={step.number} />
                         <div className="jkl-spacing-xl--top" aria-live="off">
                             <Button type="submit">{step.isLast ? "Send inn" : "Neste"}</Button>
                             <TertiaryButton onClick={handleAbort} className="jkl-spacing-xl--left">
