@@ -92,8 +92,8 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 }
 
 .jkl-combobox {
-    @include jkl.reset-outline;
     position: relative;
+    @include jkl.reset-outline;
 
     & *:focus {
         outline: none;
