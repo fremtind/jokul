@@ -273,6 +273,52 @@ describe("Feedback", () => {
         expect(mockFn).toBeCalledTimes(1);
     });
 
+    it("clears state of second followup question (#4001)", async () => {
+        render(
+            <Feedback
+                {...PRESETS["Fant du"]}
+                followup={{
+                    questions: [
+                        {
+                            type: "text",
+                            label: "Er det noe mer du vil legge til?",
+                            name: "annet",
+                        },
+                        {
+                            type: "text",
+                            label: "Er det noe mer mer du vil legge til?",
+                            name: "mer-annet",
+                        },
+                    ],
+                    onSubmit: mockFn,
+                }}
+                onSubmit={() => null}
+            />,
+        );
+
+        await act(async () => {
+            await userEvent.click(screen.getByText("Ja"));
+            await userEvent.click(screen.getByText("Send"));
+        });
+
+        await act(async () => {
+            await userEvent.click(screen.getByText("Jeg har tid!"));
+        });
+
+        await act(async () => {
+            await userEvent.type(screen.getByLabelText("Er det noe mer du vil legge til?"), "mer");
+            await userEvent.click(screen.getByText("Neste"));
+        });
+
+        await act(async () => {
+            const oldTextarea = await screen.queryByDisplayValue("mer");
+            expect(oldTextarea).not.toBeInTheDocument();
+
+            const newTextarea = await screen.queryByDisplayValue("");
+            expect(newTextarea).toBeInTheDocument();
+        });
+    });
+
     it("submits correct contact information", async () => {
         render(
             <Feedback
