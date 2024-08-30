@@ -85,11 +85,12 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 }
 
 .jkl-radio-button {
-    @include jkl.reset-outline;
     display: flex;
     min-height: var(--jkl-radio-button-height);
     color: var(--jkl-radio-button-color);
     position: relative;
+
+    @include jkl.reset-outline;
 
     &__input {
         // hide default radio button
