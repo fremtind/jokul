@@ -22,12 +22,6 @@
 .jkl-expand-button {
     $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
     $_focus-ring-width: jkl.rem(2px);
-
-    @include jkl.reset-outline;
-
-    &::-webkit-details-marker {
-        display: none;
-    }
     list-style: none;
 
     background-color: transparent;
@@ -37,6 +31,12 @@
     transition: transform $_animation-timing, border $_animation-timing;
     min-width: unset;
     position: relative;
+
+    @include jkl.reset-outline;
+
+    &::-webkit-details-marker {
+        display: none;
+    }
 
     &::after {
         $_expand-button-border-width: jkl.rem(1px);
@@ -50,9 +50,10 @@
     }
 
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
-        @include _expanded-arrow(3px);
         border: none;
         color: var(--jkl-expand-button-focus-color);
+
+        @include _expanded-arrow(3px);
 
         &::after {
             box-shadow: 0 0 0 $_focus-ring-width var(--jkl-expand-button-focus-color);
@@ -75,12 +76,13 @@
 
     // Bevisst nøstet for høyere specificity enn icons uavhengig av importrekkefølge.
     .jkl-expand-button__arrow {
-        @include jkl.motion;
         transition-property: transform;
 
         display: inline-block;
         margin-left: jkl.$spacing-2;
         margin-bottom: -0.15em;
+
+        @include jkl.motion;
     }
 
     @include jkl.forced-colors-mode {
@@ -95,8 +97,8 @@
 
 .jkl-expand-section {
     &__content-wrapper {
-        @include jkl.motion;
         transition-property: height;
+        @include jkl.motion;
     }
 
     &__content {
