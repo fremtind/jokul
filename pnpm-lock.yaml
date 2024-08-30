@@ -1136,7 +1136,7 @@ importers:
       '@fremtind/jkl-datepicker-react': ^15.1.50
       '@fremtind/jkl-description-list-react': ^8.0.14
       '@fremtind/jkl-expand-button-react': ^7.0.10
-      '@fremtind/jkl-feedback-react': ^18.0.18
+      '@fremtind/jkl-feedback-react': ^18.0.19
       '@fremtind/jkl-file-input-react': ^2.3.13
       '@fremtind/jkl-footer-react': ^6.1.29
       '@fremtind/jkl-formatters-util': ^5.1.23
@@ -3918,8 +3918,8 @@ packages:
       tslib: 2.5.3
     dev: false
 
-  /@fremtind/jkl-core/14.1.0:
-    resolution: {integrity: sha512-h5TCs6ybXEZ/hy80ePuaeiK1CPSMH7URlxRJwxU6I2cBeuFS0Xy/DKe3toaolF27rczSBd04eI5J/iTgsnb+LA==}
+  /@fremtind/jkl-core/14.1.1:
+    resolution: {integrity: sha512-yTjxi5Ms2tdQeh9GPNsHDRUv4zSOHXB6r3peFv4Tu960U97rmtB1NYPheWVfSfiOcI4KPOMQqEQ9IgTF7yMM6w==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
@@ -3932,7 +3932,7 @@ packages:
   /@fremtind/jkl-icons/9.1.5:
     resolution: {integrity: sha512-JDn9qAWTc68CI0Ua41MJ7/NOcOQBHr8T0mr2Qcwd1nTJPVuNRD7X+RHNs54bMykugp24hq+xbPGQWShOnb6qSQ==}
     dependencies:
-      '@fremtind/jkl-core': 14.1.0
+      '@fremtind/jkl-core': 14.1.1
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-feedback-react",
-    "version": "18.0.18",
+    "version": "18.0.19",
     "publishConfig": {
         "access": "public"
     },
