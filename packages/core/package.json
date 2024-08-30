@@ -28,7 +28,7 @@
         "lib": "build"
     },
     "scripts": {
-        "clean": "rimraf node_modules/ build/ **/*.css",
+        "clean": "git clean -xfd",
         "generate:tokens": "node tokens.build.mjs",
         "build": "run-s build:*",
         "build:style": "gulp build",

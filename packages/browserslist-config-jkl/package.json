@@ -17,7 +17,7 @@
         "index.js"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/",
+        "clean": "git clean -xfd",
         "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "repository": {

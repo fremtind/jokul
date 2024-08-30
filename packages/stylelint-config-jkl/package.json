@@ -17,7 +17,7 @@
         "rules/"
     ],
     "scripts": {
-        "clean": "rimraf node_modules/ node_modules/ .stylelintcache",
+        "clean": "git clean -xfd",
         "lint": "stylelint --config=index.js 'examples/**/*.{css,scss,sass}' --cache",
         "test": "npm run lint"
     },
