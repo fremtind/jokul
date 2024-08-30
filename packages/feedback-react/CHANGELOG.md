@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [18.0.19](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@18.0.18...@fremtind/jkl-feedback-react@18.0.19) (2024-08-30)
+
+### Bug Fixes
+
+- force remount of controls for new followups ([f3ede21](https://github.com/fremtind/jokul/commit/f3ede21ad2871914b53976f479cea0d99baababa)), closes [#4001](https://github.com/fremtind/jokul/issues/4001)
+
 ## 18.0.4 (2024-06-27)
 
 ### Bug Fixes
