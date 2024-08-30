@@ -79,9 +79,10 @@ $_select-search-input-selection-color--inverted: color.scale(
 }
 
 .jkl-select {
-    @include jkl.reset-outline;
     display: block;
     position: relative;
+
+    @include jkl.reset-outline;
 
     & *:focus {
         outline: none;
@@ -149,12 +150,12 @@ $_select-search-input-selection-color--inverted: color.scale(
         text-align: left;
         width: 100%;
 
+        @include jkl.motion;
+        transition-property: color, border-color, box-shadow;
+
         &--active-value {
             color: var(--jkl-select-text-active-value-color);
         }
-
-        @include jkl.motion;
-        transition-property: color, border-color, box-shadow;
 
         &:focus {
             border-color: var(--jkl-select-focus-color);
