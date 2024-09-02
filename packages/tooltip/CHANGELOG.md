@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip@4.1.13...@fremtind/jkl-tooltip@4.1.14) (2024-09-02)
+
+### Bug Fixes
+
+- fiks sass deprecation warnings i tooltip ([96f5b60](https://github.com/fremtind/jokul/commit/96f5b601dd712e1d77fe32cd3ac1f4f9a1e02e3b))
+
 ## 4.1.11 (2024-08-19)
 
 ### Bug Fixes

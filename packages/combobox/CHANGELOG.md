@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.13](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox@2.2.12...@fremtind/jkl-combobox@2.2.13) (2024-09-02)
+
+### Bug Fixes
+
+- fiks sass deprecation warnings i combobox ([02ab919](https://github.com/fremtind/jokul/commit/02ab919a4da4e7dac0bc8b632217b67f27b2728c))
+
 ## [2.2.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox@2.2.6...@fremtind/jkl-combobox@2.2.7) (2024-04-12)
 
 ### Bug Fixes
