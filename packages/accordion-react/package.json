@@ -12,10 +12,10 @@
         "fremtind"
     ],
     "license": "MIT",
-    "type": "module",
+    "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",
-    "module": "./build/es/index.js",
-    "browser": "./build/es/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/esm/index.js",
     "sideEffects": [
         "*.css",
         "*.scss"
@@ -26,23 +26,15 @@
     "files": [
         "build"
     ],
-    "types": "./build/index.d.ts",
-    "exports": {
-        ".": {
-            "types": "./build/index.d.ts",
-            "import": "./build/es/index.js",
-            "require": "./build/cjs/index.js"
-        },
-        "./documentation": {
-            "types": "./build/documentation/index.d.ts",
-            "import": "./build/documentation/*"
-        }
-    },
     "scripts": {
-        "clean": "rimraf build/ node_modules/",
-        "build": "vite build --config vite.build.config.ts",
+        "clean": "rimraf node_modules/ build/ node_modules/ ",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "node ./esbuild.prod.mjs",
+        "build": "run-s build:*",
         "test": "jest --testMatch '**/accordion-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
-        "dev": "vite --config vite.dev.config.ts --port 3000"
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
+        "dev:server": "nodemon ./dist/server.js",
+        "dev": "run-p dev:*"
     },
     "dependencies": {
         "@fremtind/jkl-accordion": "^12.0.2",
@@ -52,14 +44,7 @@
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-button": "^12.1.4",
-        "@fremtind/jkl-expand-button": "^7.0.6",
-        "@fremtind/jkl-icons": "^9.1.4",
-        "@fremtind/jkl-list-react": "^10.2.3",
-        "@rollup/plugin-terser": "^0.4.4",
-        "rollup-plugin-node-externals": "^7.1.2",
-        "rollup-plugin-visualizer": "^5.12.0",
-        "vite": "^5.2.0"
+        "@fremtind/jkl-list-react": "^10.2.3"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
