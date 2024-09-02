@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @use "@fremtind/jkl-core/jkl";
 
+/// @deprecated Denne komponenten bør ikke lenger brukes, og vil ikke bli oppdatert.
+
 @include jkl.light-mode-variables {
     --jkl-footer-background-color: #{jkl.$color-hvit};
 }
