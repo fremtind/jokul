@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.2 (2024-09-02)
+
+### Bug Fixes
+
+- bruk outline for tastaturfokus i accordion ([f5b34f8](https://github.com/fremtind/jokul/commit/f5b34f8af05d6a8d39e015d9883a5703dd1c8ef3))
+
 # [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-accordion@11.2.4...@fremtind/jkl-accordion@12.0.0) (2024-08-27)
 
 ### Features

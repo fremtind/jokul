@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.2.0 (2024-09-02)
+
+### Features
+
+- legg til mixin for standard fokusindikator ([9bc97e2](https://github.com/fremtind/jokul/commit/9bc97e24901d1c9c3b32511375acbcf9eceaf692))
+- oppdater mixin for motion til å ta inn properties ([c270ae2](https://github.com/fremtind/jokul/commit/c270ae2d822ccf145f807245190c990aee6d4476))
+
 ## 14.1.1 (2024-08-29)
 
 ### Bug Fixes
