@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@10.1.14...@fremtind/jkl-radio-button@10.1.15) (2024-09-02)
+
+### Bug Fixes
+
+- sass-order in components used by doc-utils ([16cbbde](https://github.com/fremtind/jokul/commit/16cbbde31bed04b26442b2f7fa89cd447d65e55a)), closes [#4017](https://github.com/fremtind/jokul/issues/4017)
+
 ## [10.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-radio-button@10.1.1...@fremtind/jkl-radio-button@10.1.2) (2023-09-18)
 
 ### Bug Fixes
