@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-contextual-menu",
-    "version": "2.1.10",
+    "version": "2.1.11",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from contextual-menu-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.1.1"
+        "@fremtind/jkl-core": "^14.2.0"
     },
     "repository": {
         "type": "git",

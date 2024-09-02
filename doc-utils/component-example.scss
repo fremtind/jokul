@@ -46,12 +46,13 @@
 
         // Unngå at endring av tittel knekker visuell regresjonstest ved å skjule den
         :not([data-test-mode="e2e"]) &::before {
-            @include jkl.text-style("small");
             color: var(--component-example-header-color);
             position: absolute;
             top: jkl.$spacing-s;
             left: jkl.$spacing-m;
             content: attr(data-example-text);
+
+            @include jkl.text-style("small");
         }
 
         &[data-test-mode="e2e-screenshot"] {
@@ -75,19 +76,20 @@
     }
 
     &__example-options-header {
+        margin-bottom: jkl.$spacing-s;
+        @include jkl.text-style("small");
+
         &:not(:first-child) {
             margin-top: jkl.$spacing-l;
         }
-        @include jkl.text-style("small");
-        margin-bottom: jkl.$spacing-s;
     }
 
     &__choice-option {
         margin-top: jkl.$spacing-l;
 
         & .jkl-label.jkl-label--small {
-            @include jkl.text-style("small");
             color: jkl.$color-fjellgra;
+            @include jkl.text-style("small");
         }
     }
 

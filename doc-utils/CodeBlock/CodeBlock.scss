@@ -40,10 +40,10 @@
         padding: jkl.$spacing-xs;
         background-color: var(--language-tag-bg-color);
         color: var(--language-tag-text-color);
-        @include jkl.use-font-family("Fremtind Grotesk");
-        @include jkl.text-style("small");
         text-transform: uppercase;
         content: attr(data-language);
+        @include jkl.use-font-family("Fremtind Grotesk");
+        @include jkl.text-style("small");
     }
 
     &__code {

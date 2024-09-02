@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:list";
 
 // Oppdater verdier i motion.ts også
 $_easings: (
@@ -41,7 +42,7 @@ $_timings: (
     @if map.has-key($timings, $mode) {
         @return map.get($timings, $mode);
     } @else {
-        @error 'Unable to find a mode for #{$mode}';
+        @error 'Unable to find a timing named #{$mode} in our supported timings';
     }
 }
 
@@ -49,9 +50,13 @@ $_timings: (
 /// Se også `timing`- og `easing`-funksjonene.
 /// @param {"standard" | "entrance" | "exit" | "easeInBounceOut" | "focus"} $name [standard] - Navn på easingen du ønsker verdien til
 /// @param {"energetic" | "snappy" | "productive" | "expressive" | "lazy"} $mode [productive] - Navn på timingen du ønsker verdien til
+/// @param $properties - Kommaseparert liste over egenskapene du ønsker å animere
 /// @see easing
 /// @see timing
-@mixin motion($name: "standard", $mode: "productive") {
+@mixin motion($name: "standard", $mode: "productive", $properties...) {
     transition-timing-function: easing($name);
     transition-duration: timing($mode);
+    @if list.length($properties) > 0 {
+        transition-property: $properties;
+    }
 }
