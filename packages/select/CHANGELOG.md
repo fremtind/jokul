@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.1.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@11.1.14...@fremtind/jkl-select@11.1.15) (2024-09-02)
+
+### Bug Fixes
+
+- sass-order in components used by doc-utils ([16cbbde](https://github.com/fremtind/jokul/commit/16cbbde31bed04b26442b2f7fa89cd447d65e55a)), closes [#4017](https://github.com/fremtind/jokul/issues/4017)
+
 ## [11.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@11.1.1...@fremtind/jkl-select@11.1.2) (2023-09-18)
 
 ### Bug Fixes
