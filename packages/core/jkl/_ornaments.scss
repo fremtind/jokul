@@ -19,3 +19,8 @@
     content: $content / ""; // Tom alternativ tekst
     alt: " "; // WebKit-alternativ, fases ut når varianten fra speccen er støttet
 }
+
+@mixin focus-outline($offset: 2px, $thickness: 2px) {
+    outline: $thickness solid var(--jkl-color-border-action);
+    outline-offset: $offset;
+}
