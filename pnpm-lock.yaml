@@ -406,7 +406,7 @@ importers:
 
   packages/contact-information-react:
     specifiers:
-      '@fremtind/jkl-contact-information': ^2.0.14
+      '@fremtind/jkl-contact-information': ^2.0.15
       '@fremtind/jkl-core': ^14.2.0
       '@fremtind/jkl-formatters-util': ^5.1.26
       classnames: ^2.3.2
@@ -424,7 +424,7 @@ importers:
 
   packages/content-toggle-react:
     specifiers:
-      '@fremtind/jkl-content-toggle': ^6.0.14
+      '@fremtind/jkl-content-toggle': ^6.0.15
       '@fremtind/jkl-core': ^14.2.0
       classnames: ^2.3.2
     dependencies:
@@ -638,7 +638,7 @@ importers:
   packages/footer-react:
     specifiers:
       '@fremtind/jkl-core': ^14.2.0
-      '@fremtind/jkl-footer': ^6.0.14
+      '@fremtind/jkl-footer': ^6.0.15
       '@fremtind/jkl-formatters-util': ^5.1.26
       '@fremtind/jkl-logo-react': ^13.1.6
       classnames: ^2.3.2
@@ -1128,8 +1128,8 @@ importers:
       '@fremtind/jkl-checkbox-react': ^11.1.30
       '@fremtind/jkl-combobox-react': ^2.3.39
       '@fremtind/jkl-constants-util': ^3.0.70
-      '@fremtind/jkl-contact-information-react': ^2.1.32
-      '@fremtind/jkl-content-toggle-react': ^6.0.15
+      '@fremtind/jkl-contact-information-react': ^2.1.33
+      '@fremtind/jkl-content-toggle-react': ^6.0.16
       '@fremtind/jkl-contextual-menu-react': ^3.4.32
       '@fremtind/jkl-cookie-consent-react': ^10.2.4
       '@fremtind/jkl-core': ^14.2.0
@@ -1138,7 +1138,7 @@ importers:
       '@fremtind/jkl-expand-button-react': ^7.0.12
       '@fremtind/jkl-feedback-react': ^18.0.22
       '@fremtind/jkl-file-input-react': ^2.3.16
-      '@fremtind/jkl-footer-react': ^6.1.32
+      '@fremtind/jkl-footer-react': ^6.1.33
       '@fremtind/jkl-formatters-util': ^5.1.26
       '@fremtind/jkl-icon-button-react': ^5.0.4
       '@fremtind/jkl-icons-react': ^9.1.2

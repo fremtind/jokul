@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-contact-information",
-    "version": "2.0.14",
+    "version": "2.0.15",
     "publishConfig": {
         "access": "public"
     },
