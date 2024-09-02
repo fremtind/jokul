@@ -130,18 +130,11 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         }
 
         // Focused state:
-        html:not([data-mousenavigation]) &:focus + .jkl-checkbox__label {
+        &:focus-visible + .jkl-checkbox__label {
             color: var(--jkl-checkbox-focus-color);
 
-            & > .jkl-checkbox__mark::before {
-                box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-checkbox-focus-color);
-
-                @include jkl.forced-colors-mode {
-                    border: 4px double ButtonText;
-                }
-            }
-
             & > .jkl-checkbox__mark {
+                @include jkl.focus-outline;
                 background-color: var(--jkl-checkbox-focus-background-color);
             }
         }
@@ -149,10 +142,6 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         // Disabled state:
         &:disabled + .jkl-checkbox__label {
             color: var(--jkl-checkbox-disabled-color);
-
-            &:hover .jkl-checkbox__mark {
-                box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
-            }
         }
     }
 
@@ -167,7 +156,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             color: var(--jkl-checkbox-focus-color);
 
             .jkl-checkbox__mark {
-                box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) currentColor;
+                outline: 1px solid currentColor;
 
                 @include jkl.forced-colors-mode {
                     &::before {
@@ -183,7 +172,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             color: var(--jkl-checkbox-color);
 
             .jkl-checkbox__mark {
-                box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
+                outline: 1px solid currentColor;
                 background-color: var(--jkl-checkbox-focus-background-color);
             }
         }
@@ -209,17 +198,10 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
 
         outline: none;
         border-radius: 0; // fixes rounded corners in iOS Safari
-        box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
+        border: 1px solid currentColor;
 
         @include jkl.motion;
-        transition-property: background-color, box-shadow;
-
-        // This is the basis of the focus ring
-        &::before {
-            content: "";
-            position: absolute;
-            inset: jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px);
-        }
+        transition-property: background-color;
 
         @include jkl.forced-colors-mode {
             outline: revert;
@@ -292,7 +274,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
     &--error {
         .jkl-checkbox__mark,
         & > .jkl-checkbox__label:active > .jkl-checkbox__mark,
-        html:not([data-mousenavigation]) & > .jkl-checkbox__input:focus + .jkl-checkbox__label > .jkl-checkbox__mark {
+        & > .jkl-checkbox__input:focus-visible + .jkl-checkbox__label > .jkl-checkbox__mark {
             background-color: var(--jkl-checkbox-error-background-color);
         }
 

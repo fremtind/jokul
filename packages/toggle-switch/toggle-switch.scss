@@ -60,7 +60,8 @@
 }
 
 .jkl-toggle-switch {
-    @include jkl.reset-outline;
+    --jkl-toggle-switch-knob-position: 0;
+
     background: transparent;
     color: var(--jkl-color);
     padding: 0;
@@ -75,12 +76,12 @@
 
     @include jkl.use-font-variables("jkl-toggle");
 
+    @include jkl.reset-outline;
+
     @include jkl.forced-colors-mode {
         border-color: transparent;
         border-style: none;
     }
-
-    --jkl-toggle-switch-knob-position: 0;
 
     &[aria-pressed="true"],
     [aria-checked="true"] > & {
@@ -130,11 +131,8 @@
         border: jkl.rem(1px) solid ButtonText;
     }
 
-    :focus > & {
-        @include jkl.keyboard-navigation {
-            outline: jkl.rem(2px) solid var(--jkl-color);
-            outline-offset: jkl.rem(2px);
-        }
+    &:focus-visible {
+        @include jkl.focus-outline;
     }
 
     &__slider {

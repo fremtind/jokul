@@ -4,11 +4,6 @@
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
 }
 
-@mixin _link-outline {
-    outline: jkl.rem(2px) solid var(--jkl-link-active-color);
-    outline-offset: jkl.rem(2px);
-}
-
 $_right-arrow: "\2192"; // unicode right arrow
 $_left-arrow: "\2190"; // unicode left arrow
 $_north-east-arrow: "\2197"; // unicode north east arrow (up/right)
@@ -47,8 +42,8 @@ $_link-underline-thickness--focus: jkl.rem(2px);
         @include _underline-gradient(var(--jkl-link-hover-color));
     }
 
-    html:not([data-mousenavigation]) &:focus {
-        @include _link-outline;
+    &:focus-visible {
+        @include jkl.focus-outline;
         background: none;
     }
 
@@ -100,8 +95,8 @@ $_link-underline-thickness--focus: jkl.rem(2px);
         }
     }
 
-    html:not([data-mousenavigation]) &:focus {
-        @include _link-outline;
+    &:focus-visible {
+        @include jkl.focus-outline;
 
         &::after {
             padding-left: 0.7em;
@@ -135,7 +130,7 @@ $_link-underline-thickness--focus: jkl.rem(2px);
     }
 
     &:hover,
-    html:not([data-mousenavigation]) &:focus {
+    &:focus-visible {
         &::before {
             transform: translateX(-33%);
         }

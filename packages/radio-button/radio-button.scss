@@ -116,12 +116,13 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         }
 
         // Focused state
-        html:not([data-mousenavigation]) &:focus {
+        &:focus-visible {
             + .jkl-radio-button__label {
                 color: var(--jkl-radio-button-focus-color);
 
                 & > .jkl-radio-button__dot {
                     background-color: var(--jkl-radio-button-focus-background-color);
+                    @include jkl.focus-outline;
                 }
 
                 & > .jkl-radio-button__dot::before {
@@ -207,16 +208,6 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
                 top: jkl.rem(3px);
                 left: jkl.rem(3px);
             }
-        }
-
-        // Focus ring
-        &::before {
-            content: "";
-            position: absolute;
-            inset: jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px);
-            border-radius: 50%;
-
-            box-shadow: 0 0 0 jkl.rem(1px) transparent;
         }
 
         @include jkl.forced-colors-mode {
