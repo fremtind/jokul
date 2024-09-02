@@ -100,11 +100,11 @@ $_text-input-selection-color--inverted: color.scale(
     background: none;
     -webkit-appearance: none;
     padding: 0;
+    color: var(--jkl-color);
+
+    @include jkl.use-font-variables("jkl-text-input");
     @include jkl.reset-outline;
     @include jkl.remove-inner-outer-button;
-    @include jkl.use-font-variables("jkl-text-input");
-
-    color: var(--jkl-color);
 
     // Placeholder text style
     &::placeholder {
@@ -157,7 +157,6 @@ $_text-input-selection-color--inverted: color.scale(
 }
 
 .jkl-text-input-action-button {
-    @include jkl.reset-outline;
     flex-shrink: 0;
     display: flex;
     box-sizing: border-box;
@@ -172,6 +171,8 @@ $_text-input-selection-color--inverted: color.scale(
 
     // Unngå for langt mellomrom mellom ikon og teksten i feltet
     margin-inline-start: calc(var(--jkl-text-input-horizontal-padding) * -1);
+
+    @include jkl.reset-outline;
 
     .jkl-icon-button__icon {
         height: var(--jkl-text-input-action-button-icon-size);
@@ -253,9 +254,9 @@ $_text-input-selection-color--inverted: color.scale(
     align-items: flex-start;
 
     &__input {
-        @include _shared-input-styles;
         padding: var(--jkl-text-input-padding);
         width: 100%;
+        @include _shared-input-styles;
 
         &--align-right {
             text-align: right;
@@ -284,10 +285,6 @@ $_text-input-selection-color--inverted: color.scale(
     width: 100%;
 
     &__text-area {
-        @include _shared-input-styles;
-        @include jkl.motion;
-
-        transition-property: height, min-height, max-height, padding;
         scrollbar-color: var(--jkl-color) transparent; // Unngå at scrollbar ligger oppå rammen
         box-sizing: border-box;
         resize: none; // Fjern mulighet for resizing av feltet
@@ -296,6 +293,10 @@ $_text-input-selection-color--inverted: color.scale(
         max-height: var(--jkl-text-input-height);
         height: var(--jkl-text-input-height);
         min-height: var(--jkl-text-input-height);
+
+        @include jkl.motion;
+        transition-property: height, min-height, max-height, padding;
+        @include _shared-input-styles;
     }
 
     .jkl-text-input-wrapper {
@@ -339,9 +340,9 @@ $_text-input-selection-color--inverted: color.scale(
             right: 0;
 
             &-count {
-                @include jkl.text-style("small");
                 padding: var(--jkl-text-input-padding);
                 color: var(--jkl-text-area-counter-count-color);
+                @include jkl.text-style("small");
             }
 
             &-progress {
