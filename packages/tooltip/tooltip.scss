@@ -39,6 +39,7 @@ $_focus-ring-width: jkl.rem(2px);
     background-color: unset;
     padding: unset;
     color: unset;
+
     @include jkl.reset-outline;
 
     &:focus {
@@ -94,7 +95,6 @@ $_focus-ring-width: jkl.rem(2px);
 }
 
 .jkl-tooltip-question-button {
-    @include jkl.reset-outline;
     @include jkl.motion("exit", "snappy");
     transition-property: color;
     cursor: pointer;
@@ -105,6 +105,8 @@ $_focus-ring-width: jkl.rem(2px);
     color: var(--jkl-tooltip-button-color);
     transform: translateY(max(0.16em, jkl.rem(4px))); // Cap på 4px
     font-size: 1.2em;
+
+    @include jkl.reset-outline;
 
     &:hover {
         color: var(--jkl-tooltip-active-button-color);

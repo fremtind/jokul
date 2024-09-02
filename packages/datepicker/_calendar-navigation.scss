@@ -21,7 +21,6 @@
     align-items: center;
 
     &__arrow {
-        @include jkl.reset-outline;
         display: inline-flex;
         position: relative;
         cursor: pointer;
@@ -34,6 +33,8 @@
         color: var(--jkl-calendar-text-color);
         width: jkl.rem(40px);
         height: jkl.rem(40px);
+
+        @include jkl.reset-outline;
 
         &:hover {
             color: var(--jkl-calendar-navigation-arrow-focus-color);
