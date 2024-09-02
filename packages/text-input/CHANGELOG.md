@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.1.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@12.1.14...@fremtind/jkl-text-input@12.1.15) (2024-09-02)
+
+### Bug Fixes
+
+- fiks sass deprecation warnings i text-input ([40a1f9a](https://github.com/fremtind/jokul/commit/40a1f9aa51a8fa97a722e06b3e2cc205125da066))
+
 ## 12.1.10 (2024-08-05)
 
 ### Bug Fixes

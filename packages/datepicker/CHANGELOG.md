@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.1.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker@12.1.16...@fremtind/jkl-datepicker@12.1.17) (2024-09-02)
+
+### Bug Fixes
+
+- fiks sass deprecation warnings i datepicker ([4ceca06](https://github.com/fremtind/jokul/commit/4ceca0603d685eed0d30eff8838025ddef4e7152))
+
 ## 12.1.13 (2024-08-19)
 
 ### Bug Fixes

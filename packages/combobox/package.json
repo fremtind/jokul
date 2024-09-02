@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-combobox",
-    "version": "2.2.12",
+    "version": "2.2.13",
     "publishConfig": {
         "access": "public"
     },
