@@ -31,6 +31,8 @@ export type CardProps<ElementType extends React.ElementType> = PolymorphicPropsW
          * Angir om kortet visuelt skal fremstå som klikkbart. Du må selv rendre
          * kortet som et klikkbart element (f.eks. `<a>` eller en `<Link>` fra
          * et ruting-bibliotek) og gi det en `href` eller `onClick`-handler.
+         * HUSK: Sett aria-label for at støtteverktøy, som skjermlesere, ikke
+         * skal lese alt innholdet i kortet.
          */
         clickable?: boolean;
     }
