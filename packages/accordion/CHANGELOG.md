@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.3 (2024-09-03)
+
+### Bug Fixes
+
+- temporarily revert back from vite ([71c4f00](https://github.com/fremtind/jokul/commit/71c4f005fd1f9bee6ad35479d913005123bb53c5))
+
 ## 12.0.2 (2024-09-02)
 
 ### Bug Fixes
