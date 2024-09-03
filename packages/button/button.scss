@@ -49,7 +49,6 @@ a.jkl-button {
     --focus-color: var(--jkl-color-background-action);
     --background-color: transparent;
 
-    @include jkl.reset-outline;
     display: inline-flex;
     box-sizing: border-box;
     justify-content: center;
@@ -70,7 +69,9 @@ a.jkl-button {
     transform-origin: 50% 90%;
     transition-property: transform, background-color;
 
-    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+    @include jkl.reset-outline;
+
+    &:focus-visible,
     html:not([data-touchnavigation]) &:hover {
         transform: scale(1.05);
     }
@@ -81,9 +82,8 @@ a.jkl-button {
         transform: scale(1);
     }
 
-    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
-        outline: $_focus-ring-width solid var(--focus-color);
-        outline-offset: jkl.rem(2px);
+    &:focus-visible {
+        @include jkl.focus-outline;
     }
 
     html[data-touchnavigation] &--pressed {
@@ -139,7 +139,7 @@ a.jkl-button {
         border-radius: jkl.rem(4px);
         padding: 0 jkl.$spacing-4;
 
-        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+        &:focus-visible,
         html:not([data-touchnavigation]) &:hover {
             --background-color: var(--jkl-color-background-interactive-hover);
             transform: scale(1);
@@ -163,7 +163,7 @@ a.jkl-button {
         transition-property: box-shadow, transform, background-color;
 
         &:hover,
-        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+        &:focus-visible,
         html[data-touchnavigation] &.jkl-button--pressed {
             box-shadow: inset 0 0 0 1px var(--border-color), inset 0 0 0 1px var(--border-color);
         }
@@ -191,21 +191,11 @@ a.jkl-button {
             background-color: transparent;
         }
 
-        &::after {
-            border: solid $_focus-ring-width transparent;
-            box-shadow: none;
-            transition: box-shadow $_animation-timing;
-            content: "";
-            position: absolute;
-            inset: (-($_button-border-width)) (-($_button-border-width)) (-($_button-border-width))
-                (-($_button-border-width));
-        }
-
         html[data-touchnavigation] &.jkl-button--pressed::before {
             animation: jkl.easing("easeInBounceOut") jkl.timing("lazy") $_tertiary-flash-animation-name;
         }
 
-        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
+        &:focus-visible {
             border: none;
 
             @include jkl.forced-colors-mode {
@@ -214,7 +204,7 @@ a.jkl-button {
         }
 
         &:hover,
-        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus,
+        &:focus-visible,
         html[data-touchnavigation] &.jkl-button--pressed {
             border-bottom-color: var(--focus-color);
             border-bottom-width: $_focus-ring-width;
@@ -268,18 +258,8 @@ a.jkl-button {
             background-color: ButtonText;
         }
 
-        &.jkl-button--secondary::after {
-            // Selve knappen har en border, men med to borders er secondary for lik primary uten farger.
-            // Gjør så secondary har _en_ border for å differensiere visuelt i forced-colors-modus.
-            border: none;
-        }
-
         &.jkl-button--tertiary {
             outline-offset: jkl.$spacing-3xs;
-        }
-
-        &.jkl-button--tertiary,
-        &.jkl-button--tertiary::after {
             border-top-style: none;
             border-right-style: none;
             border-left-style: none;

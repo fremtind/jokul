@@ -20,15 +20,14 @@
 }
 
 .jkl-icon-button {
-    @include jkl.reset-outline;
-    @include jkl.motion(focus, snappy);
-
     background-color: transparent;
     cursor: pointer;
     color: inherit;
     position: relative;
     transition-property: box-shadow;
-    border-radius: jkl.rem(3px);
+
+    @include jkl.motion(focus, snappy);
+    @include jkl.reset-outline;
 
     .jkl-icon {
         display: flex;
@@ -44,25 +43,12 @@
         color: var(--jkl-icon-button-focus-color);
     }
 
-    &::after {
-        $_button-border-gap: jkl.rem(1px); // Synlig border i forced-colors
-        content: "";
-        position: absolute;
-        inset: (-($_button-border-gap)) $_button-border-gap (-($_button-border-gap)) $_button-border-gap;
-        box-shadow: none;
-    }
+    &:focus-visible {
+        color: var(--jkl-icon-button-focus-color);
 
-    @include jkl.keyboard-navigation {
-        &:focus {
-            color: var(--jkl-icon-button-focus-color);
-
-            &::after {
-                box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-icon-button-border-color);
-            }
-
-            @include jkl.forced-colors-mode {
-                border: revert;
-            }
+        @include jkl.focus-outline;
+        @include jkl.forced-colors-mode {
+            border: revert;
         }
     }
 
