@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.0.12 (2024-09-03)
+
+### Bug Fixes
+
+- bruk outline i stedet for box-shadow for fokusringer ([9aca3f7](https://github.com/fremtind/jokul/commit/9aca3f7505079d8afd5b57c36011a5c7637cee89))
+
 ## 11.0.6 (2024-01-19)
 
 ### Bug Fixes
