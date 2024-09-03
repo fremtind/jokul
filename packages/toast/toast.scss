@@ -53,7 +53,6 @@
 }
 
 .jkl-toast {
-    @include jkl.text-style("body");
     color: var(--jkl-toast-color);
     background-color: var(--jkl-toast-background-color);
     border-radius: 4px;
@@ -65,6 +64,8 @@
     max-width: min(30rem, 85vw);
     padding: var(--jkl-toast-padding);
     padding-top: 0;
+
+    @include jkl.text-style("body");
 
     @include jkl.small-device {
         grid-template-areas:
@@ -107,8 +108,8 @@
     }
 
     &__title {
-        @include jkl.text-style("heading-4");
         margin: 0 0 jkl.$spacing-4 0;
+        @include jkl.text-style("heading-4");
 
         & ~ .jkl-toast__message {
             margin-top: 0; // Unset offset satt for å aligne med ikon hvis uten tittel.
@@ -116,14 +117,12 @@
     }
 
     &__dismiss-button {
-        @include jkl.reset-outline;
         grid-area: dismiss;
         justify-self: end;
         position: relative;
         margin-left: var(--jkl-toast-gap);
 
         background-color: transparent;
-        border-radius: jkl.rem(3px);
         padding: 0;
         cursor: pointer;
 
@@ -139,17 +138,7 @@
             content: "";
             position: absolute;
             inset: var(--tap-increment) var(--tap-increment) var(--tap-increment) var(--tap-increment);
-        }
-
-        &:focus {
-            @include jkl.keyboard-navigation {
-                outline: 2px solid var(--jkl-color);
-
-                @include jkl.forced-colors-mode {
-                    outline: 2px solid ButtonText;
-                    outline-offset: 2px;
-                }
-            }
+            border-radius: jkl.rem(3px);
         }
     }
 

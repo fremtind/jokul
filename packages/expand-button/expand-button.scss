@@ -38,26 +38,12 @@
         display: none;
     }
 
-    &::after {
-        $_expand-button-border-width: jkl.rem(1px);
-        border: solid $_focus-ring-width transparent;
-        box-shadow: none;
-        transition: box-shadow $_animation-timing;
-        content: "";
-        position: absolute;
-        inset: (-($_expand-button-border-width)) (-($_expand-button-border-width)) (-($_expand-button-border-width))
-            (-($_expand-button-border-width));
-    }
-
-    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
+    &:focus-visible {
         border: none;
         color: var(--jkl-expand-button-focus-color);
 
+        @include jkl.focus-outline;
         @include _expanded-arrow(3px);
-
-        &::after {
-            box-shadow: 0 0 0 $_focus-ring-width var(--jkl-expand-button-focus-color);
-        }
     }
 
     &:hover {
