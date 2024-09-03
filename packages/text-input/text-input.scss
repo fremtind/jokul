@@ -99,7 +99,6 @@ $_text-input-selection-color--inverted: color.scale(
 @mixin _shared-input-styles {
     background: none;
     -webkit-appearance: none;
-    padding: 0;
     color: var(--jkl-color);
 
     @include jkl.use-font-variables("jkl-text-input");
