@@ -78,7 +78,13 @@ export const NavCard: FC<NavCardProps> = React.forwardRef<HTMLAnchorElement, Nav
     const tagArr = !tag ? undefined : Array.isArray(tag) ? tag : [tag];
 
     return (
-        <Component ref={ref} className={cn("jkl-nav-card", className)} data-density={density} {...rest}>
+        <Component
+            ref={ref}
+            aria-label={title}
+            className={cn("jkl-nav-card", className)}
+            data-density={density}
+            {...rest}
+        >
             {image && <Image className="jkl-nav-card__image" {...image} />}
             <div className="jkl-nav-card__content" style={getPaddingStyles(padding)}>
                 {tagArr && (
