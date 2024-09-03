@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.1.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@12.1.16...@fremtind/jkl-text-input@12.1.17) (2024-09-03)
+
+### Bug Fixes
+
+- restore padding to inputs ([c74fe7f](https://github.com/fremtind/jokul/commit/c74fe7f4b716b7b3090657a25fbf5a7be8e88fc3)), closes [#4032](https://github.com/fremtind/jokul/issues/4032)
+
 ## [12.1.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@12.1.14...@fremtind/jkl-text-input@12.1.15) (2024-09-02)
 
 ### Bug Fixes
