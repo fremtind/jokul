@@ -5,6 +5,8 @@ on:
         branches:
             - main
 
+run-name: Publiserer endrede pakker. Siste commit er ${{ github.event.head_commit.message }}
+
 jobs:
     build-and-publish:
         name: Build and publish
