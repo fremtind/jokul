@@ -25,7 +25,6 @@
 }
 
 .jkl-contextual-menu-item {
-    @include jkl.reset-outline;
     background-color: transparent;
     color: var(--jkl-color);
     cursor: pointer;
@@ -39,6 +38,8 @@
     width: 100%;
     height: var(--jkl-contextual-menu-item-height);
     padding: var(--jkl-contextual-menu-item-padding);
+
+    @include jkl.reset-outline;
 
     &__content {
         display: flex;
