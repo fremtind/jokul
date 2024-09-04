@@ -4,6 +4,8 @@ on:
     pull_request:
         types: [closed]
 
+run-name: Fjerner preview-branch for "${{ github.event.pull_request.title }}"
+
 jobs:
     remove-preview:
         runs-on: ubuntu-20.04
