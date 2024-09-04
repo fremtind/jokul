@@ -79,8 +79,6 @@
     &__previous,
     &__next,
     &__page {
-        @include jkl.reset-outline;
-
         background: transparent;
         color: var(--jkl-link-color);
         border-radius: jkl.rem(3px);
@@ -89,6 +87,8 @@
         padding: 0;
         height: $_button-size;
         min-width: $_button-size;
+
+        @include jkl.reset-outline;
 
         &:hover:not(:focus) {
             color: var(--jkl-link-hover-color);

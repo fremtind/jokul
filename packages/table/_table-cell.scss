@@ -42,9 +42,9 @@
     }
 
     @mixin _responsive-table-header {
-        @include jkl.text-style("heading-5");
         content: attr(data-th);
         display: block;
+        @include jkl.text-style("heading-5");
     }
 
     // only show inline text if it's not an ExpandController with text inside. if it doesn't
