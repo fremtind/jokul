@@ -123,6 +123,10 @@ jobs:
                   restore-keys: |
                       nx-${{ hashFiles('pnpm-lock.yaml') }}-
 
+              # Steget må være med, men vil være cachet
+            - name: Install dependencies and build packages
+              run: pnpm ci:install
+
             - name: Add a comment with a link to the preview
               uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
               with:
@@ -187,6 +191,7 @@ jobs:
                   restore-keys: |
                       nx-${{ hashFiles('pnpm-lock.yaml') }}-
 
+              # Steget må være med, men vil være cachet
             - name: Install dependencies and build packages
               run: pnpm ci:install
 
