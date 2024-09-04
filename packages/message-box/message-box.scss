@@ -90,7 +90,6 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &__dismiss-button {
-        @include jkl.reset-outline;
         grid-area: dismiss;
         justify-self: end;
         position: relative;
@@ -102,6 +101,8 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         cursor: pointer;
 
         color: inherit;
+
+        @include jkl.reset-outline;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         @include jkl.forced-colors-mode {
             background-color: ButtonFace;
