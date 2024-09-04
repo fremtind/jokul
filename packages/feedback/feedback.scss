@@ -39,9 +39,9 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     }
 
     &__step-counter {
-        @include jkl.text-style("body");
         color: var(--jkl-feedback-step-color);
         margin-bottom: jkl.$spacing-m;
+        @include jkl.text-style("body");
     }
 
     &__fade-in {
