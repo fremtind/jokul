@@ -36,6 +36,14 @@
     --border-radius: #{jkl.rem(4px)};
     --background-color: var(--jkl-color-background-container);
 
+    overflow: hidden;
+    display: block;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+    text-decoration: none;
+    color: var(--jkl-color-text-default);
+
     &[data-padding="xs"] {
         --padding: var(--jkl-card-padding-xs);
     }
@@ -82,14 +90,6 @@
             box-shadow: jkl.$shadow-navigation--hover;
         }
     }
-
-    overflow: hidden;
-    display: block;
-    background-color: var(--background-color);
-    border-radius: var(--border-radius);
-    padding: var(--padding);
-    text-decoration: none;
-    color: var(--jkl-color-text-default);
 }
 
 .jkl-card-image {

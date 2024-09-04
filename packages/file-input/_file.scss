@@ -28,8 +28,6 @@
 }
 
 .jkl-file {
-    @include jkl.reset-outline;
-    @include jkl.text-style("small");
     @include jkl.motion("standard", "snappy");
     transition-property: background-color, border-color, color;
 
@@ -43,6 +41,9 @@
     flex-flow: nowrap row;
     gap: var(--jkl-file-gap);
     align-items: center;
+
+    @include jkl.text-style("small");
+    @include jkl.reset-outline;
 
     a {
         cursor: pointer;
