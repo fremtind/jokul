@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.5 (2024-09-04)
+
+### Bug Fixes
+
+- build with vite ([4509712](https://github.com/fremtind/jokul/commit/4509712ae89be1949f1890c45d470707da66157d))
+
 ## 12.0.3 (2024-09-03)
 
 ### Bug Fixes
