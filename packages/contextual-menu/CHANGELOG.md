@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contextual-menu@2.1.13...@fremtind/jkl-contextual-menu@2.1.14) (2024-09-04)
+
+### Bug Fixes
+
+- sass-rekkefølge i contextual-menu ([326c4ae](https://github.com/fremtind/jokul/commit/326c4aea86c2b96eebc267834a46471decefe2d2))
+
 # 2.1.0 (2023-09-18)
 
 ### Features

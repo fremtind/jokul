@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@9.1.8...@fremtind/jkl-table@9.1.9) (2024-09-04)
+
+### Bug Fixes
+
+- sass-rekkefølge i table ([e7b966c](https://github.com/fremtind/jokul/commit/e7b966c3544840040a5e0a93959c3373f109baa1))
+
 ## 9.1.4 (2024-08-19)
 
 ### Bug Fixes
