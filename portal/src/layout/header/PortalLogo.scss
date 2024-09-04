@@ -11,15 +11,16 @@
 }
 
 .jkl-portal-logo {
-    @include jkl.reset-outline;
     padding: 0;
     background-color: transparent;
     cursor: pointer;
+    color: var(--portal-logo-color);
+    text-decoration: none;
     @include jkl.text-style("heading-4") {
         font-weight: jkl.$typography-weight-normal;
     }
-    color: var(--portal-logo-color);
-    text-decoration: none;
+
+    @include jkl.reset-outline;
 
     &:hover {
         color: var(--portal-logo-color-hover);

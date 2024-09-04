@@ -57,10 +57,10 @@ $_paragraph-max-width: jkl.rem(750px);
 
 .jkl-portal {
     @include jkl.motion;
-    @include jkl.text-style("body");
-
     transition-property: color;
     transition-delay: jkl.timing("productive");
+
+    @include jkl.text-style("body");
 
     &__sidebar {
         display: none;

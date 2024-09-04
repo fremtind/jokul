@@ -3,16 +3,16 @@
 .jkl-portal-github-links {
     --portal-gh-link-version-color: var(--portal-subdued-text-color);
 
-    @include jkl.text-style("body");
     margin-block-end: jkl.$spacing-2xl;
+    @include jkl.text-style("body");
 
     &__link:not(:last-child) {
         margin-inline-end: jkl.$spacing-l;
     }
 
     &__version {
-        @include jkl.text-style("small");
         color: var(--portal-gh-link-version-color);
         margin-inline-start: jkl.$spacing-xs;
+        @include jkl.text-style("small");
     }
 }

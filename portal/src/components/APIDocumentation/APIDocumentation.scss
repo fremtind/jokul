@@ -31,10 +31,10 @@
 
 .jkl-portal-api-docs {
     &__external-props-header {
+        margin: jkl.$spacing-xl 0 jkl.$spacing-l;
         @include jkl.text-style("body") {
             font-weight: jkl.$typography-weight-bold;
         }
-        margin: jkl.$spacing-xl 0 jkl.$spacing-l;
     }
 }
 

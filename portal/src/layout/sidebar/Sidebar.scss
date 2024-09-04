@@ -29,7 +29,7 @@ $animation-timing: jkl.timing("expressive") jkl.easing("exit") both;
     position: relative;
 
     &__link {
-        @include jkl.text-style("body");
         display: block;
+        @include jkl.text-style("body");
     }
 }

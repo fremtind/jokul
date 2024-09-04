@@ -12,7 +12,7 @@
     }
 
     &__caption {
-        @include jkl.text-style("small");
         margin-top: jkl.$spacing-s;
+        @include jkl.text-style("small");
     }
 }

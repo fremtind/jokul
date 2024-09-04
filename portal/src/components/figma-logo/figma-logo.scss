@@ -1,12 +1,12 @@
 @use "@fremtind/jkl-core/jkl";
 
 .jkl-portal-figma-logo {
-    @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
-
     display: inline-block;
     position: relative;
     height: 1em;
     width: 0.8em;
+
+    @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
 
     & > svg {
         position: absolute;

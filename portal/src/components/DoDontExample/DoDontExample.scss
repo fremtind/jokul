@@ -44,10 +44,10 @@
     }
 
     &__heading {
-        @include jkl.text-style("heading-4");
-
         margin-top: jkl.$spacing-m;
         margin-bottom: jkl.$spacing-2xs;
+
+        @include jkl.text-style("heading-4");
     }
 
     &__description {
