@@ -28,7 +28,7 @@
         "@fremtind/jkl-core": "^14.2.1"
     },
     "scripts": {
-        "clean": "rimraf .turbo **/*.css",
+        "clean": "git clean -xfd",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",

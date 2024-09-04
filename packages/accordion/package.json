@@ -17,7 +17,7 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "rimraf .turbo *.css",
+        "clean": "git clean -xfd",
         "build": "node build.js",
         "build:watch": "nodemon build.js",
         "test": "echo \"Error: run tests from root\" && exit 1",
