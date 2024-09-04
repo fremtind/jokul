@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [20.1.20](https://github.com/fremtind/jokul/compare/@fremtind/portal@20.1.19...@fremtind/portal@20.1.20) (2024-09-04)
+
+### Bug Fixes
+
+- sass-rekkefølge i portalen ([38d2dd5](https://github.com/fremtind/jokul/commit/38d2dd511494cd038afbf1faff62c1f1e42a6fef))
+
 ## [20.1.8](https://github.com/fremtind/jokul/compare/@fremtind/portal@20.1.7...@fremtind/portal@20.1.8) (2024-08-29)
 
 ### Bug Fixes

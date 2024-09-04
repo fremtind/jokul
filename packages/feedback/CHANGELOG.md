@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [13.0.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback@13.0.16...@fremtind/jkl-feedback@13.0.17) (2024-09-04)
+
+### Bug Fixes
+
+- sass-rekkefølge i feedback ([412c0da](https://github.com/fremtind/jokul/commit/412c0da244a3881e560e4e54cb7327c3dc4f357e))
+
 # 13.0.0 (2023-07-07)
 
 ### chore

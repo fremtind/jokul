@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-cookie-consent-react",
-    "version": "10.2.6",
+    "version": "10.2.7",
     "publishConfig": {
         "access": "public"
     },
@@ -39,7 +39,7 @@
     "dependencies": {
         "@fremtind/jkl-button-react": "^15.1.12",
         "@fremtind/jkl-checkbox-react": "^11.1.32",
-        "@fremtind/jkl-cookie-consent": "^11.0.16",
+        "@fremtind/jkl-cookie-consent": "^11.0.17",
         "@fremtind/jkl-core": "^14.2.2",
         "@fremtind/jkl-list-react": "^10.2.5",
         "@fremtind/jkl-modal-react": "^2.1.38",

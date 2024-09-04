@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.18](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input@2.0.17...@fremtind/jkl-file-input@2.0.18) (2024-09-04)
+
+### Bug Fixes
+
+- sass-rekkefølge i file-input ([7914935](https://github.com/fremtind/jokul/commit/79149350b1784e994014d03825bf7344f3a69746))
+
 ## 2.0.10 (2024-06-06)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@12.0.5...@fremtind/jkl-card@12.0.6) (2024-09-04)
+
+### Bug Fixes
+
+- sass-rekkefølge i card ([ab9ceb9](https://github.com/fremtind/jokul/commit/ab9ceb916c56efd3484ca7233226572b88031a7d))
+
 # 12.0.0 (2024-08-14)
 
 ### Features

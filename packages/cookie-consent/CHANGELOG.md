@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.0.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent@11.0.16...@fremtind/jkl-cookie-consent@11.0.17) (2024-09-04)
+
+### Bug Fixes
+
+- sass-rekkefølge i cookie-consent ([412e7b7](https://github.com/fremtind/jokul/commit/412e7b7b4fa06b3a7068e441e13650d6616f4944))
+
 # 11.0.0 (2023-07-07)
 
 ### chore

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-contextual-menu",
-    "version": "2.1.13",
+    "version": "2.1.14",
     "publishConfig": {
         "access": "public"
     },
