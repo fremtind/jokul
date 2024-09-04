@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@12.0.14...@fremtind/jkl-card-react@12.0.15) (2024-09-04)
+
+### Bug Fixes
+
+- legg til aria-label og tekst om skjermlesere på NavCard og Card ([64e7215](https://github.com/fremtind/jokul/commit/64e7215c21d37a564a25973d82201a473c692c1c))
+
 # [12.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@11.3.17...@fremtind/jkl-card-react@12.0.0) (2024-08-14)
 
 ### Features

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select",
-    "version": "11.1.16",
+    "version": "11.1.17",
     "publishConfig": {
         "access": "public"
     },
@@ -26,7 +26,7 @@
         "dev": "echo \"Error: run dev from select-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.2.1"
+        "@fremtind/jkl-core": "^14.2.2"
     },
     "repository": {
         "type": "git",
