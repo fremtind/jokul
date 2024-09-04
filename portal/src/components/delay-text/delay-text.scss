@@ -17,8 +17,8 @@
         width: 100%;
 
         &::after {
-            @include jkl.decorative($content: "_");
             opacity: 1;
+            @include jkl.decorative($content: "_");
         }
 
         &--done {

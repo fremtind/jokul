@@ -21,10 +21,10 @@
     }
 
     &__root-item {
-        @include jkl.text-style("body");
         display: inline-block;
         height: 100%;
         color: inherit;
+        @include jkl.text-style("body");
 
         &:not(:last-child) {
             margin-right: jkl.$spacing-xl;
@@ -32,7 +32,6 @@
     }
 
     &__root-link {
-        @include jkl.reset-outline;
         background-color: transparent;
         color: inherit;
         cursor: pointer;
@@ -45,6 +44,8 @@
 
         @include jkl.motion;
         transition-property: box-shadow;
+
+        @include jkl.reset-outline;
 
         html:not([data-mousenavigation]) &:focus {
             @include jkl.no-grow-bold;
@@ -92,7 +93,6 @@
     }
 
     &__back-button {
-        @include jkl.reset-outline;
         padding: 0;
         cursor: pointer;
         background-color: transparent;
@@ -100,6 +100,8 @@
         line-height: relative-size(40, 375, 812);
         @include jkl.motion;
         transition-property: transform;
+
+        @include jkl.reset-outline;
 
         &::after {
             @include jkl.motion;

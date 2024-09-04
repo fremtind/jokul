@@ -30,10 +30,10 @@ $farger: (
     }
 
     &__name {
+        margin-top: jkl.$spacing-4;
         @include jkl.text-style("small") {
             font-weight: jkl.$typography-weight-bold;
         }
-        margin-top: jkl.$spacing-4;
     }
 
     &__value {

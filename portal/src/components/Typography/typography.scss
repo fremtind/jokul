@@ -41,16 +41,15 @@ $_paragraph-max-width: jkl.rem(750px);
 
 .jkl-portal-blockquote {
     max-width: $_paragraph-max-width;
+    color: var(--blockquote-color);
+    margin: 0;
+    padding-left: jkl.$spacing-l;
+    border-left: jkl.rem(5px) solid var(--blockquote-line-color);
 
     @include jkl.text-style("heading-3") {
         font-weight: jkl.$typography-weight-normal;
         font-style: italic;
     }
-
-    color: var(--blockquote-color);
-    margin: 0;
-    padding-left: jkl.$spacing-l;
-    border-left: jkl.rem(5px) solid var(--blockquote-line-color);
 
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-xl;

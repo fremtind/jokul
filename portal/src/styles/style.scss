@@ -13,7 +13,7 @@ pre {
 h2,
 h3,
 .jkl-portal-scroll-anchor {
-    @include jkl.reset-outline;
-
     scroll-margin-top: $header-height;
+
+    @include jkl.reset-outline;
 }
