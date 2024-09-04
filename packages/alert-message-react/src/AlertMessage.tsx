@@ -7,6 +7,10 @@ import { MessageIcon } from "./common/MessageIcon";
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
+/**
+ * @deprecated Denne komponenten blir omdøpt til SystemMessage
+ */
+
 interface Props extends WithChildren {
     id?: string;
     className?: string;
