@@ -29,7 +29,6 @@
     }
 
     &__card {
-        @include jkl.reset-outline;
         cursor: pointer;
         text-align: left;
         position: absolute;
@@ -43,6 +42,8 @@
 
         @include jkl.motion("standard", "expressive");
         transition-property: box-shadow;
+
+        @include jkl.reset-outline;
 
         &__arrow {
             @include jkl.motion("standard", "expressive");

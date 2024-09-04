@@ -30,7 +30,6 @@ $_kbar-padding: $_kbar-padding-block $_kbar-padding-inline;
 }
 
 .kbar-search {
-    @include jkl.text-style("body");
     padding: $_kbar-padding;
     width: 100%;
     box-sizing: border-box;
@@ -38,11 +37,12 @@ $_kbar-padding: $_kbar-padding-block $_kbar-padding-inline;
     border: none;
     background: var(--jkl-background-color);
     color: var(--jkl-color);
+    @include jkl.text-style("body");
 }
 
 .kbar-group-name {
-    @include jkl.text-style("heading-5");
     padding: $_kbar-padding;
+    @include jkl.text-style("heading-5");
 }
 
 .kbar-result-item {
@@ -59,10 +59,10 @@ $_kbar-padding: $_kbar-padding-block $_kbar-padding-inline;
     }
 
     &__wrapper {
-        @include jkl.text-style("body");
         display: flex;
         gap: jkl.rem(8px);
         align-items: center;
+        @include jkl.text-style("body");
     }
 
     &__content {
@@ -90,9 +90,9 @@ $_kbar-padding: $_kbar-padding-block $_kbar-padding-inline;
     gap: jkl.rem(4px);
 
     &__key {
-        @include jkl.text-style("small");
         padding: jkl.rem(4px) jkl.rem(6px);
         background: var(--kbar-kbd);
         border-radius: jkl.rem(4px);
+        @include jkl.text-style("small");
     }
 }

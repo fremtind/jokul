@@ -11,10 +11,10 @@
     }
 
     &__content {
-        @include jkl.reset-outline;
-
         background-color: transparent;
         padding: 0;
+
+        @include jkl.reset-outline;
 
         &:not(:disabled) {
             cursor: pointer;
