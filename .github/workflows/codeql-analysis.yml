@@ -13,6 +13,8 @@ on:
     schedule:
         - cron: "0 18 * * 3"
 
+run-name: Sjekker kodekvalitet for commit ${{ github.sha }}
+
 jobs:
     analyze:
         name: Analyze

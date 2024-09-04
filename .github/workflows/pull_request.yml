@@ -6,6 +6,8 @@ on:
     merge_group:
         types: [checks_requested]
 
+run-name: Bygger og tester ${{ github.event_name == 'merge_group' && github.event.merge_group.head_commit.message || github.event.pull_request.title }}
+
 env:
     PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
     PREFIX_PATHS: true
@@ -25,6 +27,7 @@ env:
 
 jobs:
     build:
+        name: Sjekk for endringer og bygg pakker
         if: ${{ !contains(github.event.sender.login, 'fremtind-bot') }}
         outputs:
             visual: ${{ steps.changes.outputs.visual }}
@@ -89,8 +92,38 @@ jobs:
               if: steps.changes.outputs.has_matches == 'true' || github.event_name == 'merge_group'
               run: pnpm ci:install
 
+    preview:
+        name: Publiser forhåndsvisning
+        needs: [build]
+        if: github.event_name != 'merge_group' && (needs.build.outputs.visual == 'true' || needs.build.outputs.preview == 'true')
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: read
+            pull-requests: write
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  cache: "pnpm"
+
+            - name: Monorepo Runner Cache
+              uses: actions/cache@v3
+              id: nx-cache
+              with:
+                  path: .nx
+                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+                  restore-keys: |
+                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
+
             - name: Add a comment with a link to the preview
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true')
               uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
               with:
                   header: preview
@@ -100,13 +133,11 @@ jobs:
                       <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
 
             - name: Build site
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true')
               env:
                   GATSBY_MIXPANEL_PROJECT_ID: ${{ secrets.MIXPANEL_PROJECT_ID_TEST }}
               run: pnpm build:docs
 
             - name: Deploy preview
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true')
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
               run: |
@@ -116,7 +147,6 @@ jobs:
                   pnpm gh-pages --add --dist portal/public --dest ${{ env.PREVIEW_PATH }} --message "docs: preview #${{ github.event.number }}"
 
             - name: Add a comment with a link to the preview
-              if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.preview == 'true')
               uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
               with:
                   header: preview
@@ -128,8 +158,9 @@ jobs:
                       Forhåndsvisningen blir tilgjengelig innen et par minutter. Den fjernes automatisk når pull requesten lukkes.
 
     testlint:
+        name: Kjør tester og linting
         needs: [build]
-        if: needs.build.outputs.testlint == 'true' && !contains(github.event.sender.login, 'fremtind-bot')
+        if: github.event_name == 'merge_group' || (needs.build.outputs.testlint == 'true' && !contains(github.event.sender.login, 'fremtind-bot'))
         runs-on: ubuntu-latest
         permissions:
             actions: read
