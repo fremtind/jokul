@@ -9,7 +9,7 @@ jobs:
     build-and-publish:
         name: Build and publish alpha
         runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[ci skip release]')"
+        if: ${{ !contains(github.event.head_commit.message, '[ci skip release]') }}
         permissions:
             actions: write
             contents: write
