@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.3.0 (2024-09-05)
+
+### Features
+
+- legg til mixins for å sette density-variabler i en komponent ([5acaa56](https://github.com/fremtind/jokul/commit/5acaa562cc85a7cf78ee2bf493e33d70fc90ac3d))
+
 ## 14.2.1 (2024-09-03)
 
 ### Bug Fixes
