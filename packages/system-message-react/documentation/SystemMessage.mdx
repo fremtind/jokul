@@ -1,12 +1,12 @@
 ---
-title: AlertMessage
-react: alert-message-react
-scss: alert-message
+title: systemMessage
+react: system-message-react
+scss: system-message
 group: meldinger
-keywords: infoalertmessage erroralertmessage successalertmessage warningalertmessage
+keywords: infosystemmessage errorsystemmessage successsystemmessage warningsystemmessage
 ---
 
-import { AlertMessageExample, alertMessageExampleCode, alertMessageKnobs } from "./AlertMessageExample";
+import { SystemMessageExample, SystemMessageExampleCode, SystemMessageKnobs } from "./SystemMessageExample";
 
 <Ingress>
     En varselmelding er en beskjed til brukeren som vises i en global sammenheng. Det kan være et varsel om at noe er
@@ -14,10 +14,10 @@ import { AlertMessageExample, alertMessageExampleCode, alertMessageKnobs } from 
 </Ingress>
 
 <ComponentExample
-    title="AlertMessage"
-    component={AlertMessageExample}
-    knobs={alertMessageKnobs}
-    codeExample={alertMessageExampleCode}
+    title="SystemMessage"
+    component={SystemMessageExample}
+    knobs={systemMessageKnobs}
+    codeExample={systemMessageExampleCode}
 />
 
 Innholdet i en varselmelding bør ikke bryte over flere linjer på desktop. På mobil kan det vises over flere linjer så lenge varselet ikke skjuler viktig innhold under.
@@ -37,9 +37,9 @@ Vi har fire ulike varsler, med fargene blå, rød, gul og grønn. Fargene i vars
 
 Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende tekst, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en presis meldingstekst, der du sier det viktigste først.
 
-## Når bruker vi en AlertMessage?
+## Når bruker vi en SystemMessage?
 
-Før bruker en AlertMessage er det greit å ha tatt stilling til noen spørsmål:
+Før bruker en SystemMessage er det greit å ha tatt stilling til noen spørsmål:
 
 -   Er innholdet i beskjeden tydelig nok til å stå på egenhånd, uten tilknytning til noe annet på siden?
 -   Får innholdet plass på én linje på desktop?

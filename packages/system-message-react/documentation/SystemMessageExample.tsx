@@ -1,9 +1,9 @@
 import { NavLink } from "@fremtind/jkl-core";
 import React, { useState } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { InfoAlertMessage, WarningAlertMessage, ErrorAlertMessage, SuccessAlertMessage } from "../src";
+import { InfoSystemMessage, WarningSystemMessage, ErrorSystemMessage, SuccessSystemMessage } from "../src";
 
-export const alertMessageKnobs: ExampleKnobsProps = {
+export const systemMessageKnobs: ExampleKnobsProps = {
     boolProps: ["Dismissable"],
     choiceProps: [
         {
@@ -17,19 +17,19 @@ export const alertMessageKnobs: ExampleKnobsProps = {
 const getTypeOfBox = (typeofBox?: string) => {
     switch (typeofBox) {
         case "Info":
-            return InfoAlertMessage;
+            return InfoSystemMessage;
         case "Success":
-            return SuccessAlertMessage;
+            return SuccessSystemMessage;
         case "Warning":
-            return WarningAlertMessage;
+            return WarningSystemMessage;
         case "Error":
-            return ErrorAlertMessage;
+            return ErrorSystemMessage;
         default:
-            return InfoAlertMessage;
+            return InfoSystemMessage;
     }
 };
 
-export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const SystemMessageExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const C = getTypeOfBox(choiceValues ? choiceValues["Variant"] : "");
     const [dismissed, setDismissed] = useState(false);
     const dismissAction = boolValues?.["Dismissable"]
@@ -46,12 +46,12 @@ export const AlertMessageExample: React.FC<ExampleComponentProps> = ({ boolValue
         // Role beregnes vanligvis av komponenten, men er overstyrt her i eksempelet for å unngå at beskjeden leses opp utenfor konteksten av eksempelet.
         <C dismissed={dismissed} dismissAction={dismissAction} role="none presentation">
             Hei, jeg er en varslingsmelding av typen {choiceValues ? choiceValues["Variant"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
-            <NavLink href="/komponenter/alertmessage">en navlink</NavLink>
+            <NavLink href="/komponenter/systemmessage">en navlink</NavLink>
         </C>
     );
 };
 
-export const alertMessageExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
+export const systemMessageExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
     const C = getTypeOfBox(choiceValues ? choiceValues["Variant"] : "");
     return `
 <${C.displayName} dismissed={false} dismissAction={${

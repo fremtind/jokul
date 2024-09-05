@@ -10,7 +10,6 @@
     },
     "dependencies": {
         "@fremtind/jkl-accordion-react": "^12.1.8",
-        "@fremtind/jkl-alert-message-react": "^11.1.24",
         "@fremtind/jkl-breadcrumb-react": "^5.0.17",
         "@fremtind/jkl-button-react": "^15.1.12",
         "@fremtind/jkl-card-react": "^12.0.16",
@@ -43,6 +42,7 @@
         "@fremtind/jkl-react-hooks": "^12.1.6",
         "@fremtind/jkl-select-react": "^14.1.49",
         "@fremtind/jkl-summary-table-react": "^10.0.17",
+        "@fremtind/jkl-system-message-react": "^1.0.0-alpha.0",
         "@fremtind/jkl-table-react": "^11.4.22",
         "@fremtind/jkl-tabs-react": "^6.0.8",
         "@fremtind/jkl-tag-react": "^5.2.21",

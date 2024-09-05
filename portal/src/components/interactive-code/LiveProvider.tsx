@@ -1,5 +1,4 @@
 import * as accordionReact from "@fremtind/jkl-accordion-react";
-import * as alertMessageReact from "@fremtind/jkl-alert-message-react";
 import * as breadcrumbReact from "@fremtind/jkl-breadcrumb-react";
 import * as buttonReact from "@fremtind/jkl-button-react";
 import * as cardReact from "@fremtind/jkl-card-react";
@@ -23,6 +22,7 @@ import * as messageBoxReact from "@fremtind/jkl-message-box-react";
 import * as radioButtonReact from "@fremtind/jkl-radio-button-react";
 import * as selectReact from "@fremtind/jkl-select-react";
 import * as summaryTableReact from "@fremtind/jkl-summary-table-react";
+import * as systemMessageReact from "@fremtind/jkl-system-message-react";
 import * as tableReact from "@fremtind/jkl-table-react";
 import * as tabsReact from "@fremtind/jkl-tabs-react";
 import * as tagReact from "@fremtind/jkl-tag-react";
@@ -33,7 +33,7 @@ import { LiveProvider as ReactLiveProvider } from "react-live";
 
 const scope = {
     ...accordionReact,
-    ...alertMessageReact,
+    ...systemMessageReact,
     ...breadcrumbReact,
     ...cardReact,
     ...checkboxReact,

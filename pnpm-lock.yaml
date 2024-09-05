@@ -254,26 +254,6 @@ importers:
       vite: 5.4.2
       vite-plugin-dts: 4.1.0_vite@5.4.2
 
-  packages/alert-message:
-    specifiers:
-      '@fremtind/jkl-core': ^14.2.2
-    dependencies:
-      '@fremtind/jkl-core': link:../core
-
-  packages/alert-message-react:
-    specifiers:
-      '@fremtind/jkl-alert-message': ^9.0.17
-      '@fremtind/jkl-core': ^14.2.2
-      '@fremtind/jkl-icons-react': ^9.1.4
-      '@fremtind/jkl-react-hooks': ^12.1.6
-      classnames: ^2.3.2
-    dependencies:
-      '@fremtind/jkl-alert-message': link:../alert-message
-      '@fremtind/jkl-core': link:../core
-      '@fremtind/jkl-icons-react': link:../icons-react
-      '@fremtind/jkl-react-hooks': link:../react-hooks
-      classnames: 2.3.2
-
   packages/breadcrumb:
     specifiers:
       '@fremtind/jkl-core': ^14.2.2
@@ -944,6 +924,26 @@ importers:
       '@fremtind/jkl-summary-table': link:../summary-table
       classnames: 2.3.2
 
+  packages/system-message:
+    specifiers:
+      '@fremtind/jkl-core': ^14.2.2
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/system-message-react:
+    specifiers:
+      '@fremtind/jkl-core': ^14.2.2
+      '@fremtind/jkl-icons-react': ^9.1.4
+      '@fremtind/jkl-react-hooks': ^12.1.6
+      '@fremtind/jkl-system-message': ^1.0.0-alpha.0
+      classnames: ^2.3.2
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      '@fremtind/jkl-system-message': link:../system-message
+      classnames: 2.5.1
+
   packages/table:
     specifiers:
       '@fremtind/jkl-core': ^14.2.2
@@ -1125,7 +1125,6 @@ importers:
   portal:
     specifiers:
       '@fremtind/jkl-accordion-react': ^12.1.8
-      '@fremtind/jkl-alert-message-react': ^11.1.24
       '@fremtind/jkl-breadcrumb-react': ^5.0.17
       '@fremtind/jkl-button-react': ^15.1.12
       '@fremtind/jkl-card-react': ^12.0.16
@@ -1158,6 +1157,7 @@ importers:
       '@fremtind/jkl-react-hooks': ^12.1.6
       '@fremtind/jkl-select-react': ^14.1.49
       '@fremtind/jkl-summary-table-react': ^10.0.17
+      '@fremtind/jkl-system-message-react': ^1.0.0-alpha.0
       '@fremtind/jkl-table-react': ^11.4.22
       '@fremtind/jkl-tabs-react': ^6.0.8
       '@fremtind/jkl-tag-react': ^5.2.21
@@ -1202,7 +1202,6 @@ importers:
       react-live: ^4.1.2
     dependencies:
       '@fremtind/jkl-accordion-react': link:../packages/accordion-react
-      '@fremtind/jkl-alert-message-react': link:../packages/alert-message-react
       '@fremtind/jkl-breadcrumb-react': link:../packages/breadcrumb-react
       '@fremtind/jkl-button-react': link:../packages/button-react
       '@fremtind/jkl-card-react': link:../packages/card-react
@@ -1235,6 +1234,7 @@ importers:
       '@fremtind/jkl-react-hooks': link:../packages/react-hooks
       '@fremtind/jkl-select-react': link:../packages/select-react
       '@fremtind/jkl-summary-table-react': link:../packages/summary-table-react
+      '@fremtind/jkl-system-message-react': link:../packages/system-message-react
       '@fremtind/jkl-table-react': link:../packages/table-react
       '@fremtind/jkl-tabs-react': link:../packages/tabs-react
       '@fremtind/jkl-tag-react': link:../packages/tag-react
@@ -1283,7 +1283,6 @@ importers:
     specifiers:
       '@emotion/is-prop-valid': ^1.2.2
       '@fremtind/jkl-accordion-react': ^12.0.0
-      '@fremtind/jkl-alert-message-react': ^11.1.18
       '@fremtind/jkl-breadcrumb-react': ^5.0.13
       '@fremtind/jkl-button': ^12.1.2
       '@fremtind/jkl-button-react': ^15.1.6
@@ -1321,6 +1320,7 @@ importers:
       '@fremtind/jkl-select': ^11.1.12
       '@fremtind/jkl-select-react': ^14.1.37
       '@fremtind/jkl-summary-table-react': ^10.0.13
+      '@fremtind/jkl-system-message-react': ^1.0.0-alpha.0
       '@fremtind/jkl-table-react': ^11.4.8
       '@fremtind/jkl-tabs-react': ^6.0.4
       '@fremtind/jkl-tag-react': ^5.2.15
@@ -1346,7 +1346,6 @@ importers:
     dependencies:
       '@emotion/is-prop-valid': 1.3.0
       '@fremtind/jkl-accordion-react': link:../packages/accordion-react
-      '@fremtind/jkl-alert-message-react': link:../packages/alert-message-react
       '@fremtind/jkl-breadcrumb-react': link:../packages/breadcrumb-react
       '@fremtind/jkl-button': link:../packages/button
       '@fremtind/jkl-button-react': link:../packages/button-react
@@ -1384,6 +1383,7 @@ importers:
       '@fremtind/jkl-select': link:../packages/select
       '@fremtind/jkl-select-react': link:../packages/select-react
       '@fremtind/jkl-summary-table-react': link:../packages/summary-table-react
+      '@fremtind/jkl-system-message-react': link:../packages/system-message-react
       '@fremtind/jkl-table-react': link:../packages/table-react
       '@fremtind/jkl-tabs-react': link:../packages/tabs-react
       '@fremtind/jkl-tag-react': link:../packages/tag-react
