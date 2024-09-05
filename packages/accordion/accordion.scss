@@ -1,89 +1,62 @@
 @charset "UTF-8";
 @use "@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-svaberg};
-    --jkl-accordion-focus: #{jkl.$color-focus-color};
-    --jkl-accordion-hover: #{jkl.$color-stein};
-    --jkl-accordion-expanded-background: #{jkl.$color-hvit};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-accordion-border: #{jkl.$color-stein};
-    --jkl-accordion-focus: #{jkl.$color-focus-color--darkbg};
-    --jkl-accordion-hover: #{jkl.$color-svaberg};
-    --jkl-accordion-expanded-background: #{jkl.$color-skifer};
-}
-
-@include jkl.comfortable-density-variables {
-    --jkl-accordion-title-padding: var(--jkl-spacing-16) #{jkl.rem(48px)} var(--jkl-spacing-16) var(--jkl-spacing-16);
-    --jkl-accordion-arrow-top: #{jkl.rem(20px)};
-    --jkl-accordion-arrow-right: var(--jkl-spacing-12);
-    --jkl-accordion-content-padding: var(--jkl-spacing-8) var(--jkl-spacing-16) var(--jkl-spacing-16);
-    @include jkl.declare-font-variables("jkl-accordion-title", "body");
-    @include jkl.declare-font-variables("jkl-accordion-content", "body");
-
-    @include jkl.small-device {
-        --jkl-accordion-title-padding: var(--jkl-spacing-12) #{jkl.rem(44px)} var(--jkl-spacing-12) var(--jkl-spacing-12);
-        --jkl-accordion-content-padding: var(--jkl-spacing-8) var(--jkl-spacing-12) var(--jkl-spacing-16)
-            var(--jkl-spacing-12);
-        --jkl-accordion-arrow-top: #{jkl.rem(23px)};
-    }
-}
-
-@include jkl.compact-density-variables {
-    --jkl-accordion-title-padding: var(--jkl-spacing-8) #{jkl.rem(32px)} var(--jkl-spacing-8) var(--jkl-spacing-8);
-    --jkl-accordion-arrow-top: var(--jkl-spacing-8);
-    --jkl-accordion-arrow-right: var(--jkl-spacing-4);
-    --jkl-accordion-content-padding: var(--jkl-spacing-8);
-    @include jkl.declare-font-variables("jkl-accordion-title", "small");
-    @include jkl.declare-font-variables("jkl-accordion-content", "small");
-}
-
-@mixin hover {
-    border-top: jkl.rem(1px) solid;
-    border-top-color: var(--jkl-accordion-border);
-
-    &:hover {
-        border-top-color: var(--jkl-accordion-focus);
-
-        + .jkl-accordion-item {
-            border-top-color: var(--jkl-accordion-focus);
-        }
-    }
-}
-
 .jkl-accordion {
     width: 100%;
+
+    @include jkl.comfortable-density {
+        --title-padding: var(--jkl-spacing-16) #{jkl.rem(48px)} var(--jkl-spacing-16) var(--jkl-spacing-16);
+        --arrow-top: #{jkl.rem(20px)};
+        --arrow-right: var(--jkl-spacing-12);
+        --content-padding: var(--jkl-spacing-8) var(--jkl-spacing-16) var(--jkl-spacing-16);
+        @include jkl.declare-font-variables("title", "body");
+        @include jkl.declare-font-variables("content", "body");
+
+        @include jkl.small-device {
+            --title-padding: var(--jkl-spacing-12) #{jkl.rem(44px)} var(--jkl-spacing-12) var(--jkl-spacing-12);
+            --content-padding: var(--jkl-spacing-8) var(--jkl-spacing-12) var(--jkl-spacing-16) var(--jkl-spacing-12);
+            --arrow-top: #{jkl.rem(23px)};
+        }
+    }
+
+    @include jkl.compact-density {
+        --title-padding: var(--jkl-spacing-8) #{jkl.rem(32px)} var(--jkl-spacing-8) var(--jkl-spacing-8);
+        --arrow-top: var(--jkl-spacing-8);
+        --arrow-right: var(--jkl-spacing-4);
+        --content-padding: var(--jkl-spacing-8);
+        @include jkl.declare-font-variables("title", "small");
+        @include jkl.declare-font-variables("content", "small");
+    }
 }
 
 .jkl-accordion-item {
-    @include jkl.motion("exit", "snappy", border-top-color, border-bottom-color);
-    @include jkl.reset-outline;
+    --background: transparent;
+    --text-color: var(--jkl-color-text-default);
+    --title-text-color: var(--jkl-color-text-interactive);
+    --border-color: var(--jkl-color-border-separator);
 
-    &:nth-child(n) {
-        @include hover;
-    }
+    background-color: var(--background);
+    color: var(--text-color);
+    border-bottom: jkl.rem(1px) solid var(--border-color);
 
-    &:last-child {
-        border-bottom: jkl.rem(1px) solid;
-        border-bottom-color: var(--jkl-accordion-border);
+    @include jkl.motion("standard", "snappy", border-color);
 
-        &:hover {
-            border-bottom-color: var(--jkl-accordion-focus);
+    &:hover {
+        --border-color: var(--jkl-color-border-separator-hover);
+
+        &:not(:first-child) {
+            border-top: jkl.rem(1px) solid var(--border-color);
         }
     }
 
-    &:first-child {
-        border-top: none;
+    &:has(+ [open]),
+    &:has(+ :hover) {
+        border-bottom: none;
     }
 
     &[open] {
-        background-color: var(--jkl-accordion-expanded-background);
-
-        &:first-child {
-            @include hover;
-        }
+        --background: var(--jkl-color-background-container-high);
+        border-top: jkl.rem(1px) solid var(--border-color);
 
         .jkl-accordion-item__title {
             @include jkl.no-grow-bold;
@@ -91,13 +64,14 @@
     }
 
     &__title {
-        @include jkl.use-font-variables("jkl-accordion-title");
+        @include jkl.use-font-variables("title");
 
+        cursor: pointer;
+        color: var(--title-text-color);
         list-style: none;
-        color: var(--jkl-color);
         background-color: transparent;
         position: relative;
-        padding: var(--jkl-accordion-title-padding);
+        padding: var(--title-padding);
         text-align: left;
         width: 100%;
         box-sizing: border-box;
@@ -109,32 +83,26 @@
         }
 
         &:hover {
-            cursor: pointer;
-            color: var(--jkl-accordion-hover);
+            --title-text-color: var(--jkl-color-text-interactive-hover);
 
             .jkl-accordion-item__arrow {
-                top: calc(var(--jkl-accordion-arrow-top) + #{jkl.rem(4px)});
-
-                .jkl-accordion-item--expanded & {
-                    top: calc(var(--jkl-accordion-arrow-top) - #{jkl.rem(4px)});
-                }
+                translate: 0 jkl.rem(4px);
             }
         }
 
-        html:not([data-mousenavigation]) &:focus {
-            @include jkl.focus-outline($offset: -2px);
+        &:focus-visible {
+            @include jkl.focus-outline($offset: 0);
         }
     }
 
     &__arrow {
         pointer-events: none;
         position: absolute;
-        right: var(--jkl-accordion-arrow-right);
-        top: var(--jkl-accordion-arrow-top);
-        color: var(--jkl-color);
+        right: var(--arrow-right);
+        top: var(--arrow-top);
 
-        @include jkl.motion("exit", "snappy");
-        transition-property: top;
+        @include jkl.motion("standard", "snappy");
+        transition-property: translate;
 
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
     }
@@ -145,10 +113,9 @@
     }
 
     &__content {
-        @include jkl.use-font-variables("jkl-accordion-title");
-        color: var(--jkl-color);
+        @include jkl.use-font-variables("content");
         height: auto;
-        padding: var(--jkl-accordion-content-padding);
+        padding: var(--content-padding);
     }
 
     @include jkl.forced-colors-mode {
