@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [21.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@20.1.21...@fremtind/portal@21.0.0) (2024-09-05)
+
+### Bug Fixes
+
+- oppdater importer av SystemMessage i LiveProvider ([7a8b3f5](https://github.com/fremtind/jokul/commit/7a8b3f5227d9836d417297c9423723f05f2aa0df))
+
+### Features
+
+- rename alert to system ([4a39f25](https://github.com/fremtind/jokul/commit/4a39f25da0aaec2a940c1ad76319bc4d94be3132)), closes [#3978](https://github.com/fremtind/jokul/issues/3978)
+
+### BREAKING CHANGES
+
+- alert message is renamed to system message
+
 ## [20.1.20](https://github.com/fremtind/jokul/compare/@fremtind/portal@20.1.19...@fremtind/portal@20.1.20) (2024-09-04)
 
 ### Bug Fixes
