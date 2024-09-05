@@ -73,11 +73,27 @@ function alertFactory(messageType: messageTypes): React.FC<Props> {
     return AlertMessage;
 }
 
+/**
+ * @deprecated Denne komponenten vedlikeholdes ikke lenger.
+ * Bruk SystemMessage i stedet.
+ */
 export const InfoAlertMessage = alertFactory("info");
 InfoAlertMessage.displayName = "InfoAlertMessage";
+/**
+ * @deprecated Denne komponenten vedlikeholdes ikke lenger.
+ * Bruk SystemMessage i stedet.
+ */
 export const ErrorAlertMessage = alertFactory("error");
 ErrorAlertMessage.displayName = "ErrorAlertMessage";
+/**
+ * @deprecated Denne komponenten vedlikeholdes ikke lenger.
+ * Bruk SystemMessage i stedet.
+ */
 export const WarningAlertMessage = alertFactory("warning");
 WarningAlertMessage.displayName = "WarningAlertMessage";
+/**
+ * @deprecated Denne komponenten vedlikeholdes ikke lenger.
+ * Bruk SystemMessage i stedet.
+ */
 export const SuccessAlertMessage = alertFactory("success");
 SuccessAlertMessage.displayName = "SuccessAlertMessage";
