@@ -3,8 +3,6 @@
 @use "@fremtind/jkl-core/jkl";
 @use "@fremtind/jkl-core/jkl/colors";
 
-/// @deprecated Denne komponenten blir omdøpt til SystemMessage
-
 $_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
 $_dismiss-animation-duration: jkl.timing("lazy");
 $_dismiss-focus-border-color: jkl.$color-granitt;
@@ -36,6 +34,7 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     @include jkl.declare-font-variables("jkl-alert-message-message", "small");
 }
 
+/// @deprecated Denne komponenten vedlikeholdes ikke lenger. Bruk .jkl-system-message i stedet
 .jkl-alert-message {
     width: 100%;
     background-color: $_bg-color--default;
