@@ -37,6 +37,7 @@
 }
 
 /// Brukes til å sette CSS-variabler som skal gjelde i vanlig (ukompakt) modus.
+/// @deprecated Bruk heller jkl.comfortable-density, som skal brukes INNE I komponenten
 /// @content Settes på :root, [data-density="comfortable"], og [data-layout-density="comfortable"]
 @mixin comfortable-density-variables {
     :root,
@@ -47,10 +48,34 @@
 }
 
 /// Brukes til å sette CSS-variabler som skal gjelde i kompakt modus.
+/// @deprecated Bruk heller jkl.compact-density, som skal brukes INNE I komponenten
 /// @content Settes på [data-density="compact"], og på [data-layout-density="compact"]
 @mixin compact-density-variables {
     [data-layout-density="compact"],
     [data-density="compact"] {
+        @content;
+    }
+}
+
+/// Brukes til å sette CSS-variabler inne i en komponent, og som skal gjelde i vanlig (ukompakt) modus.
+/// @content Settes på .jkl &, [data-density="comfortable"] &, og [data-layout-density="comfortable"] &
+@mixin comfortable-density {
+    .jkl &,
+    &[data-layout-density="comfortable"],
+    &[data-density="comfortable"],
+    [data-layout-density="comfortable"] &,
+    [data-density="comfortable"] & {
+        @content;
+    }
+}
+
+/// Brukes til å sette CSS-variabler inne i en komponent, og som skal gjelde i kompakt modus.
+/// @content Settes på [data-density="compact"] &, og på [data-layout-density="compact"] &
+@mixin compact-density {
+    &[data-layout-density="compact"],
+    &[data-density="compact"],
+    [data-layout-density="compact"] &,
+    [data-density="compact"] & {
         @content;
     }
 }
