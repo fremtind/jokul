@@ -5,11 +5,11 @@
     a[aria-current] {
         text-decoration: none;
         background-image: none;
-        color: var(--jkl-color);
+        color: var(--jkl-color-text-interactive);
 
         &:hover {
             cursor: default;
-            color: var(--jkl-link-color);
+            color: var(--jkl-color-text-interactive-hover);
             background-image: none;
         }
     }
@@ -23,12 +23,12 @@
     }
 
     &__item {
-        margin-bottom: jkl.$spacing-xs;
+        margin-bottom: jkl.$spacing-8;
         white-space: nowrap;
     }
 
     &__item-separator {
-        padding-left: jkl.$spacing-xs;
-        padding-right: jkl.$spacing-xs;
+        padding-left: jkl.$spacing-8;
+        padding-right: jkl.$spacing-8;
     }
 }
