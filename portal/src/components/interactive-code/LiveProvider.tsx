@@ -22,12 +22,12 @@ import * as messageBoxReact from "@fremtind/jkl-message-box-react";
 import * as radioButtonReact from "@fremtind/jkl-radio-button-react";
 import * as selectReact from "@fremtind/jkl-select-react";
 import * as summaryTableReact from "@fremtind/jkl-summary-table-react";
+import * as systemMessageReact from "@fremtind/jkl-system-message-react";
 import * as tableReact from "@fremtind/jkl-table-react";
 import * as tabsReact from "@fremtind/jkl-tabs-react";
 import * as tagReact from "@fremtind/jkl-tag-react";
 import * as textInputReact from "@fremtind/jkl-text-input-react";
 import * as toggleSwitchReact from "@fremtind/jkl-toggle-switch-react";
-import * as systemMessageReact from "packages/system-message-react/build";
 import React, { FC } from "react";
 import { LiveProvider as ReactLiveProvider } from "react-live";
 
