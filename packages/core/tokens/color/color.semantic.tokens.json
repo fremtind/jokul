@@ -41,6 +41,22 @@
                     "value": "{color.brand.skifer.value}"
                 }
             },
+            "container-inverted": {
+                "light": {
+                    "value": "{color.brand.granitt.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.snohvit.value}"
+                }
+            },
+            "container-subdued": {
+                "light": {
+                    "value": "{color.brand.svaberg.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.stein.value}"
+                }
+            },
             "input": {
                 "base": {
                     "light": {
@@ -88,7 +104,7 @@
                     "value": "{color.brand.varde.value}"
                 },
                 "dark": {
-                    "value": "{color.brand.fjellgra.value}"
+                    "value": "{color.brand.stein.value}"
                 }
             },
             "alert": {
@@ -239,6 +255,14 @@
                 },
                 "dark": {
                     "value": "{color.brand.snohvit.value}"
+                }
+            },
+            "subdued": {
+                "light": {
+                    "value": "{color.brand.svaberg.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.stein.value}"
                 }
             }
         }

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 22 Nov 2023 09:07:30 GMT
+ * Generated on Fri, 06 Sep 2024 19:24:11 GMT
  */
 
 @use "../jkl";
@@ -11,6 +11,8 @@
     --jkl-color-background-container: #{jkl.$color-brand-snohvit};
     --jkl-color-background-container-low: #{jkl.$color-brand-dis};
     --jkl-color-background-container-high: #{jkl.$color-brand-hvit};
+    --jkl-color-background-container-inverted: #{jkl.$color-brand-granitt};
+    --jkl-color-background-container-subdued: #{jkl.$color-brand-svaberg};
     --jkl-color-background-input-base: rgba(0, 0, 0, 0);
     --jkl-color-background-input-focus: #{jkl.$color-brand-hvit};
     --jkl-color-background-action: #{jkl.$color-brand-granitt};
@@ -35,6 +37,7 @@
     --jkl-color-border-separator: #{jkl.$color-brand-svaberg};
     --jkl-color-border-separator-strong: #{jkl.$color-brand-stein};
     --jkl-color-border-separator-hover: #{jkl.$color-brand-granitt};
+    --jkl-color-border-subdued: #{jkl.$color-brand-svaberg};
 }
 @include jkl.dark-mode-variables {
     --jkl-color-background-page: #{jkl.$color-brand-granitt};
@@ -42,12 +45,14 @@
     --jkl-color-background-container: #{jkl.$color-brand-skifer};
     --jkl-color-background-container-low: #{jkl.$color-brand-svart};
     --jkl-color-background-container-high: #{jkl.$color-brand-skifer};
+    --jkl-color-background-container-inverted: #{jkl.$color-brand-snohvit};
+    --jkl-color-background-container-subdued: #{jkl.$color-brand-stein};
     --jkl-color-background-input-base: rgba(0, 0, 0, 0);
     --jkl-color-background-input-focus: #{jkl.$color-brand-skifer};
     --jkl-color-background-action: #{jkl.$color-brand-snohvit};
     --jkl-color-background-interactive: rgba(0, 0, 0, 0);
     --jkl-color-background-interactive-hover: #{jkl.$color-brand-fjellgra};
-    --jkl-color-background-interactive-selected: #{jkl.$color-brand-fjellgra};
+    --jkl-color-background-interactive-selected: #{jkl.$color-brand-stein};
     --jkl-color-background-alert-neutral: #{jkl.$color-brand-varde};
     --jkl-color-background-alert-info: #{jkl.$color-functional-info-dark};
     --jkl-color-background-alert-success: #{jkl.$color-functional-success-dark};
@@ -66,4 +71,5 @@
     --jkl-color-border-separator: #{jkl.$color-brand-stein};
     --jkl-color-border-separator-strong: #{jkl.$color-brand-svaberg};
     --jkl-color-border-separator-hover: #{jkl.$color-brand-snohvit};
+    --jkl-color-border-subdued: #{jkl.$color-brand-stein};
 }
