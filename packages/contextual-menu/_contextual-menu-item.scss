@@ -1,17 +1,5 @@
 @use "@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-contextual-menu-item-hover-background-color: #{jkl.$color-dis};
-    --jkl-contextual-menu-item-focus-background-color: #{jkl.$color-varde};
-    --jkl-contextual-menu-item-disabled-color: #{jkl.$color-svaberg};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-contextual-menu-item-hover-background-color: #{jkl.$color-stein};
-    --jkl-contextual-menu-item-focus-background-color: #{jkl.$color-fjellgra};
-    --jkl-contextual-menu-item-disabled-color: #{jkl.$color-stein};
-}
-
 @include jkl.comfortable-density-variables {
     --jkl-contextual-menu-item-height: #{jkl.rem(48px)};
     --jkl-contextual-menu-item-padding: #{jkl.$spacing-8} #{jkl.$spacing-24};
@@ -25,8 +13,10 @@
 }
 
 .jkl-contextual-menu-item {
-    background-color: transparent;
-    color: var(--jkl-color);
+    --background-color: var(--jkl-color-background-interactive);
+
+    background-color: var(--background-color);
+    color: var(--jkl-color-text-default);
     cursor: pointer;
 
     box-sizing: border-box;
@@ -68,11 +58,8 @@
         flex-shrink: 0;
     }
 
-    html[data-mousenavigation] &:hover {
-        background-color: var(--jkl-contextual-menu-item-hover-background-color);
-    }
-
-    &:focus {
-        background-color: var(--jkl-contextual-menu-item-focus-background-color);
+    &:hover,
+    &:focus-visible {
+        --background-color: var(--jkl-color-background-interactive-hover);
     }
 }
