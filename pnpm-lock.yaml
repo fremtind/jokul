@@ -833,8 +833,10 @@ importers:
 
   packages/progress-bar-react:
     specifiers:
+      '@fremtind/jkl-core': ^14.3.0
       '@fremtind/jkl-progress-bar': ^6.0.17
     dependencies:
+      '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-progress-bar': link:../progress-bar
 
   packages/radio-button:
@@ -3905,8 +3907,8 @@ packages:
       tslib: 2.5.3
     dev: false
 
-  /@fremtind/jkl-core/14.2.2:
-    resolution: {integrity: sha512-4vakA1THQn4/+xfzVPwlnIml6am5tB33t+2LGK3BCbYCJTFwtMRe3Qeianev/yWQuwdUUT7pnjkpsJGy1bZHyQ==}
+  /@fremtind/jkl-core/14.3.0:
+    resolution: {integrity: sha512-FhrqG96hdfayObPnWfZMLbuZQyXoEj/lNrEUOUojTD60sp/AZ/DLYQ3aQHWaTX+jheHwmdftz8+7WMHCiofogA==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
@@ -3919,7 +3921,7 @@ packages:
   /@fremtind/jkl-icons/9.1.5:
     resolution: {integrity: sha512-JDn9qAWTc68CI0Ua41MJ7/NOcOQBHr8T0mr2Qcwd1nTJPVuNRD7X+RHNs54bMykugp24hq+xbPGQWShOnb6qSQ==}
     dependencies:
-      '@fremtind/jkl-core': 14.2.2
+      '@fremtind/jkl-core': 14.3.0
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'

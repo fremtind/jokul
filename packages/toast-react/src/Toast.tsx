@@ -65,7 +65,6 @@ export function Toast<T extends ToastContent>({ className, state, ...props }: To
                 className,
             )}
             data-animation={props.toast.animation}
-            data-theme={props.toast.variant ? "light" : undefined}
             onAnimationEnd={() => {
                 // Remove the toast when the exiting animation completes.
                 if (props.toast.animation === "exiting") {

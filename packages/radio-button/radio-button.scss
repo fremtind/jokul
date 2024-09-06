@@ -6,26 +6,6 @@
 $_radio-button-dot-padding: jkl.rem(4px);
 $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 
-@include jkl.light-mode-variables {
-    --jkl-radio-button-color: #{jkl.$color-granitt};
-    --jkl-radio-button-background-color: #{jkl.$color-snohvit};
-    --jkl-radio-button-focus-color: #{jkl.$color-granitt};
-    --jkl-radio-button-focus-background-color: #{jkl.$color-hvit};
-    --jkl-radio-button-error-background-color: #{jkl.$color-feil};
-    --jkl-radio-button-error-dot-color: #{jkl.$color-granitt};
-    --jkl-radio-button-default-color: #{jkl.$color-stein};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-radio-button-color: #{jkl.$color-snohvit};
-    --jkl-radio-button-background-color: transparent;
-    --jkl-radio-button-focus-color: #{jkl.$color-snohvit};
-    --jkl-radio-button-focus-background-color: #{jkl.$color-svart};
-    --jkl-radio-button-error-background-color: #{jkl.$color-feil};
-    --jkl-radio-button-error-dot-color: #{jkl.$color-granitt};
-    --jkl-radio-button-default-color: #{jkl.$color-svaberg};
-}
-
 @include jkl.comfortable-density-variables {
     $_radio-button-height: jkl.rem(48px);
     $_radio-button-line-height: jkl.rem(32px);
@@ -85,9 +65,14 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 }
 
 .jkl-radio-button {
+    --ring-color: var(--jkl-color-border-action);
+    --dot-color: transparent;
+    --background-color: transparent;
+    --text-color: var(--jkl-color-text-default);
+
     display: flex;
     min-height: var(--jkl-radio-button-height);
-    color: var(--jkl-radio-button-color);
+    color: var(--text-color);
     position: relative;
 
     @include jkl.reset-outline;
@@ -102,36 +87,33 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         // Checked state
         &:checked {
             + .jkl-radio-button__label > .jkl-radio-button__dot::after {
+                --dot-color: var(--jkl-color-border-action);
                 animation: $_radio-button-dot-animation-name jkl.timing("productive") ease;
-                background-color: currentColor;
 
                 @include jkl.forced-colors-mode {
                     background-color: ButtonText;
                 }
             }
 
-            .jkl-radio-button--error & + .jkl-radio-button__label > .jkl-radio-button__dot::after {
-                background-color: var(--jkl-radio-button-error-dot-color);
+            .jkl-radio-button--error & + .jkl-radio-button__label {
+                --background-color: var(--jkl-color-background-alert-error);
+                --dot-color: var(--jkl-color-text-on-alert);
             }
         }
 
         // Focused state
         &:focus-visible {
             + .jkl-radio-button__label {
-                color: var(--jkl-radio-button-focus-color);
+                --background-color: var(--jkl-color-background-input-focus);
 
                 & > .jkl-radio-button__dot {
-                    background-color: var(--jkl-radio-button-focus-background-color);
                     @include jkl.focus-outline;
                 }
+            }
 
-                & > .jkl-radio-button__dot::before {
-                    box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-radio-button-focus-color);
-
-                    @include jkl.forced-colors-mode {
-                        border: 4px double ButtonText;
-                    }
-                }
+            .jkl-radio-button--error & + .jkl-radio-button__label {
+                --background-color: var(--jkl-color-background-alert-error);
+                --dot-color: var(--jkl-color-text-on-alert);
             }
         }
     }
@@ -144,33 +126,13 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         @include jkl.use-font-variables("jkl-radio-button-label");
 
         // Hovered state
-        &:hover {
-            color: var(--jkl-radio-button-focus-color);
-
-            & > .jkl-radio-button__dot {
-                box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) currentColor;
-
-                @include jkl.forced-colors-mode {
-                    &::before {
-                        border: 2px solid ButtonText;
-                        position: absolute;
-                        inset: jkl.rem(-1px) jkl.rem(-1px) jkl.rem(-1px) jkl.rem(-1px);
-                    }
-                }
-            }
+        &:hover > .jkl-radio-button__dot {
+            outline: 1px solid var(--ring-color);
         }
 
         // Active state
-        &:active {
-            color: var(--jkl-radio-button-color);
-
-            & > .jkl-radio-button__dot {
-                box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
-
-                &::after {
-                    transform: scale(0.9);
-                }
-            }
+        &:active > .jkl-radio-button__dot &::after {
+            scale: 0.9;
         }
     }
 
@@ -178,15 +140,16 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         display: inline-block;
         position: relative;
         box-sizing: border-box;
-        height: var(--jkl-radio-button-size);
-        width: var(--jkl-radio-button-size);
         margin: var(--jkl-radio-button-dot-margin);
         flex-shrink: 0;
 
+        height: var(--jkl-radio-button-size);
+        width: var(--jkl-radio-button-size);
         border-radius: 50%;
-        box-shadow: inset 0 0 0 jkl.rem(1px) currentColor, 0 0 0 jkl.rem(1px) transparent;
+        border: jkl.rem(1px) solid var(--ring-color);
+        background-color: var(--background-color);
 
-        transition-property: background-color, box-shadow;
+        transition-property: background-color, outline;
         @include jkl.motion;
 
         /* Inner dot */
@@ -194,20 +157,18 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             content: "";
 
             position: absolute;
-            left: $_radio-button-dot-padding;
-            top: $_radio-button-dot-padding;
+            left: 50%;
+            top: 50%;
+            translate: -50% -50%;
+            scale: 1;
+
             height: var(--jkl-radio-button-dot-size);
             width: var(--jkl-radio-button-dot-size);
             border-radius: 50%;
-            transform: scale(1);
+            background-color: var(--dot-color);
 
             transition-property: transform;
             @include jkl.motion;
-
-            @include jkl.forced-colors-mode {
-                top: jkl.rem(3px);
-                left: jkl.rem(3px);
-            }
         }
 
         @include jkl.forced-colors-mode {
@@ -223,24 +184,13 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     }
 
     &--error {
-        .jkl-radio-button__dot {
-            background-color: var(--jkl-radio-button-error-background-color);
-        }
+        --background-color: var(--jkl-color-background-alert-error);
     }
 
     &--inline {
         display: inline-flex;
         margin-top: unset;
         margin-right: jkl.$spacing-l;
-    }
-
-    @include jkl.small-device {
-        .jkl-radio-button__dot::after {
-            @include jkl.forced-colors-mode {
-                top: jkl.rem(2.35px);
-                left: jkl.rem(2px);
-            }
-        }
     }
 
     + .jkl-form-support-label {

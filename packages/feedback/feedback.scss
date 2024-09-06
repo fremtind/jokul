@@ -6,18 +6,6 @@ $_smiley-size: jkl.rem(40px);
 $_smileys-max-width: $_smiley-size * 9; // 5 smileys med fire like store mellomrom
 $_show-animation-name: jkl-show-#{string.unique-id()};
 
-@include jkl.light-mode-variables {
-    --jkl-feedback-step-color: #{jkl.$color-stein};
-    --jkl-feedback-smiley-color: #{jkl.$color-stein};
-    --jkl-feedback-smiley-color-hover: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-feedback-step-color: #{jkl.$color-svaberg};
-    --jkl-feedback-smiley-color: #{jkl.$color-svaberg};
-    --jkl-feedback-smiley-color-hover: #{jkl.$color-snohvit};
-}
-
 @keyframes #{$_show-animation-name} {
     from {
         transform: translate3d(0, 0.5rem, 0);
@@ -39,8 +27,8 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     }
 
     &__step-counter {
-        color: var(--jkl-feedback-step-color);
-        margin-bottom: jkl.$spacing-m;
+        color: var(--jkl-color-text-subdued);
+        margin-bottom: jkl.$spacing-16;
         @include jkl.text-style("body");
     }
 
@@ -50,7 +38,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
 }
 
 .jkl-feedback-smileys {
-    margin-top: jkl.$spacing-xs;
+    margin-top: jkl.$spacing-8;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -65,7 +53,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     cursor: pointer;
     height: $_smiley-size;
     width: $_smiley-size;
-    color: var(--jkl-feedback-smiley-color);
+    color: var(--jkl-color-text-subdued);
     transform: translate3d(0, 0, 0);
 
     @include jkl.motion;
@@ -95,11 +83,11 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     }
 
     &:hover {
-        color: var(--jkl-feedback-smiley-color-hover);
+        color: var(--jkl-color-text-default);
     }
 
     input:checked + & {
-        color: var(--jkl-feedback-smiley-color-hover);
+        color: var(--jkl-color-text-default);
         transform: translate3d(0, -20%, 0);
 
         &::before {
