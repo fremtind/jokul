@@ -2,17 +2,6 @@
 @use "@fremtind/jkl-core/jkl";
 @use "@fremtind/jkl-core/jkl/colors";
 
-$_tag-background-color: jkl.$color-varde;
-$_tag-text-color: jkl.$color-granitt;
-
-$_dismiss-focus-border-color: jkl.$color-granitt;
-$_dismiss-hover-color: jkl.$color-stein;
-
-$_tag-background-color--success: colors.varslingsfarge("suksess");
-$_tag-background-color--error: colors.varslingsfarge("feil");
-$_tag-background-color--info: colors.varslingsfarge("info");
-$_tag-background-color--warning: colors.varslingsfarge("advarsel");
-
 @include jkl.comfortable-density-variables {
     --jkl-tag-padding: var(--jkl-spacing-4) var(--jkl-spacing-8);
     --jkl-tag-dismiss-margin: 0;
@@ -26,9 +15,12 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
 }
 
 .jkl-tag {
+    --background-color: var(--jkl-color-background-alert-neutral);
+    --text-color: var(--jkl-color-text-on-alert);
+
     @include jkl.text-style("heading-5");
-    background-color: $_tag-background-color;
-    color: $_tag-text-color;
+    background-color: var(--background-color);
+    color: var(--text-color);
     border-radius: jkl.rem(4px);
     display: inline-flex;
     align-items: center;
@@ -37,19 +29,19 @@ $_tag-background-color--warning: colors.varslingsfarge("advarsel");
     gap: var(--jkl-tag-gap);
 
     &--info {
-        background-color: $_tag-background-color--info;
+        --background-color: var(--jkl-color-background-alert-info);
     }
 
     &--warning {
-        background-color: $_tag-background-color--warning;
+        --background-color: var(--jkl-color-background-alert-warning);
     }
 
     &--error {
-        background-color: $_tag-background-color--error;
+        --background-color: var(--jkl-color-background-alert-error);
     }
 
     &--success {
-        background-color: $_tag-background-color--success;
+        --background-color: var(--jkl-color-background-alert-success);
     }
 
     @include jkl.forced-colors-mode {

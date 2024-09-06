@@ -9,8 +9,6 @@
     --jkl-toggle-switch-height: #{jkl.rem(28px)};
     --jkl-toggle-switch-width: #{jkl.rem(48px)};
     --jkl-toggle-switch-knob-size: #{jkl.rem(20px)};
-    --jkl-toggle-switch-border-width: #{jkl.rem(1px)};
-    --jkl-toggle-switch-padding: #{jkl.rem(4px)};
     --jkl-toggle-switch-indicator-spacing: 0;
     --jkl-toggle-switch-help-label-spacing: var(--jkl-spacing-2);
 }
@@ -21,49 +19,23 @@
     --jkl-toggle-switch-height: #{jkl.rem(20px)};
     --jkl-toggle-switch-width: #{jkl.rem(36px)};
     --jkl-toggle-switch-knob-size: #{jkl.rem(12px)};
-    --jkl-toggle-switch-border-width: #{jkl.rem(1px)};
-    --jkl-toggle-switch-padding: #{jkl.rem(4px)};
     --jkl-toggle-switch-indicator-spacing: #{jkl.rem(-2px)};
     --jkl-toggle-switch-help-label-spacing: 0;
 }
 
-@include jkl.light-mode-variables {
-    --jkl-toggle-switch-border: #{jkl.$color-granitt};
-    --jkl-toggle-switch-background: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-knob-border: #{jkl.$color-granitt};
-    --jkl-toggle-switch-knob-background: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-knob-background--on: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-indicator-color: transparent;
-    --jkl-toggle-switch-indicator-color--on: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-border--disabled: #{jkl.$color-svaberg};
-    --jkl-toggle-switch-knob-border--disabled: #{jkl.$color-svaberg};
-    --jkl-toggle-switch-knob-background--disabled: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-border--disabled-on: #{jkl.$color-svaberg};
-    --jkl-toggle-switch-knob-border--disabled-on: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-knob-background--disabled-on: #{jkl.$color-snohvit};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-toggle-switch-border: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-background: #{jkl.$color-skifer};
-    --jkl-toggle-switch-knob-border: #{jkl.$color-snohvit};
-    --jkl-toggle-switch-knob-background: #{jkl.$color-skifer};
-    --jkl-toggle-switch-knob-background--on: #{jkl.$color-granitt};
-    --jkl-toggle-switch-indicator-color: transparent;
-    --jkl-toggle-switch-indicator-color--on: #{jkl.$color-granitt};
-    --jkl-toggle-switch-border--disabled: #{jkl.$color-stein};
-    --jkl-toggle-switch-knob-border--disabled: #{jkl.$color-stein};
-    --jkl-toggle-switch-knob-background--disabled: #{jkl.$color-skifer};
-    --jkl-toggle-switch-border--disabled-on: #{jkl.$color-stein};
-    --jkl-toggle-switch-knob-border--disabled-on: #{jkl.$color-granitt};
-    --jkl-toggle-switch-knob-background--disabled-on: #{jkl.$color-granitt};
-}
-
 .jkl-toggle-switch {
-    --jkl-toggle-switch-knob-position: 0;
+    --border-width: #{jkl.rem(1px)};
+    --switch-padding: #{jkl.rem(4px)};
+    --knob-position: 0;
+    --switch-border-color: var(--jkl-color-border-action);
+    --indicator-color: var(--jkl-color-background-container-high);
+    --knob-border-color: var(--jkl-color-border-action);
+    --knob-color: var(--jkl-color-background-container-high);
+    --text-color: var(--jkl-color-text-default);
+    --icon-color: var(--jkl-color-text-inverted);
 
     background: transparent;
-    color: var(--jkl-color);
+    color: var(--text-color);
     padding: 0;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
@@ -85,28 +57,23 @@
 
     &[aria-pressed="true"],
     [aria-checked="true"] > & {
-        --jkl-toggle-switch-background: var(--jkl-toggle-switch-border);
-        --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-knob-background);
-        --jkl-toggle-switch-knob-background: var(--jkl-toggle-switch-knob-background--on);
-        --jkl-toggle-switch-indicator-color: var(--jkl-toggle-switch-indicator-color--on);
-        --jkl-toggle-switch-knob-position: calc(
-            var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) - var(--jkl-toggle-switch-padding) * 2
+        --indicator-color: var(--jkl-color-background-container-inverted);
+        --knob-color: var(--jkl-color-text-inverted);
+        --knob-position: calc(
+            var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) - var(--switch-padding) * 2
         );
     }
 
     &[disabled] {
         cursor: revert;
-        color: var(--jkl-color-text-subdued);
 
-        --jkl-toggle-switch-border: var(--jkl-toggle-switch-border--disabled);
-        --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-knob-border--disabled);
-        --jkl-toggle-switch-knob-background: var(--jkl-toggle-switch-knob-background--disabled);
+        --text-color: var(--jkl-color-text-subdued);
+        --switch-border-color: var(--jkl-color-border-subdued);
+        --knob-border-color: var(--jkl-color-border-subdued);
 
         &[aria-pressed="true"],
         [aria-checked="true"] > & {
-            --jkl-toggle-switch-border: var(--jkl-toggle-switch-border--disabled-on);
-            --jkl-toggle-switch-knob-border: var(--jkl-toggle-switch-knob-border--disabled-on);
-            --jkl-toggle-switch-knob-background: var(--jkl-toggle-switch-knob-background--disabled-on);
+            --indicator-color: var(--jkl-color-border-subdued);
         }
     }
 }
@@ -120,18 +87,18 @@
     height: var(--jkl-toggle-switch-height);
     width: var(--jkl-toggle-switch-width);
     border-radius: 9999px;
-    box-shadow: inset 0 0 0 var(--jkl-toggle-switch-border-width) var(--jkl-toggle-switch-border);
+    border: var(--border-width) solid var(--switch-border-color);
     overflow: hidden;
     user-select: none;
-    padding: var(--jkl-toggle-switch-padding);
-    background-color: var(--jkl-toggle-switch-background);
+    padding: var(--switch-padding);
+    background-color: var(--indicator-color);
     pointer-events: none;
 
     @include jkl.forced-colors-mode {
         border: jkl.rem(1px) solid ButtonText;
     }
 
-    &:focus-visible {
+    .jkl-toggle-switch:focus-visible & {
         @include jkl.focus-outline;
     }
 
@@ -140,19 +107,19 @@
         box-sizing: border-box;
         height: var(--jkl-toggle-switch-knob-size);
         width: var(--jkl-toggle-switch-knob-size);
-        color: var(--jkl-toggle-switch-indicator-color);
+        color: var(--icon-color);
 
         @include jkl.motion;
-        transition-property: transform;
-        transform: translateX(var(--jkl-toggle-switch-knob-position));
+        transition-property: translate;
+        translate: var(--knob-position);
     }
 
     &__knob {
         position: absolute;
         inset: 0;
         border-radius: 9999px;
-        border: var(--jkl-toggle-switch-border-width) solid var(--jkl-toggle-switch-knob-border);
-        background-color: var(--jkl-toggle-switch-knob-background);
+        border: var(--border-width) solid var(--knob-border-color);
+        background-color: var(--knob-color);
     }
 
     &__indicator {

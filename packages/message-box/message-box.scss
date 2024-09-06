@@ -1,22 +1,13 @@
 @charset "UTF-8";
 @use "sass:string";
 @use "@fremtind/jkl-core/jkl";
-@use "@fremtind/jkl-core/jkl/colors";
 
 $_dismiss-animation-duration: jkl.timing("lazy");
 $_message-width: jkl.rem(560px);
 $_message-width--compact: jkl.rem(440px);
 
 $_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
-$_dismiss-focus-border-color: jkl.$color-granitt;
 $_dismiss-hover-color: jkl.$color-stein;
-
-$_text-color: jkl.$color-granitt;
-$_bg-color--default: jkl.$color-snohvit;
-$_bg-color--suksess: colors.varslingsfarge("suksess");
-$_bg-color--feil: colors.varslingsfarge("feil");
-$_bg-color--info: colors.varslingsfarge("info");
-$_bg-color--advarsel: colors.varslingsfarge("advarsel");
 
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-message-box-message", "body");
@@ -49,11 +40,14 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 }
 
 .jkl-message-box {
+    --background-color: var(--jkl-color-background-alert-neutral);
+    --text-color: var(--jkl-color-text-on-alert);
+
     width: 100%;
     max-width: $_message-width;
     padding: var(--jkl-message-box-padding);
-    background-color: $_bg-color--default;
-    color: $_text-color;
+    background-color: var(--background-color);
+    color: var(--text-color);
     border-radius: jkl.rem(4px);
     box-sizing: border-box;
 
@@ -96,7 +90,6 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
         margin-left: var(--jkl-message-box-gap);
 
         background-color: transparent;
-        border-radius: jkl.rem(3px);
         padding: 0;
         cursor: pointer;
 
@@ -121,15 +114,8 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
             @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         }
 
-        &:focus {
-            @include jkl.keyboard-navigation {
-                outline: 2px solid $_dismiss-focus-border-color;
-
-                @include jkl.forced-colors-mode {
-                    outline: 2px solid ButtonText;
-                    outline-offset: 2px;
-                }
-            }
+        &:focus-visible {
+            @include jkl.focus-outline(0);
         }
     }
 
@@ -138,19 +124,19 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &--info {
-        background-color: $_bg-color--info;
+        --background-color: var(--jkl-color-background-alert-info);
     }
 
     &--warning {
-        background-color: $_bg-color--advarsel;
+        --background-color: var(--jkl-color-background-alert-warning);
     }
 
     &--error {
-        background-color: $_bg-color--feil;
+        --background-color: var(--jkl-color-background-alert-error);
     }
 
     &--success {
-        background-color: $_bg-color--suksess;
+        --background-color: var(--jkl-color-background-alert-success);
     }
 
     &--dismissed {
@@ -190,5 +176,5 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 }
 
 .jkl-form-error-message-box {
-    padding-bottom: jkl.$spacing-xl;
+    padding-bottom: jkl.$spacing-40;
 }

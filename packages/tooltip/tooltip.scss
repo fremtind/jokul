@@ -6,20 +6,6 @@ $_tooltip-arrow-height: jkl.rem(8px);
 $_focus-ring-distance: jkl.rem(-1px); // Negativ margin for å unngå subpixel mellomrom mellom border og box-shadow
 $_focus-ring-width: jkl.rem(2px);
 
-@include jkl.light-mode-variables {
-    --jkl-tooltip-button-color: #{jkl.$color-granitt};
-    --jkl-tooltip-active-button-color: #{jkl.$color-stein};
-    --jkl-tooltip-bg-color: #{jkl.$color-granitt};
-    --jkl-tooltip-text-color: #{jkl.$color-snohvit};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-tooltip-button-color: #{jkl.$color-snohvit};
-    --jkl-tooltip-active-button-color: #{jkl.$color-svaberg};
-    --jkl-tooltip-bg-color: #{jkl.$color-snohvit};
-    --jkl-tooltip-text-color: #{jkl.$color-granitt};
-}
-
 @include jkl.comfortable-density-variables {
     --jkl-tooltip-size: #{jkl.rem(24px)};
     --jkl-tooltip-content-padding: #{jkl.$spacing-m};
@@ -50,9 +36,12 @@ $_focus-ring-width: jkl.rem(2px);
 }
 
 .jkl-tooltip-content {
+    --background-color: var(--jkl-color-background-container-inverted);
+    --text-color: var(--jkl-color-text-inverted);
+
     @include jkl.text-style("small");
-    background-color: var(--jkl-tooltip-bg-color);
-    color: var(--jkl-tooltip-text-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
     display: inline-block;
     min-width: min-content;
     max-width: min(jkl.rem(310px), 100%); // 10px mindre enn smaleste støttede skjerm
@@ -83,7 +72,7 @@ $_focus-ring-width: jkl.rem(2px);
     &__arrow {
         overflow: hidden;
         position: absolute;
-        background-color: var(--jkl-tooltip-bg-color);
+        background-color: var(--background-color);
         transform: rotate(45deg);
         height: $_tooltip-arrow-height * 2;
         width: $_tooltip-arrow-height * 2;
@@ -95,6 +84,8 @@ $_focus-ring-width: jkl.rem(2px);
 }
 
 .jkl-tooltip-question-button {
+    --button-color: var(--jkl-color-text-interactive);
+
     @include jkl.motion("exit", "snappy");
     transition-property: color;
     cursor: pointer;
@@ -102,13 +93,13 @@ $_focus-ring-width: jkl.rem(2px);
     padding: 0;
     display: inline-flex;
     align-items: center;
-    color: var(--jkl-tooltip-button-color);
+    color: var(--button-color);
     transform: translateY(max(0.16em, jkl.rem(4px))); // Cap på 4px
     font-size: 1.2em;
 
     @include jkl.reset-outline;
 
     &:hover {
-        color: var(--jkl-tooltip-active-button-color);
+        --button-color: var(--jkl-color-text-interactive-hover);
     }
 }

@@ -1,18 +1,6 @@
 @use "sass:string";
 @use "@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-label-color: #{jkl.$color-granitt};
-    --jkl-label-support-color: #{jkl.$color-stein};
-    --jkl-label-error-color: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-label-color: #{jkl.$color-snohvit};
-    --jkl-label-support-color: #{jkl.$color-svaberg};
-    --jkl-label-error-color: #{jkl.$color-snohvit};
-}
-
 .jkl-dormant-form-support-label {
     display: none;
     opacity: 0;
@@ -38,12 +26,14 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
 }
 
 .jkl-form-support-label {
+    --color: var(--jkl-color-text-subdued);
+
     @include jkl.use-font-variables("jkl-form-support-label");
     @include jkl.motion("standard", "lazy");
 
     display: flex;
     margin: var(--jkl-form-support-label-margin);
-    color: var(--jkl-label-support-color);
+    color: var(--color);
     transition-property: color;
     transition-delay: jkl.timing("productive");
 
@@ -59,7 +49,7 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     &--error,
     &--warning,
     &--success {
-        color: var(--jkl-label-error-color);
+        --color: var(--jkl-color-text-default);
 
         .jkl-form-support-label__icon {
             animation: jkl.timing("lazy") cubic-bezier(0, 0, 0.3, 1) jkl.timing("expressive")
@@ -99,7 +89,7 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
 .jkl-label {
     display: block;
     margin-left: initial;
-    color: var(--jkl-label-color);
+    color: var(--jkl-color-text-default);
 
     &--small {
         @include jkl.use-font-variables("jkl-label-small");

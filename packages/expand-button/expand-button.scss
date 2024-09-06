@@ -1,18 +1,6 @@
 @charset "UTF-8";
 @use "@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-expand-button-text-color: #{jkl.$color-granitt};
-    --jkl-expand-button-focus-color: #{jkl.$color-granitt};
-    --jkl-expand-button-hover-color: #{jkl.$color-stein};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-expand-button-text-color: #{jkl.$color-snohvit};
-    --jkl-expand-button-focus-color: #{jkl.$color-snohvit};
-    --jkl-expand-button-hover-color: #{jkl.$color-svaberg};
-}
-
 @mixin _expanded-arrow($px) {
     .jkl-expand-button__arrow {
         transform: translateY(jkl.rem($px));
@@ -20,13 +8,15 @@
 }
 
 .jkl-expand-button {
+    --color: var(--jkl-color-text-interactive);
+
     $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
     $_focus-ring-width: jkl.rem(2px);
     list-style: none;
 
     background-color: transparent;
     cursor: pointer;
-    color: var(--jkl-expand-button-text-color);
+    color: var(--color);
     padding: 0;
     transition: transform $_animation-timing, border $_animation-timing;
     min-width: unset;
@@ -40,14 +30,14 @@
 
     &:focus-visible {
         border: none;
-        color: var(--jkl-expand-button-focus-color);
 
         @include jkl.focus-outline;
         @include _expanded-arrow(3px);
     }
 
+    &:focus-visible,
     &:hover {
-        color: var(--jkl-expand-button-hover-color);
+        --color: var(--jkl-color-text-interactive-hover);
     }
 
     &--expanded {

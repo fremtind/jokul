@@ -1,30 +1,22 @@
 @use "sass:string";
 @use "@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-progress-background-color: #{jkl.$color-dis};
-    --jkl-progress-tracker-color: #{jkl.$color-stein};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-progress-background-color: #{jkl.$color-stein};
-    --jkl-progress-tracker-color: #{jkl.$color-dis};
-}
-
 .jkl-progress-bar,
 .jkl-countdown {
-    --jkl-progress-bar-height: #{jkl.rem(4px)};
+    --track-color: var(--jkl-color-border-separator);
+    --bar-color: var(--jkl-color-border-input-focus);
+    --bar-height: #{jkl.rem(4px)};
 
-    background-color: var(--jkl-progress-background-color);
+    background-color: var(--track-color);
     border-radius: jkl.rem(100px);
-    height: var(--jkl-progress-bar-height);
+    height: var(--bar-height);
     width: 100%;
     overflow: hidden;
 
     &__tracker {
         display: block;
-        height: var(--jkl-progress-bar-height);
-        background-color: var(--jkl-progress-tracker-color);
+        height: var(--bar-height);
+        background-color: var(--bar-color);
     }
 
     @include jkl.forced-colors-mode {

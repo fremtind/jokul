@@ -833,8 +833,10 @@ importers:
 
   packages/progress-bar-react:
     specifiers:
+      '@fremtind/jkl-core': ^14.3.0
       '@fremtind/jkl-progress-bar': ^6.0.17
     dependencies:
+      '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-progress-bar': link:../progress-bar
 
   packages/radio-button:

@@ -8,12 +8,6 @@ $_dismiss-animation-duration: jkl.timing("lazy");
 $_dismiss-focus-border-color: jkl.$color-granitt;
 $_dismiss-hover-color: jkl.$color-stein;
 
-$_bg-color--default: jkl.$color-snohvit;
-$_bg-color--suksess: colors.varslingsfarge("suksess");
-$_bg-color--feil: colors.varslingsfarge("feil");
-$_bg-color--info: colors.varslingsfarge("info");
-$_bg-color--advarsel: colors.varslingsfarge("advarsel");
-
 @include jkl.comfortable-density-variables {
     --jkl-system-message-icon-height: #{jkl.rem(24px)};
     --jkl-system-message-icon-padding: #{jkl.rem(3px)} 0 0 0;
@@ -35,9 +29,12 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
 }
 
 .jkl-system-message {
+    --background-color: var(--jkl-color-background-alert-neutral);
+    --text-color: var(--jkl-color-text-on-alert);
+
     width: 100%;
-    background-color: $_bg-color--default;
-    color: jkl.$color-granitt;
+    background-color: var(--background-color);
+    color: var(--text-color);
     box-sizing: border-box;
 
     &__content {
@@ -115,19 +112,19 @@ $_bg-color--advarsel: colors.varslingsfarge("advarsel");
     }
 
     &--info {
-        background-color: $_bg-color--info;
+        --background-color: var(--jkl-color-background-alert-info);
     }
 
     &--warning {
-        background-color: $_bg-color--advarsel;
+        --background-color: var(--jkl-color-background-alert-warning);
     }
 
     &--error {
-        background-color: $_bg-color--feil;
+        --background-color: var(--jkl-color-background-alert-error);
     }
 
     &--success {
-        background-color: $_bg-color--suksess;
+        --background-color: var(--jkl-color-background-alert-success);
     }
 
     @include jkl.forced-colors-mode {
