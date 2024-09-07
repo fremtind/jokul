@@ -9,33 +9,22 @@
 }
 
 .jkl-link-list {
+    --border-color: var(--jkl-color-border-separator);
+
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 0;
     margin: 0;
-    border-bottom: 1.44px solid var(--jkl-color-border-separator);
+    border-bottom: jkl.rem(1px) solid var(--border-color);
     height: min-content;
     counter-reset: link-list;
-
-    --color: var(--jkl-color);
 
     @media (hover: hover) {
         &:has(:focus-visible),
         &:has(:hover) {
-            --color: var(--jkl-color-border-separator);
-
-            .jkl-link-list-link::before {
-                color: var(--color);
-            }
-
-            .jkl-link-list-link:has(:focus-visible),
-            .jkl-link-list-link:hover {
-                --color: var(--jkl-color);
-
-                &::before {
-                    color: var(--color);
-                }
+            .jkl-link-list-link:not(:hover):not(:focus-visible) {
+                --text-color: var(--jkl-color-border-separator);
             }
         }
     }
@@ -47,37 +36,40 @@
 }
 
 .jkl-link-list-link {
+    --text-color: var(--jkl-color-text-default);
+    --icon-background: transparent;
+
     display: flex;
     justify-content: space-between;
     gap: var(--jkl-spacing-16);
     padding: var(--jkl-link-list-padding) 0;
-    border-top: 1.44px solid var(--jkl-color-border-separator);
+    border-top: jkl.rem(1px) solid var(--border-color);
     width: 100%;
     text-decoration: none;
-    color: var(--color);
+    color: var(--text-color);
     cursor: pointer;
 
-    &,
-    & svg {
-        @include jkl.motion("standard", "productive");
-        transition-property: color, border-color, background-color;
+    @include jkl.motion("standard", "productive");
+    transition-property: color, border-color;
+
+    &:hover,
+    &:focus-visible {
+        --icon-background: var(--jkl-color-background-interactive-selected);
     }
 
-    .jkl-link-list--unordered & {
-        svg {
-            border-radius: 50%;
-        }
-
-        &:hover,
-        &:focus {
-            svg {
-                background-color: var(--jkl-color-background-interactive-selected);
-            }
-        }
+    &:focus-visible {
+        --border-color: transparent;
+        z-index: 1;
+        @include jkl.focus-outline(0);
     }
 
     &__arrow {
         align-self: center;
+        border-radius: 100%;
+        background-color: var(--icon-background);
+
+        @include jkl.motion("standard", "productive");
+        transition-property: color, background-color;
     }
 
     .jkl-link-list--ordered & {
@@ -91,7 +83,7 @@
             content: counter(link-list, decimal-leading-zero);
 
             @include jkl.use-font-family("Fremtind Grotesk Mono");
-            color: var(--jkl-color-text-interactive);
+            color: var(--text-color);
             font-size: var(--jkl-small-font-size);
         }
     }
