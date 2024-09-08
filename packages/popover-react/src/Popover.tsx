@@ -29,22 +29,17 @@ import { getThemeAndDensity } from "./utils";
 
 interface PopoverOptions {
     /**
-     * Initial open state of the popover when uncontrolled.
+     * Den initielle åpne tilstanden for popoveren når den er ukontrollert.
      * @default false
      * @see https://floating-ui.com/docs/useFloating#open
      */
     initialOpen?: boolean;
     /**
-     * Offset of the floating element.
+     * Offset til det flytende elementet.
      * @see https://floating-ui.com/docs/offset
      * @default 4
      * */
     offset?: number;
-    /**
-     * Strategy for positioning the floating element.
-     * @default absolute
-     * @see https://floating-ui.com/docs/useFloating#strategy
-     */
     /** Options for hover
      * @see {@link HoverOptions}
      * @see https://floating-ui.com/docs/useHover
@@ -142,7 +137,7 @@ const usePopover = ({
         ...dismissOptions,
     });
 
-    const interactions = useInteractions([click, dismiss, focus, hover, , role]);
+    const interactions = useInteractions([click, dismiss, focus, hover, role]);
 
     return React.useMemo(
         () => ({
@@ -183,7 +178,18 @@ const Popover = ({
 interface PopoverTriggerProps {
     children: React.ReactNode;
     /**
-     * Render the trigger as a child of the popover.
+     * Rendrer komponenten som child-elementet sitt, og slår
+     * sammen egenskaper og props.
+     * @example
+     * ```tsx
+     * <Component asChild foo="bar">
+     *    <Child baz="qux" />
+     * </Component>
+     *
+     * // Rendrer følgende:
+     * <Child foo="bar" baz="qux" />
+     * ```
+     *
      * @default false
      */
     asChild?: boolean;
@@ -222,7 +228,7 @@ const PopoverTrigger = React.forwardRef<HTMLElement, React.HTMLProps<HTMLElement
 
 interface PopoverContentProps {
     /**
-     * Padding of the popover content element.
+     * Padding rundt innholdet i popoveren.
      * @default 0
      */
     padding?: 0 | 8 | 16 | 24;
