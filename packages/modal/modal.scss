@@ -1,16 +1,6 @@
 @charset "UTF-8";
 @use "@fremtind/jkl-core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-modal-overlay-color: rgba(27 25 23 / 80%);
-    --jkl-modal-background-color: #{jkl.$color-hvit};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-modal-overlay-color: rgba(27 25 23 / 80%);
-    --jkl-modal-background-color: #{jkl.$color-skifer};
-}
-
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-modal-body", "body");
     @include jkl.declare-font-variables("jkl-modal-title", "heading-3");
@@ -54,7 +44,7 @@
 }
 
 .jkl-modal-overlay {
-    background-color: var(--jkl-modal-overlay-color);
+    background-color: rgba(27 25 23 / 80%);
 }
 
 .jkl-modal {
@@ -62,7 +52,7 @@
     z-index: jkl.$z-index--modal;
     position: relative;
 
-    background-color: var(--jkl-modal-background-color);
+    background-color: var(--jkl-color-background-container-high);
     border-radius: jkl.rem(2px);
     box-shadow: jkl.$shadow-task-card;
 

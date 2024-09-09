@@ -1,20 +1,6 @@
 @use "@fremtind/jkl-core/jkl";
 @use "./file";
 
-@include jkl.light-mode-variables {
-    --jkl-file-input-color: var(--jkl-color);
-    --jkl-file-input-dropzone-background-color: #{jkl.$color-snohvit};
-    --jkl-file-input-dropzone-background-color-enter: #{jkl.$color-hvit};
-    --jkl-file-input-dropzone-border-color: #{jkl.$color-fjellgra};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-file-input-color: var(--jkl-color);
-    --jkl-file-input-dropzone-background-color: #{jkl.$color-granitt};
-    --jkl-file-input-dropzone-background-color-enter: #{jkl.$color-svart};
-    --jkl-file-input-dropzone-border-color: #{jkl.$color-varde};
-}
-
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-file-input-drag", "heading-2");
     @include jkl.declare-font-variables("jkl-file-size-hint", "small");
@@ -38,7 +24,10 @@
 
 .jkl-file-input {
     &__dropzone {
-        border: var(--jkl-file-input-dropzone-border-color) 1px dashed;
+        --border-color: var(--jkl-color-border-input);
+        --background-color: transparent;
+
+        border: var(--border-color) 1px dashed;
         border-radius: jkl.rem(4px);
         padding: var(--jkl-file-input-dropzone-padding);
         display: flex;
@@ -49,10 +38,11 @@
         gap: var(--jkl-file-input-dropzone-gap);
         @include jkl.motion("standard", "productive");
         transition-property: background-color;
-        background-color: transparent;
+        background-color: var(--background-color);
 
         &--enter {
-            background-color: var(--jkl-file-input-dropzone-background-color-enter);
+            --border-color: var(--jkl-color-border-input-focus);
+            --background-color: var(--jkl-color-background-container-high);
             border-style: solid;
         }
 
@@ -76,9 +66,7 @@
             .jkl-button {
                 transform: scale(1.05);
 
-                &::after {
-                    box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-button-focus-color);
-                }
+                @include jkl.focus-outline;
 
                 &:active {
                     transform: scale(1);
@@ -93,7 +81,7 @@
 
     &__max-size-text {
         @include jkl.use-font-variables("jkl-file-size-hint");
-        color: var(--jkl-file-input-color);
+        color: var(--jkl-color-text-subdued);
     }
 
     &__files {

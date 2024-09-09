@@ -36,6 +36,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
+        "@fremtind/jkl-core": "^14.3.0",
         "@fremtind/jkl-progress-bar": "^6.0.17"
     },
     "peerDependencies": {
