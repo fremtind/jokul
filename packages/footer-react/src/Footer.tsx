@@ -2,10 +2,6 @@ import { DataTestAutoId, Density, Link } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
 
-/**
- * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
- */
-
 export interface FooterLink<T = HTMLAnchorElement> {
     title: string;
     href?: string;
@@ -26,6 +22,9 @@ export interface FooterProps extends DataTestAutoId, HTMLAttributes<HTMLElement>
     density?: Density;
 }
 
+/**
+ * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
+ */
 export const Footer: FC<FooterProps> = ({
     heading = "Fremtind er vår leverandør av forsikring",
     className,
