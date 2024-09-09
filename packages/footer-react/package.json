@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-footer-react",
-    "version": "6.1.40",
+    "version": "6.1.41",
     "publishConfig": {
         "access": "public"
     },
@@ -38,7 +38,7 @@
     "dependencies": {
         "@fremtind/jkl-core": "^14.3.0",
         "@fremtind/jkl-footer": "^6.0.18",
-        "@fremtind/jkl-formatters-util": "^5.1.33",
+        "@fremtind/jkl-formatters-util": "^5.1.34",
         "@fremtind/jkl-logo-react": "^13.1.9",
         "classnames": "^2.3.2"
     },

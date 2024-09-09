@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list-react@10.2.6...@fremtind/jkl-list-react@10.2.7) (2024-09-09)
+
+### Bug Fixes
+
+- riktig visning av hoverstate for linklist ([2639684](https://github.com/fremtind/jokul/commit/2639684acec2b8ec4996d644ae14f02e6bf8c173))
+
 ## [10.2.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list-react@10.2.0...@fremtind/jkl-list-react@10.2.1) (2024-08-29)
 
 ### Bug Fixes
