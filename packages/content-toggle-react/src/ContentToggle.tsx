@@ -2,10 +2,6 @@ import { WithChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { ReactNode, FC, useState, useEffect } from "react";
 
-/**
- * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
- */
-
 export interface ContentToggleProps extends WithChildren {
     /** @default "polite" */
     "aria-live"?: "polite" | "assertive" | "off";
@@ -16,6 +12,9 @@ export interface ContentToggleProps extends WithChildren {
     variant?: "flip" | "fade";
 }
 
+/**
+ * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
+ */
 export const ContentToggle: FC<ContentToggleProps> = ({
     "aria-live": ariaLive = "polite",
     showSecondary,

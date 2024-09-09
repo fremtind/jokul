@@ -2,8 +2,6 @@
 @use "sass:string";
 @use "@fremtind/jkl-core/jkl";
 
-/// @deprecated Denne komponenten bør ikke lenger brukes, og vil ikke bli oppdatert.
-
 $_animation-duration: 300ms;
 $_half-animation-duration: calc(#{$_animation-duration} / 2);
 
@@ -34,6 +32,7 @@ $_fade-in-animation-name: jkl-fade-in-#{string.unique-id()};
     }
 }
 
+/// @deprecated Denne komponenten bør ikke lenger brukes, og vil ikke bli oppdatert.
 .jkl-content-toggle {
     height: 1.2em;
     overflow: hidden;
