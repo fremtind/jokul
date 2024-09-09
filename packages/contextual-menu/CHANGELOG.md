@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.2.0 (2024-09-09)
+
+### Features
+
+- bruk semantiske variabler i contextual menu ([a6fb4c2](https://github.com/fremtind/jokul/commit/a6fb4c2bb6abef8b2102d6d2fe1d02e9be5e7bfb))
+
 ## [2.1.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contextual-menu@2.1.13...@fremtind/jkl-contextual-menu@2.1.14) (2024-09-04)
 
 ### Bug Fixes

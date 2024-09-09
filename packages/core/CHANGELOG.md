@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.4.0 (2024-09-09)
+
+### Features
+
+- legg til manglende semantiske fargeroller ([14e14a8](https://github.com/fremtind/jokul/commit/14e14a85f4d17f192aa95078d4d82ac08a850d85))
+
 # 14.3.0 (2024-09-05)
 
 ### Features

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.1.0 (2024-09-09)
+
+### Features
+
+- bruk semantiske variabler i checkbox ([a666a73](https://github.com/fremtind/jokul/commit/a666a731d2841d5fb993ff62e8c4c7fb766e1c9e))
+
 ## 11.0.12 (2024-09-03)
 
 ### Bug Fixes

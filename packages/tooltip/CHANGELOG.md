@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.2.0 (2024-09-09)
+
+### Features
+
+- bruk semantiske fargevariabler ([e967724](https://github.com/fremtind/jokul/commit/e967724979b074f62aa92a8396292e17b51a4896))
+
 ## [4.1.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip@4.1.13...@fremtind/jkl-tooltip@4.1.14) (2024-09-02)
 
 ### Bug Fixes
