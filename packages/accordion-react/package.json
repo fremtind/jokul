@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "12.1.9",
+    "version": "12.1.10",
     "publishConfig": {
         "access": "public"
     },
@@ -40,7 +40,7 @@
         "@fremtind/jkl-button": "^12.1.7",
         "@fremtind/jkl-expand-button": "^7.0.9",
         "@fremtind/jkl-icons": "^9.1.4",
-        "@fremtind/jkl-list-react": "^10.2.6",
+        "@fremtind/jkl-list-react": "^10.2.7",
         "@rollup/plugin-terser": "^0.4.4",
         "@vitejs/plugin-react-swc": "^3.7.0",
         "glob": "^8.1.0",
