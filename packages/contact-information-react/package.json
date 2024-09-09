@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-contact-information-react",
-    "version": "2.1.42",
+    "version": "2.1.43",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-contact-information": "^2.0.19",
+        "@fremtind/jkl-contact-information": "^2.0.20",
         "@fremtind/jkl-core": "^14.4.0",
         "@fremtind/jkl-formatters-util": "^5.1.35",
         "classnames": "^2.3.2"
