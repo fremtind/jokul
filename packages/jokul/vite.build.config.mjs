@@ -8,6 +8,8 @@ import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
+//console.log(globSync("src/**/!(*.test).{ts,tsx}"));
+
 export default defineConfig({
     plugins: [
         nodeExternals({ deps: true, devDeps: true, peerDeps: true, optDeps: true, exclude: ["clsx"] }),
@@ -32,7 +34,7 @@ export default defineConfig({
         rollupOptions: {
             input: Object.fromEntries(
                 // https://rollupjs.org/configuration-options/#input
-                globSync("src/**/!(.test).{ts,tsx}").map((file) => [
+                globSync("src/**/!(*.test).{ts,tsx}").map((file) => [
                     relative("src", file.slice(0, file.length - extname(file).length)),
                     fileURLToPath(new URL(file, import.meta.url)),
                 ]),
