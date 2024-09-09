@@ -90,11 +90,27 @@ function messageFactory(messageType: messageTypes) {
     return MessageBox;
 }
 
+/**
+ * @deprecated Denne komponenten har byttet navn. Bruk heller `InfoMessage` fra pakken `@fremtind/jkl-message-react`
+ * @link https://jokul.fremtind.no/komponenter/message
+ */
 export const InfoMessageBox = messageFactory("info");
 InfoMessageBox.displayName = "InfoMessageBox";
+/**
+ * @deprecated Denne komponenten har byttet navn. Bruk heller `ErrorMessage` fra pakken `@fremtind/jkl-message-react`
+ * @link https://jokul.fremtind.no/komponenter/message
+ */
 export const ErrorMessageBox = messageFactory("error");
 ErrorMessageBox.displayName = "ErrorMessageBox";
+/**
+ * @deprecated Denne komponenten har byttet navn. Bruk heller `WarningMessage` fra pakken `@fremtind/jkl-message-react`
+ * @link https://jokul.fremtind.no/komponenter/message
+ */
 export const WarningMessageBox = messageFactory("warning");
 WarningMessageBox.displayName = "WarningMessageBox";
+/**
+ * @deprecated Denne komponenten har byttet navn. Bruk heller `SuccessMessage` fra pakken `@fremtind/jkl-message-react`
+ * @link https://jokul.fremtind.no/komponenter/message
+ */
 export const SuccessMessageBox = messageFactory("success");
 SuccessMessageBox.displayName = "SuccessMessageBox";

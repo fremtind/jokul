@@ -39,6 +39,8 @@ $_dismiss-hover-color: jkl.$color-stein;
     --jkl-message-box-padding: #{jkl.$spacing-12} #{jkl.$spacing-8};
 }
 
+/// @deprecated Denne komponenten bytter navn og blir erstattet av .jkl-message fra pakken `@fremtind/jkl-message`
+/// @link https://jokul.fremtind.no/komponenter/message
 .jkl-message-box {
     --background-color: var(--jkl-color-background-alert-neutral);
     --text-color: var(--jkl-color-text-on-alert);
