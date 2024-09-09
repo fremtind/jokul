@@ -12,7 +12,6 @@
     "dependencies": {
         "@emotion/is-prop-valid": "^1.2.2",
         "@fremtind/jkl-accordion-react": "^12.0.0",
-        "@fremtind/jkl-system-message-react": "^1.0.0-alpha.0",
         "@fremtind/jkl-breadcrumb-react": "^5.0.13",
         "@fremtind/jkl-button": "^12.1.2",
         "@fremtind/jkl-button-react": "^15.1.6",
@@ -42,6 +41,7 @@
         "@fremtind/jkl-loader-react": "^12.0.13",
         "@fremtind/jkl-logo-react": "^13.1.4",
         "@fremtind/jkl-message-box-react": "^11.1.19",
+        "@fremtind/jkl-message-react": "1.0.0-alpha.0",
         "@fremtind/jkl-modal-react": "^2.1.32",
         "@fremtind/jkl-progress-bar-react": "^6.0.12",
         "@fremtind/jkl-radio-button": "^10.1.12",
@@ -50,6 +50,7 @@
         "@fremtind/jkl-select": "^11.1.12",
         "@fremtind/jkl-select-react": "^14.1.37",
         "@fremtind/jkl-summary-table-react": "^10.0.13",
+        "@fremtind/jkl-system-message-react": "^1.0.2",
         "@fremtind/jkl-table-react": "^11.4.8",
         "@fremtind/jkl-tabs-react": "^6.0.4",
         "@fremtind/jkl-tag-react": "^5.2.15",
