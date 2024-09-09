@@ -22,7 +22,7 @@ import * as sass from "sass-embedded";
                 return [
                     writeFile(cssPath, content.css).then(() => console.log(`wrote file:${cssPath}`)),
                     new Promise((resolve, reject) => {
-                        postcss([autoprefixer({ grid: true }), cssnano(litePreset)])
+                        postcss([autoprefixer(), cssnano(litePreset)])
                             .process(content.css)
                             .then((result) =>
                                 writeFile(cssMinPath, result.css).then(() => {
