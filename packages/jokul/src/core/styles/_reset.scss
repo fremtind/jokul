@@ -1,0 +1,66 @@
+/* Text blocks
+   ========================================================================== */
+
+/**
+ * Remove default margins from all block-level text elements
+ * such as `p` and headings
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Remove margins from fieldset element.
+ */
+
+fieldset {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: block;
+    line-height: 1;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Remove borders from table elements.
+ */
+
+table {
+    border-collapse: collapse;
+}
+
+/**
+ * Remove margins from table elements.
+ */
+
+table,
+thead,
+tbody,
+tr,
+td,
+th {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * https://css-tricks.com/the-hidden-attribute-is-visibly-weak/
+ * tl;dr – hidden er en User Agent style, så hvis et element har noen som helst display som ikke er
+ * hidden vil ikke hidden-attributtet gjøre noe som helst visuelt. Her gjør vi det til vår egen author style.
+ */
+.jkl [hidden] {
+    display: none;
+}

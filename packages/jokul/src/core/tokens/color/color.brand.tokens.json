@@ -1,0 +1,65 @@
+{
+    "color": {
+        "brand": {
+            "snohvit": {
+                "value": "#F9F9F9"
+            },
+            "varde": {
+                "value": "#E0DBD4"
+            },
+            "granitt": {
+                "value": "#1B1917"
+            },
+            "hvit": {
+                "value": "#FFFFFF"
+            },
+            "svart": {
+                "value": "#000000"
+            },
+            "skifer": {
+                "value": "#313030"
+            },
+            "fjellgra": {
+                "value": "#444141"
+            },
+            "stein": {
+                "value": "#636060"
+            },
+            "svaberg": {
+                "value": "#C8C5C3"
+            },
+            "dis": {
+                "value": "#ECE9E5"
+            },
+            "sand": {
+                "value": "#F4F2EF"
+            }
+        },
+        "functional": {
+            "info": {
+                "value": "#D3D3F6"
+            },
+            "info-dark": {
+                "value": "#A9A9CA"
+            },
+            "success": {
+                "value": "#ACD3B5"
+            },
+            "success-dark": {
+                "value": "#94B79B"
+            },
+            "warning": {
+                "value": "#EFDD9E"
+            },
+            "warning-dark": {
+                "value": "#DECC8D"
+            },
+            "error": {
+                "value": "#F6B3B3"
+            },
+            "error-dark": {
+                "value": "#DE9E9E"
+            }
+        }
+    }
+}

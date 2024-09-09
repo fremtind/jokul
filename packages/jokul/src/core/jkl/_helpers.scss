@@ -1,0 +1,20 @@
+/// Gjør flexbox litt mindre verbos. Setter display: flex; med gitt align-items og justify-content.
+/// @param {String} $align-items [center] – settes på align-items
+/// @param {String} $justify-content [center] – settes på justify-content
+/// @output display: flex og angitt align-items og justify-content
+@mixin flex($align-items: center, $justify-content: center) {
+    display: flex;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+/// Samle alt som har med posisjonering å gjøre i én mixin. Alle parameternavn matcher CSS-attributtet.
+/// @param {String} $position
+/// @param {String} $top [initial]
+/// @param {String} $left [initial]
+/// @param {String} $right [initial]
+/// @param {String} $bottom [initial]
+@mixin position($position, $top: initial, $left: initial, $right: initial, $bottom: initial) {
+    position: $position;
+    inset: $top $right $bottom $left;
+}

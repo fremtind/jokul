@@ -1,0 +1,69 @@
+{
+    "name": "@fremtind/jokul",
+    "version": "0.0.1",
+    "description": "Jøkul monopakke",
+    "types": "./build/index.d.ts",
+    "files": [
+        "./build",
+        "./src/core/styles",
+        "./src/core/jkl",
+        "./src/core/tokens.less",
+        "./src/components/typography/styles"
+    ],
+    "type": "module",
+    "exports": {
+        "./core": {
+            "require": "./build/cjs/core/index.js",
+            "import": "./build/es/core/index.js",
+            "types": "./build/core/index.d.ts"
+        },
+        "./core/tokens.less": "./src/core/tokens.less",
+        "./core/styles/*": "./src/core/styles/*",
+        "./core/jkl": "./src/core/jkl/_index.scss",
+        "./hooks": {
+            "require": "./build/cjs/hooks/index.js",
+            "import": "./build/es/hooks/index.js",
+            "types": "./build/hooks/index.d.ts"
+        },
+        "./components": {
+            "require": "./build/cjs/components/index.js",
+            "import": "./build/es/components/index.js",
+            "types": "./build/components/index.d.ts"
+        },
+        "./components/typography": {
+            "require": "./build/cjs/components/typography/index.js",
+            "import": "./build/es/components/typography/index.js",
+            "types": "./build/components/typography/index.d.ts"
+        },
+        "./components/typography/styles/*": "./src/components/typography/styles/*"
+    },
+    "scripts": {
+        "generate:tokens": "node tokens.build.mjs",
+        "build": "pnpm run /compile:*/",
+        "compile:style": "node build-styles.mjs",
+        "compile:scripts": "vite build --config vite.build.config.mjs"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "peerDependencies": {
+        "react": "^18.0.0"
+    },
+    "devDependencies": {
+        "@rollup/plugin-terser": "^0.4.4",
+        "@vitejs/plugin-react-swc": "^3.7.0",
+        "autoprefixer": "^10.4.14",
+        "change-case": "^4.1.2",
+        "clsx": "^2.1.1",
+        "cssnano": "^6.0.1",
+        "cssnano-preset-lite": "^3.0.0",
+        "glob": "^11.0.0",
+        "postcss": "^8.4.24",
+        "rollup-plugin-node-externals": "^7.1.3",
+        "rollup-plugin-visualizer": "^5.12.0",
+        "sass-embedded": "^1.78.0",
+        "style-dictionary": "^3.8.0",
+        "vite": "^5.2.0",
+        "vite-plugin-dts": "^4.1.0"
+    }
+}

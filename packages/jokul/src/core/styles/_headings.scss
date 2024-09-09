@@ -1,0 +1,29 @@
+@use "../jkl";
+
+.jkl-title {
+    @include jkl.text-style("title");
+}
+
+.jkl-title-small {
+    @include jkl.text-style("title-small");
+}
+
+.jkl-heading-1 {
+    @include jkl.text-style("heading-1");
+}
+
+.jkl-heading-2 {
+    @include jkl.text-style("heading-2");
+}
+
+.jkl-heading-3 {
+    @include jkl.text-style("heading-3");
+}
+
+.jkl-heading-4 {
+    @include jkl.text-style("heading-4");
+}
+
+.jkl-heading-5 {
+    @include jkl.text-style("heading-5");
+}

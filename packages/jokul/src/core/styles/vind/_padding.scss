@@ -1,0 +1,43 @@
+@use "../../jkl/spacing";
+
+.jkl {
+    @each $spacing, $value in spacing.$spacing {
+        .p-#{$spacing} {
+            padding: $value;
+        }
+
+        .px-#{$spacing} {
+            padding-left: $value;
+            padding-right: $value;
+        }
+
+        .ps-#{$spacing} {
+            padding-inline-start: $value;
+        }
+
+        .pe-#{$spacing} {
+            padding-inline-end: $value;
+        }
+
+        .py-#{$spacing} {
+            padding-top: $value;
+            padding-bottom: $value;
+        }
+
+        .pt-#{$spacing} {
+            padding-top: $value;
+        }
+
+        .pr-#{$spacing} {
+            padding-right: $value;
+        }
+
+        .pb-#{$spacing} {
+            padding-bottom: $value;
+        }
+
+        .pl-#{$spacing} {
+            padding-left: $value;
+        }
+    }
+}

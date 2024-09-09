@@ -1,0 +1,210 @@
+@use "sass:string";
+@use "sass:map";
+@use "sass:list";
+@use "screens";
+@use "tokens" as *;
+
+/// Tilsvarer 2px
+/// @deprecated Bruk heller $spacing-2
+/// @type Number
+$spacing-3xs: $spacing-2;
+
+/// Tilsvarer 4px
+/// @deprecated Bruk heller $spacing-4
+/// @type Number
+$spacing-2xs: $spacing-4;
+
+/// Tilsvarer 8px
+/// @deprecated Bruk heller $spacing-8
+/// @type Number
+$spacing-xs: $spacing-8;
+
+/// Tilsvarer 12px
+/// @deprecated Bruk heller $spacing-12
+/// @type Number
+$spacing-s: $spacing-12;
+
+/// Tilsvarer 16px
+/// @deprecated Bruk heller $spacing-16
+/// @type Number
+$spacing-m: $spacing-16;
+
+/// Tilsvarer 24px
+/// @deprecated Bruk heller $spacing-24
+/// @type Number
+$spacing-l: $spacing-24;
+
+/// Tilsvarer 40px
+/// @deprecated Bruk heller $spacing-40
+/// @type Number
+$spacing-xl: $spacing-40;
+
+/// Tilsvarer 64px
+/// @deprecated Bruk heller $spacing-64
+/// @type Number
+$spacing-2xl: $spacing-64;
+
+/// Tilsvarer 104px
+/// @deprecated Bruk heller $spacing-104
+/// @type Number
+$spacing-3xl: $spacing-104;
+
+/// Tilsvarer 168px
+/// @deprecated Bruk heller $spacing-168
+/// @type Number
+$spacing-4xl: $spacing-168;
+
+/// Lar deg gjøre oppslag på navnet uten `spacing`-prefix for å få ut rem-verdien
+/// @type Map
+$spacing: (
+    "2": $spacing-2,
+    "4": $spacing-4,
+    "8": $spacing-8,
+    "12": $spacing-12,
+    "16": $spacing-16,
+    "24": $spacing-24,
+    "32": $spacing-32,
+    "40": $spacing-40,
+    "64": $spacing-64,
+    "104": $spacing-104,
+    "168": $spacing-168,
+    // Gamle t-skjortestørrelser for kompatibilitet
+    "3xs": $spacing-3xs,
+    "2xs": $spacing-2xs,
+    "xs": $spacing-xs,
+    "s": $spacing-s,
+    "m": $spacing-m,
+    "l": $spacing-l,
+    "xl": $spacing-xl,
+    "2xl": $spacing-2xl,
+    "3xl": $spacing-3xl,
+    "4xl": $spacing-4xl,
+);
+
+/// Her defineres kombinasjoner av spacinger til bruk i nytteklasser for spacing.
+/// Nytteklasser for alle enkeltspacinger, samt kombinasjoner, i denne listen
+/// blir automatisk generert i core.css, med versjoner for alle posisjoner (top, right, etc.).
+/// @type Map
+$combinations: (
+    "2",
+    "4",
+    "8",
+    "12",
+    "16",
+    "24",
+    "32",
+    "40",
+    "64",
+    "104",
+    "168",
+    "16" "24",
+    "24" "40",
+    "24" "32",
+    "32" "40",
+    "40" "64",
+    "64" "104",
+    "104" "168",
+    "16" "16" "24",
+    "16" "24" "32",
+    "16" "24" "40",
+    "24" "24" "32",
+    "24" "24" "40",
+    "24" "32" "40",
+    "32" "32" "40",
+    "32" "40" "64",
+    "40" "40" "64",
+    "40" "64" "104",
+    "64" "64" "104",
+    "64" "104" "168",
+    "104" "104" "168"
+);
+
+/// Posisjoner som kan benyttes for spacing
+/// @type Map
+$positions: (top, bottom, left, right);
+
+/// Deler opp en streng i substrenger, gitt et tegn du vil bruke som avdeler.
+/// @param { string } $string En streng du vil dele opp
+/// @param { string } $delimiter [null] En string du vil bruke som avdeler, f.eks. komma
+/// @return { list } Returnerer en liste med substrenger
+/// @example
+/// splitString("24/40", "/"); // "24", "40"
+@function _split-string($string, $delimiter: null) {
+    // Returner en liste med uendret streng hvis ingen separator er satt, eller strengen er tom
+    @if not $delimiter or string.length($string) == 0 {
+        @return ($string);
+    }
+
+    // Finn index til separatoren
+    $delimiter-index: string.index($string, $delimiter);
+
+    // Returner en liste med uendret streng hvis ikke separatoren finnes i strengen
+    @if not $delimiter-index {
+        @return ($string);
+    }
+
+    $first-value: string.slice($string, 0, $delimiter-index - 1);
+    // Finn eventuelt flere substrenger ved å kjøre funksjonen rekursivt
+    $other-values: _split-string(string.slice($string, $delimiter-index + 1), $delimiter);
+
+    // Returner en kommaseparert liste over substrengene
+    @return list.join($first-value, $other-values, "comma");
+}
+
+/// Setter marginer ut fra et steg i spacing-skalaen
+/// @param {"2" | "4" | "8" | "12" | "16" | "24" | "32" | "40" | "64" | "104" | "168"} $spacing-step Et steg i spacingskalaen
+/// @param {"top" | "right" | "bottom" | "left"} $position En posisjon du vil sette spacingen i
+/// @output margin-<posisjon>: <verdi i spacing-skalaen>;
+@mixin _single-spacing($spacing-step, $position) {
+    @if $position and list.index($positions, $position) {
+        // Legg til bindestrek foran posisjonen for enklere interpolering
+        $position: "-#{$position}";
+    }
+
+    @if map.has-key($spacing, $spacing-step) {
+        margin#{$position}: map.get($spacing, $spacing-step);
+    } @else {
+        @error "Fant ikke \"#{$spacing-step}\" i våre spacing-verdier";
+    }
+}
+
+/// Gir deg marginer basert på stegene i spacing-skalaen.
+/// @param $steps Navnet på ett, to eller tre steg i spacing-skalaen, adskilt av "/".
+/// Stegene trer i kraft fra henholdsvis små, mellomstore og store skjermstørrelser i den rekkefølgen du angir dem.
+/// @param {"top" | "right" | "bottom" | "left"} $position Lar deg spesifisere margin for kun én av sidene
+/// @example
+/// .class {
+///     // Gir spacing-40 på små skjermer, og spacing-64 fra mellomstore skjermer
+///     @include jkl.spacing("40/64");
+/// }
+/// @example
+/// .class {
+///     // Gir spacing-40 på små skjermer, spacing-64 på mellomstore skjermer, og spacing-104 fra store skjermer
+///     @include jkl.spacing("40/64/104");
+/// }
+/// @example
+/// .class {
+///     @include jkl.spacing("16", "bottom");
+/// }
+@mixin spacing($steps, $position: null) {
+    $steps: _split-string($steps, "/");
+
+    @if list.length($steps) > 3 {
+        @error "Du kan ikke oppgi fler enn tre spacing-steg";
+    } @else if list.length($steps) < 1 {
+        @error "Du må oppgi minst ett spacing-steg";
+    }
+
+    @include _single-spacing(list.nth($steps, 1), $position);
+
+    @if list.length($steps) > 1 {
+        @include screens.from-medium-device {
+            @include _single-spacing(list.nth($steps, 2), $position);
+        }
+    }
+    @if list.length($steps) > 2 {
+        @include screens.from-large-device {
+            @include _single-spacing(list.nth($steps, 3), $position);
+        }
+    }
+}
