@@ -30,12 +30,12 @@
             "import": "./build/es/components/index.js",
             "types": "./build/components/index.d.ts"
         },
-        "./components/typography": {
-            "require": "./build/cjs/components/typography/index.js",
-            "import": "./build/es/components/typography/index.js",
-            "types": "./build/components/typography/index.d.ts"
+        "./components/navigation": {
+            "require": "./build/cjs/components/navigation/index.js",
+            "import": "./build/es/components/navigation/index.js",
+            "types": "./build/components/navigation/index.d.ts"
         },
-        "./components/typography/styles/*": "./src/components/typography/styles/*"
+        "./components/navigation/styles/*": "./src/components/navigation/styles/*"
     },
     "scripts": {
         "generate:tokens": "node tokens.build.mjs",
