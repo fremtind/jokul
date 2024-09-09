@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.1.0 (2024-09-09)
+
+### Features
+
+- bruk semantiske fargevariabler ([e967724](https://github.com/fremtind/jokul/commit/e967724979b074f62aa92a8396292e17b51a4896))
+
 ## [13.0.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback@13.0.16...@fremtind/jkl-feedback@13.0.17) (2024-09-04)
 
 ### Bug Fixes

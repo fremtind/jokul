@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 5.1.0 (2024-09-09)
+
+### Features
+
+- bruk semantiske variabler i breadcrumb ([d6a9ebb](https://github.com/fremtind/jokul/commit/d6a9ebb34a59fcbca9e55d84f3a0b71dae71eec8))
+
 # 5.0.0 (2023-07-07)
 
 ### chore

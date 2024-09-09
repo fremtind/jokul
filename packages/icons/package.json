@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icons",
-    "version": "10.0.5",
+    "version": "10.0.6",
     "publishConfig": {
         "access": "public"
     },
@@ -27,7 +27,7 @@
         "dev": "echo \"Error: run dev from icons-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.3.0"
+        "@fremtind/jkl-core": "^14.4.0"
     },
     "repository": {
         "type": "git",
