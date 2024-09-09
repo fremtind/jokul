@@ -1,0 +1,69 @@
+---
+title: Message
+react: message-react
+scss: message
+group: meldinger
+keywords: infomessage errormessage successmessage warningmessage formerrormessage
+---
+
+import { MessageExample, messageExampleKnobs, messageExampleCode } from "./MessageExample";
+import { FormErrorMessageExample, formErrorMessageKnobs, formErrorMessageExampleCode } from "./FormErrorMessageExample";
+
+<Ingress>
+    En melding er en beskjed til brukeren som vises i tilknytning til innhold på siden. Det kan være et varsel om at noe
+    er feil, informasjon om at noe mangler i et skjema, eller en bekreftelse på at noe har blitt oppdatert.
+</Ingress>
+<ComponentExample
+    title="Message"
+    component={MessageExample}
+    knobs={messageExampleKnobs}
+    codeExample={messageExampleCode}
+/>
+
+Meldingene består en meldingstekst og en valgfri overskrift.
+
+Om meldingen ikke er koblet til en tilstand på siden (for eksempel en feil i et skjema) kan man la brukeren lukke den. Tenk på om siden bør huske at brukeren lukket meldingen.
+
+## Varianter
+
+Vi har fire ulike meldinger, med fargene blå, rød, gul og grønn. [Meldingsfargene våre er funksjonelle](/profil/farger#meldingsfargene). Det vil si at hver variant har en betydning:
+
+-   Blått er for generell informasjon til brukeren.
+-   Gult gir brukeren en advarsel, for eksempel at en funksjonalitet er i beta og derfor er ustabil.
+-   Rødt gir brukeren en feilmelding, for eksempel om det oppstår en systemfeil eller brukeren avbryter en handling.
+-   Grønt betyr at en handling var vellykket.
+
+## I skjema
+
+Som beskrevet i [Skjemavalidering](/guider/skjemadesign#skjemavalidering) bruker vi en ErrorMessage til å oppsummere valideringsfeil. Det finnes en ferdig variant `FormErrorMessage` som animeres, og skjules på små skjermer. Se [eksempelet på skjemavalidering](/demoer/skjemavalidering) for å se komponenten i bruk.
+
+<ComponentExample
+    title="FormErrorMessage"
+    component={FormErrorMessageExample}
+    knobs={formErrorMessageKnobs}
+    codeExample={formErrorMessageExampleCode}
+/>
+
+## Tilgjengelighet
+
+Når vi bruker meldinger med farge, må vi alltid huske å ha en god og beskrivende tekst, siden farge ikke er et godt nok kjennetegn for alle brukere. Skriv en presis meldingstekst, der du sier det viktigste først.
+
+`ErrorMessage` og `WarningMessage` har `role="alert"`, som betyr at innholdet vil bli lest opp av skjermlesere uansett hvor skjermleserens markør befinner seg på siden. Rollen kan overstyres.
+
+## Når bruker vi en melding?
+
+Før du bruker en melding er det greit å ha tatt stilling til noen spørsmål:
+
+-   Er beskjeden tilknyttet innholdet den står i nærheten av?
+-   Er beskjeden tydelig nok til å forstås uten farge som kjennetegn?
+-   Kan meldingen lukkes? Bør den da skjules ved neste besøk?
+
+Om meldingen er helt selvstendig (ikke tilknyttet noe av innholdet på siden) skal vi bruke [SystemMessage](/komponenter/systemmessage).
+
+<Grid>
+    <DoDontExample
+        type="do"
+        description="Vis meldingen i kontekst av innholdet"
+        image="/assets/do-donts/system-message-dont-1.png"
+    />
+</Grid>

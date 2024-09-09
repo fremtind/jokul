@@ -1,0 +1,180 @@
+@charset "UTF-8";
+@use "sass:string";
+@use "@fremtind/jkl-core/jkl";
+
+$_dismiss-animation-duration: jkl.timing("lazy");
+$_message-width: jkl.rem(560px);
+$_message-width--compact: jkl.rem(440px);
+
+$_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
+$_dismiss-hover-color: jkl.$color-stein;
+
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-message-content", "body");
+    @include jkl.declare-font-variables("jkl-message-title", "heading-4");
+
+    --jkl-message-icon-size: #{jkl.rem(24px)};
+    --jkl-message-icon-left: #{jkl.rem(16px)};
+    --jkl-message-icon-top: #{jkl.rem(24px)};
+    --jkl-message-title-margin: 0 0 #{jkl.$spacing-4} 0;
+    --jkl-message-dismiss-button-size: #{jkl.rem(44px)};
+    --jkl-message-gap: #{jkl.$spacing-12};
+    --jkl-message-padding: #{jkl.$spacing-16} #{jkl.$spacing-12};
+
+    @include jkl.from-medium-device {
+        --jkl-message-gap: #{jkl.$spacing-16};
+        --jkl-message-padding: #{jkl.$spacing-24} #{jkl.$spacing-16};
+    }
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-message-content", "small");
+    @include jkl.declare-font-variables("jkl-message-title", "heading-5");
+
+    --jkl-message-icon-size: #{jkl.rem(20px)};
+    --jkl-message-icon-left: #{jkl.rem(6px)};
+    --jkl-message-icon-top: #{jkl.rem(14px)};
+    --jkl-message-dismiss-button-size: #{jkl.rem(32px)};
+    --jkl-message-gap: #{jkl.$spacing-8};
+    --jkl-message-padding: #{jkl.$spacing-12} #{jkl.$spacing-8};
+}
+
+.jkl-message {
+    --background-color: var(--jkl-color-background-alert-neutral);
+    --text-color: var(--jkl-color-text-on-alert);
+
+    width: 100%;
+    max-width: $_message-width;
+    padding: var(--jkl-message-padding);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: jkl.rem(4px);
+    box-sizing: border-box;
+
+    display: grid;
+    align-items: start;
+    grid-template-areas: "icon content dismiss";
+    grid-template-columns: auto 1fr auto;
+
+    &__icon {
+        grid-area: icon;
+        width: var(--jkl-message-icon-size);
+        margin-right: var(--jkl-message-gap);
+
+        @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+    }
+
+    &__content {
+        grid-area: content;
+    }
+
+    &__message {
+        @include jkl.use-font-variables("jkl-message-content");
+
+        margin-top: jkl.rem(-2px); // Offset for å aligne med ikon hvis uten tittel.
+    }
+
+    &__title {
+        @include jkl.use-font-variables("jkl-message-title");
+        margin: var(--jkl-message-title-margin);
+
+        & ~ .jkl-message__message {
+            margin-top: 0; // Unset offset satt for å aligne med ikon hvis uten tittel.
+        }
+    }
+
+    &__dismiss-button {
+        grid-area: dismiss;
+        justify-self: end;
+        position: relative;
+        margin-left: var(--jkl-message-gap);
+
+        background-color: transparent;
+        padding: 0;
+        cursor: pointer;
+
+        color: inherit;
+
+        @include jkl.reset-outline;
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+        @include jkl.forced-colors-mode {
+            background-color: ButtonFace;
+        }
+
+        // Sørg for å ha en stor nok touch target.
+        &::after {
+            --tap-increment: calc((var(--jkl-message-dismiss-button-size) - #{jkl.rem(20px)}) / 2 * -1);
+            content: "";
+            position: absolute;
+            inset: var(--tap-increment) var(--tap-increment) var(--tap-increment) var(--tap-increment);
+        }
+
+        &:hover {
+            color: $_dismiss-hover-color;
+            @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline(0);
+        }
+    }
+
+    &--full {
+        max-width: 100%;
+    }
+
+    &--info {
+        --background-color: var(--jkl-color-background-alert-info);
+    }
+
+    &--warning {
+        --background-color: var(--jkl-color-background-alert-warning);
+    }
+
+    &--error {
+        --background-color: var(--jkl-color-background-alert-error);
+    }
+
+    &--success {
+        --background-color: var(--jkl-color-background-alert-success);
+    }
+
+    &--dismissed {
+        animation: $_dismiss-animation-name $_dismiss-animation-duration ease-in-out forwards;
+        transition: visibility 0ms $_dismiss-animation-duration;
+        visibility: hidden;
+    }
+
+    @include jkl.forced-colors-mode {
+        border: 2px solid CanvasText;
+
+        &--info {
+            border-style: dotted;
+        }
+
+        &--warning {
+            border-style: dashed;
+        }
+
+        &--error {
+            border-style: double;
+            border-width: 4px;
+        }
+    }
+}
+
+@keyframes #{$_dismiss-animation-name} {
+    from {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(0, -50%, 0);
+    }
+}
+
+.jkl-form-error-message-box {
+    padding-bottom: jkl.$spacing-40;
+}
