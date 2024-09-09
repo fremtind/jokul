@@ -4,40 +4,6 @@ import { LinkList } from "../src";
 export const OrderedLinkListExample: FC = () => (
     <LinkList variant="ordered">
         <LinkList.Item>
-            <LinkList.Link href="/">SpareBank 1</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="/">DNB</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="/">LOfavør</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="/">Norsk Sykepleierforbund</LinkList.Link>
-        </LinkList.Item>
-    </LinkList>
-);
-
-export const orderedLinkListExample = () => `
-<LinkList variant="ordered">
-    <LinkList.Item>
-        <LinkList.Link>SpareBank 1</LinkList.Link>
-    </LinkList.Item>
-    <LinkList.Item>
-        <LinkList.Link>DNB</LinkList.Link>
-    </LinkList.Item>
-    <LinkList.Item>
-        <LinkList.Link>LOfavør</LinkList.Link>
-    </LinkList.Item>
-    <LinkList.Item>
-        <LinkList.Link>Norsk Sykepleierforbund</LinkList.Link>
-    </LinkList.Item>
-</LinkList>
-`;
-
-export const UnorderedLinkListExample: FC = () => (
-    <LinkList variant="unordered">
-        <LinkList.Item>
             <LinkList.Link href="/">Ledige stillinger</LinkList.Link>
         </LinkList.Item>
         <LinkList.Item>
@@ -55,8 +21,8 @@ export const UnorderedLinkListExample: FC = () => (
     </LinkList>
 );
 
-export const unorderedLinkListExample = () => `
-<LinkList variant="unordered">
+export const orderedLinkListExample = () => `
+<LinkList variant="ordered">
     <LinkList.Item>
         <LinkList.Link>Ledige stillinger</LinkList.Link>
     </LinkList.Item>
@@ -71,6 +37,40 @@ export const unorderedLinkListExample = () => `
     </LinkList.Item>
     <LinkList.Item>
         <LinkList.Link>Teknologi</LinkList.Link>
+    </LinkList.Item>s
+</LinkList>
+`;
+
+export const UnorderedLinkListExample: FC = () => (
+    <LinkList variant="unordered">
+        <LinkList.Item>
+            <LinkList.Link href="/">SpareBank 1</LinkList.Link>
+        </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link href="/">DNB</LinkList.Link>
+        </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link href="/">LOfavør</LinkList.Link>
+        </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link href="/">Norsk Sykepleierforbund</LinkList.Link>
+        </LinkList.Item>
+    </LinkList>
+);
+
+export const unorderedLinkListExample = () => `
+<LinkList variant="unordered">
+    <LinkList.Item>
+        <LinkList.Link>SpareBank 1</LinkList.Link>
+    </LinkList.Item>
+    <LinkList.Item>
+        <LinkList.Link>DNB</LinkList.Link>
+    </LinkList.Item>
+    <LinkList.Item>
+        <LinkList.Link>LOfavør</LinkList.Link>
+    </LinkList.Item>
+    <LinkList.Item>
+        <LinkList.Link>Norsk Sykepleierforbund</LinkList.Link>
     </LinkList.Item>
 </LinkList>
 `;
