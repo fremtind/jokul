@@ -50,7 +50,7 @@ Kort fortalt:
 
 -   Vi validerer skjemaet for første gang når brukeren prøver å sende inn skjemaet eller det gjeldende steget
 -   Hvert skjemafelt merkes med [statusfargen vår for feil](/profil/farger) og får en beskrivende feilmelding
--   Vi lister også alle feilmeldingene i skjemaet i en [FormErrorMessageBox](/komponenter/messagebox) i starten av skjemaet
+-   Vi lister også alle feilmeldingene i skjemaet i en [FormErrorMessage](/komponenter/message) i starten av skjemaet
 -   Vi scroller opp til denne listen automatisk og flytter tastaturfokus til første skjemafelt
 -   Når brukeren retter feilen skjuler vi feilmeldingen med én gang begge steder, og går tilbake til standard farge
 -   Når alle feil er rettet fjerner vi oppsummeringen fra starten av skjemaet
@@ -61,17 +61,17 @@ Mange skjemaer er delt inn i flere sider eller steg, mens andre er korte nok til
 
 Vi viser ingen valideringsfeil før brukeren har prøvd å trykke seg videre i skjemaet.
 
-Et unntak gjøres dersom et valg gjort i skjemaet gjør at vi vet at brukeren ikke får lov til å gå videre i flyten. I disse tilfellene viser vi en [InfoMessageBox](/komponenter/messagebox) under skjemafeltet som forklarer hvorfor brukeren ikke trenger fortsette med utfyllingen av skjemaet, og hva neste steg er for dem. Beskjeden dukker opp med en gang valget er gjort så brukeren slipper fylle ut unødvendig informasjon.
+Et unntak gjøres dersom et valg gjort i skjemaet gjør at vi vet at brukeren ikke får lov til å gå videre i flyten. I disse tilfellene viser vi en [InfoMessage](/komponenter/message) under skjemafeltet som forklarer hvorfor brukeren ikke trenger fortsette med utfyllingen av skjemaet, og hva neste steg er for dem. Beskjeden dukker opp med en gang valget er gjort så brukeren slipper fylle ut unødvendig informasjon.
 
 <PortalImage
     className="jkl-spacing-40--bottom"
     src="/assets/documentation/skjemadesign/skjemavalidering_blocker.png"
-    alt="Skjermbilde av et skjema hvor vi informerer brukeren om riktig vei videre i en InfoMessageBox"
+    alt="Skjermbilde av et skjema hvor vi informerer brukeren om riktig vei videre i en InfoMessage"
 />
 
 ### Liste med feilene i skjemaet
 
-Et skjema kan ofte ha flere feil, og noen ganger feil som er knyttet til hverandre, gjerne kalt kryssvalidering. For å gi brukeren en oversikt over feilene lister vi opp samtlige feil i en [ErrorMessageBox](/komponenter/messagebox) som vises over skjemaet (se [FormErrorMessageBox](/komponenter/messagebox#i-skjema) for en variant med ferdige animasjoner).
+Et skjema kan ofte ha flere feil, og noen ganger feil som er knyttet til hverandre, gjerne kalt kryssvalidering. For å gi brukeren en oversikt over feilene lister vi opp samtlige feil i en [ErrorMessage](/komponenter/message) som vises over skjemaet (se [FormErrorMessage](/komponenter/message#i-skjema) for en variant med ferdige animasjoner).
 
 Innholdet i denne meldingsboksen skal være _selve feilmeldingene_. Det holder ikke å liste _ledeteksten_ til skjemafeltene det gjelder. Innholdet blir lest opp av skjermlesere.
 
@@ -80,7 +80,7 @@ Vi scroller automatisk opp så toppen av meldingsboksen er synlig for brukeren. 
 <PortalImage
     className="jkl-spacing-40--bottom"
     src="/assets/documentation/skjemadesign/skjemavalidering_error_summary.png"
-    alt="Skjermbilde av en oppsummering av fire valideringsfeil vist i en ErrorMessageBox"
+    alt="Skjermbilde av en oppsummering av fire valideringsfeil vist i en ErrorMessage"
 />
 
 ### Feilmeldinger under skjemafelt

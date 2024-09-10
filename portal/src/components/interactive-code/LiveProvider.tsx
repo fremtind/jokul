@@ -18,7 +18,7 @@ import * as inputGroupReact from "@fremtind/jkl-input-group-react";
 import * as listReact from "@fremtind/jkl-list-react";
 import * as loaderReact from "@fremtind/jkl-loader-react";
 import * as logoReact from "@fremtind/jkl-logo-react";
-import * as messageBoxReact from "@fremtind/jkl-message-box-react";
+import * as messageReact from "@fremtind/jkl-message-react";
 import * as radioButtonReact from "@fremtind/jkl-radio-button-react";
 import * as selectReact from "@fremtind/jkl-select-react";
 import * as summaryTableReact from "@fremtind/jkl-summary-table-react";
@@ -51,7 +51,7 @@ const scope = {
     ...listReact,
     ...loaderReact,
     ...logoReact,
-    ...messageBoxReact,
+    ...messageReact,
     ...radioButtonReact,
     ...selectReact,
     ...summaryTableReact,

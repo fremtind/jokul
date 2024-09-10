@@ -34,7 +34,7 @@ export const formErrorMessageExampleCode = ({ boolValues }: ExampleComponentProp
 }]}
     isSubmitted={${boolValues?.["Submitted"] || false}}
     isValid={${boolValues?.["Gyldig fornavn"] && boolValues?.["Gyldig etternavn"]}}
-    messageBoxProps={{
+    messageProps={{
         fullWidth: ${boolValues?.["Full width"]},
     }}
 />
