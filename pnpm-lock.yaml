@@ -564,7 +564,7 @@ importers:
       '@fremtind/jkl-core': ^14.4.0
       '@fremtind/jkl-feedback': ^13.1.0
       '@fremtind/jkl-input-group-react': ^3.0.41
-      '@fremtind/jkl-message-box-react': ^11.1.27
+      '@fremtind/jkl-message-box-react': ^11.1.28
       '@fremtind/jkl-radio-button-react': ^11.1.75
       '@fremtind/jkl-react-hooks': ^12.1.8
       '@fremtind/jkl-text-input-react': ^15.1.14
@@ -795,7 +795,7 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^14.4.0
       '@fremtind/jkl-icons-react': ^9.1.6
-      '@fremtind/jkl-message-box': ^9.1.0
+      '@fremtind/jkl-message-box': ^9.1.1
       '@fremtind/jkl-react-hooks': ^12.1.8
       classnames: ^2.3.2
     dependencies:
@@ -809,7 +809,7 @@ importers:
     specifiers:
       '@fremtind/jkl-core': ^14.4.0
       '@fremtind/jkl-icons-react': ^9.1.6
-      '@fremtind/jkl-message': 1.0.0-alpha.0
+      '@fremtind/jkl-message': ^1.0.0
       '@fremtind/jkl-react-hooks': ^12.1.8
       classnames: ^2.3.2
     dependencies:
@@ -1161,7 +1161,7 @@ importers:
       '@fremtind/jkl-datepicker-react': ^15.1.61
       '@fremtind/jkl-description-list-react': ^8.0.19
       '@fremtind/jkl-expand-button-react': ^7.0.16
-      '@fremtind/jkl-feedback-react': ^18.0.31
+      '@fremtind/jkl-feedback-react': ^18.0.32
       '@fremtind/jkl-file-input-react': ^2.3.25
       '@fremtind/jkl-footer-react': ^6.1.43
       '@fremtind/jkl-formatters-util': ^5.1.35
@@ -1172,9 +1172,9 @@ importers:
       '@fremtind/jkl-list-react': ^10.2.8
       '@fremtind/jkl-loader-react': ^12.0.19
       '@fremtind/jkl-logo-react': ^13.1.10
-      '@fremtind/jkl-message': 1.0.0-alpha.0
-      '@fremtind/jkl-message-box-react': ^11.1.27
-      '@fremtind/jkl-message-react': 1.0.0-alpha.0
+      '@fremtind/jkl-message': ^1.0.0
+      '@fremtind/jkl-message-box-react': ^11.1.28
+      '@fremtind/jkl-message-react': ^1.0.0
       '@fremtind/jkl-modal-react': ^2.1.40
       '@fremtind/jkl-progress-bar-react': ^6.1.0
       '@fremtind/jkl-radio-button-react': ^11.1.75
@@ -1402,7 +1402,7 @@ importers:
       '@fremtind/jkl-loader-react': link:../packages/loader-react
       '@fremtind/jkl-logo-react': link:../packages/logo-react
       '@fremtind/jkl-message-box-react': link:../packages/message-box-react
-      '@fremtind/jkl-message-react': link:../packages/message-react
+      '@fremtind/jkl-message-react': 1.0.0-alpha.0
       '@fremtind/jkl-modal-react': link:../packages/modal-react
       '@fremtind/jkl-progress-bar-react': link:../packages/progress-bar-react
       '@fremtind/jkl-radio-button': link:../packages/radio-button
@@ -3942,7 +3942,31 @@ packages:
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
       classnames: 2.5.1
-    dev: true
+
+  /@fremtind/jkl-icons-react/9.1.6:
+    resolution: {integrity: sha512-jLGIWzH3HoYPFFSr/Nhj7Htp7gt737YtgysueZjzJG4WJyDO4yChzbG+dlZ4DWNPg1KhxIPj+8j2IlU+QnbYpQ==}
+    peerDependencies:
+      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
+      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@fremtind/jkl-core': 14.4.0
+      '@fremtind/jkl-icons': 10.0.6
+      '@fremtind/jkl-react-hooks': 12.1.8
+      classnames: 2.5.1
+    dev: false
+
+  /@fremtind/jkl-icons/10.0.6:
+    resolution: {integrity: sha512-FLZuZl3qKovYzm79K1X38S1ZL5BQyWm6dqI+Bz5jEVCprLMIBqPhxaPx/41kP/sD5K8clSwRYTZRDrikgF/AuQ==}
+    dependencies:
+      '@fremtind/jkl-core': 14.4.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+      - react
+      - react-dom
+    dev: false
 
   /@fremtind/jkl-icons/9.1.5:
     resolution: {integrity: sha512-JDn9qAWTc68CI0Ua41MJ7/NOcOQBHr8T0mr2Qcwd1nTJPVuNRD7X+RHNs54bMykugp24hq+xbPGQWShOnb6qSQ==}
@@ -3954,6 +3978,44 @@ packages:
       - react
       - react-dom
     dev: true
+
+  /@fremtind/jkl-message-react/1.0.0-alpha.0:
+    resolution: {integrity: sha512-TcNMmdI1G4+psDr78yk+84PJ046VleadV7GYZkL3HqyLINX5Th3ZmgV6upEiao0eb6EGtjVLAAVZdLXWe0o6FA==}
+    peerDependencies:
+      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
+      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@fremtind/jkl-core': 14.4.0
+      '@fremtind/jkl-icons-react': 9.1.6
+      '@fremtind/jkl-message': 1.0.0-alpha.0
+      '@fremtind/jkl-react-hooks': 12.1.8
+      classnames: 2.5.1
+    dev: false
+
+  /@fremtind/jkl-message/1.0.0-alpha.0:
+    resolution: {integrity: sha512-6Ju5N+ad30YUPePYgQxWnN+kznB0FfzICjVuRuaWvJ4scCr959JmFh6gLi50YG+/YtO+x8fcPLBnhqM2gU0qQA==}
+    dependencies:
+      '@fremtind/jkl-core': 14.4.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+      - react
+      - react-dom
+    dev: false
+
+  /@fremtind/jkl-react-hooks/12.1.8:
+    resolution: {integrity: sha512-hqFNpqCxInSoZPxMk+qUcnyUrhhcT2uFjyDLnEnoJXwVTLhb8yjmAD43KI5ndTL0tmOv56+7ut377oumpNurnw==}
+    peerDependencies:
+      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
+      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@fremtind/jkl-core': 14.4.0
+      nanoid: 3.3.7
+    dev: false
 
   /@frsource/base64/1.0.4:
     resolution: {integrity: sha512-IphM1ro1cvV5CqJWzX/LvPJcUE26cwgt/zMtBdssvTrfSNhh9KjfS2VXTA8SivkvPHK1DsdPnoMoXitmx8c3Cg==}
