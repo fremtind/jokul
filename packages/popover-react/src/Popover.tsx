@@ -121,8 +121,6 @@ const usePopover = ({
     const context = data.context;
 
     const role = useRole(context, {
-        enabled: true,
-        role: "dialog",
         ...roleOptions,
     });
 
@@ -236,16 +234,17 @@ interface PopoverContentProps {
 
 const PopoverContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement> & PopoverContentProps>(
     function PopoverContent({ style, className, padding, ...props }, propRef) {
-        const { context: floatingContext, floatingFocusManagerOptions, ...context } = usePopoverContext();
-        const ref = useMergeRefs([context.refs.setFloating, propRef]);
+        const { context, floatingFocusManagerOptions, refs, open, floatingStyles, getFloatingProps } =
+            usePopoverContext();
+        const ref = useMergeRefs([refs.setFloating, propRef]);
 
-        const { theme, density } = getThemeAndDensity(context.refs.reference.current as HTMLElement);
+        const { theme, density } = getThemeAndDensity(refs.reference.current as HTMLElement);
 
-        if (!floatingContext.open) return null;
+        if (!open) return null;
 
         return (
             <FloatingPortal>
-                <FloatingFocusManager context={floatingContext} {...floatingFocusManagerOptions}>
+                <FloatingFocusManager context={context} {...floatingFocusManagerOptions}>
                     <div
                         data-theme={theme}
                         data-layout-density={density}
@@ -254,11 +253,11 @@ const PopoverContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivE
                         style={
                             {
                                 ...style,
-                                ...context.floatingStyles,
+                                ...floatingStyles,
                                 "--popover-padding": `var(--jkl-spacing-${padding})`,
                             } as React.CSSProperties
                         }
-                        {...context.getFloatingProps(props)}
+                        {...getFloatingProps(props)}
                     >
                         {props.children}
                     </div>
