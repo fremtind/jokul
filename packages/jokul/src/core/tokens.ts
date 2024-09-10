@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 04 Sep 2024 12:34:40 GMT
+ * Generated on Tue, 10 Sep 2024 05:21:22 GMT
  */
 
 export default {
@@ -49,6 +49,14 @@ export default {
                 light: "#FFFFFF",
                 dark: "#313030",
             },
+            containerInverted: {
+                light: "#1B1917",
+                dark: "#F9F9F9",
+            },
+            containerSubdued: {
+                light: "#C8C5C3",
+                dark: "#636060",
+            },
             input: {
                 base: {
                     light: "transparent",
@@ -73,7 +81,7 @@ export default {
             },
             interactiveSelected: {
                 light: "#E0DBD4",
-                dark: "#444141",
+                dark: "#636060",
             },
             alert: {
                 neutral: {
@@ -152,6 +160,10 @@ export default {
             separatorHover: {
                 light: "#1B1917",
                 dark: "#F9F9F9",
+            },
+            subdued: {
+                light: "#C8C5C3",
+                dark: "#636060",
             },
         },
         svart: "#000",
