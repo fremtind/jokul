@@ -15,7 +15,7 @@ import "@fremtind/jkl-feedback/feedback.min.css";
 
 // Feedback bruker flere andre komponenter og trenger stilarkene deres for å fungere.
 import "@fremtind/jkl-button/button.min.css";
-import "@fremtind/jkl-message-box/message-box.min.css";
+import "@fremtind/jkl-message/message.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 ```
@@ -24,7 +24,7 @@ import "@fremtind/jkl-text-input/text-input.min.css";
 // Eller importer stilark via SCSS.
 @use "@fremtind/jkl-feedback/feedback";
 @use "@fremtind/jkl-button/button";
-@use "@fremtind/jkl-message-box/message-box";
+@use "@fremtind/jkl-message/message";
 @use "@fremtind/jkl-radio-button/radio-button";
 @use "@fremtind/jkl-text-input/text-input";
 ```

@@ -24,10 +24,10 @@ I moderne nettlesere er den beste løsningen for dark mode å benytte seg av att
 
 ```tsx
 <body class="jkl" data-theme="dark">
-    <InfoMessageBox title="Mørkt tema">Jøkul-komponenter på denne siden vil automatisk få mørkt tema.</InfoMessageBox>
+    <InfoMessage title="Mørkt tema">Jøkul-komponenter på denne siden vil automatisk få mørkt tema.</InfoMessage>
 
     <div class="jkl" data-theme="light">
-        <InfoMessageBox title="Lyst tema">I denne delen av DOMen er det lyst tema som gjelder</InfoMessageBox>
+        <InfoMessage title="Lyst tema">I denne delen av DOMen er det lyst tema som gjelder</InfoMessage>
     </div>
 </body>
 ```
@@ -42,12 +42,12 @@ Denne løsningen benytter seg av [CSS custom properties](https://developer.mozil
 Dersom du er nødt til å implementere mørkt tema for Internet Explorer kan man altså ikke bruke den generelle løsningen over, men må i stedet styre temaet per enkelt komponent. Dette gjøres ved å sette prop'en `inverted` til true. Siden dette må gjøres på hver eneste Jøkul-komponent i løsningen vil nok dette best løses ved hjelp av f.eks. en [context](https://reactjs.org/docs/context.html) eller [render props](https://reactjs.org/docs/render-props.html).
 
 ```tsx
-<InfoMessageBox inverted>Denne meldingen har mørkt tema</InfoMessageBox>
-<WarningMessageBox>Denne meldingen har lyst tema</WarningMessageBox>
+<InfoMessage inverted>Denne meldingen har mørkt tema</InfoMessage>
+<WarningMessage>Denne meldingen har lyst tema</WarningMessage>
 ```
 
 ```tsx
 const darkTheme = useContext(myThemeContext);
 
-<SuccessMessageBox inverted={darkTheme}>Denne meldingen bytter tema ut fra verdien i myThemeContext</SuccessMessageBox>;
+<SuccessMessage inverted={darkTheme}>Denne meldingen bytter tema ut fra verdien i myThemeContext</SuccessMessage>;
 ```

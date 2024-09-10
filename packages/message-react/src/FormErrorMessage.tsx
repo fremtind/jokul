@@ -25,7 +25,7 @@ export const FormErrorMessage = forwardRef<HTMLDivElement, FormErrorMessageProps
 
         const showSummary = isSubmitted && !isValid;
 
-        const [messageBoxRef] = useAnimatedHeight<HTMLDivElement>(showSummary, { display: "grid" });
+        const [messageRef] = useAnimatedHeight<HTMLDivElement>(showSummary, { display: "grid" });
 
         const previousErrors = useRef<Array<string | undefined>>(errors);
         useEffect(() => {
@@ -34,11 +34,11 @@ export const FormErrorMessage = forwardRef<HTMLDivElement, FormErrorMessageProps
         const hasNewErrors = errors.length > previousErrors.current.length;
 
         return (
-            <div ref={forwardedRef} className={cn("jkl-form-error-message-box", className)} {...rest}>
+            <div ref={forwardedRef} className={cn("jkl-form-error-message", className)} {...rest}>
                 <ErrorMessage
                     {...defaultMessageProps}
                     {...messageProps}
-                    ref={messageBoxRef}
+                    ref={messageRef}
                     role={hasNewErrors ? "alert" : "presentation"} // Unngå å repetere hele oppsummeringen etter hvert som feilene rettes
                 >
                     <ul className="jkl-list">
@@ -56,4 +56,4 @@ export const FormErrorMessage = forwardRef<HTMLDivElement, FormErrorMessageProps
     },
 );
 
-FormErrorMessage.displayName = "FormErrorMessageBox";
+FormErrorMessage.displayName = "FormErrorMessage";

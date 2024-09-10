@@ -1,4 +1,4 @@
-import { ErrorMessageBox } from "@fremtind/jkl-message-box-react";
+import { ErrorMessage } from "@fremtind/jkl-message-react";
 import React, { Context, useContext } from "react";
 import type { ContextProps as LiveContextProps } from "react-live";
 import { LiveContext } from "react-live";
@@ -9,8 +9,8 @@ export const LiveError = () => {
         return null;
     }
     return (
-        <ErrorMessageBox fullWidth className="interactive-code__editor-error">
+        <ErrorMessage fullWidth className="interactive-code__editor-error">
             <pre>{error}</pre>
-        </ErrorMessageBox>
+        </ErrorMessage>
     );
 };
