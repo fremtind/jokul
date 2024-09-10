@@ -8,7 +8,7 @@
         "./src/core/styles",
         "./src/core/jkl",
         "./src/core/tokens.less",
-        "./src/components/typography/styles"
+        "./src/components/navigation/styles"
     ],
     "type": "module",
     "exports": {
