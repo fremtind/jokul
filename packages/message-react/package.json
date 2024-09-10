@@ -1,0 +1,60 @@
+{
+    "name": "@fremtind/jkl-message-react",
+    "version": "1.0.0-alpha.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul react message components",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/message-react",
+    "keywords": [
+        "messagebox",
+        "message",
+        "jøkul",
+        "fremtind"
+    ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/esm/index.js",
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "scripts": {
+        "clean": "git clean -xfd",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "node ./esbuild.prod.mjs",
+        "build": "run-s build:*",
+        "test": "jest --testMatch '**/message-box-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
+        "dev:server": "nodemon ./dist/server.js",
+        "dev": "run-p dev:*"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^14.4.0",
+        "@fremtind/jkl-icons-react": "^9.1.6",
+        "@fremtind/jkl-message": "1.0.0-alpha.0",
+        "@fremtind/jkl-react-hooks": "^12.1.8",
+        "classnames": "^2.3.2"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

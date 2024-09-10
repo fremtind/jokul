@@ -779,6 +779,12 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
 
+  packages/message:
+    specifiers:
+      '@fremtind/jkl-core': ^14.4.0
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
   packages/message-box:
     specifiers:
       '@fremtind/jkl-core': ^14.4.0
@@ -798,6 +804,20 @@ importers:
       '@fremtind/jkl-message-box': link:../message-box
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
+
+  packages/message-react:
+    specifiers:
+      '@fremtind/jkl-core': ^14.4.0
+      '@fremtind/jkl-icons-react': ^9.1.6
+      '@fremtind/jkl-message': 1.0.0-alpha.0
+      '@fremtind/jkl-react-hooks': ^12.1.8
+      classnames: ^2.3.2
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-message': link:../message
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      classnames: 2.5.1
 
   packages/modal:
     specifiers:
@@ -1152,7 +1172,9 @@ importers:
       '@fremtind/jkl-list-react': ^10.2.8
       '@fremtind/jkl-loader-react': ^12.0.19
       '@fremtind/jkl-logo-react': ^13.1.10
+      '@fremtind/jkl-message': 1.0.0-alpha.0
       '@fremtind/jkl-message-box-react': ^11.1.27
+      '@fremtind/jkl-message-react': 1.0.0-alpha.0
       '@fremtind/jkl-modal-react': ^2.1.40
       '@fremtind/jkl-progress-bar-react': ^6.1.0
       '@fremtind/jkl-radio-button-react': ^11.1.75
@@ -1229,7 +1251,9 @@ importers:
       '@fremtind/jkl-list-react': link:../packages/list-react
       '@fremtind/jkl-loader-react': link:../packages/loader-react
       '@fremtind/jkl-logo-react': link:../packages/logo-react
+      '@fremtind/jkl-message': link:../packages/message
       '@fremtind/jkl-message-box-react': link:../packages/message-box-react
+      '@fremtind/jkl-message-react': link:../packages/message-react
       '@fremtind/jkl-modal-react': link:../packages/modal-react
       '@fremtind/jkl-progress-bar-react': link:../packages/progress-bar-react
       '@fremtind/jkl-radio-button-react': link:../packages/radio-button-react
@@ -1314,6 +1338,7 @@ importers:
       '@fremtind/jkl-loader-react': ^12.0.13
       '@fremtind/jkl-logo-react': ^13.1.4
       '@fremtind/jkl-message-box-react': ^11.1.19
+      '@fremtind/jkl-message-react': 1.0.0-alpha.0
       '@fremtind/jkl-modal-react': ^2.1.32
       '@fremtind/jkl-progress-bar-react': ^6.0.12
       '@fremtind/jkl-radio-button': ^10.1.12
@@ -1322,7 +1347,7 @@ importers:
       '@fremtind/jkl-select': ^11.1.12
       '@fremtind/jkl-select-react': ^14.1.37
       '@fremtind/jkl-summary-table-react': ^10.0.13
-      '@fremtind/jkl-system-message-react': ^1.0.0-alpha.0
+      '@fremtind/jkl-system-message-react': ^1.0.2
       '@fremtind/jkl-table-react': ^11.4.8
       '@fremtind/jkl-tabs-react': ^6.0.4
       '@fremtind/jkl-tag-react': ^5.2.15
@@ -1377,6 +1402,7 @@ importers:
       '@fremtind/jkl-loader-react': link:../packages/loader-react
       '@fremtind/jkl-logo-react': link:../packages/logo-react
       '@fremtind/jkl-message-box-react': link:../packages/message-box-react
+      '@fremtind/jkl-message-react': link:../packages/message-react
       '@fremtind/jkl-modal-react': link:../packages/modal-react
       '@fremtind/jkl-progress-bar-react': link:../packages/progress-bar-react
       '@fremtind/jkl-radio-button': link:../packages/radio-button
