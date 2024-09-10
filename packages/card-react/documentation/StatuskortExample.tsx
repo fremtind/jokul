@@ -2,7 +2,7 @@ import React from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Image } from "../../image-react/src";
 import { SuccessTag } from "../../tag-react/src";
-import { Card, CARD_PADDINGS, CONTAINER_COLORS, type CardPadding, type ContainerColor } from "../src/Card";
+import { Card, CARD_PADDINGS, CARD_TYPES, type CardPadding, type CardType } from "../src/Card";
 import { CardImage } from "../src/CardImage";
 import grass400 from "./img/grass-400.jpg";
 import grass800 from "./img/grass-800.jpg";
@@ -17,7 +17,7 @@ const imageProps = {
 
 export const StatuskortExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const padding = choiceValues?.["Padding"] as CardPadding | undefined;
-    const background = choiceValues?.["Background"] as ContainerColor | undefined;
+    const type = choiceValues?.["Type"] as CardType | undefined;
 
     return (
         <Card
@@ -25,7 +25,7 @@ export const StatuskortExample = ({ boolValues, choiceValues }: ExampleComponent
             href="#"
             clickable={!!boolValues?.["Clickable"]}
             padding={padding}
-            background={background}
+            type={type}
             style={{ maxWidth: "350px" }}
             className="flex flex-column gap-24 items-start"
         >
@@ -64,7 +64,7 @@ export const statuskortExampleCode = ({ boolValues, choiceValues }: ExampleCompo
     href="#"
     clickable={${!!boolValues?.["Clickable"]}}
     padding="${choiceValues?.["Padding"]}"
-    background="${choiceValues?.["Background"]}"
+    type="${choiceValues?.["Type"]}"
     style={{ maxWidth: "350px" }}
     className="flex flex-column gap-24 items-start"
 >
@@ -99,12 +99,12 @@ export const statuskortExampleProps: ExampleKnobsProps = {
         {
             name: "Padding",
             values: [...CARD_PADDINGS],
-            defaultValue: 4,
+            defaultValue: 2,
         },
         {
-            name: "Background",
-            values: [...CONTAINER_COLORS],
-            defaultValue: 1,
+            name: "Type",
+            values: [...CARD_TYPES],
+            defaultValue: 0,
         },
     ],
 };
