@@ -41,33 +41,28 @@ interface PopoverOptions {
      * */
     offset?: number;
     /** Options for hover
-     * @see {@link HoverOptions}
      * @see https://floating-ui.com/docs/useHover
      * @default { enabled: false }
      */
     hoverOptions?: HoverOptions;
     /** Options for focus
-     * @see {@link FocusOptions}
      * @see https://floating-ui.com/docs/useFocus
      * @default { enabled: false }
      */
     focusOptions?: FocusOptions;
     /** Options for click
-     * @see {@link ClickOptions}
      * @see https://floating-ui.com/docs/useClick
      * @default { enabled: false }
      */
     clickOptions?: ClickOptions;
     /**
      * Options for role
-     * @see {@link RoleOptions}
      * @see https://floating-ui.com/docs/useRole
      * @default { enabled: true, role: "dialog" }
      */
     roleOptions?: RoleOptions;
     /**
      * Options for dismiss
-     * @see {@link DismissOptions}
      * @see https://floating-ui.com/docs
      * @default { enabled: false }
      */

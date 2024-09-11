@@ -14,42 +14,36 @@ import {
 } from "./PopoverExample";
 
 <Ingress>
-    En popover brukes til å vise innhold i et flytende vindu og legger seg over alle andre elementer i grensesnittet.
-    Man styrer selv hvordan den vises og interageres med, ofte ved å klikke på et element som en knapp.
+    Popover brukes til å vise innhold i et flytende vindu og legger seg over alle andre elementer i grensesnittet. Man
+    styrer selv hvordan den vises og interageres med, ofte ved å klikke på et element som en knapp.
 </Ingress>
 
-** Popover er en kontrollert komponent som viser innhold i en boks som dukker opp ved siden av en trigger. **
+## Kontrollert vs Ukontrollert
+
+En kontrollert Popover-komponent gir deg full kontroll over åpning og lukking ved å tillate ekstern håndtering av tilstandene.
 
 <ComponentExample
+    title="Kontrollert Popover"
     component={PopoverControlledExample}
     codeExample={popoverControlledExampleCode}
     knobs={popoverExampleKnobs}
 />
+
+En ukontrollert Popover-komponent håndterer tilstandene selv og åpner og lukker seg basert på interaksjon med trigger-elementet.
+
 <ComponentExample
+    title="Ukontrollert Popover"
     component={PopoverUnControlledExample}
     codeExample={popoverUnControlledExampleCode}
     knobs={popoverExampleKnobs}
 />
 
-Første eksempel må være synlig uten å scrolle og skal ha et kodeeksempel som oppdateres til å matche valgte parametere.
-
-Fyll på med mer utfyllende beskrivelse av komponenten her under eksempelet, for eksempel føringer for innhold. List opp de ulike variantene dersom komponenten har dem, sammen med beskrivelse av når den ene varianten bør brukes i stedet for en annen.
-
-Dokumentér riktig og feil bruk av varianter visuelt med `DoDontExample`. Se for eksempel [Tag](/komponenter/tag) for inspirasjon.
-
 ## Tilgjengelighet
 
-Dokumenter spesielle hensyn for universell utforming. Eksempler kan være spesielle hensyn som må tas for brukere av skjermlesere, for fargeblinde, eller liknende.
+Popover-komponenten tar i bruk useRole-hooken fra [Floating UI](https://floating-ui.com/docs/userole) som automatisk tildeler nødvendige ARIA-roller til trigger- og det flytende elementet.
 
-## Når bruker vi Popover?
+Som default er role satt til "dialog". Er innholdet i Popover foreksempel tiltenkt en meny, bør role-proppen i roleOptions settes til "menu".
 
-Før du bruker Popover er det greit å ha tatt stilling til noen spørsmål:
-
--   Liste med kontrollspørsmål
--   Se [Message box](/komponenter/messagebox#når-bruker-vi-en-melding-) for eksempler
-
-Dokumentér riktig og feil bruk av komponenten visuelt med `DoDontExample`. Se for eksempel [Alert message](/komponenter/alertmessage#når-bruker-vi-en-varselmelding-) for inspirasjon.
-
-Om det er relevant, lenk direkte til andre komponenter som er riktig å bruke dersom denne komponenten ikke bør brukes i en gitt situasjon.
-
-Kontroller at Gatsby klarer å generere React API-dokumentasjon riktig i bunnen. Om komponenten din ikke dukker opp riktig, sørg for at den har et `displayName`. Om du får flere komponenter enn du ønsker i tabellen kan du bruke [`displayTypes` i frontmatter](https://github.com/fremtind/jokul/blob/60edb292a922eea69e539875359524e2c13eda3e/packages/core/documentation/Link.mdx?plain=1#L6-L8).
+```tsx
+<Popover roleOptions={{ role: "menu" }}>{/* Popover innhold */}</Popover>
+```
