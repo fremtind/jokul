@@ -1,9 +1,22 @@
-import { type ValuePair } from "@fremtind/jkl-core";
-import type { CodeExample } from "payload/generated-types";
 import { useCallback, useMemo } from "react";
+import { type ValuePair } from "../../packages/core/src";
 import type { BoolProp, ChoiceProp, CodeGenerator } from "./InteractiveCode";
 
-type Knobs = CodeExample["knobs"];
+type Knobs = {
+    label: string;
+    type: "bool" | "choice";
+    boolOptions?: {
+        trueValue: string;
+        falseValue: string;
+    };
+    choiceOptions?: {
+        label: string;
+        value: string;
+        id?: string;
+    }[];
+    defaultValue: number;
+    id?: string;
+}[];
 
 function isValuePair(value: string | ValuePair): value is ValuePair {
     return typeof (value as ValuePair).value !== "undefined";
@@ -38,6 +51,7 @@ export const useInteractiveCodeControls = (code: string, knobs: Knobs) => {
     const generator: CodeGenerator = useCallback(
         (values) => {
             const replaceFunction = generateReplaceFunction(values);
+            //@ts-ignore Joda, ES2021 er lagt til i lib...
             return code.replaceAll(KNOB_REGEX, replaceFunction);
         },
         [generateReplaceFunction, code],
