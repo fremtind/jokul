@@ -186,31 +186,35 @@ export const PopoverUnControlledExample: FC<ExampleComponentProps> = () => {
 };
 
 export const popoverControlledExampleCode: CodeExample = () => `
-    <Popover
-        open={open}
-        onOpenChange={setOpen}
-        roleProps={{
-            role: "menu",
-        }}
-    >
-        <Popover.Trigger onClick={() => setOpen?.(!open)} aria-expanded={open} asChild>
-            <Button variant="primary">Åpne popover</Button>
-        </Popover.Trigger>
-        <Popover.Content padding={24}>
-            <ExampleTabPanel />
-        </Popover.Content>
-    </Popover>
+const [open, setOpen] = React.useState(false);
+
+<Popover
+    floatingOptions={{
+        open,
+        onOpenChange: setOpen,
+    }}
+    roleOptions={{
+        role: "menu",
+    }}
+>
+    <Popover.Trigger onClick={() => setOpen?.(!open)} aria-expanded={open} asChild>
+        <Button variant="primary">Åpne popover</Button>
+    </Popover.Trigger>
+    <Popover.Content padding={24}>
+        <ExampleTabPanel />
+    </Popover.Content>
+</Popover>
 `;
 
 export const popoverUnControlledExampleCode: CodeExample = () => `
-    <Popover
-        roleProps={{
-            role: "menu",
-        }}
-    >
-        <Popover.Trigger>Åpne popover</Popover.Trigger>
-        <Popover.Content padding={24}>
-            <ExampleTabPanel />
-        </Popover.Content>
-    </Popover>
+<Popover
+    roleOptions={{
+        role: "menu",
+    }}
+>
+    <Popover.Trigger>Åpne popover</Popover.Trigger>
+    <Popover.Content padding={24}>
+        <ExampleTabPanel />
+    </Popover.Content>
+</Popover>
 `;

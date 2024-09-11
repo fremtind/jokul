@@ -26,7 +26,7 @@ describe("Popover", () => {
 
     test("should render when open is controlled", () => {
         render(
-            <Popover open={true}>
+            <Popover floatingOptions={{ open: true }}>
                 <Popover.Content data-testid="popover-id">Content</Popover.Content>
             </Popover>,
         );
@@ -36,7 +36,7 @@ describe("Popover", () => {
 
     test("should not render when open is controlled and set to false", () => {
         render(
-            <Popover open={false}>
+            <Popover floatingOptions={{ open: false }}>
                 <Popover.Content data-testid="popover-id">Content</Popover.Content>
             </Popover>,
         );
@@ -50,7 +50,7 @@ describe("Popover", () => {
         const handleOpenChange = jest.fn();
 
         render(
-            <Popover open={false} onOpenChange={handleOpenChange}>
+            <Popover floatingOptions={{ open: true, onOpenChange: handleOpenChange }}>
                 <Popover.Trigger>Open Popover</Popover.Trigger>
                 <Popover.Content data-testid="popover-id">Content</Popover.Content>
             </Popover>,
@@ -65,7 +65,7 @@ describe("Popover", () => {
         const user = userEvent.setup();
 
         render(
-            <Popover hoverProps={{ enabled: true }}>
+            <Popover hoverOptions={{ enabled: true }}>
                 <Popover.Trigger>Hover Popover</Popover.Trigger>
                 <Popover.Content data-testid="popover-id">Content</Popover.Content>
             </Popover>,
@@ -84,7 +84,7 @@ describe("Popover", () => {
 
     test("should have role changed when roleProps are set", () => {
         render(
-            <Popover open={true} roleProps={{ role: "menu" }}>
+            <Popover floatingOptions={{ open: false }} roleOptions={{ role: "menu" }}>
                 <Popover.Trigger>Open Popover</Popover.Trigger>
                 <Popover.Content data-testid="popover-id">Content</Popover.Content>
             </Popover>,
@@ -97,7 +97,7 @@ describe("Popover", () => {
         const user = userEvent.setup();
 
         render(
-            <Popover modal>
+            <Popover floatingFocusManagerOptions={{ modal: true }}>
                 <Popover.Trigger>Open Popover</Popover.Trigger>
                 <Popover.Content data-testid="popover-id">
                     <button>Focusable Element</button>
