@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jokul",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Jøkul monopakke",
     "types": "./build/index.d.ts",
     "files": [
