@@ -18,7 +18,6 @@ import {
 import classNames from "classnames";
 import { merge } from "lodash";
 import * as React from "react";
-import { Button } from "../../button-react";
 import { getThemeAndDensity } from "./utils";
 
 type FloatingFocusManagerOptions = React.ComponentProps<typeof FloatingFocusManager>;
@@ -207,15 +206,9 @@ const PopoverTrigger = React.forwardRef<HTMLElement, React.HTMLProps<HTMLElement
         }
 
         return (
-            <Button
-                variant="ghost"
-                ref={ref}
-                onClick={() => onOpenChange?.(!open)}
-                aria-expanded={open}
-                {...getReferenceProps(props)}
-            >
+            <button ref={ref} onClick={() => onOpenChange?.(!open)} aria-expanded={open} {...getReferenceProps(props)}>
                 {children}
-            </Button>
+            </button>
         );
     },
 );
