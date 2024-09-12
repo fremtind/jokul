@@ -24,7 +24,6 @@ import * as listReact from "@fremtind/jkl-list-react";
 import * as loaderReact from "@fremtind/jkl-loader-react";
 import * as logoReact from "@fremtind/jkl-logo-react";
 import * as messageBoxReact from "@fremtind/jkl-message-box-react";
-import * as messageReact from "@fremtind/jkl-message-react";
 import * as modalReact from "@fremtind/jkl-modal-react";
 import * as progressbarReact from "@fremtind/jkl-progress-bar-react";
 import * as radioButtonReact from "@fremtind/jkl-radio-button-react";
@@ -72,7 +71,6 @@ const scope = {
     ...loaderReact,
     ...logoReact,
     ...messageBoxReact,
-    ...messageReact,
     ...modalReact,
     ...progressbarReact,
     ...radioButtonReact,
