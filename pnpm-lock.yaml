@@ -3843,31 +3843,7 @@ packages:
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
       classnames: 2.5.1
-
-  /@fremtind/jkl-icons-react/9.1.6:
-    resolution: {integrity: sha512-jLGIWzH3HoYPFFSr/Nhj7Htp7gt737YtgysueZjzJG4WJyDO4yChzbG+dlZ4DWNPg1KhxIPj+8j2IlU+QnbYpQ==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 14.4.0
-      '@fremtind/jkl-icons': 10.0.6
-      '@fremtind/jkl-react-hooks': 12.1.8
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-icons/10.0.6:
-    resolution: {integrity: sha512-FLZuZl3qKovYzm79K1X38S1ZL5BQyWm6dqI+Bz5jEVCprLMIBqPhxaPx/41kP/sD5K8clSwRYTZRDrikgF/AuQ==}
-    dependencies:
-      '@fremtind/jkl-core': 14.4.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
+    dev: true
 
   /@fremtind/jkl-icons/9.1.5:
     resolution: {integrity: sha512-JDn9qAWTc68CI0Ua41MJ7/NOcOQBHr8T0mr2Qcwd1nTJPVuNRD7X+RHNs54bMykugp24hq+xbPGQWShOnb6qSQ==}
@@ -3879,44 +3855,6 @@ packages:
       - react
       - react-dom
     dev: true
-
-  /@fremtind/jkl-message-react/1.0.0:
-    resolution: {integrity: sha512-/Y1R7VNkCB+DuNNJregGTUIhX8vKt65gf/sKcxoQFA5NebekhWNH35qfAW/sgmQOdVJWGStj1T2f7u6DR+Uovw==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 14.4.0
-      '@fremtind/jkl-icons-react': 9.1.6
-      '@fremtind/jkl-message': 1.0.0
-      '@fremtind/jkl-react-hooks': 12.1.8
-      classnames: 2.5.1
-    dev: false
-
-  /@fremtind/jkl-message/1.0.0:
-    resolution: {integrity: sha512-lThB6RuFHSduYV2WQPxVFJVm4YLL05CtHixSWGYeZsszPPQJrJ0FZpphfa3Aruf9zPV3r64KNASbe63P9aXlCQ==}
-    dependencies:
-      '@fremtind/jkl-core': 14.4.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: false
-
-  /@fremtind/jkl-react-hooks/12.1.8:
-    resolution: {integrity: sha512-hqFNpqCxInSoZPxMk+qUcnyUrhhcT2uFjyDLnEnoJXwVTLhb8yjmAD43KI5ndTL0tmOv56+7ut377oumpNurnw==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      '@fremtind/jkl-core': 14.4.0
-      nanoid: 3.3.7
-    dev: false
 
   /@frsource/base64/1.0.4:
     resolution: {integrity: sha512-IphM1ro1cvV5CqJWzX/LvPJcUE26cwgt/zMtBdssvTrfSNhh9KjfS2VXTA8SivkvPHK1DsdPnoMoXitmx8c3Cg==}
@@ -9320,6 +9258,7 @@ packages:
   /clsx/2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
+    dev: true
 
   /cmd-shim/6.0.1:
     resolution: {integrity: sha512-S9iI9y0nKR4hwEQsVWpyxld/6kRfGepGfzff83FcaiEBpmvlbA2nnGe7Cylgrx2f/p1P5S5wpRm9oL8z1PbS3Q==}
