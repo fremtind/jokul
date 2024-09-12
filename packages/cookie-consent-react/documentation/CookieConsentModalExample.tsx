@@ -3,7 +3,7 @@ import React, { useEffect, useState, FC } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
 import { DEFAULT_COOKIE_NAME, useCookieConsentState } from "../src/CookieConsentContext";
-import { setConsentCookie } from "../src/cookieConsentUtils";
+import { buildRequirementsObject, setConsentCookie } from "../src/cookieConsentUtils";
 
 function clearConsentCookie() {
     setConsentCookie({
@@ -31,11 +31,7 @@ const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: bool
             dispatch({ type: "SET_SHOW_SETTINGS", payload: false });
             dispatch({
                 type: "UPDATE_REQUIREMENTS",
-                payload: {
-                    functional,
-                    statistics,
-                    marketing,
-                },
+                payload: buildRequirementsObject({ functional, statistics, marketing }),
             });
         }, 0);
     }, [dispatch, functional, statistics, marketing]);
