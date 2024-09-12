@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 21.1.0 (2024-09-12)
+
+### Features
+
+- bytt til Message alle steder MessageBox er brukt ([e371071](https://github.com/fremtind/jokul/commit/e37107114c4ba2eafa856c041e5ef4bbf72313f8))
+
 # [21.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@20.1.21...@fremtind/portal@21.0.0) (2024-09-05)
 
 ### Bug Fixes

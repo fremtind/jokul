@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 18.1.0 (2024-09-12)
+
+### Features
+
+- bytt til Message alle steder MessageBox er brukt ([e371071](https://github.com/fremtind/jokul/commit/e37107114c4ba2eafa856c041e5ef4bbf72313f8))
+
 ## [18.0.19](https://github.com/fremtind/jokul/compare/@fremtind/jkl-feedback-react@18.0.18...@fremtind/jkl-feedback-react@18.0.19) (2024-08-30)
 
 ### Bug Fixes
