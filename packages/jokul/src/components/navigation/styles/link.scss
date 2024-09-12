@@ -1,0 +1,138 @@
+@use "../../../core/jkl";
+
+@mixin _underline-gradient($color) {
+    background-image: linear-gradient(to bottom, $color 0%, $color 100%);
+}
+
+$_right-arrow: "\2192"; // unicode right arrow
+$_left-arrow: "\2190"; // unicode left arrow
+$_north-east-arrow: "\2197"; // unicode north east arrow (up/right)
+
+$_link-underline-thickness: jkl.rem(1px);
+$_link-underline-thickness--focus: jkl.rem(2px);
+
+@include jkl.light-mode-variables {
+    --jkl-link-color: #{jkl.$color-granitt};
+    --jkl-link-hover-color: #{jkl.$color-stein};
+    --jkl-link-active-color: #{jkl.$color-granitt};
+}
+@include jkl.dark-mode-variables {
+    --jkl-link-color: #{jkl.$color-snohvit};
+    --jkl-link-hover-color: #{jkl.$color-svaberg};
+    --jkl-link-active-color: #{jkl.$color-snohvit};
+}
+
+.jkl-link {
+    color: var(--jkl-link-color);
+    @include _underline-gradient(var(--jkl-link-color));
+    background-position: 0 calc(100% - (#{$_link-underline-thickness--focus} - #{$_link-underline-thickness}));
+    background-size: $_link-underline-thickness $_link-underline-thickness;
+    background-repeat: repeat-x;
+    @include jkl.motion("standard", "energetic");
+    transition-property: color;
+    outline: none;
+    text-decoration: none;
+
+    &:hover:not(:focus) {
+        color: var(--jkl-link-hover-color);
+        @include _underline-gradient(var(--jkl-link-hover-color));
+    }
+
+    &:hover {
+        @include _underline-gradient(var(--jkl-link-hover-color));
+    }
+
+    &:focus-visible {
+        @include jkl.focus-outline;
+        background: none;
+    }
+
+    &:active {
+        background-position: 0 calc(100% - (#{$_link-underline-thickness--focus} - #{$_link-underline-thickness}));
+    }
+
+    /* Show arrow after external links, or links opening
+    in a new window or tab: */
+    &[target="_blank"],
+    &--external {
+        &::after {
+            @include jkl.decorative($content: $_north-east-arrow);
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        outline: revert;
+        text-decoration: revert;
+    }
+}
+
+.jkl-nav-link {
+    color: var(--jkl-link-color);
+
+    box-sizing: border-box;
+    font-weight: jkl.$typography-weight-normal;
+    text-decoration: none;
+    position: relative;
+
+    @include jkl.reset-outline;
+
+    &::after {
+        @include jkl.decorative($content: $_right-arrow);
+        @include jkl.motion;
+        transition-property: padding-left, padding-right;
+        display: inline;
+        margin-left: -0.2em;
+        padding-left: 0.35em;
+        padding-right: 0.35em;
+    }
+
+    &:hover:not(:focus) {
+        color: var(--jkl-link-hover-color);
+
+        &::after {
+            padding-left: 0.7em;
+            padding-right: 0;
+        }
+    }
+
+    &:focus-visible {
+        @include jkl.focus-outline;
+
+        &::after {
+            padding-left: 0.7em;
+            padding-right: 0;
+        }
+    }
+
+    &--active {
+        @include jkl.no-grow-bold;
+    }
+}
+
+.jkl-nav-link--back {
+    padding-right: 0;
+
+    $left-arrow-focus-margin: 0.3em; // Unngå at border ved tastaturfokus "kapper" pila
+    padding-left: $left-arrow-focus-margin;
+    margin-left: -#{$left-arrow-focus-margin};
+
+    &::after {
+        display: none;
+    }
+
+    &::before {
+        @include jkl.decorative($content: $_left-arrow);
+        @include jkl.motion;
+        transform: translateX(0);
+        transition-property: transform;
+        display: inline-block;
+        padding-right: jkl.rem(4px);
+    }
+
+    &:hover,
+    &:focus-visible {
+        &::before {
+            transform: translateX(-33%);
+        }
+    }
+}
