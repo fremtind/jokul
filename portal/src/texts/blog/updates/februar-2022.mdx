@@ -4,7 +4,7 @@ author: William Killerud
 publishDate: "2022.02.25"
 ---
 
-import { InfoMessageBox } from "@fremtind/jkl-message-box-react";
+import { InfoMessage } from "@fremtind/jkl-message-react";
 
 Det har skjedd en hel del i Jøkul i februar! Noen høydepunkter:
 
@@ -73,12 +73,12 @@ Ta en titt på de ulike variantene og bruken av dem i Figma eller i [komponentdo
 
 MessageBox har hatt en kompaktvariant i Figma lenge, men den har manglet i kode. _Nå er den her!_
 
-<InfoMessageBox role="none presentation" forceCompact>
+<InfoMessage role="none presentation" forceCompact>
     <p className="small">
         Hvis du setter tekststørrelsen på innholdet selv får du best effekt ved å bruke <code>small</code> som
         tekststørrelse!
     </p>
-</InfoMessageBox>
+</InfoMessage>
 
 ## Formateringsfunksjoner og maskering
 

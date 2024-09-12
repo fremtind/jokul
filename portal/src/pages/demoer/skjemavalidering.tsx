@@ -3,7 +3,7 @@ import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import { DatePicker, formatInput, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
 import { formatDate } from "@fremtind/jkl-formatters-util";
 import { FieldGroup } from "@fremtind/jkl-input-group-react";
-import { FormErrorMessageBox } from "@fremtind/jkl-message-box-react";
+import { FormErrorMessage } from "@fremtind/jkl-message-react";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
 import { useScrollIntoView } from "@fremtind/jkl-react-hooks";
 import { Select } from "@fremtind/jkl-select-react";
@@ -77,7 +77,7 @@ const Skjemavalideringseksempel: FC = () => {
                         tabIndex={-1} // Negativ TabIndex trengs for å kunne flytte fokus til elementet, så neste Tab går til første skjemafelt
                         ref={scrollRef}
                     />
-                    <FormErrorMessageBox
+                    <FormErrorMessage
                         className="jkl-portal-paragraph"
                         errors={errors}
                         isSubmitted={isSubmitted}
