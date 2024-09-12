@@ -1,8 +1,18 @@
 {
     "name": "@fremtind/jokul",
     "version": "0.1.0",
+    "type": "module",
+    "publishConfig": {
+        "access": "public"
+    },
     "description": "Jøkul monopakke",
-    "types": "./build/index.d.ts",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/jokul",
+    "keywords": [],
+    "license": "MIT",
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
     "files": [
         "./build",
         "./src/core/styles",
@@ -10,7 +20,6 @@
         "./src/core/tokens.less",
         "./src/components/navigation/styles"
     ],
-    "type": "module",
     "exports": {
         "./core": {
             "require": "./build/cjs/core/index.js",
@@ -43,9 +52,6 @@
         "compile:style": "node build-styles.mjs",
         "compile:scripts": "vite build --config vite.build.config.mjs"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
     "peerDependencies": {
         "react": "^18.0.0"
     },
@@ -65,5 +71,12 @@
         "style-dictionary": "^3.8.0",
         "vite": "^5.2.0",
         "vite-plugin-dts": "^4.1.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
     }
 }
