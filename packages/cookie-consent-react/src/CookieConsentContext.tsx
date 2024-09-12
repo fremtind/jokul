@@ -1,6 +1,6 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import React, { useEffect, useMemo } from "react";
-import { shouldShowConsentDialog, getConsentCookie } from "./cookieConsentUtils";
+import { shouldShowConsentDialog, getConsentCookie, buildRequirementsObject } from "./cookieConsentUtils";
 import type { Consent, ConsentRequirement } from "./types";
 
 // https://kentcdodds.com/blog/how-to-use-react-context-effectively
@@ -104,11 +104,7 @@ const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     }, [cookieAdapter, cookieName]);
 
     const requirement = useMemo(
-        () => ({
-            marketing: marketing ?? false,
-            functional: functional ?? false,
-            statistics: statistics ?? false,
-        }),
+        () => buildRequirementsObject({ marketing, functional, statistics }),
         [marketing, functional, statistics],
     );
 
