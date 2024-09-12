@@ -1,0 +1,75 @@
+/**
+ * Do not edit directly
+ * Generated on Tue, 10 Sep 2024 05:21:22 GMT
+ */
+
+@use "../jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-color-background-page: #{jkl.$color-brand-sand};
+    --jkl-color-background-page-variant: #{jkl.$color-brand-snohvit};
+    --jkl-color-background-container: #{jkl.$color-brand-snohvit};
+    --jkl-color-background-container-low: #{jkl.$color-brand-dis};
+    --jkl-color-background-container-high: #{jkl.$color-brand-hvit};
+    --jkl-color-background-container-inverted: #{jkl.$color-brand-granitt};
+    --jkl-color-background-container-subdued: #{jkl.$color-brand-svaberg};
+    --jkl-color-background-input-base: rgba(0, 0, 0, 0);
+    --jkl-color-background-input-focus: #{jkl.$color-brand-hvit};
+    --jkl-color-background-action: #{jkl.$color-brand-granitt};
+    --jkl-color-background-interactive: rgba(0, 0, 0, 0);
+    --jkl-color-background-interactive-hover: #{jkl.$color-brand-dis};
+    --jkl-color-background-interactive-selected: #{jkl.$color-brand-varde};
+    --jkl-color-background-alert-neutral: #{jkl.$color-brand-varde};
+    --jkl-color-background-alert-info: #{jkl.$color-functional-info};
+    --jkl-color-background-alert-success: #{jkl.$color-functional-success};
+    --jkl-color-background-alert-warning: #{jkl.$color-functional-warning};
+    --jkl-color-background-alert-error: #{jkl.$color-functional-error};
+    --jkl-color-text-default: #{jkl.$color-brand-granitt};
+    --jkl-color-text-subdued: #{jkl.$color-brand-stein};
+    --jkl-color-text-inverted: #{jkl.$color-brand-snohvit};
+    --jkl-color-text-on-action: #{jkl.$color-brand-snohvit};
+    --jkl-color-text-interactive: #{jkl.$color-brand-granitt};
+    --jkl-color-text-interactive-hover: #{jkl.$color-brand-stein};
+    --jkl-color-text-on-alert: #{jkl.$color-brand-granitt};
+    --jkl-color-border-action: #{jkl.$color-brand-granitt};
+    --jkl-color-border-input: #{jkl.$color-brand-stein};
+    --jkl-color-border-input-focus: #{jkl.$color-brand-granitt};
+    --jkl-color-border-separator: #{jkl.$color-brand-svaberg};
+    --jkl-color-border-separator-strong: #{jkl.$color-brand-stein};
+    --jkl-color-border-separator-hover: #{jkl.$color-brand-granitt};
+    --jkl-color-border-subdued: #{jkl.$color-brand-svaberg};
+}
+@include jkl.dark-mode-variables {
+    --jkl-color-background-page: #{jkl.$color-brand-granitt};
+    --jkl-color-background-page-variant: #{jkl.$color-brand-granitt};
+    --jkl-color-background-container: #{jkl.$color-brand-skifer};
+    --jkl-color-background-container-low: #{jkl.$color-brand-svart};
+    --jkl-color-background-container-high: #{jkl.$color-brand-skifer};
+    --jkl-color-background-container-inverted: #{jkl.$color-brand-snohvit};
+    --jkl-color-background-container-subdued: #{jkl.$color-brand-stein};
+    --jkl-color-background-input-base: rgba(0, 0, 0, 0);
+    --jkl-color-background-input-focus: #{jkl.$color-brand-skifer};
+    --jkl-color-background-action: #{jkl.$color-brand-snohvit};
+    --jkl-color-background-interactive: rgba(0, 0, 0, 0);
+    --jkl-color-background-interactive-hover: #{jkl.$color-brand-fjellgra};
+    --jkl-color-background-interactive-selected: #{jkl.$color-brand-stein};
+    --jkl-color-background-alert-neutral: #{jkl.$color-brand-varde};
+    --jkl-color-background-alert-info: #{jkl.$color-functional-info-dark};
+    --jkl-color-background-alert-success: #{jkl.$color-functional-success-dark};
+    --jkl-color-background-alert-warning: #{jkl.$color-functional-warning-dark};
+    --jkl-color-background-alert-error: #{jkl.$color-functional-error-dark};
+    --jkl-color-text-default: #{jkl.$color-brand-snohvit};
+    --jkl-color-text-subdued: #{jkl.$color-brand-svaberg};
+    --jkl-color-text-inverted: #{jkl.$color-brand-granitt};
+    --jkl-color-text-on-action: #{jkl.$color-brand-granitt};
+    --jkl-color-text-interactive: #{jkl.$color-brand-snohvit};
+    --jkl-color-text-interactive-hover: #{jkl.$color-brand-svaberg};
+    --jkl-color-text-on-alert: #{jkl.$color-brand-granitt};
+    --jkl-color-border-action: #{jkl.$color-brand-snohvit};
+    --jkl-color-border-input: #{jkl.$color-brand-svaberg};
+    --jkl-color-border-input-focus: #{jkl.$color-brand-snohvit};
+    --jkl-color-border-separator: #{jkl.$color-brand-stein};
+    --jkl-color-border-separator-strong: #{jkl.$color-brand-svaberg};
+    --jkl-color-border-separator-hover: #{jkl.$color-brand-snohvit};
+    --jkl-color-border-subdued: #{jkl.$color-brand-stein};
+}

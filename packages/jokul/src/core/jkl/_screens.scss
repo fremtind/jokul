@@ -1,0 +1,135 @@
+/// @type Number
+$breakpoint--medium: 680px;
+
+/// @type Number
+$breakpoint--large: 1200px;
+
+/// @type Number
+$breakpoint--xl: 1600px;
+
+/// Forenkler media queries som skal gjelde mellom to skjermbredder.
+/// Maksverdien er _eksklusiv_ (verdien vil bli $max - 1px).
+/// @content Plasseres i et media query med min-width lik $min og max-width lik $max - 1px
+/// @example
+///    .class {
+///        @include jkl.screen-between(42px, 420px) {
+///            display: none;
+///        }
+///    }
+@mixin screen-between($min, $max) {
+    @media (min-width: $min) and (max-width: #{$max - 1px}) {
+        @content;
+    }
+}
+
+/// Forenkler å skrive CSS som skal gjelde fra en viss pixelbredde og oppover.
+/// @content Plasseres i et media query med min-width lik $min
+/// @example
+///     .class {
+///         @include jkl.screen-from(42px) {
+///             display: none;
+///         }
+///     }
+@mixin screen-from($min) {
+    @media (min-width: $min) {
+        @content;
+    }
+}
+
+/// Forenkler å skrive CSS som skal gjelde opp til en viss pixelbredde
+/// @content Plasseres i et media query med max-width lik $max - 1
+/// @example
+///     .class {
+///         @include jkl.screen-to(375px) {
+///             display: none;
+///         }
+///     }
+@mixin screen-to($max) {
+    @media (width >= 0) and (max-width: #{$max - 1px}) {
+        @content;
+    }
+}
+
+/// Forenkler å skrive CSS som skal gjelde for hva Jøkul definerer som små skjermer.
+/// @content Plasseres i et media query for små skjermer
+/// @example
+///     .class {
+///         @include jkl.small-device {
+///             display: none;
+///         }
+///     }
+@mixin small-device {
+    @media (width >= 0) and (max-width: #{$breakpoint--medium - 1px}) {
+        @content;
+    }
+}
+
+/// Forenkler å skrive CSS som skal gjelde for hva Jøkul definerer som mellomstore skjermer.
+/// @content Plasseres i et media query for mellomstore skjermer
+/// @example
+///     .class {
+///         @include jkl.medium-device {
+///             display: none;
+///         }
+///     }
+@mixin medium-device {
+    @media (min-width: #{$breakpoint--medium}) and (max-width: #{$breakpoint--large - 1px}) {
+        @content;
+    }
+}
+
+/// Forenkler å skrive CSS som skal gjelde for hva Jøkul definerer som mellomstore skjermer _og større_
+/// @content Plasseres i et media query som gjelder mellomstore skjermer og oppover
+/// @example
+///     .class {
+///         @include jkl.from-medium-device {
+///             display: none;
+///         }
+///     }
+@mixin from-medium-device {
+    @media (min-width: #{$breakpoint--medium}) {
+        @content;
+    }
+}
+
+/// Forenkler å skrive CSS som skal gjelde for hva Jøkul definerer som store skjermer.
+/// @content Plasseres i et media query for store skjermer
+/// @example
+///     .class {
+///         @include jkl.large-device {
+///             display: none;
+///         }
+///     }
+@mixin large-device {
+    @media (min-width: #{$breakpoint--large}) and (max-width: #{$breakpoint--xl - 1px}) {
+        @content;
+    }
+}
+
+/// Forenkler å skrive CSS som skal gjelde for hva Jøkul definerer som store skjermer _og større_
+/// @content Plasseres i et media query som gjelder store skjermer og oppover
+/// @example
+///     .class {
+///         @include jkl.from-large-device {
+///             display: none;
+///         }
+///     }
+@mixin from-large-device {
+    @media (min-width: #{$breakpoint--large}) {
+        @content;
+    }
+}
+
+/// Forenkler å skrive CSS som skal gjelde for hva Jøkul definerer som ekstra store skjermer.
+/// @content Plasseres i et media query for ekstra store skjermer
+/// @example
+///     .class {
+///         @include jkl.xl-device {
+///             display: none;
+///         }
+///     }
+@mixin xl-device {
+    @media (min-width: #{$breakpoint--xl}) {
+        @content;
+    }
+}

@@ -1,0 +1,13 @@
+@use "../../jkl/spacing";
+
+.jkl {
+    @each $spacing, $value in spacing.$spacing {
+        .space-x-#{$spacing} {
+            margin-left: $value;
+        }
+
+        .space-y-#{$spacing} {
+            margin-top: $value;
+        }
+    }
+}
