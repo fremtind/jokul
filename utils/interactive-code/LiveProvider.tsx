@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import ReactDOM from "react-dom";
-import { useForm } from "react-hook-form";
-import { LiveProvider as ReactLiveProvider, type LiveProviderProps as ReactLiveProviderProps } from "react-live";
 import * as accordionReact from "../../packages/accordion-react/src";
 import * as breadcrumbReact from "../../packages/breadcrumb-react/src";
 import * as buttonReact from "../../packages/button-react/src";
@@ -43,6 +41,8 @@ import * as toastReact from "../../packages/toast-react/src";
 import * as toggleSwitchReact from "../../packages/toggle-switch-react/src";
 import * as toolTipReact from "../../packages/tooltip-react/src";
 import { columns, rows } from "./tableData";
+import { useForm } from "react-hook-form";
+import { LiveProvider as ReactLiveProvider, type LiveProviderProps as ReactLiveProviderProps } from "react-live";
 
 const scope = {
     ...accordionReact,
