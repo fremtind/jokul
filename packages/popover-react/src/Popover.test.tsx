@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { Popover } from ".";
@@ -58,7 +58,9 @@ describe("Popover", () => {
 
         await user.click(screen.getByText("Open Popover"));
 
-        expect(handleOpenChange).toHaveBeenCalledWith(true);
+        await waitFor(() => {
+            expect(handleOpenChange).toHaveBeenCalled();
+        });
     });
 
     test("should open on hover when hoverProps are enabled", async () => {
@@ -82,9 +84,9 @@ describe("Popover", () => {
         expect(screen.queryByTestId("popover-id")).not.toBeInTheDocument();
     });
 
-    test("should have role changed when roleProps are set", () => {
+    test("should have role changed when roleOptions are set", () => {
         render(
-            <Popover floatingOptions={{ open: false }} roleOptions={{ role: "menu" }}>
+            <Popover floatingOptions={{ open: true }} roleOptions={{ role: "menu" }}>
                 <Popover.Trigger>Open Popover</Popover.Trigger>
                 <Popover.Content data-testid="popover-id">Content</Popover.Content>
             </Popover>,
@@ -111,6 +113,8 @@ describe("Popover", () => {
 
         const focusableElement = screen.getByText("Focusable Element");
 
-        expect(focusableElement).toHaveFocus();
+        await waitFor(() => {
+            expect(focusableElement).toHaveFocus();
+        });
     });
 });

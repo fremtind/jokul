@@ -15,17 +15,18 @@ import {
     FloatingFocusManager,
     UseFloatingOptions,
 } from "@floating-ui/react";
-import { Props as FloatingFocusManagerOptions } from "@floating-ui/react/src/components/FloatingFocusManager";
-import { Props as ClickOptions } from "@floating-ui/react/src/hooks/useClick";
-import { Props as DismissOptions } from "@floating-ui/react/src/hooks/useDismiss";
-import { Props as FocusOptions } from "@floating-ui/react/src/hooks/useFocus";
-import { Props as HoverOptions } from "@floating-ui/react/src/hooks/useHover";
-import { Props as RoleOptions } from "@floating-ui/react/src/hooks/useRole";
 import classNames from "classnames";
 import { merge } from "lodash";
 import * as React from "react";
 import { Button } from "../../button-react";
 import { getThemeAndDensity } from "./utils";
+
+type FloatingFocusManagerOptions = React.ComponentProps<typeof FloatingFocusManager>;
+type ClickOptions = Parameters<typeof useClick>[1];
+type DismissOptions = Parameters<typeof useDismiss>[1];
+type FocusOptions = Parameters<typeof useFocus>[1];
+type HoverOptions = Parameters<typeof useHover>[1];
+type RoleOptions = Parameters<typeof useRole>[1];
 
 interface PopoverOptions {
     /**
