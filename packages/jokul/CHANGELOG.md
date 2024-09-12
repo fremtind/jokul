@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.1.0...@fremtind/jokul@0.1.1) (2024-09-12)
+
+### Bug Fixes
+
+- add and fix package.json fields ([734517d](https://github.com/fremtind/jokul/commit/734517d784d7058bb347345f0be7bf7c85518556))
+
 # 0.1.0 (2024-09-12)
 
 ### Bug Fixes
