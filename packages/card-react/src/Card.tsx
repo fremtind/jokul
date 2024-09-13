@@ -9,8 +9,8 @@ import React from "react";
 
 export const CARD_PADDINGS = ["s", "m", "l", "xl"] as const;
 export type CardPadding = (typeof CARD_PADDINGS)[number];
-export const CARD_TYPES = ["outlined", "high", "low"] as const;
-export type CardType = (typeof CARD_TYPES)[number];
+export const CARD_VARIANTS = ["outlined", "high", "low"] as const;
+export type CardVariant = (typeof CARD_VARIANTS)[number];
 
 export type CardProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
     ElementType,
@@ -26,7 +26,7 @@ export type CardProps<ElementType extends React.ElementType> = PolymorphicPropsW
          * til bakgrunnen på siden, slik at det er enkelt å skille innholdet fra hverandre.
          * @default "high"
          */
-        type?: CardType;
+        variant?: CardVariant;
         /**
          * Angir om kortet visuelt skal fremstå som klikkbart. Du må selv rendre
          * kortet som et klikkbart element (f.eks. `<a>` eller en `<Link>` fra
@@ -56,7 +56,7 @@ export const Card = React.forwardRef(function Card<ElementType extends React.Ele
         className,
         clickable = false,
         padding = "s",
-        type = "high",
+        variant = "high",
         asChild,
         as = "div",
         ...componentProps
@@ -69,7 +69,7 @@ export const Card = React.forwardRef(function Card<ElementType extends React.Ele
             data-testid="jkl-card"
             data-clickable={clickable}
             data-padding={padding}
-            className={cn("jkl-card", `jkl-card--${type}`, className)}
+            className={cn("jkl-card", `jkl-card--${variant}`, className)}
             {...componentProps}
             ref={ref}
         />

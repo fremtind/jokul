@@ -2,7 +2,7 @@ import React from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Image } from "../../image-react/src";
 import { SuccessTag } from "../../tag-react/src";
-import { Card, CARD_PADDINGS, CARD_TYPES, type CardPadding, type CardType } from "../src/Card";
+import { Card, CARD_PADDINGS, CARD_VARIANTS, type CardPadding, type CardVariant } from "../src/Card";
 import { CardImage } from "../src/CardImage";
 import grass400 from "./img/grass-400.jpg";
 import grass800 from "./img/grass-800.jpg";
@@ -17,7 +17,7 @@ const imageProps = {
 
 export const StatuskortExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const padding = choiceValues?.["Padding"] as CardPadding | undefined;
-    const type = choiceValues?.["Type"] as CardType | undefined;
+    const type = choiceValues?.["Type"] as CardVariant | undefined;
 
     return (
         <Card
@@ -25,7 +25,7 @@ export const StatuskortExample = ({ boolValues, choiceValues }: ExampleComponent
             href="#"
             clickable={!!boolValues?.["Clickable"]}
             padding={padding}
-            type={type}
+            variant={type}
             style={{ maxWidth: "350px" }}
             className="flex flex-column gap-24 items-start"
         >
@@ -103,7 +103,7 @@ export const statuskortExampleProps: ExampleKnobsProps = {
         },
         {
             name: "Type",
-            values: [...CARD_TYPES],
+            values: [...CARD_VARIANTS],
             defaultValue: 0,
         },
     ],
