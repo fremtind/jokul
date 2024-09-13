@@ -813,6 +813,35 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
 
+  packages/menu:
+    specifiers:
+      '@fremtind/jkl-core': ^14.4.0
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/menu-react:
+    specifiers:
+      '@floating-ui/react': ^0.24.2
+      '@fremtind/jkl-contextual-menu': ^2.2.0
+      '@fremtind/jkl-core': ^14.4.0
+      '@fremtind/jkl-icon-button-react': ^5.0.8
+      '@fremtind/jkl-icons-react': ^9.1.6
+      '@fremtind/jkl-react-hooks': ^12.1.8
+      '@fremtind/jkl-toggle-switch': ^13.2.0
+      classnames: ^2.3.2
+      framer-motion: ^7.10.3
+    dependencies:
+      '@floating-ui/react': 0.24.2
+      '@fremtind/jkl-contextual-menu': link:../contextual-menu
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      '@fremtind/jkl-toggle-switch': link:../toggle-switch
+      classnames: 2.5.1
+      framer-motion: 7.10.3
+    devDependencies:
+      '@fremtind/jkl-icon-button-react': link:../icon-button-react
+
   packages/message:
     specifiers:
       '@fremtind/jkl-core': ^14.4.0
@@ -1267,7 +1296,7 @@ importers:
       '@fremtind/jkl-constants-util': link:../packages/constants-util
       '@fremtind/jkl-contact-information-react': link:../packages/contact-information-react
       '@fremtind/jkl-content-toggle-react': link:../packages/content-toggle-react
-      '@fremtind/jkl-contextual-menu-react': link:../packages/contextual-menu-react
+      '@fremtind/jkl-contextual-menu-react': link:../packages/menu-react
       '@fremtind/jkl-cookie-consent-react': link:../packages/cookie-consent-react
       '@fremtind/jkl-core': link:../packages/core
       '@fremtind/jkl-datepicker-react': link:../packages/datepicker-react
@@ -1413,7 +1442,7 @@ importers:
       '@fremtind/jkl-combobox-react': link:../packages/combobox-react
       '@fremtind/jkl-contact-information-react': link:../packages/contact-information-react
       '@fremtind/jkl-content-toggle-react': link:../packages/content-toggle-react
-      '@fremtind/jkl-contextual-menu-react': link:../packages/contextual-menu-react
+      '@fremtind/jkl-contextual-menu-react': link:../packages/menu-react
       '@fremtind/jkl-cookie-consent-react': link:../packages/cookie-consent-react
       '@fremtind/jkl-core': link:../packages/core
       '@fremtind/jkl-datepicker-react': link:../packages/datepicker-react
@@ -4023,13 +4052,13 @@ packages:
     dependencies:
       '@fremtind/jkl-core': 14.4.0
       '@fremtind/jkl-icons-react': 9.1.6
-      '@fremtind/jkl-message': 1.0.0
+      '@fremtind/jkl-message': 1.1.0
       '@fremtind/jkl-react-hooks': 12.1.8
       classnames: 2.5.1
     dev: false
 
-  /@fremtind/jkl-message/1.0.0:
-    resolution: {integrity: sha512-lThB6RuFHSduYV2WQPxVFJVm4YLL05CtHixSWGYeZsszPPQJrJ0FZpphfa3Aruf9zPV3r64KNASbe63P9aXlCQ==}
+  /@fremtind/jkl-message/1.1.0:
+    resolution: {integrity: sha512-6vpuPlREgG8GqkzlNsufe2vDWl7s8thDVPFvePjgDBl2PtcKPrFMt++0grOUexJfNT5uyLUOfIkDFdTGwDDNkQ==}
     dependencies:
       '@fremtind/jkl-core': 14.4.0
     transitivePeerDependencies:
