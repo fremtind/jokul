@@ -1,0 +1,93 @@
+@use "../../core/jkl";
+
+@include jkl.comfortable-density-variables {
+    --jkl-link-list-padding: var(--jkl-spacing-8);
+}
+
+@include jkl.compact-density-variables {
+    --jkl-link-list-padding: var(--jkl-spacing-4);
+}
+
+.jkl-link-list {
+    --border-color: var(--jkl-color-border-separator);
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-bottom: jkl.rem(1px) solid var(--border-color);
+    height: min-content;
+    counter-reset: link-list;
+
+    @media (hover: hover) {
+        &:has(:focus-visible),
+        &:has(:hover) {
+            .jkl-link-list-link:not(:hover):not(:focus-visible) {
+                --text-color: var(--jkl-color-border-separator);
+            }
+        }
+    }
+}
+
+.jkl-link-list-item {
+    display: flex;
+    counter-increment: link-list;
+}
+
+.jkl-link-list-link {
+    --text-color: var(--jkl-color-text-default);
+    --icon-background: transparent;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+    gap: var(--jkl-spacing-16);
+    padding: var(--jkl-link-list-padding) 0;
+    border-top: jkl.rem(1px) solid var(--border-color);
+    width: 100%;
+    text-decoration: none;
+    color: var(--text-color);
+    cursor: pointer;
+
+    @include jkl.motion("standard", "productive");
+    transition-property: color, border-color;
+
+    &:hover,
+    &:focus-visible {
+        --icon-background: var(--jkl-color-background-interactive-selected);
+    }
+
+    &:focus-visible {
+        --border-color: transparent;
+        z-index: 1;
+        @include jkl.focus-outline(0);
+    }
+
+    &__arrow {
+        border-radius: 100%;
+        background-color: var(--icon-background);
+        // Justér ikonet i forhold til tekstens baseline
+        translate: 0 17%;
+
+        @include jkl.motion("standard", "productive");
+        transition-property: color, background-color;
+    }
+
+    .jkl-link-list--ordered & {
+        justify-content: flex-start;
+        align-items: unset;
+
+        &__arrow {
+            display: none;
+        }
+
+        &::before {
+            content: counter(link-list, decimal-leading-zero);
+
+            @include jkl.use-font-family("Fremtind Grotesk Mono");
+            color: var(--text-color);
+            font-size: var(--jkl-small-font-size);
+        }
+    }
+}
