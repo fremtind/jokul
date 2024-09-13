@@ -880,14 +880,12 @@ importers:
       '@fremtind/jkl-popover': ^1.0.0-alpha.0
       '@types/lodash': ^4.17.7
       classnames: ^2.5.1
-      lodash: ^4.17.21
     dependencies:
       '@floating-ui/react': 0.24.2
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-popover': link:../popover
       '@types/lodash': 4.17.7
       classnames: 2.5.1
-      lodash: 4.17.21
 
   packages/progress-bar:
     specifiers:
@@ -9105,7 +9103,6 @@ packages:
 
   /classnames/2.5.1:
     resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
-    dev: false
 
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}

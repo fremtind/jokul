@@ -16,11 +16,9 @@ import {
     UseFloatingOptions,
 } from "@floating-ui/react";
 import classNames from "classnames";
-import { merge } from "lodash";
 import * as React from "react";
 import { getThemeAndDensity } from "./utils";
 
-type FloatingFocusManagerOptions = React.ComponentProps<typeof FloatingFocusManager>;
 type ClickOptions = Parameters<typeof useClick>[1];
 type DismissOptions = Parameters<typeof useDismiss>[1];
 type FocusOptions = Parameters<typeof useFocus>[1];
@@ -29,89 +27,108 @@ type RoleOptions = Parameters<typeof useRole>[1];
 
 interface PopoverOptions {
     /**
-     * Den initielle åpne tilstanden for popoveren når den er ukontrollert.
-     * @default false
+     * Angir om popoveren er åpen eller lukket.
      * @see https://floating-ui.com/docs/useFloating#open
      */
-    initialOpen?: boolean;
+    open?: boolean;
+    /**
+     * Callback som trigges når popoveren åpnes eller lukkes.
+     * @see https://floating-ui.com/docs/useFloating#onOpenChange
+     */
+    onOpenChange?: UseFloatingOptions["onOpenChange"];
+    /**
+     * Bestemmer plasseringen av popoveren.
+     * @default "bottom-start"
+     * @see https://floating-ui.com/docs/useFloating#placement
+     */
+    placement?: UseFloatingOptions["placement"];
+    /**
+     * Definerer strategien for posisjonering av popoveren.
+     * @default "absolute"
+     * @see https://floating-ui.com/docs/useFloating#strategy
+     */
+    strategy?: UseFloatingOptions["strategy"];
+    /**
+     * Angir om popoveren skal fungere som en modal, der fokus er låst til det flytende elementet
+     * og innhold utenfor ikke kan interageres med.
+     * @default true
+     * @see https://floating-ui.com/docs/useFloating#modal
+     */
+    modal?: boolean;
     /**
      * Offset til det flytende elementet.
      * @see https://floating-ui.com/docs/offset
      * @default 4
      * */
+    /**
+     * Justerer avstanden mellom referanse-elementet og popoveren.
+     * @see https://floating-ui.com/docs/offset
+     * @default 4
+     */
     offset?: number;
-    /** Options for hover
+    /**
+     * Options for hover-interaksjoner.
      * @see https://floating-ui.com/docs/useHover
      * @default { enabled: false }
      */
     hoverOptions?: HoverOptions;
-    /** Options for focus
+    /**
+     * Options for fokus-interaksjoner.
      * @see https://floating-ui.com/docs/useFocus
      * @default { enabled: false }
      */
     focusOptions?: FocusOptions;
-    /** Options for click
+    /**
+     * Options for klikk-interaksjoner.
      * @see https://floating-ui.com/docs/useClick
      * @default { enabled: false }
      */
     clickOptions?: ClickOptions;
     /**
-     * Options for role
+     * Konfigurerer rollen for popoveren.
      * @see https://floating-ui.com/docs/useRole
      * @default { enabled: true, role: "dialog" }
      */
     roleOptions?: RoleOptions;
     /**
-     * Options for dismiss
-     * @see https://floating-ui.com/docs
-     * @default { enabled: false }
+     * Options for å lukke popoveren når en dismissal skjer,
+     * som ved å klikke utenfor eller trykke på "Escape"-tasten.
+     * @see https://floating-ui.com/docs/useDismiss
+     * @default { enabled: true }
      */
     dismissOptions?: DismissOptions;
-    /**
-     * Options for å posisjonere et flytende element
-     * @see https://floating-ui.com/docs/useFloating
-     */
-    floatingOptions?: Omit<Partial<UseFloatingOptions>, "whileElementsMounted">;
-    /**
-     * Options for FloatingFocusManager
-     * @see https://floating-ui.com/docs/floatingfocusmanager
-     */
-    floatingFocusManagerOptions?: Omit<FloatingFocusManagerOptions, "children" | "context">;
 }
 
 const usePopover = ({
-    initialOpen = false,
+    open: _open,
+    onOpenChange: _onOpenChange,
+    placement = "bottom-start",
+    strategy = "absolute",
+    modal = true,
     offset: _offset = 4,
     hoverOptions,
     focusOptions,
     clickOptions,
     roleOptions,
     dismissOptions,
-    floatingOptions: _floatingOptions,
-    floatingFocusManagerOptions,
 }: PopoverOptions) => {
-    const [uncontrolledOpen, setUncontrolledOpen] = React.useState(initialOpen);
+    const [uncontrolledOpen, setUncontrolledOpen] = React.useState(_open);
 
-    const open = _floatingOptions?.open ?? uncontrolledOpen;
-    const onOpenChange = _floatingOptions?.onOpenChange ?? setUncontrolledOpen;
+    const open = _open ?? uncontrolledOpen;
+    const onOpenChange = _onOpenChange ?? setUncontrolledOpen;
 
-    const floatingOptions = merge(
-        {
-            open,
-            placement: "bottom-start",
-            strategy: "absolute",
-            middleware: [
-                offset(_offset),
-                flip({ padding: 5, fallbackPlacements: ["bottom", "top"] }),
-                shift({ padding: 12 }),
-            ],
-            whileElementsMounted: autoUpdate,
-            onOpenChange,
-        },
-        _floatingOptions,
-    );
-
-    const data = useFloating({ ...floatingOptions });
+    const data = useFloating({
+        open,
+        onOpenChange,
+        placement,
+        strategy,
+        middleware: [
+            offset(_offset),
+            flip({ padding: 5, fallbackPlacements: ["bottom", "top"] }),
+            shift({ padding: 12 }),
+        ],
+        whileElementsMounted: autoUpdate,
+    });
 
     const context = data.context;
 
@@ -136,11 +153,11 @@ const usePopover = ({
         () => ({
             open,
             onOpenChange,
-            floatingFocusManagerOptions,
+            modal,
             ...interactions,
             ...data,
         }),
-        [open, onOpenChange, interactions, data, floatingFocusManagerOptions],
+        [open, onOpenChange, modal, interactions, data],
     );
 };
 
@@ -223,8 +240,7 @@ interface PopoverContentProps {
 
 const PopoverContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement> & PopoverContentProps>(
     function PopoverContent({ style, className, padding, ...props }, propRef) {
-        const { context, floatingFocusManagerOptions, refs, open, floatingStyles, getFloatingProps } =
-            usePopoverContext();
+        const { context, modal, refs, open, floatingStyles, getFloatingProps } = usePopoverContext();
         const ref = useMergeRefs([refs.setFloating, propRef]);
 
         const { theme, density } = getThemeAndDensity(refs.reference.current as HTMLElement);
@@ -233,7 +249,7 @@ const PopoverContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivE
 
         return (
             <FloatingPortal>
-                <FloatingFocusManager context={context} {...floatingFocusManagerOptions}>
+                <FloatingFocusManager context={context} modal={modal}>
                     <div
                         data-theme={theme}
                         data-layout-density={density}
