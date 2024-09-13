@@ -18,7 +18,8 @@
         "./src/core/styles",
         "./src/core/jkl",
         "./src/core/tokens.less",
-        "./src/components/navigation/styles"
+        "./src/components/link/styles",
+        "./src/components/loader/styles"
     ],
     "exports": {
         "./core": {
@@ -26,30 +27,26 @@
             "import": "./build/es/core/index.js",
             "types": "./build/core/index.d.ts"
         },
-        "./core/utils": {
-            "require": "./build/cjs/core/utils/index.js",
-            "import": "./build/es/core/utils/index.js",
-            "types": "./build/core/utils/index.d.ts"
-        },
         "./core/tokens.less": "./src/core/tokens.less",
-        "./core/styles/*": "./src/core/styles/*",
         "./core/jkl": "./src/core/jkl/_index.scss",
         "./hooks": {
             "require": "./build/cjs/hooks/index.js",
             "import": "./build/es/hooks/index.js",
             "types": "./build/hooks/index.d.ts"
         },
+        "./utils": {
+            "require": "./build/cjs/core/utils/index.js",
+            "import": "./build/es/core/utils/index.js",
+            "types": "./build/core/utils/index.d.ts"
+        },
         "./components": {
             "require": "./build/cjs/components/index.js",
             "import": "./build/es/components/index.js",
             "types": "./build/components/index.d.ts"
         },
-        "./components/navigation": {
-            "require": "./build/cjs/components/navigation/index.js",
-            "import": "./build/es/components/navigation/index.js",
-            "types": "./build/components/navigation/index.d.ts"
-        },
-        "./components/navigation/styles/*": "./src/components/navigation/styles/*"
+        "./styles/core/*": "./src/core/styles/*",
+        "./styles/link/*": "./src/components/link/styles/*",
+        "./styles/loader/*": "./src/components/loader/styles/*"
     },
     "scripts": {
         "generate:tokens": "node tokens.build.mjs",
