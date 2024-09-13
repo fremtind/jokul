@@ -41,6 +41,7 @@
 
     display: flex;
     justify-content: space-between;
+    align-items: first baseline;
     gap: var(--jkl-spacing-16);
     padding: var(--jkl-link-list-padding) 0;
     border-top: jkl.rem(1px) solid var(--border-color);
@@ -64,9 +65,10 @@
     }
 
     &__arrow {
-        align-self: center;
         border-radius: 100%;
         background-color: var(--icon-background);
+        // Justér ikonet i forhold til tekstens baseline
+        translate: 0 17%;
 
         @include jkl.motion("standard", "productive");
         transition-property: color, background-color;
@@ -74,6 +76,7 @@
 
     .jkl-link-list--ordered & {
         justify-content: flex-start;
+        align-items: unset;
 
         &__arrow {
             display: none;
