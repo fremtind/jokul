@@ -132,20 +132,14 @@ const usePopover = ({
 
     const context = data.context;
 
-    const role = useRole(context, {
-        ...roleOptions,
-    });
-
     const click = useClick(context, {
         enabled: false,
         ...clickOptions,
     });
     const hover = useHover(context, { enabled: false, ...hoverOptions });
     const focus = useFocus(context, { enabled: false, ...focusOptions });
-    const dismiss = useDismiss(context, {
-        enabled: true,
-        ...dismissOptions,
-    });
+    const dismiss = useDismiss(context, dismissOptions);
+    const role = useRole(context, roleOptions);
 
     const interactions = useInteractions([click, dismiss, focus, hover, role]);
 
