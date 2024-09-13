@@ -40,8 +40,7 @@
         "@fremtind/jkl-core": "^14.0.0",
         "@fremtind/jkl-popover": "^1.0.0-alpha.0",
         "@types/lodash": "^4.17.7",
-        "classnames": "^2.5.1",
-        "lodash": "^4.17.21"
+        "classnames": "^2.5.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
