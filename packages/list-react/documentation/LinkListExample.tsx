@@ -55,6 +55,12 @@ export const UnorderedLinkListExample: FC = () => (
         <LinkList.Item>
             <LinkList.Link href="#">Norsk Sykepleierforbund</LinkList.Link>
         </LinkList.Item>
+        <LinkList.Item>
+            <LinkList.Link href="#">
+                En tekst som går over flere linjer for å se hvordan pilen oppfører seg når den ikke bare skal
+                midtstilles i lenken
+            </LinkList.Link>
+        </LinkList.Item>
     </LinkList>
 );
 
