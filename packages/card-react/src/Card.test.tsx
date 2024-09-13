@@ -3,7 +3,7 @@ import { axe } from "jest-axe";
 import React from "react";
 import { formatValuta } from "../../formatters-util";
 import { ErrorTag } from "../../tag-react";
-import { Card, CARD_PADDINGS, CARD_TYPES } from "./Card";
+import { Card, CARD_PADDINGS, CARD_VARIANTS } from "./Card";
 
 describe("Card", () => {
     it("rendrer uten å kræsje", () => {
@@ -16,10 +16,10 @@ describe("Card", () => {
         expect(screen.getByText("Hello world")).toBeInTheDocument();
     });
 
-    CARD_TYPES.forEach((color) => {
-        it("setter riktig attributt for bakgrunnsfarge", () => {
-            render(<Card type={color}>Hello, world</Card>);
-            expect(screen.getByText("Hello, world")).toHaveAttribute("data-background", color);
+    CARD_VARIANTS.forEach((variant) => {
+        it("setter riktig klasse for variant", () => {
+            render(<Card variant={variant}>Hello, world</Card>);
+            expect(screen.getByText("Hello, world")).toHaveClass(`jkl-card--${variant}`);
         });
     });
 
@@ -82,7 +82,7 @@ describe("Card", () => {
 describe("a11y", () => {
     test("card should be a11y compliant", async () => {
         const { container } = render(
-            <Card asChild clickable padding="s" type="high">
+            <Card asChild clickable padding="s" variant="high">
                 <a href="/faktura/12345" className="flex gap-x-40">
                     <div className="flex flex-column gap-4">
                         <p className="jkl-heading-2">

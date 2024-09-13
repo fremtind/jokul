@@ -2,14 +2,14 @@ import React from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { formatValuta } from "../../formatters-util/src";
 import { ErrorTag } from "../../tag-react/src";
-import { Card, CARD_PADDINGS, CARD_TYPES, type CardPadding, type CardType } from "../src/Card";
+import { Card, CARD_PADDINGS, CARD_VARIANTS, type CardPadding, type CardVariant } from "../src/Card";
 
 export const FakturainfoExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const padding = choiceValues?.["Padding"] as CardPadding | undefined;
-    const type = choiceValues?.["Type"] as CardType | undefined;
+    const type = choiceValues?.["Type"] as CardVariant | undefined;
 
     return (
-        <Card asChild clickable={!!boolValues?.["Clickable"]} padding={padding} type={type}>
+        <Card asChild clickable={!!boolValues?.["Clickable"]} padding={padding} variant={type}>
             <a href="#test" className="flex gap-x-40">
                 <div className="flex flex-column gap-4">
                     <p className="jkl-heading-2">
@@ -62,7 +62,7 @@ export const fakturainfoExampleProps: ExampleKnobsProps = {
         },
         {
             name: "Type",
-            values: [...CARD_TYPES],
+            values: [...CARD_VARIANTS],
             defaultValue: 0,
         },
     ],
