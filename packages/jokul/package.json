@@ -26,6 +26,11 @@
             "import": "./build/es/core/index.js",
             "types": "./build/core/index.d.ts"
         },
+        "./core/utils": {
+            "require": "./build/cjs/core/utils/index.js",
+            "import": "./build/es/core/utils/index.js",
+            "types": "./build/core/utils/index.d.ts"
+        },
         "./core/tokens.less": "./src/core/tokens.less",
         "./core/styles/*": "./src/core/styles/*",
         "./core/jkl": "./src/core/jkl/_index.scss",
