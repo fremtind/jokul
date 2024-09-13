@@ -2,13 +2,7 @@ import { WithChildren } from "@fremtind/jkl-core";
 import { renderHook, act } from "@testing-library/react";
 import React from "react";
 import { CookieConsentProvider, useCookieConsentState } from "./CookieConsentContext";
-import { ConsentRequirement, ConsentState, Consent } from "./types";
-
-const generateRequirement = (marketing: boolean, functional: boolean, statistics: boolean): ConsentRequirement => ({
-    marketing,
-    functional,
-    statistics,
-});
+import { ConsentState, Consent } from "./types";
 
 const generateConsent = (marketing: ConsentState, functional: ConsentState, statistics: ConsentState): Consent => ({
     marketing,
@@ -37,7 +31,7 @@ describe("cookie-consent-react/CookieConsentContext", () => {
 
         expect(result.current.showSettings).toEqual(false);
         expect(result.current.isOpen).toEqual(false);
-        expect(result.current.requirement).toEqual(generateRequirement(false, false, false));
+        expect(result.current.requirement).toEqual({});
         expect(result.current.consent).toEqual(generateConsent(null, null, null));
     });
 

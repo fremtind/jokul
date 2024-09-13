@@ -148,3 +148,11 @@ export const convertBooleanConsentObjectToConsentObject = (
 
     return Object.fromEntries(consentEntries);
 };
+
+export const buildRequirementsObject = ({ marketing, functional, statistics }: ConsentRequirement) => {
+    return {
+        ...(marketing && { marketing }),
+        ...(functional && { functional }),
+        ...(statistics && { statistics }),
+    };
+};
