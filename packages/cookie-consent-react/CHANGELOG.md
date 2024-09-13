@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.2.11 (2024-09-13)
+
+### Bug Fixes
+
+- rettet feil ved lagring av samtykker ([5e99ca2](https://github.com/fremtind/jokul/commit/5e99ca281c464ae818de9e6ffd720812ceb3216c))
+
 # 10.1.0 (2024-08-27)
 
 ### Features
