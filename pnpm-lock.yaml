@@ -49,6 +49,7 @@ importers:
       '@vitejs/plugin-react-swc': ^3.5.0
       autoprefixer: ^10.4.14
       browserslist: ^4.21.7
+      case: ^1.6.3
       classnames: ^2.5.1
       commitizen: ^4.3.0
       cssnano: ^6.0.1
@@ -134,6 +135,7 @@ importers:
       '@vitejs/plugin-react-swc': 3.7.0_vite@5.4.2
       autoprefixer: 10.4.14_postcss@8.4.24
       browserslist: 4.21.7
+      case: 1.6.3
       classnames: 2.5.1
       commitizen: 4.3.0_dm6y56nr5wgy7tu6xusupvnt5e
       cssnano: 6.0.1_postcss@8.4.24
@@ -7193,7 +7195,7 @@ packages:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.7.23
-      vite: 5.4.2
+      vite: 5.4.2_qly2xqze27fzfdjycmqvs326c4
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -8878,6 +8880,11 @@ packages:
       no-case: 3.0.4
       tslib: 2.5.3
       upper-case-first: 2.0.2
+
+  /case/1.6.3:
+    resolution: {integrity: sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==}
+    engines: {node: '>= 0.8.0'}
+    dev: true
 
   /caseless/0.12.0:
     resolution: {integrity: sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==}
