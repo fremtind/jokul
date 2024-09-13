@@ -29,12 +29,7 @@ import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useEffect
 import * as ReactIs from "react-is";
 import { useMenuWideEvents } from "./useMenuWideEvents";
 
-/**
- * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
- * Bruk heller komponenten `Menu` som er erstatning for ContextualMenu
- */
-
-export interface ContextualMenuProps
+export interface MenuProps
     extends DataTestAutoId,
         WithChildren,
         Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
@@ -59,7 +54,7 @@ export interface ContextualMenuProps
      * Elementet som fungerer som trigger for menyen. Dersom elementet ikke er en `<button>`
      * eller en `forwardRef<HTMLButtonElement>` vil det bli lagt inne i en knapp
      * med forhåndsdefinert stil. For å komme raskt i gang kan du bruke komponenten
-     * `ContextualMenuTriggerButton` fra denne pakken.
+     * `MenuTriggerButton` fra denne pakken.
      */
     triggerElement: ReactNode;
     /**
@@ -73,7 +68,7 @@ export interface ContextualMenuProps
     onToggle?: (isOpen: boolean) => void;
 }
 
-const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, forwardedRef) => {
+const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>((props, forwardedRef) => {
     const {
         children,
         className,
@@ -86,7 +81,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
         ...triggerProps
     } = props;
 
-    const contextualMenuId = useId("jkl-contextual-menu");
+    const MenuId = useId("jkl-menu");
 
     const tree = useFloatingTree();
     const nodeId = useFloatingNodeId();
@@ -169,7 +164,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                           ...triggerProps,
                           ref: referenceRef,
                           role: isNested ? "menuitem" : undefined,
-                          "aria-controls": contextualMenuId,
+                          "aria-controls": MenuId,
                           onClick(event) {
                               event.stopPropagation();
                           },
@@ -190,7 +185,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                             returnFocus={!isNested}
                         >
                             <motion.div
-                                className={cn("jkl jkl-contextual-menu", className)}
+                                className={cn("jkl jkl-menu", className)}
                                 data-theme={theme}
                                 data-layout-density={density}
                                 role="menu"
@@ -203,7 +198,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                                 aria-hidden={!isOpen}
                                 ref={refs.setFloating}
                                 {...getFloatingProps({
-                                    id: contextualMenuId,
+                                    id: MenuId,
                                     style: {
                                         position: strategy,
                                         top: y ?? "",
@@ -262,19 +257,19 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
         </FloatingNode>
     );
 });
-ContextualMenuComponent.displayName = "ContextualMenuComponent";
+MenuComponent.displayName = "MenuComponent";
 
-export const ContextualMenu = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, ref) => {
+export const Menu = forwardRef<HTMLButtonElement, MenuProps>((props, ref) => {
     const parentId = useFloatingParentNodeId();
 
     if (parentId === null) {
         return (
             <FloatingTree>
-                <ContextualMenuComponent ref={ref} {...props} />
+                <MenuComponent ref={ref} {...props} />
             </FloatingTree>
         );
     }
 
-    return <ContextualMenuComponent ref={ref} {...props} />;
+    return <MenuComponent ref={ref} {...props} />;
 });
-ContextualMenu.displayName = "ContextualMenu";
+Menu.displayName = "Menu";
