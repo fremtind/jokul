@@ -2,7 +2,7 @@ import React from "react";
 import { DevExample } from "../../../doc-utils";
 import { FormErrorMessageExample, formErrorMessageExampleCode, formErrorMessageKnobs } from "./FormErrorMessageExample";
 import { MessageExample, messageExampleCode, messageExampleKnobs } from "./MessageExample";
-import "../../message-box/message-box.scss";
+import "../../message/message.scss";
 
 export default function Example() {
     return (
