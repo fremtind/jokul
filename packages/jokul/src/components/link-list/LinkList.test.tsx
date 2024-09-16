@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { LinkList } from "../src";
+import { LinkList } from "./";
 
 describe("LinkList", () => {
     test(`LinkList should render as expected`, () => {
