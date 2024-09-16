@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React from "react";
 import { SlotComponent } from "../";
 import { AsChildProps, PolymorphicPropsWithRef, PolymorphicRef } from "../../core";
@@ -34,7 +34,7 @@ export const CardImage = React.forwardRef(function CardImage<ElementType extends
     return (
         <Component
             ref={ref}
-            className={cn("jkl-card-image", `jkl-card-image--${placement}`, className)}
+            className={clsx("jkl-card-image", `jkl-card-image--${placement}`, className)}
             {...imageProps}
         />
     );
