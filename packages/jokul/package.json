@@ -18,10 +18,10 @@
         "./src/core/styles",
         "./src/core/jkl",
         "./src/core/tokens.less",
+        "./src/components/icon/styles",
         "./src/components/link/styles",
-        "./src/components/loader/styles",
-        "./src/components/navigation/styles",
-        "./src/components/style"
+        "./src/components/link-list/styles",
+        "./src/components/loader/styles"
     ],
     "exports": {
         "./core": {
@@ -47,7 +47,7 @@
             "import": "./build/es/components/index.js"
         },
         "./styles/core/*": "./src/core/styles/*",
-        "./styles/icon/*": "./src/icon/styles/*",
+        "./styles/icon/*": "./src/components/icon/styles/*",
         "./styles/link/*": "./src/components/link/styles/*",
         "./styles/link-list/*": "./src/components/link-list/styles/*",
         "./styles/loader/*": "./src/components/loader/styles/*"

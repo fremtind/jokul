@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "../../core/jkl";
+@use "../../../core/jkl";
 
 @include jkl.light-mode-variables {
     --jkl-icon-grade: 0;
