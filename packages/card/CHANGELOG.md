@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.0.0 (2024-09-16)
+
+### Features
+
+- oppdater card til å matche nyeste versjon i Figma ([0464c45](https://github.com/fremtind/jokul/commit/0464c45ff3eecfb4a352dde93f3085f9630a4798)), closes [#4078](https://github.com/fremtind/jokul/issues/4078)
+
+### BREAKING CHANGES
+
+- Fargene "inverted" og "subdued", samt spacingene "none"
+og "xs", er fjernet
+
 ## [12.0.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card@12.0.5...@fremtind/jkl-card@12.0.6) (2024-09-04)
 
 ### Bug Fixes
