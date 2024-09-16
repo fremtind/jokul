@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React from "react";
 import { PolymorphicPropsWithRef, PolymorphicRef } from "../../core";
 import { IconVariant } from "./types";
@@ -36,7 +36,7 @@ export const Icon: IconComponent = React.forwardRef(function Icon<
         <span
             aria-hidden
             ref={ref}
-            className={cn("jkl-icon", className, {
+            className={clsx("jkl-icon", className, {
                 "jkl-icon--filled": filled,
                 "jkl-icon--bold": bold,
                 [`jkl-icon--${variant}`]: !!variant,

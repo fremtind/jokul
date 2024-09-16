@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC } from "react";
 import { IconProps } from "../types";
 
@@ -20,7 +20,7 @@ export const GreenCheckIcon: FC<IconProps> = ({
 
     return (
         <El
-            className={cn(className, "jkl-icon", "jkl-icon-green-check", `jkl-icon--${variant}`, {
+            className={clsx(className, "jkl-icon", "jkl-icon-green-check", `jkl-icon--${variant}`, {
                 "jkl-icon--bold": bold,
             })}
             aria-hidden="true"

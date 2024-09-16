@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React from "react";
 import { SlotComponent } from "../";
 import { type AsChildProps, type PolymorphicPropsWithRef, type PolymorphicRef } from "../../core";
@@ -65,7 +65,7 @@ export const Card = React.forwardRef(function Card<ElementType extends React.Ele
             data-testid="jkl-card"
             data-clickable={clickable}
             data-padding={padding}
-            className={cn("jkl-card", `jkl-card--${variant}`, className)}
+            className={clsx("jkl-card", `jkl-card--${variant}`, className)}
             {...componentProps}
             ref={ref}
         />
