@@ -5,15 +5,11 @@ import { Accordion, AccordionItem } from "../src";
 
 export const accordionExampleKnobs: ExampleKnobsProps = {};
 
-export const scope = {
-    id: "description-id",
-};
-
 export const AccordionExample: React.FC<ExampleComponentProps> = () => {
+    /* -- EXAMPLE CODE START -- */
     const id = useId();
     return (
         <>
-            {/* -- EXAMPLE CODE START -- */}
             <h2
                 className="jkl-portal-heading-medium"
                 id={id}
@@ -53,11 +49,12 @@ export const AccordionExample: React.FC<ExampleComponentProps> = () => {
                     banken din.
                 </AccordionItem>
             </Accordion>
-            {/* -- EXAMPLE CODE END -- */}
         </>
     );
+    /* -- EXAMPLE CODE END -- */
 };
 
+// TODO: Remove when the old portal is removed
 export const accordionExampleCode: CodeExample = () => `
 <>
     <h2

@@ -1,7 +1,7 @@
+import { kebab, snake } from "case";
 import cn from "classnames";
 import type { Language } from "prism-react-renderer";
-import React from "react";
-import { type FC, useCallback, useEffect, useState } from "react";
+import React, { type FC, useCallback, useEffect, useState } from "react";
 import { Checkbox } from "../../packages/checkbox-react/src";
 import type { ColorScheme, Density, ValuePair } from "../../packages/core/src";
 import { RadioButton, RadioButtonGroup } from "../../packages/radio-button-react/src";
@@ -80,7 +80,6 @@ export interface InteractiveCodeProps {
      * @default false
      */
     noInline?: boolean;
-    scope?: object;
 }
 
 export const InteractiveCode: FC<InteractiveCodeProps> = ({
@@ -95,7 +94,6 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
     language = "tsx",
     controls,
     noInline = false,
-    scope = {},
 }) => {
     const uid = useId(id || "interactive-code", { generateSuffix: !id });
 
@@ -177,13 +175,8 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
     const setChoiceValue = (key: string, value: string) =>
         setChoiceValues((oldValues) => ({ ...oldValues, [key]: value }));
 
-    // TODO
-
-    const hyphenate = (string: string) => string;
-    const ClipboardButton: FC<{ target: string }> = () => <div></div>;
-
     return (
-        <LiveProvider code={code} language={language} noInline={noInline} scope={scope}>
+        <LiveProvider code={code} language={language} noInline={noInline}>
             <div
                 className="interactive-code"
                 data-show-controls={showControls}
@@ -227,8 +220,8 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                                         <>
                                             {Object.entries(boolValues).map(([key, value]) => (
                                                 <Checkbox
-                                                    key={`${uid}-${hyphenate(key)}`}
-                                                    name={`${uid}-${hyphenate(key)}`}
+                                                    key={`${uid}-${kebab(key)}`}
+                                                    name={`${uid}-${kebab(key)}`}
                                                     value={key}
                                                     checked={value}
                                                     onChange={(e) => setBoolValue(key, e.target.checked)}
@@ -244,8 +237,8 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                                                 choices[key].length < 4 ? (
                                                     <RadioButtonGroup
                                                         className="jkl-spacing-xs--top"
-                                                        name={`${uid}-${hyphenate(key)}`}
-                                                        key={`${uid}-${hyphenate(key)}`}
+                                                        name={`${uid}-${kebab(key)}`}
+                                                        key={`${uid}-${kebab(key)}`}
                                                         legend={key}
                                                         value={typeof value === "string" ? value : value.value}
                                                         labelProps={{
@@ -254,6 +247,7 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                                                         onChange={(e) => {
                                                             setChoiceValue(key, e.target.value);
                                                         }}
+                                                        data-testid={snake(key)}
                                                     >
                                                         {choices[key]?.map((choice) => {
                                                             const value =
@@ -272,7 +266,7 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                                                         onChange={(e) => setChoiceValue(key, e.target.value)}
                                                         label={key}
                                                         width="100%"
-                                                        key={`${uid}-${hyphenate(key)}`}
+                                                        key={`${uid}-${kebab(key)}`}
                                                         name={key}
                                                         items={choices[key]}
                                                     />
@@ -292,8 +286,8 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                                 labelProps={{ variant: "small" }}
                                 onChange={(e) => setTheme(e.target.value as ColorScheme)}
                             >
-                                <RadioButton label="Light" value="light" />
-                                <RadioButton label="Dark" value="dark" />
+                                <RadioButton label="Light" value="light" data-testid={"theme-light"} />
+                                <RadioButton label="Dark" value="dark" data-testid={"theme-dark"} />
                             </RadioButtonGroup>
                             <RadioButtonGroup
                                 className="jkl-spacing-xs--top"
@@ -303,15 +297,14 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                                 labelProps={{ variant: "small" }}
                                 onChange={(e) => setDensity(e.target.value as Density)}
                             >
-                                <RadioButton label="Default" value="comfortable" />
-                                <RadioButton label="Compact" value="compact" />
+                                <RadioButton label="Default" value="comfortable" data-testid={"density-default"} />
+                                <RadioButton label="Compact" value="compact" data-testid={"density-compact"} />
                             </RadioButtonGroup>
                         </div>
                     </div>
                 )}
                 {showEditor && (
                     <div className="interactive-code__editor">
-                        <ClipboardButton target={code} />
                         <LiveEditor onChange={handleChange} />
                         <LiveError />
                     </div>
