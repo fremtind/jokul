@@ -18,7 +18,9 @@
         "./src/core/styles",
         "./src/core/jkl",
         "./src/core/tokens.less",
+        "./src/components/icon/styles",
         "./src/components/link/styles",
+        "./src/components/link-list/styles",
         "./src/components/loader/styles"
     ],
     "exports": {
@@ -45,7 +47,9 @@
             "import": "./build/es/components/index.js"
         },
         "./styles/core/*": "./src/core/styles/*",
+        "./styles/icon/*": "./src/components/icon/styles/*",
         "./styles/link/*": "./src/components/link/styles/*",
+        "./styles/link-list/*": "./src/components/link-list/styles/*",
         "./styles/loader/*": "./src/components/loader/styles/*"
     },
     "scripts": {
