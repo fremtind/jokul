@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2024-09-16)
+
+### Bug Fixes
+
+- add exports for core/utils ([d924786](https://github.com/fremtind/jokul/commit/d924786df8bf1f4d0e44b8387ba0543be6b9bf60))
+- types field should come first in exports block ([d8d679d](https://github.com/fremtind/jokul/commit/d8d679ddaae78bd8e299180fe5561183ad53c2c4))
+
+### Features
+
+- add loader component, break existing API ([6d15eb8](https://github.com/fremtind/jokul/commit/6d15eb8719f4ec1f62c20c76e71ac10d7a387f5e))
+
 ## [0.1.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.1.0...@fremtind/jokul@0.1.1) (2024-09-12)
 
 ### Bug Fixes
