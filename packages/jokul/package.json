@@ -23,26 +23,26 @@
     ],
     "exports": {
         "./core": {
+            "types": "./build/core/index.d.ts",
             "require": "./build/cjs/core/index.js",
-            "import": "./build/es/core/index.js",
-            "types": "./build/core/index.d.ts"
+            "import": "./build/es/core/index.js"
         },
         "./core/tokens.less": "./src/core/tokens.less",
         "./core/jkl": "./src/core/jkl/_index.scss",
         "./hooks": {
+            "types": "./build/hooks/index.d.ts",
             "require": "./build/cjs/hooks/index.js",
-            "import": "./build/es/hooks/index.js",
-            "types": "./build/hooks/index.d.ts"
+            "import": "./build/es/hooks/index.js"
         },
         "./utils": {
+            "types": "./build/core/utils/index.d.ts",
             "require": "./build/cjs/core/utils/index.js",
-            "import": "./build/es/core/utils/index.js",
-            "types": "./build/core/utils/index.d.ts"
+            "import": "./build/es/core/utils/index.js"
         },
         "./components": {
+            "types": "./build/components/index.d.ts",
             "require": "./build/cjs/components/index.js",
-            "import": "./build/es/components/index.js",
-            "types": "./build/components/index.d.ts"
+            "import": "./build/es/components/index.js"
         },
         "./styles/core/*": "./src/core/styles/*",
         "./styles/link/*": "./src/components/link/styles/*",
