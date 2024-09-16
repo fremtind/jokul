@@ -827,26 +827,6 @@ importers:
     dependencies:
       '@fremtind/jkl-core': link:../core
 
-  packages/message-box:
-    specifiers:
-      '@fremtind/jkl-core': ^14.4.0
-    dependencies:
-      '@fremtind/jkl-core': link:../core
-
-  packages/message-box-react:
-    specifiers:
-      '@fremtind/jkl-core': ^14.4.0
-      '@fremtind/jkl-icons-react': ^9.1.6
-      '@fremtind/jkl-message-box': ^9.1.1
-      '@fremtind/jkl-react-hooks': ^12.1.8
-      classnames: ^2.3.2
-    dependencies:
-      '@fremtind/jkl-core': link:../core
-      '@fremtind/jkl-icons-react': link:../icons-react
-      '@fremtind/jkl-message-box': link:../message-box
-      '@fremtind/jkl-react-hooks': link:../react-hooks
-      classnames: 2.3.2
-
   packages/message-react:
     specifiers:
       '@fremtind/jkl-core': ^14.4.0

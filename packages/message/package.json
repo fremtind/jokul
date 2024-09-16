@@ -22,7 +22,7 @@
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "echo \"Error: run dev from message-box-react\" && exit 1"
+        "dev": "echo \"Error: run dev from message-react\" && exit 1"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^14.4.0"
