@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.3.8 (2024-09-16)
+
+### Bug Fixes
+
+- juster plassering av pil i LinkList.Link ([28be7a2](https://github.com/fremtind/jokul/commit/28be7a2bb018b42665533a81b8b7437346f52a6c))
+
 ## [10.3.6](https://github.com/fremtind/jokul/compare/@fremtind/jkl-list@10.3.5...@fremtind/jkl-list@10.3.6) (2024-09-09)
 
 ### Bug Fixes

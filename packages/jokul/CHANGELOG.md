@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2024-09-16)
+
+### Bug Fixes
+
+- rett opp paths i package.json og døp om stilmapper ([f2e1a70](https://github.com/fremtind/jokul/commit/f2e1a70c4dce7a4e346ca1fb6f91b2446c284e0a))
+
+### Features
+
+- legg til komponentene icon og link-list i jokul ([d1ca70f](https://github.com/fremtind/jokul/commit/d1ca70fe9019d259d5489b38a883a0ee0f38780b))
+
 # 0.2.0 (2024-09-16)
 
 ### Bug Fixes
