@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-cookie-consent-react",
-    "version": "10.2.11",
+    "version": "10.2.12",
     "publishConfig": {
         "access": "public"
     },
@@ -41,7 +41,7 @@
         "@fremtind/jkl-checkbox-react": "^11.1.34",
         "@fremtind/jkl-cookie-consent": "^11.0.19",
         "@fremtind/jkl-core": "^14.4.0",
-        "@fremtind/jkl-list-react": "^10.2.8",
+        "@fremtind/jkl-list-react": "^10.2.9",
         "@fremtind/jkl-modal-react": "^2.1.40",
         "@fremtind/jkl-react-hooks": "^12.1.8"
     },
