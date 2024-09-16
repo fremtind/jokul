@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.0.0 (2024-09-16)
+
+### Bug Fixes
+
+- endre fra type til variant og oppdater tester ([472d693](https://github.com/fremtind/jokul/commit/472d693603ebd19c145fea65c0261096ee205d47))
+
+### Features
+
+- oppdater card til å matche nyeste versjon i Figma ([0464c45](https://github.com/fremtind/jokul/commit/0464c45ff3eecfb4a352dde93f3085f9630a4798)), closes [#4078](https://github.com/fremtind/jokul/issues/4078)
+
+### BREAKING CHANGES
+
+- Prop-ene "background" og "type" er fjernet. Du bestemmer nå
+utseendet til kortet med prop-en "variant", som tar inn verdiene
+"outlined", "high" og "low".
+- Fargene "inverted" og "subdued", samt spacingene "none"
+og "xs", er fjernet
+
 ## [12.0.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-card-react@12.0.14...@fremtind/jkl-card-react@12.0.15) (2024-09-04)
 
 ### Bug Fixes

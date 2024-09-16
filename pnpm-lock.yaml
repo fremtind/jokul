@@ -315,7 +315,7 @@ importers:
   packages/card-react:
     specifiers:
       '@fremtind/jkl-button-react': ^15.1.14
-      '@fremtind/jkl-card': ^12.0.8
+      '@fremtind/jkl-card': ^13.0.0
       '@fremtind/jkl-constants-util': ^3.0.79
       '@fremtind/jkl-core': ^14.4.0
       '@fremtind/jkl-image-react': ^6.0.20
@@ -1191,7 +1191,7 @@ importers:
       '@fremtind/jkl-accordion-react': ^12.1.11
       '@fremtind/jkl-breadcrumb-react': ^5.0.19
       '@fremtind/jkl-button-react': ^15.1.14
-      '@fremtind/jkl-card-react': ^12.0.19
+      '@fremtind/jkl-card-react': ^13.0.0
       '@fremtind/jkl-checkbox-react': ^11.1.34
       '@fremtind/jkl-combobox-react': ^2.3.46
       '@fremtind/jkl-constants-util': ^3.0.79
@@ -7195,7 +7195,7 @@ packages:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.7.23
-      vite: 5.4.2_qly2xqze27fzfdjycmqvs326c4
+      vite: 5.4.2
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
