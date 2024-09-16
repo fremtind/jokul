@@ -1,4 +1,4 @@
-@use "../../core/jkl";
+@use "../../../core/jkl";
 
 @include jkl.comfortable-density-variables {
     --jkl-link-list-padding: var(--jkl-spacing-8);
