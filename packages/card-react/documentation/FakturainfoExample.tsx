@@ -2,14 +2,14 @@ import React from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { formatValuta } from "../../formatters-util/src";
 import { ErrorTag } from "../../tag-react/src";
-import { Card, CARD_PADDINGS, CONTAINER_COLORS, type CardPadding, type ContainerColor } from "../src/Card";
+import { Card, CARD_PADDINGS, CARD_VARIANTS, type CardPadding, type CardVariant } from "../src/Card";
 
 export const FakturainfoExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const padding = choiceValues?.["Padding"] as CardPadding | undefined;
-    const background = choiceValues?.["Background"] as ContainerColor | undefined;
+    const type = choiceValues?.["Type"] as CardVariant | undefined;
 
     return (
-        <Card asChild clickable={!!boolValues?.["Clickable"]} padding={padding} background={background}>
+        <Card asChild clickable={!!boolValues?.["Clickable"]} padding={padding} variant={type}>
             <a href="#test" className="flex gap-x-40">
                 <div className="flex flex-column gap-4">
                     <p className="jkl-heading-2">
@@ -33,7 +33,7 @@ export const fakturainfoExampleCode = ({ boolValues, choiceValues }: ExampleComp
     asChild
     clickable={${!!boolValues?.["Clickable"]}}
     padding="${choiceValues?.["Padding"]}"
-    background="${choiceValues?.["Background"]}"
+    type="${choiceValues?.["Type"]}"
 >
     {/* Siden vi bruker asChild er det denne lenken som blir rendret.
     Den får også satt alle egenskapene fra Card-komponenten på seg */}
@@ -58,12 +58,12 @@ export const fakturainfoExampleProps: ExampleKnobsProps = {
         {
             name: "Padding",
             values: [...CARD_PADDINGS],
-            defaultValue: 3,
+            defaultValue: 1,
         },
         {
-            name: "Background",
-            values: [...CONTAINER_COLORS],
-            defaultValue: 1,
+            name: "Type",
+            values: [...CARD_VARIANTS],
+            defaultValue: 0,
         },
     ],
 };
