@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2024-09-17)
+
+### Features
+
+- eksporter alt i jokul-pakka fra rot ([ea9d6e6](https://github.com/fremtind/jokul/commit/ea9d6e677d3089702f84ca33405278016abe07c9))
+
 # 0.3.0 (2024-09-16)
 
 ### Bug Fixes
