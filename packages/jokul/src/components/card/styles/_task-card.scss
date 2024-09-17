@@ -1,0 +1,55 @@
+@use "../../../core/jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-task-card-background--highlighted: #{jkl.$color-hvit};
+    --jkl-task-card-background--normal: #{jkl.$color-snohvit};
+    --jkl-task-card-background--subdued: #{jkl.$color-dis};
+    --jkl-task-card-shadow: #{jkl.$shadow-task-card};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-task-card-background--highlighted: #{jkl.$color-skifer};
+    --jkl-task-card-background--normal: #{jkl.$color-skifer};
+    --jkl-task-card-background--subdued: #{jkl.$color-svart};
+    --jkl-task-card-shadow: none;
+}
+
+.jkl-task-card {
+    box-sizing: border-box;
+    border-radius: jkl.rem(4px);
+
+    @include jkl.motion;
+    transition-property: background-color;
+
+    &__content-wrapper {
+        display: block;
+    }
+
+    &--hvit,
+    &--highlighted {
+        background-color: var(--jkl-task-card-background--highlighted);
+    }
+
+    &--snohvit,
+    &--normal {
+        background-color: var(--jkl-task-card-background--normal);
+    }
+
+    &--sand,
+    &--subdued {
+        background-color: var(--jkl-task-card-background--subdued);
+    }
+
+    &--dis,
+    &--very-subdued {
+        background-color: var(--jkl-task-card-background--very-subdued);
+    }
+
+    &--with-shadow {
+        box-shadow: var(--jkl-task-card-shadow);
+    }
+
+    @include jkl.forced-colors-mode {
+        border: jkl.rem(2px) solid CanvasText;
+    }
+}

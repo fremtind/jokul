@@ -47,10 +47,14 @@
             "import": "./build/es/components/index.js"
         },
         "./styles/core/*": "./src/core/styles/*",
+        "./styles/card/*": "./src/components/card/styles/*",
         "./styles/icon/*": "./src/components/icon/styles/*",
+        "./styles/icon-button/*": "./src/components/icon-button/styles/*",
+        "./styles/image/*": "./src/components/image/styles/*",
         "./styles/link/*": "./src/components/link/styles/*",
         "./styles/link-list/*": "./src/components/link-list/styles/*",
-        "./styles/loader/*": "./src/components/loader/styles/*"
+        "./styles/loader/*": "./src/components/loader/styles/*",
+        "./styles/tag/*": "./src/components/tag/styles/*"
     },
     "scripts": {
         "generate:tokens": "node tokens.build.mjs",
