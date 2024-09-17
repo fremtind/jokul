@@ -1,11 +1,11 @@
 {
-    "name": "@fremtind/jkl-scaffold",
+    "name": "@fremtind/jkl-popover",
     "version": "1.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul style for scaffold",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/scaffold",
+    "description": "Jøkul style for popover",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/popover",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -16,11 +16,11 @@
     ],
     "license": "MIT",
     "scripts": {
-        "clean": "git clean -xfd",
+        "clean": "rimraf .turbo **/*.css",
         "build": "gulp build",
         "build:watch": "gulp build:watch",
         "test": "echo \"Error: run tests from root\" && exit 1",
-        "dev": "echo \"Error: run dev from scaffold-react\" && exit 1"
+        "dev": "echo \"Error: run dev from popover-react\" && exit 1"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^14.0.0"

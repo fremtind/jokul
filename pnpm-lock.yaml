@@ -867,6 +867,26 @@ importers:
       prop-types: 15.8.1
       react-a11y-dialog: 6.2.0_prop-types@15.8.1
 
+  packages/popover:
+    specifiers:
+      '@fremtind/jkl-core': ^14.0.0
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/popover-react:
+    specifiers:
+      '@floating-ui/react': ^0.24.2
+      '@fremtind/jkl-core': ^14.0.0
+      '@fremtind/jkl-popover': ^1.0.0-alpha.0
+      '@types/lodash': ^4.17.7
+      classnames: ^2.5.1
+    dependencies:
+      '@floating-ui/react': 0.24.2
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-popover': link:../popover
+      '@types/lodash': 4.17.7
+      classnames: 2.5.1
+
   packages/progress-bar:
     specifiers:
       '@fremtind/jkl-core': ^14.4.0
@@ -1197,6 +1217,7 @@ importers:
       '@fremtind/jkl-message': ^1.1.1
       '@fremtind/jkl-message-react': ^1.1.1
       '@fremtind/jkl-modal-react': ^2.1.40
+      '@fremtind/jkl-popover-react': 1.0.0-alpha.0
       '@fremtind/jkl-progress-bar-react': ^6.1.0
       '@fremtind/jkl-radio-button-react': ^11.1.76
       '@fremtind/jkl-react-hooks': ^12.1.8
@@ -1275,6 +1296,7 @@ importers:
       '@fremtind/jkl-message': link:../packages/message
       '@fremtind/jkl-message-react': link:../packages/message-react
       '@fremtind/jkl-modal-react': link:../packages/modal-react
+      '@fremtind/jkl-popover-react': link:../packages/popover-react
       '@fremtind/jkl-progress-bar-react': link:../packages/progress-bar-react
       '@fremtind/jkl-radio-button-react': link:../packages/radio-button-react
       '@fremtind/jkl-react-hooks': link:../packages/react-hooks
@@ -6696,6 +6718,10 @@ packages:
 
   /@types/lodash/4.14.195:
     resolution: {integrity: sha512-Hwx9EUgdwf2GLarOjQp5ZH8ZmblzcbTBC2wtQWNKARBSxM9ezRIAUpeDTgoQRAFB0+8CNWXVA9+MaSOzOF3nPg==}
+    dev: false
+
+  /@types/lodash/4.17.7:
+    resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
     dev: false
 
   /@types/mdast/3.0.11:

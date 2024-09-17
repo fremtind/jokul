@@ -1,11 +1,11 @@
 {
-    "name": "@fremtind/jkl-scaffold-react",
+    "name": "@fremtind/jkl-popover-react",
     "version": "1.0.0-alpha.0",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react scaffold",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/scaffold-react",
+    "description": "Jøkul react popover",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/popover-react",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -26,18 +26,21 @@
         "*.scss"
     ],
     "scripts": {
-        "clean": "git clean -xfd",
+        "clean": "rimraf node_modules/ build/ node_modules/ ",
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "node ./esbuild.prod.mjs",
         "build": "run-s build:*",
-        "test": "jest --testMatch '**/scaffold-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
+        "test": "jest --testMatch '**/popover-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
         "dev:server": "nodemon ./dist/server.js",
         "dev": "run-p dev:*"
     },
     "dependencies": {
+        "@floating-ui/react": "^0.24.2",
         "@fremtind/jkl-core": "^14.0.0",
-        "@fremtind/jkl-scaffold": "^1.0.0-alpha.0"
+        "@fremtind/jkl-popover": "^1.0.0-alpha.0",
+        "@types/lodash": "^4.17.7",
+        "classnames": "^2.5.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
