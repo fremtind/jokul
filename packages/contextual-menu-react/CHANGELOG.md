@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.5.0 (2024-09-17)
+
+### Features
+
+- opprett getThemeAndDensity hjelpefunksjon ([d565746](https://github.com/fremtind/jokul/commit/d56574641ce44ba91236223fce6dea90cf1ad96c))
+
 ## 3.4.16 (2024-03-14)
 
 ### Bug Fixes

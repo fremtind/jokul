@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.2.0 (2024-09-17)
+
+### Features
+
+- initial setup popover component with related files ([436196c](https://github.com/fremtind/jokul/commit/436196c3898bec3221a63352bf4cdd07e64ce255))
+
 # 12.1.0 (2024-08-14)
 
 ### Features
