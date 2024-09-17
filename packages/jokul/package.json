@@ -24,6 +24,11 @@
         "./src/components/loader/styles"
     ],
     "exports": {
+        ".": {
+            "types": "./build/index.d.ts",
+            "require": "./build/cjs/index.js",
+            "import": "./build/es/index.js"
+        },
         "./core": {
             "types": "./build/core/index.d.ts",
             "require": "./build/cjs/core/index.js",
