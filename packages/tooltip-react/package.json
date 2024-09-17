@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tooltip-react",
-    "version": "4.2.32",
+    "version": "4.2.33",
     "publishConfig": {
         "access": "public"
     },
@@ -39,8 +39,8 @@
     "dependencies": {
         "@floating-ui/react": "^0.24.2",
         "@fremtind/jkl-core": "^14.4.0",
-        "@fremtind/jkl-icons-react": "^9.1.6",
-        "@fremtind/jkl-react-hooks": "^12.1.8",
+        "@fremtind/jkl-icons-react": "^9.1.7",
+        "@fremtind/jkl-react-hooks": "^12.2.0",
         "@fremtind/jkl-tooltip": "^4.2.0",
         "classnames": "^2.3.2",
         "framer-motion": "^7.10.3"

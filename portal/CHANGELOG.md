@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [21.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.1.4...@fremtind/portal@21.2.0) (2024-09-17)
+
+### Features
+
+- opprett getThemeAndDensity hjelpefunksjon ([d565746](https://github.com/fremtind/jokul/commit/d56574641ce44ba91236223fce6dea90cf1ad96c))
+- update popover component styles and dependencies ([451debc](https://github.com/fremtind/jokul/commit/451debc79c3cd3fbe8f77b0c85a3fc753654aa5d))
+
 # 21.1.0 (2024-09-12)
 
 ### Features
