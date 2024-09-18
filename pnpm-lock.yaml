@@ -1204,7 +1204,7 @@ importers:
       '@fremtind/jkl-description-list-react': ^8.0.19
       '@fremtind/jkl-expand-button-react': ^7.0.17
       '@fremtind/jkl-feedback-react': ^18.1.3
-      '@fremtind/jkl-file-input-react': ^2.3.27
+      '@fremtind/jkl-file-input-react': ^2.3.28
       '@fremtind/jkl-footer-react': ^6.1.45
       '@fremtind/jkl-formatters-util': ^5.1.37
       '@fremtind/jkl-icon-button-react': ^5.0.9

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.28 (2024-09-18)
+
+### Bug Fixes
+
+- la til støtte for mellomrom mellom filtypene i accept strengen ([e0c3001](https://github.com/fremtind/jokul/commit/e0c30015da2d53e19eb629b05f96106e09590192))
+
 # [2.3.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.2.18...@fremtind/jkl-file-input-react@2.3.0) (2024-07-02)
 
 ### Features
