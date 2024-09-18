@@ -5,7 +5,8 @@ export function validateFile(file: File, accept = "", maxSizeBytes?: number): Fi
     const acceptStrings = accept
         .split(",")
         .map((s) => s.toLowerCase())
-        .map((s) => s.replaceAll("*", ""));
+        .map((s) => s.replaceAll("*", ""))
+        .map((s) => s.trim());
 
     let isValidFormat = acceptStrings.length === 0;
 
