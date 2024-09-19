@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2024-09-19)
+
+### Bug Fixes
+
+- fjern all bruk av classnames ([b77491d](https://github.com/fremtind/jokul/commit/b77491d3a020a27829076fd89fd6079b2b9d2d8b))
+- legg til eksporter av nye komponenter ([335e894](https://github.com/fremtind/jokul/commit/335e894074b4675f69d27a5f7c721cb137712e7c))
+
+### Features
+
+- kopier ny Card-komponent inn i jokul ([a3f09cc](https://github.com/fremtind/jokul/commit/a3f09cc07d7625ac940f189829d077b48c51da4e))
+- legg inn alle Card-varianter og -avhengigheter i jokul ([8a87684](https://github.com/fremtind/jokul/commit/8a87684a05e323990b445a88572eb7f19fa84dc6))
+
 # 0.4.0 (2024-09-17)
 
 ### Features
