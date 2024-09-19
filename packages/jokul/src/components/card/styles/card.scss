@@ -1,0 +1,99 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+@use "info-card";
+@use "nav-card";
+@use "task-card";
+
+.jkl-card {
+    --padding-s: var(--jkl-spacing-4);
+    --padding-m: var(--jkl-spacing-12);
+    --padding-l: var(--jkl-spacing-16);
+    --padding-xl: var(--jkl-spacing-24);
+    --border-radius: #{jkl.rem(4px)};
+    --border-color: transparent;
+    --border-width: #{jkl.rem(1px)};
+    --background-color: transparent;
+
+    position: relative;
+    overflow: hidden;
+    display: block;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    padding: var(--padding, var(--padding-s));
+    text-decoration: none;
+    color: var(--jkl-color-text-default);
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--border-radius);
+        border: var(--border-width) solid var(--border-color);
+        @include jkl.motion("standard", "snappy", border-color, border-size);
+    }
+
+    @include jkl.from-medium-device {
+        --padding-s: var(--jkl-spacing-8);
+        --padding-m: var(--jkl-spacing-16);
+        --padding-l: var(--jkl-spacing-24);
+        --padding-xl: var(--jkl-spacing-32);
+    }
+
+    &[data-padding="s"] {
+        --padding: var(--padding-s);
+    }
+
+    &[data-padding="m"] {
+        --padding: var(--padding-m);
+    }
+
+    &[data-padding="l"] {
+        --padding: var(--padding-l);
+    }
+
+    &[data-padding="xl"] {
+        --padding: var(--padding-xl);
+    }
+
+    &--high {
+        --background-color: var(--jkl-color-background-container-high);
+    }
+
+    &--low {
+        --background-color: var(--jkl-color-background-container-low);
+    }
+
+    &--outlined {
+        --border-color: var(--jkl-color-border-separator);
+    }
+
+    &[data-clickable="true"] {
+        cursor: pointer;
+
+        &:hover {
+            --border-color: var(--jkl-color-border-separator-hover);
+            --border-width: #{jkl.rem(2px)};
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline;
+        }
+    }
+}
+
+.jkl-card-image {
+    --margin: calc(var(--padding, 0) * -1); // Sett negativ margin tilsvarende padding (fra Card)
+
+    width: calc(100% + 2 * var(--padding, 0));
+    aspect-ratio: var(--image-aspect-ratio, 3/2);
+    margin-inline: var(--margin, 0);
+
+    &--top {
+        margin-top: var(--margin, 0);
+    }
+
+    &--bottom {
+        margin-bottom: var(--margin, 0);
+    }
+}

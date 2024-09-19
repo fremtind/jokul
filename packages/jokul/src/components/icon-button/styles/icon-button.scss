@@ -1,0 +1,59 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-icon-button-border-color: #{jkl.$color-granitt};
+    --jkl-icon-button-focus-color: #{jkl.$color-stein};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-icon-button-border-color: #{jkl.$color-snohvit};
+    --jkl-icon-button-focus-color: #{jkl.$color-svaberg};
+}
+
+@include jkl.comfortable-density-variables {
+    --jkl-icon-button-icon-width: #{jkl.rem(20px)};
+}
+
+@include jkl.compact-density-variables {
+    --jkl-icon-button-icon-width: #{jkl.rem(14px)};
+}
+
+.jkl-icon-button {
+    background-color: transparent;
+    cursor: pointer;
+    color: inherit;
+    position: relative;
+    transition-property: box-shadow;
+
+    @include jkl.motion(focus, snappy);
+    @include jkl.reset-outline;
+
+    .jkl-icon {
+        display: flex;
+        align-items: center;
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+
+        &--animated {
+            display: revert;
+        }
+    }
+
+    &:hover {
+        color: var(--jkl-icon-button-focus-color);
+    }
+
+    &:focus-visible {
+        color: var(--jkl-icon-button-focus-color);
+
+        @include jkl.focus-outline;
+        @include jkl.forced-colors-mode {
+            border: revert;
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        border: revert;
+        background-color: revert;
+    }
+}

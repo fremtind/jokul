@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { type FC } from "react";
 import { type IconVariant } from "../../types";
 import { PlusIcon } from "../PlusIcon";
@@ -19,12 +19,18 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
 }) => (
     <div
         {...rest}
-        className={cn("jkl-icon", "jkl-icon--animated", `jkl-icon--${variant}`, { "jkl-icon--bold": bold }, className)}
+        className={clsx(
+            "jkl-icon",
+            "jkl-icon--animated",
+            `jkl-icon--${variant}`,
+            { "jkl-icon--bold": bold },
+            className,
+        )}
     >
         <PlusIcon
             variant={variant}
             bold={bold}
-            className={cn("jkl-icons-animated__plus", `jkl-icons-animated__plus--${isPlus ? "plus" : "close"}`)}
+            className={clsx("jkl-icons-animated__plus", `jkl-icons-animated__plus--${isPlus ? "plus" : "close"}`)}
         />
     </div>
 );
