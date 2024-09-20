@@ -1,11 +1,11 @@
 import type { ChangeEvent, KeyboardEventHandler } from "react";
 import type {
     FieldValues,
-    Path,
     PathValue,
     RegisterOptions,
-    UseFormRegisterReturn,
+    UseFormRegister,
     UseFormReturn,
+    FieldPath,
 } from "react-hook-form";
 import { formatDateString } from "../date/formatDate";
 import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer";
@@ -28,9 +28,11 @@ export type Formatter = keyof typeof formatters;
 
 export type RegisterWithMaskOptions<T extends FieldValues> = Omit<RegisterOptions<T>, "setValueAs">;
 
-const registerWithMask =
-    (formatter: Formatter) =>
-    <T extends FieldValues>(form: UseFormReturn<T>, name: Path<T>, options?: RegisterWithMaskOptions<T>) => {
+const createRegisterFunctionWithMask = <T extends FieldValues>(
+    formatter: Formatter,
+    form: UseFormReturn<T>,
+): UseFormRegister<T> => {
+    return (name, options) => {
         let onKeyDownCaretPosition = 0;
         let onKeyDownKeyPressed = "";
 
@@ -47,7 +49,12 @@ const registerWithMask =
                 onChangeCaretPosition = event.target.selectionStart;
             }
 
-            form.setValue(name, formatters[formatter](event.target.value, { partial: true }) as PathValue<T, Path<T>>);
+            form.setValue(
+                name,
+                formatters[formatter](event.target.value, {
+                    partial: true,
+                }) as PathValue<T, FieldPath<T>>,
+            );
 
             let newPosition: number | null = null;
 
@@ -72,14 +79,14 @@ const registerWithMask =
             }
         };
 
-        const registerOptions: RegisterOptions<T, Path<T>> = {
+        const registerOptions: RegisterOptions<T, typeof name> = {
             setValueAs,
             onChange,
         };
         if (options) {
             Object.assign(registerOptions, options);
         }
-        const register = form.register(name, registerOptions);
+        const register = form.register<typeof name>(name, registerOptions);
 
         // save the caret position before the change occured
         const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
@@ -100,37 +107,17 @@ const registerWithMask =
 
         return Object.assign(register, extra);
     };
-
-/** @deprecated Bruk `registerWithMasks` i stedet */
-export const registerWithFodselsnummerMask = registerWithMask("fodselsnummer");
-/** @deprecated Bruk `registerWithMasks` i stedet */
-export const registerWithKortnummerMask = registerWithMask("kortnummer");
-/** @deprecated Bruk `registerWithMasks` i stedet */
-export const registerWithKontonummerMask = registerWithMask("kontonummer");
-/** @deprecated Bruk `registerWithMasks` i stedet */
-export const registerWithTelefonnummerMask = registerWithMask("telefonnummer");
+};
 
 /**
  * Hjelpefunksjon for React Hook Form som lar deg bruke formateringsfunksjonene i denne pakken som inputmasker.
  */
 export const registerWithMasks = <T extends FieldValues>(form: UseFormReturn<T>) => ({
-    registerWithFodselsnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("fodselsnummer")<T>(form, name, options),
-    registerWithKortnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("kortnummer")<T>(form, name, options),
-    registerWithKontonummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("kontonummer")<T>(form, name, options),
-    registerWithTelefonnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("telefonnummer")<T>(form, name, options),
-    registerWithOrganisasjonsnummerMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("organisasjonsnummer")<T>(form, name, options),
-    registerWithDateMask: (name: Path<T>, options?: RegisterWithMaskOptions<T>): UseFormRegisterReturn =>
-        registerWithMask("date")<T>(form, name, options),
-    registerWithNumber: (
-        name: Path<T>,
-        options?: RegisterWithMaskOptions<T>,
-    ): UseFormRegisterReturn & { align: "right" } =>
-        registerWithMask("number")<T>(form, name, options) as unknown as UseFormRegisterReturn & {
-            align: "right";
-        },
+    registerWithFodselsnummerMask: createRegisterFunctionWithMask("fodselsnummer", form),
+    registerWithKortnummerMask: createRegisterFunctionWithMask("kortnummer", form),
+    registerWithKontonummerMask: createRegisterFunctionWithMask("kontonummer", form),
+    registerWithTelefonnummerMask: createRegisterFunctionWithMask("telefonnummer", form),
+    registerWithOrganisasjonsnummerMask: createRegisterFunctionWithMask("organisasjonsnummer", form),
+    registerWithDateMask: createRegisterFunctionWithMask("date", form),
+    registerWithNumber: createRegisterFunctionWithMask("number", form),
 });
