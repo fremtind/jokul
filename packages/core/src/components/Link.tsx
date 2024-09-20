@@ -1,17 +1,34 @@
 import cn from "classnames";
-import React, { AnchorHTMLAttributes, FC } from "react";
+import React from "react";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../polymorphism";
 
-export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    external?: boolean;
-}
+export type LinkProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
+    ElementType,
+    {
+        external?: boolean;
+    }
+>;
 
-export const Link: FC<LinkProps> = ({ external = false, className = "", children, ...rest }) => (
-    <a
-        className={cn("jkl-link", className, {
-            "jkl-link--external": external,
-        })}
-        {...rest}
-    >
-        {children}
-    </a>
-);
+export type LinkComponent = <ElementType extends React.ElementType = "a">(
+    props: LinkProps<ElementType>,
+) => React.ReactElement | null;
+
+export const Link = React.forwardRef(function Link<ElementType extends React.ElementType = "a">(
+    props: LinkProps<ElementType>,
+    ref?: PolymorphicRef<ElementType>,
+) {
+    const { external = false, className = "", children, as = "a", ...rest } = props;
+    const Component = as;
+
+    return (
+        <Component
+            ref={ref}
+            className={cn("jkl-link", className, {
+                "jkl-link--external": external,
+            })}
+            {...rest}
+        >
+            {children}
+        </Component>
+    );
+});

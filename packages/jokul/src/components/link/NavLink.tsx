@@ -1,23 +1,40 @@
 import { clsx } from "clsx";
-import React, { AnchorHTMLAttributes, FC } from "react";
+import React from "react";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../../core";
 
-export interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    active?: boolean;
-    back?: boolean;
-}
+export type NavLinkProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
+    ElementType,
+    {
+        active?: boolean;
+        back?: boolean;
+    }
+>;
 
-export const NavLink: FC<NavLinkProps> = ({ active = false, back = false, className, children, ...rest }) => (
-    <a
-        className={clsx(
-            "jkl-nav-link",
-            {
-                "jkl-nav-link--active": active,
-                "jkl-nav-link--back": back,
-            },
-            className,
-        )}
-        {...rest}
-    >
-        {children}
-    </a>
-);
+export type LinkComponent = <ElementType extends React.ElementType = "a">(
+    props: NavLinkProps<ElementType>,
+) => React.ReactElement | null;
+
+export const NavLink = React.forwardRef(function NavLink<ElementType extends React.ElementType = "a">(
+    props: NavLinkProps<ElementType>,
+    ref?: PolymorphicRef<ElementType>,
+) {
+    const { active = false, back = false, className, children, as = "a", ...rest } = props;
+    const Component = as;
+
+    return (
+        <Component
+            ref={ref}
+            className={clsx(
+                "jkl-nav-link",
+                {
+                    "jkl-nav-link--active": active,
+                    "jkl-nav-link--back": back,
+                },
+                className,
+            )}
+            {...rest}
+        >
+            {children}
+        </Component>
+    );
+});

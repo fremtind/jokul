@@ -23,6 +23,16 @@ describe("NavLink", () => {
         expect(getByText("Some link")).toHaveClass("jkl-nav-link--active");
     });
 
+    it("should render as the supplied element", () => {
+        const { getByText } = render(
+            <NavLink as="div" active>
+                Some link
+            </NavLink>,
+        );
+
+        expect(getByText("Some link").nodeName).toEqual("DIV");
+    });
+
     it("should get the supplied className", () => {
         const { getByText } = render(<NavLink className="my-class">Some link</NavLink>);
 
