@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.1.55 (2024-09-20)
+
+### Bug Fixes
+
+- sørg for at Select eksporterer riktige typedefinisjoner ([b4ec214](https://github.com/fremtind/jokul/commit/b4ec2148885e0452e02003bf89fa9b62829aec23))
+
 ## 14.1.32 (2024-06-13)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-combobox-react",
-    "version": "2.3.48",
+    "version": "2.3.49",
     "publishConfig": {
         "access": "public"
     },
@@ -42,7 +42,7 @@
         "@fremtind/jkl-icons-react": "^9.1.7",
         "@fremtind/jkl-input-group-react": "^3.0.42",
         "@fremtind/jkl-react-hooks": "^12.2.0",
-        "@fremtind/jkl-select-react": "^14.1.54",
+        "@fremtind/jkl-select-react": "^14.1.55",
         "@fremtind/jkl-tag-react": "^5.2.24",
         "@fremtind/jkl-tooltip-react": "^4.2.33",
         "classnames": "^2.3.2"
