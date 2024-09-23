@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { SlotComponent } from "../";
-import { type AsChildProps, type PolymorphicPropsWithRef, type PolymorphicRef } from "../../core";
+import { SlotComponent, type AsChildProps, type PolymorphicPropsWithRef, type PolymorphicRef } from "../../utilities";
 
 export const CARD_PADDINGS = ["s", "m", "l", "xl"] as const;
 export type CardPadding = (typeof CARD_PADDINGS)[number];
