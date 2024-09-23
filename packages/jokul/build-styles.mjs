@@ -37,5 +37,6 @@ import * as sass from "sass-embedded";
         );
     } catch (error) {
         console.error(error);
+        throw error;
     }
 })();
