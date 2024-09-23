@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@5.1.38...@fremtind/jkl-formatters-util@6.0.0) (2024-09-23)
+
+### Bug Fixes
+
+- bruk bedre typer for maskeringsfunksjoner for skjema ([6e58781](https://github.com/fremtind/jokul/commit/6e587813ab5a12d151d483716a8ca782586e8906)), closes [#3763](https://github.com/fremtind/jokul/issues/3763)
+
+### BREAKING CHANGES
+
+- Fjerner deprecated funksjoner for å registrere skjemafelt med maske
+
 # [5.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-formatters-util@5.0.45...@fremtind/jkl-formatters-util@5.1.0) (2024-04-11)
 
 ### Features
