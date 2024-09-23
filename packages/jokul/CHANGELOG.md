@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.6.0 (2024-09-23)
+
+### Features
+
+- gjør Link og NavLink til polymorfe komponenter ([3d5f879](https://github.com/fremtind/jokul/commit/3d5f8792c342e34c40ff1c746e21267f60844f28))
+
 # 0.5.0 (2024-09-19)
 
 ### Bug Fixes

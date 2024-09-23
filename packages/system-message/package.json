@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-system-message",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "publishConfig": {
         "access": "public"
     },
@@ -26,7 +26,7 @@
         "dev": "echo \"Error: run dev from system-message-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.4.0"
+        "@fremtind/jkl-core": "^14.5.0"
     },
     "repository": {
         "type": "git",

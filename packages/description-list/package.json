@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-description-list",
-    "version": "8.0.18",
+    "version": "8.0.19",
     "description": "The description list component is a container whose children is a key-value pair consisting of terms and details.",
     "keywords": [
         "description",
@@ -25,7 +25,7 @@
         "url": "git+https://github.com/fremtind/jokul.git"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.4.0"
+        "@fremtind/jkl-core": "^14.5.0"
     },
     "scripts": {
         "clean": "git clean -xfd",
