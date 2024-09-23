@@ -1,0 +1,13 @@
+export const NON_BREAKING_SPACE = "\u00A0";
+export const nbsp = NON_BREAKING_SPACE;
+export const NON_BREAKING_HYPHEN = "\u2011";
+export const nbhy = NON_BREAKING_HYPHEN;
+export const SOFT_HYPHEN = "\u00AD";
+export const shy = SOFT_HYPHEN;
+export const COPYRIGHT = "\u00A9";
+export const NORTH_EAST_ARROW = "\u2197";
+export const LEFTWARDS_ARROW = "\u2190";
+export const UPWARDS_ARROW = "\u2191";
+export const RIGHTWARDS_ARROW = "\u2192";
+export const DOWNWARDS_ARROW = "\u2193";
+export const ZERO_WIDTH_SPACE = "\u200B";

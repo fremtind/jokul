@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
+import type { tokens } from "./";
 
 // Brukes til å extende props for komponenter som skal støtte data-testautoid ifbm. Test Complete
 export interface DataTestAutoId {
@@ -7,11 +8,10 @@ export interface DataTestAutoId {
 
 export type ColorScheme = "light" | "dark";
 
-export type ValuePair = {
-    value: string;
-    label: string;
-    description?: string;
-};
+export type Density = "comfortable" | "compact";
+
+export type Easing = keyof typeof tokens.motion.easing;
+export type Timing = keyof typeof tokens.motion.timing;
 
 /**
  * Etter React 18 er ikke children lenger en _implicit type_. Tanken er at
