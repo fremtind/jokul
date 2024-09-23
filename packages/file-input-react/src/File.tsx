@@ -40,7 +40,7 @@ export const File: FC<FileProps> = (props) => {
         if (!hasErrorOrWarning && !hasSuccess) {
             return (
                 <SupportLabel
-                    className="jkl-file__support-label"
+                    className="jkl-file__support-label jkl-body"
                     id={supportId}
                     label={supportLabel}
                     labelType={supportLabelType}
@@ -67,8 +67,8 @@ export const File: FC<FileProps> = (props) => {
                     {children}
                 </Thumbnail>
                 <div>
-                    <p className="jkl-file__name">{fileName}</p>
-                    <p className="jkl-file__description">
+                    <p className="jkl-file__name jkl-bold">{fileName}</p>
+                    <p className="jkl-file__description jkl-body">
                         <span>{formatBytes(fileSize)}</span>
                         {renderFeedbackElement()}
                     </p>
