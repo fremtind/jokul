@@ -1,4 +1,4 @@
-import { unicode } from "@fremtind/jkl-constants-util";
+import { unicode } from "../../constants";
 import { formatKontonummer } from "./formatKontonummer";
 
 const { nbsp } = unicode;
