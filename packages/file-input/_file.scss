@@ -1,22 +1,20 @@
 @use "@fremtind/jkl-core/jkl";
 @use "@fremtind/jkl-core/jkl/colors";
 
-@include jkl.light-mode-variables {
-    --jkl-file-color: var(--jkl-color);
-    --jkl-file-thumbnail-background-color: #{jkl.$color-sand};
-    --jkl-file-border-color: #{jkl.$color-dis};
-    --jkl-file-border-color-active: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-file-color: var(--jkl-color);
-    --jkl-file-thumbnail-background-color: #{jkl.$color-stein};
-    --jkl-file-border-color: #{jkl.$color-dis};
-    --jkl-file-border-color-active: #{jkl.$color-snohvit};
-}
-
 .jkl-file {
     @include jkl.motion("standard", "snappy");
+
+    transition-property: background-color, border-color, color;
+
+    color: var(--jkl-color-border-action);
+    margin: 0;
+    min-width: jkl.rem(240px);
+
+    display: flex;
+    flex-flow: nowrap row;
+
+    @include jkl.text-style("small");
+    @include jkl.reset-outline;
 
     @include jkl.comfortable-density {
         --jkl-file-padding: #{jkl.$spacing-24} #{jkl.$spacing-24};
@@ -34,19 +32,6 @@
         --jkl-file-line-height: #{jkl.rem(24px)};
     }
 
-    transition-property: background-color, border-color, color;
-
-    color: var(--jkl-file-color);
-    border: 1px var(--jkl-file-border-color) solid;
-    margin: 0;
-    min-width: jkl.rem(240px);
-
-    display: flex;
-    flex-flow: nowrap row;
-
-    @include jkl.text-style("small");
-    @include jkl.reset-outline;
-
     &__content {
         display: flex;
         flex-basis: 100%;
@@ -57,26 +42,25 @@
         box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
 
         &--error {
-            background-color: var(--jkl-error);
+            background-color: var(--jkl-color-background-alert-error);
         }
 
         &--warning {
-            background-color: var(--jkl-warning);
+            background-color: var(--jkl-color-background-alert-warning);
         }
 
         &--error,
         &--warning {
-            --jkl-color-text-default: jkl.$color-granitt;
+            --jkl-color-text-default: var(--jkl-color-text-on-alert);
 
-            color: jkl.$color-granitt;
-            border-color: var(--jkl-file-border-color-active);
+            color: var(--jkl-color-text-on-alert);
         }
     }
 
     &__content:not(div) {
         cursor: pointer;
         text-decoration: none;
-        color: var(--jkl-file-color);
+        color: var(--jkl-color-border-action);
 
         &:hover ~ .jkl-file__description {
             @include jkl.no-grow-bold;
@@ -84,7 +68,7 @@
 
         @include jkl.keyboard-navigation {
             &:focus {
-                outline: jkl.rem(2px) solid var(--jkl-file-border-color-active);
+                outline: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
             }
         }
 
@@ -124,6 +108,7 @@
         object-fit: contain;
         opacity: 1;
         border-radius: jkl.rem(4px);
+        color: var(--jkl-color-text-subdued);
 
         @include jkl.motion;
         transition-property: opacity;
@@ -138,7 +123,7 @@
     }
 
     &__thumbnail:not(img) {
-        background: var(--jkl-file-thumbnail-background-color);
+        background: var(--jkl-color-background-container-low);
     }
 
     &__file-info {
