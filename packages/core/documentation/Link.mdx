@@ -25,6 +25,24 @@ import { NavLinkExample, navLinkExampleCode, navLinkExampleKnobs } from "./Link/
     codeExample={navLinkExampleCode}
 />
 
+## Lenker rendret som andre elementer
+
+Både ensideapplikasjoner (SPA-er) og serverrendrede applikasjoner bruker gjerne egne lenkekomponenter for å navigere mellom sider. Lenkene i Jøkul er derfor _polymorfe_ komponenter, som kan ta formen til et annet element eller en React-komponent. Som standard rendres lenkene som `<a>`-elementer;
+
+```tsx
+// Rendrer en vanlig HTML-lenke til gitt href:
+<Link href="https://www.fremtind.no">Besøk nettsidene våre</Link>;
+
+// Rendrer en Remix-lenke som bruker rammeverkets ruting:
+import { Link as RemixLink } from "@remix-run/react";
+
+<Link as={RemixLink} to="/products">
+    Se alle produkter
+</Link>;
+```
+
+Lenken tar automatisk imot riktige props og riktig `ref` for komponenten som sendes inn, slik at du får typesikkerhet.
+
 ## Bruk
 
 Vi har to typer lenker. I løpende tekst brukes vanlige lenker, mens navigasjons&shy;lenker brukes i menyer og der lenken står for seg selv. Bruk egenskapen `Back` hvis det skal indikere en navigasjon som går mot hovedretningen. Feks en tilbake til "oversikt" i en kjøpsflyt.
