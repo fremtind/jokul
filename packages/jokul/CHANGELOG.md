@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.7.0...@fremtind/jokul@0.8.0) (2024-09-23)
+
+### Bug Fixes
+
+- bruk riktig import av SlotComponent og typer i Card ([56a21a3](https://github.com/fremtind/jokul/commit/56a21a3fe737d9abacb5ea49c1597d72070a2f44))
+- bruk riktig import av SlotComponent og typer i Link og NavLink ([c48f055](https://github.com/fremtind/jokul/commit/c48f05534dcf1014312214438cc68f87aa6da087))
+- mer opprydding av interne importer ([b798523](https://github.com/fremtind/jokul/commit/b798523ae03a3bee60ab4d2ced631fba98ca055a))
+
+### Features
+
+- flytt formatters og constants inn i jokul ([fc9b2b1](https://github.com/fremtind/jokul/commit/fc9b2b10ede98ff8a0463b196e713fce3a226695))
+
 # [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.6.0...@fremtind/jokul@0.7.0) (2024-09-23)
 
 ### Bug Fixes
