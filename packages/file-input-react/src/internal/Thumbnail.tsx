@@ -1,8 +1,9 @@
+import type { WithOptionalChildren } from "@fremtind/jkl-core";
 import cn from "classnames";
 import React, { FC } from "react";
 import { FileInputFileState } from "../types";
 
-export interface ThumbnailProps {
+export interface ThumbnailProps extends WithOptionalChildren {
     fileName: string;
     fileType: string;
     path?: string;
@@ -11,7 +12,7 @@ export interface ThumbnailProps {
 }
 
 export const Thumbnail: FC<ThumbnailProps> = (props) => {
-    const { fileName, fileType, path, file, state } = props;
+    const { fileName, fileType, path, file, state, children } = props;
 
     const classNames = cn("jkl-file__thumbnail", {
         "jkl-file__thumbnail--selected": state === "SELECTED",
@@ -19,7 +20,12 @@ export const Thumbnail: FC<ThumbnailProps> = (props) => {
     });
 
     if (fileType.startsWith("image/")) {
-        return <img className={classNames} src={file ? URL.createObjectURL(file) : path} alt="" />;
+        return (
+            <div className="jkl-file__thumbnail-wrapper">
+                <img className={classNames} src={file ? URL.createObjectURL(file) : path} alt="" />
+                {children}
+            </div>
+        );
     }
 
     return (

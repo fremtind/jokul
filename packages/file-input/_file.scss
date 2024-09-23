@@ -33,19 +33,42 @@
 
     color: var(--jkl-file-color);
     border: 1px var(--jkl-file-border-color) solid;
-    padding: var(--jkl-file-padding);
     margin: 0;
     min-width: jkl.rem(240px);
 
     display: flex;
     flex-flow: nowrap row;
-    gap: var(--jkl-file-gap);
-    align-items: center;
 
     @include jkl.text-style("small");
     @include jkl.reset-outline;
 
-    a {
+    &__content {
+        display: flex;
+        flex-basis: 100%;
+        gap: 1em;
+        background-color: var(--jkl-color-background-container-high);
+        padding: var(--jkl-file-padding);
+        border-radius: jkl.rem(2px);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+
+        &--error {
+            background-color: colors.varslingsfarge("feil");
+        }
+
+        &--warning {
+            background-color: colors.varslingsfarge("advarsel");
+        }
+
+        &--error,
+        &--warning {
+            --jkl-color-text-default: jkl.$color-granitt;
+
+            color: jkl.$color-granitt;
+            border-color: var(--jkl-file-border-color-active);
+        }
+    }
+
+    &__content:not(div) {
         cursor: pointer;
         text-decoration: none;
         color: var(--jkl-file-color);
@@ -66,18 +89,24 @@
         }
     }
 
-    &--error {
-        background-color: colors.varslingsfarge("feil");
+    &__delete {
+        padding: 0 var(--jkl-spacing-24);
+        align-items: stretch;
+
+        &:hover {
+            background-color: var(--jkl-color-background-interactive-hover);
+        }
     }
 
-    &--warning {
-        background-color: colors.varslingsfarge("advarsel");
-    }
+    &__thumbnail-wrapper {
+        position: relative;
 
-    &--error,
-    &--warning {
-        color: jkl.$color-granitt;
-        border-color: var(--jkl-file-border-color-active);
+        & > :nth-child(2) {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 80%;
+        }
     }
 
     &__thumbnail {
@@ -108,8 +137,11 @@
     }
 
     &__file-info {
+        display: flex;
+        flex-direction: column;
         flex: 1 1 auto;
         overflow-wrap: break-word;
+        gap: var(--jkl-spacing-8);
     }
 
     &__title {
@@ -123,9 +155,9 @@
         gap: jkl.$spacing-12;
         align-items: center;
         justify-content: flex-start;
+    }
 
-        &-slot {
-            width: 100%;
-        }
+    &__support-label {
+        margin: 0;
     }
 }

@@ -16,12 +16,13 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>((props, ref) =
 
     const id = useId(idProp || "jkl-file-input", { generateSuffix: !idProp });
     const maxSizeDescriptionId = id + "-description";
+    const descriptor = multiple ? "filer" : "fil";
 
     const context = useFileInputContext();
     if (!context) {
         return <p>Input must be placed inside a FileInputContextProvider.</p>;
     }
-    const { accept, maxSizeBytes, onChange } = context;
+    const { accept, maxSizeBytes, onChange, files } = context;
 
     return (
         <>
@@ -51,9 +52,10 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>((props, ref) =
                     }
                 }}
             />
+            {files.length === 0 && <p>eller slipp {descriptor} her</p>}
             {typeof maxSizeBytes !== "undefined" && (
                 <div id={maxSizeDescriptionId} className="jkl-file-input__max-size-text">
-                    Maks {formatBytes(maxSizeBytes)} størrelse per fil
+                    Maks {formatBytes(maxSizeBytes)} per fil
                 </div>
             )}
         </>

@@ -1,7 +1,7 @@
 import type { WithOptionalChildren } from "@fremtind/jkl-core";
 import { formatBytes } from "@fremtind/jkl-formatters-util";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { CloseIcon } from "@fremtind/jkl-icons-react";
+import { TrashCanIcon, SuccessIcon } from "@fremtind/jkl-icons-react";
 import { SupportLabel } from "@fremtind/jkl-input-group-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -30,43 +30,65 @@ export const File: FC<FileProps> = (props) => {
     const supportId = id + "-support";
 
     const context = useFileInputContext();
-    const isInFileInputContext = context !== null;
 
-    const TitleComponent = path ? "a" : "div";
-    const f = (
-        <div
-            id={id}
-            className={cn("jkl-file", {
-                "jkl-file--error": supportLabelType === "error",
-                "jkl-file--warning": supportLabelType === "warning",
-            })}
-        >
-            <Thumbnail fileName={fileName} fileType={fileType} file={file} path={path} state={state} />
-            <div className="jkl-file__file-info">
-                <TitleComponent href={path} target={path ? "_blank" : undefined} className="jkl-file__title">
-                    {fileName}
-                </TitleComponent>
-                <p className="jkl-file__description">
-                    <span>{formatBytes(fileSize)}</span>
-                    <span className="jkl-file__description-slot">{children}</span>
-                </p>
-            </div>
+    const Component = path ? "a" : "div";
+
+    const hasErrorOrWarning = supportLabelType === "error" || supportLabelType === "warning";
+    const hasSuccess = supportLabelType === "success";
+
+    const renderFeedbackElement = () => {
+        if (!hasErrorOrWarning && !hasSuccess) {
+            return (
+                <SupportLabel
+                    className="jkl-file__support-label"
+                    id={supportId}
+                    label={supportLabel}
+                    labelType={supportLabelType}
+                />
+            );
+        }
+
+        if (hasSuccess) return <SuccessIcon variant="small" aria-label="Filen ble lastet opp uten feil" />;
+
+        return null;
+    };
+
+    const fileComponent = (
+        <div id={id} className="jkl-file">
+            <Component
+                className={cn("jkl-file__content", {
+                    "jkl-file__content--error": supportLabelType === "error",
+                    "jkl-file__content--warning": supportLabelType === "warning",
+                })}
+                href={path}
+                target={path ? "_blank" : undefined}
+            >
+                <Thumbnail fileName={fileName} fileType={fileType} file={file} path={path} state={state}>
+                    {children}
+                </Thumbnail>
+                <div>
+                    <p className="jkl-file__name">{fileName}</p>
+                    <p className="jkl-file__description">
+                        <span>{formatBytes(fileSize)}</span>
+                        {renderFeedbackElement()}
+                    </p>
+                    {supportLabel && hasErrorOrWarning && (
+                        <SupportLabel
+                            className="jkl-file__support-label"
+                            id={supportId}
+                            label={supportLabel}
+                            labelType={supportLabelType}
+                        />
+                    )}
+                </div>
+            </Component>
             {onRemove && (
-                <IconButton onClick={onRemove} title={`Fjern ${fileName}`}>
-                    <CloseIcon />
+                <IconButton className="jkl-file__delete" onClick={onRemove} title={`Fjern ${fileName}`}>
+                    <TrashCanIcon />
                 </IconButton>
             )}
         </div>
     );
 
-    if (isInFileInputContext) {
-        return (
-            <li>
-                {f}
-                {supportLabel && <SupportLabel id={supportId} label={supportLabel} labelType={supportLabelType} />}
-            </li>
-        );
-    }
-
-    return f;
+    return context ? <li>{fileComponent}</li> : fileComponent;
 };

@@ -5,6 +5,7 @@ import { FileInputFile } from "../types";
 type FileInputContext = {
     accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
     maxSizeBytes?: number;
+    files: FileInputFile[];
     onChange: (
         e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
         files: FileInputFile[],
