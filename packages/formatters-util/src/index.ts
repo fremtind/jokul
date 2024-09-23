@@ -2,13 +2,7 @@ export type { FormatNumberOptions } from "./util/formatNumber";
 export { formatNumber } from "./util/formatNumber";
 export { parseNumber } from "./util/parseNumber";
 export type { Formatter, RegisterWithMaskOptions } from "./util/registerWithMask";
-export {
-    registerWithMasks,
-    registerWithFodselsnummerMask,
-    registerWithKontonummerMask,
-    registerWithKortnummerMask,
-    registerWithTelefonnummerMask,
-} from "./util/registerWithMask";
+export { registerWithMasks } from "./util/registerWithMask";
 
 export { formatAvstand } from "./avstand/formatAvstand";
 export { formatBytes } from "./bytes/formatBytes";
