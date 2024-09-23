@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.6.0...@fremtind/jokul@0.7.0) (2024-09-23)
+
+### Bug Fixes
+
+- failing build should throw so process halts ([d280056](https://github.com/fremtind/jokul/commit/d280056768e874423c4def6967513b44f3a13c35))
+
+### Features
+
+- copy tooltip and input-group into jokul package ([e7efaa1](https://github.com/fremtind/jokul/commit/e7efaa1dbb50ea7bf268737ad33c381bb3a853f4))
+
 # 0.6.0 (2024-09-23)
 
 ### Features
