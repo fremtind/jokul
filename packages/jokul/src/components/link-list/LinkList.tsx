@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { ComponentProps, FC } from "react";
-import { PolymorphicPropsWithRef, PolymorphicRef } from "../../core";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities";
 import { ArrowRightIcon } from "../icon";
 
 const Item: FC<ComponentProps<"li">> = ({ className, ...rest }) => {
