@@ -55,11 +55,13 @@
         "./styles/card/*": "./src/components/card/styles/*",
         "./styles/icon/*": "./src/components/icon/styles/*",
         "./styles/icon-button/*": "./src/components/icon-button/styles/*",
+        "./styles/input-group/*": "./src/components/input-group/styles/*",
         "./styles/image/*": "./src/components/image/styles/*",
         "./styles/link/*": "./src/components/link/styles/*",
         "./styles/link-list/*": "./src/components/link-list/styles/*",
         "./styles/loader/*": "./src/components/loader/styles/*",
-        "./styles/tag/*": "./src/components/tag/styles/*"
+        "./styles/tag/*": "./src/components/tag/styles/*",
+        "./styles/tooltip/*": "./src/components/tooltip/styles/*"
     },
     "scripts": {
         "generate:tokens": "node tokens.build.mjs",
@@ -69,6 +71,10 @@
     },
     "peerDependencies": {
         "react": "^18.0.0"
+    },
+    "optionalDependencies": {
+        "@floating-ui/react": "^0.24.2",
+        "framer-motion": "^7.10.3"
     },
     "devDependencies": {
         "@rollup/plugin-terser": "^0.4.4",
