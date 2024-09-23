@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import React from "react";
-import { PolymorphicPropsWithRef, PolymorphicRef } from "../../core";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities";
 
 export type LinkProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
     ElementType,
