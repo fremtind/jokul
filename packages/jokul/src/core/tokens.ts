@@ -1,9 +1,14 @@
 /**
  * Do not edit directly
- * Generated on Tue, 10 Sep 2024 05:21:22 GMT
+ * Generated on Mon, 23 Sep 2024 08:51:40 GMT
  */
 
 export default {
+    breakpoint: {
+        medium: "680px",
+        large: "1200px",
+        xl: "1600px",
+    },
     color: {
         brand: {
             snohvit: "#F9F9F9",
@@ -185,6 +190,22 @@ export default {
         infoDark: "#a9a9ca",
         advarsel: "#efdd9e",
         advarselDark: "#decc8d",
+    },
+    motion: {
+        timing: {
+            energetic: "75ms",
+            snappy: "100ms",
+            productive: "150ms",
+            expressive: "250ms",
+            lazy: "400ms",
+        },
+        easing: {
+            standard: "ease",
+            entrance: "ease-out",
+            exit: "ease-in",
+            easeInBounceOut: "cubic-bezier(0, 0, 0.375, 1.17)",
+            focus: "cubic-bezier(0.6, 0.2, 0.35, 1)",
+        },
     },
     spacing: {
         0: "0",

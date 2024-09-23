@@ -18,10 +18,14 @@
         "./src/core/styles",
         "./src/core/jkl",
         "./src/core/tokens.less",
+        "./src/components/card/styles",
         "./src/components/icon/styles",
+        "./src/components/icon-button/styles",
+        "./src/components/image/styles",
         "./src/components/link/styles",
         "./src/components/link-list/styles",
-        "./src/components/loader/styles"
+        "./src/components/loader/styles",
+        "./src/components/tag/styles"
     ],
     "exports": {
         ".": {
@@ -41,10 +45,10 @@
             "require": "./build/cjs/hooks/index.js",
             "import": "./build/es/hooks/index.js"
         },
-        "./utils": {
-            "types": "./build/core/utils/index.d.ts",
-            "require": "./build/cjs/core/utils/index.js",
-            "import": "./build/es/core/utils/index.js"
+        "./utilities": {
+            "types": "./build/utilities/index.d.ts",
+            "require": "./build/cjs/utilities/index.js",
+            "import": "./build/es/utilities/index.js"
         },
         "./components": {
             "types": "./build/components/index.d.ts",
@@ -86,6 +90,7 @@
         "cssnano-preset-lite": "^3.0.0",
         "glob": "^11.0.0",
         "postcss": "^8.4.24",
+        "react-hook-form": "^7.44.3",
         "rollup-plugin-node-externals": "^7.1.3",
         "rollup-plugin-visualizer": "^5.12.0",
         "sass-embedded": "^1.78.0",

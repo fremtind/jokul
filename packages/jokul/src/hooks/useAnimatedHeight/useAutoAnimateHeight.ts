@@ -1,5 +1,5 @@
 import { RefObject, useCallback, useEffect, useRef, useState } from "react";
-import { easings, timings, type Easing, type Timing } from "../../core";
+import { tokens, type Easing, type Timing } from "../../core";
 import { useBrowserPreferences } from "../useBrowserPreferences/useBrowserPreferences";
 import { usePreviousValue } from "../usePreviousValue/usePreviousValue";
 
@@ -33,7 +33,7 @@ export function useAutoAnimatedHeight<T extends HTMLElement = HTMLElement>(
 
     const easing = options?.easing || defaultEasing;
     const timing = options?.timing || defaultTiming;
-    const transition = `${timings[timing]} height ${easings[easing]}`;
+    const transition = `${tokens.motion.timing[timing]} height ${tokens.motion.easing[easing]}`;
 
     const { prefersReducedMotion } = useBrowserPreferences();
 
