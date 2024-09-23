@@ -1,13 +1,15 @@
 import { useCallback, useEffect, useReducer, useState } from "react";
-import { breakpoints } from "../../core";
+import { tokens } from "../../core";
 import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
 import { ScreenAction, ActionType, reducer, ScreenState } from "./state";
 
+const { breakpoint } = tokens;
+
 const MEDIA_RULES: Record<keyof ScreenState, string> = {
-    isSmallDevice: `(max-width: ${breakpoints.medium - 1}px)`,
-    isMediumDevice: `(min-width: ${breakpoints.medium}px) and (max-width: ${breakpoints.large - 1}px)`,
-    isLargeDevice: `(min-width: ${breakpoints.large}px) and (max-width: ${breakpoints.xl - 1}px)`,
-    isXlDevice: `(min-width: ${breakpoints.xl}px)`,
+    isSmallDevice: `(max-width: calc(${breakpoint.medium} - 1px))`,
+    isMediumDevice: `(min-width: ${breakpoint.medium}) and (max-width: calc(${breakpoint.large} -1px))`,
+    isLargeDevice: `(min-width: ${breakpoint.large}) and (max-width: calc(${breakpoint.xl} -1px))`,
+    isXlDevice: `(min-width: ${breakpoint.xl})`,
     isPortrait: "(orientation: portrait)",
     isLandscape: "(orientation: landscape)",
 };

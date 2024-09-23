@@ -8,4 +8,3 @@ export * from "./loader";
 export * from "./tag";
 export * from "./tooltip";
 export { ScreenReaderOnly, type ScreenReaderOnlyProps } from "./ScreenReaderOnly";
-export { SlotComponent, type SlotComponentProps } from "./SlotComponent";

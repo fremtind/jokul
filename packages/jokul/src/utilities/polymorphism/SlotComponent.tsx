@@ -1,5 +1,6 @@
 import React from "react";
-import { mergeRefs, mergeProps } from "../core/utils";
+import { mergeProps } from "./mergeProps";
+import { mergeRefs } from "./mergeRefs";
 
 export type SlotComponentProps = React.HTMLAttributes<HTMLElement> & {
     children: React.ReactElement | false | null;

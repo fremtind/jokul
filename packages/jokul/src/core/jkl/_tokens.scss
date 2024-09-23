@@ -1,8 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Tue, 10 Sep 2024 05:21:22 GMT
+ * Generated on Mon, 23 Sep 2024 08:51:40 GMT
  */
 
+$breakpoint-medium: 680px;
+$breakpoint-large: 1200px;
+$breakpoint-xl: 1600px;
 $color-brand-snohvit: #f9f9f9;
 $color-brand-varde: #e0dbd4;
 $color-brand-granitt: #1b1917;
@@ -22,6 +25,16 @@ $color-functional-warning: #efdd9e;
 $color-functional-warning-dark: #decc8d;
 $color-functional-error: #f6b3b3;
 $color-functional-error-dark: #de9e9e;
+$motion-timing-energetic: 75ms;
+$motion-timing-snappy: 100ms;
+$motion-timing-productive: 150ms;
+$motion-timing-expressive: 250ms;
+$motion-timing-lazy: 400ms;
+$motion-easing-standard: ease;
+$motion-easing-entrance: ease-out;
+$motion-easing-exit: ease-in;
+$motion-easing-ease-in-bounce-out: cubic-bezier(0, 0, 0.375, 1.17);
+$motion-easing-focus: cubic-bezier(0.6, 0.2, 0.35, 1);
 $spacing-0: 0;
 $spacing-2: 0.125rem;
 $spacing-4: 0.25rem;
