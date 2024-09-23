@@ -440,7 +440,7 @@ importers:
       '@fremtind/jkl-react-hooks': ^12.2.1
       '@fremtind/jkl-toggle-switch': ^13.2.1
       classnames: ^2.3.2
-      framer-motion: '>=7.10.3 <=11'
+      framer-motion: '>7.10.3 <12'
     dependencies:
       '@floating-ui/react': 0.24.2
       '@fremtind/jkl-contextual-menu': link:../contextual-menu
@@ -449,7 +449,7 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-toggle-switch': link:../toggle-switch
       classnames: 2.3.2
-      framer-motion: 7.10.3
+      framer-motion: 11.5.6
     devDependencies:
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
 
@@ -759,7 +759,7 @@ importers:
       vite-plugin-dts: ^4.1.0
     optionalDependencies:
       '@floating-ui/react': 0.24.8
-      framer-motion: 7.10.3
+      framer-motion: 11.5.6
       react-a11y-dialog: 6.2.0
     devDependencies:
       '@rollup/plugin-terser': 0.4.4
@@ -1180,7 +1180,7 @@ importers:
       '@fremtind/jkl-react-hooks': ^12.2.1
       '@fremtind/jkl-tooltip': ^4.2.1
       classnames: ^2.3.2
-      framer-motion: '>=7.10.3 <=11'
+      framer-motion: '>7.10.3 <12'
     dependencies:
       '@floating-ui/react': 0.24.2
       '@fremtind/jkl-core': link:../core
@@ -1188,7 +1188,7 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-tooltip': link:../tooltip
       classnames: 2.3.2
-      framer-motion: 7.10.3
+      framer-motion: 11.5.6
 
   packages/validators-util:
     specifiers: {}
@@ -3051,11 +3051,11 @@ packages:
       ajv: 8.17.1
     dev: true
 
-  /@commitlint/config-validator/19.0.3:
-    resolution: {integrity: sha512-2D3r4PKjoo59zBc2auodrSCaUnCSALCx54yveOFwwP/i2kfEAQrygwOleFWswLqK0UL/F9r07MFi5ev2ohyM4Q==}
+  /@commitlint/config-validator/19.5.0:
+    resolution: {integrity: sha512-CHtj92H5rdhKt17RmgALhfQt95VayrUo2tSqY9g2w+laAXyk7K/Ef6uPm9tn5qSIwSmrLjKaXK9eiNuxmQrDBw==}
     engines: {node: '>=v18'}
     dependencies:
-      '@commitlint/types': 19.0.3
+      '@commitlint/types': 19.5.0
       ajv: 8.17.1
     dev: true
     optional: true
@@ -3077,8 +3077,8 @@ packages:
     engines: {node: '>=v14'}
     dev: true
 
-  /@commitlint/execute-rule/19.0.0:
-    resolution: {integrity: sha512-mtsdpY1qyWgAO/iOK0L6gSGeR7GFcdW7tIjcNFxcWkfLDF5qVbPHKuGATFqRMsxcO8OUKNj0+3WOHB7EHm4Jdw==}
+  /@commitlint/execute-rule/19.5.0:
+    resolution: {integrity: sha512-aqyGgytXhl2ejlk+/rfgtwpPexYyri4t8/n4ku6rRJoRhGZpLFMqrZ+YaubeGysCP6oz4mMA34YSTaSOKEeNrg==}
     engines: {node: '>=v18'}
     dev: true
     optional: true
@@ -3132,15 +3132,15 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /@commitlint/load/19.4.0_dm6y56nr5wgy7tu6xusupvnt5e:
-    resolution: {integrity: sha512-I4lCWaEZYQJ1y+Y+gdvbGAx9pYPavqZAZ3/7/8BpWh+QjscAn8AjsUpLV2PycBsEx7gupq5gM4BViV9xwTIJuw==}
+  /@commitlint/load/19.5.0_dm6y56nr5wgy7tu6xusupvnt5e:
+    resolution: {integrity: sha512-INOUhkL/qaKqwcTUvCE8iIUf5XHsEPCLY9looJ/ipzi7jtGhgmtH7OOFiNvwYgH7mA8osUWOUDV8t4E2HAi4xA==}
     engines: {node: '>=v18'}
     requiresBuild: true
     dependencies:
-      '@commitlint/config-validator': 19.0.3
-      '@commitlint/execute-rule': 19.0.0
-      '@commitlint/resolve-extends': 19.1.0
-      '@commitlint/types': 19.0.3
+      '@commitlint/config-validator': 19.5.0
+      '@commitlint/execute-rule': 19.5.0
+      '@commitlint/resolve-extends': 19.5.0
+      '@commitlint/types': 19.5.0
       chalk: 5.3.0
       cosmiconfig: 9.0.0_typescript@5.1.6
       cosmiconfig-typescript-loader: 5.0.0_mlfozahac5apbdrn3wdy4my2ey
@@ -3190,12 +3190,12 @@ packages:
       resolve-global: 1.0.0
     dev: true
 
-  /@commitlint/resolve-extends/19.1.0:
-    resolution: {integrity: sha512-z2riI+8G3CET5CPgXJPlzftH+RiWYLMYv4C9tSLdLXdr6pBNimSKukYP9MS27ejmscqCTVA4almdLh0ODD2KYg==}
+  /@commitlint/resolve-extends/19.5.0:
+    resolution: {integrity: sha512-CU/GscZhCUsJwcKTJS9Ndh3AKGZTNFIOoQB2n8CmFnizE0VnEuJoum+COW+C1lNABEeqk6ssfc1Kkalm4bDklA==}
     engines: {node: '>=v18'}
     dependencies:
-      '@commitlint/config-validator': 19.0.3
-      '@commitlint/types': 19.0.3
+      '@commitlint/config-validator': 19.5.0
+      '@commitlint/types': 19.5.0
       global-directory: 4.0.1
       import-meta-resolve: 4.1.0
       lodash.mergewith: 4.6.2
@@ -3233,8 +3233,8 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@commitlint/types/19.0.3:
-    resolution: {integrity: sha512-tpyc+7i6bPG9mvaBbtKUeghfyZSDgWquIDfMgqYtTbmZ9Y9VzEm2je9EYcQ0aoz5o7NvGS+rcDec93yO08MHYA==}
+  /@commitlint/types/19.5.0:
+    resolution: {integrity: sha512-DSHae2obMSMkAtTBSOulg5X7/z+rGLxcXQIkg3OmWvY6wifojge5uVMydfhUvs7yQj+V7jNmRZ2Xzl8GJyqRgg==}
     engines: {node: '>=v18'}
     dependencies:
       '@types/conventional-commits-parser': 5.0.0
@@ -6584,7 +6584,7 @@ packages:
   /@types/conventional-commits-parser/5.0.0:
     resolution: {integrity: sha512-loB369iXNmAZglwWATL+WRe+CRMmmBPtpolYzIebFaX4YA3x+BEfLqhUAV9WanycKI3TG1IMr5bMJDajDKLlUQ==}
     dependencies:
-      '@types/node': 18.18.0
+      '@types/node': 18.16.16
     dev: true
     optional: true
 
@@ -10423,7 +10423,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 19.4.0_dm6y56nr5wgy7tu6xusupvnt5e
+      '@commitlint/load': 19.5.0_dm6y56nr5wgy7tu6xusupvnt5e
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -12835,23 +12835,25 @@ packages:
       map-cache: 0.2.2
     dev: true
 
-  /framer-motion/7.10.3:
-    resolution: {integrity: sha512-k2ccYeZNSpPg//HTaqrU+4pRq9f9ZpaaN7rr0+Rx5zA4wZLbk547wtDzge2db1sB+1mnJ6r59P4xb+aEIi/W+w==}
-    requiresBuild: true
+  /framer-motion/11.5.6:
+    resolution: {integrity: sha512-JMwUpAxv/DWgul9vPgX0ElKn0G66sUc6O9tOXsYwn3zxwvhxFljSXC0XT2QCzuTYBshwC8nyDAa1SYcV0Ldbhw==}
     peerDependencies:
+      '@emotion/is-prop-valid': '*'
       react: ^18.0.0
       react-dom: ^18.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
-      '@motionone/dom': 10.16.2
-      hey-listen: 1.0.8
-      tslib: 2.4.0
-    optionalDependencies:
-      '@emotion/is-prop-valid': 0.8.8
+      tslib: 2.5.3
     dev: false
 
   /framer-motion/7.10.3_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-k2ccYeZNSpPg//HTaqrU+4pRq9f9ZpaaN7rr0+Rx5zA4wZLbk547wtDzge2db1sB+1mnJ6r59P4xb+aEIi/W+w==}
-    requiresBuild: true
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -14471,7 +14473,7 @@ packages:
       source-map: 0.6.1
       wordwrap: 1.0.0
     optionalDependencies:
-      uglify-js: 3.19.2
+      uglify-js: 3.19.3
     dev: true
 
   /hard-rejection/2.1.0:
@@ -23974,8 +23976,8 @@ packages:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
     dev: true
 
-  /uglify-js/3.19.2:
-    resolution: {integrity: sha512-S8KA6DDI47nQXJSi2ctQ629YzwOVs+bQML6DAtvy0wgNdpi+0ySpQK0g2pxBq2xfF2z3YCscu7NNA8nXT9PlIQ==}
+  /uglify-js/3.19.3:
+    resolution: {integrity: sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ==}
     engines: {node: '>=0.8.0'}
     hasBin: true
     requiresBuild: true
