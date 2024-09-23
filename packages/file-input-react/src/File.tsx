@@ -67,8 +67,8 @@ export const File: FC<FileProps> = (props) => {
                     {children}
                 </Thumbnail>
                 <div>
-                    <p className="jkl-file__name jkl-bold">{fileName}</p>
-                    <p className="jkl-file__description jkl-body">
+                    <p className="jkl-file__name">{fileName}</p>
+                    <p className="jkl-file__description">
                         <span>{formatBytes(fileSize)}</span>
                         {renderFeedbackElement()}
                     </p>
