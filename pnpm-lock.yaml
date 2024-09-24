@@ -748,6 +748,7 @@ importers:
       framer-motion: ^7.10.3
       glob: ^11.0.0
       postcss: ^8.4.24
+      react-a11y-dialog: ^6.2.0
       react-hook-form: ^7.44.3
       rollup-plugin-node-externals: ^7.1.3
       rollup-plugin-visualizer: ^5.12.0
@@ -758,6 +759,7 @@ importers:
     optionalDependencies:
       '@floating-ui/react': 0.24.2
       framer-motion: 7.10.3
+      react-a11y-dialog: 6.2.0
     devDependencies:
       '@rollup/plugin-terser': 0.4.4
       '@vitejs/plugin-react-swc': 3.7.0_vite@5.4.2
@@ -7208,7 +7210,7 @@ packages:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.7.23
-      vite: 5.4.2_sass-embedded@1.78.0
+      vite: 5.4.2
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -20884,6 +20886,17 @@ packages:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
+  /react-a11y-dialog/6.2.0:
+    resolution: {integrity: sha512-/oW5vUjBDD4FvbF8L8K4RKStdro3J7V65ghhEgfWZmfqGW/+5bxpA6OZlChYgIUh47IlZvaBhL78ItBNIp1zHg==}
+    peerDependencies:
+      prop-types: ^15.6.0
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      a11y-dialog: 7.5.2
+    dev: false
+    optional: true
+
   /react-a11y-dialog/6.2.0_prop-types@15.8.1:
     resolution: {integrity: sha512-/oW5vUjBDD4FvbF8L8K4RKStdro3J7V65ghhEgfWZmfqGW/+5bxpA6OZlChYgIUh47IlZvaBhL78ItBNIp1zHg==}
     peerDependencies:
@@ -24501,7 +24514,7 @@ packages:
       kolorist: 1.8.0
       local-pkg: 0.5.0
       magic-string: 0.30.11
-      vite: 5.4.2_sass-embedded@1.78.0
+      vite: 5.4.2
       vue-tsc: 2.0.29
     transitivePeerDependencies:
       - '@types/node'
