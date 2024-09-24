@@ -1,0 +1,294 @@
+@charset "UTF-8";
+@use "sass:string";
+@use "../../../core/jkl";
+
+$_animation-timing: jkl.timing("snappy") jkl.easing("focus");
+$_flash-animation-name: jkl-flash-#{string.unique-id()};
+$_tertiary-flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
+$_hover-elevation-distance: -0.25rem;
+
+$_button-border-width: jkl.rem(1px);
+$_focus-ring-distance: jkl.rem(4px);
+$_focus-ring-width: jkl.rem(2px);
+
+@include jkl.comfortable-density-variables {
+    --jkl-button-font-size: var(--jkl-body-font-size);
+    --jkl-button-line-height: #{jkl.rem(48px)};
+    --jkl-button-font-weight: #{jkl.$typography-weight-bold};
+    --jkl-button-min-width: #{jkl.rem(104px)};
+    --jkl-button-padding: 0 #{jkl.$spacing-24};
+    --jkl-button-tertiary-padding: 0 #{jkl.$spacing-2};
+    --jkl-button-children-padding-with-icon: #{jkl.$spacing-2};
+    --jkl-button-tertiary-padding-with-icon: 0;
+    --jkl-button-focus-ring-placement: -#{($_button-border-width + $_focus-ring-distance)};
+
+    @include jkl.small-device {
+        --jkl-button-line-height: #{jkl.rem(44px)};
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-button-font-size: var(--jkl-small-font-size);
+    --jkl-button-line-height: #{jkl.rem(32px)};
+    --jkl-button-font-weight: #{jkl.$typography-weight-bold};
+    --jkl-button-min-width: #{jkl.rem(76px)};
+    --jkl-button-padding: 0 #{jkl.$spacing-12};
+    --jkl-button-tertiary-padding: 0 #{jkl.$spacing-2};
+    --jkl-button-children-padding-with-icon: #{jkl.$spacing-2};
+    --jkl-button-tertiary-padding-with-icon: #{jkl.$spacing-2};
+    --jkl-button-focus-ring-placement: -#{($_button-border-width + calc($_focus-ring-distance / 2))};
+}
+
+a.jkl-button {
+    text-decoration: none;
+}
+
+.jkl-button {
+    --border-color: var(--jkl-color-background-action);
+    --text-color: var(--jkl-color-background-action);
+    --focus-color: var(--jkl-color-background-action);
+    --background-color: transparent;
+
+    display: inline-flex;
+    box-sizing: border-box;
+    justify-content: center;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    @include jkl.use-font-variables("jkl-button");
+
+    height: var(--jkl-button-line-height);
+    min-width: var(--jkl-button-min-width);
+    cursor: pointer;
+    user-select: none;
+    overflow: visible;
+    position: relative;
+
+    @include jkl.motion;
+    transform-origin: 50% 90%;
+    transition-property: transform, background-color;
+
+    @include jkl.reset-outline;
+
+    &:focus-visible,
+    html:not([data-touchnavigation]) &:hover {
+        transform: scale(1.05);
+    }
+
+    html:not([data-mousenavigation]) &:active,
+    html:not([data-touchnavigation]) &:active,
+    &:active {
+        transform: scale(1);
+    }
+
+    &:focus-visible {
+        @include jkl.focus-outline;
+    }
+
+    html[data-touchnavigation] &--pressed {
+        transform: scale(0.95);
+        -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+    }
+
+    &__content {
+        height: var(--jkl-button-line-height);
+        overflow: hidden;
+    }
+
+    &__slider {
+        @include jkl.motion;
+        transition-property: transform;
+
+        &--show-loader {
+            transform: translateY(-51%);
+        }
+    }
+
+    &__loader {
+        display: flex;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+        height: var(--jkl-button-line-height);
+    }
+
+    // ********* VARIANTS *********
+
+    &--primary,
+    &--secondary,
+    &--ghost {
+        border: solid $_button-border-width var(--border-color);
+        border-radius: 999px;
+        padding: var(--jkl-button-padding);
+
+        &::before {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            inset: 0;
+        }
+
+        html[data-touchnavigation] &.jkl-button--pressed::before {
+            animation: jkl.easing("easeInBounceOut") jkl.timing("lazy") $_flash-animation-name;
+        }
+    }
+
+    &--ghost {
+        --border-color: transparent;
+        border-radius: jkl.rem(4px);
+        padding: 0 jkl.$spacing-4;
+
+        &:focus-visible,
+        html:not([data-touchnavigation]) &:hover {
+            --background-color: var(--jkl-color-background-interactive-hover);
+            transform: scale(1);
+        }
+
+        &.jkl-button--icon-left .jkl-button__children {
+            padding-left: var(--jkl-button-children-padding-with-icon);
+        }
+
+        &.jkl-button--icon-right .jkl-button__children {
+            padding-right: var(--jkl-button-children-padding-with-icon);
+        }
+    }
+
+    &--primary {
+        --background-color: var(--jkl-color-background-action);
+        --text-color: var(--jkl-color-text-on-action);
+    }
+
+    &--secondary {
+        transition-property: box-shadow, transform, background-color;
+
+        &:hover,
+        &:focus-visible,
+        html[data-touchnavigation] &.jkl-button--pressed {
+            box-shadow: inset 0 0 0 1px var(--border-color), inset 0 0 0 1px var(--border-color);
+        }
+    }
+
+    &--tertiary {
+        border-bottom: solid $_button-border-width var(--border-color);
+        border-top: solid $_button-border-width transparent;
+        padding: var(--jkl-button-tertiary-padding);
+        transition: transform $_animation-timing, border $_animation-timing;
+        min-width: unset;
+
+        // Base for touch-effekt
+        &::before {
+            content: "";
+            pointer-events: none;
+            display: block;
+            position: absolute;
+            left: var(--jkl-touch-xcoord, 50%);
+            top: var(--jkl-touch-ycoord, 50%);
+            transform: translate3d(-50%, -50%, 0);
+            border-radius: 100%;
+            width: jkl.rem(16px);
+            height: jkl.rem(16px);
+            background-color: transparent;
+        }
+
+        html[data-touchnavigation] &.jkl-button--pressed::before {
+            animation: jkl.easing("easeInBounceOut") jkl.timing("lazy") $_tertiary-flash-animation-name;
+        }
+
+        &:focus-visible {
+            border: none;
+
+            @include jkl.forced-colors-mode {
+                border: revert;
+            }
+        }
+
+        &:hover,
+        &:focus-visible,
+        html[data-touchnavigation] &.jkl-button--pressed {
+            border-bottom-color: var(--focus-color);
+            border-bottom-width: $_focus-ring-width;
+            color: var(--focus-color);
+        }
+    }
+
+    &--icon-left,
+    &--icon-right {
+        .jkl-button__icon {
+            display: inline-block;
+            vertical-align: sub;
+        }
+    }
+
+    &--icon-left {
+        padding-left: jkl.$spacing-8;
+
+        .jkl-button__children {
+            padding-left: var(--jkl-button-children-padding-with-icon);
+        }
+
+        &.jkl-button--tertiary {
+            padding-left: var(--jkl-button-tertiary-padding-with-icon);
+        }
+    }
+
+    &--icon-right {
+        padding-right: jkl.$spacing-8;
+
+        .jkl-button__children {
+            padding-right: var(--jkl-button-children-padding-with-icon);
+        }
+
+        &.jkl-button--tertiary {
+            padding-right: var(--jkl-button-tertiary-padding-with-icon);
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        &.jkl-button--primary:not(a),
+        &.jkl-button--secondary:not(a),
+        &.jkl-button--primary:hover:not(a),
+        &.jkl-button--secondary:hover:not(a),
+        &.jkl-button--primary:focus:not(a),
+        &.jkl-button--secondary:focus:not(a) {
+            border-color: ButtonText;
+        }
+
+        & .jkl-loader__dot {
+            background-color: ButtonText;
+        }
+
+        &.jkl-button--tertiary {
+            outline-offset: jkl.$spacing-3xs;
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
+        }
+    }
+}
+
+@keyframes #{$_flash-animation-name} {
+    0% {
+        box-shadow: 0 0 0 0 var(--focus-color);
+        opacity: 0.5;
+    }
+
+    100% {
+        box-shadow: 0 0 0 #{jkl.rem(16px)} var(--focus-color);
+        opacity: 0;
+    }
+}
+
+@keyframes #{$_tertiary-flash-animation-name} {
+    0% {
+        box-shadow: 0 0 0 0 var(--focus-color);
+        background-color: var(--focus-color);
+        opacity: 0.5;
+    }
+
+    100% {
+        box-shadow: 0 0 0 #{jkl.rem(40px)} var(--focus-color);
+        background-color: var(--focus-color);
+        opacity: 0;
+    }
+}
