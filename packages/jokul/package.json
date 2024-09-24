@@ -18,6 +18,7 @@
         "./src/core/styles",
         "./src/core/jkl",
         "./src/core/tokens.less",
+        "./src/components/accordion/styles",
         "./src/components/card/styles",
         "./src/components/icon/styles",
         "./src/components/icon-button/styles",
@@ -57,6 +58,7 @@
             "import": "./build/es/components/index.js"
         },
         "./styles/core/*": "./src/core/styles/*",
+        "./styles/accordion/*": "./src/components/accordion/styles/*",
         "./styles/card/*": "./src/components/card/styles/*",
         "./styles/icon/*": "./src/components/icon/styles/*",
         "./styles/icon-button/*": "./src/components/icon-button/styles/*",

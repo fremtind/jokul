@@ -1,3 +1,4 @@
+export * from "./accordion";
 export * from "./card";
 export * from "./icon";
 export * from "./icon-button";
