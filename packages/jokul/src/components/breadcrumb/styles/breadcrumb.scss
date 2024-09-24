@@ -1,0 +1,34 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+.jkl-breadcrumb {
+    a[aria-current] {
+        text-decoration: none;
+        background-image: none;
+        color: var(--jkl-color-text-interactive);
+
+        &:hover {
+            cursor: default;
+            color: var(--jkl-color-text-interactive-hover);
+            background-image: none;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding-inline-start: 0;
+    }
+
+    &__item {
+        margin-bottom: jkl.$spacing-8;
+        white-space: nowrap;
+    }
+
+    &__item-separator {
+        padding-left: jkl.$spacing-8;
+        padding-right: jkl.$spacing-8;
+    }
+}
