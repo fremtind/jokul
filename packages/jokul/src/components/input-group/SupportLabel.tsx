@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { type FC, type ReactNode } from "react";
 import { type Density } from "../../core";
 import { ErrorIcon, SuccessIcon, WarningIcon } from "../icon";
@@ -82,7 +82,7 @@ export const SupportLabel: FC<SupportLabelProps> = ({
     const isSuccess = labelType === "success";
 
     const componentClassName = hasLabel
-        ? cn("jkl-form-support-label", className, {
+        ? clsx("jkl-form-support-label", className, {
               "jkl-form-support-label--sr-only": srOnly,
               "jkl-form-support-label--help": isHelp,
               "jkl-form-support-label--error": isError,

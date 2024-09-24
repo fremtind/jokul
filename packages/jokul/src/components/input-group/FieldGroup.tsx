@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC, FieldsetHTMLAttributes } from "react";
 import type { Density, DataTestAutoId } from "../../core";
 import { useId } from "../../hooks";
@@ -44,7 +44,7 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
     return (
         <fieldset
             id={uid}
-            className={cn("jkl-field-group", className)}
+            className={clsx("jkl-field-group", className)}
             data-testautoid={testAutoId}
             {...rest}
             aria-describedby={describedBy}

@@ -1,5 +1,5 @@
 import { type Placement, useMergeRefs, FloatingPortal } from "@floating-ui/react";
-import cn from "classnames";
+import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { HTMLProps, forwardRef } from "react";
 import { useId } from "../../hooks";
@@ -88,7 +88,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                             transition={{ ease: "easeOut", duration: 0.25 }}
                             data-placement={placement}
                             aria-live={triggerOn === "click" ? "assertive" : undefined}
-                            className={cn("jkl-tooltip-content", className)}
+                            className={clsx("jkl-tooltip-content", className)}
                             {...getFloatingProps({ ...props, id: contentId })}
                             style={{ ...floatingStyles }}
                             data-theme={theme}
