@@ -6,7 +6,7 @@
 
     transition-property: background-color, border-color, color;
 
-    color: var(--jkl-color-border-action);
+    color: var(--jkl-color-text-default);
     margin: 0;
     min-width: jkl.rem(240px);
 
@@ -60,7 +60,7 @@
     &__content:not(div) {
         cursor: pointer;
         text-decoration: none;
-        color: var(--jkl-color-border-action);
+        color: var(--jkl-color-text-default);
 
         &:hover ~ .jkl-file__description {
             @include jkl.no-grow-bold;
