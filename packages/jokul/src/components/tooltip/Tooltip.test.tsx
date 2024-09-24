@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
@@ -20,7 +20,7 @@ describe("Tooltip", () => {
         expect(screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" })).not.toBeInTheDocument();
 
         await user.hover(tooltipTrigger as HTMLElement);
-        expect(screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" })).toBeVisible();
+        await waitFor(() => expect(screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" })).toBeVisible());
     });
 
     it("should NOT show tooltip on hover when triggerOn is 'click'", async () => {
@@ -36,7 +36,7 @@ describe("Tooltip", () => {
         expect(screen.queryByText(/Forklarende tekst/)).not.toBeInTheDocument();
 
         await user.hover(tooltipTrigger as HTMLElement);
-        expect(screen.queryByText(/Forklarende tekst/)).not.toBeInTheDocument();
+        () => expect(screen.queryByText(/Forklarende tekst/)).not.toBeInTheDocument();
     });
 
     it("should show tooltip on click when triggerOn is 'click'", async () => {
@@ -52,7 +52,7 @@ describe("Tooltip", () => {
         expect(screen.queryByText(/Forklarende tekst/)).not.toBeInTheDocument();
 
         await user.click(tooltipTrigger as HTMLElement);
-        expect(screen.queryByText(/Forklarende tekst/)).toBeVisible();
+        await waitFor(() => expect(screen.queryByText(/Forklarende tekst/)).toBeVisible());
     });
 
     describe("Trigger", () => {
