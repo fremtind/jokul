@@ -1,5 +1,5 @@
 import { useMergeRefs } from "@floating-ui/react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, type HTMLProps } from "react";
 import { useTooltipContext } from "./Tooltip";
 
@@ -30,7 +30,7 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(fu
                 "aria-label": ariaLabel,
                 ...children.props,
                 ...props,
-                className: cn(children.props.className, className),
+                className: clsx(children.props.className, className),
                 "data-tooltip-shown": isOpen,
                 style: { ...children.props.style },
                 tabIndex: triggerOn === "click" ? 0 : undefined,
@@ -46,7 +46,7 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(fu
         <button
             data-tooltip-shown={isOpen}
             {...getReferenceProps({
-                className: cn(className, "jkl-tooltip-trigger"),
+                className: clsx(className, "jkl-tooltip-trigger"),
                 // Sørg for at vi ikke sender inn skjemaer ved klikk på knappen
                 type: "button",
                 ref,

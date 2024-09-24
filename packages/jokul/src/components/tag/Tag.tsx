@@ -1,4 +1,4 @@
-import cx from "classnames";
+import clsx from "clsx";
 import React, { ButtonHTMLAttributes, FC, HTMLAttributes, MouseEventHandler } from "react";
 import { Density } from "../../core";
 import { CloseIcon } from "../icon";
@@ -34,7 +34,7 @@ function getDisplayName(variant?: Variant) {
 function tagFactory(variant?: Variant) {
     const Tag: FC<TagProps> = ({ className, density, dismissAction, children, ...rest }) => (
         <span
-            className={cx(
+            className={clsx(
                 "jkl-tag",
                 {
                     "jkl-tag--info": variant === "info",

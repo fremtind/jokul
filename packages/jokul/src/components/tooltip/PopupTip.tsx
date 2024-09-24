@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { useState, type FC, type ReactNode, HTMLProps, FocusEventHandler } from "react";
 import { QuestionIcon } from "../icon";
 import { Tooltip, type TooltipProps } from "./Tooltip";
@@ -36,7 +36,7 @@ export const PopupTip: FC<PopupTipProps> = ({ content, triggerProps, ...tooltipP
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     type="button"
-                    className={cn("jkl-tooltip-question-button", triggerProps?.className)}
+                    className={clsx("jkl-tooltip-question-button", triggerProps?.className)}
                 >
                     <QuestionIcon variant="inherit" bold={isBold} />
                     <span className="jkl-sr-only">Vis hjelpetekst</span>
