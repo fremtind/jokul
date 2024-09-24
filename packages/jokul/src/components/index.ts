@@ -11,6 +11,7 @@ export * from "./link";
 export * from "./link-list";
 export * from "./list";
 export * from "./loader";
+export * from "./modal";
 export * from "./radio-button";
 export * from "./select";
 export * from "./tag";
