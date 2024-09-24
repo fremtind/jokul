@@ -745,6 +745,7 @@ importers:
       clsx: ^2.1.1
       cssnano: ^6.0.1
       cssnano-preset-lite: ^3.0.0
+      date-fns: ^2.30.0
       framer-motion: ^7.10.3
       glob: ^11.0.0
       postcss: ^8.4.24
@@ -758,6 +759,7 @@ importers:
       vite-plugin-dts: ^4.1.0
     optionalDependencies:
       '@floating-ui/react': 0.24.2
+      date-fns: 2.30.0
       framer-motion: 7.10.3
       react-a11y-dialog: 6.2.0
     devDependencies:
@@ -3804,6 +3806,7 @@ packages:
 
   /@floating-ui/react/0.24.2:
     resolution: {integrity: sha512-8sdLmcC85J6M2H0AL8yOQuiWD4T0gNMSLpuJjmXyEA6ndfmxXR0hwKFkczB4xRNFhKbwoQeuh8z561HE2vOdZw==}
+    requiresBuild: true
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -12781,6 +12784,7 @@ packages:
 
   /framer-motion/7.10.3:
     resolution: {integrity: sha512-k2ccYeZNSpPg//HTaqrU+4pRq9f9ZpaaN7rr0+Rx5zA4wZLbk547wtDzge2db1sB+1mnJ6r59P4xb+aEIi/W+w==}
+    requiresBuild: true
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -12794,6 +12798,7 @@ packages:
 
   /framer-motion/7.10.3_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-k2ccYeZNSpPg//HTaqrU+4pRq9f9ZpaaN7rr0+Rx5zA4wZLbk547wtDzge2db1sB+1mnJ6r59P4xb+aEIi/W+w==}
+    requiresBuild: true
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0

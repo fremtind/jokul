@@ -25,6 +25,7 @@
         "./src/components/checkbox/styles",
         "./src/components/combobox/styles",
         "./src/components/cookie-consent/styles",
+        "./src/components/datepicker/styles",
         "./src/components/icon/styles",
         "./src/components/icon-button/styles",
         "./src/components/image/styles",
@@ -36,6 +37,7 @@
         "./src/components/radio-button/styles",
         "./src/components/select/styles",
         "./src/components/tag/styles",
+        "./src/components/text-input/styles",
         "./src/components/tooltip/styles"
     ],
     "exports": {
@@ -74,6 +76,7 @@
         "./styles/checkbox/*": "./src/components/checkbox/styles/*",
         "./styles/combobox/*": "./src/components/combobox/styles/*",
         "./styles/cookie-consent/*": "./src/components/cookie-consent/styles/*",
+        "./styles/datepicker/*": "./src/components/datepicker/styles/*",
         "./styles/icon/*": "./src/components/icon/styles/*",
         "./styles/icon-button/*": "./src/components/icon-button/styles/*",
         "./styles/input-group/*": "./src/components/input-group/styles/*",
@@ -86,6 +89,7 @@
         "./styles/radio-button/*": "./src/components/radio-button/styles/*",
         "./styles/select/*": "./src/components/select/styles/*",
         "./styles/tag/*": "./src/components/tag/styles/*",
+        "./styles/text-input/*": "./src/components/text-input/styles/*",
         "./styles/tooltip/*": "./src/components/tooltip/styles/*"
     },
     "scripts": {
@@ -100,7 +104,8 @@
     "optionalDependencies": {
         "@floating-ui/react": "^0.24.2",
         "framer-motion": "^7.10.3",
-        "react-a11y-dialog": "^6.2.0"
+        "react-a11y-dialog": "^6.2.0",
+        "date-fns": "^2.30.0"
     },
     "devDependencies": {
         "@rollup/plugin-terser": "^0.4.4",
