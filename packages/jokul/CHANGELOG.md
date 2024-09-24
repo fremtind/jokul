@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.8.1...@fremtind/jokul@0.9.0) (2024-09-24)
+
+### Bug Fixes
+
+- prefer clsx over classnames ([a5d2b43](https://github.com/fremtind/jokul/commit/a5d2b432f5a3f642f4e1a99c75b62c2f4e6341e5))
+
+### Features
+
+- add Accordion to jokul package ([5544594](https://github.com/fremtind/jokul/commit/55445940acaec2f082d73c393b8049ea6b7f9d31))
+- add Breadcrumb to jokul package ([9974788](https://github.com/fremtind/jokul/commit/997478820f0a1854d662c3c9bd93f21e62affd2a))
+- add Button to jokul package ([728d37f](https://github.com/fremtind/jokul/commit/728d37f110e0cabcbdfc580b844fa1d321bc572d))
+- add Checkbox to jokul package ([4671a3f](https://github.com/fremtind/jokul/commit/4671a3f2cfe9ac1592166916fec35071030ff494))
+- add Combobox to jokul package ([51a321b](https://github.com/fremtind/jokul/commit/51a321b409451234354094900fb84b1b7bed37f4))
+- add CookieConsent to jokul package ([a189791](https://github.com/fremtind/jokul/commit/a1897914099b4cca30cd5bbdd7d303a3c58e0ef3))
+- add List to jokul package ([97ca069](https://github.com/fremtind/jokul/commit/97ca069f00b2414315c62b5b5315cbbf714a4916))
+- add Modal to jokul package ([7b8944f](https://github.com/fremtind/jokul/commit/7b8944fdae702a8db48c2ac958dd59d4d955dcfa))
+- add RadioButton to jokul package ([a60db65](https://github.com/fremtind/jokul/commit/a60db65d7e724f32080966b0f105a35f254882fb))
+- add Select to jokul package ([5d1fede](https://github.com/fremtind/jokul/commit/5d1fedeba01a7eeeae5706a4508b826042e4881f))
+
 # [0.8.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.7.0...@fremtind/jokul@0.8.0) (2024-09-23)
 
 ### Bug Fixes
