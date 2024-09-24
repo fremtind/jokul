@@ -5,6 +5,7 @@ export * from "./input-group";
 export * from "./link";
 export * from "./link-list";
 export * from "./loader";
+export * from "./radio-button";
 export * from "./tag";
 export * from "./tooltip";
 export { ScreenReaderOnly, type ScreenReaderOnlyProps } from "./ScreenReaderOnly";

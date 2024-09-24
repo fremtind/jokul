@@ -3,7 +3,7 @@ import cn from "classnames";
 import type { Language } from "prism-react-renderer";
 import React, { type FC, useCallback, useEffect, useState } from "react";
 import { Checkbox } from "../../packages/checkbox-react/src";
-import type { ColorScheme, Density, ValuePair } from "../../packages/core/src";
+import type { ColorScheme, Density, ValuePair } from "../../packages/jokul/src";
 import { RadioButton, RadioButtonGroup } from "../../packages/radio-button-react/src";
 import { useBrowserPreferences, useId, usePreviousValue } from "../../packages/react-hooks/src";
 import { Select } from "../../packages/select-react/src";
