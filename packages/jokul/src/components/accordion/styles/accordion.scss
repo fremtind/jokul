@@ -1,0 +1,147 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+.jkl-accordion {
+    width: 100%;
+
+    @include jkl.comfortable-density {
+        --title-padding: var(--jkl-spacing-16) #{jkl.rem(48px)} var(--jkl-spacing-16) var(--jkl-spacing-16);
+        --arrow-top: #{jkl.rem(20px)};
+        --arrow-right: var(--jkl-spacing-12);
+        --content-padding: var(--jkl-spacing-8) var(--jkl-spacing-16) var(--jkl-spacing-16);
+        @include jkl.declare-font-variables("title", "body");
+        @include jkl.declare-font-variables("content", "body");
+
+        @include jkl.small-device {
+            --title-padding: var(--jkl-spacing-12) #{jkl.rem(44px)} var(--jkl-spacing-12) var(--jkl-spacing-12);
+            --content-padding: var(--jkl-spacing-8) var(--jkl-spacing-12) var(--jkl-spacing-16) var(--jkl-spacing-12);
+            --arrow-top: #{jkl.rem(23px)};
+        }
+    }
+
+    @include jkl.compact-density {
+        --title-padding: var(--jkl-spacing-8) #{jkl.rem(32px)} var(--jkl-spacing-8) var(--jkl-spacing-8);
+        --arrow-top: var(--jkl-spacing-8);
+        --arrow-right: var(--jkl-spacing-4);
+        --content-padding: var(--jkl-spacing-8);
+        @include jkl.declare-font-variables("title", "small");
+        @include jkl.declare-font-variables("content", "small");
+    }
+}
+
+.jkl-accordion-item {
+    --background: transparent;
+    --text-color: var(--jkl-color-text-default);
+    --title-text-color: var(--jkl-color-text-interactive);
+    --border-color: var(--jkl-color-border-separator);
+
+    background-color: var(--background);
+    color: var(--text-color);
+    border-bottom: jkl.rem(1px) solid var(--border-color);
+
+    @include jkl.motion("standard", "snappy", border-color);
+
+    &:hover {
+        --border-color: var(--jkl-color-border-separator-hover);
+
+        &:not(:first-child) {
+            border-top: jkl.rem(1px) solid var(--border-color);
+        }
+    }
+
+    &:has(+ [open]),
+    &:has(+ :hover) {
+        border-bottom: none;
+    }
+
+    &[open] {
+        --background: var(--jkl-color-background-container-high);
+        border-top: jkl.rem(1px) solid var(--border-color);
+
+        .jkl-accordion-item__title {
+            @include jkl.no-grow-bold;
+        }
+    }
+
+    &__title {
+        @include jkl.use-font-variables("title");
+
+        cursor: pointer;
+        color: var(--title-text-color);
+        list-style: none;
+        background-color: transparent;
+        position: relative;
+        padding: var(--title-padding);
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+
+        @include jkl.reset-outline;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:hover {
+            --title-text-color: var(--jkl-color-text-interactive-hover);
+
+            .jkl-accordion-item__arrow {
+                translate: 0 jkl.rem(4px);
+            }
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline($offset: 0);
+        }
+    }
+
+    &__arrow {
+        pointer-events: none;
+        position: absolute;
+        right: var(--arrow-right);
+        top: var(--arrow-top);
+
+        @include jkl.motion("standard", "snappy");
+        transition-property: translate;
+
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
+    }
+
+    &__content-wrapper {
+        @include jkl.motion;
+        transition-property: height;
+    }
+
+    &__content {
+        @include jkl.use-font-variables("content");
+        height: auto;
+        padding: var(--content-padding);
+    }
+
+    @include jkl.forced-colors-mode {
+        &:nth-child(n) {
+            border-top: jkl.rem(2px) solid ButtonText;
+
+            &:hover {
+                border-top: jkl.rem(2px) solid ButtonText;
+
+                + .jkl-accordion-item {
+                    border-top: jkl.rem(2px) solid ButtonText;
+                }
+            }
+        }
+
+        &:last-child {
+            border-bottom: jkl.rem(2px) solid ButtonText;
+
+            &:hover {
+                border-bottom: jkl.rem(2px) solid ButtonText;
+            }
+        }
+
+        &__title {
+            background-color: ButtonFace;
+            outline: revert;
+        }
+    }
+}
