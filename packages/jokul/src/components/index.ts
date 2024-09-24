@@ -4,6 +4,7 @@ export * from "./button";
 export * from "./card";
 export * from "./checkbox";
 export * from "./combobox";
+export * from "./cookie-consent";
 export * from "./icon";
 export * from "./icon-button";
 export * from "./input-group";
