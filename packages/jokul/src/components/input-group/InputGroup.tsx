@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, type CSSProperties, type ReactNode } from "react";
 import { type WithOptionalChildren, type Density, type DataTestAutoId } from "../../core";
 import { useId } from "../../hooks";
@@ -76,7 +76,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>((props, re
     return (
         <div
             ref={ref}
-            className={cn(className, "jkl-input-group", {
+            className={clsx(className, "jkl-input-group", {
                 "jkl-input-group--inline": inline,
             })}
             data-density={density}
