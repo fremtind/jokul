@@ -25,6 +25,7 @@
         "./src/components/link/styles",
         "./src/components/link-list/styles",
         "./src/components/loader/styles",
+        "./src/components/radio-button/styles",
         "./src/components/tag/styles"
     ],
     "exports": {
@@ -64,6 +65,7 @@
         "./styles/link/*": "./src/components/link/styles/*",
         "./styles/link-list/*": "./src/components/link-list/styles/*",
         "./styles/loader/*": "./src/components/loader/styles/*",
+        "./styles/radio-button/*": "./src/components/radio-button/styles/*",
         "./styles/tag/*": "./src/components/tag/styles/*",
         "./styles/tooltip/*": "./src/components/tooltip/styles/*"
     },
