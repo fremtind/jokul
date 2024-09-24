@@ -9,6 +9,7 @@ export * from "./icon-button";
 export * from "./input-group";
 export * from "./link";
 export * from "./link-list";
+export * from "./list";
 export * from "./loader";
 export * from "./radio-button";
 export * from "./select";
