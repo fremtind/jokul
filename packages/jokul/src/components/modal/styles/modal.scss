@@ -1,0 +1,100 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-modal-body", "body");
+    @include jkl.declare-font-variables("jkl-modal-title", "heading-3");
+
+    --jkl-modal-padding: #{jkl.$spacing-40};
+    --jkl-modal-min-width: #{jkl.rem(220px)};
+    --jkl-modal-max-width: #{jkl.rem(660px)};
+    --jkl-modal-header-margin: 0 0 #{jkl.$spacing-24};
+    --jkl-modal-actions-margin: #{jkl.$spacing-40} 0 0 0;
+
+    @include jkl.small-device {
+        --jkl-modal-padding: #{jkl.$spacing-32};
+        --jkl-modal-header-margin: 0 0 #{jkl.$spacing-16};
+        --jkl-modal-actions-margin: #{jkl.$spacing-32} 0 0 0;
+    }
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-modal-body", "small");
+    @include jkl.declare-font-variables("jkl-modal-title", "heading-4");
+
+    --jkl-modal-padding: #{jkl.$spacing-24};
+    --jkl-modal-header-margin: 0 0 #{jkl.$spacing-12};
+    --jkl-modal-actions-margin: #{jkl.$spacing-24} 0 0 0;
+    --jkl-modal-min-width: #{jkl.rem(220px)};
+}
+
+.jkl-modal-container,
+.jkl-modal-overlay {
+    position: fixed;
+    inset: 0;
+}
+
+.jkl-modal-container {
+    z-index: jkl.$z-index--modal;
+    display: flex;
+
+    &[aria-hidden="true"] {
+        display: none;
+    }
+}
+
+.jkl-modal-overlay {
+    background-color: rgba(27 25 23 / 80%);
+}
+
+.jkl-modal {
+    margin: auto;
+    z-index: jkl.$z-index--modal;
+    position: relative;
+
+    background-color: var(--jkl-color-background-container-high);
+    border-radius: jkl.rem(2px);
+    box-shadow: jkl.$shadow-task-card;
+
+    width: 100%;
+    min-width: var(--jkl-modal-min-width);
+    max-width: var(--jkl-modal-max-width);
+    max-height: 90vh;
+    overflow: auto;
+
+    padding: var(--jkl-modal-padding);
+    display: flex;
+    flex-direction: column;
+
+    @include jkl.forced-colors-mode {
+        border-color: CanvasText;
+    }
+
+    @include jkl.small-device {
+        margin: auto jkl.$spacing-24;
+    }
+}
+
+.jkl-modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--jkl-modal-header-margin);
+    gap: var(--jkl-modal-gap);
+}
+
+.jkl-modal-body {
+    @include jkl.use-font-variables("jkl-modal-body");
+}
+
+.jkl-modal-title {
+    @include jkl.use-font-variables("jkl-modal-title");
+}
+
+.jkl-modal-actions {
+    margin: var(--jkl-modal-actions-margin);
+    display: flex;
+    flex-direction: row;
+    gap: jkl.$spacing-16;
+}
