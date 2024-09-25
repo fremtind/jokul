@@ -1,0 +1,89 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+@include jkl.comfortable-density-variables {
+    --jkl-tab-padding: var(--jkl-spacing-8) var(--jkl-spacing-40) var(--jkl-spacing-12) var(--jkl-spacing-2);
+
+    @include jkl.declare-font-variables("jkl-tab", "body");
+    @include jkl.small-device {
+        --jkl-tab-padding: var(--jkl-spacing-8) var(--jkl-spacing-24) var(--jkl-spacing-12) var(--jkl-spacing-2);
+    }
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-tab", "small");
+
+    --jkl-tab-padding: var(--jkl-spacing-2) var(--jkl-spacing-32) var(--jkl-spacing-4) 0;
+}
+
+.jkl-tabs {
+    scroll-snap-type: x proximity;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.jkl-tablist {
+    --text-color: var(--jkl-color-text-interactive);
+    --line-color: var(--jkl-color-border-separator);
+    --indicator-color: var(--jkl-color-border-separator-hover);
+
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    border-bottom: 1px solid var(--line-color);
+    min-width: fit-content;
+    width: 100%;
+
+    &__indicator {
+        position: absolute;
+        height: 2px;
+        background-color: var(--indicator-color);
+        @include jkl.motion("standard", "lazy");
+        transition-property: left, width;
+        will-change: left, width;
+
+        @include jkl.forced-colors-mode {
+            background-color: Highlight;
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        border-color: GrayText;
+    }
+}
+
+.jkl-tab {
+    @include jkl.use-font-variables("jkl-tab");
+    color: var(--text-color);
+    padding: var(--jkl-tab-padding);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    scroll-margin-inline-start: var(--jkl-spacing-16);
+    scroll-snap-align: start;
+    text-decoration: none;
+    white-space: nowrap;
+
+    @include jkl.reset-outline;
+
+    &:hover {
+        --text-color: var(--jkl-color-text-interactive-hover);
+    }
+
+    &:focus-visible {
+        @include jkl.focus-outline($offset: -2px);
+    }
+
+    &[aria-selected="true"] {
+        @include jkl.no-grow-bold;
+    }
+}
