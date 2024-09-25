@@ -1,0 +1,84 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+@mixin _expanded-arrow($px) {
+    .jkl-expander__arrow {
+        transform: translateY(jkl.rem($px));
+    }
+}
+
+.jkl-expander {
+    --color: var(--jkl-color-text-interactive);
+
+    $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
+    $_focus-ring-width: jkl.rem(2px);
+    list-style: none;
+
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--color);
+    padding: 0;
+    transition: transform $_animation-timing, border $_animation-timing;
+    min-width: unset;
+    position: relative;
+
+    @include jkl.reset-outline;
+
+    &::-webkit-details-marker {
+        display: none;
+    }
+
+    &:focus-visible {
+        border: none;
+
+        @include jkl.focus-outline;
+        @include _expanded-arrow(3px);
+    }
+
+    &:focus-visible,
+    &:hover {
+        --color: var(--jkl-color-text-interactive-hover);
+    }
+
+    &--expanded {
+        @include jkl.no-grow-bold;
+    }
+
+    &--icon-only {
+        .jkl-expander__arrow {
+            margin: jkl.$spacing-4 jkl.$spacing-8;
+        }
+    }
+
+    // Bevisst nøstet for høyere specificity enn icons uavhengig av importrekkefølge.
+    .jkl-expander__arrow {
+        transition-property: transform;
+
+        display: inline-block;
+        margin-left: jkl.$spacing-2;
+        margin-bottom: -0.15em;
+
+        @include jkl.motion;
+    }
+
+    @include jkl.forced-colors-mode {
+        &,
+        &::after {
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
+        }
+    }
+}
+
+.jkl-expand-section {
+    &__content-wrapper {
+        transition-property: height;
+        @include jkl.motion;
+    }
+
+    &__content {
+        height: auto;
+        padding: jkl.$spacing-16 0 jkl.$spacing-40 0;
+    }
+}
