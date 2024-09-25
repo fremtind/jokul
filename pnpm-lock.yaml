@@ -748,6 +748,7 @@ importers:
       date-fns: ^2.30.0
       framer-motion: '>7.10.2 <12'
       glob: ^11.0.0
+      nanoid: ^3.3.6
       postcss: ^8.4.24
       react-a11y-dialog: ^6.2.0
       react-hook-form: ^7.44.3
@@ -771,6 +772,7 @@ importers:
       cssnano: 7.0.6_postcss@8.4.41
       cssnano-preset-lite: 4.0.3_postcss@8.4.41
       glob: 11.0.0
+      nanoid: 3.3.7
       postcss: 8.4.41
       react-hook-form: 7.44.3
       rollup-plugin-node-externals: 7.1.3
@@ -7236,7 +7238,7 @@ packages:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.7.23
-      vite: 5.4.2
+      vite: 5.4.2_sass-embedded@1.78.0
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -10491,6 +10493,7 @@ packages:
   /date-fns/2.30.0:
     resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
     engines: {node: '>=0.11'}
+    requiresBuild: true
     dependencies:
       '@babel/runtime': 7.22.3
     dev: false
@@ -12838,6 +12841,7 @@ packages:
 
   /framer-motion/11.5.6:
     resolution: {integrity: sha512-JMwUpAxv/DWgul9vPgX0ElKn0G66sUc6O9tOXsYwn3zxwvhxFljSXC0XT2QCzuTYBshwC8nyDAa1SYcV0Ldbhw==}
+    requiresBuild: true
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0
@@ -18309,6 +18313,7 @@ packages:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+    dev: false
 
   /nanoid/3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
@@ -20583,7 +20588,7 @@ packages:
     resolution: {integrity: sha512-M0RzbcI0sO/XJNucsGjvWU9ERWxb/ytp1w6dKtxTKgixdtQDq4rmx/g8W1hnaheq9jgwL/oyEdH5Bc4WwJKMqg==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.3.6
+      nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
@@ -20967,6 +20972,7 @@ packages:
 
   /react-a11y-dialog/6.2.0:
     resolution: {integrity: sha512-/oW5vUjBDD4FvbF8L8K4RKStdro3J7V65ghhEgfWZmfqGW/+5bxpA6OZlChYgIUh47IlZvaBhL78ItBNIp1zHg==}
+    requiresBuild: true
     peerDependencies:
       prop-types: ^15.6.0
       react: '>=16.0.0'
@@ -24617,7 +24623,7 @@ packages:
       kolorist: 1.8.0
       local-pkg: 0.5.0
       magic-string: 0.30.11
-      vite: 5.4.2
+      vite: 5.4.2_sass-embedded@1.78.0
       vue-tsc: 2.0.29
     transitivePeerDependencies:
       - '@types/node'

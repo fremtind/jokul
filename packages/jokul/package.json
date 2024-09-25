@@ -46,6 +46,7 @@
         "./src/components/summary-table/styles",
         "./src/components/system-message/styles",
         "./src/components/table/styles",
+        "./src/components/tabs/styles",
         "./src/components/tag/styles",
         "./src/components/text-input/styles",
         "./src/components/tooltip/styles"
@@ -108,6 +109,7 @@
         "./styles/summary-table/*": "./src/components/summary-table/styles/*",
         "./styles/system-message/*": "./src/components/system-message/styles/*",
         "./styles/table/*": "./src/components/table/styles/*",
+        "./styles/tabs/*": "./src/components/tabs/styles/*",
         "./styles/tag/*": "./src/components/tag/styles/*",
         "./styles/text-input/*": "./src/components/text-input/styles/*",
         "./styles/tooltip/*": "./src/components/tooltip/styles/*"
@@ -136,6 +138,7 @@
         "cssnano": "^7.0.6",
         "cssnano-preset-lite": "^4.0.3",
         "glob": "^11.0.0",
+        "nanoid": "^3.3.6",
         "postcss": "^8.4.24",
         "react-hook-form": "^7.44.3",
         "rollup-plugin-node-externals": "^7.1.3",
