@@ -43,6 +43,7 @@
         "./src/components/select/styles",
         "./src/components/summary-table/styles",
         "./src/components/system-message/styles",
+        "./src/components/table/styles",
         "./src/components/tag/styles",
         "./src/components/text-input/styles",
         "./src/components/tooltip/styles"
@@ -102,6 +103,7 @@
         "./styles/select/*": "./src/components/select/styles/*",
         "./styles/summary-table/*": "./src/components/summary-table/styles/*",
         "./styles/system-message/*": "./src/components/system-message/styles/*",
+        "./styles/table/*": "./src/components/table/styles/*",
         "./styles/tag/*": "./src/components/tag/styles/*",
         "./styles/text-input/*": "./src/components/text-input/styles/*",
         "./styles/tooltip/*": "./src/components/tooltip/styles/*"

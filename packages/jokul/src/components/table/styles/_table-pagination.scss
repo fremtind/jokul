@@ -1,0 +1,121 @@
+@use "../../../core/jkl";
+
+.jkl-table-pagination {
+    display: flex;
+    gap: jkl.$spacing-16;
+    flex-direction: column;
+    width: 100%;
+
+    @include jkl.from-medium-device {
+        flex-direction: row;
+        gap: jkl.$spacing-12;
+        justify-content: space-between;
+    }
+
+    &__left {
+        flex-shrink: 1;
+    }
+
+    &__right {
+        flex-grow: 1;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    &__picker {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        white-space: nowrap;
+
+        &--page {
+            padding-inline-end: jkl.$spacing-24;
+            width: min(12rem, 100%);
+
+            @include jkl.from-medium-device {
+                justify-content: flex-end;
+            }
+        }
+
+        &--page &-input {
+            width: min(4rem, 100%);
+        }
+    }
+
+    &__picker-label {
+        margin-inline-end: jkl.$spacing-8;
+    }
+
+    &__nav {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: jkl.$spacing-16;
+
+        @include jkl.from-medium-device {
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: nowrap;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    $_button-size: jkl.rem(32px);
+
+    &__previous,
+    &__next,
+    &__page {
+        background: transparent;
+        color: var(--jkl-link-color);
+        border-radius: jkl.rem(3px);
+        cursor: pointer;
+        user-select: none;
+        padding: 0;
+        height: $_button-size;
+        min-width: $_button-size;
+
+        @include jkl.reset-outline;
+
+        &:hover:not(:focus) {
+            color: var(--jkl-link-hover-color);
+        }
+
+        html:not([data-mousenavigation]) &:focus {
+            outline: jkl.rem(2px) solid var(--jkl-link-active-color);
+            // outline-offset: jkl.rem(2px);
+        }
+    }
+
+    &__previous,
+    &__next {
+        padding-top: jkl.rem(2px);
+    }
+
+    &__ellipsis {
+        text-align: center;
+        vertical-align: bottom;
+        display: inline-block;
+        height: $_button-size;
+        width: $_button-size;
+    }
+
+    &__page {
+        &--active {
+            @include jkl.no-grow-bold;
+        }
+    }
+}
