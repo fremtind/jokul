@@ -1,0 +1,65 @@
+@use "@fremtind/jkl-core/jkl";
+
+@include jkl.comfortable-density-variables {
+    --jkl-menu-item-height: #{jkl.rem(48px)};
+    --jkl-menu-item-padding: #{jkl.$spacing-8} #{jkl.$spacing-24};
+    @include jkl.declare-font-variables("jkl-menu-item", "body");
+}
+
+@include jkl.compact-density-variables {
+    --jkl-menu-item-height: jkl.rem(32px);
+    --jkl-menu-item-padding: #{jkl.$spacing-4} #{jkl.$spacing-12};
+    @include jkl.declare-font-variables("jkl-menu-item", "small");
+}
+
+.jkl-menu-item {
+    --background-color: var(--jkl-color-background-interactive);
+
+    background-color: var(--background-color);
+    color: var(--jkl-color-text-default);
+    cursor: pointer;
+
+    box-sizing: border-box;
+    user-select: none;
+    @include jkl.use-font-variables("jkl-menu-item");
+    display: flex;
+    align-items: center;
+    gap: jkl.$spacing-8;
+    width: 100%;
+    height: var(--jkl-menu-item-height);
+    padding: var(--jkl-menu-item-padding);
+
+    @include jkl.reset-outline;
+
+    &__content {
+        display: flex;
+        gap: jkl.$spacing-4;
+        justify-content: flex-start;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        flex-grow: 1;
+        flex-shrink: 1;
+        max-width: 100%;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    &__arrow {
+        display: flex;
+        align-items: center;
+    }
+
+    &__chevron {
+        flex-shrink: 0;
+    }
+
+    &:hover,
+    &:focus-visible {
+        --background-color: var(--jkl-color-background-interactive-hover);
+    }
+}
