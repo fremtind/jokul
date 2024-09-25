@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.10.0...@fremtind/jokul@0.10.1) (2024-09-25)
+
+### Bug Fixes
+
+- add export for Image components ([bc1c8da](https://github.com/fremtind/jokul/commit/bc1c8dacaf1ee9637f5f2440ec253dbbcc901820))
+
 # [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.9.0...@fremtind/jokul@0.10.0) (2024-09-25)
 
 ### Features
