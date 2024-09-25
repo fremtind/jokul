@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jokul",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "type": "module",
     "publishConfig": {
         "access": "public"
@@ -103,9 +103,9 @@
     },
     "optionalDependencies": {
         "@floating-ui/react": "^0.24.2",
+        "date-fns": "^2.30.0",
         "framer-motion": "^7.10.3",
-        "react-a11y-dialog": "^6.2.0",
-        "date-fns": "^2.30.0"
+        "react-a11y-dialog": "^6.2.0"
     },
     "devDependencies": {
         "@rollup/plugin-terser": "^0.4.4",
