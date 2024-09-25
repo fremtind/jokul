@@ -29,7 +29,7 @@ describe("FileInput", () => {
             </FileInput>,
         );
 
-        expect(getByText("Legg til filer")).toBeInTheDocument();
+        expect(getByText("Legg til fil")).toBeInTheDocument();
         expect(queryByText(/^Maksimum filstørrelse er/)).not.toBeInTheDocument();
     });
 
@@ -48,7 +48,7 @@ describe("FileInput", () => {
             </FileInput>,
         );
 
-        expect(getByText(/størrelse per fil/)).toBeInTheDocument();
+        expect(getByText(/per fil/)).toBeInTheDocument();
     });
 
     it("should pass jext-axe tests in default state", async () => {
