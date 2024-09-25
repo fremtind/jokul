@@ -122,6 +122,7 @@
     "scripts": {
         "generate:tokens": "node tokens.build.mjs",
         "build": "pnpm run /compile:*/",
+        "dev": "babel --out-dir=. dev-server.mjs && node dev-server.js",
         "compile:style": "node build-styles.mjs",
         "compile:scripts": "vite build --config vite.build.config.mjs"
     },
@@ -137,6 +138,8 @@
         "react-a11y-dialog": "^6.2.0"
     },
     "devDependencies": {
+        "@babel/cli": "^7.25.6",
+        "@babel/preset-react": "^7.24.7",
         "@rollup/plugin-terser": "^0.4.4",
         "@vitejs/plugin-react-swc": "^3.7.0",
         "autoprefixer": "^10.4.14",
@@ -145,6 +148,8 @@
         "cssnano": "^7.0.6",
         "cssnano-preset-lite": "^4.0.3",
         "glob": "^11.0.0",
+        "ink": "^5.0.1",
+        "ink-select-input": "^6.0.0",
         "nanoid": "^3.3.6",
         "postcss": "^8.4.24",
         "react-hook-form": "^7.44.3",
@@ -161,5 +166,10 @@
     },
     "bugs": {
         "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-react"
+        ]
     }
 }

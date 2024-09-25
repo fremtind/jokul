@@ -1,10 +1,11 @@
-@use "../../packages/core/jkl";
-@use "../../packages/icons/icons";
-@use "../../packages/checkbox/checkbox";
-@use "../../packages/input-group/input-group";
-@use "../../packages/button/button";
-@use "../../packages/select/select";
-@use "../../packages/radio-button/radio-button";
+@use "../../packages/jokul/src/core/jkl";
+@use "../../packages/jokul/src/components/icon/styles/icon.scss";
+@use "../../packages/jokul/src/components/checkbox/styles/checkbox";
+@use "../../packages/jokul/src/components/input-group/styles/input-group";
+@use "../../packages/jokul/src/components/button/styles/button";
+@use "../../packages/jokul/src/components/select/styles/select";
+@use "../../packages/jokul/src/components/radio-button/styles/radio-button";
+
 @use "../../packages/webfonts/webfonts";
 
 @include jkl.light-mode-variables {

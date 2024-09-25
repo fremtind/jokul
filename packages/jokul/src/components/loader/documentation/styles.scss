@@ -1,0 +1,11 @@
+.jkl-skeleton-loader-example,
+.jkl-loader-example {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    > *:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+}
