@@ -1316,7 +1316,7 @@ importers:
       '@fremtind/jkl-constants-util': link:../packages/constants-util
       '@fremtind/jkl-contact-information-react': link:../packages/contact-information-react
       '@fremtind/jkl-content-toggle-react': link:../packages/content-toggle-react
-      '@fremtind/jkl-contextual-menu-react': link:../packages/contextual-menu-react
+      '@fremtind/jkl-contextual-menu-react': link:../packages/menu-react
       '@fremtind/jkl-cookie-consent-react': link:../packages/cookie-consent-react
       '@fremtind/jkl-core': link:../packages/core
       '@fremtind/jkl-datepicker-react': link:../packages/datepicker-react
