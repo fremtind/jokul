@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.11.0...@fremtind/jokul@0.12.0) (2024-09-25)
+
+### Bug Fixes
+
+- move from classnames to clsx ([85e23cf](https://github.com/fremtind/jokul/commit/85e23cfef5e5dd339c2eda08131f21713c3e8b3f))
+
+### Features
+
+- move feedback to jokul package ([73bc727](https://github.com/fremtind/jokul/commit/73bc72715babacf6b6df6a4f102f4af6a0127b8c))
+- move Message to jokul package ([0e848d0](https://github.com/fremtind/jokul/commit/0e848d031b9ee356178d0627f96252bbbb38ae33))
+- moved validators to jokul package ([9d81d98](https://github.com/fremtind/jokul/commit/9d81d985968fc3221edc41b2d37360e0350ea939))
+
 # 0.11.0 (2024-09-25)
 
 ### Bug Fixes
