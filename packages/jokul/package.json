@@ -31,6 +31,7 @@
         "./src/components/expander/styles",
         "./src/components/icon/styles",
         "./src/components/icon-button/styles",
+        "./src/components/input-group/styles",
         "./src/components/image/styles",
         "./src/components/link/styles",
         "./src/components/link-list/styles",
