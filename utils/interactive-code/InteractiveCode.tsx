@@ -2,11 +2,11 @@ import { kebab, snake } from "case";
 import cn from "classnames";
 import type { Language } from "prism-react-renderer";
 import React, { type FC, useCallback, useEffect, useState } from "react";
-import { Checkbox } from "../../packages/checkbox-react/src";
 import type { ColorScheme, Density, ValuePair } from "../../packages/jokul/src";
 import { RadioButton, RadioButtonGroup } from "../../packages/jokul/src/components";
+import { Checkbox } from "../../packages/jokul/src/components/checkbox";
+import { Select } from "../../packages/jokul/src/components/select";
 import { useBrowserPreferences, useId, usePreviousValue } from "../../packages/jokul/src/hooks";
-import { Select } from "../../packages/select-react/src";
 import { LiveEditor } from "./LiveEditor";
 import { LiveError } from "./LiveError";
 import { LivePreview } from "./LivePreview";
@@ -14,6 +14,9 @@ import { LiveProvider } from "./LiveProvider";
 import { useLocalStorage } from "./useLocalStorage";
 
 import "./_interactive-code.scss";
+
+import "../../packages/jokul/src/core/styles/core.scss";
+import "../../packages/jokul/src/components/radio-button/styles/_index.scss";
 
 type BoolValues = Record<string, boolean>;
 type ChoiceValues = Record<string, string | ValuePair>;
@@ -73,7 +76,7 @@ export interface InteractiveCodeProps {
     /**
      * Tenk over om disse krever at vi sender med en codegen-funksjon som tar noe props? I stedet for å hacke til med value lik masse kode.
      */
-    controls?: ControlProps;
+    controls: ControlProps;
     /**
      * Sett til `true` om du har kode i eksempelet som _ikke_ er React-komponenter.
      *
@@ -127,7 +130,7 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
     );
 
     const [code, setCode] = useState<string>(
-        defaultCode ||
+        (defaultCode && controls.generator({ boolValues, choiceValues })) ||
             examples?.[0].value ||
             controls?.generator({
                 boolValues,

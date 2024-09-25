@@ -26,8 +26,7 @@
     "scripts": {
         "clean": "git clean -xfd",
         "build": "vite build --config vite.build.config.mjs",
-        "test": "jest --testMatch '**/accordion-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
-        "dev": "vite --config vite.dev.config.ts --port 3000"
+        "test": "jest --testMatch '**/accordion-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js"
     },
     "dependencies": {
         "@fremtind/jkl-accordion": "^12.0.10",
