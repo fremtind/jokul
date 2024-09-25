@@ -1,0 +1,89 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-logo-color: #{jkl.$color-granitt};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-logo-color: #{jkl.$color-snohvit};
+}
+
+.jkl-logo {
+    color: var(--jkl-logo-color);
+
+    // I valget mellom å følge merkevaren og å være lesbar velger vi å være lesbar.
+    @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
+
+    &__F {
+        transform-origin: 30px 132px; /* Is connected to the viewbox of the logo, change at your own risk */
+
+        &-line {
+            transform-origin: 34.3px; /* Must be the same as the line x1 origin, change at your own risk */
+        }
+    }
+
+    &__remtind {
+        opacity: 1;
+    }
+
+    &--symbol-only {
+        & .jkl-logo__F {
+            transform: rotate(45deg);
+
+            &-line {
+                transform: scaleX(1.5);
+            }
+        }
+
+        & .jkl-logo__remtind {
+            transition-delay: 0ms;
+            opacity: 0;
+            transform: translateX(-5%);
+        }
+    }
+
+    &--animated {
+        & .jkl-logo__F {
+            transition: transform jkl.timing("expressive") jkl.timing("energetic") cubic-bezier(0.5, 0, 0.62, 1);
+        }
+
+        & .jkl-logo__F-line {
+            transition: transform jkl.timing("expressive") ease-in;
+        }
+
+        & .jkl-logo__remtind {
+            transition: opacity jkl.timing("expressive") jkl.timing("energetic") ease-in,
+                transform jkl.timing("expressive") ease;
+        }
+    }
+}
+
+.jkl-logo--centered.jkl-logo--symbol-only {
+    & .jkl-logo__F {
+        transform: translateX(35%) rotate(45deg);
+    }
+}
+
+.jkl-logo-stamp {
+    color: var(--logo-stamp-color);
+
+    // I valget mellom å følge merkevaren og å være lesbar velger vi å være lesbar.
+    @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
+
+    &--animated {
+        .jkl-logo-stamp__text {
+            transform-origin: 256px 256px;
+            transition-timing-function: cubic-bezier(0.75, 0, 0, 1);
+            transition-duration: jkl.timing("productive");
+            transition-property: transform;
+        }
+
+        &[data-rotate="true"] {
+            .jkl-logo-stamp__text {
+                transition-duration: 1500ms;
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
