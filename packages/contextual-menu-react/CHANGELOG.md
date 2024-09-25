@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.6.0 (2024-09-25)
+
+### Bug Fixes
+
+- bruk riktigere version range for framer motion ([5224e9b](https://github.com/fremtind/jokul/commit/5224e9b320893a237f6cf48741b2a1ac4fb74d51))
+
+### Features
+
+- reduser bundle-size for framer og tillat flere versjoner ([94cc27a](https://github.com/fremtind/jokul/commit/94cc27aad9c0b5de15472ce916e5c3ba8b9af793))
+
 # 3.5.0 (2024-09-17)
 
 ### Features

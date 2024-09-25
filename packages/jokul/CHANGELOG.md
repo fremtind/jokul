@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.11.0 (2024-09-25)
+
+### Bug Fixes
+
+- eksporter popover ut fgra components mappen ([2f72ea5](https://github.com/fremtind/jokul/commit/2f72ea5a5950314163b81f0d08855775c155d0e9))
+
+### Features
+
+- flytt popover til jokul pakken (monorepo) ([2df7993](https://github.com/fremtind/jokul/commit/2df79935c5714381bce6f3791906dbc8aacb21d4))
+- reduser bundle size for framer-motion ([991b966](https://github.com/fremtind/jokul/commit/991b96665d966597f54aae277bd0c8b7a926271c))
+
 ## [0.10.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.10.0...@fremtind/jokul@0.10.1) (2024-09-25)
 
 ### Bug Fixes
