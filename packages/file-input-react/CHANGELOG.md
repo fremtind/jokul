@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.31 (2024-09-25)
+
+### Bug Fixes
+
+- sync kode med figma design ([dd1a659](https://github.com/fremtind/jokul/commit/dd1a6591dc8701e0039d902d6f3da01d676ed2c2))
+- ta i bruk utils klasser for å korrekt sette font-size og font-weight ([12338bc](https://github.com/fremtind/jokul/commit/12338bc7e11177e2dbca15ae5ffb3ea3fe2d20de))
+
 ## 2.3.28 (2024-09-18)
 
 ### Bug Fixes
