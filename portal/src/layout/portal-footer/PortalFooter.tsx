@@ -2,11 +2,11 @@ import { useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
 import { Feedback } from "@fremtind/jkl-feedback-react";
 import { LogoStamp, TeknologiFraFremtind } from "@fremtind/jkl-logo-react";
 import cn from "classnames";
-import { Link } from "packages/core";
 import React from "react";
 import { useAnalytics, EventName } from "../../analytics";
 import { useLocation } from "../locationContext";
 import { Cookies } from "./Cookies";
+import { Footer } from "./Footer";
 import "./portal-footer.scss";
 
 export interface PortalFooterProps {
@@ -75,22 +75,15 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
                     <TeknologiFraFremtind />
                 </LogoStamp>
             </div>
-            <footer className={cn("jkl-footer", className)}>
-                <p className="jkl-footer__description">Jøkul er designsystemet til Fremtind Forsikring</p>
-                <div className="jkl-footer__links">
-                    <ul>
-                        <Link href="https://www.fremtind.no/personvern/" external={true}>
-                            Personvernserklæring
-                        </Link>
-                        <Link href="https://github.com/fremtind/jokul" external={true}>
-                            Jøkul på GitHub
-                        </Link>
-                        <Link href="https://jobb.fremtind.no" external={true}>
-                            Jobb i Fremtind
-                        </Link>
-                    </ul>
-                </div>
-            </footer>
+            <Footer
+                heading="Jøkul er designsystemet til Fremtind Forsikring"
+                links={[
+                    { external: false, component: Cookies, title: "Bruk av informasjonskapsler" },
+                    { external: true, href: "https://www.fremtind.no/personvern/", title: "Personvernserklæring" },
+                    { external: true, href: "https://github.com/fremtind/jokul", title: "Jøkul på GitHub" },
+                    { external: true, href: "https://jobb.fremtind.no", title: "Jobb i Fremtind" },
+                ]}
+            />
         </div>
     );
 };
