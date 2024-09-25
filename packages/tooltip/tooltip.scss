@@ -89,6 +89,7 @@ $_focus-ring-width: jkl.rem(2px);
     @include jkl.motion("exit", "snappy");
     transition-property: color;
     cursor: pointer;
+    position: relative;
     background-color: transparent;
     padding: 0;
     display: inline-flex;
@@ -96,10 +97,25 @@ $_focus-ring-width: jkl.rem(2px);
     color: var(--button-color);
     transform: translateY(max(0.16em, jkl.rem(4px))); // Cap på 4px
     font-size: 1.2em;
+    border-radius: 9999px;
 
     @include jkl.reset-outline;
 
     &:hover {
         --button-color: var(--jkl-color-text-interactive-hover);
+    }
+
+    &:focus-visible {
+        @include jkl.focus-outline(0);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        min-width: 44px;
+        min-height: 44px;
     }
 }
