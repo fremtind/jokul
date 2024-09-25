@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.9.0...@fremtind/jokul@0.10.0) (2024-09-25)
+
+### Features
+
+- flytt datepicker og text-input til allpakka monorepo ([9e2f37f](https://github.com/fremtind/jokul/commit/9e2f37f59e0ace76bfad876aab4d7a87dd31c233))
+
 # [0.9.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.8.1...@fremtind/jokul@0.9.0) (2024-09-24)
 
 ### Bug Fixes
