@@ -31,5 +31,6 @@ export * from "./tabs";
 export * from "./tag";
 export * from "./text-input";
 export * from "./toast";
+export * from "./toggle-switch";
 export * from "./tooltip";
 export { ScreenReaderOnly, type ScreenReaderOnlyProps } from "./ScreenReaderOnly";

@@ -1,0 +1,132 @@
+@use "sass:color";
+@use "../../../core/jkl";
+
+$_slider-rounded: jkl.rem(100px);
+
+@include jkl.light-mode-variables {
+    --jkl-slider-bg: #{jkl.$color-varde};
+    --jkl-slider-pill: #{jkl.$color-snohvit};
+    --jkl-slider-pill-text: #{jkl.$color-granitt};
+    --jkl-slider-pill-text--active: #{jkl.$color-svart};
+    --jkl-slider-focus-color: #{jkl.$color-svart};
+    --jkl-slider-hover-color: #{jkl.$color-svart};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-slider-bg: #{jkl.$color-fjellgra};
+    --jkl-slider-pill: #{jkl.$color-granitt};
+    --jkl-slider-pill-text: #{jkl.$color-snohvit};
+    --jkl-slider-pill-text--active: #{jkl.$color-hvit};
+    --jkl-slider-focus-color: #{jkl.$color-svaberg};
+    --jkl-slider-hover-color: #{jkl.$color-hvit};
+}
+
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-slider", "body");
+
+    --jkl-slider-legend-font-size: var(--jkl-body-font-size);
+    --jkl-slider-legend-line-height: var(--jkl-body-line-height);
+    --jkl-slider-legend-font-weight: #{jkl.$typography-weight-bold};
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-slider", "small");
+
+    --jkl-slider-legend-font-size: var(--jkl-small-font-size);
+    --jkl-slider-legend-line-height: var(--jkl-small-line-height);
+    --jkl-slider-legend-font-weight: #{jkl.$typography-weight-bold};
+}
+
+.jkl-toggle-slider {
+    @include jkl.use-font-variables("jkl-slider");
+
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    user-select: none;
+
+    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
+        .jkl-toggle-slider__pill {
+            box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-slider-focus-color);
+        }
+    }
+
+    &__legend {
+        margin-bottom: jkl.$spacing-xs;
+        @include jkl.use-font-variables("jkl-slider-legend");
+
+        &--sr-only {
+            @include jkl.screenreader-only;
+        }
+    }
+
+    &__inputs {
+        $_slider-offset: 2px;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--jkl-slider-bg);
+        border-radius: $_slider-rounded;
+        border: $_slider-offset solid var(--jkl-slider-bg);
+    }
+
+    &__input {
+        position: absolute;
+        opacity: 0;
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        cursor: pointer;
+        padding: jkl.$spacing-3xs jkl.$spacing-m;
+        color: var(--jkl-slider-pill-text);
+        -webkit-tap-highlight-color: transparent;
+
+        /* Prevent really short labels to look like circles */
+        min-width: 30px;
+
+        &:hover {
+            color: var(--jkl-slider-hover-color);
+        }
+
+        &--selected {
+            @include jkl.no-grow-bold;
+            color: var(--jkl-slider-pill-text--active);
+        }
+    }
+
+    &__pill {
+        height: 100%;
+        background-color: var(--jkl-slider-pill);
+        position: absolute;
+        transition-property: width, transform;
+        border-radius: $_slider-rounded;
+        @include jkl.motion(standard, expressive);
+    }
+
+    @include jkl.from-medium-device {
+        flex-direction: row;
+        align-items: center;
+
+        &__legend {
+            margin-bottom: 0;
+            margin-right: 1.2em;
+        }
+    }
+
+    @include jkl.forced-colors-mode {
+        & .jkl-toggle-slider__inputs {
+            background-color: Canvas;
+        }
+
+        & .jkl-toggle-slider__pill {
+            background-color: ButtonFace;
+        }
+    }
+}
