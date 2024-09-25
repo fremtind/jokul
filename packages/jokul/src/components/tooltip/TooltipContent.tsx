@@ -1,6 +1,6 @@
 import { type Placement, useMergeRefs, FloatingPortal } from "@floating-ui/react";
 import clsx from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import React, { HTMLProps, forwardRef } from "react";
 import { useId } from "../../hooks";
 import { useTooltipContext } from "./Tooltip";
@@ -65,48 +65,50 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
 
     return (
         <FloatingPortal>
-            <AnimatePresence>
-                {/* For å kunne bruke tekstinnholdet i tooltip som beskrivende tekst, selv når ikke
+            <LazyMotion features={domAnimation}>
+                <AnimatePresence>
+                    {/* For å kunne bruke tekstinnholdet i tooltip som beskrivende tekst, selv når ikke
             tooltip er synlig, må vi rendre et skjult element å referere til for å hente innholdet. */}
-                {triggerOn === "hover" && (
-                    <span ref={refs.setDescription} hidden key={`${contentId}-trigger`}>
-                        {children}
-                    </span>
-                )}
-                {isOpen && (
-                    <span className="jkl" key={`${contentId}-wrapper`}>
-                        <motion.span
-                            key={contentId}
-                            ref={ref}
-                            initial={{ opacity: 0, ...getPositionAnimation(placement, 5) }}
-                            animate={{ opacity: 1, ...getPositionAnimation(placement, 0) }}
-                            exit={{
-                                opacity: 0,
-                                ...getPositionAnimation(placement, -5),
-                                transition: { ease: "easeIn", duration: 0.15 },
-                            }}
-                            transition={{ ease: "easeOut", duration: 0.25 }}
-                            data-placement={placement}
-                            aria-live={triggerOn === "click" ? "assertive" : undefined}
-                            className={clsx("jkl-tooltip-content", className)}
-                            {...getFloatingProps({ ...props, id: contentId })}
-                            style={{ ...floatingStyles }}
-                            data-theme={theme}
-                        >
+                    {triggerOn === "hover" && (
+                        <span ref={refs.setDescription} hidden key={`${contentId}-trigger`}>
                             {children}
-                            <span
-                                aria-hidden
-                                className="jkl-tooltip-content__arrow"
-                                ref={arrowElement}
-                                style={{
-                                    left: isPositioned ? `${arrow?.x}px` : "",
-                                    top: isPositioned ? `${arrow?.y}px` : "",
+                        </span>
+                    )}
+                    {isOpen && (
+                        <span className="jkl" key={`${contentId}-wrapper`}>
+                            <m.span
+                                key={contentId}
+                                ref={ref}
+                                initial={{ opacity: 0, ...getPositionAnimation(placement, 5) }}
+                                animate={{ opacity: 1, ...getPositionAnimation(placement, 0) }}
+                                exit={{
+                                    opacity: 0,
+                                    ...getPositionAnimation(placement, -5),
+                                    transition: { ease: "easeIn", duration: 0.15 },
                                 }}
-                            />
-                        </motion.span>
-                    </span>
-                )}
-            </AnimatePresence>
+                                transition={{ ease: "easeOut", duration: 0.25 }}
+                                data-placement={placement}
+                                aria-live={triggerOn === "click" ? "assertive" : undefined}
+                                className={clsx("jkl-tooltip-content", className)}
+                                {...getFloatingProps({ ...props, id: contentId })}
+                                style={{ ...floatingStyles }}
+                                data-theme={theme}
+                            >
+                                {children}
+                                <span
+                                    aria-hidden
+                                    className="jkl-tooltip-content__arrow"
+                                    ref={arrowElement}
+                                    style={{
+                                        left: isPositioned ? `${arrow?.x}px` : "",
+                                        top: isPositioned ? `${arrow?.y}px` : "",
+                                    }}
+                                />
+                            </m.span>
+                        </span>
+                    )}
+                </AnimatePresence>
+            </LazyMotion>
         </FloatingPortal>
     );
 });

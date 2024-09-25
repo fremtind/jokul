@@ -104,9 +104,9 @@
         "react": "^18.0.0"
     },
     "optionalDependencies": {
-        "@floating-ui/react": "^0.24.2",
+        "@floating-ui/react": ">0.24.1 <0.27",
         "date-fns": "^2.30.0",
-        "framer-motion": "^7.10.3",
+        "framer-motion": ">7.10.2 <12",
         "react-a11y-dialog": "^6.2.0"
     },
     "devDependencies": {
@@ -115,8 +115,8 @@
         "autoprefixer": "^10.4.14",
         "change-case": "^4.1.2",
         "clsx": "^2.1.1",
-        "cssnano": "^6.0.1",
-        "cssnano-preset-lite": "^3.0.0",
+        "cssnano": "^7.0.6",
+        "cssnano-preset-lite": "^4.0.3",
         "glob": "^11.0.0",
         "postcss": "^8.4.24",
         "react-hook-form": "^7.44.3",
