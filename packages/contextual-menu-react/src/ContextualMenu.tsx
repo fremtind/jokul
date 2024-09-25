@@ -29,11 +29,6 @@ import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useEffect
 import * as ReactIs from "react-is";
 import { useMenuWideEvents } from "./useMenuWideEvents";
 
-/**
- * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
- * Bruk heller komponenten `Menu` som er erstatning for ContextualMenu
- */
-
 export interface ContextualMenuProps
     extends DataTestAutoId,
         WithChildren,
@@ -263,6 +258,11 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
     );
 });
 ContextualMenuComponent.displayName = "ContextualMenuComponent";
+
+/**
+ * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
+ * Bruk heller komponenten `Menu` som er erstatning for ContextualMenu
+ */
 
 export const ContextualMenu = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, ref) => {
     const parentId = useFloatingParentNodeId();
