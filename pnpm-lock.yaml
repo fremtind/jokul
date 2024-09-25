@@ -759,6 +759,7 @@ importers:
       vite-plugin-dts: ^4.1.0
     optionalDependencies:
       '@floating-ui/react': 0.24.8
+      date-fns: 2.30.0
       framer-motion: 11.5.6
       react-a11y-dialog: 6.2.0
     devDependencies:
