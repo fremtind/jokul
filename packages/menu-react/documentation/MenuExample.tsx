@@ -1,7 +1,7 @@
 import { ErrorIcon, ChevronDownIcon } from "@fremtind/jkl-icons-react";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
-import { Button } from "../../button-react/build";
+import { Button } from "../../button-react";
 import { Menu } from "../src/Menu";
 import { MenuItem } from "../src/MenuItem";
 
