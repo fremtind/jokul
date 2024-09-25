@@ -13,6 +13,7 @@ export * from "./link";
 export * from "./link-list";
 export * from "./list";
 export * from "./loader";
+export * from "./message";
 export * from "./modal";
 export * from "./radio-button";
 export * from "./select";
