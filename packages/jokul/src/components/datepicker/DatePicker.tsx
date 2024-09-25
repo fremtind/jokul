@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import startOfDay from "date-fns/startOfDay";
 import React, {
     ChangeEvent,
@@ -261,7 +261,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     return (
         <InputGroup
             id={id}
-            className={cn("jkl-datepicker", className, {
+            className={clsx("jkl-datepicker", className, {
                 "jkl-datepicker--open": showCalendar,
             })}
             {...rest}
