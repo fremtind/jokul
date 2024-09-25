@@ -1,0 +1,103 @@
+@charset "UTF-8";
+@use "sass:string";
+@use "../../../core/jkl";
+
+$_smiley-size: jkl.rem(40px);
+$_smileys-max-width: $_smiley-size * 9; // 5 smileys med fire like store mellomrom
+$_show-animation-name: jkl-show-#{string.unique-id()};
+
+@keyframes #{$_show-animation-name} {
+    from {
+        transform: translate3d(0, 0.5rem, 0);
+        opacity: 0;
+    }
+}
+
+.jkl-feedback {
+    max-width: jkl.rem(550px);
+
+    &__submit-wrapper {
+        width: 100%;
+        transition-property: height;
+        @include jkl.motion(standard, expressive);
+
+        &--hidden {
+            display: none;
+        }
+    }
+
+    &__step-counter {
+        color: var(--jkl-color-text-subdued);
+        margin-bottom: jkl.$spacing-16;
+        @include jkl.text-style("body");
+    }
+
+    &__fade-in {
+        animation: $_show-animation-name 0.25s ease-out;
+    }
+}
+
+.jkl-feedback-smileys {
+    margin-top: jkl.$spacing-8;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: $_smileys-max-width;
+    flex-wrap: nowrap;
+    gap: jkl.$spacing-s;
+}
+
+.jkl-feedback-smiley-option {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    height: $_smiley-size;
+    width: $_smiley-size;
+    color: var(--jkl-color-text-subdued);
+    transform: translate3d(0, 0, 0);
+
+    @include jkl.motion;
+    transition-property: transform, color;
+
+    @include jkl.forced-colors-svg-fallback($stroke: ButtonFace, $fill: ButtonText);
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0;
+
+        @include jkl.motion;
+        transition-property: opacity;
+    }
+
+    &::after {
+        inset: jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px);
+        box-shadow: 0 0 0 jkl.rem(2px) currentColor;
+    }
+
+    &::before {
+        inset: 0;
+        box-shadow: 0 jkl.rem(2px) jkl.rem(30px) rgb(0 0 0 / 10%);
+    }
+
+    &:hover {
+        color: var(--jkl-color-text-default);
+    }
+
+    input:checked + & {
+        color: var(--jkl-color-text-default);
+        transform: translate3d(0, -20%, 0);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    input:focus + &::after {
+        @include jkl.keyboard-navigation {
+            opacity: 1;
+        }
+    }
+}
