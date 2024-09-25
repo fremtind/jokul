@@ -1,0 +1,54 @@
+@use "../../../core/jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-calendar-disabled-day-color: #{jkl.$color-svaberg};
+    --jkl-calendar-navigation-arrow-focus-color: #{jkl.$color-stein};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-calendar-disabled-day-color: #{jkl.$color-stein};
+    --jkl-calendar-navigation-arrow-focus-color: #{jkl.$color-svaberg};
+}
+
+.jkl-calendar-navigation {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    &__arrow {
+        display: inline-flex;
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        margin-left: jkl.rem(-8px);
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        color: var(--jkl-calendar-text-color);
+        width: jkl.rem(40px);
+        height: jkl.rem(40px);
+
+        @include jkl.reset-outline;
+
+        &:hover {
+            color: var(--jkl-calendar-navigation-arrow-focus-color);
+        }
+
+        @include jkl.keyboard-navigation {
+            &:focus {
+                outline: jkl.rem(2px) solid var(--jkl-calendar-focus-color);
+                outline-offset: jkl.rem(-2px);
+            }
+        }
+
+        &:disabled {
+            color: var(--jkl-calendar-disabled-day-color);
+        }
+    }
+}
