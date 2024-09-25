@@ -41,6 +41,7 @@
         "./src/components/radio-button/styles",
         "./src/components/select/styles",
         "./src/components/summary-table/styles",
+        "./src/components/system-message/styles",
         "./src/components/tag/styles",
         "./src/components/text-input/styles",
         "./src/components/tooltip/styles"
@@ -98,6 +99,7 @@
         "./styles/radio-button/*": "./src/components/radio-button/styles/*",
         "./styles/select/*": "./src/components/select/styles/*",
         "./styles/summary-table/*": "./src/components/summary-table/styles/*",
+        "./styles/system-message/*": "./src/components/system-message/styles/*",
         "./styles/tag/*": "./src/components/tag/styles/*",
         "./styles/text-input/*": "./src/components/text-input/styles/*",
         "./styles/tooltip/*": "./src/components/tooltip/styles/*"

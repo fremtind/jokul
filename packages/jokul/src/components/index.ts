@@ -22,6 +22,7 @@ export * from "./popover";
 export * from "./radio-button";
 export * from "./select";
 export * from "./summary-table";
+export * from "./system-message";
 export * from "./tag";
 export * from "./text-input";
 export * from "./tooltip";
