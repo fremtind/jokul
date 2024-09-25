@@ -21,6 +21,7 @@ export * from "./logo";
 export * from "./message";
 export * from "./modal";
 export * from "./popover";
+export * from "./progress-bar";
 export * from "./radio-button";
 export * from "./select";
 export * from "./summary-table";
