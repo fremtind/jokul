@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { InputGroup, InputGroupProps } from "../input-group";
 import { BaseTextInput, BaseTextInputProps } from "./BaseTextInput";
@@ -36,7 +36,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>((props, re
     return (
         <InputGroup
             {...inputGroupProps}
-            className={cn(className, "jkl-text-input", {
+            className={clsx(className, "jkl-text-input", {
                 "jkl-text-input--inline": inline,
             })}
             data-testid="jkl-text-input"

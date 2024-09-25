@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, {
     type CSSProperties,
     forwardRef,
@@ -84,7 +84,7 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
             <input
                 aria-invalid={ariaInvalid}
                 ref={ref}
-                className={cn("jkl-text-input__input", className, {
+                className={clsx("jkl-text-input__input", className, {
                     "jkl-text-input__input--align-right": align === "right",
                 })}
                 maxLength={maxLength}
@@ -95,7 +95,7 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
             {action && (
                 <IconButton
                     density={density}
-                    className={cn("jkl-text-input-action-button", action.className)}
+                    className={clsx("jkl-text-input-action-button", action.className)}
                     title={action.label}
                     onClick={action.onClick}
                     onFocus={action.onFocus}
