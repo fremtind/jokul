@@ -50,6 +50,7 @@
         "./src/components/tag/styles",
         "./src/components/text-input/styles",
         "./src/components/toast/styles",
+        "./src/components/toggle-switch/styles",
         "./src/components/tooltip/styles"
     ],
     "exports": {
@@ -114,6 +115,7 @@
         "./styles/tag/*": "./src/components/tag/styles/*",
         "./styles/text-input/*": "./src/components/text-input/styles/*",
         "./styles/toast/*": "./src/components/toast/styles/*",
+        "./styles/toggle-switch/*": "./src/components/toggle-switch/styles/*",
         "./styles/tooltip/*": "./src/components/tooltip/styles/*"
     },
     "scripts": {
