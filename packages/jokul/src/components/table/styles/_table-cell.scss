@@ -1,0 +1,83 @@
+@use "../../../core/jkl";
+
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-table-cell", "body");
+
+    --jkl-table-cell-padding: #{jkl.rem(11px)} #{jkl.$spacing-xs};
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-table-cell", "small");
+
+    --jkl-table-cell-padding: #{jkl.rem(5px)} #{jkl.$spacing-xs};
+}
+
+.jkl-table-cell {
+    @include jkl.use-font-variables("jkl-table-cell");
+    padding: var(--jkl-table-cell-padding);
+    position: relative;
+    text-align: left;
+    vertical-align: top;
+
+    &--vertical-align-center {
+        vertical-align: baseline;
+    }
+
+    &--align-center {
+        text-align: center;
+    }
+
+    &--align-right {
+        text-align: right;
+    }
+
+    .jkl-table--collapse-to-list &--align-right {
+        @include jkl.small-device {
+            text-align: unset;
+        }
+    }
+
+    .jkl-table--collapse-to-list[data-collapse] &--align-right {
+        text-align: unset;
+    }
+
+    @mixin _responsive-table-header {
+        content: attr(data-th);
+        display: block;
+        @include jkl.text-style("heading-5");
+    }
+
+    // only show inline text if it's not an ExpandController with text inside. if it doesn't
+    // have text inside. the text is moved inside the ExpandButton
+    .jkl-table--collapse-to-list &[data-th]:not(.jkl-table-cell--expand-without-text)::before {
+        display: none;
+
+        @include jkl.small-device {
+            @include _responsive-table-header;
+        }
+    }
+
+    .jkl-table--collapse-to-list[data-collapse] &:not(.jkl-table-cell--expand-without-text)::before {
+        @include _responsive-table-header;
+    }
+
+    .jkl-table--collapse-to-list:not([data-collapse]) &--expand-without-text .jkl-expand-button__text {
+        @include jkl.from-medium-device {
+            display: none;
+        }
+    }
+
+    .jkl-table-row-expand-button {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.jkl-table-row--expandable.jkl-table-row--clickable:not(.jkl-expandable-table-row--clickable-external) {
+    &:hover,
+    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
+        .jkl-table-row-expand-button {
+            color: var(--expand-button-focus-color);
+        }
+    }
+}
