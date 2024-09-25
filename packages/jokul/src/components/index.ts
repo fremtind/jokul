@@ -8,6 +8,7 @@ export * from "./cookie-consent";
 export * from "./datepicker";
 export * from "./icon";
 export * from "./icon-button";
+export * from "./image";
 export * from "./input-group";
 export * from "./link";
 export * from "./link-list";
