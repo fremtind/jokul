@@ -24,12 +24,12 @@ import {
 import { type DataTestAutoId, WithChildren } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useEffect, useRef, useState } from "react";
 import * as ReactIs from "react-is";
 import { useMenuWideEvents } from "./useMenuWideEvents";
 
-export interface ContextualMenuProps
+export interface MenuProps
     extends DataTestAutoId,
         WithChildren,
         Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
@@ -54,7 +54,7 @@ export interface ContextualMenuProps
      * Elementet som fungerer som trigger for menyen. Dersom elementet ikke er en `<button>`
      * eller en `forwardRef<HTMLButtonElement>` vil det bli lagt inne i en knapp
      * med forhåndsdefinert stil. For å komme raskt i gang kan du bruke komponenten
-     * `ContextualMenuTriggerButton` fra denne pakken.
+     * `MenuTriggerButton` fra denne pakken.
      */
     triggerElement: ReactNode;
     /**
@@ -68,7 +68,7 @@ export interface ContextualMenuProps
     onToggle?: (isOpen: boolean) => void;
 }
 
-const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, forwardedRef) => {
+const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>((props, forwardedRef) => {
     const {
         children,
         className,
@@ -81,7 +81,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
         ...triggerProps
     } = props;
 
-    const contextualMenuId = useId("jkl-contextual-menu");
+    const MenuId = useId("jkl-menu");
 
     const tree = useFloatingTree();
     const nodeId = useFloatingNodeId();
@@ -164,7 +164,7 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                           ...triggerProps,
                           ref: referenceRef,
                           role: isNested ? "menuitem" : undefined,
-                          "aria-controls": contextualMenuId,
+                          "aria-controls": MenuId,
                           onClick(event) {
                               event.stopPropagation();
                           },
@@ -172,113 +172,104 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                   })
                 : // Ellers, rendre elementet as-is, uten interaktivitet. Krev en ferdig brukbar button for å åpne menyen.
                   triggerElement}
-            <LazyMotion features={domAnimation}>
-                <AnimatePresence>
-                    {isOpen && (
-                        <FloatingPortal>
-                            <FloatingFocusManager
-                                context={context}
-                                // Prevent outside content interference.
-                                modal={false}
-                                // Only initially focus the root floating menu.
-                                initialFocus={isNested ? -1 : 0}
-                                // Only return focus to the root menu's reference when menus close.
-                                returnFocus={!isNested}
+            <AnimatePresence>
+                {isOpen && (
+                    <FloatingPortal>
+                        <FloatingFocusManager
+                            context={context}
+                            // Prevent outside content interference.
+                            modal={false}
+                            // Only initially focus the root floating menu.
+                            initialFocus={isNested ? -1 : 0}
+                            // Only return focus to the root menu's reference when menus close.
+                            returnFocus={!isNested}
+                        >
+                            <motion.div
+                                className={cn("jkl jkl-menu", className)}
+                                data-theme={theme}
+                                data-layout-density={density}
+                                role="menu"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ ease: "easeIn", duration: 0.1 }}
+                                data-placement={placement}
+                                aria-live="assertive"
+                                aria-hidden={!isOpen}
+                                ref={refs.setFloating}
+                                {...getFloatingProps({
+                                    id: MenuId,
+                                    style: {
+                                        position: strategy,
+                                        top: y ?? "",
+                                        left: x ?? "",
+                                    },
+                                })}
                             >
-                                <m.div
-                                    className={cn("jkl jkl-contextual-menu", className)}
-                                    data-theme={theme}
-                                    data-layout-density={density}
-                                    role="menu"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ ease: "easeIn", duration: 0.1 }}
-                                    data-placement={placement}
-                                    aria-live="assertive"
-                                    aria-hidden={!isOpen}
-                                    ref={refs.setFloating}
-                                    {...getFloatingProps({
-                                        id: contextualMenuId,
-                                        style: {
-                                            position: strategy,
-                                            top: y ?? "",
-                                            left: x ?? "",
-                                        },
-                                    })}
-                                >
-                                    {React.Children.map(children, (child, index) => {
-                                        if (React.isValidElement(child) && ReactIs.isForwardRef(child)) {
-                                            return React.cloneElement(
-                                                child,
-                                                getItemProps({
-                                                    ...child.props,
-                                                    tabIndex: activeIndex === index ? 0 : -1,
-                                                    role: "menuitem",
-                                                    ref(node: HTMLButtonElement) {
-                                                        listItemsRef.current[index] = node;
-                                                    },
-                                                    onClick(event) {
-                                                        child.props.onClick?.(
-                                                            event as React.MouseEvent<HTMLButtonElement>,
-                                                        );
-                                                        if (event.defaultPrevented) {
-                                                            return;
-                                                        }
-                                                        tree?.events.emit("click");
-                                                    },
-                                                    onKeyDown(event) {
-                                                        child.props.onKeyDown?.(event);
-                                                        if (event.defaultPrevented) {
-                                                            return;
-                                                        }
-                                                        tree?.events.emit("keydown");
-                                                        if (
-                                                            event.currentTarget.role === "menuitemcheckbox" &&
-                                                            event.key === "Enter"
-                                                        ) {
-                                                            // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role#keyboard_interactions
-                                                            setIsOpen(false);
-                                                        }
-                                                    },
-                                                    onMouseEnter() {
-                                                        if (allowHover && isOpen) {
-                                                            setActiveIndex(index);
-                                                        }
-                                                    },
-                                                }),
-                                            );
-                                        }
+                                {React.Children.map(children, (child, index) => {
+                                    if (React.isValidElement(child) && ReactIs.isForwardRef(child)) {
+                                        return React.cloneElement(
+                                            child,
+                                            getItemProps({
+                                                ...child.props,
+                                                tabIndex: activeIndex === index ? 0 : -1,
+                                                role: "menuitem",
+                                                ref(node: HTMLButtonElement) {
+                                                    listItemsRef.current[index] = node;
+                                                },
+                                                onClick(event) {
+                                                    child.props.onClick?.(event as React.MouseEvent<HTMLButtonElement>);
+                                                    if (event.defaultPrevented) {
+                                                        return;
+                                                    }
+                                                    tree?.events.emit("click");
+                                                },
+                                                onKeyDown(event) {
+                                                    child.props.onKeyDown?.(event);
+                                                    if (event.defaultPrevented) {
+                                                        return;
+                                                    }
+                                                    tree?.events.emit("keydown");
+                                                    if (
+                                                        event.currentTarget.role === "menuitemcheckbox" &&
+                                                        event.key === "Enter"
+                                                    ) {
+                                                        // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role#keyboard_interactions
+                                                        setIsOpen(false);
+                                                    }
+                                                },
+                                                onMouseEnter() {
+                                                    if (allowHover && isOpen) {
+                                                        setActiveIndex(index);
+                                                    }
+                                                },
+                                            }),
+                                        );
+                                    }
 
-                                        return child;
-                                    })}
-                                </m.div>
-                            </FloatingFocusManager>
-                        </FloatingPortal>
-                    )}
-                </AnimatePresence>
-            </LazyMotion>
+                                    return child;
+                                })}
+                            </motion.div>
+                        </FloatingFocusManager>
+                    </FloatingPortal>
+                )}
+            </AnimatePresence>
         </FloatingNode>
     );
 });
-ContextualMenuComponent.displayName = "ContextualMenuComponent";
+MenuComponent.displayName = "MenuComponent";
 
-/**
- * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
- * Bruk heller komponenten `Menu` som er erstatning for ContextualMenu
- */
-
-export const ContextualMenu = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, ref) => {
+export const Menu = forwardRef<HTMLButtonElement, MenuProps>((props, ref) => {
     const parentId = useFloatingParentNodeId();
 
     if (parentId === null) {
         return (
             <FloatingTree>
-                <ContextualMenuComponent ref={ref} {...props} />
+                <MenuComponent ref={ref} {...props} />
             </FloatingTree>
         );
     }
 
-    return <ContextualMenuComponent ref={ref} {...props} />;
+    return <MenuComponent ref={ref} {...props} />;
 });
-ContextualMenu.displayName = "ContextualMenu";
+Menu.displayName = "Menu";
