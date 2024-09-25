@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.2 (2024-09-25)
+
+### Bug Fixes
+
+- gi ikonet til PopupTip stor nok trykkflate ([4ea5472](https://github.com/fremtind/jokul/commit/4ea547217023082b2d8b18c22cb63b3912ecb607)), closes [#4107](https://github.com/fremtind/jokul/issues/4107)
+
 # 4.2.0 (2024-09-09)
 
 ### Features

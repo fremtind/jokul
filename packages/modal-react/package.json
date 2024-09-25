@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-modal-react",
-    "version": "2.1.43",
+    "version": "2.1.44",
     "publishConfig": {
         "access": "public"
     },
@@ -37,7 +37,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^14.5.0",
-        "@fremtind/jkl-icon-button-react": "^5.0.11",
+        "@fremtind/jkl-icon-button-react": "^5.0.12",
         "@fremtind/jkl-icons-react": "^9.1.8",
         "@fremtind/jkl-modal": "^2.2.1",
         "@fremtind/jkl-react-hooks": "^12.2.1",
