@@ -30,5 +30,6 @@ export * from "./table";
 export * from "./tabs";
 export * from "./tag";
 export * from "./text-input";
+export * from "./toast";
 export * from "./tooltip";
 export { ScreenReaderOnly, type ScreenReaderOnlyProps } from "./ScreenReaderOnly";

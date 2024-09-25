@@ -49,6 +49,7 @@
         "./src/components/tabs/styles",
         "./src/components/tag/styles",
         "./src/components/text-input/styles",
+        "./src/components/toast/styles",
         "./src/components/tooltip/styles"
     ],
     "exports": {
@@ -112,6 +113,7 @@
         "./styles/tabs/*": "./src/components/tabs/styles/*",
         "./styles/tag/*": "./src/components/tag/styles/*",
         "./styles/text-input/*": "./src/components/text-input/styles/*",
+        "./styles/toast/*": "./src/components/toast/styles/*",
         "./styles/tooltip/*": "./src/components/tooltip/styles/*"
     },
     "scripts": {
@@ -125,6 +127,8 @@
     },
     "optionalDependencies": {
         "@floating-ui/react": ">0.24.1 <0.27",
+        "@react-aria/toast": "^3.0.0-beta.1",
+        "@react-stately/toast": "^3.0.0-beta.0",
         "date-fns": "^2.30.0",
         "framer-motion": ">7.10.2 <12",
         "react-a11y-dialog": "^6.2.0"
