@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.2 (2024-09-25)
+
+### Bug Fixes
+
+- sync kode med figma design ([dd1a659](https://github.com/fremtind/jokul/commit/dd1a6591dc8701e0039d902d6f3da01d676ed2c2))
+- ta i bruk fargekode variabel ([def01f7](https://github.com/fremtind/jokul/commit/def01f774dbfecb2ff084b1eca75e100a5828b01))
+
 # 2.1.0 (2024-09-09)
 
 ### Features
