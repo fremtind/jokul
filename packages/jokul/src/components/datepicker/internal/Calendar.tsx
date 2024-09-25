@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, useCallback, useEffect, useReducer, useRef } from "react";
 import { flushSync } from "react-dom";
 import { Density } from "../../../core";
@@ -350,7 +350,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
         <div
             ref={ref}
             id={id}
-            className={cn("jkl-calendar", {
+            className={clsx("jkl-calendar", {
                 "jkl-calendar--hidden": hidden,
             })}
             data-testid="jkl-calendar"
