@@ -2,9 +2,9 @@
 @use "@fremtind/jkl-core/jkl/colors";
 
 .jkl-file {
-    @include jkl.motion("standard", "snappy");
+    --text-color: var(--jkl-color-text-default);
 
-    transition-property: background-color, border-color, color;
+    @include jkl.motion("standard", "snappy", background-color, border-color, color);
 
     color: var(--jkl-color-text-default);
     margin: 0;
@@ -17,7 +17,7 @@
     @include jkl.reset-outline;
 
     @include jkl.comfortable-density {
-        --jkl-file-padding: #{jkl.$spacing-24} #{jkl.$spacing-24};
+        --jkl-file-padding: #{jkl.$spacing-24};
         --jkl-file-thumbnail-size: #{jkl.rem(64px)};
         --jkl-file-gap: #{jkl.$spacing-16};
         --jkl-file-font-size: #{jkl.rem(20px)};
@@ -25,7 +25,7 @@
     }
 
     @include jkl.compact-density {
-        --jkl-file-padding: #{jkl.$spacing-12} #{jkl.$spacing-12};
+        --jkl-file-padding: #{jkl.$spacing-12};
         --jkl-file-thumbnail-size: #{jkl.rem(44px)};
         --jkl-file-gap: #{jkl.$spacing-8};
         --jkl-file-font-size: #{jkl.rem(16px)};
@@ -40,6 +40,7 @@
         padding: var(--jkl-file-padding);
         border-radius: jkl.rem(2px);
         box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+        color: var(--text-color);
 
         &--error {
             background-color: var(--jkl-color-background-alert-error);
@@ -51,9 +52,11 @@
 
         &--error,
         &--warning {
-            --jkl-color-text-default: var(--jkl-color-text-on-alert);
+            --text-color: var(--jkl-color-text-on-alert);
 
-            color: var(--jkl-color-text-on-alert);
+            .jkl-form-support-label {
+                --color: var(--jkl-color-text-on-alert);
+            }
         }
     }
 
