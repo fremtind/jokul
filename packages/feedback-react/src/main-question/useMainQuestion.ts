@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect, SetStateAction, Dispatch } from "react";
+import { useState, useRef, useCallback, useEffect, SetStateAction, Dispatch, FormEventHandler } from "react";
 import { FeedbackType, FeedbackOption } from "../types";
 
 type Value = FeedbackOption<string | number> | FeedbackOption<string | number>[] | undefined;
@@ -9,7 +9,7 @@ type MainQuestion = {
     message: string | undefined;
     setMessage: Dispatch<SetStateAction<string | undefined>>;
     submitted: boolean;
-    handleSubmit: () => void;
+    handleSubmit: FormEventHandler<HTMLFormElement>;
 };
 
 export const useMainQuestion = (onSubmit: (f: FeedbackType) => void): MainQuestion => {
@@ -61,7 +61,8 @@ export const useMainQuestion = (onSubmit: (f: FeedbackType) => void): MainQuesti
         };
     }, [autoSubmit]);
 
-    const handleSubmit = () => {
+    const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+        e.preventDefault();
         submitHandler();
         setSubmitted(true);
     };
