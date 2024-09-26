@@ -4,7 +4,7 @@ import { DotsIcon } from "@fremtind/jkl-icons-react";
 import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 import React, { useCallback, useRef, useState, type FC } from "react";
 import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../../tooltip-react/build";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../../tooltip-react/src";
 import { Menu, MenuItemCheckbox } from "../src";
 
 export const MenuToggleSwitchExampleKnobs: ExampleKnobsProps = {
