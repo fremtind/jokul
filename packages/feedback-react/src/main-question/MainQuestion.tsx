@@ -40,7 +40,7 @@ export const MainQuestion: FC<Props> = ({
 }) => {
     const mainQuestionState = useMainQuestion(onSubmit);
 
-    const { setFeedbackSubmitted, contactSubmitted } = useFeedbackContext();
+    const { setFeedbackSubmitted, contactSubmitted, landmarkLabel } = useFeedbackContext();
     const { handleSubmit, currentValue, setCurrentValue, submitted } = mainQuestionState;
     const [submitWrapperRef] = useAnimatedHeight<HTMLDivElement>(currentValue !== undefined);
 
@@ -54,7 +54,7 @@ export const MainQuestion: FC<Props> = ({
         <>
             {!submitted && (
                 <MainQuestionContextProvider state={mainQuestionState}>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} aria-label={landmarkLabel}>
                         <MainQuestionComp label={label} options={options} helpLabel={helpLabel} />
                         <div
                             ref={submitWrapperRef}

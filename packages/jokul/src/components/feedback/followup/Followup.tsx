@@ -29,7 +29,8 @@ export const Followup: FC<Props> = ({ questions, successMessage = defaultSuccess
     const focusRef = useRef<HTMLParagraphElement>(null);
     const followupState = useFollowup(questions, onSubmit);
     const { handleAbort, handleNext, step, submitted } = followupState;
-    const { followupStarted, setFollowupStarted, setFollowupSubmitted, contactSubmitted } = useFeedbackContext();
+    const { followupStarted, setFollowupStarted, setFollowupSubmitted, contactSubmitted, landmarkLabel } =
+        useFeedbackContext();
 
     useEffect(() => {
         if (step.number === 0) {
@@ -67,7 +68,7 @@ export const Followup: FC<Props> = ({ questions, successMessage = defaultSuccess
                     </div>
                 )}
                 {!submitted && followupStarted && (
-                    <form onSubmit={handleNext} className="jkl-feedback__fade-in">
+                    <form onSubmit={handleNext} className="jkl-feedback__fade-in" aria-label={landmarkLabel}>
                         <p className="jkl-feedback__step-counter" ref={focusRef}>
                             Steg {step.number + 1} av {questions.length}
                         </p>
