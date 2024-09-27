@@ -7,6 +7,7 @@ type FeedbackContext = {
     followupStarted: boolean;
     followupSubmitted: boolean;
     contactSubmitted: boolean;
+    landmarkLabel?: string;
     setFeedbackSubmitted: (state: boolean) => void;
     setFollowupStarted: (state: boolean) => void;
     setFollowupSubmitted: (state: boolean) => void;

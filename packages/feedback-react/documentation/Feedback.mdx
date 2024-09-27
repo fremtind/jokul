@@ -51,3 +51,8 @@ Funksjonen for håndtering av oppfølgings&shy;spørmål får inn en liste med o
 ```ts
 [{ label: string: name: string; type: "radio" | "checkbox" | "text"; value: string | string[] }]
 ```
+
+### Landmark
+
+Hvis tilbakemeldingskomponenten er en viktig del av siden kan den eksponeres som et landmark.
+Sett da `landmarkLabel` prop men ikke overdriv bruken av landmarks.

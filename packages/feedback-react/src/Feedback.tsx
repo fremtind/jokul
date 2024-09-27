@@ -41,9 +41,16 @@ type Props = {
      * - `message`: Eventuell utfyllende melding fra bruker. Blir kun sendt inn ved aktiv innsending
      */
     onSubmit: (value: FeedbackType) => void;
-
     followup?: FollowupProps;
     contactQuestion?: ContactQuestionProps;
+    /**
+     * Hvis du ønsker at Feedback formen skal eksponeres som et landmark kan du sende inn
+     * hva du ønsker at en skjermleser skal kalle den her. Bare eksponer Feedback som et
+     * landmark på sider der den er en viktig del av innholdet, feks en kvitteringsside
+     * eller et annet sted det å kunne gi tilbakemelding vil føles naturlig eller forventet
+     * for brukeren.
+     */
+    landmarkLabel?: string;
 } & Pick<BaseTextAreaProps, "counter">;
 
 export const Feedback = ({
@@ -51,6 +58,7 @@ export const Feedback = ({
     followup,
     contactQuestion,
     counter,
+    landmarkLabel,
     ...mainQuestionProps
 }: Props): ReactElement => {
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
@@ -67,6 +75,7 @@ export const Feedback = ({
                     followupSubmitted,
                     contactSubmitted,
                     counter,
+                    landmarkLabel,
                     setFeedbackSubmitted,
                     setFollowupStarted,
                     setFollowupSubmitted,
