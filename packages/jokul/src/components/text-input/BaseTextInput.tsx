@@ -50,6 +50,10 @@ export interface BaseTextInputProps extends Omit<InputHTMLAttributes<HTMLInputEl
      * @default "left"
      */
     align?: "left" | "right";
+    /**
+     * @deprecated Bruk heller actionButton
+     *
+     */
     action?: Action;
     density?: Density;
     /**
@@ -58,6 +62,10 @@ export interface BaseTextInputProps extends Omit<InputHTMLAttributes<HTMLInputEl
      * */
     unit?: ReactNode;
     width?: string;
+    /**
+     * Element som vises til høyre for inputfeltet. Brukes typisk til å trigge en handling som f.eks. å vise/skjule passord.
+     */
+    actionButton?: React.ReactElement<IconProps>;
 }
 
 export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((props, ref) => {
@@ -72,6 +80,7 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
         type = "text",
         unit,
         width,
+        actionButton,
         ...rest
     } = props;
 
@@ -92,7 +101,8 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((p
                 {...rest}
             />
             {unit && <span className="jkl-text-input__unit">{unit}</span>}
-            {action && (
+            {!action && actionButton && actionButton}
+            {action && !actionButton && (
                 <IconButton
                     density={density}
                     className={clsx("jkl-text-input-action-button", action.className)}
