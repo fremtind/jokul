@@ -267,7 +267,6 @@ ContextualMenuComponent.displayName = "ContextualMenuComponent";
  * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
  * Bruk heller komponenten `Menu` som er erstatning for ContextualMenu
  */
-
 export const ContextualMenu = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, ref) => {
     const parentId = useFloatingParentNodeId();
 
