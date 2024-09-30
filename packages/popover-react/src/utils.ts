@@ -1,4 +1,4 @@
-export const getThemeAndDensity = (element: HTMLElement | null): { theme?: string; density?: string } => {
+export const getThemeAndDensity = (element: Element | undefined): { theme?: string; density?: string } => {
     if (!element) return {};
 
     const computedStyles = getComputedStyle(element);
