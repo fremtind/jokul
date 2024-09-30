@@ -1,0 +1,55 @@
+@use "sass:string";
+@use "../../../core/jkl";
+
+.jkl-progress-bar,
+.jkl-countdown {
+    --track-color: var(--jkl-color-border-separator);
+    --bar-color: var(--jkl-color-border-input-focus);
+    --bar-height: #{jkl.rem(4px)};
+
+    background-color: var(--track-color);
+    border-radius: jkl.rem(100px);
+    height: var(--bar-height);
+    width: 100%;
+    overflow: hidden;
+
+    &__tracker {
+        display: block;
+        height: var(--bar-height);
+        background-color: var(--bar-color);
+    }
+
+    @include jkl.forced-colors-mode {
+        background-color: Canvas;
+
+        &__tracker {
+            background-color: CanvasText;
+        }
+    }
+}
+
+.jkl-progress-bar {
+    &__tracker {
+        transition-property: width;
+        @include jkl.motion("standard", "productive");
+    }
+}
+
+$_downcount: jkl-downcount-#{string.unique-id()};
+
+.jkl-countdown {
+    &__tracker {
+        animation: $_downcount var(--duration) linear forwards;
+        animation-play-state: var(--play-state, running);
+    }
+}
+
+@keyframes #{$_downcount} {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}

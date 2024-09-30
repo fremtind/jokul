@@ -1,0 +1,56 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+@mixin _horizontal-list {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-columns: fit-content(40%) 1fr;
+
+    .jkl-description-list__term {
+        grid-column-start: 1;
+        margin: 0;
+        overflow-wrap: break-word;
+
+        &:not(:first-of-type) {
+            margin-top: jkl.$spacing-xs;
+        }
+    }
+
+    .jkl-description-list__detail {
+        margin-left: jkl.$spacing-l;
+        grid-column-start: 2;
+    }
+
+    .jkl-description-list__detail + .jkl-description-list__detail {
+        margin-top: jkl.$spacing-xs;
+    }
+
+    .jkl-description-list__term + .jkl-description-list__detail {
+        &:not(:first-of-type) {
+            margin-top: jkl.$spacing-xs;
+        }
+    }
+}
+
+.jkl-description-list {
+    &__term {
+        font-weight: jkl.$typography-weight-bold;
+        margin-bottom: jkl.$spacing-2xs;
+
+        &:not(:first-child) {
+            margin-top: jkl.$spacing-s;
+        }
+    }
+
+    &__detail {
+        margin-left: 0;
+    }
+
+    &__detail + &__detail {
+        margin-top: jkl.$spacing-2xs;
+    }
+
+    @include jkl.from-medium-device {
+        @include _horizontal-list;
+    }
+}

@@ -1,0 +1,7 @@
+@use "../../../core/jkl";
+
+.jkl-table-caption {
+    &--sr-only {
+        @include jkl.screenreader-only;
+    }
+}

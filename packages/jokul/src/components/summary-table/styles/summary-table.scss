@@ -1,0 +1,56 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-summary-table-border-color: #{jkl.$color-granitt};
+}
+@include jkl.dark-mode-variables {
+    --jkl-summary-table-border-color: #{jkl.$color-svaberg};
+}
+
+.jkl-summary-table {
+    display: flex;
+    flex-direction: column;
+    word-break: break-word;
+    width: 100%;
+
+    tr {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: jkl.$spacing-xs;
+    }
+
+    th,
+    td {
+        flex-basis: 50%;
+        padding-right: jkl.$spacing-m;
+
+        &:first-child {
+            text-align: left;
+        }
+
+        &:last-child {
+            text-align: right;
+            padding-right: 0;
+        }
+    }
+
+    & > tbody {
+        th {
+            font-weight: jkl.$typography-weight-normal;
+        }
+    }
+
+    & > tfoot {
+        border-top: jkl.rem(1px) solid jkl.$color-granitt;
+        border-top: jkl.rem(1px) solid var(--jkl-summary-table-border-color);
+        border-bottom: jkl.rem(1px) solid jkl.$color-granitt;
+        border-bottom: jkl.rem(1px) solid var(--jkl-summary-table-border-color);
+        padding-top: jkl.$spacing-xs;
+
+        th,
+        td {
+            font-weight: jkl.$typography-weight-bold;
+        }
+    }
+}
