@@ -2,8 +2,12 @@
 @use "@fremtind/jkl-core/jkl";
 
 .jkl-popover {
+    --popover-radius: jkl.rem(2px);
+    --popover-box-shadow: 0px 4px 20px 0px rgba(49, 48, 48, 0.2);
+
     padding: var(--popover-padding, 0);
     z-index: jkl.$z-index--floating;
-    box-shadow: 0 4px 20px 0 rgba(49, 48, 48, 0.2);
     background-color: var(--jkl-color-background-container-high);
+    border-radius: var(--popover-radius);
+    box-shadow: var(--popover-box-shadow);
 }
