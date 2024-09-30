@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.13.0...@fremtind/jokul@0.14.0) (2024-09-30)
+
+### Bug Fixes
+
+- use <form> element for the Feedback main question ([5583847](https://github.com/fremtind/jokul/commit/558384712cecd511cc7bf0ed86bee2346e7162e9)), closes [#4103](https://github.com/fremtind/jokul/issues/4103)
+
+### Features
+
+- support exposing Feedback as a landmark if needed ([e29277c](https://github.com/fremtind/jokul/commit/e29277c1954f970fce980d0060d7dd4ad15cbf2e))
+
+# [0.13.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.12.1...@fremtind/jokul@0.13.0) (2024-09-30)
+
+### Bug Fixes
+
+- include input-group styles in files ([c4fbb7e](https://github.com/fremtind/jokul/commit/c4fbb7ee1a209bf0c7e2bdb51fdf15f4f23ca0ac))
+
+### Features
+
+- move description-list to jokul package ([e6e6c19](https://github.com/fremtind/jokul/commit/e6e6c196e5eb02e4e8d9093a2e3c65c250a0abe3))
+- move expandbutton to expander in jokul package ([22ef144](https://github.com/fremtind/jokul/commit/22ef144b62bc7854d9ec2960f938baf718478c88))
+- move logo into jokul package ([dd09c08](https://github.com/fremtind/jokul/commit/dd09c08b1f2e4f848eedd3b9084d031ac628a4f9))
+- move progress-bar to jokul package ([26fcb4d](https://github.com/fremtind/jokul/commit/26fcb4d5fe1c1f0eabb9d2ad9fa18eced5eedb5b))
+- move summary-table to jokul package ([bed13b9](https://github.com/fremtind/jokul/commit/bed13b93003284872bf0497253e8e720bf4ba72e))
+- move system-message to jokul package ([bf70502](https://github.com/fremtind/jokul/commit/bf70502870abbe736a96ff06c0310671dfc4df59))
+- move table to jokul package ([bc2e494](https://github.com/fremtind/jokul/commit/bc2e4943182374646f75ca7b3767882e23e0d905))
+- move tabs to jokul package ([70ea2a2](https://github.com/fremtind/jokul/commit/70ea2a2134c0cb6e5465139bf68bf66d186733dc))
+- move toast into jokul package ([db94dd3](https://github.com/fremtind/jokul/commit/db94dd30fc1cdad277d03756fdaea73c043f80b0))
+- move toggle-switch to jokul package ([1180677](https://github.com/fremtind/jokul/commit/1180677aee8cf2bab2c62302d247046ce23bb8a6))
+
 ## [0.12.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.12.0...@fremtind/jokul@0.12.1) (2024-09-25)
 
 ### Bug Fixes

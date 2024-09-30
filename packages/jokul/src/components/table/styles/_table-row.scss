@@ -1,0 +1,183 @@
+@use "../../../core/jkl";
+
+$_border-size: jkl.rem(1px);
+$_focus-ring-width: jkl.rem(2px);
+
+@include jkl.light-mode-variables {
+    --jkl-table-row-border-color: #{jkl.$color-svaberg};
+    --jkl-table-row-border-none-color: #{rgba(jkl.$color-svaberg, 0)};
+    --jkl-table-row-hover-border-color: #{jkl.$color-granitt};
+    --jkl-table-row-highlight-color: #{jkl.$color-dis};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-table-row-border-color: #{jkl.$color-stein};
+    --jkl-table-row-border-none-color: #{rgba(jkl.$color-stein, 0)};
+    --jkl-table-row-hover-border-color: #{jkl.$color-snohvit};
+    --jkl-table-row-highlight-color: #{jkl.$color-fjellgra};
+}
+
+.jkl-table-row {
+    border-bottom: solid $_border-size var(--jkl-table-row-border-color);
+
+    .jkl-table-head > & {
+        border-bottom: solid $_border-size var(--jkl-table-row-hover-border-color);
+    }
+
+    /* stylelint-disable-next-line selector-not-notation */
+    :not(.jkl-table-head, .jkl-table-foot) > & {
+        border-top: solid $_border-size transparent; // Unngår vertikal shift ved hover i collapsed mobilvisning
+
+        &:hover {
+            /*
+            * Det er viktig at hover her har double border style i motsetning til default,
+            * ellers vinner ikke border-top "spesifisitetskampen" i border-collapse.
+            * Under testing i Chrome, Firefox og Safari på macOS ble border fremdeles
+            * rendret som solid. ¯\_(ツ)_/¯
+            *
+            * https://stackoverflow.com/a/36239151
+            * https://stackoverflow.com/a/4096554
+            * https://www.w3.org/TR/CSS2/tables.html#border-conflict-resolution
+            */
+            border-top: double $_border-size var(--jkl-table-row-hover-border-color);
+            border-bottom: double $_border-size var(--jkl-table-row-hover-border-color);
+        }
+    }
+
+    @mixin _responsive-table-head {
+        border-bottom: solid $_border-size var(--jkl-table-row-border-color);
+    }
+
+    .jkl-table--collapse-to-list > .jkl-table-head > & {
+        @include jkl.small-device {
+            @include _responsive-table-head;
+        }
+    }
+
+    .jkl-table--collapse-to-list[data-collapse] > .jkl-table-head > & {
+        @include _responsive-table-head;
+    }
+
+    @mixin _responsive-table-row {
+        padding-top: jkl.$spacing-s;
+        padding-bottom: jkl.$spacing-s;
+
+        &:first-of-type {
+            border-top: solid $_border-size var(--jkl-table-row-border-color);
+        }
+    }
+
+    .jkl-table--collapse-to-list :not(.jkl-table-head) > & {
+        @include jkl.small-device {
+            @include _responsive-table-row;
+        }
+    }
+
+    .jkl-table--collapse-to-list[data-collapse] :not(.jkl-table-head) > & {
+        @include _responsive-table-row;
+    }
+
+    .jkl-table--collapse-to-list[data-collapse] :not(.jkl-table-head) > &.jkl-table-row--expandable {
+        transition-property: border, padding;
+        @include jkl.motion;
+
+        &.jkl-table-row--expanded {
+            border-bottom-color: var(--jkl-table-row-border-none-color);
+        }
+
+        .jkl-table-row-expand-button {
+            margin-left: auto;
+        }
+
+        &:hover + tr {
+            background-color: var(--jkl-table-row-highlight-color);
+
+            .jkl-table-row {
+                border-bottom-color: var(--jkl-table-row-hover-border-color);
+            }
+        }
+
+        /* stylelint-disable-next-line selector-max-specificity -- selector needs to nest itself to select sub tables with the same properties */
+        & + tr & {
+            transition-property: border;
+            @include jkl.motion;
+        }
+
+        & + [aria-hidden="false"] {
+            & .jkl-table-row {
+                border-top-color: var(--jkl-table-row-border-none-color);
+            }
+        }
+    }
+
+    @mixin _responsive-table-row--hover {
+        /* Tilbakestill hacken som gir riktig border når tabellen ikke har display: block; */
+        border-top: solid $_border-size var(--jkl-table-row-hover-border-color);
+        border-bottom: solid $_border-size var(--jkl-table-row-hover-border-color);
+    }
+
+    .jkl-table--collapse-to-list :not(.jkl-table-head) > &:hover {
+        @include jkl.small-device {
+            @include _responsive-table-row--hover;
+        }
+    }
+
+    .jkl-table--collapse-to-list[data-collapse] :not(.jkl-table-head) > &:hover {
+        @include _responsive-table-row--hover;
+    }
+
+    &--clickable {
+        outline: 0;
+
+        &:hover,
+        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
+            cursor: pointer;
+            background-color: var(--jkl-table-row-highlight-color);
+
+            border-top: double $_border-size var(--jkl-table-row-hover-border-color);
+            border-bottom: double $_border-size var(--jkl-table-row-hover-border-color);
+        }
+
+        .jkl-table--collapse-to-list :not(.jkl-table-head) > &:hover {
+            @include jkl.small-device {
+                @include _responsive-table-row--hover;
+            }
+        }
+
+        .jkl-table--collapse-to-list[data-collapse] :not(.jkl-table-head) > &:hover {
+            @include _responsive-table-row--hover;
+        }
+
+        @include jkl.forced-colors-mode {
+            outline: revert;
+            color: ButtonText;
+
+            &:hover {
+                background-color: ButtonFace;
+            }
+        }
+    }
+
+    &--clicked {
+        background-color: var(--jkl-table-row-highlight-color);
+
+        &.jkl-table-row--expandable + [aria-hidden="false"] {
+            background-color: var(--jkl-table-row-highlight-color);
+        }
+
+        @include jkl.forced-colors-mode {
+            background-color: ButtonFace;
+        }
+    }
+}
+
+.jkl-expandable-table-row__expanded-row {
+    display: none;
+    @include jkl.motion("exit", "expressive");
+    transition-property: height;
+
+    &--expanded {
+        @include jkl.motion("entrance", "lazy");
+        display: block;
+    }
+}

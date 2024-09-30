@@ -1,4 +1,4 @@
-import { Dispatch, FormEvent, SetStateAction } from "react";
+import { Dispatch, FormEvent, FormEventHandler, SetStateAction } from "react";
 
 export type FeedbackOption<T = string | number> = {
     /** Teksten som vises ved alternativet */
@@ -72,7 +72,7 @@ export type FeedbackState = {
     message?: string;
     setMessage: Dispatch<SetStateAction<string | undefined>>;
     submitted: boolean;
-    handleSubmit: () => void;
+    handleSubmit: FormEventHandler<HTMLFormElement>;
 };
 
 export type FollowUpStep = {

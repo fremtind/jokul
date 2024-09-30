@@ -40,7 +40,7 @@ export const MainQuestion: FC<Props> = ({
 }) => {
     const mainQuestionState = useMainQuestion(onSubmit);
 
-    const { setFeedbackSubmitted, contactSubmitted } = useFeedbackContext();
+    const { setFeedbackSubmitted, contactSubmitted, landmarkLabel } = useFeedbackContext();
     const { handleSubmit, currentValue, setCurrentValue, submitted } = mainQuestionState;
     const [submitWrapperRef] = useAnimatedHeight<HTMLDivElement>(currentValue !== undefined);
 
@@ -54,27 +54,29 @@ export const MainQuestion: FC<Props> = ({
         <>
             {!submitted && (
                 <MainQuestionContextProvider state={mainQuestionState}>
-                    <MainQuestionComp label={label} options={options} helpLabel={helpLabel} />
-                    <div
-                        ref={submitWrapperRef}
-                        className={clsx({
-                            "jkl-feedback__submit-wrapper": true,
-                            "jkl-feedback__submit-wrapper--hidden": currentValue === undefined,
-                        })}
-                    >
-                        {addOnQuestion && (
-                            <AddonQuestion
-                                helpLabel={typeof addOnQuestion === "object" ? addOnQuestion.helpLabel : undefined}
-                                label={typeof addOnQuestion === "object" ? addOnQuestion.label : undefined}
-                            />
-                        )}
-                        <div className="jkl-spacing-xl--top">
-                            <PrimaryButton onClick={handleSubmit} className="jkl-spacing-xl--right">
-                                Send
-                            </PrimaryButton>
-                            <TertiaryButton onClick={() => setCurrentValue(undefined)}>Avbryt</TertiaryButton>
+                    <form onSubmit={handleSubmit} aria-label={landmarkLabel}>
+                        <MainQuestionComp label={label} options={options} helpLabel={helpLabel} />
+                        <div
+                            ref={submitWrapperRef}
+                            className={clsx({
+                                "jkl-feedback__submit-wrapper": true,
+                                "jkl-feedback__submit-wrapper--hidden": currentValue === undefined,
+                            })}
+                        >
+                            {addOnQuestion && (
+                                <AddonQuestion
+                                    helpLabel={typeof addOnQuestion === "object" ? addOnQuestion.helpLabel : undefined}
+                                    label={typeof addOnQuestion === "object" ? addOnQuestion.label : undefined}
+                                />
+                            )}
+                            <div className="jkl-spacing-xl--top">
+                                <PrimaryButton className="jkl-spacing-xl--right">Send</PrimaryButton>
+                                <TertiaryButton type="button" onClick={() => setCurrentValue(undefined)}>
+                                    Avbryt
+                                </TertiaryButton>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </MainQuestionContextProvider>
             )}
             {submitted && !contactSubmitted && <FeedbackSuccess {...successMessage} />}
