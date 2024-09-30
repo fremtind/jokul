@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 18.2.0 (2024-09-30)
+
+### Bug Fixes
+
+- use <form> element for the Feedback main question ([5583847](https://github.com/fremtind/jokul/commit/558384712cecd511cc7bf0ed86bee2346e7162e9)), closes [#4103](https://github.com/fremtind/jokul/issues/4103)
+
+### Features
+
+- support exposing Feedback as a landmark if needed ([e29277c](https://github.com/fremtind/jokul/commit/e29277c1954f970fce980d0060d7dd4ad15cbf2e))
+
 # 18.1.0 (2024-09-12)
 
 ### Features
