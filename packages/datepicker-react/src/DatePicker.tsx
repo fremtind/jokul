@@ -1,6 +1,7 @@
+import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { CalendarIcon } from "@fremtind/jkl-icons-react";
 import { InputGroup } from "@fremtind/jkl-input-group-react";
-import { useAnimatedHeight, useClickOutside, useFocusOutside, useKeyListener } from "@fremtind/jkl-react-hooks";
+import { Popover } from "@fremtind/jkl-popover-react";
 import { BaseTextInput } from "@fremtind/jkl-text-input-react";
 import cn from "classnames";
 import startOfDay from "date-fns/startOfDay";
@@ -75,7 +76,9 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
     /// Calendar state
 
     const [showCalendar, setShowCalendar] = useState(defaultShow);
-    const [calendarRef] = useAnimatedHeight<HTMLDivElement>(showCalendar);
+
+    const calendarRef = useRef<HTMLDivElement>(null);
+    const datepickerRef = useRef<HTMLDivElement>(null);
 
     /// Input events
 
@@ -97,7 +100,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         [inputRef, forwardedInputRef],
     );
 
-    const datepickerRef = useRef<HTMLDivElement>(null);
     const handleFocus = useCallback(
         (e: FocusEvent<HTMLInputElement>) => {
             if (!onFocus || !datepickerRef.current) {
@@ -134,25 +136,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             }
         },
         [setShowCalendar, action],
-    );
-
-    const handleKeyDown = useCallback(
-        (e: React.KeyboardEvent<HTMLInputElement>) => {
-            if (e.key === "Escape") {
-                setShowCalendar(false);
-                e.preventDefault();
-                e.stopPropagation();
-            }
-
-            if (onKeyDown) {
-                let nextValue = e.currentTarget.value;
-                if (/[\d.]/.test(e.key)) {
-                    nextValue += e.key;
-                }
-                onKeyDown(e, date, { error, value: nextValue });
-            }
-        },
-        [onKeyDown, setShowCalendar, date, error],
     );
 
     const handleChange = useCallback(
@@ -203,14 +186,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         [setShowCalendar, showCalendar, action, calendarRef],
     );
 
-    const clickInput = useCallback(() => {
-        setShowCalendar(!showCalendar);
-    }, [setShowCalendar, showCalendar]);
-
-    const hideCalendar = useCallback(() => {
-        setShowCalendar(false);
-    }, [setShowCalendar]);
-
     const handleClickCalendarDay = useCallback(
         ({ date }: DateInfo) => {
             setShowCalendar(false);
@@ -251,13 +226,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
         [setShowCalendar],
     );
 
-    useClickOutside(datepickerRef, hideCalendar);
-    useFocusOutside(datepickerRef, hideCalendar);
-    useKeyListener(calendarRef, ["Escape"], () => {
-        setShowCalendar(false);
-        inputRef.current && inputRef.current.focus();
-    });
-
     return (
         <InputGroup
             id={id}
@@ -274,59 +242,60 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
             supportLabelProps={supportLabelProps}
             tooltipProps={tooltipProps}
             render={(inputProps) => (
-                // The <div> element handles keyboard events that bubble up from <button> elements inside
-                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-                <div
-                    data-testid="jkl-datepicker__input-wrapper"
-                    className="jkl-datepicker__input-wrapper"
-                    data-density={density}
-                    tabIndex={-1} // Må være her for Safari onBlur quirk! https://bugs.webkit.org/show_bug.cgi?id=22261
-                    onKeyDown={handleKeyDown}
-                >
-                    <BaseTextInput
-                        ref={unifiedInputRef}
-                        data-testid="jkl-datepicker__input"
-                        data-testautoid={testAutoId}
-                        className="jkl-datepicker__input"
-                        name={name}
-                        defaultValue={defaultValue}
-                        density={density}
-                        value={value}
-                        type="text"
-                        placeholder={placeholder}
-                        width={width}
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
-                        onClick={clickInput}
-                        onChange={handleChange}
-                        {...inputProps}
-                        action={{
-                            buttonRef: iconButtonRef,
-                            icon: <CalendarIcon />,
-                            label: showCalendar ? hideCalendarLabel : showCalendarLabel,
-                            ...action,
-                            onClick: clickCalendar,
-                            onKeyDown: handleKeyDownAction,
-                        }}
-                    />
-                    <div className="jkl-datepicker__calendar-wrapper">
-                        <Calendar
-                            ref={calendarRef}
-                            density={density}
-                            date={date}
-                            minDate={minDate}
-                            maxDate={maxDate}
-                            days={days}
-                            months={months}
-                            monthLabel={monthLabel}
-                            yearLabel={yearLabel}
-                            yearsToShow={yearsToShow}
-                            hidden={!showCalendar}
-                            onDateSelected={handleClickCalendarDay}
-                            onTabOutside={handleTabOutsideCalendar}
-                        />
-                    </div>
-                </div>
+                <BaseTextInput
+                    ref={unifiedInputRef}
+                    data-testid="jkl-datepicker__input"
+                    data-testautoid={testAutoId}
+                    className="jkl-datepicker__input"
+                    name={name}
+                    defaultValue={defaultValue}
+                    density={density}
+                    value={value}
+                    type="text"
+                    placeholder={placeholder}
+                    width={width}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    actionButton={
+                        <Popover
+                            positionReference={datepickerRef}
+                            open={showCalendar}
+                            onOpenChange={() => setShowCalendar(!showCalendar)}
+                            offset={8}
+                        >
+                            <Popover.Trigger
+                                title={showCalendar ? hideCalendarLabel : showCalendarLabel}
+                                className="jkl-text-input-action-button"
+                                onClick={clickCalendar}
+                                onKeyDown={handleKeyDownAction}
+                                asChild
+                            >
+                                <IconButton {...action}>
+                                    <CalendarIcon />
+                                </IconButton>
+                            </Popover.Trigger>
+                            <Popover.Content initialFocus={-1}>
+                                <Calendar
+                                    ref={calendarRef}
+                                    density={density}
+                                    date={date}
+                                    minDate={minDate}
+                                    maxDate={maxDate}
+                                    days={days}
+                                    months={months}
+                                    monthLabel={monthLabel}
+                                    yearLabel={yearLabel}
+                                    yearsToShow={yearsToShow}
+                                    hidden={!showCalendar}
+                                    onDateSelected={handleClickCalendarDay}
+                                    onTabOutside={handleTabOutsideCalendar}
+                                />
+                            </Popover.Content>
+                        </Popover>
+                    }
+                    {...inputProps}
+                />
             )}
         />
     );
