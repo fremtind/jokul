@@ -21,8 +21,6 @@
     display: block;
     background-color: var(--jkl-calendar-background-color);
     color: var(--jkl-calendar-text-color);
-    border-radius: var(--calendar-corner-radius);
-    box-shadow: var(--calendar-box-shadow);
 
     @include jkl.comfortable-density {
         --jkl-calendar-padding: var(--jkl-spacing-12) var(--jkl-spacing-16) var(--jkl-spacing-16);
@@ -44,7 +42,6 @@
     }
 
     &__padding {
-        padding: var(--jkl-calendar-padding);
         display: flex;
         flex-direction: column;
         gap: var(--jkl-calendar-gap);
