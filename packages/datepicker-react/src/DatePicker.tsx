@@ -259,7 +259,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     onChange={handleChange}
                     actionButton={
                         <Popover
-                            positionReference={datepickerRef}
+                            positionReference={inputRef}
                             open={showCalendar}
                             onOpenChange={() => setShowCalendar(!showCalendar)}
                             offset={8}
@@ -275,7 +275,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                                     <CalendarIcon />
                                 </IconButton>
                             </Popover.Trigger>
-                            <Popover.Content initialFocus={-1}>
+                            <Popover.Content initialFocus={-1} padding={24}>
                                 <Calendar
                                     ref={calendarRef}
                                     density={density}
