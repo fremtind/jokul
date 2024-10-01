@@ -137,11 +137,7 @@ const usePopover = ({
         onOpenChange,
         placement,
         strategy,
-        middleware: [
-            offset(_offset),
-            flip({ padding: 5, fallbackPlacements: ["bottom", "top"] }),
-            shift({ padding: 12 }),
-        ],
+        middleware: [offset(_offset), flip({ padding: 5 }), shift({ padding: 12 })],
         whileElementsMounted: autoUpdate,
     });
 
