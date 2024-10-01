@@ -8,6 +8,7 @@ import "../../input-group/input-group.scss";
 import "../../select/select.scss";
 import "../../text-input/text-input.scss";
 import "../../tooltip/tooltip.scss";
+import "../../popover/popover.scss";
 
 export default function Example() {
     return (
