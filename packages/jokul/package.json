@@ -53,7 +53,8 @@
         "./src/components/text-input/styles",
         "./src/components/toast/styles",
         "./src/components/toggle-switch/styles",
-        "./src/components/tooltip/styles"
+        "./src/components/tooltip/styles",
+        "./src/styles/*"
     ],
     "exports": {
         ".": {
@@ -83,6 +84,7 @@
             "require": "./build/cjs/components/index.js",
             "import": "./build/es/components/index.js"
         },
+        "./styles": "./src/styles/*",
         "./styles/core/*": "./src/core/styles/*",
         "./styles/accordion/*": "./src/components/accordion/styles/*",
         "./styles/breadcrumb/*": "./src/components/breadcrumb/styles/*",
