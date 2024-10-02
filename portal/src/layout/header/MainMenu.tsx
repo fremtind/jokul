@@ -66,7 +66,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({ className, items }) => {
             {isSmallScreen && (
                 <Button
                     variant="ghost"
-                    iconLeft={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                    icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
                     aria-label={`${isOpen ? "Lukk" : "Åpne"} meny`}
                     id="jkl-portal-main-menu-hamburger"
                     aria-controls="jkl-portal-main-menu-overlay"
