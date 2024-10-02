@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
 import { Button } from "../../button-react";
 import { ContextualMenu } from "../src/ContextualMenu";
+import { ContextualMenuDivider } from "../src/ContextualMenuDivider";
 import { ContextualMenuItem } from "../src/ContextualMenuItem";
 
 export const contextualMenuExampleKnobs: ExampleKnobsProps = {
@@ -20,6 +21,8 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = ({ boolValues, c
 
     /* Force a re-render whenever theme or density changes */
     const key = displayValues?.theme || "none" + displayValues?.density || "none";
+
+    const CustomLink = (props: React.ComponentPropsWithRef<"a">) => <a {...props}>{props.children}</a>;
 
     return (
         <div
@@ -42,6 +45,13 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = ({ boolValues, c
                 <ContextualMenuItem>Forsikringsprofil</ContextualMenuItem>
                 <ContextualMenuItem onClick={() => console.log("Hei fra Dokumenter")}>Dokumenter</ContextualMenuItem>
                 <ContextualMenuItem icon={<ErrorIcon />}>Skadesaker</ContextualMenuItem>
+                <ContextualMenuDivider />
+                <ContextualMenuItem as="a" href="https://jokul.fremtind.no/">
+                    Jøkuls hjemmeside
+                </ContextualMenuItem>
+                <ContextualMenuItem as={CustomLink} href="https://www.fremtind.no/" external target="_blank">
+                    Fremtind Forsikring
+                </ContextualMenuItem>
             </ContextualMenu>
         </div>
     );
