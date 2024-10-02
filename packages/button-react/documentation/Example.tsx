@@ -4,7 +4,8 @@ import { ButtonExample, buttonExampleKnobs } from "./ButtonExample";
 import "../../button/button.scss";
 import "../../loader/loader.scss";
 import "./style.scss";
+import { primaryCode } from "./Primary";
 
 export default function Example() {
-    return <DevExample component={ButtonExample} knobs={buttonExampleKnobs} />;
+    return <DevExample component={ButtonExample} knobs={buttonExampleKnobs} codeExample={primaryCode} />;
 }

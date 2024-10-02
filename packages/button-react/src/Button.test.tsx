@@ -2,6 +2,7 @@ import { render, screen, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useState } from "react";
+import { Icon } from "../../icons-react";
 import { Button } from "./Button";
 import { buttonVariants } from "./types";
 
@@ -16,6 +17,34 @@ describe("Button", () => {
 
             expect(screen.getByTestId(buttonVariant)).toHaveClass(`jkl-button--${buttonVariant}`);
         });
+    });
+
+    it("renders correctly with left icon and label", () => {
+        render(
+            <Button variant="primary" icon={<Icon>save</Icon>}>
+                Lagre
+            </Button>,
+        );
+
+        expect(screen.getByText("Lagre")).toBeInTheDocument();
+        expect(screen.getByText("save")).toBeInTheDocument();
+    });
+
+    it("renders correctly with right icon and label", () => {
+        render(
+            <Button variant="primary" icon={<Icon>save</Icon>} iconPosition="right">
+                Lagre
+            </Button>,
+        );
+
+        expect(screen.getByText("Lagre")).toBeInTheDocument();
+        expect(screen.getByText("save")).toBeInTheDocument();
+    });
+
+    it("renders correctly with icon only", () => {
+        render(<Button variant="primary" icon={<Icon>save</Icon>} title="Lagre" />);
+
+        expect(screen.getByText("save")).toBeInTheDocument();
     });
 
     it("calls the onClick handler when clicked", async () => {
