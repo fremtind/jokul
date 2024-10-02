@@ -52,7 +52,6 @@ const defaultDays = ["man", "tir", "ons", "tor", "fre", "lør", "søn"];
 
 export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) => {
     const {
-        hidden,
         date,
         defaultSelected,
         density,
@@ -347,14 +346,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
     const monthSelectOptions = getMonthSelectOptions(shownYear, months, minDate, maxDate);
 
     return (
-        <div
-            ref={ref}
-            id={id}
-            className={cn("jkl-calendar", {
-                "jkl-calendar--hidden": hidden,
-            })}
-            data-testid="jkl-calendar"
-        >
+        <div ref={ref} id={id} className="jkl-calendar" data-testid="jkl-calendar">
             {/* Vi lytter på på trykk på Tab inne i kalenderen for å håndtere fokus */}
             {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
             <div className="jkl-calendar__padding" ref={calendarPaddingRef} onKeyDown={handleTabInside}>
