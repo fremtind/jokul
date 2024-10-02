@@ -23,7 +23,6 @@ interface CalendarProps
     date: Date | null;
     density?: Density;
     defaultSelected?: Date;
-    hidden?: boolean;
     days?: string[];
     months?: string[];
     monthLabel?: string;
