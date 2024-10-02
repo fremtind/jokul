@@ -259,23 +259,25 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                     onChange={handleChange}
                     actionButton={
                         <Popover
-                            positionReference={datepickerRef}
+                            positionReference={inputRef}
                             open={showCalendar}
                             onOpenChange={() => setShowCalendar(!showCalendar)}
                             offset={8}
                         >
                             <Popover.Trigger
+                                data-testid="jkl-datepicker__trigger"
                                 title={showCalendar ? hideCalendarLabel : showCalendarLabel}
                                 className="jkl-text-input-action-button"
                                 onClick={clickCalendar}
                                 onKeyDown={handleKeyDownAction}
+                                tabIndex={0}
                                 asChild
                             >
                                 <IconButton {...action}>
                                     <CalendarIcon />
                                 </IconButton>
                             </Popover.Trigger>
-                            <Popover.Content initialFocus={-1}>
+                            <Popover.Content initialFocus={-1} padding={24}>
                                 <Calendar
                                     ref={calendarRef}
                                     density={density}
