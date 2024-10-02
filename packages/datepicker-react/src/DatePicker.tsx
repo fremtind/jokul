@@ -270,6 +270,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
                                 className="jkl-text-input-action-button"
                                 onClick={clickCalendar}
                                 onKeyDown={handleKeyDownAction}
+                                tabIndex={0}
                                 asChild
                             >
                                 <IconButton {...action}>
