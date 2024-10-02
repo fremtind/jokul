@@ -1,7 +1,6 @@
 import { Density } from "@fremtind/jkl-core";
 import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon } from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
 import React, { forwardRef, useCallback, useEffect, useReducer, useRef } from "react";
 import { flushSync } from "react-dom";
 import type { YearsToShow } from "../types";
