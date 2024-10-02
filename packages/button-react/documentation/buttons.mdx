@@ -64,6 +64,22 @@ Knappetekster skal være så enkle og korte som mulig og skal oppfordre til hand
     </Button>
 </form>
 
+## Ikoner i knapper
+
+Knappene kan ta inn et ikon som vises til venstre eller høyre for knappeteksten. Om du ikke sender inn tekst vises kun ikonet.
+Som standard vises ikonet til venstre for knappeteksten.
+
+### Knapper med kun ikon
+
+Vær forsiktig med å bruke knapper med kun ikon, da dette krever ekstra forståelse fra brukerens side. De kan likevel være nyttige i ekspertverktøy, og i mønstre som verktøylinjer. Når du bruker en knapp med kun ikon må du huske å angi en tekstlig beskrivelse av funksjonaliteten gjennom f.eks. et <a href="/komponenter/tooltip">Tooltip</a> eller `title`-attributten.
+
+```tsx
+<Tooltip>
+    <TooltipTrigger><Button variant="ghost" icon={<PenIcon />} /></TooltipTrigger>
+    <TooltipContent>Rediger innhold</TooltipContent>
+<Tooltip/>
+```
+
 ## Knapper rendret som andre elementer
 
 I noen tilfeller representerer en knapp et annet semantisk element, for eksempel en lenke. Knappekomponentene i Jøkul er derfor _polymorfe_, og kan ta inn en React-komponent eller et HTML-element den skal rendre ut.

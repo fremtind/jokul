@@ -2,156 +2,144 @@
 @use "sass:string";
 @use "@fremtind/jkl-core/jkl";
 
-$_animation-timing: jkl.timing("snappy") jkl.easing("focus");
-$_flash-animation-name: jkl-flash-#{string.unique-id()};
-$_tertiary-flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
-$_hover-elevation-distance: -0.25rem;
+$_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
 
-$_button-border-width: jkl.rem(1px);
-$_focus-ring-distance: jkl.rem(4px);
-$_focus-ring-width: jkl.rem(2px);
-
-@include jkl.comfortable-density-variables {
-    --jkl-button-font-size: var(--jkl-body-font-size);
-    --jkl-button-line-height: #{jkl.rem(48px)};
-    --jkl-button-font-weight: #{jkl.$typography-weight-bold};
-    --jkl-button-min-width: #{jkl.rem(104px)};
-    --jkl-button-padding: 0 #{jkl.$spacing-24};
-    --jkl-button-tertiary-padding: 0 #{jkl.$spacing-2};
-    --jkl-button-children-padding-with-icon: #{jkl.$spacing-2};
-    --jkl-button-tertiary-padding-with-icon: 0;
-    --jkl-button-focus-ring-placement: -#{($_button-border-width + $_focus-ring-distance)};
-
-    @include jkl.small-device {
-        --jkl-button-line-height: #{jkl.rem(44px)};
-    }
+@include jkl.comfortable-density(".jkl-button") {
+    --padding-block: #{jkl.$spacing-8};
+    --padding-text: #{jkl.$spacing-24};
+    --padding-icon: #{jkl.$spacing-16};
+    --padding-icon-button: #{jkl.$spacing-8};
+    --padding-tertiary-inline: #{jkl.$spacing-4};
+    --padding-ghost-inline: #{jkl.$spacing-8};
 }
 
-@include jkl.compact-density-variables {
-    --jkl-button-font-size: var(--jkl-small-font-size);
-    --jkl-button-line-height: #{jkl.rem(32px)};
-    --jkl-button-font-weight: #{jkl.$typography-weight-bold};
-    --jkl-button-min-width: #{jkl.rem(76px)};
-    --jkl-button-padding: 0 #{jkl.$spacing-12};
-    --jkl-button-tertiary-padding: 0 #{jkl.$spacing-2};
-    --jkl-button-children-padding-with-icon: #{jkl.$spacing-2};
-    --jkl-button-tertiary-padding-with-icon: #{jkl.$spacing-2};
-    --jkl-button-focus-ring-placement: -#{($_button-border-width + calc($_focus-ring-distance / 2))};
-}
-
-a.jkl-button {
-    text-decoration: none;
+@include jkl.compact-density(".jkl-button") {
+    --padding-block: #{jkl.$spacing-4};
+    --padding-text: #{jkl.$spacing-12};
+    --padding-icon: #{jkl.$spacing-8};
+    --padding-icon-button: #{jkl.$spacing-4};
+    --padding-tertiary-inline: #{jkl.$spacing-2};
+    --padding-ghost-inline: #{jkl.$spacing-4};
 }
 
 .jkl-button {
-    --border-color: var(--jkl-color-background-action);
-    --text-color: var(--jkl-color-background-action);
-    --focus-color: var(--jkl-color-background-action);
+    --text-color: var(--jkl-color-text-default);
     --background-color: transparent;
+    --border-radius: 0;
+    --border-width: #{jkl.rem(1px)}; // For secondary og tertiary button
 
-    display: inline-flex;
-    box-sizing: border-box;
-    justify-content: center;
-
-    background-color: var(--background-color);
-    color: var(--text-color);
-
-    @include jkl.use-font-variables("jkl-button");
-
-    height: var(--jkl-button-line-height);
-    min-width: var(--jkl-button-min-width);
+    // button and link resets
     cursor: pointer;
     user-select: none;
-    overflow: visible;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: unset;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+
+    border-radius: var(--border-radius);
+    padding-inline: var(--padding-text);
+    padding-block: var(--padding-block);
     position: relative;
+    overflow: hidden;
+    max-width: 100%;
 
-    @include jkl.motion;
-    transform-origin: 50% 90%;
-    transition-property: transform, background-color;
+    @include jkl.motion("standard", "productive", scale);
 
-    @include jkl.reset-outline;
-
-    &:focus-visible,
-    html:not([data-touchnavigation]) &:hover {
-        transform: scale(1.05);
+    @include jkl.text-style("body") {
+        --jkl-icon-weight: #{jkl.$icon-weight-bold};
+        font-weight: jkl.$typography-weight-bold;
     }
 
-    html:not([data-mousenavigation]) &:active,
-    html:not([data-touchnavigation]) &:active,
-    &:active {
-        transform: scale(1);
+    &:has(.jkl-icon:first-child) {
+        padding-inline-start: var(--padding-icon);
+    }
+
+    &:has(.jkl-icon:last-child) {
+        padding-inline-end: var(--padding-icon);
+    }
+
+    &:has(.jkl-icon:first-child):has(.jkl-icon:last-child) {
+        padding-inline: var(--padding-icon-button);
+    }
+
+    &__label {
+        @include jkl.motion("standard", "expressive", translate);
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: jkl.$spacing-2;
+        pointer-events: none;
+    }
+
+    &__loader {
+        @include jkl.motion("standard", "expressive", opacity, translate);
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% 350%;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &__text {
+        // Håndter tekster som er lenger enn knappen
+        // Knappen vokser til teksten, men kan f.eks. begrenses
+        // av sidebredde på mobil
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &[data-loading="true"] &__label {
+        translate: 0 -120%;
+    }
+
+    &[data-loading="true"] &__loader {
+        translate: -50% -50%;
+        opacity: 1;
     }
 
     &:focus-visible {
         @include jkl.focus-outline;
     }
 
-    html[data-touchnavigation] &--pressed {
-        transform: scale(0.95);
-        -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+    // Dette er elementet som viser touch-animasjon
+    &::before {
+        content: "";
+        pointer-events: none;
+        display: block;
+        position: absolute;
+        left: var(--jkl-touch-xcoord, 50%);
+        top: var(--jkl-touch-ycoord, 50%);
+        translate: -100%, -100%;
+        transform-origin: center;
+        border-radius: 9999px;
+        background-color: var(--text-color);
+        opacity: 0;
+        width: jkl.rem(16px);
+        height: jkl.rem(16px);
     }
 
-    &__content {
-        height: var(--jkl-button-line-height);
-        overflow: hidden;
+    html[data-touchnavigation] &.jkl-button--pressed::before {
+        animation: jkl.easing("focus") jkl.timing("expressive") $_flash-animation-name;
     }
-
-    &__slider {
-        @include jkl.motion;
-        transition-property: transform;
-
-        &--show-loader {
-            transform: translateY(-51%);
-        }
-    }
-
-    &__loader {
-        display: flex;
-        padding: 0;
-        align-items: center;
-        justify-content: center;
-        height: var(--jkl-button-line-height);
-    }
-
-    // ********* VARIANTS *********
 
     &--primary,
     &--secondary,
-    &--ghost {
-        border: solid $_button-border-width var(--border-color);
-        border-radius: 999px;
-        padding: var(--jkl-button-padding);
-
-        &::before {
-            content: "";
-            position: absolute;
-            border-radius: 999px;
-            inset: 0;
-        }
-
-        html[data-touchnavigation] &.jkl-button--pressed::before {
-            animation: jkl.easing("easeInBounceOut") jkl.timing("lazy") $_flash-animation-name;
+    &--tertiary {
+        :not([data-touchnavigation]) &:hover {
+            scale: 1.05;
+            transform-origin: center;
         }
     }
 
-    &--ghost {
-        --border-color: transparent;
-        border-radius: jkl.rem(4px);
-        padding: 0 jkl.$spacing-4;
-
-        &:focus-visible,
-        html:not([data-touchnavigation]) &:hover {
-            --background-color: var(--jkl-color-background-interactive-hover);
-            transform: scale(1);
-        }
-
-        &.jkl-button--icon-left .jkl-button__children {
-            padding-left: var(--jkl-button-children-padding-with-icon);
-        }
-
-        &.jkl-button--icon-right .jkl-button__children {
-            padding-right: var(--jkl-button-children-padding-with-icon);
-        }
+    &--primary,
+    &--secondary {
+        --border-radius: 999px;
     }
 
     &--primary {
@@ -160,135 +148,56 @@ a.jkl-button {
     }
 
     &--secondary {
-        transition-property: box-shadow, transform, background-color;
-
-        &:hover,
-        &:focus-visible,
-        html[data-touchnavigation] &.jkl-button--pressed {
-            box-shadow: inset 0 0 0 1px var(--border-color), inset 0 0 0 1px var(--border-color);
-        }
-    }
-
-    &--tertiary {
-        border-bottom: solid $_button-border-width var(--border-color);
-        border-top: solid $_button-border-width transparent;
-        padding: var(--jkl-button-tertiary-padding);
-        transition: transform $_animation-timing, border $_animation-timing;
-        min-width: unset;
-
-        // Base for touch-effekt
-        &::before {
+        &::after {
             content: "";
-            pointer-events: none;
-            display: block;
             position: absolute;
-            left: var(--jkl-touch-xcoord, 50%);
-            top: var(--jkl-touch-ycoord, 50%);
-            transform: translate3d(-50%, -50%, 0);
-            border-radius: 100%;
-            width: jkl.rem(16px);
-            height: jkl.rem(16px);
-            background-color: transparent;
+            inset: 0;
+            border-radius: var(--border-radius);
+            border: var(--border-width) solid var(--text-color);
         }
+    }
 
-        html[data-touchnavigation] &.jkl-button--pressed::before {
-            animation: jkl.easing("easeInBounceOut") jkl.timing("lazy") $_tertiary-flash-animation-name;
-        }
+    &--tertiary,
+    &--tertiary:has(.jkl-icon:first-child),
+    &--tertiary:has(.jkl-icon:last-child) {
+        padding-inline: var(--padding-tertiary-inline);
 
-        &:focus-visible {
-            border: none;
-
-            @include jkl.forced-colors-mode {
-                border: revert;
-            }
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: var(--border-radius);
+            border-bottom: var(--border-width) solid var(--text-color);
         }
 
         &:hover,
-        &:focus-visible,
-        html[data-touchnavigation] &.jkl-button--pressed {
-            border-bottom-color: var(--focus-color);
-            border-bottom-width: $_focus-ring-width;
-            color: var(--focus-color);
+        &:focus-visible {
+            --border-width: #{jkl.rem(2px)};
         }
     }
 
-    &--icon-left,
-    &--icon-right {
-        .jkl-button__icon {
-            display: inline-block;
-            vertical-align: sub;
-        }
-    }
+    &--ghost,
+    &--ghost:has(.jkl-icon:first-child),
+    &--ghost:has(.jkl-icon:last-child) {
+        padding-inline: var(--padding-ghost-inline);
+        border-radius: jkl.rem(4px);
 
-    &--icon-left {
-        padding-left: jkl.$spacing-8;
+        @include jkl.motion("standard", "productive", background-color);
 
-        .jkl-button__children {
-            padding-left: var(--jkl-button-children-padding-with-icon);
-        }
-
-        &.jkl-button--tertiary {
-            padding-left: var(--jkl-button-tertiary-padding-with-icon);
-        }
-    }
-
-    &--icon-right {
-        padding-right: jkl.$spacing-8;
-
-        .jkl-button__children {
-            padding-right: var(--jkl-button-children-padding-with-icon);
-        }
-
-        &.jkl-button--tertiary {
-            padding-right: var(--jkl-button-tertiary-padding-with-icon);
-        }
-    }
-
-    @include jkl.forced-colors-mode {
-        &.jkl-button--primary:not(a),
-        &.jkl-button--secondary:not(a),
-        &.jkl-button--primary:hover:not(a),
-        &.jkl-button--secondary:hover:not(a),
-        &.jkl-button--primary:focus:not(a),
-        &.jkl-button--secondary:focus:not(a) {
-            border-color: ButtonText;
-        }
-
-        & .jkl-loader__dot {
-            background-color: ButtonText;
-        }
-
-        &.jkl-button--tertiary {
-            outline-offset: jkl.$spacing-3xs;
-            border-top-style: none;
-            border-right-style: none;
-            border-left-style: none;
+        &:hover {
+            --background-color: var(--jkl-color-background-interactive-hover);
         }
     }
 }
 
 @keyframes #{$_flash-animation-name} {
     0% {
-        box-shadow: 0 0 0 0 var(--focus-color);
         opacity: 0.5;
+        scale: 1;
     }
 
     100% {
-        box-shadow: 0 0 0 #{jkl.rem(16px)} var(--focus-color);
         opacity: 0;
-    }
-}
-
-@keyframes #{$_tertiary-flash-animation-name} {
-    0% {
-        box-shadow: 0 0 0 0 var(--focus-color);
-        background-color: var(--focus-color);
-        opacity: 0.5;
-    }
-
-    100% {
-        box-shadow: 0 0 0 #{jkl.rem(40px)} var(--focus-color);
-        background-color: var(--focus-color);
-        opacity: 0;
+        scale: 8;
     }
 }

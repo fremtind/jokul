@@ -7,11 +7,19 @@ import { Tertiary } from "./Tertiary";
 import "./style.scss";
 
 export const buttonExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["withLoader", "isLoading"],
+    boolProps: [
+        "withLoader",
+        "isLoading",
+        "icon",
+        {
+            prop: "label",
+            defaultValue: true,
+        },
+    ],
     choiceProps: [
         {
-            name: "Ikon",
-            values: ["uten", "arrow-left", "arrow-right", "begge"],
+            name: "iconPosition",
+            values: ["left", "right"],
             defaultValue: 0,
         },
     ],
