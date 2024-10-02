@@ -1,0 +1,57 @@
+---
+title: Menu
+react: menu-react
+scss: menu
+group: meny
+---
+
+import MenuExample, { MenuExampleCode, MenuExampleKnobs } from "./MenuExample";
+import MenuToggleSwitchExample, {
+    MenuToggleSwitchExampleCode,
+    MenuToggleSwitchExampleKnobs,
+} from "./MenuToggleSwitchExample";
+
+<Ingress>
+    En kontekstuell meny lar brukeren utføre handlinger relatert til deler av innholdet på en side, men som ikke er
+    sentrale for oppgaven brukeren holder på med.
+</Ingress>
+
+<ComponentExample component={MenuExample} codeExample={MenuExampleCode} knobs={MenuExampleKnobs} />
+
+Menyen inneholder et lite sett med handlinger, relatert til enten et område i bruker&shy;grensesnittet eller til konteksten brukeren befinner seg i. Grupper av tilhørende handlinger i menyen kan skilles fra hverandre med en skille&shy;linje.
+
+Menyen vises når brukeren interagerer med en trigger på siden ved hjelp av mus, tastatur eller berøring. Triggeren må være en type knapp:
+
+-   ikonknapp
+-   tekstknapp
+-   knapp med tekst og ikon
+
+Sørg for at triggeren gir en god indikasjon til brukeren om at den åpner en meny.
+
+Kontekstuelle menyer kan nøstes inni hverandre, men vi anbefaler å bruke maksimalt to nivåer. Bruk helst færre enn ti menypunkter i hver meny - som regel trengs langt færre enn det.
+
+## Når bruker vi Menu?
+
+Bruk en kontekstuell meny når det finnes handlinger som er relevante for brukeren, men som ikke er en essensiell del av flyten brukeren beveger seg i. Menyen er et godt sted å plassere tilleggs&shy;handlinger uten å legge til rot i grense&shy;snittet. Se på en kontekstuell meny som en subtil digresjon i historien vi leder brukeren gjennom.
+
+**Eksempler på når man kan bruke en kontekstuell meny kan være**
+
+-   Handlinger på hvert element i en liste med oppgave&shy;kort (Slett, Dupliser, Merk som behandlet)
+-   En meny med handlinger relatert til en innlogget bruker (Mine instillinger, Logg ut)
+
+## Mulig innhold i en meny
+
+-   Tekst
+-   Ikon og tekst
+-   Knapp > forskjellige interaktive elementer.
+-   ToggleSwitch
+
+### Eksempel med ToggleSwitch
+
+Menyelementer som skrur av og på en innstilling har en egen komponent, for å få en semantisk riktig struktur og forventet oppførsel. Dette mønsteret kan for eksempel brukes for å styre valgt tema, uten å måtte endre innstillinger i operativsystemet.
+
+<ComponentExample
+    component={MenuToggleSwitchExample}
+    codeExample={MenuToggleSwitchExampleCode}
+    knobs={MenuToggleSwitchExampleKnobs}
+/>

@@ -2,11 +2,10 @@ import { ErrorIcon, ChevronDownIcon } from "@fremtind/jkl-icons-react";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
 import { Button } from "../../button-react";
-import { ContextualMenu } from "../src/ContextualMenu";
-import { ContextualMenuDivider } from "../src/ContextualMenuDivider";
-import { ContextualMenuItem } from "../src/ContextualMenuItem";
+import { Menu } from "../src/Menu";
+import { MenuItem } from "../src/MenuItem";
 
-export const contextualMenuExampleKnobs: ExampleKnobsProps = {
+export const MenuExampleKnobs: ExampleKnobsProps = {
     choiceProps: [
         {
             name: "isOpen",
@@ -16,13 +15,11 @@ export const contextualMenuExampleKnobs: ExampleKnobsProps = {
     ],
     boolProps: ["Ikke lukk ved klikk utenfor"],
 };
-export const ContextualMenuExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues, displayValues }) => {
+export const MenuExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues, displayValues }) => {
     const isOpen = choiceValues?.["isOpen"] !== "tom" ? choiceValues?.["isOpen"] === "true" : undefined;
 
     /* Force a re-render whenever theme or density changes */
     const key = displayValues?.theme || "none" + displayValues?.density || "none";
-
-    const CustomLink = (props: React.ComponentPropsWithRef<"a">) => <a {...props}>{props.children}</a>;
 
     return (
         <div
@@ -31,7 +28,7 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = ({ boolValues, c
                 textAlign: "center",
             }}
         >
-            <ContextualMenu
+            <Menu
                 id={key}
                 initialPlacement="bottom-end"
                 isOpen={isOpen}
@@ -42,28 +39,21 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = ({ boolValues, c
                     </Button>
                 }
             >
-                <ContextualMenuItem>Forsikringsprofil</ContextualMenuItem>
-                <ContextualMenuItem onClick={() => console.log("Hei fra Dokumenter")}>Dokumenter</ContextualMenuItem>
-                <ContextualMenuItem icon={<ErrorIcon />}>Skadesaker</ContextualMenuItem>
-                <ContextualMenuDivider />
-                <ContextualMenuItem as="a" href="https://jokul.fremtind.no/">
-                    Jøkuls hjemmeside
-                </ContextualMenuItem>
-                <ContextualMenuItem as={CustomLink} href="https://www.fremtind.no/" external target="_blank">
-                    Fremtind Forsikring
-                </ContextualMenuItem>
-            </ContextualMenu>
+                <MenuItem>Forsikringsprofil</MenuItem>
+                <MenuItem onClick={() => console.log("Hei fra Dokumenter")}>Dokumenter</MenuItem>
+                <MenuItem icon={<ErrorIcon />}>Skadesaker</MenuItem>
+            </Menu>
         </div>
     );
 };
 
-export default ContextualMenuExample;
-export const contextualMenuExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
+export default MenuExample;
+export const MenuExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
     const isOpen = !choiceValues || choiceValues["isOpen"] === "tom" ? `` : `\n    isOpen={${choiceValues["isOpen"]}}`;
     const keepOpen = boolValues?.["Ikke lukk ved klikk utenfor"] ? `\n    keepOpenOnClickOutside` : ``;
 
     return `
-<ContextualMenu
+<Menu
     initialPlacement="bottom-end"${isOpen}${keepOpen}
     triggerElement={
         <Button variant="ghost" iconRight={<ChevronDownIcon bold />}>
@@ -71,9 +61,9 @@ export const contextualMenuExampleCode: CodeExample = ({ boolValues, choiceValue
         </Button>
     }
 >
-    <ContextualMenuItem>Forsikringsprofil</ContextualMenuItem>
-    <ContextualMenuItem onClick={() => console.log("Hei fra Skadesaker")}>Dokumenter</ContextualMenuItem>
-    <ContextualMenuItem icon={<ErrorIcon />}>Skadesaker</ContextualMenuItem>
-</ContextualMenu>
+    <MenuItem>Forsikringsprofil</MenuItem>
+    <MenuItem onClick={() => console.log("Hei fra Skadesaker")}>Dokumenter</MenuItem>
+    <MenuItem icon={<ErrorIcon />}>Skadesaker</MenuItem>
+</Menu>
 `;
 };

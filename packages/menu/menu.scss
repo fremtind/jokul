@@ -1,20 +1,17 @@
 @charset "UTF-8";
 @use "@fremtind/jkl-core/jkl";
-@use "contextual-menu-item";
-@use "contextual-menu-divider";
-
-/// @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
-/// Bruk heller komponenten `Menu` som er en erstatning for ContextualMenu
+@use "menu-item";
+@use "menu-divider";
 
 @include jkl.light-mode-variables {
-    --jkl-contextual-menu-border: none;
+    --jkl-menu-border: none;
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-contextual-menu-border: 2px solid #{jkl.$color-snohvit};
+    --jkl-menu-border: 2px solid #{jkl.$color-snohvit};
 }
 
-.jkl-contextual-menu {
+.jkl-menu {
     background-color: var(--jkl-color-background-container-high);
 
     width: 100%;
@@ -25,7 +22,7 @@
     flex-wrap: nowrap;
     box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
     border-radius: jkl.rem(2px);
-    border: var(--jkl-contextual-menu-border);
+    border: var(--jkl-menu-border);
     z-index: jkl.$z-index--dropdown;
 
     &:focus-visible {

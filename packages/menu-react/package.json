@@ -1,0 +1,66 @@
+{
+    "name": "@fremtind/jkl-contextual-menu-react",
+    "version": "3.4.37",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul react contextual-menu",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/contextual-menu-react",
+    "keywords": [
+        "jøkul",
+        "fremtind"
+    ],
+    "directories": {
+        "lib": "build"
+    },
+    "files": [
+        "build"
+    ],
+    "license": "MIT",
+    "types": "./build/index.d.ts",
+    "main": "./build/cjs/index.js",
+    "module": "./build/esm/index.js",
+    "browser": "./build/esm/index.js",
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
+    "scripts": {
+        "clean": "git clean -xfd",
+        "build:types": "tsc -p tsconfig-for-declarations.json",
+        "build:scripts": "node ./esbuild.prod.mjs",
+        "build": "run-s build:*",
+        "test": "jest --testMatch '**/contextual-menu-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
+        "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
+        "dev:server": "nodemon ./dist/server.js",
+        "dev": "node ./esbuild.dev.mjs && run-p dev:*"
+    },
+    "dependencies": {
+        "@floating-ui/react": "^0.24.2",
+        "@fremtind/jkl-contextual-menu": "^2.2.0",
+        "@fremtind/jkl-core": "^14.4.0",
+        "@fremtind/jkl-icons-react": "^9.1.6",
+        "@fremtind/jkl-react-hooks": "^12.1.8",
+        "@fremtind/jkl-toggle-switch": "^13.2.0",
+        "classnames": "^2.3.2",
+        "framer-motion": "^7.10.3"
+    },
+    "devDependencies": {
+        "@fremtind/jkl-icon-button-react": "^5.0.8"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "@types/react-is": "^17.0.0 || ^18.0.0",
+        "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
+        "react-is": "^17.0.0 || ^18.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

@@ -1,34 +1,33 @@
 @use "@fremtind/jkl-core/jkl";
 
 @include jkl.comfortable-density-variables {
-    --jkl-contextual-menu-item-height: #{jkl.rem(48px)};
-    --jkl-contextual-menu-item-padding: #{jkl.$spacing-8} #{jkl.$spacing-24};
-    @include jkl.declare-font-variables("jkl-contextual-menu-item", "body");
+    --jkl-menu-item-height: #{jkl.rem(48px)};
+    --jkl-menu-item-padding: #{jkl.$spacing-8} #{jkl.$spacing-24};
+    @include jkl.declare-font-variables("jkl-menu-item", "body");
 }
 
 @include jkl.compact-density-variables {
-    --jkl-contextual-menu-item-height: jkl.rem(32px);
-    --jkl-contextual-menu-item-padding: #{jkl.$spacing-4} #{jkl.$spacing-12};
-    @include jkl.declare-font-variables("jkl-contextual-menu-item", "small");
+    --jkl-menu-item-height: jkl.rem(32px);
+    --jkl-menu-item-padding: #{jkl.$spacing-4} #{jkl.$spacing-12};
+    @include jkl.declare-font-variables("jkl-menu-item", "small");
 }
 
-.jkl-contextual-menu-item {
+.jkl-menu-item {
     --background-color: var(--jkl-color-background-interactive);
 
     background-color: var(--background-color);
     color: var(--jkl-color-text-default);
     cursor: pointer;
-    text-decoration: none;
 
     box-sizing: border-box;
     user-select: none;
-    @include jkl.use-font-variables("jkl-contextual-menu-item");
+    @include jkl.use-font-variables("jkl-menu-item");
     display: flex;
     align-items: center;
     gap: jkl.$spacing-8;
     width: 100%;
-    height: var(--jkl-contextual-menu-item-height);
-    padding: var(--jkl-contextual-menu-item-padding);
+    height: var(--jkl-menu-item-height);
+    padding: var(--jkl-menu-item-padding);
 
     @include jkl.reset-outline;
 

@@ -838,6 +838,35 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
 
+  packages/menu:
+    specifiers:
+      '@fremtind/jkl-core': ^14.4.0
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/menu-react:
+    specifiers:
+      '@floating-ui/react': ^0.24.2
+      '@fremtind/jkl-contextual-menu': ^2.2.0
+      '@fremtind/jkl-core': ^14.4.0
+      '@fremtind/jkl-icon-button-react': ^5.0.8
+      '@fremtind/jkl-icons-react': ^9.1.6
+      '@fremtind/jkl-react-hooks': ^12.1.8
+      '@fremtind/jkl-toggle-switch': ^13.2.0
+      classnames: ^2.3.2
+      framer-motion: ^7.10.3
+    dependencies:
+      '@floating-ui/react': 0.24.2
+      '@fremtind/jkl-contextual-menu': link:../contextual-menu
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      '@fremtind/jkl-toggle-switch': link:../toggle-switch
+      classnames: 2.5.1
+      framer-motion: 7.10.3
+    devDependencies:
+      '@fremtind/jkl-icon-button-react': link:../icon-button-react
+
   packages/message:
     specifiers:
       '@fremtind/jkl-core': ^14.6.0
@@ -12859,6 +12888,19 @@ packages:
         optional: true
     dependencies:
       tslib: 2.5.3
+    dev: false
+
+  /framer-motion/7.10.3:
+    resolution: {integrity: sha512-k2ccYeZNSpPg//HTaqrU+4pRq9f9ZpaaN7rr0+Rx5zA4wZLbk547wtDzge2db1sB+1mnJ6r59P4xb+aEIi/W+w==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      '@motionone/dom': 10.16.2
+      hey-listen: 1.0.8
+      tslib: 2.4.0
+    optionalDependencies:
+      '@emotion/is-prop-valid': 0.8.8
     dev: false
 
   /framer-motion/7.10.3_biqbaboplfbrettd7655fr4n2y:
