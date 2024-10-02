@@ -433,7 +433,7 @@ importers:
   packages/contextual-menu-react:
     specifiers:
       '@floating-ui/react': ^0.24.2
-      '@fremtind/jkl-contextual-menu': ^2.2.2
+      '@fremtind/jkl-contextual-menu': ^2.3.0
       '@fremtind/jkl-core': ^14.6.0
       '@fremtind/jkl-icon-button-react': ^5.0.13
       '@fremtind/jkl-icons-react': ^9.1.9
@@ -1243,7 +1243,7 @@ importers:
       '@fremtind/jkl-constants-util': ^3.0.86
       '@fremtind/jkl-contact-information-react': ^2.1.50
       '@fremtind/jkl-content-toggle-react': ^6.0.23
-      '@fremtind/jkl-contextual-menu-react': ^3.6.2
+      '@fremtind/jkl-contextual-menu-react': ^3.7.0
       '@fremtind/jkl-cookie-consent-react': ^10.2.17
       '@fremtind/jkl-core': ^14.6.0
       '@fremtind/jkl-datepicker-react': ^15.1.68
@@ -3908,8 +3908,8 @@ packages:
       tslib: 2.5.3
     dev: false
 
-  /@fremtind/jkl-core/14.5.0:
-    resolution: {integrity: sha512-cbPyL2id0MWiKuYFn+j60YI1QOZ9N21An1OT2AQTUbbU8LQ8/56uwa3AO3UBiVcThh8sxCgIzhgbv5cmUfiL8Q==}
+  /@fremtind/jkl-core/14.6.0:
+    resolution: {integrity: sha512-Aw1+BCWGlOOkmvBLOmwzNfG4oCTgpnjf6nCJjDXUy/IVvbhLsPoDdEYF0995Rx+4fRV9O0mAvv/gsOcSW7G8/w==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
@@ -3922,7 +3922,7 @@ packages:
   /@fremtind/jkl-icons/9.1.5:
     resolution: {integrity: sha512-JDn9qAWTc68CI0Ua41MJ7/NOcOQBHr8T0mr2Qcwd1nTJPVuNRD7X+RHNs54bMykugp24hq+xbPGQWShOnb6qSQ==}
     dependencies:
-      '@fremtind/jkl-core': 14.5.0
+      '@fremtind/jkl-core': 14.6.0
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.1 (2024-10-02)
+
+### Bug Fixes
+
+- feedback ([76faf63](https://github.com/fremtind/jokul/commit/76faf635f769b2849621174af9a3d35c4b60265a))
+
 # 2.2.0 (2024-09-09)
 
 ### Features
