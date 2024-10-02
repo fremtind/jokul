@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.6.0 (2024-10-02)
+
+### Features
+
+- refaktorering av density-mixins i scss ([3061669](https://github.com/fremtind/jokul/commit/3061669cf77428d57745d166df2ff73e64341368))
+
 # 14.5.0 (2024-09-23)
 
 ### Features

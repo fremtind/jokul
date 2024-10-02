@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-combobox",
-    "version": "2.2.18",
+    "version": "2.2.19",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from combobox-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.5.0"
+        "@fremtind/jkl-core": "^14.6.0"
     },
     "repository": {
         "type": "git",
