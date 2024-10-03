@@ -1,8 +1,9 @@
 import { ErrorIcon, ChevronDownIcon } from "@fremtind/jkl-icons-react";
-import React, { FC } from "react";
+import React, { ComponentPropsWithRef, FC, forwardRef } from "react";
 import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
 import { Button } from "../../button-react";
 import { Menu } from "../src/Menu";
+import { MenuDivider } from "../src/MenuDivider";
 import { MenuItem } from "../src/MenuItem";
 
 export const MenuExampleKnobs: ExampleKnobsProps = {
@@ -20,6 +21,14 @@ export const MenuExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
 
     /* Force a re-render whenever theme or density changes */
     const key = displayValues?.theme || "none" + displayValues?.density || "none";
+
+    const CustomLink = forwardRef<HTMLAnchorElement, ComponentPropsWithRef<"a">>(function CustomLink(props, ref) {
+        return (
+            <a ref={ref} {...props}>
+                {props.children}
+            </a>
+        );
+    });
 
     return (
         <div
@@ -42,6 +51,13 @@ export const MenuExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
                 <MenuItem>Forsikringsprofil</MenuItem>
                 <MenuItem onClick={() => console.log("Hei fra Dokumenter")}>Dokumenter</MenuItem>
                 <MenuItem icon={<ErrorIcon />}>Skadesaker</MenuItem>
+                <MenuDivider />
+                <MenuItem as="a" href="https://jokul.fremtind.no/">
+                    Jøkuls hjemmeside
+                </MenuItem>
+                <MenuItem as={CustomLink} href="https://www.fremtind.no/" external target="_blank">
+                    Fremtind Forsikring
+                </MenuItem>
             </Menu>
         </div>
     );
