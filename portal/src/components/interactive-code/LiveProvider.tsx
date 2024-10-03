@@ -3,14 +3,12 @@ import * as breadcrumbReact from "@fremtind/jkl-breadcrumb-react";
 import * as buttonReact from "@fremtind/jkl-button-react";
 import * as cardReact from "@fremtind/jkl-card-react";
 import * as checkboxReact from "@fremtind/jkl-checkbox-react";
-import * as contentToggleReact from "@fremtind/jkl-content-toggle-react";
 import * as coockieConsentReact from "@fremtind/jkl-cookie-consent-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import * as datepickerReact from "@fremtind/jkl-datepicker-react";
 import * as descriptionListReact from "@fremtind/jkl-description-list-react";
 import * as expandButtonReact from "@fremtind/jkl-expand-button-react";
 import * as feedbackReact from "@fremtind/jkl-feedback-react";
-import * as footerReact from "@fremtind/jkl-footer-react";
 import * as iconButtonReact from "@fremtind/jkl-icon-button-react";
 import * as iconsReact from "@fremtind/jkl-icons-react";
 import * as imageReact from "@fremtind/jkl-image-react";
@@ -37,13 +35,11 @@ const scope = {
     ...breadcrumbReact,
     ...cardReact,
     ...checkboxReact,
-    ...contentToggleReact,
     ...coockieConsentReact,
     ...datepickerReact,
     ...descriptionListReact,
     ...expandButtonReact,
     ...feedbackReact,
-    ...footerReact,
     ...iconButtonReact,
     ...iconsReact,
     ...imageReact,
