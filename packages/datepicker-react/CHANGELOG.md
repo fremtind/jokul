@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 15.2.0 (2024-10-03)
+
+### Bug Fixes
+
+- legg til popover stilsetting i datepicker eksempel ([64bbbd1](https://github.com/fremtind/jokul/commit/64bbbd1df565f5872931c23f13209cce7e055bc4))
+- legg til tabindex på kalenderknapp i datepicker for å sikre fokus i safari ([c8636f9](https://github.com/fremtind/jokul/commit/c8636f996012679b43ab398d35e11c5befd90689))
+- oppdater tester etter overgang til popover ([0a4b11b](https://github.com/fremtind/jokul/commit/0a4b11b4c40f960973db27dead26e2e9a72518d8))
+- sync Calendar i allpakka ([701ee93](https://github.com/fremtind/jokul/commit/701ee932172634c3cc8527136b97b67fe0324303))
+
+### Features
+
+- utvid popover-apiet til å støtte nye props & ta i bruk popover i datepicker ([b1dc174](https://github.com/fremtind/jokul/commit/b1dc1741c9c7eb0b21ce7f7e0c3c17475fc0d9d7))
+
 ## 15.1.34 (2024-06-11)
 
 ### Bug Fixes

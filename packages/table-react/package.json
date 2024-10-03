@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table-react",
-    "version": "11.4.34",
+    "version": "11.4.35",
     "publishConfig": {
         "access": "public"
     },
@@ -44,7 +44,7 @@
         "@fremtind/jkl-react-hooks": "^12.2.2",
         "@fremtind/jkl-select-react": "^14.1.61",
         "@fremtind/jkl-table": "^9.1.13",
-        "@fremtind/jkl-text-input-react": "^15.1.19",
+        "@fremtind/jkl-text-input-react": "^15.2.0",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

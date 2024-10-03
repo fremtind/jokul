@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 15.2.0 (2024-10-03)
+
+### Features
+
+- utvid popover-apiet til å støtte nye props & ta i bruk popover i datepicker ([b1dc174](https://github.com/fremtind/jokul/commit/b1dc1741c9c7eb0b21ce7f7e0c3c17475fc0d9d7))
+
 ## [15.1.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input-react@15.1.1...@fremtind/jkl-text-input-react@15.1.2) (2024-08-05)
 
 ### Bug Fixes
