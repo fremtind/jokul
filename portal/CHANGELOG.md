@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [21.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.2.11...@fremtind/portal@21.3.0) (2024-10-03)
+
+### Bug Fixes
+
+- add footer in portal ([78fd5e5](https://github.com/fremtind/jokul/commit/78fd5e5b33c939ced6cfef04552140dd8973321f))
+- keep footer styling ([1981c78](https://github.com/fremtind/jokul/commit/1981c78f906934f62914e7737a63d18a205a7c07))
+
+### Features
+
+- delete contenttoggle footer and contactinformation ([cd6df38](https://github.com/fremtind/jokul/commit/cd6df3844f06ab16629d055333cbdabb90266316))
+
 ## [21.2.11](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.2.10...@fremtind/portal@21.2.11) (2024-10-03)
 
 ### Bug Fixes
