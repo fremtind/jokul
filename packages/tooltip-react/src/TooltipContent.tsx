@@ -54,7 +54,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
 
     // Siden tooltipet rendres på rot må vi hente lokal dark/light-verdi fra triggeren
     // Vi må gjøre dette for å ta hensyn til at tema kan styres lokalt for deler av UIet
-    const { theme } = getThemeAndDensity(refs.reference.current as HTMLElement);
+    const { density, theme } = getThemeAndDensity(refs.reference.current as HTMLElement);
 
     return (
         <FloatingPortal>
@@ -86,6 +86,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                                 {...getFloatingProps({ ...props, id: contentId })}
                                 style={{ ...floatingStyles }}
                                 data-theme={theme}
+                                data-layout-density={density}
                             >
                                 {children}
                                 <span
