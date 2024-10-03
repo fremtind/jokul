@@ -1,0 +1,138 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+@use "./toggle-slider";
+
+@include jkl.comfortable-density-variables {
+    @include jkl.declare-font-variables("jkl-toggle", "body");
+
+    --jkl-toggle-switch-height: #{jkl.rem(28px)};
+    --jkl-toggle-switch-width: #{jkl.rem(48px)};
+    --jkl-toggle-switch-knob-size: #{jkl.rem(20px)};
+    --jkl-toggle-switch-indicator-spacing: 0;
+    --jkl-toggle-switch-help-label-spacing: var(--jkl-spacing-2);
+}
+
+@include jkl.compact-density-variables {
+    @include jkl.declare-font-variables("jkl-toggle", "small");
+
+    --jkl-toggle-switch-height: #{jkl.rem(20px)};
+    --jkl-toggle-switch-width: #{jkl.rem(36px)};
+    --jkl-toggle-switch-knob-size: #{jkl.rem(12px)};
+    --jkl-toggle-switch-indicator-spacing: #{jkl.rem(-2px)};
+    --jkl-toggle-switch-help-label-spacing: 0;
+}
+
+.jkl-toggle-switch {
+    --border-width: #{jkl.rem(1px)};
+    --switch-padding: #{jkl.rem(4px)};
+    --knob-position: 0;
+    --switch-border-color: var(--jkl-color-border-action);
+    --indicator-color: var(--jkl-color-background-container-high);
+    --knob-border-color: var(--jkl-color-border-action);
+    --knob-color: var(--jkl-color-background-container-high);
+    --text-color: var(--jkl-color-text-default);
+    --icon-color: var(--jkl-color-text-inverted);
+
+    background: transparent;
+    color: var(--text-color);
+    padding: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: var(--jkl-spacing-8);
+    touch-action: none; // Forhindrer at siden flytter på seg når man drar i toggle
+
+    @include jkl.use-font-variables("jkl-toggle");
+
+    @include jkl.reset-outline;
+
+    @include jkl.forced-colors-mode {
+        border-color: transparent;
+        border-style: none;
+    }
+
+    &[aria-pressed="true"],
+    [aria-checked="true"] > & {
+        --indicator-color: var(--jkl-color-background-container-inverted);
+        --knob-color: var(--jkl-color-text-inverted);
+        --knob-position: calc(
+            var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) - var(--switch-padding) * 2
+        );
+    }
+
+    &[disabled] {
+        cursor: revert;
+
+        --text-color: var(--jkl-color-text-subdued);
+        --switch-border-color: var(--jkl-color-border-subdued);
+        --knob-border-color: var(--jkl-color-border-subdued);
+
+        &[aria-pressed="true"],
+        [aria-checked="true"] > & {
+            --indicator-color: var(--jkl-color-border-subdued);
+        }
+    }
+}
+
+.jkl-toggle-switch-widget {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: var(--jkl-toggle-switch-height);
+    width: var(--jkl-toggle-switch-width);
+    border-radius: 9999px;
+    border: var(--border-width) solid var(--switch-border-color);
+    overflow: hidden;
+    user-select: none;
+    padding: var(--switch-padding);
+    background-color: var(--indicator-color);
+    pointer-events: none;
+
+    @include jkl.forced-colors-mode {
+        border: jkl.rem(1px) solid ButtonText;
+    }
+
+    .jkl-toggle-switch:focus-visible & {
+        @include jkl.focus-outline;
+    }
+
+    &__slider {
+        position: relative;
+        box-sizing: border-box;
+        height: var(--jkl-toggle-switch-knob-size);
+        width: var(--jkl-toggle-switch-knob-size);
+        color: var(--icon-color);
+
+        @include jkl.motion;
+        transition-property: translate;
+        translate: var(--knob-position);
+    }
+
+    &__knob {
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        border: var(--border-width) solid var(--knob-border-color);
+        background-color: var(--knob-color);
+    }
+
+    &__indicator {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-right: var(--jkl-toggle-switch-indicator-spacing);
+        transform: translate(0, -50%);
+
+        & > .jkl-icon__icon {
+            // Uten dette får ikonet feil alignment. Mulig bug i ikonpakken?
+            position: absolute;
+            inset: 0;
+        }
+    }
+}
