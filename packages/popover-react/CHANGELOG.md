@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2024-10-03)
+
+### Features
+
+- utvid popover-apiet til å støtte nye props & ta i bruk popover i datepicker ([b1dc174](https://github.com/fremtind/jokul/commit/b1dc1741c9c7eb0b21ce7f7e0c3c17475fc0d9d7))
+
 # 1.0.0 (2024-09-17)
 
 ### Bug Fixes

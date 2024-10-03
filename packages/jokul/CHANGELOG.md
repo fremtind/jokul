@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.16.0 (2024-10-03)
+
+### Bug Fixes
+
+- sync Calendar i allpakka ([701ee93](https://github.com/fremtind/jokul/commit/701ee932172634c3cc8527136b97b67fe0324303))
+
+### Features
+
+- utvid popover-apiet til å støtte nye props & ta i bruk popover i datepicker ([b1dc174](https://github.com/fremtind/jokul/commit/b1dc1741c9c7eb0b21ce7f7e0c3c17475fc0d9d7))
+
 # [0.15.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.14.1...@fremtind/jokul@0.15.0) (2024-10-03)
 
 ### Features

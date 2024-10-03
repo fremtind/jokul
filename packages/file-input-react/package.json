@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-file-input-react",
-    "version": "2.3.36",
+    "version": "2.3.37",
     "publishConfig": {
         "access": "public"
     },
@@ -39,7 +39,7 @@
         "@fremtind/jkl-button-react": "^15.2.0",
         "@fremtind/jkl-core": "^14.6.0",
         "@fremtind/jkl-file-input": "^2.1.3",
-        "@fremtind/jkl-formatters-util": "^6.0.5",
+        "@fremtind/jkl-formatters-util": "^6.0.6",
         "@fremtind/jkl-icon-button-react": "^5.0.13",
         "@fremtind/jkl-icons-react": "^9.1.9",
         "@fremtind/jkl-input-group-react": "^3.0.46",
