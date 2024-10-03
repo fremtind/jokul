@@ -40,6 +40,10 @@ export const ExampleBase: FC<Props> = ({
     const [density, setDensity] = useLocalStorage<Density>("jkl-example-density", "comfortable");
     const [screenshotMode, setScreenshotMode] = useState(false);
 
+    useEffect(() => {
+        window.document.body.setAttribute("data-density", density);
+    }, [density]);
+
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>(
         knobs?.boolProps?.reduce((acc, boolProp) => {
             if (typeof boolProp === "string") {
