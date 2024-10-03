@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import React, { HTMLProps, forwardRef } from "react";
 import { useId } from "../../hooks";
+import { getThemeAndDensity } from "../../utilities";
 import { useTooltipContext } from "./Tooltip";
 
 function getPositionAnimation(placement: Placement, value: number = 8) {
@@ -53,15 +54,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
 
     // Siden tooltipet rendres på rot må vi hente lokal dark/light-verdi fra triggeren
     // Vi må gjøre dette for å ta hensyn til at tema kan styres lokalt for deler av UIet
-    let theme: string | undefined;
-    if (refs.reference.current) {
-        const backgroundColor = getComputedStyle(refs.reference.current as HTMLElement).getPropertyValue(
-            "--jkl-background-color",
-        );
-        // Sett theme til dark hvis bakgrunnsfargen er mørkere enn 50% av hvit
-        // dette gir oss slingringsmonn i tilfelle verdien av Jøkuls bakgrunnsfarge endres
-        theme = parseInt(backgroundColor.replace("#", ""), 16) < 0xffffff / 2 ? "dark" : "light";
-    }
+    const { theme } = getThemeAndDensity(refs.reference.current as HTMLElement);
 
     return (
         <FloatingPortal>

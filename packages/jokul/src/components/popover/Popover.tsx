@@ -20,7 +20,7 @@ import {
 } from "@floating-ui/react";
 import clsx from "clsx";
 import * as React from "react";
-import { getThemeAndDensity } from "./utils";
+import { getThemeAndDensity } from "../../utilities";
 
 type ClickOptions = Parameters<typeof useClick>[1];
 type DismissOptions = Parameters<typeof useDismiss>[1];

@@ -18,9 +18,9 @@ import {
     ReferenceElement,
     ReferenceType,
 } from "@floating-ui/react";
+import { getThemeAndDensity } from "@fremtind/jkl-core";
 import classNames from "classnames";
 import * as React from "react";
-import { getThemeAndDensity } from "./utils";
 
 type ClickOptions = Parameters<typeof useClick>[1];
 type DismissOptions = Parameters<typeof useDismiss>[1];

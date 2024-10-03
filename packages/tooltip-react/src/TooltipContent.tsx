@@ -1,4 +1,5 @@
 import { type Placement, useMergeRefs, FloatingPortal } from "@floating-ui/react";
+import { getThemeAndDensity } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
@@ -53,15 +54,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
 
     // Siden tooltipet rendres på rot må vi hente lokal dark/light-verdi fra triggeren
     // Vi må gjøre dette for å ta hensyn til at tema kan styres lokalt for deler av UIet
-    let theme: string | undefined;
-    if (refs.reference.current) {
-        const backgroundColor = getComputedStyle(refs.reference.current as HTMLElement).getPropertyValue(
-            "--jkl-background-color",
-        );
-        // Sett theme til dark hvis bakgrunnsfargen er mørkere enn 50% av hvit
-        // dette gir oss slingringsmonn i tilfelle verdien av Jøkuls bakgrunnsfarge endres
-        theme = parseInt(backgroundColor.replace("#", ""), 16) < 0xffffff / 2 ? "dark" : "light";
-    }
+    const { theme } = getThemeAndDensity(refs.reference.current as HTMLElement);
 
     return (
         <FloatingPortal>
