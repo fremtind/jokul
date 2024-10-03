@@ -31,84 +31,96 @@ type RoleOptions = Parameters<typeof useRole>[1];
 interface PopoverOptions {
     /**
      * Angir om popoveren er åpen eller lukket.
+     *
      * @see https://floating-ui.com/docs/usefloating#open
      */
     open?: boolean;
     /**
      * Callback som trigges når popoveren åpnes eller lukkes.
+     *
      * @see https://floating-ui.com/docs/usefloating#onopenchange
      */
     onOpenChange?: UseFloatingOptions["onOpenChange"];
     /**
      * Bestemmer plasseringen av popoveren.
      *
-     * Default er "bottom-start".
      * @see https://floating-ui.com/docs/usefloating#placement
+     *
+     * @default "bottom-start"
      */
     placement?: UseFloatingOptions["placement"];
     /**
      * Definerer strategien for posisjonering av popoveren.
      *
-     * Default er "absolute", som betyr at popoveren posisjoneres i forhold til det nærmeste elementet.
      * @see https://floating-ui.com/docs/usefloating#strategy
+     *
+     * @default "absolute"
      */
     strategy?: UseFloatingOptions["strategy"];
     /**
      * Angir om popoveren skal fungere som en modal, der fokus er låst til det flytende elementet
      * og innhold utenfor ikke kan interageres med.
      *
-     * Default er `true`.
      * @see https://floating-ui.com/docs/usefloating#modal
+     *
+     * @default true
      */
     modal?: boolean;
     /**
      * Justerer avstanden mellom referanse-elementet og popoveren.
      *
-     * Default er `4`.
      * @see https://floating-ui.com/docs/offset
+     *
+     * @default 4
      */
     offset?: number;
     /**
      * Referanse til elementet som popoveren skal posisjoneres i forhold til.
      *
-     * Default er `Popover.Trigger` elementet.
      * @see https://floating-ui.com/docs/usefloating#setpositionreference
+     *
+     * @default Popover.Trigger
      */
     positionReference?: React.RefObject<ReferenceType>;
     /**
      * Options for hover-interaksjoner.
      *
-     * Default er `{ enabled: false }`.
      * @see https://floating-ui.com/docs/usehover
+     *
+     * @default { enabled: false }
      */
     hoverOptions?: HoverOptions;
     /**
      * Options for fokus-interaksjoner.
      *
-     * Default er `{ enabled: false }`.
      * @see https://floating-ui.com/docs/usefocus
+     *
+     * @default { enabled: false }
      */
     focusOptions?: FocusOptions;
     /**
      * Options for klikk-interaksjoner.
      *
-     * Default er `{ enabled: false }`.
      * @see https://floating-ui.com/docs/useclick
+     *
+     * @default { enabled: false }
      */
     clickOptions?: ClickOptions;
     /**
      * Konfigurerer rollen for popoveren.
      *
-     * Default er `{ enabled: true, role: "dialog" }`.
      * @see https://floating-ui.com/docs/userole
+     *
+     * @default { enabled: true, role: "dialog" }
      */
     roleOptions?: RoleOptions;
     /**
      * Options for å lukke popoveren når en dismissal skjer,
      * som ved å klikke utenfor eller trykke på "Escape"-tasten.
      *
-     * Default er `{ enabled: true }`.
      * @see https://floating-ui.com/docs/usedismiss
+     *
+     * @default { enabled: true }
      */
     dismissOptions?: DismissOptions;
 }
