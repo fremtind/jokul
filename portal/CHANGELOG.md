@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [21.2.11](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.2.10...@fremtind/portal@21.2.11) (2024-10-03)
+
+### Bug Fixes
+
+- bruk knapp riktig i portal-menyen ([0f28c30](https://github.com/fremtind/jokul/commit/0f28c3068f76557724749fbda4bd792a1e2b0d43))
+
 # [21.2.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.1.4...@fremtind/portal@21.2.0) (2024-09-17)
 
 ### Features
