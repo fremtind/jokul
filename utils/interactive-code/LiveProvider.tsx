@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect, useMemo, useCallback, useRef } from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { LiveProvider as ReactLiveProvider, type LiveProviderProps as ReactLiveProviderProps } from "react-live";
@@ -9,6 +9,11 @@ const scope = {
     ...alpacca,
     ReactDOM,
     useForm,
+    useState,
+    useEffect,
+    useMemo,
+    useCallback,
+    useRef,
     tableData: { rows, columns },
 };
 
