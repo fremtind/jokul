@@ -1,7 +1,7 @@
 import { cpSync } from "fs";
 import { resolve } from "path";
 
-export default function copyJklFonts(destination: string) {
+function copyJklFonts(destination: string) {
     return {
         name: "copy-jkl-fonts",
         buildStart() {
@@ -12,3 +12,5 @@ export default function copyJklFonts(destination: string) {
         },
     };
 }
+
+export { copyJklFonts };

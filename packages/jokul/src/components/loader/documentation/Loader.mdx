@@ -1,0 +1,94 @@
+---
+title: Loader
+react: loader-react
+scss: loader
+group: annet
+keywords: skeletonloader
+---
+
+import { Loader } from "../src";
+import { LoaderExample, loaderExampleCode, loaderExampleKnobs } from "./LoaderExample";
+import { QuickLoaderExampleDo, QuickLoaderExampleDont } from "./QuickLoaderExample";
+import { SkeletonLoaderExample, skeletonLoaderExampleCode, skeletonLoaderExampleKnobs } from "./SkeletonLoaderExample";
+
+<Ingress>
+    En lasteindikator viser brukeren at systemet jobber. Vi bruker lasteindikatoren når vi har handlinger eller
+    prosesser som tar lengre tid enn ett sekund. For større seksjoner anbefaler vi <em>skeleton loaders</em>, heller enn
+    én stor lasteindikator.
+</Ingress>
+
+<ComponentExample title="Loader" component={LoaderExample} knobs={loaderExampleKnobs} codeExample={loaderExampleCode} />
+
+Plasser lasteindikatoren sammen med handlingen som utløser den. Den kan ha ulik posisjon og størrelse, avhengig av konteksten den skal fungere i. Lasteindikatoren tar farge etter teksten rundt.
+
+<Grid className="jkl-spacing-l--bottom">
+    <DoDontExample
+        type="do"
+        description="Bruk passende størrelse"
+        content={
+            <p className="jkl-small">
+                Foreløpig beregnet pris:
+                <Loader
+                    className="jkl-spacing-s--left"
+                    variant="small"
+                    inline
+                    textDescription="Laster eksempel på passende størrelse"
+                />
+            </p>
+        }
+    />
+    <DoDontExample
+        type="dont"
+        description="Bruk upassende størrelse"
+        content={
+            <p className="jkl-small">
+                Foreløpig beregnet pris:
+                <Loader
+                    className="jkl-spacing-s--left"
+                    variant="large"
+                    inline
+                    textDescription="Laster eksempel på upassende størrelse"
+                />
+            </p>
+        }
+    />
+</Grid>
+
+Dersom handlingen vanligvis tar under et halvt sekund, men _kan_ ta lenger tid enn ett sekund, er det lurt å vente med å vise loaderen til vi ser at den trengs tilbakemelding til brukeren.
+
+<Grid>
+    <DoDontExample type="do" description="Hopp over loader for raske handlinger" content={<QuickLoaderExampleDo />} />
+    <DoDontExample type="dont" description="Vis et kort glimt av en loader" content={<QuickLoaderExampleDont />} />
+</Grid>
+
+Gi brukeren tilbakemelding dersom handlingen tar lang tid (over fem sekunder). Om du har en målbar prosess, for eksempel [filopplasting](/komponenter/fileinput), bør du gi brukeren tilbakemelding på hvor langt prosessen har kommet, og hvor langt de har igjen. Se [ProgressBar](/komponenter/progressbar).
+
+## Skeleton loader
+
+En _skeleton loader_ er egentlig en samling med omriss som likner noenlunde på hva som vil vises når lastingen er ferdig. Her trenger det ikke være pixelperfekt. Poenget er at man skal få en bedre brukeropplevelse når siden etter hvert bytter ut lasteindikatoren med innholdet.
+
+<ComponentExample
+    title="Skeleton loader"
+    component={SkeletonLoaderExample}
+    knobs={skeletonLoaderExampleKnobs}
+    codeExample={skeletonLoaderExampleCode}
+/>
+
+For at animasjonen skal fungere best mulig er det to CSS-variabler det er greit å ha et forhold til:
+
+1. `--jkl-skeleton-sweeper-color`
+1. `--jkl-skeleton-sweep-duration`
+
+Animasjonens effekt blir penest om `--jkl-skeleton-sweeper-color` er lik bakgrunnsfargen til innholdet. Som standard er den satt til snøhvit i lyst tema og granitt i mørkt tema, det vil si likt standard bakgrunnsfarge. Om du skal ha en _skeleton loader_ på en annen bakgrunnsfarge bør du sette `--jkl-skeleton-sweeper-color` lik den bakgrunnsfargen med CSS i ditt eget prosjekt.
+
+Hurtigheten på animasjonen avhenger av bredden på innholdet. Derfor kan det være lurt å justere standardverdien med `--jkl-skeleton-sweep-duration`.
+
+## Hvor bruker vi loaders?
+
+-   I [knapper](/komponenter/buttons/) som brukeren har klikket på
+-   På et [kort](/komponenter/card/) eller i felt der noe blir beregnet før innholdet vises.
+
+## Hvor bruker vi skeleton loaders?
+
+-   For å vise omriss av tabeller vi er i ferd med å laste inn
+-   Som overgang mellom sider hvor vi ikke har noe innhold å vise uten å vente

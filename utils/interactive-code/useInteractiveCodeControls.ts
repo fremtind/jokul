@@ -1,10 +1,10 @@
 import { useCallback, useMemo } from "react";
-import { type ValuePair } from "../../packages/core/src";
-import type { BoolProp, ChoiceProp, CodeGenerator } from "./InteractiveCode";
+import { type ValuePair } from "../../packages/jokul/src/utilities";
+import type { BoolProp, ChoiceProp, CodeGenerator } from ".";
 
 type Knobs = {
     label: string;
-    type: "bool" | "choice";
+    type: string;
     boolOptions?: {
         trueValue: string;
         falseValue: string;
@@ -40,7 +40,7 @@ export const useInteractiveCodeControls = (code: string, knobs: Knobs) => {
                 } else if (type === "choice") {
                     const value = choiceValues[name];
 
-                    return isValuePair(value) ? value.value : value;
+                    return isValuePair(value) ? `"${value.value}"` : `"${value}"`;
                 } else {
                     return "";
                 }
@@ -51,7 +51,6 @@ export const useInteractiveCodeControls = (code: string, knobs: Knobs) => {
     const generator: CodeGenerator = useCallback(
         (values) => {
             const replaceFunction = generateReplaceFunction(values);
-            //@ts-ignore Joda, ES2021 er lagt til i lib...
             return code.replaceAll(KNOB_REGEX, replaceFunction);
         },
         [generateReplaceFunction, code],
