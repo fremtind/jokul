@@ -1,15 +1,14 @@
-import { ArrowLeftIcon, ArrowRightIcon } from "@fremtind/jkl-icons-react";
+import { CloseIcon } from "@fremtind/jkl-icons-react";
 import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Button } from "../src";
+import { IconPosition } from "../src/types";
 
 export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [showLoader, setShowLoader] = useState(false);
     const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
-    const icon =
-        choiceValues?.["Ikon"] === "uten"
-            ? undefined
-            : (choiceValues?.["Ikon"] as "arrow-left" | "arrow-right" | "begge");
+    const iconPosition =
+        choiceValues?.["iconPosition"] === "none" ? undefined : (choiceValues?.["iconPosition"] as IconPosition);
 
     const simulateLoading = () => {
         console.log("Hello!");
@@ -25,15 +24,17 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVa
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
-            iconLeft={icon === "arrow-left" || icon === "begge" ? <ArrowLeftIcon bold /> : null}
-            iconRight={icon === "arrow-right" || icon === "begge" ? <ArrowRightIcon bold /> : null}
+            iconPosition={iconPosition as IconPosition}
+            icon={<CloseIcon />}
         >
             Avbryt
         </Button>
     );
 };
 
-export const tertiaryCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const tertiaryCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
+    const iconPosition = choiceValues?.["iconPosition"] || "noIcon";
+    return `
 <Button
     variant="tertiary"
     loader={${
@@ -46,13 +47,14 @@ export const tertiaryCode = ({ boolValues, choiceValues }: ExampleComponentProps
     }}
     onClick={simulateLoading}
     className="jkl-spacing-l--right"
-    iconLeft={${
-        choiceValues?.["Ikon"] === "arrow-left" || choiceValues?.["Ikon"] === "begge" ? `<ArrowLeft bold/>` : null
-    }}
-    iconRight={${
-        choiceValues?.["Ikon"] === "arrow-right" || choiceValues?.["Ikon"] === "begge" ? `<ArrowRight bold/>` : null
-    }}
+    icon={<CloseIcon />}${
+        ["left", "right"].includes(iconPosition)
+            ? `
+    iconPosition="${iconPosition}"`
+            : ""
+    }
 >
     Avbryt
 </Button>
 `;
+};

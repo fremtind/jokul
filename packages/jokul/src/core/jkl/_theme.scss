@@ -59,24 +59,43 @@
 
 /// Brukes til å sette CSS-variabler inne i en komponent, og som skal gjelde i vanlig (ukompakt) modus.
 /// @content Settes på .jkl &, [data-density="comfortable"] &, og [data-layout-density="comfortable"] &
-@mixin comfortable-density {
-    .jkl &,
-    &[data-layout-density="comfortable"],
-    &[data-density="comfortable"],
-    [data-layout-density="comfortable"] &,
-    [data-density="comfortable"] & {
-        @content;
+@mixin comfortable-density($selector: null) {
+    @if $selector {
+        .jkl #{$selector},
+        #{$selector}[data-layout-density="comfortable"],
+        #{$selector}[data-density="comfortable"],
+        [data-layout-density="comfortable"] #{$selector},
+        [data-density="comfortable"] #{$selector} {
+            @content;
+        }
+    } @else {
+        .jkl &,
+        &[data-layout-density="comfortable"],
+        &[data-density="comfortable"],
+        [data-layout-density="comfortable"] &,
+        [data-density="comfortable"] & {
+            @content;
+        }
     }
 }
 
 /// Brukes til å sette CSS-variabler inne i en komponent, og som skal gjelde i kompakt modus.
 /// @content Settes på [data-density="compact"] &, og på [data-layout-density="compact"] &
-@mixin compact-density {
-    &[data-layout-density="compact"],
-    &[data-density="compact"],
-    [data-layout-density="compact"] &,
-    [data-density="compact"] & {
-        @content;
+@mixin compact-density($selector: null) {
+    @if $selector {
+        #{$selector}[data-layout-density="compact"],
+        #{$selector}[data-density="compact"],
+        [data-layout-density="compact"] #{$selector},
+        [data-density="compact"] #{$selector} {
+            @content;
+        }
+    } @else {
+        &[data-layout-density="compact"],
+        &[data-density="compact"],
+        [data-layout-density="compact"] &,
+        [data-density="compact"] & {
+            @content;
+        }
     }
 }
 

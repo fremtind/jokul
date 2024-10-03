@@ -1,15 +1,14 @@
-import { ArrowLeftIcon, ArrowRightIcon } from "@fremtind/jkl-icons-react";
+import { CheckIcon } from "@fremtind/jkl-icons-react";
 import React, { useState } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { Button } from "../src";
+import { IconPosition } from "../src/types";
 
 export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const [showLoader, setShowLoader] = useState(false);
     const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
-    const icon =
-        choiceValues?.["Ikon"] === "uten"
-            ? undefined
-            : (choiceValues?.["Ikon"] as "arrow-left" | "arrow-right" | "begge");
+    const iconPosition =
+        choiceValues?.["iconPosition"] === "none" ? undefined : (choiceValues?.["iconPosition"] as IconPosition);
 
     const simulateLoading = () => {
         console.log("Hello!");
@@ -24,15 +23,17 @@ export const Secondary: React.FC<ExampleComponentProps> = ({ boolValues, choiceV
             loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
-            iconLeft={icon === "arrow-left" || icon === "begge" ? <ArrowLeftIcon /> : null}
-            iconRight={icon === "arrow-right" || icon === "begge" ? <ArrowRightIcon /> : null}
+            iconPosition={iconPosition as IconPosition}
+            icon={<CheckIcon />}
         >
             Lagre
         </Button>
     );
 };
 
-export const secondaryCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const secondaryCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
+    const iconPosition = choiceValues?.["iconPosition"] || "noIcon";
+    return `
 <Button
     loader={${
         !!boolValues?.["withLoader"]
@@ -44,11 +45,14 @@ export const secondaryCode = ({ boolValues, choiceValues }: ExampleComponentProp
     }}
     onClick={simulateLoading}
     className="jkl-spacing-l--right"
-    iconLeft={${choiceValues?.["Ikon"] === "arrow-left" || choiceValues?.["Ikon"] === "begge" ? `<ArrowLeft />` : null}}
-    iconRight={${
-        choiceValues?.["Ikon"] === "arrow-right" || choiceValues?.["Ikon"] === "begge" ? `<ArrowRight />` : null
-    }}
+    icon={<CheckIcon />}${
+        ["left", "right"].includes(iconPosition)
+            ? `
+    iconPosition="${iconPosition}"`
+            : ""
+    }
 >
     Lagre
 </Button>
 `;
+};

@@ -16,6 +16,8 @@ export const Button = React.forwardRef(function Button<ElementType extends React
         density,
         onTouchStart,
         loader,
+        icon,
+        iconPosition = "left",
         iconLeft,
         iconRight,
         variant = "secondary",
@@ -29,7 +31,7 @@ export const Button = React.forwardRef(function Button<ElementType extends React
             onTouchStart && onTouchStart(event);
 
             const target = event.target as HTMLButtonElement;
-            if (target && event.targetTouches.length) {
+            if (target && !target.disabled && event.targetTouches.length) {
                 const Xcoord = event.targetTouches[0].clientX - target.getBoundingClientRect().x;
                 const Ycoord = event.targetTouches[0].clientY - target.getBoundingClientRect().y;
                 target.style.setProperty("--jkl-touch-xcoord", Xcoord.toPrecision(4) + "px");
@@ -47,37 +49,35 @@ export const Button = React.forwardRef(function Button<ElementType extends React
     );
 
     const ariaLive = useAriaLiveRegion(loader?.showLoader);
+    const showLoader = Boolean(children) && Boolean(loader?.showLoader);
 
     return (
         <Component
             {...ariaLive}
+            data-loading={showLoader}
             data-density={density}
-            className={cn("jkl-button", "jkl-button--" + variant, className, {
-                "jkl-button--icon-left": iconLeft,
-                "jkl-button--icon-right": iconRight,
-            })}
+            className={cn("jkl-button", "jkl-button--" + variant, className)}
             disabled={as === "button" ? loader?.showLoader : undefined}
             onTouchStart={handleTouch}
             {...rest}
             ref={ref}
         >
-            <div className="jkl-button__content">
-                <div
-                    className={cn("jkl-button__slider", {
-                        "jkl-button__slider--show-loader": !!loader?.showLoader,
-                    })}
-                >
-                    {iconLeft && <span className="jkl-button__icon">{iconLeft}</span>}
-                    <span className="jkl-button__children">{children}</span>
-                    {iconRight && <span className="jkl-button__icon">{iconRight}</span>}
-
-                    {loader && (
-                        <div className="jkl-button__loader">
-                            <Loader textDescription={loader.textDescription} aria-hidden={!loader.showLoader} />
-                        </div>
-                    )}
-                </div>
+            <div className="jkl-button__label">
+                {iconLeft && iconLeft}
+                {icon && iconPosition === "left" && icon}
+                {children && <span className="jkl-button__text">{children}</span>}
+                {iconRight && iconRight}
+                {icon && iconPosition === "right" && icon}
             </div>
+
+            {children && (
+                <Loader
+                    className="jkl-button__loader"
+                    variant="medium"
+                    textDescription={loader?.textDescription || "Vennligst vent"}
+                    aria-hidden={!loader?.showLoader}
+                />
+            )}
         </Component>
     );
 }) as ButtonComponent;
