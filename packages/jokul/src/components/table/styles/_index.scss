@@ -1,1 +1,7 @@
 @forward "table";
+
+@use "../../expander/styles" as expander;
+@use "../../icon/styles" as icon;
+
+// TablePagination avhenger av en del stiler, men komponenten
+// kan heller skilles ut til en egen "pakke"

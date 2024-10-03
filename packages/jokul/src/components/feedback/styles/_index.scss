@@ -1,1 +1,9 @@
 @forward "feedback";
+
+// Feedback-komponenten avhenger av de følgende pakkene
+@use "../../button/styles" as button;
+@use "../../checkbox/styles" as checkbox;
+@use "../../input-group/styles" as input-group;
+@use "../../message/styles" as message;
+@use "../../radio-button/styles" as radio-button;
+@use "../../text-input/styles" as text-input;
