@@ -1096,7 +1096,6 @@ importers:
       '@fremtind/jkl-text-input': ^12.1.22
       '@fremtind/jkl-tooltip-react': ^4.3.2
       classnames: ^2.3.2
-      clsx: ^2.1.1
       downshift: ^7.6.0
       match-sorter: ^6.3.1
     dependencies:
@@ -1108,7 +1107,6 @@ importers:
       '@fremtind/jkl-text-input': link:../text-input
       '@fremtind/jkl-tooltip-react': link:../tooltip-react
       classnames: 2.3.2
-      clsx: 2.1.1
       downshift: 7.6.0
       match-sorter: 6.3.1
 
@@ -7483,7 +7481,7 @@ packages:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.7.23
-      vite: 5.4.2_qly2xqze27fzfdjycmqvs326c4
+      vite: 5.4.2
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -9595,6 +9593,7 @@ packages:
   /clsx/2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
+    dev: true
 
   /cmd-shim/6.0.1:
     resolution: {integrity: sha512-S9iI9y0nKR4hwEQsVWpyxld/6kRfGepGfzff83FcaiEBpmvlbA2nnGe7Cylgrx2f/p1P5S5wpRm9oL8z1PbS3Q==}
