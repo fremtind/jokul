@@ -1,6 +1,6 @@
-import { ErrorIcon, ChevronDownIcon } from "@fremtind/jkl-icons-react";
-import React, { FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
+import { ChevronDownIcon, ErrorIcon } from "@fremtind/jkl-icons-react";
+import React, { ComponentPropsWithRef, FC, forwardRef } from "react";
+import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Button } from "../../button-react";
 import { ContextualMenu } from "../src/ContextualMenu";
 import { ContextualMenuDivider } from "../src/ContextualMenuDivider";
@@ -22,7 +22,13 @@ export const ContextualMenuExample: FC<ExampleComponentProps> = ({ boolValues, c
     /* Force a re-render whenever theme or density changes */
     const key = displayValues?.theme || "none" + displayValues?.density || "none";
 
-    const CustomLink = (props: React.ComponentPropsWithRef<"a">) => <a {...props}>{props.children}</a>;
+    const CustomLink = forwardRef<HTMLAnchorElement, ComponentPropsWithRef<"a">>(function CustomLink(props, ref) {
+        return (
+            <a ref={ref} {...props}>
+                {props.children}
+            </a>
+        );
+    });
 
     return (
         <div
