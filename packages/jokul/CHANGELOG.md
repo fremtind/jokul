@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.14.1...@fremtind/jokul@0.15.0) (2024-10-03)
+
+### Features
+
+- forenkle stil og struktur i knapper og endre API ([6495ce7](https://github.com/fremtind/jokul/commit/6495ce74691107350479cb2d0c7c5d4acea96b03))
+
 # [0.14.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.13.0...@fremtind/jokul@0.14.0) (2024-09-30)
 
 ### Bug Fixes

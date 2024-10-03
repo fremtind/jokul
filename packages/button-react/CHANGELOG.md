@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 15.2.0 (2024-10-03)
+
+### Features
+
+- forenkle stil og struktur i knapper og endre API ([6495ce7](https://github.com/fremtind/jokul/commit/6495ce74691107350479cb2d0c7c5d4acea96b03))
+
 ## 15.1.3 (2024-08-13)
 
 ### Bug Fixes
