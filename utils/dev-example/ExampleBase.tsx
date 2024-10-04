@@ -118,6 +118,7 @@ export const ExampleBase: FC<Props> = ({
                     }`}
                 >
                     <div
+                        data-testid="component-example"
                         id={hyphenate(title)}
                         data-layout-density={density}
                         data-theme={theme}
@@ -171,6 +172,9 @@ export const ExampleBase: FC<Props> = ({
                                                                     .checked,
                                                             )
                                                         }
+                                                        data-testid={`bool-prop-${hyphenate(
+                                                            key,
+                                                        )}`}
                                                     >
                                                         {key}
                                                     </Checkbox>
@@ -214,6 +218,9 @@ export const ExampleBase: FC<Props> = ({
                                                                         value={
                                                                             choice
                                                                         }
+                                                                        data-testid={`choice-prop-${hyphenate(
+                                                                            choice,
+                                                                        )}`}
                                                                     >
                                                                         {choice}
                                                                     </RadioButton>
@@ -259,10 +266,18 @@ export const ExampleBase: FC<Props> = ({
                                         setTheme(e.target.value as ColorScheme)
                                     }
                                 >
-                                    <RadioButton value="light">
+                                    <RadioButton
+                                        value="light"
+                                        data-testid="theme-light"
+                                    >
                                         Light
                                     </RadioButton>
-                                    <RadioButton value="dark">Dark</RadioButton>
+                                    <RadioButton
+                                        value="dark"
+                                        data-testid="theme-dark"
+                                    >
+                                        Dark
+                                    </RadioButton>
                                 </RadioButtonGroup>
                                 {noDensity ? null : (
                                     <RadioButtonGroup
@@ -277,10 +292,16 @@ export const ExampleBase: FC<Props> = ({
                                             )
                                         }
                                     >
-                                        <RadioButton value="comfortable">
+                                        <RadioButton
+                                            value="comfortable"
+                                            data-testid="density-default"
+                                        >
                                             Default
                                         </RadioButton>
-                                        <RadioButton value="compact">
+                                        <RadioButton
+                                            value="compact"
+                                            data-testid="density-compact"
+                                        >
                                             Compact
                                         </RadioButton>
                                     </RadioButtonGroup>

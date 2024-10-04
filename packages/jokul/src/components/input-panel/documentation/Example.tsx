@@ -28,8 +28,8 @@ export default function Example() {
         <div style={{ margin: 40 }}>
             <Tabs>
                 <TabList>
-                    <Tab>RadioPanel</Tab>
-                    <Tab>CheckPanel</Tab>
+                    <Tab data-testid="radio-panel">RadioPanel</Tab>
+                    <Tab data-testid="check-panel">CheckPanel</Tab>
                 </TabList>
 
                 <TabPanel>

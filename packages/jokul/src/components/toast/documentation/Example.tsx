@@ -9,11 +9,11 @@ import {
 export default function Example() {
     return (
         <>
-            <DevExample component={ToastExample} knobs={toastExampleKnobs} />
             <DevExample
                 component={ToastStickerSheet}
                 knobs={toastStickerSheetKnobs}
             />
+            <DevExample component={ToastExample} knobs={toastExampleKnobs} />
         </>
     );
 }
