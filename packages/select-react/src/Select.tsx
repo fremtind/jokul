@@ -100,6 +100,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
         width,
         maxShownOptions = 5,
         style,
+        tooltipProps,
         ...rest
     } = props;
 
@@ -251,6 +252,18 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
 
     useListNavigation({ ref: dropdownRef });
 
+    const close = useCallback(() => {
+        if (isSearchable) {
+            setSearchValue("");
+        }
+        if (onBlur) {
+            onBlur({ type: "blur", target: { name, value: selectedValue } });
+            selectRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
+        }
+        focusInsideRef.current = false;
+        setShown(false);
+    }, [onBlur, setSearchValue, setShown, isSearchable, name, selectedValue]);
+
     const handleBlur = useCallback(
         (e: FocusEvent<HTMLButtonElement | HTMLInputElement>) => {
             const componentRootElement = componentRootElementRef.current;
@@ -259,19 +272,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
             // This might be fixed in react 17. Se issue above.
             const nextFocusIsInsideComponent =
                 componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
+
             if (!nextFocusIsInsideComponent) {
-                if (isSearchable) {
-                    setSearchValue("");
-                }
-                if (onBlur) {
-                    onBlur({ type: "blur", target: { name, value: selectedValue } });
-                    selectRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
-                }
-                focusInsideRef.current = false;
-                setShown(false);
+                close();
             }
         },
-        [onBlur, isSearchable, name, selectedValue],
+        [close],
     );
 
     const handleFocus = useCallback(() => {
@@ -443,6 +449,18 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, forward
                     "jkl-select--no-value": !hasSelectedValue,
                     "jkl-select--invalid": !!errorLabel || invalid,
                 })}
+                tooltipProps={
+                    tooltipProps && {
+                        ...tooltipProps,
+                        triggerProps: {
+                            ...tooltipProps.triggerProps,
+                            onFocus: (e) => {
+                                tooltipProps.triggerProps?.onFocus?.(e);
+                                close();
+                            },
+                        },
+                    }
+                }
                 {...rest}
                 id={isSearchable ? searchInputId : buttonId}
                 style={{ ["--jkl-select-max-shown-options"]: maxShownOptions, ...style } as CSSProperties}
