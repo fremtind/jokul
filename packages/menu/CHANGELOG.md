@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.3.0 (2024-10-04)
+
+### Features
+
+- gjør MenuItem polymorf ([d8202af](https://github.com/fremtind/jokul/commit/d8202af266c85c9e69cefd870cf92264004c7fcc))
+
 ## 2.2.1 (2024-10-02)
 
 ### Bug Fixes

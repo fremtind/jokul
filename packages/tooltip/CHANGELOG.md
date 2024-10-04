@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.2.4 (2024-10-04)
+
+### Bug Fixes
+
+- tighten scope of CSS variables ([409bac3](https://github.com/fremtind/jokul/commit/409bac31972c40dc46635373a96e888563fea646))
+
 ## 4.2.2 (2024-09-25)
 
 ### Bug Fixes

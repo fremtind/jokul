@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.8.0 (2024-10-04)
+
+### Features
+
+- extract utility for calculating theme and density ([65a850c](https://github.com/fremtind/jokul/commit/65a850ca988f077b2e4759262beed239b84a99d9))
+
 # [3.7.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contextual-menu-react@3.6.2...@fremtind/jkl-contextual-menu-react@3.7.0) (2024-10-02)
 
 ### Bug Fixes
