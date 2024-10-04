@@ -1051,6 +1051,36 @@ describe("Searchable select", () => {
         expect(screen.queryByRole("option", { name: "foo" })).toBeFalsy();
         expect(screen.queryByRole("option", { name: "bar" })).toBeFalsy();
     });
+
+    it("should close the listbox if a tooltip trigger receives focus", async () => {
+        const items = [
+            { label: "foo", value: "1" },
+            { label: "bar", value: "2" },
+            { label: "baz", value: "3" },
+        ];
+
+        const screen = setup(
+            <Select
+                name="items"
+                items={items}
+                label="Ting"
+                tooltipProps={{ content: "Jeg er en tooltip", placement: "left" }}
+            />,
+        );
+
+        const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
+        await userEvent.click(openDropdownButtonElement);
+
+        const listbox = screen.getByRole("listbox");
+        expect(listbox).toBeVisible();
+
+        const tooltipTrigger = screen.getByTestId("jkl-tooltip-question-button");
+        await act(async () => {
+            tooltipTrigger.focus();
+        });
+
+        expect(listbox).not.toBeVisible();
+    });
 });
 
 describe("a11y", () => {
