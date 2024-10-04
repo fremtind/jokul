@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.4.0 (2024-10-04)
+
+### Bug Fixes
+
+- tooltip observes data-layout-density attribute ([9601a3f](https://github.com/fremtind/jokul/commit/9601a3f9c31ca076729cda234f3d04787ff334ec))
+
+### Features
+
+- extract utility for calculating theme and density ([65a850c](https://github.com/fremtind/jokul/commit/65a850ca988f077b2e4759262beed239b84a99d9))
+
 # 4.3.0 (2024-09-25)
 
 ### Bug Fixes

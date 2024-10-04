@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.16.1...@fremtind/jokul@0.17.0) (2024-10-04)
+
+### Bug Fixes
+
+- tighten scope of CSS variables ([409bac3](https://github.com/fremtind/jokul/commit/409bac31972c40dc46635373a96e888563fea646))
+- tooltip observes data-layout-density attribute ([9601a3f](https://github.com/fremtind/jokul/commit/9601a3f9c31ca076729cda234f3d04787ff334ec))
+
+### Features
+
+- extract utility for calculating theme and density ([65a850c](https://github.com/fremtind/jokul/commit/65a850ca988f077b2e4759262beed239b84a99d9))
+- move Menu component to jokul package ([c00fd64](https://github.com/fremtind/jokul/commit/c00fd645fd6964668c0e529fee8259cdefda7e16))
+
 # 0.16.0 (2024-10-03)
 
 ### Bug Fixes
