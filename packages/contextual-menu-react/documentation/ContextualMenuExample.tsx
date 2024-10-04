@@ -80,6 +80,13 @@ export const contextualMenuExampleCode: CodeExample = ({ boolValues, choiceValue
     <ContextualMenuItem>Forsikringsprofil</ContextualMenuItem>
     <ContextualMenuItem onClick={() => console.log("Hei fra Skadesaker")}>Dokumenter</ContextualMenuItem>
     <ContextualMenuItem icon={<ErrorIcon />}>Skadesaker</ContextualMenuItem>
+    <ContextualMenuDivider />
+    <ContextualMenuItem as="a" href="https://jokul.fremtind.no/">
+        Jøkuls hjemmeside
+    </ContextualMenuItem>
+    <ContextualMenuItem as={CustomLink} href="https://www.fremtind.no/" external target="_blank">
+        Fremtind Forsikring
+    </ContextualMenuItem>
 </ContextualMenu>
 `;
 };
