@@ -18,6 +18,7 @@ export * from "./link-list";
 export * from "./list";
 export * from "./loader";
 export * from "./logo";
+export * from "./menu";
 export * from "./message";
 export * from "./modal";
 export * from "./popover";

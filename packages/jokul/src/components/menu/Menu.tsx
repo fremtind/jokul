@@ -21,12 +21,12 @@ import {
     useMergeRefs,
     useRole,
 } from "@floating-ui/react";
-import { type DataTestAutoId, getThemeAndDensity, WithChildren } from "@fremtind/jkl-core";
-import { useId } from "@fremtind/jkl-react-hooks";
-import cn from "classnames";
+import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useEffect, useRef, useState } from "react";
 import * as ReactIs from "react-is";
+import { type DataTestAutoId, getThemeAndDensity, WithChildren } from "../..";
+import { useId } from "../../hooks";
 import { useMenuWideEvents } from "./useMenuWideEvents";
 
 export interface MenuProps
@@ -171,7 +171,7 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>((props, forwarded
                             returnFocus={!isNested}
                         >
                             <motion.div
-                                className={cn("jkl jkl-menu", className)}
+                                className={clsx("jkl jkl-menu", className)}
                                 data-theme={theme}
                                 data-layout-density={density}
                                 role="menu"

@@ -1,7 +1,7 @@
-import { PolymorphicPropsWithRef, PolymorphicRef } from "@fremtind/jkl-core";
-import { ArrowNorthEastIcon, ChevronRightIcon } from "@fremtind/jkl-icons-react";
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, ReactNode } from "react";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism";
+import { ArrowNorthEastIcon, ChevronRightIcon } from "../icon";
 
 export type MenuItemProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
     ElementType,
@@ -43,7 +43,7 @@ export const MenuItem = forwardRef(function MenuItem<ElementType extends React.E
     const type = Component === "button" ? "button" : undefined;
 
     return (
-        <Component ref={ref} type={type} role="menuitem" className={cn("jkl-menu-item", className)} {...rest}>
+        <Component ref={ref} type={type} role="menuitem" className={clsx("jkl-menu-item", className)} {...rest}>
             {icon && <span className="jkl-menu-item__icon">{icon}</span>}
             <div className="jkl-menu-item__content">
                 {children}

@@ -1,4 +1,4 @@
-@use "@fremtind/jkl-core/jkl";
+@use "../../../core/jkl";
 
 @include jkl.comfortable-density-variables {
     --jkl-menu-item-height: #{jkl.rem(48px)};
