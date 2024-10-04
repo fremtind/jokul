@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.1.63](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select-react@14.1.62...@fremtind/jkl-select-react@14.1.63) (2024-10-04)
+
+### Bug Fixes
+
+- close Select's listbox when tooltip trigger receives focus ([c450730](https://github.com/fremtind/jokul/commit/c450730bb9e86e8c84e3e399cb1b807ed9227405)), closes [#4134](https://github.com/fremtind/jokul/issues/4134)
+
 ## 14.1.55 (2024-09-20)
 
 ### Bug Fixes

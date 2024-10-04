@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.17.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.17.0...@fremtind/jokul@0.17.1) (2024-10-04)
+
+### Bug Fixes
+
+- close Select's listbox when tooltip trigger receives focus ([c450730](https://github.com/fremtind/jokul/commit/c450730bb9e86e8c84e3e399cb1b807ed9227405)), closes [#4134](https://github.com/fremtind/jokul/issues/4134)
+
 # [0.17.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.16.1...@fremtind/jokul@0.17.0) (2024-10-04)
 
 ### Bug Fixes
