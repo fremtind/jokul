@@ -42,6 +42,7 @@ export const ImageExample: React.FC<ExampleComponentProps> = ({
             </p>
             <button
                 className="jkl-spacing-xl--bottom jkl-button jkl-button--secondary"
+                data-testid="load-image-button"
                 onClick={() => {
                     if (!show) {
                         return toggleShow(true);

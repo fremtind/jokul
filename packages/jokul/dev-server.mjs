@@ -90,12 +90,12 @@ export default function App() {
 
         server.current = await createServer({
             mode: "development",
+            configFile: false,
             plugins: [
                 react(),
                 copyJklFonts(resolve(component.value, "public", "fonts")),
                 setupDev(component.value),
             ],
-            configFile: false,
             resolve: {
                 alias: {
                     "doc-utils": resolve(

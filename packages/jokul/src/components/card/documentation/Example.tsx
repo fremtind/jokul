@@ -24,14 +24,14 @@ export default function Example() {
     return (
         <>
             <DevExample
-                title="Informasjon om forfalt faktura"
-                knobs={fakturainfoExampleProps}
-                component={FakturainfoExample}
-            />
-            <DevExample
                 title="Statuskort for skadesak"
                 knobs={statuskortExampleProps}
                 component={StatuskortExample}
+            />
+            <DevExample
+                title="Informasjon om forfalt faktura"
+                knobs={fakturainfoExampleProps}
+                component={FakturainfoExample}
             />
             <DevExample
                 title="NavCard"

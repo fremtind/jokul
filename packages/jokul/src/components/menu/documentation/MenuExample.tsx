@@ -58,6 +58,7 @@ export const MenuExample: FC<ExampleComponentProps> = ({
                 triggerElement={
                     <Button
                         variant="ghost"
+                        data-testid="open-menu"
                         iconRight={<ChevronDownIcon bold />}
                     >
                         Ola Nordmann

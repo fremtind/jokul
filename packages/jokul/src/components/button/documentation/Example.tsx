@@ -6,8 +6,8 @@ import { ButtonExample, knobs } from "./ButtonExample.js";
 export default function Example() {
     return (
         <>
-            <DevExample component={AnchorsExample} />
             <DevExample component={ButtonExample} knobs={knobs} />
+            <DevExample component={AnchorsExample} />
         </>
     );
 }
