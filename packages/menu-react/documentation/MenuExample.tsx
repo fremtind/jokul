@@ -80,6 +80,13 @@ export const MenuExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
     <MenuItem>Forsikringsprofil</MenuItem>
     <MenuItem onClick={() => console.log("Hei fra Skadesaker")}>Dokumenter</MenuItem>
     <MenuItem icon={<ErrorIcon />}>Skadesaker</MenuItem>
+    <MenuDivider />
+    <MenuItem as="a" href="https://jokul.fremtind.no/">
+        Jøkuls hjemmeside
+    </MenuItem>
+    <MenuItem as={CustomLink} href="https://www.fremtind.no/" external target="_blank">
+        Fremtind Forsikring
+    </MenuItem>
 </Menu>
 `;
 };
