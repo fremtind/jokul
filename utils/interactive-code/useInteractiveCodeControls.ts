@@ -57,7 +57,10 @@ export const useInteractiveCodeControls = (code: string, knobs: Knobs) => {
     );
 
     const boolProps: BoolProp[] = useMemo(
-        () => (knobs ?? []).filter((knob) => knob.type === "bool").map((knob) => knob.label),
+        () =>
+            (knobs ?? [])
+                .filter((knob) => knob.type === "bool")
+                .map((knob) => ({ prop: knob.label, defaultValue: !!knob.defaultValue })),
         [knobs],
     );
     const choiceProps: ChoiceProp[] = useMemo(
