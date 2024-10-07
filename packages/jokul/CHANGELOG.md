@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.19.1...@fremtind/jokul@0.19.2) (2024-10-07)
+
+### Bug Fixes
+
+- breadcrumb needs link styles ([8b8370c](https://github.com/fremtind/jokul/commit/8b8370c099d46d6e049ad0e085d33f687f0b58d5))
+
 # [0.19.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.18.0...@fremtind/jokul@0.19.0) (2024-10-07)
 
 ### Features
