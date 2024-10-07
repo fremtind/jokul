@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.17.1...@fremtind/jokul@0.18.0) (2024-10-07)
+
+### Features
+
+- inkluder stiler for avhengigheter i sass-index ([e150ad8](https://github.com/fremtind/jokul/commit/e150ad804c19717044e57eb69be4e5e080bba091))
+
 ## [0.17.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.17.0...@fremtind/jokul@0.17.1) (2024-10-04)
 
 ### Bug Fixes
