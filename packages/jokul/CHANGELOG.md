@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.18.0...@fremtind/jokul@0.19.0) (2024-10-07)
+
+### Features
+
+- felles stylesheet ([92ad326](https://github.com/fremtind/jokul/commit/92ad32645fef6bb161fe041a65c42935a73fb493))
+
 # [0.18.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.17.1...@fremtind/jokul@0.18.0) (2024-10-07)
 
 ### Features
