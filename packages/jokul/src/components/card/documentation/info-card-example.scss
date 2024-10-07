@@ -1,0 +1,14 @@
+@use "../../../core/jkl";
+
+@include jkl.light-mode-variables {
+    --card-background: #{jkl.$color-svart};
+}
+
+@include jkl.dark-mode-variables {
+    --card-background: #{jkl.$color-skifer};
+}
+
+.example-info-card {
+    background-color: var(--card-background);
+    color: jkl.$color-snohvit;
+}
