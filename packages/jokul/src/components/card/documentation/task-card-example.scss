@@ -1,0 +1,8 @@
+@use "../../../core/jkl";
+
+.jkl-task-card-example {
+    &__content {
+        @include jkl.motion("standard", "lazy");
+        transition-property: height;
+    }
+}
