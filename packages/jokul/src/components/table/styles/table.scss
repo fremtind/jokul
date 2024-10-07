@@ -1,0 +1,54 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
+@use "table-caption";
+@use "table-cell";
+@use "table-head";
+@use "table-header";
+@use "table-pagination";
+@use "table-row";
+
+@mixin _responsive-table {
+    display: block;
+
+    & > caption {
+        @include jkl.screenreader-only;
+    }
+
+    & > thead,
+    & > thead > tr,
+    & > thead > tr > th {
+        display: none;
+    }
+
+    & > tbody,
+    & > tbody > tr,
+    & > tbody > tr > td {
+        display: block;
+    }
+
+    & > tfoot,
+    & > tfoot > tr,
+    & > tfoot > tr > td {
+        display: block;
+    }
+}
+
+.jkl-table {
+    border-collapse: collapse;
+    position: relative;
+
+    &--full-width {
+        width: 100%;
+    }
+
+    &--collapse-to-list {
+        &[data-collapse] {
+            @include _responsive-table;
+        }
+
+        @include jkl.small-device {
+            @include _responsive-table;
+        }
+    }
+}
