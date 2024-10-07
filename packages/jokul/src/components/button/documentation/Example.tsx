@@ -5,8 +5,6 @@ import AnchorsExample from "./AnchorsExample?raw";
 import { knobs } from "./ButtonExample";
 import ButtonExample from "./ButtonExample?raw";
 
-// TODO: Flytt denne importen inn i InteractiveCode så den kan brukes i alle eksempler
-import "../../../core/styles/vind.scss";
 import "../styles/_index.scss";
 
 const code = formatCode(ButtonExample);

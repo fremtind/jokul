@@ -16,6 +16,7 @@ import { useLocalStorage } from "./useLocalStorage";
 import "./_interactive-code.scss";
 
 import "../../packages/jokul/src/core/styles/core.scss";
+import "../../packages/jokul/src/core/styles/vind.scss";
 import "../../packages/jokul/src/components/radio-button/styles/_index.scss";
 
 type BoolValues = Record<string, boolean>;
