@@ -26,6 +26,7 @@ import "@fremtind/jkl-list/list.min.css";
 import "@fremtind/jkl-loader/loader.min.css";
 import "@fremtind/jkl-loader/skeleton-loader.min.css";
 import "@fremtind/jkl-logo/logo.min.css";
+import "@fremtind/jkl-menu/menu.min.css";
 import "@fremtind/jkl-message/message.min.css";
 import "@fremtind/jkl-modal/modal.min.css";
 import "@fremtind/jkl-radio-button/radio-button.min.css";

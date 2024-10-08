@@ -1218,6 +1218,7 @@ importers:
       '@fremtind/jkl-list-react': ^10.2.13
       '@fremtind/jkl-loader-react': ^12.0.22
       '@fremtind/jkl-logo-react': ^13.1.14
+      '@fremtind/jkl-menu': ^2.3.0
       '@fremtind/jkl-message': ^1.1.4
       '@fremtind/jkl-message-react': ^1.1.5
       '@fremtind/jkl-modal-react': ^2.1.47
@@ -1297,6 +1298,7 @@ importers:
       '@fremtind/jkl-list-react': link:../packages/list-react
       '@fremtind/jkl-loader-react': link:../packages/loader-react
       '@fremtind/jkl-logo-react': link:../packages/logo-react
+      '@fremtind/jkl-menu': link:../packages/menu
       '@fremtind/jkl-message': link:../packages/message
       '@fremtind/jkl-message-react': link:../packages/message-react
       '@fremtind/jkl-modal-react': link:../packages/modal-react
@@ -3943,8 +3945,8 @@ packages:
       tslib: 2.5.3
     dev: false
 
-  /@fremtind/jkl-constants-util/3.0.88:
-    resolution: {integrity: sha512-F+7D991Jz3jeL5bA6UnmCnbhypmscl/RIXmCD2NooTGxOFGUL1+YDYBYMRpTAZC1Ggt+xpC7NxZncnGkHs53RA==}
+  /@fremtind/jkl-constants-util/3.0.91:
+    resolution: {integrity: sha512-mUMLfhn3oasoQm7//RV2RvnMktYSCeGvZ3CqJib7l1l3ZK4rZFrdK2yP1O3hE0HDYwPRWsAti0rwxiNRKOAQEw==}
     dev: false
 
   /@fremtind/jkl-contact-information-react/2.1.52_biqbaboplfbrettd7655fr4n2y:
@@ -3957,7 +3959,7 @@ packages:
     dependencies:
       '@fremtind/jkl-contact-information': 2.0.22_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-core': 14.7.0_biqbaboplfbrettd7655fr4n2y
-      '@fremtind/jkl-formatters-util': 6.0.5_biqbaboplfbrettd7655fr4n2y
+      '@fremtind/jkl-formatters-util': 6.0.8_biqbaboplfbrettd7655fr4n2y
       classnames: 2.5.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -4034,7 +4036,7 @@ packages:
     dependencies:
       '@fremtind/jkl-core': 14.7.0_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-footer': 6.0.22_biqbaboplfbrettd7655fr4n2y
-      '@fremtind/jkl-formatters-util': 6.0.5_biqbaboplfbrettd7655fr4n2y
+      '@fremtind/jkl-formatters-util': 6.0.8_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-logo-react': 13.1.14_biqbaboplfbrettd7655fr4n2y
       classnames: 2.5.1
       react: 18.2.0
@@ -4052,15 +4054,15 @@ packages:
       - react-dom
     dev: false
 
-  /@fremtind/jkl-formatters-util/6.0.5_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-7g02ElRm/5pjRDjr+//peXfrN2nlfTADF67WWRF2cc8X6UrRXYEyT0Ba/H4Cp3uXRJTWpWLTA6cbtqbdVz1M/g==}
+  /@fremtind/jkl-formatters-util/6.0.8_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-RAs0TVrsYa3y2FkXusEDy2fjiPK6/TkHNZnEXiiMpQnoO9/lHV5I3aUfkKuCTHxWgf+MPOIOOP3WVs/T9t6d5Q==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@fremtind/jkl-constants-util': 3.0.88
+      '@fremtind/jkl-constants-util': 3.0.91
       '@fremtind/jkl-core': 14.7.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -7481,7 +7483,7 @@ packages:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.7.23
-      vite: 5.4.2
+      vite: 5.4.2_qly2xqze27fzfdjycmqvs326c4
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
