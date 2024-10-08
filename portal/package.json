@@ -35,6 +35,7 @@
         "@fremtind/jkl-list-react": "^10.2.13",
         "@fremtind/jkl-loader-react": "^12.0.22",
         "@fremtind/jkl-logo-react": "^13.1.14",
+        "@fremtind/jkl-menu": "^2.3.0",
         "@fremtind/jkl-message": "^1.1.4",
         "@fremtind/jkl-message-react": "^1.1.5",
         "@fremtind/jkl-modal-react": "^2.1.47",
