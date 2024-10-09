@@ -7,6 +7,7 @@ export * from "./combobox";
 export * from "./cookie-consent";
 export * from "./datepicker";
 export * from "./feedback";
+export * from "./flex";
 export * from "./description-list";
 export * from "./expander";
 export * from "./icon";
