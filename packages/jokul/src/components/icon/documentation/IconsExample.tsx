@@ -32,7 +32,7 @@ import {
     TrashCanIcon,
     WarningIcon,
 } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { TextInput } from "../../text-input";
 import { IconVariant } from "../types";
 import { IconExample } from "./internal/IconExample";

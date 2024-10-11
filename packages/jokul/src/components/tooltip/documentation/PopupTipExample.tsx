@@ -1,6 +1,6 @@
-import { ExampleComponentProps } from "doc-utils";
 import React, { FC } from "react";
 import { type TooltipPlacement } from "..";
+import { ExampleComponentProps } from "../../../../../../utils/dev-example";
 import { formatValuta } from "../../../utilities/formatters";
 import { PopupTip } from "../PopupTip";
 import { getPlacement } from "./getPlacement";

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { Toast } from "../Toast";
 
 export const toastStickerSheetKnobs: ExampleKnobsProps = {};

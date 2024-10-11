@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExampleComponentProps } from "../../../../../../../doc-utils";
+import { ExampleComponentProps } from "../../../../../../../utils/dev-example";
 import { useAnimatedHeight } from "../../../../hooks";
 import { Checkbox } from "../../../checkbox";
 import { FieldGroup } from "../../../input-group";

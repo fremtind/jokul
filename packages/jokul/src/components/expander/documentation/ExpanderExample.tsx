@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react";
 import { Expander } from "..";
-import { ExampleComponentProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps } from "../../../../../../utils/dev-example";
 import { useAnimatedHeight } from "../../../hooks";
 
 const ExpandSection = forwardRef<HTMLDivElement, { id: string; "aria-labelledby": string; hidden: boolean }>(

@@ -1,6 +1,6 @@
 import React from "react";
 import { LogoStamp } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import * as logoStampTextPaths from "../text-paths";
 
 export const LogoStampExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "..";
-import { ExampleComponentProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps } from "../../../../../../utils/dev-example";
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Milepæl", "Følger saken"];
 

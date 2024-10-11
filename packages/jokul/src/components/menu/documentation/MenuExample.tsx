@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithRef, FC, forwardRef } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { Button } from "../../button";
 import { ChevronDownIcon, ErrorIcon } from "../../icon";
 import { Menu } from "../Menu";

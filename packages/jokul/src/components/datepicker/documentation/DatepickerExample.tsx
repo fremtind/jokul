@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { DatePicker, formatInput, isBlurTargetOutside } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import type { LabelVariant } from "../../input-group";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {

@@ -1,7 +1,7 @@
-import { ExampleKnobsProps } from "doc-utils";
 import React, { useId } from "react";
 import { Accordion, AccordionItem } from "..";
-import { UnorderedList, ListItem } from "../../list";
+import { ExampleKnobsProps } from "../../../../../../utils/dev-example";
+import { ListItem, UnorderedList } from "../../list";
 
 export const knobs: ExampleKnobsProps = {};
 

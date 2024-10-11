@@ -1,4 +1,4 @@
-import { ExampleKnobsProps } from "../../../../../../../doc-utils";
+import { ExampleKnobsProps } from "../../../../../../../utils/dev-example";
 import { PaddingShorthand } from "../../types";
 
 export const baseCardExampleProps = {

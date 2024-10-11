@@ -1,6 +1,5 @@
-import { ExampleComponentProps } from "doc-utils";
 import React, { FC, useCallback, useState } from "react";
-import { ExampleKnobsProps } from "utils/dev-example";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { CheckIcon, ChevronDownIcon, CloseIcon } from "../../icon";
 import { Button } from "../Button";
 import { IconPosition } from "../types";

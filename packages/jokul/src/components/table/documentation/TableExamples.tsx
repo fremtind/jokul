@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps } from "../../../../../../utils/dev-example";
 import ActionTableExample from "./ActionTableExample";
 import ClickableTableExample from "./ClickableTableExample";
 import TableExample from "./TableExample";

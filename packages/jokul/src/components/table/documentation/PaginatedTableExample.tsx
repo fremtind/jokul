@@ -10,7 +10,7 @@ import {
     TablePagination,
     TableRow,
 } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { columns, rows } from "./paginated-table-data";
 
 export const paginatedTableExamplesProps: ExampleKnobsProps = {

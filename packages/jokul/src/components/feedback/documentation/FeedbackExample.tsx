@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Feedback, PRESETS } from "..";
-import { ExampleComponentProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps } from "../../../../../../utils/dev-example";
 import { FollowupQuestion } from "../types";
 
 const followupQuestions: FollowupQuestion[] = [

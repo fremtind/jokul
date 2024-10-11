@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState, type FC } from "react";
 import { Menu, MenuItemCheckbox } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { type ColorScheme } from "../../../core";
 import { useBrowserPreferences } from "../../../hooks";
 import { DotsIcon } from "../../icon";

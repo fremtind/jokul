@@ -12,7 +12,7 @@ import {
     useModal,
     type ModalInstance,
 } from "..";
-import { ExampleComponentProps, ExampleKnobsProps, useExampleContext } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps, useExampleContext } from "../../../../../../utils/dev-example";
 import { PrimaryButton, TertiaryButton } from "../../button";
 
 export const dialogExampleKnobs: ExampleKnobsProps = {};

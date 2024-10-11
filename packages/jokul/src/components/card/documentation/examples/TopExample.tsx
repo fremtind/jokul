@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { InfoBlock, NavCard } from "../..";
-import { ExampleComponentProps } from "../../../../../../../doc-utils";
+import { ExampleComponentProps } from "../../../../../../../utils/dev-example";
 import { mixedPadding } from "./cardExampleProps";
 
 export const TopExample: FC<ExampleComponentProps> = ({ choiceValues }) => {

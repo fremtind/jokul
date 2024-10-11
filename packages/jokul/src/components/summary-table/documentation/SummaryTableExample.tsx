@@ -1,6 +1,6 @@
 import React from "react";
 import { SummaryTable } from "..";
-import { ExampleComponentProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps } from "../../../../../../utils/dev-example";
 import { mockProps } from "../mocks";
 
 export const SummaryTableExample: React.FC<ExampleComponentProps> = () => {

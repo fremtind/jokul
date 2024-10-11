@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { InputGroup, type LabelVariant } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { Link } from "../../link";
 import { BaseTextInput } from "../../text-input";
 
