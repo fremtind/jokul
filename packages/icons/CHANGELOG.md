@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 10.1.0 (2024-10-11)
+
+### Features
+
+- la ikonstørrelse styres via CSS-variabel ([bf610d3](https://github.com/fremtind/jokul/commit/bf610d399768c7f13437631d1a37cebbe396c3ef))
+
 # 10.0.0 (2024-08-19)
 
 ### Bug Fixes

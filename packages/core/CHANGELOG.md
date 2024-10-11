@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.8.0 (2024-10-11)
+
+### Features
+
+- knytt ikonstørrelse til tekststiler ([503cb2b](https://github.com/fremtind/jokul/commit/503cb2b6ce26b5cf8d8af03d5a32df25a46bfa5e))
+
 # 14.7.0 (2024-10-04)
 
 ### Features

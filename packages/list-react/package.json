@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-list-react",
-    "version": "10.2.13",
+    "version": "10.2.14",
     "publishConfig": {
         "access": "public"
     },
@@ -40,9 +40,9 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.7.0",
-        "@fremtind/jkl-icons-react": "^9.1.10",
-        "@fremtind/jkl-list": "^10.3.11",
+        "@fremtind/jkl-core": "^14.8.0",
+        "@fremtind/jkl-icons-react": "^9.1.11",
+        "@fremtind/jkl-list": "^10.3.12",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

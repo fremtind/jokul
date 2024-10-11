@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.21.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.20.1...@fremtind/jokul@0.21.0) (2024-10-11)
+
+### Bug Fixes
+
+- bruk riktig tekststørrelse på compact knapper ([8cae9eb](https://github.com/fremtind/jokul/commit/8cae9ebb4a85fef8d6a691ed51868f32b8cabc41))
+
+### Features
+
+- knytt ikonstørrelse til tekststiler ([503cb2b](https://github.com/fremtind/jokul/commit/503cb2b6ce26b5cf8d8af03d5a32df25a46bfa5e))
+- la ikonstørrelse styres via CSS-variabel ([bf610d3](https://github.com/fremtind/jokul/commit/bf610d399768c7f13437631d1a37cebbe396c3ef))
+
 # 0.20.0 (2024-10-11)
 
 ### Features
