@@ -4,8 +4,11 @@ import { Image } from "../../../image";
 import { SuccessTag } from "../../../tag";
 import { Card, CARD_PADDINGS, CARD_VARIANTS, type CardPadding, type CardVariant } from "../../Card";
 import { CardImage } from "../../CardImage";
+// @ts-ignore
 import grass400 from "/img/grass-400.jpg";
+// @ts-ignore
 import grass800 from "/img/grass-800.jpg";
+// @ts-ignore
 import grassThumbnail from "/img/grass-thumbnail.jpg";
 
 const imageProps = {

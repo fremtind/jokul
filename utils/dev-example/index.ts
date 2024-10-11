@@ -1,4 +1,4 @@
-import { ColorScheme, Density } from "../packages/core/src";
+import { ColorScheme, Density } from "../../packages/core/src";
 
 export { ComponentExample } from "./ComponentExample";
 export { DevExample } from "./DevExample";
