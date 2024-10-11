@@ -1,12 +1,8 @@
 import React from "react";
-import { DevExample } from "../../../../../../doc-utils";
+import { DevExample } from "../../../../../../utils/dev-example";
 import { ExpanderExample } from "./ExpanderExample";
 import { expandExamplesKnobs } from "./ExpandExamples";
 import { ExpandSectionExample } from "./ExpandSectionExample";
-
-import "../../../../../../packages/webfonts/webfonts.scss";
-import "../../../core/styles/core.scss";
-import "../../../styles/styles.scss";
 
 export default function Example() {
     return (
