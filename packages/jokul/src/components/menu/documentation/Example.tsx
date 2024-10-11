@@ -1,11 +1,7 @@
 import React from "react";
-import { DevExample } from "../../../../../../doc-utils";
+import { DevExample } from "../../../../../../utils/dev-example";
 import { MenuExample, MenuExampleKnobs } from "./MenuExample";
 import { MenuToggleSwitchExample, MenuToggleSwitchExampleKnobs } from "./MenuToggleSwitchExample";
-
-import "../../../../../../packages/webfonts/webfonts.scss";
-import "../../../core/styles/core.scss";
-import "../../../styles/styles.scss";
 
 export default function Example() {
     return (

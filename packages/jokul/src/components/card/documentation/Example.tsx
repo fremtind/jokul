@@ -1,5 +1,5 @@
 import React from "react";
-import { DevExample } from "../../../../../../doc-utils";
+import { DevExample } from "../../../../../../utils/dev-example";
 import { infoCardExampleProps, navCardExampleProps, taskCardExampleProps } from "./examples/cardExampleProps";
 import { FakturainfoExample, fakturainfoExampleProps } from "./examples/FakturainfoExample";
 import { InfoCardExample } from "./examples/InfoCardExample";
@@ -7,9 +7,6 @@ import { NavCardExample } from "./examples/NavCardExample";
 import { StatuskortExample, statuskortExampleProps } from "./examples/StatuskortExample";
 import { TaskCardExample } from "./examples/TaskCardExample";
 
-import "../../../../../../packages/webfonts/webfonts.scss";
-import "../../../core/styles/core.scss";
-import "../../../styles/styles.scss";
 import "./info-card-example.scss";
 import "./task-card-example.scss";
 

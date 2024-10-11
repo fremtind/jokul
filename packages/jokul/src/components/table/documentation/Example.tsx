@@ -1,5 +1,5 @@
 import React from "react";
-import { DevExample } from "../../../../../../doc-utils";
+import { DevExample } from "../../../../../../utils/dev-example";
 import ActionTableExample, { actionTableExampleKnobs } from "./ActionTableExample";
 import ClickableTableExample, { clickableTableExampleKnobs } from "./ClickableTableExample";
 import DataTableExample, { dataTableExampleKnobs } from "./DataTableExample";
@@ -10,10 +10,6 @@ import MobileScrollTableExample from "./MobileScrollTableExample";
 import { PaginatedTableExample, paginatedTableExamplesProps } from "./PaginatedTableExample";
 import { SortableTableExample, sortableTableExamplesProps } from "./SortableTableExample";
 import StickyTableExample from "./StickyTableExample";
-
-import "../../../../../../packages/webfonts/webfonts.scss";
-import "../../../core/styles/core.scss";
-import "../../../styles/styles.scss";
 
 export default function Example() {
     return (
