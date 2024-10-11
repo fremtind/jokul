@@ -10,7 +10,6 @@ import { copyJklFonts, setupDev } from "../../utils/vite/index.mjs";
 
 export default function App() {
     const [components, setComponents] = useState([]);
-    const [visibleComponents, setVisibleComponents] = useState([]);
     const [filterString, setFilterString] = useState("");
     const [selectedComponent, setSelectedComponent] = useState(null);
     const [log, setLog] = useState([]);
@@ -53,14 +52,14 @@ export default function App() {
 
     useEffect(() => {
         glob("**/documentation/Example.tsx").then((result) => {
-            const componentList = result.map((file) => {
-                return {
-                    label: file.split("/")[2],
-                    value: resolve(fileURLToPath(new URL(file, import.meta.url)), ".."),
-                };
-            });
-            setComponents(componentList);
-            setVisibleComponents(componentList);
+            setComponents(
+                result.map((file) => {
+                    return {
+                        label: file.split("/")[2],
+                        value: resolve(fileURLToPath(new URL(file, import.meta.url)), ".."),
+                    };
+                }),
+            );
         });
     }, []);
 
@@ -70,21 +69,16 @@ export default function App() {
                 server.current.close();
                 server.current = null;
                 setSelectedComponent(null);
-                setVisibleComponents(components);
                 setFilterString("");
             } else {
                 app.exit();
             }
         } else if (input.match(/[a-zA-Z]/)) {
-            setFilterString((current) => current + input);
+            setFilterString((current) => current + input.toLowerCase());
         } else if (key.delete || key.backspace) {
             setFilterString((current) => current.substring(0, current.length - 1));
         }
     });
-
-    useEffect(() => {
-        setVisibleComponents(components.filter((component) => component.label.startsWith(filterString)));
-    }, [filterString]);
 
     const handleSelect = async (component) => {
         setSelectedComponent(component);
@@ -108,7 +102,10 @@ export default function App() {
                 <Box gap={2} flexDirection="column">
                     <Text>Choose a component from the list below</Text>
                     <Text>Filter: {filterString}</Text>
-                    <SelectInput items={visibleComponents} onSelect={handleSelect} />
+                    <SelectInput
+                        items={components.filter((component) => component.label.startsWith(filterString))}
+                        onSelect={handleSelect}
+                    />
                 </Box>
             )}
             {selectedComponent !== null && (
