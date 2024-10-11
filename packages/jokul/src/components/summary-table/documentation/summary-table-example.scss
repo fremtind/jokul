@@ -1,0 +1,18 @@
+@use "../../../core/jkl";
+
+@include jkl.light-mode-variables {
+    --custom-row-text-color: #{jkl.$color-stein};
+}
+
+@include jkl.dark-mode-variables {
+    --custom-row-text-color: #{jkl.$color-svaberg};
+}
+
+.summary-table-example {
+    max-width: 500px;
+    width: 100%;
+
+    &__custom-row {
+        color: var(--custom-row-text-color);
+    }
+}

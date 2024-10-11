@@ -1,26 +1,11 @@
 import React from "react";
-import { formatCode, InteractiveCode, useInteractiveCodeControls } from "../../../../../../utils/interactive-code";
-// @ts-ignore
-import { knobs } from "./LinkExample";
-// @ts-ignore
-import LinkExample from "./LinkExample?raw";
+import { DevExample } from "../../../../../../doc-utils";
+import { LinkExample, knobs } from "./LinkExample";
 
-import "../styles/link.scss";
-
-const code = formatCode(LinkExample);
+import "../../../../../../packages/webfonts/webfonts.scss";
+import "../../../core/styles/core.scss";
+import "../../../styles/styles.scss";
 
 export default function Example() {
-    const controls = useInteractiveCodeControls(code, knobs);
-
-    return (
-        <div className={"jkl"}>
-            <InteractiveCode
-                title={"Link"}
-                defaultCode={code}
-                defaultShowEditor={true}
-                noInline={true}
-                controls={controls}
-            />
-        </div>
-    );
+    return <DevExample component={LinkExample} knobs={knobs} />;
 }
