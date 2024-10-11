@@ -77,8 +77,6 @@ export default function App() {
     const handleSelect = async (component) => {
         setSelectedComponent(component);
 
-        console.log(resolve(component.value, "public", "fonts"));
-
         server.current = await createServer({
             mode: "development",
             plugins: [react(), copyJklFonts(resolve(component.value, "public", "fonts")), setupDev(component.value)],
