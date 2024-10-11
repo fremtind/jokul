@@ -1,26 +1,11 @@
 import React from "react";
-import { formatCode, InteractiveCode, useInteractiveCodeControls } from "../../../../../../utils/interactive-code";
-// @ts-ignore
-import { knobs } from "./BreadcrumbExample";
-// @ts-ignore
-import BreadcrumbExample from "./BreadcrumbExample?raw";
+import { DevExample } from "../../../../../../doc-utils";
+import { BreadcrumbExample, knobs } from "./BreadcrumbExample";
 
-import "../styles/_index.scss";
-
-const code = formatCode(BreadcrumbExample);
+import "../../../../../../packages/webfonts/webfonts.scss";
+import "../../../core/styles/core.scss";
+import "../../../styles/styles.scss";
 
 export default function Example() {
-    const controls = useInteractiveCodeControls(code, knobs);
-
-    return (
-        <div className={"jkl"}>
-            <InteractiveCode
-                title={"Breadcrumb"}
-                defaultCode={code}
-                defaultShowEditor={true}
-                noInline={true}
-                controls={controls}
-            />
-        </div>
-    );
+    return <DevExample component={BreadcrumbExample} knobs={knobs} />;
 }
