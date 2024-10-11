@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import { Image } from "..";
 import { ExampleComponentProps } from "../../../../../../doc-utils";
-// @ts-ignore
 import dog1200 from "/img/dog-1200.jpg";
-// @ts-ignore
 import dog1920 from "/img/dog-1920.jpg";
-// @ts-ignore
 import dog400 from "/img/dog-400.jpg";
-// @ts-ignore
 import dog800 from "/img/dog-800.jpg";
-// @ts-ignore
 import thumbnail from "/img/thumbnail.jpg";
 import "./style.scss";
 
