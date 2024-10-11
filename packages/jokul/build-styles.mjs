@@ -10,7 +10,7 @@ import * as sass from "sass-embedded";
 
 (async function build() {
     try {
-        const sources = await glob("./src/**/[!_]*.scss", { ignore: "node_modules/**" });
+        const sources = await glob("./src/**/[!_]*.scss", { ignore: ["node_modules/**", "**/documentation/**"] });
         await Promise.all(
             sources.flatMap((source) => {
                 const sourcePath = fileURLToPath(new URL(source, import.meta.url));
