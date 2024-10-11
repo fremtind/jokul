@@ -1,15 +1,17 @@
-import { fileURLToPath } from "node:url";
-import { resolve } from "node:path";
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Box, Text, render, useInput, useApp } from "ink";
+import react from "@vitejs/plugin-react-swc";
+import { Box, Text, render, useApp, useInput } from "ink";
 import SelectInput from "ink-select-input";
+import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import glob from "tiny-glob";
 import { createServer } from "vite";
-import react from "@vitejs/plugin-react-swc";
 import { copyJklFonts, setupDev } from "../../utils/vite/index.mjs";
 
 export default function App() {
     const [components, setComponents] = useState([]);
+    const [visibleComponents, setVisibleComponents] = useState([]);
+    const [filterString, setFilterString] = useState("");
     const [selectedComponent, setSelectedComponent] = useState(null);
     const [log, setLog] = useState([]);
     const server = useRef(null);
@@ -50,29 +52,39 @@ export default function App() {
     }, [setLog, log]);
 
     useEffect(() => {
-        glob("**/documentation/Example.tsx").then((result) =>
-            setComponents(
-                result.map((file) => {
-                    return {
-                        label: file.split("/")[2],
-                        value: resolve(fileURLToPath(new URL(file, import.meta.url)), ".."),
-                    };
-                }),
-            ),
-        );
+        glob("**/documentation/Example.tsx").then((result) => {
+            const componentList = result.map((file) => {
+                return {
+                    label: file.split("/")[2],
+                    value: resolve(fileURLToPath(new URL(file, import.meta.url)), ".."),
+                };
+            });
+            setComponents(componentList);
+            setVisibleComponents(componentList);
+        });
     }, []);
 
-    useInput((input) => {
+    useInput((input, key) => {
         if (input === "q") {
             if (server.current !== null) {
                 server.current.close();
                 server.current = null;
                 setSelectedComponent(null);
+                setVisibleComponents(components);
+                setFilterString("");
             } else {
                 app.exit();
             }
+        } else if (input.match(/[a-zA-Z]/)) {
+            setFilterString((current) => current + input);
+        } else if (key.delete || key.backspace) {
+            setFilterString((current) => current.substring(0, current.length - 1));
         }
     });
+
+    useEffect(() => {
+        setVisibleComponents(components.filter((component) => component.label.startsWith(filterString)));
+    }, [filterString]);
 
     const handleSelect = async (component) => {
         setSelectedComponent(component);
@@ -93,10 +105,11 @@ export default function App() {
     return (
         <Box margin={2} flexDirection="column">
             {selectedComponent === null && (
-                <>
+                <Box gap={2} flexDirection="column">
                     <Text>Choose a component from the list below</Text>
-                    <SelectInput items={components} onSelect={handleSelect} />
-                </>
+                    <Text>Filter: {filterString}</Text>
+                    <SelectInput items={visibleComponents} onSelect={handleSelect} />
+                </Box>
             )}
             {selectedComponent !== null && (
                 <Box flexDirection="column" gap={1}>
