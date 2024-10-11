@@ -2,11 +2,8 @@ import React from "react";
 import { ExampleComponentProps } from "../../../../../../../doc-utils";
 import type { NavCardProps } from "../../NavCard";
 import { InfoBlock, NavCard } from "../../NavCard";
-// @ts-ignore
 import grass400 from "/img/grass-400.jpg";
-// @ts-ignore
 import grass800 from "/img/grass-800.jpg";
-// @ts-ignore
 import grassThumbnail from "/img/grass-thumbnail.jpg";
 import { mixedPadding } from "./cardExampleProps";
 
