@@ -4,9 +4,9 @@ import { Image } from "../../../image";
 import { SuccessTag } from "../../../tag";
 import { Card, CARD_PADDINGS, CARD_VARIANTS, type CardPadding, type CardVariant } from "../../Card";
 import { CardImage } from "../../CardImage";
-import grass400 from "../public/img/grass-400.jpg";
-import grass800 from "../public/img/grass-800.jpg";
-import grassThumbnail from "../public/img/grass-thumbnail.jpg";
+import grass400 from "/img/grass-400.jpg";
+import grass800 from "/img/grass-800.jpg";
+import grassThumbnail from "/img/grass-thumbnail.jpg";
 
 const imageProps = {
     src: grass400,

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Image } from "..";
 import { ExampleComponentProps } from "../../../../../../doc-utils";
-import dog1200 from "./public/img/dog-1200.jpg";
-import dog1920 from "./public/img/dog-1920.jpg";
-import dog400 from "./public/img/dog-400.jpg";
-import dog800 from "./public/img/dog-800.jpg";
-import thumbnail from "./public/img/thumbnail.jpg";
+import dog1200 from "/img/dog-1200.jpg";
+import dog1920 from "/img/dog-1920.jpg";
+import dog400 from "/img/dog-400.jpg";
+import dog800 from "/img/dog-800.jpg";
+import thumbnail from "/img/thumbnail.jpg";
 import "./style.scss";
 
 const responsiveImage = {

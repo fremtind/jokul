@@ -2,9 +2,9 @@ import React from "react";
 import { ExampleComponentProps } from "../../../../../../../doc-utils";
 import type { NavCardProps } from "../../NavCard";
 import { InfoBlock, NavCard } from "../../NavCard";
-import grass400 from "../public/img/grass-400.jpg";
-import grass800 from "../public/img/grass-800.jpg";
-import grassThumbnail from "../public/img/grass-thumbnail.jpg";
+import grass400 from "/img/grass-400.jpg";
+import grass800 from "/img/grass-800.jpg";
+import grassThumbnail from "/img/grass-thumbnail.jpg";
 import { mixedPadding } from "./cardExampleProps";
 
 const imageProps = {
