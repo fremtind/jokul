@@ -20,6 +20,11 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     --padding-icon-button: #{jkl.$spacing-4};
     --padding-tertiary-inline: #{jkl.$spacing-2};
     --padding-ghost-inline: #{jkl.$spacing-4};
+
+    @include jkl.text-style("small") {
+        --jkl-icon-weight: #{jkl.$icon-weight-bold};
+        font-weight: jkl.$typography-weight-bold;
+    }
 }
 
 .jkl-button {
