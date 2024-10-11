@@ -1,5 +1,5 @@
 import React, { CSSProperties, FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { tokens } from "../../../core";
 import { Card } from "../../card";
 import { Flex, FlexDirection, GapValue } from "../Flex";

@@ -1,9 +1,12 @@
 import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Box, Text, render, useInput, useApp } from "ink";
 import SelectInput from "ink-select-input";
 import glob from "tiny-glob";
 import { createServer } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import { copyJklFonts, setupDev } from "../../utils/vite/index.mjs";
 
 export default function App() {
     const [components, setComponents] = useState([]);
@@ -47,12 +50,12 @@ export default function App() {
     }, [setLog, log]);
 
     useEffect(() => {
-        glob("**/vite.dev.config.ts").then((result) =>
+        glob("**/documentation/Example.tsx").then((result) =>
             setComponents(
                 result.map((file) => {
                     return {
                         label: file.split("/")[2],
-                        value: fileURLToPath(new URL(file, import.meta.url)),
+                        value: resolve(fileURLToPath(new URL(file, import.meta.url)), ".."),
                     };
                 }),
             ),
@@ -76,8 +79,9 @@ export default function App() {
 
         server.current = await createServer({
             mode: "development",
-            configFile: component.value,
-            root: component.value.replace(/\/vite.dev.config.ts/, ""),
+            plugins: [react(), copyJklFonts(resolve(component.value, "public", "fonts")), setupDev(component.value)],
+            configFile: false,
+            root: component.value,
             server: {
                 port: 3000,
             },
