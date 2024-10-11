@@ -3,6 +3,7 @@
 @use "sass:list";
 @use "screens";
 @use "tokens" as *;
+@use "responsive-units";
 
 /// Tilsvarer 16px
 /// @deprecated Bruk heller $typography-font-size-16
@@ -92,12 +93,14 @@ $text-styles: (
             "line-height": $typography-title-small-line-height,
             "font-weight": $typography-title-small-font-weight,
             "--jkl-icon-weight": $icon-weight-normal,
+            "--jkl-icon-size": 1.2em,
         ),
         "large-screen": (
             "font-size": $typography-title-base-font-size,
             "line-height": $typography-title-base-line-height,
             "font-weight": $typography-title-base-font-weight,
             "--jkl-icon-weight": $icon-weight-normal,
+            "--jkl-icon-size": 1.2em,
         ),
     ),
     "title-small": (
@@ -106,12 +109,14 @@ $text-styles: (
             "line-height": $typography-title-small-small-line-height,
             "font-weight": $typography-title-small-small-font-weight,
             "--jkl-icon-weight": $icon-weight-normal,
+            "--jkl-icon-size": 1.2em,
         ),
         "large-screen": (
             "font-size": $typography-title-small-base-font-size,
             "line-height": $typography-title-small-base-line-height,
             "font-weight": $typography-title-small-base-font-weight,
             "--jkl-icon-weight": $icon-weight-normal,
+            "--jkl-icon-size": 1.2em,
         ),
     ),
     "heading-1": (
@@ -120,12 +125,14 @@ $text-styles: (
             "line-height": $typography-heading-1-small-line-height,
             "font-weight": $typography-heading-1-small-font-weight,
             "--jkl-icon-weight": $icon-weight-normal,
+            "--jkl-icon-size": 1.2em,
         ),
         "large-screen": (
             "font-size": $typography-heading-1-base-font-size,
             "line-height": $typography-heading-1-base-line-height,
             "font-weight": $typography-heading-1-base-font-weight,
             "--jkl-icon-weight": $icon-weight-normal,
+            "--jkl-icon-size": 1.2em,
         ),
     ),
     "heading-2": (
@@ -134,12 +141,14 @@ $text-styles: (
             "line-height": $typography-heading-2-small-line-height,
             "font-weight": $typography-heading-2-small-font-weight,
             "--jkl-icon-weight": $icon-weight-normal,
+            "--jkl-icon-size": 1.2em,
         ),
         "large-screen": (
             "font-size": $typography-heading-2-base-font-size,
             "line-height": $typography-heading-2-base-line-height,
             "font-weight": $typography-heading-2-base-font-weight,
             "--jkl-icon-weight": $icon-weight-normal,
+            "--jkl-icon-size": 1.2em,
         ),
     ),
     "heading-3": (
@@ -148,12 +157,14 @@ $text-styles: (
             "line-height": $typography-heading-3-small-line-height,
             "font-weight": $typography-heading-3-small-font-weight,
             "--jkl-icon-weight": $icon-weight-bold,
+            "--jkl-icon-size": 1.2em,
         ),
         "large-screen": (
             "font-size": $typography-heading-3-base-font-size,
             "line-height": $typography-heading-3-base-line-height,
             "font-weight": $typography-heading-3-base-font-weight,
             "--jkl-icon-weight": $icon-weight-bold,
+            "--jkl-icon-size": 1.2em,
         ),
     ),
     "heading-4": (
@@ -176,12 +187,16 @@ $text-styles: (
             "line-height": $typography-heading-5-small-line-height,
             "font-weight": $typography-heading-5-small-font-weight,
             "--jkl-icon-weight": $icon-weight-bold,
+            "--jkl-icon-size": responsive-units.rem(20px),
+            "--jkl-icon-opsz": 20,
         ),
         "large-screen": (
             "font-size": $typography-heading-5-base-font-size,
             "line-height": $typography-heading-5-base-line-height,
             "font-weight": $typography-heading-5-base-font-weight,
             "--jkl-icon-weight": $icon-weight-bold,
+            "--jkl-icon-size": responsive-units.rem(20px),
+            "--jkl-icon-opsz": 20,
         ),
     ),
     "body": (
@@ -204,12 +219,16 @@ $text-styles: (
             "line-height": $typography-small-small-line-height,
             "font-weight": $typography-small-small-font-weight,
             "--jkl-icon-weight": $icon-weight-normal,
+            "--jkl-icon-size": responsive-units.rem(20px),
+            "--jkl-icon-opsz": 20,
         ),
         "large-screen": (
             "font-size": $typography-small-base-font-size,
             "line-height": $typography-small-base-line-height,
             "font-weight": $typography-small-base-font-weight,
             "--jkl-icon-weight": $icon-weight-normal,
+            "--jkl-icon-size": responsive-units.rem(20px),
+            "--jkl-icon-opsz": 20,
         ),
     ),
 );
