@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.2.2 (2024-10-11)
+
+### Bug Fixes
+
+- bruk riktig tekststørrelse på compact knapper ([8cae9eb](https://github.com/fremtind/jokul/commit/8cae9ebb4a85fef8d6a691ed51868f32b8cabc41))
+
 # 12.2.0 (2024-10-03)
 
 ### Features
