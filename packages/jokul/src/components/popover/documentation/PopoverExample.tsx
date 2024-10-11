@@ -1,5 +1,5 @@
 import React, { type FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { Button } from "../../button";
 import { Tab, TabList, TabPanel, Tabs } from "../../tabs";
 import Popover from "../Popover";

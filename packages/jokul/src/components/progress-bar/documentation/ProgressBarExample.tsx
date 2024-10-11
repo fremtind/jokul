@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { ProgressBar } from "..";
-import { ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { ChevronLeftIcon, ChevronRightIcon } from "../../icon";
 import { IconButton } from "../../icon-button";
 

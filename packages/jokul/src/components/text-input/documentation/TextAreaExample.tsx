@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FC, useState } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import type { LabelVariant } from "../../input-group";
 import { TextArea } from "../TextArea";
 

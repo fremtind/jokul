@@ -1,5 +1,5 @@
 import React from "react";
-import { ExampleComponentProps } from "../../../../../../../doc-utils";
+import { ExampleComponentProps } from "../../../../../../../utils/dev-example";
 import { unicode } from "../../../../utilities";
 import { InfoCard } from "../../InfoCard";
 import { mixedPadding } from "./cardExampleProps";

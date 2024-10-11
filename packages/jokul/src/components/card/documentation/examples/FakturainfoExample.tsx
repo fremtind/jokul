@@ -1,5 +1,5 @@
 import React from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../../utils/dev-example";
 import { formatValuta } from "../../../../utilities/formatters";
 import { ErrorTag } from "../../../tag";
 import { Card, CARD_PADDINGS, CARD_VARIANTS, type CardPadding, type CardVariant } from "../../Card";

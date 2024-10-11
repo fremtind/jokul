@@ -10,7 +10,7 @@ import {
     TableHeader,
     TableRow,
 } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 
 export const expandableTableExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Markér v/ klikk", "Tekst i ekspandérknapp"],

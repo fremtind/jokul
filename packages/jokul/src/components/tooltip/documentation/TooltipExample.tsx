@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Tooltip, TooltipContent, type TooltipPlacement, TooltipTrigger } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { formatKontonummer } from "../../../utilities/formatters";
 import { getPlacement } from "./getPlacement";
 

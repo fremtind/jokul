@@ -11,7 +11,7 @@ import {
     SkeletonTableRow,
     SkeletonTextArea,
 } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 
 export const knobs: ExampleKnobsProps = {};
 

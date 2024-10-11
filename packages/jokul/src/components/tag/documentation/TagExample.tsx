@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Tag, InfoTag, SuccessTag, WarningTag, ErrorTag } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 
 export const tagExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Dismissable"],

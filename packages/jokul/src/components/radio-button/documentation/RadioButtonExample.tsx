@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { RadioButton, RadioButtonGroup } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import type { LabelVariant } from "../../input-group";
 
 export const radioButtonExampleKnobs: ExampleKnobsProps = {

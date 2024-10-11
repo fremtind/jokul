@@ -1,6 +1,6 @@
 import React from "react";
 import { type ToggleChangeHandler, ToggleSwitch } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 
 export const toggleSwitchExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Deaktivert"],

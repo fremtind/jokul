@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 
 export const tabsExampleKnobs: ExampleKnobsProps = {};
 

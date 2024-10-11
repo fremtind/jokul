@@ -1,5 +1,5 @@
 import React from "react";
-import { ExampleComponentProps } from "../../../../../../../doc-utils";
+import { ExampleComponentProps } from "../../../../../../../utils/dev-example";
 import type { NavCardProps } from "../../NavCard";
 import { InfoBlock, NavCard } from "../../NavCard";
 import grass400 from "/img/grass-400.jpg";

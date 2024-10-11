@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FC, useState } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { CloseIcon } from "../../icon";
 import type { LabelVariant } from "../../input-group";
 import { Link } from "../../link";

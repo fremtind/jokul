@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { CookieConsent, CookieConsentProvider, useCookieConsent } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { TertiaryButton } from "../../button";
 import { DEFAULT_COOKIE_NAME, useCookieConsentState } from "../CookieConsentContext";
 import { buildRequirementsObject, setConsentCookie } from "../cookieConsentUtils";

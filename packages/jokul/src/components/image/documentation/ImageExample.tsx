@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Image } from "..";
-import { ExampleComponentProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps } from "../../../../../../utils/dev-example";
 import dog1200 from "/img/dog-1200.jpg";
 import dog1920 from "/img/dog-1920.jpg";
 import dog400 from "/img/dog-400.jpg";

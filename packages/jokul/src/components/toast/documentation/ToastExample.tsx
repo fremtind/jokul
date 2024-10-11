@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { ToastContent, ToastProvider, useToast } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { PrimaryButton } from "../../button";
 import { ToastOptions } from "../types";
 

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 
 export const clickableTableExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Markér v/ klikk"],

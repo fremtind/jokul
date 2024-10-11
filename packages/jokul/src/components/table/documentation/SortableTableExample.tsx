@@ -10,7 +10,7 @@ import {
     useSortableTableHeader,
     type TableSortDirection,
 } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { parseDateString } from "../../datepicker";
 
 export const sortableTableExamplesProps: ExampleKnobsProps = {

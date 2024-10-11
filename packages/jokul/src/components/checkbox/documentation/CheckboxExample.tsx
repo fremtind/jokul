@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Checkbox } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { FieldGroup, type LabelVariant } from "../../input-group";
 
 export const checkboxExampleKnobs: ExampleKnobsProps = {

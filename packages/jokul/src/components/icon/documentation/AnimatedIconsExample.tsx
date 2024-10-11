@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ArrowHorizontalAnimated, ArrowVerticalAnimated, PlusRemoveAnimated } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../doc-utils";
+import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { TextInput } from "../../text-input";
 import { IconVariant } from "../types";
 import { AnimatedIcon } from "./internal/AnimatedIcon";
