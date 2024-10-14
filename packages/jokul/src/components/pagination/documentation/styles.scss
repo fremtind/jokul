@@ -1,0 +1,35 @@
+@use "../../../core/jkl";
+
+.pagination-example {
+    display: flex;
+    flex-direction: column;
+
+    > p {
+        margin-block: 40px 20px;
+    }
+
+    .page-selector {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 20px;
+
+        @include jkl.from-medium-device {
+            align-items: center;
+            flex-direction: row;
+            column-gap: 40px;
+        }
+
+        &__input {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 8px;
+            max-width: 180px;
+
+            form {
+                width: min(4rem, 100%);
+            }
+        }
+    }
+}
