@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 15.2.4 (2024-10-14)
+
+### Bug Fixes
+
+- flytt action prop for å unngå overskriving av props ([8a45acc](https://github.com/fremtind/jokul/commit/8a45acc6004a71f25a85e58d31c95b4afed175a5))
+
 # 15.2.0 (2024-10-03)
 
 ### Bug Fixes
