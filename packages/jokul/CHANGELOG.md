@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.21.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.21.1...@fremtind/jokul@0.21.2) (2024-10-14)
+
+### Bug Fixes
+
+- flytt action prop på topp for å unngå overskriving av props ([6a405e4](https://github.com/fremtind/jokul/commit/6a405e4fe8a5446275278eb8851b6ee6b0d8ccc9))
+
 # [0.21.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.20.1...@fremtind/jokul@0.21.0) (2024-10-11)
 
 ### Bug Fixes
