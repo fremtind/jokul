@@ -1,14 +1,13 @@
 import React from "react";
 import { DevExample } from "../../../../../../utils/dev-example";
-import { ExpanderExample } from "./ExpanderExample";
-import { expandExamplesKnobs } from "./ExpandExamples";
+import { ExpanderExample, expanderExamplesKnobs } from "./ExpanderExample";
 import { ExpandSectionExample } from "./ExpandSectionExample";
 
 export default function Example() {
     return (
         <>
-            <DevExample title="ExpandSection" component={ExpandSectionExample} knobs={expandExamplesKnobs} />
-            <DevExample title="ExpandButton" component={ExpanderExample} knobs={expandExamplesKnobs} />
+            <DevExample title="ExpandSection" component={ExpandSectionExample} />
+            <DevExample title="Expander" component={ExpanderExample} knobs={expanderExamplesKnobs} />
         </>
     );
 }
