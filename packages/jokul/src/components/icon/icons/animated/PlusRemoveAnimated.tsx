@@ -13,7 +13,7 @@ export interface PlusRemoveAnimatedProps {
 export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
     className,
     isPlus,
-    variant = "inherit",
+    variant,
     bold = false,
     ...rest
 }) => (
@@ -22,8 +22,10 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
         className={clsx(
             "jkl-icon",
             "jkl-icon--animated",
-            `jkl-icon--${variant}`,
-            { "jkl-icon--bold": bold },
+            {
+                "jkl-icon--bold": bold,
+                [`jkl-icon--${variant}`]: !!variant,
+            },
             className,
         )}
     >
