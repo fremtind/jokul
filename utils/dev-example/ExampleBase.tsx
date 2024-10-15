@@ -27,7 +27,7 @@ export interface Props {
 
 export const ExampleBase: FC<Props> = ({
     component,
-    knobs,
+    knobs = {},
     noDensity = false,
     title = "Komponent",
     codeExample,
