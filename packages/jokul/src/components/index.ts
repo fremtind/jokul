@@ -22,6 +22,7 @@ export * from "./logo";
 export * from "./menu";
 export * from "./message";
 export * from "./modal";
+export * from "./pagination";
 export * from "./popover";
 export * from "./progress-bar";
 export * from "./radio-button";
