@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-combobox-react",
-    "version": "2.3.58",
+    "version": "2.3.59",
     "publishConfig": {
         "access": "public"
     },
@@ -38,13 +38,13 @@
     "dependencies": {
         "@fremtind/jkl-combobox": "^2.2.21",
         "@fremtind/jkl-core": "^14.8.0",
-        "@fremtind/jkl-icon-button-react": "^5.0.16",
-        "@fremtind/jkl-icons-react": "^9.1.11",
-        "@fremtind/jkl-input-group-react": "^3.0.49",
+        "@fremtind/jkl-icon-button-react": "^5.0.17",
+        "@fremtind/jkl-icons-react": "^9.1.12",
+        "@fremtind/jkl-input-group-react": "^3.0.50",
         "@fremtind/jkl-react-hooks": "^12.2.4",
-        "@fremtind/jkl-select-react": "^14.1.64",
-        "@fremtind/jkl-tag-react": "^5.2.31",
-        "@fremtind/jkl-tooltip-react": "^4.4.2",
+        "@fremtind/jkl-select-react": "^14.1.65",
+        "@fremtind/jkl-tag-react": "^5.2.32",
+        "@fremtind/jkl-tooltip-react": "^4.4.3",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {

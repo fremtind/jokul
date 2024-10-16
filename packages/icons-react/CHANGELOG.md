@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.1.12 (2024-10-16)
+
+### Bug Fixes
+
+- bruk riktig størrelse på animerte ikoner ([75d4db5](https://github.com/fremtind/jokul/commit/75d4db5590c776950158000912dace7e26f58f4e))
+
 # 9.1.0 (2024-08-28)
 
 ### Features
