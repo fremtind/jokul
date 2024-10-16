@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.22.0 (2024-10-16)
+
+### Features
+
+- new component: Pagination ([ba84a79](https://github.com/fremtind/jokul/commit/ba84a799449abd5d09f8b1a0532da911839c4f4b)), closes [#4141](https://github.com/fremtind/jokul/issues/4141)
+
 ## [0.21.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.21.1...@fremtind/jokul@0.21.2) (2024-10-14)
 
 ### Bug Fixes
