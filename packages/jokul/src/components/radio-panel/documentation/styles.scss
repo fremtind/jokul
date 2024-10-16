@@ -1,0 +1,27 @@
+@use "../../../core/jkl/" as jkl;
+
+.radio-panel-example {
+    &__season-tag {
+        position: absolute;
+        top: -50%;
+        right: 0;
+
+        @include jkl.from-medium-device {
+            top: 0;
+        }
+    }
+
+    &__custom-label {
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        &--small {
+            font-size: 0.8em;
+        }
+
+        &--bold {
+            font-weight: bold;
+        }
+    }
+}

@@ -26,6 +26,7 @@ export * from "./pagination/index.js";
 export * from "./popover/index.js";
 export * from "./progress-bar/index.js";
 export * from "./radio-button/index.js";
+export * from "./radio-panel/index.js";
 export * from "./select/index.js";
 export * from "./summary-table/index.js";
 export * from "./system-message/index.js";
