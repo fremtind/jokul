@@ -14,7 +14,7 @@ export interface ArrowVerticalAnimatedProps {
 export const ArrowVerticalAnimated: FC<ArrowVerticalAnimatedProps> = ({
     className,
     pointingDown,
-    variant = "inherit",
+    variant,
     bold = false,
     ...rest
 }) => (
@@ -23,8 +23,10 @@ export const ArrowVerticalAnimated: FC<ArrowVerticalAnimatedProps> = ({
         className={clsx(
             "jkl-icon",
             "jkl-icon--animated",
-            `jkl-icon--${variant}`,
-            { "jkl-icon--bold": bold },
+            {
+                "jkl-icon--bold": bold,
+                [`jkl-icon--${variant}`]: !!variant,
+            },
             "jkl-animated-vertical-arrows",
             className,
         )}

@@ -68,12 +68,7 @@ export const Expander = React.forwardRef(
                         <span className="jkl-expander__text">{children}</span>
                     </ContentWrapper>
                 )}
-                <ArrowVerticalAnimated
-                    className="jkl-expander__arrow"
-                    variant="inherit"
-                    pointingDown={pointingDown}
-                    bold={isExpanded}
-                />
+                <ArrowVerticalAnimated className="jkl-expander__arrow" pointingDown={pointingDown} bold={isExpanded} />
             </El>
         );
     },

@@ -3,6 +3,16 @@ import { Expander } from "..";
 import { ExampleComponentProps } from "../../../../../../utils/dev-example";
 import { useAnimatedHeight } from "../../../hooks";
 
+export const expanderExamplesKnobs = {
+    choiceProps: [
+        {
+            name: "Ekspander i retning",
+            values: ["Nedover", "Oppover"],
+            defaultValue: 0,
+        },
+    ],
+};
+
 const ExpandSection = forwardRef<HTMLDivElement, { id: string; "aria-labelledby": string; hidden: boolean }>(
     ({ ...rest }, ref) => (
         <div ref={ref} className="jkl-expand-section__content-wrapper" role="group" {...rest}>
@@ -28,7 +38,7 @@ export const ExpanderExample = ({ choiceValues }: ExampleComponentProps) => {
         setIsExpanded(!isExpanded);
     };
 
-    const expandDirection = choiceValues?.["Ekspander i retning (kun frittstående)"] === "Oppover" ? "up" : "down";
+    const expandDirection = choiceValues?.["Ekspander i retning"] === "Oppover" ? "up" : "down";
 
     return (
         <div>
