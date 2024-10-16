@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icon-button-react",
-    "version": "5.0.16",
+    "version": "5.0.17",
     "publishConfig": {
         "access": "public"
     },
@@ -45,8 +45,8 @@
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-icons-react": "^9.1.11",
-        "@fremtind/jkl-toggle-switch-react": "^13.1.29"
+        "@fremtind/jkl-icons-react": "^9.1.12",
+        "@fremtind/jkl-toggle-switch-react": "^13.1.30"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

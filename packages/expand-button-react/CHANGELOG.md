@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.0.22 (2024-10-16)
+
+### Bug Fixes
+
+- bruk riktig variant av ikon i expander/expand-button ([eda8204](https://github.com/fremtind/jokul/commit/eda8204729a87489072b9d025d0143f53e48de44))
+
 ## 7.0.8 (2024-08-19)
 
 ### Bug Fixes
