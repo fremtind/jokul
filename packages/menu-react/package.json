@@ -1,11 +1,11 @@
 {
-    "name": "@fremtind/jkl-contextual-menu-react",
+    "name": "@fremtind/jkl-menu-react",
     "version": "3.4.37",
     "publishConfig": {
         "access": "public"
     },
-    "description": "Jøkul react contextual-menu",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/contextual-menu-react",
+    "description": "Jøkul react menu",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/menu-react",
     "keywords": [
         "jøkul",
         "fremtind"
@@ -30,14 +30,14 @@
         "build:types": "tsc -p tsconfig-for-declarations.json",
         "build:scripts": "node ./esbuild.prod.mjs",
         "build": "run-s build:*",
-        "test": "jest --testMatch '**/contextual-menu-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
+        "test": "jest --testMatch '**/menu-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js",
         "dev:js": "ESBUILD_WATCH=true node ./esbuild.dev.mjs",
         "dev:server": "nodemon ./dist/server.js",
         "dev": "node ./esbuild.dev.mjs && run-p dev:*"
     },
     "dependencies": {
         "@floating-ui/react": "^0.24.2",
-        "@fremtind/jkl-contextual-menu": "^2.2.0",
+        "@fremtind/jkl-menu": "^2.3.1",
         "@fremtind/jkl-core": "^14.4.0",
         "@fremtind/jkl-icons-react": "^9.1.6",
         "@fremtind/jkl-react-hooks": "^12.1.8",
