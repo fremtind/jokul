@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.22.1...@fremtind/jokul@0.22.2) (2024-10-17)
+
+### Bug Fixes
+
+- copies .d.ts files to where we expect them to be ([5e98c92](https://github.com/fremtind/jokul/commit/5e98c9205379bb6f8b4132ebbaa90fad4f8776b8))
+- menu no longer depends on classnames module ([79ff5a6](https://github.com/fremtind/jokul/commit/79ff5a6a137eecb91b423ba6370aed1eef29499c))
+- radio-button has correct dot color in dark mode error state ([b0447f2](https://github.com/fremtind/jokul/commit/b0447f2cde71982e27f51315d5ae5206fd307fc5)), closes [#4179](https://github.com/fremtind/jokul/issues/4179)
+
 ## [0.22.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.22.0...@fremtind/jokul@0.22.1) (2024-10-16)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.2.5 (2024-10-17)
+
+### Bug Fixes
+
+- radio-button has correct dot color in dark mode error state ([b0447f2](https://github.com/fremtind/jokul/commit/b0447f2cde71982e27f51315d5ae5206fd307fc5)), closes [#4179](https://github.com/fremtind/jokul/issues/4179)
+
 # 10.2.0 (2024-09-09)
 
 ### Features

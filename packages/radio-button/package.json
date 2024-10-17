@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button",
-    "version": "10.2.4",
+    "version": "10.2.5",
     "publishConfig": {
         "access": "public"
     },
