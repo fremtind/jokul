@@ -95,7 +95,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
                 }
             }
 
-            .jkl-radio-button--error & + .jkl-radio-button__label {
+            .jkl-radio-button--error & + .jkl-radio-button__label > .jkl-radio-button__dot::after {
                 --background-color: var(--jkl-color-background-alert-error);
                 --dot-color: var(--jkl-color-text-on-alert);
             }
