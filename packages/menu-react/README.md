@@ -10,7 +10,7 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/menu)
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
-import { ContextualMenu } from "@fremtind/jkl-menu-react";
+import { Menu } from "@fremtind/jkl-menu-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-menu/menu.min.css";
