@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card",
-    "version": "13.0.4",
+    "version": "13.0.5",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "echo \"Error: run dev from card-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.8.0"
+        "@fremtind/jkl-core": "^14.8.1"
     },
     "repository": {
         "type": "git",

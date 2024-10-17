@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [21.3.9](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.3.8...@fremtind/portal@21.3.9) (2024-10-17)
+
+### Bug Fixes
+
+- finished renaming contextual-menu => menu ([18ada17](https://github.com/fremtind/jokul/commit/18ada17a8b8ee8bad339c588ec307c2c482ce79a))
+
 # [21.3.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.2.11...@fremtind/portal@21.3.0) (2024-10-03)
 
 ### Bug Fixes
