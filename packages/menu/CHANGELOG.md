@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.2 (2024-10-17)
+
+### Bug Fixes
+
+- finished renaming contextual-menu => menu ([18ada17](https://github.com/fremtind/jokul/commit/18ada17a8b8ee8bad339c588ec307c2c482ce79a))
+
 # 2.3.0 (2024-10-04)
 
 ### Features
