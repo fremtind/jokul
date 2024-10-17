@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url";
+import { cpSync } from "node:fs";
 import { extname, relative, resolve } from "path";
 import terser from "@rollup/plugin-terser";
 import react from "@vitejs/plugin-react-swc";
@@ -15,6 +16,13 @@ export default defineConfig({
         dts({
             include: ["src"],
             exclude: ["src/**/*.test.{ts,tsx}", "src/components/**/documentation/*"],
+            afterBuild() {
+                cpSync(
+                    resolve(fileURLToPath(new URL(".", import.meta.url)), "build", "packages", "jokul", "src"),
+                    resolve(fileURLToPath(new URL(".", import.meta.url)), "build"),
+                    { recursive: true },
+                );
+            },
         }),
         visualizer({
             emitFile: true,
