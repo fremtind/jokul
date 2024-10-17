@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, {
     forwardRef,
     type HTMLAttributes,
@@ -73,7 +73,7 @@ export const MenuItemCheckbox = forwardRef<HTMLDivElement, MenuItemCheckboxProps
             {...rest}
             role="menuitemcheckbox"
             aria-checked={checked}
-            className={cn("jkl-menu-item", "jkl-menu-item--checkbox", className)}
+            className={clsx("jkl-menu-item", "jkl-menu-item--checkbox", className)}
             {...gestureHandlers}
             onKeyDown={handleKeyDown}
         >
