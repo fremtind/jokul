@@ -4,7 +4,7 @@
 @use "jkl/typography";
 @use "styles";
 
-/* Used by contextual-menu to figure out if it should render a compact or comfortable view */
+/* Used by menu to figure out if it should render a compact or comfortable view */
 @include jkl.comfortable-density-variables {
     --jkl-density: "comfortable";
 }

@@ -1,20 +1,20 @@
-# [`@fremtind/jkl-contextual-menu`](https://jokul.fremtind.no/komponenter/contextual-menu)
+# [`@fremtind/jkl-menu`](https://jokul.fremtind.no/komponenter/menu)
 
-Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/contextual-menu).
+Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/menu).
 
 ## Installasjon
 
-**Tips:** om du bruker [React-pakken](../contextual-menu-react/) trenger du ikke installere denne pakken direkte.
+**Tips:** om du bruker [React-pakken](../menu-react/) trenger du ikke installere denne pakken direkte.
 
-1. `npm i @fremtind/jkl-contextual-menu`.
+1. `npm i @fremtind/jkl-menu`.
 2. Importér stil-pakken i prosjektet ditt.
 
 ```js
 // Importer stilark via JavaScript med CSS-loader.
-import "@fremtind/jkl-contextual-menu/contextual-menu.min.css";
+import "@fremtind/jkl-menu/menu.min.css";
 ```
 
 ```scss
 // Eller importer stilark via SCSS.
-@use "@fremtind/jkl-contextual-menu/contextual-menu";
+@use "@fremtind/jkl-menu/menu";
 ```
