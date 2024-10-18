@@ -1,0 +1,43 @@
+---
+title: Accordion
+react: "accordion-react"
+scss: "accordion"
+group: layout
+keywords: ekspanderbar
+---
+
+import { AccordionExample, accordionExampleCode, accordionExampleKnobs } from "./AccordionExample";
+
+<Ingress>
+    Med trekkspillister kan vi presentere mye innhold på liten plass. En trekkspilliste har én eller flere rader, som
+    brukeren kan klikke på for å vise eller skjule informasjon.
+</Ingress>
+
+<ComponentExample
+    title="Accordion"
+    component={AccordionExample}
+    knobs={accordionExampleKnobs}
+    codeExample={accordionExampleCode}
+/>
+
+En trekkspilliste med én rad fungerer ikke alltid like bra. Hvis du ønsker et alternativ kan du vurdere å ta i bruk [ExpandButton](/komponenter/expandbutton).
+
+## Når bruker vi en Accordion?
+
+Viktig informasjon bør alltid ligge synlig, ikke skjult i en trekkspilliste. Hvilken informasjon som er viktig kommer an på situasjonen din. Om du er i tvil, velg å _ikke_ bruke Accordion.
+
+-   Trekkspillister passer godt til tilleggsinformasjon som kan være til hjelp for brukerne.
+-   Teksten på hver rad i listen må være tydelig, og må beskrive innholdet for brukeren. "Vis mer" er ikke en god nok tittel.
+-   Du kan sette en overskrift for hele trekkspillisten om du ønsker.
+
+### Eksempler på bruk
+
+<PortalImage
+    src="/assets/documentation/accordion/accordion-betaling-faktura.png"
+    caption="Visning av fakturadetaljer på en detaljside."
+/>
+
+<PortalImage
+    src="/assets/documentation/accordion/accordion-fakturaarkiv.gif"
+    caption="Visning av detaljer om fakturaer fra et arkiv."
+/>
