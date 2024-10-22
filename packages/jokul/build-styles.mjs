@@ -26,7 +26,7 @@ import * as sass from "sass-embedded";
 
                     return [
                         writeFile(`${outDirName}/${fileName.replace(".scss", ".css")}`, content.css).then(() =>
-                            console.log("wrote file:${cssPath}"),
+                            console.log(`Wrote ${outDirName}/${fileName.replace(".scss", ".css")}`),
                         ),
                         new Promise((resolve, reject) => {
                             postcss([autoprefixer(), cssnano(litePreset)])
@@ -36,7 +36,7 @@ import * as sass from "sass-embedded";
                                         `${outDirName}/${fileName.replace(".scss", ".min.css")}`,
                                         result.css,
                                     ).then(() => {
-                                        console.log("wrote file:${cssMinPath}");
+                                        console.log(`Wrote ${outDirName}/${fileName.replace(".scss", ".min.css")}`);
                                         resolve();
                                     }),
                                 )
