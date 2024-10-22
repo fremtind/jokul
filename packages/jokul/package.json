@@ -55,7 +55,9 @@
         "./src/components/toast/styles",
         "./src/components/toggle-switch/styles",
         "./src/components/tooltip/styles",
-        "./src/styles/*"
+        "./src/styles/*",
+        "./src/fonts",
+        "./src/fonts/assets"
     ],
     "exports": {
         ".": {
@@ -123,7 +125,8 @@
         "./styles/text-input/*": "./src/components/text-input/styles/*",
         "./styles/toast/*": "./src/components/toast/styles/*",
         "./styles/toggle-switch/*": "./src/components/toggle-switch/styles/*",
-        "./styles/tooltip/*": "./src/components/tooltip/styles/*"
+        "./styles/tooltip/*": "./src/components/tooltip/styles/*",
+        "./fonts": "./src/fonts/*"
     },
     "scripts": {
         "generate:tokens": "node tokens.build.mjs",
