@@ -70,7 +70,7 @@
         "./styles/menu/*": "./styles/components/menu/*",
         "./styles/message/*": "./styles/components/message/*",
         "./styles/modal/*": "./styles/components/modal/*",
-        "./styles/pagination/*": "./srcstylescomponents/pagination/*",
+        "./styles/pagination/*": "./styles/components/pagination/*",
         "./styles/popover/*": "./styles/components/popover/*",
         "./styles/progress-bar/*": "./styles/components/progress-bar/*",
         "./styles/radio-button/*": "./styles/components/radio-button/*",
