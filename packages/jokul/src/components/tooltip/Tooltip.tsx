@@ -1,5 +1,6 @@
 import {
     type Placement,
+    type UseFloatingReturn,
     arrow,
     autoUpdate,
     flip,
@@ -42,12 +43,24 @@ export interface TooltipProps {
     triggerOn?: "click" | "hover";
 }
 
+type UseTooltipReturn = {
+    triggerOn: NonNullable<TooltipProps["triggerOn"]>;
+    isOpen: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    arrowElement: React.RefObject<HTMLElement>;
+    refs: {
+        description: React.MutableRefObject<HTMLElement | null>;
+        setDescription: (element: HTMLElement | null) => void;
+    } & UseFloatingReturn["refs"];
+} & UseFloatingReturn &
+    ReturnType<typeof useInteractions>;
+
 export const useTooltip = ({
     initialOpen = false,
     placement = "top",
     delay = 250,
     triggerOn = "hover",
-}: TooltipProps) => {
+}: TooltipProps): UseTooltipReturn => {
     const [isOpen, setOpen] = useState(initialOpen);
     const arrowElement = useRef<HTMLElement>(null);
     const description = useRef<HTMLElement | null>(null);
