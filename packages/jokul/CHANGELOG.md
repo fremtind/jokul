@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.23.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.22.3...@fremtind/jokul@0.23.0) (2024-10-22)
+
+### Features
+
+- add font-package ([4807af2](https://github.com/fremtind/jokul/commit/4807af2cc1e2851b31b88d71834fd786a722f053))
+
 ## [0.22.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.22.2...@fremtind/jokul@0.22.3) (2024-10-17)
 
 ### Bug Fixes
