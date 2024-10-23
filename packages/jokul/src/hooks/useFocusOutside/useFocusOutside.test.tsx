@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from "@testing-library/react";
 import React, { useRef } from "react";
-import { useFocusOutside } from "./useFocusOutside";
+import { useFocusOutside } from "./useFocusOutside.js";
 
 interface Props {
     fn: () => void;
