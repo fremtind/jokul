@@ -1,8 +1,8 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { CSSProperties, FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { tokens } from "../../../core";
-import { Card } from "../../card";
-import { Flex, FlexDirection, GapValue } from "../Flex";
+import tokens from "../../../core/tokens.js";
+import { Card } from "../../card/Card.js";
+import { Flex, FlexDirection, GapValue } from "../Flex.js";
 
 export const flexExampleKnobs: ExampleKnobsProps = {
     boolProps: ["wrap"],

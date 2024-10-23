@@ -1,8 +1,8 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { ArrowDownIcon } from "..";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { AnimatedIconsExample, animatedIconsExampleKnobs } from "./AnimatedIconsExample";
-import { IconsExample, iconsExampleKnobs } from "./IconsExample";
+import { ArrowDownIcon } from "../icons/ArrowDownIcon.js";
+import { AnimatedIconsExample, animatedIconsExampleKnobs } from "./AnimatedIconsExample.js";
+import { IconsExample, iconsExampleKnobs } from "./IconsExample.js";
 
 export default function Example() {
     return (

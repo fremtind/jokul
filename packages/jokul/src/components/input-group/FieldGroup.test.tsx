@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { FieldGroup } from "./FieldGroup";
+import { FieldGroup } from "./FieldGroup.js";
 
 describe("FieldGroup", () => {
     it("should render the correct legend", () => {

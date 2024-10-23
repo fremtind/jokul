@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { TextAreaExample, textAreaExampleKnobs } from "./TextAreaExample";
-import { TextInputExample, textInputExampleKnobs } from "./TextInputExample";
+import { TextAreaExample, textAreaExampleKnobs } from "./TextAreaExample.js";
+import { TextInputExample, textInputExampleKnobs } from "./TextInputExample.js";
 
 import "./index.scss";
 

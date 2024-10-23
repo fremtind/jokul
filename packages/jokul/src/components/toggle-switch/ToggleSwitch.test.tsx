@@ -1,7 +1,7 @@
 import { render, screen, act, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { ToggleSwitch } from ".";
+import { ToggleSwitch } from "./ToggleSwitch.js";
 
 describe("Toggle switch", () => {
     it("should be pressed after clicking the button", async () => {

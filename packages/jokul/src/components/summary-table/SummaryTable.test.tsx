@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { mockProps } from "./mocks";
-import { SummaryTable } from "./SummaryTable";
+import { mockProps } from "./mocks.js";
+import { SummaryTable } from "./SummaryTable.js";
 
 test("renders footer when footer is specified in props", () => {
     render(<SummaryTable {...mockProps} />);

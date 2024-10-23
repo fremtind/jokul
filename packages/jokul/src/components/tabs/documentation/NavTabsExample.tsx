@@ -1,6 +1,6 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, MouseEvent, useEffect, useMemo, useState } from "react";
-import { NavTab, NavTabs } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
+import { NavTab, NavTabs } from "../index.js";
 
 export const navTabsExampleKnobs: ExampleKnobsProps = {};
 

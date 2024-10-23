@@ -1,9 +1,9 @@
 import React, { ChangeEventHandler, useEffect, useRef } from "react";
-import { Checkbox } from "../../checkbox";
-import { FieldGroup } from "../../input-group";
-import { useFollowUpContext } from "../followup/followupContext";
-import { useMainQuestionContext } from "../main-question/mainQuestionContext";
-import { FeedbackOption, QuestionProps } from "../types";
+import { Checkbox } from "../../checkbox/Checkbox.js";
+import { FieldGroup } from "../../input-group/FieldGroup.js";
+import { useFollowUpContext } from "../followup/followupContext.js";
+import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
+import { FeedbackOption, QuestionProps } from "../types.js";
 
 export const CheckboxQuestion: React.FC<QuestionProps> = ({ label, name, options, helpLabel, autoFocus = false }) => {
     const followupContext = useFollowUpContext();

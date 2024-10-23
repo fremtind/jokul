@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "..";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../index.js";
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Milepæl", "Følger saken"];
 

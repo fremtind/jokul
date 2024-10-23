@@ -1,10 +1,14 @@
 import { act, fireEvent, render, RenderOptions, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Accordion, AccordionItem } from "../accordion";
-import { Select } from ".";
+import { Accordion } from "../accordion/Accordion.js";
+import { AccordionItem } from "../accordion/AccordionItem.js";
+import { Select } from "./Select.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {

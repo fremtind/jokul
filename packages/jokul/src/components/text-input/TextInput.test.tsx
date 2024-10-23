@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { SearchIcon } from "../icon";
-import { TextInput } from ".";
+import { SearchIcon } from "../icon/index.js";
+import { TextInput } from "./TextInput.js";
 
 describe("TextInput", () => {
     it("renders with correct label", () => {

@@ -1,7 +1,7 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { useState } from "react";
-import { InfoSystemMessage, WarningSystemMessage, ErrorSystemMessage, SuccessSystemMessage } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { NavLink } from "../../link";
+import { NavLink } from "../../link/NavLink.js";
+import { ErrorSystemMessage, InfoSystemMessage, SuccessSystemMessage, WarningSystemMessage } from "../SystemMessage.js";
 
 export const systemMessageKnobs: ExampleKnobsProps = {
     boolProps: ["Dismissable"],

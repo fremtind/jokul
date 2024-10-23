@@ -1,8 +1,8 @@
 import React, { forwardRef, InputHTMLAttributes, ChangeEventHandler, ReactNode } from "react";
-import { useId } from "../../hooks";
-import { SupportLabel, SupportLabelProps } from "../input-group";
-import { BaseRadioButton } from "./BaseRadioButton";
-import { useRadioGroupContext } from "./radioGroupContext";
+import { useId } from "../../hooks/useId/useId.js";
+import { SupportLabel, SupportLabelProps } from "../input-group/SupportLabel.js";
+import { BaseRadioButton } from "./BaseRadioButton.js";
+import { useRadioGroupContext } from "./radioGroupContext.js";
 
 export interface RadioButtonProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
     children?: ReactNode;

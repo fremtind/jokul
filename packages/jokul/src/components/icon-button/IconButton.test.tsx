@@ -1,8 +1,11 @@
 import { act, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import React from "react";
-import { SearchIcon } from "../icon";
-import { IconButton } from ".";
+import { SearchIcon } from "../icon/index.js";
+import { IconButton } from "./IconButton.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("IconButton", () => {
     it("calls the onClick handler when clicked", async () => {

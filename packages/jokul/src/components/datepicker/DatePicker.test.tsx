@@ -1,8 +1,12 @@
 import { act, render, cleanup, RenderOptions } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { DatePicker, formatInput } from ".";
+import { DatePicker } from "./DatePicker.js";
+import { formatInput } from "./utils.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {

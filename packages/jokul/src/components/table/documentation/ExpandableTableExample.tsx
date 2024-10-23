@@ -1,3 +1,4 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
 import {
     ExpandableTableRow,
@@ -9,8 +10,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
+} from "../index.js";
 
 export const expandableTableExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Markér v/ klikk", "Tekst i ekspandérknapp"],

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { TextArea } from ".";
+import { TextArea } from "./TextArea.js";
 
 describe("TextArea", () => {
     it("renders with correct label", () => {

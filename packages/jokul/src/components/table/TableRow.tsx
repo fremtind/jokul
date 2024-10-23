@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, HTMLAttributes, useEffect, useState } from "react";
-import { useTableContext } from "./tableContext";
-import { useTableSectionContext } from "./tableSectionContext";
+import { useTableContext } from "./tableContext.js";
+import { useTableSectionContext } from "./tableSectionContext.js";
 
 export interface ClickableRowProps {
     markClickedRows?: boolean;

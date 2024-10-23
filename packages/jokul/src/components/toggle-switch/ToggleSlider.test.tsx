@@ -1,7 +1,7 @@
 import { render, screen, act, fireEvent } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { ToggleSlider } from ".";
+import { ToggleSlider } from "./ToggleSlider.js";
 
 const fn = jest.fn();
 

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { InputGroup, InputGroupProps } from "../input-group";
-import { BaseTextInput, BaseTextInputProps } from "./BaseTextInput";
+import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
+import { BaseTextInput, BaseTextInputProps } from "./BaseTextInput.js";
 
 export interface TextInputProps extends Omit<InputGroupProps, "children">, BaseTextInputProps {
     "data-testautoid"?: string;

@@ -1,1 +1,1 @@
-export { useSwipeGesture, type SwipeChangeHandler } from "./useSwipeGesture";
+export { useSwipeGesture, type SwipeChangeHandler } from "./useSwipeGesture.js";

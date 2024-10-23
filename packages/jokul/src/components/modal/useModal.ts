@@ -1,5 +1,5 @@
 import { A11yDialogConfig, A11yDialogProps, useA11yDialog } from "react-a11y-dialog";
-import { useId } from "../../hooks";
+import { useId } from "../../hooks/useId/useId.js";
 
 export interface UseModalOptions extends Omit<A11yDialogProps, "id" | "closeButtonPosition"> {
     id?: string;

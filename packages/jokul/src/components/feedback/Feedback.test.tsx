@@ -1,10 +1,14 @@
 import { cleanup, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
 import { act } from "react-dom/test-utils";
-import { FollowupQuestion } from "./types";
-import { Feedback, PRESETS } from "./";
+import { Feedback } from "./Feedback.js";
+import { PRESETS } from "./presets.js";
+import { FollowupQuestion } from "./types.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 const mockFn = jest.fn();
 

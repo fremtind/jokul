@@ -1,8 +1,8 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useCallback, useState } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { CheckIcon, ChevronDownIcon, CloseIcon } from "../../icon";
-import { Button } from "../Button";
-import { IconPosition } from "../types";
+import { CheckIcon, ChevronDownIcon, CloseIcon } from "../../icon/index.js";
+import { Button } from "../Button.js";
+import { IconPosition } from "../types.js";
 
 export const knobs: ExampleKnobsProps = {
     boolProps: [{ prop: "label", defaultValue: true }, "icon"],

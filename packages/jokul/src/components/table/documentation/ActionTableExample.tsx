@@ -1,7 +1,7 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { SecondaryButton } from "../../button";
+import { SecondaryButton } from "../../button/Button.js";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../index.js";
 
 export const actionTableExampleKnobs: ExampleKnobsProps = {
     boolProps: [],

@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { Label, type LabelVariant } from "./Label";
+import { Label, type LabelVariant } from "./Label.js";
 
 describe("Label", () => {
     const variants: LabelVariant[] = ["small", "medium", "large"];

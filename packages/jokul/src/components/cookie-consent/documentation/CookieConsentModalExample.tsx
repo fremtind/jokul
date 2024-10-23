@@ -1,9 +1,14 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useEffect, useState } from "react";
-import { CookieConsent, CookieConsentProvider, useCookieConsent } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { TertiaryButton } from "../../button";
-import { DEFAULT_COOKIE_NAME, useCookieConsentState } from "../CookieConsentContext";
-import { buildRequirementsObject, setConsentCookie } from "../cookieConsentUtils";
+import { TertiaryButton } from "../../button/Button.js";
+import { CookieConsent } from "../CookieConsent.js";
+import {
+    CookieConsentProvider,
+    DEFAULT_COOKIE_NAME,
+    useCookieConsent,
+    useCookieConsentState,
+} from "../CookieConsentContext.js";
+import { buildRequirementsObject, setConsentCookie } from "../cookieConsentUtils.js";
 
 function clearConsentCookie() {
     setConsentCookie({

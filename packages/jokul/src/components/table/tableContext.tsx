@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { Density, WithChildren } from "../..";
+import { Density, WithChildren } from "../../core/types.js";
 
 type TableContext = {
     density?: Density;

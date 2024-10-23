@@ -1,5 +1,5 @@
 import { Dispatch, FormEvent, SetStateAction, useCallback, useEffect, useRef, useState } from "react";
-import { FeedbackAnswer, FeedbackOption, FollowupQuestion } from "../types";
+import { FeedbackAnswer, FeedbackOption, FollowupQuestion } from "../types.js";
 
 type CurrentValue = FeedbackOption<string | number> | FeedbackOption<string | number>[] | undefined;
 

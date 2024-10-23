@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { BreadcrumbItem } from "./BreadcrumbItem";
-import { Breadcrumb } from ".";
+import { Breadcrumb } from "./Breadcrumb.js";
+import { BreadcrumbItem } from "./BreadcrumbItem.js";
 
 describe("Breadcrumb", () => {
     test("should render", () => {

@@ -1,6 +1,6 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { ComboboxExample, comboboxExampleKnobs } from "./ComboboxExample";
+import ComboboxExample, { comboboxExampleKnobs } from "./ComboboxExample.js";
 
 import "../styles/_index.scss";
 

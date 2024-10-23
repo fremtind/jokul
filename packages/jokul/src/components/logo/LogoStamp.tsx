@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React, { CSSProperties, useRef } from "react";
-import { WithChildren } from "../..";
-import { useId } from "../../hooks";
-import { useTextSpinner } from "./useTextSpinner";
+import { WithChildren } from "../../core/types.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { useTextSpinner } from "./useTextSpinner.js";
 
 export interface LogoStampProps extends WithChildren {
     className?: string;

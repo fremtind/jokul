@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { ScreenReaderOnly } from "./ScreenReaderOnly";
+import { ScreenReaderOnly } from "./ScreenReaderOnly.js";
 
 describe("ScreenReaderOnly", () => {
     it("should show content with correct className", () => {

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import type { WithChildren } from "../core";
+import { WithChildren } from "../core/types.js";
 
 export interface ScreenReaderOnlyProps extends WithChildren {
     showOnFocus?: boolean;

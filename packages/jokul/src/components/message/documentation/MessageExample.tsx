@@ -1,7 +1,7 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { useState } from "react";
-import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { NavLink } from "../../link";
+import { NavLink } from "../../link/NavLink.js";
+import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "../Message.js";
 
 export const messageExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Full width", "Dismissable", "No title"],

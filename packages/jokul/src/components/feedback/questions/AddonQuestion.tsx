@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler, useEffect, useState } from "react";
-import { TextArea } from "../../text-input";
-import { useFeedbackContext } from "../feedbackContext";
-import { useMainQuestionContext } from "../main-question/mainQuestionContext";
+import { TextArea } from "../../text-input/TextArea.js";
+import { useFeedbackContext } from "../feedbackContext.js";
+import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
 
 interface Props {
     label?: string;

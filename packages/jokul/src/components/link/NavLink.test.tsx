@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { NavLink } from "./NavLink";
+import { NavLink } from "./NavLink.js";
 
 describe("NavLink", () => {
     it("should render with the correct text and style", () => {

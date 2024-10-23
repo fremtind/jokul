@@ -1,4 +1,4 @@
-export type { CountdownProps } from "./Countdown";
-export { Countdown } from "./Countdown";
-export type { ProgressBarProps } from "./ProgressBar";
-export { ProgressBar } from "./ProgressBar";
+export type { CountdownProps } from "./Countdown.js";
+export { Countdown } from "./Countdown.js";
+export type { ProgressBarProps } from "./ProgressBar.js";
+export { ProgressBar } from "./ProgressBar.js";
