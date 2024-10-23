@@ -1,12 +1,15 @@
 import { act, render, RenderOptions } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { DotsIcon } from "../icon";
-import { IconButton } from "../icon-button";
-import { Menu } from "./Menu";
-import { MenuDivider } from "./MenuDivider";
-import { MenuItem } from "./MenuItem";
+import { DotsIcon } from "../icon/index.js";
+import { IconButton } from "../icon-button/IconButton.js";
+import { Menu } from "./Menu.js";
+import { MenuDivider } from "./MenuDivider.js";
+import { MenuItem } from "./MenuItem.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {

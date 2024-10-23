@@ -1,5 +1,7 @@
+import { ExampleComponentProps, ExampleKnobsProps, useExampleContext } from "doc-utils/index.js";
 import React, { useEffect, type FC } from "react";
 import ReactDOM from "react-dom";
+import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
 import {
     Modal,
     ModalActions,
@@ -9,11 +11,8 @@ import {
     ModalHeader,
     ModalOverlay,
     ModalTitle,
-    useModal,
-    type ModalInstance,
-} from "..";
-import { ExampleComponentProps, ExampleKnobsProps, useExampleContext } from "../../../../../../utils/dev-example";
-import { PrimaryButton, TertiaryButton } from "../../button";
+} from "../Modal.js";
+import { ModalInstance, useModal } from "../useModal.js";
 
 export const dialogExampleKnobs: ExampleKnobsProps = {};
 

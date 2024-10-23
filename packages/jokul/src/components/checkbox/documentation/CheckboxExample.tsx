@@ -1,7 +1,8 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { Checkbox } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { FieldGroup, type LabelVariant } from "../../input-group";
+import { FieldGroup } from "../../input-group/FieldGroup.js";
+import { LabelVariant } from "../../input-group/Label.js";
+import { Checkbox } from "../Checkbox.js";
 
 export const checkboxExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip", "Indeterminate state"],

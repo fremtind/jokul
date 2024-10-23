@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { CSSProperties } from "react";
-import { useId } from "../../hooks";
+import { useId } from "../../hooks/useId/useId.js";
 
 export interface LogoProps {
     className?: string;

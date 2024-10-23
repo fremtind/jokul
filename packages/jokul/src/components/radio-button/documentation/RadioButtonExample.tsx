@@ -1,7 +1,8 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { RadioButton, RadioButtonGroup } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import type { LabelVariant } from "../../input-group";
+import type { LabelVariant } from "../../input-group/Label.js";
+import { RadioButton } from "../RadioButton.js";
+import { RadioButtonGroup } from "../RadioButtonGroup.js";
 
 export const radioButtonExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
-import type { Density, WithChildren } from "../..";
+import type { Density, WithChildren } from "../../core/types.js";
 
 export interface NavTabsProps extends WithChildren {
     "aria-label"?: string;

@@ -1,5 +1,5 @@
 import { act, render, RenderOptions } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useState } from "react";
 import {
@@ -12,7 +12,10 @@ import {
     ExpandableTableRow,
     ExpandableTableRowController,
     TableCell,
-} from ".";
+} from "./index.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {

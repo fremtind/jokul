@@ -1,15 +1,15 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { LoaderExample, knobs as loaderKnobs } from "./LoaderExample";
-import { SkeletonLoaderExample, knobs as skeletonLoaderKnobs } from "./SkeletonLoaderExample";
+import { LoaderExample, knobs as loaderExampleKnobs } from "./LoaderExample.js";
+import { SkeletonLoaderExample, knobs as skeletonLoaderExampleKnobs } from "./SkeletonLoaderExample.js";
 
 import "./styles.scss";
 
 export default function Example() {
     return (
         <>
-            <DevExample component={LoaderExample} knobs={loaderKnobs} />
-            <DevExample component={SkeletonLoaderExample} knobs={skeletonLoaderKnobs} />
+            <DevExample component={LoaderExample} knobs={loaderExampleKnobs} />
+            <DevExample component={SkeletonLoaderExample} knobs={skeletonLoaderExampleKnobs} />
         </>
     );
 }

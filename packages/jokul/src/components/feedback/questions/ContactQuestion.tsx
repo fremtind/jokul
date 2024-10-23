@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FC, ReactNode, useEffect, useRef, useState } from "react";
-import { isValidEpost, isValidTelefonnummer } from "../../../utilities";
-import { PrimaryButton, TertiaryButton } from "../../button";
-import { TextInput } from "../../text-input";
-import { useFeedbackContext } from "../feedbackContext";
-import { FeedbackSuccess } from "../FeedbackSuccess";
+import { isValidEpost, isValidTelefonnummer } from "../../../utilities/validators/index.js";
+import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
+import { TextInput } from "../../text-input/TextInput.js";
+import { useFeedbackContext } from "../feedbackContext.js";
+import { FeedbackSuccess } from "../FeedbackSuccess.js";
 
 const validateEmail = (email?: string) => {
     if (!email || email === "") {

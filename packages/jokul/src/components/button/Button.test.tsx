@@ -1,10 +1,13 @@
-import { render, screen, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { act, render, screen } from "@testing-library/react";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useState } from "react";
-import { Icon } from "../icon";
-import { Button } from "./Button";
-import { buttonVariants } from "./types";
+import { Icon } from "../icon/Icon.js";
+import { Button } from "./Button.js";
+import { buttonVariants } from "./types.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("Button", () => {
     buttonVariants.map((buttonVariant) => {

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { Loader } from ".";
+import { Loader } from "./Loader.js";
 
 describe("Loader", () => {
     it("should render to document", () => {

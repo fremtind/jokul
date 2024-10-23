@@ -1,7 +1,7 @@
-export type { LogoProps } from "./Logo";
-export { Logo } from "./Logo";
-export type { LogoStampProps } from "./LogoStamp";
-export { LogoStamp } from "./LogoStamp";
+export type { LogoProps } from "./Logo.js";
+export { Logo } from "./Logo.js";
+export type { LogoStampProps } from "./LogoStamp.js";
+export { LogoStamp } from "./LogoStamp.js";
 export {
     ForsikringLevertAvFremtind,
     FraSB1ogDNB,
@@ -9,4 +9,4 @@ export {
     TeknologiFraFremtind,
     VartEgetForsikringsselskap,
     VartForsikringsselskap,
-} from "./text-paths";
+} from "./text-paths/index.js";

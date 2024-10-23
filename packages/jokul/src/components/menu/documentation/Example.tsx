@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { MenuExample, MenuExampleKnobs } from "./MenuExample";
-import { MenuToggleSwitchExample, MenuToggleSwitchExampleKnobs } from "./MenuToggleSwitchExample";
+import MenuExample, { MenuExampleKnobs } from "./MenuExample.js";
+import MenuToggleSwitchExample, { MenuToggleSwitchExampleKnobs } from "./MenuToggleSwitchExample.js";
 
 export default function Example() {
     return (

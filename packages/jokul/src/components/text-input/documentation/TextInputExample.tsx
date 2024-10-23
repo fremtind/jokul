@@ -1,10 +1,10 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { ChangeEvent, FC, useState } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { CloseIcon } from "../../icon";
-import type { LabelVariant } from "../../input-group";
-import { Link } from "../../link";
-import { type Action } from "../BaseTextInput";
-import { TextInput } from "../TextInput";
+import { CloseIcon } from "../../icon/index.js";
+import { LabelVariant } from "../../input-group/Label.js";
+import { Link } from "../../link/Link.js";
+import { Action } from "../BaseTextInput.js";
+import { TextInput } from "../TextInput.js";
 
 export const textInputExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip", "Med handling", "Med benevnelse", "Inline"],

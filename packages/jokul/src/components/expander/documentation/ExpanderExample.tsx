@@ -1,7 +1,7 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
 import React, { forwardRef, useState } from "react";
-import { Expander } from "..";
-import { ExampleComponentProps } from "../../../../../../utils/dev-example";
-import { useAnimatedHeight } from "../../../hooks";
+import { useAnimatedHeight } from "../../../hooks/useAnimatedHeight/useAnimatedHeight.js";
+import { Expander } from "../Expander.js";
 
 export const expanderExamplesKnobs = {
     choiceProps: [

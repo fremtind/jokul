@@ -1,20 +1,23 @@
 import { act, render, RenderOptions } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { PrimaryButton, TertiaryButton } from "../button";
+import { PrimaryButton, TertiaryButton } from "../button/Button.js";
 import {
     Modal,
-    ModalCloseButton,
-    ModalContainer,
-    ModalOverlay,
-    ModalTitle,
     ModalActions,
     ModalBody,
+    ModalCloseButton,
+    ModalContainer,
     ModalHeader,
-    useModal,
-} from ".";
+    ModalOverlay,
+    ModalTitle,
+} from "./Modal.js";
+import { useModal } from "./useModal.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {

@@ -1,8 +1,10 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import { formatKontonummer } from "packages/formatters-util/src/index.js";
 import React, { FC, useState } from "react";
-import { Tooltip, TooltipContent, type TooltipPlacement, TooltipTrigger } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { formatKontonummer } from "../../../utilities/formatters";
-import { getPlacement } from "./getPlacement";
+import { TooltipPlacement, Tooltip } from "../Tooltip.js";
+import { TooltipContent } from "../TooltipContent.js";
+import { TooltipTrigger } from "../TooltipTrigger.js";
+import { getPlacement } from "./getPlacement.js";
 
 export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const initialPlacement: TooltipPlacement = getPlacement(choiceValues?.["Plassering"]);

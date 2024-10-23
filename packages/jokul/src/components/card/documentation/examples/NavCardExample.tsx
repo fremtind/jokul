@@ -1,11 +1,10 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
 import React from "react";
-import { ExampleComponentProps } from "../../../../../../../utils/dev-example";
-import type { NavCardProps } from "../../NavCard";
-import { InfoBlock, NavCard } from "../../NavCard";
+import { InfoBlock, NavCard, NavCardProps } from "../../NavCard.js";
+import { mixedPadding } from "./cardExampleProps.js";
 import grass400 from "/img/grass-400.jpg";
 import grass800 from "/img/grass-800.jpg";
 import grassThumbnail from "/img/grass-thumbnail.jpg";
-import { mixedPadding } from "./cardExampleProps";
 
 const imageProps = {
     src: grass400,

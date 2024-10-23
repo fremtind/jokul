@@ -1,7 +1,7 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
-import { Combobox, type ComboboxValuePair } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import type { LabelVariant } from "../../input-group";
+import { LabelVariant } from "../../input-group/Label.js";
+import { Combobox, ComboboxValuePair } from "../Combobox.js";
 
 export const comboboxExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med empty state", "Med tagHover"],

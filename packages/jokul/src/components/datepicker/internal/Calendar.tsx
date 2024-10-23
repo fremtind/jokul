@@ -1,22 +1,22 @@
 import React, { forwardRef, useCallback, useEffect, useReducer, useRef } from "react";
 import { flushSync } from "react-dom";
-import { Density } from "../../../core";
-import { useId } from "../../../hooks";
-import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon } from "../../icon";
-import type { YearsToShow } from "../types";
-import { calendarInitializer, calendarReducer } from "./calendarReducer";
-import { useCalendar, UseCalendarProps } from "./useCalendar";
+import { Density } from "../../../core/types.js";
+import { useId } from "../../../hooks/useId/useId.js";
+import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon } from "../../icon/index.js";
+import { YearsToShow } from "../types.js";
+import { calendarInitializer, calendarReducer } from "./calendarReducer.js";
+import { useCalendar, UseCalendarProps } from "./useCalendar.js";
 import {
     addMonth,
-    subtractMonth,
+    DateInfo,
+    DEFAULT_YEARS_TO_SHOW,
+    getInitialDateShown,
+    getMonthSelectOptions,
+    getYearSelectOptions,
     isBackDisabled,
     isForwardDisabled,
-    getYearSelectOptions,
-    getMonthSelectOptions,
-    DateInfo,
-    getInitialDateShown,
-    DEFAULT_YEARS_TO_SHOW,
-} from "./utils";
+    subtractMonth,
+} from "./utils.js";
 
 interface CalendarProps
     extends Omit<UseCalendarProps, "date" | "onOffsetChanged" | "offset" | "firstDayOfWeek" | "selected"> {

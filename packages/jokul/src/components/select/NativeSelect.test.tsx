@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { NativeSelect } from ".";
+import { NativeSelect } from "./NativeSelect.js";
 
 describe("NativeSelect", () => {
     it("should render the correct label", () => {

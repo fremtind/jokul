@@ -1,4 +1,4 @@
-import { getValuePair, type ValuePair } from "./valuePair";
+import { getValuePair, type ValuePair } from "./valuePair.js";
 
 describe("getValuePair", () => {
     it("should convert a string to the correct ValuePair", () => {

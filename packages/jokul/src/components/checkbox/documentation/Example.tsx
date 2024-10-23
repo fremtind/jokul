@@ -1,6 +1,6 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { CheckboxExample, checkboxExampleKnobs } from "./CheckboxExample";
+import { CheckboxExample, checkboxExampleKnobs } from "./CheckboxExample.js";
 
 export default function Example() {
     return <DevExample component={CheckboxExample} knobs={checkboxExampleKnobs} />;

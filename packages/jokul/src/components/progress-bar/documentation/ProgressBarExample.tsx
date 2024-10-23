@@ -1,8 +1,8 @@
+import { ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
-import { ProgressBar } from "..";
-import { ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { ChevronLeftIcon, ChevronRightIcon } from "../../icon";
-import { IconButton } from "../../icon-button";
+import { ChevronLeftIcon, ChevronRightIcon } from "../../icon/index.js";
+import { IconButton } from "../../icon-button/IconButton.js";
+import { ProgressBar } from "../ProgressBar.js";
 
 export const progressBarExampleKnobs: ExampleKnobsProps = {};
 

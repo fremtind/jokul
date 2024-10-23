@@ -1,6 +1,6 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { PopoverControlledExample, popoverExampleKnobs, PopoverUnControlledExample } from "./PopoverExample";
+import { PopoverControlledExample, popoverExampleKnobs, PopoverUnControlledExample } from "./PopoverExample.js";
 
 export default function Example() {
     return (

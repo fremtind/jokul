@@ -1,3 +1,3 @@
-export type { ListProps } from "./List";
-export { UnorderedList, OrderedList, List } from "./List";
-export { ListItem, CheckListItem, CrossListItem } from "./ListItem";
+export type { ListProps } from "./List.js";
+export { UnorderedList, OrderedList, List } from "./List.js";
+export { ListItem, CheckListItem, CrossListItem } from "./ListItem.js";

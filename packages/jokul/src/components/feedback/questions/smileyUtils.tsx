@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { WithChildren } from "../../..";
-import { FeedbackOption } from "../types";
+import { WithChildren } from "../../../core/types.js";
+import { FeedbackOption } from "../types.js";
 
 export const defaultOptions: FeedbackOption<number>[] = [
     {

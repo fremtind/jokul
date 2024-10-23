@@ -15,7 +15,7 @@ import {
     useRole,
 } from "@floating-ui/react";
 import React, { FC, createContext, useContext, useRef, useState } from "react";
-import { type WithChildren } from "../../core";
+import { type WithChildren } from "../../core/types.js";
 
 export type TooltipPlacement = Extract<Placement, "top-start" | "top-end" | "left" | "right" | "top">;
 

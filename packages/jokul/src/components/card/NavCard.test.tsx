@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { NavCard } from "./NavCard";
+import { NavCard } from "./NavCard.js";
 
 describe("NavCard", () => {
     it("renders without exploding", () => {

@@ -1,8 +1,11 @@
 import { act, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { PopupTip } from "./PopupTip";
+import { PopupTip } from "./PopupTip.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("PopupTip", () => {
     it("should render as the correct button", () => {

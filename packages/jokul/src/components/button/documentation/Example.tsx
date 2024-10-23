@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { AnchorsExample } from "./AnchorsExample";
-import { ButtonExample, knobs } from "./ButtonExample";
+import { AnchorsExample } from "./AnchorsExample.js";
+import { ButtonExample, knobs } from "./ButtonExample.js";
 
 export default function Example() {
     return (

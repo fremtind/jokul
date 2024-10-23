@@ -1,11 +1,13 @@
 import React, { FC, FormEvent, useCallback } from "react";
-import { PrimaryButton } from "../../button";
-import { CheckListItem, UnorderedList } from "../../list";
-import { Modal, ModalActions, ModalBody, ModalConfig, ModalHeader, ModalTitle } from "../../modal";
-import { useCookieConsentState } from "../CookieConsentContext";
-import { convertBooleanConsentObjectToConsentObject } from "../cookieConsentUtils";
-import { Consent } from "../types";
-import { RequirementCheckbox } from "./RequirementCheckbox";
+import { PrimaryButton } from "../../button/Button.js";
+import { UnorderedList } from "../../list/List.js";
+import { CheckListItem } from "../../list/ListItem.js";
+import { Modal, ModalActions, ModalBody, ModalHeader, ModalTitle } from "../../modal/Modal.js";
+import { ModalConfig } from "../../modal/useModal.js";
+import { useCookieConsentState } from "../CookieConsentContext.js";
+import { convertBooleanConsentObjectToConsentObject } from "../cookieConsentUtils.js";
+import { Consent } from "../types.js";
+import { RequirementCheckbox } from "./RequirementCheckbox.js";
 
 type Props = {
     modalConfig: ModalConfig;

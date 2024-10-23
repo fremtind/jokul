@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { HTMLProps, ReactNode } from "react";
-import { Density } from "../../../core";
+import { Density } from "../../../core/types.js";
 
 export interface SkeletonTableProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;

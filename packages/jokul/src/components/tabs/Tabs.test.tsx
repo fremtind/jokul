@@ -1,8 +1,11 @@
 import { render, screen, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { Tabs, Tab, TabList, TabPanel } from ".";
+import { Tabs, Tab, TabList, TabPanel } from "./index.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 const renderComponent = (onChange?: () => void, defaultTab?: number) =>
     render(

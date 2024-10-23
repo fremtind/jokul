@@ -1,1 +1,1 @@
-export { LinkList } from "./LinkList";
+export { LinkList } from "./LinkList.js";

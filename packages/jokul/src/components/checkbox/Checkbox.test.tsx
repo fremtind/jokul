@@ -1,8 +1,11 @@
 import { render, screen, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { Checkbox } from ".";
+import { Checkbox } from "./Checkbox.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("checkbox", () => {
     it("should be checked after clicking the label", async () => {

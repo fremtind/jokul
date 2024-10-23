@@ -1,7 +1,8 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
-import { NativeSelect, Select } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import type { LabelVariant } from "../../input-group";
+import { LabelVariant } from "../../input-group/Label.js";
+import { NativeSelect } from "../NativeSelect.js";
+import { Select } from "../Select.js";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Native", "Med hjelpetekst", "Med feil", "Med tooltip", "Med søk", "Med sekundærtekst"],
