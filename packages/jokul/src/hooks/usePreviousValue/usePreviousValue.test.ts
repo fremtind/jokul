@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { usePreviousValue } from "./usePreviousValue";
+import { usePreviousValue } from "./usePreviousValue.js";
 
 describe("usePreviousValue", () => {
     it("usePreviousValue returns previous value", () => {

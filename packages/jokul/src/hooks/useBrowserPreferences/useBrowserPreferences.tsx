@@ -1,6 +1,6 @@
 import { Reducer, useEffect, useReducer, useState } from "react";
-import { ColorScheme } from "../../core";
-import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
+import { ColorScheme } from "../../core/types.js";
+import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils.js";
 
 type BrowserPreferences = {
     prefersReducedMotion: boolean;

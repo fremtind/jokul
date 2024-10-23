@@ -1,1 +1,1 @@
-export { useProgressiveImg, type ProgressiveImageProps } from "./useProgressiveImg";
+export { useProgressiveImg, type ProgressiveImageProps } from "./useProgressiveImg.js";

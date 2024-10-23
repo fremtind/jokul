@@ -1,1 +1,1 @@
-export { useAriaLiveRegion, type UseAriaLiveRegionOptions } from "./useAriaLiveRegion";
+export { useAriaLiveRegion, type UseAriaLiveRegionOptions } from "./useAriaLiveRegion.js";

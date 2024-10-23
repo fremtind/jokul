@@ -1,7 +1,10 @@
 import { render, screen, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import React, { useRef } from "react";
-import { useClickOutside } from "./useClickOutside";
+import { useClickOutside } from "./useClickOutside.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 interface Props {
     fn: () => void;
