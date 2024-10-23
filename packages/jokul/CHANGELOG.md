@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.23.1...@fremtind/jokul@0.23.2) (2024-10-23)
+
+### Bug Fixes
+
+- definer riktig returtype for useTooltip ([8c2b937](https://github.com/fremtind/jokul/commit/8c2b937e6230f997b44b541a1ccbe2ef39c522cd))
+
 ## 0.23.1 (2024-10-23)
 
 ### Bug Fixes
