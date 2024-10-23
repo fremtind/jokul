@@ -13,11 +13,7 @@ import { CalendarIcon, List, Link, Message, TextInput } from "@fremtind/jokul";
 eller organisert i mapper dersom du foretrekker det
 
 ```jsx
-import { CalendarIcon } from "@fremtind/jokul/components/icon";
-import { List } from "@fremtind/jokul/components/list";
-import { Link } from "@fremtind/jokul/components/link";
-import { Message } from "@fremtind/jokul/components/message";
-import { TextInput } from "@fremtind/jokul/components/text-input";
+import { CalendarIcon, List, Link, Message, TextInput } from "@fremtind/jokul/components";
 ```
 
 For en full liste over komponenter kan du kikke i [components-mappa](src/components/)
@@ -28,7 +24,7 @@ Det finnes en del grunnleggende stiler som må med for at ting skal fungere rikt
 kan du importere med
 
 ```scss
-@use "@fremtind/jokul/styles/core";
+@use "@fremtind/jokul/styles/core/core";
 ```
 
 Når du bruker en komponent må du også importere stilen
