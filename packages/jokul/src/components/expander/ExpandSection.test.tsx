@@ -1,8 +1,11 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useState, FC } from "react";
-import { ExpandSection } from "./ExpandSection";
+import { ExpandSection } from "./ExpandSection.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 const onClickSpy = jest.fn();
 

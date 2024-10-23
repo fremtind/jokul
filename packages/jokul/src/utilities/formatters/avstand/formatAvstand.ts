@@ -1,5 +1,5 @@
-import { formatNumber, FormatNumberOptions } from "../util/formatNumber";
-import { parseNumber } from "../util/parseNumber";
+import { formatNumber, FormatNumberOptions } from "../util/formatNumber.js";
+import { parseNumber } from "../util/parseNumber.js";
 
 export type LengthUnit =
     | "kilometer"

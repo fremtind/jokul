@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { Image } from ".";
+import { Image } from "./Image.js";
 
 jest.mock("../../hooks", () => ({
     useElementDimensions: () => [() => {}, { width: 600, height: 400 }],

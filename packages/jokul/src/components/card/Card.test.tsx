@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { Card, CARD_PADDINGS, CARD_VARIANTS } from "./Card";
+import { Card, CARD_PADDINGS, CARD_VARIANTS } from "./Card.js";
 
 describe("Card", () => {
     it("rendrer uten å kræsje", () => {

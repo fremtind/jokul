@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import React from "react";
-import { SlotComponent, type AsChildProps, type PolymorphicPropsWithRef, type PolymorphicRef } from "../../utilities";
+import { AsChildProps } from "../../utilities/polymorphism/as-child.js";
+import { SlotComponent } from "../../utilities/polymorphism/index.js";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export type CardImageProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
     ElementType,

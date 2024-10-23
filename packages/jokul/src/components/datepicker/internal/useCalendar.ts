@@ -32,7 +32,7 @@ import {
     getCalendars,
     DateInfo,
     CalendarMonth,
-} from "./utils";
+} from "./utils.js";
 
 function isOffsetControlled(propOffset: number | undefined): boolean {
     return propOffset !== undefined;

@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { LogoExample, logoExampleKnobs } from "./LogoExample";
-import { LogoStampExample, logoStampExampleKnobs } from "./LogoStampExample";
+import { LogoExample, logoExampleKnobs } from "./LogoExample.js";
+import { LogoStampExample, logoStampExampleKnobs } from "./LogoStampExample.js";
 
 import "./styles.scss";
 

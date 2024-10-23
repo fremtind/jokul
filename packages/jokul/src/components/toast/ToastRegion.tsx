@@ -3,8 +3,8 @@ import { useToastQueue, type ToastState, ToastQueue } from "@react-stately/toast
 import clsx from "clsx";
 import React from "react";
 import ReactDOM from "react-dom";
-import { Toast } from "./Toast";
-import { ToastContent } from "./types";
+import { Toast } from "./Toast.js";
+import { ToastContent } from "./types.js";
 
 interface ToastRegionProps<T extends ToastContent = ToastContent> extends AriaToastRegionProps {
     placement: "center" | "left";

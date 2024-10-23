@@ -1,8 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { calculatePercentage } from "./ProgressBar";
-import { ProgressBar } from ".";
+import { calculatePercentage, ProgressBar } from "./ProgressBar.js";
 
 const defaultProps = {
     "aria-valuenow": 50,

@@ -1,11 +1,11 @@
-import React, { ReactNode, useEffect, useRef, useState, FC } from "react";
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "../..";
-import { useFeedbackContext } from "../feedbackContext";
-import { FeedbackSuccess } from "../FeedbackSuccess";
-import { FeedbackAnswer, FollowupQuestion } from "../types";
-import { getQuestionFromType } from "../utils";
-import { FollowUpProvider } from "./followupContext";
-import { useFollowup } from "./useFollowup";
+import React, { FC, ReactNode, useEffect, useRef, useState } from "react";
+import { PrimaryButton, SecondaryButton, TertiaryButton } from "../../button/Button.js";
+import { useFeedbackContext } from "../feedbackContext.js";
+import { FeedbackSuccess } from "../FeedbackSuccess.js";
+import { FeedbackAnswer, FollowupQuestion } from "../types.js";
+import { getQuestionFromType } from "../utils.js";
+import { FollowUpProvider } from "./followupContext.js";
+import { useFollowup } from "./useFollowup.js";
 
 const defaultSuccessMessage = {
     title: "Takk, igjen!",

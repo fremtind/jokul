@@ -1,6 +1,6 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { TagExample, tagExampleKnobs } from "./TagExample";
+import { TagExample, tagExampleKnobs } from "./TagExample.js";
 
 export default function Example() {
     return <DevExample title="Tag" component={TagExample} knobs={tagExampleKnobs} />;

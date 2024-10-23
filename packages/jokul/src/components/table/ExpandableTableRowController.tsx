@@ -1,9 +1,8 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { Expander } from "../expander";
-import type { TableCellProps } from "./TableCell";
-import { TableCell } from "./TableCell";
-import { useTableContext } from "./tableContext";
+import { Expander } from "../expander/Expander.js";
+import { TableCellProps, TableCell } from "./TableCell.js";
+import { useTableContext } from "./tableContext.js";
 
 export interface ExpandableTableRowControllerProps extends TableCellProps {
     /** Settes automatisk av ExpandableTableRow */

@@ -1,8 +1,9 @@
 import React, { ChangeEventHandler, useEffect, useId, useMemo, useRef } from "react";
-import { RadioButton, RadioButtonGroup } from "../../radio-button";
-import { useFollowUpContext } from "../followup/followupContext";
-import { useMainQuestionContext } from "../main-question/mainQuestionContext";
-import { QuestionProps } from "../types";
+import { RadioButton } from "../../radio-button/RadioButton.js";
+import { RadioButtonGroup } from "../../radio-button/RadioButtonGroup.js";
+import { useFollowUpContext } from "../followup/followupContext.js";
+import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
+import { QuestionProps } from "../types.js";
 
 export const RadioQuestion: React.FC<QuestionProps> = ({ label, name, options, helpLabel, autoFocus = false }) => {
     const followupContext = useFollowUpContext();

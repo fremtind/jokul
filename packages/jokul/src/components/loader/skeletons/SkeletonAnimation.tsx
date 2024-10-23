@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { AriaRole, HTMLProps, ReactNode } from "react";
-import { Density } from "../../../core";
-import { useDelayedRender } from "../useDelayedRender";
+import { Density } from "../../../core/types.js";
+import { useDelayedRender } from "../useDelayedRender.js";
 
 export interface SkeletonAnimationProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;

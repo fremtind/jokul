@@ -1,7 +1,10 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import React from "react";
-import { Popover } from ".";
+import { Popover } from "./Popover.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("Popover", () => {
     test("should open when trigger is clicked (uncontrolled)", async () => {

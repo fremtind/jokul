@@ -1,8 +1,8 @@
-import { renderHook, act } from "@testing-library/react";
+import { act, renderHook } from "@testing-library/react";
 import React from "react";
-import { WithChildren } from "../..";
-import { CookieConsentProvider, useCookieConsentState } from "./CookieConsentContext";
-import { ConsentState, Consent } from "./types";
+import { WithChildren } from "../../core/types.js";
+import { CookieConsentProvider, useCookieConsentState } from "./CookieConsentContext.js";
+import { Consent, ConsentState } from "./types.js";
 
 const generateConsent = (marketing: ConsentState, functional: ConsentState, statistics: ConsentState): Consent => ({
     marketing,

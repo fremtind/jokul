@@ -1,9 +1,13 @@
 import { render, screen, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { ChangeEventHandler } from "react";
 import "@testing-library/jest-dom/extend-expect";
-import { RadioButton, RadioButtonGroup } from "./";
+import { RadioButton } from "./RadioButton.js";
+import { RadioButtonGroup } from "./RadioButtonGroup.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("RadioButtons", () => {
     it("renders a legend with the correct value", () => {

@@ -1,7 +1,10 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import React from "react";
-import { Tag } from ".";
+import { Tag } from "./Tag.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("Tag", () => {
     it("handles clicking the dismiss button", async () => {

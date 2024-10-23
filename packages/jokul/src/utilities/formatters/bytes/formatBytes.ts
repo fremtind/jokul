@@ -1,5 +1,5 @@
-import { unicode } from "../../constants";
-import { formatNumber, FormatNumberOptions } from "../util/formatNumber";
+import { unicode } from "../../constants/index.js";
+import { formatNumber, FormatNumberOptions } from "../util/formatNumber.js";
 
 /**
  * Formater et antall bytes som en lesbar verdi med enten KB eller MB som enhet.

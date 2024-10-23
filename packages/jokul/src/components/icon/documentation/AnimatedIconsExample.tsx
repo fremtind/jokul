@@ -1,10 +1,12 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { useState } from "react";
-import { ArrowHorizontalAnimated, ArrowVerticalAnimated, PlusRemoveAnimated } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { TextInput } from "../../text-input";
-import { IconVariant } from "../types";
-import { AnimatedIcon } from "./internal/AnimatedIcon";
-import { IconsExampleGrid } from "./internal/IconsExampleGrid";
+import { TextInput } from "../../text-input/TextInput.js";
+import { ArrowHorizontalAnimated } from "../icons/animated/ArrowHorizontalAnimated.js";
+import { ArrowVerticalAnimated } from "../icons/animated/ArrowVerticalAnimated.js";
+import { PlusRemoveAnimated } from "../icons/animated/PlusRemoveAnimated.js";
+import { IconVariant } from "../types.js";
+import { AnimatedIcon } from "./internal/AnimatedIcon.js";
+import { IconsExampleGrid } from "./internal/IconsExampleGrid.js";
 
 export const animatedIconsExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Bold"],

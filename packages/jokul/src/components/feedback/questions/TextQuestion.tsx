@@ -1,9 +1,9 @@
 import React, { ChangeEventHandler, useEffect, useMemo, useRef } from "react";
-import { TextArea } from "../../text-input";
-import { useFeedbackContext } from "../feedbackContext";
-import { useFollowUpContext } from "../followup/followupContext";
-import { useMainQuestionContext } from "../main-question/mainQuestionContext";
-import { QuestionProps, FeedbackAnswer } from "../types";
+import { TextArea } from "../../text-input/TextArea.js";
+import { useFeedbackContext } from "../feedbackContext.js";
+import { useFollowUpContext } from "../followup/followupContext.js";
+import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
+import { FeedbackAnswer, QuestionProps } from "../types.js";
 
 export const TextQuestion: React.FC<QuestionProps> = ({
     label,

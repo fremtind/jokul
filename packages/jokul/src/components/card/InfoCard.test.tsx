@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { InfoCard } from "./InfoCard";
+import { InfoCard } from "./InfoCard.js";
 
 describe("InfoCard", () => {
     it("renders without exploding", () => {

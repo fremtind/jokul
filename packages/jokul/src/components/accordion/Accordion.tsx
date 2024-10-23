@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { FC } from "react";
-import { Density, WithChildren } from "../..";
+import { Density, WithChildren } from "../../core/types.js";
 
 export interface AccordionProps extends WithChildren {
     className?: string;

@@ -1,11 +1,11 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { infoCardExampleProps, navCardExampleProps, taskCardExampleProps } from "./examples/cardExampleProps";
-import { FakturainfoExample, fakturainfoExampleProps } from "./examples/FakturainfoExample";
-import { InfoCardExample } from "./examples/InfoCardExample";
-import { NavCardExample } from "./examples/NavCardExample";
-import { StatuskortExample, statuskortExampleProps } from "./examples/StatuskortExample";
-import { TaskCardExample } from "./examples/TaskCardExample";
+import { infoCardExampleProps, navCardExampleProps, taskCardExampleProps } from "./examples/cardExampleProps.js";
+import { FakturainfoExample, fakturainfoExampleProps } from "./examples/FakturainfoExample.js";
+import { InfoCardExample } from "./examples/InfoCardExample.js";
+import { NavCardExample } from "./examples/NavCardExample.js";
+import { StatuskortExample, statuskortExampleProps } from "./examples/StatuskortExample.js";
+import { TaskCardExample } from "./examples/TaskCardExample.js";
 
 import "./info-card-example.scss";
 import "./task-card-example.scss";

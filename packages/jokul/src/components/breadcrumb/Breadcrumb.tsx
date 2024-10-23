@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
-import { Density, WithChildren } from "../..";
-import { BreadcrumbItemProps } from "./BreadcrumbItem";
+import { Density, WithChildren } from "../../core/types.js";
+import { BreadcrumbItemProps } from "./BreadcrumbItem.js";
 
 export interface BreadcrumbProps extends WithChildren {
     className?: string;

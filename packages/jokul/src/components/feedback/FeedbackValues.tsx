@@ -1,4 +1,4 @@
-import { FeedbackOption } from "./types";
+import { FeedbackOption } from "./types.js";
 
 export const VERY_UNHAPPY: FeedbackOption = { label: "Ikke fornøyd i det hele tatt", value: 1 };
 export const UNHAPPY: FeedbackOption = { label: "Ikke fornøyd", value: 2 };

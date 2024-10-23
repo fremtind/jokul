@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { WithChildren } from "../..";
+import { WithChildren } from "../../core/types.js";
 
 export interface TabPanelProps extends WithChildren {
     className?: string;

@@ -6,8 +6,8 @@ import {
     getConsentCookie,
     setConsentCookie,
     shouldShowConsentDialog,
-} from "./cookieConsentUtils";
-import type { Consent, ConsentRequirement, ConsentState } from "./types";
+} from "./cookieConsentUtils.js";
+import type { Consent, ConsentRequirement, ConsentState } from "./types.js";
 
 const generateRequirement = (marketing: boolean, functional: boolean, statistics: boolean): ConsentRequirement => ({
     marketing,

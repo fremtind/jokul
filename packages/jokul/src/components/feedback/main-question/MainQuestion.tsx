@@ -1,15 +1,15 @@
 import clsx from "clsx";
-import React, { ReactNode, useEffect, FC, ComponentProps } from "react";
-import { useAnimatedHeight } from "../../../hooks";
-import { PrimaryButton, TertiaryButton } from "../../button";
-import { Feedback } from "../Feedback";
-import { useFeedbackContext } from "../feedbackContext";
-import { FeedbackSuccess } from "../FeedbackSuccess";
-import { AddonQuestion } from "../questions";
-import { FeedbackOption, FeedbackType } from "../types";
-import { getQuestionFromType } from "../utils";
-import { MainQuestionContextProvider } from "./mainQuestionContext";
-import { useMainQuestion } from "./useMainQuestion";
+import React, { ComponentProps, FC, ReactNode, useEffect } from "react";
+import { useAnimatedHeight } from "../../../hooks/useAnimatedHeight/useAnimatedHeight.js";
+import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
+import { Feedback } from "../Feedback.js";
+import { useFeedbackContext } from "../feedbackContext.js";
+import { FeedbackSuccess } from "../FeedbackSuccess.js";
+import { AddonQuestion } from "../questions/AddonQuestion.js";
+import { FeedbackOption, FeedbackType } from "../types.js";
+import { getQuestionFromType } from "../utils.js";
+import { MainQuestionContextProvider } from "./mainQuestionContext.js";
+import { useMainQuestion } from "./useMainQuestion.js";
 
 const defaultSuccessMessage = {
     title: "Takk for tilbakemeldingen!",

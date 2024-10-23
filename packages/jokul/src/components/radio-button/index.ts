@@ -1,8 +1,8 @@
-export type { RadioButtonProps } from "./RadioButton";
-export { RadioButton } from "./RadioButton";
+export type { RadioButtonProps } from "./RadioButton.js";
+export { RadioButton } from "./RadioButton.js";
 
-export type { RadioButtonGroupProps } from "./RadioButtonGroup";
-export { RadioButtonGroup } from "./RadioButtonGroup";
+export type { RadioButtonGroupProps } from "./RadioButtonGroup.js";
+export { RadioButtonGroup } from "./RadioButtonGroup.js";
 
-export type { BaseRadioButtonProps } from "./BaseRadioButton";
-export { BaseRadioButton } from "./BaseRadioButton";
+export type { BaseRadioButtonProps } from "./BaseRadioButton.js";
+export { BaseRadioButton } from "./BaseRadioButton.js";

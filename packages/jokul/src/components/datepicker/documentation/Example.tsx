@@ -1,6 +1,6 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { DatepickerExample, datepickerExampleKnobs } from "./DatepickerExample";
+import { DatepickerExample, datepickerExampleKnobs } from "./DatepickerExample.js";
 
 export default function Example() {
     return <DevExample title="DatePicker" component={DatepickerExample} knobs={datepickerExampleKnobs} />;

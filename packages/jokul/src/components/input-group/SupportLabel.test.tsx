@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
-import { SupportLabel } from "./SupportLabel";
+import { SupportLabel } from "./SupportLabel.js";
 
 describe("SupportLabel", () => {
     const helpLabel = "helpfull text";

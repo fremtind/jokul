@@ -1,8 +1,8 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
-import { Pagination } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { ScreenReaderOnly } from "../../ScreenReaderOnly";
-import { TextInput } from "../../text-input";
+import { ScreenReaderOnly } from "../../ScreenReaderOnly.js";
+import { TextInput } from "../../text-input/TextInput.js";
+import { Pagination } from "../Pagination.js";
 
 export const knobs: ExampleKnobsProps = {
     choiceProps: [
