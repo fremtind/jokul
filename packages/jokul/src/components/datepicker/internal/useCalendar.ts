@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import startOfDay from "date-fns/startOfDay";
+import { startOfDay } from "date-fns";
 import React, { useState } from "react";
 import {
     composeEventHandlers,

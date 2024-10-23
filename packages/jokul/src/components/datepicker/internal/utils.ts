@@ -22,11 +22,7 @@
  * SOFTWARE.
  */
 
-import addDays from "date-fns/addDays";
-import differenceInCalendarMonths from "date-fns/differenceInCalendarMonths";
-import isBefore from "date-fns/isBefore";
-import isToday from "date-fns/isToday";
-import startOfDay from "date-fns/startOfDay";
+import { addDays, differenceInCalendarMonths, isBefore, isToday, startOfDay } from "date-fns";
 import React from "react";
 import type { ValuePair } from "../../../utilities";
 import type { YearsToShow } from "../types";
