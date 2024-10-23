@@ -1,4 +1,4 @@
-import { parseNumber } from "./parseNumber";
+import { parseNumber } from "./parseNumber.js";
 
 export interface FormatNumberOptions extends Intl.NumberFormatOptions {
     /**

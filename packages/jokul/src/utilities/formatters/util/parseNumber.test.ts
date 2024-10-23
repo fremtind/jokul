@@ -1,4 +1,4 @@
-import { parseNumber } from "./parseNumber";
+import { parseNumber } from "./parseNumber.js";
 
 describe("parseNumber", () => {
     it("does not change numbers", () => {

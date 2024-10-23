@@ -1,5 +1,5 @@
-import { unicode } from "../../constants";
-import { formatFodselsnummer } from "./formatFodselsnummer";
+import { unicode } from "../../constants/index.js";
+import { formatFodselsnummer } from "./formatFodselsnummer.js";
 
 const { nbsp } = unicode;
 

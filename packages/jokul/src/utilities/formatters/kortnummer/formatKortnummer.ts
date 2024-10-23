@@ -1,4 +1,4 @@
-import { unicode } from "../../constants";
+import { unicode } from "../../constants/index.js";
 
 export const KORTNUMMER_REGEX = {
     full: /^(\d{4})(\d{4})(\d{4})(\d{4})$/,

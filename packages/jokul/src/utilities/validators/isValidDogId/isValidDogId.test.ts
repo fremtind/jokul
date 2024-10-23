@@ -1,4 +1,4 @@
-import { isValidDogId } from "./isValidDogId";
+import { isValidDogId } from "./isValidDogId.js";
 
 describe("isValidDogId", () => {
     it("should return true if id starts with 5780 and has 15-digit numbers", () => {
