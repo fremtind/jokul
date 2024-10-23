@@ -20,7 +20,6 @@ export const SmileyQuestion: React.FC<QuestionProps> = ({
     const id = useId();
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-        console.log(e.target.value);
         const option = options?.find((option) => option.value.toString() === e.target.value);
         context?.setCurrentValue(option);
     };
