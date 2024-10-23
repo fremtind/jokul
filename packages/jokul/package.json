@@ -17,33 +17,59 @@
         "./build",
         "./styles"
     ],
+    "main": "./build/cjs/index.cjs",
     "exports": {
         ".": {
-            "types": "./build/index.d.ts",
-            "require": "./build/cjs/index.js",
-            "import": "./build/es/index.js"
+            "import": {
+                "default": "./build/es/index.js",
+                "types": "./build/es/index.d.ts"
+            },
+            "require": {
+                "default": "./build/cjs/index.cjs",
+                "types": "./build/cjs/index.d.cts"
+            }
         },
         "./core": {
-            "types": "./build/core/index.d.ts",
-            "require": "./build/cjs/core/index.js",
-            "import": "./build/es/core/index.js"
+            "import": {
+                "default": "./build/es/core/index.js",
+                "types": "./build/es/core/index.d.ts"
+            },
+            "require": {
+                "default": "./build/cjs/core/index.cjs",
+                "types": "./build/cjs/core/index.d.cts"
+            }
         },
         "./core/tokens.less": "./src/core/tokens.less",
         "./core/jkl": "./src/core/jkl/_index.scss",
         "./hooks": {
-            "types": "./build/hooks/index.d.ts",
-            "require": "./build/cjs/hooks/index.js",
-            "import": "./build/es/hooks/index.js"
+            "import": {
+                "default": "./build/es/hooks/index.js",
+                "types": "./build/es/hooks/index.d.ts"
+            },
+            "require": {
+                "default": "./build/cjs/hooks/index.cjs",
+                "types": "./build/cjs/hooks/index.d.cts"
+            }
         },
         "./utilities": {
-            "types": "./build/utilities/index.d.ts",
-            "require": "./build/cjs/utilities/index.js",
-            "import": "./build/es/utilities/index.js"
+            "import": {
+                "default": "./build/es/utilities/index.js",
+                "types": "./build/es/utilities/index.d.ts"
+            },
+            "require": {
+                "default": "./build/cjs/utilities/index.cjs",
+                "types": "./build/cjs/utilities/index.d.cts"
+            }
         },
         "./components": {
-            "types": "./build/components/index.d.ts",
-            "require": "./build/cjs/components/index.js",
-            "import": "./build/es/components/index.js"
+            "import": {
+                "default": "./build/es/components/index.js",
+                "types": "./build/es/components/index.d.ts"
+            },
+            "require": {
+                "default": "./build/cjs/components/index.cjs",
+                "types": "./build/cjs/components/index.d.cts"
+            }
         },
         "./styles/*": "./styles/*"
     },
@@ -52,7 +78,8 @@
         "build": "pnpm run /compile:*/",
         "dev": "babel --out-dir=. dev-server.mjs && node dev-server.js",
         "compile:style": "node build-styles.mjs",
-        "compile:scripts": "vite build --config vite.build.config.mjs"
+        "compile:scripts": "vite build --config vite.build.config.mjs",
+        "refactor": "sed -i \"s/\\.js'/\\.cjs'/g\" build/cjs/**/*.d.cts"
     },
     "peerDependencies": {
         "react": "^18.0.0"
