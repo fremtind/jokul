@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.23.1 (2024-10-23)
+
+### Bug Fixes
+
+- properly export fonts ([65a9dd8](https://github.com/fremtind/jokul/commit/65a9dd83d313a4fb10fd8809d6f0f406e4b9086b))
+
 # [0.23.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.22.3...@fremtind/jokul@0.23.0) (2024-10-22)
 
 ### Features
