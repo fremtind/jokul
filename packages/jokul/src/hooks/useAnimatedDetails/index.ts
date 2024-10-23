@@ -1,1 +1,1 @@
-export { useAnimatedDetails } from "./useAnimatedDetails";
+export { useAnimatedDetails } from "./useAnimatedDetails.js";

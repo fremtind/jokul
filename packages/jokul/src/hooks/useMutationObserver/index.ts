@@ -1,1 +1,1 @@
-export { useMutationObserver } from "./useMutationObserver";
+export { useMutationObserver } from "./useMutationObserver.js";
