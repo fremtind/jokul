@@ -1,4 +1,4 @@
-import { isValidKortnummer } from "./isValidKortnummer";
+import { isValidKortnummer } from "./isValidKortnummer.js";
 
 describe("isValidKortnummer", () => {
     it("returns true for valid credit card numbers", () => {

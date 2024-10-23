@@ -1,4 +1,4 @@
-import { isValidName } from "./isValidName";
+import { isValidName } from "./isValidName.js";
 
 describe("isValidName", () => {
     it("should return true if no illegal chars", () => {

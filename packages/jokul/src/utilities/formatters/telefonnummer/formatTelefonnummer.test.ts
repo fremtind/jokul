@@ -1,5 +1,5 @@
-import { unicode } from "../../constants";
-import { formatTelefonnummer } from "./formatTelefonnummer";
+import { unicode } from "../../constants/index.js";
+import { formatTelefonnummer } from "./formatTelefonnummer.js";
 
 const { nbsp } = unicode;
 

@@ -1,5 +1,5 @@
-import { unicode } from "../../constants";
-import { formatOrganisasjonsnummer } from "./formatOrganisasjonsnummer";
+import { unicode } from "../../constants/index.js";
+import { formatOrganisasjonsnummer } from "./formatOrganisasjonsnummer.js";
 
 const { nbsp } = unicode;
 

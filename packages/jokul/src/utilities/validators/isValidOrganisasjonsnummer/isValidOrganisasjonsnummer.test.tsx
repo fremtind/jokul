@@ -1,4 +1,4 @@
-import { isValidOrganisasjonsnummer } from "./isValidOrganisasjonsnummer";
+import { isValidOrganisasjonsnummer } from "./isValidOrganisasjonsnummer.js";
 
 describe("isValidOrganisasjonsnummer", () => {
     it("should return true for orgnr without space", () => {
