@@ -126,7 +126,7 @@
         "./styles/toast/*": "./src/components/toast/styles/*",
         "./styles/toggle-switch/*": "./src/components/toggle-switch/styles/*",
         "./styles/tooltip/*": "./src/components/tooltip/styles/*",
-        "./fonts": "./src/fonts/*"
+        "./fonts/*": "./src/fonts/*"
     },
     "scripts": {
         "generate:tokens": "node tokens.build.mjs",
