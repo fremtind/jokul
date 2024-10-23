@@ -1,3 +1,1 @@
-import * as unicode from "./unicode.js";
-
-export { unicode };
+export * as unicode from "./unicode.js";
