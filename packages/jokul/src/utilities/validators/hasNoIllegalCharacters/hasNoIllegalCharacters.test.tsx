@@ -1,4 +1,4 @@
-import { hasNoIllegalCharacters } from "./hasNoIllegalCharacters";
+import { hasNoIllegalCharacters } from "./hasNoIllegalCharacters.js";
 
 describe("hasNoIllegalCharacters", () => {
     it("should return true if no illegal characters is present", () => {

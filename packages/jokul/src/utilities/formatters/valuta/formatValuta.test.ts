@@ -1,5 +1,5 @@
-import { unicode } from "../../constants";
-import { formatValuta } from "./formatValuta";
+import { unicode } from "../../constants/index.js";
+import { formatValuta } from "./formatValuta.js";
 
 const { nbsp } = unicode;
 

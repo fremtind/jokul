@@ -1,4 +1,4 @@
-import { hasMinimumWords } from "./hasMinimumWords";
+import { hasMinimumWords } from "./hasMinimumWords.js";
 
 describe("hasMinimumWords", () => {
     it("should return true if same number as minimum words", () => {

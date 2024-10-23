@@ -1,5 +1,5 @@
-import { unicode } from "../../constants";
-import { formatKortnummer } from "./formatKortnummer";
+import { unicode } from "../../constants/index.js";
+import { formatKortnummer } from "./formatKortnummer.js";
 
 const { nbsp } = unicode;
 

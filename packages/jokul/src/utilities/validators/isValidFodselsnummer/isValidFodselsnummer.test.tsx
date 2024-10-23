@@ -1,4 +1,4 @@
-import { isValidFodselsnummer } from "./isValidFodselsnummer";
+import { isValidFodselsnummer } from "./isValidFodselsnummer.js";
 
 describe("isValidFodselsnummer", () => {
     // testdata ssn

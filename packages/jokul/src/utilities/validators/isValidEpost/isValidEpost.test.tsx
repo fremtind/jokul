@@ -1,4 +1,4 @@
-import { isValidEpost } from "./isValidEpost";
+import { isValidEpost } from "./isValidEpost.js";
 
 describe("isValidEpost", () => {
     it("expect to be CORRECT mail", () => {

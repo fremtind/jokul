@@ -1,4 +1,4 @@
-import { unicode } from "../../constants";
+import { unicode } from "../../constants/index.js";
 
 export const TELEFONNUMMER_REGEX = {
     mobil: /^([8]\d{2})(\d{2})(\d{3})$/,
