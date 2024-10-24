@@ -1,0 +1,1114 @@
+{
+    "version": "15.1.31",
+    "types": {
+        "DatePicker": {
+            "tags": {},
+            "filePath": "jokul/packages/datepicker-react/src/index.ts",
+            "description": "",
+            "displayName": "DatePicker",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "Settes på rotnivå.",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "Settes på rotnivå.",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "label": {
+                    "defaultValue": {
+                        "value": "\"Velg dato\""
+                    },
+                    "description": "",
+                    "name": "label",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "labelProps": {
+                    "defaultValue": null,
+                    "description": "Bruk labelProps for å sette props som `variant` og `srOnly`.\n@example  ```tsx\n <DatePicker\n     labelProps={{ srOnly: true }}\n />\n ```",
+                    "name": "labelProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Omit<LabelProps, \"children\"> | undefined"
+                    }
+                },
+                "defaultValue": {
+                    "defaultValue": {
+                        "value": "undefined // tomt skjemafelt"
+                    },
+                    "description": "dd.mm.åååå\n\nDersom komponenten ikke er _controlled_, send inn ønsket standardverdi her (hvis noen).",
+                    "name": "defaultValue",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "defaultShow": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Styr om du vil at kalenderen skal starte åpen.",
+                    "name": "defaultShow",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "value": {
+                    "defaultValue": null,
+                    "description": "dd.mm.åååå\n\nVerdien til inputfeltet.",
+                    "name": "value",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "disableBeforeDate": {
+                    "defaultValue": null,
+                    "description": "dd.mm.åååå\n\nSkru av knapper i kalenderen før denne datoen,\nog gi valideringsfeil om dato som har blitt skrevet inn er utenfor.",
+                    "name": "disableBeforeDate",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "disableAfterDate": {
+                    "defaultValue": null,
+                    "description": "dd.mm.åååå\n\nSkru av knapper i kalenderen etter denne datoen,\nog gi valideringsfeil om dato som har blitt skrevet inn er utenfor.",
+                    "name": "disableAfterDate",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "yearsToShow": {
+                    "defaultValue": {
+                        "value": "3"
+                    },
+                    "description": "Angir hvor mange år som skal vises i nedtrekkslisten i kalenderen. Du kan angi samme verdi\nfor kommende og foregående år ved å sende inn et tall, eller sende inn et objekt med separate\nverdier for kommende og foregående år. Hvis du sender inn \"all\" vil alle år mellom min. og\nmaks. dato vises i listen (eller default antall år hvis ikke min./maks. dato er angitt).",
+                    "name": "yearsToShow",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "YearsToShow | undefined"
+                    }
+                },
+                "name": {
+                    "defaultValue": null,
+                    "description": "Settes på inputfeltet.",
+                    "name": "name",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "helpLabel": {
+                    "defaultValue": null,
+                    "description": "Hjelpetekst som vises under inputfeltet.",
+                    "name": "helpLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "errorLabel": {
+                    "defaultValue": null,
+                    "description": "Hvis datovelgeren har valideringsfeil må dette feltet settes. Inputfeltet\nmerkes som ugyldig og teksten erstatter en eventuell hjelpetekst.",
+                    "name": "errorLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "invalid": {
+                    "defaultValue": null,
+                    "description": "Merk som ugyldig uten å sende inn en errorLabel.\nNB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.",
+                    "name": "invalid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "extended": {
+                    "defaultValue": null,
+                    "description": "@deprecated Kalenderen viser nå alltid kontroller for å navigere mellom år og måneder. Denne prop'en gjør ikke lenger noe og kan fjernes.",
+                    "name": "extended",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "days": {
+                    "defaultValue": null,
+                    "description": "Om du ønsker andre labels for ukedagene kan du gi de her.",
+                    "name": "days",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string[] | undefined"
+                    }
+                },
+                "months": {
+                    "defaultValue": null,
+                    "description": "Om du ønsker andre labels for måneder kan du gi de her.",
+                    "name": "months",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string[] | undefined"
+                    }
+                },
+                "monthLabel": {
+                    "defaultValue": {
+                        "value": "\"Måned\""
+                    },
+                    "description": "Overstyr hvordan vi omtaler \"Måned\".",
+                    "name": "monthLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "yearLabel": {
+                    "defaultValue": {
+                        "value": "\"År\""
+                    },
+                    "description": "Overstyr hvordan vi omtaler \"År\".",
+                    "name": "yearLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "placeholder": {
+                    "defaultValue": {
+                        "value": "\"dd.mm.åååå\""
+                    },
+                    "description": "Vises i inputfeltet hvis det ikke har noen input, som hint for datoformat.",
+                    "name": "placeholder",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "width": {
+                    "defaultValue": {
+                        "value": "\"10ch\""
+                    },
+                    "description": "Bredden på inputfeltet, tilpasset typisk bredde for en dato i formatet `dd.mm.åååå`.",
+                    "name": "width",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "onChange": {
+                    "defaultValue": null,
+                    "description": "Kalles ved change-event fra datovelgerens inputfelt. Verdien fra selve eventet vil\nalltid være teksten fra inputfeltet.\n\nDet er _ikke_ garantert at verdien fra `event.target.value` er en\ngyldig dato, eller i datoformat. Andre parameter vil enten være en gyldig\n`Date` eller `null`. Tredje parameter har informasjon om validering,\nmen du kan også gjøre validering selv rett på `event.target.value`\nmed utility-funksjoner som eksporteres fra pakka (se eksempel lenger ned).\n\nKalles også når brukeren velger en dato fra kalendervisningen. Kallet\nprøver å simulere et vanlig change-event så nært som mulig.\n\nBruk meta-objektet for å se om det er valideringsfeil, og i så fal hvilken type feil:\n\n - ugyldig format på tekst\n - dato utenfor minimum tillatte dato (satt med `disableBeforeDate`)\n - dato utenfor maksimum tillatte dato (satt med `disableAfterDate`)\n@example  ```tsx\n <DatePicker\n     value={value}\n     onChange={(e, date, meta) => {\n         setValue(e.target.value);\n\n         console.log(\"onChange\", {\n             event: e,\n             date,\n             meta,\n         });\n     }}\n />\n ```\n@example  ```tsx\n import {\n     DatePicker,\n     formatInput,\n     isCorrectFormat,\n     isWithinUpperBound,\n     isWithinLowerBound,\n     parseDateString\n } from \"@fremtind/jkl-datepicker-react\";\n import { formatDate } from \"@fremtind/jkl-formatters-util\";\n\n <DatePicker\n     label=\"Fødselsdato\"\n     errorLabel={formState.errors.fodselsdato?.message}\n     disableBefore=\"01.01.1970\"\n     disableAfter={formatInput(new Date())}\n     {...register(\"fodselsdato\", {\n         required: \"Du må fylle ut fødselsdato\",\n         validate: {\n             isCorrectFormat: (v) =>\n                 isCorrectFormat(v) ||\n                 `Datoen må være skrevet i formen ${formatDate(new Date())} eller kortformat`,\n             withinLowerBound: (v) =>\n                 isWithinLowerBound(v, parseDateString(\"01.01.1970\") || \"Datoen må være før 01.01.1970\"\",\n             withinUpperBound: (v) =>\n                 isWithinUpperBound(v, new Date()) || `Datoen må være før ${formatDate(new Date())}`,\n         },\n     })}\n />\n ```",
+                    "name": "onChange",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "DatePickerChangeEventHandler | undefined"
+                    }
+                },
+                "onFocus": {
+                    "defaultValue": null,
+                    "description": "Kalles ved focus-event fra datovelgerens inputfelt.\n@example  ```tsx\n <DatePicker\n     onFocus={(e, date, meta) => {\n         console.log(\"onFocus\", {\n             event: e,\n             date,\n             meta,\n         });\n     }}\n />\n ```",
+                    "name": "onFocus",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "DatePickerBlurEventHandler | undefined"
+                    }
+                },
+                "onBlur": {
+                    "defaultValue": null,
+                    "description": "Kalles ved blur-event fra datovelgerens inputfelt, og kommer når fokus flyttes ut\nav skjemaelementet.\n\n**NB!** Dette inkluderer når fokus flyttes inn i kalenderen, eller til kalenderknappen!\n\nOm du ønsker å gjøre ting når brukeren går videre fra hele DatePicker:\n  1. Ha en onBlur på DatePicker, men ignorere events når fokus er inni DatePicker\n  2. Ha en onBlur på DatePicker sin action-prop (kalenderknappen), og gjøre det samme\n\nHjelpefunksjonen isBlurTargetOutside hjelper med detaljene.\n@example  ```tsx\n import { DatePicker, isBlurTargetOutside } from \"@fremtind/jkl-datepicker-react\";\n\n <DatePicker\n     onBlur={(e, date, meta) => {\n         // Ignorer blurs som går til kalenderknapper\n         if (isBlurTargetOutside(e)) {\n             console.log(\"onBlur\");\n         }\n     }}\n     action={{\n         onBlur: (e) => {\n             // Ignorer blurs som går tilbake til inputfeltet\n             if (isBlurTargetOutside(e)) {\n                 console.log(\"action.onBlur\");\n             }\n         },\n     }}\n />\n ```",
+                    "name": "onBlur",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "DatePickerBlurEventHandler | undefined"
+                    }
+                },
+                "onKeyDown": {
+                    "defaultValue": null,
+                    "description": "Kalles ved onKeyDown på datovelgerens inputfelt. Dersom du trenger å fange opp\nalle tastetrykk, inkludert Tab videre til knappen for å åpne/lukke kalenderen,\nså kan du bruke dette eventet.\n@deprecated Eventet har mye overlapp med onChange, men var tidligere eneste metode for å\nfå tilbakemelding ved tastetrykk i inputfeltet. Foretrekk onChange for ny kode.",
+                    "name": "onKeyDown",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "DatePickerKeyDownEventHandler | undefined"
+                    }
+                },
+                "action": {
+                    "defaultValue": null,
+                    "description": "Lar deg sette lyttere på kalenderknappen i skjemafeltet.",
+                    "name": "action",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "DatePickerAction | undefined"
+                    }
+                },
+                "showCalendarLabel": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "showCalendarLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "hideCalendarLabel": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "hideCalendarLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                        "name": "DatePickerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/datepicker-react/src/types.ts",
+                            "name": "DatePickerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                },
+                "inline": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "inline",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "data-testautoid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testautoid",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "DataTestAutoId"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "DataTestAutoId"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "supportLabelProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "supportLabelProps",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Omit<SupportLabelProps, \"id\" | \"density\" | \"helpLabel\" | \"errorLabel\"> | undefined"
+                    }
+                },
+                "tooltipProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "tooltipProps",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "PopupTipProps | undefined"
+                    }
+                },
+                "render": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "render",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "((props: InputProps) => Element) | undefined"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom",
+                    "name": "ref",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "RefAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Ref<HTMLInputElement> | undefined"
+                    }
+                },
+                "key": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "key",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "Attributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "Attributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Key | null | undefined"
+                    }
+                }
+            }
+        },
+        "isCorrectFormat": {
+            "tags": {},
+            "filePath": "jokul/packages/datepicker-react/src/index.ts",
+            "description": "",
+            "displayName": "isCorrectFormat",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "formatInput": {
+            "tags": {
+                "param": "date the Date object to format",
+                "return": "returns a date string with \"dd.mm.yyyy\"-format"
+            },
+            "filePath": "jokul/packages/datepicker-react/src/index.ts",
+            "description": "Format a Date object as a string in the format DatePicker expects.",
+            "displayName": "formatInput",
+            "methods": [],
+            "props": {}
+        },
+        "parseDateString": {
+            "tags": {
+                "param": "dateString date as string with format dd.mm.yyyy",
+                "return": "a Date object representing the given date"
+            },
+            "filePath": "jokul/packages/datepicker-react/src/index.ts",
+            "description": "Convert a date string to a Date object",
+            "displayName": "parseDateString",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "isBlurTargetOutside": {
+            "tags": {
+                "param": "e - Eventet fra onBlur og action.onBlur",
+                "returns": "true hvis e.relatedTarget er utenfor DatePicker"
+            },
+            "filePath": "jokul/packages/datepicker-react/src/index.ts",
+            "description": "Hjelpefunksjon for å se om en onBlur går utenfor DatePicker,\neller om den går til et interaktivt element inni DatePickeren.",
+            "displayName": "isBlurTargetOutside",
+            "methods": [],
+            "props": {
+                "relatedTarget": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "relatedTarget",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "FocusEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "FocusEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(EventTarget & Element) | null"
+                    }
+                },
+                "target": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "target",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "FocusEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "FocusEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "EventTarget & (HTMLButtonElement | HTMLInputElement)"
+                    }
+                },
+                "nativeEvent": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "nativeEvent",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "FocusEvent"
+                    }
+                },
+                "currentTarget": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "currentTarget",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "EventTarget & (HTMLButtonElement | HTMLInputElement)"
+                    }
+                },
+                "bubbles": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "bubbles",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "cancelable": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "cancelable",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "defaultPrevented": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "defaultPrevented",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "eventPhase": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "eventPhase",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "isTrusted": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "isTrusted",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "preventDefault": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "preventDefault",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "() => void"
+                    }
+                },
+                "isDefaultPrevented": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "isDefaultPrevented",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "() => boolean"
+                    }
+                },
+                "stopPropagation": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "stopPropagation",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "() => void"
+                    }
+                },
+                "isPropagationStopped": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "isPropagationStopped",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "() => boolean"
+                    }
+                },
+                "persist": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "persist",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "() => void"
+                    }
+                },
+                "timeStamp": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "timeStamp",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "type": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "type",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "BaseSyntheticEvent"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "BaseSyntheticEvent"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                }
+            }
+        }
+    }
+}

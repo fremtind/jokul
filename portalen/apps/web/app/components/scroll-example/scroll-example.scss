@@ -1,0 +1,25 @@
+@use '@fremtind/jkl-core/jkl';
+@use './highlight-example';
+@use './scroll-content';
+
+.jkl-portal-scroll-example {
+    box-sizing: border-box;
+
+    @include jkl.from-medium-device {
+        display: grid;
+        grid-template: 'example content' auto / 2fr 3fr;
+        align-content: center;
+
+        &--flipped {
+            grid-template: 'content example' auto / 3fr 2fr;
+        }
+    }
+
+    &__content {
+        grid-area: content;
+    }
+
+    &__example {
+        grid-area: example;
+    }
+}

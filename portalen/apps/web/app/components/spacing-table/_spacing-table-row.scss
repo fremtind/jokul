@@ -1,0 +1,45 @@
+@use '@fremtind/jkl-core/jkl';
+@use '@fremtind/jkl-core/jkl/spacing';
+
+@include jkl.light-mode-variables {
+    --code-bg-color: #{jkl.$color-sand};
+    --square-color: #{jkl.$color-granitt};
+}
+
+@include jkl.dark-mode-variables {
+    --code-bg-color: #{jkl.$color-skifer};
+    --square-color: #{jkl.$color-snohvit};
+}
+
+$spacing: (
+    '2': jkl.$spacing-2,
+    '4': jkl.$spacing-4,
+    '8': jkl.$spacing-8,
+    '12': jkl.$spacing-12,
+    '16': jkl.$spacing-16,
+    '24': jkl.$spacing-24,
+    '32': jkl.$spacing-32,
+    '40': jkl.$spacing-40,
+    '64': jkl.$spacing-64,
+    '104': jkl.$spacing-104,
+    '168': jkl.$spacing-168,
+);
+
+.spacing-swatch {
+    @each $property, $value in $spacing {
+        &--#{$property} {
+            background-color: var(--square-color);
+            height: $value;
+            width: $value;
+        }
+    }
+}
+
+.spacing-code {
+    background-color: var(--code-bg-color);
+    display: inline-block;
+    margin-bottom: 2px;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 10px;
+}

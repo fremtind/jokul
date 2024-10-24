@@ -1,0 +1,7 @@
+# Add files here to ignore them from prettier formatting
+
+dist
+build
+node_modules
+.cache
+apps/cms/src/types.ts

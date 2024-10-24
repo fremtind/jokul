@@ -1,0 +1,34 @@
+@use '@fremtind/jkl-core/jkl';
+
+$_levels: (
+    'title',
+    'title-small',
+    'heading-1',
+    'heading-2',
+    'heading-3',
+    'heading-4',
+    'heading-5',
+    'body',
+    'small'
+);
+
+$_screens: ('large', 'small');
+
+.typography-cell {
+    @each $_screen in $_screens {
+        @each $_level in $_levels {
+            &--#{$_level}-#{$_screen} {
+                @include jkl.text-style('#{$_level}/#{$_screen}-screen');
+            }
+        }
+    }
+
+    &__code {
+        background-color: var(--code-bg-color);
+        display: inline-block;
+        margin-bottom: 2px;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 10px;
+    }
+}

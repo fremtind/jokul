@@ -1,0 +1,18 @@
+@use '@fremtind/jkl-core/jkl';
+
+.nav-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 355px));
+    grid-template-rows: auto;
+    gap: jkl.$spacing-24;
+
+    .jkl-nav-card {
+        width: 1fr;
+        min-height: 211px;
+        justify-self: stretch;
+
+        &__description {
+            color: var(--jkl-portal-muted);
+        }
+    }
+}

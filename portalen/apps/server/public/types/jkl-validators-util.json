@@ -1,0 +1,316 @@
+{
+    "version": "3.0.0",
+    "types": {
+        "isValidEpost": {
+            "tags": {
+                "param": "value Verdien som skal valideres",
+                "returns": "Om verdien matcher regex for epost"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Sjekker om verdien validerer som en gyldig epostadresse.",
+            "displayName": "isValidEpost",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "isValidTelefonnummer": {
+            "tags": {
+                "param": "value Kandidat for telefonnummer",
+                "returns": "Om kandidaten er et gyldig telefonnummer"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Validerer om en kandidat er et gyldig (uformatert) telefonnummer uten landkode.",
+            "displayName": "isValidTelefonnummer",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "isValidRegistreringsnummer": {
+            "tags": {
+                "param": "value Kandidat for registreringsnummer\noptions Type kjøretøy, default \"bil\". Kan også være \"mc\" eller \"moped\".",
+                "returns": "Om kandidaten er et gyldig registreringsnummer"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Validerer om en kandidat er et gyldig registreringsnummer, bestående av to bokstaver, et valgfritt mellomrom, og fem siffer for bil, fire siffer for MC/moped.",
+            "displayName": "isValidRegistreringsnummer",
+            "methods": [],
+            "props": {}
+        },
+        "isValidChassisnummer": {
+            "tags": {
+                "param": "value Verdien som skal valideres",
+                "returns": "Om verdien matcher regex for chassisnummer"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Sjekker om verdien validerer som et gyldig chassisnummer.",
+            "displayName": "isValidChassisnummer",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "isValidDogId": {
+            "tags": {
+                "deprecated": "This only validates norwegian id-tags, that is probably more restrictive than you want\nexpect this function to change, use carefully"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Validerer at verdien er et gyldig norsk ID-nummer for hund.",
+            "displayName": "isValidDogId",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "isExactLength": {
+            "tags": {
+                "param": "value Verdien som skal valideres\nlength Lengden verdien må ha for å anses som gyldig",
+                "returns": "Om verdien er av eksakt lengde"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Sjekker om verdien er av eksakt lengde.",
+            "displayName": "isExactLength",
+            "methods": [],
+            "props": {}
+        },
+        "isInteger": {
+            "tags": {
+                "param": "value Verdien som skal valideres",
+                "returns": "Om verdien er et gyldig heltall"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Sjekker om verdien er et gyldig heltall.",
+            "displayName": "isInteger",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "isValidFodselsnummer": {
+            "tags": {
+                "param": "value Verdien som skal valideres",
+                "returns": "Om verdien er et gyldig fødselsnummer"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Sjekker om verdien validerer som et gyldig fødselsnummer.",
+            "displayName": "isValidFodselsnummer",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "isValidOrganisasjonsnummer": {
+            "tags": {
+                "param": "value Verdien som skal valideres",
+                "returns": "Om verdien er et gyldig organisasjonsnummer"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Sjekker om verdien validerer som et gyldig organisasjonsnummer etter Modulus 11-algoritmen (https://no.wikipedia.org/wiki/MOD11).",
+            "displayName": "isValidOrganisasjonsnummer",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "isValidName": {
+            "tags": {
+                "param": "value Verdien som skal valideres",
+                "returns": "Om verdien anses som et gyldig navn"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Sjekker om verdien inneholder spesialtegn som ikke er vanlige i navn.",
+            "displayName": "isValidName",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "hasMinimumWords": {
+            "tags": {
+                "param": "value Verdien som skal valideres\noptions Objekt med konfigurasjon for minimum antall ord som kreves",
+                "returns": "Om verdien har minimum antall ord"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Sjekk at verdien har minimum et gitt antall ord.",
+            "displayName": "hasMinimumWords",
+            "methods": [],
+            "props": {}
+        },
+        "hasNoIllegalCharacters": {
+            "tags": {
+                "param": "value Verdien som skal valideres",
+                "returns": "Om verdien er fri for spesialtegn som ikke er tillatt"
+            },
+            "filePath": "jokul/packages/validators-util/src/index.ts",
+            "description": "Sjekker at verdien ikke har spesialtegn som ikke er tillatt.",
+            "displayName": "hasNoIllegalCharacters",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        }
+    }
+}

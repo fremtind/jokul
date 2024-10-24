@@ -1,0 +1,190 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --jkl-portal-toc-link-color: #{jkl.$color-granitt};
+    --jkl-portal-toc-link-hover-color: #{jkl.$color-stein};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-portal-toc-link-color: #{jkl.$color-snohvit};
+    --jkl-portal-toc-link-hover-color: #{jkl.$color-svaberg};
+}
+
+.jkl-portal-toc {
+    --jkl-portal-toc-padding-top: 0;
+    --jkl-portal-toc-top: 0;
+
+    left: 0;
+    box-sizing: border-box;
+    height: auto;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    padding-block: var(--jkl-spacing-16);
+    padding-inline: 0;
+    margin-left: calc(var(--jkl-spacing-24) * -1);
+    width: 100%;
+    max-width: jkl.rem(320px);
+
+    background-color: var(--jkl-bg-color);
+
+    &[data-collapsed='true'] {
+        height: calc(calc(var(--jkl-spacing-16) * 2) + 1.5rem);
+
+        & [data-active] {
+            @include jkl.motion;
+
+            transition-property: opacity;
+        }
+
+        & .jkl-portal-toc__item[data-active='false'] {
+            opacity: 0;
+        }
+
+        & .jkl-portal-toc__item[data-active='true'] {
+            opacity: 1;
+        }
+
+        & .jkl-portal-toc__button {
+            display: block;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @include jkl.screen-from(1512px) {
+        float: right;
+        position: sticky;
+        top: var(--jkl-portal-toc-top, 0);
+        padding-top: var(--jkl-portal-toc-padding-top, 0);
+
+        &__button {
+            display: none;
+        }
+
+        &[data-collapsed='true'] {
+            height: auto;
+
+            & .jkl-portal-toc__item[data-active='false'],
+            & .jkl-portal-toc__item[data-active='true'] {
+                opacity: 1;
+            }
+
+            & .jkl-portal-toc__button {
+                display: none;
+            }
+        }
+    }
+
+    &__button {
+        @include jkl.reset-outline;
+        display: block;
+        background-color: transparent;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        @include jkl.screen-from(1512px) {
+            display: none;
+        }
+    }
+
+    &__heading {
+        @include jkl.text-style('heading-5');
+        display: none;
+
+        @include jkl.screen-from(1512px) {
+            display: unset;
+        }
+    }
+
+    &__list {
+        list-style-type: none;
+        padding: 0;
+        margin-block: 0;
+
+        display: grid;
+        grid-template-columns: 2ch 1fr;
+        grid-template-rows: auto;
+        align-items: flex-start;
+        overflow-x: hidden;
+
+        @include jkl.screen-from(1512px) {
+            margin-block: jkl.$spacing-8;
+        }
+    }
+
+    &__item {
+        @include jkl.text-style('small');
+        color: var(--jkl-portal-toc-link-color);
+        display: contents;
+
+        &[data-active='true'] {
+            font-weight: bold;
+        }
+
+        &:hover {
+            color: var(--jkl-portal-toc-link-hover-color);
+        }
+
+        @include jkl.keyboard-navigation {
+            &:focus-within {
+                color: var(--jkl-portal-toc-link-hover-color);
+            }
+        }
+    }
+
+    &__chapter {
+        font-variant-numeric: tabular-nums;
+    }
+
+    &__chapter,
+    &__link-container {
+        padding: jkl.rem(4px); // for ikke å kutte focus outline
+    }
+
+    &__link-container {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__link {
+        @include jkl.reset-outline;
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+
+        &::after {
+            content: '→';
+            content: '→' / '';
+            opacity: 0;
+            position: absolute;
+            margin-inline-start: jkl.$spacing-4;
+            transform: translate(-10%, 0);
+            @include jkl.motion('standard', 'expressive');
+            transition-property: opacity, transform;
+        }
+
+        &:hover::after {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        @include jkl.keyboard-navigation {
+            &:focus {
+                outline: jkl.rem(2px) solid var(--jkl-color);
+                outline-offset: jkl.rem(2px);
+
+                &::after {
+                    opacity: 1;
+                    transform: translate(0, 0);
+                }
+            }
+        }
+    }
+}

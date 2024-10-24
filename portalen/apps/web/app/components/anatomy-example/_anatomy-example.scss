@@ -1,0 +1,71 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --jkl-anatomy-example-background: #{jkl.$color-hvit};
+    --jkl-anatomy-description-background: #{jkl.$color-snohvit};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-anatomy-example-background: #{jkl.$color-svart};
+    --jkl-anatomy-description-background: #{jkl.$color-granitt};
+}
+
+.jkl-portal-anatomy-example {
+    --header-height: #{jkl.rem(40px)};
+    --example-padding: #{jkl.$spacing-24};
+
+    @include jkl.declare-font-variables('anatomy-example-description', 'small');
+
+    background-color: var(--gap-color);
+    border: 1px solid var(--gap-color);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1px;
+
+    &__example {
+        grid-area: example;
+        background-color: var(--interactive-code-background);
+        padding: var(--example-padding);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        grid-area: title;
+        background-color: var(--interactive-code-info-background);
+        padding: 0 var(--example-padding);
+        min-height: var(--header-height);
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        @include jkl.use-font-variables('anatomy-example-description');
+    }
+
+    &__description {
+        grid-area: description;
+        background-color: var(--interactive-code-info-background);
+        padding: var(--example-padding);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: jkl.$spacing-24;
+
+        @include jkl.use-font-variables('anatomy-example-description');
+    }
+
+    @include jkl.from-medium-device {
+        display: grid;
+        grid-template:
+            'example title      ' var(--header-height)
+            'example description' auto / 1fr 1fr;
+        min-height: 400px;
+    }
+}

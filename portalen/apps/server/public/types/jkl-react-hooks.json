@@ -1,0 +1,456 @@
+{
+    "version": "12.0.10",
+    "types": {
+        "useAnimatedHeight": {
+            "tags": {
+                "param": "isOpen Om elementet er åpent eller lukket.\noptions Konfigurer display-property, easing og timing, og eventuelle callbacks for life cycle til animasjonen.",
+                "returns": "Ref til elementet som skal animeres, og en funksjon for å trigge animasjonen manuelt."
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Lar deg animere et element opp til sin maksimale høyde, eller ned til 0.",
+            "displayName": "useAnimatedHeight",
+            "methods": [],
+            "props": {}
+        },
+        "useAnimatedHeightBetween": {
+            "tags": {
+                "param": "isExpanded indikerer om elementet skal være utvidet eller ikke\noptions konfigurasjon for animasjonen, og lyttere for når animasjonen starter og slutter",
+                "returns": "En tuple med referanse til elementet og en funksjon som kan trigge animasjonen"
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Lar deg enklere animere mellom to tilstander, gitt ved å sette `data-expanded` på et element til `true` eller `false`.\nDu bestemmer selv hvilke stiler elementet skal ha i de to tilstandene (vha CSS/Sass), og høyden animeres dersom den endrer seg.",
+            "displayName": "useAnimatedHeightBetween",
+            "methods": [],
+            "props": {}
+        },
+        "useAutoAnimatedHeight": {
+            "tags": {
+                "param": "trigger verdien som brukes til å trigge animasjonen. Dersom denne endrer seg animeres høyden på elementet.\noptions konfigurasjon for animasjonen, og lyttere for når animasjonen starter og slutter",
+                "returns": "en referanse til elementet som skal animeres"
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Gjør det enklere å animere høyden på et element når innholdet endrer seg, men kan brukes på mer generelt grunnlag.\nHooken tar inn en triggerverdi, og når denne endrer seg animeres høyden på elementet dersom den har endret seg.",
+            "displayName": "useAutoAnimatedHeight",
+            "methods": [],
+            "props": {}
+        },
+        "useAriaLiveRegion": {
+            "tags": {
+                "param": "watch Verdi som indikerer at det har skjedd en endring. For eksempel en boolean som styrer en loader, eller selve teksten som skal bli lest opp.\noptions Bestem om aria-live skal være polite, assertive eller off.",
+                "returns": ""
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Hjelper for å bare sette aria-live dersom det har skjedd en endring. Unngår at innholdet annonseres ved sidelasting.",
+            "displayName": "useAriaLiveRegion",
+            "methods": [],
+            "props": {}
+        },
+        "useClickOutside": {
+            "tags": {
+                "param": "ref Elementet du ønsker å sjekke om en klikk er utenfor.\nfn Callback-funksjon som kalles når det klikkes utenfor elementet."
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Hook for å sette opp en lytter ved klikk utenfor et element.",
+            "displayName": "useClickOutside",
+            "methods": [],
+            "props": {}
+        },
+        "useFocusOutside": {
+            "tags": {
+                "param": "ref Elementet som skal observeres\nfn Funksjon som kalles når fokus flyttes utenfor elementet"
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Hook for å lytte etter fokus utenfor et element. Nyttig dersom flere fokuserbare elementer samspiller i en komponent.",
+            "displayName": "useFocusOutside",
+            "methods": [],
+            "props": {}
+        },
+        "useKeyListener": {
+            "tags": {
+                "param": "ref Element som skal observeres\nkeys Taster som skal lyttes på\nfn Funksjon som kalles når en tastetrykk observeres"
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Lar deg sette opp en tastaturlytter på et element.",
+            "displayName": "useKeyListener",
+            "methods": [],
+            "props": {}
+        },
+        "useMutationObserver": {
+            "tags": {
+                "param": "targetRef Container som skal observeres. Containeren må ikke rerendres, da vil observereren bli opprettet på nytt.\nonObservation Callback-funksjon som utføres når en mutasjon observeres.\nconfig Parametere til observereren. Se https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit#properties for mer info."
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Hook som gjør det enklere å sjekke en komponents children for endringer.",
+            "displayName": "useMutationObserver",
+            "methods": [],
+            "props": {}
+        },
+        "useIntersectionObserver": {
+            "tags": {
+                "param": "target Elementet eller elementene som skal observeres. Du kan sende in en React ref til et HTMLElement eller SVG Element, eller en NodeList av samme type elementer (returneres f.eks. av document.querySelectorAll), eller en React ref med en NodeList av samme type elementer.\nonIntersect Callback-funksjon som utføres når et av elementene som observeres overlapper angitt mål. Se https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#parameters for mer info.\nfallback Funksjon som kalles dersom nettleseren ikke støtter IntersectionOpserver-APIet.\noptions Objekt med innstillinger for oberveren. Se https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver#parameters for mer info."
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Hook som gjør det enkelt å observere om et element er synlig i viewporten.",
+            "displayName": "useIntersectionObserver",
+            "methods": [],
+            "props": {}
+        },
+        "useScreen": {
+            "tags": {
+                "returns": "Et objekt med boolean som indikerer om skjermstørrelsen er liten, medium, stor eller ekstra stor, og om skjermen er i portrett- eller landskapsmodus."
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Finn størrelsen og orienteringen til skjermen.",
+            "displayName": "useScreen",
+            "methods": [],
+            "props": {}
+        },
+        "useScrollIntoView": {
+            "tags": {},
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "",
+            "displayName": "useScrollIntoView",
+            "methods": [],
+            "props": {
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "parent": {
+                        "fileName": "server/jokul/packages/react-hooks/src/useScrollIntoView/useScrollIntoView.tsx",
+                        "name": "ScrollIntoViewProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useScrollIntoView/useScrollIntoView.tsx",
+                            "name": "ScrollIntoViewProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "RefObject<ValueOf<HTMLElementTagNameMap>>"
+                    }
+                },
+                "timeout": {
+                    "defaultValue": {
+                        "value": "0"
+                    },
+                    "description": "",
+                    "name": "timeout",
+                    "parent": {
+                        "fileName": "server/jokul/packages/react-hooks/src/useScrollIntoView/useScrollIntoView.tsx",
+                        "name": "ScrollIntoViewProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useScrollIntoView/useScrollIntoView.tsx",
+                            "name": "ScrollIntoViewProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "number | undefined"
+                    }
+                },
+                "autoScroll": {
+                    "defaultValue": {
+                        "value": "true"
+                    },
+                    "description": "",
+                    "name": "autoScroll",
+                    "parent": {
+                        "fileName": "server/jokul/packages/react-hooks/src/useScrollIntoView/useScrollIntoView.tsx",
+                        "name": "ScrollIntoViewProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useScrollIntoView/useScrollIntoView.tsx",
+                            "name": "ScrollIntoViewProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "options": {
+                    "defaultValue": {
+                        "value": "{ behavior: \"smooth\" }"
+                    },
+                    "description": "",
+                    "name": "options",
+                    "parent": {
+                        "fileName": "server/jokul/packages/react-hooks/src/useScrollIntoView/useScrollIntoView.tsx",
+                        "name": "ScrollIntoViewProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useScrollIntoView/useScrollIntoView.tsx",
+                            "name": "ScrollIntoViewProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "ScrollIntoViewOptions | undefined"
+                    }
+                }
+            }
+        },
+        "useBrowserPreferences": {
+            "tags": {
+                "returns": "Objekt med informasjon om brukerens foretrukne tema (lyst vs mørkt), redusert bevegelse, og høykontrast (forced colors)."
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Hook som gir informasjon om brukerens foretrukne konfigurasjon.",
+            "displayName": "useBrowserPreferences",
+            "methods": [],
+            "props": {}
+        },
+        "useProgressiveImg": {
+            "tags": {},
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "",
+            "displayName": "useProgressiveImg",
+            "methods": [],
+            "props": {
+                "lowQualitySrc": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "lowQualitySrc",
+                    "parent": {
+                        "fileName": "server/jokul/packages/react-hooks/src/useProgressiveImg/useProgressiveImg.tsx",
+                        "name": "ProgressiveImageProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useProgressiveImg/useProgressiveImg.tsx",
+                            "name": "ProgressiveImageProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "highQualitySrc": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "highQualitySrc",
+                    "parent": {
+                        "fileName": "server/jokul/packages/react-hooks/src/useProgressiveImg/useProgressiveImg.tsx",
+                        "name": "ProgressiveImageProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useProgressiveImg/useProgressiveImg.tsx",
+                            "name": "ProgressiveImageProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                }
+            }
+        },
+        "usePreviousValue": {
+            "tags": {
+                "param": "value Verdien som skal huskes.",
+                "returns": "Forrige render av verdien, eller undefined første render."
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Lar deg huske en verdi fra forrige render.",
+            "displayName": "usePreviousValue",
+            "methods": [],
+            "props": {}
+        },
+        "useId": {
+            "tags": {
+                "param": "id En valgfri eksisterende ID som kan brukes som prefix.\noptions Objekt med innstillinger, dersom du angir et prefix."
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Hook som genererer en unik ID. For React 18 brukes React.useId, ellers brukes nanoid.",
+            "displayName": "useId",
+            "methods": [],
+            "props": {}
+        },
+        "useElementDimensions": {
+            "tags": {
+                "param": "throttleDelay Antall milisekunder som skal gå mellom hver gang dimensjonene oppdateres.",
+                "returns": "Ref til elementet som skal måles, og dimensjonene til elementet."
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Lar deg måle størrelsen på et element, og oppdatere målene når vinduet endrer størrelse.",
+            "displayName": "useElementDimensions",
+            "methods": [],
+            "props": {}
+        },
+        "useListNavigation": {
+            "tags": {},
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "",
+            "displayName": "useListNavigation",
+            "methods": [],
+            "props": {
+                "ref": {
+                    "defaultValue": null,
+                    "description": "Ref til et element med rollen `listbox`",
+                    "name": "ref",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useListNavigation.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "RefObject<T>"
+                    }
+                }
+            }
+        },
+        "useSwipeGesture": {
+            "tags": {
+                "param": "options Callbacks for de ulike stegene i en swipe-gesture",
+                "returns": "Handlers for de ulike stegene i en swipe-gesture"
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Logikk for å håndtere en swipe, for eksempel brukt i toggle switch.",
+            "displayName": "useSwipeGesture",
+            "methods": [],
+            "props": {
+                "onClick": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onClick",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useSwipeGesture.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "MouseEventHandler<T> | undefined"
+                    }
+                },
+                "onChange": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onChange",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useSwipeGesture.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "SwipeChangeHandler<T> | undefined"
+                    }
+                },
+                "onPointerDown": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onPointerDown",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useSwipeGesture.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "PointerEventHandler<T> | undefined"
+                    }
+                },
+                "onPointerUp": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onPointerUp",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useSwipeGesture.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "PointerEventHandler<T> | undefined"
+                    }
+                },
+                "onPointerMove": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onPointerMove",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useSwipeGesture.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "PointerEventHandler<T> | undefined"
+                    }
+                },
+                "onPointerCancel": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onPointerCancel",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useSwipeGesture.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "PointerEventHandler<T> | undefined"
+                    }
+                }
+            }
+        },
+        "useAnimatedDetails": {
+            "tags": {
+                "param": "onOpenChange Callback med informasjon om når elementet åpner/lukker seg.\nisExpanded Styr åpning/lukking utenfra."
+            },
+            "filePath": "jokul/packages/react-hooks/src/index.ts",
+            "description": "Lar deg animere et HTML details element med en summary trigger og noe innhold.\nHTML strukturen din bør se ut som omtrent\n<details ref={detailsRef}>\n    <summary ref={summaryRef} onClick={onSummaryClick}>Trigger for å åpne</summary>\n    <div ref={contentRef}>Ekspanderbart innhold</div>\n </details>",
+            "displayName": "useAnimatedDetails",
+            "methods": [],
+            "props": {
+                "onOpenChange": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onOpenChange",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useAnimatedDetails/useAnimatedDetails.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(open: boolean, e: MouseEvent<HTMLElement, MouseEvent>) => void"
+                    }
+                },
+                "isExpanded": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "isExpanded",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/react-hooks/src/useAnimatedDetails/useAnimatedDetails.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                }
+            }
+        }
+    }
+}

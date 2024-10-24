@@ -1,0 +1,27 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --vimeo-player-outline: #{jkl.$color-focus-color};
+}
+
+@include jkl.dark-mode-variables {
+    --vimeo-player-outline: #{jkl.$color-focus-color--darkbg};
+}
+
+.vimeo-player {
+    @include jkl.reset-outline;
+
+    position: relative;
+
+    @include jkl.keyboard-navigation {
+        &:focus {
+            outline: jkl.rem(2px) solid var(--jkl-vimeo-player-outline);
+        }
+    }
+
+    &__loader {
+        position: absolute;
+        bottom: jkl.$spacing-40;
+        left: jkl.$spacing-16;
+    }
+}
