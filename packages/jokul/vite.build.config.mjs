@@ -18,14 +18,14 @@ export default defineConfig({
             exclude: ["src/**/*.test.{ts,tsx}", "src/components/**/documentation/*"],
             entryRoot: "./src",
             outDir: ["./build/es", "./build/cjs"],
-            afterBuild: async () => {
-                const cjsDeclarations = globSync("build/cjs/**/*.d.{ts,ts.map}", { nodir: true });
-                await Promise.all([
-                    ...cjsDeclarations.map(async (file) => {
-                        const newFilePath = file.replace(/\.d\.ts(\.map)?$/, ".d.cts$1");
-                        await rename(file, newFilePath);
-                    }),
-                ]);
+            beforeWriteFile(filePath, content) {
+                if (filePath.includes("/build/cjs")) {
+                    return {
+                        filePath: filePath.replace(".d.ts", ".d.cts"),
+                        content: content.replace(/.js';/g, ".cjs;'"),
+                    };
+                }
+                return { filePath, content };
             },
         }),
         visualizer({
