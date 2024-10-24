@@ -177,7 +177,9 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, 
 
             const calendarEl = calendarRef.current;
             const button = calendarEl && (calendarEl.querySelector('[aria-pressed="true"]') as HTMLButtonElement);
-            button && button.focus();
+            // Make sure the popover-modal is correctly positioned before focusing a button
+            // so we avoid accidentally scrolling to the top of the page
+            window.requestAnimationFrame(() => button && button.focus());
 
             if (action?.onClick) {
                 action.onClick(e);
