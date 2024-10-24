@@ -1,0 +1,62 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --example-background: #{jkl.$color-dis};
+    --highlight-border-color: #f00;
+}
+
+@include jkl.dark-mode-variables {
+    --example-background: #{jkl.$color-stein};
+    --highlight-border-color: #f00;
+}
+
+.jkl-portal-highlight-example {
+    --highlighter-padding: #{jkl.$spacing-12};
+
+    background-color: var(--example-background);
+    gap: jkl.$spacing-40;
+    box-sizing: border-box;
+    max-height: 50vh;
+    width: 100%;
+    padding: jkl.$spacing-24;
+
+    position: fixed;
+    bottom: 0;
+
+    @include jkl.motion('standard', 'lazy');
+    transition-property: opacity, transform;
+
+    @include jkl.small-device {
+        overflow-y: auto;
+
+        &[data-hidden] {
+            transform: translate3d(0, 2rem, 0);
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    @include jkl.from-medium-device {
+        position: sticky;
+        top: 20vh;
+        max-height: 60vh;
+        padding: jkl.$spacing-64;
+    }
+
+    &__highlighter {
+        position: absolute;
+        @include jkl.motion('standard', 'expressive');
+        transition-property: top, left, width, height;
+        border-radius: jkl.$spacing-8;
+        z-index: jkl.$z-index--floating;
+        pointer-events: none;
+        box-sizing: border-box;
+
+        top: calc(var(--top) - var(--highlighter-padding));
+        left: calc(var(--left) - var(--highlighter-padding));
+        width: calc(var(--width) + var(--highlighter-padding) * 2);
+        height: calc(var(--height) + var(--highlighter-padding) * 2);
+
+        border: jkl.rem(2px) solid var(--highlight-border-color);
+    }
+}

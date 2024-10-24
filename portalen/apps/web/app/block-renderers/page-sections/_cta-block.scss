@@ -1,0 +1,34 @@
+@use '@fremtind/jkl-core/jkl';
+@use '../../components/section-heading/section-heading';
+
+.jkl-portal-cta-block {
+    --cta-padding: var(--jkl-spacing-64);
+    @include jkl.from-medium-device {
+        --cta-padding: var(--jkl-spacing-168);
+    }
+
+    box-sizing: border-box;
+    padding-block: var(--cta-padding);
+    min-height: 30vh;
+    min-height: 30dvh; // Bedre høydehåndtering på mobil for støttede enheter
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--jkl-spacing-40);
+    @include jkl.text-style('title');
+    max-width: 35ch;
+
+    &__text {
+        max-width: 35ch;
+        @include jkl.text-style('title');
+        @include section-heading.section-counter;
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: row;
+        gap: var(--jkl-spacing-24);
+    }
+}

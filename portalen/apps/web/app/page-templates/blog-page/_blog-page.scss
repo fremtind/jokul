@@ -1,0 +1,110 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --doused-color: #{jkl.$color-stein};
+}
+
+@include jkl.dark-mode-variables {
+    --doused-color: #{jkl.$color-svaberg};
+}
+
+.jkl-portal-blog-page {
+    @include jkl.text-style('body');
+    @include jkl.declare-font-variables('blog-page-heading', 'title');
+
+    position: relative;
+    counter-reset: sections;
+    padding: jkl.$spacing-64 0;
+    margin: 0 jkl.$spacing-16;
+
+    @include jkl.from-medium-device {
+        margin: 0 jkl.$spacing-168;
+    }
+}
+
+.jkl-portal-blog-visually-hidden {
+    @include jkl.screenreader-only;
+}
+
+.jkl-portal-blog-page-heading {
+    @include jkl.use-font-variables('blog-page-heading');
+    margin-top: jkl.$spacing-16;
+}
+
+.jkl-portal-blog-page-ingress {
+    color: var(--doused-color);
+    margin-top: jkl.$spacing-24;
+    max-width: jkl.rem(750px);
+
+    @include jkl.from-medium-device {
+        margin-top: jkl.$spacing-16;
+    }
+}
+
+.jkl-portal-blog-meta {
+    color: var(--doused-color);
+    margin-top: jkl.$spacing-16;
+    font-size: jkl.$typography-font-size-16;
+    display: flex;
+    gap: jkl.$spacing-16;
+
+    &__date {
+        font-weight: jkl.$typography-weight-bold;
+    }
+}
+
+.jkl-portal-blog-divider {
+    grid-area: divider;
+    width: 100%;
+    margin: jkl.$spacing-24 0 0;
+    border: none;
+    border-top: 1px solid jkl.$color-varde;
+}
+
+.jkl-portal-blog-main {
+    display: grid;
+
+    grid-template-rows: min-content 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'divider'
+        'main';
+
+    @include jkl.screen-from(1512px) {
+        grid-template-columns: fit-content(720px) auto;
+        grid-template-areas:
+            'divider empty'
+            'main sidebar';
+    }
+    column-gap: jkl.$spacing-104;
+
+    &__content {
+        padding-top: jkl.$spacing-40;
+        grid-area: main;
+
+        > :first-child {
+            padding-top: 0;
+            margin-top: 0;
+        }
+
+        > .jkl-portal-page-section > .interactive-code {
+            @include jkl.screen-from(1512px) {
+                margin-left: jkl.rem(-104px);
+                margin-right: jkl.rem(-104px);
+            }
+        }
+    }
+
+    &__toc {
+        padding-top: jkl.$spacing-40;
+        grid-area: sidebar;
+        display: none;
+
+        @include jkl.screen-from(1512px) {
+            display: block;
+            place-self: flex-start;
+            position: sticky;
+            top: 0;
+        }
+    }
+}

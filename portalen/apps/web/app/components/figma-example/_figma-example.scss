@@ -1,0 +1,71 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --button-bg-color: #{jkl.$color-hvit};
+    --button-border-color: #{jkl.$color-granitt};
+}
+
+@include jkl.dark-mode-variables {
+    --button-bg-color: #{jkl.$color-svart};
+    --button-border-color: #{jkl.$color-snohvit};
+}
+
+.jkl-portal-figma-example {
+    display: flex;
+    flex-direction: column;
+    gap: jkl.$spacing-40;
+
+    &__files {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: jkl.$spacing-24;
+    }
+
+    &__example {
+        width: 100%;
+        aspect-ratio: 2 / 3;
+        border: 0;
+
+        @include jkl.from-medium-device {
+            aspect-ratio: 16 / 11;
+        }
+    }
+}
+
+.jkl-portal-figma-file-button {
+    @include jkl.reset-outline;
+    cursor: pointer;
+
+    background-color: var(--button-bg-color);
+    color: var(--jkl-color);
+    padding: jkl.$spacing-16 jkl.$spacing-16 jkl.$spacing-64;
+
+    display: flex;
+    flex-direction: column;
+    gap: jkl.$spacing-40;
+    flex: 1 1 0;
+
+    @include jkl.small-device {
+        min-width: 50%;
+    }
+
+    &__jokul {
+        @include jkl.text-style('small');
+        @include jkl.use-font-family('Fremtind Grotesk Mono');
+    }
+
+    &__logo {
+        height: jkl.rem(16px);
+    }
+
+    &__file-name {
+        @include jkl.text-style('heading-1');
+    }
+
+    @include jkl.keyboard-navigation {
+        &:focus {
+            outline: jkl.rem(2px) solid var(--button-border-color);
+        }
+    }
+}

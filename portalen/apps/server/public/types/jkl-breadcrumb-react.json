@@ -1,0 +1,139 @@
+{
+    "version": "5.0.10",
+    "types": {
+        "Breadcrumb": {
+            "tags": {},
+            "filePath": "jokul/packages/breadcrumb-react/src/index.ts",
+            "description": "",
+            "displayName": "Breadcrumb",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/breadcrumb-react/src/Breadcrumb.tsx",
+                        "name": "BreadcrumbProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/breadcrumb-react/src/Breadcrumb.tsx",
+                            "name": "BreadcrumbProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/breadcrumb-react/src/Breadcrumb.tsx",
+                        "name": "BreadcrumbProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/breadcrumb-react/src/Breadcrumb.tsx",
+                            "name": "BreadcrumbProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        },
+        "BreadcrumbItem": {
+            "tags": {},
+            "filePath": "jokul/packages/breadcrumb-react/src/index.ts",
+            "description": "",
+            "displayName": "BreadcrumbItem",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/breadcrumb-react/src/BreadcrumbItem.tsx",
+                        "name": "BreadcrumbItemProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/breadcrumb-react/src/BreadcrumbItem.tsx",
+                            "name": "BreadcrumbItemProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "isLastElement": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Settes automatisk av Breadcrumb",
+                    "name": "isLastElement",
+                    "parent": {
+                        "fileName": "server/jokul/packages/breadcrumb-react/src/BreadcrumbItem.tsx",
+                        "name": "BreadcrumbItemProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/breadcrumb-react/src/BreadcrumbItem.tsx",
+                            "name": "BreadcrumbItemProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        }
+    }
+}

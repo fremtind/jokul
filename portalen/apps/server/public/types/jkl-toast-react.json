@@ -1,0 +1,75 @@
+{
+    "version": "2.2.7",
+    "types": {
+        "ToastProvider": {
+            "tags": {},
+            "filePath": "jokul/packages/toast-react/src/index.ts",
+            "description": "",
+            "displayName": "ToastProvider",
+            "methods": [],
+            "props": {
+                "maxVisibleToasts": {
+                    "defaultValue": {
+                        "value": "5"
+                    },
+                    "description": "",
+                    "name": "maxVisibleToasts",
+                    "parent": {
+                        "fileName": "server/jokul/packages/toast-react/src/toastContext.tsx",
+                        "name": "ToastContextProviderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/toast-react/src/toastContext.tsx",
+                            "name": "ToastContextProviderProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "number | undefined"
+                    }
+                },
+                "placement": {
+                    "defaultValue": {
+                        "value": "center"
+                    },
+                    "description": "",
+                    "name": "placement",
+                    "parent": {
+                        "fileName": "server/jokul/packages/toast-react/src/toastContext.tsx",
+                        "name": "ToastContextProviderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/toast-react/src/toastContext.tsx",
+                            "name": "ToastContextProviderProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"center\" | \"left\" | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        }
+    }
+}

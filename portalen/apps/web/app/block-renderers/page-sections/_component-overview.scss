@@ -1,0 +1,26 @@
+@use '@fremtind/jkl-core/jkl';
+
+.jkl-portal-component-overview {
+    margin-bottom: jkl.$spacing-64;
+    max-width: jkl.rem(1024px);
+}
+
+.jkl-portal-component-overview-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: jkl.$spacing-24 jkl.$spacing-16;
+    width: fit-content;
+    place-content: center;
+
+    @include jkl.from-medium-device {
+        place-content: flex-start;
+    }
+
+    > * {
+        width: 100%;
+
+        @include jkl.from-medium-device {
+            width: jkl.rem(235px);
+        }
+    }
+}

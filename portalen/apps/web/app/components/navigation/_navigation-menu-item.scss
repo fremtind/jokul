@@ -1,0 +1,88 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --menu-item-color: #{jkl.$color-granitt};
+    --menu-icon-color: #{jkl.$color-svaberg};
+}
+
+@include jkl.dark-mode-variables {
+    --menu-item-color: #{jkl.$color-snohvit};
+    --menu-icon-color: #{jkl.$color-stein};
+}
+
+.jkl-portal-navigation-menu-item {
+    @include jkl.reset-outline;
+    @include jkl.text-style('body');
+
+    background-color: transparent;
+    color: var(--menu-item-color);
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    text-align: start;
+    width: auto;
+    text-decoration: none;
+
+    &::after {
+        content: '\00A0\2192';
+        content: '\00A0\2192'/ ' '; // Skjul for skjermlesere i støttede nettlesere
+        position: relative;
+        transform: translate(calc(var(--jkl-spacing-4) * -1), 0);
+        opacity: 0;
+        transition-property: transform, opacity;
+        @include jkl.motion('standard', 'productive');
+    }
+
+    &:hover {
+        @include jkl.no-grow-bold;
+        // Vis pil ved hover kun for menypunkter uten undermeny
+        &:not([data-is-open])::after {
+            transform: translate(var(--jkl-spacing-2), 0);
+            opacity: 1;
+        }
+    }
+
+    // Menypunkt med undermeny
+    &[data-is-open] {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    &__icon {
+        transition-property: transform;
+        @include jkl.motion('standard', 'productive');
+        transform: rotate(0);
+        color: var(--menu-icon-color);
+    }
+
+    &[data-is-open='true'] &__icon {
+        transform: rotate(90deg);
+    }
+
+    &[aria-current='page'],
+    &[data-has-active-child='true']:not([data-is-open='true']) {
+        @include jkl.no-grow-bold;
+    }
+
+    @include jkl.keyboard-navigation {
+        &:focus {
+            @include jkl.no-grow-bold;
+
+            outline: jkl.rem(2px) solid var(--jkl-color);
+            outline-offset: jkl.rem(2px);
+
+            // Vis pil ved hover kun for menypunkter uten undermeny
+            &:not([data-is-open])::after {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        }
+    }
+}

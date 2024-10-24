@@ -1,0 +1,175 @@
+{
+    "version": "10.0.10",
+    "types": {
+        "SummaryTable": {
+            "tags": {},
+            "filePath": "jokul/packages/summary-table-react/src/index.ts",
+            "description": "",
+            "displayName": "SummaryTable",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/summary-table-react/src/SummaryTable.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/summary-table-react/src/SummaryTable.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "caption": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "caption",
+                    "parent": {
+                        "fileName": "server/jokul/packages/summary-table-react/src/SummaryTable.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/summary-table-react/src/SummaryTable.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "header": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "header",
+                    "parent": {
+                        "fileName": "server/jokul/packages/summary-table-react/src/SummaryTable.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/summary-table-react/src/SummaryTable.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "[string, string]"
+                    }
+                },
+                "body": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "body",
+                    "parent": {
+                        "fileName": "server/jokul/packages/summary-table-react/src/SummaryTable.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/summary-table-react/src/SummaryTable.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "footer": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "footer",
+                    "parent": {
+                        "fileName": "server/jokul/packages/summary-table-react/src/SummaryTable.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/summary-table-react/src/SummaryTable.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                }
+            }
+        },
+        "SummaryTableRow": {
+            "tags": {},
+            "filePath": "jokul/packages/summary-table-react/src/index.ts",
+            "description": "",
+            "displayName": "SummaryTableRow",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/summary-table-react/src/SummaryTableRow.tsx",
+                        "name": "SummaryTableRowProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/summary-table-react/src/SummaryTableRow.tsx",
+                            "name": "SummaryTableRowProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "header": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "header",
+                    "parent": {
+                        "fileName": "server/jokul/packages/summary-table-react/src/SummaryTableRow.tsx",
+                        "name": "SummaryTableRowProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/summary-table-react/src/SummaryTableRow.tsx",
+                            "name": "SummaryTableRowProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "content": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "content",
+                    "parent": {
+                        "fileName": "server/jokul/packages/summary-table-react/src/SummaryTableRow.tsx",
+                        "name": "SummaryTableRowProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/summary-table-react/src/SummaryTableRow.tsx",
+                            "name": "SummaryTableRowProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                }
+            }
+        }
+    }
+}

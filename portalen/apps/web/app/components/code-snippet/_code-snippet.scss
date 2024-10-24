@@ -1,0 +1,63 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --code-snippet-background: #{jkl.$color-sand};
+    --icon-color: #{jkl.$color-granitt};
+}
+
+@include jkl.dark-mode-variables {
+    --code-snippet-background: #{jkl.$color-granitt};
+    --icon-color: #{jkl.$color-snohvit};
+}
+
+.code-snippet {
+    @include jkl.text-style('small');
+    @include jkl.use-font-family('Fremtind Grotesk Mono');
+    border: 1px solid var(--gap-color);
+    box-sizing: border-box;
+    background-color: var(--code-snippet-background);
+    max-width: min(85vw, var(--jkl-portal-content));
+    width: 100%;
+    position: relative;
+    margin-bottom: jkl.$spacing-32;
+
+    & > div {
+        background-color: var(--code-snippet-background);
+    }
+
+    &--inline {
+        display: inline-block;
+        padding: jkl.rem(4px) jkl.rem(6px);
+        border: none;
+        border-radius: 4px;
+        margin: 0;
+
+        pre {
+            padding: 0 !important; // overskriv inline styles satt av prismjs
+        }
+    }
+
+    .clipboard-button {
+        position: absolute;
+        top: jkl.$spacing-8;
+        right: calc(jkl.$spacing-8 + var(--scrollbar-width));
+    }
+}
+
+.clipboard-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--icon-color);
+
+    svg {
+        fill: var(--icon-color);
+    }
+
+    &__tooltip-content {
+        display: flex;
+        gap: jkl.$spacing-8;
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "name": "@org/ui",
+    "version": "1.0.0",
+    "license": "MIT",
+    "sideEffects": false,
+    "main": "./src/index.tsx",
+    "exports": {
+        ".": {
+            "types": "./src/index.tsx",
+            "import": "./src/index.tsx",
+            "require": "./src/index.tsx"
+        },
+        "./styles.css": {
+            "import": "./src/styles/ui.css",
+            "require": "./src/styles/ui.css"
+        }
+    },
+    "scripts": {
+        "build": "rm -rf dist && tsc -p tsconfig.json",
+        "clean": "rm -rf node_modules dist .turbo",
+        "lint": "eslint --ext .ts,.tsx,.js,.jsx ./src",
+        "prepublishOnly": "pnpm run build"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.14",
+        "react": "^18.2.0"
+    }
+}

@@ -1,0 +1,20 @@
+@use '@fremtind/jkl-core/jkl';
+
+.jkl-portal-home-page {
+    --content-padding-block: #{jkl.$spacing-40};
+    --content-padding-inline: #{jkl.$spacing-16};
+
+    padding: var(--content-padding-block) var(--content-padding-inline);
+    display: flex;
+    flex-direction: column;
+    gap: var(--jkl-spacing-24);
+
+    counter-reset: sections;
+
+    @include jkl.from-medium-device {
+        --content-padding-block: #{jkl.$spacing-64};
+        --content-padding-inline: #{jkl.$spacing-64};
+
+        gap: var(--jkl-spacing-64);
+    }
+}

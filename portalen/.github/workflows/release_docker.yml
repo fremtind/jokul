@@ -1,0 +1,50 @@
+name: Build Docker image and push to Amazon ECS
+
+on:
+    workflow_call:
+        inputs:
+            repository:
+                type: string
+                required: true
+                description: 'repository name on the registry'
+            working-directory:
+                type: string
+                required: true
+                description: 'working directory for executing tasks'
+
+jobs:
+    docker-build-push:
+        # Må ha tilgang til docker.intern
+        runs-on: self-hosted
+        # Trengs for å bruke GitHub OIDC
+        permissions:
+            id-token: write
+            contents: write
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Install AWS CLI
+              run: |
+                  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+                  unzip -qq awscliv2.zip
+                  sudo ./aws/install --bin-dir /bin --install-dir /usr/local/aws-cli --update
+
+            - name: Configure AWS credentials
+              uses: ./.github/actions/aws-oidc
+              with:
+                  # Rollen finnes bare i preprod i skrivende stund
+                  role-to-assume: arn:aws:iam::197434302239:role/jkl-portal-gh-actions-ecr
+                  aws-region: eu-west-1
+
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v1
+
+            - name: Build, tag, and push image to Amazon ECR
+              env:
+                  ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+              working-directory: ${{ inputs.working-directory }}
+              run: |
+                  docker build --tag $ECR_REGISTRY/${{ inputs.repository }}:${{ github.sha }} --tag $ECR_REGISTRY/${{ inputs.repository }}:latest .
+                  docker push $ECR_REGISTRY/${{ inputs.repository }} --all-tags

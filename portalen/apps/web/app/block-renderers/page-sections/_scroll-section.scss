@@ -1,0 +1,89 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --image-bg-color: #{jkl.$color-snohvit};
+}
+@include jkl.dark-mode-variables {
+    --image-bg-color: #{jkl.$color-svart};
+}
+
+.jkl-portal-scroll-section {
+    display: flex;
+    flex-wrap: wrap;
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    @include jkl.from-medium-device {
+        overflow: scroll;
+        height: 630px;
+    }
+
+    &__container {
+        height: 100%;
+
+        width: 100%;
+
+        @include jkl.from-medium-device {
+            display: flex;
+        }
+    }
+
+    &__left {
+        align-self: center;
+        width: 100%;
+
+        @include jkl.from-medium-device {
+            width: 50%;
+        }
+
+        a {
+            font-size: 2.25rem;
+            font-weight: 400;
+        }
+    }
+
+    &__tag {
+        padding-bottom: #{jkl.$spacing-24};
+        @include jkl.use-font-family('Fremtind Grotesk Mono');
+    }
+
+    &__ingress {
+        padding-top: #{jkl.$spacing-24};
+    }
+
+    &__author {
+        margin-top: #{jkl.$spacing-40};
+        color: #{jkl.$color-stein};
+        font-size: #{jkl.$typography-body-small-font-size};
+    }
+
+    &__right {
+        display: flex;
+        width: 100%;
+        background-color: var(--image-bg-color);
+
+        opacity: 0;
+        transform: translateZ(20px);
+        transition: opacity 0.75s ease, transform 0.75s ease;
+
+        @include jkl.from-medium-device {
+            width: 50%;
+        }
+
+        &.fade-in-active {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+
+        &__media-container {
+            display: flex;
+            padding: 0 #{jkl.$spacing-64};
+            align-self: center;
+        }
+    }
+}
+
+.jkl-portal-scroll-section::-webkit-scrollbar {
+    display: none;
+}

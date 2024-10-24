@@ -1,0 +1,37 @@
+@use '@fremtind/jkl-core/jkl';
+
+@counter-style section-counter {
+    system: numeric;
+    symbols: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+    pad: 2 '0';
+}
+
+@include jkl.light-mode-variables {
+    --counter-color: #{jkl.$color-stein};
+}
+@include jkl.dark-mode-variables {
+    --counter-color: #{jkl.$color-svaberg};
+}
+
+.jkl-portal-page-section {
+    margin: jkl.$spacing-104 0;
+
+    &:first-child {
+        margin-top: jkl.$spacing-64;
+    }
+
+    &:last-child {
+        margin-bottom: jkl.$spacing-64;
+    }
+
+    @include jkl.motion('standard', 'expressive');
+    transition-property: opacity;
+
+    & > p {
+        @include jkl.text-style('body');
+
+        &:not(:last-child) {
+            margin-block-end: jkl.$spacing-24;
+        }
+    }
+}

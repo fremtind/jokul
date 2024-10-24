@@ -1,0 +1,168 @@
+{
+    "version": "12.0.11",
+    "types": {
+        "Hamburger": {
+            "tags": {},
+            "filePath": "jokul/packages/hamburger-react/src/index.ts",
+            "description": "",
+            "displayName": "Hamburger",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "Kreves for at menyen skal kunne sette `aria-labelledby`.",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                        "name": "HamburgerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                            "name": "HamburgerProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "aria-controls": {
+                    "defaultValue": null,
+                    "description": "Hjelp skjermleseren forstå hva som blir styrt av hamburgeren.",
+                    "name": "aria-controls",
+                    "parent": {
+                        "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                        "name": "HamburgerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                            "name": "HamburgerProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "aria-label": {
+                    "defaultValue": {
+                        "value": "\"Hovedmeny\""
+                    },
+                    "description": "Gi en beskrivende tekst for skjermlesere.",
+                    "name": "aria-label",
+                    "parent": {
+                        "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                        "name": "HamburgerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                            "name": "HamburgerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "isOpen": {
+                    "defaultValue": null,
+                    "description": "Styrer utseende, tekst, og `aria-expanded`.",
+                    "name": "isOpen",
+                    "parent": {
+                        "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                        "name": "HamburgerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                            "name": "HamburgerProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "onClick": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onClick",
+                    "parent": {
+                        "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                        "name": "HamburgerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                            "name": "HamburgerProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(() => void) | ((evt: MouseEvent<Element, MouseEvent>) => void)"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                        "name": "HamburgerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                            "name": "HamburgerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                        "name": "HamburgerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                            "name": "HamburgerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "actionLabel": {
+                    "defaultValue": null,
+                    "description": "Vis en tekst før eller etter hamburgerikonet som varierer med åpnet og\nlukket tilstand.\n\nNB! Komponenten setter en standard `aria-label`. Skjermlesere vil kunne\nignorere teksten i `actionLabel` og fremdeles annonsere knappens\n`aria-label`. Skjermleseren annonserer knappens tilstand basert på\n`aria-expanded`.\n\nDersom du heller ønsker at knappens `actionLabel` skal leses opp må du\nsette en tom string som `aria-label`.",
+                    "name": "actionLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                        "name": "HamburgerProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/hamburger-react/src/Hamburger.tsx",
+                            "name": "HamburgerProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ open: string; close: string; animated?: boolean | undefined; position?: \"before\" | \"after\" | undefined; } | undefined"
+                    }
+                }
+            }
+        }
+    }
+}

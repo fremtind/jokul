@@ -1,0 +1,44 @@
+@use '@fremtind/jkl-core/jkl';
+
+.jkl-portal-stepped-example-navigation {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--jkl-spacing-12);
+    // Trengs for å aligne pilen på tilbake-knappen:
+    padding-left: var(--jkl-spacing-12);
+
+    &__button {
+        user-select: none;
+        background-color: transparent;
+        cursor: pointer;
+        flex-shrink: 0;
+        padding: 0;
+
+        &:disabled {
+            cursor: auto;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+    }
+
+    &__progress {
+        --step-width: calc(var(--value) / var(--max));
+        position: relative;
+        background-color: var(--stepped-example-progress-bg);
+        width: 100%;
+        height: 1px;
+        margin-top: -0.1em; // Vertikal justering mot knapper
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: var(--stepped-example-progress-color);
+            transform: scale(var(--step-width, 0), 1);
+            transform-origin: top left;
+            @include jkl.motion('standard');
+            transition-property: transform;
+        }
+    }
+}

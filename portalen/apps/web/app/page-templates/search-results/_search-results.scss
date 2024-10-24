@@ -1,0 +1,60 @@
+@use '@fremtind/jkl-core/jkl';
+
+.search-results {
+    @include jkl.text-style('body');
+    padding: #{jkl.$spacing-16} 0;
+    margin: 0 #{jkl.$spacing-24};
+
+    @include jkl.from-medium-device {
+        margin: 0 #{jkl.$spacing-40};
+        padding: #{jkl.$spacing-64} 0;
+    }
+
+    &__header-container {
+        width: 100%;
+
+        @include jkl.from-medium-device {
+            padding-bottom: jkl.$spacing-32;
+        }
+    }
+
+    &__heading {
+        @include jkl.text-style('title');
+        max-width: 100%;
+        margin: 0;
+        margin-left: -0.07em; // For å få overskriften i flukt med venstre marg
+        margin-bottom: jkl.$spacing-40;
+    }
+
+    &__content,
+    &__header-container {
+        max-width: var(--jkl-portal-content-wide);
+        width: 100%;
+    }
+
+    &__category {
+        display: flex;
+        flex-direction: column;
+        gap: jkl.$spacing-16;
+        margin-block: jkl.$spacing-40;
+    }
+
+    &__results {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 325px));
+        grid-template-rows: auto;
+        gap: jkl.$spacing-64 jkl.$spacing-32;
+    }
+
+    &__result {
+        @include jkl.reset-outline;
+        text-decoration: none;
+        color: var(--jkl-color);
+
+        @include jkl.keyboard-navigation {
+            &:focus {
+                outline: jkl.rem(2px) solid var(--jkl-color);
+            }
+        }
+    }
+}
