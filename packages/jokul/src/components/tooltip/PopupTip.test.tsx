@@ -1,7 +1,8 @@
 import { act, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { PopupTip } from "./PopupTip.js";
 
 // https://github.com/testing-library/user-event/issues/1146
@@ -24,10 +25,10 @@ describe("PopupTip", () => {
     });
 
     it("should trigger passed handlers", async () => {
-        const handleMouseOver = jest.fn();
-        const handleMouseOut = jest.fn();
-        const handleFocus = jest.fn();
-        const handleBlur = jest.fn();
+        const handleMouseOver = vi.fn();
+        const handleMouseOut = vi.fn();
+        const handleFocus = vi.fn();
+        const handleBlur = vi.fn();
 
         render(
             <PopupTip
@@ -56,7 +57,7 @@ describe("PopupTip", () => {
     });
 
     describe("a11y", () => {
-        test("PopupTip should be a11y compliant", async () => {
+        it("PopupTip should be a11y compliant", async () => {
             const { container } = render(<PopupTip initialOpen content="Forklarende tekst" />);
 
             await act(async () => {

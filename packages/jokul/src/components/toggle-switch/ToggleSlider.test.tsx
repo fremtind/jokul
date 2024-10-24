@@ -1,13 +1,14 @@
-import { render, screen, act, fireEvent } from "@testing-library/react";
-import { axe } from "jest-axe";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { ToggleSlider } from "./ToggleSlider.js";
 
-const fn = jest.fn();
+const fn = vi.fn();
 
 describe("ToggleSlider", () => {
     beforeEach(() => {
-        jest.resetAllMocks();
+        vi.resetAllMocks();
     });
 
     const getInputs = () => {
@@ -111,7 +112,7 @@ describe("ToggleSlider", () => {
     });
 
     describe("a11y", () => {
-        test("toggle-switch should be a11y compliant", async () => {
+        it("toggle-switch should be a11y compliant", async () => {
             const { container } = render(
                 <ToggleSlider defaultValue="av" labels={["av", "på"]} onToggle={fn}>
                     Skru

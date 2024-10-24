@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
 import { InputGroup } from "./InputGroup.js";
 
 describe("InputGroup", () => {
@@ -16,7 +17,7 @@ describe("InputGroup", () => {
 });
 
 describe("a11y", () => {
-    test("InputGroup should be a11y compliant", async () => {
+    it("InputGroup should be a11y compliant", async () => {
         const { container } = render(
             <InputGroup label="Test av InputGroup">
                 <input type="text" />

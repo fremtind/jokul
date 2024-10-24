@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
 import { SearchIcon } from "../icon/index.js";
 import { TextInput } from "./TextInput.js";
 
@@ -142,13 +143,13 @@ describe("TextInput", () => {
 });
 
 describe("a11y", () => {
-    test("text-field should be a11y compliant", async () => {
+    it("text-field should be a11y compliant", async () => {
         const { container } = render(<TextInput label="testing" type="text" helpLabel="some help 4 u" />);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
-    test("inline text-field should be a11y compliant", async () => {
+    it("inline text-field should be a11y compliant", async () => {
         const { container } = render(<TextInput inline label="testing" type="text" helpLabel="some help 4 u" />);
         const results = await axe(container);
 

@@ -1,7 +1,8 @@
 import { act, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
 import React, { useState } from "react";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { Icon } from "../icon/Icon.js";
 import { Button } from "./Button.js";
 import { buttonVariants } from "./types.js";
@@ -51,7 +52,7 @@ describe("Button", () => {
     });
 
     it("calls the onClick handler when clicked", async () => {
-        const clickHandler = jest.fn();
+        const clickHandler = vi.fn();
         render(<Button onClick={clickHandler}>I am groot!</Button>);
 
         const button = screen.getByText("I am groot!");
@@ -83,8 +84,8 @@ describe("Button", () => {
         expect(screen.getByTestId("test")).toHaveAttribute("data-density", "compact");
     });
 
-    test("button component does not unmount and remount when consumer component rerenders becaus of state change", async () => {
-        const x = jest.fn();
+    it("button component does not unmount and remount when consumer component rerenders becaus of state change", async () => {
+        const x = vi.fn();
 
         interface Props {
             onClick: (x: number) => void;

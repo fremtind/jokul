@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { isInteger } from "./isInteger.js";
 
 describe("isInteger", () => {

@@ -1,7 +1,8 @@
 import { act, render, RenderOptions } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { DotsIcon } from "../icon/index.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { Menu } from "./Menu.js";
@@ -19,22 +20,7 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
 }
 
 describe("Menu", () => {
-    let defaultResizeObserver = globalThis.ResizeObserver;
-
-    beforeAll(() => {
-        // Framer motion is referencing ResizeObserver..
-        globalThis.ResizeObserver = jest.fn().mockImplementation(() => ({
-            observe: jest.fn(),
-            unobserve: jest.fn(),
-            disconnect: jest.fn(),
-        }));
-    });
-
-    afterAll(() => {
-        globalThis.ResizeObserver = defaultResizeObserver;
-    });
-
-    test("should render menu trigger", () => {
+    it("should render menu trigger", () => {
         const { getByRole, queryByRole } = setup(
             <Menu
                 initialPlacement="bottom-start"
@@ -53,7 +39,7 @@ describe("Menu", () => {
         expect(queryByRole("menuitem")).not.toBeInTheDocument();
     });
 
-    test("should render as open if isOpen prop is true", async () => {
+    it("should render as open if isOpen prop is true", async () => {
         const { getByRole } = setup(
             <Menu
                 initialPlacement="bottom-start"
@@ -71,7 +57,7 @@ describe("Menu", () => {
         expect(getByRole("menuitem", { name: "Menyvalg" })).toBeInTheDocument();
     });
 
-    test("should not open if isOpen prop is set to false", async () => {
+    it("should not open if isOpen prop is set to false", async () => {
         const { getByRole, queryByRole, user } = setup(
             <Menu
                 initialPlacement="bottom-start"
@@ -91,7 +77,7 @@ describe("Menu", () => {
         expect(queryByRole("menuitem", { name: "Menyvalg" })).not.toBeInTheDocument();
     });
 
-    test("should open menu options when clicking on trigger element", async () => {
+    it("should open menu options when clicking on trigger element", async () => {
         const { getByRole, user } = setup(
             <Menu
                 initialPlacement="bottom-start"
@@ -110,7 +96,7 @@ describe("Menu", () => {
         expect(getByRole("menuitem", { name: "Menyvalg" })).toBeInTheDocument();
     });
 
-    test("when open on hover is set on submenu, opens on hover", async () => {
+    it("when open on hover is set on submenu, opens on hover", async () => {
         const { findByRole, getByRole, queryByRole, user } = setup(
             <Menu
                 initialPlacement="bottom-start"
@@ -139,8 +125,8 @@ describe("Menu", () => {
         expect(ekspandert).toBeInTheDocument();
     });
 
-    test("should call onToggle callback when opening and closing", async () => {
-        const onToggle = jest.fn();
+    it("should call onToggle callback when opening and closing", async () => {
+        const onToggle = vi.fn();
 
         const { getByRole, user } = setup(
             <Menu
@@ -165,7 +151,7 @@ describe("Menu", () => {
         expect(onToggle).toHaveBeenNthCalledWith(3, false);
     });
 
-    test("should pass jest-axe tests in default state", async () => {
+    it("should pass vi-axe tests in default state", async () => {
         const { container } = setup(
             <Menu
                 initialPlacement="bottom-start"
@@ -184,7 +170,7 @@ describe("Menu", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("should pass jest-axe tests when open", async () => {
+    it("should pass vi-axe tests when open", async () => {
         const { getByRole, container, user } = setup(
             <Menu
                 initialPlacement="bottom-start"
@@ -215,7 +201,7 @@ describe("Menu", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("should pass jest-axe tests when hover submenu is open", async () => {
+    it("should pass vi-axe tests when hover submenu is open", async () => {
         const { findByRole, getByRole, container, user } = setup(
             <Menu
                 initialPlacement="bottom-start"

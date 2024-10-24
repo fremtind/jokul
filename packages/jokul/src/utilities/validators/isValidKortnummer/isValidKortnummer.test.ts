@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { isValidKortnummer } from "./isValidKortnummer.js";
 
 describe("isValidKortnummer", () => {

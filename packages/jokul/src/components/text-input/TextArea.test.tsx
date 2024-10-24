@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
 import { TextArea } from "./TextArea.js";
 
 describe("TextArea", () => {
@@ -34,14 +35,14 @@ describe("TextArea", () => {
 });
 
 describe("a11y", () => {
-    test("text-area should be a11y compliant", async () => {
+    it("text-area should be a11y compliant", async () => {
         const { container } = render(<TextArea label="testing" helpLabel="tips" />);
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
 
-    test("text-area with counter should be a11y compliant", async () => {
+    it("text-area with counter should be a11y compliant", async () => {
         const { container } = render(<TextArea label="testing" helpLabel="tips" counter={{ maxLength: 200 }} />);
         const results = await axe(container);
 

@@ -1,8 +1,9 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
 import React from "react";
 import { act } from "react-dom/test-utils";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { Feedback } from "./Feedback.js";
 import { PRESETS } from "./presets.js";
 import { FollowupQuestion } from "./types.js";
@@ -10,7 +11,7 @@ import { FollowupQuestion } from "./types.js";
 // https://github.com/testing-library/user-event/issues/1146
 const userEvent = UserEventModule.default ?? UserEventModule;
 
-const mockFn = jest.fn();
+const mockFn = vi.fn();
 
 const followUpQuestions: FollowupQuestion[] = [
     {
@@ -37,7 +38,7 @@ const followUpQuestions: FollowupQuestion[] = [
 ];
 
 beforeEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
     cleanup();
 });
 
