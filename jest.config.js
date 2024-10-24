@@ -22,6 +22,7 @@ const config = {
         "^.+\\.(css|scss)$": "<rootDir>/jest/identity-mapper.ts",
     },
     roots: ["./packages", "./portal"],
+    testPathIgnorePatterns: ["/packages/jokul/"],
     testEnvironment: "jsdom",
     setupFiles: ["jest-canvas-mock"],
     setupFilesAfterEnv: ["./jest/setupTests.ts"],
