@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { hasMinimumWords } from "./hasMinimumWords.js";
 
 describe("hasMinimumWords", () => {

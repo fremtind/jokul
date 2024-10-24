@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
 import { NavLink } from "./NavLink.js";
 
 describe("NavLink", () => {
@@ -39,7 +40,7 @@ describe("NavLink", () => {
         expect(getByText("Some link")).toHaveClass("my-class");
     });
 
-    it("should pass jest-axe tests in default state", async () => {
+    it("should pass vi-axe tests in default state", async () => {
         const { container } = render(<NavLink>Listen</NavLink>);
 
         const results = await axe(container);
@@ -47,7 +48,7 @@ describe("NavLink", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("should pass jest-axe tests when active", async () => {
+    it("should pass vi-axe tests when active", async () => {
         const { container } = render(<NavLink active>Listen</NavLink>);
 
         const results = await axe(container);

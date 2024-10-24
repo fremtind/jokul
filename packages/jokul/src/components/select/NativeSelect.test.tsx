@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { NativeSelect } from "./NativeSelect.js";
 
 describe("NativeSelect", () => {
@@ -57,8 +58,8 @@ describe("NativeSelect", () => {
 });
 
 describe("a11y", () => {
-    test("native select should be a11y compliant", async () => {
-        const onChange = jest.fn();
+    it("native select should be a11y compliant", async () => {
+        const onChange = vi.fn();
         const { container } = render(
             <NativeSelect label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" onChange={onChange} />,
         );
@@ -67,8 +68,8 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("compact native select should be a11y compliant", async () => {
-        const onChange = jest.fn();
+    it("compact native select should be a11y compliant", async () => {
+        const onChange = vi.fn();
         const { container } = render(
             <NativeSelect
                 density="compact"

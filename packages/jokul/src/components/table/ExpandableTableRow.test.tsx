@@ -1,17 +1,18 @@
 import { act, render, RenderOptions } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
 import React, { useState } from "react";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import {
-    Table,
-    TableCaption,
-    TableHead,
-    TableRow,
-    TableHeader,
-    TableBody,
     ExpandableTableRow,
     ExpandableTableRowController,
+    Table,
+    TableBody,
+    TableCaption,
     TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
 } from "./index.js";
 
 // https://github.com/testing-library/user-event/issues/1146
@@ -163,7 +164,7 @@ describe("ExpandableTableRow", () => {
         expect(tableRows).toHaveLength(2); // 1 header row + 1 data row
     });
 
-    it("should pass jest-axe tests in default state", async () => {
+    it("should pass vi-axe tests in default state", async () => {
         const { container } = setup(<TableUnderTest />);
 
         const results = await axe(container);

@@ -1,6 +1,7 @@
-import { render, screen, act } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React, { useRef } from "react";
+import { describe, expect, it, vi } from "vitest";
 import { useClickOutside } from "./useClickOutside.js";
 
 // https://github.com/testing-library/user-event/issues/1146
@@ -24,8 +25,8 @@ function Test({ fn }: Props) {
 }
 
 describe("useClickOutside", () => {
-    test("should not fire function when click is inside the ref", async () => {
-        const fn = jest.fn();
+    it("should not fire function when click is inside the ref", async () => {
+        const fn = vi.fn();
         render(<Test fn={fn} />);
         await act(async () => {
             await userEvent.click(screen.getByTestId("withRef"));
@@ -33,8 +34,8 @@ describe("useClickOutside", () => {
 
         expect(fn).toHaveBeenCalledTimes(0);
     });
-    test("should fire function when click is outside the ref", async () => {
-        const fn = jest.fn();
+    it("should fire function when click is outside the ref", async () => {
+        const fn = vi.fn();
         render(<Test fn={fn} />);
         await act(async () => {
             await userEvent.click(screen.getByTestId("withoutRef"));

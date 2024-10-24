@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
 import { Loader } from "./Loader.js";
 
 describe("Loader", () => {
@@ -31,7 +32,7 @@ describe("Loader", () => {
 });
 
 describe("a11y", () => {
-    test("should have no axe errors", async () => {
+    it("should have no axe errors", async () => {
         const { container } = render(<Loader textDescription="Laster inn" />);
 
         const results = await axe(container);

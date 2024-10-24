@@ -17,6 +17,7 @@ import { useId } from "../../hooks/useId/useId.js";
 import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
 import { ValuePair } from "../../utilities/valuePair.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
+import { CheckIcon } from "../icon/index.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
 import { LabelProps } from "../input-group/Label.js";

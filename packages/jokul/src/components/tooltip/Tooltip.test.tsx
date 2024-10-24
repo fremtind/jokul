@@ -1,7 +1,8 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { Tooltip } from "./Tooltip.js";
 import { TooltipContent } from "./TooltipContent.js";
 import { TooltipTrigger } from "./TooltipTrigger.js";
@@ -109,7 +110,7 @@ describe("Tooltip", () => {
     });
 
     describe("a11y", () => {
-        test("tooltip should be a11y compliant", async () => {
+        it("tooltip should be a11y compliant", async () => {
             const { container } = render(
                 <Tooltip initialOpen>
                     <TooltipContent>Forklarende tekst</TooltipContent>

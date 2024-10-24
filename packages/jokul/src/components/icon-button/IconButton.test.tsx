@@ -1,6 +1,7 @@
 import { act, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React from "react";
+import { describe, expect, it, vi } from "vitest";
 import { SearchIcon } from "../icon/index.js";
 import { IconButton } from "./IconButton.js";
 
@@ -9,7 +10,7 @@ const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("IconButton", () => {
     it("calls the onClick handler when clicked", async () => {
-        const clickHandler = jest.fn();
+        const clickHandler = vi.fn();
         render(
             <IconButton title="Søk" onClick={clickHandler}>
                 <SearchIcon />

@@ -1,10 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
 import { LinkList } from "./LinkList.js";
 
 describe("LinkList", () => {
-    test(`LinkList should render as expected`, () => {
+    it(`renders as expected`, () => {
         render(
             <LinkList variant="unordered">
                 <LinkList.Item>
@@ -27,19 +28,7 @@ describe("LinkList", () => {
         expect(screen.getByText("Norsk Sykepleierforbund")).toBeInTheDocument();
     });
 
-    test("a11y", async () => {
-        const { container } = render(
-            <LinkList variant="unordered">
-                <LinkList.Item>
-                    <LinkList.Link>SpareBank 1</LinkList.Link>
-                </LinkList.Item>
-            </LinkList>,
-        );
-        const results = await axe(container);
-        expect(results).toHaveNoViolations();
-    });
-
-    test("renders as ordered list", () => {
+    it("renders as ordered list", () => {
         render(
             <LinkList variant="ordered">
                 <LinkList.Item>
@@ -52,7 +41,7 @@ describe("LinkList", () => {
         expect(listElement.tagName.toLowerCase()).toBe("ol");
     });
 
-    test("renders as unordered list", () => {
+    it("renders as unordered list", () => {
         render(
             <LinkList variant="unordered">
                 <LinkList.Item>
@@ -67,7 +56,7 @@ describe("LinkList", () => {
         expect(listElement.tagName.toLowerCase()).toBe("ul");
     });
 
-    test("should have the correct href attribute", () => {
+    it("should have the correct href attribute", () => {
         const linkText = "SpareBank 1";
         const linkUrl = "https://www.sparebank1.no/nb/bank/privat/forsikring.html";
 
@@ -82,5 +71,17 @@ describe("LinkList", () => {
         const linkElement = screen.getByText(linkText);
 
         expect(linkElement).toHaveAttribute("href", linkUrl);
+    });
+
+    it("is accessible", async () => {
+        const { container } = render(
+            <LinkList variant="unordered">
+                <LinkList.Item>
+                    <LinkList.Link>SpareBank 1</LinkList.Link>
+                </LinkList.Item>
+            </LinkList>,
+        );
+        const results = await axe(container);
+        expect(results).toHaveNoViolations();
     });
 });

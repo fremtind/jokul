@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
 import { FieldGroup } from "./FieldGroup.js";
 
 describe("FieldGroup", () => {

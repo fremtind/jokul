@@ -1,8 +1,9 @@
 import { act, fireEvent, render, RenderOptions, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { Accordion } from "../accordion/Accordion.js";
 import { AccordionItem } from "../accordion/AccordionItem.js";
 import { Select } from "./Select.js";
@@ -14,7 +15,7 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
         user: userEvent.setup({
             delay: 5,
-            advanceTimers: jest.advanceTimersByTime,
+            advanceTimers: vi.advanceTimersByTime,
             skipHover: true,
         }),
         ...render(jsx, renderOptions),
@@ -62,7 +63,7 @@ describe("Select", () => {
     });
 
     it("should use the specified value", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const value = "drop";
         const { getByTestId } = setup(
             <Select
@@ -106,7 +107,7 @@ describe("Select", () => {
     });
 
     it("should not get stuck in a loop if value is not in items (#3479)", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const { getByTestId } = setup(
             <Select label="Items" name="items" items={["A", "B", "C"]} value="D" onChange={onChange} />,
         );
@@ -117,7 +118,7 @@ describe("Select", () => {
     });
 
     it("should not call onChange if value is undefined (#3421)", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const { getByTestId } = setup(
             <Select
                 label="Items"
@@ -138,7 +139,7 @@ describe("Select", () => {
     });
 
     it("should not call onChange if value is changed from outside (#3439)", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const DoThing = () => {
             const [value, setValue] = useState<string>("A");
             useEffect(() => {
@@ -273,7 +274,7 @@ describe("Select", () => {
     });
 
     it("displays the ValuePair label of selected item on first render", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const valuePairs = [{ value: "datagreier", label: "Fin lesbar tekst" }];
 
         const { getByTestId } = setup(
@@ -286,7 +287,7 @@ describe("Select", () => {
     });
 
     it("should call onFocus when clicking on select dropdown", async () => {
-        const onFocus = jest.fn();
+        const onFocus = vi.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>("");
 
@@ -318,7 +319,7 @@ describe("Select", () => {
     });
 
     it("should call onBlur when clicking on something outside Select", async () => {
-        const onBlur = jest.fn();
+        const onBlur = vi.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>("");
 
@@ -358,7 +359,7 @@ describe("Select", () => {
     });
 
     it("should not call onBlur when clicking on a dropdown item", async () => {
-        const onBlur = jest.fn();
+        const onBlur = vi.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>("");
 
@@ -813,7 +814,7 @@ describe("Searchable select", () => {
     });
 
     it("should call onFocus when select button is clicked in searchable Select", async () => {
-        const onFocus = jest.fn();
+        const onFocus = vi.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>("");
 
@@ -846,7 +847,7 @@ describe("Searchable select", () => {
     });
 
     it("should not call onBlur when clicking on a searchable Select", async () => {
-        const onBlur = jest.fn();
+        const onBlur = vi.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>("");
 
@@ -879,7 +880,7 @@ describe("Searchable select", () => {
     });
 
     it("should call onBlur when clicking on something outside searchable Select", async () => {
-        const onBlur = jest.fn();
+        const onBlur = vi.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>("");
 
@@ -922,7 +923,7 @@ describe("Searchable select", () => {
     });
 
     it("should call onFocus only once when performing multiple actions and focus shifts inside the searchable Select", async () => {
-        const onBlur = jest.fn();
+        const onBlur = vi.fn();
         function WrappedSelect() {
             const [state, setState] = useState<string>("");
 
@@ -1088,7 +1089,7 @@ describe("Searchable select", () => {
 });
 
 describe("a11y", () => {
-    test("searchable select should be a11y compliant", async () => {
+    it("searchable select should be a11y compliant", async () => {
         const { container } = setup(
             <Select name="items" searchable label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
@@ -1097,7 +1098,7 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("select should be a11y compliant", async () => {
+    it("select should be a11y compliant", async () => {
         const { container } = setup(
             <Select name="items" label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
         );
@@ -1106,7 +1107,7 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("compact select should be a11y compliant", async () => {
+    it("compact select should be a11y compliant", async () => {
         const { container } = setup(
             <Select
                 name="items"
@@ -1122,8 +1123,8 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("aria-label should update correctly on change", async () => {
-        const onChange = jest.fn();
+    it("aria-label should update correctly on change", async () => {
+        const onChange = vi.fn();
         function WrappedSelect() {
             const [value, setValue] = useState<string>("");
 

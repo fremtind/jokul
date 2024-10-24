@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { unicode } from "../../constants/index.js";
 import { formatFodselsnummer } from "./formatFodselsnummer.js";
 

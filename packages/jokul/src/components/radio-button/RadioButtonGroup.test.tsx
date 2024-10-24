@@ -1,8 +1,8 @@
-import { render, screen, act } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
 import React, { ChangeEventHandler } from "react";
-import "@testing-library/jest-dom/extend-expect";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { RadioButton } from "./RadioButton.js";
 import { RadioButtonGroup } from "./RadioButtonGroup.js";
 
@@ -32,7 +32,7 @@ describe("RadioButtons", () => {
     });
 
     it("selects the correct value from given props", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy" value="n" onChange={onChange}>
                 <RadioButton value="y">Ja</RadioButton>
@@ -55,7 +55,7 @@ describe("RadioButtons", () => {
 
     it("calls onChange function as expected", async () => {
         let value = "n";
-        const onChange = jest.fn(((e) => {
+        const onChange = vi.fn(((e) => {
             value = e.target.value;
         }) as ChangeEventHandler<HTMLInputElement>);
         render(
@@ -109,7 +109,7 @@ describe("RadioButtons", () => {
 });
 
 describe("a11y", () => {
-    test("radio buttons should be a11y compliant", async () => {
+    it("radio buttons should be a11y compliant", async () => {
         const { container } = render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy">
                 <RadioButton value="y">Ja</RadioButton>
@@ -120,7 +120,7 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("inline radio buttons should be a11y compliant", async () => {
+    it("inline radio buttons should be a11y compliant", async () => {
         const { container } = render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy" inline>
                 <RadioButton value="y">Ja</RadioButton>
@@ -132,7 +132,7 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("compact radio buttons should be a11y compliant", async () => {
+    it("compact radio buttons should be a11y compliant", async () => {
         const { container } = render(
             <RadioButtonGroup legend="Er du fornøyd?" name="happy" density="compact">
                 <RadioButton value="y">Ja</RadioButton>
@@ -144,8 +144,8 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("invalid radio buttons should be a11y compliant", async () => {
-        const onChange = jest.fn();
+    it("invalid radio buttons should be a11y compliant", async () => {
+        const onChange = vi.fn();
         const { container } = render(
             <RadioButtonGroup
                 legend="Er du fornøyd?"

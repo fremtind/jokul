@@ -1,13 +1,14 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React from "react";
+import { describe, expect, it, vi } from "vitest";
 import { Popover } from "./Popover.js";
 
 // https://github.com/testing-library/user-event/issues/1146
 const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("Popover", () => {
-    test("should open when trigger is clicked (uncontrolled)", async () => {
+    it("should open when trigger is clicked (uncontrolled)", async () => {
         const user = userEvent.setup();
 
         render(
@@ -27,7 +28,7 @@ describe("Popover", () => {
         expect(screen.getByTestId("popover-id")).toBeVisible();
     });
 
-    test("should render when open is controlled", () => {
+    it("should render when open is controlled", () => {
         render(
             <Popover open={true}>
                 <Popover.Content data-testid="popover-id">Content</Popover.Content>
@@ -37,7 +38,7 @@ describe("Popover", () => {
         expect(screen.getByTestId("popover-id")).toBeVisible();
     });
 
-    test("should not render when open is controlled and set to false", () => {
+    it("should not render when open is controlled and set to false", () => {
         render(
             <Popover open={false}>
                 <Popover.Content data-testid="popover-id">Content</Popover.Content>
@@ -47,10 +48,10 @@ describe("Popover", () => {
         expect(screen.queryByTestId("popover-id")).not.toBeInTheDocument();
     });
 
-    test("should call onOpenChange when trigger is clicked (controlled)", async () => {
+    it("should call onOpenChange when trigger is clicked (controlled)", async () => {
         const user = userEvent.setup();
 
-        const handleOpenChange = jest.fn();
+        const handleOpenChange = vi.fn();
 
         render(
             <Popover open={true} onOpenChange={handleOpenChange}>
@@ -66,7 +67,7 @@ describe("Popover", () => {
         });
     });
 
-    test("should open on hover when hoverProps are enabled", async () => {
+    it("should open on hover when hoverProps are enabled", async () => {
         const user = userEvent.setup();
 
         render(
@@ -87,7 +88,7 @@ describe("Popover", () => {
         expect(screen.queryByTestId("popover-id")).not.toBeInTheDocument();
     });
 
-    test("should have role changed when roleOptions are set", () => {
+    it("should have role changed when roleOptions are set", () => {
         render(
             <Popover open={true} roleOptions={{ role: "menu" }}>
                 <Popover.Trigger>Open Popover</Popover.Trigger>
@@ -98,7 +99,7 @@ describe("Popover", () => {
         expect(screen.getByTestId("popover-id")).toHaveAttribute("role", "menu");
     });
 
-    test("should correctly trap focus when modal is enabled", async () => {
+    it("should correctly trap focus when modal is enabled", async () => {
         const user = userEvent.setup();
 
         render(

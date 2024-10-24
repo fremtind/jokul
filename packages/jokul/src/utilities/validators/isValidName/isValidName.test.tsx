@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { isValidName } from "./isValidName.js";
 
 describe("isValidName", () => {

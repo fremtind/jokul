@@ -1,3 +1,4 @@
+import { describe, expect, it, vi } from "vitest";
 import {
     convertBooleanConsentObjectToConsentObject,
     convertBooleanToConsentValue,
@@ -26,7 +27,7 @@ const COOKIE_NAME = "fremtind-cookie-consent";
 describe("cookieConsentUtils/getConsentCookie", () => {
     const setDocumentCookieState = (consents: [string, string][]) => {
         Object.defineProperty(document, "cookie", {
-            get: jest
+            get: vi
                 .fn()
                 .mockImplementation(
                     () =>
@@ -58,7 +59,7 @@ describe("cookieConsentUtils/getConsentCookie", () => {
 
 describe("cookieConsentUtils/setConsentCookie", () => {
     it("setter fremtind-cookie-consent med riktig verdi", () => {
-        const mockGet = jest.fn();
+        const mockGet = vi.fn();
         Object.defineProperty(document, "cookie", {
             set: mockGet.mockImplementation(),
             configurable: true,

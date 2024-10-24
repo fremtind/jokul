@@ -1,16 +1,17 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
+import { beforeEach, describe, expect, it, test, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { Image } from "./Image.js";
 
-jest.mock("../../hooks", () => ({
+vi.mock("../../hooks", () => ({
     useElementDimensions: () => [() => {}, { width: 600, height: 400 }],
     useImageLoadingStatus: () => [() => {}, true],
 }));
 
 describe("Image", () => {
     beforeEach(() => {
-        jest.clearAllMocks();
+        vi.clearAllMocks();
     });
 
     it("accepts regular sources", () => {
@@ -42,7 +43,7 @@ describe("Image", () => {
         expect(image).toHaveAttribute("alt", altText);
     });
 
-    test("is a11y compliant", async () => {
+    it("is a11y compliant", async () => {
         const { container } = render(<Image src="test.jpg" srcSet="test400.jpg 400w, test800.jpg 800w" alt="" />);
         const results = await axe(container);
 

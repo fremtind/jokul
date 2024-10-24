@@ -1,5 +1,6 @@
 import { act, renderHook } from "@testing-library/react";
 import React from "react";
+import { describe, expect, it, vi } from "vitest";
 import { WithChildren } from "../../core/types.js";
 import { CookieConsentProvider, useCookieConsentState } from "./CookieConsentContext.js";
 import { Consent, ConsentState } from "./types.js";
@@ -13,7 +14,7 @@ const generateConsent = (marketing: ConsentState, functional: ConsentState, stat
 describe("cookie-consent-react/CookieConsentContext", () => {
     const setDocumentCookieState = (consents: [string, string][]) => {
         Object.defineProperty(document, "cookie", {
-            get: jest
+            get: vi
                 .fn()
                 .mockImplementation(
                     () =>

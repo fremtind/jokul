@@ -1,8 +1,9 @@
 import { render, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
 import React from "react";
 import { act } from "react-dom/test-utils";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { Accordion } from "./Accordion.js";
 import { AccordionItem } from "./AccordionItem.js";
 
@@ -79,7 +80,7 @@ describe("Accordion", () => {
         await waitFor(() => expect(openingAccordion).toBe(true));
     });
 
-    it("should pass jest-axe tests in default state", async () => {
+    it("should pass vitest-axe tests in default state", async () => {
         const { container } = render(
             <Accordion>
                 <AccordionItem title="Hello">Something</AccordionItem>
@@ -91,7 +92,7 @@ describe("Accordion", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("should pass jest-axe tests in open state", async () => {
+    it("should pass vitest-axe tests in open state", async () => {
         const { container } = render(
             <Accordion>
                 <AccordionItem startExpanded title="Hello">

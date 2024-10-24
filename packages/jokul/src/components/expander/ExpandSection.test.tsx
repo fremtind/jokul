@@ -1,13 +1,14 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
-import React, { useState, FC } from "react";
+import React, { FC, useState } from "react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { ExpandSection } from "./ExpandSection.js";
 
 // https://github.com/testing-library/user-event/issues/1146
 const userEvent = UserEventModule.default ?? UserEventModule;
 
-const onClickSpy = jest.fn();
+const onClickSpy = vi.fn();
 
 const ExpandSectionExample: FC = () => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -72,7 +73,7 @@ describe("Expand", () => {
 });
 
 describe("a11y", () => {
-    test("Expand should be a11y compliant", async () => {
+    it("Expand should be a11y compliant", async () => {
         const { container } = render(<ExpandSectionExample />);
         let results = await axe(container);
         expect(results).toHaveNoViolations();
