@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import startOfDay from "date-fns/startOfDay";
+import { startOfDay } from "date-fns";
 import React, {
     ChangeEvent,
     FocusEvent,
