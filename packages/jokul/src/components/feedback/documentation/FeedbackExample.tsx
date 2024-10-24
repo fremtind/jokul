@@ -1,7 +1,8 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { Feedback, PRESETS } from "..";
-import { ExampleComponentProps } from "../../../../../../utils/dev-example";
-import { FollowupQuestion } from "../types";
+import { Feedback } from "../Feedback.js";
+import { PRESETS } from "../presets.js";
+import { FollowupQuestion } from "../types.js";
 
 const followupQuestions: FollowupQuestion[] = [
     {

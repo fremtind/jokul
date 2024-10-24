@@ -1,8 +1,8 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
 import React from "react";
-import { ExampleComponentProps } from "../../../../../../../utils/dev-example";
-import { unicode } from "../../../../utilities";
-import { InfoCard } from "../../InfoCard";
-import { mixedPadding } from "./cardExampleProps";
+import { unicode } from "../../../../utilities/constants/index.js";
+import { InfoCard } from "../../InfoCard.js";
+import { mixedPadding } from "./cardExampleProps.js";
 
 export const InfoCardExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     const title = boolValues?.["Title"] ? `Samle forsikringer –${unicode.nbsp}få${unicode.nbsp}rabatt` : undefined;

@@ -1,4 +1,5 @@
-import { isValidFodselsnummer } from "./isValidFodselsnummer";
+import { describe, expect, it } from "vitest";
+import { isValidFodselsnummer } from "./isValidFodselsnummer.js";
 
 describe("isValidFodselsnummer", () => {
     // testdata ssn

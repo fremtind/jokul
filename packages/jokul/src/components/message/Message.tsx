@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React, { AriaRole, forwardRef } from "react";
-import { Density, WithChildren } from "../..";
-import { useId } from "../../hooks";
-import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "../icon";
-import { DismissButton } from "./DismissButton";
+import { Density, WithChildren } from "../../core/types.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "../icon/index.js";
+import { DismissButton } from "./DismissButton.js";
 
 export interface MessageProps extends WithChildren {
     id?: string;

@@ -1,12 +1,18 @@
 import { cleanup, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { axe } from "jest-axe";
+import UserEventModule from "@testing-library/user-event";
 import React from "react";
 import { act } from "react-dom/test-utils";
-import { FollowupQuestion } from "./types";
-import { Feedback, PRESETS } from "./";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
+import { Feedback } from "./Feedback.js";
+import { PRESETS } from "./presets.js";
+import { FollowupQuestion } from "./types.js";
 
-const mockFn = jest.fn();
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
+
+const mockFn = vi.fn();
 
 const followUpQuestions: FollowupQuestion[] = [
     {
@@ -33,7 +39,7 @@ const followUpQuestions: FollowupQuestion[] = [
 ];
 
 beforeEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
     cleanup();
 });
 

@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React from "react";
-import { Density } from "../../../core";
-import { SkeletonElement, SkeletonElementProps } from "./SkeletonElement";
-import { SkeletonLabel, SkeletonLabelProps } from "./SkeletonLabel";
+import { Density } from "../../../core/types.js";
+import { SkeletonElement, SkeletonElementProps } from "./SkeletonElement.js";
+import { SkeletonLabel, SkeletonLabelProps } from "./SkeletonLabel.js";
 
 export interface SkeletonCheckboxGroupProps {
     className?: string;

@@ -1,12 +1,13 @@
 import React, { FC, useCallback, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { useId } from "../../hooks";
-import { ModalContainer, ModalOverlay, useModal } from "../modal";
-import { CustomConsents } from "./consents/CustomConsents";
-import { DefaultConsents } from "./consents/DefaultConsents";
-import { useCookieConsentState } from "./CookieConsentContext";
-import { convertBooleanConsentObjectToConsentObject } from "./cookieConsentUtils";
-import { Consent, ConsentComponentBaseProps } from "./types";
+import { useId } from "../../hooks/useId/useId.js";
+import { ModalContainer, ModalOverlay } from "../modal/Modal.js";
+import { useModal } from "../modal/useModal.js";
+import { CustomConsents } from "./consents/CustomConsents.js";
+import { DefaultConsents } from "./consents/DefaultConsents.js";
+import { useCookieConsentState } from "./CookieConsentContext.js";
+import { convertBooleanConsentObjectToConsentObject } from "./cookieConsentUtils.js";
+import { Consent, ConsentComponentBaseProps } from "./types.js";
 
 export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept, ...rest }) => {
     const { isOpen, requirement, showSettings } = useCookieConsentState();

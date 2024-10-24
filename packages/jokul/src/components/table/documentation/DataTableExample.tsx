@@ -1,6 +1,6 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { DataTable } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
+import { DataTable } from "../DataTable.js";
 
 export const dataTableExampleKnobs: ExampleKnobsProps = {
     boolProps: [],

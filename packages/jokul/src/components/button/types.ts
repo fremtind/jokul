@@ -1,5 +1,5 @@
-import { Density } from "../../core";
-import { PolymorphicPropsWithRef } from "../../utilities";
+import { Density } from "../../core/types.js";
+import { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export const buttonVariants = ["primary", "secondary", "tertiary", "ghost"] as const;
 export type ButtonVariant = (typeof buttonVariants)[number];

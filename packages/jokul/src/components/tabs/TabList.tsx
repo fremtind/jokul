@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { WithChildren } from "../..";
-import { useTabsContext } from "./tabsContext";
+import { WithChildren } from "../../core/types.js";
+import { useTabsContext } from "./tabsContext.js";
 
 export interface TabListProps extends WithChildren {
     "aria-label"?: string;

@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import { nanoid } from "nanoid";
 import React, { useState, useCallback, useEffect } from "react";
-import { Density, WithChildren } from "../..";
-import { usePreviousValue } from "../../hooks";
-import { InjectedProps, TabListProps } from "./TabList";
-import { TabPanelProps } from "./TabPanel";
-import { TabsContextProvider } from "./tabsContext";
+import { Density, WithChildren } from "../../core/types.js";
+import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
+import { InjectedProps, TabListProps } from "./TabList.js";
+import { TabPanelProps } from "./TabPanel.js";
+import { TabsContextProvider } from "./tabsContext.js";
 
 export interface TabsProps extends WithChildren {
     className?: string;

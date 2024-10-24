@@ -1,8 +1,9 @@
 import clsx from "clsx";
 import React, { type ButtonHTMLAttributes, type MouseEventHandler, forwardRef } from "react";
-import { Density } from "../..";
-import { useId, useSwipeGesture, type SwipeChangeHandler } from "../../hooks";
-import { CheckIcon } from "../icon";
+import { Density } from "../../core/types.js";
+import { SwipeChangeHandler, useSwipeGesture } from "../../hooks/index.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { CheckIcon } from "../icon/index.js";
 
 export type ToggleChangeHandler<T extends HTMLElement> = SwipeChangeHandler<T>;
 

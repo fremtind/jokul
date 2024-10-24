@@ -1,23 +1,28 @@
 import clsx from "clsx";
 import React, {
+    ChangeEvent,
+    CSSProperties,
     FocusEvent,
     forwardRef,
+    KeyboardEvent,
+    MouseEvent,
+    RefObject,
+    useCallback,
     useEffect,
+    useMemo,
     useRef,
     useState,
-    KeyboardEvent,
-    ChangeEvent,
-    useCallback,
-    useMemo,
-    RefObject,
-    MouseEvent,
-    CSSProperties,
 } from "react";
-import { type ValuePair, getValuePair, type DataTestAutoId, type Density } from "../..";
-import { useId, useAnimatedHeight, usePreviousValue, useListNavigation } from "../../hooks";
-import { ArrowVerticalAnimated } from "../icon";
-import { InputGroup, type LabelProps, type InputGroupProps } from "../input-group";
-import { toLower, focusSelected } from "./select-utils";
+import { DataTestAutoId, Density } from "../../core/types.js";
+import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
+import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
+import { getValuePair, ValuePair } from "../../utilities/valuePair.js";
+import { ArrowVerticalAnimated } from "../icon/index.js";
+import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
+import { LabelProps } from "../input-group/Label.js";
+import { focusSelected, toLower } from "./select-utils.js";
 
 interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
     /** Kreves av react-hook-form, det skjer ulike ting avhengig av om det er blur eller change */

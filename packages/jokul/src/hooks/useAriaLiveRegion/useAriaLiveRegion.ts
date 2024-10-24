@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { usePreviousValue } from "../usePreviousValue";
+import { usePreviousValue } from "../usePreviousValue/usePreviousValue.js";
 
 export interface UseAriaLiveRegionOptions {
     /**

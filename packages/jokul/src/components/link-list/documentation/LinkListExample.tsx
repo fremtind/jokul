@@ -1,6 +1,6 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { LinkList } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
+import { LinkList } from "../LinkList.js";
 
 export const knobs: ExampleKnobsProps = {};
 

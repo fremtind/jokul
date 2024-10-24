@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React from "react";
-import { Density, WithChildren } from "../..";
-import { useId } from "../../hooks";
-import { DismissButton } from "./common/DismissButton";
-import { MessageIcon } from "./common/MessageIcon";
+import { Density, WithChildren } from "../../core/types.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { DismissButton } from "../message/DismissButton.js";
+import { MessageIcon } from "./common/MessageIcon.js";
 
 type messageTypes = "info" | "error" | "success" | "warning";
 

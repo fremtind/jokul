@@ -1,8 +1,8 @@
 import { type RefObject, useCallback, useEffect, useRef } from "react";
-import { tokens } from "../../core";
-import { useBrowserPreferences } from "../useBrowserPreferences/useBrowserPreferences";
-import { usePreviousValue } from "../usePreviousValue/usePreviousValue";
-import { UseAnimatedHeightOptions } from "./types";
+import tokens from "../../core/tokens.js";
+import { useBrowserPreferences } from "../useBrowserPreferences/useBrowserPreferences.js";
+import { usePreviousValue } from "../usePreviousValue/usePreviousValue.js";
+import { UseAnimatedHeightOptions } from "./types.js";
 
 const defaultDisplay = "block";
 const defaultEasing = "standard";

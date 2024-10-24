@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { NavTabsExample, navTabsExampleKnobs } from "./NavTabsExample";
-import { TabsExample, tabsExampleKnobs } from "./TabsExample";
+import { NavTabsExample, navTabsExampleKnobs } from "./NavTabsExample.js";
+import { TabsExample, tabsExampleKnobs } from "./TabsExample.js";
 
 export default function Example() {
     return (

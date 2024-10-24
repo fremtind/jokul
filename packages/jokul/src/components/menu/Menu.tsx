@@ -25,9 +25,10 @@ import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useEffect, useRef, useState } from "react";
 import * as ReactIs from "react-is";
-import { type DataTestAutoId, getThemeAndDensity, WithChildren } from "../..";
-import { useId } from "../../hooks";
-import { useMenuWideEvents } from "./useMenuWideEvents";
+import { DataTestAutoId, WithChildren } from "../../core/types.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
+import { useMenuWideEvents } from "./useMenuWideEvents.js";
 
 export interface MenuProps
     extends DataTestAutoId,

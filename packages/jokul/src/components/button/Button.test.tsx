@@ -1,10 +1,15 @@
-import { render, screen, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { axe } from "jest-axe";
+import { act, render, screen } from "@testing-library/react";
+import UserEventModule from "@testing-library/user-event";
 import React, { useState } from "react";
-import { Icon } from "../icon";
-import { Button } from "./Button";
-import { buttonVariants } from "./types";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
+import { Icon } from "../icon/Icon.js";
+import { Button } from "./Button.js";
+import { buttonVariants } from "./types.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("Button", () => {
     buttonVariants.map((buttonVariant) => {
@@ -48,7 +53,7 @@ describe("Button", () => {
     });
 
     it("calls the onClick handler when clicked", async () => {
-        const clickHandler = jest.fn();
+        const clickHandler = vi.fn();
         render(<Button onClick={clickHandler}>I am groot!</Button>);
 
         const button = screen.getByText("I am groot!");
@@ -80,8 +85,8 @@ describe("Button", () => {
         expect(screen.getByTestId("test")).toHaveAttribute("data-density", "compact");
     });
 
-    test("button component does not unmount and remount when consumer component rerenders becaus of state change", async () => {
-        const x = jest.fn();
+    it("button component does not unmount and remount when consumer component rerenders becaus of state change", async () => {
+        const x = vi.fn();
 
         interface Props {
             onClick: (x: number) => void;

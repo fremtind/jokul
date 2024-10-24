@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { usePreviousValue } from "../../hooks";
-import { useCookieConsentState } from "./CookieConsentContext";
-import { CookieConsentModal } from "./CookieConsentModal";
-import { setConsentCookie } from "./cookieConsentUtils";
-import { AcceptConsentCallback, Consent } from "./types";
+import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
+import { useCookieConsentState } from "./CookieConsentContext.js";
+import { CookieConsentModal } from "./CookieConsentModal.js";
+import { setConsentCookie } from "./cookieConsentUtils.js";
+import { AcceptConsentCallback, Consent } from "./types.js";
 
 export interface CookieConsentProps {
     blocking?: boolean;

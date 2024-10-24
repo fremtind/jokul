@@ -1,11 +1,16 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import React from "react";
-import { Tag } from ".";
+import { describe, expect, it, vi } from "vitest";
+import { Tag } from "./Tag.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("Tag", () => {
     it("handles clicking the dismiss button", async () => {
-        const dismissed = jest.fn();
+        const dismissed = vi.fn();
         render(<Tag dismissAction={{ label: "Fjern", onClick: dismissed }} />);
 
         const button = screen.getByRole("button");

@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { FeedbackExample } from "./FeedbackExample";
-import { feedbackExampleProps } from "./feedbackExampleProps";
+import { FeedbackExample } from "./FeedbackExample.js";
+import { feedbackExampleProps } from "./feedbackExampleProps.js";
 
 export default function Example() {
     return <DevExample component={FeedbackExample} knobs={feedbackExampleProps} />;

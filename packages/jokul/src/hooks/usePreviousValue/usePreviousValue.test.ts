@@ -1,5 +1,6 @@
 import { renderHook } from "@testing-library/react";
-import { usePreviousValue } from "./usePreviousValue";
+import { describe, expect, it } from "vitest";
+import { usePreviousValue } from "./usePreviousValue.js";
 
 describe("usePreviousValue", () => {
     it("usePreviousValue returns previous value", () => {

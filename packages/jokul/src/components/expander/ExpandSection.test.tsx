@@ -1,10 +1,15 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { axe } from "jest-axe";
-import React, { useState, FC } from "react";
-import { ExpandSection } from "./ExpandSection";
+import UserEventModule from "@testing-library/user-event";
+import React, { FC, useState } from "react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
+import { ExpandSection } from "./ExpandSection.js";
 
-const onClickSpy = jest.fn();
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
+
+const onClickSpy = vi.fn();
 
 const ExpandSectionExample: FC = () => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -69,7 +74,7 @@ describe("Expand", () => {
 });
 
 describe("a11y", () => {
-    test("Expand should be a11y compliant", async () => {
+    it("Expand should be a11y compliant", async () => {
         const { container } = render(<ExpandSectionExample />);
         let results = await axe(container);
         expect(results).toHaveNoViolations();

@@ -1,4 +1,5 @@
-import { formatDateString } from "./formatDate";
+import { describe, expect, it } from "vitest";
+import { formatDateString } from "./formatDate.js";
 
 describe("formatDateString", () => {
     it("formats 6-digit dates correctly", () => {

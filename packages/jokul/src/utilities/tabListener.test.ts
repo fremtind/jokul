@@ -1,5 +1,6 @@
 import { fireEvent } from "@testing-library/dom";
-import { initTabListener } from "./tabListener";
+import { expect, test } from "vitest";
+import { initTabListener } from "./tabListener.js";
 
 const mouseNavigation = "data-mousenavigation";
 

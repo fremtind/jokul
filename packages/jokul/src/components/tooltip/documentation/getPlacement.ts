@@ -1,4 +1,4 @@
-import { TooltipPlacement } from "..";
+import { TooltipPlacement } from "../Tooltip.js";
 
 export function getPlacement(choice?: string): TooltipPlacement {
     switch (choice) {

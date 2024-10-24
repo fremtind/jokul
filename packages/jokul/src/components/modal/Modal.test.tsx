@@ -1,20 +1,25 @@
 import { act, render, RenderOptions } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { axe } from "jest-axe";
+import UserEventModule from "@testing-library/user-event";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { PrimaryButton, TertiaryButton } from "../button";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { PrimaryButton, TertiaryButton } from "../button/Button.js";
 import {
     Modal,
-    ModalCloseButton,
-    ModalContainer,
-    ModalOverlay,
-    ModalTitle,
     ModalActions,
     ModalBody,
+    ModalCloseButton,
+    ModalContainer,
     ModalHeader,
-    useModal,
-} from ".";
+    ModalOverlay,
+    ModalTitle,
+} from "./Modal.js";
+import { useModal } from "./useModal.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
@@ -80,7 +85,7 @@ describe("Modal", () => {
         expect(queryByRole("dialog")).not.toBeInTheDocument();
     });
 
-    it("should pass jest-axe tests in default state", async () => {
+    it("should pass vi-axe tests in default state", async () => {
         const { container } = setup(<ModalTest />);
 
         const results = await axe(container);
@@ -88,7 +93,7 @@ describe("Modal", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("should pass jest-axe tests as alertdialog", async () => {
+    it("should pass vi-axe tests as alertdialog", async () => {
         const { container } = setup(<ModalTest role="alertdialog" />);
 
         const results = await axe(container);

@@ -24,9 +24,9 @@
 
 import { addDays, differenceInCalendarMonths, isBefore, isToday, startOfDay } from "date-fns";
 import React from "react";
-import type { ValuePair } from "../../../utilities";
-import type { YearsToShow } from "../types";
-import { parseDateString } from "../utils";
+import { ValuePair } from "../../../utilities/valuePair.js";
+import type { YearsToShow } from "../types.js";
+import { parseDateString } from "../utils.js";
 
 export function composeEventHandlers(...fns: Array<React.MouseEventHandler | undefined>) {
     return (event: React.MouseEvent) =>

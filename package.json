@@ -21,6 +21,7 @@
         "ci:changed": "lerna changed --parseable --loglevel error",
         "test": "pnpm test:unit",
         "test:unit": "jest --testMatch '**/*.test.+(ts|tsx|js)'",
+        "test:jokul": "pnpm --filter \"@fremtind/jokul\" test",
         "test:watch": "jest --watch",
         "version:check": "lerna changed -l -a",
         "version": "lernacleanchangelog '**' && git add **/CHANGELOG.md **/package.json package.json pnpm-lock.yaml",

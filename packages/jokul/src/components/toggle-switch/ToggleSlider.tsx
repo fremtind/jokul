@@ -1,9 +1,10 @@
 import clsx from "clsx";
-import React, { useState, Fragment, useRef, FC, MouseEventHandler } from "react";
-import { Density, WithChildren } from "../..";
-import { useId, useSwipeGesture } from "../../hooks";
-import { type ToggleChangeHandler } from "./ToggleSwitch";
-import { usePillStyles } from "./usePillStyles";
+import React, { FC, Fragment, MouseEventHandler, useRef, useState } from "react";
+import { Density, WithChildren } from "../../core/types.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { useSwipeGesture } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
+import { ToggleChangeHandler } from "./ToggleSwitch.js";
+import { usePillStyles } from "./usePillStyles.js";
 
 interface Props extends WithChildren {
     labels: [string, string];

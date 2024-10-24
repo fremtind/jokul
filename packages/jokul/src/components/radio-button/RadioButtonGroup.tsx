@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler, FC } from "react";
-import { Density } from "../..";
-import { FieldGroup, type FieldGroupProps } from "../input-group";
-import { RadioGroupContextProvider } from "./radioGroupContext";
+import { Density } from "../../core/types.js";
+import { FieldGroup, type FieldGroupProps } from "../input-group/FieldGroup.js";
+import { RadioGroupContextProvider } from "./radioGroupContext.js";
 
 export interface RadioButtonGroupProps extends Omit<FieldGroupProps, "onChange"> {
     legend: string;

@@ -7,13 +7,13 @@ import type {
     UseFormRegisterReturn,
     UseFormReturn,
 } from "react-hook-form";
-import { formatDateString } from "../date/formatDate";
-import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer";
-import { formatKontonummer } from "../kontonummer/formatKontonummer";
-import { formatKortnummer } from "../kortnummer/formatKortnummer";
-import { formatOrganisasjonsnummer } from "../organisasjonsnummer/formatOrganisasjonsnummer";
-import { formatTelefonnummer } from "../telefonnummer/formatTelefonnummer";
-import { formatNumber } from "./formatNumber";
+import { formatDateString } from "../date/formatDate.js";
+import { formatFodselsnummer } from "../fodselsnummer/formatFodselsnummer.js";
+import { formatKontonummer } from "../kontonummer/formatKontonummer.js";
+import { formatKortnummer } from "../kortnummer/formatKortnummer.js";
+import { formatOrganisasjonsnummer } from "../organisasjonsnummer/formatOrganisasjonsnummer.js";
+import { formatTelefonnummer } from "../telefonnummer/formatTelefonnummer.js";
+import { formatNumber } from "./formatNumber.js";
 
 const formatters = {
     date: formatDateString,

@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { FormErrorMessageExample, formErrorMessageKnobs } from "./FormErrorMessageExample";
-import { MessageExample, messageExampleKnobs } from "./MessageExample";
+import { FormErrorMessageExample, formErrorMessageKnobs } from "./FormErrorMessageExample.js";
+import { MessageExample, messageExampleKnobs } from "./MessageExample.js";
 
 export default function Example() {
     return (

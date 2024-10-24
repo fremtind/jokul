@@ -1,1 +1,1 @@
-export { useBrowserPreferences } from "./useBrowserPreferences";
+export { useBrowserPreferences } from "./useBrowserPreferences.js";

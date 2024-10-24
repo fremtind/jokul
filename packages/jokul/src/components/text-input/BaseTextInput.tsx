@@ -7,9 +7,9 @@ import React, {
     InputHTMLAttributes,
     HTMLProps,
 } from "react";
-import { Density } from "../../core";
-import { IconProps } from "../icon";
-import { IconButton } from "../icon-button";
+import { Density } from "../../core/types.js";
+import { IconProps } from "../icon/index.js";
+import { IconButton } from "../icon-button/IconButton.js";
 
 function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | undefined {
     if (width) {

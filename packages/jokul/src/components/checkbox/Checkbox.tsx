@@ -9,8 +9,8 @@ import React, {
     useImperativeHandle,
     useRef,
 } from "react";
-import { DataTestAutoId, Density } from "../..";
-import { useId } from "../../hooks";
+import { DataTestAutoId, Density } from "../../core/types.js";
+import { useId } from "../../hooks/useId/useId.js";
 
 export interface CheckboxProps extends DataTestAutoId, InputHTMLAttributes<HTMLInputElement> {
     children: ReactNode;

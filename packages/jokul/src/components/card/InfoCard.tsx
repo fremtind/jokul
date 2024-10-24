@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React, { FC } from "react";
-import { Density, WithChildren } from "../../core";
-import { PaddingOptions, SpacingStep } from "./types";
-import { getPaddingStyles } from "./utils";
+import { Density, WithChildren } from "../../core/types.js";
+import { PaddingOptions, SpacingStep } from "./types.js";
+import { getPaddingStyles } from "./utils.js";
 
 export interface InfoCardProps extends PaddingOptions, WithChildren {
     className?: string;

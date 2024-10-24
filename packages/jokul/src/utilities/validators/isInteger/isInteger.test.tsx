@@ -1,4 +1,5 @@
-import { isInteger } from "./isInteger";
+import { describe, expect, it } from "vitest";
+import { isInteger } from "./isInteger.js";
 
 describe("isInteger", () => {
     it("should return true if only numbers", () => {

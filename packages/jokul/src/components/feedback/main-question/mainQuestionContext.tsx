@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
-import { WithChildren } from "../../..";
-import { FeedbackState } from "../types";
+import { WithChildren } from "../../../core/types.js";
+import { FeedbackState } from "../types.js";
 
 const mainQuestionContext = createContext<FeedbackState | undefined>(undefined);
 

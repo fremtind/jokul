@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React, { ButtonHTMLAttributes, FC, HTMLAttributes, MouseEventHandler } from "react";
-import { Density } from "../../core";
-import { CloseIcon } from "../icon";
-import { IconButton } from "../icon-button";
+import { Density } from "../../core/types.js";
+import { CloseIcon } from "../icon/index.js";
+import { IconButton } from "../icon-button/IconButton.js";
 
 export interface DismissAction extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     label: string;

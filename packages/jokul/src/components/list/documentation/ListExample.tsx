@@ -1,6 +1,7 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { CheckListItem, CrossListItem, List, ListItem, OrderedList, UnorderedList } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
+import { List, OrderedList, UnorderedList } from "../List.js";
+import { CheckListItem, CrossListItem, ListItem } from "../ListItem.js";
 
 const Ordered: FC = () => (
     <OrderedList>

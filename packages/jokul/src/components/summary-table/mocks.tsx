@@ -1,5 +1,5 @@
 import React from "react";
-import { SummaryTableRow } from "../SummaryTableRow";
+import { SummaryTableRow } from "./SummaryTableRow.js";
 
 const SOFT_HYPHEN = "\u00AD";
 

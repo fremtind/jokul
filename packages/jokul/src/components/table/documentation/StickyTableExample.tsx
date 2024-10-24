@@ -1,6 +1,6 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "..";
-import { ExampleComponentProps } from "../../../../../../utils/dev-example";
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../index.js";
 
 const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Milepæl", "Følger saken"];
 

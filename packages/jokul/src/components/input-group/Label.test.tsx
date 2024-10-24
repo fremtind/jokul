@@ -1,7 +1,8 @@
 import { render } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
-import { Label, type LabelVariant } from "./Label";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { Label, type LabelVariant } from "./Label.js";
 
 describe("Label", () => {
     const variants: LabelVariant[] = ["small", "medium", "large"];
@@ -22,7 +23,7 @@ describe("Label", () => {
         expect(getByText("Hello")).toHaveClass("jkl-label--sr-only");
     });
 
-    it("should pass jest-axe tests in default state", async () => {
+    it("should pass vi-axe tests in default state", async () => {
         const { container } = render(<Label>Hello</Label>);
 
         const results = await axe(container);
@@ -30,7 +31,7 @@ describe("Label", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("should pass jest-axe tests when srOnly", async () => {
+    it("should pass vi-axe tests when srOnly", async () => {
         const { container } = render(<Label srOnly>Hello</Label>);
 
         const results = await axe(container);

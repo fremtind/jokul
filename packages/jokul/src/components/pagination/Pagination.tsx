@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism";
-import { ChevronLeftIcon, ChevronRightIcon } from "../icon";
-import { IconButton } from "../icon-button";
-import { PageButton } from "./PageButton";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import { ChevronLeftIcon, ChevronRightIcon } from "../icon/index.js";
+import { IconButton } from "../icon-button/IconButton.js";
+import { PageButton } from "./PageButton.js";
 
 export type PaginationProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
     ElementType,

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { AriaRole } from "react";
-import { useDelayedRender } from "./useDelayedRender";
+import { useDelayedRender } from "./useDelayedRender.js";
 
 export type LoaderVariant = "small" | "medium" | "large";
 

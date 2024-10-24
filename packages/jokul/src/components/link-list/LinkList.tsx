@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { ComponentProps, FC } from "react";
-import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities";
-import { ArrowRightIcon } from "../icon";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import { ArrowRightIcon } from "../icon/index.js";
 
 const Item: FC<ComponentProps<"li">> = ({ className, ...rest }) => {
     return <li className={clsx("jkl-link-list-item", className)} {...rest}></li>;

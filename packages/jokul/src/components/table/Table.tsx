@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, TableHTMLAttributes } from "react";
-import { Density } from "../..";
-import { TableContextProvider } from "./tableContext";
+import { Density } from "../../core/types.js";
+import { TableContextProvider } from "./tableContext.js";
 
 export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
     density?: Density;

@@ -1,4 +1,4 @@
-import { unicode } from "../../constants";
+import { unicode } from "../../constants/index.js";
 
 export const KONTONUMMER_REGEX = {
     full: /^(\d{4})(\d{2})(\d{5})$/,

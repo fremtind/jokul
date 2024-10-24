@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import React, { FC, FieldsetHTMLAttributes } from "react";
-import type { Density, DataTestAutoId } from "../../core";
-import { useId } from "../../hooks";
-import { PopupTip, type PopupTipProps } from "../tooltip";
-import { Label, type LabelProps } from "./Label";
-import { SupportLabel, type SupportLabelProps } from "./SupportLabel";
+import { DataTestAutoId, Density } from "../../core/types.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { PopupTip, PopupTipProps } from "../tooltip/PopupTip.js";
+import { Label, LabelProps } from "./Label.js";
+import { SupportLabel, SupportLabelProps } from "./SupportLabel.js";
 
 export interface FieldGroupProps extends DataTestAutoId, FieldsetHTMLAttributes<HTMLFieldSetElement> {
     legend: string;

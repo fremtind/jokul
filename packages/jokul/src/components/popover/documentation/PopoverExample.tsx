@@ -1,8 +1,11 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { type FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { Button } from "../../button";
-import { Tab, TabList, TabPanel, Tabs } from "../../tabs";
-import Popover from "../Popover";
+import { Button } from "../../button/Button.js";
+import { Tab } from "../../tabs/Tab.js";
+import { TabList } from "../../tabs/TabList.js";
+import { TabPanel } from "../../tabs/TabPanel.js";
+import { Tabs } from "../../tabs/Tabs.js";
+import Popover from "../Popover.js";
 
 export const popoverExampleKnobs: ExampleKnobsProps = {};
 

@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React, { FC, useState } from "react";
-import { WithChildren } from "../..";
-import { useAnimatedDetails } from "../../hooks";
-import { ArrowVerticalAnimated } from "../icon";
+import { WithChildren } from "../../core/types.js";
+import { useAnimatedDetails } from "../../hooks/useAnimatedDetails/useAnimatedDetails.js";
+import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 
 export interface AccordionItemProps extends WithChildren {
     title: string;

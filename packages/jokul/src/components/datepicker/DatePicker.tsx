@@ -11,16 +11,16 @@ import React, {
     useState,
 } from "react";
 import { flushSync } from "react-dom";
-import { CalendarIcon } from "../icon";
-import { IconButton } from "../icon-button";
-import { InputGroup } from "../input-group";
-import { Popover } from "../popover";
-import { BaseTextInput } from "../text-input";
-import { Calendar } from "./internal/Calendar";
-import { getInitialDate, DateInfo } from "./internal/utils";
-import { DatePickerProps, DateValidationError } from "./types";
-import { formatInput, parseDateString } from "./utils";
-import { isWithinLowerBound, isWithinUpperBound } from "./validation";
+import { CalendarIcon } from "../icon/index.js";
+import { IconButton } from "../icon-button/IconButton.js";
+import { InputGroup } from "../input-group/InputGroup.js";
+import Popover from "../popover/Popover.js";
+import { BaseTextInput } from "../text-input/BaseTextInput.js";
+import { Calendar } from "./internal/Calendar.js";
+import { DateInfo, getInitialDate } from "./internal/utils.js";
+import { DatePickerProps, DateValidationError } from "./types.js";
+import { formatInput, parseDateString } from "./utils.js";
+import { isWithinLowerBound, isWithinUpperBound } from "./validation.js";
 
 export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>((props, forwardedInputRef) => {
     const {

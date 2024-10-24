@@ -1,18 +1,23 @@
 import { act, render, RenderOptions } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { axe } from "jest-axe";
+import UserEventModule from "@testing-library/user-event";
 import React, { useState } from "react";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
 import {
-    Table,
-    TableCaption,
-    TableHead,
-    TableRow,
-    TableHeader,
-    TableBody,
     ExpandableTableRow,
     ExpandableTableRowController,
+    Table,
+    TableBody,
+    TableCaption,
     TableCell,
-} from ".";
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "./index.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
@@ -160,7 +165,7 @@ describe("ExpandableTableRow", () => {
         expect(tableRows).toHaveLength(2); // 1 header row + 1 data row
     });
 
-    it("should pass jest-axe tests in default state", async () => {
+    it("should pass vi-axe tests in default state", async () => {
         const { container } = setup(<TableUnderTest />);
 
         const results = await axe(container);

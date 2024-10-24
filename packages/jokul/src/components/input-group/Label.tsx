@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { type CSSProperties, type FC } from "react";
-import type { WithChildren, Density } from "../../core";
+import { Density, WithChildren } from "../../core/types.js";
 
 export type LabelVariant = "small" | "medium" | "large";
 

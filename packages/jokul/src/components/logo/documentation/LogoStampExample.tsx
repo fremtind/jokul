@@ -1,7 +1,7 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React from "react";
-import { LogoStamp } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import * as logoStampTextPaths from "../text-paths";
+import { LogoStamp } from "../LogoStamp.js";
+import * as logoStampTextPaths from "../text-paths/index.js";
 
 export const LogoStampExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const variant = choiceValues?.["Variant"] as keyof typeof logoStampTextPaths;

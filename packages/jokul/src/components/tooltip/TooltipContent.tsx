@@ -2,9 +2,9 @@ import { type Placement, useMergeRefs, FloatingPortal } from "@floating-ui/react
 import clsx from "clsx";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import React, { HTMLProps, forwardRef } from "react";
-import { useId } from "../../hooks";
-import { getThemeAndDensity } from "../../utilities";
-import { useTooltipContext } from "./Tooltip";
+import { useId } from "../../hooks/useId/useId.js";
+import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
+import { useTooltipContext } from "./Tooltip.js";
 
 function getPositionAnimation(placement: Placement, value: number = 8) {
     switch (true) {

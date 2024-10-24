@@ -1,8 +1,8 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { ExampleComponentProps } from "../../../../../../utils/dev-example";
-import ActionTableExample from "./ActionTableExample";
-import ClickableTableExample from "./ClickableTableExample";
-import TableExample from "./TableExample";
+import ActionTableExample from "./ActionTableExample.js";
+import ClickableTableExample from "./ClickableTableExample.js";
+import TableExample from "./TableExample.js";
 
 export const tableExamplesProps = {
     boolProps: ["Skjul overskrift"],

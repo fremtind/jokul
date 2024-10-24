@@ -1,4 +1,5 @@
-import { isValidName } from "./isValidName";
+import { describe, expect, it } from "vitest";
+import { isValidName } from "./isValidName.js";
 
 describe("isValidName", () => {
     it("should return true if no illegal chars", () => {

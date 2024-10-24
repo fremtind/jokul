@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { ImageExample } from "./ImageExample";
-import { choiceProps } from "./internal/props";
+import { ImageExample } from "./ImageExample.js";
+import { choiceProps } from "./internal/props.js";
 
 import "./style.scss";
 

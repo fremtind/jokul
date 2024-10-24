@@ -1,10 +1,11 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
-import { UnorderedList, OrderedList, ListItem, List, CheckListItem, CrossListItem } from ".";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { CheckListItem, CrossListItem, List, ListItem, OrderedList, UnorderedList } from "./index.js";
 
 describe("List", () => {
-    test(`UnorderedList and ListItem should render as expected`, () => {
+    it(`UnorderedList and ListItem should render as expected`, () => {
         render(
             <UnorderedList>
                 <ListItem>Kibogiedo</ListItem>
@@ -17,7 +18,7 @@ describe("List", () => {
         expect(screen.getByText("Omocebig")).toBeInTheDocument();
     });
 
-    test(`OrderedList and ListItem should render as expected`, () => {
+    it(`OrderedList and ListItem should render as expected`, () => {
         render(
             <OrderedList>
                 <ListItem>Kibogiedo</ListItem>
@@ -30,7 +31,7 @@ describe("List", () => {
         expect(screen.getByText("Omocebig")).toBeInTheDocument();
     });
 
-    test(`List gets the passed className`, () => {
+    it(`List gets the passed className`, () => {
         render(
             <UnorderedList className="jkl-body">
                 <ListItem>Kibogiedo</ListItem>
@@ -40,7 +41,7 @@ describe("List", () => {
         expect(screen.getByTestId("jkl-list")).toHaveClass("jkl-body");
     });
 
-    test(`ListItem gets the passed className`, () => {
+    it(`ListItem gets the passed className`, () => {
         render(
             <UnorderedList>
                 <ListItem className="jkl-body">Kibogiedo</ListItem>
@@ -49,7 +50,7 @@ describe("List", () => {
         expect(screen.getByTestId("jkl-list-item")).toHaveClass("jkl-body");
     });
 
-    test(`Nested lists should render all elements as expected`, () => {
+    it(`Nested lists should render all elements as expected`, () => {
         render(
             <UnorderedList>
                 <ListItem>Kibogiedo</ListItem>
@@ -70,7 +71,7 @@ describe("List", () => {
 });
 
 describe("a11y", () => {
-    test("unordered list should be a11y compliant", async () => {
+    it("unordered list should be a11y compliant", async () => {
         const { container } = render(
             <UnorderedList>
                 <ListItem>Listeelement 1</ListItem>
@@ -83,7 +84,7 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("ordered list should be a11y compliant", async () => {
+    it("ordered list should be a11y compliant", async () => {
         const { container } = render(
             <>
                 <OrderedList>

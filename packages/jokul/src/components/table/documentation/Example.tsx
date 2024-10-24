@@ -1,15 +1,15 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import ActionTableExample, { actionTableExampleKnobs } from "./ActionTableExample";
-import ClickableTableExample, { clickableTableExampleKnobs } from "./ClickableTableExample";
-import DataTableExample, { dataTableExampleKnobs } from "./DataTableExample";
-import ExpandableTableExample, { expandableTableExampleKnobs } from "./ExpandableTableExample";
-import HeadlessTableExample, { headlessTableExampleKnobs } from "./HeadlessTableExample";
-import MobileListTableExample, { mobileListTableExampleKnobs } from "./MobileListTableExample";
-import MobileScrollTableExample from "./MobileScrollTableExample";
-import { PaginatedTableExample, paginatedTableExamplesProps } from "./PaginatedTableExample";
-import { SortableTableExample, sortableTableExamplesProps } from "./SortableTableExample";
-import StickyTableExample from "./StickyTableExample";
+import ActionTableExample, { actionTableExampleKnobs } from "./ActionTableExample.js";
+import ClickableTableExample, { clickableTableExampleKnobs } from "./ClickableTableExample.js";
+import DataTableExample, { dataTableExampleKnobs } from "./DataTableExample.js";
+import ExpandableTableExample, { expandableTableExampleKnobs } from "./ExpandableTableExample.js";
+import HeadlessTableExample, { headlessTableExampleKnobs } from "./HeadlessTableExample.js";
+import MobileListTableExample, { mobileListTableExampleKnobs } from "./MobileListTableExample.js";
+import MobileScrollTableExample from "./MobileScrollTableExample.js";
+import { PaginatedTableExample, paginatedTableExamplesProps } from "./PaginatedTableExample.js";
+import { SortableTableExample, sortableTableExamplesProps } from "./SortableTableExample.js";
+import StickyTableExample from "./StickyTableExample.js";
 
 export default function Example() {
     return (

@@ -1,7 +1,7 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { InfoBlock, NavCard } from "../..";
-import { ExampleComponentProps } from "../../../../../../../utils/dev-example";
-import { mixedPadding } from "./cardExampleProps";
+import { InfoBlock, NavCard } from "../../NavCard.js";
+import { mixedPadding } from "./cardExampleProps.js";
 
 export const TopExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const paddingChoice = (choiceValues?.["Padding"] as "m" | "l" | "xl" | "blandet") || "l";

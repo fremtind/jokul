@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
-import { NEW_SPACING_STEPS, SPACING_STEPS, isOldSpacingStep } from "./types";
-import type { BasePadding, PaddingShorthand, SpacingStep } from "./types";
+import { NEW_SPACING_STEPS, SPACING_STEPS, isOldSpacingStep } from "./types.js";
+import type { BasePadding, PaddingShorthand, SpacingStep } from "./types.js";
 
 function getSpacingIndex(spacingStep?: SpacingStep, fallback: SpacingStep = "24"): number {
     const value = spacingStep || fallback;

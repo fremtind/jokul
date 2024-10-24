@@ -1,6 +1,6 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { knobs, PaginationExample } from "./PaginationExample";
+import { knobs, PaginationExample } from "./PaginationExample.js";
 
 import "./styles.scss";
 

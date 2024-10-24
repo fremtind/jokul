@@ -1,7 +1,7 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { ChangeEvent, FC, useState } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import type { LabelVariant } from "../../input-group";
-import { TextArea } from "../TextArea";
+import { LabelVariant } from "../../input-group/Label.js";
+import { TextArea } from "../TextArea.js";
 
 export const textAreaExampleKnobs: ExampleKnobsProps = {
     boolProps: [

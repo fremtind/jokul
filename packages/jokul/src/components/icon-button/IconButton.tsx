@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
-import { Density } from "../../core";
+import { Density } from "../../core/types.js";
 
 export interface IconButtonProps extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     density?: Density;

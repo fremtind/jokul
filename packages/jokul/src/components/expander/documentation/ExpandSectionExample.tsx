@@ -1,6 +1,6 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
-import { ExpandSection } from "..";
-import { ExampleComponentProps } from "../../../../../../utils/dev-example";
+import { ExpandSection } from "../ExpandSection.js";
 
 export const ExpandSectionExample: FC<ExampleComponentProps> = () => {
     const [isExpanded, setIsExpanded] = useState(false);

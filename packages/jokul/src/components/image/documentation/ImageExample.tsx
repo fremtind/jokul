@@ -1,12 +1,12 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
 import React, { useState } from "react";
-import { Image } from "..";
-import { ExampleComponentProps } from "../../../../../../utils/dev-example";
+import { Image } from "../Image.js";
+import "./style.scss";
 import dog1200 from "/img/dog-1200.jpg";
 import dog1920 from "/img/dog-1920.jpg";
 import dog400 from "/img/dog-400.jpg";
 import dog800 from "/img/dog-800.jpg";
 import thumbnail from "/img/thumbnail.jpg";
-import "./style.scss";
 
 const responsiveImage = {
     src: dog400,

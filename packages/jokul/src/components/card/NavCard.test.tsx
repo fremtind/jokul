@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
-import { NavCard } from "./NavCard";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { NavCard } from "./NavCard.js";
 
 describe("NavCard", () => {
     it("renders without exploding", () => {
@@ -26,7 +27,7 @@ describe("NavCard", () => {
 });
 
 describe("a11y", () => {
-    test("card should be a11y compliant", async () => {
+    it("card should be a11y compliant", async () => {
         const { container } = render(
             <NavCard title="Card">
                 <p>Hello world</p>

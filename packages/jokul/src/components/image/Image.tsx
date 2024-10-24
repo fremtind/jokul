@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { FC } from "react";
-import { useElementDimensions } from "../../hooks";
-import { useImageLoadingStatus } from "./useImageLoadingStatus";
+import { useElementDimensions } from "../../hooks/useElementDimensions/useElementDimensions.js";
+import { useImageLoadingStatus } from "./useImageLoadingStatus.js";
 
 export interface ImageProps {
     src: string;

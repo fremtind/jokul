@@ -1,3 +1,4 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useRef, useState } from "react";
 import {
     Table,
@@ -9,9 +10,8 @@ import {
     TableHeader,
     TablePagination,
     TableRow,
-} from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { columns, rows } from "./paginated-table-data";
+} from "../index.js";
+import { columns, rows } from "./paginated-table-data.js";
 
 export const paginatedTableExamplesProps: ExampleKnobsProps = {
     boolProps: ["Med snarvei", "Med custom labels"],

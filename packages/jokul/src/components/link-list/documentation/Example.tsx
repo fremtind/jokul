@@ -1,6 +1,6 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { OrderedLinkListExample, UnorderedLinkListExample, knobs } from "./LinkListExample";
+import { knobs, OrderedLinkListExample, UnorderedLinkListExample } from "./LinkListExample.js";
 
 export default function Example() {
     return (

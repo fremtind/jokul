@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react";
-import { WithChildren } from "../../../../core";
 import "./icons-example-grid.scss";
+import { WithChildren } from "../../../../core/types.js";
 
 interface IconsExampleGridProps extends WithChildren {
     columns: "two" | "four";

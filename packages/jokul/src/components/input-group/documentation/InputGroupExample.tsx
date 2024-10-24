@@ -1,8 +1,9 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { InputGroup, type LabelVariant } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { Link } from "../../link";
-import { BaseTextInput } from "../../text-input";
+import { Link } from "../../link/Link.js";
+import { BaseTextInput } from "../../text-input/BaseTextInput.js";
+import { InputGroup } from "../InputGroup.js";
+import { LabelVariant } from "../Label.js";
 
 export const inputGroupExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],

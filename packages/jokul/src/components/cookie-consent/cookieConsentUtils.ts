@@ -1,4 +1,4 @@
-import type { Consent, ConsentRequirement, ConsentState } from "./types";
+import type { Consent, ConsentRequirement, ConsentState } from "./types.js";
 
 const getCookie = (name: string) => {
     if (typeof document === "undefined") {

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { AnchorHTMLAttributes } from "react";
-import { WithChildren } from "../..";
+import { WithChildren } from "../../core/types.js";
 
 export interface BreadcrumbItemProps extends WithChildren {
     className?: string;

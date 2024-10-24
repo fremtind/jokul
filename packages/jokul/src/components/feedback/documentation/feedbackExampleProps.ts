@@ -1,4 +1,4 @@
-import { PRESETS } from "../presets";
+import { PRESETS } from "../presets.js";
 
 export const feedbackExampleProps = {
     boolProps: ["Med oppfølgings-spørsmål", "Med kontakt-spørsmål", "Med teller"],

@@ -1,8 +1,13 @@
-import { render, screen, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { axe } from "jest-axe";
+import { act, render, screen } from "@testing-library/react";
+import UserEventModule from "@testing-library/user-event";
 import React from "react";
-import { Checkbox } from ".";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
+import { Checkbox } from "./Checkbox.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("checkbox", () => {
     it("should be checked after clicking the label", async () => {
@@ -79,7 +84,7 @@ describe("checkbox", () => {
     });
 
     it("should call the passed onChange method when clicked", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         render(
             <Checkbox value="switchme" name="switchme" onChange={onChange}>
                 Switch me!
@@ -108,7 +113,7 @@ describe("checkbox", () => {
 });
 
 describe("a11y", () => {
-    test("checkbox should be a11y compliant", async () => {
+    it("checkbox should be a11y compliant", async () => {
         const { container } = render(
             <Checkbox name="box" value="checkbox">
                 I am special
@@ -119,7 +124,7 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("checked checkbox should be a11y compliant", async () => {
+    it("checked checkbox should be a11y compliant", async () => {
         const { container } = render(
             <Checkbox name="box" value="static" checked onChange={() => {}}>
                 I am special
@@ -130,7 +135,7 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("invalid checkbox should be a11y compliant", async () => {
+    it("invalid checkbox should be a11y compliant", async () => {
         const { container } = render(
             <Checkbox name="box" value="static" invalid>
                 I am special
@@ -141,7 +146,7 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("inline checkbox should be a11y compliant", async () => {
+    it("inline checkbox should be a11y compliant", async () => {
         const { container } = render(
             <>
                 <Checkbox name="box" value="static" inline>

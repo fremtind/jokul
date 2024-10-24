@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { forwardRef, HTMLAttributes } from "react";
-import { TableSectionContextProvider } from "./tableSectionContext";
+import { TableSectionContextProvider } from "./tableSectionContext.js";
 
 export interface TableHeadProps extends HTMLAttributes<HTMLTableSectionElement> {
     srOnly?: boolean;

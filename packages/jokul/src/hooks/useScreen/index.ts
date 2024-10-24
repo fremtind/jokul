@@ -1,2 +1,2 @@
-export { useScreen } from "./useScreen";
-export { type ScreenState } from "./state";
+export { useScreen } from "./useScreen.js";
+export { type ScreenState } from "./state.js";

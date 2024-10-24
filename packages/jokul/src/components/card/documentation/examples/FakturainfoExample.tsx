@@ -1,8 +1,8 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../../utils/dev-example";
-import { formatValuta } from "../../../../utilities/formatters";
-import { ErrorTag } from "../../../tag";
-import { Card, CARD_PADDINGS, CARD_VARIANTS, type CardPadding, type CardVariant } from "../../Card";
+import { formatValuta } from "../../../../utilities/formatters/valuta/formatValuta.js";
+import { ErrorTag } from "../../../tag/Tag.js";
+import { Card, CARD_PADDINGS, CARD_VARIANTS, CardPadding, CardVariant } from "../../Card.js";
 
 export const FakturainfoExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
     const padding = choiceValues?.["Padding"] as CardPadding | undefined;

@@ -1,6 +1,6 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { Toast } from "../Toast";
+import { Toast } from "../Toast.js";
 
 export const toastStickerSheetKnobs: ExampleKnobsProps = {};
 

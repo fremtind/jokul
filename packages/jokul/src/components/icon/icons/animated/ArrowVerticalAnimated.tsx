@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React, { type FC } from "react";
-import { type IconVariant } from "../../types";
-import { ArrowDownIcon } from "../ArrowDownIcon";
-import { ArrowUpIcon } from "../ArrowUpIcon";
+import { IconVariant } from "../../types.js";
+import { ArrowDownIcon } from "../ArrowDownIcon.js";
+import { ArrowUpIcon } from "../ArrowUpIcon.js";
 
 export interface ArrowVerticalAnimatedProps {
     className?: string;

@@ -1,11 +1,11 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
 import React, { useState } from "react";
-import { ExampleComponentProps } from "../../../../../../../utils/dev-example";
-import { useAnimatedHeight } from "../../../../hooks";
-import { Checkbox } from "../../../checkbox";
-import { FieldGroup } from "../../../input-group";
-import { Select } from "../../../select";
-import { TaskCard } from "../../TaskCard";
-import { mixedPadding } from "./cardExampleProps";
+import { useAnimatedHeight } from "../../../../hooks/index.js";
+import { Checkbox } from "../../../checkbox/Checkbox.js";
+import { FieldGroup } from "../../../input-group/FieldGroup.js";
+import { Select } from "../../../select/Select.js";
+import { TaskCard } from "../../TaskCard.js";
+import { mixedPadding } from "./cardExampleProps.js";
 
 export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues }) => {
     const [selected, setSelected] = useState(false);

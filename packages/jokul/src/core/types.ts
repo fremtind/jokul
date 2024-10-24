@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { tokens } from "./";
+import type { default as tokens } from "./tokens.js";
 
 // Brukes til å extende props for komponenter som skal støtte data-testautoid ifbm. Test Complete
 export interface DataTestAutoId {

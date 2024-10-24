@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, useEffect, useRef } from "react";
-import { useAnimatedHeight } from "../../hooks";
-import { MessageProps, ErrorMessage } from "./Message";
+import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
+import { MessageProps, ErrorMessage } from "./Message.js";
 
 export interface FormErrorMessageProps {
     className?: string;

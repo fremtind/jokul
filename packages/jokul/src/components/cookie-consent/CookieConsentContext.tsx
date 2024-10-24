@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo } from "react";
-import { WithChildren } from "../..";
-import { shouldShowConsentDialog, getConsentCookie, buildRequirementsObject } from "./cookieConsentUtils";
-import type { Consent, ConsentRequirement } from "./types";
+import { WithChildren } from "../../core/types.js";
+import { buildRequirementsObject, getConsentCookie, shouldShowConsentDialog } from "./cookieConsentUtils.js";
+import { Consent, ConsentRequirement } from "./types.js";
 
 // https://kentcdodds.com/blog/how-to-use-react-context-effectively
 
@@ -177,4 +177,4 @@ const useCookieConsent = (): UseCookieConsent => {
     return { openConsentModalWithSettings, openConsentModalWithDefaults, consents };
 };
 
-export { CookieConsentProvider, useCookieConsentState, useCookieConsent };
+export { CookieConsentProvider, useCookieConsent, useCookieConsentState };

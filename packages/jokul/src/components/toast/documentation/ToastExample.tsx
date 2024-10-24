@@ -1,8 +1,8 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { ToastContent, ToastProvider, useToast } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { PrimaryButton } from "../../button";
-import { ToastOptions } from "../types";
+import { PrimaryButton } from "../../button/Button.js";
+import { ToastContent, ToastProvider, useToast } from "../index.js";
+import { ToastOptions } from "../types.js";
 
 export const toastExampleKnobs: ExampleKnobsProps = {
     boolProps: [],

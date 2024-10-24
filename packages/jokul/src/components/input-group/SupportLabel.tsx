@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { type FC, type ReactNode } from "react";
-import { type Density } from "../../core";
-import { ErrorIcon, SuccessIcon, WarningIcon } from "../icon";
+import { Density } from "../../core/types.js";
+import { ErrorIcon, SuccessIcon, WarningIcon } from "../icon/index.js";
 
 export type SupportLabelType = "help" | "error" | "warning" | "success";
 

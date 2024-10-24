@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React, { ChangeEventHandler, forwardRef } from "react";
-import { Density } from "../..";
-import { useId } from "../../hooks";
-import { RadioButtonProps } from "./RadioButton";
+import { Density } from "../../core/types.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { RadioButtonProps } from "./RadioButton.js";
 
 export interface BaseRadioButtonProps extends RadioButtonProps {
     inline?: boolean;

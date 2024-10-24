@@ -1,9 +1,9 @@
 import cn from "clsx";
 import React, { ButtonHTMLAttributes, type TouchEvent, useCallback } from "react";
-import { useAriaLiveRegion } from "../../hooks";
-import type { PolymorphicRef } from "../../utilities";
-import { Loader } from "../loader";
-import type { ButtonComponent, ButtonProps } from "./types";
+import { useAriaLiveRegion } from "../../hooks/useAriaLiveRegion/useAriaLiveRegion.js";
+import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import { Loader } from "../loader/Loader.js";
+import { ButtonComponent, ButtonProps } from "./types.js";
 
 export const Button = React.forwardRef(function Button<ElementType extends React.ElementType = "button">(
     props: ButtonProps<ElementType>,

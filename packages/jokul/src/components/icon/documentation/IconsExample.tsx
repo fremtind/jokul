@@ -1,4 +1,6 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { useState } from "react";
+import { TextInput } from "../../text-input/TextInput.js";
 import {
     ArrowDownIcon,
     ArrowLeftIcon,
@@ -31,12 +33,10 @@ import {
     ThumbUpIcon,
     TrashCanIcon,
     WarningIcon,
-} from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { TextInput } from "../../text-input";
-import { IconVariant } from "../types";
-import { IconExample } from "./internal/IconExample";
-import { IconsExampleGrid } from "./internal/IconsExampleGrid";
+} from "../index.js";
+import { IconVariant } from "../types.js";
+import { IconExample } from "./internal/IconExample.js";
+import { IconsExampleGrid } from "./internal/IconsExampleGrid.js";
 
 export const iconsExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Bold"],

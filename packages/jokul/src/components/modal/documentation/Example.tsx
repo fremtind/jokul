@@ -1,6 +1,6 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { ModalExample, dialogExampleKnobs } from "./ModalExample";
+import ModalExample, { dialogExampleKnobs } from "./ModalExample.js";
 
 export default function Example() {
     return <DevExample component={ModalExample} knobs={dialogExampleKnobs} />;

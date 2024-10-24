@@ -1,6 +1,6 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React from "react";
-import { FormErrorMessage } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
+import { FormErrorMessage } from "../FormErrorMessage.js";
 
 export const formErrorMessageKnobs: ExampleKnobsProps = {
     boolProps: ["Full width", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],

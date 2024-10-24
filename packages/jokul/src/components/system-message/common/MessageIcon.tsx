@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ErrorIcon, InfoIcon, WarningIcon, SuccessIcon } from "../../icon";
+import { ErrorIcon, InfoIcon, WarningIcon, SuccessIcon } from "../../icon/index.js";
 
 type MessageTypes = "info" | "error" | "success" | "warning";
 

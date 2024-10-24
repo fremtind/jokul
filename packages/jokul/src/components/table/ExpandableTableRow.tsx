@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React, { forwardRef, useEffect, useState } from "react";
-import { useAnimatedHeight, useId } from "../../hooks";
-import { ExpandableTableRowController, ExpandableTableRowControllerProps } from "./ExpandableTableRowController";
-import type { TableRowProps } from "./TableRow";
-import { TableRow } from "./TableRow";
+import { useAnimatedHeight } from "../../hooks/index.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { ExpandableTableRowController, ExpandableTableRowControllerProps } from "./ExpandableTableRowController.js";
+import { TableRow, TableRowProps } from "./TableRow.js";
 
 export interface ExpandableTableRowProps extends TableRowProps {
     expandedChildren: React.ReactNode;

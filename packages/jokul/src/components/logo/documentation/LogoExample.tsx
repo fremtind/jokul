@@ -1,6 +1,6 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { Logo } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
+import { Logo } from "../Logo.js";
 
 export const logoExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Animert", "Kun symbol", "Sentrert"],

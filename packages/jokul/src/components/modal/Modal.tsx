@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import type { WithOptionalChildren } from "../..";
-import { CloseIcon } from "../icon";
-import { IconButton, type IconButtonProps } from "../icon-button";
-import { ModalConfig } from "./useModal";
+import { WithOptionalChildren } from "../../core/types.js";
+import { CloseIcon } from "../icon/index.js";
+import { IconButton, IconButtonProps } from "../icon-button/IconButton.js";
+import { ModalConfig } from "./useModal.js";
 
 export interface ModalProps extends WithOptionalChildren {
     id?: string;

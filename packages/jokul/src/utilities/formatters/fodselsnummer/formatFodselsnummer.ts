@@ -1,4 +1,4 @@
-import { unicode } from "../../constants";
+import { unicode } from "../../constants/index.js";
 
 export const FODSELSNUMMER_REGEX = {
     full: /^(\d{6})(\d{5})$/,

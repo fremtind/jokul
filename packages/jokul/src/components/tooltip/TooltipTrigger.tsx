@@ -1,7 +1,7 @@
 import { useMergeRefs } from "@floating-ui/react";
 import clsx from "clsx";
 import React, { forwardRef, type HTMLProps } from "react";
-import { useTooltipContext } from "./Tooltip";
+import { useTooltipContext } from "./Tooltip.js";
 
 export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(function TooltipTrigger(
     { children, className, ...props },

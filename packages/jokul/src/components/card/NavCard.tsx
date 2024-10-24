@@ -1,10 +1,10 @@
 import clsx from "clsx";
-import React, { ElementType, FC, AnchorHTMLAttributes } from "react";
-import { WithChildren, Density } from "../../core";
-import { Image, ImageProps } from "../image";
-import { ErrorTag, InfoTag, SuccessTag, Tag, TagProps, WarningTag } from "../tag";
-import { PaddingOptions } from "./types";
-import { getPaddingStyles } from "./utils";
+import React, { AnchorHTMLAttributes, ElementType, FC } from "react";
+import { Density, WithChildren } from "../../core/types.js";
+import { Image, ImageProps } from "../image/Image.js";
+import { ErrorTag, InfoTag, SuccessTag, Tag, TagProps, WarningTag } from "../tag/Tag.js";
+import { PaddingOptions } from "./types.js";
+import { getPaddingStyles } from "./utils.js";
 
 export type TagType = "success" | "warning" | "info" | "error";
 

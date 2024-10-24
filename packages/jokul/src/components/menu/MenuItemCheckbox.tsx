@@ -6,8 +6,8 @@ import React, {
     type MouseEventHandler,
     type ReactNode,
 } from "react";
-import { useSwipeGesture, type SwipeChangeHandler } from "../../hooks";
-import { CheckIcon } from "../icon";
+import { SwipeChangeHandler, useSwipeGesture } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
+import { CheckIcon } from "../icon/index.js";
 
 export interface MenuItemCheckboxProps extends Omit<HTMLAttributes<HTMLDivElement>, "aria-checked" | "onChange"> {
     "aria-checked": boolean;

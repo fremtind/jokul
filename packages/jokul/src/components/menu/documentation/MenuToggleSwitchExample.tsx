@@ -1,11 +1,14 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { useCallback, useRef, useState, type FC } from "react";
-import { Menu, MenuItemCheckbox } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { type ColorScheme } from "../../../core";
-import { useBrowserPreferences } from "../../../hooks";
-import { DotsIcon } from "../../icon";
-import { IconButton } from "../../icon-button";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../../tooltip";
+import { ColorScheme } from "../../../core/types.js";
+import { useBrowserPreferences } from "../../../hooks/useBrowserPreferences/useBrowserPreferences.js";
+import { DotsIcon } from "../../icon/index.js";
+import { IconButton } from "../../icon-button/IconButton.js";
+import { Tooltip } from "../../tooltip/Tooltip.js";
+import { TooltipContent } from "../../tooltip/TooltipContent.js";
+import { TooltipTrigger } from "../../tooltip/TooltipTrigger.js";
+import { Menu } from "../Menu.js";
+import { MenuItemCheckbox } from "../MenuItemCheckbox.js";
 
 export const MenuToggleSwitchExampleKnobs: ExampleKnobsProps = {
     choiceProps: [

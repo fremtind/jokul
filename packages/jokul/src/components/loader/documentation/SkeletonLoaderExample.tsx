@@ -1,17 +1,13 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import {
-    SkeletonAnimation,
-    SkeletonButton,
-    SkeletonCheckboxGroup,
-    SkeletonElement,
-    SkeletonInput,
-    SkeletonRadioButtonGroup,
-    SkeletonTable,
-    SkeletonTableHeader,
-    SkeletonTableRow,
-    SkeletonTextArea,
-} from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
+import { SkeletonAnimation } from "../skeletons/SkeletonAnimation.js";
+import { SkeletonButton } from "../skeletons/SkeletonButton.js";
+import { SkeletonCheckboxGroup } from "../skeletons/SkeletonCheckboxGroup.js";
+import { SkeletonElement } from "../skeletons/SkeletonElement.js";
+import { SkeletonInput } from "../skeletons/SkeletonInput.js";
+import { SkeletonRadioButtonGroup } from "../skeletons/SkeletonRadioButtonGroup.js";
+import { SkeletonTable, SkeletonTableHeader, SkeletonTableRow } from "../skeletons/SkeletonTable.js";
+import { SkeletonTextArea } from "../skeletons/SkeletonTextArea.js";
 
 export const knobs: ExampleKnobsProps = {};
 

@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
-import { InfoMessage, ErrorMessage, SuccessMessage, WarningMessage } from ".";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { ErrorMessage, InfoMessage, SuccessMessage, WarningMessage } from "./Message.js";
 
 describe("Message boxes", () => {
     [true, false].map((fullWidth) => {

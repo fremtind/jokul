@@ -1,2 +1,2 @@
-export { SummaryTable } from "./SummaryTable";
-export { SummaryTableRow } from "./SummaryTableRow";
+export { SummaryTable } from "./SummaryTable.js";
+export { SummaryTableRow } from "./SummaryTableRow.js";

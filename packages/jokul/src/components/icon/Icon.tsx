@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
-import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities";
-import { IconVariant } from "./types";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import { IconVariant } from "./types.js";
 
 type IconComponentProps<ElementType extends Extract<React.ElementType, "span" | "div">> = PolymorphicPropsWithRef<
     ElementType,

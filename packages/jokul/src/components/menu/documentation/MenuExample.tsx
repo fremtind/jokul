@@ -1,10 +1,10 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { ComponentPropsWithRef, FC, forwardRef } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { Button } from "../../button";
-import { ChevronDownIcon, ErrorIcon } from "../../icon";
-import { Menu } from "../Menu";
-import { MenuDivider } from "../MenuDivider";
-import { MenuItem } from "../MenuItem";
+import { Button } from "../../button/Button.js";
+import { ChevronDownIcon, ErrorIcon } from "../../icon/index.js";
+import { Menu } from "../Menu.js";
+import { MenuDivider } from "../MenuDivider.js";
+import { MenuItem } from "../MenuItem.js";
 
 export const MenuExampleKnobs: ExampleKnobsProps = {
     choiceProps: [

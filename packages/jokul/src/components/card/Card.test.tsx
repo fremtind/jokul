@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
-import { Card, CARD_PADDINGS, CARD_VARIANTS } from "./Card";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { Card, CARD_PADDINGS, CARD_VARIANTS } from "./Card.js";
 
 describe("Card", () => {
     it("rendrer uten å kræsje", () => {
@@ -78,7 +79,7 @@ describe("Card", () => {
 });
 
 describe("a11y", () => {
-    test("card should be a11y compliant", async () => {
+    it("card should be a11y compliant", async () => {
         const { container } = render(
             <Card asChild clickable padding="s" variant="high">
                 <a href="/faktura/12345" className="flex gap-x-40">

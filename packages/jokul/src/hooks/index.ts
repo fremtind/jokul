@@ -1,4 +1,4 @@
-export { useAnimatedDetails } from "./useAnimatedDetails";
+export { useAnimatedDetails } from "./useAnimatedDetails/useAnimatedDetails.js";
 
 export {
     useAnimatedHeight,
@@ -6,36 +6,36 @@ export {
     useAutoAnimatedHeight,
     type UseAutoAnimatedHeightOptions,
     type UseAnimatedHeightOptions,
-} from "./useAnimatedHeight";
+} from "./useAnimatedHeight/index.js";
 
-export { useBrowserPreferences } from ".//useBrowserPreferences";
+export { useBrowserPreferences } from ".//useBrowserPreferences//useBrowserPreferences.js";
 
-export { useIntersectionObserver } from "./useIntersectionObserver";
+export { useIntersectionObserver } from "./useIntersectionObserver/useIntersectionObserver.js";
 
-export { useLocalStorage } from "./useLocalStorage/useLocalStorage";
+export { useLocalStorage } from "./useLocalStorage/useLocalStorage.js";
 
-export { useMutationObserver } from "./useMutationObserver";
+export { useMutationObserver } from "./useMutationObserver/useMutationObserver.js";
 
-export { usePreviousValue } from "./usePreviousValue";
+export { usePreviousValue } from "./usePreviousValue/usePreviousValue.js";
 
-export { useProgressiveImg, type ProgressiveImageProps } from "./useProgressiveImg";
+export { useProgressiveImg, type ProgressiveImageProps } from "./useProgressiveImg/useProgressiveImg.js";
 
-export { useScreen, type ScreenState } from "./useScreen";
+export { useScreen, type ScreenState } from "./useScreen/index.js";
 
-export { useScrollIntoView, type ScrollIntoViewProps } from "./useScrollIntoView";
+export { useScrollIntoView, type ScrollIntoViewProps } from "./useScrollIntoView/useScrollIntoView.js";
 
-export { useAriaLiveRegion, type UseAriaLiveRegionOptions } from "./useAriaLiveRegion";
+export { useAriaLiveRegion, type UseAriaLiveRegionOptions } from "./useAriaLiveRegion/useAriaLiveRegion.js";
 
-export { useClickOutside } from "./useClickOutside";
+export { useClickOutside } from "./useClickOutside/useClickOutside.js";
 
-export { useFocusOutside } from "./useFocusOutside";
+export { useFocusOutside } from "./useFocusOutside/useFocusOutside.js";
 
-export { useElementDimensions, type Dimensions } from "./useElementDimensions";
+export { useElementDimensions, type Dimensions } from "./useElementDimensions/useElementDimensions.js";
 
-export { useId } from "./useId";
+export { useId } from "./useId/useId.js";
 
-export { useKeyListener } from "./useKeyListener";
+export { useKeyListener } from "./useKeyListener/useKeyListener.js";
 
-export { useListNavigation } from "./useListNavigation";
+export { useListNavigation } from "./useListNavigation/useListNavigation.js";
 
-export { useSwipeGesture, type SwipeChangeHandler } from "./useSwipeGesture";
+export { useSwipeGesture, type SwipeChangeHandler } from "./useSwipeGesture/useSwipeGesture.js";

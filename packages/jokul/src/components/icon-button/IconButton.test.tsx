@@ -1,12 +1,17 @@
 import { act, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import UserEventModule from "@testing-library/user-event";
 import React from "react";
-import { SearchIcon } from "../icon";
-import { IconButton } from ".";
+import { describe, expect, it, vi } from "vitest";
+import { SearchIcon } from "../icon/index.js";
+import { IconButton } from "./IconButton.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("IconButton", () => {
     it("calls the onClick handler when clicked", async () => {
-        const clickHandler = jest.fn();
+        const clickHandler = vi.fn();
         render(
             <IconButton title="Søk" onClick={clickHandler}>
                 <SearchIcon />

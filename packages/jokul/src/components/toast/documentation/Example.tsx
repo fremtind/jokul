@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { ToastExample, toastExampleKnobs } from "./ToastExample";
-import { ToastStickerSheet, toastStickerSheetKnobs } from "./ToastStickerSheet";
+import { ToastExample, toastExampleKnobs } from "./ToastExample.js";
+import { ToastStickerSheet, toastStickerSheetKnobs } from "./ToastStickerSheet.js";
 
 export default function Example() {
     return (

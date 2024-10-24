@@ -1,4 +1,4 @@
-import { Feedback } from "./Feedback";
-import { PRESETS } from "./presets";
+import { Feedback } from "./Feedback.js";
+import { PRESETS } from "./presets.js";
 
 export { Feedback, PRESETS };

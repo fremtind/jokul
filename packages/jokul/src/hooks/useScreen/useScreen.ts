@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useReducer, useState } from "react";
-import { tokens } from "../../core";
-import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
-import { ScreenAction, ActionType, reducer, ScreenState } from "./state";
+import { tokens } from "../../core/index.js";
+import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils.js";
+import { ScreenAction, ActionType, reducer, ScreenState } from "./state.js";
 
 const { breakpoint } = tokens;
 

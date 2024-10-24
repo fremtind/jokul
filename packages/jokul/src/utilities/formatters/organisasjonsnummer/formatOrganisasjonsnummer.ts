@@ -1,4 +1,4 @@
-import { unicode } from "../../constants";
+import { unicode } from "../../constants/index.js";
 
 export const ORGANISASJONSNUMMER_REGEX = {
     full: /^(\d{3})(\d{3})(\d{3})$/,

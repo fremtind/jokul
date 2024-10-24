@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect, SetStateAction, Dispatch, FormEventHandler } from "react";
-import { FeedbackType, FeedbackOption } from "../types";
+import { FeedbackType, FeedbackOption } from "../types.js";
 
 type Value = FeedbackOption<string | number> | FeedbackOption<string | number>[] | undefined;
 

@@ -3,17 +3,17 @@ import React, {
     forwardRef,
     useCallback,
     useState,
-    type MouseEventHandler,
     type ChangeEventHandler,
     type FC,
+    type MouseEventHandler,
 } from "react";
-import { type Density } from "../..";
-import { useId } from "../../hooks";
-import { ChevronLeftIcon, ChevronRightIcon } from "../icon";
-import { IconButton } from "../icon-button";
-import { NativeSelect } from "../select";
-import { TextInput } from "../text-input";
-import { useTableContext } from "./tableContext";
+import { Density } from "../../core/types.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { ChevronLeftIcon, ChevronRightIcon } from "../icon/index.js";
+import { IconButton } from "../icon-button/IconButton.js";
+import { NativeSelect } from "../select/NativeSelect.js";
+import { TextInput } from "../text-input/TextInput.js";
+import { useTableContext } from "./tableContext.js";
 
 export interface TablePaginationProps {
     className?: string;

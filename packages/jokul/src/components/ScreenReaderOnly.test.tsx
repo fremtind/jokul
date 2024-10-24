@@ -1,7 +1,8 @@
 import { render } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
-import { ScreenReaderOnly } from "./ScreenReaderOnly";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { ScreenReaderOnly } from "./ScreenReaderOnly.js";
 
 describe("ScreenReaderOnly", () => {
     it("should show content with correct className", () => {
@@ -20,7 +21,7 @@ describe("ScreenReaderOnly", () => {
         expect(hiddenText).toHaveAttribute("class", "jkl-sr-only jkl-sr-only--focusable");
     });
 
-    it("should pass jest-axe tests in default state", async () => {
+    it("should pass vi-axe tests in default state", async () => {
         const { container } = render(<ScreenReaderOnly>Visually hidden</ScreenReaderOnly>);
 
         const results = await axe(container);
@@ -28,7 +29,7 @@ describe("ScreenReaderOnly", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("should pass jest-axe tests when focusable", async () => {
+    it("should pass vi-axe tests when focusable", async () => {
         const { container } = render(<ScreenReaderOnly showOnFocus>Visually hidden, unless focused</ScreenReaderOnly>);
 
         const results = await axe(container);

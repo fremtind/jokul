@@ -1,6 +1,7 @@
-import type { ChangeEvent, KeyboardEvent, FocusEvent, ButtonHTMLAttributes } from "react";
-import { DataTestAutoId, Density } from "../../core";
-import { InputGroupProps, LabelProps } from "../input-group";
+import type { ButtonHTMLAttributes, ChangeEvent, FocusEvent, KeyboardEvent } from "react";
+import { DataTestAutoId, Density } from "../../core/types.js";
+import { InputGroupProps } from "../input-group/InputGroup.js";
+import { LabelProps } from "../input-group/Label.js";
 
 export type DateValidationError = "WRONG_FORMAT" | "OUTSIDE_LOWER_BOUND" | "OUTSIDE_UPPER_BOUND";
 
