@@ -1,4 +1,4 @@
-import { act, render, cleanup, RenderOptions } from "@testing-library/react";
+import { act, cleanup, render, RenderOptions } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
@@ -203,37 +203,48 @@ describe("Datepicker", () => {
     });
 
     it("should keep focus inside the calendar when open", async () => {
-        const { user, getByTestId, queryByTestId, getByTitle } = setup(<DatePicker label="Some datepicker" />);
+        let spy: jest.SpyInstance | null = null;
+        try {
+            spy = jest
+                .spyOn(window, "requestAnimationFrame")
+                .mockImplementation((callback: FrameRequestCallback): number => {
+                    callback(0);
+                    return 0;
+                });
+            const { user, getByTestId, queryByTestId, getByTitle } = setup(<DatePicker label="Some datepicker" />);
 
-        await waitForPosition();
+            await waitForPosition();
 
-        const button = getByTestId("jkl-datepicker__trigger");
+            const button = getByTestId("jkl-datepicker__trigger");
 
-        expect(queryByTestId("jkl-calendar")).not.toBeInTheDocument();
+            expect(queryByTestId("jkl-calendar")).not.toBeInTheDocument();
 
-        await act(async () => {
-            await user.click(button);
-        });
+            await act(async () => {
+                await user.click(button);
+            });
 
-        expect(getByTestId("jkl-calendar")).toBeInTheDocument();
+            expect(getByTestId("jkl-calendar")).toBeInTheDocument();
 
-        // Tab inn i kalenderen
-        await act(async () => {
-            await user.tab();
-        });
+            // Tab inn i kalenderen
+            await act(async () => {
+                await user.tab();
+            });
 
-        expect(getByTitle("Gå tilbake 1 måned")).toHaveFocus();
+            expect(getByTitle("Gå tilbake 1 måned")).toHaveFocus();
 
-        // Tab forbi alle kontroller og selve kalenderen
-        await act(async () => {
-            await user.tab();
-            await user.tab();
-            await user.tab();
-            await user.tab();
-            await user.tab();
-        });
+            // Tab forbi alle kontroller og selve kalenderen
+            await act(async () => {
+                await user.tab();
+                await user.tab();
+                await user.tab();
+                await user.tab();
+                await user.tab();
+            });
 
-        expect(getByTitle("Gå tilbake 1 måned")).toHaveFocus();
+            expect(getByTitle("Gå tilbake 1 måned")).toHaveFocus();
+        } finally {
+            spy?.mockRestore();
+        }
     });
 
     it("should keep focus on input field when clicking on the input field", async () => {

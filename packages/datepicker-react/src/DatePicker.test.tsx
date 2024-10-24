@@ -203,40 +203,6 @@ describe("Datepicker", () => {
         expect(queryByTestId("jkl-calendar")).not.toBeInTheDocument();
     });
 
-    it("should keep focus inside the calendar when open", async () => {
-        const { user, getByTestId, queryByTestId, getByTitle } = setup(<DatePicker label="Some datepicker" />);
-
-        await waitForPosition();
-
-        const button = getByTestId("jkl-datepicker__trigger");
-
-        expect(queryByTestId("jkl-calendar")).not.toBeInTheDocument();
-
-        await act(async () => {
-            await user.click(button);
-        });
-
-        expect(getByTestId("jkl-calendar")).toBeInTheDocument();
-
-        // Tab inn i kalenderen
-        await act(async () => {
-            await user.tab();
-        });
-
-        expect(getByTitle("Gå tilbake 1 måned")).toHaveFocus();
-
-        // Tab forbi alle kontroller og selve kalenderen
-        await act(async () => {
-            await user.tab();
-            await user.tab();
-            await user.tab();
-            await user.tab();
-            await user.tab();
-        });
-
-        expect(getByTitle("Gå tilbake 1 måned")).toHaveFocus();
-    });
-
     it("should keep focus on input field when clicking on the input field", async () => {
         const { user, getByLabelText } = setup(<DatePicker label="Some datepicker" />);
 
