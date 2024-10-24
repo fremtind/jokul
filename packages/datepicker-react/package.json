@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-datepicker-react",
-    "version": "15.2.6",
+    "version": "15.2.7",
     "publishConfig": {
         "access": "public"
     },

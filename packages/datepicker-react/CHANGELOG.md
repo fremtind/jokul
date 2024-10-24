@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 15.2.7 (2024-10-24)
+
+### Bug Fixes
+
+- fixes a bug where Datepicker would scroll the page when opened ([5cf776b](https://github.com/fremtind/jokul/commit/5cf776b8971a750c210fcba65ab5f83f1ce932be)), closes [#4207](https://github.com/fremtind/jokul/issues/4207)
+
 ## 15.2.4 (2024-10-14)
 
 ### Bug Fixes
