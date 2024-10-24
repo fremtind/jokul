@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.24.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.23.4...@fremtind/jokul@0.24.0) (2024-10-24)
+
+### Bug Fixes
+
+- rett opp feil export og print ut filstier under bygg ([1a2bed3](https://github.com/fremtind/jokul/commit/1a2bed3886f78e7f2ab613f55fd9c4f7a7ee2435))
+- rett opp interne imports i flyttede sass-filer ([c7fd848](https://github.com/fremtind/jokul/commit/c7fd848d828ef0d55a354ce8337a356fc9376903))
+
+### Features
+
+- fjern unødvendige export paths for stilarkene ([495ad4a](https://github.com/fremtind/jokul/commit/495ad4aae3c3c15bdca9b7de1e48d87d529a014e))
+- lag ny byggmappe for stilark for enklere import ([977a594](https://github.com/fremtind/jokul/commit/977a594628263e700c27f0168fea9bc687920485))
+
+### BREAKING CHANGES
+
+- Stiler må nå importeres fra f.eks. @fremtind/jokul/styles/components/card i stedet for bare
+@fremtind/jokul/styles/card
+
 ## [0.23.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.23.3...@fremtind/jokul@0.23.4) (2024-10-24)
 
 ### Bug Fixes
