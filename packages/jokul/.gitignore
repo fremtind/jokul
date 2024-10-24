@@ -1,3 +1,7 @@
 dev-server.js
 **/documentation/index.html
 **/documentation/main.tsx
+
+# Byggmappe for stilark
+styles/
+!src/fonts/styles/

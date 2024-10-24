@@ -51,7 +51,7 @@ størrelsen på bundelen du sender ut. Bruker du SSR kan dette ende med veldig m
 ### SCSS
 
 Dersom du har valgt å importere alle Jøkul-stiler i forrige steg trenger du bare å gjøre selve font-filene tilgjengelig for nedlasting fra serveren din på path `/fonts`. Disse filene vil være
-tilgjengelig på _"relative/path/to/node_modules/@fremtind/jokul/src/fonts/assets"_.
+tilgjengelig på _"relative/path/to/node_modules/@fremtind/jokul/src/fonts"_.
 
 Hvis du har valgt å bare ta inn de stilene du faktisk bruker må du sette opp CSS for fontene selv.
 Dette gjør du med
@@ -59,8 +59,8 @@ Dette gjør du med
 ```scss
 // Variabelen `$webfonts-dir` angir hvor på disk filene ligger.
 // Hvis den ikke spesifiseres vil stilarket se etter fontfilene i mappen `/fonts`.
-@use "@fremtind/jokul/fonts" with (
-    $webfonts-dir: "relative/path/to/node_modules/@fremtind/jokul/src/fonts/assets"
+@use "@fremtind/jokul/styles/fonts" with (
+    $webfonts-dir: "relative/path/to/node_modules/@fremtind/jokul/src/fonts"
 );
 ```
 
@@ -68,7 +68,7 @@ Dette gjør du med
 
 Om du ikke bruker Sass kan du bruke CSS-versjonen. Denne versjonen ser **kun** etter fontfilene på URLen `/fonts`, så det beste er å sørge for å kopiere fonter på en måte som gjør at de blir tilgjengelig på den URLen.
 
-Om du er nødt til å legge fontfilene et annet sted må CSS-filen `node_modules/@fremtind/jkl-webfonts/webfonts.css`
+Om du er nødt til å legge fontfilene et annet sted må CSS-filen `node_modules/@fremtind/jokul/styles/fonts/webfonts.css`
 kopieres inn i prosjektet. Deretter må du endre URLen i hver `@font-face`-definisjon manuelt så det stemmer med hvor fontfilene ligger. **Husk at man må gjenta prosessen hver gang man oppdaterer pakken!**
 
 ```css
