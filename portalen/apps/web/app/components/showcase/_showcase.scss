@@ -1,0 +1,67 @@
+@use '@fremtind/jkl-core/jkl';
+
+.showcase {
+    $_gap-width: 1px;
+    background-color: var(--gap-color);
+    gap: $_gap-width;
+    padding: $_gap-width;
+
+    display: grid;
+    grid-template-areas:
+        'description'
+        'media';
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: jkl.rem(512px);
+    margin-bottom: jkl.rem(48px);
+
+    &__description,
+    &__media {
+        background-color: var(--jkl-bg-color);
+    }
+
+    @include jkl.from-medium-device {
+        grid-template-areas: 'description media';
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        margin-bottom: 0;
+
+        &:nth-of-type(odd) {
+            grid-template-areas: 'media description';
+        }
+
+        &:not(:last-of-type) {
+            // Unngå dobbel linje mellom showcase items
+            margin-bottom: -$_gap-width;
+        }
+    }
+
+    &__description {
+        @include jkl.text-style('body');
+        grid-area: description;
+        padding: jkl.$spacing-40;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__media {
+        grid-area: media;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        @include jkl.text-style('heading-5');
+    }
+
+    &__from {
+        @include jkl.text-style('heading-2');
+        margin-bottom: jkl.$spacing-24;
+    }
+}

@@ -1,0 +1,76 @@
+@use '@fremtind/jkl-core/jkl';
+
+.jkl-portal-lightbox {
+    width: 100%;
+    height: auto;
+
+    &__scrim {
+        @include jkl.reset-outline;
+        background-color: rgba(0 0 0 / 70%);
+
+        position: fixed;
+        inset: 0;
+        width: 100%; // Trengs i Firefox (#641)
+        opacity: 0;
+        pointer-events: none;
+        cursor: zoom-out;
+
+        &[data-open='true'] {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        &[data-overlay='true'] {
+            z-index: jkl.$z-index--overlay;
+        }
+    }
+
+    &__trigger {
+        position: relative;
+        @include jkl.reset-outline;
+        background-color: transparent;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+
+        @include jkl.keyboard-navigation {
+            &:focus {
+                outline: 2px solid var(--jkl-color);
+            }
+        }
+    }
+
+    &__media {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: zoom-in;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+
+        &[data-open='true'] {
+            cursor: zoom-out;
+            position: fixed;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            max-width: 90vw;
+            max-height: 90dvh;
+            margin: auto;
+        }
+
+        &[data-overlay='true'] {
+            z-index: jkl.$z-index--floating;
+        }
+
+        @include jkl.keyboard-navigation {
+            &:focus {
+                outline: 2px solid var(--jkl-color);
+            }
+        }
+    }
+}

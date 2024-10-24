@@ -1,0 +1,27 @@
+.jkl-portal-admin-global-search {
+    position: relative;
+    z-index: 9001;
+    margin-bottom: 24px;
+
+    [cmdk-list] {
+        position: absolute;
+        background-color: var(--theme-bg);
+        border: thin solid var(--theme-elevation-50);
+        border-top: none;
+        width: 100%;
+        padding: 8px;
+    }
+
+    [cmdk-group-heading] {
+        color: var(--theme-elevation-400);
+    }
+
+    [cmdk-item] {
+        color: var(--theme-text);
+
+        &[data-selected] {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}

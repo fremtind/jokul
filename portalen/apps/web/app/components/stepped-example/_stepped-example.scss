@@ -1,0 +1,107 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --stepped-example-desc-bg: #{jkl.$color-sand};
+    --stepped-example-example-bg: #{jkl.$color-dis};
+    --stepped-example-progress-bg: #{jkl.$color-svaberg};
+    --stepped-example-progress-color: #{jkl.$color-granitt};
+}
+
+@include jkl.dark-mode-variables {
+    --stepped-example-desc-bg: #{jkl.$color-skifer};
+    --stepped-example-example-bg: #{jkl.$color-fjellgra};
+    --stepped-example-progress-bg: #{jkl.$color-stein};
+    --stepped-example-progress-color: #{jkl.$color-snohvit};
+}
+
+.jkl-portal-stepped-example {
+    max-width: var(--jkl-portal-content);
+    display: grid;
+    position: relative;
+    grid-template:
+        'description' minmax(20vh, auto)
+        'example' auto
+        'navigation' auto / 1fr;
+
+    @include jkl.from-medium-device {
+        grid-template:
+            'example description' minmax(350px, auto)
+            'navigation  navigation' auto / 1fr 1fr;
+    }
+
+    margin: var(--jkl-spacing-64) 0;
+
+    &__headline {
+        @include jkl.text-style('heading-2');
+        position: absolute;
+        top: var(--jkl-spacing-32);
+        left: var(--jkl-spacing-32);
+        z-index: 1;
+    }
+
+    &__description,
+    &__example {
+        aspect-ratio: 1.4/ 1;
+        @include jkl.from-medium-device {
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+    &__description {
+        grid-area: description;
+        background-color: var(--stepped-example-desc-bg);
+        padding: var(--jkl-spacing-32);
+
+        @include jkl.small-device {
+            padding-top: jkl.rem(70px);
+        }
+    }
+
+    &__example {
+        grid-area: example;
+        position: relative;
+
+        background-color: var(--stepped-example-example-bg);
+
+        // Liten hack for utseende frem til vi nailer designet
+        text-align: center;
+
+        &--full-width {
+            grid-column-start: description-start;
+            grid-column-end: example-end;
+            grid-row-start: description-start;
+            grid-row-end: example-end;
+            aspect-ratio: auto;
+
+            @include jkl.from-medium-device {
+                aspect-ratio: 2 / 1;
+            }
+        }
+
+        & > .touch-button {
+            @include jkl.reset-outline;
+            position: absolute;
+            width: 50%;
+            inset: 0;
+            background-color: transparent;
+
+            @include jkl.from-medium-device {
+                display: none;
+            }
+
+            &--back {
+                inset-inline-end: 50%;
+            }
+
+            &--forward {
+                inset-inline-start: 50%;
+            }
+        }
+    }
+
+    &__navigation {
+        grid-area: navigation;
+
+        padding: var(--jkl-spacing-12) 0;
+    }
+}

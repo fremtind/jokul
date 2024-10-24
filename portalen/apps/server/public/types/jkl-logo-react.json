@@ -1,0 +1,330 @@
+{
+    "version": "13.1.0",
+    "types": {
+        "Logo": {
+            "tags": {},
+            "filePath": "jokul/packages/logo-react/src/index.ts",
+            "description": "",
+            "displayName": "Logo",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                        "name": "LogoProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                            "name": "LogoProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                        "name": "LogoProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                            "name": "LogoProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                        "name": "LogoProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                            "name": "LogoProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                },
+                "centered": {
+                    "defaultValue": {
+                        "value": "true"
+                    },
+                    "description": "Sentrerer logosymbolet i viewboksen i stedet for den vanlige venstrejusteringen",
+                    "name": "centered",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                        "name": "LogoProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                            "name": "LogoProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "animated": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Animerer overgangen mellom logo og logosymbol",
+                    "name": "animated",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                        "name": "LogoProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                            "name": "LogoProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "isSymbol": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Vis logosymbol i stedet for logo",
+                    "name": "isSymbol",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                        "name": "LogoProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                            "name": "LogoProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "title": {
+                    "defaultValue": {
+                        "value": "Fremtind"
+                    },
+                    "description": "Beskrivelse av logoen tilgjengelig for skjermlesere",
+                    "name": "title",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                        "name": "LogoProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/Logo.tsx",
+                            "name": "LogoProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                }
+            }
+        },
+        "LogoStamp": {
+            "tags": {},
+            "filePath": "jokul/packages/logo-react/src/index.ts",
+            "description": "",
+            "displayName": "LogoStamp",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/LogoStamp.tsx",
+                        "name": "LogoStampProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/LogoStamp.tsx",
+                            "name": "LogoStampProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/LogoStamp.tsx",
+                        "name": "LogoStampProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/LogoStamp.tsx",
+                            "name": "LogoStampProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/LogoStamp.tsx",
+                        "name": "LogoStampProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/LogoStamp.tsx",
+                            "name": "LogoStampProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                },
+                "title": {
+                    "defaultValue": {
+                        "value": "\"Forsikring levert av Fremtind\""
+                    },
+                    "description": "Beskrivelse av logostempelet tilgjengelig for skjermlesere.\nTeksten i logostempelet er en path, og ikke tilgjengelig for skjermlesere.",
+                    "name": "title",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/LogoStamp.tsx",
+                        "name": "LogoStampProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/LogoStamp.tsx",
+                            "name": "LogoStampProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "animated": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Roterer teksten rundt logostempelet første gangen stempelet kommer til syne",
+                    "name": "animated",
+                    "parent": {
+                        "fileName": "server/jokul/packages/logo-react/src/LogoStamp.tsx",
+                        "name": "LogoStampProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/logo-react/src/LogoStamp.tsx",
+                            "name": "LogoStampProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        },
+        "ForsikringLevertAvFremtind": {
+            "tags": {},
+            "filePath": "jokul/packages/logo-react/src/index.ts",
+            "description": "",
+            "displayName": "ForsikringLevertAvFremtind",
+            "methods": [],
+            "props": {}
+        },
+        "FraSB1ogDNB": {
+            "tags": {},
+            "filePath": "jokul/packages/logo-react/src/index.ts",
+            "description": "",
+            "displayName": "FraSB1ogDNB",
+            "methods": [],
+            "props": {}
+        },
+        "InnovasjonFraFremtind": {
+            "tags": {},
+            "filePath": "jokul/packages/logo-react/src/index.ts",
+            "description": "",
+            "displayName": "InnovasjonFraFremtind",
+            "methods": [],
+            "props": {}
+        },
+        "TeknologiFraFremtind": {
+            "tags": {},
+            "filePath": "jokul/packages/logo-react/src/index.ts",
+            "description": "",
+            "displayName": "TeknologiFraFremtind",
+            "methods": [],
+            "props": {}
+        },
+        "VartEgetForsikringsselskap": {
+            "tags": {},
+            "filePath": "jokul/packages/logo-react/src/index.ts",
+            "description": "",
+            "displayName": "VartEgetForsikringsselskap",
+            "methods": [],
+            "props": {}
+        },
+        "VartForsikringsselskap": {
+            "tags": {},
+            "filePath": "jokul/packages/logo-react/src/index.ts",
+            "description": "",
+            "displayName": "VartForsikringsselskap",
+            "methods": [],
+            "props": {}
+        }
+    }
+}

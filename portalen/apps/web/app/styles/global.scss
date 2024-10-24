@@ -1,0 +1,102 @@
+@use '@fremtind/jkl-core/jkl';
+@use '../block-renderers/content-blocks';
+@use '../block-renderers/page-sections';
+@use '../components/cookies';
+@use '../components/navigation';
+@use '../components/search';
+@use '../components/media';
+@use '../page-templates';
+@use './documentation/use-auto-animated-height';
+@use './documentation/use-animated-height-between';
+
+:root {
+    --jkl-portal-content: #{jkl.rem(950px)};
+    --jkl-portal-content-wide: #{jkl.rem(1280px)};
+    --jkl-portal-content-narrow: 70ch;
+    scroll-behavior: smooth;
+
+    --content-padding-inline: #{jkl.$spacing-16};
+    --content-padding-block: #{jkl.$spacing-24};
+
+    @include jkl.from-medium-device {
+        --content-padding-inline: #{jkl.$spacing-24};
+        --content-padding-block: #{jkl.$spacing-40};
+    }
+
+    @include jkl.from-large-device {
+        --content-padding-inline: #{jkl.$spacing-40};
+        --content-padding-block: #{jkl.$spacing-64};
+    }
+}
+
+@include jkl.light-mode-variables {
+    --jkl-portal-muted: #{jkl.$color-stein};
+    --gap-color: #{jkl.$color-svaberg};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-portal-muted: #{jkl.$color-svaberg};
+    --gap-color: #{jkl.$color-skifer};
+}
+
+.jkl-portal-skip-link {
+    z-index: jkl.$z-index--floating;
+    padding: jkl.$spacing-12;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.jkl-portal-paragraph {
+    @include jkl.text-style('body');
+
+    &:not(:last-child) {
+        margin-bottom: jkl.$spacing-24;
+    }
+}
+
+.jkl-portal-ingress {
+    @include jkl.text-style('heading-2');
+    margin-bottom: jkl.$spacing-64;
+}
+
+.large-title {
+    font-size: clamp(
+        3.625rem,
+        9.5714vw + 0.6339rem,
+        7.8125rem
+    ); // steg 12 i flytende skala fra tokens-utforsking
+    line-height: 1;
+    font-weight: 400;
+}
+
+.large-headline {
+    font-size: clamp(
+        1.75rem,
+        2vw + 1.125rem,
+        2.625rem
+    ); // steg 6 i flytende skala fra tokens-utforsking
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.ingress {
+    font-size: clamp(
+        1.375rem,
+        1vw + 1.0625rem,
+        1.8125rem
+    ); // steg 4 i flytende skala fra tokens-utforsking
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.body {
+    font-size: clamp(
+        1.125rem,
+        0.2857vw + 1.0357rem,
+        1.25rem
+    ); // steg 2 i flytende skala fra tokens-utforsking
+    line-height: 1.6;
+    font-weight: 400;
+}

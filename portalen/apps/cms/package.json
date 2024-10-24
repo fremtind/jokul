@@ -1,0 +1,67 @@
+{
+    "name": "@org/cms",
+    "description": "Payload CMS instance",
+    "version": "1.0.0",
+    "license": "MIT",
+    "types": "./src/index.ts",
+    "exports": {
+        ".": {
+            "serve": {
+                "types": "./dist/index.js",
+                "require": "./dist/index.js",
+                "import": "./dist/index.js"
+            },
+            "default": {
+                "types": "./src/index.ts",
+                "require": "./src/index.ts",
+                "import": "./src/index.ts"
+            }
+        }
+    },
+    "scripts": {
+        "clean": "rm -rf node_modules dist build .turbo",
+        "build:payload": "cross-env PAYLOAD_CONFIG_PATH=src/config.ts payload build",
+        "build:server": "rm -rf dist/* && tsc -p ./tsconfig.json",
+        "build": "pnpm build:payload && pnpm build:server && pnpm copyfiles",
+        "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" build/ && copyfiles -u 1 \"build/**/*\" ../server/build",
+        "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/config.ts payload generate:types",
+        "typecheck": "tsc -p ./tsconfig.json",
+        "lint": "eslint --ext .ts,.tsx,.js,.jsx ./src"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^14.1.0",
+        "@fremtind/jkl-icons": "^10.0.0",
+        "@fremtind/jkl-input-group": "^3.0.13",
+        "@fremtind/jkl-select": "^11.1.12",
+        "@fremtind/jkl-table": "^9.1.4",
+        "@fremtind/jkl-table-react": "^11.4.7",
+        "@fremtind/jkl-text-input": "^12.1.12",
+        "@fremtind/jkl-webfonts": "^4.0.0",
+        "@org/ui": "workspace:*",
+        "@payloadcms/bundler-vite": "^0.1.7",
+        "@payloadcms/db-mongodb": "^1.7.3",
+        "@payloadcms/richtext-slate": "^1.5.2",
+        "cmdk": "^0.2.0",
+        "dotenv": "^16.3.1",
+        "react": "^18.2.0",
+        "use-debounce": "^9.0.4"
+    },
+    "devDependencies": {
+        "@org/shared": "workspace:*",
+        "@types/express": "^4.17.21",
+        "@types/prettier": "^2.7.3",
+        "@types/react": "^18.2.38",
+        "copyfiles": "^2.4.1",
+        "cross-env": "^7.0.3",
+        "nodemon": "^2.0.22",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.1.6"
+    },
+    "peerDependencies": {
+        "@org/shared": "workspace:*"
+    },
+    "overrides": {
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    }
+}

@@ -1,0 +1,50 @@
+@use '@fremtind/jkl-core/jkl';
+
+$indicator-background-color: jkl.$color-varde;
+$indicator-text-color: jkl.$color-granitt;
+$indicator-size: jkl.$spacing-8;
+
+.jkl-portal-form-field-anatomy {
+    position: relative;
+
+    &__indicator {
+        background-color: $indicator-background-color;
+        border-radius: 50%;
+        color: $indicator-text-color;
+        height: $indicator-size;
+        left: -#{jkl.rem(50px)};
+        font-size: jkl.$typography-font-size-16;
+        font-weight: jkl.$typography-weight-bold;
+
+        line-height: $indicator-size;
+        padding: $indicator-size;
+        position: absolute;
+        text-align: center;
+        width: $indicator-size;
+
+        &::after {
+            background-color: $indicator-background-color;
+            content: ' ';
+            display: block;
+            height: jkl.rem(2px);
+            width: jkl.rem(37px);
+            margin-top: -#{jkl.rem(5px)};
+        }
+
+        &--input {
+            top: jkl.rem(83px);
+        }
+
+        &--support-label {
+            top: jkl.rem(128px);
+        }
+
+        &--input-with-icon {
+            top: jkl.rem(216px);
+        }
+    }
+
+    &__indicator-number {
+        margin-left: -#{jkl.rem(1px)};
+    }
+}

@@ -1,0 +1,69 @@
+@use '@fremtind/jkl-core/jkl';
+@use '../../block-renderers/page-sections';
+@use '../../components/anatomy-example';
+@use '../../components/code-snippet';
+@use '../../components/do-dont-example';
+@use '../../components/figma-example';
+@use '../../components/interactive-code';
+@use '../../components/keyboard-shortcut';
+@use '../../components/package-report-card';
+@use '../../components/section-heading';
+@use '../../components/react-api';
+@use '../../components/showcase';
+@use '../../components/stepped-example';
+@use '../../components/table-of-contents';
+@use '../../components/typography-table';
+@use '../../components/vimeo-player';
+@use '../../components/spacing-table';
+
+@include jkl.light-mode-variables {
+    --outline-color: #{jkl.$color-hvit};
+    --jkl-bg-color: #{jkl.$color-sand};
+}
+
+@include jkl.dark-mode-variables {
+    --outline-color: #{jkl.$color-svart};
+    --jkl-bg-color: #{jkl.$color-granitt};
+}
+
+.jkl-portal-layout {
+    --bg-color: var(--jkl-bg-color);
+    --header-height: #{jkl.rem(50px)};
+
+    display: grid;
+    grid-template:
+        'nav' var(--header-height)
+        'content' minmax((calc(100vh - var(--header-height))), auto)
+        'footer' auto / 1fr;
+    background-color: var(--outline-color);
+
+    @include jkl.screen-from(1512px) {
+        grid-template:
+            'nav content' minmax(100vh, auto)
+            'nav footer' auto / minmax(350px, auto) 1fr;
+    }
+
+    &__content {
+        grid-area: content;
+
+        @include jkl.screen-from(1512px) {
+            margin: var(--jkl-spacing-16);
+            margin-inline-start: 0;
+            border-radius: jkl.rem(8px);
+        }
+    }
+
+    &__footer {
+        grid-area: footer;
+    }
+}
+
+.nav-card-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: #{jkl.$spacing-8};
+
+    @include jkl.small-device {
+        grid-template-columns: 1fr;
+    }
+}

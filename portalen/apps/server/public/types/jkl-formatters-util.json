@@ -1,0 +1,380 @@
+{
+    "version": "5.1.2",
+    "types": {
+        "formatNumber": {
+            "tags": {
+                "param": "input Verdien som skal formateres\noptions Innstillinger for formateringen. Se https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options for detaljer.",
+                "returns": "Den formatererte verdien"
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Formaterer et tall med norsk locale.",
+            "displayName": "formatNumber",
+            "methods": [],
+            "props": {}
+        },
+        "parseNumber": {
+            "tags": {
+                "param": "input Kandidaten som skal parses til et tall",
+                "returns": "Verdien som et Number"
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Parser en formatert string til et Number.",
+            "displayName": "parseNumber",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                }
+            }
+        },
+        "registerWithMasks": {
+            "tags": {},
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Hjelpefunksjon for React Hook Form som lar deg bruke formateringsfunksjonene i denne pakken som inputmasker.",
+            "displayName": "registerWithMasks",
+            "methods": [],
+            "props": {
+                "watch": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "watch",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormWatch<T>"
+                    }
+                },
+                "getValues": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "getValues",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormGetValues<T>"
+                    }
+                },
+                "getFieldState": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "getFieldState",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormGetFieldState<T>"
+                    }
+                },
+                "setError": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "setError",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormSetError<T>"
+                    }
+                },
+                "clearErrors": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "clearErrors",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormClearErrors<T>"
+                    }
+                },
+                "setValue": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "setValue",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormSetValue<T>"
+                    }
+                },
+                "trigger": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "trigger",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormTrigger<T>"
+                    }
+                },
+                "formState": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "formState",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "FormState<T>"
+                    }
+                },
+                "resetField": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "resetField",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormResetField<T>"
+                    }
+                },
+                "reset": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "reset",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormReset<T>"
+                    }
+                },
+                "handleSubmit": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "handleSubmit",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormHandleSubmit<T, undefined>"
+                    }
+                },
+                "unregister": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "unregister",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormUnregister<T>"
+                    }
+                },
+                "control": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "control",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "Control<T, any>"
+                    }
+                },
+                "register": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "register",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormRegister<T>"
+                    }
+                },
+                "setFocus": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "setFocus",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/react-hook-form@7.44.3/node_modules/react-hook-form/dist/types/form.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "UseFormSetFocus<T>"
+                    }
+                }
+            }
+        },
+        "formatAvstand": {
+            "tags": {
+                "param": "input Verdien som skal formateres\noptions Lengdeenheten som skal vises for tallet, f.eks. \"kilometer\" eller \"foot\". Default: \"kilometer\". Kan også angi en valgfri suffix, f.eks. \"/år\".",
+                "returns": "Den formaterte verdien."
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Formaterer en avstand med norsk locale på tallverdien.",
+            "displayName": "formatAvstand",
+            "methods": [],
+            "props": {}
+        },
+        "formatBytes": {
+            "tags": {
+                "param": "bytes Antall bytes som skal vises i lesbar form\noptions Innstillinger for formateringen. Se https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options for detaljer.",
+                "returns": "Den formaterte verdien"
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Formater et antall bytes som en lesbar verdi med enten KB eller MB som enhet.",
+            "displayName": "formatBytes",
+            "methods": [],
+            "props": {}
+        },
+        "formatDate": {
+            "tags": {
+                "param": "date Verdien som skal formateres",
+                "returns": "Verdien i \"dd.mm.yyyy\"-format"
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Formaterer en dato med \"dd.mm.yyyy\"-format.",
+            "displayName": "formatDate",
+            "methods": [],
+            "props": {}
+        },
+        "formatFodselsnummer": {
+            "tags": {
+                "param": "input Verdien som skal formateres\noptions Angi at verdien er et ufullstendig fødselsnummer og likevel skal formateres.",
+                "returns": "Den formaterte verdien"
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Formaterer et fødselsnummer. Delene av fødselsnummeret skilles med non-breaking space.",
+            "displayName": "formatFodselsnummer",
+            "methods": [],
+            "props": {}
+        },
+        "formatOrganisasjonsnummer": {
+            "tags": {
+                "param": "input Verdien som skal formateres\noptions Angi at verdien er et ufullstendig organisasjonsnummer og likevel skal formateres.",
+                "returns": "Den formaterte verdien"
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Formaterer et organisasjonsnummer. Delene av organisasjonsnummeret skilles med non-breaking space.",
+            "displayName": "formatOrganisasjonsnummer",
+            "methods": [],
+            "props": {}
+        },
+        "formatKontonummer": {
+            "tags": {
+                "param": "input Verdien som skal formateres\noptions Angi at verdien er et ufullstendig kontonummer og likevel skal formateres.",
+                "returns": "Den formaterte verdien"
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Formaterer et kontonummer, med eller uten punktum som skilletegn. Default er med non-breaking space.",
+            "displayName": "formatKontonummer",
+            "methods": [],
+            "props": {}
+        },
+        "formatKortnummer": {
+            "tags": {
+                "param": "input Verdien som skal formateres\noptions Angi at verdien er et ufullstendig kortnummer og likevel skal formateres.",
+                "returns": "Den formaterte verdien"
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Formaterer et kortnummer. Delene av kortnummeret skilles med non-breaking space.",
+            "displayName": "formatKortnummer",
+            "methods": [],
+            "props": {}
+        },
+        "formatTelefonnummer": {
+            "tags": {
+                "param": "input Verdien som skal formateres\noptions Inkluder en valgfri landkode, eller angi at verdien er et ufullstendig telefonnummer og likevel skal formateres.",
+                "returns": "Den formatererte verdien"
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Formaterer et telefonnummer etter språkrådets anbefalinger. Delene av telefonnummeret skilles med non-breaking space.",
+            "displayName": "formatTelefonnummer",
+            "methods": [],
+            "props": {}
+        },
+        "formatValuta": {
+            "tags": {
+                "param": "input Tallet som skal formateres til valuta\noptions Valgene fra formatNumber, pluss valg for prefix og suffix",
+                "returns": "Formatert beløp"
+            },
+            "filePath": "jokul/packages/formatters-util/src/index.ts",
+            "description": "Formaterer et gitt tall som valuta. Som standard vises suffikset \"kr\" og tallet formateres med norsk lokalisasjon",
+            "displayName": "formatValuta",
+            "methods": [],
+            "props": {}
+        }
+    }
+}

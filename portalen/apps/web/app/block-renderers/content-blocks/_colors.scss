@@ -1,0 +1,28 @@
+@use '@fremtind/jkl-core/jkl';
+
+$farger: (
+    'hvit': jkl.$color-hvit,
+    'snohvit': jkl.$color-snohvit,
+    'sand': jkl.$color-sand,
+    'dis': jkl.$color-dis,
+    'varde': jkl.$color-varde,
+    'svaberg': jkl.$color-svaberg,
+    'stein': jkl.$color-stein,
+    'fjellgra': jkl.$color-fjellgra,
+    'skifer': jkl.$color-skifer,
+    'granitt': jkl.$color-granitt,
+    'svart': jkl.$color-svart,
+    'suksess': jkl.$color-suksess,
+    'feil': jkl.$color-feil,
+    'info': jkl.$color-info,
+    'advarsel': jkl.$color-advarsel,
+    // dokumentert, men ikke tilgjengelig som tokens
+    'bark': #544545,
+    'mose': #79775d,
+    'skog': #4c7d71,
+    'hav': #49538d,
+    'blomst': #fd9a9a,
+    'gress': #d7ddb4,
+    'isbre': #d8efef,
+    'himmel': #b6e5ff,
+);

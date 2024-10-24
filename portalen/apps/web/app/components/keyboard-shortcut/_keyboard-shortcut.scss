@@ -1,0 +1,18 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --kbd-background-color: #{jkl.$color-sand};
+}
+
+@include jkl.dark-mode-variables {
+    --kbd-background-color: #{jkl.$color-skifer};
+}
+
+.kbd {
+    @include jkl.text-style('small');
+    font-family: 'Fremtind Grotesk Mono', -apple-system, BlinkMacSystemFont,
+        monospace;
+    background-color: var(--kbd-background-color);
+    padding: jkl.rem(4px) jkl.rem(6px);
+    border-radius: jkl.rem(4px);
+}

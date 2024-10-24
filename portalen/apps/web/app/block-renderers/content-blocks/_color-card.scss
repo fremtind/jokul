@@ -1,0 +1,32 @@
+@use '@fremtind/jkl-core/jkl';
+@use 'colors' as *;
+
+.cards-container {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin: jkl.$spacing-64 0;
+}
+
+.card-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: jkl.rem(300px);
+}
+
+.card-swatch-container {
+    margin-left: jkl.rem(10px);
+    margin-right: jkl.rem(30px);
+}
+
+.card-swatch {
+    @each $property, $value in $farger {
+        &--#{$property} {
+            background-color: $value;
+            transform: rotate(45deg);
+            height: jkl.rem(60px);
+            width: jkl.rem(60px);
+        }
+    }
+}

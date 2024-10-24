@@ -1,0 +1,432 @@
+{
+    "version": "7.0.2",
+    "types": {
+        "ExpandButton": {
+            "tags": {},
+            "filePath": "jokul/packages/expand-button-react/src/index.ts",
+            "description": "",
+            "displayName": "ExpandButton",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": {
+                        "value": "button"
+                    },
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                        "name": "ExpandButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                            "name": "ExpandButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"button\" | \"summary\" | undefined"
+                    }
+                },
+                "aria-controls": {
+                    "defaultValue": null,
+                    "description": "Må settes dersom du ikke bruker CoreToggle. Verdien skal være IDen til innholdet du ekspanderer.",
+                    "name": "aria-controls",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                        "name": "ExpandButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                            "name": "ExpandButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "id": {
+                    "defaultValue": null,
+                    "description": "Må settes dersom du ikke bruker CoreToggle. IDen her skal brukes som verdien til aria-labelledby på innholdet du ekspanderer.",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                        "name": "ExpandButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                            "name": "ExpandButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                        "name": "ExpandButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                            "name": "ExpandButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "onClick": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onClick",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                        "name": "ExpandButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                            "name": "ExpandButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "MouseEventHandler<HTMLButtonElement> | undefined"
+                    }
+                },
+                "onKeyDown": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onKeyDown",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                        "name": "ExpandButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                            "name": "ExpandButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "KeyboardEventHandler<HTMLButtonElement> | undefined"
+                    }
+                },
+                "isExpanded": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Styrer retningen til pila, som animeres ved endring. Styrer også aria-expanded.",
+                    "name": "isExpanded",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                        "name": "ExpandButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                            "name": "ExpandButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "expandDirection": {
+                    "defaultValue": {
+                        "value": "down"
+                    },
+                    "description": "",
+                    "name": "expandDirection",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                        "name": "ExpandButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                            "name": "ExpandButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "ExpandDirection | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                        "name": "ExpandButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                            "name": "ExpandButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "hideLabel": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Skjul knappeteksten visuelt.",
+                    "name": "hideLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                        "name": "ExpandButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandButton.tsx",
+                            "name": "ExpandButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom",
+                    "name": "ref",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "RefAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Ref<HTMLButtonElement> | undefined"
+                    }
+                },
+                "key": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "key",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "Attributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "Attributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Key | null | undefined"
+                    }
+                }
+            }
+        },
+        "ExpandSection": {
+            "tags": {},
+            "filePath": "jokul/packages/expand-button-react/src/index.ts",
+            "description": "",
+            "displayName": "ExpandSection",
+            "methods": [],
+            "props": {
+                "children": {
+                    "defaultValue": null,
+                    "description": "Innholdet som skal kunne ekspanderes og skjules.\nOm du ikke trenger at komponenten tar seg av visning og skjuling av\ninnholdet skal du bruke `ExpandButton` direkte. Det sparer deg for\nå laste inn unødvendige avhengigheter.",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                        "name": "ExpandSectionProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                            "name": "ExpandSectionProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "title": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "title",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                        "name": "ExpandSectionProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                            "name": "ExpandSectionProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                        "name": "ExpandSectionProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                            "name": "ExpandSectionProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                        "name": "ExpandSectionProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                            "name": "ExpandSectionProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "onClick": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onClick",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                        "name": "ExpandSectionProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                            "name": "ExpandSectionProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "((e: MouseEvent<HTMLElement, MouseEvent>, isExpanded: boolean) => void) | undefined"
+                    }
+                },
+                "expandButtonProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "expandButtonProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                        "name": "ExpandSectionProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                            "name": "ExpandSectionProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Omit<ExpandButtonProps, \"onClick\" | \"id\" | \"isExpanded\" | \"hideLabel\"> | undefined"
+                    }
+                },
+                "useAnimatedHeightOptions": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "useAnimatedHeightOptions",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                        "name": "ExpandSectionProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                            "name": "ExpandSectionProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "UseAnimatedHeightOptions<HTMLElement> | undefined"
+                    }
+                },
+                "isExpanded": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Om du ønsker å styre komponenten utenfra",
+                    "name": "isExpanded",
+                    "parent": {
+                        "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                        "name": "ExpandSectionProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/expand-button-react/src/ExpandSection.tsx",
+                            "name": "ExpandSectionProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                }
+            }
+        }
+    }
+}

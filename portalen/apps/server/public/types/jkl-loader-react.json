@@ -1,0 +1,1087 @@
+{
+    "version": "12.0.10",
+    "types": {
+        "Loader": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "Loader",
+            "methods": [],
+            "props": {
+                "variant": {
+                    "defaultValue": {
+                        "value": "large"
+                    },
+                    "description": "",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                        "name": "LoaderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                            "name": "LoaderProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "LoaderVariant | undefined"
+                    }
+                },
+                "textDescription": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "textDescription",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                        "name": "LoaderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                            "name": "LoaderProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                        "name": "LoaderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                            "name": "LoaderProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "dataTestAutoId": {
+                    "defaultValue": {
+                        "value": "jkl-loader"
+                    },
+                    "description": "",
+                    "name": "dataTestAutoId",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                        "name": "LoaderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                            "name": "LoaderProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "role": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "role",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                        "name": "LoaderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                            "name": "LoaderProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "AriaRole | undefined"
+                    }
+                },
+                "inline": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "",
+                    "name": "inline",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                        "name": "LoaderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                            "name": "LoaderProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "delay": {
+                    "defaultValue": {
+                        "value": "0"
+                    },
+                    "description": "Antall millisekunder komponenten vil vente før den rendrer",
+                    "name": "delay",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                        "name": "LoaderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/Loader.tsx",
+                            "name": "LoaderProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "number | undefined"
+                    }
+                }
+            }
+        },
+        "SkeletonAnimation": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "SkeletonAnimation",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                        "name": "SkeletonAnimationProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                            "name": "SkeletonAnimationProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                        "name": "SkeletonAnimationProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                            "name": "SkeletonAnimationProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                        "name": "SkeletonAnimationProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                            "name": "SkeletonAnimationProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "textDescription": {
+                    "defaultValue": {
+                        "value": "Vennligst vent"
+                    },
+                    "description": "",
+                    "name": "textDescription",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                        "name": "SkeletonAnimationProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                            "name": "SkeletonAnimationProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "role": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "role",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                        "name": "SkeletonAnimationProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                            "name": "SkeletonAnimationProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "AriaRole | undefined"
+                    }
+                },
+                "delay": {
+                    "defaultValue": {
+                        "value": "0"
+                    },
+                    "description": "Antall millisekunder komponenten vil vente før den rendrer",
+                    "name": "delay",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                        "name": "SkeletonAnimationProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonAnimation.tsx",
+                            "name": "SkeletonAnimationProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "number | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "HTMLAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "HTMLAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "SkeletonButton": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "SkeletonButton",
+            "methods": [],
+            "props": {
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonButton.tsx",
+                        "name": "SkeletonButtonProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonButton.tsx",
+                            "name": "SkeletonButtonProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                        "name": "SkeletonElementProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                            "name": "SkeletonElementProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "HTMLAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "HTMLAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                },
+                "width": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "width",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                        "name": "SkeletonElementProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                            "name": "SkeletonElementProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string | number"
+                    }
+                },
+                "shape": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "shape",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                        "name": "SkeletonElementProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                            "name": "SkeletonElementProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"circle\" | \"rect\" | undefined"
+                    }
+                }
+            }
+        },
+        "SkeletonCheckboxGroup": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "SkeletonCheckboxGroup",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonCheckboxGroup.tsx",
+                        "name": "SkeletonCheckboxGroupProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonCheckboxGroup.tsx",
+                            "name": "SkeletonCheckboxGroupProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "checkboxes": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "checkboxes",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonCheckboxGroup.tsx",
+                        "name": "SkeletonCheckboxGroupProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonCheckboxGroup.tsx",
+                            "name": "SkeletonCheckboxGroupProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonCheckboxGroup.tsx",
+                        "name": "SkeletonCheckboxGroupProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonCheckboxGroup.tsx",
+                            "name": "SkeletonCheckboxGroupProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "labelProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "labelProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonCheckboxGroup.tsx",
+                        "name": "SkeletonCheckboxGroupProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonCheckboxGroup.tsx",
+                            "name": "SkeletonCheckboxGroupProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "SkeletonLabelProps | undefined"
+                    }
+                },
+                "inputProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "inputProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonCheckboxGroup.tsx",
+                        "name": "SkeletonCheckboxGroupProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonCheckboxGroup.tsx",
+                            "name": "SkeletonCheckboxGroupProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "SkeletonElementProps | undefined"
+                    }
+                }
+            }
+        },
+        "SkeletonElement": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "SkeletonElement",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                        "name": "SkeletonElementProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                            "name": "SkeletonElementProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "shape": {
+                    "defaultValue": {
+                        "value": "rect"
+                    },
+                    "description": "",
+                    "name": "shape",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                        "name": "SkeletonElementProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                            "name": "SkeletonElementProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"circle\" | \"rect\" | undefined"
+                    }
+                },
+                "width": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "width",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                        "name": "SkeletonElementProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                            "name": "SkeletonElementProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string | number"
+                    }
+                },
+                "height": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "height",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                        "name": "SkeletonElementProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonElement.tsx",
+                            "name": "SkeletonElementProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string | number"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "HTMLAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "HTMLAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "SkeletonInput": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "SkeletonInput",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonInput.tsx",
+                        "name": "SkeletonInputProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonInput.tsx",
+                            "name": "SkeletonInputProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonInput.tsx",
+                        "name": "SkeletonInputProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonInput.tsx",
+                            "name": "SkeletonInputProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "labelProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "labelProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonInput.tsx",
+                        "name": "SkeletonInputProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonInput.tsx",
+                            "name": "SkeletonInputProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "SkeletonLabelProps | undefined"
+                    }
+                },
+                "inputProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "inputProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonInput.tsx",
+                        "name": "SkeletonInputProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonInput.tsx",
+                            "name": "SkeletonInputProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "SkeletonElementProps | undefined"
+                    }
+                }
+            }
+        },
+        "SkeletonRadioButtonGroup": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "SkeletonRadioButtonGroup",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonRadioButtonGroup.tsx",
+                        "name": "SkeletonRadioButtonGroupProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonRadioButtonGroup.tsx",
+                            "name": "SkeletonRadioButtonGroupProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonRadioButtonGroup.tsx",
+                        "name": "SkeletonRadioButtonGroupProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonRadioButtonGroup.tsx",
+                            "name": "SkeletonRadioButtonGroupProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "labelProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "labelProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonRadioButtonGroup.tsx",
+                        "name": "SkeletonRadioButtonGroupProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonRadioButtonGroup.tsx",
+                            "name": "SkeletonRadioButtonGroupProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "SkeletonLabelProps | undefined"
+                    }
+                },
+                "inputProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "inputProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonRadioButtonGroup.tsx",
+                        "name": "SkeletonRadioButtonGroupProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonRadioButtonGroup.tsx",
+                            "name": "SkeletonRadioButtonGroupProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "SkeletonElementProps | undefined"
+                    }
+                },
+                "radioButtons": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "radioButtons",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonRadioButtonGroup.tsx",
+                        "name": "SkeletonRadioButtonGroupProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonRadioButtonGroup.tsx",
+                            "name": "SkeletonRadioButtonGroupProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "number"
+                    }
+                }
+            }
+        },
+        "SkeletonTable": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "SkeletonTable",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                        "name": "SkeletonTableProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                            "name": "SkeletonTableProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                        "name": "SkeletonTableProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                            "name": "SkeletonTableProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                        "name": "SkeletonTableProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                            "name": "SkeletonTableProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "width": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "width",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                        "name": "SkeletonTableProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                            "name": "SkeletonTableProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | number | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "HTMLAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "HTMLAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "SkeletonTableHeader": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "SkeletonTableHeader",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                        "name": "SkeletonTableHeaderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                            "name": "SkeletonTableHeaderProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                        "name": "SkeletonTableHeaderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                            "name": "SkeletonTableHeaderProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                }
+            }
+        },
+        "SkeletonTableRow": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "SkeletonTableRow",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                        "name": "SkeletonTableRowProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                            "name": "SkeletonTableRowProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                        "name": "SkeletonTableRowProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTable.tsx",
+                            "name": "SkeletonTableRowProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                }
+            }
+        },
+        "SkeletonTextArea": {
+            "tags": {},
+            "filePath": "jokul/packages/loader-react/src/index.ts",
+            "description": "",
+            "displayName": "SkeletonTextArea",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTextArea.tsx",
+                        "name": "SkeletonTextAreaProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTextArea.tsx",
+                            "name": "SkeletonTextAreaProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "labelProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "labelProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTextArea.tsx",
+                        "name": "SkeletonTextAreaProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTextArea.tsx",
+                            "name": "SkeletonTextAreaProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "SkeletonLabelProps | undefined"
+                    }
+                },
+                "inputProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "inputProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTextArea.tsx",
+                        "name": "SkeletonTextAreaProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTextArea.tsx",
+                            "name": "SkeletonTextAreaProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "SkeletonElementProps | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTextArea.tsx",
+                        "name": "SkeletonTextAreaProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/loader-react/src/skeletons/SkeletonTextArea.tsx",
+                            "name": "SkeletonTextAreaProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                }
+            }
+        }
+    }
+}

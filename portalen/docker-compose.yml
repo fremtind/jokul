@@ -1,0 +1,20 @@
+version: '3'
+services:
+    mongodb:
+        image: mongo:6.0
+        volumes:
+            - mongodbvolume:/data/db
+    portal:
+        build: .
+        ports:
+            - 3000:3000
+        environment:
+            - MONGODB_URL=mongodb://mongodb/jkl-portal
+            - PAYLOADCMS_SECRET=supersecret
+        volumes:
+            - mediavolume:/app/apps/cms/dist/media
+        depends_on:
+            - mongodb
+volumes:
+    mongodbvolume:
+    mediavolume:

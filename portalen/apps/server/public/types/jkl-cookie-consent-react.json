@@ -1,0 +1,126 @@
+{
+    "version": "10.0.35",
+    "types": {
+        "CookieConsent": {
+            "tags": {},
+            "filePath": "jokul/packages/cookie-consent-react/src/index.ts",
+            "description": "",
+            "displayName": "CookieConsent",
+            "methods": [],
+            "props": {
+                "blocking": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "blocking",
+                    "parent": {
+                        "fileName": "server/jokul/packages/cookie-consent-react/src/CookieConsent.tsx",
+                        "name": "CookieConsentProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/cookie-consent-react/src/CookieConsent.tsx",
+                            "name": "CookieConsentProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "onAccept": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onAccept",
+                    "parent": {
+                        "fileName": "server/jokul/packages/cookie-consent-react/src/CookieConsent.tsx",
+                        "name": "CookieConsentProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/cookie-consent-react/src/CookieConsent.tsx",
+                            "name": "CookieConsentProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "AcceptConsentCallback | undefined"
+                    }
+                }
+            }
+        },
+        "CookieConsentProvider": {
+            "tags": {},
+            "filePath": "jokul/packages/cookie-consent-react/src/index.ts",
+            "description": "",
+            "displayName": "CookieConsentProvider",
+            "methods": [],
+            "props": {
+                "cookieAdapter": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "cookieAdapter",
+                    "parent": {
+                        "fileName": "server/jokul/packages/cookie-consent-react/src/CookieConsentContext.tsx",
+                        "name": "CookieConsentProviderProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/cookie-consent-react/src/CookieConsentContext.tsx",
+                            "name": "CookieConsentProviderProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "(() => Consent | undefined) | undefined"
+                    }
+                },
+                "marketing": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "marketing",
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "functional": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "functional",
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "statistics": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "statistics",
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        }
+    }
+}
