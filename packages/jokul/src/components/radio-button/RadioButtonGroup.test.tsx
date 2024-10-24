@@ -7,6 +7,7 @@ import { RadioButton } from "./RadioButton.js";
 import { RadioButtonGroup } from "./RadioButtonGroup.js";
 
 // https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
 const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("RadioButtons", () => {

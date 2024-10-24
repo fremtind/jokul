@@ -9,6 +9,7 @@ import { PRESETS } from "./presets.js";
 import { FollowupQuestion } from "./types.js";
 
 // https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
 const userEvent = UserEventModule.default ?? UserEventModule;
 
 const mockFn = vi.fn();

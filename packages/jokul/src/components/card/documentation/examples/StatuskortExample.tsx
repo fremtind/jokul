@@ -1,11 +1,12 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React from "react";
-import grass400 from "/img/grass-400.jpg";
-import grass800 from "/img/grass-800.jpg";
-import grassThumbnail from "/img/grass-thumbnail.jpg";
+import { Image } from "../../../image/Image.js";
 import { SuccessTag } from "../../../tag/Tag.js";
 import { Card, CARD_PADDINGS, CARD_VARIANTS, CardPadding, CardVariant } from "../../Card.js";
 import { CardImage } from "../../CardImage.js";
+import grass400 from "/img/grass-400.jpg";
+import grass800 from "/img/grass-800.jpg";
+import grassThumbnail from "/img/grass-thumbnail.jpg";
 
 const imageProps = {
     src: grass400,

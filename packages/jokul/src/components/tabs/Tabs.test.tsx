@@ -6,6 +6,7 @@ import { axe } from "vitest-axe";
 import { Tab, TabList, TabPanel, Tabs } from "./index.js";
 
 // https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
 const userEvent = UserEventModule.default ?? UserEventModule;
 
 const renderComponent = (onChange?: () => void, defaultTab?: number) =>
