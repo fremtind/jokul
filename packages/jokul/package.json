@@ -80,7 +80,7 @@
         "compile:style": "node build-styles.mjs",
         "compile:scripts": "vite build --config vite.build.config.mjs",
         "refactor": "sed -i \"s/\\.js'/\\.cjs'/g\" build/cjs/**/*.d.cts",
-        "test": "vitest"
+        "test": "vitest run"
     },
     "peerDependencies": {
         "react": "^18.0.0"
