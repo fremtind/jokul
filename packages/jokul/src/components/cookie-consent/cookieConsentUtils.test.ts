@@ -61,7 +61,7 @@ describe("cookieConsentUtils/setConsentCookie", () => {
     it("setter fremtind-cookie-consent med riktig verdi", () => {
         const mockGet = vi.fn();
         Object.defineProperty(document, "cookie", {
-            set: mockGet.mockImplementation(),
+            set: mockGet.mockImplementation(() => {}),
             configurable: true,
         });
 

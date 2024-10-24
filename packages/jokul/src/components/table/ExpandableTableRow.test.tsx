@@ -1,7 +1,7 @@
 import { act, render, RenderOptions } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React, { useState } from "react";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
 import {
     ExpandableTableRow,
@@ -16,6 +16,7 @@ import {
 } from "./index.js";
 
 // https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
 const userEvent = UserEventModule.default ?? UserEventModule;
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {

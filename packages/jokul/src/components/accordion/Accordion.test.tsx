@@ -2,12 +2,13 @@ import { render, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React from "react";
 import { act } from "react-dom/test-utils";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
 import { Accordion } from "./Accordion.js";
 import { AccordionItem } from "./AccordionItem.js";
 
 // https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
 const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("Accordion", () => {

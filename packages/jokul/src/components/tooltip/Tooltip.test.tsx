@@ -1,13 +1,14 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React from "react";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
 import { Tooltip } from "./Tooltip.js";
 import { TooltipContent } from "./TooltipContent.js";
 import { TooltipTrigger } from "./TooltipTrigger.js";
 
 // https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
 const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("Tooltip", () => {
