@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.23.3...@fremtind/jokul@0.23.4) (2024-10-24)
+
+### Bug Fixes
+
+- use newest and best way of importing date-fns ([f178596](https://github.com/fremtind/jokul/commit/f17859642d7b4cc38fc3ec3b6606bdf05d120c5a))
+
 ## [0.23.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.23.2...@fremtind/jokul@0.23.3) (2024-10-24)
 
 ### Bug Fixes
