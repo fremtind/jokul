@@ -26,6 +26,7 @@ export * from "./pagination";
 export * from "./popover";
 export * from "./progress-bar";
 export * from "./radio-button";
+export * from "./radio-panel";
 export * from "./select";
 export * from "./summary-table";
 export * from "./system-message";
