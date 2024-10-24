@@ -1,0 +1,6 @@
+@use '@fremtind/jkl-core/jkl';
+
+.jkl-portal-rich-text {
+    margin-bottom: jkl.$spacing-24;
+    max-width: 66ch;
+}

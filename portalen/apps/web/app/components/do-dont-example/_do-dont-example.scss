@@ -1,0 +1,73 @@
+@use '@fremtind/jkl-core/jkl';
+
+@include jkl.light-mode-variables {
+    --jkl-do-dont-background: #{jkl.$color-hvit};
+    --jkl-do-dont-description-background: #{jkl.$color-snohvit};
+    --jkl-do-dont-border-color: #{jkl.$color-svaberg};
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-do-dont-background: #{jkl.$color-svart};
+    --jkl-do-dont-description-background: #{jkl.$color-granitt};
+    --jkl-do-dont-border-color: #{jkl.$color-stein};
+}
+
+.jkl-portal-do-dont-example {
+    @include jkl.declare-font-variables('do-dont-content-description', 'body');
+
+    --do-dont-content-padding: #{jkl.$spacing-16 jkl.$spacing-24};
+
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 250px; // TODO: Finn noe mer fornuftig
+
+    border: jkl.rem(1px) solid var(--jkl-do-dont-border-color);
+
+    &__example {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+        width: 100%;
+        box-sizing: border-box;
+
+        background-color: var(--jkl-do-dont-background);
+        padding: var(--do-dont-content-padding);
+
+        @include jkl.from-medium-device {
+            max-width: min(80vw, jkl.rem(460px));
+        }
+    }
+
+    &__description {
+        @include jkl.use-font-variables('do-dont-content-description');
+
+        display: flex;
+        flex-direction: column;
+        gap: jkl.$spacing-12;
+        align-items: flex-start;
+
+        box-sizing: border-box;
+        width: 100%;
+        padding: var(--do-dont-content-padding);
+
+        border-top: jkl.rem(1px) solid var(--jkl-do-dont-border-color);
+        background-color: var(--jkl-do-dont-description-background);
+    }
+}
+
+.jkl-portal-do-dont-pair {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: jkl.$spacing-24;
+
+    @include jkl.from-medium-device {
+        flex-direction: row;
+
+        & > * {
+            flex: 1 1 0; // Sørg for at eksemplene er like store når de står ved siden av hverandre
+        }
+    }
+}

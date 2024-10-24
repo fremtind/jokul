@@ -1,0 +1,202 @@
+@use '@fremtind/jkl-core/jkl';
+
+.topic-page {
+    $_toc-height: calc(calc(var(--jkl-spacing-16) * 2) + 1rem);
+
+    @include jkl.text-style('body');
+    @include jkl.declare-font-variables('topic-page-ingress', 'heading-2');
+
+    --topic-page-ingress-margin: #{jkl.$spacing-16};
+    --content-padding-block: #{jkl.$spacing-8};
+    --content-padding-inline: #{jkl.$spacing-16};
+    --topic-page-tab-padding: #{jkl.$spacing-16} 0;
+    --topic-page-tab-height: 65px;
+    --topic-page-header-large-size: #{jkl.$typography-font-size-10};
+    --topic-page-header-small-size: #{jkl.$typography-font-size-7};
+
+    @include jkl.from-medium-device {
+        --topic-page-header-small-size: 3rem;
+        --topic-page-header-large-size: 5rem;
+        --content-padding-inline: #{jkl.$spacing-40};
+        --topic-page-tab-height: 77px;
+    }
+
+    @include jkl.screen-from(1512px) {
+        --topic-page-header-large-size: 7.5rem;
+        --topic-page-header-small-size: #{jkl.$typography-font-size-10};
+        --topic-page-ingress-margin: #{jkl.$spacing-24};
+        --content-padding-block: #{jkl.$spacing-32};
+        --topic-page-tab-padding: #{jkl.$spacing-40} 0;
+    }
+
+    position: relative;
+    counter-reset: sections;
+    padding-block: var(--content-padding-block);
+
+    &__heading-container {
+        background-color: var(--jkl-bg-color);
+        position: sticky;
+        top: calc(var(--header-height) - var(--content-padding-block));
+        z-index: 2;
+        padding-inline: var(--content-padding-inline);
+        padding-block-start: var(--content-padding-block);
+        box-sizing: border-box;
+
+        &-toc {
+            display: none;
+        }
+
+        @include jkl.from-medium-device {
+            &-toc {
+                right: jkl.rem(26px); // Align med søkeikonet
+            }
+        }
+
+        @include jkl.screen-from(1512px) {
+            top: 0;
+
+            &-toc {
+                display: none;
+            }
+        }
+    }
+
+    &__heading {
+        font-size: var(--topic-page-header-large-size);
+        line-height: 1;
+        font-weight: 400;
+        background-color: var(--jkl-bg-color);
+        margin: 0;
+        margin-left: -0.07em; // For å få overskriften i flukt med venstre marg
+        max-width: 100%;
+        hyphenate-character: '';
+        -webkit-hyphenate-character: '';
+
+        &[data-collapsed='true'] {
+            font-size: var(--topic-page-header-small-size);
+            margin-left: 0;
+        }
+
+        &[data-animate='true'] {
+            @include jkl.motion(
+                'standard',
+                'expressive'
+            ); // om du endrer timingen her, oppdater verdien også i useCollapsibleHeading
+            transition-property: font-size, margin-left, width;
+        }
+    }
+
+    &__ingress {
+        @include jkl.use-font-variables('topic-page-ingress');
+        max-width: var(--jkl-portal-content-narrow);
+        opacity: var(--opacity, 1);
+        margin-top: var(--jkl-spacing-24);
+        padding-inline-end: var(--content-padding-inline);
+        margin-bottom: var(--content-padding-block);
+        margin-inline-start: var(--content-padding-inline);
+        word-break: break-word;
+
+        @include jkl.screen-from(1512px) {
+            margin-bottom: unset;
+        }
+    }
+
+    &__tab-list {
+        position: sticky;
+        top: calc(var(--header-height) + var(--heading-height));
+        width: calc(100vw - var(--scrollbar-width));
+        background-color: var(--jkl-bg-color);
+        padding-block-start: calc(var(--content-padding-block) * 2);
+        z-index: 1;
+
+        @include jkl.screen-from(1512px) {
+            width: auto;
+            padding-block-start: jkl.$spacing-24;
+            top: calc(
+                var(--heading-height) + var(--content-padding-block) - 1px
+            );
+        }
+    }
+
+    &__tab-content {
+        margin-inline: var(--content-padding-inline);
+        padding: var(--topic-page-tab-padding);
+
+        .jkl-portal-toc {
+            display: none;
+        }
+
+        @include jkl.screen-from(1512px) {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: start;
+            justify-content: start;
+            gap: jkl.$spacing-104;
+
+            .jkl-portal-toc {
+                display: unset;
+                flex: 1;
+            }
+
+            [role='tabpanel'] {
+                flex: 4;
+            }
+
+            & > :last-child {
+                max-width: var(--jkl-portal-content);
+            }
+        }
+    }
+
+    & .jkl-portal-section-heading {
+        scroll-margin-top: calc(
+            var(--heading-height) + var(--topic-page-tab-height) + #{jkl.$spacing-104}
+        );
+    }
+
+    & .jkl-portal-toc {
+        --toc-buffer: #{jkl.$spacing-4};
+
+        @include jkl.screen-from(1512px) {
+            --toc-buffer: #{jkl.$spacing-104};
+        }
+
+        --jkl-portal-toc-padding-top: var(--toc-buffer);
+        --jkl-portal-toc-top: calc(
+            var(--topic-page-header-small-size) + var(--content-padding-block) +
+                var(--toc-buffer)
+        );
+    }
+}
+
+.jkl-tabs {
+    scroll-snap-type: x proximity;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.jkl-tablist {
+    display: inline-flex;
+    min-width: fit-content;
+    width: calc(100% - calc(2 * var(--content-padding-inline)));
+    margin-inline-start: var(--content-padding-inline);
+    margin-inline-end: var(--content-padding-inline);
+}
+
+.jkl-tab {
+    scroll-margin-inline-start: var(--content-padding-inline);
+    scroll-snap-align: start;
+    text-decoration: none; // For anchors
+    white-space: nowrap;
+
+    &:first-of-type::after {
+        // Unngå clipping hvis kant til kant med skjerm eller scroll container.
+        left: jkl.rem(2px);
+    }
+}

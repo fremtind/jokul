@@ -1,0 +1,54 @@
+@use '@fremtind/jkl-core/jkl';
+@use '@fremtind/jkl-core/jkl/colors';
+
+@include jkl.light-mode-variables {
+    --search-result-background-color: #{jkl.$color-hvit};
+    --search-result-preview-background-color: #{jkl.$color-svaberg};
+    --search-result-highlight-color: #{jkl.$color-sand};
+}
+
+@include jkl.dark-mode-variables {
+    --search-result-background-color: #{jkl.$color-granitt};
+    --search-result-preview-background-color: #{jkl.$color-stein};
+    --search-result-highlight-color: #{jkl.$color-skifer};
+}
+
+.search-result {
+    @include jkl.text-style('body');
+    background-color: var(--search-result-background-color);
+
+    &__preview,
+    &__preview > img {
+        background: var(--search-result-preview-background-color);
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: jkl.$spacing-16;
+        object-fit: cover;
+    }
+
+    $_margin-inline: jkl.$spacing-8;
+
+    &__title {
+        margin-inline: $_margin-inline;
+        @include jkl.text-style('body') {
+            font-weight: jkl.$typography-weight-bold;
+        }
+    }
+
+    &__highlighter {
+        margin-inline: $_margin-inline;
+        display: block;
+        max-width: 80ch;
+        max-height: 3.5em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        line-clamp: 2;
+    }
+
+    &__highlight {
+        background: var(--search-result-highlight-color);
+        color: var(--jkl-color);
+        border-radius: 2px;
+    }
+}

@@ -1,0 +1,66 @@
+@use '@fremtind/jkl-core/jkl';
+@use '../../components/section-heading/section-heading';
+
+.jkl-portal-video-cta {
+    --inline-padding: var(--jkl-spacing-16);
+    --block-padding: var(--jkl-spacing-24);
+    @include jkl.from-medium-device {
+        --inline-padding: var(--jkl-spacing-64);
+        --block-padding: 104px; // var(--jkl-spacing-104); <-- FIKS! Bug i Jøkul
+    }
+
+    box-sizing: border-box;
+    padding-block: var(--block-padding);
+    padding-inline: var(--content-padding-inline);
+    margin-inline: calc(var(--content-padding-inline) * -1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    position: relative;
+    aspect-ratio: 2/3;
+
+    @include jkl.from-medium-device {
+        justify-content: flex-start;
+        aspect-ratio: 16/9;
+    }
+
+    &__card {
+        max-width: 350px;
+
+        @include jkl.small-device {
+            width: 100%;
+        }
+
+        & .jkl-nav-card__link {
+            // Legg til seksjonsteller før overskriften på kortet
+            @include section-heading.section-counter;
+        }
+    }
+}
+
+.jkl-portal-background-video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    &__video {
+        width: auto;
+        min-width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+
+        @include jkl.from-medium-device {
+            height: auto;
+            min-height: 100%;
+        }
+    }
+}

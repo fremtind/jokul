@@ -1,0 +1,21 @@
+.react-api {
+    position: relative;
+
+    &__wrapper {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    pre {
+        margin: 0;
+    }
+}
+
+.type-hints {
+    &__tablist.jkl-tablist {
+        margin-inline: 0;
+    }
+}

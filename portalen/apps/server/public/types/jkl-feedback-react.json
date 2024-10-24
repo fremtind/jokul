@@ -1,0 +1,223 @@
+{
+    "version": "17.2.5",
+    "types": {
+        "Feedback": {
+            "tags": {},
+            "filePath": "jokul/packages/feedback-react/src/index.ts",
+            "description": "",
+            "displayName": "Feedback",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "type": {
+                    "defaultValue": null,
+                    "description": "Velg typen alternativer, Smiley eller RadioButtons.",
+                    "name": "type",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "\"radio\" | \"smiley\""
+                    }
+                },
+                "label": {
+                    "defaultValue": null,
+                    "description": "Spørsmålet som stilles til brukeren",
+                    "name": "label",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "helpLabel": {
+                    "defaultValue": null,
+                    "description": "Hjelpetekst til hovedspørsmålet",
+                    "name": "helpLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "options": {
+                    "defaultValue": null,
+                    "description": "Svaralternativer til spørsmålet",
+                    "name": "options",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "FeedbackOption[]"
+                    }
+                },
+                "addOnQuestion": {
+                    "defaultValue": null,
+                    "description": "Dersom du vil stille et åpent spørsmål i tillegg kan du legge det til her",
+                    "name": "addOnQuestion",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ label: string; helpLabel?: string | undefined; } | undefined"
+                    }
+                },
+                "successMessage": {
+                    "defaultValue": null,
+                    "description": "Lar deg tilpasse meldingen som kommer når brukeren sender inn tilbakemeldingen.",
+                    "name": "successMessage",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ title: string; children: ReactNode; } | undefined"
+                    }
+                },
+                "onSubmit": {
+                    "defaultValue": null,
+                    "description": "Funksjon for å håndtere innsending av tilbakemelding\n@param value Verdien av tilbakemeldingen. Dette er et objekt med følgende egenskaper:\n- `feedbackValue`: Selve verdien av tilbakemeldingen (format varierer etter spørsmålstype)\n- `intentionalSubmit`: Er `true` hvis brukeren aktivt sendte inn skjemaet, `false` hvis skjemaet ble sendt inn automatisk\n- `message`: Eventuell utfyllende melding fra bruker. Blir kun sendt inn ved aktiv innsending",
+                    "name": "onSubmit",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(value: FeedbackType) => void"
+                    }
+                },
+                "followup": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "followup",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Props | undefined"
+                    }
+                },
+                "contactQuestion": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "contactQuestion",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Props | undefined"
+                    }
+                },
+                "maxLength": {
+                    "defaultValue": null,
+                    "description": "Begrenser tekstlengde i TextArea *",
+                    "name": "maxLength",
+                    "parent": {
+                        "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/feedback-react/src/Feedback.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "number | undefined"
+                    }
+                }
+            }
+        }
+    }
+}

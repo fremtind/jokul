@@ -1,0 +1,103 @@
+@use '@fremtind/jkl-core/jkl';
+@use '../react-api';
+
+@include jkl.light-mode-variables {
+    --package-report-card-background: #{jkl.$color-hvit};
+    --package-report-card-code-background: #{jkl.$color-sand};
+}
+
+@include jkl.dark-mode-variables {
+    --package-report-card-background: #{jkl.$color-svart};
+    --package-report-card-code-background: #{jkl.$color-granitt};
+}
+
+.package-report-card {
+    $_title-row-height: jkl.rem(40px);
+    $_box-padding-title-block: jkl.$spacing-8;
+    $_box-padding-preview-block: jkl.$spacing-24;
+    $_box-padding-inline: jkl.$spacing-16;
+    $_box-padding-title: $_box-padding-title-block $_box-padding-inline;
+
+    background-color: var(--gap-color);
+    border: 1px solid var(--gap-color);
+    gap: jkl.rem(1px);
+
+    display: grid;
+    grid-template-areas:
+        'install-title react-title'
+        'install react'
+        'use-title css-title'
+        'use css';
+    grid-template-rows: $_title-row-height min-content $_title-row-height min-content;
+    grid-template-columns: 3fr 1fr;
+
+    &__title {
+        @include jkl.text-style('small');
+        background: var(--package-report-card-background);
+        padding: $_box-padding-title;
+
+        &-install {
+            grid-area: install-title;
+        }
+
+        &-react {
+            grid-area: react-title;
+        }
+
+        &-use {
+            grid-area: use-title;
+        }
+
+        &-css {
+            grid-area: css-title;
+        }
+    }
+
+    &__details {
+        background: var(--package-report-card-background);
+        padding: 0 $_box-padding-inline;
+        margin: 0;
+
+        &--code {
+            @include jkl.use-font-family('Fremtind Grotesk Mono');
+            background: var(--package-report-card-code-background);
+            border: none; // skru av CodeSnippet sin default border, vi har vår egen
+            overflow-x: auto;
+        }
+
+        &-install {
+            grid-area: install;
+        }
+
+        &-react {
+            grid-area: react;
+
+            &--no-css {
+                grid-area: react / react / css / css;
+            }
+        }
+
+        &-use {
+            grid-area: use;
+        }
+
+        &-css {
+            grid-area: css;
+        }
+    }
+
+    @include jkl.small-device {
+        grid-template-areas:
+            'react-title'
+            'react'
+            'css-title'
+            'css'
+            'install-title'
+            'install'
+            'use-title'
+            'use';
+
+        grid-template-rows: $_title-row-height min-content $_title-row-height min-content $_title-row-height min-content $_title-row-height min-content;
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,46 @@
+name: AWS OIDC Credentials
+description: |
+    Gets OIDC credentials from AWS, implementing retry + exponential backoff
+inputs:
+    role-to-assume:
+        description: 'Role to assume'
+        required: true
+    session-name:
+        description: 'Session name'
+        required: true
+        default: GithubOIDC
+    aws-region:
+        description: 'AWS region'
+        default: eu-west-1
+        required: true
+
+runs:
+    using: composite
+    steps:
+        - name: Grab credentials
+          shell: bash
+          run: |
+              WEB_TOKEN=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | jq -r '.value')
+              count=0
+              backoff=1
+              until ids=$(aws sts assume-role-with-web-identity \
+                --role-arn ${{ inputs.role-to-assume }} \
+                --role-session-name ${{ inputs.session-name }} \
+                --web-identity-token $WEB_TOKEN \
+                --region ${{ inputs.aws-region }} ) || (( count++ >= 5 )); do echo "Retrying: $backoff"; sleep $backoff; (( backoff*=2 )); done
+
+              if [ -z "$ids" ]; then
+                echo "failed to assume IAM role after retries"
+                exit 1
+              fi
+
+              ids=$(echo $ids | jq -r .Credentials)
+              echo "::add-mask::$(echo $ids | jq -r .AccessKeyId)"
+              echo "::add-mask::$(echo $ids | jq -r .SessionToken)"
+              echo "::add-mask::$(echo $ids | jq -r .SecretAccessKey)"
+              echo "AWS_ACCESS_KEY_ID=$(echo $ids | jq -r .AccessKeyId)" >> $GITHUB_ENV
+              echo "AWS_SESSION_TOKEN=$(echo $ids | jq -r .SessionToken)" >> $GITHUB_ENV
+              echo "AWS_SECRET_ACCESS_KEY=$(echo $ids | jq -r .SecretAccessKey)" >> $GITHUB_ENV
+              region=${{ inputs.aws-region }}
+              echo "AWS_REGION=$region" >> $GITHUB_ENV
+              echo "AWS_DEFAULT_REGION=$region" >> $GITHUB_ENV

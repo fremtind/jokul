@@ -1,0 +1,14 @@
+@use '@fremtind/jkl-core/jkl';
+
+.jkl-portal-video {
+    position: relative;
+
+    &__pause-button {
+        @include jkl.reset-outline;
+        background-color: transparent;
+        cursor: pointer;
+        position: absolute;
+        bottom: var(--jkl-spacing-16);
+        right: var(--jkl-spacing-16);
+    }
+}

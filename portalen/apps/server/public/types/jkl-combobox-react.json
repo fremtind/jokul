@@ -1,0 +1,587 @@
+{
+    "version": "2.3.19",
+    "types": {
+        "Combobox": {
+            "tags": {},
+            "filePath": "jokul/packages/combobox-react/src/index.ts",
+            "description": "",
+            "displayName": "Combobox",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "placeholder": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "placeholder",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "labelProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "labelProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Omit<LabelProps, \"children\" | \"density\" | \"htmlFor\" | \"standAlone\"> | undefined"
+                    }
+                },
+                "items": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "items",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ValuePair[]"
+                    }
+                },
+                "noMatchingOption": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "noMatchingOption",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "label": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "label",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "name": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "name",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "value": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "value",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "ValuePair[] | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "width": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "width",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "helpLabel": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "helpLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "errorLabel": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "errorLabel",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "invalid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "invalid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "hasTagHover": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "hasTagHover",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "onChange": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onChange",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ChangeEventHandler"
+                    }
+                },
+                "onBlur": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onBlur",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "ChangeEventHandler | undefined"
+                    }
+                },
+                "onFocus": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onFocus",
+                    "parent": {
+                        "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                        "name": "ComboboxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "ComboboxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "ChangeEventHandler | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithOptionalChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithOptionalChildren"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                },
+                "data-testautoid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testautoid",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "DataTestAutoId"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "DataTestAutoId"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "inline": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "inline",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "supportLabelProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "supportLabelProps",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Omit<SupportLabelProps, \"id\" | \"density\" | \"helpLabel\" | \"errorLabel\"> | undefined"
+                    }
+                },
+                "tooltipProps": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "tooltipProps",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "PopupTipProps | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                },
+                "render": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "render",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-input-group-react@3.0.24_@types+react-dom@18.2.17_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-input-group-react/build/InputGroup.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "((props: InputProps) => Element) | undefined"
+                    }
+                }
+            }
+        },
+        "getComboboxValuePair": {
+            "tags": {},
+            "filePath": "jokul/packages/combobox-react/src/index.ts",
+            "description": "",
+            "displayName": "getComboboxValuePair",
+            "methods": [],
+            "props": {
+                "at": {
+                    "defaultValue": null,
+                    "description": "Takes an integer value and returns the item at that index,\nallowing for positive and negative integers.\nNegative integers count back from the last item in the array.",
+                    "name": "at",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                        "name": "RelativeIndexable"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@types+node@18.18.13/node_modules/@types/node/globals.d.ts",
+                            "name": "RelativeIndexable"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(index: number) => string | undefined"
+                    }
+                },
+                "value": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "value",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "label": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "label",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "description": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "description",
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "tagLabel": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "tagLabel",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "isMarked": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "isMarked",
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/combobox-react/src/Combobox.tsx",
+                            "name": "TypeLiteral"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                }
+            }
+        }
+    }
+}

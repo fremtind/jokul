@@ -1,0 +1,1040 @@
+{
+    "version": "11.1.13",
+    "types": {
+        "InfoMessageBox": {
+            "tags": {},
+            "filePath": "jokul/packages/message-box-react/src/index.ts",
+            "description": "",
+            "displayName": "InfoMessageBox",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "title": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "title",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "fullWidth": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "fullWidth",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "dismissed": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissed",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "dismissAction": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissAction",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ handleDismiss: () => void; buttonTitle?: string | undefined; } | undefined"
+                    }
+                },
+                "role": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "role",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "AriaRole | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom",
+                    "name": "ref",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "RefAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Ref<HTMLDivElement> | undefined"
+                    }
+                },
+                "key": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "key",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "Attributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "Attributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Key | null | undefined"
+                    }
+                }
+            }
+        },
+        "ErrorMessageBox": {
+            "tags": {},
+            "filePath": "jokul/packages/message-box-react/src/index.ts",
+            "description": "",
+            "displayName": "ErrorMessageBox",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "title": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "title",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "fullWidth": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "fullWidth",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "dismissed": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissed",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "dismissAction": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissAction",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ handleDismiss: () => void; buttonTitle?: string | undefined; } | undefined"
+                    }
+                },
+                "role": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "role",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "AriaRole | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom",
+                    "name": "ref",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "RefAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Ref<HTMLDivElement> | undefined"
+                    }
+                },
+                "key": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "key",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "Attributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "Attributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Key | null | undefined"
+                    }
+                }
+            }
+        },
+        "SuccessMessageBox": {
+            "tags": {},
+            "filePath": "jokul/packages/message-box-react/src/index.ts",
+            "description": "",
+            "displayName": "SuccessMessageBox",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "title": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "title",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "fullWidth": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "fullWidth",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "dismissed": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissed",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "dismissAction": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissAction",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ handleDismiss: () => void; buttonTitle?: string | undefined; } | undefined"
+                    }
+                },
+                "role": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "role",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "AriaRole | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom",
+                    "name": "ref",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "RefAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Ref<HTMLDivElement> | undefined"
+                    }
+                },
+                "key": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "key",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "Attributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "Attributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Key | null | undefined"
+                    }
+                }
+            }
+        },
+        "WarningMessageBox": {
+            "tags": {},
+            "filePath": "jokul/packages/message-box-react/src/index.ts",
+            "description": "",
+            "displayName": "WarningMessageBox",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "title": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "title",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "fullWidth": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "fullWidth",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "dismissed": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissed",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "dismissAction": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissAction",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ handleDismiss: () => void; buttonTitle?: string | undefined; } | undefined"
+                    }
+                },
+                "role": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "role",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                        "name": "MessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/MessageBox.tsx",
+                            "name": "MessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "AriaRole | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom",
+                    "name": "ref",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "RefAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Ref<HTMLDivElement> | undefined"
+                    }
+                },
+                "key": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "key",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "Attributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "Attributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Key | null | undefined"
+                    }
+                }
+            }
+        },
+        "FormErrorMessageBox": {
+            "tags": {},
+            "filePath": "jokul/packages/message-box-react/src/index.ts",
+            "description": "",
+            "displayName": "FormErrorMessageBox",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                        "name": "FormErrorMessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                            "name": "FormErrorMessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                        "name": "FormErrorMessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                            "name": "FormErrorMessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "messageBoxProps": {
+                    "defaultValue": {
+                        "value": "{ title: \"Feil og mangler i skjemaet\" }"
+                    },
+                    "description": "",
+                    "name": "messageBoxProps",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                        "name": "FormErrorMessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                            "name": "FormErrorMessageBoxProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Partial<MessageBoxProps> | undefined"
+                    }
+                },
+                "errors": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "errors",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                        "name": "FormErrorMessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                            "name": "FormErrorMessageBoxProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "(string | undefined)[]"
+                    }
+                },
+                "isSubmitted": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "isSubmitted",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                        "name": "FormErrorMessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                            "name": "FormErrorMessageBoxProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "isValid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "isValid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                        "name": "FormErrorMessageBoxProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/message-box-react/src/FormErrorMessageBox.tsx",
+                            "name": "FormErrorMessageBoxProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "Allows getting a ref to the component instance.\nOnce the component unmounts, React will set `ref.current` to `null` (or call the ref with `null` if you passed a callback ref).\n@see https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom",
+                    "name": "ref",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "RefAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Ref<HTMLDivElement> | undefined"
+                    }
+                },
+                "key": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "key",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "Attributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "Attributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Key | null | undefined"
+                    }
+                }
+            }
+        }
+    }
+}

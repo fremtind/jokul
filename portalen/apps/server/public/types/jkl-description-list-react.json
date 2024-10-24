@@ -1,0 +1,146 @@
+{
+    "version": "8.0.10",
+    "types": {
+        "DescriptionList": {
+            "tags": {},
+            "filePath": "jokul/packages/description-list-react/src/index.ts",
+            "description": "",
+            "displayName": "DescriptionList",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/description-list-react/src/DescriptionList.tsx",
+                        "name": "DescriptionListProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/description-list-react/src/DescriptionList.tsx",
+                            "name": "DescriptionListProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        },
+        "DescriptionTerm": {
+            "tags": {},
+            "filePath": "jokul/packages/description-list-react/src/index.ts",
+            "description": "",
+            "displayName": "DescriptionTerm",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/description-list-react/src/DescriptionList.tsx",
+                        "name": "DescriptionTermProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/description-list-react/src/DescriptionList.tsx",
+                            "name": "DescriptionTermProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        },
+        "DescriptionDetail": {
+            "tags": {},
+            "filePath": "jokul/packages/description-list-react/src/index.ts",
+            "description": "",
+            "displayName": "DescriptionDetail",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/description-list-react/src/DescriptionList.tsx",
+                        "name": "DescriptionDetailProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/description-list-react/src/DescriptionList.tsx",
+                            "name": "DescriptionDetailProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        }
+    }
+}

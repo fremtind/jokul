@@ -1,0 +1,725 @@
+{
+    "version": "11.1.12",
+    "types": {
+        "InfoAlertMessage": {
+            "tags": {},
+            "filePath": "jokul/packages/alert-message-react/src/index.ts",
+            "description": "",
+            "displayName": "InfoAlertMessage",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "maxContentWidth": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "maxContentWidth",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "paddingLeft": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "paddingLeft",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "role": {
+                    "defaultValue": null,
+                    "description": "Overstyr standardrollen til meldingen. Om du ønsker å \"skru av\" rollen kan du bruke verdien `none presentation`.",
+                    "name": "role",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "dismissed": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissed",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "dismissAction": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissAction",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ handleDismiss: () => void; buttonTitle?: string | undefined; } | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        },
+        "WarningAlertMessage": {
+            "tags": {},
+            "filePath": "jokul/packages/alert-message-react/src/index.ts",
+            "description": "",
+            "displayName": "WarningAlertMessage",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "maxContentWidth": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "maxContentWidth",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "paddingLeft": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "paddingLeft",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "role": {
+                    "defaultValue": null,
+                    "description": "Overstyr standardrollen til meldingen. Om du ønsker å \"skru av\" rollen kan du bruke verdien `none presentation`.",
+                    "name": "role",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "dismissed": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissed",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "dismissAction": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissAction",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ handleDismiss: () => void; buttonTitle?: string | undefined; } | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        },
+        "ErrorAlertMessage": {
+            "tags": {},
+            "filePath": "jokul/packages/alert-message-react/src/index.ts",
+            "description": "",
+            "displayName": "ErrorAlertMessage",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "maxContentWidth": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "maxContentWidth",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "paddingLeft": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "paddingLeft",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "role": {
+                    "defaultValue": null,
+                    "description": "Overstyr standardrollen til meldingen. Om du ønsker å \"skru av\" rollen kan du bruke verdien `none presentation`.",
+                    "name": "role",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "dismissed": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissed",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "dismissAction": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissAction",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ handleDismiss: () => void; buttonTitle?: string | undefined; } | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        },
+        "SuccessAlertMessage": {
+            "tags": {},
+            "filePath": "jokul/packages/alert-message-react/src/index.ts",
+            "description": "",
+            "displayName": "SuccessAlertMessage",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "density": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "density",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "Density | undefined"
+                    }
+                },
+                "maxContentWidth": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "maxContentWidth",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "paddingLeft": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "paddingLeft",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "role": {
+                    "defaultValue": null,
+                    "description": "Overstyr standardrollen til meldingen. Om du ønsker å \"skru av\" rollen kan du bruke verdien `none presentation`.",
+                    "name": "role",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "dismissed": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissed",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "dismissAction": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "dismissAction",
+                    "parent": {
+                        "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                        "name": "Props"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/alert-message-react/src/AlertMessage.tsx",
+                            "name": "Props"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "{ handleDismiss: () => void; buttonTitle?: string | undefined; } | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        }
+    }
+}

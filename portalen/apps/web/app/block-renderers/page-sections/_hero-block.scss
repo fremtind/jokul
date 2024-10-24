@@ -1,0 +1,56 @@
+@use '@fremtind/jkl-core/jkl';
+
+.jkl-portal-hero-block {
+    --hero-padding: var(--jkl-spacing-24);
+    --hero-font-size: var(--jkl-title-font-size);
+    --hero-line-height: var(--jkl-title-line-height);
+    @include jkl.from-medium-device {
+        --hero-padding: var(--jkl-spacing-32);
+        --hero-font-size: clamp(3.5rem, calc(-0.11rem + 4.44vw), 7rem);
+        --hero-line-height: 1.1;
+    }
+
+    box-sizing: border-box;
+    padding-block: var(--hero-padding);
+    min-height: 70vh;
+    min-height: 70dvh; // Bedre høydehåndtering på mobil for støttede enheter
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--jkl-spacing-40);
+    font-size: var(--hero-font-size);
+    max-width: 25ch;
+
+    &__hero-text {
+        font-size: var(--hero-font-size);
+        line-height: var(--hero-line-height);
+        font-weight: jkl.$typography-weight-normal;
+    }
+
+    &__actions {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: var(--jkl-spacing-24);
+    }
+
+    &__stamp {
+        width: jkl.rem(140px);
+        height: jkl.rem(140px);
+        position: absolute;
+        bottom: 50%;
+        right: var(--jkl-spacing-64);
+        transform: translate(50%, 50%);
+
+        @include jkl.small-device {
+            display: none;
+        }
+
+        @include jkl.screen-from(1350px) {
+            right: 0;
+        }
+    }
+}
