@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.23.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.23.2...@fremtind/jokul@0.23.3) (2024-10-24)
+
+### Bug Fixes
+
+- reorganise fonts folder ([f22e3ce](https://github.com/fremtind/jokul/commit/f22e3ce5562f297253f38c91f9904e3c9d373548))
+
 ## [0.23.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.23.1...@fremtind/jokul@0.23.2) (2024-10-23)
 
 ### Bug Fixes
