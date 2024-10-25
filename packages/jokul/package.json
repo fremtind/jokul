@@ -79,8 +79,7 @@
         "dev": "babel --out-dir=. dev-server.mjs && node dev-server.js",
         "compile:style": "node build-styles.mjs",
         "compile:scripts": "vite build --config vite.build.config.mjs",
-        "refactor": "sed -i \"s/\\.js'/\\.cjs'/g\" build/cjs/**/*.d.cts",
-        "test": "vitest run"
+        "test": "vitest --config vite.test.config.mjs"
     },
     "peerDependencies": {
         "react": "^18.0.0"
