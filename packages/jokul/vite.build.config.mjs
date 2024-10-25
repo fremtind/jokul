@@ -1,7 +1,6 @@
 import terser from "@rollup/plugin-terser";
 import react from "@vitejs/plugin-react-swc";
 import { globSync } from "glob";
-import { rename } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { extname, relative, resolve } from "path";
 import nodeExternals from "rollup-plugin-node-externals";
@@ -22,7 +21,7 @@ export default defineConfig({
                 if (filePath.includes("/build/cjs")) {
                     return {
                         filePath: filePath.replace(".d.ts", ".d.cts"),
-                        content: content.replace(/.js';/g, ".cjs;'"),
+                        content: content.replace(/.js';/g, ".cjs';"),
                     };
                 }
                 return { filePath, content };
