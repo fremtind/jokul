@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.25.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.24.1...@fremtind/jokul@0.25.0) (2024-10-25)
+
+### Bug Fixes
+
+- rydd opp i importer i testene ([8df5125](https://github.com/fremtind/jokul/commit/8df51250ec32beb809880f24d38e5d1d3b243fe4))
+
+### Features
+
+- bygg og eksporter separate typer for esm og cjs ([7b6dd3f](https://github.com/fremtind/jokul/commit/7b6dd3fbd1c2aac79773ed73f447c068d7d2cec4))
+- endre alle eksporter og importer i jokul/components ([d911615](https://github.com/fremtind/jokul/commit/d911615155dc24a1e4ab219e12ba183ee471c4e0))
+- endre importer/eksporter i jokul core og utilities ([755c25a](https://github.com/fremtind/jokul/commit/755c25a622035d8cfc9c6bda16388bf0993497bf))
+- endre importer/eksporter i jokul hooks ([9cc9ee9](https://github.com/fremtind/jokul/commit/9cc9ee9dc8a7e74db06597770275b4d4c5f0d2f0))
+
 ## [0.24.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.24.0...@fremtind/jokul@0.24.1) (2024-10-24)
 
 ### Bug Fixes
