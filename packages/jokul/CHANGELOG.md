@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.25.2...@fremtind/jokul@0.25.3) (2024-10-25)
+
+### Bug Fixes
+
+- fixes irregular scss imports ([1caa0ef](https://github.com/fremtind/jokul/commit/1caa0efbbce9815ffeb9b46acaaeb008beb7f1ed))
+
 ## [0.25.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.25.1...@fremtind/jokul@0.25.2) (2024-10-25)
 
 ### Bug Fixes
