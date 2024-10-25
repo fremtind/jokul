@@ -3,5 +3,4 @@ dev-server.js
 **/documentation/main.tsx
 
 # Byggmappe for stilark
-styles/
-!src/fonts/styles/
+/styles/

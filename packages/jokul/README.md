@@ -155,3 +155,11 @@ import { tabListener, unicode } from "@fremtind/jokul/utilities";
 ```
 
 For en full liste over utilities kan du kikke i [utilities-mappa](src/utilities/)
+
+## Vind
+
+Vi tilbyr også en Jøkulifisert versjon av Tailwind, tilgjengelig via
+
+```scss
+@use "@fremtind/jokul/styles/vind";
+```
