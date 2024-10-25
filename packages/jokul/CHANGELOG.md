@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.25.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.25.0...@fremtind/jokul@0.25.1) (2024-10-25)
+
+### Bug Fixes
+
+- flytt semikolon i importer til riktig sted i cjs-filer ([7036872](https://github.com/fremtind/jokul/commit/7036872e70b69727e6bfe98564b65396fe6070a8))
+
 # [0.25.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.24.1...@fremtind/jokul@0.25.0) (2024-10-25)
 
 ### Bug Fixes
