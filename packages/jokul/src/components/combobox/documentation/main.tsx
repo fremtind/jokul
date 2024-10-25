@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { initTabListener } from "../../..";
-import Example from "./Example";
+import { initTabListener } from "../../../utilities/tabListener.js";
+import Example from "./Example.js";
 
 initTabListener();
 

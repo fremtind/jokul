@@ -1,1 +1,1 @@
-export { useFocusOutside } from "./useFocusOutside";
+export { useFocusOutside } from "./useFocusOutside.js";

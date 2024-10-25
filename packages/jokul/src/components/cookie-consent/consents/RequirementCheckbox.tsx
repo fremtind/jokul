@@ -1,6 +1,6 @@
 import React from "react";
-import { WithChildren } from "../../..";
-import { Checkbox } from "../../checkbox";
+import { WithChildren } from "../../../core/types.js";
+import { Checkbox } from "../../checkbox/Checkbox.js";
 
 interface RequirementCheckboxProps extends WithChildren {
     defaultChecked: boolean;

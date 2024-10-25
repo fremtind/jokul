@@ -1,9 +1,9 @@
-import React, { Fragment, ChangeEventHandler, useMemo, useId } from "react";
-import { FieldGroup } from "../../input-group";
-import { useFollowUpContext } from "../followup/followupContext";
-import { useMainQuestionContext } from "../main-question/mainQuestionContext";
-import { FeedbackOption, QuestionProps } from "../types";
-import { defaultOptions, getSmiley } from "./smileyUtils";
+import React, { ChangeEventHandler, Fragment, useId, useMemo } from "react";
+import { FieldGroup } from "../../input-group/FieldGroup.js";
+import { useFollowUpContext } from "../followup/followupContext.js";
+import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
+import { FeedbackOption, QuestionProps } from "../types.js";
+import { defaultOptions, getSmiley } from "./smileyUtils.js";
 
 const isNotInScale = (option: FeedbackOption) =>
     typeof option.value !== "number" || ![1, 2, 3, 4, 5].includes(option.value);

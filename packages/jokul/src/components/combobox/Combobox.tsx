@@ -1,23 +1,30 @@
 import clsx from "clsx";
 import React, {
+    ChangeEvent,
     FC,
+    FocusEvent,
+    KeyboardEvent,
+    MouseEvent,
+    useCallback,
     useEffect,
+    useMemo,
     useRef,
     useState,
-    useCallback,
-    KeyboardEvent,
-    ChangeEvent,
-    FocusEvent,
-    MouseEvent,
-    useMemo,
 } from "react";
-import { ValuePair, Density } from "../..";
-import { useId, useAnimatedHeight, useListNavigation } from "../../hooks";
-import { ArrowVerticalAnimated, CheckIcon } from "../icon";
-import { IconButton } from "../icon-button";
-import { InputGroup, InputGroupProps, type LabelProps } from "../input-group";
-import { Tag } from "../tag";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
+import { Density } from "../../core/types.js";
+import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
+import { ValuePair } from "../../utilities/valuePair.js";
+import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
+import { CheckIcon } from "../icon/index.js";
+import { IconButton } from "../icon-button/IconButton.js";
+import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
+import { LabelProps } from "../input-group/Label.js";
+import { Tag } from "../tag/Tag.js";
+import { Tooltip } from "../tooltip/Tooltip.js";
+import { TooltipContent } from "../tooltip/TooltipContent.js";
+import { TooltipTrigger } from "../tooltip/TooltipTrigger.js";
 
 export type ComboboxValuePair = ValuePair & {
     tagLabel?: string;

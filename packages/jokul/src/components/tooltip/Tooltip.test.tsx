@@ -1,10 +1,15 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { axe } from "jest-axe";
+import UserEventModule from "@testing-library/user-event";
 import React from "react";
-import { Tooltip } from "./Tooltip";
-import { TooltipContent } from "./TooltipContent";
-import { TooltipTrigger } from "./TooltipTrigger";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { Tooltip } from "./Tooltip.js";
+import { TooltipContent } from "./TooltipContent.js";
+import { TooltipTrigger } from "./TooltipTrigger.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("Tooltip", () => {
     it("should show tooltip when hovering over trigger", async () => {
@@ -106,7 +111,7 @@ describe("Tooltip", () => {
     });
 
     describe("a11y", () => {
-        test("tooltip should be a11y compliant", async () => {
+        it("tooltip should be a11y compliant", async () => {
             const { container } = render(
                 <Tooltip initialOpen>
                     <TooltipContent>Forklarende tekst</TooltipContent>

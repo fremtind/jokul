@@ -1,9 +1,9 @@
-import { fileURLToPath } from "node:url";
-import { cpSync } from "node:fs";
-import { extname, relative, resolve } from "path";
 import terser from "@rollup/plugin-terser";
 import react from "@vitejs/plugin-react-swc";
 import { globSync } from "glob";
+import { rename } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
+import { extname, relative, resolve } from "path";
 import nodeExternals from "rollup-plugin-node-externals";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
@@ -16,12 +16,16 @@ export default defineConfig({
         dts({
             include: ["src"],
             exclude: ["src/**/*.test.{ts,tsx}", "src/components/**/documentation/*"],
-            afterBuild() {
-                cpSync(
-                    resolve(fileURLToPath(new URL(".", import.meta.url)), "build", "packages", "jokul", "src"),
-                    resolve(fileURLToPath(new URL(".", import.meta.url)), "build"),
-                    { recursive: true },
-                );
+            entryRoot: "./src",
+            outDir: ["./build/es", "./build/cjs"],
+            beforeWriteFile(filePath, content) {
+                if (filePath.includes("/build/cjs")) {
+                    return {
+                        filePath: filePath.replace(".d.ts", ".d.cts"),
+                        content: content.replace(/.js';/g, ".cjs;'"),
+                    };
+                }
+                return { filePath, content };
             },
         }),
         visualizer({
@@ -34,7 +38,6 @@ export default defineConfig({
         emptyOutDir: false,
         sourcemap: true,
         lib: {
-            formats: ["es", "cjs"],
             entry: resolve(__dirname, "src", "**", "*"),
         },
         rollupOptions: {
@@ -47,17 +50,32 @@ export default defineConfig({
                         fileURLToPath(new URL(file, import.meta.url)),
                     ]),
             ),
-            output: {
-                entryFileNames: () => {
-                    return "[format]/[name].js";
+            output: [
+                {
+                    format: "cjs",
+                    entryFileNames: () => {
+                        return "cjs/[name].cjs";
+                    },
+                    plugins: [terser()],
+                    globals: {
+                        react: "react",
+                        "react-dom": "ReactDOM",
+                        "react/jsx-runtime": "react/jsx-runtime",
+                    },
                 },
-                plugins: [terser()],
-                globals: {
-                    react: "react",
-                    "react-dom": "ReactDOM",
-                    "react/jsx-runtime": "react/jsx-runtime",
+                {
+                    format: "es",
+                    entryFileNames: () => {
+                        return "es/[name].js";
+                    },
+                    plugins: [terser()],
+                    globals: {
+                        react: "react",
+                        "react-dom": "ReactDOM",
+                        "react/jsx-runtime": "react/jsx-runtime",
+                    },
                 },
-            },
+            ],
         },
     },
 });

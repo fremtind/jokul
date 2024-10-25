@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, ReactNode } from "react";
-import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism";
-import { ArrowNorthEastIcon, ChevronRightIcon } from "../icon";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import { ArrowNorthEastIcon, ChevronRightIcon } from "../icon/index.js";
 
 export type MenuItemProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
     ElementType,

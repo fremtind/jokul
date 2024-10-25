@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
-import { InfoSystemMessage, ErrorSystemMessage, WarningSystemMessage, SuccessSystemMessage } from ".";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { ErrorSystemMessage, InfoSystemMessage, SuccessSystemMessage, WarningSystemMessage } from "./SystemMessage.js";
 
 const messageWithStyles = {
     maxContentWidth: "1234px",

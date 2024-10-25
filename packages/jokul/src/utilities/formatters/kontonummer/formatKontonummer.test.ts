@@ -1,5 +1,6 @@
-import { unicode } from "../../constants";
-import { formatKontonummer } from "./formatKontonummer";
+import { describe, expect, it } from "vitest";
+import { unicode } from "../../constants/index.js";
+import { formatKontonummer } from "./formatKontonummer.js";
 
 const { nbsp } = unicode;
 

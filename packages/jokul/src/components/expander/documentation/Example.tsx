@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { ExpanderExample, expanderExamplesKnobs } from "./ExpanderExample";
-import { ExpandSectionExample } from "./ExpandSectionExample";
+import ExpanderExample, { expanderExamplesKnobs } from "./ExpanderExample.js";
+import ExpandSectionExample from "./ExpandSectionExample.js";
 
 export default function Example() {
     return (

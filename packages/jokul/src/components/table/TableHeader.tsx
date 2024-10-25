@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React, { forwardRef, MouseEventHandler, ThHTMLAttributes } from "react";
-import { Density } from "../..";
-import { ArrowVerticalAnimated } from "../icon";
-import { useTableContext } from "./tableContext";
-import { TableSortProps } from "./utils";
+import { Density } from "../../core/types.js";
+import { ArrowVerticalAnimated } from "../icon/index.js";
+import { useTableContext } from "./tableContext.js";
+import { TableSortProps } from "./utils.js";
 
 export type TableSortDirection = "asc" | "desc";
 

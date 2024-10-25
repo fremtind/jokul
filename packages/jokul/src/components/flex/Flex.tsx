@@ -1,6 +1,8 @@
 import React, { type CSSProperties } from "react";
-import { tokens } from "../../core";
-import { type AsChildProps, type PolymorphicPropsWithRef, type PolymorphicRef, SlotComponent } from "../../utilities";
+import tokens from "../../core/tokens.js";
+import { AsChildProps } from "../../utilities/polymorphism/as-child.js";
+import { SlotComponent } from "../../utilities/polymorphism/index.js";
+import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export type FlexDirection = "row" | "row-reverse" | "column" | "column-reverse";
 export type GapValue = Exclude<keyof (typeof tokens)["spacing"], 0>;

@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { WithChildren } from "../..";
+import { WithChildren } from "../../core/types.js";
 
 type TableSectionContext = {
     isTableHead: boolean;

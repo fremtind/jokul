@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect, useMemo, useCallback, useRef } from "re
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { LiveProvider as ReactLiveProvider, type LiveProviderProps as ReactLiveProviderProps } from "react-live";
-import * as alpacca from "../../packages/jokul/src";
+import * as alpacca from "../../packages/jokul/src/index.js";
 import { columns, rows } from "./tableData";
 
 const scope = {

@@ -1,4 +1,5 @@
-import { isExactLength } from "./isExactLength";
+import { describe, expect, it } from "vitest";
+import { isExactLength } from "./isExactLength.js";
 
 describe("isExactLength", () => {
     it("should return true if exact length", () => {

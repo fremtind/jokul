@@ -1,9 +1,9 @@
+import { ExampleComponentProps } from "doc-utils/index.js";
+import { formatValuta } from "packages/formatters-util/src/index.js";
 import React, { FC } from "react";
-import { type TooltipPlacement } from "..";
-import { ExampleComponentProps } from "../../../../../../utils/dev-example";
-import { formatValuta } from "../../../utilities/formatters";
-import { PopupTip } from "../PopupTip";
-import { getPlacement } from "./getPlacement";
+import { PopupTip } from "../PopupTip.js";
+import { TooltipPlacement } from "../Tooltip.js";
+import { getPlacement } from "./getPlacement.js";
 
 export const PopupTipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const initialPlacement: TooltipPlacement = getPlacement(choiceValues?.["Plassering"]);

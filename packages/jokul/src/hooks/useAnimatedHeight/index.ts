@@ -1,4 +1,4 @@
-export type { UseAnimatedHeightOptions } from "./types";
-export { useAnimatedHeight } from "./useAnimatedHeight";
-export { useAnimatedHeightBetween } from "./useAnimatedHeightBetween";
-export { useAutoAnimatedHeight, type UseAutoAnimatedHeightOptions } from "./useAutoAnimateHeight";
+export type { UseAnimatedHeightOptions } from "./types.js";
+export { useAnimatedHeight } from "./useAnimatedHeight.js";
+export { useAnimatedHeightBetween } from "./useAnimatedHeightBetween.js";
+export { useAutoAnimatedHeight, type UseAutoAnimatedHeightOptions } from "./useAutoAnimateHeight.js";

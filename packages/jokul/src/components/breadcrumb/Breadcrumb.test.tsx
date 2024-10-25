@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
-import { BreadcrumbItem } from "./BreadcrumbItem";
-import { Breadcrumb } from ".";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { Breadcrumb } from "./Breadcrumb.js";
+import { BreadcrumbItem } from "./BreadcrumbItem.js";
 
 describe("Breadcrumb", () => {
-    test("should render", () => {
+    it("should render", () => {
         render(
             <Breadcrumb>
                 <BreadcrumbItem>
@@ -23,7 +24,7 @@ describe("Breadcrumb", () => {
         screen.getByText("Breadcrumb");
     });
 
-    test("should be a11y compliant", async () => {
+    it("should be a11y compliant", async () => {
         const { container } = render(
             <Breadcrumb>
                 <BreadcrumbItem>

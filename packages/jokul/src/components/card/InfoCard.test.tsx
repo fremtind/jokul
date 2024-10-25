@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { axe } from "jest-axe";
 import React from "react";
-import { InfoCard } from "./InfoCard";
+import { describe, expect, it } from "vitest";
+import { axe } from "vitest-axe";
+import { InfoCard } from "./InfoCard.js";
 
 describe("InfoCard", () => {
     it("renders without exploding", () => {
@@ -16,7 +17,7 @@ describe("InfoCard", () => {
 });
 
 describe("a11y", () => {
-    test("card should be a11y compliant", async () => {
+    it("card should be a11y compliant", async () => {
         const { container } = render(
             <InfoCard title="Card">
                 <p>Hello world</p>

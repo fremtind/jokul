@@ -1,6 +1,7 @@
-import { formatDate } from "../../../utilities";
-import { parseDateString } from "../utils";
-import { isSameDay, dateHasChanged, dateIsOutsideRange, getInitialDate, getYearSelectOptions } from "./utils";
+import { describe, expect, it } from "vitest";
+import { formatDate } from "../../../utilities/formatters/date/formatDate.js";
+import { parseDateString } from "../utils.js";
+import { dateHasChanged, dateIsOutsideRange, getInitialDate, getYearSelectOptions, isSameDay } from "./utils.js";
 
 describe("formatDate", () => {
     it("renders the given date correctly", () => {

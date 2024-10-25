@@ -20,7 +20,7 @@ import {
 } from "@floating-ui/react";
 import clsx from "clsx";
 import * as React from "react";
-import { getThemeAndDensity } from "../../utilities";
+import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
 
 type ClickOptions = Parameters<typeof useClick>[1];
 type DismissOptions = Parameters<typeof useDismiss>[1];
@@ -202,7 +202,7 @@ const usePopoverContext = () => {
     return context;
 };
 
-const Popover = ({
+export const Popover = ({
     children,
     ...restOptions
 }: {

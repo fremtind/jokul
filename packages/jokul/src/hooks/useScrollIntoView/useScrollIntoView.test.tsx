@@ -1,11 +1,12 @@
 import { renderHook } from "@testing-library/react";
 import { RefObject } from "react";
-import { useScrollIntoView } from "./useScrollIntoView";
+import { beforeEach, expect, it, vi } from "vitest";
+import { useScrollIntoView } from "./useScrollIntoView.js";
 
 const expectAfterWait = (timeout: number, expectFn: () => void) =>
     new Promise((resolve) => setTimeout(() => resolve(expectFn()), timeout));
 
-const scrollIntoView = jest.fn();
+const scrollIntoView = vi.fn();
 const ref: RefObject<HTMLElement> = {
     // @ts-ignore:: its a test, we dont need all 200some props
     current: {
@@ -15,20 +16,20 @@ const ref: RefObject<HTMLElement> = {
 
 beforeEach(scrollIntoView.mockReset);
 
-test("should call scrollIntoView fn by itself", async () => {
+it("should call scrollIntoView fn by itself", async () => {
     renderHook(() => useScrollIntoView({ ref }));
 
     await expectAfterWait(0, () => expect(scrollIntoView.mock.calls.length).toBe(1));
 });
 
-test("should call scrollIntoView after 20ms", async () => {
+it("should call scrollIntoView after 20ms", async () => {
     renderHook(() => useScrollIntoView({ ref, timeout: 20 }));
 
     await expectAfterWait(0, () => expect(scrollIntoView.mock.calls.length).toBe(0));
     await expectAfterWait(30, () => expect(scrollIntoView.mock.calls.length).toBe(1));
 });
 
-test("should not call scrollIntoView before click with autoScroll off", async () => {
+it("should not call scrollIntoView before click with autoScroll off", async () => {
     const { result } = renderHook(() => useScrollIntoView({ ref, autoScroll: false }));
 
     await expectAfterWait(0, () => expect(scrollIntoView.mock.calls.length).toBe(0));

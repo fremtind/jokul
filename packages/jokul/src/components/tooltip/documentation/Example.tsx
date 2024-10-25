@@ -1,7 +1,7 @@
+import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import { DevExample } from "../../../../../../utils/dev-example";
-import { PopupTipExample } from "./PopupTipExample";
-import { TooltipExample, tooltipExampleKnobs } from "./TooltipExample";
+import { PopupTipExample } from "./PopupTipExample.js";
+import { TooltipExample, tooltipExampleKnobs } from "./TooltipExample.js";
 
 export default function Example() {
     return (

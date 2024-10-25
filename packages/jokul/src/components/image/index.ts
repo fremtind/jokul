@@ -1,4 +1,4 @@
-import { Image, ImageProps } from "./Image";
+import { Image, ImageProps } from "./Image.js";
 
 export type { ImageProps };
 

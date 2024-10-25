@@ -1,8 +1,13 @@
-import { render, screen, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { axe } from "jest-axe";
+import { act, render, screen } from "@testing-library/react";
+import UserEventModule from "@testing-library/user-event";
 import React from "react";
-import { Tabs, Tab, TabList, TabPanel } from ".";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
+import { Tab, TabList, TabPanel, Tabs } from "./index.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 const renderComponent = (onChange?: () => void, defaultTab?: number) =>
     render(
@@ -36,7 +41,7 @@ describe("Tabs", () => {
     });
 
     it("triggers onChange when changing tabs", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         renderComponent(onChange);
 
@@ -58,7 +63,7 @@ describe("Tabs", () => {
     });
 
     it("changes tabs while defaultTab is defined", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
 
         renderComponent(onChange, 2);
 
@@ -74,7 +79,7 @@ describe("Tabs", () => {
 });
 
 describe("a11y", () => {
-    test("Tabs should be a11y compliant", async () => {
+    it("Tabs should be a11y compliant", async () => {
         const { container } = renderComponent();
 
         const results = await axe(container);

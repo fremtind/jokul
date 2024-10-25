@@ -1,7 +1,8 @@
 import { RefObject, useCallback, useEffect, useRef, useState } from "react";
-import { tokens, type Easing, type Timing } from "../../core";
-import { useBrowserPreferences } from "../useBrowserPreferences/useBrowserPreferences";
-import { usePreviousValue } from "../usePreviousValue/usePreviousValue";
+import tokens from "../../core/tokens.js";
+import { type Easing, type Timing } from "../../core/types.js";
+import { useBrowserPreferences } from "../useBrowserPreferences/useBrowserPreferences.js";
+import { usePreviousValue } from "../usePreviousValue/usePreviousValue.js";
 
 const defaultEasing = "standard";
 const defaultTiming = "expressive";

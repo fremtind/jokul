@@ -1,4 +1,5 @@
-import { hasNoIllegalCharacters } from "./hasNoIllegalCharacters";
+import { describe, expect, it } from "vitest";
+import { hasNoIllegalCharacters } from "./hasNoIllegalCharacters.js";
 
 describe("hasNoIllegalCharacters", () => {
     it("should return true if no illegal characters is present", () => {

@@ -1,4 +1,5 @@
-import { isValidRegistreringsnummer } from "./isValidRegistreringsnummer";
+import { describe, expect, it } from "vitest";
+import { isValidRegistreringsnummer } from "./isValidRegistreringsnummer.js";
 
 describe("isValidRegistreringsnummer", () => {
     it("should return true for two letters and 5-digit numbers", () => {

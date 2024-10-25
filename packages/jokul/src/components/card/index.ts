@@ -1,10 +1,7 @@
-export { Card } from "./Card";
-export { CardImage } from "./CardImage";
+export { Card } from "./Card.js";
+export { CardImage } from "./CardImage.js";
 
-export { NavCard, InfoBlock } from "./NavCard";
-export { TaskCard } from "./TaskCard";
-export { InfoCard } from "./InfoCard";
-export type { NavCardProps } from "./NavCard";
-export type { TaskCardProps } from "./TaskCard";
-export type { InfoCardProps } from "./InfoCard";
-export type { SpacingStep, PaddingOptions } from "./types";
+export { NavCard, InfoBlock, type NavCardProps } from "./NavCard.js";
+export { TaskCard, type TaskCardProps } from "./TaskCard.js";
+export { InfoCard, type InfoCardProps } from "./InfoCard.js";
+export type { SpacingStep, PaddingOptions } from "./types.js";

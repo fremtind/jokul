@@ -1,6 +1,7 @@
+import { ExampleKnobsProps } from "doc-utils/index.js";
 import React from "react";
-import { Breadcrumb, BreadcrumbItem } from "..";
-import { ExampleKnobsProps } from "../../../../../../utils/dev-example";
+import { Breadcrumb } from "../Breadcrumb.js";
+import { BreadcrumbItem } from "../BreadcrumbItem.js";
 
 export const knobs: ExampleKnobsProps = {};
 

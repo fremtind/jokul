@@ -1,4 +1,4 @@
-export type { ModalProps } from "./Modal";
+export type { ModalProps } from "./Modal.js";
 export {
     ModalContainer,
     ModalOverlay,
@@ -8,6 +8,6 @@ export {
     ModalCloseButton,
     ModalBody,
     ModalActions,
-} from "./Modal";
-export type { UseModalOptions, ModalInstance, ModalConfig } from "./useModal";
-export { useModal } from "./useModal";
+} from "./Modal.js";
+export type { UseModalOptions, ModalInstance, ModalConfig } from "./useModal.js";
+export { useModal } from "./useModal.js";

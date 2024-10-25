@@ -1,4 +1,5 @@
-import { isValidChassisnummer } from "./isValidChassisnummer";
+import { describe, expect, it } from "vitest";
+import { isValidChassisnummer } from "./isValidChassisnummer.js";
 
 describe("isValidChassisnummer", () => {
     it("should return true for 9-character strings", () => {

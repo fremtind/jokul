@@ -1,4 +1,5 @@
-import { parseNumber } from "./parseNumber";
+import { describe, expect, it } from "vitest";
+import { parseNumber } from "./parseNumber.js";
 
 describe("parseNumber", () => {
     it("does not change numbers", () => {

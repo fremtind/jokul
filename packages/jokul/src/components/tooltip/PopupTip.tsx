@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React, { useState, type FC, type ReactNode, HTMLProps, FocusEventHandler } from "react";
-import { QuestionIcon } from "../icon";
-import { Tooltip, type TooltipProps } from "./Tooltip";
-import { TooltipContent } from "./TooltipContent";
-import { TooltipTrigger } from "./TooltipTrigger";
+import { QuestionIcon } from "../icon/index.js";
+import { Tooltip, type TooltipProps } from "./Tooltip.js";
+import { TooltipContent } from "./TooltipContent.js";
+import { TooltipTrigger } from "./TooltipTrigger.js";
 
 export interface PopupTipProps extends Omit<TooltipProps, "triggerOn" | "children"> {
     /**

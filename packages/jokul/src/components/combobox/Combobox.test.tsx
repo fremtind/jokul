@@ -1,14 +1,19 @@
-import { render, RenderOptions, act } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { axe } from "jest-axe";
+import { act, render, RenderOptions } from "@testing-library/react";
+import UserEventModule from "@testing-library/user-event";
 import React, { useState } from "react";
-import { Combobox, ComboboxValuePair } from ".";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
+import { Combobox, ComboboxValuePair } from "./Combobox.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
         user: userEvent.setup({
             delay: 5,
-            advanceTimers: jest.advanceTimersByTime,
+            advanceTimers: vi.advanceTimersByTime,
             skipHover: true,
         }),
         ...render(jsx, renderOptions),
@@ -89,7 +94,7 @@ describe("Combobox", () => {
     });
 
     it("should change the value of the combobox when selecting two options", async () => {
-        const onChangeSpy = jest.fn();
+        const onChangeSpy = vi.fn();
         function WrappedCombobox() {
             const [selectedValues, setSelectedValues] = useState<Array<ComboboxValuePair>>([]);
 
@@ -152,7 +157,7 @@ describe("Combobox", () => {
 });
 
 describe("a11y", () => {
-    test("Combobox should be a11y compliant", async () => {
+    it("Combobox should be a11y compliant", async () => {
         const { container } = setup(
             <Combobox
                 name="items"
@@ -174,7 +179,7 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    test("compact combobox should be a11y compliant", async () => {
+    it("compact combobox should be a11y compliant", async () => {
         const { container } = setup(
             <Combobox
                 name="items"

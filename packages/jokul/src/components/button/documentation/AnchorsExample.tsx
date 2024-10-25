@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../Button";
+import { Button } from "../Button.js";
 
 export const AnchorsExample = () => {
     /* -- EXAMPLE CODE START -- */

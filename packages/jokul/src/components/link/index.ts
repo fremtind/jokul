@@ -1,2 +1,2 @@
-export { Link, type LinkProps } from "./Link";
-export { NavLink, type NavLinkProps } from "./NavLink";
+export { Link, type LinkProps } from "./Link.js";
+export { NavLink, type NavLinkProps } from "./NavLink.js";

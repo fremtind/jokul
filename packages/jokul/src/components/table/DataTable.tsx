@@ -1,12 +1,12 @@
 import React, { forwardRef, TableHTMLAttributes } from "react";
-import { Density } from "../..";
-import { Table } from "./Table";
-import { TableBody } from "./TableBody";
-import { TableCaption } from "./TableCaption";
-import { TableCell } from "./TableCell";
-import { TableHead } from "./TableHead";
-import { TableHeader } from "./TableHeader";
-import { TableRow } from "./TableRow";
+import { Density } from "../../core/types.js";
+import { Table } from "./Table.js";
+import { TableBody } from "./TableBody.js";
+import { TableCaption } from "./TableCaption.js";
+import { TableCell } from "./TableCell.js";
+import { TableHead } from "./TableHead.js";
+import { TableHeader } from "./TableHeader.js";
+import { TableRow } from "./TableRow.js";
 
 export interface DataTableProps extends TableHTMLAttributes<HTMLTableElement> {
     /** Beskrivelse av tabellen for skjermlesere */

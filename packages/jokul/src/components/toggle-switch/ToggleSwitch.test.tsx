@@ -1,7 +1,8 @@
-import { render, screen, act, fireEvent } from "@testing-library/react";
-import { axe } from "jest-axe";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
-import { ToggleSwitch } from ".";
+import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
+import { ToggleSwitch } from "./ToggleSwitch.js";
 
 describe("Toggle switch", () => {
     it("should be pressed after clicking the button", async () => {
@@ -65,7 +66,7 @@ describe("Toggle switch", () => {
     });
 
     it("should call the passed onClick method when clicked", async () => {
-        const onClick = jest.fn();
+        const onClick = vi.fn();
         render(<ToggleSwitch onClick={onClick}>Switch me!</ToggleSwitch>);
 
         const button = screen.getByText("Switch me!");
@@ -101,7 +102,7 @@ describe("Toggle switch", () => {
     });
 
     describe("a11y", () => {
-        test("toggle-switch should be a11y compliant", async () => {
+        it("toggle-switch should be a11y compliant", async () => {
             const { container } = render(<ToggleSwitch>Switch</ToggleSwitch>);
             const results = await axe(container);
 
