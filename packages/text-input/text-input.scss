@@ -180,7 +180,7 @@ $_text-input-selection-color--inverted: color.scale(
         color: var(--jkl-text-input-focus-color);
 
         @include jkl.forced-colors-mode {
-            border: rem(2px) inset ButtonText;
+            border: jkl.rem(2px) inset ButtonText;
         }
     }
 
