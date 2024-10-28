@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 23 Sep 2024 08:51:40 GMT
+ * Generated on Mon, 28 Oct 2024 14:22:00 GMT
  */
 
 @use "../jkl";
@@ -31,6 +31,7 @@
     --jkl-color-text-interactive: #{jkl.$color-brand-granitt};
     --jkl-color-text-interactive-hover: #{jkl.$color-brand-stein};
     --jkl-color-text-on-alert: #{jkl.$color-brand-granitt};
+    --jkl-color-text-on-alert-subdued: #{jkl.$color-brand-fjellgra};
     --jkl-color-border-action: #{jkl.$color-brand-granitt};
     --jkl-color-border-input: #{jkl.$color-brand-stein};
     --jkl-color-border-input-focus: #{jkl.$color-brand-granitt};
@@ -65,6 +66,7 @@
     --jkl-color-text-interactive: #{jkl.$color-brand-snohvit};
     --jkl-color-text-interactive-hover: #{jkl.$color-brand-svaberg};
     --jkl-color-text-on-alert: #{jkl.$color-brand-granitt};
+    --jkl-color-text-on-alert-subdued: #{jkl.$color-brand-fjellgra};
     --jkl-color-border-action: #{jkl.$color-brand-snohvit};
     --jkl-color-border-input: #{jkl.$color-brand-svaberg};
     --jkl-color-border-input-focus: #{jkl.$color-brand-snohvit};
