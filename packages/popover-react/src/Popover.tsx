@@ -299,10 +299,17 @@ const PopoverContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivE
             ? getThemeAndDensity(referenceElement.contextElement)
             : getThemeAndDensity(referenceElement);
 
+        const floatingPortalRef = React.useRef<HTMLElement | null>(null);
+
+        // TODO: Løser et problem hvor nestede portaler ikke "fester" seg til det nærmeste portal-elementet. Fjernes når alle komponenter som rendres i en portal tar i bruk popover komponenten da den håndterer dette internt.
+        React.useEffect(() => {
+            floatingPortalRef.current = context.elements.domReference?.closest<HTMLElement>("[data-portal]") || null;
+        }, [context.elements.domReference]);
+
         if (!open) return null;
 
         return (
-            <FloatingPortal>
+            <FloatingPortal root={floatingPortalRef.current}>
                 <FloatingFocusManager
                     context={context}
                     modal={modal}
