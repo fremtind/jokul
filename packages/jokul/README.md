@@ -10,11 +10,19 @@ Alle komponentene våre installeres fra denne pakka, enten fra roten
 import { CalendarIcon, List, Link, Message, TextInput } from "@fremtind/jokul";
 ```
 
-eller organisert i mapper dersom du foretrekker det
+eller fra en felles komponent-mappe
 
 ```jsx
 import { CalendarIcon, List, Link, Message, TextInput } from "@fremtind/jokul/components";
 ```
+
+eller fra en fullt kvalifisert mappe
+
+```jsx
+import { Feedback } from "@fremtind/jokul/components/feedback";
+```
+
+Det siste vil være mest effektivt når node skal finne fram til riktig fil og vil derfor gi raskere kjøretid på bygg og tester.
 
 For en full liste over komponenter kan du kikke i [components-mappa](src/components/)
 
