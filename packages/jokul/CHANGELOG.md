@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.26.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.25.4...@fremtind/jokul@0.26.0) (2024-10-28)
+
+### Features
+
+- specific exports for each component ([1af8c6f](https://github.com/fremtind/jokul/commit/1af8c6f2f0449586b58807d25bf1027f89487abe)), closes [#4223](https://github.com/fremtind/jokul/issues/4223)
+
 ## [0.25.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.25.2...@fremtind/jokul@0.25.3) (2024-10-25)
 
 ### Bug Fixes
