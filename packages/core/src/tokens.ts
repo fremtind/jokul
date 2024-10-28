@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 06 Sep 2024 19:24:11 GMT
+ * Generated on Mon, 28 Oct 2024 14:24:14 GMT
  */
 
 export default {
@@ -134,6 +134,10 @@ export default {
             onAlert: {
                 light: "#1B1917",
                 dark: "#1B1917",
+            },
+            onAlertSubdued: {
+                light: "#444141",
+                dark: "#444141",
             },
         },
         border: {

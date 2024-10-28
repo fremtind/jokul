@@ -206,6 +206,14 @@
                 "dark": {
                     "value": "{color.brand.granitt.value}"
                 }
+            },
+            "on-alert-subdued": {
+                "light": {
+                    "value": "{color.brand.fjellgra.value}"
+                },
+                "dark": {
+                    "value": "{color.brand.fjellgra.value}"
+                }
             }
         },
         "border": {
