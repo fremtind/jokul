@@ -3,7 +3,7 @@ import { ComponentExample, Props as ComponentExampleProps } from "./ComponentExa
 
 import "../../packages/webfonts/webfonts.scss";
 import "../../packages/jokul/src/core/styles/core.scss";
-import "../../packages/jokul/src/core/styles/vind.scss";
+import "../../packages/jokul/src/vind/styles/vind.scss";
 import "../../packages/jokul/src/styles/styles.scss";
 import "./dev-example.scss";
 

@@ -87,6 +87,17 @@ export default function App() {
             mode: "development",
             plugins: [react(), copyJklFonts(resolve(component.value, "public", "fonts")), setupDev(component.value)],
             configFile: false,
+            resolve: {
+                alias: {
+                    "doc-utils": resolve(
+                        fileURLToPath(new URL(".", import.meta.url)),
+                        "..",
+                        "..",
+                        "utils",
+                        "dev-example",
+                    ),
+                },
+            },
             root: component.value,
             server: {
                 port: 3000,
