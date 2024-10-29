@@ -2,10 +2,6 @@
     "name": "@org/remix-server",
     "version": "1.0.0",
     "license": "MIT",
-    "workspaces": [
-        "packages/*",
-        "apps/*"
-    ],
     "scripts": {
         "clean": "turbo run clean && rm -rf node_modules",
         "build": "turbo run build",
@@ -13,7 +9,6 @@
         "dev": "turbo run dev --parallel",
         "lint": "turbo run lint",
         "test": "turbo run test",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
         "docker:build": "docker build --progress=plain --tag jkl-portal-prm:latest .",
         "docker:tag": "docker tag jkl-portal-prm:latest 197434302239.dkr.ecr.eu-west-1.amazonaws.com/jkl-portal-prm:latest",
         "docker:push": "docker push 197434302239.dkr.ecr.eu-west-1.amazonaws.com/jkl-portal-prm:latest"
