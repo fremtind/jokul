@@ -1,4 +1,4 @@
-import mixpanel from 'mixpanel-browser';
+import mixpanel from "mixpanel-browser";
 import type {
     AnalyticsBackend,
     AnalyticsBackendOptions,
@@ -11,21 +11,19 @@ import type {
     Timed,
     Trackable,
     TrackResponse,
-} from './types';
+} from "./types";
 
 export interface MixpanelOptions extends AnalyticsBackendOptions {}
 
 export class MixpanelBackend implements AnalyticsBackend {
-    readonly name = 'mixpanel';
+    readonly name = "mixpanel";
     readonly options: MixpanelOptions;
 
     constructor(options: MixpanelOptions) {
         this.options = Object.freeze({ ...options });
     }
 
-    private normalizeResponse(
-        response: 1 | 0 | { status: 0 | 1; error: string | null }
-    ): TrackResponse {
+    private normalizeResponse(response: 1 | 0 | { status: 0 | 1; error: string | null }): TrackResponse {
         if (response === 1) {
             return {
                 backend: this.name,
@@ -36,7 +34,7 @@ export class MixpanelBackend implements AnalyticsBackend {
             return {
                 backend: this.name,
                 status: 500,
-                message: 'Unknown error',
+                message: "Unknown error",
             };
         } else {
             return {
@@ -61,14 +59,14 @@ export class MixpanelBackend implements AnalyticsBackend {
 
     async init(options?: InitOptions): Promise<void> {
         const initOptions = {
-            api_host: 'https://api-eu.mixpanel.com',
+            api_host: "https://api-eu.mixpanel.com",
             ip: false,
             opt_out_tracking_by_default: true,
             ...options,
         };
 
         if (this.options.debug) {
-            console.groupCollapsed('Initialize mixpanel');
+            console.groupCollapsed("Initialize mixpanel");
             console.log(initOptions);
             console.groupEnd();
         }
@@ -76,29 +74,22 @@ export class MixpanelBackend implements AnalyticsBackend {
         mixpanel.init(this.options.trackingId, initOptions);
     }
 
-    async optIn<T extends Partial<OptInOptions>>(
-        options?: T | undefined
-    ): Promise<void> {
+    async optIn<T extends Partial<OptInOptions>>(options?: T | undefined): Promise<void> {
         mixpanel.opt_in_tracking({
-            persistence_type: 'cookie',
+            persistence_type: "cookie",
             ...options,
         });
     }
 
-    async optOut<T extends Partial<OptOutOptions>>(
-        options?: T | undefined
-    ): Promise<void> {
+    async optOut<T extends Partial<OptOutOptions>>(options?: T | undefined): Promise<void> {
         mixpanel.opt_out_tracking(options);
     }
 
-    async register<T extends Register, O extends RegisterOptions>(
-        register: T,
-        options?: O
-    ): Promise<void> {
+    async register<T extends Register, O extends RegisterOptions>(register: T, options?: O): Promise<void> {
         mixpanel.register(
             register.properties,
             // @ts-ignore Options godtar egentlig også { persistent: false } i følge docs, men typet til kun number.
-            options
+            options,
         );
     }
 
@@ -108,13 +99,9 @@ export class MixpanelBackend implements AnalyticsBackend {
 
     async track<T extends Trackable>(trackable: T): Promise<void> {
         await new Promise((resolve) => {
-            mixpanel.track(
-                trackable.eventName,
-                trackable.properties,
-                (response) => {
-                    resolve(this.normalizeResponse(response));
-                }
-            );
+            mixpanel.track(trackable.eventName, trackable.properties, (response) => {
+                resolve(this.normalizeResponse(response));
+            });
         });
     }
 }

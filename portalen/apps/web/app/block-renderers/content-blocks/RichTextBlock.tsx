@@ -1,11 +1,7 @@
-import React, { type FC } from 'react';
-import { type ContentBlock } from './types';
-import {
-    type Leaf,
-    type RichTextNodeRenderer,
-    serializeRichText,
-} from '~/components/rich-text';
-import { useMainMenu } from '~/utils';
+import React, { type FC } from "react";
+import { type ContentBlock } from "./types";
+import { type Leaf, type RichTextNodeRenderer, serializeRichText } from "~/components/rich-text";
+import { useMainMenu } from "~/utils";
 
 type RichTextBlockProps = {
     contentBlock: ContentBlock;
@@ -13,14 +9,10 @@ type RichTextBlockProps = {
     fallbackRenderer?: RichTextNodeRenderer;
 };
 
-export const RichTextBlock: FC<RichTextBlockProps> = ({
-    contentBlock,
-    renderers,
-    fallbackRenderer,
-}) => {
+export const RichTextBlock: FC<RichTextBlockProps> = ({ contentBlock, renderers, fallbackRenderer }) => {
     const mainMenu = useMainMenu();
 
-    if (contentBlock.blockType !== 'rich-text') {
+    if (contentBlock.blockType !== "rich-text") {
         return null;
     }
 

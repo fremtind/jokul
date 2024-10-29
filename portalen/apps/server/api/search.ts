@@ -1,13 +1,6 @@
-import {
-    Component,
-    General,
-    Foundation,
-    Pattern,
-    Blog,
-    payload,
-} from '@org/cms';
-import express = require('express');
-import { Document, IndexOptionsForDocumentSearch } from 'flexsearch';
+import { Component, General, Foundation, Pattern, Blog, payload } from "@org/cms";
+import express = require("express");
+import { Document, IndexOptionsForDocumentSearch } from "flexsearch";
 
 /**
  * Match collectionstrukturen i Payload
@@ -23,10 +16,10 @@ import { Document, IndexOptionsForDocumentSearch } from 'flexsearch';
 const richTextIndices = (prefix?: string) => {
     // Søk etter tekst noen nivåer ned i rike tekstfelter
     const indices = [
-        'children[]:text',
-        'children[]:children[]:text',
-        'children[]:children[]:children[]:text',
-        'children[]:children[]:children[]:children[]:text',
+        "children[]:text",
+        "children[]:children[]:text",
+        "children[]:children[]:children[]:text",
+        "children[]:children[]:children[]:children[]:text",
     ];
 
     return indices.map((index) => (prefix ? `${prefix}:${index}` : index));
@@ -35,59 +28,59 @@ const richTextIndices = (prefix?: string) => {
 // Indekser for alle innholdsblokker
 const contentBlockIndices = [
     // Anatomieksempel:
-    'steps[]:title',
-    'steps[]:description',
+    "steps[]:title",
+    "steps[]:description",
     // Karusell:
     // 'steps[]:title', // Finnes allerede i Anatomieksempel
-    ...richTextIndices('steps[]:description'),
+    ...richTextIndices("steps[]:description"),
     // Fargekort:
-    'cards[]:color',
+    "cards[]:color",
     // Fargetabell:
-    'rows[]:color',
+    "rows[]:color",
     // Do/don't-eksempler:
-    'doDontItem[]:description',
+    "doDontItem[]:description",
     // Liste med lenkekort:
-    'links[]:title',
-    'links[]:description',
+    "links[]:title",
+    "links[]:description",
     // Live-eksempel:
     // 'codeExample:code',
-    'codeExample:title',
+    "codeExample:title",
     // Rik tekst:
-    ...richTextIndices('content[]'),
+    ...richTextIndices("content[]"),
     // Showcase:
-    'showcaseItem[]:title',
-    'showcaseItem[]:origin',
-    'showcaseItem[]:description',
+    "showcaseItem[]:title",
+    "showcaseItem[]:origin",
+    "showcaseItem[]:description",
     // Token-tabell:
-    'rows[]:element',
-    'rows[]:property',
-    'rows[]:role',
+    "rows[]:element",
+    "rows[]:property",
+    "rows[]:role",
 ];
 
 // Indekser for alle sideseksjonsblokker
 const pageSectionIndices = [
     // Tittel og ingress (felles for mange blokker):
-    'title',
-    ...richTextIndices('ingress[]'),
+    "title",
+    ...richTextIndices("ingress[]"),
     // Hero/CTA:
-    ...richTextIndices('heroText[]'),
-    'actions[]:link:label',
+    ...richTextIndices("heroText[]"),
+    "actions[]:link:label",
     // Figma-eksempler:
-    'examples[]:fileName',
+    "examples[]:fileName",
     // Liste med lenkekort:
-    'links[]:title',
-    'links[]:description',
+    "links[]:title",
+    "links[]:description",
     // Live-eksempler:
     // 'codeExample:code',
-    'codeExample:title',
+    "codeExample:title",
     // Sideoverskrift:
-    'ingress', // Denne bruker et vanlig tekstfelt for ingress
+    "ingress", // Denne bruker et vanlig tekstfelt for ingress
     // Showcase:
-    'showcaseItem[]:title',
-    'showcaseItem[]:origin',
-    'showcaseItem[]:description',
+    "showcaseItem[]:title",
+    "showcaseItem[]:origin",
+    "showcaseItem[]:description",
     // Video-CTA:
-    'description',
+    "description",
     // Generell sideseksjon:
     // alle innholdsblokker, inne i content[]
     ...contentBlockIndices.map((index) => `content[]:${index}`),
@@ -95,18 +88,18 @@ const pageSectionIndices = [
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const sharedOptions: IndexOptionsForDocumentSearch<unknown, any> = {
-    language: 'no',
-    tokenize: 'forward',
+    language: "no",
+    tokenize: "forward",
 };
 
 const componentsIndex = new Document({
     ...sharedOptions,
     document: {
-        id: 'id',
+        id: "id",
         index: [
-            'title',
-            ...richTextIndices('ingress[]'),
-            'tabs[]:title',
+            "title",
+            ...richTextIndices("ingress[]"),
+            "tabs[]:title",
             ...pageSectionIndices.map((index) => `tabs[]:sections[]:${index}`),
         ],
     },
@@ -115,11 +108,11 @@ const componentsIndex = new Document({
 const generalIndex = new Document({
     ...sharedOptions,
     document: {
-        id: 'id',
+        id: "id",
         index: [
-            'title',
-            ...richTextIndices('ingress[]'),
-            'tabs[]:title',
+            "title",
+            ...richTextIndices("ingress[]"),
+            "tabs[]:title",
             ...pageSectionIndices.map((index) => `tabs[]:sections[]:${index}`),
         ],
     },
@@ -128,11 +121,11 @@ const generalIndex = new Document({
 const foundationsIndex = new Document({
     ...sharedOptions,
     document: {
-        id: 'id',
+        id: "id",
         index: [
-            'title',
-            ...richTextIndices('ingress[]'),
-            'tabs[]:title',
+            "title",
+            ...richTextIndices("ingress[]"),
+            "tabs[]:title",
             ...pageSectionIndices.map((index) => `tabs[]:sections[]:${index}`),
         ],
     },
@@ -141,11 +134,11 @@ const foundationsIndex = new Document({
 const patternsIndex = new Document({
     ...sharedOptions,
     document: {
-        id: 'id',
+        id: "id",
         index: [
-            'title',
-            ...richTextIndices('ingress[]'),
-            'tabs[]:title',
+            "title",
+            ...richTextIndices("ingress[]"),
+            "tabs[]:title",
             ...pageSectionIndices.map((index) => `tabs[]:sections[]:${index}`),
         ],
     },
@@ -154,12 +147,8 @@ const patternsIndex = new Document({
 const blogIndex = new Document({
     ...sharedOptions,
     document: {
-        id: 'id',
-        index: [
-            'title',
-            ...richTextIndices('ingress[]'),
-            ...pageSectionIndices.map((index) => `sections[]:${index}`),
-        ],
+        id: "id",
+        index: ["title", ...richTextIndices("ingress[]"), ...pageSectionIndices.map((index) => `sections[]:${index}`)],
     },
 });
 
@@ -175,24 +164,24 @@ export const indexes = {
 };
 
 const indexLabels: Record<string, string> = {
-    components: 'Komponenter',
-    foundations: 'Fundamenter',
-    general: 'Generell',
-    patterns: 'Mønstre',
-    blog: 'Bloggposter',
+    components: "Komponenter",
+    foundations: "Fundamenter",
+    general: "Generell",
+    patterns: "Mønstre",
+    blog: "Bloggposter",
 };
 
 const search: express.Router = express.Router();
 
-search.get('/', async (req, res) => {
-    const searchParam = req.query['q'];
-    const limitParam = req.query['limit'];
-    if (typeof searchParam !== 'string') {
+search.get("/", async (req, res) => {
+    const searchParam = req.query["q"];
+    const limitParam = req.query["limit"];
+    if (typeof searchParam !== "string") {
         return res.status(400).send();
     }
 
     let limit = 10;
-    if (typeof limitParam === 'string') {
+    if (typeof limitParam === "string") {
         try {
             const newLimit = Number.parseInt(limitParam);
             if (Number.isInteger(newLimit) && newLimit > 0 && newLimit < 1000) {
@@ -262,10 +251,7 @@ search.get('/', async (req, res) => {
     >((acc, [collection, map]) => {
         return {
             ...acc,
-            [indexLabels[collection]]: [
-                ...(acc[indexLabels[collection]] || []),
-                ...map.values(),
-            ],
+            [indexLabels[collection]]: [...(acc[indexLabels[collection]] || []), ...map.values()],
         };
     }, {});
 

@@ -1,66 +1,66 @@
-import type { Block } from 'payload/types';
-import { createPageSectionBlock } from './createPageSectionBlock';
+import type { Block } from "payload/types";
+import { createPageSectionBlock } from "./createPageSectionBlock";
 
 export const PackageReportSection: Block = createPageSectionBlock({
-    slug: 'package-report-section',
-    defaultHeading: 'Kom i gang',
+    slug: "package-report-section",
+    defaultHeading: "Kom i gang",
     labels: {
-        singular: 'Pakkeinformasjon',
-        plural: 'Pakkeinformasjon',
+        singular: "Pakkeinformasjon",
+        plural: "Pakkeinformasjon",
     },
-    imageURL: '/media/mediapakkeinformasjon.webp',
+    imageURL: "/media/mediapakkeinformasjon.webp",
     fields: [
         {
-            name: 'installCode',
-            type: 'textarea',
-            label: 'Hvordan installere',
+            name: "installCode",
+            type: "textarea",
+            label: "Hvordan installere",
             required: true,
             admin: {
-                width: '100%',
+                width: "100%",
             },
         },
         {
-            name: 'usageCode',
-            type: 'textarea',
-            label: 'Hvordan bruke',
+            name: "usageCode",
+            type: "textarea",
+            label: "Hvordan bruke",
             required: true,
             admin: {
-                width: '100%',
+                width: "100%",
             },
         },
         {
-            name: 'reactDocs',
-            type: 'array',
+            name: "reactDocs",
+            type: "array",
             fields: [
                 {
-                    name: 'title',
-                    type: 'text',
-                    label: 'Tittel',
+                    name: "title",
+                    type: "text",
+                    label: "Tittel",
                     required: true,
                 },
                 {
-                    name: 'href',
-                    type: 'text',
-                    label: 'Lenke',
+                    name: "href",
+                    type: "text",
+                    label: "Lenke",
                     required: true,
                 },
             ],
         },
         {
-            name: 'cssDocs',
-            label: 'CSS Docs',
-            type: 'array',
+            name: "cssDocs",
+            label: "CSS Docs",
+            type: "array",
             fields: [
                 {
-                    name: 'title',
-                    type: 'text',
-                    label: 'Tittel',
+                    name: "title",
+                    type: "text",
+                    label: "Tittel",
                     required: true,
                 },
                 {
-                    name: 'href',
-                    type: 'text',
-                    label: 'Lenke',
+                    name: "href",
+                    type: "text",
+                    label: "Lenke",
                     required: true,
                 },
             ],

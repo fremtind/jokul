@@ -1,41 +1,41 @@
-import { Block } from 'payload/types';
+import { Block } from "payload/types";
 
 export const TokensTable: Block = {
-    slug: 'tokens-table',
+    slug: "tokens-table",
     fields: [
         {
-            name: 'rows',
+            name: "rows",
             labels: {
-                singular: 'Rad',
-                plural: 'Rader',
+                singular: "Rad",
+                plural: "Rader",
             },
-            type: 'array',
+            type: "array",
             fields: [
                 {
-                    type: 'row',
+                    type: "row",
                     fields: [
                         {
-                            name: 'element',
-                            label: 'Element',
-                            type: 'text',
+                            name: "element",
+                            label: "Element",
+                            type: "text",
                             required: true,
                         },
                         {
-                            name: 'property',
-                            label: 'Egenskap',
-                            type: 'text',
+                            name: "property",
+                            label: "Egenskap",
+                            type: "text",
                             required: true,
                         },
                         {
-                            name: 'role',
-                            label: 'Rolle',
-                            type: 'text',
+                            name: "role",
+                            label: "Rolle",
+                            type: "text",
                             required: true,
                         },
                         {
-                            name: 'value',
-                            label: 'Verdi',
-                            type: 'text',
+                            name: "value",
+                            label: "Verdi",
+                            type: "text",
                             required: true,
                         },
                     ],

@@ -1,11 +1,11 @@
-import { createTopicCollection } from './topicCreator';
+import { createTopicCollection } from "./topicCreator";
 
 export const Patterns = createTopicCollection({
-    slug: 'patterns',
+    slug: "patterns",
     overrides: {
         labels: {
-            singular: 'Mønster',
-            plural: 'Mønstre',
+            singular: "Mønster",
+            plural: "Mønstre",
         },
     },
 });

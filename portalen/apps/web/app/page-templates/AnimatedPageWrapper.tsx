@@ -1,8 +1,8 @@
-import type { WithChildren } from '@fremtind/jkl-core';
-import { useBrowserPreferences } from '@fremtind/jkl-react-hooks';
-import type { MotionProps, Variants } from 'framer-motion';
-import { motion } from 'framer-motion';
-import React, { forwardRef, type HTMLAttributes } from 'react';
+import type { WithChildren } from "@fremtind/jkl-core";
+import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import type { MotionProps, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import React, { forwardRef, type HTMLAttributes } from "react";
 
 export const entryAnimation: Variants = {
     initial: { y: 10, opacity: 0 },
@@ -11,7 +11,7 @@ export const entryAnimation: Variants = {
         opacity: 1,
         transition: {
             staggerChildren: 0.06,
-            ease: 'easeOut',
+            ease: "easeOut",
             duration: 0.35,
         },
     },

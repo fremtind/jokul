@@ -1,27 +1,27 @@
-import { slateEditor } from '@payloadcms/richtext-slate';
-import { CollectionConfig } from 'payload/types';
-import { authenticatedAdmins } from '../access/index';
-import { allPageSectionBlocks } from '../blocks/page-sections';
-import { pageMeta } from '../fields/meta';
+import { slateEditor } from "@payloadcms/richtext-slate";
+import { CollectionConfig } from "payload/types";
+import { authenticatedAdmins } from "../access/index";
+import { allPageSectionBlocks } from "../blocks/page-sections";
+import { pageMeta } from "../fields/meta";
 
-export const GENERAL_PAGE_SLUG = 'general';
+export const GENERAL_PAGE_SLUG = "general";
 
 export const General: CollectionConfig = {
     slug: GENERAL_PAGE_SLUG,
     admin: {
-        group: 'Innholdssider',
-        useAsTitle: 'title',
+        group: "Innholdssider",
+        useAsTitle: "title",
         // TODO: Finn en bedre måte å unngå typefeil på importer i serveren
         /* eslint-disable @typescript-eslint/ban-ts-comment */
         preview: (doc) => {
             // @ts-ignore typesjekk i serveren klager over window
-            if (typeof window !== 'undefined') {
+            if (typeof window !== "undefined") {
                 // @ts-ignore
                 const { protocol, host } = window.location;
 
                 return `${protocol}//${host}/preview/${GENERAL_PAGE_SLUG}/${doc.id}`;
             } else {
-                return '#';
+                return "#";
             }
         },
         /* eslint-enable @typescript-eslint/ban-ts-comment */
@@ -36,51 +36,50 @@ export const General: CollectionConfig = {
         update: authenticatedAdmins,
     },
     labels: {
-        singular: 'Generell side',
-        plural: 'Generelle sider',
+        singular: "Generell side",
+        plural: "Generelle sider",
     },
-    defaultSort: 'title',
+    defaultSort: "title",
     fields: [
         {
-            name: 'title',
-            type: 'text',
-            label: 'Tittel',
+            name: "title",
+            type: "text",
+            label: "Tittel",
             required: true,
             admin: {
-                description:
-                    'Vises som tittel i søkeresultater, og i listen over sider i CMS-et',
+                description: "Vises som tittel i søkeresultater, og i listen over sider i CMS-et",
             },
         },
         {
-            name: 'ingress',
-            type: 'richText',
-            label: 'Ingress',
+            name: "ingress",
+            type: "richText",
+            label: "Ingress",
             editor: slateEditor({
                 admin: {
-                    elements: ['link'],
+                    elements: ["link"],
                 },
             }),
             admin: {
-                description: 'Valgfri',
+                description: "Valgfri",
             },
         },
         {
-            type: 'tabs',
+            type: "tabs",
             tabs: [
                 {
-                    label: 'Innhold',
+                    label: "Innhold",
                     fields: [
                         {
-                            name: 'sections',
-                            label: 'Sideseksjoner',
-                            type: 'blocks',
+                            name: "sections",
+                            label: "Sideseksjoner",
+                            type: "blocks",
                             blocks: allPageSectionBlocks,
                             required: true,
                         },
                     ],
                 },
                 {
-                    label: 'Metadata',
+                    label: "Metadata",
                     fields: [pageMeta],
                 },
             ],

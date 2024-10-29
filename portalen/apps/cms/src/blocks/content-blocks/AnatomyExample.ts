@@ -1,41 +1,41 @@
-import type { Block } from 'payload/types';
+import type { Block } from "payload/types";
 
 export const AnatomyExample: Block = {
-    slug: 'anatomy-example',
+    slug: "anatomy-example",
     labels: {
-        singular: 'Anatomieksempel',
-        plural: 'Anatomieksempler',
+        singular: "Anatomieksempel",
+        plural: "Anatomieksempler",
     },
     fields: [
         {
-            type: 'array',
-            name: 'steps',
-            label: 'Steg',
+            type: "array",
+            name: "steps",
+            label: "Steg",
             minRows: 1,
             labels: {
-                plural: 'Steg',
-                singular: 'Steg',
+                plural: "Steg",
+                singular: "Steg",
             },
             fields: [
                 {
-                    type: 'row',
+                    type: "row",
                     fields: [
                         {
-                            name: 'title',
-                            label: 'Tittel',
-                            type: 'text',
+                            name: "title",
+                            label: "Tittel",
+                            type: "text",
                             required: true,
                             admin: {
-                                width: '100%',
+                                width: "100%",
                             },
                         },
                         {
-                            name: 'description',
-                            label: 'Beskrivelse',
-                            type: 'text',
+                            name: "description",
+                            label: "Beskrivelse",
+                            type: "text",
                             required: true,
                             admin: {
-                                width: '100%',
+                                width: "100%",
                             },
                         },
                     ],
@@ -43,9 +43,9 @@ export const AnatomyExample: Block = {
             ],
         },
         {
-            type: 'text',
-            name: 'url',
-            label: 'Figma-lenke lyst tema',
+            type: "text",
+            name: "url",
+            label: "Figma-lenke lyst tema",
             required: true,
             admin: {
                 description:
@@ -53,13 +53,12 @@ export const AnatomyExample: Block = {
             },
         },
         {
-            type: 'text',
-            name: 'urlDark',
-            label: 'Figma-lenke mørkt tema',
+            type: "text",
+            name: "urlDark",
+            label: "Figma-lenke mørkt tema",
             required: true,
             admin: {
-                description:
-                    'Bruk samme lenke som lyst tema hvis du ikke har noe for mørkt tema',
+                description: "Bruk samme lenke som lyst tema hvis du ikke har noe for mørkt tema",
             },
         },
     ],

@@ -1,29 +1,22 @@
-import { useAnimatedHeight, useId } from '@fremtind/jkl-react-hooks';
-import { type SubMenu } from '@org/cms';
-import { useLocation } from '@remix-run/react';
-import React, { useState, type FC } from 'react';
-import { NavigationMenuButton } from './NavigationMenuButton';
-import { useNavigationMenu } from './navigationMenuContext';
-import { NavigationMenuLink } from './NavigationMenuLink';
+import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
+import { type SubMenu } from "@org/cms";
+import { useLocation } from "@remix-run/react";
+import React, { useState, type FC } from "react";
+import { NavigationMenuButton } from "./NavigationMenuButton";
+import { useNavigationMenu } from "./navigationMenuContext";
+import { NavigationMenuLink } from "./NavigationMenuLink";
 
 type NestedMenuProps = SubMenu & {
     parentPath?: string;
 };
 
-export const NestedMenu: FC<NestedMenuProps> = ({
-    slug,
-    title,
-    items,
-    parentPath,
-}) => {
+export const NestedMenu: FC<NestedMenuProps> = ({ slug, title, items, parentPath }) => {
     const { pathname } = useLocation();
     const toggleMenu = () => setIsOpen((prevValue) => !prevValue);
-    const menuId = useId('jkl-portal-nested-menu');
+    const menuId = useId("jkl-portal-nested-menu");
 
-    const fullPath = [parentPath, slug].filter(Boolean).join('/');
-    const hasActiveChild =
-        pathname.startsWith(`/${fullPath}`) &&
-        pathname.charAt(`/${fullPath}`.length) === '/';
+    const fullPath = [parentPath, slug].filter(Boolean).join("/");
+    const hasActiveChild = pathname.startsWith(`/${fullPath}`) && pathname.charAt(`/${fullPath}`.length) === "/";
 
     const { setOpen: setGlobalOpen } = useNavigationMenu();
     // Menyen starter åpen hvis du kommer rett til en underside i den
@@ -54,11 +47,11 @@ export const NestedMenu: FC<NestedMenuProps> = ({
             >
                 <ul>
                     {menuItems.map((item, index) => {
-                        if (typeof item.value === 'string') {
+                        if (typeof item.value === "string") {
                             return null;
                         }
 
-                        if (item.relationTo === 'menu-items') {
+                        if (item.relationTo === "menu-items") {
                             const { link, title, slug } = item.value;
 
                             return (
@@ -74,13 +67,10 @@ export const NestedMenu: FC<NestedMenuProps> = ({
                                 </li>
                             );
                         }
-                        if (item.relationTo === 'sub-menus') {
+                        if (item.relationTo === "sub-menus") {
                             return (
                                 <li key={index}>
-                                    <NestedMenu
-                                        {...item.value}
-                                        parentPath={fullPath}
-                                    />
+                                    <NestedMenu {...item.value} parentPath={fullPath} />
                                 </li>
                             );
                         }

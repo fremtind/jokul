@@ -1,24 +1,24 @@
-import { Block, PayloadRequest } from 'payload/types';
+import { Block, PayloadRequest } from "payload/types";
 
 const fetchContent = async ({ req }: { req: PayloadRequest }) => {
     return (
         await req.payload.find({
-            collection: 'blog',
+            collection: "blog",
             user: req.user,
             overrideAccess: false,
-            sort: '-published_date',
+            sort: "-published_date",
             limit: 3,
             where: {
                 and: [
                     {
-                        _status: { equals: 'published' },
+                        _status: { equals: "published" },
                     },
                     {
                         published_date: { less_than: new Date().toJSON() },
                     },
                     {
-                        'tag.type': {
-                            equals: 'info',
+                        "tag.type": {
+                            equals: "info",
                         },
                     },
                 ],
@@ -39,46 +39,46 @@ const fetchContent = async ({ req }: { req: PayloadRequest }) => {
 };
 
 export const ScrollSection: Block = {
-    slug: 'scroll',
-    imageURL: '/media/mediascroll.webp',
+    slug: "scroll",
+    imageURL: "/media/mediascroll.webp",
     fields: [
         {
             admin: { hidden: true },
-            type: 'array',
-            name: 'type',
+            type: "array",
+            name: "type",
             required: true,
             fields: [
                 {
-                    name: 'tagType',
-                    type: 'text',
+                    name: "tagType",
+                    type: "text",
                 },
                 {
-                    name: 'tagLabel',
-                    type: 'text',
+                    name: "tagLabel",
+                    type: "text",
                 },
                 {
-                    type: 'text',
-                    name: 'title',
+                    type: "text",
+                    name: "title",
                 },
                 {
-                    type: 'richText',
-                    name: 'ingress',
+                    type: "richText",
+                    name: "ingress",
                 },
                 {
-                    type: 'text',
-                    name: 'author',
+                    type: "text",
+                    name: "author",
                 },
                 {
-                    type: 'text',
-                    name: 'slug',
+                    type: "text",
+                    name: "slug",
                 },
                 {
-                    type: 'date',
-                    name: 'date',
+                    type: "date",
+                    name: "date",
                 },
                 {
-                    type: 'text',
-                    name: 'image',
+                    type: "text",
+                    name: "image",
                 },
             ],
             hooks: {

@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
 
 export type PackageInfo = {
     react?: string;
@@ -11,7 +11,7 @@ export const usePackageVersion = (packageInfo?: PackageInfo) => {
         error: reactError,
         data: reactData,
     } = useQuery<{ version: string }>({
-        queryKey: ['react-api', packageInfo?.react],
+        queryKey: ["react-api", packageInfo?.react],
         queryFn: async () => {
             if (!packageInfo?.react) {
                 return;
@@ -26,7 +26,7 @@ export const usePackageVersion = (packageInfo?: PackageInfo) => {
         error: cssError,
         data: cssData,
     } = useQuery<{ version: string }>({
-        queryKey: ['css-api', packageInfo?.css],
+        queryKey: ["css-api", packageInfo?.css],
         queryFn: async () => {
             if (!packageInfo?.css) {
                 return;
@@ -36,14 +36,8 @@ export const usePackageVersion = (packageInfo?: PackageInfo) => {
         },
     });
 
-    const reactVersion =
-        reactStatus === 'loading' || reactError === 'error' || !reactData
-            ? ''
-            : reactData.version;
-    const cssVersion =
-        cssStatus === 'loading' || cssError === 'error' || !cssData
-            ? ''
-            : cssData.version;
+    const reactVersion = reactStatus === "loading" || reactError === "error" || !reactData ? "" : reactData.version;
+    const cssVersion = cssStatus === "loading" || cssError === "error" || !cssData ? "" : cssData.version;
 
     return { reactVersion, cssVersion };
 };

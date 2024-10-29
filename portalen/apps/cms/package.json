@@ -25,7 +25,8 @@
         "build": "pnpm build:payload && pnpm build:server && pnpm copyfiles",
         "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" build/ && copyfiles -u 1 \"build/**/*\" ../server/build",
         "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/config.ts payload generate:types",
-        "typecheck": "tsc -p ./tsconfig.json"
+        "typecheck": "tsc -p ./tsconfig.json",
+        "lint": "../../../node_modules/eslint/bin/eslint.js --ext .ts,.tsx,.js,.jsx ./src"
     },
     "dependencies": {
         "@fremtind/jkl-core": "^14.1.0",

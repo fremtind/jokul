@@ -1,19 +1,8 @@
-import { easings, type Easing, timings, type Timing } from '@fremtind/jkl-core';
-import {
-    useBrowserPreferences,
-    usePreviousValue,
-} from '@fremtind/jkl-react-hooks';
-import {
-    type MutableRefObject,
-    useEffect,
-    useRef,
-    type RefObject,
-    useCallback,
-} from 'react';
+import { easings, type Easing, timings, type Timing } from "@fremtind/jkl-core";
+import { useBrowserPreferences, usePreviousValue } from "@fremtind/jkl-react-hooks";
+import { type MutableRefObject, useEffect, useRef, type RefObject, useCallback } from "react";
 
-interface HTMLElementOrCoreToggleElement<
-    T extends HTMLElementOrCoreToggleElement<T>
-> extends HTMLElement {
+interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
 }
 
@@ -41,12 +30,12 @@ export interface UseAnimatedHeightOptions<T extends HTMLElement = HTMLElement> {
     onTransitionEnd?: (isOpen: boolean, ref: RefObject<T>) => void;
 }
 
-const defaultEasing = 'standard';
-const defaultTiming = 'productive';
+const defaultEasing = "standard";
+const defaultTiming = "productive";
 
 export function useAnimatedHeight<T extends HTMLElement>(
     isOpen: boolean,
-    options?: UseAnimatedHeightOptions<T>
+    options?: UseAnimatedHeightOptions<T>,
 ): [RefObject<T>, () => void] {
     const wasOpen = usePreviousValue(isOpen);
     const easing = options?.easing || defaultEasing;
@@ -68,19 +57,19 @@ export function useAnimatedHeight<T extends HTMLElement>(
 
         raf1.current = requestAnimationFrame(() => {
             // Hent kollapset høyde
-            element.style.removeProperty('transition');
-            element.dataset['collapsed'] = 'true';
+            element.style.removeProperty("transition");
+            element.dataset["collapsed"] = "true";
             const collapsedHeight = element.getBoundingClientRect().height;
-            element.dataset['collapsed'] = 'false';
+            element.dataset["collapsed"] = "false";
 
             // Sett høyde til utvidet høyde og start transition
-            element.style.setProperty('height', `${expandedHeight}px`);
-            element.style.setProperty('transition', transition);
+            element.style.setProperty("height", `${expandedHeight}px`);
+            element.style.setProperty("transition", transition);
 
             raf2.current = requestAnimationFrame(() => {
                 // Sett høyde til kollapset høyde
-                element.style.setProperty('height', `${collapsedHeight}px`);
-                element.dataset['collapsed'] = 'true';
+                element.style.setProperty("height", `${collapsedHeight}px`);
+                element.dataset["collapsed"] = "true";
             });
         });
     }, [transition]);
@@ -94,18 +83,18 @@ export function useAnimatedHeight<T extends HTMLElement>(
 
         raf1.current = requestAnimationFrame(() => {
             // Hent kollapset høyde
-            element.style.removeProperty('transition');
-            element.dataset['collapsed'] = 'true';
+            element.style.removeProperty("transition");
+            element.dataset["collapsed"] = "true";
             const collapsedHeight = element.getBoundingClientRect().height;
 
             // Sett høyde til kollapset høyde og start transition
-            element.style.setProperty('height', `${collapsedHeight}px`);
-            element.style.setProperty('transition', transition);
+            element.style.setProperty("height", `${collapsedHeight}px`);
+            element.style.setProperty("transition", transition);
 
             raf2.current = requestAnimationFrame(() => {
                 // Sett høyde til utvidet høyde
-                element.style.setProperty('height', `${expandedHeight}px`);
-                element.dataset['collapsed'] = 'false';
+                element.style.setProperty("height", `${expandedHeight}px`);
+                element.dataset["collapsed"] = "false";
             });
         });
     }, [transition]);
@@ -115,7 +104,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
 
         // Ignore bubbling transitions from within container
         if (element && event.target === element) {
-            element.removeAttribute('style');
+            element.removeAttribute("style");
             options?.onTransitionEnd?.(isOpen, elementRef);
         }
     }
@@ -139,12 +128,12 @@ export function useAnimatedHeight<T extends HTMLElement>(
         options?.onTransitionStart?.(isOpen, elementRef);
 
         if (prefersReducedMotion) {
-            element.removeAttribute('style');
+            element.removeAttribute("style");
             if (isOpen) {
                 options?.onFirstVisible?.(isOpen, elementRef);
-                element.dataset['collapsed'] = 'false';
+                element.dataset["collapsed"] = "false";
             } else {
-                element.dataset['collapsed'] = 'true';
+                element.dataset["collapsed"] = "true";
             }
             options?.onTransitionEnd?.(isOpen, elementRef); // make sure to call callback when animation is off
             return;
@@ -159,20 +148,13 @@ export function useAnimatedHeight<T extends HTMLElement>(
             // This causes the "transitionend"-event to never fire and the element gets stuck with
             // style: height: 0; display: block; overflow:hidden
             if (element.scrollHeight === 0) {
-                element.removeAttribute('style');
+                element.removeAttribute("style");
                 return;
             }
 
             collapseElement();
         }
-    }, [
-        isOpen,
-        options,
-        wasOpen,
-        prefersReducedMotion,
-        collapseElement,
-        expandElement,
-    ]);
+    }, [isOpen, options, wasOpen, prefersReducedMotion, collapseElement, expandElement]);
 
     useEffect(() => {
         runAnimation();
@@ -181,15 +163,12 @@ export function useAnimatedHeight<T extends HTMLElement>(
     useEffect(() => {
         const element = getElement(elementRef);
         if (element) {
-            element.addEventListener('transitionend', handleTransitionEnd);
+            element.addEventListener("transitionend", handleTransitionEnd);
         }
 
         return () => {
             if (element) {
-                element.removeEventListener(
-                    'transitionend',
-                    handleTransitionEnd
-                );
+                element.removeEventListener("transitionend", handleTransitionEnd);
             }
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -207,9 +186,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
     return [elementRef, runAnimation];
 }
 
-function getElement(
-    elementRef: MutableRefObject<HTMLElementOrCoreToggleElement<HTMLElement> | null>
-) {
+function getElement(elementRef: MutableRefObject<HTMLElementOrCoreToggleElement<HTMLElement> | null>) {
     // Workaround to handle custom elements from NRK Core components until this lands:
     // https://github.com/nrkno/custom-element-to-react/pull/17
     return elementRef.current && (elementRef.current.el || elementRef.current);

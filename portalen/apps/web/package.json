@@ -22,7 +22,8 @@
         "dev": "pnpm build && run-p \"dev:*\"",
         "dev:sass": "sass --watch app/:app/ --load-path=../../node_modules/",
         "dev:remix": "remix watch",
-        "typecheck": "tsc -p ./tsconfig.json"
+        "typecheck": "tsc -p ./tsconfig.json",
+        "lint": "../../../node_modules/eslint/bin/eslint.js --ext .ts,.tsx,.js,.jsx ./app"
     },
     "dependencies": {
         "@fremtind/jkl-accordion-react": "^11.1.8",

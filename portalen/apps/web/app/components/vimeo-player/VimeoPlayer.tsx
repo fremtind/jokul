@@ -1,12 +1,6 @@
-import { Loader } from '@fremtind/jkl-loader-react';
-import { usePreviousValue } from '@fremtind/jkl-react-hooks';
-import React, {
-    type FC,
-    useCallback,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import { Loader } from "@fremtind/jkl-loader-react";
+import { usePreviousValue } from "@fremtind/jkl-react-hooks";
+import React, { type FC, useCallback, useEffect, useRef, useState } from "react";
 
 export interface VimeoPlayerProps {
     title: string;
@@ -30,18 +24,15 @@ export const VimeoPlayer: FC<VimeoPlayerProps> = ({
 
     const updatePlayerState = useCallback(() => {
         if (ref.current) {
-            const method = play ? 'pause' : 'play';
+            const method = play ? "pause" : "play";
             const playerData = { method };
-            ref.current.contentWindow?.postMessage(
-                JSON.stringify(playerData),
-                '*'
-            );
+            ref.current.contentWindow?.postMessage(JSON.stringify(playerData), "*");
         }
     }, [play]);
 
     const prevPlay = usePreviousValue(playProp);
     useEffect(() => {
-        if (typeof prevPlay !== 'undefined' && prevPlay !== playProp) {
+        if (typeof prevPlay !== "undefined" && prevPlay !== playProp) {
             setPlay(playProp);
             updatePlayerState();
         }
@@ -52,17 +43,17 @@ export const VimeoPlayer: FC<VimeoPlayerProps> = ({
             if (message.source !== ref.current?.contentWindow) {
                 return;
             }
-            const data: { method: 'play' | 'pause' } = JSON.parse(message.data);
-            setPlaying(data.method === 'play');
+            const data: { method: "play" | "pause" } = JSON.parse(message.data);
+            setPlaying(data.method === "play");
         };
 
         if (window) {
-            window.addEventListener('message', onMessage);
+            window.addEventListener("message", onMessage);
         }
 
         return () => {
             if (window) {
-                window.removeEventListener('message', onMessage);
+                window.removeEventListener("message", onMessage);
             }
         };
     });
@@ -85,7 +76,7 @@ export const VimeoPlayer: FC<VimeoPlayerProps> = ({
     };
 
     const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-        if (e.key === ' ' || e.key === 'Enter') {
+        if (e.key === " " || e.key === "Enter") {
             e.preventDefault();
             togglePlay();
         }
@@ -99,16 +90,12 @@ export const VimeoPlayer: FC<VimeoPlayerProps> = ({
             onFocus={onEnter}
             onBlur={onExit}
             onKeyDown={onKeyDown}
-            aria-label={play ? 'Pause' : 'Play'}
+            aria-label={play ? "Pause" : "Play"}
             role="button"
             tabIndex={0}
         >
             {isActive && !playing && (
-                <Loader
-                    className="vimeo-player__loader"
-                    variant="small"
-                    textDescription="Venter på video"
-                />
+                <Loader className="vimeo-player__loader" variant="small" textDescription="Venter på video" />
             )}
             <iframe
                 tabIndex={-1}

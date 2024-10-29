@@ -1,5 +1,5 @@
-import { GlobalConfig } from 'payload/types';
-import { authenticatedEditors, defaultReadAccess } from '../access';
+import { GlobalConfig } from "payload/types";
+import { authenticatedEditors, defaultReadAccess } from "../access";
 import {
     CallToAction,
     FeedbackSection,
@@ -8,34 +8,34 @@ import {
     PageSection,
     ScrollSection,
     VideoCTA,
-} from '../blocks/page-sections';
-import { pageMeta } from '../fields/meta';
+} from "../blocks/page-sections";
+import { pageMeta } from "../fields/meta";
 
 export const HomePage: GlobalConfig = {
-    slug: 'home-page',
-    label: 'Forside',
+    slug: "home-page",
+    label: "Forside",
     access: {
         read: defaultReadAccess,
         update: authenticatedEditors,
     },
     admin: {
-        group: 'Innholdssider',
+        group: "Innholdssider",
     },
     fields: [
         {
-            type: 'tabs',
+            type: "tabs",
             tabs: [
                 {
-                    label: 'Innhold',
+                    label: "Innhold",
                     fields: [
                         {
-                            type: 'blocks',
-                            label: 'Sideseksjoner',
+                            type: "blocks",
+                            label: "Sideseksjoner",
                             labels: {
-                                singular: 'Sideseksjon',
-                                plural: 'Sideseksjoner',
+                                singular: "Sideseksjon",
+                                plural: "Sideseksjoner",
                             },
-                            name: 'sections',
+                            name: "sections",
                             blocks: [
                                 PageSection,
                                 HeroSection,
@@ -49,7 +49,7 @@ export const HomePage: GlobalConfig = {
                     ],
                 },
                 {
-                    label: 'Metadata',
+                    label: "Metadata",
                     fields: [pageMeta],
                 },
             ],

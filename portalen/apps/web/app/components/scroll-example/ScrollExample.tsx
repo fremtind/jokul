@@ -1,8 +1,8 @@
-import { type WithChildren } from '@fremtind/jkl-core';
-import cn from 'classnames';
-import React, { useState, type FC, type ReactNode } from 'react';
-import { HighlightExample } from './HighlightExample';
-import { ScrollContent } from './ScrollContent';
+import { type WithChildren } from "@fremtind/jkl-core";
+import cn from "classnames";
+import React, { useState, type FC, type ReactNode } from "react";
+import { HighlightExample } from "./HighlightExample";
+import { ScrollContent } from "./ScrollContent";
 
 export interface ScrollContentProps extends WithChildren {
     className?: string;
@@ -10,12 +10,7 @@ export interface ScrollContentProps extends WithChildren {
     flipped?: boolean;
 }
 
-export const ScrollExample: FC<ScrollContentProps> = ({
-    children,
-    className,
-    example,
-    flipped = false,
-}) => {
+export const ScrollExample: FC<ScrollContentProps> = ({ children, className, example, flipped = false }) => {
     const [currentStep, setStep] = useState(-1);
     const [hideExample, setExampleHidden] = useState(true);
 
@@ -26,8 +21,8 @@ export const ScrollExample: FC<ScrollContentProps> = ({
     const handleLastStepLeave = () => setExampleHidden(true);
     return (
         <div
-            className={cn('jkl-portal-scroll-example', className, {
-                'jkl-portal-scroll-example--flipped': flipped,
+            className={cn("jkl-portal-scroll-example", className, {
+                "jkl-portal-scroll-example--flipped": flipped,
             })}
         >
             <ScrollContent
@@ -37,11 +32,7 @@ export const ScrollExample: FC<ScrollContentProps> = ({
             >
                 {children}
             </ScrollContent>
-            <HighlightExample
-                className="jkl-portal-scroll-example__example"
-                hidden={hideExample}
-                step={currentStep}
-            >
+            <HighlightExample className="jkl-portal-scroll-example__example" hidden={hideExample} step={currentStep}>
                 {example}
             </HighlightExample>
         </div>

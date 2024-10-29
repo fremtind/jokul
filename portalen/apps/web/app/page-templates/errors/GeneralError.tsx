@@ -1,5 +1,5 @@
-import React, { type FC } from 'react';
-import { ErrorTemplate } from './ErrorTemplate';
+import React, { type FC } from "react";
+import { ErrorTemplate } from "./ErrorTemplate";
 
 export const GeneralError: FC = () => {
     return (

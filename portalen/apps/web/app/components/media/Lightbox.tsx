@@ -1,10 +1,10 @@
-import { type WithChildren } from '@fremtind/jkl-core';
-import { useBrowserPreferences } from '@fremtind/jkl-react-hooks';
-import cn from 'classnames';
-import { type Transition } from 'framer-motion';
-import { motion } from 'framer-motion';
-import React, { type FC } from 'react';
-import { useEffect, useState } from 'react';
+import { type WithChildren } from "@fremtind/jkl-core";
+import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import cn from "classnames";
+import { type Transition } from "framer-motion";
+import { motion } from "framer-motion";
+import React, { type FC } from "react";
+import { useEffect, useState } from "react";
 
 export interface LightboxProps extends WithChildren {
     aspectRatio?: string;
@@ -12,20 +12,16 @@ export interface LightboxProps extends WithChildren {
 }
 
 const transition: Transition = {
-    type: 'spring',
+    type: "spring",
     damping: 30,
     stiffness: 220,
 };
 const shortTransition: Transition = {
-    ease: 'linear',
+    ease: "linear",
     duration: 0.05,
 };
 
-export const Lightbox: FC<LightboxProps> = ({
-    aspectRatio = '16 / 9',
-    className,
-    children,
-}) => {
+export const Lightbox: FC<LightboxProps> = ({ aspectRatio = "16 / 9", className, children }) => {
     const { prefersReducedMotion } = useBrowserPreferences();
     const [isOpen, setIsOpen] = useState(false);
     const [isOverlay, setIsOverlay] = useState(false);
@@ -36,22 +32,22 @@ export const Lightbox: FC<LightboxProps> = ({
             setIsOpen(false);
         };
         const handleKeyPress = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {
+            if (e.key === "Escape") {
                 closeOpenLightbox();
             }
         };
         // Lukk forstørret bilde ved scroll eller trykk på escape
-        window.addEventListener('scroll', closeOpenLightbox);
-        window.addEventListener('keydown', handleKeyPress);
+        window.addEventListener("scroll", closeOpenLightbox);
+        window.addEventListener("keydown", handleKeyPress);
 
         return () => {
-            window.removeEventListener('scroll', closeOpenLightbox);
-            window.removeEventListener('keydown', handleKeyPress);
+            window.removeEventListener("scroll", closeOpenLightbox);
+            window.removeEventListener("keydown", handleKeyPress);
         };
     }, [isOpen]);
 
     return (
-        <div className={cn('jkl-portal-lightbox', className)}>
+        <div className={cn("jkl-portal-lightbox", className)}>
             <motion.button
                 data-open={isOpen}
                 data-overlay={isOverlay}
@@ -63,16 +59,10 @@ export const Lightbox: FC<LightboxProps> = ({
             >
                 <span className="jkl-sr-only">Forminsk</span>
             </motion.button>
-            <button
-                className="jkl-portal-lightbox__trigger"
-                style={{ aspectRatio }}
-                onClick={() => setIsOpen(!isOpen)}
-            >
+            <button className="jkl-portal-lightbox__trigger" style={{ aspectRatio }} onClick={() => setIsOpen(!isOpen)}>
                 <motion.div
                     layout
-                    transition={
-                        prefersReducedMotion ? shortTransition : transition
-                    }
+                    transition={prefersReducedMotion ? shortTransition : transition}
                     data-open={isOpen}
                     data-overlay={isOverlay}
                     style={{ aspectRatio }}
@@ -87,9 +77,7 @@ export const Lightbox: FC<LightboxProps> = ({
                 >
                     {children}
                 </motion.div>
-                <span className="jkl-sr-only">
-                    {isOpen ? 'Forminsk' : 'Forstørr'}
-                </span>
+                <span className="jkl-sr-only">{isOpen ? "Forminsk" : "Forstørr"}</span>
             </button>
         </div>
     );
