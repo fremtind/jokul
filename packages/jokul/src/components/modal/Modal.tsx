@@ -23,7 +23,8 @@ type BaseModalProps = Omit<ModalProps, "padding" | "component">;
  */
 export const ModalContainer = forwardRef<HTMLDivElement, ModalConfig["container"] & BaseModalProps>(
     ({ className, ...rest }, ref) => {
-        return <div className={clsx("jkl-modal-container", className)} {...rest} ref={ref} />;
+        // TODO: 'data-portal' fjernes når modalen tar i bruk Popover komponenten
+        return <div className={clsx("jkl-modal-container", className)} {...rest} ref={ref} data-portal />;
     },
 );
 ModalContainer.displayName = "ModalContainer";
