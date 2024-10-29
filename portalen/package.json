@@ -19,8 +19,6 @@
         "docker:push": "docker push 197434302239.dkr.ecr.eu-west-1.amazonaws.com/jkl-portal-prm:latest"
     },
     "devDependencies": {
-        "eslint": "^8.44.0",
-        "prettier": "^2.8.8",
         "turbo": "^1.10.7",
         "typescript": "^5.4.5"
     },
@@ -29,12 +27,8 @@
     },
     "packageManager": "pnpm@8.6.7",
     "dependencies": {
-        "@fremtind/stylelint-config-jkl": "^8.0.1",
         "express": "^4.18.2",
-        "husky": "^8.0.3",
-        "lint-staged": "^13.2.3",
-        "payload": "^2.30.1",
-        "stylelint": "^15.10.1"
+        "payload": "^2.30.1"
     },
     "peerDependenciesMeta": {
         "express": {
