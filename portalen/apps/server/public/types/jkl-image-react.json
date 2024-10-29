@@ -1,0 +1,109 @@
+{
+    "version": "6.0.10",
+    "types": {
+        "Image": {
+            "tags": {},
+            "filePath": "jokul/packages/image-react/src/index.ts",
+            "description": "",
+            "displayName": "Image",
+            "methods": [],
+            "props": {
+                "src": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "src",
+                    "parent": {
+                        "fileName": "server/jokul/packages/image-react/src/Image.tsx",
+                        "name": "ImageProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/image-react/src/Image.tsx",
+                            "name": "ImageProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "srcSet": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "srcSet",
+                    "parent": {
+                        "fileName": "server/jokul/packages/image-react/src/Image.tsx",
+                        "name": "ImageProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/image-react/src/Image.tsx",
+                            "name": "ImageProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "placeholder": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "placeholder",
+                    "parent": {
+                        "fileName": "server/jokul/packages/image-react/src/Image.tsx",
+                        "name": "ImageProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/image-react/src/Image.tsx",
+                            "name": "ImageProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "alt": {
+                    "defaultValue": null,
+                    "description": "Send inn en tom streng hvis bildet kun er dekorativt. Sannsynligvis bør du beskrive innholdet i bildet så en person med nedsatt syn får en fullgod opplevelse av siden.\nLes mer på https://jokul.fremtind.no/universell-utforming/guide#uu/dekorativt-innhold",
+                    "name": "alt",
+                    "parent": {
+                        "fileName": "server/jokul/packages/image-react/src/Image.tsx",
+                        "name": "ImageProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/image-react/src/Image.tsx",
+                            "name": "ImageProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/image-react/src/Image.tsx",
+                        "name": "ImageProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/image-react/src/Image.tsx",
+                            "name": "ImageProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,314 @@
+{
+    "version": "6.0.9",
+    "types": {
+        "Countdown": {
+            "tags": {},
+            "filePath": "jokul/packages/progress-bar-react/src/index.ts",
+            "description": "",
+            "displayName": "Countdown",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/Countdown.tsx",
+                        "name": "CountdownProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/Countdown.tsx",
+                            "name": "CountdownProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/Countdown.tsx",
+                        "name": "CountdownProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/Countdown.tsx",
+                            "name": "CountdownProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "from": {
+                    "defaultValue": null,
+                    "description": "Millisekunder å telle ned fra",
+                    "name": "from",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/Countdown.tsx",
+                        "name": "CountdownProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/Countdown.tsx",
+                            "name": "CountdownProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "isPaused": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "isPaused",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/Countdown.tsx",
+                        "name": "CountdownProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/Countdown.tsx",
+                            "name": "CountdownProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/Countdown.tsx",
+                        "name": "CountdownProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/Countdown.tsx",
+                            "name": "CountdownProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                },
+                "onAnimationStart": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onAnimationStart",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "DOMAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "DOMAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "AnimationEventHandler<HTMLDivElement> | undefined"
+                    }
+                },
+                "onAnimationEnd": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "onAnimationEnd",
+                    "parent": {
+                        "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                        "name": "DOMAttributes"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/node_modules/.pnpm/@types+react@18.2.8/node_modules/@types/react/index.d.ts",
+                            "name": "DOMAttributes"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "AnimationEventHandler<HTMLDivElement> | undefined"
+                    }
+                }
+            }
+        },
+        "ProgressBar": {
+            "tags": {},
+            "filePath": "jokul/packages/progress-bar-react/src/index.ts",
+            "description": "",
+            "displayName": "ProgressBar",
+            "methods": [],
+            "props": {
+                "id": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "id",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                        "name": "ProgressBarProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                            "name": "ProgressBarProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                        "name": "ProgressBarProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                            "name": "ProgressBarProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "title": {
+                    "defaultValue": {
+                        "value": "Fremdrift"
+                    },
+                    "description": "",
+                    "name": "title",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                        "name": "ProgressBarProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                            "name": "ProgressBarProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "aria-valuetext": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "aria-valuetext",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                        "name": "ProgressBarProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                            "name": "ProgressBarProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "aria-valuemin": {
+                    "defaultValue": {
+                        "value": "0"
+                    },
+                    "description": "",
+                    "name": "aria-valuemin",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                        "name": "ProgressBarProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                            "name": "ProgressBarProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "number | undefined"
+                    }
+                },
+                "aria-valuenow": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "aria-valuenow",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                        "name": "ProgressBarProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                            "name": "ProgressBarProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "aria-valuemax": {
+                    "defaultValue": {
+                        "value": "100"
+                    },
+                    "description": "",
+                    "name": "aria-valuemax",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                        "name": "ProgressBarProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                            "name": "ProgressBarProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "number | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                        "name": "ProgressBarProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/progress-bar-react/src/ProgressBar.tsx",
+                            "name": "ProgressBarProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        }
+    }
+}

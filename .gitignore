@@ -21,3 +21,4 @@ cypress/videos
 .nx
 **/public/fonts
 **/vite.build.config.mjs.timestamp-*
+!portalen/**

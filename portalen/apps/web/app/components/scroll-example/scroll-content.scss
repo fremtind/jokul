@@ -1,0 +1,9 @@
+@use '@fremtind/jkl-core/jkl';
+
+.jkl-portal-scroll-content {
+    padding: 25vh jkl.$spacing-40;
+
+    p:not(:last-child) {
+        margin-bottom: calc(var(--content-height, 60vh) / 2);
+    }
+}

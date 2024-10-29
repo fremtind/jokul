@@ -1,0 +1,14 @@
+{
+    "extends": "../../tsconfig.json",
+    "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+    "exclude": ["node_modules", "dist", "build", ".turbo"],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["./app/*"],
+            "payload/generated-types": ["../cms/src/types.ts"]
+        },
+        "noEmit": true,
+        "moduleResolution": "NodeNext"
+    }
+}

@@ -1,0 +1,35 @@
+@use '@fremtind/jkl-core/jkl';
+
+@use '@fremtind/jkl-core/styles/reset';
+@use '@fremtind/jkl-core/styles/tokens';
+@use '@fremtind/jkl-core/styles/headings';
+@use '@fremtind/jkl-core/styles/paragraphs';
+@use '@fremtind/jkl-core/styles/links';
+@use '@fremtind/jkl-core/styles/spacing';
+@use '@fremtind/jkl-core/styles/screen-reader';
+
+@use '@fremtind/jkl-webfonts';
+
+@use '@fremtind/jkl-table/table';
+@use '@fremtind/jkl-text-input/text-input';
+@use '@fremtind/jkl-select/select';
+@use '@fremtind/jkl-icons/icons';
+@use '@fremtind/jkl-input-group/input-group';
+@use '../../components/global-search';
+
+body {
+    @include jkl.use-font-family('Fremtind Grotesk');
+}
+
+.jkl {
+    line-height: jkl.rem(20px);
+    font-size: jkl.rem(20px);
+}
+
+.field-type.textarea .textarea-element[name*='code'] {
+    font-family: monospace;
+}
+
+.tab-title-field.field-type.text input {
+    font-size: 2rem;
+}

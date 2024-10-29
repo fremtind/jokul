@@ -1,0 +1,44 @@
+@use '@fremtind/jkl-core/jkl';
+
+/// Legger til en tosifret teller som et ::before-pseudoelement. Stiler du sender
+/// inn i mixin-en settes som stiler på preusoelementet
+/// @param {string} $counter-name [page] - navnet på telleren som skal sjekkes/oppdateres
+@mixin section-counter($counter-name: sections) {
+    counter-increment: $counter-name;
+
+    &::before {
+        content: '0' counter($counter-name); // Enklere counter for "eldre" nettlesere
+        content: counter($counter-name, section-counter) / '';
+        display: block;
+        margin-bottom: jkl.$spacing-4;
+        color: var(--counter-color);
+        @include jkl.text-style('small');
+        @include jkl.use-font-family('Fremtind Grotesk Mono');
+
+        @content;
+    }
+}
+
+.jkl-portal-section-heading {
+    @include jkl.text-style('heading-1');
+    margin-bottom: 0;
+    display: inline-block;
+    word-break: break-word;
+
+    @include section-counter;
+
+    & > a {
+        text-decoration: none;
+        visibility: hidden;
+        margin-left: jkl.$spacing-12;
+        color: inherit;
+    }
+
+    &:hover > a {
+        visibility: visible;
+    }
+
+    svg {
+        vertical-align: sub;
+    }
+}

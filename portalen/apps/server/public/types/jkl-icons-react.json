@@ -1,0 +1,3772 @@
+{
+    "version": "8.6.0",
+    "types": {
+        "ArrowVerticalAnimated": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ArrowVerticalAnimated",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowVerticalAnimated.tsx",
+                        "name": "ArrowVerticalAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowVerticalAnimated.tsx",
+                            "name": "ArrowVerticalAnimatedProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "pointingDown": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "pointingDown",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowVerticalAnimated.tsx",
+                        "name": "ArrowVerticalAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowVerticalAnimated.tsx",
+                            "name": "ArrowVerticalAnimatedProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "variant": {
+                    "defaultValue": {
+                        "value": "inherit"
+                    },
+                    "description": "",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowVerticalAnimated.tsx",
+                        "name": "ArrowVerticalAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowVerticalAnimated.tsx",
+                            "name": "ArrowVerticalAnimatedProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowVerticalAnimated.tsx",
+                        "name": "ArrowVerticalAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowVerticalAnimated.tsx",
+                            "name": "ArrowVerticalAnimatedProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                }
+            }
+        },
+        "ArrowHorizontalAnimated": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ArrowHorizontalAnimated",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowHorizontalAnimated.tsx",
+                        "name": "ArrowHorizontalAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowHorizontalAnimated.tsx",
+                            "name": "ArrowHorizontalAnimatedProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "pointingRight": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "pointingRight",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowHorizontalAnimated.tsx",
+                        "name": "ArrowHorizontalAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowHorizontalAnimated.tsx",
+                            "name": "ArrowHorizontalAnimatedProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "variant": {
+                    "defaultValue": {
+                        "value": "inherit"
+                    },
+                    "description": "",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowHorizontalAnimated.tsx",
+                        "name": "ArrowHorizontalAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowHorizontalAnimated.tsx",
+                            "name": "ArrowHorizontalAnimatedProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowHorizontalAnimated.tsx",
+                        "name": "ArrowHorizontalAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/ArrowHorizontalAnimated.tsx",
+                            "name": "ArrowHorizontalAnimatedProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                }
+            }
+        },
+        "PlusRemoveAnimated": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "PlusRemoveAnimated",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/PlusRemoveAnimated.tsx",
+                        "name": "PlusRemoveAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/PlusRemoveAnimated.tsx",
+                            "name": "PlusRemoveAnimatedProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "isPlus": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "isPlus",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/PlusRemoveAnimated.tsx",
+                        "name": "PlusRemoveAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/PlusRemoveAnimated.tsx",
+                            "name": "PlusRemoveAnimatedProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "variant": {
+                    "defaultValue": {
+                        "value": "inherit"
+                    },
+                    "description": "",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/PlusRemoveAnimated.tsx",
+                        "name": "PlusRemoveAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/PlusRemoveAnimated.tsx",
+                            "name": "PlusRemoveAnimatedProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/animated-icons/PlusRemoveAnimated.tsx",
+                        "name": "PlusRemoveAnimatedProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/animated-icons/PlusRemoveAnimated.tsx",
+                            "name": "PlusRemoveAnimatedProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                }
+            }
+        },
+        "ArrowDownIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ArrowDownIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "ArrowLeftIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ArrowLeftIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "ArrowNorthEastIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ArrowNorthEastIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "ArrowRightIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ArrowRightIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "ArrowUpIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ArrowUpIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "CalendarIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "CalendarIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "CheckIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "CheckIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "ChevronDownIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ChevronDownIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "ChevronLeftIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ChevronLeftIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "ChevronRightIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ChevronRightIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "ChevronUpIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ChevronUpIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "CloseIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "CloseIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "CopyIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "CopyIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "DotsIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "DotsIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "DragIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "DragIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "ErrorIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "ErrorIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "GreenCheckIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "GreenCheckIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "HamburgerIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "HamburgerIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "InfoIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "InfoIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "LinkIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "LinkIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "PlusIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "PlusIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "QuestionIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "QuestionIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "RedCrossIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "RedCrossIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "SearchIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "SearchIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "SuccessIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "SuccessIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "WarningIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "WarningIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "MinusIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "MinusIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        },
+        "TrashCanIcon": {
+            "tags": {},
+            "filePath": "jokul/packages/icons-react/src/index.ts",
+            "description": "",
+            "displayName": "TrashCanIcon",
+            "methods": [],
+            "props": {
+                "as": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "as",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"div\" | \"span\" | undefined"
+                    }
+                },
+                "data-testid": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "data-testid",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "variant": {
+                    "defaultValue": null,
+                    "description": "Størrelsesvarianten til ikonet. `\"small\"` er 16px med 20px bounding box, og `\"medium\"` er 20px med 24px bounding box.\n`\"inherit\"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "IconVariant | undefined"
+                    }
+                },
+                "bold": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "Angir om ikonet skal vises i fet versjon",
+                    "name": "bold",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "boolean | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "style",
+                    "parent": {
+                        "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                        "name": "IconProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/icons-react/src/icons/types.ts",
+                            "name": "IconProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties | undefined"
+                    }
+                }
+            }
+        }
+    }
+}

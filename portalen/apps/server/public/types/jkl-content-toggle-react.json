@@ -1,0 +1,132 @@
+{
+    "version": "6.0.10",
+    "types": {
+        "ContentToggle": {
+            "tags": {},
+            "filePath": "jokul/packages/content-toggle-react/src/index.ts",
+            "description": "",
+            "displayName": "ContentToggle",
+            "methods": [],
+            "props": {
+                "aria-live": {
+                    "defaultValue": {
+                        "value": "\"polite\""
+                    },
+                    "description": "",
+                    "name": "aria-live",
+                    "parent": {
+                        "fileName": "server/jokul/packages/content-toggle-react/src/ContentToggle.tsx",
+                        "name": "ContentToggleProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/content-toggle-react/src/ContentToggle.tsx",
+                            "name": "ContentToggleProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"off\" | \"assertive\" | \"polite\" | undefined"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "className",
+                    "parent": {
+                        "fileName": "server/jokul/packages/content-toggle-react/src/ContentToggle.tsx",
+                        "name": "ContentToggleProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/content-toggle-react/src/ContentToggle.tsx",
+                            "name": "ContentToggleProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "string | undefined"
+                    }
+                },
+                "showSecondary": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "showSecondary",
+                    "parent": {
+                        "fileName": "server/jokul/packages/content-toggle-react/src/ContentToggle.tsx",
+                        "name": "ContentToggleProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/content-toggle-react/src/ContentToggle.tsx",
+                            "name": "ContentToggleProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "secondary": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "secondary",
+                    "parent": {
+                        "fileName": "server/jokul/packages/content-toggle-react/src/ContentToggle.tsx",
+                        "name": "ContentToggleProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/content-toggle-react/src/ContentToggle.tsx",
+                            "name": "ContentToggleProps"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "variant": {
+                    "defaultValue": {
+                        "value": "flip"
+                    },
+                    "description": "",
+                    "name": "variant",
+                    "parent": {
+                        "fileName": "server/jokul/packages/content-toggle-react/src/ContentToggle.tsx",
+                        "name": "ContentToggleProps"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "server/jokul/packages/content-toggle-react/src/ContentToggle.tsx",
+                            "name": "ContentToggleProps"
+                        }
+                    ],
+                    "required": false,
+                    "type": {
+                        "name": "\"flip\" | \"fade\" | undefined"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "children",
+                    "parent": {
+                        "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                        "name": "WithChildren"
+                    },
+                    "declarations": [
+                        {
+                            "fileName": "jkl-portal/node_modules/.pnpm/@fremtind+jkl-core@13.4.2_@types+react-dom@18.2.25_@types+react@18.2.38_react-dom@18.2.0_react@18.2.0/node_modules/@fremtind/jkl-core/build/types.d.ts",
+                            "name": "WithChildren"
+                        }
+                    ],
+                    "required": true,
+                    "type": {
+                        "name": "ReactNode | ReactNode[]"
+                    }
+                }
+            }
+        }
+    }
+}

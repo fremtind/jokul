@@ -1,0 +1,72 @@
+@use '@fremtind/jkl-core/jkl';
+
+.general-page {
+    @include jkl.text-style('body');
+
+    position: relative;
+    counter-reset: sections;
+    padding: #{jkl.$spacing-16} 0;
+    margin: 0 #{jkl.$spacing-24};
+
+    @include jkl.from-medium-device {
+        margin: 0 #{jkl.$spacing-40};
+        padding: 0;
+    }
+
+    &__header {
+        width: 100%;
+        max-width: var(--jkl-portal-content);
+        margin-block: var(--jkl-spacing-40);
+
+        @include jkl.screen-from(1512px) {
+            margin-block: var(--jkl-spacing-104);
+        }
+
+        &-title {
+            @include jkl.text-style('title');
+            max-width: 100%;
+            margin: 0;
+            margin-left: -0.07em; // For å få overskriften i flukt med venstre marg
+            margin-bottom: jkl.$spacing-32;
+        }
+
+        &-ingress {
+            @include jkl.text-style('heading-1');
+            color: var(--jkl-portal-muted);
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+
+        @include jkl.screen-from(1512px) {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: start;
+            justify-content: start;
+            gap: jkl.$spacing-104;
+
+            & > :last-child {
+                max-width: var(--jkl-portal-content);
+            }
+        }
+
+        /*
+         * Solved this way because we need a high enough specificity
+         * to be able to override the & > :last-child selector above.
+         * Otherwise the wide modifier could have been on the children
+         * element.
+         */
+        &--wide {
+            & > .collection-page__children {
+                max-width: var(--jkl-portal-content-wide);
+            }
+        }
+    }
+
+    &__children,
+    &__header-container {
+        max-width: var(--jkl-portal-content);
+    }
+}

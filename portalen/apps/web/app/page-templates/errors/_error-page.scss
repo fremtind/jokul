@@ -1,0 +1,34 @@
+@use '@fremtind/jkl-core/jkl';
+
+.error-page {
+    padding: jkl.$spacing-64 jkl.$spacing-32 jkl.$spacing-32 jkl.$spacing-32;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: auto;
+    gap: jkl.$spacing-32;
+    max-width: var(--jkl-portal-content-wide);
+
+    box-sizing: border-box;
+    min-height: 90%;
+
+    @include jkl.small-device {
+        grid-template-columns: 1fr;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    &__animation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include jkl.small-device {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@use '@fremtind/jkl-core/jkl';
+@use 'colors' as *;
+
+.color-swatch {
+    @each $property, $value in $farger {
+        &--#{$property} {
+            background-color: $value;
+            transform: rotate(45deg);
+            height: jkl.rem(30px);
+            width: jkl.rem(30px);
+            margin-left: 10px;
+        }
+    }
+}
