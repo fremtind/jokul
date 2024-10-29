@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React, {
+    ChangeEvent,
     Children,
     ComponentPropsWithRef,
     ForwardedRef,
@@ -10,7 +11,7 @@ import React, {
 } from "react";
 import { useAutoAnimatedHeight } from "../../hooks/index.js";
 
-type Props = ComponentPropsWithRef<"input"> & {
+type Props = Omit<ComponentPropsWithRef<"input">, "type"> & {
     name: string;
     value: string;
     label: string;
@@ -24,8 +25,8 @@ export const RadioPanel = forwardRef(function RadioPanel(
         alwaysOpen = false,
         label,
         extraLabel,
-        name,
         checked,
+        onChange,
         ...rest
     }: Props,
     ref: ForwardedRef<HTMLDivElement>,
@@ -33,20 +34,27 @@ export const RadioPanel = forwardRef(function RadioPanel(
     const [renderChildren, setRenderChildren] = useState(true);
     const animationRef = useAutoAnimatedHeight<HTMLDivElement>(renderChildren);
 
-    const handleChange = useCallback(() => {
-        if (alwaysOpen) {
-            return -1;
-        }
+    const handleChange = useCallback(
+        (e?: ChangeEvent<HTMLInputElement>) => {
+            if (typeof e !== "undefined") {
+                onChange?.(e);
+            }
 
-        // Hvis går fra lukket til åpen, trigge endring i live-region men
-        // vent "lenge nok" til at skjermleseren får det med seg,
-        // radio-knapper får bare en change event når de velges. Det at
-        // en annen radio i gruppen blir valgt trigger bare et event på den.
-        setRenderChildren(false);
-        return window.setTimeout(() => {
-            setRenderChildren(true);
-        }, 200);
-    }, [setRenderChildren, alwaysOpen]);
+            if (alwaysOpen) {
+                return -1;
+            }
+
+            // Hvis går fra lukket til åpen, trigge endring i live-region men
+            // vent "lenge nok" til at skjermleseren får det med seg,
+            // radio-knapper får bare en change event når de velges. Det at
+            // en annen radio i gruppen blir valgt trigger bare et event på den.
+            setRenderChildren(false);
+            return window.setTimeout(() => {
+                setRenderChildren(true);
+            }, 200);
+        },
+        [setRenderChildren, alwaysOpen, onChange],
+    );
 
     useEffect(() => {
         if (!checked) {
@@ -63,9 +71,9 @@ export const RadioPanel = forwardRef(function RadioPanel(
             <label className="jkl-radio-panel__label">
                 <input
                     onChange={handleChange}
+                    checked={checked}
                     className="jkl-radio-panel__input"
                     type="radio"
-                    name={name}
                     {...rest}
                 />
                 <span
