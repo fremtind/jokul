@@ -20,5 +20,5 @@ cypress/videos
 .turbo
 .nx
 **/public/fonts
-!portalen/apps/server/public/fonts
 **/vite.build.config.mjs.timestamp-*
+!portalen/**
