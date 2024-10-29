@@ -1,8 +1,19 @@
 import type { DataTestAutoId, Density } from "@fremtind/jkl-core";
-import type { InputGroupProps, LabelProps } from "@fremtind/jkl-input-group-react";
-import type { ChangeEvent, KeyboardEvent, FocusEvent, ButtonHTMLAttributes } from "react";
+import type {
+    InputGroupProps,
+    LabelProps,
+} from "@fremtind/jkl-input-group-react";
+import type {
+    ChangeEvent,
+    KeyboardEvent,
+    FocusEvent,
+    ButtonHTMLAttributes,
+} from "react";
 
-export type DateValidationError = "WRONG_FORMAT" | "OUTSIDE_LOWER_BOUND" | "OUTSIDE_UPPER_BOUND";
+export type DateValidationError =
+    | "WRONG_FORMAT"
+    | "OUTSIDE_LOWER_BOUND"
+    | "OUTSIDE_UPPER_BOUND";
 
 export type DatePickerChangeEventHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -32,7 +43,9 @@ export type DatePickerMetadata = {
 
 export type YearsToShow = number | "all" | { previous: number; coming: number };
 
-export interface DatePickerProps extends Omit<InputGroupProps, "label" | "children">, DataTestAutoId {
+export interface DatePickerProps
+    extends Omit<InputGroupProps, "label" | "children">,
+        DataTestAutoId {
     /** Settes på rotnivå. */
     id?: string;
     /** Settes på rotnivå. */
@@ -283,4 +296,5 @@ export interface DatePickerProps extends Omit<InputGroupProps, "label" | "childr
     hideCalendarLabel?: string;
 }
 
-export interface DatePickerAction extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {}
+export interface DatePickerAction
+    extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {}

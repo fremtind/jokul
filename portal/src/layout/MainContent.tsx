@@ -10,7 +10,10 @@ interface MainContentProps extends WithChildren {
 
 export const MainContent: FC<MainContentProps> = ({ className, children }) => {
     const { prefersReducedMotion } = useContext(a11yContext);
-    const isE2e = typeof window !== "undefined" ? window.location.search === "?mode=e2e" : false;
+    const isE2e =
+        typeof window !== "undefined"
+            ? window.location.search === "?mode=e2e"
+            : false;
 
     return (
         <motion.main

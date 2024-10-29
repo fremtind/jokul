@@ -24,15 +24,16 @@ export const AccordionItem: FC<AccordionItemProps> = ({
     const [isOpen, setIsOpen] = useState(startExpanded);
     const [expandOnMount] = useState(() => startExpanded);
 
-    const { detailsRef, summaryRef, contentRef, onSummaryClick } = useAnimatedDetails({
-        onOpenChange: (open, e) => {
-            setIsOpen(open);
-            if (onClick) {
-                onClick(e, open);
-            }
-        },
-        isExpanded: expandOnMount,
-    });
+    const { detailsRef, summaryRef, contentRef, onSummaryClick } =
+        useAnimatedDetails({
+            onOpenChange: (open, e) => {
+                setIsOpen(open);
+                if (onClick) {
+                    onClick(e, open);
+                }
+            },
+            isExpanded: expandOnMount,
+        });
 
     return (
         <details

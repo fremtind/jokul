@@ -52,7 +52,10 @@ async function start() {
     // During development this is fine. Conditionalize this for production as needed.
     const WEB_BUILD_DIR = path.join(process.cwd(), "../web/build");
     const WEB_PUBLIC_DIR = path.join(process.cwd(), "../web/public/web");
-    const WEB_PUBLIC_BUILD_DIR = path.join(process.cwd(), "../web/public/web/build");
+    const WEB_PUBLIC_BUILD_DIR = path.join(
+        process.cwd(),
+        "../web/public/web/build",
+    );
     const SERVER_PUBLIC_DIR = path.join(process.cwd(), "./public");
 
     const app = express();
@@ -60,7 +63,9 @@ async function start() {
     app.use(express.json());
     app.disable("x-powered-by");
 
-    app.get("/_healthcheck", (req, res) => res.status(200).json({ status: "healthy" }).send());
+    app.get("/_healthcheck", (req, res) =>
+        res.status(200).json({ status: "healthy" }).send(),
+    );
 
     // Serving the web static files with different caching strategies
     app.use(
@@ -71,7 +76,10 @@ async function start() {
             redirect: false,
         }),
     );
-    app.use("/web", express.static(WEB_PUBLIC_DIR, { maxAge: "1h", redirect: false }));
+    app.use(
+        "/web",
+        express.static(WEB_PUBLIC_DIR, { maxAge: "1h", redirect: false }),
+    );
 
     app.use(
         "/",
@@ -93,7 +101,8 @@ async function start() {
     });
 
     for (const [collection, index] of Object.entries(indexes)) {
-        const existing = payload.collections[collection].config.hooks.afterChange || [];
+        const existing =
+            payload.collections[collection].config.hooks.afterChange || [];
 
         payload.collections[collection].config.hooks.afterChange = [
             ...existing,

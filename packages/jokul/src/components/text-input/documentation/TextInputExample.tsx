@@ -7,7 +7,14 @@ import { Action } from "../BaseTextInput.js";
 import { TextInput } from "../TextInput.js";
 
 export const textInputExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip", "Med handling", "Med benevnelse", "Inline"],
+    boolProps: [
+        "Med hjelpetekst",
+        "Med feil",
+        "Med tooltip",
+        "Med handling",
+        "Med benevnelse",
+        "Inline",
+    ],
     choiceProps: [
         {
             name: "Variant",
@@ -17,17 +24,21 @@ export const textInputExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
+export const TextInputExample: FC<ExampleComponentProps> = ({
+    choiceValues,
+    boolValues,
+}) => {
     const [value, setValue] = useState("");
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
+        setValue(e.target.value);
 
     const helpLabel = boolValues?.["Med hjelpetekst"]
         ? "Boareal er innvendig bruksareal unntatt bodarealet"
         : undefined;
     const errorLabel = boolValues?.["Med feil"] ? (
         <>
-            Du må fylle ut boarealet. Se <Link href="">guiden vår</Link> hvis du er usikker på hvordan du finner riktig
-            areal.
+            Du må fylle ut boarealet. Se <Link href="">guiden vår</Link> hvis du
+            er usikker på hvordan du finner riktig areal.
         </>
     ) : undefined;
 
@@ -35,8 +46,8 @@ export const TextInputExample: FC<ExampleComponentProps> = ({ choiceValues, bool
         ? {
               content: (
                   <>
-                      Boareal måles i kvadratmeter (m<sup>2</sup>). Hvis du ikke vet boarealet ditt kan du lese guiden
-                      vi lenker til under.
+                      Boareal måles i kvadratmeter (m<sup>2</sup>). Hvis du ikke
+                      vet boarealet ditt kan du lese guiden vi lenker til under.
                   </>
               ),
           }

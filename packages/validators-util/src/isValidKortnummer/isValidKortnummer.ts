@@ -17,7 +17,10 @@ const luhn = (input: string) => {
         return crossSum;
     }
 
-    const checksum = inputAsArray.reduce((sum, digit, index) => sum + multiplyDigit(index, digit), 0);
+    const checksum = inputAsArray.reduce(
+        (sum, digit, index) => sum + multiplyDigit(index, digit),
+        0,
+    );
     const checkDigit = Math.abs((checksum % 10) - 10);
 
     return checkDigit;

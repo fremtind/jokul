@@ -1,14 +1,20 @@
 import { SupportLabel } from "@fremtind/jkl-input-group-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import React, { FC } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../doc-utils";
 import { Checkbox } from "../src";
 
 export const singleCheckboxExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil"],
 };
 
-export const SingleCheckboxExample: FC<ExampleComponentProps> = ({ boolValues }) => {
+export const SingleCheckboxExample: FC<ExampleComponentProps> = ({
+    boolValues,
+}) => {
     const labelId = useId();
     const [checked, setChecked] = React.useState(false);
 
@@ -20,7 +26,8 @@ export const SingleCheckboxExample: FC<ExampleComponentProps> = ({ boolValues })
         label = "Vedlegget har viktig informasjon om forsikringen din";
     }
     if (error) {
-        label = "Du må bekrefte at du har lest vedlegget. Det har viktig informasjon om forsikringen din.";
+        label =
+            "Du må bekrefte at du har lest vedlegget. Det har viktig informasjon om forsikringen din.";
     }
 
     return (
@@ -35,12 +42,19 @@ export const SingleCheckboxExample: FC<ExampleComponentProps> = ({ boolValues })
             >
                 Jeg har lest vedlegget
             </Checkbox>
-            <SupportLabel id={labelId} label={label} labelType={error ? "error" : "help"} />
+            <SupportLabel
+                id={labelId}
+                label={label}
+                labelType={error ? "error" : "help"}
+            />
         </div>
     );
 };
 
-export const singleCheckboxExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
+export const singleCheckboxExampleCode: CodeExample = ({
+    boolValues,
+    choiceValues,
+}) => {
     return `
 <div>
   <Checkbox

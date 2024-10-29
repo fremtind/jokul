@@ -41,7 +41,8 @@ export const CodeSnippet: Block = {
             required: true,
             defaultValue: "tsx",
             admin: {
-                description: "Brukes til å vise riktig syntax highlighting i eksempelkoden.",
+                description:
+                    "Brukes til å vise riktig syntax highlighting i eksempelkoden.",
                 width: "50ch",
             },
         },

@@ -5,7 +5,12 @@ import { LabelVariant } from "../../input-group/Label.js";
 import { Checkbox } from "../Checkbox.js";
 
 export const checkboxExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip", "Indeterminate state"],
+    boolProps: [
+        "Med hjelpetekst",
+        "Med feil",
+        "Med tooltip",
+        "Indeterminate state",
+    ],
     choiceProps: [
         {
             name: "Variant",
@@ -15,12 +20,17 @@ export const checkboxExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const CheckboxExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const CheckboxExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const [phone, setPhone] = React.useState(false);
     const [email, setEmail] = React.useState(false);
     const [snailMail, setSnailMail] = React.useState(false);
 
-    const variant = choiceValues?.["Variant"] ? (choiceValues["Variant"] as LabelVariant) : "medium";
+    const variant = choiceValues?.["Variant"]
+        ? (choiceValues["Variant"] as LabelVariant)
+        : "medium";
 
     const helpText = boolValues?.["Med hjelpetekst"];
     const invalid = boolValues?.["Med feil"];
@@ -28,7 +38,8 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
 
     const tooltip = boolValues?.["Med tooltip"]
         ? {
-              content: "Du kan velge flere metoder. Ved brev vil det ta lenger tid å få en beskjed.",
+              content:
+                  "Du kan velge flere metoder. Ved brev vil det ta lenger tid å få en beskjed.",
           }
         : undefined;
 
@@ -36,8 +47,16 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
         <FieldGroup
             legend="Hvordan kan vi kontakte deg?"
             labelProps={{ variant }}
-            helpLabel={helpText ? "Vi sender viktige beskjeder til deg med de valgte metodene" : undefined}
-            errorLabel={invalid ? "Du må velge minst én kontaktmetode hvor vi kan sende viktige beskjeder" : undefined}
+            helpLabel={
+                helpText
+                    ? "Vi sender viktige beskjeder til deg med de valgte metodene"
+                    : undefined
+            }
+            errorLabel={
+                invalid
+                    ? "Du må velge minst én kontaktmetode hvor vi kan sende viktige beskjeder"
+                    : undefined
+            }
             tooltipProps={tooltip}
         >
             <Checkbox

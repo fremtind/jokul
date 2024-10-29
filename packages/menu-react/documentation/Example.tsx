@@ -16,7 +16,11 @@ import "../../toggle-switch/toggle-switch.scss";
 export default function Example() {
     return (
         <>
-            <DevExample component={MenuExample} codeExample={MenuExampleCode} knobs={MenuExampleKnobs} />
+            <DevExample
+                component={MenuExample}
+                codeExample={MenuExampleCode}
+                knobs={MenuExampleKnobs}
+            />
             <DevExample
                 component={MenuToggleSwitchExample}
                 codeExample={MenuToggleSwitchExampleCode}

@@ -31,9 +31,20 @@ export const ArrowVerticalAnimated: FC<ArrowVerticalAnimatedProps> = ({
             className,
         )}
     >
-        <div className="jkl-animated-vertical-arrows__slider" data-show={pointingDown ? "down" : "up"}>
-            <ArrowUpIcon className="jkl-animated-vertical-arrows__arrow" variant={variant} bold={bold} />
-            <ArrowDownIcon className="jkl-animated-vertical-arrows__arrow" variant={variant} bold={bold} />
+        <div
+            className="jkl-animated-vertical-arrows__slider"
+            data-show={pointingDown ? "down" : "up"}
+        >
+            <ArrowUpIcon
+                className="jkl-animated-vertical-arrows__arrow"
+                variant={variant}
+                bold={bold}
+            />
+            <ArrowDownIcon
+                className="jkl-animated-vertical-arrows__arrow"
+                variant={variant}
+                bold={bold}
+            />
         </div>
     </div>
 );

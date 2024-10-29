@@ -26,7 +26,10 @@ const formatters = {
 };
 export type Formatter = keyof typeof formatters;
 
-export type RegisterWithMaskOptions<T extends FieldValues> = Omit<RegisterOptions<T>, "setValueAs">;
+export type RegisterWithMaskOptions<T extends FieldValues> = Omit<
+    RegisterOptions<T>,
+    "setValueAs"
+>;
 
 const createRegisterFunctionWithMask = <T extends FieldValues>(
     formatter: Formatter,
@@ -75,7 +78,11 @@ const createRegisterFunctionWithMask = <T extends FieldValues>(
             }
 
             if (newPosition !== null) {
-                event.target.setSelectionRange(newPosition, newPosition, undefined);
+                event.target.setSelectionRange(
+                    newPosition,
+                    newPosition,
+                    undefined,
+                );
             }
         };
 
@@ -91,7 +98,8 @@ const createRegisterFunctionWithMask = <T extends FieldValues>(
         // save the caret position before the change occured
         const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
             if ((event.target as HTMLInputElement).selectionStart !== null) {
-                onKeyDownCaretPosition = (event.target as HTMLInputElement).selectionStart as number;
+                onKeyDownCaretPosition = (event.target as HTMLInputElement)
+                    .selectionStart as number;
             }
             onKeyDownKeyPressed = event.key;
         };
@@ -112,12 +120,29 @@ const createRegisterFunctionWithMask = <T extends FieldValues>(
 /**
  * Hjelpefunksjon for React Hook Form som lar deg bruke formateringsfunksjonene i denne pakken som inputmasker.
  */
-export const registerWithMasks = <T extends FieldValues>(form: UseFormReturn<T>) => ({
-    registerWithFodselsnummerMask: createRegisterFunctionWithMask("fodselsnummer", form),
-    registerWithKortnummerMask: createRegisterFunctionWithMask("kortnummer", form),
-    registerWithKontonummerMask: createRegisterFunctionWithMask("kontonummer", form),
-    registerWithTelefonnummerMask: createRegisterFunctionWithMask("telefonnummer", form),
-    registerWithOrganisasjonsnummerMask: createRegisterFunctionWithMask("organisasjonsnummer", form),
+export const registerWithMasks = <T extends FieldValues>(
+    form: UseFormReturn<T>,
+) => ({
+    registerWithFodselsnummerMask: createRegisterFunctionWithMask(
+        "fodselsnummer",
+        form,
+    ),
+    registerWithKortnummerMask: createRegisterFunctionWithMask(
+        "kortnummer",
+        form,
+    ),
+    registerWithKontonummerMask: createRegisterFunctionWithMask(
+        "kontonummer",
+        form,
+    ),
+    registerWithTelefonnummerMask: createRegisterFunctionWithMask(
+        "telefonnummer",
+        form,
+    ),
+    registerWithOrganisasjonsnummerMask: createRegisterFunctionWithMask(
+        "organisasjonsnummer",
+        form,
+    ),
     registerWithDateMask: createRegisterFunctionWithMask("date", form),
     registerWithNumber: createRegisterFunctionWithMask("number", form),
 });

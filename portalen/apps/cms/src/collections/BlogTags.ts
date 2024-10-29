@@ -28,7 +28,8 @@ export const BlogTags: CollectionConfig = {
             type: "select",
             options: ["success", "warning", "info", "error"],
             admin: {
-                description: "Styrer farge på tag. Om du ikke velger noe får du standard grå",
+                description:
+                    "Styrer farge på tag. Om du ikke velger noe får du standard grå",
             },
         },
     ],

@@ -37,4 +37,5 @@ const useModernId = (id?: string, options = defaultOptions): string => {
  * @param id En valgfri eksisterende ID som kan brukes som prefix.
  * @param options Objekt med innstillinger, dersom du angir et prefix.
  */
-export const useId = typeof useReactId !== "undefined" ? useModernId : useLegacyId;
+export const useId =
+    typeof useReactId !== "undefined" ? useModernId : useLegacyId;

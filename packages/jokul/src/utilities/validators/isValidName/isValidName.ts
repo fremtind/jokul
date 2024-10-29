@@ -7,4 +7,5 @@ export const INVALID_NAME_REGEX = /[!-&(-,.-@\[-`{-¿]+/;
  * @param value Verdien som skal valideres
  * @returns Om verdien anses som et gyldig navn
  */
-export const isValidName = (value: string): boolean => !INVALID_NAME_REGEX.test(value);
+export const isValidName = (value: string): boolean =>
+    !INVALID_NAME_REGEX.test(value);

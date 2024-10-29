@@ -1,6 +1,10 @@
 import React, { useEffect, useMemo } from "react";
 import { WithChildren } from "../../core/types.js";
-import { buildRequirementsObject, getConsentCookie, shouldShowConsentDialog } from "./cookieConsentUtils.js";
+import {
+    buildRequirementsObject,
+    getConsentCookie,
+    shouldShowConsentDialog,
+} from "./cookieConsentUtils.js";
 import { Consent, ConsentRequirement } from "./types.js";
 
 // https://kentcdodds.com/blog/how-to-use-react-context-effectively
@@ -25,7 +29,11 @@ interface UpdateRequirementsAction {
     payload: ConsentRequirement;
 }
 
-type Action = SetShowConsentAction | UpdateConsentAction | SetShowSettingsAction | UpdateRequirementsAction;
+type Action =
+    | SetShowConsentAction
+    | UpdateConsentAction
+    | SetShowSettingsAction
+    | UpdateRequirementsAction;
 type Dispatch = (action: Action) => void;
 
 interface State {
@@ -38,7 +46,13 @@ interface State {
 export const DEFAULT_COOKIE_NAME = "fremtind-cookie-consent";
 
 const CookieConsentContext = React.createContext<
-    { state: State; dispatch: Dispatch; cookieName: string; cookieDomain?: string } | undefined
+    | {
+          state: State;
+          dispatch: Dispatch;
+          cookieName: string;
+          cookieDomain?: string;
+      }
+    | undefined
 >(undefined);
 
 const cookieConsentReducer = (state: State, action: Action): State => {
@@ -77,7 +91,9 @@ const cookieConsentReducer = (state: State, action: Action): State => {
     }
 };
 
-export interface CookieConsentProviderProps extends Partial<ConsentRequirement>, WithChildren {
+export interface CookieConsentProviderProps
+    extends Partial<ConsentRequirement>,
+        WithChildren {
     cookieAdapter?: () => Consent | undefined;
     cookieName?: string;
     cookieDomain?: string;
@@ -124,7 +140,11 @@ const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     }, [requirement, consentCookie]);
 
     const value = { state, dispatch, cookieName, cookieDomain };
-    return <CookieConsentContext.Provider value={value}>{children}</CookieConsentContext.Provider>;
+    return (
+        <CookieConsentContext.Provider value={value}>
+            {children}
+        </CookieConsentContext.Provider>
+    );
 };
 
 interface UseCookieConsentState extends State {
@@ -137,7 +157,9 @@ interface UseCookieConsentState extends State {
 const useCookieConsentState = (): UseCookieConsentState => {
     const context = React.useContext(CookieConsentContext);
     if (context === undefined) {
-        throw new Error("useCookieConsentState must be used within a CookieConsentProvider");
+        throw new Error(
+            "useCookieConsentState must be used within a CookieConsentProvider",
+        );
     }
 
     return {
@@ -159,7 +181,9 @@ type UseCookieConsent = {
 const useCookieConsent = (): UseCookieConsent => {
     const context = React.useContext(CookieConsentContext);
     if (context === undefined) {
-        throw new Error("useCookieConsent must be used within a CookieConsentProvider");
+        throw new Error(
+            "useCookieConsent must be used within a CookieConsentProvider",
+        );
     }
 
     const openConsentModalWithSettings = () => {
@@ -174,7 +198,11 @@ const useCookieConsent = (): UseCookieConsent => {
 
     const consents = context.state.consent;
 
-    return { openConsentModalWithSettings, openConsentModalWithDefaults, consents };
+    return {
+        openConsentModalWithSettings,
+        openConsentModalWithDefaults,
+        consents,
+    };
 };
 
 export { CookieConsentProvider, useCookieConsent, useCookieConsentState };

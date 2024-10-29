@@ -11,7 +11,12 @@ interface PageSectionProps extends WithChildren {
     className?: string;
 }
 
-export const PageSection: FC<PageSectionProps> = ({ children, title, ingress, className }) => (
+export const PageSection: FC<PageSectionProps> = ({
+    children,
+    title,
+    ingress,
+    className,
+}) => (
     <section className={cn("jkl-portal-page-section", className)}>
         <SectionHeading>{title}</SectionHeading>
         {ingress && <RichText content={ingress} />}

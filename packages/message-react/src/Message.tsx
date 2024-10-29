@@ -1,5 +1,10 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
-import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "@fremtind/jkl-icons-react";
+import {
+    ErrorIcon,
+    InfoIcon,
+    SuccessIcon,
+    WarningIcon,
+} from "@fremtind/jkl-icons-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { AriaRole, forwardRef } from "react";
@@ -53,7 +58,10 @@ function messageFactory(messageType: messageTypes) {
 
         const boxId = useId(id || "jkl-message", { generateSuffix: !id });
 
-        const hasStringChild = React.Children.map(children, (child) => typeof child === "string");
+        const hasStringChild = React.Children.map(
+            children,
+            (child) => typeof child === "string",
+        );
         const newChildren = hasStringChild?.[0] ? <p>{children}</p> : children;
 
         return (
@@ -61,10 +69,15 @@ function messageFactory(messageType: messageTypes) {
                 {...rest}
                 id={id}
                 ref={ref}
-                className={cn("jkl-message", "jkl-message--" + messageType, className, {
-                    "jkl-message--full": fullWidth,
-                    "jkl-message--dismissed": dismissed,
-                })}
+                className={cn(
+                    "jkl-message",
+                    "jkl-message--" + messageType,
+                    className,
+                    {
+                        "jkl-message--full": fullWidth,
+                        "jkl-message--dismissed": dismissed,
+                    },
+                )}
                 role={role}
                 data-density={density}
             >

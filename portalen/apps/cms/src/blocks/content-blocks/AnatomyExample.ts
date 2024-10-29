@@ -58,7 +58,8 @@ export const AnatomyExample: Block = {
             label: "Figma-lenke mørkt tema",
             required: true,
             admin: {
-                description: "Bruk samme lenke som lyst tema hvis du ikke har noe for mørkt tema",
+                description:
+                    "Bruk samme lenke som lyst tema hvis du ikke har noe for mørkt tema",
             },
         },
     ],

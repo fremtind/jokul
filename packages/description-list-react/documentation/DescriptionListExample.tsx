@@ -1,6 +1,10 @@
 import React from "react";
 import { CodeExample } from "../../../doc-utils";
-import { DescriptionList, DescriptionDetail as DD, DescriptionTerm as DT } from "../src";
+import {
+    DescriptionList,
+    DescriptionDetail as DD,
+    DescriptionTerm as DT,
+} from "../src";
 
 export const DescriptionListExample: React.FC = () => {
     return (

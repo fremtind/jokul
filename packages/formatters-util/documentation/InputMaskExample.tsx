@@ -3,7 +3,11 @@ import { useForm } from "react-hook-form";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
 import { PrimaryButton } from "../../../packages/button-react/src";
 import { DatePicker } from "../../../packages/datepicker-react/src";
-import { DescriptionDetail, DescriptionList, DescriptionTerm } from "../../../packages/description-list-react/src";
+import {
+    DescriptionDetail,
+    DescriptionList,
+    DescriptionTerm,
+} from "../../../packages/description-list-react/src";
 import { TextInput } from "../../../packages/text-input-react/src";
 import { registerWithMasks } from "../src";
 import "./input-mask-example.scss";
@@ -35,9 +39,19 @@ export const InputMaskExample: FC<ExampleComponentProps> = () => {
 
     return (
         <>
-            <form className="input-mask-example-form" onSubmit={form.handleSubmit(setFormData)}>
-                <TextInput label="Dato" maxLength={10} {...registerWithDateMask("dato")} />
-                <DatePicker label="Dato brukt i datovelger" {...registerWithDateMask("datepicker")} />
+            <form
+                className="input-mask-example-form"
+                onSubmit={form.handleSubmit(setFormData)}
+            >
+                <TextInput
+                    label="Dato"
+                    maxLength={10}
+                    {...registerWithDateMask("dato")}
+                />
+                <DatePicker
+                    label="Dato brukt i datovelger"
+                    {...registerWithDateMask("datepicker")}
+                />
                 <TextInput
                     label="Telefonnummer"
                     // Husk å gi plass til mellomrommene som settes inn!
@@ -47,9 +61,21 @@ export const InputMaskExample: FC<ExampleComponentProps> = () => {
                     })}
                     errorLabel={form.formState.errors.telefonnr?.message}
                 />
-                <TextInput label="Fødselsnummer" maxLength={12} {...registerWithFodselsnummerMask("fodselsnr")} />
-                <TextInput label="Kortnummer" maxLength={19} {...registerWithKortnummerMask("kortnr")} />
-                <TextInput label="Kontonummer" maxLength={13} {...registerWithKontonummerMask("kontonr")} />
+                <TextInput
+                    label="Fødselsnummer"
+                    maxLength={12}
+                    {...registerWithFodselsnummerMask("fodselsnr")}
+                />
+                <TextInput
+                    label="Kortnummer"
+                    maxLength={19}
+                    {...registerWithKortnummerMask("kortnr")}
+                />
+                <TextInput
+                    label="Kontonummer"
+                    maxLength={13}
+                    {...registerWithKontonummerMask("kontonr")}
+                />
                 <TextInput
                     label="Organisasjonsnummer"
                     maxLength={11}
@@ -59,12 +85,16 @@ export const InputMaskExample: FC<ExampleComponentProps> = () => {
                 <PrimaryButton type="submit">Send inn</PrimaryButton>
                 {formData && (
                     <>
-                        <p className="jkl-heading-1 jkl-spacing-2xl--top">Innsendt data:</p>
+                        <p className="jkl-heading-1 jkl-spacing-2xl--top">
+                            Innsendt data:
+                        </p>
                         <DescriptionList className="jkl-body">
                             {Object.entries(formData).map(([field, value]) => (
                                 <Fragment key={field}>
                                     <DescriptionTerm>{field}:</DescriptionTerm>
-                                    <DescriptionDetail>{value}</DescriptionDetail>
+                                    <DescriptionDetail>
+                                        {value}
+                                    </DescriptionDetail>
                                 </Fragment>
                             ))}
                         </DescriptionList>

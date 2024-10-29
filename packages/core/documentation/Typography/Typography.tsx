@@ -8,7 +8,11 @@ interface ExampleRowProps {
     type?: "small-screen" | "large-screen";
 }
 const ExampleRow = ({ text, level: style, type }: ExampleRowProps) => (
-    <tr className={`jkl-typography-example-table__row ${type ? `force-${type}` : ""}`}>
+    <tr
+        className={`jkl-typography-example-table__row ${
+            type ? `force-${type}` : ""
+        }`}
+    >
         <td className="jkl-typography-example-table__data">
             <p className={`jkl-${style}`}>{text}</p>
         </td>
@@ -20,7 +24,10 @@ const ExampleRow = ({ text, level: style, type }: ExampleRowProps) => (
             </p>
         </td>
         {!type && (
-            <td data-header="Klasse:" className="jkl-typography-example-table__data">
+            <td
+                data-header="Klasse:"
+                className="jkl-typography-example-table__data"
+            >
                 <p className="jkl-small">
                     <code className="jkl-portal-inline-code">.jkl-{style}</code>
                 </p>
@@ -34,7 +41,9 @@ export const NormalExample: FC = () => (
         <tr>
             <th className="jkl-typography-example-table__header">Stilnavn</th>
             <th className="jkl-typography-example-table__header">Mixin</th>
-            <th className="jkl-typography-example-table__header">Utility-klasse</th>
+            <th className="jkl-typography-example-table__header">
+                Utility-klasse
+            </th>
         </tr>
         <ExampleRow text="Title" level="title" />
         <ExampleRow text="Title Small" level="title-small" />
@@ -49,13 +58,20 @@ export const NormalExample: FC = () => (
 );
 
 export const SmallExample: FC = () => (
-    <table className="jkl-typography-example-table" data-layout-density="compact">
+    <table
+        className="jkl-typography-example-table"
+        data-layout-density="compact"
+    >
         <tr>
             <th className="jkl-typography-example-table__header">Stilnavn</th>
             <th className="jkl-typography-example-table__header">Mixin</th>
         </tr>
         <ExampleRow text="Title" level="title" type="small-screen" />
-        <ExampleRow text="Title Small" level="title-small" type="small-screen" />
+        <ExampleRow
+            text="Title Small"
+            level="title-small"
+            type="small-screen"
+        />
         <ExampleRow text="Heading 1" level="heading-1" type="small-screen" />
         <ExampleRow text="Heading 2" level="heading-2" type="small-screen" />
         <ExampleRow text="Heading 3" level="heading-3" type="small-screen" />
@@ -67,13 +83,20 @@ export const SmallExample: FC = () => (
 );
 
 export const LargeExample: FC = () => (
-    <table className="jkl-typography-example-table" data-layout-density="compact">
+    <table
+        className="jkl-typography-example-table"
+        data-layout-density="compact"
+    >
         <tr>
             <th className="jkl-typography-example-table__header">Stilnavn</th>
             <th className="jkl-typography-example-table__header">Mixin</th>
         </tr>
         <ExampleRow text="Title" level="title" type="large-screen" />
-        <ExampleRow text="Title Small" level="title-small" type="large-screen" />
+        <ExampleRow
+            text="Title Small"
+            level="title-small"
+            type="large-screen"
+        />
         <ExampleRow text="Heading 1" level="heading-1" type="large-screen" />
         <ExampleRow text="Heading 2" level="heading-2" type="large-screen" />
         <ExampleRow text="Heading 3" level="heading-3" type="large-screen" />

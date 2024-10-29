@@ -10,7 +10,9 @@ type NavigationMenuLinkProps = MenuItem["link"] & {
     label: string;
 };
 
-export const NavigationMenuLink: FC<NavigationMenuLinkProps & HTMLAttributes<HTMLAnchorElement>> = ({
+export const NavigationMenuLink: FC<
+    NavigationMenuLinkProps & HTMLAttributes<HTMLAnchorElement>
+> = ({
     label,
     url,
     type,

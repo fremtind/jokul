@@ -40,7 +40,9 @@ export const TypographyTableRow: React.FC<Props> = ({ variant, level }) => {
                     {level}
                 </p>
             </TableCell>
-            <TableCell data-th="Stilnavn">{level.replace(" ", unicode.nbsp)}</TableCell>
+            <TableCell data-th="Stilnavn">
+                {level.replace(" ", unicode.nbsp)}
+            </TableCell>
             <TableCell data-th="Vekt" align="right">
                 {fontWeight}
             </TableCell>

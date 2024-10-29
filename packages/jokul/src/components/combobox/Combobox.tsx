@@ -31,11 +31,14 @@ export type ComboboxValuePair = ValuePair & {
     isMarked?: boolean;
 };
 
-export function getComboboxValuePair(item: string | ComboboxValuePair): ComboboxValuePair {
+export function getComboboxValuePair(
+    item: string | ComboboxValuePair,
+): ComboboxValuePair {
     return typeof item === "string" ? { value: item, label: item } : item;
 }
 
-interface PartialChangeEvent extends Partial<Omit<ChangeEvent<HTMLElement>, "target">> {
+interface PartialChangeEvent
+    extends Partial<Omit<ChangeEvent<HTMLElement>, "target">> {
     type: "change" | "blur";
     target: {
         name: string;
@@ -49,7 +52,10 @@ type ChangeEventHandler = (event: PartialChangeEvent) => void;
 interface ComboboxProps extends InputGroupProps {
     id?: string;
     placeholder?: string;
-    labelProps?: Omit<LabelProps, "children" | "density" | "htmlFor" | "standAlone">;
+    labelProps?: Omit<
+        LabelProps,
+        "children" | "density" | "htmlFor" | "standAlone"
+    >;
     items: Array<ValuePair>;
     noMatchingOption?: string;
     label: string;
@@ -92,7 +98,9 @@ export const Combobox: FC<ComboboxProps> = ({
     const buttonId = `${listId}_button`;
     const inputId = `${listId}_search-input`;
 
-    const [selectedValue, setSelectedValue] = useState<Array<ComboboxValuePair>>(value || []);
+    const [selectedValue, setSelectedValue] = useState<
+        Array<ComboboxValuePair>
+    >(value || []);
     const [isPointingDown, setIsPointingDown] = useState<boolean>(true);
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
@@ -133,7 +141,9 @@ export const Combobox: FC<ComboboxProps> = ({
 
     const onTagRemove = useCallback(
         (
-            e: React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent> | React.KeyboardEvent<HTMLInputElement>,
+            e:
+                | React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+                | React.KeyboardEvent<HTMLInputElement>,
             option: string,
         ) => {
             let newValue = removeOption(option);
@@ -173,7 +183,9 @@ export const Combobox: FC<ComboboxProps> = ({
     );
 
     // Funksjon for søk
-    const onSearch = (e: { target: { value: React.SetStateAction<string> } }) => {
+    const onSearch = (e: {
+        target: { value: React.SetStateAction<string> };
+    }) => {
         searchRef.current?.focus();
         setShowMenu(true);
         setSearchValue(e.target.value);
@@ -185,7 +197,9 @@ export const Combobox: FC<ComboboxProps> = ({
         }
 
         const filteredOptions = items.filter(
-            (option) => option.label.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0,
+            (option) =>
+                option.label.toLowerCase().indexOf(searchValue.toLowerCase()) >=
+                0,
         );
 
         setNoResults(filteredOptions.length === 0);
@@ -194,9 +208,9 @@ export const Combobox: FC<ComboboxProps> = ({
     }, [searchValue, items]);
 
     // Det første elementet i listen skal være aktivt fram til brukeren klikker på noe annet
-    const [activeDescendant, setActiveDescendant] = useState<string | undefined>(
-        options[0]?.value ? `${listId}-${options[0]?.value}` : undefined,
-    );
+    const [activeDescendant, setActiveDescendant] = useState<
+        string | undefined
+    >(options[0]?.value ? `${listId}-${options[0]?.value}` : undefined);
 
     // Håndtere arrow-state
     useEffect(() => {
@@ -264,10 +278,15 @@ export const Combobox: FC<ComboboxProps> = ({
     const componentRootElementRef = useRef<HTMLDivElement>(null);
 
     const handleBlur = useCallback(
-        (e: FocusEvent<HTMLDivElement | HTMLInputElement | HTMLButtonElement>) => {
+        (
+            e: FocusEvent<
+                HTMLDivElement | HTMLInputElement | HTMLButtonElement
+            >,
+        ) => {
             const componentRootElement = componentRootElementRef.current;
             const nextFocusIsInsideComponent =
-                componentRootElement && componentRootElement.contains(e.relatedTarget as Node);
+                componentRootElement &&
+                componentRootElement.contains(e.relatedTarget as Node);
             if (!nextFocusIsInsideComponent) {
                 setSearchValue("");
 
@@ -280,7 +299,9 @@ export const Combobox: FC<ComboboxProps> = ({
                             selectedOptions: selectedValue,
                         },
                     });
-                    inputRef.current?.dispatchEvent(new Event("focusout", { bubbles: true }));
+                    inputRef.current?.dispatchEvent(
+                        new Event("focusout", { bubbles: true }),
+                    );
                 }
                 focusInsideRef.current = false;
                 setShowMenu(false);
@@ -303,7 +324,9 @@ export const Combobox: FC<ComboboxProps> = ({
                 e.stopPropagation();
                 const listElement = dropdownRef.current;
                 if (listElement) {
-                    listElement.querySelector<HTMLButtonElement>('[role="option"]')?.focus();
+                    listElement
+                        .querySelector<HTMLButtonElement>('[role="option"]')
+                        ?.focus();
                 }
             } else if (e.key === "Escape") {
                 e.preventDefault();
@@ -325,15 +348,22 @@ export const Combobox: FC<ComboboxProps> = ({
                 setMarked(false);
 
                 // Sjekk om selectedValue er markert
-                const selectedValueIsMarked = selectedValue.some((item) => item.isMarked);
+                const selectedValueIsMarked = selectedValue.some(
+                    (item) => item.isMarked,
+                );
 
                 if (selectedValueIsMarked) {
-                    const updatedSelectedValue = selectedValue.filter((item) => !item.isMarked);
+                    const updatedSelectedValue = selectedValue.filter(
+                        (item) => !item.isMarked,
+                    );
                     setSelectedValue(updatedSelectedValue);
                     setSearchValue("");
                 } else if (selectedValue.length > 0 && searchValue === "") {
                     // Hvis ingen items er markert, fjern siste valgte item
-                    onTagRemove(e, selectedValue[selectedValue.length - 1].value);
+                    onTagRemove(
+                        e,
+                        selectedValue[selectedValue.length - 1].value,
+                    );
                 }
             }
         },
@@ -357,8 +387,13 @@ export const Combobox: FC<ComboboxProps> = ({
             } else if (e.key === "ArrowUp") {
                 if (dropdownRef.current && searchRef.current) {
                     // Can't be based on index since the first item might be filtered out
-                    const firstVisible = dropdownRef.current.querySelector('[role="option"]:not([hidden])');
-                    if (e.currentTarget.id === firstVisible?.id && searchRef.current) {
+                    const firstVisible = dropdownRef.current.querySelector(
+                        '[role="option"]:not([hidden])',
+                    );
+                    if (
+                        e.currentTarget.id === firstVisible?.id &&
+                        searchRef.current
+                    ) {
                         searchRef.current.focus();
                     }
                 }
@@ -389,46 +424,67 @@ export const Combobox: FC<ComboboxProps> = ({
             density={density}
             render={(inputProps) => (
                 <div
-                    className={clsx("jkl-combobox__wrapper", { "jkl-combobox__wrapper--active-value": hasSelection })}
+                    className={clsx("jkl-combobox__wrapper", {
+                        "jkl-combobox__wrapper--active-value": hasSelection,
+                    })}
                     style={{ width }}
                     tabIndex={-1}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                 >
-                    <div className="jkl-combobox__tags" data-testid="jkl-combobox__tags">
-                        {selectedValue.map(getComboboxValuePair).map((option) => (
-                            <Tag
-                                key={option.value}
-                                className={`jkl-tag ${marked && "jkl-tag__marked"}`}
-                                data-testid="jkl-tag"
-                                dismissAction={{
-                                    onClick: (e) => {
-                                        if (searchRef.current) {
-                                            searchRef.current.focus();
-                                        }
-                                        onTagRemove(e, option.value);
-                                    },
-                                    onBlur: handleBlur,
-                                    label: `Fjern ${option.value}`,
-                                }}
-                            >
-                                {hasTagHover ? (
-                                    <Tooltip key={option.value}>
-                                        <TooltipTrigger>
-                                            {" "}
-                                            <span aria-hidden="true" data-testid="jkl-tag__content">
-                                                {option.tagLabel ? option.tagLabel : option.label}
-                                            </span>
-                                        </TooltipTrigger>
-                                        <TooltipContent>{option.label}</TooltipContent>
-                                    </Tooltip>
-                                ) : (
-                                    <span aria-hidden="true" data-testid="jkl-tag__content">
-                                        {option.tagLabel ? option.tagLabel : option.label}
-                                    </span>
-                                )}
-                            </Tag>
-                        ))}
+                    <div
+                        className="jkl-combobox__tags"
+                        data-testid="jkl-combobox__tags"
+                    >
+                        {selectedValue
+                            .map(getComboboxValuePair)
+                            .map((option) => (
+                                <Tag
+                                    key={option.value}
+                                    className={`jkl-tag ${
+                                        marked && "jkl-tag__marked"
+                                    }`}
+                                    data-testid="jkl-tag"
+                                    dismissAction={{
+                                        onClick: (e) => {
+                                            if (searchRef.current) {
+                                                searchRef.current.focus();
+                                            }
+                                            onTagRemove(e, option.value);
+                                        },
+                                        onBlur: handleBlur,
+                                        label: `Fjern ${option.value}`,
+                                    }}
+                                >
+                                    {hasTagHover ? (
+                                        <Tooltip key={option.value}>
+                                            <TooltipTrigger>
+                                                {" "}
+                                                <span
+                                                    aria-hidden="true"
+                                                    data-testid="jkl-tag__content"
+                                                >
+                                                    {option.tagLabel
+                                                        ? option.tagLabel
+                                                        : option.label}
+                                                </span>
+                                            </TooltipTrigger>
+                                            <TooltipContent>
+                                                {option.label}
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    ) : (
+                                        <span
+                                            aria-hidden="true"
+                                            data-testid="jkl-tag__content"
+                                        >
+                                            {option.tagLabel
+                                                ? option.tagLabel
+                                                : option.label}
+                                        </span>
+                                    )}
+                                </Tag>
+                            ))}
                         <input
                             {...inputProps}
                             className="jkl-combobox__search-input"
@@ -443,7 +499,9 @@ export const Combobox: FC<ComboboxProps> = ({
                             role="combobox"
                             aria-autocomplete="list"
                             aria-expanded={showMenu}
-                            placeholder={selectedValue.length > 0 ? "" : placeholder}
+                            placeholder={
+                                selectedValue.length > 0 ? "" : placeholder
+                            }
                             autoComplete="off"
                         />
                     </div>
@@ -470,14 +528,17 @@ export const Combobox: FC<ComboboxProps> = ({
                                 value={option.value}
                                 onBlur={handleBlur}
                                 className={`jkl-combobox__option ${
-                                    isSelected(option) && "jkl-combobox__option--selected"
+                                    isSelected(option) &&
+                                    "jkl-combobox__option--selected"
                                 }`}
                                 data-testid="jkl-combobox__option"
                                 data-testautoid={`jkl-combobox__option-${i}`}
                                 onFocus={handleFocus}
                                 onKeyDown={handleOptionOnKeyDown}
                                 onClick={(e) => {
-                                    setActiveDescendant(`${listId}__${option.value}`); // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role#required_javascript_features
+                                    setActiveDescendant(
+                                        `${listId}__${option.value}`,
+                                    ); // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role#required_javascript_features
                                     e.stopPropagation();
                                     onItemClick(option.value);
                                     setSearchValue("");
@@ -487,7 +548,9 @@ export const Combobox: FC<ComboboxProps> = ({
                                 {option.description ? (
                                     <span>
                                         {option.label}
-                                        <span className="jkl-combobox__option-description">{option.description}</span>
+                                        <span className="jkl-combobox__option-description">
+                                            {option.description}
+                                        </span>
                                     </span>
                                 ) : (
                                     option.label
@@ -499,7 +562,11 @@ export const Combobox: FC<ComboboxProps> = ({
                                 ) : null}
                             </button>
                         ))}
-                        {noResults && <div className="jkl-combobox__no-option">{noMatchingOption}</div>}
+                        {noResults && (
+                            <div className="jkl-combobox__no-option">
+                                {noMatchingOption}
+                            </div>
+                        )}
                     </div>
                     <div className="jkl-combobox__actions">
                         <IconButton
@@ -508,7 +575,10 @@ export const Combobox: FC<ComboboxProps> = ({
                             onBlur={handleBlur}
                             className="jkl-combobox__button"
                             data-testid="jkl-combobox__button"
-                            aria-label={`${selectedValue.map((value) => value.label) || "Velg"},${label}`}
+                            aria-label={`${
+                                selectedValue.map((value) => value.label) ||
+                                "Velg"
+                            },${label}`}
                             aria-expanded={showMenu}
                             aria-controls={listId}
                             role="button"
@@ -518,7 +588,9 @@ export const Combobox: FC<ComboboxProps> = ({
                                 inputRef.current?.focus();
                             }}
                         >
-                            <ArrowVerticalAnimated pointingDown={isPointingDown} />
+                            <ArrowVerticalAnimated
+                                pointingDown={isPointingDown}
+                            />
                         </IconButton>
                     </div>
                 </div>

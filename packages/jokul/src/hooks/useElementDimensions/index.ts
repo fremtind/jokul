@@ -1,1 +1,4 @@
-export { useElementDimensions, type Dimensions } from "./useElementDimensions.js";
+export {
+    useElementDimensions,
+    type Dimensions,
+} from "./useElementDimensions.js";

@@ -23,8 +23,18 @@ export interface FileProps extends WithOptionalChildren {
 }
 
 export const File: FC<FileProps> = (props) => {
-    const { children, fileName, fileType, fileSize, path, file, supportLabel, supportLabelType, state, onRemove } =
-        props;
+    const {
+        children,
+        fileName,
+        fileType,
+        fileSize,
+        path,
+        file,
+        supportLabel,
+        supportLabelType,
+        state,
+        onRemove,
+    } = props;
 
     const id = useId("jkl-file-preview");
     const supportId = id + "-support";
@@ -33,7 +43,8 @@ export const File: FC<FileProps> = (props) => {
 
     const Component = path ? "a" : "div";
 
-    const hasErrorOrWarning = supportLabelType === "error" || supportLabelType === "warning";
+    const hasErrorOrWarning =
+        supportLabelType === "error" || supportLabelType === "warning";
     const hasSuccess = supportLabelType === "success";
 
     const renderFeedbackElement = () => {
@@ -48,7 +59,13 @@ export const File: FC<FileProps> = (props) => {
             );
         }
 
-        if (hasSuccess) return <SuccessIcon variant="small" aria-label="Filen ble lastet opp uten feil" />;
+        if (hasSuccess)
+            return (
+                <SuccessIcon
+                    variant="small"
+                    aria-label="Filen ble lastet opp uten feil"
+                />
+            );
 
         return null;
     };
@@ -58,12 +75,19 @@ export const File: FC<FileProps> = (props) => {
             <Component
                 className={cn("jkl-file__content", {
                     "jkl-file__content--error": supportLabelType === "error",
-                    "jkl-file__content--warning": supportLabelType === "warning",
+                    "jkl-file__content--warning":
+                        supportLabelType === "warning",
                 })}
                 href={path}
                 target={path ? "_blank" : undefined}
             >
-                <Thumbnail fileName={fileName} fileType={fileType} file={file} path={path} state={state}>
+                <Thumbnail
+                    fileName={fileName}
+                    fileType={fileType}
+                    file={file}
+                    path={path}
+                    state={state}
+                >
                     {children}
                 </Thumbnail>
                 <div>
@@ -83,7 +107,11 @@ export const File: FC<FileProps> = (props) => {
                 </div>
             </Component>
             {onRemove && (
-                <IconButton className="jkl-file__delete" onClick={onRemove} title={`Fjern ${fileName}`}>
+                <IconButton
+                    className="jkl-file__delete"
+                    onClick={onRemove}
+                    title={`Fjern ${fileName}`}
+                >
                     <TrashCanIcon />
                 </IconButton>
             )}

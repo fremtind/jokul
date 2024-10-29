@@ -5,7 +5,10 @@ import { useLoaderData } from "@remix-run/react";
 import React, { type FC } from "react";
 import { BlogPageTemplate } from "~/page-templates";
 
-export const loader = async ({ params, context: { payload, user } }: LoaderArgs) => {
+export const loader = async ({
+    params,
+    context: { payload, user },
+}: LoaderArgs) => {
     try {
         const blogs = await payload.find({
             collection: "blog",
@@ -25,7 +28,10 @@ export const loader = async ({ params, context: { payload, user } }: LoaderArgs)
         });
 
         if (blogs.totalDocs !== 1) {
-            throw new Response(`Could not find a blog post with slug ${params.slug}`, { status: 404 });
+            throw new Response(
+                `Could not find a blog post with slug ${params.slug}`,
+                { status: 404 },
+            );
         }
         const blog = blogs.docs[0];
 

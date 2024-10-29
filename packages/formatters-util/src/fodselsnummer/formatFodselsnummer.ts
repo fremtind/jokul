@@ -15,9 +15,14 @@ type FormatFodselsnummerOptions = {
  * @param options Angi at verdien er et ufullstendig fødselsnummer og likevel skal formateres.
  * @returns Den formaterte verdien
  */
-export function formatFodselsnummer(input: string, options?: FormatFodselsnummerOptions) {
+export function formatFodselsnummer(
+    input: string,
+    options?: FormatFodselsnummerOptions,
+) {
     const strippedInput = input.replace(/\W/g, "");
-    const regex = options?.partial ? FODSELSNUMMER_REGEX.partial : FODSELSNUMMER_REGEX.full;
+    const regex = options?.partial
+        ? FODSELSNUMMER_REGEX.partial
+        : FODSELSNUMMER_REGEX.full;
 
     const match = strippedInput.match(regex);
 

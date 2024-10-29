@@ -8,7 +8,10 @@ describe("Toggle switch", () => {
         const TestToggleSwitch = () => {
             const [pressed, toggle] = React.useState(false);
             return (
-                <ToggleSwitch aria-pressed={pressed} onClick={() => toggle(!pressed)}>
+                <ToggleSwitch
+                    aria-pressed={pressed}
+                    onClick={() => toggle(!pressed)}
+                >
                     GPS
                 </ToggleSwitch>
             );
@@ -22,7 +25,10 @@ describe("Toggle switch", () => {
         await act(async () => {
             // Av en eller annen grunn fungerer ikke testen med userEvent.click()
             // Alle former for aktivering fungerer i browser (klikk, trykk, space, enter, aktivering via VoiceOver)
-            fireEvent(button, new MouseEvent("click", { bubbles: true, cancelable: true }));
+            fireEvent(
+                button,
+                new MouseEvent("click", { bubbles: true, cancelable: true }),
+            );
         });
 
         expect(button).toHaveAttribute("aria-pressed", "true");
@@ -44,7 +50,10 @@ describe("Toggle switch", () => {
         const TestToggleSwitch = () => {
             const [pressed, toggle] = React.useState(true);
             return (
-                <ToggleSwitch aria-pressed={pressed} onClick={() => toggle(!pressed)}>
+                <ToggleSwitch
+                    aria-pressed={pressed}
+                    onClick={() => toggle(!pressed)}
+                >
                     I am groot!
                 </ToggleSwitch>
             );
@@ -58,7 +67,10 @@ describe("Toggle switch", () => {
         await act(async () => {
             // Av en eller annen grunn fungerer ikke testen med userEvent.click()
             // Alle former for aktivering fungerer i browser (klikk, trykk, space, enter, aktivering via VoiceOver)
-            fireEvent(button, new MouseEvent("click", { bubbles: true, cancelable: true }));
+            fireEvent(
+                button,
+                new MouseEvent("click", { bubbles: true, cancelable: true }),
+            );
         });
 
         expect(button).toHaveAttribute("aria-pressed", "false");
@@ -72,7 +84,10 @@ describe("Toggle switch", () => {
         await act(async () => {
             // Av en eller annen grunn fungerer ikke testen med userEvent.click()
             // Alle former for aktivering fungerer i browser (klikk, trykk, space, enter, aktivering via VoiceOver)
-            fireEvent(button, new MouseEvent("click", { bubbles: true, cancelable: true }));
+            fireEvent(
+                button,
+                new MouseEvent("click", { bubbles: true, cancelable: true }),
+            );
         });
 
         expect(onClick).toHaveBeenCalled();
@@ -82,7 +97,10 @@ describe("Toggle switch", () => {
         const TestToggleSwitch = () => {
             const [pressed, setPressed] = React.useState(true);
             return (
-                <ToggleSwitch aria-pressed={pressed} onChange={(_, pressed) => setPressed(pressed)}>
+                <ToggleSwitch
+                    aria-pressed={pressed}
+                    onChange={(_, pressed) => setPressed(pressed)}
+                >
                     I am groot!
                 </ToggleSwitch>
             );
@@ -94,7 +112,10 @@ describe("Toggle switch", () => {
         await act(async () => {
             // Av en eller annen grunn fungerer ikke testen med userEvent.click()
             // Alle former for aktivering fungerer i browser (klikk, trykk, space, enter, aktivering via VoiceOver)
-            fireEvent(button, new MouseEvent("click", { bubbles: true, cancelable: true }));
+            fireEvent(
+                button,
+                new MouseEvent("click", { bubbles: true, cancelable: true }),
+            );
         });
 
         expect(button).toHaveAttribute("aria-pressed", "false");

@@ -18,15 +18,18 @@ const overskrifterStruktur: UUContent = {
         <>
             <HeadingSmall>Overskrifter</HeadingSmall>
             <Paragraph>
-                Overskrifter og korrekt bruk av overskriftsnivåer er en av de enkleste måtene å sikre oversiktlighet og
-                korrekt flyt i tjenesten. Alle brukere benytter overskrifter og mellomtitler for å skumlese innhold
-                uavhengig av om de bruker hjelpemidler.
+                Overskrifter og korrekt bruk av overskriftsnivåer er en av de
+                enkleste måtene å sikre oversiktlighet og korrekt flyt i
+                tjenesten. Alle brukere benytter overskrifter og mellomtitler
+                for å skumlese innhold uavhengig av om de bruker hjelpemidler.
             </Paragraph>
             <List>
                 <CheckListItem>
                     Sidetittel skal være <InlineCode>{`<h1>`}.</InlineCode>
                 </CheckListItem>
-                <CheckListItem>Rekkefølgen på nivåene skal gå ett steg om gangen.</CheckListItem>
+                <CheckListItem>
+                    Rekkefølgen på nivåene skal gå ett steg om gangen.
+                </CheckListItem>
                 <CheckListItem>
                     Brødtekst skal være <InlineCode>{`<p>`}</InlineCode>.
                 </CheckListItem>

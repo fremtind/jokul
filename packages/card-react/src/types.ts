@@ -1,8 +1,26 @@
-export const SPACING_STEPS = ["0", "m", "l", "xl", "2xl", "3xl", "4xl"] as const;
+export const SPACING_STEPS = [
+    "0",
+    "m",
+    "l",
+    "xl",
+    "2xl",
+    "3xl",
+    "4xl",
+] as const;
 type SpacingSteps = typeof SPACING_STEPS;
-export const NEW_SPACING_STEPS = ["0", "16", "24", "40", "64", "104", "168"] as const;
+export const NEW_SPACING_STEPS = [
+    "0",
+    "16",
+    "24",
+    "40",
+    "64",
+    "104",
+    "168",
+] as const;
 type NewSpacingSteps = typeof NEW_SPACING_STEPS;
-export type BasePadding = SpacingSteps[0 | 1 | 2 | 3] | NewSpacingSteps[0 | 1 | 2 | 3];
+export type BasePadding =
+    | SpacingSteps[0 | 1 | 2 | 3]
+    | NewSpacingSteps[0 | 1 | 2 | 3];
 export type OldSpacingStep = SpacingSteps[number];
 export type NewSpacingStep = NewSpacingSteps[number];
 export type SpacingStep = SpacingSteps[number] | NewSpacingSteps[number];

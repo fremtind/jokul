@@ -10,10 +10,14 @@ const konsekventIdentifikasjon: UUContent = {
     body: () => (
         <>
             <Paragraph>
-                Elementer som har samme funksjonalitet på tvers av flere sider skal være utformet likt.
+                Elementer som har samme funksjonalitet på tvers av flere sider
+                skal være utformet likt.
             </Paragraph>
             <Paragraph>
-                For å gjøre det enkelt, bruk felles <Anchor href="/komponenter/accordion">komponenter fra Jøkul</Anchor>
+                For å gjøre det enkelt, bruk felles{" "}
+                <Anchor href="/komponenter/accordion">
+                    komponenter fra Jøkul
+                </Anchor>
             </Paragraph>
         </>
     ),

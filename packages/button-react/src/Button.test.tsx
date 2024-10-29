@@ -10,12 +10,18 @@ describe("Button", () => {
     buttonVariants.map((buttonVariant) => {
         it(`renders the ${buttonVariant} button correctly`, () => {
             render(
-                <Button variant={buttonVariant} data-testid={buttonVariant} onClick={() => {}}>
+                <Button
+                    variant={buttonVariant}
+                    data-testid={buttonVariant}
+                    onClick={() => {}}
+                >
                     {buttonVariant}
                 </Button>,
             );
 
-            expect(screen.getByTestId(buttonVariant)).toHaveClass(`jkl-button--${buttonVariant}`);
+            expect(screen.getByTestId(buttonVariant)).toHaveClass(
+                `jkl-button--${buttonVariant}`,
+            );
         });
     });
 
@@ -32,7 +38,11 @@ describe("Button", () => {
 
     it("renders correctly with right icon and label", () => {
         render(
-            <Button variant="primary" icon={<Icon>save</Icon>} iconPosition="right">
+            <Button
+                variant="primary"
+                icon={<Icon>save</Icon>}
+                iconPosition="right"
+            >
                 Lagre
             </Button>,
         );
@@ -42,7 +52,9 @@ describe("Button", () => {
     });
 
     it("renders correctly with icon only", () => {
-        render(<Button variant="primary" icon={<Icon>save</Icon>} title="Lagre" />);
+        render(
+            <Button variant="primary" icon={<Icon>save</Icon>} title="Lagre" />,
+        );
 
         expect(screen.getByText("save")).toBeInTheDocument();
     });
@@ -62,7 +74,11 @@ describe("Button", () => {
 
     it("applies passed classNames", () => {
         render(
-            <Button data-testid="test" className="test-class" onClick={() => {}}>
+            <Button
+                data-testid="test"
+                className="test-class"
+                onClick={() => {}}
+            >
                 test
             </Button>,
         );
@@ -77,7 +93,10 @@ describe("Button", () => {
             </Button>,
         );
 
-        expect(screen.getByTestId("test")).toHaveAttribute("data-density", "compact");
+        expect(screen.getByTestId("test")).toHaveAttribute(
+            "data-density",
+            "compact",
+        );
     });
 
     test("button component does not unmount and remount when consumer component rerenders becaus of state change", async () => {
@@ -142,7 +161,11 @@ describe("a11y", () => {
 
         it(`${buttonVariant} should be a11y compliant in compact mode`, async () => {
             const { container } = render(
-                <Button variant={buttonVariant} density="compact" onClick={() => {}}>
+                <Button
+                    variant={buttonVariant}
+                    density="compact"
+                    onClick={() => {}}
+                >
                     {buttonVariant}
                 </Button>,
             );
@@ -158,14 +181,20 @@ describe("a11y", () => {
                 render(
                     <Button
                         variant={buttonVariant}
-                        loader={{ showLoader, textDescription: "Vennligst vent" }}
+                        loader={{
+                            showLoader,
+                            textDescription: "Vennligst vent",
+                        }}
                         onClick={() => {}}
                     >
                         {buttonVariant}
                     </Button>,
                 );
                 const loader = screen.getByTestId("jkl-loader");
-                expect(loader).toHaveAttribute("aria-hidden", String(!showLoader));
+                expect(loader).toHaveAttribute(
+                    "aria-hidden",
+                    String(!showLoader),
+                );
             });
         });
     });

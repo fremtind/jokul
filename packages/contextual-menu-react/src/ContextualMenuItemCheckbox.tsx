@@ -1,5 +1,8 @@
 import { CheckIcon } from "@fremtind/jkl-icons-react";
-import { useSwipeGesture, type SwipeChangeHandler } from "@fremtind/jkl-react-hooks";
+import {
+    useSwipeGesture,
+    type SwipeChangeHandler,
+} from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, {
     forwardRef,
@@ -17,10 +20,18 @@ export interface ContextualMenuItemCheckboxProps
      */
     icon?: ReactNode;
     onChange?: SwipeChangeHandler<HTMLDivElement> &
-        ((event: React.KeyboardEvent<HTMLDivElement> | React.PointerEvent<HTMLDivElement>, pressed: boolean) => void);
+        ((
+            event:
+                | React.KeyboardEvent<HTMLDivElement>
+                | React.PointerEvent<HTMLDivElement>,
+            pressed: boolean,
+        ) => void);
 }
 
-export const ContextualMenuItemCheckbox = forwardRef<HTMLDivElement, ContextualMenuItemCheckboxProps>((props, ref) => {
+export const ContextualMenuItemCheckbox = forwardRef<
+    HTMLDivElement,
+    ContextualMenuItemCheckboxProps
+>((props, ref) => {
     const {
         "aria-checked": checked,
         className,
@@ -42,7 +53,10 @@ export const ContextualMenuItemCheckbox = forwardRef<HTMLDivElement, ContextualM
         onClick?.(event);
     };
 
-    const handleChange: SwipeChangeHandler<HTMLDivElement> = (event, toggleTo) => {
+    const handleChange: SwipeChangeHandler<HTMLDivElement> = (
+        event,
+        toggleTo,
+    ) => {
         if (toggleTo !== checked) {
             onChange?.(event, toggleTo);
         }
@@ -74,17 +88,27 @@ export const ContextualMenuItemCheckbox = forwardRef<HTMLDivElement, ContextualM
             {...rest}
             role="menuitemcheckbox"
             aria-checked={checked}
-            className={cn("jkl-contextual-menu-item", "jkl-contextual-menu-item--checkbox", className)}
+            className={cn(
+                "jkl-contextual-menu-item",
+                "jkl-contextual-menu-item--checkbox",
+                className,
+            )}
             {...gestureHandlers}
             onKeyDown={handleKeyDown}
         >
-            {icon && <span className="jkl-contextual-menu-item__icon">{icon}</span>}
+            {icon && (
+                <span className="jkl-contextual-menu-item__icon">{icon}</span>
+            )}
             <div className="jkl-contextual-menu-item__content">{children}</div>
             <div className="jkl-toggle-switch">
                 <div className="jkl-toggle-switch-widget">
                     <div className="jkl-toggle-switch-widget__slider">
                         <div className="jkl-toggle-switch-widget__knob" />
-                        <CheckIcon variant="small" bold className="jkl-toggle-switch-widget__indicator" />
+                        <CheckIcon
+                            variant="small"
+                            bold
+                            className="jkl-toggle-switch-widget__indicator"
+                        />
                     </div>
                 </div>
             </div>

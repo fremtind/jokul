@@ -11,10 +11,20 @@ export interface TabProps extends WithChildren {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tab = React.forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
-    const classes = clsx("jkl-tab", props.className);
+export const Tab = React.forwardRef<HTMLButtonElement, TabProps>(
+    (props, ref) => {
+        const classes = clsx("jkl-tab", props.className);
 
-    return <button role="tab" type="button" ref={ref} {...props} className={classes} />;
-});
+        return (
+            <button
+                role="tab"
+                type="button"
+                ref={ref}
+                {...props}
+                className={classes}
+            />
+        );
+    },
+);
 
 Tab.displayName = "Tab";

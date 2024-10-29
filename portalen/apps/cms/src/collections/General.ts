@@ -47,7 +47,8 @@ export const General: CollectionConfig = {
             label: "Tittel",
             required: true,
             admin: {
-                description: "Vises som tittel i søkeresultater, og i listen over sider i CMS-et",
+                description:
+                    "Vises som tittel i søkeresultater, og i listen over sider i CMS-et",
             },
         },
         {

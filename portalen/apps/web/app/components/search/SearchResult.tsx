@@ -2,7 +2,11 @@ import type { Blog, Component, Foundation, General, Pattern } from "@org/cms";
 import React, { type FC } from "react";
 import Highlighter from "react-highlight-words";
 import { Image } from "../media";
-import { getTextContentFromGeneralPage, getTextContentFromMeta, getTextContentFromTopicPage } from "./search-utils";
+import {
+    getTextContentFromGeneralPage,
+    getTextContentFromMeta,
+    getTextContentFromTopicPage,
+} from "./search-utils";
 import { useTheme } from "~/utils/useTheme";
 
 interface SearchResultProps {
@@ -13,12 +17,17 @@ interface SearchResultProps {
 export const SearchResult: FC<SearchResultProps> = ({ result, search }) => {
     const prefersColorScheme = useTheme();
 
-    const image = prefersColorScheme === "dark" ? result?.meta?.imageDark : result?.meta?.imageLight;
+    const image =
+        prefersColorScheme === "dark"
+            ? result?.meta?.imageDark
+            : result?.meta?.imageLight;
 
     let preview = typeof image === "string" ? image : image?.url;
 
     if (!preview && result?.meta?.figma) {
-        preview = `/api/figma/images?url=${encodeURIComponent(result?.meta?.figma)}`;
+        preview = `/api/figma/images?url=${encodeURIComponent(
+            result?.meta?.figma,
+        )}`;
     }
 
     if (!preview) {
@@ -48,12 +57,17 @@ export const SearchResult: FC<SearchResultProps> = ({ result, search }) => {
     );
 };
 
-function getContextualContent(search: string, result: Component | General | Foundation | Pattern | Blog): string {
+function getContextualContent(
+    search: string,
+    result: Component | General | Foundation | Pattern | Blog,
+): string {
     let text = "";
     if ((result as General).sections) {
         text += getTextContentFromGeneralPage(result as General);
     } else if ((result as Component | Foundation | Pattern).tabs) {
-        text += getTextContentFromTopicPage(result as Component | Foundation | Pattern);
+        text += getTextContentFromTopicPage(
+            result as Component | Foundation | Pattern,
+        );
     }
     text += getTextContentFromMeta(result.meta);
 
@@ -61,7 +75,9 @@ function getContextualContent(search: string, result: Component | General | Foun
     const firstIndex = Math.max(firstMatch - 30, 0);
     const lastIndex = Math.min(firstMatch + 30, text.length);
 
-    return `${firstIndex !== 0 ? "…" : ""}${text.trim().substring(firstIndex, lastIndex)}${
+    return `${firstIndex !== 0 ? "…" : ""}${text
+        .trim()
+        .substring(firstIndex, lastIndex)}${
         lastIndex !== text.length ? "…" : ""
     }`;
 }

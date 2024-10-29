@@ -1,5 +1,8 @@
 import { CheckIcon } from "@fremtind/jkl-icons-react";
-import { useSwipeGesture, type SwipeChangeHandler } from "@fremtind/jkl-react-hooks";
+import {
+    useSwipeGesture,
+    type SwipeChangeHandler,
+} from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, {
     forwardRef,
@@ -9,17 +12,26 @@ import React, {
     type ReactNode,
 } from "react";
 
-export interface MenuItemCheckboxProps extends Omit<HTMLAttributes<HTMLDivElement>, "aria-checked" | "onChange"> {
+export interface MenuItemCheckboxProps
+    extends Omit<HTMLAttributes<HTMLDivElement>, "aria-checked" | "onChange"> {
     "aria-checked": boolean;
     /**
      * Et ikon som vises før innholdet i menypunktet
      */
     icon?: ReactNode;
     onChange?: SwipeChangeHandler<HTMLDivElement> &
-        ((event: React.KeyboardEvent<HTMLDivElement> | React.PointerEvent<HTMLDivElement>, pressed: boolean) => void);
+        ((
+            event:
+                | React.KeyboardEvent<HTMLDivElement>
+                | React.PointerEvent<HTMLDivElement>,
+            pressed: boolean,
+        ) => void);
 }
 
-export const MenuItemCheckbox = forwardRef<HTMLDivElement, MenuItemCheckboxProps>((props, ref) => {
+export const MenuItemCheckbox = forwardRef<
+    HTMLDivElement,
+    MenuItemCheckboxProps
+>((props, ref) => {
     const {
         "aria-checked": checked,
         className,
@@ -41,7 +53,10 @@ export const MenuItemCheckbox = forwardRef<HTMLDivElement, MenuItemCheckboxProps
         onClick?.(event);
     };
 
-    const handleChange: SwipeChangeHandler<HTMLDivElement> = (event, toggleTo) => {
+    const handleChange: SwipeChangeHandler<HTMLDivElement> = (
+        event,
+        toggleTo,
+    ) => {
         if (toggleTo !== checked) {
             onChange?.(event, toggleTo);
         }
@@ -73,7 +88,11 @@ export const MenuItemCheckbox = forwardRef<HTMLDivElement, MenuItemCheckboxProps
             {...rest}
             role="menuitemcheckbox"
             aria-checked={checked}
-            className={cn("jkl-menu-item", "jkl-menu-item--checkbox", className)}
+            className={cn(
+                "jkl-menu-item",
+                "jkl-menu-item--checkbox",
+                className,
+            )}
             {...gestureHandlers}
             onKeyDown={handleKeyDown}
         >
@@ -83,7 +102,11 @@ export const MenuItemCheckbox = forwardRef<HTMLDivElement, MenuItemCheckboxProps
                 <div className="jkl-toggle-switch-widget">
                     <div className="jkl-toggle-switch-widget__slider">
                         <div className="jkl-toggle-switch-widget__knob" />
-                        <CheckIcon variant="small" bold className="jkl-toggle-switch-widget__indicator" />
+                        <CheckIcon
+                            variant="small"
+                            bold
+                            className="jkl-toggle-switch-widget__indicator"
+                        />
                     </div>
                 </div>
             </div>

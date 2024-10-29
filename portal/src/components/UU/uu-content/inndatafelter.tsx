@@ -1,4 +1,9 @@
-import { List, CheckListItem, UnorderedList, ListItem } from "@fremtind/jkl-list-react";
+import {
+    List,
+    CheckListItem,
+    UnorderedList,
+    ListItem,
+} from "@fremtind/jkl-list-react";
 import React from "react";
 import { HeadingSmall, InlineCode, Paragraph } from "../../Typography";
 import type { UUContent } from "./uu-content";
@@ -17,17 +22,20 @@ const inndatafelter: UUContent = {
     body: () => (
         <>
             <Paragraph>
-                Inndatafelter skal være knyttet til en ledetekst både visuelt og i kode. Feks ved bruk av{" "}
-                <InlineCode>aria-labelledby</InlineCode>. Ledeteksten eller instruksjonen skal få brukeren til å forstå
-                hvordan feltet skal fylles ut.
+                Inndatafelter skal være knyttet til en ledetekst både visuelt og
+                i kode. Feks ved bruk av{" "}
+                <InlineCode>aria-labelledby</InlineCode>. Ledeteksten eller
+                instruksjonen skal få brukeren til å forstå hvordan feltet skal
+                fylles ut.
             </Paragraph>
             <List>
                 <CheckListItem>Inndatafelter skal ha ledetekst</CheckListItem>
             </List>
             <HeadingSmall>Endringer</HeadingSmall>
             <Paragraph>
-                Endringer i et inputfelt skal ikke gi kontekstuelle endringer uten forvarsel. Eksempler på store
-                kontekstuelle endringer kan være:
+                Endringer i et inputfelt skal ikke gi kontekstuelle endringer
+                uten forvarsel. Eksempler på store kontekstuelle endringer kan
+                være:
             </Paragraph>
             <UnorderedList>
                 <ListItem>Endring av layout.</ListItem>

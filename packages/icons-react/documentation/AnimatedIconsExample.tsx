@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../doc-utils";
 import { TextInput } from "../../text-input-react/src";
-import { ArrowVerticalAnimated, PlusRemoveAnimated, ArrowHorizontalAnimated } from "../src";
+import {
+    ArrowVerticalAnimated,
+    PlusRemoveAnimated,
+    ArrowHorizontalAnimated,
+} from "../src";
 import { IconVariant } from "../src/types";
 import { AnimatedIcon } from "./internal/AnimatedIcon";
 import { IconsExampleGrid } from "./internal/IconsExampleGrid";
@@ -17,8 +25,13 @@ export const animatedIconsExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
-    const variant = choiceValues ? (choiceValues["Variant"] as IconVariant) : "small";
+export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({
+    choiceValues,
+    boolValues,
+}) => {
+    const variant = choiceValues
+        ? (choiceValues["Variant"] as IconVariant)
+        : "small";
     const bold = boolValues?.["Bold"] || false;
 
     const [fontSize, setFontSize] = useState("1rem");
@@ -37,18 +50,32 @@ export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceVa
             <IconsExampleGrid style={{ fontSize }} columns="two">
                 <AnimatedIcon
                     renderIcon={(isDown) => (
-                        <ArrowVerticalAnimated bold={bold} pointingDown={isDown} variant={variant} />
+                        <ArrowVerticalAnimated
+                            bold={bold}
+                            pointingDown={isDown}
+                            variant={variant}
+                        />
                     )}
                     iconName={ArrowVerticalAnimated.displayName}
                 />
                 <AnimatedIcon
                     renderIcon={(isRight) => (
-                        <ArrowHorizontalAnimated bold={bold} pointingRight={isRight} variant={variant} />
+                        <ArrowHorizontalAnimated
+                            bold={bold}
+                            pointingRight={isRight}
+                            variant={variant}
+                        />
                     )}
                     iconName={ArrowHorizontalAnimated.displayName}
                 />
                 <AnimatedIcon
-                    renderIcon={(isPlus) => <PlusRemoveAnimated bold={bold} isPlus={isPlus} variant={variant} />}
+                    renderIcon={(isPlus) => (
+                        <PlusRemoveAnimated
+                            bold={bold}
+                            isPlus={isPlus}
+                            variant={variant}
+                        />
+                    )}
                     iconName={PlusRemoveAnimated.displayName}
                 />
             </IconsExampleGrid>
@@ -56,12 +83,17 @@ export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceVa
     );
 };
 
-export const animatedIconsExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
+export const animatedIconsExampleCode: CodeExample = ({
+    boolValues,
+    choiceValues,
+}) => `
 <ArrowVerticalAnimated variant="${choiceValues?.["Variant"]}"${
     boolValues?.["Bold"] ? " bold" : ""
 } pointingDown={isPointingDown} />
 <ArrowHorizontalAnimated variant="${choiceValues?.["Variant"]}"${
     boolValues?.["Bold"] ? " bold" : ""
 } pointingRight={isPointingRight} />
-<PlusRemoveAnimated variant="${choiceValues?.["Variant"]}"${boolValues?.["Bold"] ? " bold" : ""} isPlus={isPlus} />
+<PlusRemoveAnimated variant="${choiceValues?.["Variant"]}"${
+    boolValues?.["Bold"] ? " bold" : ""
+} isPlus={isPlus} />
 `;

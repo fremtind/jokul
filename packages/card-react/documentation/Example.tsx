@@ -6,12 +6,24 @@ import "../../checkbox/checkbox.scss";
 import "../../image/image.scss";
 import "../../select/select.scss";
 import "../../tag/tag.scss";
-import { infoCardExampleProps, navCardExampleProps, taskCardExampleProps } from "./cardExampleProps";
-import { FakturainfoExample, fakturainfoExampleCode, fakturainfoExampleProps } from "./FakturainfoExample";
+import {
+    infoCardExampleProps,
+    navCardExampleProps,
+    taskCardExampleProps,
+} from "./cardExampleProps";
+import {
+    FakturainfoExample,
+    fakturainfoExampleCode,
+    fakturainfoExampleProps,
+} from "./FakturainfoExample";
 import "./info-card-example.scss";
 import { InfoCardExample, infoCardExampleCode } from "./InfoCardExample";
 import { NavCardExample, navCardExampleCode } from "./NavCardExample";
-import { StatuskortExample, statuskortExampleCode, statuskortExampleProps } from "./StatuskortExample";
+import {
+    StatuskortExample,
+    statuskortExampleCode,
+    statuskortExampleProps,
+} from "./StatuskortExample";
 import "./task-card-example.scss";
 import { TaskCardExample, taskCardExampleCode } from "./TaskCardExample";
 

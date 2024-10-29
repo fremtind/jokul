@@ -1,8 +1,19 @@
 import { easings, type Easing, timings, type Timing } from "@fremtind/jkl-core";
-import { useBrowserPreferences, usePreviousValue } from "@fremtind/jkl-react-hooks";
-import { type MutableRefObject, useEffect, useRef, type RefObject, useCallback } from "react";
+import {
+    useBrowserPreferences,
+    usePreviousValue,
+} from "@fremtind/jkl-react-hooks";
+import {
+    type MutableRefObject,
+    useEffect,
+    useRef,
+    type RefObject,
+    useCallback,
+} from "react";
 
-interface HTMLElementOrCoreToggleElement<T extends HTMLElementOrCoreToggleElement<T>> extends HTMLElement {
+interface HTMLElementOrCoreToggleElement<
+    T extends HTMLElementOrCoreToggleElement<T>,
+> extends HTMLElement {
     el?: T; // Hack and workaround until https://github.com/nrkno/custom-element-to-react/pull/17 has landed
 }
 
@@ -154,7 +165,14 @@ export function useAnimatedHeight<T extends HTMLElement>(
 
             collapseElement();
         }
-    }, [isOpen, options, wasOpen, prefersReducedMotion, collapseElement, expandElement]);
+    }, [
+        isOpen,
+        options,
+        wasOpen,
+        prefersReducedMotion,
+        collapseElement,
+        expandElement,
+    ]);
 
     useEffect(() => {
         runAnimation();
@@ -168,7 +186,10 @@ export function useAnimatedHeight<T extends HTMLElement>(
 
         return () => {
             if (element) {
-                element.removeEventListener("transitionend", handleTransitionEnd);
+                element.removeEventListener(
+                    "transitionend",
+                    handleTransitionEnd,
+                );
             }
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -186,7 +207,9 @@ export function useAnimatedHeight<T extends HTMLElement>(
     return [elementRef, runAnimation];
 }
 
-function getElement(elementRef: MutableRefObject<HTMLElementOrCoreToggleElement<HTMLElement> | null>) {
+function getElement(
+    elementRef: MutableRefObject<HTMLElementOrCoreToggleElement<HTMLElement> | null>,
+) {
     // Workaround to handle custom elements from NRK Core components until this lands:
     // https://github.com/nrkno/custom-element-to-react/pull/17
     return elementRef.current && (elementRef.current.el || elementRef.current);

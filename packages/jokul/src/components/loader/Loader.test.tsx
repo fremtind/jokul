@@ -27,7 +27,10 @@ describe("Loader", () => {
         render(<Loader textDescription="Loading" />);
 
         expect(screen.getByTestId("jkl-loader")).toHaveTextContent("Loading");
-        expect(screen.getByTestId("jkl-loader")).toHaveAttribute("title", "Loading");
+        expect(screen.getByTestId("jkl-loader")).toHaveAttribute(
+            "title",
+            "Loading",
+        );
     });
 });
 

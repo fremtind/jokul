@@ -1,1 +1,6 @@
-export { InfoSystemMessage, WarningSystemMessage, ErrorSystemMessage, SuccessSystemMessage } from "./SystemMessage.js";
+export {
+    InfoSystemMessage,
+    WarningSystemMessage,
+    ErrorSystemMessage,
+    SuccessSystemMessage,
+} from "./SystemMessage.js";

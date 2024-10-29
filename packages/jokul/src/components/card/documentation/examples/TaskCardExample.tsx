@@ -7,15 +7,23 @@ import { Select } from "../../../select/Select.js";
 import { TaskCard } from "../../TaskCard.js";
 import { mixedPadding } from "./cardExampleProps.js";
 
-export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues }) => {
+export const TaskCardExample: React.FC<ExampleComponentProps> = ({
+    choiceValues,
+}) => {
     const [selected, setSelected] = useState(false);
     const [contentRef] = useAnimatedHeight<HTMLDivElement>(selected);
 
-    const paddingChoice = (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") || "24";
+    const paddingChoice =
+        (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") ||
+        "24";
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
 
     return (
-        <TaskCard background={selected ? "highlighted" : "subdued"} withShadow={selected} padding={padding}>
+        <TaskCard
+            background={selected ? "highlighted" : "subdued"}
+            withShadow={selected}
+            padding={padding}
+        >
             <Checkbox
                 id="veterinar-checkbox"
                 aria-controls="expanded-content"
@@ -27,7 +35,8 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
                 Veterinærutgifter
             </Checkbox>
             <p className="jkl-body jkl-spacing-12--top">
-                Dekker veterinærutgifter og medisiner på resept, som ofte kan bli dyrt.
+                Dekker veterinærutgifter og medisiner på resept, som ofte kan
+                bli dyrt.
             </p>
             <div
                 id="expanded-content"
@@ -49,13 +58,17 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({ choiceValues 
                     className="jkl-spacing-24--top"
                     items={["1 500 kr", "2 500 kr", "3 000 kr"]}
                 />
-                <FieldGroup className="jkl-spacing-24--top" legend="Tilleggsforsikring">
+                <FieldGroup
+                    className="jkl-spacing-24--top"
+                    legend="Tilleggsforsikring"
+                >
                     <Checkbox name="tilleggsforsikring" value="rehab">
                         Dekning av rehabilitering
                     </Checkbox>
                 </FieldGroup>
                 <p className="jkl-body jkl-spacing-40--top">
-                    Dersom du ønsker ekstra forsikring av valpekull, må du ta kontakt med en rådgiver.
+                    Dersom du ønsker ekstra forsikring av valpekull, må du ta
+                    kontakt med en rådgiver.
                 </p>
             </div>
         </TaskCard>

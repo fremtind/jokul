@@ -12,12 +12,23 @@ import {
     Action,
 } from "kbar";
 import React, { useCallback, type FC } from "react";
-import { pageNames, PageType, useNavigationLinks } from "./header/useNavigationLinks";
+import {
+    pageNames,
+    PageType,
+    useNavigationLinks,
+} from "./header/useNavigationLinks";
 import "./kbar.scss";
 
 export const KBar: FC = () => {
-    const { getStartedDocPages, profileDocPages, componentDocPages, demoPages, uuDocPages, guiderDocPages, blogPages } =
-        useNavigationLinks();
+    const {
+        getStartedDocPages,
+        profileDocPages,
+        componentDocPages,
+        demoPages,
+        uuDocPages,
+        guiderDocPages,
+        blogPages,
+    } = useNavigationLinks();
 
     const mapToAction = useCallback(
         ({
@@ -150,7 +161,10 @@ export const KBar: FC = () => {
         <KBarPortal>
             <KBarPositioner className="kbar-positioner">
                 <KBarAnimator className="jkl kbar-animator">
-                    <KBarSearch className="kbar-search" defaultPlaceholder="Skriv en kommando eller søk" />
+                    <KBarSearch
+                        className="kbar-search"
+                        defaultPlaceholder="Skriv en kommando eller søk"
+                    />
                     <RenderResults />
                 </KBarAnimator>
             </KBarPositioner>
@@ -168,25 +182,37 @@ const RenderResults: FC = () => {
                     return <div className="kbar-group-name">{item}</div>;
                 }
 
-                return <ResultItem item={item} active={active} currentRootActionId={rootActionId} />;
+                return (
+                    <ResultItem
+                        item={item}
+                        active={active}
+                        currentRootActionId={rootActionId}
+                    />
+                );
             }}
         />
     );
 };
 
-const ResultItem: FC<{ item: ActionImpl; active: boolean; currentRootActionId: string | null | undefined }> = ({
-    item,
-    active,
-    currentRootActionId,
-}) => {
+const ResultItem: FC<{
+    item: ActionImpl;
+    active: boolean;
+    currentRootActionId: string | null | undefined;
+}> = ({ item, active, currentRootActionId }) => {
     const ancestors = React.useMemo(() => {
         if (!currentRootActionId) return item.ancestors;
-        const index = item.ancestors.findIndex((ancestor) => ancestor.id === currentRootActionId);
+        const index = item.ancestors.findIndex(
+            (ancestor) => ancestor.id === currentRootActionId,
+        );
         return item.ancestors.slice(index + 1);
     }, [item.ancestors, currentRootActionId]);
 
     return (
-        <div className={cn("kbar-result-item", { "kbar-result-item--active": active })}>
+        <div
+            className={cn("kbar-result-item", {
+                "kbar-result-item--active": active,
+            })}
+        >
             <div className="kbar-result-item__wrapper">
                 {item.icon && item.icon}
                 <div className="kbar-result-item__content">
@@ -194,13 +220,19 @@ const ResultItem: FC<{ item: ActionImpl; active: boolean; currentRootActionId: s
                         {ancestors.length > 0 &&
                             ancestors.map((ancestor) => (
                                 <React.Fragment key={ancestor.id}>
-                                    <span className="kbar-result-item__ancestor">{ancestor.name}</span>
-                                    <span className="kbar-result-item__divider">&rsaquo;</span>
+                                    <span className="kbar-result-item__ancestor">
+                                        {ancestor.name}
+                                    </span>
+                                    <span className="kbar-result-item__divider">
+                                        &rsaquo;
+                                    </span>
                                 </React.Fragment>
                             ))}
                         <span>{item.name}</span>
                     </div>
-                    {item.subtitle && <span style={{ fontSize: 12 }}>{item.subtitle}</span>}
+                    {item.subtitle && (
+                        <span style={{ fontSize: 12 }}>{item.subtitle}</span>
+                    )}
                 </div>
             </div>
             {item.shortcut?.length ? (

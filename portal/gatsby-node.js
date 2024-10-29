@@ -47,10 +47,13 @@ exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
     if (stage === "develop" || stage === "build-javascript") {
         const config = getConfig();
 
-        const packagesDir = fs.readdirSync(path.join(__dirname, "..", "packages"), {
-            encoding: "utf-8",
-            withFileTypes: true,
-        });
+        const packagesDir = fs.readdirSync(
+            path.join(__dirname, "..", "packages"),
+            {
+                encoding: "utf-8",
+                withFileTypes: true,
+            },
+        );
         const packageAliases = {};
         for (const entry of packagesDir) {
             if (!entry.isDirectory()) {
@@ -60,13 +63,25 @@ exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
                 continue;
             }
 
-            const packagePath = path.join(__dirname, "..", "packages", entry.name);
+            const packagePath = path.join(
+                __dirname,
+                "..",
+                "packages",
+                entry.name,
+            );
             try {
-                const packageJson = fs.readFileSync(path.join(packagePath, "package.json"), "utf-8");
+                const packageJson = fs.readFileSync(
+                    path.join(packagePath, "package.json"),
+                    "utf-8",
+                );
                 const parsed = JSON.parse(packageJson);
 
                 // Alias til Gatsbys node_modules for importer i documentation-mapper i pakkene.
-                packageAliases[parsed.name] = path.resolve(__dirname, "node_modules", parsed.name);
+                packageAliases[parsed.name] = path.resolve(
+                    __dirname,
+                    "node_modules",
+                    parsed.name,
+                );
 
                 // Alias CSSen til React-pakkens node_modules
                 if (parsed.name.endsWith("-react")) {
@@ -89,7 +104,12 @@ exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
             ...config.resolve.alias,
             ...packageAliases,
             // "@mdx-js/react": path.resolve(__dirname, "node_modules", "@mdx-js", "react"),
-            "@sindresorhus/slugify": path.resolve(__dirname, "node_modules", "@sindresorhus", "slugify"),
+            "@sindresorhus/slugify": path.resolve(
+                __dirname,
+                "node_modules",
+                "@sindresorhus",
+                "slugify",
+            ),
         };
 
         // Skru av hashing. Cachingen på GitHub Pages er ikke evigvarende.
@@ -98,7 +118,9 @@ exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
         config.output.chunkFilename = "[name].js";
         config.output.assetModuleFilename = "[name].[ext][query]";
 
-        const plugins = config.plugins.filter((plugin) => !plugin instanceof MiniCssExtractPlugin);
+        const plugins = config.plugins.filter(
+            (plugin) => !plugin instanceof MiniCssExtractPlugin,
+        );
         plugins.push(
             new MiniCssExtractPlugin({
                 filename: "[name].css",
@@ -106,7 +128,9 @@ exports.onCreateWebpackConfig = ({ actions, stage, getConfig }) => {
             }),
         );
 
-        const miniCssExtractPlugin = config.plugins.find((p) => p.constructor.name === "MiniCssExtractPlugin");
+        const miniCssExtractPlugin = config.plugins.find(
+            (p) => p.constructor.name === "MiniCssExtractPlugin",
+        );
         if (miniCssExtractPlugin) {
             // På grunn av Gatsby internals får vi warnings om rekkefølgen på CSS-filer som er i konflikt.
             // Rekkefølgen har ikke noe å si for oss når vi bruker BEM, så vi kan trygt ignorere dem.
@@ -131,9 +155,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     if (node.internal.type === "Mdx") {
         const filePath = createFilePath({ node, getNode });
 
-        const componentPageMatch = filePath.match(/\/.*react.*\/documentation\/(.*)\//);
+        const componentPageMatch = filePath.match(
+            /\/.*react.*\/documentation\/(.*)\//,
+        );
         const corePageMatch = filePath.match(/\/core\/documentation\/(.*)\//);
-        const utilPageMatch = filePath.match(/\/.*util.*\/documentation\/(.*)\//);
+        const utilPageMatch = filePath.match(
+            /\/.*util.*\/documentation\/(.*)\//,
+        );
 
         let pathField = filePath;
         if (componentPageMatch) {
@@ -164,7 +192,13 @@ exports.createPagesStatefully = async ({ graphql, actions, reporter }) => {
     const result = await graphql(`
         {
             components: allMdx(
-                filter: { internal: { contentFilePath: { regex: "//.*react.*/documentation/.*.mdx$/" } } }
+                filter: {
+                    internal: {
+                        contentFilePath: {
+                            regex: "//.*react.*/documentation/.*.mdx$/"
+                        }
+                    }
+                }
             ) {
                 edges {
                     node {
@@ -184,7 +218,15 @@ exports.createPagesStatefully = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
-            core: allMdx(filter: { internal: { contentFilePath: { regex: "//core/documentation/.*.mdx$/" } } }) {
+            core: allMdx(
+                filter: {
+                    internal: {
+                        contentFilePath: {
+                            regex: "//core/documentation/.*.mdx$/"
+                        }
+                    }
+                }
+            ) {
                 edges {
                     node {
                         id
@@ -203,7 +245,15 @@ exports.createPagesStatefully = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
-            utils: allMdx(filter: { internal: { contentFilePath: { regex: "//.*util.*/documentation/.*.mdx$/" } } }) {
+            utils: allMdx(
+                filter: {
+                    internal: {
+                        contentFilePath: {
+                            regex: "//.*util.*/documentation/.*.mdx$/"
+                        }
+                    }
+                }
+            ) {
                 edges {
                     node {
                         id
@@ -222,7 +272,15 @@ exports.createPagesStatefully = async ({ graphql, actions, reporter }) => {
                     }
                 }
             }
-            docs: allMdx(filter: { internal: { contentFilePath: { regex: "//portal/src/texts/.*.mdx$/" } } }) {
+            docs: allMdx(
+                filter: {
+                    internal: {
+                        contentFilePath: {
+                            regex: "//portal/src/texts/.*.mdx$/"
+                        }
+                    }
+                }
+            ) {
                 edges {
                     node {
                         id
@@ -267,7 +325,9 @@ ${JSON.stringify(result.errors, null, 2)}
         const rootPaths = [];
         for (const data of edges) {
             if (data.node.frontmatter.react) {
-                rootPaths.push(`../packages/${data.node.frontmatter.react}/src/index.ts`);
+                rootPaths.push(
+                    `../packages/${data.node.frontmatter.react}/src/index.ts`,
+                );
             }
         }
         return rootPaths;
@@ -320,7 +380,13 @@ ${JSON.stringify(result.errors, null, 2)}
     function getComponentTypes(types, displayTypes) {
         return Object.entries(types)
             .filter(([displayName]) => displayTypes.includes(displayName))
-            .reduce((acc, [displayName, types]) => ({ ...acc, [displayName]: types }), {});
+            .reduce(
+                (acc, [displayName, types]) => ({
+                    ...acc,
+                    [displayName]: types,
+                }),
+                {},
+            );
     }
 
     /**
@@ -333,13 +399,24 @@ ${JSON.stringify(result.errors, null, 2)}
         }
 
         try {
-            const pathToPackageJson = path.resolve(__dirname, "..", "packages", packageName, "package.json");
-            const packageJsonContent = fs.readFileSync(pathToPackageJson, "utf-8");
+            const pathToPackageJson = path.resolve(
+                __dirname,
+                "..",
+                "packages",
+                packageName,
+                "package.json",
+            );
+            const packageJsonContent = fs.readFileSync(
+                pathToPackageJson,
+                "utf-8",
+            );
             const packageJson = JSON.parse(packageJsonContent);
             const packageVersion = packageJson.version;
 
             if (!packageVersion) {
-                reporter.error(`Couldn't find a version number in package.json for ${packageName}`);
+                reporter.error(
+                    `Couldn't find a version number in package.json for ${packageName}`,
+                );
                 return null;
             }
 
@@ -351,7 +428,9 @@ ${JSON.stringify(result.errors, null, 2)}
     }
 
     const { createPage } = actions;
-    const documentationTemplate = require.resolve("./src/templates/DocPageLayout.jsx");
+    const documentationTemplate = require.resolve(
+        "./src/templates/DocPageLayout.jsx",
+    );
 
     result.data.components.edges.forEach(({ node }) => {
         const versions = {

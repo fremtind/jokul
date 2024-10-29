@@ -1,13 +1,26 @@
 import React, { JSXElementConstructor, FC } from "react";
-import { CheckboxQuestion, RadioQuestion, TextQuestion, SmileyQuestion } from "./questions";
+import {
+    CheckboxQuestion,
+    RadioQuestion,
+    TextQuestion,
+    SmileyQuestion,
+} from "./questions";
 import { QuestionProps, QuestionType } from "./types";
 
-export function getChildrenOfType<P>(...allowedTypes: Array<string | JSXElementConstructor<P>>) {
+export function getChildrenOfType<P>(
+    ...allowedTypes: Array<string | JSXElementConstructor<P>>
+) {
     return (
         children: React.ReactNode,
-    ): React.ReactElement<P, string | React.JSXElementConstructor<unknown>>[] | null | undefined =>
+    ):
+        | React.ReactElement<P, string | React.JSXElementConstructor<unknown>>[]
+        | null
+        | undefined =>
         React.Children.map(children, (child) => {
-            if (React.isValidElement<P>(child) && allowedTypes.includes(child.type)) {
+            if (
+                React.isValidElement<P>(child) &&
+                allowedTypes.includes(child.type)
+            ) {
                 return child;
             }
             return undefined;

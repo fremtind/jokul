@@ -13,7 +13,11 @@ export const PortalLogo: FC<PortalLogoProps> = ({ onClick }) => {
     const today = new Date();
 
     const isSpooky = today.getMonth() === 9 && today.getDate() === 31;
-    const is2023Easter = isBetween(today, new Date(2023, 3, 2), new Date(2023, 3, 10));
+    const is2023Easter = isBetween(
+        today,
+        new Date(2023, 3, 2),
+        new Date(2023, 3, 10),
+    );
 
     const isSpecial = isSpooky || is2023Easter;
 

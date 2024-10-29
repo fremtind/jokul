@@ -10,7 +10,12 @@ import dts from "vite-plugin-dts";
 
 export default defineConfig({
     plugins: [
-        nodeExternals({ deps: true, devDeps: true, peerDeps: true, optDeps: true }),
+        nodeExternals({
+            deps: true,
+            devDeps: true,
+            peerDeps: true,
+            optDeps: true,
+        }),
         react(),
         dts({ include: ["src"], exclude: ["src/**/*.test.tsx"] }),
         visualizer({
@@ -32,7 +37,10 @@ export default defineConfig({
                 glob
                     .sync("src/**/*[!test].{ts,tsx}")
                     .map((file) => [
-                        relative("src", file.slice(0, file.length - extname(file).length)),
+                        relative(
+                            "src",
+                            file.slice(0, file.length - extname(file).length),
+                        ),
                         fileURLToPath(new URL(file, import.meta.url)),
                     ]),
             ),

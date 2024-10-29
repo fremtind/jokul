@@ -20,15 +20,26 @@ export const GreenCheckIcon: FC<IconProps> = ({
 
     return (
         <El
-            className={clsx(className, "jkl-icon", "jkl-icon-green-check", `jkl-icon--${variant}`, {
-                "jkl-icon--bold": bold,
-            })}
+            className={clsx(
+                className,
+                "jkl-icon",
+                "jkl-icon-green-check",
+                `jkl-icon--${variant}`,
+                {
+                    "jkl-icon--bold": bold,
+                },
+            )}
             aria-hidden="true"
             style={style}
             data-testid={testId}
             {...rest}
         >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24px"
+                height="24px"
+            >
                 <circle cx="12" cy="12" r="10" />
                 <path
                     fillRule="evenodd"

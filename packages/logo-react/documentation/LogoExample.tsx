@@ -1,5 +1,9 @@
 import React, { FC } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../doc-utils";
 import { Logo } from "../src";
 import "./LogoExample.scss";
 

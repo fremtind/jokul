@@ -82,7 +82,11 @@ describe("Autosuggest", () => {
     it("shows no hits message and fallback options", () => {
         const { getByTestId, queryAllByTestId, getByText } = renderMount({
             noHits: {
-                text: <p className="jkl-body">No countries found, do you want one of these</p>,
+                text: (
+                    <p className="jkl-body">
+                        No countries found, do you want one of these
+                    </p>
+                ),
                 items: ["Norway", "Sweden", "Denmark"],
             },
         });
@@ -90,7 +94,9 @@ describe("Autosuggest", () => {
         const input = getByTestId("autosuggest__input");
         fireEvent.change(input, { target: { value: "gibberish" } });
 
-        expect(getByText("No countries found, do you want one of these")).toBeInTheDocument();
+        expect(
+            getByText("No countries found, do you want one of these"),
+        ).toBeInTheDocument();
 
         const items = queryAllByTestId("autosuggest__item");
         expect(queryAllByTestId("autosuggest__item")).toHaveLength(3);

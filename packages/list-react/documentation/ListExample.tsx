@@ -1,6 +1,13 @@
 import React, { FC } from "react";
 import { CodeExample, ExampleComponentProps } from "../../../doc-utils";
-import { UnorderedList, OrderedList, ListItem, List, CheckListItem, CrossListItem } from "../src";
+import {
+    UnorderedList,
+    OrderedList,
+    ListItem,
+    List,
+    CheckListItem,
+    CrossListItem,
+} from "../src";
 
 const Ordered: FC = () => (
     <OrderedList>

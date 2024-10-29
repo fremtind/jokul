@@ -2,7 +2,9 @@ import React from "react";
 import { Seo } from "../components/seo";
 import { MainContent } from "../layout/MainContent";
 
-export const Head: React.FC = () => <Seo title="Beta av den nye Jøkul-portalen" />;
+export const Head: React.FC = () => (
+    <Seo title="Beta av den nye Jøkul-portalen" />
+);
 
 const betaLink = "https://jkl-portal.aws.fremtind.no";
 

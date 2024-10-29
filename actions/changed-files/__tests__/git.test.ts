@@ -4,12 +4,33 @@ import { expect, test } from "@jest/globals";
 import { findChangedFiles } from "../src/git";
 
 beforeAll(() => {
-    fs.writeFileSync(path.join(__dirname, "..", "__testing_ground__/existing/__image_snapshots__/new.txt"), "hello");
+    fs.writeFileSync(
+        path.join(
+            __dirname,
+            "..",
+            "__testing_ground__/existing/__image_snapshots__/new.txt",
+        ),
+        "hello",
+    );
 
-    fs.mkdirSync(path.join(__dirname, "..", "__testing_ground__/new/__image_snapshots__/"), {
-        recursive: true,
-    });
-    fs.writeFileSync(path.join(__dirname, "..", "__testing_ground__/new/__image_snapshots__/new.txt"), "hello");
+    fs.mkdirSync(
+        path.join(
+            __dirname,
+            "..",
+            "__testing_ground__/new/__image_snapshots__/",
+        ),
+        {
+            recursive: true,
+        },
+    );
+    fs.writeFileSync(
+        path.join(
+            __dirname,
+            "..",
+            "__testing_ground__/new/__image_snapshots__/new.txt",
+        ),
+        "hello",
+    );
 });
 
 afterAll(() => {
@@ -18,7 +39,13 @@ afterAll(() => {
         recursive: true,
     });
 
-    fs.rmSync(path.join(__dirname, "..", "__testing_ground__/existing/__image_snapshots__/new.txt"));
+    fs.rmSync(
+        path.join(
+            __dirname,
+            "..",
+            "__testing_ground__/existing/__image_snapshots__/new.txt",
+        ),
+    );
 });
 
 test("finds the expected files", async () => {

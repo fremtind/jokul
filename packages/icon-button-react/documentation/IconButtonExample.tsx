@@ -1,6 +1,10 @@
 import { SearchIcon } from "@fremtind/jkl-icons-react/src/icons/SearchIcon";
 import React, { FC } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../doc-utils";
 import { IconButton } from "../src";
 
 export const iconButtonExampleKnobs: ExampleKnobsProps = {};

@@ -63,7 +63,8 @@ export const PortalImage: FC<Props> = ({
                     <AnimatedImage src={src} alt={alt} {...rest} />
                     {!disableFullscreen && !isFullscreen && !noMargin && (
                         <p className="jkl small">
-                            {caption && caption} Klikk for å se større{caption && "."}
+                            {caption && caption} Klikk for å se større
+                            {caption && "."}
                         </p>
                     )}
                 </motion.button>

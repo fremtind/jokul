@@ -22,7 +22,11 @@ export const Thumbnail: FC<ThumbnailProps> = (props) => {
     if (fileType.startsWith("image/")) {
         return (
             <div className="jkl-file__thumbnail-wrapper">
-                <img className={classNames} src={file ? URL.createObjectURL(file) : path} alt="" />
+                <img
+                    className={classNames}
+                    src={file ? URL.createObjectURL(file) : path}
+                    alt=""
+                />
                 {children}
             </div>
         );

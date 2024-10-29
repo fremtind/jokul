@@ -24,7 +24,8 @@ export const Header: FC<Props> = ({ className }) => {
     }, []);
     useEffect(() => {
         window && window.addEventListener("scroll", collapseMenu);
-        return () => window && window.removeEventListener("scroll", collapseMenu);
+        return () =>
+            window && window.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);
     const { menuItems } = useNavigationLinks();
     const { setIsOpen, setCurrentItem } = useFullscreenMenuContext();

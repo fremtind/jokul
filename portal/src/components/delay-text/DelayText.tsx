@@ -51,7 +51,13 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay }) => {
         }
 
         const parentEl = elRef.parentElement;
-        const parentHeight = parentEl ? parseInt(window.getComputedStyle(parentEl).getPropertyValue("padding-top")) : 0;
+        const parentHeight = parentEl
+            ? parseInt(
+                  window
+                      .getComputedStyle(parentEl)
+                      .getPropertyValue("padding-top"),
+              )
+            : 0;
         const elHeight = elRef.offsetHeight + parentHeight;
 
         const options: ScrollToOptions = {
@@ -92,7 +98,11 @@ export const DelayText: React.FunctionComponent<Props> = ({ text, delay }) => {
     });
 
     return (
-        <section ref={textRef} className="jkl-portal-delay-text" aria-hidden="true">
+        <section
+            ref={textRef}
+            className="jkl-portal-delay-text"
+            aria-hidden="true"
+        >
             <div className={textWrapperClass}>{filteredText}</div>
         </section>
     );

@@ -11,7 +11,10 @@ export interface DiamondProps {
     className?: string;
 }
 
-export const Diamonds: FC<DiamondProps> = ({ resolution = { x: 10, y: 7 }, className }) => {
+export const Diamonds: FC<DiamondProps> = ({
+    resolution = { x: 10, y: 7 },
+    className,
+}) => {
     const rootRef = useRef<HTMLDivElement>(null);
     const prefersColorScheme = useTheme();
 
@@ -68,14 +71,26 @@ export const Diamonds: FC<DiamondProps> = ({ resolution = { x: 10, y: 7 }, class
                 alpha: true,
                 antialias: true,
             });
-            camera.current = new THREE.PerspectiveCamera(50, resolution.x / resolution.y, 0.1, 1000);
+            camera.current = new THREE.PerspectiveCamera(
+                50,
+                resolution.x / resolution.y,
+                0.1,
+                1000,
+            );
             scene.current = new THREE.Scene();
 
             const rootEl = rootRef.current;
             renderer.current.setClearColor(0x000000, 0);
-            renderer.current.setSize(rootEl.clientWidth ?? 0, rootEl.clientHeight ?? 0);
+            renderer.current.setSize(
+                rootEl.clientWidth ?? 0,
+                rootEl.clientHeight ?? 0,
+            );
             const cameraZPos = Math.max(resolution.x, resolution.y) * 0.9;
-            camera.current.position.set(resolution.x / 2 - 0.25, resolution.y / 2 - 0.25, cameraZPos);
+            camera.current.position.set(
+                resolution.x / 2 - 0.25,
+                resolution.y / 2 - 0.25,
+                cameraZPos,
+            );
 
             rootEl.innerHTML = "";
             rootEl.appendChild(renderer.current.domElement);
@@ -106,14 +121,21 @@ export const Diamonds: FC<DiamondProps> = ({ resolution = { x: 10, y: 7 }, class
                 const delta = Date.now() / 1000;
                 const speed = 0.7;
 
-                timeout = window.setTimeout(() => requestAnimationFrame(animate), 1000 / 60);
+                timeout = window.setTimeout(
+                    () => requestAnimationFrame(animate),
+                    1000 / 60,
+                );
 
                 activeTiles.current.forEach((tile, coords) => {
                     const [x, y] = coords.split(",").map((c) => parseInt(c));
                     const scale = THREE.MathUtils.lerp(
                         0.1,
                         1,
-                        THREE.MathUtils.smoothstep(Math.abs(Math.sin(x * y * 0.045 + delta * speed)), 0, 1),
+                        THREE.MathUtils.smoothstep(
+                            Math.abs(Math.sin(x * y * 0.045 + delta * speed)),
+                            0,
+                            1,
+                        ),
                     );
                     tile.scale.set(scale, scale, 1);
                 });

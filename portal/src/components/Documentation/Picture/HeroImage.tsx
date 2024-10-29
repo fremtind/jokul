@@ -12,7 +12,12 @@ const HeroImage: React.FC<Props> = ({ title, children }) => {
     return (
         <div className="jkl-portal-fullView">
             <div className="jkl-portal-hero">
-                <StaticImage src="./Assets/mountain.jpg" placeholder="blurred" className="" alt="Fjellandskap" />
+                <StaticImage
+                    src="./Assets/mountain.jpg"
+                    placeholder="blurred"
+                    className=""
+                    alt="Fjellandskap"
+                />
                 <button
                     onClick={() =>
                         window?.scrollBy({
@@ -24,7 +29,9 @@ const HeroImage: React.FC<Props> = ({ title, children }) => {
                 >
                     <h1 className="title mb-40">{title}</h1>
                     <p className="body">{children}</p>
-                    <div className="jkl-portal-hero__card__arrow title-small mt-24">↓</div>
+                    <div className="jkl-portal-hero__card__arrow title-small mt-24">
+                        ↓
+                    </div>
                 </button>
             </div>
         </div>

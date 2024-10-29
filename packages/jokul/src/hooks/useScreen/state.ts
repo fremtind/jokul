@@ -17,7 +17,9 @@ export interface ScreenAction {
     property: keyof ScreenState;
 }
 
-function setDeviceSize(deviceSize: keyof ScreenState): Omit<ScreenState, "isLandscape" | "isPortrait"> {
+function setDeviceSize(
+    deviceSize: keyof ScreenState,
+): Omit<ScreenState, "isLandscape" | "isPortrait"> {
     return {
         isSmallDevice: deviceSize === "isSmallDevice",
         isMediumDevice: deviceSize === "isMediumDevice",
@@ -26,14 +28,19 @@ function setDeviceSize(deviceSize: keyof ScreenState): Omit<ScreenState, "isLand
     };
 }
 
-function setOrientation(orientation: keyof ScreenState): Pick<ScreenState, "isLandscape" | "isPortrait"> {
+function setOrientation(
+    orientation: keyof ScreenState,
+): Pick<ScreenState, "isLandscape" | "isPortrait"> {
     return {
         isLandscape: orientation === "isLandscape",
         isPortrait: orientation === "isPortrait",
     };
 }
 
-export const reducer = (state: ScreenState, action: ScreenAction): ScreenState => {
+export const reducer = (
+    state: ScreenState,
+    action: ScreenAction,
+): ScreenState => {
     switch (action.type) {
         case ActionType.orientation:
             return {

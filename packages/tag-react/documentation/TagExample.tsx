@@ -38,7 +38,9 @@ const getTagContent = (typeofTag?: TagType): string => {
     }
 };
 
-const ExampleTagWrapper: React.FC<ExampleComponentProps & { variant?: TagType }> = ({ boolValues, variant }) => {
+const ExampleTagWrapper: React.FC<
+    ExampleComponentProps & { variant?: TagType }
+> = ({ boolValues, variant }) => {
     const [dismissed, setDismissed] = useState(false);
     const C = getTypeOfTag(variant);
     const dismissAction = boolValues?.["Dismissable"]
@@ -56,7 +58,10 @@ const ExampleTagWrapper: React.FC<ExampleComponentProps & { variant?: TagType }>
     }
 
     return (
-        <C className="jkl-spacing-2xs--right jkl-spacing-2xs--top" dismissAction={dismissAction}>
+        <C
+            className="jkl-spacing-2xs--right jkl-spacing-2xs--top"
+            dismissAction={dismissAction}
+        >
             {getTagContent(variant)}
         </C>
     );
@@ -74,7 +79,9 @@ export const TagExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     );
 };
 
-export const tagExampleCode = ({ boolValues }: ExampleComponentProps): string => `
+export const tagExampleCode = ({
+    boolValues,
+}: ExampleComponentProps): string => `
     <Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top"${
         boolValues?.["Dismissable"]
             ? `{

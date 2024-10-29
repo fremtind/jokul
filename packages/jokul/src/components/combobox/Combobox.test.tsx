@@ -90,13 +90,18 @@ describe("Combobox", () => {
             />,
         );
 
-        expect(screen.getByTestId("jkl-combobox")).toHaveAttribute("data-density", "compact");
+        expect(screen.getByTestId("jkl-combobox")).toHaveAttribute(
+            "data-density",
+            "compact",
+        );
     });
 
     it("should change the value of the combobox when selecting two options", async () => {
         const onChangeSpy = vi.fn();
         function WrappedCombobox() {
-            const [selectedValues, setSelectedValues] = useState<Array<ComboboxValuePair>>([]);
+            const [selectedValues, setSelectedValues] = useState<
+                Array<ComboboxValuePair>
+            >([]);
 
             const items: ComboboxValuePair[] = [
                 { label: "Item 1", value: "1" },
@@ -118,7 +123,9 @@ describe("Combobox", () => {
                 />
             );
         }
-        const { getByRole, getByTestId, getAllByTestId } = setup(<WrappedCombobox />);
+        const { getByRole, getByTestId, getAllByTestId } = setup(
+            <WrappedCombobox />,
+        );
         const openDropdownButtonElement = getByTestId("jkl-combobox__button");
 
         await act(async () => {
@@ -147,8 +154,14 @@ describe("Combobox", () => {
             expect.objectContaining({
                 target: expect.objectContaining({
                     selectedOptions: [
-                        expect.objectContaining({ label: "Item 1", value: "1" }),
-                        expect.objectContaining({ label: "Item 2", value: "2" }),
+                        expect.objectContaining({
+                            label: "Item 1",
+                            value: "1",
+                        }),
+                        expect.objectContaining({
+                            label: "Item 2",
+                            value: "2",
+                        }),
                     ],
                 }),
             }),

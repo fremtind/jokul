@@ -22,21 +22,24 @@ const globalPreferencesContext = createContext<GlobalPreferencesContext>({
     },
 });
 
-export const useGlobalPreferences = (): GlobalPreferencesContext => useContext(globalPreferencesContext);
+export const useGlobalPreferences = (): GlobalPreferencesContext =>
+    useContext(globalPreferencesContext);
 
-export const GlobalPreferencesContextProvider: FC<WithChildren & GlobalPreferencesContext> = ({
-    children,
-    colorScheme,
-    setColorScheme,
-}) => {
+export const GlobalPreferencesContextProvider: FC<
+    WithChildren & GlobalPreferencesContext
+> = ({ children, colorScheme, setColorScheme }) => {
     return (
-        <globalPreferencesContext.Provider value={{ colorScheme, setColorScheme }}>
+        <globalPreferencesContext.Provider
+            value={{ colorScheme, setColorScheme }}
+        >
             {children}
         </globalPreferencesContext.Provider>
     );
 };
 
-export const GlobalContextualMenu: FC<{ className: string }> = ({ className }) => {
+export const GlobalContextualMenu: FC<{ className: string }> = ({
+    className,
+}) => {
     const { consents } = useCookieConsent();
     const { colorScheme, setColorScheme } = useGlobalPreferences();
     return (
@@ -44,7 +47,10 @@ export const GlobalContextualMenu: FC<{ className: string }> = ({ className }) =
             className={className}
             initialPlacement="bottom-start"
             triggerElement={
-                <IconButton className="jkl-portal-navigation__contextual-menu-trigger" title="Åpne innstillinger">
+                <IconButton
+                    className="jkl-portal-navigation__contextual-menu-trigger"
+                    title="Åpne innstillinger"
+                >
                     <DotsIcon variant="medium" />
                 </IconButton>
             }
@@ -69,7 +75,13 @@ export const GlobalContextualMenu: FC<{ className: string }> = ({ className }) =
             >
                 Gå til GitHub
             </ContextualMenuItem>
-            <ContextualMenuItem onClick={() => window.location.assign("https://www.figma.com/files/project/52944370")}>
+            <ContextualMenuItem
+                onClick={() =>
+                    window.location.assign(
+                        "https://www.figma.com/files/project/52944370",
+                    )
+                }
+            >
                 Gå til Figma
             </ContextualMenuItem>
             <ContextualMenuItem

@@ -3,9 +3,15 @@ import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { RadioButtonGroup, RadioButton } from "../src";
 
-export const RadioButtonInputRequiredExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const RadioButtonInputRequiredExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const [selectedValue, setSelectedValue] = React.useState("");
-    const variant = choiceValues && choiceValues["Variant"] ? (choiceValues["Variant"] as LabelVariant) : "medium";
+    const variant =
+        choiceValues && choiceValues["Variant"]
+            ? (choiceValues["Variant"] as LabelVariant)
+            : "medium";
 
     return (
         <RadioButtonGroup
@@ -22,7 +28,10 @@ export const RadioButtonInputRequiredExample: FC<ExampleComponentProps> = ({ boo
     );
 };
 
-export const radioButtonInputRequiredExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const radioButtonInputRequiredExampleCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => `
 <RadioButtonGroup
     legend="Fikk du gjort det du skulle?"
     name="fant-du-fram"

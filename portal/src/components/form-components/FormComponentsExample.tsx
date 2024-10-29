@@ -1,8 +1,16 @@
 import { Checkbox } from "@fremtind/jkl-checkbox-react";
-import { DatePicker, formatInput, isCorrectFormat, isWithinUpperBound } from "@fremtind/jkl-datepicker-react";
+import {
+    DatePicker,
+    formatInput,
+    isCorrectFormat,
+    isWithinUpperBound,
+} from "@fremtind/jkl-datepicker-react";
 import { formatDate } from "@fremtind/jkl-formatters-util";
 import { FieldGroup } from "@fremtind/jkl-input-group-react";
-import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
+import {
+    RadioButton,
+    RadioButtonGroup,
+} from "@fremtind/jkl-radio-button-react";
 import { Select } from "@fremtind/jkl-select-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import React, { FC } from "react";
@@ -26,7 +34,9 @@ type FormValues = {
     klient: undefined | string[];
 };
 
-export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues }) => {
+export const FormComponentsExample: FC<ExampleComponentProps> = ({
+    boolValues,
+}) => {
     const radioButtonGroup = boolValues?.["Radioknapper"];
     const textInputs = boolValues?.["Tekstfelt"];
     const datePickers = boolValues?.["Datovelgere"];
@@ -38,7 +48,10 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
     console.table(formData);
 
     return (
-        <form className="ml-40" onSubmit={handleSubmit((valid) => console.table(valid))}>
+        <form
+            className="ml-40"
+            onSubmit={handleSubmit((valid) => console.table(valid))}
+        >
             <p className="heading-4 mb-16">Hvem er eier av forsikringen?</p>
             {radioButtonGroup && (
                 <RadioButtonGroup
@@ -48,12 +61,18 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
                     errorLabel={formState.errors.kjonn?.message}
                 >
                     <RadioButton
-                        {...register("kjonn", { required: "Du må oppgi kjønn på eieren av forsikringen" })}
+                        {...register("kjonn", {
+                            required:
+                                "Du må oppgi kjønn på eieren av forsikringen",
+                        })}
                         label="Kvinne"
                         value="kvinne"
                     />
                     <RadioButton
-                        {...register("kjonn", { required: "Du må oppgi kjønn på eieren av forsikringen" })}
+                        {...register("kjonn", {
+                            required:
+                                "Du må oppgi kjønn på eieren av forsikringen",
+                        })}
                         label="Mann"
                         value="mann"
                     />
@@ -66,7 +85,8 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
                             required: "Du må fylle ut eierens fødselsnummer",
                             pattern: {
                                 value: /^\d{11}$/,
-                                message: "Fødselsnummeret må bestå av 11 siffer",
+                                message:
+                                    "Fødselsnummeret må bestå av 11 siffer",
                             },
                         })}
                         className="mb-24"
@@ -74,7 +94,10 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
                         errorLabel={formState.errors.fodselsnummer?.message}
                     />
                     <TextInput
-                        {...register("navn", { required: "Du må fylle ut eierens for- og etternavn" })}
+                        {...register("navn", {
+                            required:
+                                "Du må fylle ut eierens for- og etternavn",
+                        })}
                         className="mb-24"
                         label="For- og etternavn"
                         errorLabel={formState.errors.navn?.message}
@@ -92,16 +115,21 @@ export const FormComponentsExample: FC<ExampleComponentProps> = ({ boolValues })
                         validate: {
                             isCorrectFormat: (v) =>
                                 isCorrectFormat(v) ||
-                                `Datoen må være skrevet i formen ${formatDate(new Date())} eller kortformat`,
+                                `Datoen må være skrevet i formen ${formatDate(
+                                    new Date(),
+                                )} eller kortformat`,
                             withinUpperBound: (v) =>
-                                isWithinUpperBound(v, new Date()) || `Datoen må være før ${formatDate(new Date())}`,
+                                isWithinUpperBound(v, new Date()) ||
+                                `Datoen må være før ${formatDate(new Date())}`,
                         },
                     })}
                 />
             )}
             {select && (
                 <Select
-                    {...register("stilling", { required: "Du må oppgi eierens stilling" })}
+                    {...register("stilling", {
+                        required: "Du må oppgi eierens stilling",
+                    })}
                     className="mb-40"
                     errorLabel={formState.errors.stilling?.message}
                     items={["Designer", "Utvikler", "Tester", "Leder", "Annet"]}

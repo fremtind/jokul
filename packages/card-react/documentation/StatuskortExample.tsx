@@ -2,7 +2,13 @@ import React from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { Image } from "../../image-react/src";
 import { SuccessTag } from "../../tag-react/src";
-import { Card, CARD_PADDINGS, CARD_VARIANTS, type CardPadding, type CardVariant } from "../src/Card";
+import {
+    Card,
+    CARD_PADDINGS,
+    CARD_VARIANTS,
+    type CardPadding,
+    type CardVariant,
+} from "../src/Card";
 import { CardImage } from "../src/CardImage";
 import grass400 from "./img/grass-400.jpg";
 import grass800 from "./img/grass-800.jpg";
@@ -15,7 +21,10 @@ const imageProps = {
     alt: "Nærbilde av strå, med en åker i bakgrunnen",
 };
 
-export const StatuskortExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+export const StatuskortExample = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps) => {
     const padding = choiceValues?.["Padding"] as CardPadding | undefined;
     const type = choiceValues?.["Type"] as CardVariant | undefined;
 
@@ -55,7 +64,10 @@ export const StatuskortExample = ({ boolValues, choiceValues }: ExampleComponent
     );
 };
 
-export const statuskortExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps) => `
+export const statuskortExampleCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps) => `
 // Her bruker vi as-propen til å be React rendre Card som et
 // anchor-element. Det er også mulig å rendre komponenten som en
 // egenlaget React-komponent, eller som f.eks. en Link fra en router

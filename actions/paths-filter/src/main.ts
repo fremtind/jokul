@@ -28,7 +28,10 @@ async function run(): Promise<void> {
     }
 }
 
-export async function findChangedFiles(token: string, pr: PullRequest): Promise<string[]> {
+export async function findChangedFiles(
+    token: string,
+    pr: PullRequest,
+): Promise<string[]> {
     const octokit = github.getOctokit(token);
 
     const iterator = octokit.paginate.iterator(octokit.rest.pulls.listFiles, {

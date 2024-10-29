@@ -1,5 +1,10 @@
 import { BaseTextAreaProps } from "@fremtind/jkl-text-input-react/src/BaseTextArea";
-import React, { ReactElement, ReactNode, useState, ComponentProps } from "react";
+import React, {
+    ReactElement,
+    ReactNode,
+    useState,
+    ComponentProps,
+} from "react";
 import { FeedbackContextProvider } from "./feedbackContext";
 import { Followup } from "./followup/Followup";
 import { MainQuestion } from "./main-question/MainQuestion";
@@ -67,7 +72,10 @@ export const Feedback = ({
     const [contactSubmitted, setContactSubmitted] = useState(false);
 
     return (
-        <div className={`jkl-feedback ${className || ""}`} data-testid="feedback">
+        <div
+            className={`jkl-feedback ${className || ""}`}
+            data-testid="feedback"
+        >
             <FeedbackContextProvider
                 value={{
                     feedbackSubmitted,
@@ -83,11 +91,14 @@ export const Feedback = ({
                 }}
             >
                 {!followupStarted && <MainQuestion {...mainQuestionProps} />}
-                {feedbackSubmitted && !contactSubmitted && followup && <Followup {...followup} />}
+                {feedbackSubmitted && !contactSubmitted && followup && (
+                    <Followup {...followup} />
+                )}
                 {contactQuestion && (
                     <div aria-live="polite">
                         {/* Show contact question after followup, or after feedback if no followup */}
-                        {((!followup && feedbackSubmitted) || followupSubmitted) && (
+                        {((!followup && feedbackSubmitted) ||
+                            followupSubmitted) && (
                             <ContactQuestion {...contactQuestion} />
                         )}
                     </div>

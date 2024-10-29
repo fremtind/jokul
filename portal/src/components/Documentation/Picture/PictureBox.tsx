@@ -28,7 +28,14 @@ const Picture: React.FC<Props> = ({ asset, alt, ...rest }) => {
 
     return image ? (
         <MediaBox
-            media={<GatsbyImage image={image.gatsbyImageData} alt={alt} loading="lazy" decoding="async" />}
+            media={
+                <GatsbyImage
+                    image={image.gatsbyImageData}
+                    alt={alt}
+                    loading="lazy"
+                    decoding="async"
+                />
+            }
             {...rest}
         />
     ) : null;

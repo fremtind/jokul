@@ -20,13 +20,17 @@ export function renderContentBlock(contentBlock: ContentBlock) {
             {(() => {
                 switch (blockType) {
                     case "anatomy-example":
-                        return <AnatomyExampleBlock contentBlock={contentBlock} />;
+                        return (
+                            <AnatomyExampleBlock contentBlock={contentBlock} />
+                        );
                     case "carousel":
                         return <CarouselBlock contentBlock={contentBlock} />;
                     case "code-snippet":
                         return <CodeSnippetBlock contentBlock={contentBlock} />;
                     case "dodont-example":
-                        return <DoDontContentBlock contentBlock={contentBlock} />;
+                        return (
+                            <DoDontContentBlock contentBlock={contentBlock} />
+                        );
                     case "live-demo-block":
                         return <LiveDemoBlock contentBlock={contentBlock} />;
                     case "link-card-list":
@@ -34,7 +38,9 @@ export function renderContentBlock(contentBlock: ContentBlock) {
                     case "rich-text":
                         return <RichTextBlock contentBlock={contentBlock} />;
                     case "showcase":
-                        return <ShowcaseContentBlock contentBlock={contentBlock} />;
+                        return (
+                            <ShowcaseContentBlock contentBlock={contentBlock} />
+                        );
                     case "tokens-table":
                         return <TokensTable contentBlock={contentBlock} />;
                     case "color-card":
@@ -44,7 +50,10 @@ export function renderContentBlock(contentBlock: ContentBlock) {
                     case "table":
                         return <TableBlock contentBlock={contentBlock} />;
                     default:
-                        console.warn("Fant ingen blokk for å rendre innholdet:", contentBlock);
+                        console.warn(
+                            "Fant ingen blokk for å rendre innholdet:",
+                            contentBlock,
+                        );
                         return null;
                 }
             })()}

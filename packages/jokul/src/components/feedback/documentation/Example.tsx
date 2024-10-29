@@ -4,5 +4,7 @@ import { FeedbackExample } from "./FeedbackExample.js";
 import { feedbackExampleProps } from "./feedbackExampleProps.js";
 
 export default function Example() {
-    return <DevExample component={FeedbackExample} knobs={feedbackExampleProps} />;
+    return (
+        <DevExample component={FeedbackExample} knobs={feedbackExampleProps} />
+    );
 }

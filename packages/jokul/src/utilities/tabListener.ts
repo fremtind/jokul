@@ -9,9 +9,11 @@ const listeners = {
 };
 
 function removeAllListeners() {
-    (Object.keys(listeners) as Array<keyof typeof listeners>).forEach((listenerType) => {
-        document.removeEventListener(listenerType, listeners[listenerType]);
-    });
+    (Object.keys(listeners) as Array<keyof typeof listeners>).forEach(
+        (listenerType) => {
+            document.removeEventListener(listenerType, listeners[listenerType]);
+        },
+    );
 }
 
 function addListener(listenerType: keyof typeof listeners) {

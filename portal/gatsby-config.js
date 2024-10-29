@@ -107,8 +107,12 @@ module.exports = {
                                 return Object.assign({}, node.frontmatter, {
                                     description: node.excerpt,
                                     date: node.frontmatter.publishDate,
-                                    url: site.siteMetadata.siteUrl + node.fields.path,
-                                    guid: site.siteMetadata.siteUrl + node.fields.path,
+                                    url:
+                                        site.siteMetadata.siteUrl +
+                                        node.fields.path,
+                                    guid:
+                                        site.siteMetadata.siteUrl +
+                                        node.fields.path,
                                 });
                             });
                         },
@@ -138,15 +142,24 @@ module.exports = {
                 ],
             },
         },
-        process.env.PREVIEW_PATH ? null : { resolve: "gatsby-plugin-sitemap", options: { excludes: ["/beta"] } },
+        process.env.PREVIEW_PATH
+            ? null
+            : {
+                  resolve: "gatsby-plugin-sitemap",
+                  options: { excludes: ["/beta"] },
+              },
         process.env.PREVIEW_PATH
             ? null
             : {
                   resolve: "gatsby-plugin-robots-txt",
                   options: {
-                      policy: [{ userAgent: "*", disallow: ["/beta", "/preview"] }],
+                      policy: [
+                          { userAgent: "*", disallow: ["/beta", "/preview"] },
+                      ],
                   },
               },
-        process.env.PREVIEW_PATH ? null : { resolve: "gatsby-plugin-canonical-urls", options: { siteUrl } },
+        process.env.PREVIEW_PATH
+            ? null
+            : { resolve: "gatsby-plugin-canonical-urls", options: { siteUrl } },
     ].filter((plugin) => Boolean(plugin)),
 };

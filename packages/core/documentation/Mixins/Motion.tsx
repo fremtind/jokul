@@ -47,12 +47,16 @@ export const EasingTable: FC = () => (
         <tr>
             <td className="jkl-mixin-example-table__data">
                 <p className="jkl-body">
-                    <code className="jkl-portal-inline-code">easeInBounceOut</code>
+                    <code className="jkl-portal-inline-code">
+                        easeInBounceOut
+                    </code>
                 </p>
             </td>
             <td className="jkl-mixin-example-table__data">
                 <p className="jkl-body">
-                    <code className="jkl-portal-inline-code">cubic-bezier(0, 0, 0.375, 1.17)</code>
+                    <code className="jkl-portal-inline-code">
+                        cubic-bezier(0, 0, 0.375, 1.17)
+                    </code>
                 </p>
             </td>
         </tr>
@@ -62,7 +66,9 @@ export const EasingTable: FC = () => (
 export const TimingTable: FC = () => (
     <table className="jkl-mixin-example-table">
         <tr>
-            <th className="jkl-mixin-example-table__header">Navn på varighet</th>
+            <th className="jkl-mixin-example-table__header">
+                Navn på varighet
+            </th>
             <th className="jkl-mixin-example-table__header">Verdi</th>
         </tr>
         <tr>
@@ -78,7 +84,8 @@ export const TimingTable: FC = () => (
         <tr>
             <td className="jkl-mixin-example-table__data">
                 <p className="jkl-body">
-                    <code className="jkl-portal-inline-code">productive</code> (default)
+                    <code className="jkl-portal-inline-code">productive</code>{" "}
+                    (default)
                 </p>
             </td>
             <td className="jkl-mixin-example-table__data">

@@ -6,7 +6,11 @@ import { SkeletonCheckboxGroup } from "../skeletons/SkeletonCheckboxGroup.js";
 import { SkeletonElement } from "../skeletons/SkeletonElement.js";
 import { SkeletonInput } from "../skeletons/SkeletonInput.js";
 import { SkeletonRadioButtonGroup } from "../skeletons/SkeletonRadioButtonGroup.js";
-import { SkeletonTable, SkeletonTableHeader, SkeletonTableRow } from "../skeletons/SkeletonTable.js";
+import {
+    SkeletonTable,
+    SkeletonTableHeader,
+    SkeletonTableRow,
+} from "../skeletons/SkeletonTable.js";
 import { SkeletonTextArea } from "../skeletons/SkeletonTextArea.js";
 
 export const knobs: ExampleKnobsProps = {};
@@ -35,10 +39,17 @@ export const SkeletonLoaderExample: FC<ExampleComponentProps> = () => {
                     {Array.from(Array(5)).map((_, index) => (
                         <SkeletonTableRow key={index}>
                             <div style={{ width: 215 }}>
-                                <SkeletonElement width={index % 2 ? 115 : 185} height={19} />
+                                <SkeletonElement
+                                    width={index % 2 ? 115 : 185}
+                                    height={19}
+                                />
                             </div>
                             <div style={{ width: 115 }}>
-                                <SkeletonElement width={24} height={24} shape="circle" />
+                                <SkeletonElement
+                                    width={24}
+                                    height={24}
+                                    shape="circle"
+                                />
                             </div>
                         </SkeletonTableRow>
                     ))}

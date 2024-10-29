@@ -5,7 +5,10 @@ const WillChange: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <button className="jkl-button jkl-button--secondary jkl-spacing-l--left" onClick={() => setIsOpen(!isOpen)}>
+            <button
+                className="jkl-button jkl-button--secondary jkl-spacing-l--left"
+                onClick={() => setIsOpen(!isOpen)}
+            >
                 Endre status
             </button>
             <p className="jkl-spacing-l--top jkl-body">
@@ -28,7 +31,10 @@ const MutationObserverExample: FC = () => {
         ]);
     };
 
-    useMutationObserver(mutationTargetRef, onObservation, { characterData: true, subtree: true });
+    useMutationObserver(mutationTargetRef, onObservation, {
+        characterData: true,
+        subtree: true,
+    });
 
     return (
         <section>
@@ -45,7 +51,10 @@ const MutationObserverExample: FC = () => {
                     ))}
                 </ul>
             )}
-            <button className="jkl-button jkl-button--tertiary" onClick={() => appendToMutationList([])}>
+            <button
+                className="jkl-button jkl-button--tertiary"
+                onClick={() => appendToMutationList([])}
+            >
                 Nullstill liste
             </button>
         </section>

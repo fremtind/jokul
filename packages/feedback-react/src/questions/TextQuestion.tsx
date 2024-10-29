@@ -42,7 +42,9 @@ export const TextQuestion: React.FC<QuestionProps> = ({
     );
 
     if (!context) {
-        console.error("Questions must be used inside a Followup or Feedback context provider");
+        console.error(
+            "Questions must be used inside a Followup or Feedback context provider",
+        );
         return null;
     }
 

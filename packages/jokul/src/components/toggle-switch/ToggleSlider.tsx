@@ -1,5 +1,11 @@
 import clsx from "clsx";
-import React, { FC, Fragment, MouseEventHandler, useRef, useState } from "react";
+import React, {
+    FC,
+    Fragment,
+    MouseEventHandler,
+    useRef,
+    useState,
+} from "react";
 import { Density, WithChildren } from "../../core/types.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { useSwipeGesture } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
@@ -44,7 +50,10 @@ export const ToggleSlider: FC<Props> = ({
         onToggle(value);
     };
 
-    const { gestureHandlers } = useSwipeGesture<HTMLDivElement>({ onClick: handleClick, onChange: handleChange });
+    const { gestureHandlers } = useSwipeGesture<HTMLDivElement>({
+        onClick: handleClick,
+        onChange: handleChange,
+    });
     const { onClick, ...swipeHandlers } = gestureHandlers;
 
     if (process.env.NODE_ENV !== "production") {
@@ -84,7 +93,8 @@ export const ToggleSlider: FC<Props> = ({
                         />
                         <label
                             className={clsx("jkl-toggle-slider__label", {
-                                "jkl-toggle-slider__label--selected": label === currentLabel,
+                                "jkl-toggle-slider__label--selected":
+                                    label === currentLabel,
                             })}
                             ref={label === currentLabel ? activeRef : undefined}
                             htmlFor={`${label}-${id}`}
@@ -93,7 +103,11 @@ export const ToggleSlider: FC<Props> = ({
                         </label>
                     </Fragment>
                 ))}
-                <span className="jkl-toggle-slider__pill" style={pillStyles} aria-hidden />
+                <span
+                    className="jkl-toggle-slider__pill"
+                    style={pillStyles}
+                    aria-hidden
+                />
             </div>
         </fieldset>
     );

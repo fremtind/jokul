@@ -4,11 +4,18 @@ import { ExampleComponentProps } from "../../../doc-utils";
 import { Button } from "../src";
 import { IconPosition } from "../src/types";
 
-export const Primary: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const Primary: React.FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const [showLoader, setShowLoader] = useState(false);
     const icon = boolValues?.["icon"] || false;
-    const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
-    const iconPosition = (choiceValues?.["iconPosition"] || "left") as IconPosition;
+    const loader = {
+        showLoader: showLoader || !!boolValues?.["isLoading"],
+        textDescription: "Laster innhold",
+    };
+    const iconPosition = (choiceValues?.["iconPosition"] ||
+        "left") as IconPosition;
 
     const iconProps =
         icon || !boolValues?.["label"]
@@ -29,7 +36,9 @@ export const Primary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
     return (
         <Button
             variant="primary"
-            loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
+            loader={
+                showLoader || !!boolValues?.["withLoader"] ? loader : undefined
+            }
             onClick={simulateLoading}
             {...iconProps}
         >
@@ -38,14 +47,18 @@ export const Primary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVal
     );
 };
 
-export const primaryCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
+export const primaryCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => {
     const label = boolValues?.["label"]
         ? `
     Lagre og send inn
 `
         : "";
     const icon = boolValues?.["icon"] || false;
-    const iconPosition = (choiceValues?.["iconPosition"] || "left") as IconPosition;
+    const iconPosition = (choiceValues?.["iconPosition"] ||
+        "left") as IconPosition;
     const iconProps =
         icon || !boolValues?.["label"]
             ? `

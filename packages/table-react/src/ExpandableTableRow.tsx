@@ -1,7 +1,10 @@
 import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
 import cx from "classnames";
 import React, { forwardRef, useEffect, useState } from "react";
-import { ExpandableTableRowController, ExpandableTableRowControllerProps } from "./ExpandableTableRowController";
+import {
+    ExpandableTableRowController,
+    ExpandableTableRowControllerProps,
+} from "./ExpandableTableRowController";
 import type { TableRowProps } from "./TableRow";
 import { TableRow } from "./TableRow";
 
@@ -19,7 +22,10 @@ export interface ExpandableTableRowProps extends TableRowProps {
     onToggle?: (isOpen: boolean) => void;
 }
 
-const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowProps>((props, ref) => {
+const ExpandableTableRow = forwardRef<
+    HTMLTableRowElement,
+    ExpandableTableRowProps
+>((props, ref) => {
     const {
         className,
         clickable,
@@ -39,7 +45,9 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
         setIsOpen(isOpenProp);
     }, [isOpenProp]);
 
-    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, { timing: "expressive" });
+    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, {
+        timing: "expressive",
+    });
 
     const toggleOpen = () => {
         const newIsOpen = !isOpen;
@@ -60,7 +68,9 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
     });
 
     const tableRowId = useId("jkl-expandable-table-row");
-    const expandableTableRowControllerId = useId("jkl-expandable-table-row-controller");
+    const expandableTableRowControllerId = useId(
+        "jkl-expandable-table-row-controller",
+    );
 
     return (
         <>
@@ -76,15 +86,20 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
             >
                 {React.Children.map(children, (child) => {
                     if (
-                        React.isValidElement<ExpandableTableRowControllerProps>(child) &&
+                        React.isValidElement<ExpandableTableRowControllerProps>(
+                            child,
+                        ) &&
                         child.type == ExpandableTableRowController
                     ) {
-                        return React.cloneElement<ExpandableTableRowControllerProps>(child, {
-                            isOpen,
-                            onClick: () => toggleOpen(),
-                            "aria-controls": tableRowId,
-                            id: expandableTableRowControllerId,
-                        });
+                        return React.cloneElement<ExpandableTableRowControllerProps>(
+                            child,
+                            {
+                                isOpen,
+                                onClick: () => toggleOpen(),
+                                "aria-controls": tableRowId,
+                                id: expandableTableRowControllerId,
+                            },
+                        );
                     } else {
                         return child;
                     }

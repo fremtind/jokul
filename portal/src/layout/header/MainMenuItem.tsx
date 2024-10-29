@@ -10,7 +10,13 @@ interface Props extends WithChildren {
     onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export const MainMenuItem: React.FC<Props> = ({ children, label, isActive, isOpen, onClick }) => {
+export const MainMenuItem: React.FC<Props> = ({
+    children,
+    label,
+    isActive,
+    isOpen,
+    onClick,
+}) => {
     const [menuRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
 
     return (
@@ -38,7 +44,10 @@ export const MainMenuItem: React.FC<Props> = ({ children, label, isActive, isOpe
                 hidden={!isOpen}
             >
                 <div className="jkl-portal-main-menu__menu-wrapper">
-                    <ul className="jkl-portal-main-menu__menu-items" role="menu">
+                    <ul
+                        className="jkl-portal-main-menu__menu-items"
+                        role="menu"
+                    >
                         {children}
                     </ul>
                 </div>

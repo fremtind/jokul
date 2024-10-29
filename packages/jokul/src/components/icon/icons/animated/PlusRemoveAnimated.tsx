@@ -32,7 +32,10 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
         <PlusIcon
             variant={variant}
             bold={bold}
-            className={clsx("jkl-icons-animated__plus", `jkl-icons-animated__plus--${isPlus ? "plus" : "close"}`)}
+            className={clsx(
+                "jkl-icons-animated__plus",
+                `jkl-icons-animated__plus--${isPlus ? "plus" : "close"}`,
+            )}
         />
     </div>
 );

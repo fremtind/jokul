@@ -5,7 +5,13 @@ import { useFollowUpContext } from "../followup/followupContext.js";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
 import { FeedbackOption, QuestionProps } from "../types.js";
 
-export const CheckboxQuestion: React.FC<QuestionProps> = ({ label, name, options, helpLabel, autoFocus = false }) => {
+export const CheckboxQuestion: React.FC<QuestionProps> = ({
+    label,
+    name,
+    options,
+    helpLabel,
+    autoFocus = false,
+}) => {
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
     const context = followupContext || feedbackContext;
@@ -19,7 +25,9 @@ export const CheckboxQuestion: React.FC<QuestionProps> = ({ label, name, options
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
         const { value } = event.target;
-        const matchingOption = options?.find((option) => option.value.toString() === value);
+        const matchingOption = options?.find(
+            (option) => option.value.toString() === value,
+        );
         if (!matchingOption) return;
 
         if (!context?.currentValue) {
@@ -28,24 +36,37 @@ export const CheckboxQuestion: React.FC<QuestionProps> = ({ label, name, options
         }
 
         if (Array.isArray(context?.currentValue)) {
-            const found = context.currentValue.find((option) => option === matchingOption);
+            const found = context.currentValue.find(
+                (option) => option === matchingOption,
+            );
             if (found) {
                 context.setCurrentValue((oldValues) =>
-                    (oldValues as FeedbackOption[]).filter((option) => option !== found),
+                    (oldValues as FeedbackOption[]).filter(
+                        (option) => option !== found,
+                    ),
                 );
             } else {
-                context.setCurrentValue((oldValues) => [...(oldValues as FeedbackOption[]), matchingOption]);
+                context.setCurrentValue((oldValues) => [
+                    ...(oldValues as FeedbackOption[]),
+                    matchingOption,
+                ]);
             }
         }
     };
 
     if (!context) {
-        console.error("Questions must be used inside a Followup or Feedback context provider");
+        console.error(
+            "Questions must be used inside a Followup or Feedback context provider",
+        );
         return null;
     }
 
     return (
-        <FieldGroup labelProps={{ variant: "large" }} legend={label} helpLabel={helpLabel}>
+        <FieldGroup
+            labelProps={{ variant: "large" }}
+            legend={label}
+            helpLabel={helpLabel}
+        >
             {options?.map((option, i) => (
                 <Checkbox
                     key={`${label}-${option.value}`}

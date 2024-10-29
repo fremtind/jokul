@@ -16,9 +16,14 @@ type FormatKontonummerOptions = {
  * @param options Angi at verdien er et ufullstendig kontonummer og likevel skal formateres.
  * @returns Den formaterte verdien
  */
-export function formatKontonummer(input: string, options?: FormatKontonummerOptions) {
+export function formatKontonummer(
+    input: string,
+    options?: FormatKontonummerOptions,
+) {
     const strippedInput = input.replace(/\W/g, "");
-    const regex = options?.partial ? KONTONUMMER_REGEX.partial : KONTONUMMER_REGEX.full;
+    const regex = options?.partial
+        ? KONTONUMMER_REGEX.partial
+        : KONTONUMMER_REGEX.full;
 
     const match = strippedInput.match(regex);
 

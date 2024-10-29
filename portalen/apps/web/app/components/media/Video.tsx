@@ -5,7 +5,8 @@ import cn from "classnames";
 import React, { type FC, type VideoHTMLAttributes } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-export interface VideoProps extends Omit<VideoHTMLAttributes<HTMLVideoElement>, "src" | "playsInline"> {
+export interface VideoProps
+    extends Omit<VideoHTMLAttributes<HTMLVideoElement>, "src" | "playsInline"> {
     src: string | Media;
     srcDark?: string | Media;
     /**
@@ -20,7 +21,12 @@ export interface VideoProps extends Omit<VideoHTMLAttributes<HTMLVideoElement>, 
 /**
  * Komponent for å vise videoer fra Media-collection i CMSet, eller fra en URL.
  */
-export const Video: FC<VideoProps> = ({ className, src, onlyPlayOnHover = false, ...videoProps }) => {
+export const Video: FC<VideoProps> = ({
+    className,
+    src,
+    onlyPlayOnHover = false,
+    ...videoProps
+}) => {
     const { prefersReducedMotion } = useBrowserPreferences();
     const useAutoPlay = !prefersReducedMotion && videoProps.autoPlay;
     const video = useRef<HTMLVideoElement>(null);
@@ -64,7 +70,9 @@ export const Video: FC<VideoProps> = ({ className, src, onlyPlayOnHover = false,
             >
                 <source
                     src={typeof src === "string" ? src : src.url || ""}
-                    type={typeof src === "string" ? undefined : src.mimeType || ""}
+                    type={
+                        typeof src === "string" ? undefined : src.mimeType || ""
+                    }
                 />
                 {/* Chrome was refusing to play a Quicktime video when a
                  * source type was provided. Just in case other browsers
@@ -73,7 +81,10 @@ export const Video: FC<VideoProps> = ({ className, src, onlyPlayOnHover = false,
                 <source src={typeof src === "string" ? src : src.url || ""} />
             </video>
             {!onlyPlayOnHover && (
-                <button onClick={togglePlaying} className="jkl-portal-video__pause-button">
+                <button
+                    onClick={togglePlaying}
+                    className="jkl-portal-video__pause-button"
+                >
                     {/* TODO: Fiks ordentlige ikoner for disse */}
                     {isPlaying ? "⏸️" : "▶️"}
                 </button>

@@ -1,5 +1,8 @@
 import React from "react";
-import { LiveEditor as ReactLiveEditor, type LiveEditorProps as ReactLiveEditorProps } from "react-live";
+import {
+    LiveEditor as ReactLiveEditor,
+    type LiveEditorProps as ReactLiveEditorProps,
+} from "react-live";
 import { useBrowserPreferences } from "../../packages/jokul/src/hooks";
 import jokulDark from "./themeDark";
 import jokulLight from "./themeLight";

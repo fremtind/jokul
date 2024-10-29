@@ -7,7 +7,10 @@ import { formatNumber, FormatNumberOptions } from "../util/formatNumber.js";
  * @param options Innstillinger for formateringen. Se https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options for detaljer.
  * @returns Den formaterte verdien
  */
-export function formatBytes(bytes: number, options?: FormatNumberOptions): string {
+export function formatBytes(
+    bytes: number,
+    options?: FormatNumberOptions,
+): string {
     if (bytes >= 100000) {
         return `${formatNumber(Number(bytes / 1000 / 1000), {
             maximumFractionDigits: 1,

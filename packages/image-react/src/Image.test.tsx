@@ -30,7 +30,10 @@ describe("Image", () => {
         const image = screen.getByTestId("jkl-image__image");
 
         expect(image).toHaveAttribute("src", "test.jpg");
-        expect(image).toHaveAttribute("srcSet", "test400.jpg 400w, test800.jpg 800w");
+        expect(image).toHaveAttribute(
+            "srcSet",
+            "test400.jpg 400w, test800.jpg 800w",
+        );
     });
 
     it("accepts alt text", () => {
@@ -43,7 +46,13 @@ describe("Image", () => {
     });
 
     test("is a11y compliant", async () => {
-        const { container } = render(<Image src="test.jpg" srcSet="test400.jpg 400w, test800.jpg 800w" alt="" />);
+        const { container } = render(
+            <Image
+                src="test.jpg"
+                srcSet="test400.jpg 400w, test800.jpg 800w"
+                alt=""
+            />,
+        );
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();

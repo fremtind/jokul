@@ -9,13 +9,18 @@ import { useCookieConsentState } from "./CookieConsentContext.js";
 import { convertBooleanConsentObjectToConsentObject } from "./cookieConsentUtils.js";
 import { Consent, ConsentComponentBaseProps } from "./types.js";
 
-export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept, ...rest }) => {
+export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({
+    onAccept,
+    ...rest
+}) => {
     const { isOpen, requirement, showSettings } = useCookieConsentState();
 
     const handleAccept = useCallback(
         (v: Consent | "implicit") => {
             if (v === "implicit") {
-                onAccept(convertBooleanConsentObjectToConsentObject(requirement));
+                onAccept(
+                    convertBooleanConsentObjectToConsentObject(requirement),
+                );
             } else {
                 onAccept(v);
             }
@@ -50,12 +55,22 @@ export const CookieConsentModal: FC<ConsentComponentBaseProps> = ({ onAccept, ..
     }
 
     return ReactDOM.createPortal(
-        <ModalContainer {...rest} {...modalConfig.container} data-testautoid="jkl-cookie-consent-modal">
+        <ModalContainer
+            {...rest}
+            {...modalConfig.container}
+            data-testautoid="jkl-cookie-consent-modal"
+        >
             <ModalOverlay {...modalConfig.overlay} />
             {showSettings ? (
-                <CustomConsents modalConfig={modalConfig} handleAccept={handleAccept} />
+                <CustomConsents
+                    modalConfig={modalConfig}
+                    handleAccept={handleAccept}
+                />
             ) : (
-                <DefaultConsents modalConfig={modalConfig} handleAccept={handleAccept} />
+                <DefaultConsents
+                    modalConfig={modalConfig}
+                    handleAccept={handleAccept}
+                />
             )}
         </ModalContainer>,
         document.body,

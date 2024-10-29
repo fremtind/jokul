@@ -12,8 +12,17 @@ export const DocPageLayout = ({ location, data, pageContext, children }) => {
     const { types } = pageContext; // Fra context i gatsby-node
 
     return (
-        <MainContent className={location.pathname === "/profil/bildebruk" ? "jkl-portal__main--no-margin" : undefined}>
-            <ComponentPageHeader {...frontmatter} versions={pageContext.versions} />
+        <MainContent
+            className={
+                location.pathname === "/profil/bildebruk"
+                    ? "jkl-portal__main--no-margin"
+                    : undefined
+            }
+        >
+            <ComponentPageHeader
+                {...frontmatter}
+                versions={pageContext.versions}
+            />
             <BlogPageHeader {...frontmatter} />
             {children}
             {types && <APIDocumentation types={types} />}

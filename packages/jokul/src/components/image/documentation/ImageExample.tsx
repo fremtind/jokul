@@ -14,9 +14,12 @@ const responsiveImage = {
     placeholder: thumbnail,
 };
 
-export const ImageExample: React.FC<ExampleComponentProps> = ({ choiceValues }) => {
+export const ImageExample: React.FC<ExampleComponentProps> = ({
+    choiceValues,
+}) => {
     const [show, toggleShow] = useState(false);
-    const className = choiceValues?.["Størrelsesforhold"] === "fast" ? "static" : "fluid";
+    const className =
+        choiceValues?.["Størrelsesforhold"] === "fast" ? "static" : "fluid";
 
     return (
         <div className="example-img-wrapper">

@@ -3,7 +3,10 @@ import { Feedback } from "./Feedback.js";
 import { defaultOptions as smileyOptions } from "./questions/smileyUtils.js";
 
 type FeedbackProps = ComponentProps<typeof Feedback>;
-type PresetProperties = Pick<FeedbackProps, "label" | "type" | "options" | "addOnQuestion">;
+type PresetProperties = Pick<
+    FeedbackProps,
+    "label" | "type" | "options" | "addOnQuestion"
+>;
 
 const smileyQuestion: PresetProperties = {
     type: "smiley",
@@ -20,12 +23,14 @@ export const PRESETS: Record<string, PresetProperties> = {
             {
                 label: "Ja",
                 value: "ja",
-                textAreaLabel: "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
+                textAreaLabel:
+                    "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
             },
             {
                 label: "Nei",
                 value: "nei",
-                textAreaLabel: "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
+                textAreaLabel:
+                    "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
             },
         ],
         addOnQuestion: true,
@@ -37,12 +42,14 @@ export const PRESETS: Record<string, PresetProperties> = {
             {
                 label: "Ja",
                 value: "ja",
-                textAreaLabel: "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
+                textAreaLabel:
+                    "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
             },
             {
                 label: "Nei",
                 value: "nei",
-                textAreaLabel: "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
+                textAreaLabel:
+                    "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
             },
         ],
         addOnQuestion: true,

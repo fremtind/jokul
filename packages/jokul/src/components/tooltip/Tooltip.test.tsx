@@ -22,10 +22,16 @@ describe("Tooltip", () => {
 
         const user = userEvent.setup();
         const tooltipTrigger = screen.queryByText(/Tekst som skal forklares/);
-        expect(screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" })).not.toBeInTheDocument();
+        expect(
+            screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" }),
+        ).not.toBeInTheDocument();
 
         await user.hover(tooltipTrigger as HTMLElement);
-        await waitFor(() => expect(screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" })).toBeVisible());
+        await waitFor(() =>
+            expect(
+                screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" }),
+            ).toBeVisible(),
+        );
     });
 
     it("should NOT show tooltip on hover when triggerOn is 'click'", async () => {
@@ -41,7 +47,10 @@ describe("Tooltip", () => {
         expect(screen.queryByText(/Forklarende tekst/)).not.toBeInTheDocument();
 
         await user.hover(tooltipTrigger as HTMLElement);
-        () => expect(screen.queryByText(/Forklarende tekst/)).not.toBeInTheDocument();
+        () =>
+            expect(
+                screen.queryByText(/Forklarende tekst/),
+            ).not.toBeInTheDocument();
     });
 
     it("should show tooltip on click when triggerOn is 'click'", async () => {
@@ -57,7 +66,9 @@ describe("Tooltip", () => {
         expect(screen.queryByText(/Forklarende tekst/)).not.toBeInTheDocument();
 
         await user.click(tooltipTrigger as HTMLElement);
-        await waitFor(() => expect(screen.queryByText(/Forklarende tekst/)).toBeVisible());
+        await waitFor(() =>
+            expect(screen.queryByText(/Forklarende tekst/)).toBeVisible(),
+        );
     });
 
     describe("Trigger", () => {
@@ -68,7 +79,9 @@ describe("Tooltip", () => {
                 </Tooltip>,
             );
 
-            const tooltipTrigger = screen.queryByText(/Tekst som skal forklares/);
+            const tooltipTrigger = screen.queryByText(
+                /Tekst som skal forklares/,
+            );
             expect(tooltipTrigger).toBeVisible();
         });
 
@@ -79,7 +92,9 @@ describe("Tooltip", () => {
                 </Tooltip>,
             );
 
-            const tooltipTrigger = screen.queryByText(/Tekst som skal forklares/);
+            const tooltipTrigger = screen.queryByText(
+                /Tekst som skal forklares/,
+            );
             expect(tooltipTrigger?.tagName).toBe("BUTTON");
         });
 
@@ -92,7 +107,9 @@ describe("Tooltip", () => {
                 </Tooltip>,
             );
 
-            const tooltipTrigger = screen.queryByText(/Tekst som skal forklares/);
+            const tooltipTrigger = screen.queryByText(
+                /Tekst som skal forklares/,
+            );
             expect(tooltipTrigger?.tagName).toBe("P");
         });
     });
@@ -105,7 +122,9 @@ describe("Tooltip", () => {
                 </Tooltip>,
             );
 
-            const tooltipContent = screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" });
+            const tooltipContent = screen.queryByText(/Forklarende tekst/, {
+                ignore: "[hidden]",
+            });
             expect(tooltipContent).toBeInTheDocument();
         });
     });

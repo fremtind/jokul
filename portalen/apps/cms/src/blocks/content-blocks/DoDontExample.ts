@@ -42,7 +42,9 @@ export const DoDontExample: Block = {
                     label: "Eksempelkode",
                     required: false,
                     admin: {
-                        condition: (_, siblingData) => siblingData.variant && siblingData.variant === "code",
+                        condition: (_, siblingData) =>
+                            siblingData.variant &&
+                            siblingData.variant === "code",
                     },
                     hooks: {
                         beforeValidate: [
@@ -60,8 +62,11 @@ export const DoDontExample: Block = {
                     defaultValue: false,
                     label: "Tillat kode utover rene komponenter",
                     admin: {
-                        description: "F. eks. state. Se dokumentasjon fra React Live for mer info",
-                        condition: (_, siblingData) => siblingData.variant && siblingData.variant === "code",
+                        description:
+                            "F. eks. state. Se dokumentasjon fra React Live for mer info",
+                        condition: (_, siblingData) =>
+                            siblingData.variant &&
+                            siblingData.variant === "code",
                     },
                 },
                 {
@@ -70,7 +75,9 @@ export const DoDontExample: Block = {
                     type: "upload",
                     relationTo: "media",
                     admin: {
-                        condition: (_, siblingData) => siblingData.variant && siblingData.variant === "image",
+                        condition: (_, siblingData) =>
+                            siblingData.variant &&
+                            siblingData.variant === "image",
                     },
                 },
                 {

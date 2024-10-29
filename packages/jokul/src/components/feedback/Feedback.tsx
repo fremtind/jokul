@@ -1,4 +1,9 @@
-import React, { ComponentProps, ReactElement, ReactNode, useState } from "react";
+import React, {
+    ComponentProps,
+    ReactElement,
+    ReactNode,
+    useState,
+} from "react";
 import { BaseTextAreaProps } from "../text-input/BaseTextArea.js";
 import { FeedbackContextProvider } from "./feedbackContext.js";
 import { Followup } from "./followup/Followup.js";
@@ -67,7 +72,10 @@ export const Feedback = ({
     const [contactSubmitted, setContactSubmitted] = useState(false);
 
     return (
-        <div className={`jkl-feedback ${className || ""}`} data-testid="feedback">
+        <div
+            className={`jkl-feedback ${className || ""}`}
+            data-testid="feedback"
+        >
             <FeedbackContextProvider
                 value={{
                     feedbackSubmitted,
@@ -83,11 +91,14 @@ export const Feedback = ({
                 }}
             >
                 {!followupStarted && <MainQuestion {...mainQuestionProps} />}
-                {feedbackSubmitted && !contactSubmitted && followup && <Followup {...followup} />}
+                {feedbackSubmitted && !contactSubmitted && followup && (
+                    <Followup {...followup} />
+                )}
                 {contactQuestion && (
                     <div aria-live="polite">
                         {/* Show contact question after followup, or after feedback if no followup */}
-                        {((!followup && feedbackSubmitted) || followupSubmitted) && (
+                        {((!followup && feedbackSubmitted) ||
+                            followupSubmitted) && (
                             <ContactQuestion {...contactQuestion} />
                         )}
                     </div>

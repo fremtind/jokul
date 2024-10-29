@@ -28,9 +28,20 @@ export const ArrowHorizontalAnimated: FC<ArrowHorizontalAnimatedProps> = ({
             className,
         )}
     >
-        <div className="jkl-animated-horizontal-arrows__slider" data-show={pointingRight ? "right" : "left"}>
-            <ArrowLeftIcon className="jkl-animated-horizontal-arrows__arrow" variant={variant} bold={bold} />
-            <ArrowRightIcon className="jkl-animated-horizontal-arrows__arrow" variant={variant} bold={bold} />
+        <div
+            className="jkl-animated-horizontal-arrows__slider"
+            data-show={pointingRight ? "right" : "left"}
+        >
+            <ArrowLeftIcon
+                className="jkl-animated-horizontal-arrows__arrow"
+                variant={variant}
+                bold={bold}
+            />
+            <ArrowRightIcon
+                className="jkl-animated-horizontal-arrows__arrow"
+                variant={variant}
+                bold={bold}
+            />
         </div>
     </div>
 );

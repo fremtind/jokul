@@ -42,7 +42,12 @@ export const Label: FC<LabelProps> = ({
     }
 
     return (
-        <C {...rest} className={labelClassNames} htmlFor={htmlFor} data-density={density}>
+        <C
+            {...rest}
+            className={labelClassNames}
+            htmlFor={htmlFor}
+            data-density={density}
+        >
             {children}
         </C>
     );

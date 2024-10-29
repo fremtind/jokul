@@ -37,4 +37,7 @@ export * from "./text-input/index.js";
 export * from "./toast/index.js";
 export * from "./toggle-switch/index.js";
 export * from "./tooltip/index.js";
-export { ScreenReaderOnly, type ScreenReaderOnlyProps } from "./ScreenReaderOnly.js";
+export {
+    ScreenReaderOnly,
+    type ScreenReaderOnlyProps,
+} from "./ScreenReaderOnly.js";

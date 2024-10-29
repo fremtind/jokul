@@ -27,6 +27,10 @@ describe("isValidChassisnummer", () => {
     it("should return false for strings neither 9 nor 17 characters long", () => {
         expect(isValidChassisnummer("")).toBe(false);
         expect(isValidChassisnummer("short")).toBe(false);
-        expect(isValidChassisnummer("longstringisloooooooooooooooooooooooooooooooooooooooooong")).toBe(false);
+        expect(
+            isValidChassisnummer(
+                "longstringisloooooooooooooooooooooooooooooooooooooooooong",
+            ),
+        ).toBe(false);
     });
 });

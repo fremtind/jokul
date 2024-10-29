@@ -108,12 +108,17 @@ export function useNavigationLinks(): NavigationLinks {
             }
         }
     `);
-    const pages: DocumentationPageInfo[] = allMdx.edges.map((edge: RawDocumentationPage) => ({
-        ...edge.node.frontmatter,
-        path: edge.node.frontmatter.path || edge.node.fields.path,
-    }));
+    const pages: DocumentationPageInfo[] = allMdx.edges.map(
+        (edge: RawDocumentationPage) => ({
+            ...edge.node.frontmatter,
+            path: edge.node.frontmatter.path || edge.node.fields.path,
+        }),
+    );
 
-    const sortByOrder = (a: DocumentationPageInfo, b: DocumentationPageInfo) => {
+    const sortByOrder = (
+        a: DocumentationPageInfo,
+        b: DocumentationPageInfo,
+    ) => {
         if (a.order && b.order) {
             return parseInt(a.order) - parseInt(b.order);
         }
@@ -137,15 +142,21 @@ export function useNavigationLinks(): NavigationLinks {
         .filter((page: DocumentationPageInfo) => page.path.includes("/profil/"))
         .sort(sortByOrder);
     const uuDocPages = pages
-        .filter((page: DocumentationPageInfo) => page.path.includes("/universell-utforming/"))
+        .filter((page: DocumentationPageInfo) =>
+            page.path.includes("/universell-utforming/"),
+        )
         .sort(sortByOrder);
     const guiderDocPages = pages
         .filter((page: DocumentationPageInfo) => page.path.includes("/guider/"))
         .sort(sortByOrder);
-    const componentDocPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("/komponenter/"));
+    const componentDocPages = pages.filter((page: DocumentationPageInfo) =>
+        page.path.includes("/komponenter/"),
+    );
     const componentGroup = allMdx.distinct;
 
-    const blogPages = pages.filter((page: DocumentationPageInfo) => page.path.includes("/blog/")).sort(sortByDate);
+    const blogPages = pages
+        .filter((page: DocumentationPageInfo) => page.path.includes("/blog/"))
+        .sort(sortByDate);
 
     const getStartedDocPages = [
         {

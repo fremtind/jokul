@@ -14,19 +14,31 @@ export const radioButtonExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const RadioButtonExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const choices = ["Send en e-post", "Ring meg", "Send et brev til folkeregistrert adresse"];
+export const RadioButtonExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
+    const choices = [
+        "Send en e-post",
+        "Ring meg",
+        "Send et brev til folkeregistrert adresse",
+    ];
     const [selectedValue, setSelectedValue] = React.useState("Yes");
 
-    const helpLabel = boolValues?.["Med hjelpetekst"] ? "Ved å velge e-post får du beskjed raskest mulig" : undefined;
+    const helpLabel = boolValues?.["Med hjelpetekst"]
+        ? "Ved å velge e-post får du beskjed raskest mulig"
+        : undefined;
     const errorLabel = boolValues?.["Med feil"]
         ? "Du må velge hvordan du vil bli kontaktet. Ved å velge e-post får du beskjed raskest mulig."
         : undefined;
-    const variant = choiceValues?.["Variant"] ? (choiceValues["Variant"] as LabelVariant) : "medium";
+    const variant = choiceValues?.["Variant"]
+        ? (choiceValues["Variant"] as LabelVariant)
+        : "medium";
 
     const tooltip = boolValues?.["Med tooltip"]
         ? {
-              content: "Dette burde kanskje vært en FieldGroup med Checkbox, og ikke en RadioButtonGroup? 🤔",
+              content:
+                  "Dette burde kanskje vært en FieldGroup med Checkbox, og ikke en RadioButtonGroup? 🤔",
           }
         : undefined;
 
@@ -50,7 +62,10 @@ export const RadioButtonExample: FC<ExampleComponentProps> = ({ boolValues, choi
     );
 };
 
-export const radioButtonExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const radioButtonExampleCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => `
 <RadioButtonGroup
     legend="Hvordan vil du bli kontaktet?"
     name="kontaktmetode"

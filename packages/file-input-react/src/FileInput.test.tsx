@@ -30,13 +30,20 @@ describe("FileInput", () => {
         );
 
         expect(getByText("Legg til fil")).toBeInTheDocument();
-        expect(queryByText(/^Maksimum filstørrelse er/)).not.toBeInTheDocument();
+        expect(
+            queryByText(/^Maksimum filstørrelse er/),
+        ).not.toBeInTheDocument();
     });
 
     it("should render hint about max size if given one", () => {
         const onChange = jest.fn();
         const { getByText } = setup(
-            <FileInput legend="Vedlegg" onChange={onChange} value={files} maxSizeBytes={8_000_000}>
+            <FileInput
+                legend="Vedlegg"
+                onChange={onChange}
+                value={files}
+                maxSizeBytes={8_000_000}
+            >
                 {files.map((file) => (
                     <File
                         key={file.file.name}

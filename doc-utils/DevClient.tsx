@@ -19,7 +19,10 @@ const defaults: HydrateClientOptions = {
     rootId: "app",
 };
 
-export function hydrateClient(rootComponent: React.ReactElement, options = defaults) {
+export function hydrateClient(
+    rootComponent: React.ReactElement,
+    options = defaults,
+) {
     const opts = { ...defaults, ...options };
 
     initTabListener();
@@ -31,6 +34,8 @@ export function hydrateClient(rootComponent: React.ReactElement, options = defau
     if (root) {
         hydrateRoot(root, rootComponent);
     } else {
-        throw new Error(`No element found with ID ${opts.rootId} – hydration failed`);
+        throw new Error(
+            `No element found with ID ${opts.rootId} – hydration failed`,
+        );
     }
 }

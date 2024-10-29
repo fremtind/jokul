@@ -13,12 +13,17 @@ const tableSectionContext = createContext<TableSectionContext>({
     isTableFooter: false,
 });
 
-export const useTableSectionContext = (): TableSectionContext => useContext(tableSectionContext);
+export const useTableSectionContext = (): TableSectionContext =>
+    useContext(tableSectionContext);
 
 export interface TableSectionContextProviderProps extends WithChildren {
     state: TableSectionContext;
 }
 
-export const TableSectionContextProvider: React.FC<TableSectionContextProviderProps> = ({ state, children }) => (
-    <tableSectionContext.Provider value={state}>{children}</tableSectionContext.Provider>
+export const TableSectionContextProvider: React.FC<
+    TableSectionContextProviderProps
+> = ({ state, children }) => (
+    <tableSectionContext.Provider value={state}>
+        {children}
+    </tableSectionContext.Provider>
 );

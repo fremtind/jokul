@@ -7,8 +7,12 @@ import { TooltipTrigger } from "../TooltipTrigger.js";
 import { getPlacement } from "./getPlacement.js";
 
 export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
-    const initialPlacement: TooltipPlacement = getPlacement(choiceValues?.["Plassering"]);
-    const delay = choiceValues?.["Forsinkelse (ms)"] ? parseInt(choiceValues?.["Forsinkelse (ms)"]) : undefined;
+    const initialPlacement: TooltipPlacement = getPlacement(
+        choiceValues?.["Plassering"],
+    );
+    const delay = choiceValues?.["Forsinkelse (ms)"]
+        ? parseInt(choiceValues?.["Forsinkelse (ms)"])
+        : undefined;
     const [copied, setCopied] = useState(false);
     const kontonummer = "16024454979";
 
@@ -22,9 +26,15 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
         <p>
             Kontonummer:{" "}
             <Tooltip placement={initialPlacement} delay={delay}>
-                <TooltipTrigger onClick={copyToClipboard}>{formatKontonummer(kontonummer)}</TooltipTrigger>
+                <TooltipTrigger onClick={copyToClipboard}>
+                    {formatKontonummer(kontonummer)}
+                </TooltipTrigger>
                 <TooltipContent>
-                    {copied ? <span aria-live="assertive">Kopiert</span> : "Klikk for å kopiere til utklippstavlen"}
+                    {copied ? (
+                        <span aria-live="assertive">Kopiert</span>
+                    ) : (
+                        "Klikk for å kopiere til utklippstavlen"
+                    )}
                 </TooltipContent>
             </Tooltip>
         </p>

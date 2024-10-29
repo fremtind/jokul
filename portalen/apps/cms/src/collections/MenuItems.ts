@@ -39,13 +39,17 @@ export const MenuItems: CollectionConfig = {
                     label: "Slug",
                     required: true,
                     admin: {
-                        description: "Stien til siden. Fylles automatisk inn fra tittel hvis feltet er tomt.",
+                        description:
+                            "Stien til siden. Fylles automatisk inn fra tittel hvis feltet er tomt.",
                     },
                     // Feltet autoutfylles fra tittel hvis det er tomt,
                     // så vi lar alltid feltet være gyldig selv om det er påkrevd.
                     validate: () => true,
                     hooks: {
-                        beforeValidate: [({ value, siblingData }) => value || slugify(siblingData.title)],
+                        beforeValidate: [
+                            ({ value, siblingData }) =>
+                                value || slugify(siblingData.title),
+                        ],
                     },
                 },
             ],

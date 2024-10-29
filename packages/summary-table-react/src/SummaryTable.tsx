@@ -9,7 +9,14 @@ export interface Props {
     footer?: ReactNode;
 }
 
-export const SummaryTable: FC<Props> = ({ className, caption, header, body, footer, ...rest }) => {
+export const SummaryTable: FC<Props> = ({
+    className,
+    caption,
+    header,
+    body,
+    footer,
+    ...rest
+}) => {
     return (
         <table {...rest} className={cn("jkl-summary-table", className)}>
             {caption && <caption className="jkl-sr-only">{caption}</caption>}

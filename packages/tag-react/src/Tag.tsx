@@ -2,9 +2,15 @@ import { Density } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { CloseIcon } from "@fremtind/jkl-icons-react";
 import cx from "classnames";
-import React, { ButtonHTMLAttributes, FC, HTMLAttributes, MouseEventHandler } from "react";
+import React, {
+    ButtonHTMLAttributes,
+    FC,
+    HTMLAttributes,
+    MouseEventHandler,
+} from "react";
 
-export interface DismissAction extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
+export interface DismissAction
+    extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     label: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
 }
@@ -32,7 +38,13 @@ function getDisplayName(variant?: Variant) {
 }
 
 function tagFactory(variant?: Variant) {
-    const Tag: FC<TagProps> = ({ className, density, dismissAction, children, ...rest }) => (
+    const Tag: FC<TagProps> = ({
+        className,
+        density,
+        dismissAction,
+        children,
+        ...rest
+    }) => (
         <span
             className={cx(
                 "jkl-tag",

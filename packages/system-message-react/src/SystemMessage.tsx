@@ -35,16 +35,23 @@ function systemFactory(messageType: messageTypes): React.FC<Props> {
         children,
         ...rest
     }) => {
-        const systemId = useId(id || "jkl-system-message", { generateSuffix: !id });
+        const systemId = useId(id || "jkl-system-message", {
+            generateSuffix: !id,
+        });
 
         return (
             <div
                 role={role}
                 {...rest}
                 id={systemId}
-                className={cn("jkl-system-message", "jkl-system-message--" + messageType, className, {
-                    "jkl-system-message--dismissed": dismissed,
-                })}
+                className={cn(
+                    "jkl-system-message",
+                    "jkl-system-message--" + messageType,
+                    className,
+                    {
+                        "jkl-system-message--dismissed": dismissed,
+                    },
+                )}
                 data-density={density}
             >
                 <div
@@ -57,7 +64,9 @@ function systemFactory(messageType: messageTypes): React.FC<Props> {
                     }}
                 >
                     <MessageIcon messageType={messageType} />
-                    <span className="jkl-system-message__message">{children}</span>
+                    <span className="jkl-system-message__message">
+                        {children}
+                    </span>
                     {dismissAction?.handleDismiss && (
                         <DismissButton
                             aria-controls={systemId}

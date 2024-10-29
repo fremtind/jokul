@@ -1,14 +1,24 @@
 import * as core from "@actions/core";
 import { findChangedFiles } from "./git";
-import { toList, validateOutputInput, validatePatternsInput } from "./input-validation";
+import {
+    toList,
+    validateOutputInput,
+    validatePatternsInput,
+} from "./input-validation";
 
 async function run(): Promise<void> {
     try {
-        const patterns: string[] = toList(validatePatternsInput(core.getInput("patterns", { required: true })));
+        const patterns: string[] = toList(
+            validatePatternsInput(
+                core.getInput("patterns", { required: true }),
+            ),
+        );
         core.debug(`Got "patterns" ${patterns}`);
 
         const ignoreInput: string = core.getInput("ignore");
-        const ignore: string[] | undefined = ignoreInput ? toList(core.getInput("ignore")) : undefined;
+        const ignore: string[] | undefined = ignoreInput
+            ? toList(core.getInput("ignore"))
+            : undefined;
 
         if (ignore) {
             core.debug(`Got "ignore" ${ignore}`);

@@ -11,8 +11,24 @@ export interface BaseRadioButtonProps extends RadioButtonProps {
     onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
-export const BaseRadioButton = forwardRef<HTMLInputElement, BaseRadioButtonProps>((props, ref) => {
-    const { id, className, checked, children, label, density, inline, invalid, name, value, onChange, ...rest } = props;
+export const BaseRadioButton = forwardRef<
+    HTMLInputElement,
+    BaseRadioButtonProps
+>((props, ref) => {
+    const {
+        id,
+        className,
+        checked,
+        children,
+        label,
+        density,
+        inline,
+        invalid,
+        name,
+        value,
+        onChange,
+        ...rest
+    } = props;
 
     const inputId = useId(id || "jkl-radio-button", { generateSuffix: !id });
 
@@ -35,9 +51,15 @@ export const BaseRadioButton = forwardRef<HTMLInputElement, BaseRadioButtonProps
                 value={value}
                 checked={checked}
             />
-            <label data-testid="jkl-radio-button__label-tag" htmlFor={inputId} className="jkl-radio-button__label">
+            <label
+                data-testid="jkl-radio-button__label-tag"
+                htmlFor={inputId}
+                className="jkl-radio-button__label"
+            >
                 <span aria-hidden className="jkl-radio-button__dot" />
-                <span className="jkl-radio-button__text">{label || children}</span>
+                <span className="jkl-radio-button__text">
+                    {label || children}
+                </span>
             </label>
         </div>
     );

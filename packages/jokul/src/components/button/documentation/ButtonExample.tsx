@@ -6,10 +6,15 @@ import { IconPosition } from "../types.js";
 
 export const knobs: ExampleKnobsProps = {
     boolProps: [{ prop: "label", defaultValue: true }, "icon"],
-    choiceProps: [{ name: "iconPosition", values: ["left", "right"], defaultValue: 0 }],
+    choiceProps: [
+        { name: "iconPosition", values: ["left", "right"], defaultValue: 0 },
+    ],
 };
 
-export const ButtonExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const ButtonExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     /* -- EXAMPLE CODE START -- */
     const [showLoader, setShowLoader] = useState(false);
 
@@ -21,7 +26,12 @@ export const ButtonExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
     }, []);
 
     const iconProps = (icon: React.ReactElement) =>
-        boolValues?.["icon"] ? { icon, iconPosition: choiceValues?.["iconPosition"] as IconPosition } : {};
+        boolValues?.["icon"]
+            ? {
+                  icon,
+                  iconPosition: choiceValues?.["iconPosition"] as IconPosition,
+              }
+            : {};
 
     return (
         <div className="flex flex-column gap-32 justify-between items-center">

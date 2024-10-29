@@ -7,5 +7,11 @@ import "./style.scss";
 import { primaryCode } from "./Primary";
 
 export default function Example() {
-    return <DevExample component={ButtonExample} knobs={buttonExampleKnobs} codeExample={primaryCode} />;
+    return (
+        <DevExample
+            component={ButtonExample}
+            knobs={buttonExampleKnobs}
+            codeExample={primaryCode}
+        />
+    );
 }

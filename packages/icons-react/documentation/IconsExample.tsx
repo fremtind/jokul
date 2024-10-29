@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../doc-utils";
 import { TextInput } from "../../text-input-react/src";
 import {
     CloseIcon,
@@ -83,8 +87,13 @@ const allIcons = [
     PenIcon,
 ];
 
-export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
-    const variant = choiceValues ? (choiceValues["Variant"] as IconVariant) : "small";
+export const IconsExample: React.FC<ExampleComponentProps> = ({
+    choiceValues,
+    boolValues,
+}) => {
+    const variant = choiceValues
+        ? (choiceValues["Variant"] as IconVariant)
+        : "small";
     const bold = boolValues?.["Bold"] || false;
 
     const [fontSize, setFontSize] = useState("1rem");
@@ -117,6 +126,8 @@ export const iconsExampleCode: CodeExample = ({ boolValues, choiceValues }) =>
     allIcons
         .map(
             (icon) =>
-                `<${icon.displayName} variant="${choiceValues?.["Variant"]}"${boolValues?.["Bold"] ? " bold" : ""} />`,
+                `<${icon.displayName} variant="${choiceValues?.["Variant"]}"${
+                    boolValues?.["Bold"] ? " bold" : ""
+                } />`,
         )
         .join("\n");

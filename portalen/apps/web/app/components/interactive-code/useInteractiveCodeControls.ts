@@ -23,7 +23,9 @@ export const useInteractiveCodeControls = (code: string, knobs: Knobs) => {
                 if (type === "bool" && knob.boolOptions) {
                     const active = boolValues[name];
 
-                    return active ? knob.boolOptions.trueValue : knob.boolOptions.falseValue;
+                    return active
+                        ? knob.boolOptions.trueValue
+                        : knob.boolOptions.falseValue;
                 } else if (type === "choice") {
                     const value = choiceValues[name];
 
@@ -44,7 +46,10 @@ export const useInteractiveCodeControls = (code: string, knobs: Knobs) => {
     );
 
     const boolProps: BoolProp[] = useMemo(
-        () => (knobs ?? []).filter((knob) => knob.type === "bool").map((knob) => knob.label),
+        () =>
+            (knobs ?? [])
+                .filter((knob) => knob.type === "bool")
+                .map((knob) => knob.label),
         [knobs],
     );
     const choiceProps: ChoiceProp[] = useMemo(

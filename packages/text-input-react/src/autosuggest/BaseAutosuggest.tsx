@@ -43,7 +43,9 @@ function BaseAutosuggest<T>({
     },
     noHits,
 }: BaseAutosuggestProps<T>): JSX.Element {
-    const uid = useId(inputId || "jkl-text-input", { generateSuffix: !inputId });
+    const uid = useId(inputId || "jkl-text-input", {
+        generateSuffix: !inputId,
+    });
     const lid = useId(labelId || "jkl-label", { generateSuffix: !labelId });
 
     const customLabelProps = {
@@ -52,7 +54,11 @@ function BaseAutosuggest<T>({
     };
 
     return (
-        <Downshift {...downshiftProps} {...customLabelProps} itemToString={itemToString}>
+        <Downshift
+            {...downshiftProps}
+            {...customLabelProps}
+            itemToString={itemToString}
+        >
             {({
                 getInputProps,
                 getToggleButtonProps,
@@ -94,7 +100,10 @@ function BaseAutosuggest<T>({
                                         {leadText}
                                     </p>
                                 )}
-                                <div className="jkl-text-input-wrapper" data-invalid={!!errorLabel}>
+                                <div
+                                    className="jkl-text-input-wrapper"
+                                    data-invalid={!!errorLabel}
+                                >
                                     <input
                                         {...inputProps}
                                         {...getInputProps({
@@ -102,7 +111,10 @@ function BaseAutosuggest<T>({
                                             placeholder,
                                             className: "jkl-text-input__input",
                                             onKeyDown: (e) => {
-                                                if (e.keyCode === KEY_ENTER && !isOpen) {
+                                                if (
+                                                    e.keyCode === KEY_ENTER &&
+                                                    !isOpen
+                                                ) {
                                                     onConfirm();
                                                 }
                                             },

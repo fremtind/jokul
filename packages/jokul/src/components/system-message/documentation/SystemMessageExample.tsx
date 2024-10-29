@@ -1,7 +1,12 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { useState } from "react";
 import { NavLink } from "../../link/NavLink.js";
-import { ErrorSystemMessage, InfoSystemMessage, SuccessSystemMessage, WarningSystemMessage } from "../SystemMessage.js";
+import {
+    ErrorSystemMessage,
+    InfoSystemMessage,
+    SuccessSystemMessage,
+    WarningSystemMessage,
+} from "../SystemMessage.js";
 
 export const systemMessageKnobs: ExampleKnobsProps = {
     boolProps: ["Dismissable"],
@@ -29,7 +34,10 @@ const getTypeOfBox = (typeofBox?: string) => {
     }
 };
 
-export const SystemMessageExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const SystemMessageExample: React.FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const C = getTypeOfBox(choiceValues ? choiceValues["Variant"] : "");
     const [dismissed, setDismissed] = useState(false);
     const dismissAction = boolValues?.["Dismissable"]
@@ -44,8 +52,13 @@ export const SystemMessageExample: React.FC<ExampleComponentProps> = ({ boolValu
 
     return (
         // Role beregnes vanligvis av komponenten, men er overstyrt her i eksempelet for å unngå at beskjeden leses opp utenfor konteksten av eksempelet.
-        <C dismissed={dismissed} dismissAction={dismissAction} role="none presentation">
-            Hei, jeg er en varslingsmelding av typen {choiceValues ? choiceValues["Variant"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
+        <C
+            dismissed={dismissed}
+            dismissAction={dismissAction}
+            role="none presentation"
+        >
+            Hei, jeg er en varslingsmelding av typen{" "}
+            {choiceValues ? choiceValues["Variant"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
             <NavLink href="/komponenter/systemmessage">en navlink</NavLink>
         </C>
     );

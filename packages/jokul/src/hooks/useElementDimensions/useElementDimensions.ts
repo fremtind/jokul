@@ -31,9 +31,14 @@ export type Dimensions = {
  * @param throttleDelay Antall milisekunder som skal gå mellom hver gang dimensjonene oppdateres.
  * @returns Ref til elementet som skal måles, og dimensjonene til elementet.
  */
-export function useElementDimensions<T extends HTMLElement>(throttleDelay = 200): [RefObject<T>, Dimensions] {
+export function useElementDimensions<T extends HTMLElement>(
+    throttleDelay = 200,
+): [RefObject<T>, Dimensions] {
     const elementRef = useRef<T>(null);
-    const [dimensions, setDimensions] = useState<Dimensions>({ height: 0, width: 0 });
+    const [dimensions, setDimensions] = useState<Dimensions>({
+        height: 0,
+        width: 0,
+    });
 
     const throttledSetDimensions = useMemo(
         () =>
@@ -54,10 +59,12 @@ export function useElementDimensions<T extends HTMLElement>(throttleDelay = 200)
             width: elementRef.current?.scrollWidth || 0,
         });
 
-        typeof window !== "undefined" && window.addEventListener("resize", throttledSetDimensions);
+        typeof window !== "undefined" &&
+            window.addEventListener("resize", throttledSetDimensions);
 
         return () => {
-            typeof window !== "undefined" && window.removeEventListener("resize", throttledSetDimensions);
+            typeof window !== "undefined" &&
+                window.removeEventListener("resize", throttledSetDimensions);
         };
     }, [throttledSetDimensions]);
 

@@ -150,7 +150,10 @@ export function useAnimatedHeightBetween<T extends HTMLElement>(
 
         return () => {
             if (element) {
-                element.removeEventListener("transitionend", handleTransitionEnd);
+                element.removeEventListener(
+                    "transitionend",
+                    handleTransitionEnd,
+                );
             }
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps

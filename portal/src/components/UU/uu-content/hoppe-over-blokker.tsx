@@ -10,8 +10,9 @@ const hoppeOverBlokker: UUContent = {
     body: () => (
         <>
             <Paragraph>
-                Brukeren skal ha en mulighet til å enkelt kunne hoppe over innhold som er gjentatt på flere sider, for å
-                kunne komme direkte til hovedinnholdet med tastaturnavigasjon.
+                Brukeren skal ha en mulighet til å enkelt kunne hoppe over
+                innhold som er gjentatt på flere sider, for å kunne komme
+                direkte til hovedinnholdet med tastaturnavigasjon.
             </Paragraph>
             <Paragraph>
                 En vanlig teknikk er å bruke en{" "}

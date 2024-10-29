@@ -13,7 +13,9 @@ describe("checkbox", () => {
         );
 
         const label = screen.getByText("I am groot!");
-        const input = screen.getByTestId("jkl-checkbox-input") as HTMLInputElement;
+        const input = screen.getByTestId(
+            "jkl-checkbox-input",
+        ) as HTMLInputElement;
 
         expect(input.checked).toBe(false);
 
@@ -31,7 +33,9 @@ describe("checkbox", () => {
             </Checkbox>,
         );
 
-        const input = screen.getByTestId("jkl-checkbox-input") as HTMLInputElement;
+        const input = screen.getByTestId(
+            "jkl-checkbox-input",
+        ) as HTMLInputElement;
 
         expect(input.checked).toBe(false);
 
@@ -44,12 +48,19 @@ describe("checkbox", () => {
 
     it("should be checked if checked is true", () => {
         render(
-            <Checkbox value="iamgroot" name="iamgroot" checked={true} onChange={() => {}}>
+            <Checkbox
+                value="iamgroot"
+                name="iamgroot"
+                checked={true}
+                onChange={() => {}}
+            >
                 I am groot!
             </Checkbox>,
         );
 
-        const input = screen.getByTestId("jkl-checkbox-input") as HTMLInputElement;
+        const input = screen.getByTestId(
+            "jkl-checkbox-input",
+        ) as HTMLInputElement;
 
         expect(input).toHaveProperty("checked", true);
         expect(input.checked).toBe(true);
@@ -59,7 +70,12 @@ describe("checkbox", () => {
         const TestCheckbox = () => {
             const [checked, toggle] = React.useState(true);
             return (
-                <Checkbox value="iamgroot" name="iamgroot" checked={checked} onChange={() => toggle(!checked)}>
+                <Checkbox
+                    value="iamgroot"
+                    name="iamgroot"
+                    checked={checked}
+                    onChange={() => toggle(!checked)}
+                >
                     I am groot!
                 </Checkbox>
             );
@@ -67,7 +83,9 @@ describe("checkbox", () => {
 
         render(<TestCheckbox />);
 
-        const input = screen.getByTestId("jkl-checkbox-input") as HTMLInputElement;
+        const input = screen.getByTestId(
+            "jkl-checkbox-input",
+        ) as HTMLInputElement;
 
         expect(input.checked).toBe(true);
 
@@ -96,12 +114,18 @@ describe("checkbox", () => {
 
     it("should have data-testautoid", () => {
         render(
-            <Checkbox value="iamgroot" name="iamgroot" data-testautoid="jkl-checkbox__testautoid">
+            <Checkbox
+                value="iamgroot"
+                name="iamgroot"
+                data-testautoid="jkl-checkbox__testautoid"
+            >
                 I am groot!
             </Checkbox>,
         );
 
-        const input = screen.getByTestId("jkl-checkbox-input") as HTMLInputElement;
+        const input = screen.getByTestId(
+            "jkl-checkbox-input",
+        ) as HTMLInputElement;
         const testAutoId = input.getAttribute("data-testautoid");
         expect(testAutoId).toEqual("jkl-checkbox__testautoid");
     });

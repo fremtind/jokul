@@ -24,7 +24,10 @@ export interface DataTableProps extends TableHTMLAttributes<HTMLTableElement> {
 }
 
 const DataTable = forwardRef<HTMLTableElement, DataTableProps>(
-    ({ caption, columns, emptyTableText, rows, verticalAlign, ...rest }, ref) => {
+    (
+        { caption, columns, emptyTableText, rows, verticalAlign, ...rest },
+        ref,
+    ) => {
         return (
             <Table fullWidth={true} {...rest} ref={ref}>
                 {caption && <TableCaption srOnly>{caption}</TableCaption>}
@@ -40,13 +43,19 @@ const DataTable = forwardRef<HTMLTableElement, DataTableProps>(
                 <TableBody>
                     {rows.length === 0 && emptyTableText && (
                         <TableRow>
-                            <TableCell colSpan={columns.length}>{emptyTableText}</TableCell>
+                            <TableCell colSpan={columns.length}>
+                                {emptyTableText}
+                            </TableCell>
                         </TableRow>
                     )}
                     {rows.map((row, rowIndex) => (
                         <TableRow key={rowIndex}>
                             {row.map((cell, cellIndex) => (
-                                <TableCell key={cellIndex} data-th={columns[cellIndex]} verticalAlign={verticalAlign}>
+                                <TableCell
+                                    key={cellIndex}
+                                    data-th={columns[cellIndex]}
+                                    verticalAlign={verticalAlign}
+                                >
                                     {cell}
                                 </TableCell>
                             ))}

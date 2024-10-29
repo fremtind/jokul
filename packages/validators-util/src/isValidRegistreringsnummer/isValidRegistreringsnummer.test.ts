@@ -14,22 +14,32 @@ describe("isValidRegistreringsnummer", () => {
     });
 
     it("should return true if product=bil and value two letters and 5-digit numbers", () => {
-        expect(isValidRegistreringsnummer("AB12345", { vehicle: "bil" })).toBe(true);
+        expect(isValidRegistreringsnummer("AB12345", { vehicle: "bil" })).toBe(
+            true,
+        );
     });
 
     it("should return false if product=mc and use bil regnr", () => {
-        expect(isValidRegistreringsnummer("AD12345", { vehicle: "mc" })).toBe(false);
+        expect(isValidRegistreringsnummer("AD12345", { vehicle: "mc" })).toBe(
+            false,
+        );
     });
 
     it("should return true if product=mc + two letters and 4-digit numbers ", () => {
-        expect(isValidRegistreringsnummer("AD1235", { vehicle: "mc" })).toBe(true);
+        expect(isValidRegistreringsnummer("AD1235", { vehicle: "mc" })).toBe(
+            true,
+        );
     });
 
     it("should return false if product=moped and use bil regnr", () => {
-        expect(isValidRegistreringsnummer("AD12345", { vehicle: "moped" })).toBe(false);
+        expect(
+            isValidRegistreringsnummer("AD12345", { vehicle: "moped" }),
+        ).toBe(false);
     });
 
     it("should return true if product=mc + two letters and 4-digit numbers ", () => {
-        expect(isValidRegistreringsnummer("AD1235", { vehicle: "moped" })).toBe(true);
+        expect(isValidRegistreringsnummer("AD1235", { vehicle: "moped" })).toBe(
+            true,
+        );
     });
 });

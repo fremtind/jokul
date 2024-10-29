@@ -8,7 +8,12 @@ interface Props {
     onClick: () => void;
 }
 
-const ControllerButton: FC<Props> = ({ hasSelectedItem, clearSelection, onClick, ...downshiftProps }) => (
+const ControllerButton: FC<Props> = ({
+    hasSelectedItem,
+    clearSelection,
+    onClick,
+    ...downshiftProps
+}) => (
     <IconButton
         {...downshiftProps}
         className="jkl-text-input-action-button"

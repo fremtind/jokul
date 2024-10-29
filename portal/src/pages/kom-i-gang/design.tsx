@@ -8,8 +8,17 @@ import { FigmaLogo } from "../../components/figma-logo";
 import { Grid } from "../../components/Grid";
 import { Image } from "../../components/image";
 import { Seo } from "../../components/seo";
-import { HeadingLarge, Ingress, KeyboardShortcut, PageTitle, Paragraph } from "../../components/Typography";
-import { RootItem, useFullscreenMenuContext } from "../../fullscreenMenuContext";
+import {
+    HeadingLarge,
+    Ingress,
+    KeyboardShortcut,
+    PageTitle,
+    Paragraph,
+} from "../../components/Typography";
+import {
+    RootItem,
+    useFullscreenMenuContext,
+} from "../../fullscreenMenuContext";
 import { useNavigationLinks } from "../../layout/header/useNavigationLinks";
 import { MainContent } from "../../layout/MainContent";
 
@@ -26,16 +35,20 @@ const PraktiskDesignhverdagen: FC = () => {
             <PageTitle>{pageTitle}</PageTitle>
             <Ingress>
                 Vi bruker Figma til å designe skisser. I tillegg har vi et{" "}
-                <a href="https://github.com/fremtind/jokul/discussions" className="jkl-link">
+                <a
+                    href="https://github.com/fremtind/jokul/discussions"
+                    className="jkl-link"
+                >
                     diskusjonsområde
                 </a>{" "}
-                på GitHub for samarbeid, og Adobe-programmer for nisjerte utfordringer.
+                på GitHub for samarbeid, og Adobe-programmer for nisjerte
+                utfordringer.
             </Ingress>
 
             <HeadingLarge>Komponentbibliotek</HeadingLarge>
             <Paragraph>
-                Alle Jøkul-komponenter fra kodebasen er også tilgjengelig i Figma. Komponentene er satt opp etter alle
-                kunstens regler, med{" "}
+                Alle Jøkul-komponenter fra kodebasen er også tilgjengelig i
+                Figma. Komponentene er satt opp etter alle kunstens regler, med{" "}
                 <Link href="https://help.figma.com/hc/en-us/articles/360040451373-Create-dynamic-designs-with-auto-layout">
                     Auto-Layout
                 </Link>{" "}
@@ -43,13 +56,15 @@ const PraktiskDesignhverdagen: FC = () => {
                 <Link href="https://help.figma.com/hc/en-us/articles/360056440594-Create-and-use-variants">
                     Variants
                 </Link>
-                . Hver komponent kommer med states ut av boksen, så du slipper å finne opp hjulet på nytt hver gang du
-                skal lage skisser.
+                . Hver komponent kommer med states ut av boksen, så du slipper å
+                finne opp hjulet på nytt hver gang du skal lage skisser.
             </Paragraph>
             <Paragraph>
-                Vi anbefaler alle som bruker Figma regelmessig å gjøre seg kjent med Auto-Layout. I tillegg til at det
-                vil gi deg en dypere forståelse av hvordan komponentbiblioteket er bygget opp, vil det markant redusere
-                tiden du vil bruke på å lage detaljerte skisser.
+                Vi anbefaler alle som bruker Figma regelmessig å gjøre seg kjent
+                med Auto-Layout. I tillegg til at det vil gi deg en dypere
+                forståelse av hvordan komponentbiblioteket er bygget opp, vil
+                det markant redusere tiden du vil bruke på å lage detaljerte
+                skisser.
             </Paragraph>
             <Image disableFullscreen>
                 <StaticImage
@@ -60,10 +75,12 @@ const PraktiskDesignhverdagen: FC = () => {
 
             <HeadingLarge>Hvordan endrer jeg på biblioteket?</HeadingLarge>
             <Paragraph>
-                Det er mange som bruker Figma-biblioteket, derfor må vi kvalitetssikre endringer før de
-                tilgjengeliggjøres for alle våre brukere. Dette gjør vi gjennom branching, som i hovedsak går ut på at
-                du lager en kopi av biblioteket og gjør endringer, før du deretter sender forslaget ditt tilbake til
-                biblioteket via en merge request.
+                Det er mange som bruker Figma-biblioteket, derfor må vi
+                kvalitetssikre endringer før de tilgjengeliggjøres for alle våre
+                brukere. Dette gjør vi gjennom branching, som i hovedsak går ut
+                på at du lager en kopi av biblioteket og gjør endringer, før du
+                deretter sender forslaget ditt tilbake til biblioteket via en
+                merge request.
             </Paragraph>
             <Grid className="jkl-portal-paragraph">
                 <NavCard
@@ -76,31 +93,42 @@ const PraktiskDesignhverdagen: FC = () => {
             <Image
                 caption={
                     <>
-                        Branching: Ved å lage en kopi (<b>branch</b>) av en fil inne i seg selv, kan man enkelt
-                        eksperimentere med nye tillegg eller endringer, uten å måtte bekymre seg for å “ødelegge” noe
-                        mens man utforsker. Når man er ferdig kan man enkelt sette de inn i hovedfila, via en{" "}
+                        Branching: Ved å lage en kopi (<b>branch</b>) av en fil
+                        inne i seg selv, kan man enkelt eksperimentere med nye
+                        tillegg eller endringer, uten å måtte bekymre seg for å
+                        “ødelegge” noe mens man utforsker. Når man er ferdig kan
+                        man enkelt sette de inn i hovedfila, via en{" "}
                         <b>merge request</b>.{" "}
                     </>
                 }
             >
-                <StaticImage src="../../../static/assets/kom-i-gang/design-branchdiagram.png" alt="" />
+                <StaticImage
+                    src="../../../static/assets/kom-i-gang/design-branchdiagram.png"
+                    alt=""
+                />
             </Image>
 
             <HeadingLarge>Praktiske plugins og tips</HeadingLarge>
             <Paragraph>
-                Takket være masse flinke folk på internett så finnes det et trucklass med plugins, tips og triks for å
-                gjøre Figma-hverdagen enklere. Vi har samlet våre beste tips nedenfor:
+                Takket være masse flinke folk på internett så finnes det et
+                trucklass med plugins, tips og triks for å gjøre Figma-hverdagen
+                enklere. Vi har samlet våre beste tips nedenfor:
             </Paragraph>
             <UnorderedList className="jkl-portal-ul">
                 <ListItem>
-                    Endre “Big Nudge...” innstillingen i Figma fra 10pt til 8pt, da hele spacingskalaen vår går opp i
-                    åttegangeren. (<FigmaLogo /> → Preferences → Nudge amount...)
+                    Endre “Big Nudge...” innstillingen i Figma fra 10pt til 8pt,
+                    da hele spacingskalaen vår går opp i åttegangeren. (
+                    <FigmaLogo /> → Preferences → Nudge amount...)
                 </ListItem>
                 <ListItem>
-                    <Link className="jkl-link" href="https://www.figma.com/community/plugin/732603254453395948/Stark">
+                    <Link
+                        className="jkl-link"
+                        href="https://www.figma.com/community/plugin/732603254453395948/Stark"
+                    >
                         Stark
                     </Link>{" "}
-                    er en Figma-plugin for å sjekke kontraster og enkle UU krav raskt
+                    er en Figma-plugin for å sjekke kontraster og enkle UU krav
+                    raskt
                 </ListItem>
                 <ListItem>
                     <Link
@@ -109,7 +137,8 @@ const PraktiskDesignhverdagen: FC = () => {
                     >
                         Figma-Github
                     </Link>{" "}
-                    lar deg se skisser direkte rett i GitHub kommentarer (Chrome-plugin)
+                    lar deg se skisser direkte rett i GitHub kommentarer
+                    (Chrome-plugin)
                 </ListItem>
                 <ListItem>
                     <Link
@@ -127,20 +156,25 @@ const PraktiskDesignhverdagen: FC = () => {
                     >
                         Figma-Tips
                     </Link>{" "}
-                    samler alt du måtte lure på av hvordan ting funker i Figma inni et søkbart vindu
+                    samler alt du måtte lure på av hvordan ting funker i Figma
+                    inni et søkbart vindu
                 </ListItem>
             </UnorderedList>
-            <Paragraph className="jkl-bold">Jøkul-teamets favoritthurtigtaster i Figma</Paragraph>
+            <Paragraph className="jkl-bold">
+                Jøkul-teamets favoritthurtigtaster i Figma
+            </Paragraph>
             <UnorderedList className="jkl-portal-ul">
                 <ListItem>
-                    Auto-Layout (<KeyboardShortcut>⇧A</KeyboardShortcut>), Frame (
-                    <KeyboardShortcut>⌥⌘G</KeyboardShortcut>)
+                    Auto-Layout (<KeyboardShortcut>⇧A</KeyboardShortcut>), Frame
+                    (<KeyboardShortcut>⌥⌘G</KeyboardShortcut>)
                 </ListItem>
                 <ListItem>
-                    Søk etter komponenter (<KeyboardShortcut>⇧I</KeyboardShortcut>)
+                    Søk etter komponenter (
+                    <KeyboardShortcut>⇧I</KeyboardShortcut>)
                 </ListItem>
                 <ListItem>
-                    macOS “spotlight-style” kommandosøk (<KeyboardShortcut>⌘P</KeyboardShortcut>)
+                    macOS “spotlight-style” kommandosøk (
+                    <KeyboardShortcut>⌘P</KeyboardShortcut>)
                 </ListItem>
                 <ListItem>
                     Show Layout Grid (<KeyboardShortcut>⌃G</KeyboardShortcut>)
@@ -154,7 +188,9 @@ const PraktiskDesignhverdagen: FC = () => {
                 description="Nå som du kjenner til det praktiske er det på tide å bli kjent med profilen"
                 style={{ maxWidth: "25rem" }}
                 onClick={() => {
-                    fullscreenMenuContext.setCurrentItem(menuItems[1] as RootItem);
+                    fullscreenMenuContext.setCurrentItem(
+                        menuItems[1] as RootItem,
+                    );
                 }}
             />
         </MainContent>

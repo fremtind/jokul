@@ -4,7 +4,12 @@ import "./figma-logo.scss";
 export const FigmaLogo: FC<HTMLAttributes<HTMLSpanElement>> = (props) => {
     return (
         <span className="jkl-portal-figma-logo" {...props}>
-            <svg width="15" height="21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+                width="15"
+                height="21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
                 <title>Figma logo</title>
                 <g clipPath="url(#a)" stroke="currentColor" strokeWidth="1.221">
                     <path d="M13.66 4.592a3.117 3.117 0 0 1-3.118 3.117H7.344V1.475h3.198a3.117 3.117 0 0 1 3.117 3.117ZM1.027 4.592a3.117 3.117 0 0 0 3.118 3.117h3.198V1.475H4.145a3.117 3.117 0 0 0-3.118 3.117ZM1.027 10.827a3.117 3.117 0 0 0 3.118 3.118h3.198V7.71H4.145a3.117 3.117 0 0 0-3.118 3.117Z" />
@@ -12,7 +17,11 @@ export const FigmaLogo: FC<HTMLAttributes<HTMLSpanElement>> = (props) => {
                 </g>
                 <defs>
                     <clipPath id="a">
-                        <path fill="#fff" transform="translate(.379 .827)" d="M0 0h13.927v20H0z" />
+                        <path
+                            fill="#fff"
+                            transform="translate(.379 .827)"
+                            d="M0 0h13.927v20H0z"
+                        />
                     </clipPath>
                 </defs>
             </svg>

@@ -14,11 +14,25 @@ type GuidelineIndex = Perceivable | Operable | Understandable | Robust;
 type TextAlternatives = "1.1.1";
 type TimeBasedMedia = "1.2.1" | "1.2.2";
 type Adaptable = "1.3.1" | "1.3.2" | "1.3.3";
-type Distinguishable = "1.4.1" | "1.4.2" | "1.4.3" | "1.4.4" | "1.4.5" | "1.4.8" | "1.4.12";
+type Distinguishable =
+    | "1.4.1"
+    | "1.4.2"
+    | "1.4.3"
+    | "1.4.4"
+    | "1.4.5"
+    | "1.4.8"
+    | "1.4.12";
 type Keyboard = "2.1.1" | "2.1.2";
 type EnoughTime = "2.2.1" | "2.2.2";
 type Seizures = "2.3.1" | "2.3.2";
-type Navigable = "2.4.1" | "2.4.2" | "2.4.3" | "2.4.4" | "2.4.5" | "2.4.6" | "2.4.7";
+type Navigable =
+    | "2.4.1"
+    | "2.4.2"
+    | "2.4.3"
+    | "2.4.4"
+    | "2.4.5"
+    | "2.4.6"
+    | "2.4.7";
 type Readable = "3.1.1" | "3.1.2";
 type Predictable = "3.2.1" | "3.2.2" | "3.2.3" | "3.2.4";
 type InputAssistance = "3.3.1" | "3.3.2" | "3.3.3" | "3.3.4";
@@ -359,7 +373,8 @@ export const getCriteriaById = (id: string): Criteria => {
     const ids = id.split(".");
 
     const principle = wcag[ids[0] as PrincipleIndex];
-    const guideline = principle.guidelines[[ids[0], ids[1]].join(".") as GuidelineIndex];
+    const guideline =
+        principle.guidelines[[ids[0], ids[1]].join(".") as GuidelineIndex];
 
     const criteria = guideline?.criteria[id as CriteriaIndex];
 

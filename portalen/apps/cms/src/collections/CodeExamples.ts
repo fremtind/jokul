@@ -39,7 +39,8 @@ export const CodeExamples: CollectionConfig = {
                             defaultValue: false,
                             label: "Tillat kode utover rene komponenter",
                             admin: {
-                                description: "Se dokumentasjon fra React Live for mer info",
+                                description:
+                                    "Se dokumentasjon fra React Live for mer info",
                             },
                         },
                         {
@@ -113,7 +114,9 @@ export const CodeExamples: CollectionConfig = {
                                     name: "boolOptions",
                                     label: "Av/på-verdier",
                                     admin: {
-                                        condition: (_, siblingData) => siblingData.type && siblingData.type === "bool",
+                                        condition: (_, siblingData) =>
+                                            siblingData.type &&
+                                            siblingData.type === "bool",
                                     },
                                     fields: [
                                         {
@@ -138,7 +141,8 @@ export const CodeExamples: CollectionConfig = {
                                     label: "Flervalgsverdier",
                                     admin: {
                                         condition: (_, siblingData) =>
-                                            siblingData.type && siblingData.type === "choice",
+                                            siblingData.type &&
+                                            siblingData.type === "choice",
                                     },
                                     fields: [
                                         {
@@ -163,8 +167,10 @@ export const CodeExamples: CollectionConfig = {
                                     defaultValue: 0,
                                     admin: {
                                         condition: (_, siblingData) =>
-                                            siblingData.type && siblingData.type === "choice",
-                                        description: "Indeksen til standardvalget (null-indeksert)",
+                                            siblingData.type &&
+                                            siblingData.type === "choice",
+                                        description:
+                                            "Indeksen til standardvalget (null-indeksert)",
                                     },
                                 },
                             ],

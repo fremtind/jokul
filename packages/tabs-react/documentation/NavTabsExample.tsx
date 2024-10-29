@@ -1,5 +1,9 @@
 import React, { FC, MouseEvent, useEffect, useMemo, useState } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../doc-utils";
 import { NavTab, NavTabs } from "../src";
 
 export const navTabsExampleKnobs: ExampleKnobsProps = {};
@@ -22,7 +26,9 @@ export const NavTabsExample: FC<ExampleComponentProps> = () => {
         if (typeof window === "undefined") {
             return;
         }
-        const selectedIndex = tabs.findIndex((tab) => tab.href === window.location.hash);
+        const selectedIndex = tabs.findIndex(
+            (tab) => tab.href === window.location.hash,
+        );
 
         setSelectedIndex(selectedIndex !== -1 ? selectedIndex : 0);
     }, [tabs]);

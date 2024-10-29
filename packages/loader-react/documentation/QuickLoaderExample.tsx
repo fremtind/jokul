@@ -29,7 +29,12 @@ const QuickLoaderExample: FC<{ delay?: number }> = ({ delay }) => {
                             delay={delay}
                         />
                     )}
-                    {!isLoading && <p>Denne informasjonen tok {quickTime} millisekunder å hente inn</p>}
+                    {!isLoading && (
+                        <p>
+                            Denne informasjonen tok {quickTime} millisekunder å
+                            hente inn
+                        </p>
+                    )}
                 </div>
             </div>
             <div>

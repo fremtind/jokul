@@ -12,7 +12,9 @@ export const CodeSection: FC<CodeSectionProps> = ({ className, children }) => {
         <ExpandSection
             className={className}
             title={showCodeText}
-            onClick={(e, expanded) => setShowCodeText(expanded ? "Skjul kode" : "Vis kode")}
+            onClick={(e, expanded) =>
+                setShowCodeText(expanded ? "Skjul kode" : "Vis kode")
+            }
         >
             {children}
         </ExpandSection>

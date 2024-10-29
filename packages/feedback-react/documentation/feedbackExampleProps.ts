@@ -1,7 +1,11 @@
 import { PRESETS } from "../src/presets";
 
 export const feedbackExampleProps = {
-    boolProps: ["Med oppfølgings-spørsmål", "Med kontakt-spørsmål", "Med teller"],
+    boolProps: [
+        "Med oppfølgings-spørsmål",
+        "Med kontakt-spørsmål",
+        "Med teller",
+    ],
     choiceProps: [
         {
             name: "Forhåndsvalg",

@@ -11,7 +11,10 @@ export const PageTitle: React.FC<WithChildren> = ({ children, ...rest }) => (
 );
 
 export const HeadingLarge: React.FC<WithChildren> = ({ children, ...rest }) => {
-    const id = typeof children === "string" ? children.toLowerCase().replace(/[^\wæøåÆØÅ]+/g, "-") : undefined;
+    const id =
+        typeof children === "string"
+            ? children.toLowerCase().replace(/[^\wæøåÆØÅ]+/g, "-")
+            : undefined;
     return (
         <h2 className="jkl-portal-heading-large" id={id} {...rest}>
             {children}
@@ -19,8 +22,14 @@ export const HeadingLarge: React.FC<WithChildren> = ({ children, ...rest }) => {
     );
 };
 
-export const HeadingMedium: React.FC<WithChildren> = ({ children, ...rest }) => {
-    const id = typeof children === "string" ? children.toLowerCase().replace(/[^\wæøåÆØÅ]+/g, "-") : undefined;
+export const HeadingMedium: React.FC<WithChildren> = ({
+    children,
+    ...rest
+}) => {
+    const id =
+        typeof children === "string"
+            ? children.toLowerCase().replace(/[^\wæøåÆØÅ]+/g, "-")
+            : undefined;
     return (
         <h3 className="jkl-portal-heading-medium" id={id} {...rest}>
             {children}
@@ -46,7 +55,10 @@ export const Ingress: React.FC<WithChildren> = ({ children, ...rest }) => (
     </p>
 );
 
-export const Paragraph: React.FC<{ className?: string } & WithChildren> = ({ children, ...rest }) => (
+export const Paragraph: React.FC<{ className?: string } & WithChildren> = ({
+    children,
+    ...rest
+}) => (
     <p className="jkl-portal-paragraph" {...rest}>
         {children}
     </p>
@@ -70,7 +82,10 @@ export const Strong: React.FC<WithChildren> = ({ children, ...rest }) => (
     </strong>
 );
 
-export const KeyboardShortcut: React.FC<WithChildren> = ({ children, ...rest }) => (
+export const KeyboardShortcut: React.FC<WithChildren> = ({
+    children,
+    ...rest
+}) => (
     <kbd className="jkl-portal-kbd" {...rest}>
         {children}
     </kbd>
@@ -80,11 +95,22 @@ interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
     language?: string;
 }
 
-export const CodeBlock: React.FC<CodeBlockProps> = ({ children, language, ...rest }) => {
+export const CodeBlock: React.FC<CodeBlockProps> = ({
+    children,
+    language,
+    ...rest
+}) => {
     try {
-        const child: ReactElement = React.Children.only(children) as ReactElement;
-        const displayLanguage = child.props?.className?.replace("language-", "") || language;
-        return <FTCodeBlock language={displayLanguage}>{child.props.children}</FTCodeBlock>;
+        const child: ReactElement = React.Children.only(
+            children,
+        ) as ReactElement;
+        const displayLanguage =
+            child.props?.className?.replace("language-", "") || language;
+        return (
+            <FTCodeBlock language={displayLanguage}>
+                {child.props.children}
+            </FTCodeBlock>
+        );
     } catch (e) {
         // if there is more than one child, or it is text return a normal pre
         return <pre {...rest}>{children}</pre>;
@@ -95,7 +121,11 @@ export const ListItem: React.FC<WithChildren> = ({ children }) => (
     <JklListItem className="jkl-portal-list-item">{children}</JklListItem>
 );
 
-export const Anchor: React.FC<{ children: React.ReactNode; className?: string; href: string }> = (props) => {
+export const Anchor: React.FC<{
+    children: React.ReactNode;
+    className?: string;
+    href: string;
+}> = (props) => {
     /** Don't add class jkl-link to <a /> if it's styled as a button */
     if (props.className && props.className.includes("jkl-button")) {
         // eslint-disable-next-line jsx-a11y/anchor-has-content
@@ -108,5 +138,13 @@ export const Anchor: React.FC<{ children: React.ReactNode; className?: string; h
         return <GatsbyLink to={href} className="jkl-link" {...restProps} />;
     }
 
-    return <Link external={!props.href.includes("jokul.fremtind.no") && !props.href.startsWith("#")} {...props} />;
+    return (
+        <Link
+            external={
+                !props.href.includes("jokul.fremtind.no") &&
+                !props.href.startsWith("#")
+            }
+            {...props}
+        />
+    );
 };

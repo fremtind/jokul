@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../doc-utils";
 import { Autosuggest } from "../src";
 
 export const autosuggestExampleKnobs: ExampleKnobsProps = {
@@ -22,7 +26,10 @@ export const autosuggestExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const AutosuggestExample: React.FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const [value, setValue] = useState("");
 
     const allItems = [
@@ -38,7 +45,9 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues
         "Bhutan",
     ];
 
-    const filteredItems = allItems.filter((item) => item.toLowerCase().includes(value.toLowerCase()));
+    const filteredItems = allItems.filter((item) =>
+        item.toLowerCase().includes(value.toLowerCase()),
+    );
 
     return (
         <div style={{ maxWidth: "400px", width: "100%" }}>
@@ -51,25 +60,47 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues
                 onConfirm={() => console.log("onConfirm")}
                 allItems={filteredItems}
                 helpLabel={
-                    boolValues?.["Med hjelpetekst"] ? "Velg et land fra listen eller skriv inn landet selv" : undefined
+                    boolValues?.["Med hjelpetekst"]
+                        ? "Velg et land fra listen eller skriv inn landet selv"
+                        : undefined
                 }
                 tooltipProps={
                     boolValues?.["Med tooltip"]
                         ? {
-                              content: "Velg et land fra listen eller skriv inn landet selv.",
+                              content:
+                                  "Velg et land fra listen eller skriv inn landet selv.",
                           }
                         : undefined
                 }
-                errorLabel={boolValues?.["Med feil"] ? "Du må velge et land" : undefined}
-                placeholder={boolValues?.["Med placeholder"] ? "Velg et land" : undefined}
+                errorLabel={
+                    boolValues?.["Med feil"] ? "Du må velge et land" : undefined
+                }
+                placeholder={
+                    boolValues?.["Med placeholder"] ? "Velg et land" : undefined
+                }
                 showDropdownControllerButton={boolValues?.["Vis ikoner"]}
-                noHitsMessage={boolValues?.["Ingen treff"] ? "Fant ingen land, men du kan skrive ferdig" : undefined}
-                maxNumberOfHits={boolValues?.["Max antall treff"] ? 3 : undefined}
-                variant={(choiceValues?.["Variant"] as "small" | "medium" | "large") || "medium"}
+                noHitsMessage={
+                    boolValues?.["Ingen treff"]
+                        ? "Fant ingen land, men du kan skrive ferdig"
+                        : undefined
+                }
+                maxNumberOfHits={
+                    boolValues?.["Max antall treff"] ? 3 : undefined
+                }
+                variant={
+                    (choiceValues?.["Variant"] as
+                        | "small"
+                        | "medium"
+                        | "large") || "medium"
+                }
                 noHits={
                     boolValues?.["Ingen treff med valg"]
                         ? {
-                              text: <p>Fant ingen land. Vil du velge et av disse:</p>,
+                              text: (
+                                  <p>
+                                      Fant ingen land. Vil du velge et av disse:
+                                  </p>
+                              ),
                               items: ["Norge", "Sverige", "Danmark"],
                           }
                         : undefined
@@ -82,7 +113,10 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({ boolValues
 
 export default AutosuggestExample;
 
-export const autosuggestExampleCode: CodeExample = ({ boolValues, choiceValues }) => `
+export const autosuggestExampleCode: CodeExample = ({
+    boolValues,
+    choiceValues,
+}) => `
 const allItems = ["Afghanistan", "Aland Islands", /* etc... */];
 const [value, setValue] = useState("");
 return (

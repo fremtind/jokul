@@ -14,7 +14,10 @@ export function toList(input: string): string[] {
     return input.split(/\n/);
 }
 
-export function validateOutputInput(input: string, defaultOutput = "string"): "string" | "array" {
+export function validateOutputInput(
+    input: string,
+    defaultOutput = "string",
+): "string" | "array" {
     if (!input) {
         return defaultOutput as "string";
     }

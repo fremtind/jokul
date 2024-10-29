@@ -6,8 +6,15 @@ import ExpandSectionExample from "./ExpandSectionExample.js";
 export default function Example() {
     return (
         <>
-            <DevExample title="ExpandSection" component={ExpandSectionExample} />
-            <DevExample title="Expander" component={ExpanderExample} knobs={expanderExamplesKnobs} />
+            <DevExample
+                title="ExpandSection"
+                component={ExpandSectionExample}
+            />
+            <DevExample
+                title="Expander"
+                component={ExpanderExample}
+                knobs={expanderExamplesKnobs}
+            />
         </>
     );
 }

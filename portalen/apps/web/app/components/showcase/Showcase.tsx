@@ -11,7 +11,13 @@ export interface ShowcaseProps extends WithChildren {
     example?: string | Media | null;
 }
 
-export const Showcase: FC<ShowcaseProps> = ({ title, from, source, children, example }) => {
+export const Showcase: FC<ShowcaseProps> = ({
+    title,
+    from,
+    source,
+    children,
+    example,
+}) => {
     const [play, setPlay] = useState(false);
 
     const onEnter = () => {
@@ -32,9 +38,20 @@ export const Showcase: FC<ShowcaseProps> = ({ title, from, source, children, exa
                 </div>
             </div>
             <div className="showcase__media">
-                {source && <VimeoPlayer title={title} source={source} play={play} isActive={play} />}
-                {example && typeof example !== "string" && <MediaViewer withLightBox src={example} />}
-                {example && typeof example === "string" && <Image src={example} width="100%" />}
+                {source && (
+                    <VimeoPlayer
+                        title={title}
+                        source={source}
+                        play={play}
+                        isActive={play}
+                    />
+                )}
+                {example && typeof example !== "string" && (
+                    <MediaViewer withLightBox src={example} />
+                )}
+                {example && typeof example === "string" && (
+                    <Image src={example} width="100%" />
+                )}
             </div>
         </div>
     );

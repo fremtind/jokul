@@ -26,7 +26,8 @@ export const pageMeta: Field = {
             type: "upload",
             relationTo: "media",
             admin: {
-                description: "Om det ikke finnes et bilde vil det genereres et fra Figma-lenken.",
+                description:
+                    "Om det ikke finnes et bilde vil det genereres et fra Figma-lenken.",
             },
         },
         {
@@ -35,7 +36,8 @@ export const pageMeta: Field = {
             type: "upload",
             relationTo: "media",
             admin: {
-                description: "Om det ikke finnes et bilde vil det genereres et fra Figma-lenken.",
+                description:
+                    "Om det ikke finnes et bilde vil det genereres et fra Figma-lenken.",
             },
         },
         {

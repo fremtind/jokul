@@ -11,12 +11,15 @@ const blinkendeInnhold: UUContent = {
     body: () => (
         <>
             <Paragraph>
-                Med blink mener man endringer hvor resultatet motsetter hverandre på en måte som skaper en stor
-                forstyrrelse. For eksempel en fargeendring på et større område eller et element som hyppig vises og
-                gjemmes.
+                Med blink mener man endringer hvor resultatet motsetter
+                hverandre på en måte som skaper en stor forstyrrelse. For
+                eksempel en fargeendring på et større område eller et element
+                som hyppig vises og gjemmes.
             </Paragraph>
             <List>
-                <CheckListItem>Innhold skal ikke blinke oftere enn 3 ganger i sekundet</CheckListItem>
+                <CheckListItem>
+                    Innhold skal ikke blinke oftere enn 3 ganger i sekundet
+                </CheckListItem>
             </List>
         </>
     ),

@@ -11,12 +11,26 @@ export interface SkeletonTextAreaProps {
     density?: Density;
 }
 
-export const SkeletonTextArea = ({ className, density, labelProps, inputProps, ...rest }: SkeletonTextAreaProps) => {
+export const SkeletonTextArea = ({
+    className,
+    density,
+    labelProps,
+    inputProps,
+    ...rest
+}: SkeletonTextAreaProps) => {
     const compact = density === "compact";
     return (
-        <div className={clsx("jkl-skeleton-input", className)} {...rest} data-density={density}>
+        <div
+            className={clsx("jkl-skeleton-input", className)}
+            {...rest}
+            data-density={density}
+        >
             <SkeletonLabel density={density} {...labelProps} />
-            <SkeletonElement width={compact ? 301 : 316} height={compact ? 148 : 168} {...inputProps} />
+            <SkeletonElement
+                width={compact ? 301 : 316}
+                height={compact ? 148 : 168}
+                {...inputProps}
+            />
         </div>
     );
 };

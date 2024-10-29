@@ -102,19 +102,30 @@ describe("ToggleSlider", () => {
 
     it("should show legend as screen-reader only when hideLegend is true", () => {
         render(
-            <ToggleSlider hideLegend={true} defaultValue="på" labels={["av", "på"]} onToggle={fn}>
+            <ToggleSlider
+                hideLegend={true}
+                defaultValue="på"
+                labels={["av", "på"]}
+                onToggle={fn}
+            >
                 Skru
             </ToggleSlider>,
         );
         const legend = screen.getByText("Skru");
         expect(legend).toBeInTheDocument();
-        expect(legend.classList.contains("jkl-toggle-slider__legend--sr-only")).toBe(true);
+        expect(
+            legend.classList.contains("jkl-toggle-slider__legend--sr-only"),
+        ).toBe(true);
     });
 
     describe("a11y", () => {
         it("toggle-switch should be a11y compliant", async () => {
             const { container } = render(
-                <ToggleSlider defaultValue="av" labels={["av", "på"]} onToggle={fn}>
+                <ToggleSlider
+                    defaultValue="av"
+                    labels={["av", "på"]}
+                    onToggle={fn}
+                >
                     Skru
                 </ToggleSlider>,
             );

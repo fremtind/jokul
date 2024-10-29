@@ -15,9 +15,14 @@ type FormatKortnummerOptions = {
  * @param options Angi at verdien er et ufullstendig kortnummer og likevel skal formateres.
  * @returns Den formaterte verdien
  */
-export function formatKortnummer(input: string, options?: FormatKortnummerOptions) {
+export function formatKortnummer(
+    input: string,
+    options?: FormatKortnummerOptions,
+) {
     const strippedInput = input.replace(/[\s-.]/g, "");
-    const regex = options?.partial ? KORTNUMMER_REGEX.partial : KORTNUMMER_REGEX.full;
+    const regex = options?.partial
+        ? KORTNUMMER_REGEX.partial
+        : KORTNUMMER_REGEX.full;
 
     const match = strippedInput.match(regex);
 

@@ -15,7 +15,9 @@ describe("Popover", () => {
         render(
             <Popover>
                 <Popover.Trigger>Open Popover</Popover.Trigger>
-                <Popover.Content data-testid="popover-id">Content</Popover.Content>
+                <Popover.Content data-testid="popover-id">
+                    Content
+                </Popover.Content>
             </Popover>,
         );
 
@@ -32,7 +34,9 @@ describe("Popover", () => {
     it("should render when open is controlled", () => {
         render(
             <Popover open={true}>
-                <Popover.Content data-testid="popover-id">Content</Popover.Content>
+                <Popover.Content data-testid="popover-id">
+                    Content
+                </Popover.Content>
             </Popover>,
         );
 
@@ -42,7 +46,9 @@ describe("Popover", () => {
     it("should not render when open is controlled and set to false", () => {
         render(
             <Popover open={false}>
-                <Popover.Content data-testid="popover-id">Content</Popover.Content>
+                <Popover.Content data-testid="popover-id">
+                    Content
+                </Popover.Content>
             </Popover>,
         );
 
@@ -57,7 +63,9 @@ describe("Popover", () => {
         render(
             <Popover open={true} onOpenChange={handleOpenChange}>
                 <Popover.Trigger>Open Popover</Popover.Trigger>
-                <Popover.Content data-testid="popover-id">Content</Popover.Content>
+                <Popover.Content data-testid="popover-id">
+                    Content
+                </Popover.Content>
             </Popover>,
         );
 
@@ -74,7 +82,9 @@ describe("Popover", () => {
         render(
             <Popover hoverOptions={{ enabled: true }}>
                 <Popover.Trigger>Hover Popover</Popover.Trigger>
-                <Popover.Content data-testid="popover-id">Content</Popover.Content>
+                <Popover.Content data-testid="popover-id">
+                    Content
+                </Popover.Content>
             </Popover>,
         );
 
@@ -93,11 +103,16 @@ describe("Popover", () => {
         render(
             <Popover open={true} roleOptions={{ role: "menu" }}>
                 <Popover.Trigger>Open Popover</Popover.Trigger>
-                <Popover.Content data-testid="popover-id">Content</Popover.Content>
+                <Popover.Content data-testid="popover-id">
+                    Content
+                </Popover.Content>
             </Popover>,
         );
 
-        expect(screen.getByTestId("popover-id")).toHaveAttribute("role", "menu");
+        expect(screen.getByTestId("popover-id")).toHaveAttribute(
+            "role",
+            "menu",
+        );
     });
 
     it("should correctly trap focus when modal is enabled", async () => {

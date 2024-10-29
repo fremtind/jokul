@@ -21,7 +21,10 @@ export const LinkCardList: FC<{ links: Links }> = ({ links }) => {
         <div className="jkl-spacing-40--top nav-card-container">
             {links &&
                 links.map(({ id, title, description, link }) => {
-                    const href = link.type === "custom" ? link.url : getPagePathFromId(mainMenu, getLinkId(link));
+                    const href =
+                        link.type === "custom"
+                            ? link.url
+                            : getPagePathFromId(mainMenu, getLinkId(link));
 
                     if (!href) {
                         return null;
@@ -35,7 +38,9 @@ export const LinkCardList: FC<{ links: Links }> = ({ links }) => {
                             component={NavLink}
                             to={href}
                             target={link.newTab ? "_blank" : undefined}
-                            rel={link.newTab ? "noreferrer noopener" : undefined}
+                            rel={
+                                link.newTab ? "noreferrer noopener" : undefined
+                            }
                         />
                     );
                 })}

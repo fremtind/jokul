@@ -4,7 +4,9 @@ import { LiveContext } from "react-live";
 import { ErrorMessage } from "../../packages/jokul/src/components/message";
 
 export const LiveError = () => {
-    const { error, code } = useContext(LiveContext as Context<LiveContextProps>);
+    const { error, code } = useContext(
+        LiveContext as Context<LiveContextProps>,
+    );
     if (!error) {
         return null;
     }

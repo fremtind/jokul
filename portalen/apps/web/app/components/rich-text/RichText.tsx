@@ -10,7 +10,12 @@ type RichTextProps = Omit<JSX.IntrinsicElements["div"], "content"> & {
     fallbackRenderer?: RichTextNodeRenderer;
 };
 
-const RichText: FC<RichTextProps> = ({ className, content, renderers, fallbackRenderer }) => {
+const RichText: FC<RichTextProps> = ({
+    className,
+    content,
+    renderers,
+    fallbackRenderer,
+}) => {
     const mainMenu = useMainMenu();
 
     if (!content) {

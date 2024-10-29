@@ -1,7 +1,10 @@
 import cn from "classnames";
 import React, { FC } from "react";
 import { ContentLink } from "../header/ContentLink";
-import { useNavigationLinks, DocumentationPageInfo } from "../header/useNavigationLinks";
+import {
+    useNavigationLinks,
+    DocumentationPageInfo,
+} from "../header/useNavigationLinks";
 import { useLocation } from "../locationContext";
 import { SidebarMenu } from "./SidebarMenu";
 import "./Sidebar.scss";
@@ -54,7 +57,10 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     }
 
     return (
-        <nav className={cn("jkl-portal-sidebar-menu", className)} aria-label="Sidemeny">
+        <nav
+            className={cn("jkl-portal-sidebar-menu", className)}
+            aria-label="Sidemeny"
+        >
             <ContentLink>Hopp over sidemeny til innhold</ContentLink>
             <SidebarMenu
                 links={links}

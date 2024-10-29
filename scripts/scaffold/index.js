@@ -15,7 +15,8 @@ const main = async () => {
                 componentName: {
                     description: "Name of the component",
                     pattern: /^[a-z\\-]+$/,
-                    message: "Name must be only lower-cased letters or dashes (ex: radio-button)",
+                    message:
+                        "Name must be only lower-cased letters or dashes (ex: radio-button)",
                     required: true,
                 },
             },
@@ -28,7 +29,10 @@ const main = async () => {
         const toPascalCase = (string) =>
             string
                 .split("-")
-                .map((string) => `${string.slice(0, 1).toUpperCase()}${string.slice(1)}`)
+                .map(
+                    (string) =>
+                        `${string.slice(0, 1).toUpperCase()}${string.slice(1)}`,
+                )
                 .join("");
 
         const scaffoldRegExp = new RegExp("scaffold", "g");
@@ -37,7 +41,9 @@ const main = async () => {
         const componentNamePascalCased = toPascalCase(componentName);
 
         const replaceComponentNames = (string) =>
-            string.replace(scaffoldRegExp, componentName).replace(scaffoldRegExpPascalCased, componentNamePascalCased);
+            string
+                .replace(scaffoldRegExp, componentName)
+                .replace(scaffoldRegExpPascalCased, componentNamePascalCased);
 
         const copyAndReplace = (templatePath, packagePath) => {
             fs.copySync(templatePath, packagePath);
@@ -50,7 +56,9 @@ const main = async () => {
                 to: [componentName, componentNamePascalCased],
             });
 
-            files.forEach((path) => fs.renameSync(path, replaceComponentNames(path)));
+            files.forEach((path) =>
+                fs.renameSync(path, replaceComponentNames(path)),
+            );
         };
 
         copyAndReplace(
@@ -65,7 +73,11 @@ const main = async () => {
 
         spawnSync("pnpm", ["install"], { stdio: "inherit" });
 
-        spawnSync("pnpm", ["--filter", `@fremtind/jkl-${componentName}*`, "build"], { stdio: "inherit" });
+        spawnSync(
+            "pnpm",
+            ["--filter", `@fremtind/jkl-${componentName}*`, "build"],
+            { stdio: "inherit" },
+        );
     } catch (error) {
         console.error(error);
         process.exit(1);

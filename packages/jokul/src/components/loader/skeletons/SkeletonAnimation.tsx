@@ -3,7 +3,8 @@ import React, { AriaRole, HTMLProps, ReactNode } from "react";
 import { Density } from "../../../core/types.js";
 import { useDelayedRender } from "../useDelayedRender.js";
 
-export interface SkeletonAnimationProps extends Pick<HTMLProps<HTMLDivElement>, "style"> {
+export interface SkeletonAnimationProps
+    extends Pick<HTMLProps<HTMLDivElement>, "style"> {
     className?: string;
     children: ReactNode;
     density?: Density;

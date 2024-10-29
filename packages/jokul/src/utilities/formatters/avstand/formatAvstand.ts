@@ -42,7 +42,10 @@ const defaultOptions: FormatNumberOptions = {
  * @param options Lengdeenheten som skal vises for tallet, f.eks. "kilometer" eller "foot". Default: "kilometer". Kan også angi en valgfri suffix, f.eks. "/år".
  * @returns Den formaterte verdien.
  */
-export function formatAvstand(input: string | number, options?: FormatAvstandOptions) {
+export function formatAvstand(
+    input: string | number,
+    options?: FormatAvstandOptions,
+) {
     const number = parseNumber(input);
     if (!number) {
         return input.toString();

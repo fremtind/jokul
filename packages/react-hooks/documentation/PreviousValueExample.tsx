@@ -12,7 +12,10 @@ const usePreviousValueExample: FC = () => {
                 <br />
                 Forrige verdi: {previousValue?.toString() ?? "undefined"}
             </p>
-            <button className="jkl-button jkl-button--primary" onClick={() => setState(state + 1)}>
+            <button
+                className="jkl-button jkl-button--primary"
+                onClick={() => setState(state + 1)}
+            >
                 Inkrementer
             </button>
         </section>

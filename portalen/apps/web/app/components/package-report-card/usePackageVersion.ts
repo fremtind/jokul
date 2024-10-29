@@ -36,8 +36,14 @@ export const usePackageVersion = (packageInfo?: PackageInfo) => {
         },
     });
 
-    const reactVersion = reactStatus === "loading" || reactError === "error" || !reactData ? "" : reactData.version;
-    const cssVersion = cssStatus === "loading" || cssError === "error" || !cssData ? "" : cssData.version;
+    const reactVersion =
+        reactStatus === "loading" || reactError === "error" || !reactData
+            ? ""
+            : reactData.version;
+    const cssVersion =
+        cssStatus === "loading" || cssError === "error" || !cssData
+            ? ""
+            : cssData.version;
 
     return { reactVersion, cssVersion };
 };

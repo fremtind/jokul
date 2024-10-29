@@ -9,5 +9,9 @@ const analyticsContext = createContext<Analytics>(analytics);
 export const useAnalytics = (): Analytics => useContext(analyticsContext);
 
 export const AnalyticsContextProvider: FC<WithChildren> = ({ children }) => {
-    return <analyticsContext.Provider value={analytics}>{children}</analyticsContext.Provider>;
+    return (
+        <analyticsContext.Provider value={analytics}>
+            {children}
+        </analyticsContext.Provider>
+    );
 };

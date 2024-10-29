@@ -13,21 +13,29 @@ const IndexPage: FC<PageProps<PageData>> = ({ data }) => {
     return (
         <MainContent>
             <h1 className="title mb-64">Blogg</h1>
-            <p className="jkl-portal-paragraph">Velkommen til Jøkul — design­systemet til Fremtind.</p>
+            <p className="jkl-portal-paragraph">
+                Velkommen til Jøkul — design­systemet til Fremtind.
+            </p>
             <h2 className="heading-1 mt-40 mb-24">Alt fra bloggen</h2>
             <ul className="jkl-portal-blog__post-list">
                 {posts.map((post) => {
                     const title = post.frontmatter.title || post.fields.path;
                     return (
-                        <li key={post.fields.path} className="jkl-portal-blog__post">
+                        <li
+                            key={post.fields.path}
+                            className="jkl-portal-blog__post"
+                        >
                             <NavCard
                                 component={Link}
                                 title={title}
                                 to={post.fields.path}
-                                description={post.frontmatter.description || post.excerpt}
+                                description={
+                                    post.frontmatter.description || post.excerpt
+                                }
                             >
                                 <InfoBlock>
-                                    {post.frontmatter.publishDate} av {post.frontmatter.author}
+                                    {post.frontmatter.publishDate} av{" "}
+                                    {post.frontmatter.author}
                                 </InfoBlock>
                             </NavCard>
                         </li>

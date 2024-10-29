@@ -38,7 +38,10 @@ export const SteppedExampleNavigation: FC<ExampleNavigationProps> = ({
                     } as CSSProperties
                 }
             />
-            <button onClick={handleNext} className="jkl-portal-stepped-example-navigation__button jkl-nav-link">
+            <button
+                onClick={handleNext}
+                className="jkl-portal-stepped-example-navigation__button jkl-nav-link"
+            >
                 Neste
             </button>
         </div>

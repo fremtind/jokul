@@ -13,7 +13,13 @@ interface ColorProps {
 export const Color: FC<ColorProps> = ({ className, name, hex, rgb, hsl }) => {
     return (
         <div className="jkl-portal-color" id={name}>
-            <div className={cx("jkl-portal-color__swatch", `jkl-portal-color__swatch--${name}`, className)} />
+            <div
+                className={cx(
+                    "jkl-portal-color__swatch",
+                    `jkl-portal-color__swatch--${name}`,
+                    className,
+                )}
+            />
             <p className="jkl-portal-color__name">{name}</p>
             <p className="jkl-portal-color__value">{hex}</p>
             <p className="jkl-portal-color__value">{rgb}</p>
