@@ -99,12 +99,12 @@ importers:
       nodemon:
         specifier: ^2.0.22
         version: 2.0.22
+      prettier:
+        specifier: ^2.8.8
+        version: 2.8.8
       ts-node:
         specifier: ^10.9.1
         version: 10.9.1(@swc/core@1.6.1)(@types/node@18.18.13)(typescript@5.4.5)
-      typescript:
-        specifier: ^5.1.6
-        version: 5.4.5
 
   apps/server:
     dependencies:
@@ -416,9 +416,6 @@ importers:
       '@types/three':
         specifier: ^0.152.1
         version: 0.152.1
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
       glob:
         specifier: ^8.1.0
         version: 8.1.0
@@ -9861,6 +9858,7 @@ packages:
   /eslint@8.57.0:
     resolution: {integrity: sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.57.0)
