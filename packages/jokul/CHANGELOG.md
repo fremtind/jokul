@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.27.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.26.0...@fremtind/jokul@0.27.0) (2024-10-29)
+
+### Features
+
+- new component: RadioPanel ([98d5dd8](https://github.com/fremtind/jokul/commit/98d5dd858bf3f55566d7541d6104c4524b061723)), closes [#3946](https://github.com/fremtind/jokul/issues/3946)
+
 # [0.26.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.25.4...@fremtind/jokul@0.26.0) (2024-10-28)
 
 ### Features
