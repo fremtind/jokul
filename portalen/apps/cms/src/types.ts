@@ -7,5000 +7,5011 @@
  */
 
 export interface Config {
-  collections: {
-    components: Component;
-    general: General;
-    patterns: Pattern;
-    foundations: Foundation;
-    codeExample: CodeExample;
-    users: User;
-    media: Media;
-    'menu-items': MenuItem;
-    'sub-menus': SubMenu;
-    blog: Blog;
-    'blog-tag': BlogTag;
-    feedback: Feedback;
-    'package-stats': PackageStat;
-    'payload-preferences': PayloadPreference;
-    'payload-migrations': PayloadMigration;
-  };
-  globals: {
-    'all-content': AllContent;
-    'all-content-blocks': AllContentBlock;
-    'all-sections': AllSection;
-    'main-menu': MainMenu;
-    'home-page': HomePage;
-  };
+    collections: {
+        components: Component;
+        general: General;
+        patterns: Pattern;
+        foundations: Foundation;
+        codeExample: CodeExample;
+        users: User;
+        media: Media;
+        "menu-items": MenuItem;
+        "sub-menus": SubMenu;
+        blog: Blog;
+        "blog-tag": BlogTag;
+        feedback: Feedback;
+        "package-stats": PackageStat;
+        "payload-preferences": PayloadPreference;
+        "payload-migrations": PayloadMigration;
+    };
+    globals: {
+        "all-content": AllContent;
+        "all-content-blocks": AllContentBlock;
+        "all-sections": AllSection;
+        "main-menu": MainMenu;
+        "home-page": HomePage;
+    };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "components".
  */
 export interface Component {
-  id: string;
-  title: string;
-  ingress?:
-    | {
-        [k: string]: unknown;
-      }[]
-    | null;
-  tabs: {
+    id: string;
     title: string;
-    slug: string;
-    sections: (
-      | {
-          heroText?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          actions?:
-            | {
-                type: 'primary' | 'secondary' | 'tertiary';
-                link: {
-                  type: 'reference' | 'custom';
-                  label?: string | null;
-                  reference?:
-                    | ({
-                        relationTo: 'components';
-                        value: string | Component;
-                      } | null)
-                    | ({
-                        relationTo: 'general';
-                        value: string | General;
-                      } | null)
-                    | ({
-                        relationTo: 'patterns';
-                        value: string | Pattern;
-                      } | null)
-                    | ({
-                        relationTo: 'foundations';
-                        value: string | Foundation;
-                      } | null)
-                    | ({
-                        relationTo: 'blog';
-                        value: string | Blog;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'call-to-action';
-        }
-      | {
-          intro?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          components?:
-            | {
-                component: string | Component;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'component-overview';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          examples?:
-            | {
-                fileName: string;
-                url: string;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'figma-example-section';
-        }
-      | {
-          heroText?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          actions?:
-            | {
-                type: 'primary' | 'secondary' | 'tertiary';
-                link: {
-                  type: 'reference' | 'custom';
-                  label?: string | null;
-                  reference?:
-                    | ({
-                        relationTo: 'components';
-                        value: string | Component;
-                      } | null)
-                    | ({
-                        relationTo: 'general';
-                        value: string | General;
-                      } | null)
-                    | ({
-                        relationTo: 'patterns';
-                        value: string | Pattern;
-                      } | null)
-                    | ({
-                        relationTo: 'foundations';
-                        value: string | Foundation;
-                      } | null)
-                    | ({
-                        relationTo: 'blog';
-                        value: string | Blog;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'hero-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          links?:
-            | {
-                title: string;
-                description?: string | null;
-                link: {
-                  type: 'reference' | 'custom';
-                  label?: string | null;
-                  reference?:
-                    | ({
-                        relationTo: 'components';
-                        value: string | Component;
-                      } | null)
-                    | ({
-                        relationTo: 'general';
-                        value: string | General;
-                      } | null)
-                    | ({
-                        relationTo: 'patterns';
-                        value: string | Pattern;
-                      } | null)
-                    | ({
-                        relationTo: 'foundations';
-                        value: string | Foundation;
-                      } | null)
-                    | ({
-                        relationTo: 'blog';
-                        value: string | Blog;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'link-card-list-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          codeExample: string | CodeExample;
-          defaultShowControls?: boolean | null;
-          defaultShowEditor?: boolean | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'live-demo-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          installCode: string;
-          usageCode: string;
-          reactDocs?:
-            | {
-                title: string;
-                href: string;
-                id?: string | null;
-              }[]
-            | null;
-          cssDocs?:
-            | {
-                title: string;
-                href: string;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'package-report-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          content?:
-            | (
-                | {
-                    steps?:
-                      | {
-                          title: string;
-                          description: string;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    url: string;
-                    urlDark: string;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'anatomy-example';
-                  }
-                | {
-                    steps: {
-                      image?: string | Media | null;
-                      title?: string | null;
-                      description?:
-                        | {
-                            [k: string]: unknown;
-                          }[]
-                        | null;
-                      id?: string | null;
-                    }[];
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'carousel';
-                  }
-                | {
-                    code: string;
-                    language:
-                      | 'ts'
-                      | 'tsx'
-                      | 'sh'
-                      | 'scss'
-                      | 'css'
-                      | 'js'
-                      | 'jsx'
-                      | 'html'
-                      | 'xml'
-                      | 'json'
-                      | 'less'
-                      | 'diff';
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'code-snippet';
-                  }
-                | {
-                    cards?:
-                      | {
-                          color?:
-                            | (
-                                | 'svart'
-                                | 'skifer'
-                                | 'stein'
-                                | 'svaberg'
-                                | 'dis'
-                                | 'sand'
-                                | 'hvit'
-                                | 'suksess'
-                                | 'info'
-                                | 'advarsel'
-                                | 'feil'
-                              )
-                            | null;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'color-card';
-                  }
-                | {
-                    doDontItem?:
-                      | {
-                          variant?: ('code' | 'image') | null;
-                          code?: string | null;
-                          noinline?: boolean | null;
-                          image?: string | Media | null;
-                          description?: string | null;
-                          type: 'do' | 'dont' | 'avoid';
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'dodont-example';
-                  }
-                | {
-                    links?:
-                      | {
-                          title: string;
-                          description?: string | null;
-                          link: {
-                            type: 'reference' | 'custom';
-                            label?: string | null;
-                            reference?:
-                              | ({
-                                  relationTo: 'components';
-                                  value: string | Component;
-                                } | null)
-                              | ({
-                                  relationTo: 'general';
-                                  value: string | General;
-                                } | null)
-                              | ({
-                                  relationTo: 'patterns';
-                                  value: string | Pattern;
-                                } | null)
-                              | ({
-                                  relationTo: 'foundations';
-                                  value: string | Foundation;
-                                } | null)
-                              | ({
-                                  relationTo: 'blog';
-                                  value: string | Blog;
-                                } | null);
-                            url?: string | null;
-                            newTab?: boolean | null;
-                          };
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'link-card-list';
-                  }
-                | {
-                    codeExample: string | CodeExample;
-                    defaultShowControls?: boolean | null;
-                    defaultShowEditor?: boolean | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'live-demo-block';
-                  }
-                | {
-                    boxes?:
-                      | {
-                          type: 'info' | 'success' | 'error' | 'warning';
-                          title?: string | null;
-                          description: string;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'message-box';
-                  }
-                | {
-                    content?:
-                      | {
-                          [k: string]: unknown;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'rich-text';
-                  }
-                | {
-                    showcaseItem?:
-                      | {
-                          title: string;
-                          src?: string | null;
-                          example?: string | Media | null;
-                          origin: string;
-                          description?: string | null;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'showcase';
-                  }
-                | {
-                    rows?:
-                      | {
-                          element: string;
-                          property: string;
-                          role: string;
-                          value: string;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'tokens-table';
-                  }
-                | {
-                    rows?:
-                      | {
-                          type:
-                            | 'mainColors'
-                            | 'functionalColors'
-                            | 'expandedFunctionalColors'
-                            | 'spacing'
-                            | 'typo'
-                            | 'typo-small';
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'table';
-                  }
-              )[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'page-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          showcaseItem?:
-            | {
-                title: string;
-                src?: string | null;
-                example?: string | Media | null;
-                origin: string;
-                description?: string | null;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'showcase-section';
-        }
-      | {
-          video: {
-            url: string;
-            loop: boolean;
-          };
-          title: string;
-          description?: string | null;
-          link: {
-            type: 'reference' | 'custom';
-            label?: string | null;
-            reference?:
-              | ({
-                  relationTo: 'components';
-                  value: string | Component;
-                } | null)
-              | ({
-                  relationTo: 'general';
-                  value: string | General;
-                } | null)
-              | ({
-                  relationTo: 'patterns';
-                  value: string | Pattern;
-                } | null)
-              | ({
-                  relationTo: 'foundations';
-                  value: string | Foundation;
-                } | null)
-              | ({
-                  relationTo: 'blog';
-                  value: string | Blog;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'video-cta';
-        }
-      | {
-          type: {
-            tagType?: string | null;
-            tagLabel?: string | null;
-            title?: string | null;
-            ingress?:
-              | {
-                  [k: string]: unknown;
-                }[]
-              | null;
-            author?: string | null;
-            slug?: string | null;
-            date?: string | null;
-            image?: string | null;
-            id?: string | null;
-          }[];
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'scroll';
-        }
-      | {
-          label: string;
-          addOnQuestion: string;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'feedback-section';
-        }
-      | {
-          content: {
-            package?: string | null;
-            downloads?: number | null;
-            title?: string | null;
-            ingress?:
-              | {
-                  [k: string]: unknown;
-                }[]
-              | null;
-            componentId?: string | null;
-            id?: string | null;
-          }[];
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'package-stats-section';
-        }
-    )[];
-    id?: string | null;
-  }[];
-  type?: ('Komponent' | 'Hook' | 'Annet') | null;
-  reactPackageName?: string | null;
-  cssPackageName?: string | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    keywords?: string | null;
-    imageLight?: string | Media | null;
-    imageDark?: string | Media | null;
-    figma?: string | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "general".
- */
-export interface General {
-  id: string;
-  title: string;
-  ingress?:
-    | {
-        [k: string]: unknown;
-      }[]
-    | null;
-  sections: (
-    | {
-        heroText?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        actions?:
-          | {
-              type: 'primary' | 'secondary' | 'tertiary';
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'call-to-action';
-      }
-    | {
-        intro?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        components?:
-          | {
-              component: string | Component;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'component-overview';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        examples?:
-          | {
-              fileName: string;
-              url: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'figma-example-section';
-      }
-    | {
-        heroText?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        actions?:
-          | {
-              type: 'primary' | 'secondary' | 'tertiary';
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        links?:
-          | {
-              title: string;
-              description?: string | null;
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'link-card-list-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        codeExample: string | CodeExample;
-        defaultShowControls?: boolean | null;
-        defaultShowEditor?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'live-demo-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        installCode: string;
-        usageCode: string;
-        reactDocs?:
-          | {
-              title: string;
-              href: string;
-              id?: string | null;
-            }[]
-          | null;
-        cssDocs?:
-          | {
-              title: string;
-              href: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'package-report-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        content?:
-          | (
-              | {
-                  steps?:
-                    | {
-                        title: string;
-                        description: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  url: string;
-                  urlDark: string;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'anatomy-example';
-                }
-              | {
-                  steps: {
-                    image?: string | Media | null;
-                    title?: string | null;
-                    description?:
-                      | {
-                          [k: string]: unknown;
-                        }[]
-                      | null;
-                    id?: string | null;
-                  }[];
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'carousel';
-                }
-              | {
-                  code: string;
-                  language:
-                    | 'ts'
-                    | 'tsx'
-                    | 'sh'
-                    | 'scss'
-                    | 'css'
-                    | 'js'
-                    | 'jsx'
-                    | 'html'
-                    | 'xml'
-                    | 'json'
-                    | 'less'
-                    | 'diff';
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'code-snippet';
-                }
-              | {
-                  cards?:
-                    | {
-                        color?:
-                          | (
-                              | 'svart'
-                              | 'skifer'
-                              | 'stein'
-                              | 'svaberg'
-                              | 'dis'
-                              | 'sand'
-                              | 'hvit'
-                              | 'suksess'
-                              | 'info'
-                              | 'advarsel'
-                              | 'feil'
-                            )
-                          | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'color-card';
-                }
-              | {
-                  doDontItem?:
-                    | {
-                        variant?: ('code' | 'image') | null;
-                        code?: string | null;
-                        noinline?: boolean | null;
-                        image?: string | Media | null;
-                        description?: string | null;
-                        type: 'do' | 'dont' | 'avoid';
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'dodont-example';
-                }
-              | {
-                  links?:
-                    | {
-                        title: string;
-                        description?: string | null;
-                        link: {
-                          type: 'reference' | 'custom';
-                          label?: string | null;
-                          reference?:
-                            | ({
-                                relationTo: 'components';
-                                value: string | Component;
-                              } | null)
-                            | ({
-                                relationTo: 'general';
-                                value: string | General;
-                              } | null)
-                            | ({
-                                relationTo: 'patterns';
-                                value: string | Pattern;
-                              } | null)
-                            | ({
-                                relationTo: 'foundations';
-                                value: string | Foundation;
-                              } | null)
-                            | ({
-                                relationTo: 'blog';
-                                value: string | Blog;
-                              } | null);
-                          url?: string | null;
-                          newTab?: boolean | null;
-                        };
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'link-card-list';
-                }
-              | {
-                  codeExample: string | CodeExample;
-                  defaultShowControls?: boolean | null;
-                  defaultShowEditor?: boolean | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'live-demo-block';
-                }
-              | {
-                  boxes?:
-                    | {
-                        type: 'info' | 'success' | 'error' | 'warning';
-                        title?: string | null;
-                        description: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'message-box';
-                }
-              | {
-                  content?:
-                    | {
-                        [k: string]: unknown;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'rich-text';
-                }
-              | {
-                  showcaseItem?:
-                    | {
-                        title: string;
-                        src?: string | null;
-                        example?: string | Media | null;
-                        origin: string;
-                        description?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'showcase';
-                }
-              | {
-                  rows?:
-                    | {
-                        element: string;
-                        property: string;
-                        role: string;
-                        value: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'tokens-table';
-                }
-              | {
-                  rows?:
-                    | {
-                        type:
-                          | 'mainColors'
-                          | 'functionalColors'
-                          | 'expandedFunctionalColors'
-                          | 'spacing'
-                          | 'typo'
-                          | 'typo-small';
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'table';
-                }
-            )[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'page-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        showcaseItem?:
-          | {
-              title: string;
-              src?: string | null;
-              example?: string | Media | null;
-              origin: string;
-              description?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'showcase-section';
-      }
-    | {
-        video: {
-          url: string;
-          loop: boolean;
-        };
-        title: string;
-        description?: string | null;
-        link: {
-          type: 'reference' | 'custom';
-          label?: string | null;
-          reference?:
-            | ({
-                relationTo: 'components';
-                value: string | Component;
-              } | null)
-            | ({
-                relationTo: 'general';
-                value: string | General;
-              } | null)
-            | ({
-                relationTo: 'patterns';
-                value: string | Pattern;
-              } | null)
-            | ({
-                relationTo: 'foundations';
-                value: string | Foundation;
-              } | null)
-            | ({
-                relationTo: 'blog';
-                value: string | Blog;
-              } | null);
-          url?: string | null;
-          newTab?: boolean | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'video-cta';
-      }
-    | {
-        type: {
-          tagType?: string | null;
-          tagLabel?: string | null;
-          title?: string | null;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          author?: string | null;
-          slug?: string | null;
-          date?: string | null;
-          image?: string | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'scroll';
-      }
-    | {
-        label: string;
-        addOnQuestion: string;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'feedback-section';
-      }
-    | {
-        content: {
-          package?: string | null;
-          downloads?: number | null;
-          title?: string | null;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          componentId?: string | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'package-stats-section';
-      }
-  )[];
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    keywords?: string | null;
-    imageLight?: string | Media | null;
-    imageDark?: string | Media | null;
-    figma?: string | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "patterns".
- */
-export interface Pattern {
-  id: string;
-  title: string;
-  ingress?:
-    | {
-        [k: string]: unknown;
-      }[]
-    | null;
-  tabs: {
-    title: string;
-    slug: string;
-    sections: (
-      | {
-          heroText?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          actions?:
-            | {
-                type: 'primary' | 'secondary' | 'tertiary';
-                link: {
-                  type: 'reference' | 'custom';
-                  label?: string | null;
-                  reference?:
-                    | ({
-                        relationTo: 'components';
-                        value: string | Component;
-                      } | null)
-                    | ({
-                        relationTo: 'general';
-                        value: string | General;
-                      } | null)
-                    | ({
-                        relationTo: 'patterns';
-                        value: string | Pattern;
-                      } | null)
-                    | ({
-                        relationTo: 'foundations';
-                        value: string | Foundation;
-                      } | null)
-                    | ({
-                        relationTo: 'blog';
-                        value: string | Blog;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'call-to-action';
-        }
-      | {
-          intro?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          components?:
-            | {
-                component: string | Component;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'component-overview';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          examples?:
-            | {
-                fileName: string;
-                url: string;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'figma-example-section';
-        }
-      | {
-          heroText?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          actions?:
-            | {
-                type: 'primary' | 'secondary' | 'tertiary';
-                link: {
-                  type: 'reference' | 'custom';
-                  label?: string | null;
-                  reference?:
-                    | ({
-                        relationTo: 'components';
-                        value: string | Component;
-                      } | null)
-                    | ({
-                        relationTo: 'general';
-                        value: string | General;
-                      } | null)
-                    | ({
-                        relationTo: 'patterns';
-                        value: string | Pattern;
-                      } | null)
-                    | ({
-                        relationTo: 'foundations';
-                        value: string | Foundation;
-                      } | null)
-                    | ({
-                        relationTo: 'blog';
-                        value: string | Blog;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'hero-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          links?:
-            | {
-                title: string;
-                description?: string | null;
-                link: {
-                  type: 'reference' | 'custom';
-                  label?: string | null;
-                  reference?:
-                    | ({
-                        relationTo: 'components';
-                        value: string | Component;
-                      } | null)
-                    | ({
-                        relationTo: 'general';
-                        value: string | General;
-                      } | null)
-                    | ({
-                        relationTo: 'patterns';
-                        value: string | Pattern;
-                      } | null)
-                    | ({
-                        relationTo: 'foundations';
-                        value: string | Foundation;
-                      } | null)
-                    | ({
-                        relationTo: 'blog';
-                        value: string | Blog;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'link-card-list-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          codeExample: string | CodeExample;
-          defaultShowControls?: boolean | null;
-          defaultShowEditor?: boolean | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'live-demo-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          installCode: string;
-          usageCode: string;
-          reactDocs?:
-            | {
-                title: string;
-                href: string;
-                id?: string | null;
-              }[]
-            | null;
-          cssDocs?:
-            | {
-                title: string;
-                href: string;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'package-report-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          content?:
-            | (
-                | {
-                    steps?:
-                      | {
-                          title: string;
-                          description: string;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    url: string;
-                    urlDark: string;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'anatomy-example';
-                  }
-                | {
-                    steps: {
-                      image?: string | Media | null;
-                      title?: string | null;
-                      description?:
-                        | {
-                            [k: string]: unknown;
-                          }[]
-                        | null;
-                      id?: string | null;
-                    }[];
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'carousel';
-                  }
-                | {
-                    code: string;
-                    language:
-                      | 'ts'
-                      | 'tsx'
-                      | 'sh'
-                      | 'scss'
-                      | 'css'
-                      | 'js'
-                      | 'jsx'
-                      | 'html'
-                      | 'xml'
-                      | 'json'
-                      | 'less'
-                      | 'diff';
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'code-snippet';
-                  }
-                | {
-                    cards?:
-                      | {
-                          color?:
-                            | (
-                                | 'svart'
-                                | 'skifer'
-                                | 'stein'
-                                | 'svaberg'
-                                | 'dis'
-                                | 'sand'
-                                | 'hvit'
-                                | 'suksess'
-                                | 'info'
-                                | 'advarsel'
-                                | 'feil'
-                              )
-                            | null;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'color-card';
-                  }
-                | {
-                    doDontItem?:
-                      | {
-                          variant?: ('code' | 'image') | null;
-                          code?: string | null;
-                          noinline?: boolean | null;
-                          image?: string | Media | null;
-                          description?: string | null;
-                          type: 'do' | 'dont' | 'avoid';
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'dodont-example';
-                  }
-                | {
-                    links?:
-                      | {
-                          title: string;
-                          description?: string | null;
-                          link: {
-                            type: 'reference' | 'custom';
-                            label?: string | null;
-                            reference?:
-                              | ({
-                                  relationTo: 'components';
-                                  value: string | Component;
-                                } | null)
-                              | ({
-                                  relationTo: 'general';
-                                  value: string | General;
-                                } | null)
-                              | ({
-                                  relationTo: 'patterns';
-                                  value: string | Pattern;
-                                } | null)
-                              | ({
-                                  relationTo: 'foundations';
-                                  value: string | Foundation;
-                                } | null)
-                              | ({
-                                  relationTo: 'blog';
-                                  value: string | Blog;
-                                } | null);
-                            url?: string | null;
-                            newTab?: boolean | null;
-                          };
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'link-card-list';
-                  }
-                | {
-                    codeExample: string | CodeExample;
-                    defaultShowControls?: boolean | null;
-                    defaultShowEditor?: boolean | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'live-demo-block';
-                  }
-                | {
-                    boxes?:
-                      | {
-                          type: 'info' | 'success' | 'error' | 'warning';
-                          title?: string | null;
-                          description: string;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'message-box';
-                  }
-                | {
-                    content?:
-                      | {
-                          [k: string]: unknown;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'rich-text';
-                  }
-                | {
-                    showcaseItem?:
-                      | {
-                          title: string;
-                          src?: string | null;
-                          example?: string | Media | null;
-                          origin: string;
-                          description?: string | null;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'showcase';
-                  }
-                | {
-                    rows?:
-                      | {
-                          element: string;
-                          property: string;
-                          role: string;
-                          value: string;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'tokens-table';
-                  }
-                | {
-                    rows?:
-                      | {
-                          type:
-                            | 'mainColors'
-                            | 'functionalColors'
-                            | 'expandedFunctionalColors'
-                            | 'spacing'
-                            | 'typo'
-                            | 'typo-small';
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'table';
-                  }
-              )[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'page-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          showcaseItem?:
-            | {
-                title: string;
-                src?: string | null;
-                example?: string | Media | null;
-                origin: string;
-                description?: string | null;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'showcase-section';
-        }
-      | {
-          video: {
-            url: string;
-            loop: boolean;
-          };
-          title: string;
-          description?: string | null;
-          link: {
-            type: 'reference' | 'custom';
-            label?: string | null;
-            reference?:
-              | ({
-                  relationTo: 'components';
-                  value: string | Component;
-                } | null)
-              | ({
-                  relationTo: 'general';
-                  value: string | General;
-                } | null)
-              | ({
-                  relationTo: 'patterns';
-                  value: string | Pattern;
-                } | null)
-              | ({
-                  relationTo: 'foundations';
-                  value: string | Foundation;
-                } | null)
-              | ({
-                  relationTo: 'blog';
-                  value: string | Blog;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'video-cta';
-        }
-      | {
-          type: {
-            tagType?: string | null;
-            tagLabel?: string | null;
-            title?: string | null;
-            ingress?:
-              | {
-                  [k: string]: unknown;
-                }[]
-              | null;
-            author?: string | null;
-            slug?: string | null;
-            date?: string | null;
-            image?: string | null;
-            id?: string | null;
-          }[];
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'scroll';
-        }
-      | {
-          label: string;
-          addOnQuestion: string;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'feedback-section';
-        }
-      | {
-          content: {
-            package?: string | null;
-            downloads?: number | null;
-            title?: string | null;
-            ingress?:
-              | {
-                  [k: string]: unknown;
-                }[]
-              | null;
-            componentId?: string | null;
-            id?: string | null;
-          }[];
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'package-stats-section';
-        }
-    )[];
-    id?: string | null;
-  }[];
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    keywords?: string | null;
-    imageLight?: string | Media | null;
-    imageDark?: string | Media | null;
-    figma?: string | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "foundations".
- */
-export interface Foundation {
-  id: string;
-  title: string;
-  ingress?:
-    | {
-        [k: string]: unknown;
-      }[]
-    | null;
-  tabs: {
-    title: string;
-    slug: string;
-    sections: (
-      | {
-          heroText?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          actions?:
-            | {
-                type: 'primary' | 'secondary' | 'tertiary';
-                link: {
-                  type: 'reference' | 'custom';
-                  label?: string | null;
-                  reference?:
-                    | ({
-                        relationTo: 'components';
-                        value: string | Component;
-                      } | null)
-                    | ({
-                        relationTo: 'general';
-                        value: string | General;
-                      } | null)
-                    | ({
-                        relationTo: 'patterns';
-                        value: string | Pattern;
-                      } | null)
-                    | ({
-                        relationTo: 'foundations';
-                        value: string | Foundation;
-                      } | null)
-                    | ({
-                        relationTo: 'blog';
-                        value: string | Blog;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'call-to-action';
-        }
-      | {
-          intro?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          components?:
-            | {
-                component: string | Component;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'component-overview';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          examples?:
-            | {
-                fileName: string;
-                url: string;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'figma-example-section';
-        }
-      | {
-          heroText?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          actions?:
-            | {
-                type: 'primary' | 'secondary' | 'tertiary';
-                link: {
-                  type: 'reference' | 'custom';
-                  label?: string | null;
-                  reference?:
-                    | ({
-                        relationTo: 'components';
-                        value: string | Component;
-                      } | null)
-                    | ({
-                        relationTo: 'general';
-                        value: string | General;
-                      } | null)
-                    | ({
-                        relationTo: 'patterns';
-                        value: string | Pattern;
-                      } | null)
-                    | ({
-                        relationTo: 'foundations';
-                        value: string | Foundation;
-                      } | null)
-                    | ({
-                        relationTo: 'blog';
-                        value: string | Blog;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'hero-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          links?:
-            | {
-                title: string;
-                description?: string | null;
-                link: {
-                  type: 'reference' | 'custom';
-                  label?: string | null;
-                  reference?:
-                    | ({
-                        relationTo: 'components';
-                        value: string | Component;
-                      } | null)
-                    | ({
-                        relationTo: 'general';
-                        value: string | General;
-                      } | null)
-                    | ({
-                        relationTo: 'patterns';
-                        value: string | Pattern;
-                      } | null)
-                    | ({
-                        relationTo: 'foundations';
-                        value: string | Foundation;
-                      } | null)
-                    | ({
-                        relationTo: 'blog';
-                        value: string | Blog;
-                      } | null);
-                  url?: string | null;
-                  newTab?: boolean | null;
-                };
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'link-card-list-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          codeExample: string | CodeExample;
-          defaultShowControls?: boolean | null;
-          defaultShowEditor?: boolean | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'live-demo-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          installCode: string;
-          usageCode: string;
-          reactDocs?:
-            | {
-                title: string;
-                href: string;
-                id?: string | null;
-              }[]
-            | null;
-          cssDocs?:
-            | {
-                title: string;
-                href: string;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'package-report-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          content?:
-            | (
-                | {
-                    steps?:
-                      | {
-                          title: string;
-                          description: string;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    url: string;
-                    urlDark: string;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'anatomy-example';
-                  }
-                | {
-                    steps: {
-                      image?: string | Media | null;
-                      title?: string | null;
-                      description?:
-                        | {
-                            [k: string]: unknown;
-                          }[]
-                        | null;
-                      id?: string | null;
-                    }[];
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'carousel';
-                  }
-                | {
-                    code: string;
-                    language:
-                      | 'ts'
-                      | 'tsx'
-                      | 'sh'
-                      | 'scss'
-                      | 'css'
-                      | 'js'
-                      | 'jsx'
-                      | 'html'
-                      | 'xml'
-                      | 'json'
-                      | 'less'
-                      | 'diff';
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'code-snippet';
-                  }
-                | {
-                    cards?:
-                      | {
-                          color?:
-                            | (
-                                | 'svart'
-                                | 'skifer'
-                                | 'stein'
-                                | 'svaberg'
-                                | 'dis'
-                                | 'sand'
-                                | 'hvit'
-                                | 'suksess'
-                                | 'info'
-                                | 'advarsel'
-                                | 'feil'
-                              )
-                            | null;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'color-card';
-                  }
-                | {
-                    doDontItem?:
-                      | {
-                          variant?: ('code' | 'image') | null;
-                          code?: string | null;
-                          noinline?: boolean | null;
-                          image?: string | Media | null;
-                          description?: string | null;
-                          type: 'do' | 'dont' | 'avoid';
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'dodont-example';
-                  }
-                | {
-                    links?:
-                      | {
-                          title: string;
-                          description?: string | null;
-                          link: {
-                            type: 'reference' | 'custom';
-                            label?: string | null;
-                            reference?:
-                              | ({
-                                  relationTo: 'components';
-                                  value: string | Component;
-                                } | null)
-                              | ({
-                                  relationTo: 'general';
-                                  value: string | General;
-                                } | null)
-                              | ({
-                                  relationTo: 'patterns';
-                                  value: string | Pattern;
-                                } | null)
-                              | ({
-                                  relationTo: 'foundations';
-                                  value: string | Foundation;
-                                } | null)
-                              | ({
-                                  relationTo: 'blog';
-                                  value: string | Blog;
-                                } | null);
-                            url?: string | null;
-                            newTab?: boolean | null;
-                          };
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'link-card-list';
-                  }
-                | {
-                    codeExample: string | CodeExample;
-                    defaultShowControls?: boolean | null;
-                    defaultShowEditor?: boolean | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'live-demo-block';
-                  }
-                | {
-                    boxes?:
-                      | {
-                          type: 'info' | 'success' | 'error' | 'warning';
-                          title?: string | null;
-                          description: string;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'message-box';
-                  }
-                | {
-                    content?:
-                      | {
-                          [k: string]: unknown;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'rich-text';
-                  }
-                | {
-                    showcaseItem?:
-                      | {
-                          title: string;
-                          src?: string | null;
-                          example?: string | Media | null;
-                          origin: string;
-                          description?: string | null;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'showcase';
-                  }
-                | {
-                    rows?:
-                      | {
-                          element: string;
-                          property: string;
-                          role: string;
-                          value: string;
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'tokens-table';
-                  }
-                | {
-                    rows?:
-                      | {
-                          type:
-                            | 'mainColors'
-                            | 'functionalColors'
-                            | 'expandedFunctionalColors'
-                            | 'spacing'
-                            | 'typo'
-                            | 'typo-small';
-                          id?: string | null;
-                        }[]
-                      | null;
-                    id?: string | null;
-                    blockName?: string | null;
-                    blockType: 'table';
-                  }
-              )[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'page-section';
-        }
-      | {
-          title: string;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          showcaseItem?:
-            | {
-                title: string;
-                src?: string | null;
-                example?: string | Media | null;
-                origin: string;
-                description?: string | null;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'showcase-section';
-        }
-      | {
-          video: {
-            url: string;
-            loop: boolean;
-          };
-          title: string;
-          description?: string | null;
-          link: {
-            type: 'reference' | 'custom';
-            label?: string | null;
-            reference?:
-              | ({
-                  relationTo: 'components';
-                  value: string | Component;
-                } | null)
-              | ({
-                  relationTo: 'general';
-                  value: string | General;
-                } | null)
-              | ({
-                  relationTo: 'patterns';
-                  value: string | Pattern;
-                } | null)
-              | ({
-                  relationTo: 'foundations';
-                  value: string | Foundation;
-                } | null)
-              | ({
-                  relationTo: 'blog';
-                  value: string | Blog;
-                } | null);
-            url?: string | null;
-            newTab?: boolean | null;
-          };
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'video-cta';
-        }
-      | {
-          type: {
-            tagType?: string | null;
-            tagLabel?: string | null;
-            title?: string | null;
-            ingress?:
-              | {
-                  [k: string]: unknown;
-                }[]
-              | null;
-            author?: string | null;
-            slug?: string | null;
-            date?: string | null;
-            image?: string | null;
-            id?: string | null;
-          }[];
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'scroll';
-        }
-      | {
-          label: string;
-          addOnQuestion: string;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'feedback-section';
-        }
-      | {
-          content: {
-            package?: string | null;
-            downloads?: number | null;
-            title?: string | null;
-            ingress?:
-              | {
-                  [k: string]: unknown;
-                }[]
-              | null;
-            componentId?: string | null;
-            id?: string | null;
-          }[];
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'package-stats-section';
-        }
-    )[];
-    id?: string | null;
-  }[];
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    keywords?: string | null;
-    imageLight?: string | Media | null;
-    imageDark?: string | Media | null;
-    figma?: string | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog".
- */
-export interface Blog {
-  id: string;
-  published_date?: string | null;
-  tag: string | BlogTag;
-  title: string;
-  slug?: string | null;
-  ingress: string;
-  author: string | User;
-  sections: (
-    | {
-        heroText?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        actions?:
-          | {
-              type: 'primary' | 'secondary' | 'tertiary';
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'call-to-action';
-      }
-    | {
-        intro?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        components?:
-          | {
-              component: string | Component;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'component-overview';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        examples?:
-          | {
-              fileName: string;
-              url: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'figma-example-section';
-      }
-    | {
-        heroText?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        actions?:
-          | {
-              type: 'primary' | 'secondary' | 'tertiary';
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        links?:
-          | {
-              title: string;
-              description?: string | null;
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'link-card-list-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        codeExample: string | CodeExample;
-        defaultShowControls?: boolean | null;
-        defaultShowEditor?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'live-demo-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        installCode: string;
-        usageCode: string;
-        reactDocs?:
-          | {
-              title: string;
-              href: string;
-              id?: string | null;
-            }[]
-          | null;
-        cssDocs?:
-          | {
-              title: string;
-              href: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'package-report-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        content?:
-          | (
-              | {
-                  steps?:
-                    | {
-                        title: string;
-                        description: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  url: string;
-                  urlDark: string;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'anatomy-example';
-                }
-              | {
-                  steps: {
-                    image?: string | Media | null;
-                    title?: string | null;
-                    description?:
-                      | {
-                          [k: string]: unknown;
-                        }[]
-                      | null;
-                    id?: string | null;
-                  }[];
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'carousel';
-                }
-              | {
-                  code: string;
-                  language:
-                    | 'ts'
-                    | 'tsx'
-                    | 'sh'
-                    | 'scss'
-                    | 'css'
-                    | 'js'
-                    | 'jsx'
-                    | 'html'
-                    | 'xml'
-                    | 'json'
-                    | 'less'
-                    | 'diff';
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'code-snippet';
-                }
-              | {
-                  cards?:
-                    | {
-                        color?:
-                          | (
-                              | 'svart'
-                              | 'skifer'
-                              | 'stein'
-                              | 'svaberg'
-                              | 'dis'
-                              | 'sand'
-                              | 'hvit'
-                              | 'suksess'
-                              | 'info'
-                              | 'advarsel'
-                              | 'feil'
-                            )
-                          | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'color-card';
-                }
-              | {
-                  doDontItem?:
-                    | {
-                        variant?: ('code' | 'image') | null;
-                        code?: string | null;
-                        noinline?: boolean | null;
-                        image?: string | Media | null;
-                        description?: string | null;
-                        type: 'do' | 'dont' | 'avoid';
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'dodont-example';
-                }
-              | {
-                  links?:
-                    | {
-                        title: string;
-                        description?: string | null;
-                        link: {
-                          type: 'reference' | 'custom';
-                          label?: string | null;
-                          reference?:
-                            | ({
-                                relationTo: 'components';
-                                value: string | Component;
-                              } | null)
-                            | ({
-                                relationTo: 'general';
-                                value: string | General;
-                              } | null)
-                            | ({
-                                relationTo: 'patterns';
-                                value: string | Pattern;
-                              } | null)
-                            | ({
-                                relationTo: 'foundations';
-                                value: string | Foundation;
-                              } | null)
-                            | ({
-                                relationTo: 'blog';
-                                value: string | Blog;
-                              } | null);
-                          url?: string | null;
-                          newTab?: boolean | null;
-                        };
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'link-card-list';
-                }
-              | {
-                  codeExample: string | CodeExample;
-                  defaultShowControls?: boolean | null;
-                  defaultShowEditor?: boolean | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'live-demo-block';
-                }
-              | {
-                  boxes?:
-                    | {
-                        type: 'info' | 'success' | 'error' | 'warning';
-                        title?: string | null;
-                        description: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'message-box';
-                }
-              | {
-                  content?:
-                    | {
-                        [k: string]: unknown;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'rich-text';
-                }
-              | {
-                  showcaseItem?:
-                    | {
-                        title: string;
-                        src?: string | null;
-                        example?: string | Media | null;
-                        origin: string;
-                        description?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'showcase';
-                }
-              | {
-                  rows?:
-                    | {
-                        element: string;
-                        property: string;
-                        role: string;
-                        value: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'tokens-table';
-                }
-              | {
-                  rows?:
-                    | {
-                        type:
-                          | 'mainColors'
-                          | 'functionalColors'
-                          | 'expandedFunctionalColors'
-                          | 'spacing'
-                          | 'typo'
-                          | 'typo-small';
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'table';
-                }
-            )[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'page-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        showcaseItem?:
-          | {
-              title: string;
-              src?: string | null;
-              example?: string | Media | null;
-              origin: string;
-              description?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'showcase-section';
-      }
-    | {
-        video: {
-          url: string;
-          loop: boolean;
-        };
-        title: string;
-        description?: string | null;
-        link: {
-          type: 'reference' | 'custom';
-          label?: string | null;
-          reference?:
-            | ({
-                relationTo: 'components';
-                value: string | Component;
-              } | null)
-            | ({
-                relationTo: 'general';
-                value: string | General;
-              } | null)
-            | ({
-                relationTo: 'patterns';
-                value: string | Pattern;
-              } | null)
-            | ({
-                relationTo: 'foundations';
-                value: string | Foundation;
-              } | null)
-            | ({
-                relationTo: 'blog';
-                value: string | Blog;
-              } | null);
-          url?: string | null;
-          newTab?: boolean | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'video-cta';
-      }
-    | {
-        type: {
-          tagType?: string | null;
-          tagLabel?: string | null;
-          title?: string | null;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          author?: string | null;
-          slug?: string | null;
-          date?: string | null;
-          image?: string | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'scroll';
-      }
-    | {
-        label: string;
-        addOnQuestion: string;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'feedback-section';
-      }
-    | {
-        content: {
-          package?: string | null;
-          downloads?: number | null;
-          title?: string | null;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          componentId?: string | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'package-stats-section';
-      }
-  )[];
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    keywords?: string | null;
-    imageLight?: string | Media | null;
-    imageDark?: string | Media | null;
-    figma?: string | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog-tag".
- */
-export interface BlogTag {
-  id: string;
-  label: string;
-  type?: ('success' | 'warning' | 'info' | 'error') | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
- */
-export interface User {
-  id: string;
-  name: string;
-  role: 'admin' | 'editor' | 'writer' | 'user';
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "codeExample".
- */
-export interface CodeExample {
-  id: string;
-  title?: string | null;
-  noinline?: boolean | null;
-  code: string;
-  knobs?:
-    | {
-        label: string;
-        type: 'bool' | 'choice';
-        boolOptions?: {
-          trueValue: string;
-          falseValue: string;
-        };
-        choiceOptions?:
-          | {
-              label: string;
-              value: string;
-              id?: string | null;
-            }[]
-          | null;
-        defaultValue?: number | null;
-        id?: string | null;
-      }[]
-    | null;
-  components?: (string | Component)[] | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  aspectRatio?: string | null;
-  alt?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-  sizes?: {
-    thumbnail?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    tiny?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    small?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    medium?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    large?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "menu-items".
- */
-export interface MenuItem {
-  id: string;
-  title: string;
-  slug: string;
-  link: {
-    type: 'reference' | 'custom';
-    label?: string | null;
-    reference?:
-      | ({
-          relationTo: 'components';
-          value: string | Component;
-        } | null)
-      | ({
-          relationTo: 'general';
-          value: string | General;
-        } | null)
-      | ({
-          relationTo: 'patterns';
-          value: string | Pattern;
-        } | null)
-      | ({
-          relationTo: 'foundations';
-          value: string | Foundation;
-        } | null)
-      | ({
-          relationTo: 'blog';
-          value: string | Blog;
-        } | null);
-    url?: string | null;
-    newTab?: boolean | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "sub-menus".
- */
-export interface SubMenu {
-  id: string;
-  title: string;
-  slug: string;
-  items?:
-    | {
-        item:
-          | {
-              relationTo: 'menu-items';
-              value: string | MenuItem;
-            }
-          | {
-              relationTo: 'sub-menus';
-              value: string | SubMenu;
-            };
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "feedback".
- */
-export interface Feedback {
-  id: string;
-  page?: string | null;
-  feedbackValue?: number | null;
-  message?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "package-stats".
- */
-export interface PackageStat {
-  id: string;
-  title?: string | null;
-  package?: string | null;
-  downloads?: number | null;
-  componentId?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-preferences".
- */
-export interface PayloadPreference {
-  id: string;
-  user: {
-    relationTo: 'users';
-    value: string | User;
-  };
-  key?: string | null;
-  value?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-migrations".
- */
-export interface PayloadMigration {
-  id: string;
-  name?: string | null;
-  batch?: number | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "all-content".
- */
-export interface AllContent {
-  id: string;
-  blocks: (
-    | {
-        heroText?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        actions?:
-          | {
-              type: 'primary' | 'secondary' | 'tertiary';
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'call-to-action';
-      }
-    | {
-        intro?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        components?:
-          | {
-              component: string | Component;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'component-overview';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        examples?:
-          | {
-              fileName: string;
-              url: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'figma-example-section';
-      }
-    | {
-        heroText?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        actions?:
-          | {
-              type: 'primary' | 'secondary' | 'tertiary';
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        links?:
-          | {
-              title: string;
-              description?: string | null;
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'link-card-list-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        codeExample: string | CodeExample;
-        defaultShowControls?: boolean | null;
-        defaultShowEditor?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'live-demo-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        installCode: string;
-        usageCode: string;
-        reactDocs?:
-          | {
-              title: string;
-              href: string;
-              id?: string | null;
-            }[]
-          | null;
-        cssDocs?:
-          | {
-              title: string;
-              href: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'package-report-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        content?:
-          | (
-              | {
-                  steps?:
-                    | {
-                        title: string;
-                        description: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  url: string;
-                  urlDark: string;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'anatomy-example';
-                }
-              | {
-                  steps: {
-                    image?: string | Media | null;
-                    title?: string | null;
-                    description?:
-                      | {
-                          [k: string]: unknown;
-                        }[]
-                      | null;
-                    id?: string | null;
-                  }[];
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'carousel';
-                }
-              | {
-                  code: string;
-                  language:
-                    | 'ts'
-                    | 'tsx'
-                    | 'sh'
-                    | 'scss'
-                    | 'css'
-                    | 'js'
-                    | 'jsx'
-                    | 'html'
-                    | 'xml'
-                    | 'json'
-                    | 'less'
-                    | 'diff';
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'code-snippet';
-                }
-              | {
-                  cards?:
-                    | {
-                        color?:
-                          | (
-                              | 'svart'
-                              | 'skifer'
-                              | 'stein'
-                              | 'svaberg'
-                              | 'dis'
-                              | 'sand'
-                              | 'hvit'
-                              | 'suksess'
-                              | 'info'
-                              | 'advarsel'
-                              | 'feil'
-                            )
-                          | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'color-card';
-                }
-              | {
-                  doDontItem?:
-                    | {
-                        variant?: ('code' | 'image') | null;
-                        code?: string | null;
-                        noinline?: boolean | null;
-                        image?: string | Media | null;
-                        description?: string | null;
-                        type: 'do' | 'dont' | 'avoid';
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'dodont-example';
-                }
-              | {
-                  links?:
-                    | {
-                        title: string;
-                        description?: string | null;
-                        link: {
-                          type: 'reference' | 'custom';
-                          label?: string | null;
-                          reference?:
-                            | ({
-                                relationTo: 'components';
-                                value: string | Component;
-                              } | null)
-                            | ({
-                                relationTo: 'general';
-                                value: string | General;
-                              } | null)
-                            | ({
-                                relationTo: 'patterns';
-                                value: string | Pattern;
-                              } | null)
-                            | ({
-                                relationTo: 'foundations';
-                                value: string | Foundation;
-                              } | null)
-                            | ({
-                                relationTo: 'blog';
-                                value: string | Blog;
-                              } | null);
-                          url?: string | null;
-                          newTab?: boolean | null;
-                        };
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'link-card-list';
-                }
-              | {
-                  codeExample: string | CodeExample;
-                  defaultShowControls?: boolean | null;
-                  defaultShowEditor?: boolean | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'live-demo-block';
-                }
-              | {
-                  boxes?:
-                    | {
-                        type: 'info' | 'success' | 'error' | 'warning';
-                        title?: string | null;
-                        description: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'message-box';
-                }
-              | {
-                  content?:
-                    | {
-                        [k: string]: unknown;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'rich-text';
-                }
-              | {
-                  showcaseItem?:
-                    | {
-                        title: string;
-                        src?: string | null;
-                        example?: string | Media | null;
-                        origin: string;
-                        description?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'showcase';
-                }
-              | {
-                  rows?:
-                    | {
-                        element: string;
-                        property: string;
-                        role: string;
-                        value: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'tokens-table';
-                }
-              | {
-                  rows?:
-                    | {
-                        type:
-                          | 'mainColors'
-                          | 'functionalColors'
-                          | 'expandedFunctionalColors'
-                          | 'spacing'
-                          | 'typo'
-                          | 'typo-small';
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'table';
-                }
-            )[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'page-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        showcaseItem?:
-          | {
-              title: string;
-              src?: string | null;
-              example?: string | Media | null;
-              origin: string;
-              description?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'showcase-section';
-      }
-    | {
-        video: {
-          url: string;
-          loop: boolean;
-        };
-        title: string;
-        description?: string | null;
-        link: {
-          type: 'reference' | 'custom';
-          label?: string | null;
-          reference?:
-            | ({
-                relationTo: 'components';
-                value: string | Component;
-              } | null)
-            | ({
-                relationTo: 'general';
-                value: string | General;
-              } | null)
-            | ({
-                relationTo: 'patterns';
-                value: string | Pattern;
-              } | null)
-            | ({
-                relationTo: 'foundations';
-                value: string | Foundation;
-              } | null)
-            | ({
-                relationTo: 'blog';
-                value: string | Blog;
-              } | null);
-          url?: string | null;
-          newTab?: boolean | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'video-cta';
-      }
-    | {
-        type: {
-          tagType?: string | null;
-          tagLabel?: string | null;
-          title?: string | null;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          author?: string | null;
-          slug?: string | null;
-          date?: string | null;
-          image?: string | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'scroll';
-      }
-    | {
-        label: string;
-        addOnQuestion: string;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'feedback-section';
-      }
-    | {
-        content: {
-          package?: string | null;
-          downloads?: number | null;
-          title?: string | null;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          componentId?: string | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'package-stats-section';
-      }
-    | {
-        steps?:
-          | {
-              title: string;
-              description: string;
-              id?: string | null;
-            }[]
-          | null;
-        url: string;
-        urlDark: string;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'anatomy-example';
-      }
-    | {
-        steps: {
-          image?: string | Media | null;
-          title?: string | null;
-          description?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'carousel';
-      }
-    | {
-        code: string;
-        language: 'ts' | 'tsx' | 'sh' | 'scss' | 'css' | 'js' | 'jsx' | 'html' | 'xml' | 'json' | 'less' | 'diff';
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'code-snippet';
-      }
-    | {
-        cards?:
-          | {
-              color?:
-                | (
-                    | 'svart'
-                    | 'skifer'
-                    | 'stein'
-                    | 'svaberg'
-                    | 'dis'
-                    | 'sand'
-                    | 'hvit'
-                    | 'suksess'
-                    | 'info'
-                    | 'advarsel'
-                    | 'feil'
-                  )
-                | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'color-card';
-      }
-    | {
-        doDontItem?:
-          | {
-              variant?: ('code' | 'image') | null;
-              code?: string | null;
-              noinline?: boolean | null;
-              image?: string | Media | null;
-              description?: string | null;
-              type: 'do' | 'dont' | 'avoid';
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'dodont-example';
-      }
-    | {
-        links?:
-          | {
-              title: string;
-              description?: string | null;
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'link-card-list';
-      }
-    | {
-        codeExample: string | CodeExample;
-        defaultShowControls?: boolean | null;
-        defaultShowEditor?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'live-demo-block';
-      }
-    | {
-        boxes?:
-          | {
-              type: 'info' | 'success' | 'error' | 'warning';
-              title?: string | null;
-              description: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'message-box';
-      }
-    | {
-        content?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'rich-text';
-      }
-    | {
-        showcaseItem?:
-          | {
-              title: string;
-              src?: string | null;
-              example?: string | Media | null;
-              origin: string;
-              description?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'showcase';
-      }
-    | {
-        rows?:
-          | {
-              element: string;
-              property: string;
-              role: string;
-              value: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'tokens-table';
-      }
-    | {
-        rows?:
-          | {
-              type: 'mainColors' | 'functionalColors' | 'expandedFunctionalColors' | 'spacing' | 'typo' | 'typo-small';
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'table';
-      }
-    | {
-        link: {
-          type: 'reference' | 'custom';
-          label?: string | null;
-          reference?:
-            | ({
-                relationTo: 'components';
-                value: string | Component;
-              } | null)
-            | ({
-                relationTo: 'general';
-                value: string | General;
-              } | null)
-            | ({
-                relationTo: 'patterns';
-                value: string | Pattern;
-              } | null)
-            | ({
-                relationTo: 'foundations';
-                value: string | Foundation;
-              } | null)
-            | ({
-                relationTo: 'blog';
-                value: string | Blog;
-              } | null);
-          url?: string | null;
-          newTab?: boolean | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'link';
-      }
-  )[];
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "all-content-blocks".
- */
-export interface AllContentBlock {
-  id: string;
-  blocks: (
-    | {
-        steps?:
-          | {
-              title: string;
-              description: string;
-              id?: string | null;
-            }[]
-          | null;
-        url: string;
-        urlDark: string;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'anatomy-example';
-      }
-    | {
-        steps: {
-          image?: string | Media | null;
-          title?: string | null;
-          description?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'carousel';
-      }
-    | {
-        code: string;
-        language: 'ts' | 'tsx' | 'sh' | 'scss' | 'css' | 'js' | 'jsx' | 'html' | 'xml' | 'json' | 'less' | 'diff';
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'code-snippet';
-      }
-    | {
-        cards?:
-          | {
-              color?:
-                | (
-                    | 'svart'
-                    | 'skifer'
-                    | 'stein'
-                    | 'svaberg'
-                    | 'dis'
-                    | 'sand'
-                    | 'hvit'
-                    | 'suksess'
-                    | 'info'
-                    | 'advarsel'
-                    | 'feil'
-                  )
-                | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'color-card';
-      }
-    | {
-        doDontItem?:
-          | {
-              variant?: ('code' | 'image') | null;
-              code?: string | null;
-              noinline?: boolean | null;
-              image?: string | Media | null;
-              description?: string | null;
-              type: 'do' | 'dont' | 'avoid';
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'dodont-example';
-      }
-    | {
-        links?:
-          | {
-              title: string;
-              description?: string | null;
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'link-card-list';
-      }
-    | {
-        codeExample: string | CodeExample;
-        defaultShowControls?: boolean | null;
-        defaultShowEditor?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'live-demo-block';
-      }
-    | {
-        boxes?:
-          | {
-              type: 'info' | 'success' | 'error' | 'warning';
-              title?: string | null;
-              description: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'message-box';
-      }
-    | {
-        content?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'rich-text';
-      }
-    | {
-        showcaseItem?:
-          | {
-              title: string;
-              src?: string | null;
-              example?: string | Media | null;
-              origin: string;
-              description?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'showcase';
-      }
-    | {
-        rows?:
-          | {
-              element: string;
-              property: string;
-              role: string;
-              value: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'tokens-table';
-      }
-    | {
-        rows?:
-          | {
-              type: 'mainColors' | 'functionalColors' | 'expandedFunctionalColors' | 'spacing' | 'typo' | 'typo-small';
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'table';
-      }
-  )[];
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "all-sections".
- */
-export interface AllSection {
-  id: string;
-  sections: (
-    | {
-        heroText?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        actions?:
-          | {
-              type: 'primary' | 'secondary' | 'tertiary';
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'call-to-action';
-      }
-    | {
-        intro?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        components?:
-          | {
-              component: string | Component;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'component-overview';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        examples?:
-          | {
-              fileName: string;
-              url: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'figma-example-section';
-      }
-    | {
-        heroText?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        actions?:
-          | {
-              type: 'primary' | 'secondary' | 'tertiary';
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        links?:
-          | {
-              title: string;
-              description?: string | null;
-              link: {
-                type: 'reference' | 'custom';
-                label?: string | null;
-                reference?:
-                  | ({
-                      relationTo: 'components';
-                      value: string | Component;
-                    } | null)
-                  | ({
-                      relationTo: 'general';
-                      value: string | General;
-                    } | null)
-                  | ({
-                      relationTo: 'patterns';
-                      value: string | Pattern;
-                    } | null)
-                  | ({
-                      relationTo: 'foundations';
-                      value: string | Foundation;
-                    } | null)
-                  | ({
-                      relationTo: 'blog';
-                      value: string | Blog;
-                    } | null);
-                url?: string | null;
-                newTab?: boolean | null;
-              };
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'link-card-list-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        codeExample: string | CodeExample;
-        defaultShowControls?: boolean | null;
-        defaultShowEditor?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'live-demo-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        installCode: string;
-        usageCode: string;
-        reactDocs?:
-          | {
-              title: string;
-              href: string;
-              id?: string | null;
-            }[]
-          | null;
-        cssDocs?:
-          | {
-              title: string;
-              href: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'package-report-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        content?:
-          | (
-              | {
-                  steps?:
-                    | {
-                        title: string;
-                        description: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  url: string;
-                  urlDark: string;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'anatomy-example';
-                }
-              | {
-                  steps: {
-                    image?: string | Media | null;
-                    title?: string | null;
-                    description?:
-                      | {
-                          [k: string]: unknown;
-                        }[]
-                      | null;
-                    id?: string | null;
-                  }[];
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'carousel';
-                }
-              | {
-                  code: string;
-                  language:
-                    | 'ts'
-                    | 'tsx'
-                    | 'sh'
-                    | 'scss'
-                    | 'css'
-                    | 'js'
-                    | 'jsx'
-                    | 'html'
-                    | 'xml'
-                    | 'json'
-                    | 'less'
-                    | 'diff';
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'code-snippet';
-                }
-              | {
-                  cards?:
-                    | {
-                        color?:
-                          | (
-                              | 'svart'
-                              | 'skifer'
-                              | 'stein'
-                              | 'svaberg'
-                              | 'dis'
-                              | 'sand'
-                              | 'hvit'
-                              | 'suksess'
-                              | 'info'
-                              | 'advarsel'
-                              | 'feil'
-                            )
-                          | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'color-card';
-                }
-              | {
-                  doDontItem?:
-                    | {
-                        variant?: ('code' | 'image') | null;
-                        code?: string | null;
-                        noinline?: boolean | null;
-                        image?: string | Media | null;
-                        description?: string | null;
-                        type: 'do' | 'dont' | 'avoid';
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'dodont-example';
-                }
-              | {
-                  links?:
-                    | {
-                        title: string;
-                        description?: string | null;
-                        link: {
-                          type: 'reference' | 'custom';
-                          label?: string | null;
-                          reference?:
-                            | ({
-                                relationTo: 'components';
-                                value: string | Component;
-                              } | null)
-                            | ({
-                                relationTo: 'general';
-                                value: string | General;
-                              } | null)
-                            | ({
-                                relationTo: 'patterns';
-                                value: string | Pattern;
-                              } | null)
-                            | ({
-                                relationTo: 'foundations';
-                                value: string | Foundation;
-                              } | null)
-                            | ({
-                                relationTo: 'blog';
-                                value: string | Blog;
-                              } | null);
-                          url?: string | null;
-                          newTab?: boolean | null;
-                        };
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'link-card-list';
-                }
-              | {
-                  codeExample: string | CodeExample;
-                  defaultShowControls?: boolean | null;
-                  defaultShowEditor?: boolean | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'live-demo-block';
-                }
-              | {
-                  boxes?:
-                    | {
-                        type: 'info' | 'success' | 'error' | 'warning';
-                        title?: string | null;
-                        description: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'message-box';
-                }
-              | {
-                  content?:
-                    | {
-                        [k: string]: unknown;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'rich-text';
-                }
-              | {
-                  showcaseItem?:
-                    | {
-                        title: string;
-                        src?: string | null;
-                        example?: string | Media | null;
-                        origin: string;
-                        description?: string | null;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'showcase';
-                }
-              | {
-                  rows?:
-                    | {
-                        element: string;
-                        property: string;
-                        role: string;
-                        value: string;
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'tokens-table';
-                }
-              | {
-                  rows?:
-                    | {
-                        type:
-                          | 'mainColors'
-                          | 'functionalColors'
-                          | 'expandedFunctionalColors'
-                          | 'spacing'
-                          | 'typo'
-                          | 'typo-small';
-                        id?: string | null;
-                      }[]
-                    | null;
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'table';
-                }
-            )[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'page-section';
-      }
-    | {
-        title: string;
-        ingress?:
-          | {
-              [k: string]: unknown;
-            }[]
-          | null;
-        showcaseItem?:
-          | {
-              title: string;
-              src?: string | null;
-              example?: string | Media | null;
-              origin: string;
-              description?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'showcase-section';
-      }
-    | {
-        video: {
-          url: string;
-          loop: boolean;
-        };
-        title: string;
-        description?: string | null;
-        link: {
-          type: 'reference' | 'custom';
-          label?: string | null;
-          reference?:
-            | ({
-                relationTo: 'components';
-                value: string | Component;
-              } | null)
-            | ({
-                relationTo: 'general';
-                value: string | General;
-              } | null)
-            | ({
-                relationTo: 'patterns';
-                value: string | Pattern;
-              } | null)
-            | ({
-                relationTo: 'foundations';
-                value: string | Foundation;
-              } | null)
-            | ({
-                relationTo: 'blog';
-                value: string | Blog;
-              } | null);
-          url?: string | null;
-          newTab?: boolean | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'video-cta';
-      }
-    | {
-        type: {
-          tagType?: string | null;
-          tagLabel?: string | null;
-          title?: string | null;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          author?: string | null;
-          slug?: string | null;
-          date?: string | null;
-          image?: string | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'scroll';
-      }
-    | {
-        label: string;
-        addOnQuestion: string;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'feedback-section';
-      }
-    | {
-        content: {
-          package?: string | null;
-          downloads?: number | null;
-          title?: string | null;
-          ingress?:
-            | {
-                [k: string]: unknown;
-              }[]
-            | null;
-          componentId?: string | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'package-stats-section';
-      }
-  )[];
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "main-menu".
- */
-export interface MainMenu {
-  id: string;
-  items?:
-    | {
-        item:
-          | {
-              relationTo: 'menu-items';
-              value: string | MenuItem;
-            }
-          | {
-              relationTo: 'sub-menus';
-              value: string | SubMenu;
-            };
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home-page".
- */
-export interface HomePage {
-  id: string;
-  sections?:
-    | (
+    ingress?:
         | {
-            title: string;
-            ingress?:
-              | {
-                  [k: string]: unknown;
-                }[]
-              | null;
-            content?:
-              | (
-                  | {
-                      steps?:
-                        | {
-                            title: string;
-                            description: string;
+              [k: string]: unknown;
+          }[]
+        | null;
+    tabs: {
+        title: string;
+        slug: string;
+        sections: (
+            | {
+                  heroText?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  actions?:
+                      | {
+                            type: "primary" | "secondary" | "tertiary";
+                            link: {
+                                type: "reference" | "custom";
+                                label?: string | null;
+                                reference?:
+                                    | ({
+                                          relationTo: "components";
+                                          value: string | Component;
+                                      } | null)
+                                    | ({
+                                          relationTo: "general";
+                                          value: string | General;
+                                      } | null)
+                                    | ({
+                                          relationTo: "patterns";
+                                          value: string | Pattern;
+                                      } | null)
+                                    | ({
+                                          relationTo: "foundations";
+                                          value: string | Foundation;
+                                      } | null)
+                                    | ({
+                                          relationTo: "blog";
+                                          value: string | Blog;
+                                      } | null);
+                                url?: string | null;
+                                newTab?: boolean | null;
+                            };
                             id?: string | null;
-                          }[]
-                        | null;
-                      url: string;
-                      urlDark: string;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'anatomy-example';
-                    }
-                  | {
-                      steps: {
-                        image?: string | Media | null;
-                        title?: string | null;
-                        description?:
-                          | {
-                              [k: string]: unknown;
-                            }[]
-                          | null;
-                        id?: string | null;
-                      }[];
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'carousel';
-                    }
-                  | {
-                      code: string;
-                      language:
-                        | 'ts'
-                        | 'tsx'
-                        | 'sh'
-                        | 'scss'
-                        | 'css'
-                        | 'js'
-                        | 'jsx'
-                        | 'html'
-                        | 'xml'
-                        | 'json'
-                        | 'less'
-                        | 'diff';
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'code-snippet';
-                    }
-                  | {
-                      cards?:
-                        | {
-                            color?:
-                              | (
-                                  | 'svart'
-                                  | 'skifer'
-                                  | 'stein'
-                                  | 'svaberg'
-                                  | 'dis'
-                                  | 'sand'
-                                  | 'hvit'
-                                  | 'suksess'
-                                  | 'info'
-                                  | 'advarsel'
-                                  | 'feil'
-                                )
-                              | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "call-to-action";
+              }
+            | {
+                  intro?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  components?:
+                      | {
+                            component: string | Component;
                             id?: string | null;
-                          }[]
-                        | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'color-card';
-                    }
-                  | {
-                      doDontItem?:
-                        | {
-                            variant?: ('code' | 'image') | null;
-                            code?: string | null;
-                            noinline?: boolean | null;
-                            image?: string | Media | null;
-                            description?: string | null;
-                            type: 'do' | 'dont' | 'avoid';
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "component-overview";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  examples?:
+                      | {
+                            fileName: string;
+                            url: string;
                             id?: string | null;
-                          }[]
-                        | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'dodont-example';
-                    }
-                  | {
-                      links?:
-                        | {
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "figma-example-section";
+              }
+            | {
+                  heroText?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  actions?:
+                      | {
+                            type: "primary" | "secondary" | "tertiary";
+                            link: {
+                                type: "reference" | "custom";
+                                label?: string | null;
+                                reference?:
+                                    | ({
+                                          relationTo: "components";
+                                          value: string | Component;
+                                      } | null)
+                                    | ({
+                                          relationTo: "general";
+                                          value: string | General;
+                                      } | null)
+                                    | ({
+                                          relationTo: "patterns";
+                                          value: string | Pattern;
+                                      } | null)
+                                    | ({
+                                          relationTo: "foundations";
+                                          value: string | Foundation;
+                                      } | null)
+                                    | ({
+                                          relationTo: "blog";
+                                          value: string | Blog;
+                                      } | null);
+                                url?: string | null;
+                                newTab?: boolean | null;
+                            };
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "hero-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  links?:
+                      | {
                             title: string;
                             description?: string | null;
                             link: {
-                              type: 'reference' | 'custom';
-                              label?: string | null;
-                              reference?:
-                                | ({
-                                    relationTo: 'components';
-                                    value: string | Component;
-                                  } | null)
-                                | ({
-                                    relationTo: 'general';
-                                    value: string | General;
-                                  } | null)
-                                | ({
-                                    relationTo: 'patterns';
-                                    value: string | Pattern;
-                                  } | null)
-                                | ({
-                                    relationTo: 'foundations';
-                                    value: string | Foundation;
-                                  } | null)
-                                | ({
-                                    relationTo: 'blog';
-                                    value: string | Blog;
-                                  } | null);
-                              url?: string | null;
-                              newTab?: boolean | null;
+                                type: "reference" | "custom";
+                                label?: string | null;
+                                reference?:
+                                    | ({
+                                          relationTo: "components";
+                                          value: string | Component;
+                                      } | null)
+                                    | ({
+                                          relationTo: "general";
+                                          value: string | General;
+                                      } | null)
+                                    | ({
+                                          relationTo: "patterns";
+                                          value: string | Pattern;
+                                      } | null)
+                                    | ({
+                                          relationTo: "foundations";
+                                          value: string | Foundation;
+                                      } | null)
+                                    | ({
+                                          relationTo: "blog";
+                                          value: string | Blog;
+                                      } | null);
+                                url?: string | null;
+                                newTab?: boolean | null;
                             };
                             id?: string | null;
-                          }[]
-                        | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'link-card-list';
-                    }
-                  | {
-                      codeExample: string | CodeExample;
-                      defaultShowControls?: boolean | null;
-                      defaultShowEditor?: boolean | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'live-demo-block';
-                    }
-                  | {
-                      boxes?:
-                        | {
-                            type: 'info' | 'success' | 'error' | 'warning';
-                            title?: string | null;
-                            description: string;
-                            id?: string | null;
-                          }[]
-                        | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'message-box';
-                    }
-                  | {
-                      content?:
-                        | {
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "link-card-list-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
                             [k: string]: unknown;
-                          }[]
-                        | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'rich-text';
-                    }
-                  | {
-                      showcaseItem?:
-                        | {
+                        }[]
+                      | null;
+                  codeExample: string | CodeExample;
+                  defaultShowControls?: boolean | null;
+                  defaultShowEditor?: boolean | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "live-demo-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  installCode: string;
+                  usageCode: string;
+                  reactDocs?:
+                      | {
+                            title: string;
+                            href: string;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  cssDocs?:
+                      | {
+                            title: string;
+                            href: string;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "package-report-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  content?:
+                      | (
+                            | {
+                                  steps?:
+                                      | {
+                                            title: string;
+                                            description: string;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  url: string;
+                                  urlDark: string;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "anatomy-example";
+                              }
+                            | {
+                                  steps: {
+                                      image?: string | Media | null;
+                                      title?: string | null;
+                                      description?:
+                                          | {
+                                                [k: string]: unknown;
+                                            }[]
+                                          | null;
+                                      id?: string | null;
+                                  }[];
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "carousel";
+                              }
+                            | {
+                                  code: string;
+                                  language:
+                                      | "ts"
+                                      | "tsx"
+                                      | "sh"
+                                      | "scss"
+                                      | "css"
+                                      | "js"
+                                      | "jsx"
+                                      | "html"
+                                      | "xml"
+                                      | "json"
+                                      | "less"
+                                      | "diff";
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "code-snippet";
+                              }
+                            | {
+                                  cards?:
+                                      | {
+                                            color?:
+                                                | (
+                                                      | "svart"
+                                                      | "skifer"
+                                                      | "stein"
+                                                      | "svaberg"
+                                                      | "dis"
+                                                      | "sand"
+                                                      | "hvit"
+                                                      | "suksess"
+                                                      | "info"
+                                                      | "advarsel"
+                                                      | "feil"
+                                                  )
+                                                | null;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "color-card";
+                              }
+                            | {
+                                  doDontItem?:
+                                      | {
+                                            variant?: ("code" | "image") | null;
+                                            code?: string | null;
+                                            noinline?: boolean | null;
+                                            image?: string | Media | null;
+                                            description?: string | null;
+                                            type: "do" | "dont" | "avoid";
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "dodont-example";
+                              }
+                            | {
+                                  links?:
+                                      | {
+                                            title: string;
+                                            description?: string | null;
+                                            link: {
+                                                type: "reference" | "custom";
+                                                label?: string | null;
+                                                reference?:
+                                                    | ({
+                                                          relationTo: "components";
+                                                          value: string | Component;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "general";
+                                                          value: string | General;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "patterns";
+                                                          value: string | Pattern;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "foundations";
+                                                          value: string | Foundation;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "blog";
+                                                          value: string | Blog;
+                                                      } | null);
+                                                url?: string | null;
+                                                newTab?: boolean | null;
+                                            };
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "link-card-list";
+                              }
+                            | {
+                                  codeExample: string | CodeExample;
+                                  defaultShowControls?: boolean | null;
+                                  defaultShowEditor?: boolean | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "live-demo-block";
+                              }
+                            | {
+                                  boxes?:
+                                      | {
+                                            type: "info" | "success" | "error" | "warning";
+                                            title?: string | null;
+                                            description: string;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "message-box";
+                              }
+                            | {
+                                  content?:
+                                      | {
+                                            [k: string]: unknown;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "rich-text";
+                              }
+                            | {
+                                  showcaseItem?:
+                                      | {
+                                            title: string;
+                                            src?: string | null;
+                                            example?: string | Media | null;
+                                            origin: string;
+                                            description?: string | null;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "showcase";
+                              }
+                            | {
+                                  rows?:
+                                      | {
+                                            element: string;
+                                            property: string;
+                                            role: string;
+                                            value: string;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "tokens-table";
+                              }
+                            | {
+                                  rows?:
+                                      | {
+                                            type:
+                                                | "mainColors"
+                                                | "functionalColors"
+                                                | "expandedFunctionalColors"
+                                                | "spacing"
+                                                | "typo"
+                                                | "typo-small";
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "table";
+                              }
+                        )[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "page-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  showcaseItem?:
+                      | {
                             title: string;
                             src?: string | null;
                             example?: string | Media | null;
                             origin: string;
                             description?: string | null;
                             id?: string | null;
-                          }[]
-                        | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'showcase';
-                    }
-                  | {
-                      rows?:
-                        | {
-                            element: string;
-                            property: string;
-                            role: string;
-                            value: string;
-                            id?: string | null;
-                          }[]
-                        | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'tokens-table';
-                    }
-                  | {
-                      rows?:
-                        | {
-                            type:
-                              | 'mainColors'
-                              | 'functionalColors'
-                              | 'expandedFunctionalColors'
-                              | 'spacing'
-                              | 'typo'
-                              | 'typo-small';
-                            id?: string | null;
-                          }[]
-                        | null;
-                      id?: string | null;
-                      blockName?: string | null;
-                      blockType: 'table';
-                    }
-                )[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'page-section';
-          }
-        | {
-            heroText?:
-              | {
-                  [k: string]: unknown;
-                }[]
-              | null;
-            actions?:
-              | {
-                  type: 'primary' | 'secondary' | 'tertiary';
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "showcase-section";
+              }
+            | {
+                  video: {
+                      url: string;
+                      loop: boolean;
+                  };
+                  title: string;
+                  description?: string | null;
                   link: {
-                    type: 'reference' | 'custom';
-                    label?: string | null;
-                    reference?:
-                      | ({
-                          relationTo: 'components';
-                          value: string | Component;
-                        } | null)
-                      | ({
-                          relationTo: 'general';
-                          value: string | General;
-                        } | null)
-                      | ({
-                          relationTo: 'patterns';
-                          value: string | Pattern;
-                        } | null)
-                      | ({
-                          relationTo: 'foundations';
-                          value: string | Foundation;
-                        } | null)
-                      | ({
-                          relationTo: 'blog';
-                          value: string | Blog;
-                        } | null);
-                    url?: string | null;
-                    newTab?: boolean | null;
+                      type: "reference" | "custom";
+                      label?: string | null;
+                      reference?:
+                          | ({
+                                relationTo: "components";
+                                value: string | Component;
+                            } | null)
+                          | ({
+                                relationTo: "general";
+                                value: string | General;
+                            } | null)
+                          | ({
+                                relationTo: "patterns";
+                                value: string | Pattern;
+                            } | null)
+                          | ({
+                                relationTo: "foundations";
+                                value: string | Foundation;
+                            } | null)
+                          | ({
+                                relationTo: "blog";
+                                value: string | Blog;
+                            } | null);
+                      url?: string | null;
+                      newTab?: boolean | null;
                   };
                   id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'hero-section';
+                  blockName?: string | null;
+                  blockType: "video-cta";
+              }
+            | {
+                  type: {
+                      tagType?: string | null;
+                      tagLabel?: string | null;
+                      title?: string | null;
+                      ingress?:
+                          | {
+                                [k: string]: unknown;
+                            }[]
+                          | null;
+                      author?: string | null;
+                      slug?: string | null;
+                      date?: string | null;
+                      image?: string | null;
+                      id?: string | null;
+                  }[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "scroll";
+              }
+            | {
+                  label: string;
+                  addOnQuestion: string;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "feedback-section";
+              }
+            | {
+                  content: {
+                      package?: string | null;
+                      downloads?: number | null;
+                      title?: string | null;
+                      ingress?:
+                          | {
+                                [k: string]: unknown;
+                            }[]
+                          | null;
+                      componentId?: string | null;
+                      id?: string | null;
+                  }[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "package-stats-section";
+              }
+        )[];
+        id?: string | null;
+    }[];
+    type?: ("Komponent" | "Hook" | "Annet") | null;
+    reactPackageName?: string | null;
+    cssPackageName?: string | null;
+    meta?: {
+        title?: string | null;
+        description?: string | null;
+        keywords?: string | null;
+        imageLight?: string | Media | null;
+        imageDark?: string | Media | null;
+        figma?: string | null;
+    };
+    updatedAt: string;
+    createdAt: string;
+    _status?: ("draft" | "published") | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "general".
+ */
+export interface General {
+    id: string;
+    title: string;
+    ingress?:
+        | {
+              [k: string]: unknown;
+          }[]
+        | null;
+    sections: (
+        | {
+              heroText?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              actions?:
+                  | {
+                        type: "primary" | "secondary" | "tertiary";
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "call-to-action";
           }
         | {
-            video: {
-              url: string;
-              loop: boolean;
-            };
-            title: string;
-            description?: string | null;
-            link: {
-              type: 'reference' | 'custom';
-              label?: string | null;
-              reference?:
-                | ({
-                    relationTo: 'components';
-                    value: string | Component;
-                  } | null)
-                | ({
-                    relationTo: 'general';
-                    value: string | General;
-                  } | null)
-                | ({
-                    relationTo: 'patterns';
-                    value: string | Pattern;
-                  } | null)
-                | ({
-                    relationTo: 'foundations';
-                    value: string | Foundation;
-                  } | null)
-                | ({
-                    relationTo: 'blog';
-                    value: string | Blog;
-                  } | null);
-              url?: string | null;
-              newTab?: boolean | null;
-            };
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'video-cta';
+              intro?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              components?:
+                  | {
+                        component: string | Component;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "component-overview";
           }
         | {
-            heroText?:
-              | {
-                  [k: string]: unknown;
-                }[]
-              | null;
-            actions?:
-              | {
-                  type: 'primary' | 'secondary' | 'tertiary';
-                  link: {
-                    type: 'reference' | 'custom';
-                    label?: string | null;
-                    reference?:
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              examples?:
+                  | {
+                        fileName: string;
+                        url: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "figma-example-section";
+          }
+        | {
+              heroText?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              actions?:
+                  | {
+                        type: "primary" | "secondary" | "tertiary";
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "hero-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              links?:
+                  | {
+                        title: string;
+                        description?: string | null;
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "link-card-list-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              codeExample: string | CodeExample;
+              defaultShowControls?: boolean | null;
+              defaultShowEditor?: boolean | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "live-demo-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              installCode: string;
+              usageCode: string;
+              reactDocs?:
+                  | {
+                        title: string;
+                        href: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              cssDocs?:
+                  | {
+                        title: string;
+                        href: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "package-report-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              content?:
+                  | (
+                        | {
+                              steps?:
+                                  | {
+                                        title: string;
+                                        description: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              url: string;
+                              urlDark: string;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "anatomy-example";
+                          }
+                        | {
+                              steps: {
+                                  image?: string | Media | null;
+                                  title?: string | null;
+                                  description?:
+                                      | {
+                                            [k: string]: unknown;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                              }[];
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "carousel";
+                          }
+                        | {
+                              code: string;
+                              language:
+                                  | "ts"
+                                  | "tsx"
+                                  | "sh"
+                                  | "scss"
+                                  | "css"
+                                  | "js"
+                                  | "jsx"
+                                  | "html"
+                                  | "xml"
+                                  | "json"
+                                  | "less"
+                                  | "diff";
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "code-snippet";
+                          }
+                        | {
+                              cards?:
+                                  | {
+                                        color?:
+                                            | (
+                                                  | "svart"
+                                                  | "skifer"
+                                                  | "stein"
+                                                  | "svaberg"
+                                                  | "dis"
+                                                  | "sand"
+                                                  | "hvit"
+                                                  | "suksess"
+                                                  | "info"
+                                                  | "advarsel"
+                                                  | "feil"
+                                              )
+                                            | null;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "color-card";
+                          }
+                        | {
+                              doDontItem?:
+                                  | {
+                                        variant?: ("code" | "image") | null;
+                                        code?: string | null;
+                                        noinline?: boolean | null;
+                                        image?: string | Media | null;
+                                        description?: string | null;
+                                        type: "do" | "dont" | "avoid";
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "dodont-example";
+                          }
+                        | {
+                              links?:
+                                  | {
+                                        title: string;
+                                        description?: string | null;
+                                        link: {
+                                            type: "reference" | "custom";
+                                            label?: string | null;
+                                            reference?:
+                                                | ({
+                                                      relationTo: "components";
+                                                      value: string | Component;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "general";
+                                                      value: string | General;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "patterns";
+                                                      value: string | Pattern;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "foundations";
+                                                      value: string | Foundation;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "blog";
+                                                      value: string | Blog;
+                                                  } | null);
+                                            url?: string | null;
+                                            newTab?: boolean | null;
+                                        };
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "link-card-list";
+                          }
+                        | {
+                              codeExample: string | CodeExample;
+                              defaultShowControls?: boolean | null;
+                              defaultShowEditor?: boolean | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "live-demo-block";
+                          }
+                        | {
+                              boxes?:
+                                  | {
+                                        type: "info" | "success" | "error" | "warning";
+                                        title?: string | null;
+                                        description: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "message-box";
+                          }
+                        | {
+                              content?:
+                                  | {
+                                        [k: string]: unknown;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "rich-text";
+                          }
+                        | {
+                              showcaseItem?:
+                                  | {
+                                        title: string;
+                                        src?: string | null;
+                                        example?: string | Media | null;
+                                        origin: string;
+                                        description?: string | null;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "showcase";
+                          }
+                        | {
+                              rows?:
+                                  | {
+                                        element: string;
+                                        property: string;
+                                        role: string;
+                                        value: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "tokens-table";
+                          }
+                        | {
+                              rows?:
+                                  | {
+                                        type:
+                                            | "mainColors"
+                                            | "functionalColors"
+                                            | "expandedFunctionalColors"
+                                            | "spacing"
+                                            | "typo"
+                                            | "typo-small";
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "table";
+                          }
+                    )[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "page-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              showcaseItem?:
+                  | {
+                        title: string;
+                        src?: string | null;
+                        example?: string | Media | null;
+                        origin: string;
+                        description?: string | null;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "showcase-section";
+          }
+        | {
+              video: {
+                  url: string;
+                  loop: boolean;
+              };
+              title: string;
+              description?: string | null;
+              link: {
+                  type: "reference" | "custom";
+                  label?: string | null;
+                  reference?:
                       | ({
-                          relationTo: 'components';
-                          value: string | Component;
+                            relationTo: "components";
+                            value: string | Component;
                         } | null)
                       | ({
-                          relationTo: 'general';
-                          value: string | General;
+                            relationTo: "general";
+                            value: string | General;
                         } | null)
                       | ({
-                          relationTo: 'patterns';
-                          value: string | Pattern;
+                            relationTo: "patterns";
+                            value: string | Pattern;
                         } | null)
                       | ({
-                          relationTo: 'foundations';
-                          value: string | Foundation;
+                            relationTo: "foundations";
+                            value: string | Foundation;
                         } | null)
                       | ({
-                          relationTo: 'blog';
-                          value: string | Blog;
+                            relationTo: "blog";
+                            value: string | Blog;
                         } | null);
-                    url?: string | null;
-                    newTab?: boolean | null;
+                  url?: string | null;
+                  newTab?: boolean | null;
+              };
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "video-cta";
+          }
+        | {
+              type: {
+                  tagType?: string | null;
+                  tagLabel?: string | null;
+                  title?: string | null;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  author?: string | null;
+                  slug?: string | null;
+                  date?: string | null;
+                  image?: string | null;
+                  id?: string | null;
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "scroll";
+          }
+        | {
+              label: string;
+              addOnQuestion: string;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "feedback-section";
+          }
+        | {
+              content: {
+                  package?: string | null;
+                  downloads?: number | null;
+                  title?: string | null;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  componentId?: string | null;
+                  id?: string | null;
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "package-stats-section";
+          }
+    )[];
+    meta?: {
+        title?: string | null;
+        description?: string | null;
+        keywords?: string | null;
+        imageLight?: string | Media | null;
+        imageDark?: string | Media | null;
+        figma?: string | null;
+    };
+    updatedAt: string;
+    createdAt: string;
+    _status?: ("draft" | "published") | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "patterns".
+ */
+export interface Pattern {
+    id: string;
+    title: string;
+    ingress?:
+        | {
+              [k: string]: unknown;
+          }[]
+        | null;
+    tabs: {
+        title: string;
+        slug: string;
+        sections: (
+            | {
+                  heroText?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  actions?:
+                      | {
+                            type: "primary" | "secondary" | "tertiary";
+                            link: {
+                                type: "reference" | "custom";
+                                label?: string | null;
+                                reference?:
+                                    | ({
+                                          relationTo: "components";
+                                          value: string | Component;
+                                      } | null)
+                                    | ({
+                                          relationTo: "general";
+                                          value: string | General;
+                                      } | null)
+                                    | ({
+                                          relationTo: "patterns";
+                                          value: string | Pattern;
+                                      } | null)
+                                    | ({
+                                          relationTo: "foundations";
+                                          value: string | Foundation;
+                                      } | null)
+                                    | ({
+                                          relationTo: "blog";
+                                          value: string | Blog;
+                                      } | null);
+                                url?: string | null;
+                                newTab?: boolean | null;
+                            };
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "call-to-action";
+              }
+            | {
+                  intro?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  components?:
+                      | {
+                            component: string | Component;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "component-overview";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  examples?:
+                      | {
+                            fileName: string;
+                            url: string;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "figma-example-section";
+              }
+            | {
+                  heroText?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  actions?:
+                      | {
+                            type: "primary" | "secondary" | "tertiary";
+                            link: {
+                                type: "reference" | "custom";
+                                label?: string | null;
+                                reference?:
+                                    | ({
+                                          relationTo: "components";
+                                          value: string | Component;
+                                      } | null)
+                                    | ({
+                                          relationTo: "general";
+                                          value: string | General;
+                                      } | null)
+                                    | ({
+                                          relationTo: "patterns";
+                                          value: string | Pattern;
+                                      } | null)
+                                    | ({
+                                          relationTo: "foundations";
+                                          value: string | Foundation;
+                                      } | null)
+                                    | ({
+                                          relationTo: "blog";
+                                          value: string | Blog;
+                                      } | null);
+                                url?: string | null;
+                                newTab?: boolean | null;
+                            };
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "hero-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  links?:
+                      | {
+                            title: string;
+                            description?: string | null;
+                            link: {
+                                type: "reference" | "custom";
+                                label?: string | null;
+                                reference?:
+                                    | ({
+                                          relationTo: "components";
+                                          value: string | Component;
+                                      } | null)
+                                    | ({
+                                          relationTo: "general";
+                                          value: string | General;
+                                      } | null)
+                                    | ({
+                                          relationTo: "patterns";
+                                          value: string | Pattern;
+                                      } | null)
+                                    | ({
+                                          relationTo: "foundations";
+                                          value: string | Foundation;
+                                      } | null)
+                                    | ({
+                                          relationTo: "blog";
+                                          value: string | Blog;
+                                      } | null);
+                                url?: string | null;
+                                newTab?: boolean | null;
+                            };
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "link-card-list-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  codeExample: string | CodeExample;
+                  defaultShowControls?: boolean | null;
+                  defaultShowEditor?: boolean | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "live-demo-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  installCode: string;
+                  usageCode: string;
+                  reactDocs?:
+                      | {
+                            title: string;
+                            href: string;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  cssDocs?:
+                      | {
+                            title: string;
+                            href: string;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "package-report-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  content?:
+                      | (
+                            | {
+                                  steps?:
+                                      | {
+                                            title: string;
+                                            description: string;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  url: string;
+                                  urlDark: string;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "anatomy-example";
+                              }
+                            | {
+                                  steps: {
+                                      image?: string | Media | null;
+                                      title?: string | null;
+                                      description?:
+                                          | {
+                                                [k: string]: unknown;
+                                            }[]
+                                          | null;
+                                      id?: string | null;
+                                  }[];
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "carousel";
+                              }
+                            | {
+                                  code: string;
+                                  language:
+                                      | "ts"
+                                      | "tsx"
+                                      | "sh"
+                                      | "scss"
+                                      | "css"
+                                      | "js"
+                                      | "jsx"
+                                      | "html"
+                                      | "xml"
+                                      | "json"
+                                      | "less"
+                                      | "diff";
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "code-snippet";
+                              }
+                            | {
+                                  cards?:
+                                      | {
+                                            color?:
+                                                | (
+                                                      | "svart"
+                                                      | "skifer"
+                                                      | "stein"
+                                                      | "svaberg"
+                                                      | "dis"
+                                                      | "sand"
+                                                      | "hvit"
+                                                      | "suksess"
+                                                      | "info"
+                                                      | "advarsel"
+                                                      | "feil"
+                                                  )
+                                                | null;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "color-card";
+                              }
+                            | {
+                                  doDontItem?:
+                                      | {
+                                            variant?: ("code" | "image") | null;
+                                            code?: string | null;
+                                            noinline?: boolean | null;
+                                            image?: string | Media | null;
+                                            description?: string | null;
+                                            type: "do" | "dont" | "avoid";
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "dodont-example";
+                              }
+                            | {
+                                  links?:
+                                      | {
+                                            title: string;
+                                            description?: string | null;
+                                            link: {
+                                                type: "reference" | "custom";
+                                                label?: string | null;
+                                                reference?:
+                                                    | ({
+                                                          relationTo: "components";
+                                                          value: string | Component;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "general";
+                                                          value: string | General;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "patterns";
+                                                          value: string | Pattern;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "foundations";
+                                                          value: string | Foundation;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "blog";
+                                                          value: string | Blog;
+                                                      } | null);
+                                                url?: string | null;
+                                                newTab?: boolean | null;
+                                            };
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "link-card-list";
+                              }
+                            | {
+                                  codeExample: string | CodeExample;
+                                  defaultShowControls?: boolean | null;
+                                  defaultShowEditor?: boolean | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "live-demo-block";
+                              }
+                            | {
+                                  boxes?:
+                                      | {
+                                            type: "info" | "success" | "error" | "warning";
+                                            title?: string | null;
+                                            description: string;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "message-box";
+                              }
+                            | {
+                                  content?:
+                                      | {
+                                            [k: string]: unknown;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "rich-text";
+                              }
+                            | {
+                                  showcaseItem?:
+                                      | {
+                                            title: string;
+                                            src?: string | null;
+                                            example?: string | Media | null;
+                                            origin: string;
+                                            description?: string | null;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "showcase";
+                              }
+                            | {
+                                  rows?:
+                                      | {
+                                            element: string;
+                                            property: string;
+                                            role: string;
+                                            value: string;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "tokens-table";
+                              }
+                            | {
+                                  rows?:
+                                      | {
+                                            type:
+                                                | "mainColors"
+                                                | "functionalColors"
+                                                | "expandedFunctionalColors"
+                                                | "spacing"
+                                                | "typo"
+                                                | "typo-small";
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "table";
+                              }
+                        )[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "page-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  showcaseItem?:
+                      | {
+                            title: string;
+                            src?: string | null;
+                            example?: string | Media | null;
+                            origin: string;
+                            description?: string | null;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "showcase-section";
+              }
+            | {
+                  video: {
+                      url: string;
+                      loop: boolean;
+                  };
+                  title: string;
+                  description?: string | null;
+                  link: {
+                      type: "reference" | "custom";
+                      label?: string | null;
+                      reference?:
+                          | ({
+                                relationTo: "components";
+                                value: string | Component;
+                            } | null)
+                          | ({
+                                relationTo: "general";
+                                value: string | General;
+                            } | null)
+                          | ({
+                                relationTo: "patterns";
+                                value: string | Pattern;
+                            } | null)
+                          | ({
+                                relationTo: "foundations";
+                                value: string | Foundation;
+                            } | null)
+                          | ({
+                                relationTo: "blog";
+                                value: string | Blog;
+                            } | null);
+                      url?: string | null;
+                      newTab?: boolean | null;
                   };
                   id?: string | null;
-                }[]
-              | null;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'call-to-action';
-          }
+                  blockName?: string | null;
+                  blockType: "video-cta";
+              }
+            | {
+                  type: {
+                      tagType?: string | null;
+                      tagLabel?: string | null;
+                      title?: string | null;
+                      ingress?:
+                          | {
+                                [k: string]: unknown;
+                            }[]
+                          | null;
+                      author?: string | null;
+                      slug?: string | null;
+                      date?: string | null;
+                      image?: string | null;
+                      id?: string | null;
+                  }[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "scroll";
+              }
+            | {
+                  label: string;
+                  addOnQuestion: string;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "feedback-section";
+              }
+            | {
+                  content: {
+                      package?: string | null;
+                      downloads?: number | null;
+                      title?: string | null;
+                      ingress?:
+                          | {
+                                [k: string]: unknown;
+                            }[]
+                          | null;
+                      componentId?: string | null;
+                      id?: string | null;
+                  }[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "package-stats-section";
+              }
+        )[];
+        id?: string | null;
+    }[];
+    meta?: {
+        title?: string | null;
+        description?: string | null;
+        keywords?: string | null;
+        imageLight?: string | Media | null;
+        imageDark?: string | Media | null;
+        figma?: string | null;
+    };
+    updatedAt: string;
+    createdAt: string;
+    _status?: ("draft" | "published") | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "foundations".
+ */
+export interface Foundation {
+    id: string;
+    title: string;
+    ingress?:
         | {
-            type: {
-              tagType?: string | null;
-              tagLabel?: string | null;
-              title?: string | null;
-              ingress?:
-                | {
-                    [k: string]: unknown;
-                  }[]
-                | null;
-              author?: string | null;
-              slug?: string | null;
-              date?: string | null;
-              image?: string | null;
+              [k: string]: unknown;
+          }[]
+        | null;
+    tabs: {
+        title: string;
+        slug: string;
+        sections: (
+            | {
+                  heroText?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  actions?:
+                      | {
+                            type: "primary" | "secondary" | "tertiary";
+                            link: {
+                                type: "reference" | "custom";
+                                label?: string | null;
+                                reference?:
+                                    | ({
+                                          relationTo: "components";
+                                          value: string | Component;
+                                      } | null)
+                                    | ({
+                                          relationTo: "general";
+                                          value: string | General;
+                                      } | null)
+                                    | ({
+                                          relationTo: "patterns";
+                                          value: string | Pattern;
+                                      } | null)
+                                    | ({
+                                          relationTo: "foundations";
+                                          value: string | Foundation;
+                                      } | null)
+                                    | ({
+                                          relationTo: "blog";
+                                          value: string | Blog;
+                                      } | null);
+                                url?: string | null;
+                                newTab?: boolean | null;
+                            };
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "call-to-action";
+              }
+            | {
+                  intro?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  components?:
+                      | {
+                            component: string | Component;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "component-overview";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  examples?:
+                      | {
+                            fileName: string;
+                            url: string;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "figma-example-section";
+              }
+            | {
+                  heroText?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  actions?:
+                      | {
+                            type: "primary" | "secondary" | "tertiary";
+                            link: {
+                                type: "reference" | "custom";
+                                label?: string | null;
+                                reference?:
+                                    | ({
+                                          relationTo: "components";
+                                          value: string | Component;
+                                      } | null)
+                                    | ({
+                                          relationTo: "general";
+                                          value: string | General;
+                                      } | null)
+                                    | ({
+                                          relationTo: "patterns";
+                                          value: string | Pattern;
+                                      } | null)
+                                    | ({
+                                          relationTo: "foundations";
+                                          value: string | Foundation;
+                                      } | null)
+                                    | ({
+                                          relationTo: "blog";
+                                          value: string | Blog;
+                                      } | null);
+                                url?: string | null;
+                                newTab?: boolean | null;
+                            };
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "hero-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  links?:
+                      | {
+                            title: string;
+                            description?: string | null;
+                            link: {
+                                type: "reference" | "custom";
+                                label?: string | null;
+                                reference?:
+                                    | ({
+                                          relationTo: "components";
+                                          value: string | Component;
+                                      } | null)
+                                    | ({
+                                          relationTo: "general";
+                                          value: string | General;
+                                      } | null)
+                                    | ({
+                                          relationTo: "patterns";
+                                          value: string | Pattern;
+                                      } | null)
+                                    | ({
+                                          relationTo: "foundations";
+                                          value: string | Foundation;
+                                      } | null)
+                                    | ({
+                                          relationTo: "blog";
+                                          value: string | Blog;
+                                      } | null);
+                                url?: string | null;
+                                newTab?: boolean | null;
+                            };
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "link-card-list-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  codeExample: string | CodeExample;
+                  defaultShowControls?: boolean | null;
+                  defaultShowEditor?: boolean | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "live-demo-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  installCode: string;
+                  usageCode: string;
+                  reactDocs?:
+                      | {
+                            title: string;
+                            href: string;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  cssDocs?:
+                      | {
+                            title: string;
+                            href: string;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "package-report-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  content?:
+                      | (
+                            | {
+                                  steps?:
+                                      | {
+                                            title: string;
+                                            description: string;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  url: string;
+                                  urlDark: string;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "anatomy-example";
+                              }
+                            | {
+                                  steps: {
+                                      image?: string | Media | null;
+                                      title?: string | null;
+                                      description?:
+                                          | {
+                                                [k: string]: unknown;
+                                            }[]
+                                          | null;
+                                      id?: string | null;
+                                  }[];
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "carousel";
+                              }
+                            | {
+                                  code: string;
+                                  language:
+                                      | "ts"
+                                      | "tsx"
+                                      | "sh"
+                                      | "scss"
+                                      | "css"
+                                      | "js"
+                                      | "jsx"
+                                      | "html"
+                                      | "xml"
+                                      | "json"
+                                      | "less"
+                                      | "diff";
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "code-snippet";
+                              }
+                            | {
+                                  cards?:
+                                      | {
+                                            color?:
+                                                | (
+                                                      | "svart"
+                                                      | "skifer"
+                                                      | "stein"
+                                                      | "svaberg"
+                                                      | "dis"
+                                                      | "sand"
+                                                      | "hvit"
+                                                      | "suksess"
+                                                      | "info"
+                                                      | "advarsel"
+                                                      | "feil"
+                                                  )
+                                                | null;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "color-card";
+                              }
+                            | {
+                                  doDontItem?:
+                                      | {
+                                            variant?: ("code" | "image") | null;
+                                            code?: string | null;
+                                            noinline?: boolean | null;
+                                            image?: string | Media | null;
+                                            description?: string | null;
+                                            type: "do" | "dont" | "avoid";
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "dodont-example";
+                              }
+                            | {
+                                  links?:
+                                      | {
+                                            title: string;
+                                            description?: string | null;
+                                            link: {
+                                                type: "reference" | "custom";
+                                                label?: string | null;
+                                                reference?:
+                                                    | ({
+                                                          relationTo: "components";
+                                                          value: string | Component;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "general";
+                                                          value: string | General;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "patterns";
+                                                          value: string | Pattern;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "foundations";
+                                                          value: string | Foundation;
+                                                      } | null)
+                                                    | ({
+                                                          relationTo: "blog";
+                                                          value: string | Blog;
+                                                      } | null);
+                                                url?: string | null;
+                                                newTab?: boolean | null;
+                                            };
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "link-card-list";
+                              }
+                            | {
+                                  codeExample: string | CodeExample;
+                                  defaultShowControls?: boolean | null;
+                                  defaultShowEditor?: boolean | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "live-demo-block";
+                              }
+                            | {
+                                  boxes?:
+                                      | {
+                                            type: "info" | "success" | "error" | "warning";
+                                            title?: string | null;
+                                            description: string;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "message-box";
+                              }
+                            | {
+                                  content?:
+                                      | {
+                                            [k: string]: unknown;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "rich-text";
+                              }
+                            | {
+                                  showcaseItem?:
+                                      | {
+                                            title: string;
+                                            src?: string | null;
+                                            example?: string | Media | null;
+                                            origin: string;
+                                            description?: string | null;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "showcase";
+                              }
+                            | {
+                                  rows?:
+                                      | {
+                                            element: string;
+                                            property: string;
+                                            role: string;
+                                            value: string;
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "tokens-table";
+                              }
+                            | {
+                                  rows?:
+                                      | {
+                                            type:
+                                                | "mainColors"
+                                                | "functionalColors"
+                                                | "expandedFunctionalColors"
+                                                | "spacing"
+                                                | "typo"
+                                                | "typo-small";
+                                            id?: string | null;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                                  blockName?: string | null;
+                                  blockType: "table";
+                              }
+                        )[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "page-section";
+              }
+            | {
+                  title: string;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  showcaseItem?:
+                      | {
+                            title: string;
+                            src?: string | null;
+                            example?: string | Media | null;
+                            origin: string;
+                            description?: string | null;
+                            id?: string | null;
+                        }[]
+                      | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "showcase-section";
+              }
+            | {
+                  video: {
+                      url: string;
+                      loop: boolean;
+                  };
+                  title: string;
+                  description?: string | null;
+                  link: {
+                      type: "reference" | "custom";
+                      label?: string | null;
+                      reference?:
+                          | ({
+                                relationTo: "components";
+                                value: string | Component;
+                            } | null)
+                          | ({
+                                relationTo: "general";
+                                value: string | General;
+                            } | null)
+                          | ({
+                                relationTo: "patterns";
+                                value: string | Pattern;
+                            } | null)
+                          | ({
+                                relationTo: "foundations";
+                                value: string | Foundation;
+                            } | null)
+                          | ({
+                                relationTo: "blog";
+                                value: string | Blog;
+                            } | null);
+                      url?: string | null;
+                      newTab?: boolean | null;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "video-cta";
+              }
+            | {
+                  type: {
+                      tagType?: string | null;
+                      tagLabel?: string | null;
+                      title?: string | null;
+                      ingress?:
+                          | {
+                                [k: string]: unknown;
+                            }[]
+                          | null;
+                      author?: string | null;
+                      slug?: string | null;
+                      date?: string | null;
+                      image?: string | null;
+                      id?: string | null;
+                  }[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "scroll";
+              }
+            | {
+                  label: string;
+                  addOnQuestion: string;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "feedback-section";
+              }
+            | {
+                  content: {
+                      package?: string | null;
+                      downloads?: number | null;
+                      title?: string | null;
+                      ingress?:
+                          | {
+                                [k: string]: unknown;
+                            }[]
+                          | null;
+                      componentId?: string | null;
+                      id?: string | null;
+                  }[];
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: "package-stats-section";
+              }
+        )[];
+        id?: string | null;
+    }[];
+    meta?: {
+        title?: string | null;
+        description?: string | null;
+        keywords?: string | null;
+        imageLight?: string | Media | null;
+        imageDark?: string | Media | null;
+        figma?: string | null;
+    };
+    updatedAt: string;
+    createdAt: string;
+    _status?: ("draft" | "published") | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog".
+ */
+export interface Blog {
+    id: string;
+    published_date?: string | null;
+    tag: string | BlogTag;
+    title: string;
+    slug?: string | null;
+    ingress: string;
+    author: string | User;
+    sections: (
+        | {
+              heroText?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              actions?:
+                  | {
+                        type: "primary" | "secondary" | "tertiary";
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
               id?: string | null;
-            }[];
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'scroll';
+              blockName?: string | null;
+              blockType: "call-to-action";
           }
         | {
-            label: string;
-            addOnQuestion: string;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'feedback-section';
-          }
-        | {
-            content: {
-              package?: string | null;
-              downloads?: number | null;
-              title?: string | null;
-              ingress?:
-                | {
-                    [k: string]: unknown;
-                  }[]
-                | null;
-              componentId?: string | null;
+              intro?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              components?:
+                  | {
+                        component: string | Component;
+                        id?: string | null;
+                    }[]
+                  | null;
               id?: string | null;
-            }[];
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'package-stats-section';
+              blockName?: string | null;
+              blockType: "component-overview";
           }
-      )[]
-    | null;
-  meta?: {
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              examples?:
+                  | {
+                        fileName: string;
+                        url: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "figma-example-section";
+          }
+        | {
+              heroText?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              actions?:
+                  | {
+                        type: "primary" | "secondary" | "tertiary";
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "hero-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              links?:
+                  | {
+                        title: string;
+                        description?: string | null;
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "link-card-list-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              codeExample: string | CodeExample;
+              defaultShowControls?: boolean | null;
+              defaultShowEditor?: boolean | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "live-demo-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              installCode: string;
+              usageCode: string;
+              reactDocs?:
+                  | {
+                        title: string;
+                        href: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              cssDocs?:
+                  | {
+                        title: string;
+                        href: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "package-report-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              content?:
+                  | (
+                        | {
+                              steps?:
+                                  | {
+                                        title: string;
+                                        description: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              url: string;
+                              urlDark: string;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "anatomy-example";
+                          }
+                        | {
+                              steps: {
+                                  image?: string | Media | null;
+                                  title?: string | null;
+                                  description?:
+                                      | {
+                                            [k: string]: unknown;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                              }[];
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "carousel";
+                          }
+                        | {
+                              code: string;
+                              language:
+                                  | "ts"
+                                  | "tsx"
+                                  | "sh"
+                                  | "scss"
+                                  | "css"
+                                  | "js"
+                                  | "jsx"
+                                  | "html"
+                                  | "xml"
+                                  | "json"
+                                  | "less"
+                                  | "diff";
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "code-snippet";
+                          }
+                        | {
+                              cards?:
+                                  | {
+                                        color?:
+                                            | (
+                                                  | "svart"
+                                                  | "skifer"
+                                                  | "stein"
+                                                  | "svaberg"
+                                                  | "dis"
+                                                  | "sand"
+                                                  | "hvit"
+                                                  | "suksess"
+                                                  | "info"
+                                                  | "advarsel"
+                                                  | "feil"
+                                              )
+                                            | null;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "color-card";
+                          }
+                        | {
+                              doDontItem?:
+                                  | {
+                                        variant?: ("code" | "image") | null;
+                                        code?: string | null;
+                                        noinline?: boolean | null;
+                                        image?: string | Media | null;
+                                        description?: string | null;
+                                        type: "do" | "dont" | "avoid";
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "dodont-example";
+                          }
+                        | {
+                              links?:
+                                  | {
+                                        title: string;
+                                        description?: string | null;
+                                        link: {
+                                            type: "reference" | "custom";
+                                            label?: string | null;
+                                            reference?:
+                                                | ({
+                                                      relationTo: "components";
+                                                      value: string | Component;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "general";
+                                                      value: string | General;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "patterns";
+                                                      value: string | Pattern;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "foundations";
+                                                      value: string | Foundation;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "blog";
+                                                      value: string | Blog;
+                                                  } | null);
+                                            url?: string | null;
+                                            newTab?: boolean | null;
+                                        };
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "link-card-list";
+                          }
+                        | {
+                              codeExample: string | CodeExample;
+                              defaultShowControls?: boolean | null;
+                              defaultShowEditor?: boolean | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "live-demo-block";
+                          }
+                        | {
+                              boxes?:
+                                  | {
+                                        type: "info" | "success" | "error" | "warning";
+                                        title?: string | null;
+                                        description: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "message-box";
+                          }
+                        | {
+                              content?:
+                                  | {
+                                        [k: string]: unknown;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "rich-text";
+                          }
+                        | {
+                              showcaseItem?:
+                                  | {
+                                        title: string;
+                                        src?: string | null;
+                                        example?: string | Media | null;
+                                        origin: string;
+                                        description?: string | null;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "showcase";
+                          }
+                        | {
+                              rows?:
+                                  | {
+                                        element: string;
+                                        property: string;
+                                        role: string;
+                                        value: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "tokens-table";
+                          }
+                        | {
+                              rows?:
+                                  | {
+                                        type:
+                                            | "mainColors"
+                                            | "functionalColors"
+                                            | "expandedFunctionalColors"
+                                            | "spacing"
+                                            | "typo"
+                                            | "typo-small";
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "table";
+                          }
+                    )[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "page-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              showcaseItem?:
+                  | {
+                        title: string;
+                        src?: string | null;
+                        example?: string | Media | null;
+                        origin: string;
+                        description?: string | null;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "showcase-section";
+          }
+        | {
+              video: {
+                  url: string;
+                  loop: boolean;
+              };
+              title: string;
+              description?: string | null;
+              link: {
+                  type: "reference" | "custom";
+                  label?: string | null;
+                  reference?:
+                      | ({
+                            relationTo: "components";
+                            value: string | Component;
+                        } | null)
+                      | ({
+                            relationTo: "general";
+                            value: string | General;
+                        } | null)
+                      | ({
+                            relationTo: "patterns";
+                            value: string | Pattern;
+                        } | null)
+                      | ({
+                            relationTo: "foundations";
+                            value: string | Foundation;
+                        } | null)
+                      | ({
+                            relationTo: "blog";
+                            value: string | Blog;
+                        } | null);
+                  url?: string | null;
+                  newTab?: boolean | null;
+              };
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "video-cta";
+          }
+        | {
+              type: {
+                  tagType?: string | null;
+                  tagLabel?: string | null;
+                  title?: string | null;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  author?: string | null;
+                  slug?: string | null;
+                  date?: string | null;
+                  image?: string | null;
+                  id?: string | null;
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "scroll";
+          }
+        | {
+              label: string;
+              addOnQuestion: string;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "feedback-section";
+          }
+        | {
+              content: {
+                  package?: string | null;
+                  downloads?: number | null;
+                  title?: string | null;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  componentId?: string | null;
+                  id?: string | null;
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "package-stats-section";
+          }
+    )[];
+    meta?: {
+        title?: string | null;
+        description?: string | null;
+        keywords?: string | null;
+        imageLight?: string | Media | null;
+        imageDark?: string | Media | null;
+        figma?: string | null;
+    };
+    updatedAt: string;
+    createdAt: string;
+    _status?: ("draft" | "published") | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-tag".
+ */
+export interface BlogTag {
+    id: string;
+    label: string;
+    type?: ("success" | "warning" | "info" | "error") | null;
+    updatedAt: string;
+    createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+    id: string;
+    name: string;
+    role: "admin" | "editor" | "writer" | "user";
+    updatedAt: string;
+    createdAt: string;
+    email: string;
+    resetPasswordToken?: string | null;
+    resetPasswordExpiration?: string | null;
+    salt?: string | null;
+    hash?: string | null;
+    loginAttempts?: number | null;
+    lockUntil?: string | null;
+    password: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "codeExample".
+ */
+export interface CodeExample {
+    id: string;
     title?: string | null;
-    description?: string | null;
-    keywords?: string | null;
-    imageLight?: string | Media | null;
-    imageDark?: string | Media | null;
-    figma?: string | null;
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
+    noinline?: boolean | null;
+    code: string;
+    knobs?:
+        | {
+              label: string;
+              type: "bool" | "choice";
+              boolOptions?: {
+                  trueValue: string;
+                  falseValue: string;
+              };
+              choiceOptions?:
+                  | {
+                        label: string;
+                        value: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              defaultValue?: number | null;
+              id?: string | null;
+          }[]
+        | null;
+    components?: (string | Component)[] | null;
+    updatedAt: string;
+    createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+    id: string;
+    aspectRatio?: string | null;
+    alt?: string | null;
+    updatedAt: string;
+    createdAt: string;
+    url?: string | null;
+    filename?: string | null;
+    mimeType?: string | null;
+    filesize?: number | null;
+    width?: number | null;
+    height?: number | null;
+    focalX?: number | null;
+    focalY?: number | null;
+    sizes?: {
+        thumbnail?: {
+            url?: string | null;
+            width?: number | null;
+            height?: number | null;
+            mimeType?: string | null;
+            filesize?: number | null;
+            filename?: string | null;
+        };
+        tiny?: {
+            url?: string | null;
+            width?: number | null;
+            height?: number | null;
+            mimeType?: string | null;
+            filesize?: number | null;
+            filename?: string | null;
+        };
+        small?: {
+            url?: string | null;
+            width?: number | null;
+            height?: number | null;
+            mimeType?: string | null;
+            filesize?: number | null;
+            filename?: string | null;
+        };
+        medium?: {
+            url?: string | null;
+            width?: number | null;
+            height?: number | null;
+            mimeType?: string | null;
+            filesize?: number | null;
+            filename?: string | null;
+        };
+        large?: {
+            url?: string | null;
+            width?: number | null;
+            height?: number | null;
+            mimeType?: string | null;
+            filesize?: number | null;
+            filename?: string | null;
+        };
+    };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menu-items".
+ */
+export interface MenuItem {
+    id: string;
+    title: string;
+    slug: string;
+    link: {
+        type: "reference" | "custom";
+        label?: string | null;
+        reference?:
+            | ({
+                  relationTo: "components";
+                  value: string | Component;
+              } | null)
+            | ({
+                  relationTo: "general";
+                  value: string | General;
+              } | null)
+            | ({
+                  relationTo: "patterns";
+                  value: string | Pattern;
+              } | null)
+            | ({
+                  relationTo: "foundations";
+                  value: string | Foundation;
+              } | null)
+            | ({
+                  relationTo: "blog";
+                  value: string | Blog;
+              } | null);
+        url?: string | null;
+        newTab?: boolean | null;
+    };
+    updatedAt: string;
+    createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "sub-menus".
+ */
+export interface SubMenu {
+    id: string;
+    title: string;
+    slug: string;
+    items?:
+        | {
+              item:
+                  | {
+                        relationTo: "menu-items";
+                        value: string | MenuItem;
+                    }
+                  | {
+                        relationTo: "sub-menus";
+                        value: string | SubMenu;
+                    };
+              id?: string | null;
+          }[]
+        | null;
+    updatedAt: string;
+    createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "feedback".
+ */
+export interface Feedback {
+    id: string;
+    page?: string | null;
+    feedbackValue?: number | null;
+    message?: string | null;
+    updatedAt: string;
+    createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "package-stats".
+ */
+export interface PackageStat {
+    id: string;
+    title?: string | null;
+    package?: string | null;
+    downloads?: number | null;
+    componentId?: string | null;
+    updatedAt: string;
+    createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-preferences".
+ */
+export interface PayloadPreference {
+    id: string;
+    user: {
+        relationTo: "users";
+        value: string | User;
+    };
+    key?: string | null;
+    value?:
+        | {
+              [k: string]: unknown;
+          }
+        | unknown[]
+        | string
+        | number
+        | boolean
+        | null;
+    updatedAt: string;
+    createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-migrations".
+ */
+export interface PayloadMigration {
+    id: string;
+    name?: string | null;
+    batch?: number | null;
+    updatedAt: string;
+    createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "all-content".
+ */
+export interface AllContent {
+    id: string;
+    blocks: (
+        | {
+              heroText?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              actions?:
+                  | {
+                        type: "primary" | "secondary" | "tertiary";
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "call-to-action";
+          }
+        | {
+              intro?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              components?:
+                  | {
+                        component: string | Component;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "component-overview";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              examples?:
+                  | {
+                        fileName: string;
+                        url: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "figma-example-section";
+          }
+        | {
+              heroText?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              actions?:
+                  | {
+                        type: "primary" | "secondary" | "tertiary";
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "hero-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              links?:
+                  | {
+                        title: string;
+                        description?: string | null;
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "link-card-list-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              codeExample: string | CodeExample;
+              defaultShowControls?: boolean | null;
+              defaultShowEditor?: boolean | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "live-demo-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              installCode: string;
+              usageCode: string;
+              reactDocs?:
+                  | {
+                        title: string;
+                        href: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              cssDocs?:
+                  | {
+                        title: string;
+                        href: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "package-report-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              content?:
+                  | (
+                        | {
+                              steps?:
+                                  | {
+                                        title: string;
+                                        description: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              url: string;
+                              urlDark: string;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "anatomy-example";
+                          }
+                        | {
+                              steps: {
+                                  image?: string | Media | null;
+                                  title?: string | null;
+                                  description?:
+                                      | {
+                                            [k: string]: unknown;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                              }[];
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "carousel";
+                          }
+                        | {
+                              code: string;
+                              language:
+                                  | "ts"
+                                  | "tsx"
+                                  | "sh"
+                                  | "scss"
+                                  | "css"
+                                  | "js"
+                                  | "jsx"
+                                  | "html"
+                                  | "xml"
+                                  | "json"
+                                  | "less"
+                                  | "diff";
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "code-snippet";
+                          }
+                        | {
+                              cards?:
+                                  | {
+                                        color?:
+                                            | (
+                                                  | "svart"
+                                                  | "skifer"
+                                                  | "stein"
+                                                  | "svaberg"
+                                                  | "dis"
+                                                  | "sand"
+                                                  | "hvit"
+                                                  | "suksess"
+                                                  | "info"
+                                                  | "advarsel"
+                                                  | "feil"
+                                              )
+                                            | null;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "color-card";
+                          }
+                        | {
+                              doDontItem?:
+                                  | {
+                                        variant?: ("code" | "image") | null;
+                                        code?: string | null;
+                                        noinline?: boolean | null;
+                                        image?: string | Media | null;
+                                        description?: string | null;
+                                        type: "do" | "dont" | "avoid";
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "dodont-example";
+                          }
+                        | {
+                              links?:
+                                  | {
+                                        title: string;
+                                        description?: string | null;
+                                        link: {
+                                            type: "reference" | "custom";
+                                            label?: string | null;
+                                            reference?:
+                                                | ({
+                                                      relationTo: "components";
+                                                      value: string | Component;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "general";
+                                                      value: string | General;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "patterns";
+                                                      value: string | Pattern;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "foundations";
+                                                      value: string | Foundation;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "blog";
+                                                      value: string | Blog;
+                                                  } | null);
+                                            url?: string | null;
+                                            newTab?: boolean | null;
+                                        };
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "link-card-list";
+                          }
+                        | {
+                              codeExample: string | CodeExample;
+                              defaultShowControls?: boolean | null;
+                              defaultShowEditor?: boolean | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "live-demo-block";
+                          }
+                        | {
+                              boxes?:
+                                  | {
+                                        type: "info" | "success" | "error" | "warning";
+                                        title?: string | null;
+                                        description: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "message-box";
+                          }
+                        | {
+                              content?:
+                                  | {
+                                        [k: string]: unknown;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "rich-text";
+                          }
+                        | {
+                              showcaseItem?:
+                                  | {
+                                        title: string;
+                                        src?: string | null;
+                                        example?: string | Media | null;
+                                        origin: string;
+                                        description?: string | null;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "showcase";
+                          }
+                        | {
+                              rows?:
+                                  | {
+                                        element: string;
+                                        property: string;
+                                        role: string;
+                                        value: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "tokens-table";
+                          }
+                        | {
+                              rows?:
+                                  | {
+                                        type:
+                                            | "mainColors"
+                                            | "functionalColors"
+                                            | "expandedFunctionalColors"
+                                            | "spacing"
+                                            | "typo"
+                                            | "typo-small";
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "table";
+                          }
+                    )[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "page-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              showcaseItem?:
+                  | {
+                        title: string;
+                        src?: string | null;
+                        example?: string | Media | null;
+                        origin: string;
+                        description?: string | null;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "showcase-section";
+          }
+        | {
+              video: {
+                  url: string;
+                  loop: boolean;
+              };
+              title: string;
+              description?: string | null;
+              link: {
+                  type: "reference" | "custom";
+                  label?: string | null;
+                  reference?:
+                      | ({
+                            relationTo: "components";
+                            value: string | Component;
+                        } | null)
+                      | ({
+                            relationTo: "general";
+                            value: string | General;
+                        } | null)
+                      | ({
+                            relationTo: "patterns";
+                            value: string | Pattern;
+                        } | null)
+                      | ({
+                            relationTo: "foundations";
+                            value: string | Foundation;
+                        } | null)
+                      | ({
+                            relationTo: "blog";
+                            value: string | Blog;
+                        } | null);
+                  url?: string | null;
+                  newTab?: boolean | null;
+              };
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "video-cta";
+          }
+        | {
+              type: {
+                  tagType?: string | null;
+                  tagLabel?: string | null;
+                  title?: string | null;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  author?: string | null;
+                  slug?: string | null;
+                  date?: string | null;
+                  image?: string | null;
+                  id?: string | null;
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "scroll";
+          }
+        | {
+              label: string;
+              addOnQuestion: string;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "feedback-section";
+          }
+        | {
+              content: {
+                  package?: string | null;
+                  downloads?: number | null;
+                  title?: string | null;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  componentId?: string | null;
+                  id?: string | null;
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "package-stats-section";
+          }
+        | {
+              steps?:
+                  | {
+                        title: string;
+                        description: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              url: string;
+              urlDark: string;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "anatomy-example";
+          }
+        | {
+              steps: {
+                  image?: string | Media | null;
+                  title?: string | null;
+                  description?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  id?: string | null;
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "carousel";
+          }
+        | {
+              code: string;
+              language: "ts" | "tsx" | "sh" | "scss" | "css" | "js" | "jsx" | "html" | "xml" | "json" | "less" | "diff";
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "code-snippet";
+          }
+        | {
+              cards?:
+                  | {
+                        color?:
+                            | (
+                                  | "svart"
+                                  | "skifer"
+                                  | "stein"
+                                  | "svaberg"
+                                  | "dis"
+                                  | "sand"
+                                  | "hvit"
+                                  | "suksess"
+                                  | "info"
+                                  | "advarsel"
+                                  | "feil"
+                              )
+                            | null;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "color-card";
+          }
+        | {
+              doDontItem?:
+                  | {
+                        variant?: ("code" | "image") | null;
+                        code?: string | null;
+                        noinline?: boolean | null;
+                        image?: string | Media | null;
+                        description?: string | null;
+                        type: "do" | "dont" | "avoid";
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "dodont-example";
+          }
+        | {
+              links?:
+                  | {
+                        title: string;
+                        description?: string | null;
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "link-card-list";
+          }
+        | {
+              codeExample: string | CodeExample;
+              defaultShowControls?: boolean | null;
+              defaultShowEditor?: boolean | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "live-demo-block";
+          }
+        | {
+              boxes?:
+                  | {
+                        type: "info" | "success" | "error" | "warning";
+                        title?: string | null;
+                        description: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "message-box";
+          }
+        | {
+              content?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "rich-text";
+          }
+        | {
+              showcaseItem?:
+                  | {
+                        title: string;
+                        src?: string | null;
+                        example?: string | Media | null;
+                        origin: string;
+                        description?: string | null;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "showcase";
+          }
+        | {
+              rows?:
+                  | {
+                        element: string;
+                        property: string;
+                        role: string;
+                        value: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "tokens-table";
+          }
+        | {
+              rows?:
+                  | {
+                        type:
+                            | "mainColors"
+                            | "functionalColors"
+                            | "expandedFunctionalColors"
+                            | "spacing"
+                            | "typo"
+                            | "typo-small";
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "table";
+          }
+        | {
+              link: {
+                  type: "reference" | "custom";
+                  label?: string | null;
+                  reference?:
+                      | ({
+                            relationTo: "components";
+                            value: string | Component;
+                        } | null)
+                      | ({
+                            relationTo: "general";
+                            value: string | General;
+                        } | null)
+                      | ({
+                            relationTo: "patterns";
+                            value: string | Pattern;
+                        } | null)
+                      | ({
+                            relationTo: "foundations";
+                            value: string | Foundation;
+                        } | null)
+                      | ({
+                            relationTo: "blog";
+                            value: string | Blog;
+                        } | null);
+                  url?: string | null;
+                  newTab?: boolean | null;
+              };
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "link";
+          }
+    )[];
+    updatedAt?: string | null;
+    createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "all-content-blocks".
+ */
+export interface AllContentBlock {
+    id: string;
+    blocks: (
+        | {
+              steps?:
+                  | {
+                        title: string;
+                        description: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              url: string;
+              urlDark: string;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "anatomy-example";
+          }
+        | {
+              steps: {
+                  image?: string | Media | null;
+                  title?: string | null;
+                  description?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  id?: string | null;
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "carousel";
+          }
+        | {
+              code: string;
+              language: "ts" | "tsx" | "sh" | "scss" | "css" | "js" | "jsx" | "html" | "xml" | "json" | "less" | "diff";
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "code-snippet";
+          }
+        | {
+              cards?:
+                  | {
+                        color?:
+                            | (
+                                  | "svart"
+                                  | "skifer"
+                                  | "stein"
+                                  | "svaberg"
+                                  | "dis"
+                                  | "sand"
+                                  | "hvit"
+                                  | "suksess"
+                                  | "info"
+                                  | "advarsel"
+                                  | "feil"
+                              )
+                            | null;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "color-card";
+          }
+        | {
+              doDontItem?:
+                  | {
+                        variant?: ("code" | "image") | null;
+                        code?: string | null;
+                        noinline?: boolean | null;
+                        image?: string | Media | null;
+                        description?: string | null;
+                        type: "do" | "dont" | "avoid";
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "dodont-example";
+          }
+        | {
+              links?:
+                  | {
+                        title: string;
+                        description?: string | null;
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "link-card-list";
+          }
+        | {
+              codeExample: string | CodeExample;
+              defaultShowControls?: boolean | null;
+              defaultShowEditor?: boolean | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "live-demo-block";
+          }
+        | {
+              boxes?:
+                  | {
+                        type: "info" | "success" | "error" | "warning";
+                        title?: string | null;
+                        description: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "message-box";
+          }
+        | {
+              content?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "rich-text";
+          }
+        | {
+              showcaseItem?:
+                  | {
+                        title: string;
+                        src?: string | null;
+                        example?: string | Media | null;
+                        origin: string;
+                        description?: string | null;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "showcase";
+          }
+        | {
+              rows?:
+                  | {
+                        element: string;
+                        property: string;
+                        role: string;
+                        value: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "tokens-table";
+          }
+        | {
+              rows?:
+                  | {
+                        type:
+                            | "mainColors"
+                            | "functionalColors"
+                            | "expandedFunctionalColors"
+                            | "spacing"
+                            | "typo"
+                            | "typo-small";
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "table";
+          }
+    )[];
+    updatedAt?: string | null;
+    createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "all-sections".
+ */
+export interface AllSection {
+    id: string;
+    sections: (
+        | {
+              heroText?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              actions?:
+                  | {
+                        type: "primary" | "secondary" | "tertiary";
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "call-to-action";
+          }
+        | {
+              intro?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              components?:
+                  | {
+                        component: string | Component;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "component-overview";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              examples?:
+                  | {
+                        fileName: string;
+                        url: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "figma-example-section";
+          }
+        | {
+              heroText?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              actions?:
+                  | {
+                        type: "primary" | "secondary" | "tertiary";
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "hero-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              links?:
+                  | {
+                        title: string;
+                        description?: string | null;
+                        link: {
+                            type: "reference" | "custom";
+                            label?: string | null;
+                            reference?:
+                                | ({
+                                      relationTo: "components";
+                                      value: string | Component;
+                                  } | null)
+                                | ({
+                                      relationTo: "general";
+                                      value: string | General;
+                                  } | null)
+                                | ({
+                                      relationTo: "patterns";
+                                      value: string | Pattern;
+                                  } | null)
+                                | ({
+                                      relationTo: "foundations";
+                                      value: string | Foundation;
+                                  } | null)
+                                | ({
+                                      relationTo: "blog";
+                                      value: string | Blog;
+                                  } | null);
+                            url?: string | null;
+                            newTab?: boolean | null;
+                        };
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "link-card-list-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              codeExample: string | CodeExample;
+              defaultShowControls?: boolean | null;
+              defaultShowEditor?: boolean | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "live-demo-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              installCode: string;
+              usageCode: string;
+              reactDocs?:
+                  | {
+                        title: string;
+                        href: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              cssDocs?:
+                  | {
+                        title: string;
+                        href: string;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "package-report-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              content?:
+                  | (
+                        | {
+                              steps?:
+                                  | {
+                                        title: string;
+                                        description: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              url: string;
+                              urlDark: string;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "anatomy-example";
+                          }
+                        | {
+                              steps: {
+                                  image?: string | Media | null;
+                                  title?: string | null;
+                                  description?:
+                                      | {
+                                            [k: string]: unknown;
+                                        }[]
+                                      | null;
+                                  id?: string | null;
+                              }[];
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "carousel";
+                          }
+                        | {
+                              code: string;
+                              language:
+                                  | "ts"
+                                  | "tsx"
+                                  | "sh"
+                                  | "scss"
+                                  | "css"
+                                  | "js"
+                                  | "jsx"
+                                  | "html"
+                                  | "xml"
+                                  | "json"
+                                  | "less"
+                                  | "diff";
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "code-snippet";
+                          }
+                        | {
+                              cards?:
+                                  | {
+                                        color?:
+                                            | (
+                                                  | "svart"
+                                                  | "skifer"
+                                                  | "stein"
+                                                  | "svaberg"
+                                                  | "dis"
+                                                  | "sand"
+                                                  | "hvit"
+                                                  | "suksess"
+                                                  | "info"
+                                                  | "advarsel"
+                                                  | "feil"
+                                              )
+                                            | null;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "color-card";
+                          }
+                        | {
+                              doDontItem?:
+                                  | {
+                                        variant?: ("code" | "image") | null;
+                                        code?: string | null;
+                                        noinline?: boolean | null;
+                                        image?: string | Media | null;
+                                        description?: string | null;
+                                        type: "do" | "dont" | "avoid";
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "dodont-example";
+                          }
+                        | {
+                              links?:
+                                  | {
+                                        title: string;
+                                        description?: string | null;
+                                        link: {
+                                            type: "reference" | "custom";
+                                            label?: string | null;
+                                            reference?:
+                                                | ({
+                                                      relationTo: "components";
+                                                      value: string | Component;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "general";
+                                                      value: string | General;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "patterns";
+                                                      value: string | Pattern;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "foundations";
+                                                      value: string | Foundation;
+                                                  } | null)
+                                                | ({
+                                                      relationTo: "blog";
+                                                      value: string | Blog;
+                                                  } | null);
+                                            url?: string | null;
+                                            newTab?: boolean | null;
+                                        };
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "link-card-list";
+                          }
+                        | {
+                              codeExample: string | CodeExample;
+                              defaultShowControls?: boolean | null;
+                              defaultShowEditor?: boolean | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "live-demo-block";
+                          }
+                        | {
+                              boxes?:
+                                  | {
+                                        type: "info" | "success" | "error" | "warning";
+                                        title?: string | null;
+                                        description: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "message-box";
+                          }
+                        | {
+                              content?:
+                                  | {
+                                        [k: string]: unknown;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "rich-text";
+                          }
+                        | {
+                              showcaseItem?:
+                                  | {
+                                        title: string;
+                                        src?: string | null;
+                                        example?: string | Media | null;
+                                        origin: string;
+                                        description?: string | null;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "showcase";
+                          }
+                        | {
+                              rows?:
+                                  | {
+                                        element: string;
+                                        property: string;
+                                        role: string;
+                                        value: string;
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "tokens-table";
+                          }
+                        | {
+                              rows?:
+                                  | {
+                                        type:
+                                            | "mainColors"
+                                            | "functionalColors"
+                                            | "expandedFunctionalColors"
+                                            | "spacing"
+                                            | "typo"
+                                            | "typo-small";
+                                        id?: string | null;
+                                    }[]
+                                  | null;
+                              id?: string | null;
+                              blockName?: string | null;
+                              blockType: "table";
+                          }
+                    )[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "page-section";
+          }
+        | {
+              title: string;
+              ingress?:
+                  | {
+                        [k: string]: unknown;
+                    }[]
+                  | null;
+              showcaseItem?:
+                  | {
+                        title: string;
+                        src?: string | null;
+                        example?: string | Media | null;
+                        origin: string;
+                        description?: string | null;
+                        id?: string | null;
+                    }[]
+                  | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "showcase-section";
+          }
+        | {
+              video: {
+                  url: string;
+                  loop: boolean;
+              };
+              title: string;
+              description?: string | null;
+              link: {
+                  type: "reference" | "custom";
+                  label?: string | null;
+                  reference?:
+                      | ({
+                            relationTo: "components";
+                            value: string | Component;
+                        } | null)
+                      | ({
+                            relationTo: "general";
+                            value: string | General;
+                        } | null)
+                      | ({
+                            relationTo: "patterns";
+                            value: string | Pattern;
+                        } | null)
+                      | ({
+                            relationTo: "foundations";
+                            value: string | Foundation;
+                        } | null)
+                      | ({
+                            relationTo: "blog";
+                            value: string | Blog;
+                        } | null);
+                  url?: string | null;
+                  newTab?: boolean | null;
+              };
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "video-cta";
+          }
+        | {
+              type: {
+                  tagType?: string | null;
+                  tagLabel?: string | null;
+                  title?: string | null;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  author?: string | null;
+                  slug?: string | null;
+                  date?: string | null;
+                  image?: string | null;
+                  id?: string | null;
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "scroll";
+          }
+        | {
+              label: string;
+              addOnQuestion: string;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "feedback-section";
+          }
+        | {
+              content: {
+                  package?: string | null;
+                  downloads?: number | null;
+                  title?: string | null;
+                  ingress?:
+                      | {
+                            [k: string]: unknown;
+                        }[]
+                      | null;
+                  componentId?: string | null;
+                  id?: string | null;
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: "package-stats-section";
+          }
+    )[];
+    updatedAt?: string | null;
+    createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "main-menu".
+ */
+export interface MainMenu {
+    id: string;
+    items?:
+        | {
+              item:
+                  | {
+                        relationTo: "menu-items";
+                        value: string | MenuItem;
+                    }
+                  | {
+                        relationTo: "sub-menus";
+                        value: string | SubMenu;
+                    };
+              id?: string | null;
+          }[]
+        | null;
+    updatedAt?: string | null;
+    createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-page".
+ */
+export interface HomePage {
+    id: string;
+    sections?:
+        | (
+              | {
+                    title: string;
+                    ingress?:
+                        | {
+                              [k: string]: unknown;
+                          }[]
+                        | null;
+                    content?:
+                        | (
+                              | {
+                                    steps?:
+                                        | {
+                                              title: string;
+                                              description: string;
+                                              id?: string | null;
+                                          }[]
+                                        | null;
+                                    url: string;
+                                    urlDark: string;
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "anatomy-example";
+                                }
+                              | {
+                                    steps: {
+                                        image?: string | Media | null;
+                                        title?: string | null;
+                                        description?:
+                                            | {
+                                                  [k: string]: unknown;
+                                              }[]
+                                            | null;
+                                        id?: string | null;
+                                    }[];
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "carousel";
+                                }
+                              | {
+                                    code: string;
+                                    language:
+                                        | "ts"
+                                        | "tsx"
+                                        | "sh"
+                                        | "scss"
+                                        | "css"
+                                        | "js"
+                                        | "jsx"
+                                        | "html"
+                                        | "xml"
+                                        | "json"
+                                        | "less"
+                                        | "diff";
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "code-snippet";
+                                }
+                              | {
+                                    cards?:
+                                        | {
+                                              color?:
+                                                  | (
+                                                        | "svart"
+                                                        | "skifer"
+                                                        | "stein"
+                                                        | "svaberg"
+                                                        | "dis"
+                                                        | "sand"
+                                                        | "hvit"
+                                                        | "suksess"
+                                                        | "info"
+                                                        | "advarsel"
+                                                        | "feil"
+                                                    )
+                                                  | null;
+                                              id?: string | null;
+                                          }[]
+                                        | null;
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "color-card";
+                                }
+                              | {
+                                    doDontItem?:
+                                        | {
+                                              variant?: ("code" | "image") | null;
+                                              code?: string | null;
+                                              noinline?: boolean | null;
+                                              image?: string | Media | null;
+                                              description?: string | null;
+                                              type: "do" | "dont" | "avoid";
+                                              id?: string | null;
+                                          }[]
+                                        | null;
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "dodont-example";
+                                }
+                              | {
+                                    links?:
+                                        | {
+                                              title: string;
+                                              description?: string | null;
+                                              link: {
+                                                  type: "reference" | "custom";
+                                                  label?: string | null;
+                                                  reference?:
+                                                      | ({
+                                                            relationTo: "components";
+                                                            value: string | Component;
+                                                        } | null)
+                                                      | ({
+                                                            relationTo: "general";
+                                                            value: string | General;
+                                                        } | null)
+                                                      | ({
+                                                            relationTo: "patterns";
+                                                            value: string | Pattern;
+                                                        } | null)
+                                                      | ({
+                                                            relationTo: "foundations";
+                                                            value: string | Foundation;
+                                                        } | null)
+                                                      | ({
+                                                            relationTo: "blog";
+                                                            value: string | Blog;
+                                                        } | null);
+                                                  url?: string | null;
+                                                  newTab?: boolean | null;
+                                              };
+                                              id?: string | null;
+                                          }[]
+                                        | null;
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "link-card-list";
+                                }
+                              | {
+                                    codeExample: string | CodeExample;
+                                    defaultShowControls?: boolean | null;
+                                    defaultShowEditor?: boolean | null;
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "live-demo-block";
+                                }
+                              | {
+                                    boxes?:
+                                        | {
+                                              type: "info" | "success" | "error" | "warning";
+                                              title?: string | null;
+                                              description: string;
+                                              id?: string | null;
+                                          }[]
+                                        | null;
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "message-box";
+                                }
+                              | {
+                                    content?:
+                                        | {
+                                              [k: string]: unknown;
+                                          }[]
+                                        | null;
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "rich-text";
+                                }
+                              | {
+                                    showcaseItem?:
+                                        | {
+                                              title: string;
+                                              src?: string | null;
+                                              example?: string | Media | null;
+                                              origin: string;
+                                              description?: string | null;
+                                              id?: string | null;
+                                          }[]
+                                        | null;
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "showcase";
+                                }
+                              | {
+                                    rows?:
+                                        | {
+                                              element: string;
+                                              property: string;
+                                              role: string;
+                                              value: string;
+                                              id?: string | null;
+                                          }[]
+                                        | null;
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "tokens-table";
+                                }
+                              | {
+                                    rows?:
+                                        | {
+                                              type:
+                                                  | "mainColors"
+                                                  | "functionalColors"
+                                                  | "expandedFunctionalColors"
+                                                  | "spacing"
+                                                  | "typo"
+                                                  | "typo-small";
+                                              id?: string | null;
+                                          }[]
+                                        | null;
+                                    id?: string | null;
+                                    blockName?: string | null;
+                                    blockType: "table";
+                                }
+                          )[]
+                        | null;
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: "page-section";
+                }
+              | {
+                    heroText?:
+                        | {
+                              [k: string]: unknown;
+                          }[]
+                        | null;
+                    actions?:
+                        | {
+                              type: "primary" | "secondary" | "tertiary";
+                              link: {
+                                  type: "reference" | "custom";
+                                  label?: string | null;
+                                  reference?:
+                                      | ({
+                                            relationTo: "components";
+                                            value: string | Component;
+                                        } | null)
+                                      | ({
+                                            relationTo: "general";
+                                            value: string | General;
+                                        } | null)
+                                      | ({
+                                            relationTo: "patterns";
+                                            value: string | Pattern;
+                                        } | null)
+                                      | ({
+                                            relationTo: "foundations";
+                                            value: string | Foundation;
+                                        } | null)
+                                      | ({
+                                            relationTo: "blog";
+                                            value: string | Blog;
+                                        } | null);
+                                  url?: string | null;
+                                  newTab?: boolean | null;
+                              };
+                              id?: string | null;
+                          }[]
+                        | null;
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: "hero-section";
+                }
+              | {
+                    video: {
+                        url: string;
+                        loop: boolean;
+                    };
+                    title: string;
+                    description?: string | null;
+                    link: {
+                        type: "reference" | "custom";
+                        label?: string | null;
+                        reference?:
+                            | ({
+                                  relationTo: "components";
+                                  value: string | Component;
+                              } | null)
+                            | ({
+                                  relationTo: "general";
+                                  value: string | General;
+                              } | null)
+                            | ({
+                                  relationTo: "patterns";
+                                  value: string | Pattern;
+                              } | null)
+                            | ({
+                                  relationTo: "foundations";
+                                  value: string | Foundation;
+                              } | null)
+                            | ({
+                                  relationTo: "blog";
+                                  value: string | Blog;
+                              } | null);
+                        url?: string | null;
+                        newTab?: boolean | null;
+                    };
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: "video-cta";
+                }
+              | {
+                    heroText?:
+                        | {
+                              [k: string]: unknown;
+                          }[]
+                        | null;
+                    actions?:
+                        | {
+                              type: "primary" | "secondary" | "tertiary";
+                              link: {
+                                  type: "reference" | "custom";
+                                  label?: string | null;
+                                  reference?:
+                                      | ({
+                                            relationTo: "components";
+                                            value: string | Component;
+                                        } | null)
+                                      | ({
+                                            relationTo: "general";
+                                            value: string | General;
+                                        } | null)
+                                      | ({
+                                            relationTo: "patterns";
+                                            value: string | Pattern;
+                                        } | null)
+                                      | ({
+                                            relationTo: "foundations";
+                                            value: string | Foundation;
+                                        } | null)
+                                      | ({
+                                            relationTo: "blog";
+                                            value: string | Blog;
+                                        } | null);
+                                  url?: string | null;
+                                  newTab?: boolean | null;
+                              };
+                              id?: string | null;
+                          }[]
+                        | null;
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: "call-to-action";
+                }
+              | {
+                    type: {
+                        tagType?: string | null;
+                        tagLabel?: string | null;
+                        title?: string | null;
+                        ingress?:
+                            | {
+                                  [k: string]: unknown;
+                              }[]
+                            | null;
+                        author?: string | null;
+                        slug?: string | null;
+                        date?: string | null;
+                        image?: string | null;
+                        id?: string | null;
+                    }[];
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: "scroll";
+                }
+              | {
+                    label: string;
+                    addOnQuestion: string;
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: "feedback-section";
+                }
+              | {
+                    content: {
+                        package?: string | null;
+                        downloads?: number | null;
+                        title?: string | null;
+                        ingress?:
+                            | {
+                                  [k: string]: unknown;
+                              }[]
+                            | null;
+                        componentId?: string | null;
+                        id?: string | null;
+                    }[];
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: "package-stats-section";
+                }
+          )[]
+        | null;
+    meta?: {
+        title?: string | null;
+        description?: string | null;
+        keywords?: string | null;
+        imageLight?: string | Media | null;
+        imageDark?: string | Media | null;
+        figma?: string | null;
+    };
+    updatedAt?: string | null;
+    createdAt?: string | null;
 }
 
-
-declare module 'payload' {
-  export interface GeneratedTypes extends Config {}
+declare module "payload" {
+    export interface GeneratedTypes extends Config {}
 }

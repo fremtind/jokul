@@ -1,11 +1,11 @@
-import { CollectionConfig } from 'payload/types';
-import { authenticatedAdmins, authenticatedContributors } from '../access';
+import { CollectionConfig } from "payload/types";
+import { authenticatedAdmins, authenticatedContributors } from "../access";
 
 export const BlogTags: CollectionConfig = {
-    slug: 'blog-tag',
+    slug: "blog-tag",
     labels: {
-        singular: 'Tag',
-        plural: 'Tags',
+        singular: "Tag",
+        plural: "Tags",
     },
     access: {
         read: () => true,
@@ -14,22 +14,21 @@ export const BlogTags: CollectionConfig = {
         delete: authenticatedAdmins,
     },
     admin: {
-        group: 'Annet innhold',
-        useAsTitle: 'label',
+        group: "Annet innhold",
+        useAsTitle: "label",
     },
     fields: [
         {
-            name: 'label',
-            type: 'text',
+            name: "label",
+            type: "text",
             required: true,
         },
         {
-            name: 'type',
-            type: 'select',
-            options: ['success', 'warning', 'info', 'error'],
+            name: "type",
+            type: "select",
+            options: ["success", "warning", "info", "error"],
             admin: {
-                description:
-                    'Styrer farge på tag. Om du ikke velger noe får du standard grå',
+                description: "Styrer farge på tag. Om du ikke velger noe får du standard grå",
             },
         },
     ],

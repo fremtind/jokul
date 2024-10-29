@@ -1,13 +1,8 @@
-import { IconButton } from '@fremtind/jkl-icon-button-react';
-import { CheckIcon } from '@fremtind/jkl-icons-react';
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipTrigger,
-    type TooltipPlacement,
-} from '@fremtind/jkl-tooltip-react';
-import React, { type FC } from 'react';
-import { CopyIcon } from './CopyIcon';
+import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { CheckIcon } from "@fremtind/jkl-icons-react";
+import { Tooltip, TooltipContent, TooltipTrigger, type TooltipPlacement } from "@fremtind/jkl-tooltip-react";
+import React, { type FC } from "react";
+import { CopyIcon } from "./CopyIcon";
 
 interface ClipboardProps {
     target: string;
@@ -23,7 +18,7 @@ export const ClipboardButton: FC<ClipboardProps> = ({ target }) => {
             <Tooltip
                 delay={1000}
                 triggerOn="click"
-                placement={'left-start' as unknown as TooltipPlacement} // Ser visuelt ut som left i denne sammenhengen
+                placement={"left-start" as unknown as TooltipPlacement} // Ser visuelt ut som left i denne sammenhengen
             >
                 <TooltipTrigger onClick={copyTargetClick}>
                     <IconButton aria-label="Kopier">
@@ -31,10 +26,7 @@ export const ClipboardButton: FC<ClipboardProps> = ({ target }) => {
                     </IconButton>
                 </TooltipTrigger>
                 <TooltipContent>
-                    <div
-                        aria-live="assertive"
-                        className="clipboard-button__tooltip-content"
-                    >
+                    <div aria-live="assertive" className="clipboard-button__tooltip-content">
                         Kopiert <CheckIcon />
                     </div>
                 </TooltipContent>

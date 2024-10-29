@@ -1,9 +1,9 @@
-import classNames from 'classnames';
-import { type Language } from 'prism-react-renderer';
-import React, { type FC } from 'react';
-import { LiveEditor } from '../interactive-code/LiveEditor';
-import { LiveProvider } from '../interactive-code/LiveProvider';
-import { ClipboardButton } from './ClipboardButton';
+import classNames from "classnames";
+import { type Language } from "prism-react-renderer";
+import React, { type FC } from "react";
+import { LiveEditor } from "../interactive-code/LiveEditor";
+import { LiveProvider } from "../interactive-code/LiveProvider";
+import { ClipboardButton } from "./ClipboardButton";
 
 interface CodeSnippetProps {
     className?: string;
@@ -18,16 +18,11 @@ interface CodeSnippetProps {
     language?: Language;
 }
 
-export const CodeSnippet: FC<CodeSnippetProps> = ({
-    className,
-    code,
-    language = 'tsx',
-    inline = false,
-}) => {
+export const CodeSnippet: FC<CodeSnippetProps> = ({ className, code, language = "tsx", inline = false }) => {
     return (
         <div
-            className={classNames('code-snippet', className, {
-                'code-snippet--inline': inline,
+            className={classNames("code-snippet", className, {
+                "code-snippet--inline": inline,
             })}
         >
             {!inline && <ClipboardButton target={code} />}
@@ -35,9 +30,9 @@ export const CodeSnippet: FC<CodeSnippetProps> = ({
                 <LiveEditor
                     readOnly={true}
                     style={{
-                        height: '100%',
-                        overflow: 'auto',
-                        maxHeight: 'min(60vh, 500px)',
+                        height: "100%",
+                        overflow: "auto",
+                        maxHeight: "min(60vh, 500px)",
                     }}
                 />
             </LiveProvider>

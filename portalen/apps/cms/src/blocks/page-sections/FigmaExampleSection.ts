@@ -1,33 +1,33 @@
-import { Block } from 'payload/types';
-import { createPageSectionBlock } from './createPageSectionBlock';
+import { Block } from "payload/types";
+import { createPageSectionBlock } from "./createPageSectionBlock";
 
 export const FigmaExampleSection: Block = createPageSectionBlock({
-    slug: 'figma-example-section',
-    defaultHeading: 'Figma-eksempler',
+    slug: "figma-example-section",
+    defaultHeading: "Figma-eksempler",
     labels: {
-        singular: 'Figma-eksempel',
-        plural: 'Figma-eksempler',
+        singular: "Figma-eksempel",
+        plural: "Figma-eksempler",
     },
-    imageURL: '/media/figma-eksempel.png',
+    imageURL: "/media/figma-eksempel.png",
     fields: [
         {
-            type: 'array',
-            name: 'examples',
+            type: "array",
+            name: "examples",
             labels: {
-                singular: 'Eksempel',
-                plural: 'Eksempler',
+                singular: "Eksempel",
+                plural: "Eksempler",
             },
             fields: [
                 {
-                    type: 'text',
-                    name: 'fileName',
-                    label: 'Navn',
+                    type: "text",
+                    name: "fileName",
+                    label: "Navn",
                     required: true,
                 },
                 {
-                    type: 'text',
-                    name: 'url',
-                    label: 'Figma-lenke',
+                    type: "text",
+                    name: "url",
+                    label: "Figma-lenke",
                     required: true,
                     admin: {
                         description:

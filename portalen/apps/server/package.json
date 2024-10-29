@@ -11,7 +11,8 @@
         "serve": "cross-env PAYLOAD_CONFIG_PATH=../cms/dist/config.js NODE_ENV=production node --conditions=serve dist/index.js",
         "generate:types": "node ./generate-types.js",
         "typecheck": "tsc -p ./tsconfig.json",
-        "postinstall": "node ./postinstall"
+        "postinstall": "node ./postinstall",
+        "lint": "../../../node_modules/eslint/bin/eslint.js --ext .ts,.js ./index.ts"
     },
     "dependencies": {
         "@fremtind/jkl-webfonts": "^4.0.0",

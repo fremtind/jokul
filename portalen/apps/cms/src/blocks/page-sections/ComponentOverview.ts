@@ -1,25 +1,25 @@
-import { Block } from 'payload/types';
-import { Component } from '../../types';
+import { Block } from "payload/types";
+import { Component } from "../../types";
 
 export const ComponentOverview: Block = {
-    slug: 'component-overview',
-    imageURL: '/media/mediakomponentoversikt.webp',
+    slug: "component-overview",
+    imageURL: "/media/mediakomponentoversikt.webp",
     fields: [
         {
-            name: 'intro',
-            type: 'richText',
+            name: "intro",
+            type: "richText",
         },
         {
-            name: 'components',
+            name: "components",
             admin: {
-                description: 'Hvis ingen komponenter velges vises alle',
+                description: "Hvis ingen komponenter velges vises alle",
             },
-            type: 'array',
+            type: "array",
             fields: [
                 {
-                    name: 'component',
-                    type: 'relationship',
-                    relationTo: 'components',
+                    name: "component",
+                    type: "relationship",
+                    relationTo: "components",
                     required: true,
                 },
             ],
@@ -31,17 +31,17 @@ export const ComponentOverview: Block = {
                             // When reading the collection from the admin UI we
                             // do not want to automatically fill in all components if none
                             // are selected
-                            req.header?.('Referer')?.includes('/admin') ||
+                            req.header?.("Referer")?.includes("/admin") ||
                             value.length > 0
                         ) {
                             return value;
                         }
 
                         const { docs: components } = await req.payload.find({
-                            collection: 'components',
+                            collection: "components",
                             depth: 1, // Sørg for å ikke hente opp mer innhold enn nødvendig (vi trenger ett nivå for bilder i metadata)
                             where: {
-                                type: { equals: 'Komponent' },
+                                type: { equals: "Komponent" },
                             },
                             limit: 100,
                         });

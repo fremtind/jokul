@@ -1,5 +1,5 @@
-import { TableCell, TableRow } from '@fremtind/jkl-table-react';
-import React, { type FC } from 'react';
+import { TableCell, TableRow } from "@fremtind/jkl-table-react";
+import React, { type FC } from "react";
 
 interface SpacingTableRowProps {
     level: string;
@@ -16,9 +16,7 @@ export const SpacingTableRow: FC<SpacingTableRowProps> = ({ level }) => {
             <TableCell>
                 <code className="spacing-code">jkl.$spacing--${level}</code>
                 <br />
-                <code className="spacing-code">
-                    {`var(--jkl-spacing-${level})`}
-                </code>
+                <code className="spacing-code">{`var(--jkl-spacing-${level})`}</code>
             </TableCell>
             <TableCell>
                 <code className="spacing-code">{level}px</code>

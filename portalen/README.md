@@ -459,7 +459,10 @@ I tillegg må vi ha [disse IAM permissions](https://docs.aws.amazon.com/AmazonEC
         {
             "Effect": "Allow",
             "Action": ["ssm:GetParameters", "secretsmanager:GetSecretValue", "kms:Decrypt"],
-            "Resource": ["arn:aws:ssm:eu-west-1:<kontoid>:parameter/*jkl-portal*", "arn:aws:secretsmanager:eu-west-1:<kontoid>:secret:*jkl-portal*"]
+            "Resource": [
+                "arn:aws:ssm:eu-west-1:<kontoid>:parameter/*jkl-portal*",
+                "arn:aws:secretsmanager:eu-west-1:<kontoid>:secret:*jkl-portal*"
+            ]
         }
     ]
 }

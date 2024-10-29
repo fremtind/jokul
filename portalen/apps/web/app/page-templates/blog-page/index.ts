@@ -1,1 +1,1 @@
-export * from './BlogPageTemplate';
+export * from "./BlogPageTemplate";

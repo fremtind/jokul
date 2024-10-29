@@ -1,15 +1,15 @@
-import { NavCard } from '@fremtind/jkl-card-react';
-import { useBrowserPreferences } from '@fremtind/jkl-react-hooks';
-import { Link } from '@remix-run/react';
-import { useInView } from 'framer-motion';
-import React, { type FC, useEffect, useRef } from 'react';
-import { getUrlFromLink } from '../../components/navigation/utils';
-import { type PageSectionProps } from './types';
-import { assertSectionIs } from './types';
-import { useMainMenu } from '~/utils';
+import { NavCard } from "@fremtind/jkl-card-react";
+import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import { Link } from "@remix-run/react";
+import { useInView } from "framer-motion";
+import React, { type FC, useEffect, useRef } from "react";
+import { getUrlFromLink } from "../../components/navigation/utils";
+import { type PageSectionProps } from "./types";
+import { assertSectionIs } from "./types";
+import { useMainMenu } from "~/utils";
 
 export const VideoCTABlock: FC<PageSectionProps> = ({ pageSection }) => {
-    assertSectionIs('video-cta', pageSection);
+    assertSectionIs("video-cta", pageSection);
 
     const mainMenu = useMainMenu();
     const { prefersReducedMotion } = useBrowserPreferences();
@@ -47,9 +47,9 @@ export const VideoCTABlock: FC<PageSectionProps> = ({ pageSection }) => {
             <NavCard
                 className="jkl-portal-video-cta__card"
                 title={title}
-                description={description || ''}
+                description={description || ""}
                 component={Link}
-                to={linkTo || '#'}
+                to={linkTo || "#"}
             />
         </div>
     );

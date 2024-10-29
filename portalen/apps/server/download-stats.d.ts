@@ -1,1 +1,1 @@
-declare module 'download-stats';
+declare module "download-stats";

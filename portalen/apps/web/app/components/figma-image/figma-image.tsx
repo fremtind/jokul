@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import React, { type FC } from "react";
 
 interface FigmaImageProps {
     alt?: string;
@@ -23,19 +23,13 @@ interface FigmaImageProps {
     figmaUrlDark?: string;
 }
 
-export const FigmaImage: FC<FigmaImageProps> = ({
-    alt,
-    figmaUrl,
-    figmaUrlDark,
-}) => {
+export const FigmaImage: FC<FigmaImageProps> = ({ alt, figmaUrl, figmaUrlDark }) => {
     return (
         <picture>
             {figmaUrlDark && (
                 <source
                     media="(prefers-color-scheme: dark)"
-                    srcSet={`/api/figma/images?url=${encodeURIComponent(
-                        figmaUrlDark
-                    )}`}
+                    srcSet={`/api/figma/images?url=${encodeURIComponent(figmaUrlDark)}`}
                 />
             )}
             <img

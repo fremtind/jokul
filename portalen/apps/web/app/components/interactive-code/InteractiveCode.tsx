@@ -1,35 +1,25 @@
-import { Checkbox } from '@fremtind/jkl-checkbox-react';
-import {
-    type ColorScheme,
-    type Density,
-    type ValuePair,
-} from '@fremtind/jkl-core';
-import {
-    RadioButton,
-    RadioButtonGroup,
-} from '@fremtind/jkl-radio-button-react';
-import { useId, usePreviousValue } from '@fremtind/jkl-react-hooks';
-import { Select } from '@fremtind/jkl-select-react';
-import cn from 'classnames';
-import { type Language } from 'prism-react-renderer';
-import { type FC, useCallback, useEffect, useState } from 'react';
-import React from 'react';
-import { ClipboardButton } from '../code-snippet/ClipboardButton';
-import { LiveEditor } from './LiveEditor';
-import { LiveError } from './LiveError';
-import { LivePreview } from './LivePreview';
-import { LiveProvider } from './LiveProvider';
-import { useGlobalPreferences } from '~/components/navigation/GlobalContextualMenu';
-import { hyphenate } from '~/utils/string';
-import { useLocalStorage } from '~/utils/useLocalStorage';
+import { Checkbox } from "@fremtind/jkl-checkbox-react";
+import { type ColorScheme, type Density, type ValuePair } from "@fremtind/jkl-core";
+import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
+import { useId, usePreviousValue } from "@fremtind/jkl-react-hooks";
+import { Select } from "@fremtind/jkl-select-react";
+import cn from "classnames";
+import { type Language } from "prism-react-renderer";
+import { type FC, useCallback, useEffect, useState } from "react";
+import React from "react";
+import { ClipboardButton } from "../code-snippet/ClipboardButton";
+import { LiveEditor } from "./LiveEditor";
+import { LiveError } from "./LiveError";
+import { LivePreview } from "./LivePreview";
+import { LiveProvider } from "./LiveProvider";
+import { useGlobalPreferences } from "~/components/navigation/GlobalContextualMenu";
+import { hyphenate } from "~/utils/string";
+import { useLocalStorage } from "~/utils/useLocalStorage";
 
 type BoolValues = Record<string, boolean>;
 type ChoiceValues = Record<string, string | ValuePair>;
 
-export type CodeGenerator = (props: {
-    boolValues: BoolValues;
-    choiceValues: ChoiceValues;
-}) => string;
+export type CodeGenerator = (props: { boolValues: BoolValues; choiceValues: ChoiceValues }) => string;
 
 export interface ControlProps {
     generator: CodeGenerator;
@@ -102,11 +92,11 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
     defaultShowEditor = false,
     defaultShowPreview = true,
     examples,
-    language = 'tsx',
+    language = "tsx",
     controls,
     noInline = false,
 }) => {
-    const uid = useId(id || 'interactive-code', { generateSuffix: !id });
+    const uid = useId(id || "interactive-code", { generateSuffix: !id });
 
     // TODO: finn ut av hvordan toggling skal se ut visuelt
     const [showControls] = useState<boolean>(defaultShowControls);
@@ -115,22 +105,16 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
 
     const { colorScheme } = useGlobalPreferences();
 
-    const [theme, setTheme] = useLocalStorage<ColorScheme>(
-        'jkl-example-theme',
-        colorScheme || 'light'
-    );
-    const [density, setDensity] = useLocalStorage<Density>(
-        'jkl-example-density',
-        'comfortable'
-    );
+    const [theme, setTheme] = useLocalStorage<ColorScheme>("jkl-example-theme", colorScheme || "light");
+    const [density, setDensity] = useLocalStorage<Density>("jkl-example-density", "comfortable");
 
     const [boolValues, setBoolValues] = useState<BoolValues>(
         controls?.boolProps?.reduce((acc, boolProp) => {
-            if (typeof boolProp === 'string') {
+            if (typeof boolProp === "string") {
                 return { ...acc, [boolProp]: false };
             }
             return { ...acc, [boolProp.prop]: boolProp.defaultValue };
-        }, {}) || {}
+        }, {}) || {},
     );
 
     const [choiceValues, setChoiceValues] = useState<ChoiceValues>(
@@ -139,8 +123,8 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                 ...acc,
                 [name]: values[defaultValue],
             }),
-            {}
-        ) || {}
+            {},
+        ) || {},
     );
 
     const [code, setCode] = useState<string>(
@@ -150,7 +134,7 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                 boolValues,
                 choiceValues,
             }) ||
-            "console.log('Hello, World!)'"
+            "console.log('Hello, World!)'",
     );
 
     const handleChange = useCallback(
@@ -159,7 +143,7 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                 setCode(newCode);
             }
         },
-        [setCode, code]
+        [setCode, code],
     );
 
     const previousBoolValues = usePreviousValue(boolValues);
@@ -169,10 +153,7 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
             return;
         }
 
-        if (
-            boolValues === previousBoolValues &&
-            choiceValues === previousChoiceValues
-        ) {
+        if (boolValues === previousBoolValues && choiceValues === previousChoiceValues) {
             // Sjekk at endringen er i choices, og ikke redigering i editoren
             return;
         }
@@ -185,20 +166,10 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
         if (code !== newCode) {
             setCode(newCode);
         }
-    }, [
-        boolValues,
-        previousBoolValues,
-        choiceValues,
-        previousChoiceValues,
-        code,
-        controls,
-    ]);
+    }, [boolValues, previousBoolValues, choiceValues, previousChoiceValues, code, controls]);
 
     const choices: Record<string, string[] | ValuePair[]> =
-        controls?.choiceProps?.reduce(
-            (acc, { name, values }) => ({ ...acc, [name]: values }),
-            {}
-        ) || {};
+        controls?.choiceProps?.reduce((acc, { name, values }) => ({ ...acc, [name]: values }), {}) || {};
 
     const setBoolValue = (key: string, value: boolean) =>
         setBoolValues((oldValues) => ({ ...oldValues, [key]: value }));
@@ -216,14 +187,11 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                 <div className="interactive-code__title">{title}</div>
                 {showPreview && (
                     <div
-                        className={cn('interactive-code__preview', {
-                            'interactive-code__preview--centered':
-                                centerPreview,
+                        className={cn("interactive-code__preview", {
+                            "interactive-code__preview--centered": centerPreview,
                         })}
                         data-layout-density={density}
-                        data-theme={
-                            typeof window !== 'undefined' ? theme : undefined
-                        }
+                        data-theme={typeof window !== "undefined" ? theme : undefined}
                     >
                         <LivePreview />
                     </div>
@@ -232,9 +200,7 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                     <div className="interactive-code__controls">
                         {examples && (
                             <>
-                                <div className="interactive-code__controls-title">
-                                    Eksempler
-                                </div>
+                                <div className="interactive-code__controls-title">Eksempler</div>
                                 <div className="interactive-code__controls-knobs">
                                     <Select
                                         label="Velg eksempel"
@@ -242,155 +208,83 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                                         name={`${uid}-examples`}
                                         items={examples}
                                         value={examples[0].value}
-                                        onChange={(e) =>
-                                            setCode(e.target.value)
-                                        }
+                                        onChange={(e) => setCode(e.target.value)}
                                     />
                                 </div>
                             </>
                         )}
-                        {((controls?.boolProps?.length || 0) > 0 ||
-                            (controls?.choiceProps?.length || 0) > 0) && (
+                        {((controls?.boolProps?.length || 0) > 0 || (controls?.choiceProps?.length || 0) > 0) && (
                             <>
-                                <div className="interactive-code__controls-title">
-                                    Egenskaper
-                                </div>
-                                <div
-                                    className="interactive-code__controls-knobs"
-                                    data-layout-density="compact"
-                                >
+                                <div className="interactive-code__controls-title">Egenskaper</div>
+                                <div className="interactive-code__controls-knobs" data-layout-density="compact">
                                     {controls?.boolProps && (
                                         <>
-                                            {Object.entries(boolValues).map(
-                                                ([key, value]) => (
-                                                    <Checkbox
-                                                        key={`${uid}-${hyphenate(
-                                                            key
-                                                        )}`}
-                                                        name={`${uid}-${hyphenate(
-                                                            key
-                                                        )}`}
-                                                        value={key}
-                                                        checked={value}
-                                                        onChange={(e) =>
-                                                            setBoolValue(
-                                                                key,
-                                                                e.target.checked
-                                                            )
-                                                        }
-                                                    >
-                                                        {key}
-                                                    </Checkbox>
-                                                )
-                                            )}
+                                            {Object.entries(boolValues).map(([key, value]) => (
+                                                <Checkbox
+                                                    key={`${uid}-${hyphenate(key)}`}
+                                                    name={`${uid}-${hyphenate(key)}`}
+                                                    value={key}
+                                                    checked={value}
+                                                    onChange={(e) => setBoolValue(key, e.target.checked)}
+                                                >
+                                                    {key}
+                                                </Checkbox>
+                                            ))}
                                         </>
                                     )}
                                     {controls?.choiceProps && (
                                         <>
-                                            {Object.entries(choiceValues).map(
-                                                ([key, value]) =>
-                                                    choices[key].length < 4 ? (
-                                                        <RadioButtonGroup
-                                                            className="jkl-spacing-xs--top"
-                                                            name={`${uid}-${hyphenate(
-                                                                key
-                                                            )}`}
-                                                            key={`${uid}-${hyphenate(
-                                                                key
-                                                            )}`}
-                                                            legend={key}
-                                                            value={
-                                                                typeof value ===
-                                                                'string'
-                                                                    ? value
-                                                                    : value.value
-                                                            }
-                                                            labelProps={{
-                                                                variant:
-                                                                    'small',
-                                                            }}
-                                                            onChange={(e) => {
-                                                                setChoiceValue(
-                                                                    key,
-                                                                    e.target
-                                                                        .value
-                                                                );
-                                                            }}
-                                                        >
-                                                            {choices[key]?.map(
-                                                                (choice) => {
-                                                                    const value =
-                                                                        typeof choice ===
-                                                                        'string'
-                                                                            ? choice
-                                                                            : choice.value;
-                                                                    const label =
-                                                                        typeof choice ===
-                                                                        'string'
-                                                                            ? choice
-                                                                            : choice.label;
-                                                                    return (
-                                                                        <RadioButton
-                                                                            key={
-                                                                                value
-                                                                            }
-                                                                            label={
-                                                                                label
-                                                                            }
-                                                                            value={
-                                                                                value
-                                                                            }
-                                                                        />
-                                                                    );
-                                                                }
-                                                            )}
-                                                        </RadioButtonGroup>
-                                                    ) : (
-                                                        <Select
-                                                            className="jkl-spacing-xs--top"
-                                                            value={
-                                                                typeof value ===
-                                                                'string'
-                                                                    ? value
-                                                                    : value.value
-                                                            }
-                                                            onChange={(e) =>
-                                                                setChoiceValue(
-                                                                    key,
-                                                                    e.target
-                                                                        .value
-                                                                )
-                                                            }
-                                                            label={key}
-                                                            width="100%"
-                                                            key={`${uid}-${hyphenate(
-                                                                key
-                                                            )}`}
-                                                            name={key}
-                                                            items={choices[key]}
-                                                        />
-                                                    )
+                                            {Object.entries(choiceValues).map(([key, value]) =>
+                                                choices[key].length < 4 ? (
+                                                    <RadioButtonGroup
+                                                        className="jkl-spacing-xs--top"
+                                                        name={`${uid}-${hyphenate(key)}`}
+                                                        key={`${uid}-${hyphenate(key)}`}
+                                                        legend={key}
+                                                        value={typeof value === "string" ? value : value.value}
+                                                        labelProps={{
+                                                            variant: "small",
+                                                        }}
+                                                        onChange={(e) => {
+                                                            setChoiceValue(key, e.target.value);
+                                                        }}
+                                                    >
+                                                        {choices[key]?.map((choice) => {
+                                                            const value =
+                                                                typeof choice === "string" ? choice : choice.value;
+                                                            const label =
+                                                                typeof choice === "string" ? choice : choice.label;
+                                                            return (
+                                                                <RadioButton key={value} label={label} value={value} />
+                                                            );
+                                                        })}
+                                                    </RadioButtonGroup>
+                                                ) : (
+                                                    <Select
+                                                        className="jkl-spacing-xs--top"
+                                                        value={typeof value === "string" ? value : value.value}
+                                                        onChange={(e) => setChoiceValue(key, e.target.value)}
+                                                        label={key}
+                                                        width="100%"
+                                                        key={`${uid}-${hyphenate(key)}`}
+                                                        name={key}
+                                                        items={choices[key]}
+                                                    />
+                                                ),
                                             )}
                                         </>
                                     )}
                                 </div>
                             </>
                         )}
-                        <div className="interactive-code__controls-title">
-                            Visning
-                        </div>
-                        <div
-                            className="interactive-code__controls-knobs"
-                            data-layout-density="compact"
-                        >
+                        <div className="interactive-code__controls-title">Visning</div>
+                        <div className="interactive-code__controls-knobs" data-layout-density="compact">
                             <RadioButtonGroup
                                 name={`${uid}-theme`}
                                 legend="Tema"
                                 value={theme}
-                                labelProps={{ variant: 'small' }}
-                                onChange={(e) =>
-                                    setTheme(e.target.value as ColorScheme)
-                                }
+                                labelProps={{ variant: "small" }}
+                                onChange={(e) => setTheme(e.target.value as ColorScheme)}
                             >
                                 <RadioButton label="Light" value="light" />
                                 <RadioButton label="Dark" value="dark" />
@@ -400,15 +294,10 @@ export const InteractiveCode: FC<InteractiveCodeProps> = ({
                                 name={`${uid}-density`}
                                 legend="Tetthet"
                                 value={density}
-                                labelProps={{ variant: 'small' }}
-                                onChange={(e) =>
-                                    setDensity(e.target.value as Density)
-                                }
+                                labelProps={{ variant: "small" }}
+                                onChange={(e) => setDensity(e.target.value as Density)}
                             >
-                                <RadioButton
-                                    label="Default"
-                                    value="comfortable"
-                                />
+                                <RadioButton label="Default" value="comfortable" />
                                 <RadioButton label="Compact" value="compact" />
                             </RadioButtonGroup>
                         </div>

@@ -1,6 +1,6 @@
-import { type WithChildren } from '@fremtind/jkl-core';
-import React, { type FC } from 'react';
-import { createContext, useContext, useState } from 'react';
+import { type WithChildren } from "@fremtind/jkl-core";
+import React, { type FC } from "react";
+import { createContext, useContext, useState } from "react";
 
 // TODO: åpen-state her, lukk ved klikk på lenke.
 type NavigationMenuContext = {
@@ -15,17 +15,10 @@ const navigationMenuContext = createContext<NavigationMenuContext>({
     },
 });
 
-export const useNavigationMenu = (): NavigationMenuContext =>
-    useContext(navigationMenuContext);
+export const useNavigationMenu = (): NavigationMenuContext => useContext(navigationMenuContext);
 
-export const NavigationMenuContextProvider: FC<WithChildren> = ({
-    children,
-}) => {
+export const NavigationMenuContextProvider: FC<WithChildren> = ({ children }) => {
     const [open, setOpen] = useState(false);
 
-    return (
-        <navigationMenuContext.Provider value={{ open, setOpen }}>
-            {children}
-        </navigationMenuContext.Provider>
-    );
+    return <navigationMenuContext.Provider value={{ open, setOpen }}>{children}</navigationMenuContext.Provider>;
 };

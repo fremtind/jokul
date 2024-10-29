@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import React, { type FC } from "react";
 
 interface IconProps {
     className?: string;
@@ -13,11 +13,8 @@ export const CopyIcon: FC<IconProps> = () => (
             clipRule="evenodd"
             d="M15 3H8V14H15V3ZM7 2V15H16V2H7Z"
         />
-        <path
-            xmlns="http://www.w3.org/2000/svg"
-            d="M13 18V15H12V17H5V6H7V5H4V18H13Z"
-        />
+        <path xmlns="http://www.w3.org/2000/svg" d="M13 18V15H12V17H5V6H7V5H4V18H13Z" />
     </svg>
 );
 
-CopyIcon.displayName = 'CopyIcon';
+CopyIcon.displayName = "CopyIcon";

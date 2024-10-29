@@ -7,22 +7,22 @@
 
     Mer info her: https://github.com/payloadcms/payload/issues/3120#issuecomment-1860867875
 */
-const clientFiles = ['.scss', '.css', '.svg'];
+const clientFiles = [".scss", ".css", ".svg"];
 clientFiles.forEach((ext) => {
     require.extensions[ext] = () => null;
 });
 
-import fs = require('fs');
-import path = require('path');
-import * as url from 'url';
-import cms = require('@org/cms');
-import shared = require('@org/shared');
-import webExpressAdapter = require('@org/web/express');
-import compression = require('compression');
-import express = require('express');
-import api from './api/api';
-import { indexes } from './api/search';
-import { packageStatsJob } from './packageStatsJob';
+import fs = require("fs");
+import path = require("path");
+import * as url from "url";
+import cms = require("@org/cms");
+import shared = require("@org/shared");
+import webExpressAdapter = require("@org/web/express");
+import compression = require("compression");
+import express = require("express");
+import api from "./api/api";
+import { indexes } from "./api/search";
+import { packageStatsJob } from "./packageStatsJob";
 
 async function start() {
     const { payload } = cms;
@@ -32,7 +32,7 @@ async function start() {
     // Loading environment variables, .env > .env.local
     dotenv.config();
 
-    const localEnvFilePath = path.resolve(process.cwd(), '.env.local');
+    const localEnvFilePath = path.resolve(process.cwd(), ".env.local");
     if (fs.existsSync(localEnvFilePath)) {
         dotenv.config({
             path: localEnvFilePath,
@@ -40,57 +40,49 @@ async function start() {
         });
     }
 
-    console.log('Starting server...');
+    console.log("Starting server...");
 
     const PAYLOADCMS_SECRET = process.env.PAYLOADCMS_SECRET;
     const ENVIRONMENT = process.env.NODE_ENV;
 
     if (!PAYLOADCMS_SECRET) {
-        throw new Error('PAYLOADCMS_SECRET is not defined');
+        throw new Error("PAYLOADCMS_SECRET is not defined");
     }
 
     // During development this is fine. Conditionalize this for production as needed.
-    const WEB_BUILD_DIR = path.join(process.cwd(), '../web/build');
-    const WEB_PUBLIC_DIR = path.join(process.cwd(), '../web/public/web');
-    const WEB_PUBLIC_BUILD_DIR = path.join(
-        process.cwd(),
-        '../web/public/web/build'
-    );
-    const SERVER_PUBLIC_DIR = path.join(process.cwd(), './public');
+    const WEB_BUILD_DIR = path.join(process.cwd(), "../web/build");
+    const WEB_PUBLIC_DIR = path.join(process.cwd(), "../web/public/web");
+    const WEB_PUBLIC_BUILD_DIR = path.join(process.cwd(), "../web/public/web/build");
+    const SERVER_PUBLIC_DIR = path.join(process.cwd(), "./public");
 
     const app = express();
     app.use(compression());
     app.use(express.json());
-    app.disable('x-powered-by');
+    app.disable("x-powered-by");
 
-    app.get('/_healthcheck', (req, res) =>
-        res.status(200).json({ status: 'healthy' }).send()
-    );
+    app.get("/_healthcheck", (req, res) => res.status(200).json({ status: "healthy" }).send());
 
     // Serving the web static files with different caching strategies
     app.use(
-        '/web/build',
+        "/web/build",
         express.static(WEB_PUBLIC_BUILD_DIR, {
             immutable: true,
-            maxAge: '1y',
+            maxAge: "1y",
             redirect: false,
-        })
+        }),
     );
-    app.use(
-        '/web',
-        express.static(WEB_PUBLIC_DIR, { maxAge: '1h', redirect: false })
-    );
+    app.use("/web", express.static(WEB_PUBLIC_DIR, { maxAge: "1h", redirect: false }));
 
     app.use(
-        '/',
+        "/",
         express.static(SERVER_PUBLIC_DIR, {
             immutable: true,
-            maxAge: '1y',
+            maxAge: "1y",
             redirect: false,
-        })
+        }),
     );
 
-    app.use('/api', api);
+    app.use("/api", api);
 
     await payload.init({
         express: app,
@@ -101,13 +93,12 @@ async function start() {
     });
 
     for (const [collection, index] of Object.entries(indexes)) {
-        const existing =
-            payload.collections[collection].config.hooks.afterChange || [];
+        const existing = payload.collections[collection].config.hooks.afterChange || [];
 
         payload.collections[collection].config.hooks.afterChange = [
             ...existing,
             async ({ doc, operation }) => {
-                if (operation === 'update') {
+                if (operation === "update") {
                     await index.updateAsync(doc.id, doc);
                 } else {
                     await index.addAsync(doc.id, doc);
@@ -117,7 +108,7 @@ async function start() {
 
         const { docs } = await payload.find({
             collection: collection as keyof typeof indexes,
-            where: { _status: { equals: 'published' } },
+            where: { _status: { equals: "published" } },
             pagination: false,
         });
 
@@ -131,8 +122,8 @@ async function start() {
     app.use(payload.authenticate);
 
     app.all(
-        '*',
-        ENVIRONMENT === 'development'
+        "*",
+        ENVIRONMENT === "development"
             ? (req, res, next) => {
                   purgeRequireCache();
 
@@ -146,7 +137,7 @@ async function start() {
                               res,
                               serverUrl: url.format({
                                   protocol: req.protocol,
-                                  host: req.get('host'),
+                                  host: req.get("host"),
                               }),
                           };
                       },
@@ -162,11 +153,11 @@ async function start() {
                           res,
                           serverUrl: url.format({
                               protocol: req.protocol,
-                              host: req.get('host'),
+                              host: req.get("host"),
                           }),
                       };
                   },
-              })
+              }),
     );
 
     const port = process.env.PORT || 3000;
@@ -193,7 +184,7 @@ async function start() {
 try {
     start();
 } catch (e: any) {
-    console.error('Failed to start server', e);
+    console.error("Failed to start server", e);
     console.error(e.message);
     throw e;
 }

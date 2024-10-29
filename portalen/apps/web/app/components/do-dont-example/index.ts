@@ -5,4 +5,4 @@ export {
     DontExample,
     type DoDontExampleProps,
     type ExampleType,
-} from './do-dont-example';
+} from "./do-dont-example";

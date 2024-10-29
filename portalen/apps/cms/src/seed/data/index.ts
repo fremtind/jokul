@@ -1,1 +1,1 @@
-export * from './component-pages';
+export * from "./component-pages";

@@ -1,4 +1,4 @@
-import React, { type CSSProperties, type FC } from 'react';
+import React, { type CSSProperties, type FC } from "react";
 
 export interface ExampleNavigationProps {
     currentStep: number;
@@ -33,15 +33,12 @@ export const SteppedExampleNavigation: FC<ExampleNavigationProps> = ({
                 className="jkl-portal-stepped-example-navigation__progress"
                 style={
                     {
-                        '--value': currentStep,
-                        '--max': totalSteps - 1,
+                        "--value": currentStep,
+                        "--max": totalSteps - 1,
                     } as CSSProperties
                 }
             />
-            <button
-                onClick={handleNext}
-                className="jkl-portal-stepped-example-navigation__button jkl-nav-link"
-            >
+            <button onClick={handleNext} className="jkl-portal-stepped-example-navigation__button jkl-nav-link">
                 Neste
             </button>
         </div>

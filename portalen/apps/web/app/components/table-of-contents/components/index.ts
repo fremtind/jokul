@@ -1,1 +1,1 @@
-export * from './TableOfContentsWrapper';
+export * from "./TableOfContentsWrapper";

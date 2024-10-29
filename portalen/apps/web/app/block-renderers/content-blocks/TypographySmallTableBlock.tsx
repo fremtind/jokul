@@ -1,6 +1,6 @@
-import React from 'react';
-import { TypographyTableBlock } from '~/block-renderers/content-blocks/TypographyTableBlock';
+import React from "react";
+import { TypographyTableBlock } from "~/block-renderers/content-blocks/TypographyTableBlock";
 
 export const TypographySmallTableBlock = () => {
-    return <TypographyTableBlock screen={'small'} />;
+    return <TypographyTableBlock screen={"small"} />;
 };

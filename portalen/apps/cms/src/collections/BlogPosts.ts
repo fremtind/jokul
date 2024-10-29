@@ -1,32 +1,28 @@
-import { slugify } from '@org/shared';
-import { CollectionConfig } from 'payload/types';
-import {
-    authenticatedAdmins,
-    authenticatedContributors,
-    defaultReadAccess,
-} from '../access';
-import { allPageSectionBlocks } from '../blocks/page-sections';
-import { pageMeta } from '../fields/meta';
-import Users from './Users';
+import { slugify } from "@org/shared";
+import { CollectionConfig } from "payload/types";
+import { authenticatedAdmins, authenticatedContributors, defaultReadAccess } from "../access";
+import { allPageSectionBlocks } from "../blocks/page-sections";
+import { pageMeta } from "../fields/meta";
+import Users from "./Users";
 
-export const BLOG_POST_SLUG = 'blog';
+export const BLOG_POST_SLUG = "blog";
 
 export const BlogPosts: CollectionConfig = {
     slug: BLOG_POST_SLUG,
     admin: {
-        group: 'Innholdssider',
-        useAsTitle: 'title',
+        group: "Innholdssider",
+        useAsTitle: "title",
         // TODO: Finn en bedre måte å unngå typefeil på importer i serveren
         /* eslint-disable @typescript-eslint/ban-ts-comment */
         preview: (doc) => {
             // @ts-ignore typesjekk i serveren klager over window
-            if (typeof window !== 'undefined') {
+            if (typeof window !== "undefined") {
                 // @ts-ignore
                 const { protocol, host } = window.location;
 
                 return `${protocol}//${host}/preview/${BLOG_POST_SLUG}/${doc.id}`;
             } else {
-                return '#';
+                return "#";
             }
         },
         /* eslint-enable @typescript-eslint/ban-ts-comment */
@@ -41,47 +37,45 @@ export const BlogPosts: CollectionConfig = {
         update: authenticatedContributors,
     },
     labels: {
-        singular: 'Bloggpost',
-        plural: 'Bloggposter',
+        singular: "Bloggpost",
+        plural: "Bloggposter",
     },
     fields: [
         {
-            name: 'published_date',
-            label: 'Publiseringsdato',
-            type: 'date',
+            name: "published_date",
+            label: "Publiseringsdato",
+            type: "date",
             admin: {
                 date: {
-                    displayFormat: 'yyyy.MM.dd',
+                    displayFormat: "yyyy.MM.dd",
                 },
-                position: 'sidebar',
-                description:
-                    'Bloggposten vil ikke vises før denne datoen selv om den har status "Publisert"',
+                position: "sidebar",
+                description: 'Bloggposten vil ikke vises før denne datoen selv om den har status "Publisert"',
             },
         },
         {
-            name: 'tag',
-            type: 'relationship',
-            relationTo: 'blog-tag',
+            name: "tag",
+            type: "relationship",
+            relationTo: "blog-tag",
             required: true,
             index: true,
         },
         {
-            name: 'title',
-            type: 'text',
-            label: 'Tittel',
+            name: "title",
+            type: "text",
+            label: "Tittel",
             required: true,
             admin: {
-                description:
-                    'Vises som tittel i søkeresultater, og i listen over sider i CMS-et',
+                description: "Vises som tittel i søkeresultater, og i listen over sider i CMS-et",
             },
         },
         {
-            name: 'slug',
-            type: 'text',
+            name: "slug",
+            type: "text",
             unique: true,
             admin: {
                 description:
-                    'Brukes i URLen til posten. Genereres automatisk fra tittelen dersom du ikke skriver inn noe',
+                    "Brukes i URLen til posten. Genereres automatisk fra tittelen dersom du ikke skriver inn noe",
             },
             hooks: {
                 beforeValidate: [
@@ -99,7 +93,7 @@ export const BlogPosts: CollectionConfig = {
 
                         const existingSlugs = (
                             await req.payload.find({
-                                collection: 'blog',
+                                collection: "blog",
                                 where: {
                                     slug: {
                                         contains: titleSlug,
@@ -121,34 +115,34 @@ export const BlogPosts: CollectionConfig = {
             },
         },
         {
-            name: 'ingress',
-            type: 'textarea',
-            label: 'Ingress',
+            name: "ingress",
+            type: "textarea",
+            label: "Ingress",
             required: true,
         },
         {
-            name: 'author',
+            name: "author",
             required: true,
-            type: 'relationship',
+            type: "relationship",
             relationTo: Users.slug,
         },
         {
-            type: 'tabs',
+            type: "tabs",
             tabs: [
                 {
-                    label: 'Innhold',
+                    label: "Innhold",
                     fields: [
                         {
-                            name: 'sections',
-                            label: 'Sideseksjoner',
-                            type: 'blocks',
+                            name: "sections",
+                            label: "Sideseksjoner",
+                            type: "blocks",
                             blocks: allPageSectionBlocks,
                             required: true,
                         },
                     ],
                 },
                 {
-                    label: 'Metadata',
+                    label: "Metadata",
                     fields: [pageMeta],
                 },
             ],
@@ -157,7 +151,7 @@ export const BlogPosts: CollectionConfig = {
     hooks: {
         beforeChange: [
             ({ data }) => {
-                if (data._status === 'published' && !data.published_date) {
+                if (data._status === "published" && !data.published_date) {
                     return {
                         ...data,
                         published_date: new Date(),

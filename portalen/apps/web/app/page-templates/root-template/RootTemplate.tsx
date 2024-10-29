@@ -1,30 +1,28 @@
-import { Footer } from '@fremtind/jkl-footer-react';
-import { Outlet, useLocation } from '@remix-run/react';
-import React, { type FC, type CSSProperties, useEffect } from 'react';
-import { Cookies } from '../../components/cookies';
-import { Navigation } from '~/components/navigation';
-import { useScrollbarWidth } from '~/page-templates/topic-page/useScrollbarWidth';
-import { slugify } from '~/utils';
+import { Footer } from "@fremtind/jkl-footer-react";
+import { Outlet, useLocation } from "@remix-run/react";
+import React, { type FC, type CSSProperties, useEffect } from "react";
+import { Cookies } from "../../components/cookies";
+import { Navigation } from "~/components/navigation";
+import { useScrollbarWidth } from "~/page-templates/topic-page/useScrollbarWidth";
+import { slugify } from "~/utils";
 
 export const RootTemplate: FC = () => {
     const { pathname } = useLocation();
     const scrollbarWidth = useScrollbarWidth();
 
     useEffect(() => {
-        if (typeof document === 'undefined') {
+        if (typeof document === "undefined") {
             return;
         }
 
-        const headings = document
-            .querySelector('main')
-            ?.querySelectorAll('h2,h3,h4');
+        const headings = document.querySelector("main")?.querySelectorAll("h2,h3,h4");
 
         if (!headings) {
             return;
         }
 
         headings.forEach((heading) => {
-            heading.id = heading.id || slugify(heading.textContent || '');
+            heading.id = heading.id || slugify(heading.textContent || "");
         });
     }, [pathname]);
 
@@ -35,8 +33,8 @@ export const RootTemplate: FC = () => {
                 className="jkl-portal-layout__content"
                 style={
                     {
-                        backgroundColor: 'var(--jkl-bg-color)',
-                        '--scrollbar-width': `${scrollbarWidth}px`,
+                        backgroundColor: "var(--jkl-bg-color)",
+                        "--scrollbar-width": `${scrollbarWidth}px`,
                     } as CSSProperties
                 }
             >
@@ -49,22 +47,22 @@ export const RootTemplate: FC = () => {
                         {
                             external: false,
                             component: Cookies,
-                            title: 'Bruk av informasjonskapsler',
+                            title: "Bruk av informasjonskapsler",
                         },
                         {
                             external: true,
-                            href: 'https://www.fremtind.no/personvern/',
-                            title: 'Personvernserklæring',
+                            href: "https://www.fremtind.no/personvern/",
+                            title: "Personvernserklæring",
                         },
                         {
                             external: true,
-                            href: 'https://github.com/fremtind/jokul',
-                            title: 'Jøkul på GitHub',
+                            href: "https://github.com/fremtind/jokul",
+                            title: "Jøkul på GitHub",
                         },
                         {
                             external: true,
-                            href: 'https://fremtind.no/karriere/',
-                            title: 'Jobb i Fremtind',
+                            href: "https://fremtind.no/karriere/",
+                            title: "Jobb i Fremtind",
                         },
                     ]}
                 />

@@ -1,11 +1,10 @@
-import { ChevronRightIcon } from '@fremtind/jkl-icons-react';
-import { NavLink } from '@remix-run/react';
-import cn from 'classnames';
-import React, { type FC, type HTMLAttributes } from 'react';
-import { useNavigationMenu } from './navigationMenuContext';
+import { ChevronRightIcon } from "@fremtind/jkl-icons-react";
+import { NavLink } from "@remix-run/react";
+import cn from "classnames";
+import React, { type FC, type HTMLAttributes } from "react";
+import { useNavigationMenu } from "./navigationMenuContext";
 
-export interface NavigationMenuButtonProps
-    extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
+export interface NavigationMenuButtonProps extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
     linkTo?: string;
 }
 
@@ -16,7 +15,7 @@ export const NavigationMenuButton: FC<NavigationMenuButtonProps> = (props) => {
         <NavLink
             {...buttonProps}
             tabIndex={open ? 0 : -1}
-            className={cn('jkl-portal-navigation-menu-item', className)}
+            className={cn("jkl-portal-navigation-menu-item", className)}
             to={linkTo}
             onClick={() => setOpen(false)}
             state={{
@@ -24,16 +23,10 @@ export const NavigationMenuButton: FC<NavigationMenuButtonProps> = (props) => {
             }}
             end
         >
-            {
-                children as any /* Mismatch i versjon av @types/react med Remix? */
-            }
+            {children as any /* Mismatch i versjon av @types/react med Remix? */}
         </NavLink>
     ) : (
-        <button
-            {...buttonProps}
-            style={style}
-            className={cn('jkl-portal-navigation-menu-item', className)}
-        >
+        <button {...buttonProps} style={style} className={cn("jkl-portal-navigation-menu-item", className)}>
             {children}
             <ChevronRightIcon className="jkl-portal-navigation-menu-item__icon" />
         </button>

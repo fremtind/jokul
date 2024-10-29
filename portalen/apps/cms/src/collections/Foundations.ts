@@ -1,11 +1,11 @@
-import { createTopicCollection } from './topicCreator';
+import { createTopicCollection } from "./topicCreator";
 
 export const Foundations = createTopicCollection({
-    slug: 'foundations',
+    slug: "foundations",
     overrides: {
         labels: {
-            singular: 'Fundament',
-            plural: 'Fundamenter',
+            singular: "Fundament",
+            plural: "Fundamenter",
         },
     },
 });
