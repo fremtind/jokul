@@ -30,7 +30,7 @@
     "packageManager": "pnpm@8.6.7",
     "dependencies": {
         "@fremtind/stylelint-config-jkl": "^8.0.1",
-        "express": "^4.18.2",
+        "express": "^4.20.0",
         "husky": "^8.0.3",
         "lint-staged": "^13.2.3",
         "payload": "^2.30.1",
