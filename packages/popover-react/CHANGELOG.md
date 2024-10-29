@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.3 (2024-10-29)
+
+### Bug Fixes
+
+- plasser popover i kontekst nærmeste portal ([fe5d4b7](https://github.com/fremtind/jokul/commit/fe5d4b74190ff50019445ef9dfaf771f460e477a))
+
 # 1.2.0 (2024-10-04)
 
 ### Features
