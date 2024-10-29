@@ -1,1 +1,1 @@
-module.exports = require('@remix-run/express');
+module.exports = require("@remix-run/express");

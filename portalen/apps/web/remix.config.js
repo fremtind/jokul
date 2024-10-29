@@ -1,13 +1,13 @@
 /** @type {import('@remix-run/dev').AppConfig} */
 module.exports = {
-    ignoredRouteFiles: ['**/.*'],
-    assetsBuildDirectory: 'public/web/build',
-    publicPath: '/web/build/',
-    serverDependenciesToBundle: ['@org/ui'],
-    serverModuleFormat: 'cjs',
+    ignoredRouteFiles: ["**/.*"],
+    assetsBuildDirectory: "public/web/build",
+    publicPath: "/web/build/",
+    serverDependenciesToBundle: ["@org/ui"],
+    serverModuleFormat: "cjs",
     // appDirectory: "app",
     // serverBuildPath: "build/index.js",
-    watchPaths: ['../../packages/ui', '../../packages/shared'],
+    watchPaths: ["../../packages/ui", "../../packages/shared"],
     future: {
         v2_errorBoundary: true,
         v2_headers: true,
