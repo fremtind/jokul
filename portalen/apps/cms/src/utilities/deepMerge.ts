@@ -4,7 +4,7 @@
  * @returns {boolean}
  */
 export function isObject(item: unknown): boolean {
-    return Boolean(item) && typeof item === 'object' && !Array.isArray(item);
+    return Boolean(item) && typeof item === "object" && !Array.isArray(item);
 }
 
 /**
@@ -12,10 +12,7 @@ export function isObject(item: unknown): boolean {
  * @param target
  * @param ...sources
  */
-export default function deepMerge<T extends object, R>(
-    target: T,
-    source: R
-): T {
+export default function deepMerge<T extends object, R>(target: T, source: R): T {
     const output = { ...target };
     /* eslint-disable @typescript-eslint/ban-ts-comment */
     if (isObject(target) && isObject(source)) {

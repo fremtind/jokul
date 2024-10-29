@@ -1,14 +1,14 @@
-import { NavCard } from '@fremtind/jkl-card-react';
-import { NavLink } from '@remix-run/react';
-import { type AllSection } from 'payload/generated-types';
-import React, { type FC } from 'react';
-import { getLinkId, getPagePathFromId } from '../navigation/utils';
-import { useMainMenu } from '~/utils';
+import { NavCard } from "@fremtind/jkl-card-react";
+import { NavLink } from "@remix-run/react";
+import { type AllSection } from "payload/generated-types";
+import React, { type FC } from "react";
+import { getLinkId, getPagePathFromId } from "../navigation/utils";
+import { useMainMenu } from "~/utils";
 
-type LCLSection = AllSection['sections'][number] & {
-    blockType: 'link-card-list-section';
+type LCLSection = AllSection["sections"][number] & {
+    blockType: "link-card-list-section";
 };
-type Links = LCLSection['links'];
+type Links = LCLSection["links"];
 
 export const LinkCardList: FC<{ links: Links }> = ({ links }) => {
     const mainMenu = useMainMenu();
@@ -21,10 +21,7 @@ export const LinkCardList: FC<{ links: Links }> = ({ links }) => {
         <div className="jkl-spacing-40--top nav-card-container">
             {links &&
                 links.map(({ id, title, description, link }) => {
-                    const href =
-                        link.type === 'custom'
-                            ? link.url
-                            : getPagePathFromId(mainMenu, getLinkId(link));
+                    const href = link.type === "custom" ? link.url : getPagePathFromId(mainMenu, getLinkId(link));
 
                     if (!href) {
                         return null;
@@ -34,13 +31,11 @@ export const LinkCardList: FC<{ links: Links }> = ({ links }) => {
                         <NavCard
                             key={id}
                             title={title}
-                            description={description || ''}
+                            description={description || ""}
                             component={NavLink}
                             to={href}
-                            target={link.newTab ? '_blank' : undefined}
-                            rel={
-                                link.newTab ? 'noreferrer noopener' : undefined
-                            }
+                            target={link.newTab ? "_blank" : undefined}
+                            rel={link.newTab ? "noreferrer noopener" : undefined}
                         />
                     );
                 })}

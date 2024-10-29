@@ -1,11 +1,11 @@
-import type { PrismTheme } from 'prism-react-renderer';
+import type { PrismTheme } from "prism-react-renderer";
 
-const bakgrunn = '#F4F2EF';
-const tekst = '#1B1917';
-const dusTekst = '#636060';
+const bakgrunn = "#F4F2EF";
+const tekst = "#1B1917";
+const dusTekst = "#636060";
 
-const nokkelord = '#49538D';
-const verdi = '#544545';
+const nokkelord = "#49538D";
+const verdi = "#544545";
 
 const jokulLight: PrismTheme = {
     plain: {
@@ -14,67 +14,67 @@ const jokulLight: PrismTheme = {
     },
     styles: [
         {
-            types: ['comment'],
+            types: ["comment"],
             style: {
                 color: dusTekst,
             },
         },
         {
-            types: ['builtin'],
+            types: ["builtin"],
             style: {
                 color: nokkelord,
             },
         },
         {
-            types: ['number', 'variable', 'inserted'],
+            types: ["number", "variable", "inserted"],
             style: {
                 color: verdi,
             },
         },
         {
-            types: ['operator'],
+            types: ["operator"],
             style: {
                 color: tekst,
             },
         },
         {
-            types: ['constant', 'char'],
+            types: ["constant", "char"],
             style: {
                 color: verdi,
             },
         },
         {
-            types: ['tag'],
+            types: ["tag"],
             style: {
                 color: nokkelord,
             },
         },
         {
-            types: ['attr-name'],
+            types: ["attr-name"],
             style: {
                 color: verdi,
             },
         },
         {
-            types: ['deleted', 'string'],
+            types: ["deleted", "string"],
             style: {
                 color: verdi,
             },
         },
         {
-            types: ['changed', 'punctuation'],
+            types: ["changed", "punctuation"],
             style: {
                 color: nokkelord,
             },
         },
         {
-            types: ['function', 'keyword'],
+            types: ["function", "keyword"],
             style: {
                 color: nokkelord,
             },
         },
         {
-            types: ['class-name'],
+            types: ["class-name"],
             style: {
                 color: verdi,
             },

@@ -1,1 +1,1 @@
-export * from './PlaceholderImage';
+export * from "./PlaceholderImage";

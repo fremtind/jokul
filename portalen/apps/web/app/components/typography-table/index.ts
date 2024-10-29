@@ -1,1 +1,1 @@
-export * from './TypographyTableRow';
+export * from "./TypographyTableRow";

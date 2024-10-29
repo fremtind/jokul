@@ -21,7 +21,6 @@
     "scripts": {
         "build": "rm -rf dist && tsc -p tsconfig.json",
         "clean": "rm -rf node_modules dist .turbo",
-        "lint": "eslint --ext .ts,.js./src",
         "typecheck": "tsc -p ./tsconfig.json"
     },
     "dependencies": {

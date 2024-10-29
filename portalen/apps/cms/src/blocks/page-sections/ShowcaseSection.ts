@@ -1,14 +1,14 @@
-import { Block } from 'payload/types';
-import { showcaseFields } from '../content-blocks/ShowcaseBlock';
-import { createPageSectionBlock } from './createPageSectionBlock';
+import { Block } from "payload/types";
+import { showcaseFields } from "../content-blocks/ShowcaseBlock";
+import { createPageSectionBlock } from "./createPageSectionBlock";
 
 export const ShowcaseSection: Block = createPageSectionBlock({
-    slug: 'showcase-section',
+    slug: "showcase-section",
     fields: showcaseFields,
-    defaultHeading: 'Showcase',
+    defaultHeading: "Showcase",
     labels: {
-        singular: 'Showcase',
-        plural: 'Showcaser',
+        singular: "Showcase",
+        plural: "Showcaser",
     },
-    imageURL: '/media/mediashowcase.webp',
+    imageURL: "/media/mediashowcase.webp",
 });

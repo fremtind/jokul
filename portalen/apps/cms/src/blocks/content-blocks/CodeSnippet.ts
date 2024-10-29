@@ -1,23 +1,23 @@
-import type { Block } from 'payload/types';
-import prettierFormat, { languageSupport } from '../../hooks/prettierFormat';
+import type { Block } from "payload/types";
+import prettierFormat, { languageSupport } from "../../hooks/prettierFormat";
 
 export const CodeSnippet: Block = {
-    slug: 'code-snippet',
+    slug: "code-snippet",
     labels: {
-        singular: 'Kodesnutt',
-        plural: 'Kodesnutter',
+        singular: "Kodesnutt",
+        plural: "Kodesnutter",
     },
-    imageURL: '/media/mediakodesnutt.webp',
+    imageURL: "/media/mediakodesnutt.webp",
     fields: [
         {
-            name: 'code',
-            type: 'code',
-            label: 'Eksempelkode',
+            name: "code",
+            type: "code",
+            label: "Eksempelkode",
             required: true,
             admin: {
-                width: '100%',
+                width: "100%",
                 style: {
-                    maxWidth: '120ch',
+                    maxWidth: "120ch",
                 },
             },
             hooks: {
@@ -31,19 +31,18 @@ export const CodeSnippet: Block = {
             },
         },
         {
-            name: 'language',
-            type: 'select',
+            name: "language",
+            type: "select",
             options: Object.entries(languageSupport).map(([label, value]) => ({
                 label,
                 value,
             })),
-            label: 'Språk',
+            label: "Språk",
             required: true,
-            defaultValue: 'tsx',
+            defaultValue: "tsx",
             admin: {
-                description:
-                    'Brukes til å vise riktig syntax highlighting i eksempelkoden.',
-                width: '50ch',
+                description: "Brukes til å vise riktig syntax highlighting i eksempelkoden.",
+                width: "50ch",
             },
         },
     ],

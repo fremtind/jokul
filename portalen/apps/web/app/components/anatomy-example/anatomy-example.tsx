@@ -1,19 +1,14 @@
-import { type WithChildren } from '@fremtind/jkl-core';
-import React, { type FC } from 'react';
+import { type WithChildren } from "@fremtind/jkl-core";
+import React, { type FC } from "react";
 
 interface AnatomyExampleProps extends WithChildren {
     stepDescriptions: Array<{ title: string; description: string }>;
 }
 
-export const AnatomyExample: FC<AnatomyExampleProps> = ({
-    children,
-    stepDescriptions,
-}) => {
+export const AnatomyExample: FC<AnatomyExampleProps> = ({ children, stepDescriptions }) => {
     return (
         <section className="jkl-portal-anatomy-example">
-            <div className="jkl-portal-anatomy-example__example">
-                {children}
-            </div>
+            <div className="jkl-portal-anatomy-example__example">{children}</div>
             <h3 className="jkl-portal-anatomy-example__title">Anatomi</h3>
             <div className="jkl-portal-anatomy-example__description">
                 {stepDescriptions.map((step) => (

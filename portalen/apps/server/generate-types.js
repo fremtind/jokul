@@ -1,23 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { execSync } = require('child_process');
-const fs = require('fs/promises');
-const path = require('path');
-const glob = require('glob');
-const docgen = require('react-docgen-typescript');
-const ts = require('typescript');
+const { execSync } = require("child_process");
+const fs = require("fs/promises");
+const path = require("path");
+const glob = require("glob");
+const docgen = require("react-docgen-typescript");
+const ts = require("typescript");
 
 const docgenOptions = {
     savePropValueAsString: true,
     skipChildrenPropWithoutDoc: false,
     propFilter: (prop, component) => {
         if (prop.declarations !== undefined && prop.declarations.length > 0) {
-            const hasPropAdditionalDescription = prop.declarations.find(
-                (declaration) => {
-                    return !declaration.fileName.includes(
-                        'node_modules/typescript/lib'
-                    );
-                }
-            );
+            const hasPropAdditionalDescription = prop.declarations.find((declaration) => {
+                return !declaration.fileName.includes("node_modules/typescript/lib");
+            });
 
             return Boolean(hasPropAdditionalDescription);
         }
@@ -50,18 +46,16 @@ function parseFiles(fileNames) {
     return parser.parseWithProgramProvider(fileNames, () => program);
 }
 
-console.log('Generating type data...');
+console.log("Generating type data...");
 
 async function runDocgen() {
-    console.log('Cloning fremtind/jokul...');
-    execSync(
-        'git clone git@github.com:fremtind/jokul.git --depth 1 --branch main --single-branch --filter=blob:none'
-    );
-    console.log('Cloned fremtind/jokul');
-    console.log('Installing dependencies in jokul...');
-    execSync('pnpm install', { cwd: './jokul' });
+    console.log("Cloning fremtind/jokul...");
+    execSync("git clone git@github.com:fremtind/jokul.git --depth 1 --branch main --single-branch --filter=blob:none");
+    console.log("Cloned fremtind/jokul");
+    console.log("Installing dependencies in jokul...");
+    execSync("pnpm install", { cwd: "./jokul" });
 
-    const typeRootPaths = glob.sync('./jokul/packages/*/src/index.ts');
+    const typeRootPaths = glob.sync("./jokul/packages/*/src/index.ts");
 
     /*
      * parseFiles gir oss en Array med objekter som blant annet har filePath.
@@ -73,7 +67,7 @@ async function runDocgen() {
     } catch (e) {
         console.error(e);
         console.error(
-            'One of our type definitions broke React Docgen. Parsing one by one to track down the culprit. This can take a while...'
+            "One of our type definitions broke React Docgen. Parsing one by one to track down the culprit. This can take a while...",
         );
         for (const entry of typeRootPaths) {
             try {
@@ -127,33 +121,20 @@ async function runDocgen() {
         }
 
         try {
-            const pathToPackageJson = path.resolve(
-                __dirname,
-                'jokul',
-                'packages',
-                folderName,
-                'package.json'
-            );
-            const packageJsonContent = await fs.readFile(
-                pathToPackageJson,
-                'utf-8'
-            );
+            const pathToPackageJson = path.resolve(__dirname, "jokul", "packages", folderName, "package.json");
+            const packageJsonContent = await fs.readFile(pathToPackageJson, "utf-8");
             const packageJson = JSON.parse(packageJsonContent);
 
             const packageName = packageJson.name;
             if (!packageName) {
-                console.error(
-                    `Couldn't find a name in package.json for ${packageName}`
-                );
+                console.error(`Couldn't find a name in package.json for ${packageName}`);
                 return null;
             }
 
             const packageVersion = packageJson.version;
 
             if (!packageVersion) {
-                console.error(
-                    `Couldn't find a version number in package.json for ${packageName}`
-                );
+                console.error(`Couldn't find a version number in package.json for ${packageName}`);
                 return null;
             }
 
@@ -167,44 +148,38 @@ async function runDocgen() {
         }
     }
 
-    const packageRootPaths = glob.sync('./jokul/packages/*/package.json');
+    const packageRootPaths = glob.sync("./jokul/packages/*/package.json");
     for (const entry of packageRootPaths) {
-        const prefix = 'packages/';
+        const prefix = "packages/";
         const packageNameStartIndex = entry.indexOf(prefix) + prefix.length;
-        const packageNameEndIndex = entry.indexOf(
-            '/',
-            packageNameStartIndex + 1
-        );
-        const packagePathName = entry.substring(
-            packageNameStartIndex,
-            packageNameEndIndex
-        );
+        const packageNameEndIndex = entry.indexOf("/", packageNameStartIndex + 1);
+        const packagePathName = entry.substring(packageNameStartIndex, packageNameEndIndex);
 
         const packageInfo = await getPackageInfo(packagePathName);
         if (!packageInfo) {
             continue;
         }
 
-        const scopelessName = packageInfo.name.replace('@fremtind/', '');
+        const scopelessName = packageInfo.name.replace("@fremtind/", "");
 
         await fs.writeFile(
-            path.resolve(__dirname, 'public', 'types', `${scopelessName}.json`),
+            path.resolve(__dirname, "public", "types", `${scopelessName}.json`),
             `${JSON.stringify(
                 {
                     version: packageInfo.version,
                     types: getTypes(packagePathName),
                 },
                 null,
-                4
+                4,
             )}
-`
+`,
         );
     }
 
-    console.log('Generated type information');
-    console.log('Cleaning up...');
+    console.log("Generated type information");
+    console.log("Cleaning up...");
 
-    await fs.rm(path.resolve(__dirname, 'jokul'), { recursive: true });
+    await fs.rm(path.resolve(__dirname, "jokul"), { recursive: true });
 }
 
 runDocgen();

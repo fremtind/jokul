@@ -1,8 +1,8 @@
-import cn from 'classnames';
-import React, { type FC } from 'react';
-import { useCallback, useEffect, useMemo, useRef } from 'react';
-import * as THREE from 'three';
-import { useTheme } from '~/utils/useTheme';
+import cn from "classnames";
+import React, { type FC } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
+import * as THREE from "three";
+import { useTheme } from "~/utils/useTheme";
 
 type Coordinates = { x: number; y: number };
 
@@ -11,10 +11,7 @@ export interface DiamondProps {
     className?: string;
 }
 
-export const Diamonds: FC<DiamondProps> = ({
-    resolution = { x: 10, y: 7 },
-    className,
-}) => {
+export const Diamonds: FC<DiamondProps> = ({ resolution = { x: 10, y: 7 }, className }) => {
     const rootRef = useRef<HTMLDivElement>(null);
     const prefersColorScheme = useTheme();
 
@@ -26,10 +23,10 @@ export const Diamonds: FC<DiamondProps> = ({
     const material = useMemo(
         () =>
             new THREE.MeshBasicMaterial({
-                color: prefersColorScheme === 'dark' ? 0xf9f9f9 : 0x1b1917,
+                color: prefersColorScheme === "dark" ? 0xf9f9f9 : 0x1b1917,
                 side: THREE.DoubleSide,
             }),
-        [prefersColorScheme]
+        [prefersColorScheme],
     );
 
     const getRandomCoordinates = useCallback(() => {
@@ -59,40 +56,28 @@ export const Diamonds: FC<DiamondProps> = ({
 
             return createDiamond(maxSize);
         },
-        [getRandomCoordinates, material]
+        [getRandomCoordinates, material],
     );
 
     // Set opp scene, kamera og renderer
     useEffect(() => {
         const tiles = activeTiles.current;
 
-        if (typeof document !== 'undefined' && rootRef.current) {
+        if (typeof document !== "undefined" && rootRef.current) {
             renderer.current = new THREE.WebGLRenderer({
                 alpha: true,
                 antialias: true,
             });
-            camera.current = new THREE.PerspectiveCamera(
-                50,
-                resolution.x / resolution.y,
-                0.1,
-                1000
-            );
+            camera.current = new THREE.PerspectiveCamera(50, resolution.x / resolution.y, 0.1, 1000);
             scene.current = new THREE.Scene();
 
             const rootEl = rootRef.current;
             renderer.current.setClearColor(0x000000, 0);
-            renderer.current.setSize(
-                rootEl.clientWidth ?? 0,
-                rootEl.clientHeight ?? 0
-            );
+            renderer.current.setSize(rootEl.clientWidth ?? 0, rootEl.clientHeight ?? 0);
             const cameraZPos = Math.max(resolution.x, resolution.y) * 0.9;
-            camera.current.position.set(
-                resolution.x / 2 - 0.25,
-                resolution.y / 2 - 0.25,
-                cameraZPos
-            );
+            camera.current.position.set(resolution.x / 2 - 0.25, resolution.y / 2 - 0.25, cameraZPos);
 
-            rootEl.innerHTML = '';
+            rootEl.innerHTML = "";
             rootEl.appendChild(renderer.current.domElement);
         }
 
@@ -116,26 +101,19 @@ export const Diamonds: FC<DiamondProps> = ({
     useEffect(() => {
         let timeout: number;
 
-        if (typeof window !== 'undefined') {
+        if (typeof window !== "undefined") {
             function animate() {
                 const delta = Date.now() / 1000;
                 const speed = 0.7;
 
-                timeout = window.setTimeout(
-                    () => requestAnimationFrame(animate),
-                    1000 / 60
-                );
+                timeout = window.setTimeout(() => requestAnimationFrame(animate), 1000 / 60);
 
                 activeTiles.current.forEach((tile, coords) => {
-                    const [x, y] = coords.split(',').map((c) => parseInt(c));
+                    const [x, y] = coords.split(",").map((c) => parseInt(c));
                     const scale = THREE.MathUtils.lerp(
                         0.1,
                         1,
-                        THREE.MathUtils.smoothstep(
-                            Math.abs(Math.sin(x * y * 0.045 + delta * speed)),
-                            0,
-                            1
-                        )
+                        THREE.MathUtils.smoothstep(Math.abs(Math.sin(x * y * 0.045 + delta * speed)), 0, 1),
                     );
                     tile.scale.set(scale, scale, 1);
                 });
@@ -149,7 +127,7 @@ export const Diamonds: FC<DiamondProps> = ({
         }
 
         return () => {
-            if (timeout && typeof window !== 'undefined') {
+            if (timeout && typeof window !== "undefined") {
                 window.clearTimeout(timeout);
             }
         };
@@ -157,10 +135,10 @@ export const Diamonds: FC<DiamondProps> = ({
 
     return (
         <div
-            className={cn('diamonds', className)}
+            className={cn("diamonds", className)}
             ref={rootRef}
             style={{
-                width: '80%',
+                width: "80%",
                 aspectRatio: `${resolution.x}/${resolution.y}`,
             }}
         />

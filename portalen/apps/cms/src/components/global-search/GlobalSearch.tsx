@@ -1,20 +1,20 @@
-import { Command } from 'cmdk';
-import { Search } from 'payload/components';
-import React, { useEffect, useState } from 'react';
-import { useDebounce } from 'use-debounce';
-import { Component, Foundation, General, Pattern } from '../../types';
+import { Command } from "cmdk";
+import { Search } from "payload/components";
+import React, { useEffect, useState } from "react";
+import { useDebounce } from "use-debounce";
+import { Component, Foundation, General, Pattern } from "../../types";
 
 const categories: { [key: string]: string } = {
-    Fundamenter: 'foundations',
-    Generell: 'general',
-    Komponenter: 'components',
-    Mønstre: 'patterns',
+    Fundamenter: "foundations",
+    Generell: "general",
+    Komponenter: "components",
+    Mønstre: "patterns",
 };
 
 let controller: AbortController | null;
 
 export const GlobalSearch = () => {
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState("");
     const [debouncedSearch] = useDebounce(search, 200, {
         maxWait: 400,
         leading: true,
@@ -41,10 +41,9 @@ export const GlobalSearch = () => {
             controller = new AbortController();
             setIsLoading(true);
 
-            const result = await fetch(
-                `/api/search?q=${debouncedSearch}&limit=9`,
-                { signal: controller.signal }
-            ).then((res) => res.json());
+            const result = await fetch(`/api/search?q=${debouncedSearch}&limit=9`, { signal: controller.signal }).then(
+                (res) => res.json(),
+            );
 
             setMatches(result);
             setIsLoading(false);
@@ -53,14 +52,14 @@ export const GlobalSearch = () => {
     }, [debouncedSearch]);
 
     return (
-        <div className={'jkl-portal-admin-global-search'}>
+        <div className={"jkl-portal-admin-global-search"}>
             <Command label="Command Menu" shouldFilter={false}>
-                <div className={'search-filter'}>
+                <div className={"search-filter"}>
                     <Command.Input
                         // eslint-disable-next-line jsx-a11y/no-autofocus
                         autoFocus={true}
                         className={`search-filter__input`}
-                        placeholder={'Globalt sidesøk'}
+                        placeholder={"Globalt sidesøk"}
                         onValueChange={(value) => setSearch(value)}
                     />
                     <Search />
@@ -68,19 +67,12 @@ export const GlobalSearch = () => {
                 {matches && (
                     <Command.List>
                         <>
-                            {!isLoading && (
-                                <Command.Empty>Fant ingen sider</Command.Empty>
-                            )}
-                            {isLoading && (
-                                <Command.Loading>Søker…</Command.Loading>
-                            )}
+                            {!isLoading && <Command.Empty>Fant ingen sider</Command.Empty>}
+                            {isLoading && <Command.Loading>Søker…</Command.Loading>}
                             {Object.entries(matches)
                                 .filter(([, documents]) => documents.length > 0)
                                 .map(([category, documents]) => (
-                                    <Command.Group
-                                        heading={category}
-                                        key={`${category}`}
-                                    >
+                                    <Command.Group heading={category} key={`${category}`}>
                                         {documents.map(({ document }) => (
                                             <Command.Item
                                                 key={document.id}

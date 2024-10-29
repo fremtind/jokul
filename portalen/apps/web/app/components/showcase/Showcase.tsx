@@ -1,8 +1,8 @@
-import { type WithChildren } from '@fremtind/jkl-core';
-import type { Media } from '@org/cms';
-import React, { type FC, useState } from 'react';
-import { Image, MediaViewer } from '../media';
-import { VimeoPlayer } from '../vimeo-player/VimeoPlayer';
+import { type WithChildren } from "@fremtind/jkl-core";
+import type { Media } from "@org/cms";
+import React, { type FC, useState } from "react";
+import { Image, MediaViewer } from "../media";
+import { VimeoPlayer } from "../vimeo-player/VimeoPlayer";
 
 export interface ShowcaseProps extends WithChildren {
     title: string;
@@ -11,13 +11,7 @@ export interface ShowcaseProps extends WithChildren {
     example?: string | Media | null;
 }
 
-export const Showcase: FC<ShowcaseProps> = ({
-    title,
-    from,
-    source,
-    children,
-    example,
-}) => {
+export const Showcase: FC<ShowcaseProps> = ({ title, from, source, children, example }) => {
     const [play, setPlay] = useState(false);
 
     const onEnter = () => {
@@ -38,20 +32,9 @@ export const Showcase: FC<ShowcaseProps> = ({
                 </div>
             </div>
             <div className="showcase__media">
-                {source && (
-                    <VimeoPlayer
-                        title={title}
-                        source={source}
-                        play={play}
-                        isActive={play}
-                    />
-                )}
-                {example && typeof example !== 'string' && (
-                    <MediaViewer withLightBox src={example} />
-                )}
-                {example && typeof example === 'string' && (
-                    <Image src={example} width="100%" />
-                )}
+                {source && <VimeoPlayer title={title} source={source} play={play} isActive={play} />}
+                {example && typeof example !== "string" && <MediaViewer withLightBox src={example} />}
+                {example && typeof example === "string" && <Image src={example} width="100%" />}
             </div>
         </div>
     );

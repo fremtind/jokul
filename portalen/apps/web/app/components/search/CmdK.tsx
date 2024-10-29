@@ -1,23 +1,16 @@
-import { NavCard } from '@fremtind/jkl-card-react';
-import { IconButton } from '@fremtind/jkl-icon-button-react';
-import { SearchIcon } from '@fremtind/jkl-icons-react';
-import { useClickOutside } from '@fremtind/jkl-react-hooks';
-import type { Component, General, Foundation, Pattern, Blog } from '@org/cms';
-import { NavLink, useNavigate } from '@remix-run/react';
-import { Command } from 'cmdk';
-import React, {
-    type Dispatch,
-    type SetStateAction,
-    useState,
-    type FC,
-    useRef,
-    useCallback,
-} from 'react';
-import { useDebouncedCallback } from 'use-debounce';
-import { useMainMenu } from '../../utils';
-import { getPagePathFromId } from '../navigation/utils';
-import { getTabFromMatch } from './search-utils';
-import { SearchResult } from './SearchResult';
+import { NavCard } from "@fremtind/jkl-card-react";
+import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { SearchIcon } from "@fremtind/jkl-icons-react";
+import { useClickOutside } from "@fremtind/jkl-react-hooks";
+import type { Component, General, Foundation, Pattern, Blog } from "@org/cms";
+import { NavLink, useNavigate } from "@remix-run/react";
+import { Command } from "cmdk";
+import React, { type Dispatch, type SetStateAction, useState, type FC, useRef, useCallback } from "react";
+import { useDebouncedCallback } from "use-debounce";
+import { useMainMenu } from "../../utils";
+import { getPagePathFromId } from "../navigation/utils";
+import { getTabFromMatch } from "./search-utils";
+import { SearchResult } from "./SearchResult";
 
 let controller: AbortController | null;
 
@@ -26,10 +19,7 @@ const doSearch = async (search: string) => {
         controller.abort();
     }
     controller = new AbortController();
-    const response = await fetch(
-        `/api/search?q=${encodeURIComponent(search)}&limit=9`,
-        { signal: controller.signal }
-    );
+    const response = await fetch(`/api/search?q=${encodeURIComponent(search)}&limit=9`, { signal: controller.signal });
     const data = await response.json();
     return data;
 };
@@ -43,7 +33,7 @@ export const CmdK: FC<{
         onOpenChange(false);
     });
 
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState("");
     const [hasResponded, setHasResponded] = useState(false);
 
     const [matches, setMatches] = useState<
@@ -68,7 +58,7 @@ export const CmdK: FC<{
                 setHasResponded(true);
             } catch (e) {
                 const error = e as Error;
-                if (error.name === 'AbortError') {
+                if (error.name === "AbortError") {
                     return;
                 }
                 console.error(error);
@@ -79,7 +69,7 @@ export const CmdK: FC<{
             maxWait: 400,
             leading: true,
             trailing: true,
-        }
+        },
     );
 
     const handleSearch = useCallback(
@@ -87,7 +77,7 @@ export const CmdK: FC<{
             setSearch(searchString);
             debouncedSearchFor(searchString);
         },
-        [debouncedSearchFor]
+        [debouncedSearchFor],
     );
 
     const navigate = useNavigate();
@@ -102,16 +92,12 @@ export const CmdK: FC<{
             shouldFilter={false} // Vi gjør filtreringen på backend
         >
             <div className="cmdk-input-wrapper">
-                <Command.Input
-                    value={search}
-                    onValueChange={handleSearch}
-                    placeholder="Søk"
-                />
+                <Command.Input value={search} onValueChange={handleSearch} placeholder="Søk" />
                 <IconButton
                     className="jkl-text-input-action-button"
                     title="Avansert søk"
                     onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
+                        if (e.key === "Enter") {
                             e.stopPropagation();
                             e.preventDefault();
                             navigate(`/soek?q=${search}`);
@@ -132,18 +118,16 @@ export const CmdK: FC<{
                 {hasResponded ? (
                     <Command.Empty
                         style={{
-                            padding: 'var(--jkl-spacing-24)',
+                            padding: "var(--jkl-spacing-24)",
                         }}
                     >
                         {/* TODO: hent heading og kort fra en global i CMSet? */}
-                        <p className="jkl-heading-2 jkl-spacing-24--bottom">
-                            Ingen treff. Har du prøvd her?
-                        </p>
+                        <p className="jkl-heading-2 jkl-spacing-24--bottom">Ingen treff. Har du prøvd her?</p>
                         <div
                             style={{
-                                display: 'flex',
-                                flexWrap: 'wrap',
-                                gap: 'var(--jkl-spacing-12)',
+                                display: "flex",
+                                flexWrap: "wrap",
+                                gap: "var(--jkl-spacing-12)",
                             }}
                         >
                             <NavCard
@@ -177,7 +161,7 @@ export const CmdK: FC<{
                     const withLinks = documents
                         .map(({ document, field }) => {
                             let to: string | undefined;
-                            if (collection === 'Bloggposter') {
+                            if (collection === "Bloggposter") {
                                 to = `/blogg/${(document as Blog).slug}`;
                             } else {
                                 to = getPagePathFromId(mainMenu, document.id);
@@ -187,11 +171,7 @@ export const CmdK: FC<{
                                 return null;
                             }
 
-                            const tab = getTabFromMatch(
-                                document,
-                                search,
-                                field
-                            );
+                            const tab = getTabFromMatch(document, search, field);
                             if (tab) {
                                 to += `/${tab}`;
                             }
@@ -225,10 +205,7 @@ export const CmdK: FC<{
                                             onOpenChange(false);
                                         }}
                                     >
-                                        <SearchResult
-                                            search={search}
-                                            result={document}
-                                        />
+                                        <SearchResult search={search} result={document} />
                                     </Command.Item>
                                 );
                             })}

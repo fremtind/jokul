@@ -1,38 +1,31 @@
 const DEFAULT_MAX_AGE = 10368000; // 120 days
 
-const setCookie = (
-    name: string,
-    content: any,
-    maxAge = DEFAULT_MAX_AGE
-): void => {
+const setCookie = (name: string, content: any, maxAge = DEFAULT_MAX_AGE): void => {
     const cookie = [];
     cookie.push(`${name}=${JSON.stringify(content)}`);
     cookie.push(`max-age=${maxAge}`);
     cookie.push(`SameSite=Strict`);
     cookie.push(`Path=/`);
-    document.cookie = cookie.join(';');
+    document.cookie = cookie.join(";");
 };
 
 const clearCookie = (name: string): void => {
     const cookie = [];
     cookie.push(`${name}=false`);
-    cookie.push('expires=Thu, 01 Jan 1970 00:00:01 GMT;');
+    cookie.push("expires=Thu, 01 Jan 1970 00:00:01 GMT;");
     cookie.push(`SameSite=Strict`);
     cookie.push(`Path=/`);
-    document.cookie = cookie.join(';');
+    document.cookie = cookie.join(";");
 };
 
 const hasCookie = (name: string, cookie = document.cookie): boolean => {
-    return cookie.split(';').some((item) => item.trim().startsWith(`${name}=`));
+    return cookie.split(";").some((item) => item.trim().startsWith(`${name}=`));
 };
 
-const getCookie = (
-    name: string,
-    cookie = document.cookie
-): [string, string] | undefined => {
+const getCookie = (name: string, cookie = document.cookie): [string, string] | undefined => {
     const nameValuePair = cookie
-        .split(';')
-        .map((s) => s.trim().split('='))
+        .split(";")
+        .map((s) => s.trim().split("="))
         .find((item) => item[0] === name);
 
     if (!nameValuePair) {
@@ -73,5 +66,5 @@ class PortalCookie {
     }
 }
 
-export const consentsCookie = new PortalCookie('fremtind-cookie-consent');
-export const userPreferencesCookie = new PortalCookie('jkl-user-prefs');
+export const consentsCookie = new PortalCookie("fremtind-cookie-consent");
+export const userPreferencesCookie = new PortalCookie("jkl-user-prefs");

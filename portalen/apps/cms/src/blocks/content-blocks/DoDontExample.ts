@@ -1,112 +1,105 @@
-import { type Block } from 'payload/types';
-import prettierFormat from '../../hooks/prettierFormat';
+import { type Block } from "payload/types";
+import prettierFormat from "../../hooks/prettierFormat";
 
 export const DoDontExample: Block = {
-    slug: 'dodont-example',
+    slug: "dodont-example",
     labels: {
         singular: "Do/Don't-eksempel",
         plural: "Do/Don't-eksempler",
     },
-    imageURL: '/media/mediadodont.webp',
+    imageURL: "/media/mediadodont.webp",
     fields: [
         {
-            type: 'array',
-            name: 'doDontItem',
-            label: 'Eksempler',
+            type: "array",
+            name: "doDontItem",
+            label: "Eksempler",
             labels: {
-                singular: 'Eksempel',
-                plural: 'Eksempler',
+                singular: "Eksempel",
+                plural: "Eksempler",
             },
             fields: [
                 {
-                    name: 'variant',
-                    type: 'radio',
-                    label: 'Variant',
+                    name: "variant",
+                    type: "radio",
+                    label: "Variant",
                     options: [
                         {
-                            label: 'Kode',
-                            value: 'code',
+                            label: "Kode",
+                            value: "code",
                         },
 
                         {
-                            label: 'Bilde',
-                            value: 'image',
+                            label: "Bilde",
+                            value: "image",
                         },
                     ],
-                    defaultValue: 'code',
+                    defaultValue: "code",
                     required: false,
                 },
                 {
-                    name: 'code',
-                    type: 'textarea',
-                    label: 'Eksempelkode',
+                    name: "code",
+                    type: "textarea",
+                    label: "Eksempelkode",
                     required: false,
                     admin: {
-                        condition: (_, siblingData) =>
-                            siblingData.variant &&
-                            siblingData.variant === 'code',
+                        condition: (_, siblingData) => siblingData.variant && siblingData.variant === "code",
                     },
                     hooks: {
                         beforeValidate: [
                             ({ value, siblingData }) =>
                                 prettierFormat(value, {
-                                    language: 'tsx',
+                                    language: "tsx",
                                     noinline: siblingData.noinline,
                                 }),
                         ],
                     },
                 },
                 {
-                    type: 'checkbox',
-                    name: 'noinline',
+                    type: "checkbox",
+                    name: "noinline",
                     defaultValue: false,
-                    label: 'Tillat kode utover rene komponenter',
+                    label: "Tillat kode utover rene komponenter",
                     admin: {
-                        description:
-                            'F. eks. state. Se dokumentasjon fra React Live for mer info',
-                        condition: (_, siblingData) =>
-                            siblingData.variant &&
-                            siblingData.variant === 'code',
+                        description: "F. eks. state. Se dokumentasjon fra React Live for mer info",
+                        condition: (_, siblingData) => siblingData.variant && siblingData.variant === "code",
                     },
                 },
                 {
-                    name: 'image',
-                    label: 'Bilde',
-                    type: 'upload',
-                    relationTo: 'media',
+                    name: "image",
+                    label: "Bilde",
+                    type: "upload",
+                    relationTo: "media",
                     admin: {
-                        condition: (_, siblingData) =>
-                            siblingData.variant &&
-                            siblingData.variant === 'image',
+                        condition: (_, siblingData) => siblingData.variant && siblingData.variant === "image",
                     },
                 },
                 {
-                    type: 'textarea',
-                    name: 'description',
-                    label: 'Beskrivelse',
+                    type: "textarea",
+                    name: "description",
+                    label: "Beskrivelse",
                     admin: {
-                        description: 'En kort beskrivelse av eksempelet',
+                        description: "En kort beskrivelse av eksempelet",
                     },
                 },
                 {
-                    name: 'type',
-                    type: 'radio',
-                    label: 'Type egenskap',
+                    name: "type",
+                    type: "radio",
+                    label: "Type egenskap",
                     options: [
                         {
-                            label: 'Do',
-                            value: 'do',
+                            label: "Do",
+                            value: "do",
                         },
                         {
                             label: `Don't`,
-                            value: 'dont',
+                            value: "dont",
                         },
                         {
-                            label: 'Avoid',
-                            value: 'avoid',
+                            label: "Avoid",
+                            value: "avoid",
                         },
                     ],
-                    defaultValue: 'do',
+                    defaultValue: "do",
                     required: true,
                 },
             ],

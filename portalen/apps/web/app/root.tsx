@@ -1,17 +1,10 @@
-import { ErrorAlertMessage } from '@fremtind/jkl-alert-message-react';
-import {
-    type Consent,
-    CookieConsentProvider,
-} from '@fremtind/jkl-cookie-consent-react';
-import type { ColorScheme } from '@fremtind/jkl-core';
-import { initTabListener, Link } from '@fremtind/jkl-core';
-import type { MainMenu, User } from '@org/cms';
-import uiStyles from '@org/ui/styles.css';
-import type {
-    LinksFunction,
-    LoaderArgs,
-    V2_MetaFunction,
-} from '@remix-run/node';
+import { ErrorAlertMessage } from "@fremtind/jkl-alert-message-react";
+import { type Consent, CookieConsentProvider } from "@fremtind/jkl-cookie-consent-react";
+import type { ColorScheme } from "@fremtind/jkl-core";
+import { initTabListener, Link } from "@fremtind/jkl-core";
+import type { MainMenu, User } from "@org/cms";
+import uiStyles from "@org/ui/styles.css";
+import type { LinksFunction, LoaderArgs, V2_MetaFunction } from "@remix-run/node";
 import {
     isRouteErrorResponse,
     Links,
@@ -22,67 +15,64 @@ import {
     ScrollRestoration,
     useLoaderData,
     useRouteError,
-} from '@remix-run/react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import React, { useCallback, useRef, useState } from 'react';
-import { NavigationMenuContextProvider } from './components/navigation';
-import { GlobalPreferencesContextProvider } from './components/navigation/GlobalContextualMenu';
-import { RootTemplate } from './page-templates/root-template/RootTemplate';
-import styles from './styles/global.css';
-import jokulStyles from './styles/jokul.css';
-import { consentsCookie, userPreferencesCookie } from '~/cookies';
+} from "@remix-run/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import React, { useCallback, useRef, useState } from "react";
+import { NavigationMenuContextProvider } from "./components/navigation";
+import { GlobalPreferencesContextProvider } from "./components/navigation/GlobalContextualMenu";
+import { RootTemplate } from "./page-templates/root-template/RootTemplate";
+import styles from "./styles/global.css";
+import jokulStyles from "./styles/jokul.css";
+import { consentsCookie, userPreferencesCookie } from "~/cookies";
 
 initTabListener();
 
 export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
     if (!data) {
-        return [
-            { title: 'Jøkul Designsystem' },
-            { property: 'og:site_name', content: 'Jøkul designsystem' },
-        ];
+        return [{ title: "Jøkul Designsystem" }, { property: "og:site_name", content: "Jøkul designsystem" }];
     }
 
     return [
-        { name: 'viewport', content: 'width=device-width,initial-scale=1' },
-        { name: 'charset', content: 'utf-8' },
-        { title: 'Jøkul Designsystem' },
+        { name: "viewport", content: "width=device-width,initial-scale=1" },
+        { name: "charset", content: "utf-8" },
+        { title: "Jøkul Designsystem" },
         {
-            name: 'description',
-            content: 'Jøkul er designsystemet til Fremtind',
+            name: "description",
+            content: "Jøkul er designsystemet til Fremtind",
         },
-        { property: 'og:title', content: 'Jøkul Designsystem' },
+        { property: "og:title", content: "Jøkul Designsystem" },
         {
-            protepry: 'og:description',
-            content: 'Jøkul er designsystemet til Fremtind',
+            protepry: "og:description",
+            content: "Jøkul er designsystemet til Fremtind",
         },
-        { property: 'og:type', content: 'website' },
+        { property: "og:type", content: "website" },
         {
-            property: 'og:image',
+            property: "og:image",
             content: `${data.serverUrl}/social-preview?title=Jøkul`,
         },
-        { property: 'og:url', content: data.serverUrl },
+        { property: "og:url", content: data.serverUrl },
     ];
 };
 
 export const links: LinksFunction = () => [
     {
-        rel: 'stylesheet',
+        rel: "stylesheet",
         href: jokulStyles,
     },
     {
-        rel: 'stylesheet',
+        rel: "stylesheet",
         href: uiStyles,
     },
     {
-        rel: 'stylesheet',
+        rel: "stylesheet",
         href: styles,
     },
     {
-        rel: 'preload',
-        href: '/fonts/Fremtind-Material-Symbols.woff2',
-        as: 'font',
-        type: 'font/woff2',
-        crossOrigin: 'anonymous',
+        rel: "preload",
+        href: "/fonts/Fremtind-Material-Symbols.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossOrigin: "anonymous",
     },
 ];
 
@@ -96,12 +86,9 @@ export type RootLoaderData = {
     };
 };
 
-export const loader = async ({
-    context: { payload, user, serverUrl },
-    request,
-}: LoaderArgs) => {
+export const loader = async ({ context: { payload, user, serverUrl }, request }: LoaderArgs) => {
     const mainMenu = await payload.findGlobal({
-        slug: 'main-menu',
+        slug: "main-menu",
         user,
         overrideAccess: false,
         depth: 8,
@@ -112,11 +99,11 @@ export const loader = async ({
     const today = new Date();
     const isSpooky = today.getMonth() === 9 && today.getDate() === 31;
 
-    const cookies = request.headers.get('Cookie');
+    const cookies = request.headers.get("Cookie");
     if (cookies) {
         try {
             const consents = consentsCookie.parse<Consent>(cookies);
-            if (consents && consents.functional === 'accepted') {
+            if (consents && consents.functional === "accepted") {
                 const preferences = userPreferencesCookie.parse<{
                     theme: ColorScheme;
                 }>(cookies);
@@ -126,15 +113,12 @@ export const loader = async ({
                 }
             }
         } catch (e) {
-            console.error(
-                'Failed to parse consents in order to set theme on first render',
-                e
-            );
+            console.error("Failed to parse consents in order to set theme on first render", e);
         }
     }
 
     return {
-        pageTitle: isSpooky ? 'Bøkul 🎃' : 'Jøkul',
+        pageTitle: isSpooky ? "Bøkul 🎃" : "Jøkul",
         mainMenu,
         user,
         theme,
@@ -151,17 +135,13 @@ export default function App() {
     const { theme, ENV } = useLoaderData<typeof loader>();
 
     const defaultBrowserTheme: ColorScheme =
-        typeof window !== 'undefined' &&
-        window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light';
+        typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
 
     initTabListener();
 
-    const [colorScheme, setColorScheme] = useState<ColorScheme | undefined>(
-        theme || defaultBrowserTheme
-    );
+    const [colorScheme, setColorScheme] = useState<ColorScheme | undefined>(theme || defaultBrowserTheme);
 
     const bodyRef = useRef<HTMLBodyElement>(null);
     const handleSetColorScheme = useCallback(
@@ -188,7 +168,7 @@ export default function App() {
                 bodyRef.current.dataset.theme = scheme;
             });
         },
-        [setColorScheme]
+        [setColorScheme],
     );
 
     return (
@@ -206,10 +186,7 @@ export default function App() {
                     Hopp til innhold
                 </Link>
                 <CookieConsentProvider statistics functional>
-                    <GlobalPreferencesContextProvider
-                        colorScheme={colorScheme}
-                        setColorScheme={handleSetColorScheme}
-                    >
+                    <GlobalPreferencesContextProvider colorScheme={colorScheme} setColorScheme={handleSetColorScheme}>
                         <NavigationMenuContextProvider>
                             <QueryClientProvider client={queryClient}>
                                 <RootTemplate />
@@ -258,8 +235,7 @@ export const ErrorBoundary = () => {
             </head>
             <body>
                 <ErrorAlertMessage>
-                    {(error as Error)?.message ??
-                        'Noe gikk galt, men vi vet ikke helt hva'}
+                    {(error as Error)?.message ?? "Noe gikk galt, men vi vet ikke helt hva"}
                 </ErrorAlertMessage>
                 <Outlet />
                 <ScrollRestoration />

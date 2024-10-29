@@ -1,1 +1,1 @@
-export * from './SpacingTableRow';
+export * from "./SpacingTableRow";

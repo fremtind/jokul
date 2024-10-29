@@ -1,33 +1,33 @@
-import type { LoaderArgs } from '@remix-run/node';
-import { json, Response } from '@remix-run/node';
-import { useLoaderData } from '@remix-run/react';
-import React, { type FC } from 'react';
-import { BlogOverviewTemplate } from '~/page-templates/blog-overview';
+import type { LoaderArgs } from "@remix-run/node";
+import { json, Response } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import React, { type FC } from "react";
+import { BlogOverviewTemplate } from "~/page-templates/blog-overview";
 
 export const loader = async ({ context: { payload, user } }: LoaderArgs) => {
     try {
         const blogList = await payload.find({
-            collection: 'blog',
+            collection: "blog",
             depth: 1,
             user,
             where: {
                 and: [
                     {
-                        _status: { equals: 'published' },
+                        _status: { equals: "published" },
                     },
                     {
                         published_date: { less_than: new Date().toJSON() },
                     },
                 ],
             },
-            sort: 'published_date',
+            sort: "published_date",
             draft: false,
             overrideAccess: false,
         });
 
         return json(blogList, { status: 200 });
     } catch {
-        throw new Response('Kunne ikke finne bloggposter', { status: 404 });
+        throw new Response("Kunne ikke finne bloggposter", { status: 404 });
     }
 };
 

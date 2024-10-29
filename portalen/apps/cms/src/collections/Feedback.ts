@@ -1,12 +1,12 @@
-import { CollectionConfig } from 'payload/types';
-import { authenticatedAdmins } from '../access';
-import { FeedbackList } from '../components/FeedbackList';
+import { CollectionConfig } from "payload/types";
+import { authenticatedAdmins } from "../access";
+import { FeedbackList } from "../components/FeedbackList";
 
 export const Feedback: CollectionConfig = {
-    slug: 'feedback',
+    slug: "feedback",
     labels: {
-        singular: 'Tilbakemelding',
-        plural: 'Tilbakemeldinger',
+        singular: "Tilbakemelding",
+        plural: "Tilbakemeldinger",
     },
     access: {
         read: authenticatedAdmins,
@@ -15,7 +15,7 @@ export const Feedback: CollectionConfig = {
         create: () => true,
     },
     admin: {
-        group: 'Admin',
+        group: "Admin",
         components: {
             views: {
                 List: FeedbackList,
@@ -24,16 +24,16 @@ export const Feedback: CollectionConfig = {
     },
     fields: [
         {
-            name: 'page',
-            type: 'text',
+            name: "page",
+            type: "text",
         },
         {
-            name: 'feedbackValue',
-            type: 'number',
+            name: "feedbackValue",
+            type: "number",
         },
         {
-            name: 'message',
-            type: 'textarea',
+            name: "message",
+            type: "textarea",
         },
     ],
 };

@@ -1,1 +1,1 @@
-export * from './GeneralPage';
+export * from "./GeneralPage";

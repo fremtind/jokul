@@ -1,5 +1,5 @@
-import { Field } from 'payload/types';
-import { link } from './link';
+import { Field } from "payload/types";
+import { link } from "./link";
 
 /**
  * Bruk denne funksjonen for å få menypunkter til hovedmenyen. Kalt uten
@@ -33,51 +33,49 @@ import { link } from './link';
  */
 export const menuItemFields = (subMenuItemFields?: Field[]): Field[] => [
     {
-        type: 'row',
+        type: "row",
         fields: [
             {
-                type: 'text',
-                name: 'label',
-                label: 'Etikett',
+                type: "text",
+                name: "label",
+                label: "Etikett",
                 required: true,
                 admin: {
-                    width: '50%',
-                    description: 'Teksten som vises i menyen',
+                    width: "50%",
+                    description: "Teksten som vises i menyen",
                 },
             },
             {
-                type: 'text',
-                name: 'slug',
-                label: 'Slug',
+                type: "text",
+                name: "slug",
+                label: "Slug",
                 required: true,
                 admin: {
-                    width: '50%',
-                    description:
-                        'Del av URL som skal legges før menypunktene i undermenyen',
+                    width: "50%",
+                    description: "Del av URL som skal legges før menypunktene i undermenyen",
                     condition: (_, siblingData) =>
-                        siblingData.type === 'menu' ||
-                        siblingData.link?.type === 'reference',
+                        siblingData.type === "menu" || siblingData.link?.type === "reference",
                 },
             },
         ],
     },
     {
-        name: 'type',
-        type: 'radio',
-        defaultValue: 'link',
+        name: "type",
+        type: "radio",
+        defaultValue: "link",
         required: true,
         admin: {
-            layout: 'horizontal',
+            layout: "horizontal",
             hidden: !subMenuItemFields,
         },
         options: [
             {
-                label: 'Lenke',
-                value: 'link',
+                label: "Lenke",
+                value: "link",
             },
             {
-                label: 'Undermeny',
-                value: 'menu',
+                label: "Undermeny",
+                value: "menu",
             },
         ],
     },
@@ -86,27 +84,26 @@ export const menuItemFields = (subMenuItemFields?: Field[]): Field[] => [
         overrides: {
             admin: {
                 hideGutter: true,
-                condition: (_, siblingFields) => siblingFields.type === 'link',
+                condition: (_, siblingFields) => siblingFields.type === "link",
             },
         },
     }),
     {
-        type: 'group',
-        name: 'menu',
-        label: 'Undermeny',
+        type: "group",
+        name: "menu",
+        label: "Undermeny",
         admin: {
             hideGutter: true,
-            condition: (_, siblingFields) =>
-                siblingFields.type === 'menu' && !!subMenuItemFields,
+            condition: (_, siblingFields) => siblingFields.type === "menu" && !!subMenuItemFields,
         },
         fields: [
             {
-                type: 'array',
-                name: 'items',
-                label: 'Menyelementer',
+                type: "array",
+                name: "items",
+                label: "Menyelementer",
                 labels: {
-                    singular: 'menyelement',
-                    plural: 'menyelementer',
+                    singular: "menyelement",
+                    plural: "menyelementer",
                 },
                 required: true,
                 fields: subMenuItemFields || [],

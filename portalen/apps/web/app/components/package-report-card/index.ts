@@ -1,2 +1,2 @@
-export * from './PackageReportCard';
-export { usePackageVersion, type PackageInfo } from './usePackageVersion';
+export * from "./PackageReportCard";
+export { usePackageVersion, type PackageInfo } from "./usePackageVersion";

@@ -1,6 +1,6 @@
-import type { ColorScheme } from '@fremtind/jkl-core';
-import { useBrowserPreferences } from '@fremtind/jkl-react-hooks';
-import { useGlobalPreferences } from '../components/navigation/GlobalContextualMenu';
+import type { ColorScheme } from "@fremtind/jkl-core";
+import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import { useGlobalPreferences } from "../components/navigation/GlobalContextualMenu";
 
 export function useTheme(): ColorScheme {
     const { colorScheme } = useGlobalPreferences();

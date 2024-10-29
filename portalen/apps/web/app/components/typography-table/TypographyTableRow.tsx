@@ -1,32 +1,21 @@
-import { TableCell, TableRow } from '@fremtind/jkl-table-react';
-import React, { type FC } from 'react';
+import { TableCell, TableRow } from "@fremtind/jkl-table-react";
+import React, { type FC } from "react";
 
 interface TypographyTableRowProps {
     level: string;
     weight: string;
     size: string;
     lineHeight: string;
-    screen: 'base' | 'small';
+    screen: "base" | "small";
 }
 
-export const TypographyTableRow: FC<TypographyTableRowProps> = ({
-    level,
-    weight,
-    size,
-    lineHeight,
-    screen,
-}) => {
-    let newLevel = level.replace('_', '-');
+export const TypographyTableRow: FC<TypographyTableRowProps> = ({ level, weight, size, lineHeight, screen }) => {
+    let newLevel = level.replace("_", "-");
     return (
         <TableRow>
             <TableCell>
-                <p
-                    className={`typography-cell--${newLevel}-${
-                        screen === 'base' ? 'large' : screen
-                    }`}
-                >
-                    {newLevel.charAt(0).toUpperCase() +
-                        newLevel.slice(1).replace('-', ' ')}
+                <p className={`typography-cell--${newLevel}-${screen === "base" ? "large" : screen}`}>
+                    {newLevel.charAt(0).toUpperCase() + newLevel.slice(1).replace("-", " ")}
                 </p>
             </TableCell>
             <TableCell>

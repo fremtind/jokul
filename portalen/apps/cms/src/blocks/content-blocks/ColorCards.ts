@@ -1,64 +1,64 @@
-import { Block } from 'payload/types';
+import { Block } from "payload/types";
 
 export const ColorCard: Block = {
-    slug: 'color-card',
-    imageURL: '/media/mediacolorcard.webp',
+    slug: "color-card",
+    imageURL: "/media/mediacolorcard.webp",
     fields: [
         {
-            name: 'cards',
+            name: "cards",
             labels: {
-                singular: 'Kort',
-                plural: 'Kort',
+                singular: "Kort",
+                plural: "Kort",
             },
-            type: 'array',
+            type: "array",
             fields: [
                 {
-                    name: 'color',
-                    type: 'select',
+                    name: "color",
+                    type: "select",
                     options: [
                         {
-                            label: 'Svart',
-                            value: 'svart',
+                            label: "Svart",
+                            value: "svart",
                         },
                         {
-                            label: 'Skifer',
-                            value: 'skifer',
+                            label: "Skifer",
+                            value: "skifer",
                         },
                         {
-                            label: 'Stein',
-                            value: 'stein',
+                            label: "Stein",
+                            value: "stein",
                         },
                         {
-                            label: 'Svaberg',
-                            value: 'svaberg',
+                            label: "Svaberg",
+                            value: "svaberg",
                         },
                         {
-                            label: 'Dis',
-                            value: 'dis',
+                            label: "Dis",
+                            value: "dis",
                         },
                         {
-                            label: 'Sand',
-                            value: 'sand',
+                            label: "Sand",
+                            value: "sand",
                         },
                         {
-                            label: 'Hvit',
-                            value: 'hvit',
+                            label: "Hvit",
+                            value: "hvit",
                         },
                         {
-                            label: 'Suksess',
-                            value: 'suksess',
+                            label: "Suksess",
+                            value: "suksess",
                         },
                         {
-                            label: 'Info',
-                            value: 'info',
+                            label: "Info",
+                            value: "info",
                         },
                         {
-                            label: 'Advarsel',
-                            value: 'advarsel',
+                            label: "Advarsel",
+                            value: "advarsel",
                         },
                         {
-                            label: 'Feil',
-                            value: 'feil',
+                            label: "Feil",
+                            value: "feil",
                         },
                     ],
                 },

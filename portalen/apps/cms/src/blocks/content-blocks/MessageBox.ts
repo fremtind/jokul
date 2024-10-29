@@ -1,55 +1,55 @@
-import { Block } from 'payload/types';
+import { Block } from "payload/types";
 
 export const MessageBox: Block = {
-    slug: 'message-box',
-    imageURL: '/media/mediamessagebox.webp',
+    slug: "message-box",
+    imageURL: "/media/mediamessagebox.webp",
     fields: [
         {
-            name: 'boxes',
+            name: "boxes",
             labels: {
-                singular: 'Meldingsboks',
-                plural: 'Meldingsbokser',
+                singular: "Meldingsboks",
+                plural: "Meldingsbokser",
             },
-            type: 'array',
+            type: "array",
             fields: [
                 {
-                    type: 'row',
+                    type: "row",
                     fields: [
                         {
-                            name: 'type',
-                            label: 'Type',
-                            type: 'select',
+                            name: "type",
+                            label: "Type",
+                            type: "select",
                             required: true,
                             hasMany: false,
                             options: [
                                 {
-                                    label: 'Info',
-                                    value: 'info',
+                                    label: "Info",
+                                    value: "info",
                                 },
                                 {
-                                    label: 'Success',
-                                    value: 'success',
+                                    label: "Success",
+                                    value: "success",
                                 },
                                 {
-                                    label: 'Error',
-                                    value: 'error',
+                                    label: "Error",
+                                    value: "error",
                                 },
                                 {
-                                    label: 'Warning',
-                                    value: 'warning',
+                                    label: "Warning",
+                                    value: "warning",
                                 },
                             ],
                         },
                         {
-                            name: 'title',
-                            label: 'Tittel',
-                            type: 'text',
+                            name: "title",
+                            label: "Tittel",
+                            type: "text",
                             required: false,
                         },
                         {
-                            name: 'description',
-                            label: 'Beskrivelse',
-                            type: 'text',
+                            name: "description",
+                            label: "Beskrivelse",
+                            type: "text",
                             required: true,
                         },
                     ],

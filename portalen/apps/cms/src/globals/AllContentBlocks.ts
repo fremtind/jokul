@@ -1,17 +1,17 @@
-import { GlobalConfig } from 'payload/types';
-import { allContentBlocks } from '../blocks/content-blocks';
+import { GlobalConfig } from "payload/types";
+import { allContentBlocks } from "../blocks/content-blocks";
 
 export const AllBlocks: GlobalConfig = {
-    slug: 'all-content-blocks',
-    label: 'Innholdsblokker',
+    slug: "all-content-blocks",
+    label: "Innholdsblokker",
     admin: {
-        group: 'Admin',
+        group: "Admin",
         hidden: true,
     },
     fields: [
         {
-            name: 'blocks',
-            type: 'blocks',
+            name: "blocks",
+            type: "blocks",
             blocks: allContentBlocks,
             required: true,
         },

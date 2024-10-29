@@ -1,5 +1,5 @@
-import { type WithChildren } from '@fremtind/jkl-core';
-import React, { type FC } from 'react';
+import { type WithChildren } from "@fremtind/jkl-core";
+import React, { type FC } from "react";
 
 export interface ExampleStepProps extends WithChildren {
     headline?: string | null;

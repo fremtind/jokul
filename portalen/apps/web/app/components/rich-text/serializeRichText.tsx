@@ -1,17 +1,14 @@
-import type { WithOptionalChildren } from '@fremtind/jkl-core';
-import { Link } from '@remix-run/react';
-import escapeHTML from 'escape-html';
-import type { MainMenu } from 'payload/generated-types';
-import React, { type FC, Fragment } from 'react';
-import { Text } from 'slate';
-import { MediaViewer } from '../media';
-import {
-    defaultRenderers,
-    fallbackRenderer as defaultFallbackRenderer,
-} from './defaultRenderers';
-import type { RichTextChildren } from './types';
-import { isInternalLink, isLink } from './types';
-import { getPagePathFromId } from '~/components/navigation/utils';
+import type { WithOptionalChildren } from "@fremtind/jkl-core";
+import { Link } from "@remix-run/react";
+import escapeHTML from "escape-html";
+import type { MainMenu } from "payload/generated-types";
+import React, { type FC, Fragment } from "react";
+import { Text } from "slate";
+import { MediaViewer } from "../media";
+import { defaultRenderers, fallbackRenderer as defaultFallbackRenderer } from "./defaultRenderers";
+import type { RichTextChildren } from "./types";
+import { isInternalLink, isLink } from "./types";
+import { getPagePathFromId } from "~/components/navigation/utils";
 
 type SerializerOptions = {
     mainMenu: MainMenu;
@@ -30,14 +27,7 @@ export const serializeRichText = ({
         if (isLink(node)) {
             if (isInternalLink(node)) {
                 return (
-                    <Link
-                        key={i}
-                        className="jkl-link"
-                        to={
-                            getPagePathFromId(mainMenu, node.doc.value.id) ||
-                            '#'
-                        }
-                    >
+                    <Link key={i} className="jkl-link" to={getPagePathFromId(mainMenu, node.doc.value.id) || "#"}>
                         {serializeRichText({
                             mainMenu,
                             renderers,
@@ -60,11 +50,7 @@ export const serializeRichText = ({
             );
         }
         if (Text.isText(node)) {
-            let text = (
-                <span
-                    dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }}
-                />
-            );
+            let text = <span dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }} />;
 
             if (node.bold) {
                 text = <strong key={i}>{text}</strong>;
@@ -80,7 +66,7 @@ export const serializeRichText = ({
 
             if (node.underline) {
                 text = (
-                    <span style={{ textDecoration: 'underline' }} key={i}>
+                    <span style={{ textDecoration: "underline" }} key={i}>
                         {text}
                     </span>
                 );
@@ -88,7 +74,7 @@ export const serializeRichText = ({
 
             if (node.strikethrough) {
                 text = (
-                    <span style={{ textDecoration: 'line-through' }} key={i}>
+                    <span style={{ textDecoration: "line-through" }} key={i}>
                         {text}
                     </span>
                 );
@@ -115,7 +101,7 @@ export const serializeRichText = ({
             );
         }
 
-        if (node.type === 'upload' && node.value) {
+        if (node.type === "upload" && node.value) {
             return <MediaViewer key={i} src={node.value} />;
         }
 

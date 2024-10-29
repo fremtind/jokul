@@ -1,6 +1,6 @@
-import express = require('express');
-import { LRUCache } from 'lru-cache/min';
-import fetch = require('node-fetch');
+import express = require("express");
+import { LRUCache } from "lru-cache/min";
+import fetch = require("node-fetch");
 
 const figma: express.Router = express.Router();
 
@@ -11,9 +11,9 @@ const cache = new LRUCache<string, Buffer>({
     ttl: 1000 * 60 * 60,
 });
 
-figma.get('/images', async (req, res) => {
-    const figmaUrlParam = req.query['url'];
-    if (typeof figmaUrlParam !== 'string') {
+figma.get("/images", async (req, res) => {
+    const figmaUrlParam = req.query["url"];
+    if (typeof figmaUrlParam !== "string") {
         return res.status(400).send();
     }
 
@@ -27,21 +27,18 @@ figma.get('/images', async (req, res) => {
     try {
         const branch = figmaUrl.match(/branch\/(\w+)\//)?.[1];
         const file = branch ? branch : figmaUrl.match(/file\/(\w+)\//)?.[1];
-        const node = new URL(figmaUrl).searchParams.get('node-id');
+        const node = new URL(figmaUrl).searchParams.get("node-id");
 
         if (!file || !node) {
             return res.status(400).send();
         }
 
-        const result = await fetch.default(
-            `https://api.figma.com/v1/images/${file}?ids=${node}`,
-            {
-                method: 'GET',
-                headers: {
-                    'X-Figma-Token': FIGMA_TOKEN || '',
-                },
-            }
-        );
+        const result = await fetch.default(`https://api.figma.com/v1/images/${file}?ids=${node}`, {
+            method: "GET",
+            headers: {
+                "X-Figma-Token": FIGMA_TOKEN || "",
+            },
+        });
 
         const data = (await result.json()) as {
             images: Record<string, string>;
@@ -52,10 +49,7 @@ figma.get('/images', async (req, res) => {
         const buffer = await image.buffer();
         cache.set(figmaUrl, buffer);
 
-        return res
-            .header('Content-Type', 'image/png')
-            .status(result.status)
-            .send(buffer);
+        return res.header("Content-Type", "image/png").status(result.status).send(buffer);
     } catch (e) {
         console.log(e);
         return res.status(500).send();
