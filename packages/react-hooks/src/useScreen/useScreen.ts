@@ -1,19 +1,30 @@
 import { breakpoints } from "@fremtind/jkl-core";
 import { useCallback, useEffect, useReducer, useState } from "react";
-import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
+import {
+    addMediaQueryListener,
+    getInitialMediaQueryMatch,
+    removeMediaQueryListener,
+} from "../mediaQueryUtils";
 import { ScreenAction, ActionType, reducer, ScreenState } from "./state";
 
 const MEDIA_RULES: Record<keyof ScreenState, string> = {
     isSmallDevice: `(max-width: ${breakpoints.medium - 1}px)`,
-    isMediumDevice: `(min-width: ${breakpoints.medium}px) and (max-width: ${breakpoints.large - 1}px)`,
-    isLargeDevice: `(min-width: ${breakpoints.large}px) and (max-width: ${breakpoints.xl - 1}px)`,
+    isMediumDevice: `(min-width: ${breakpoints.medium}px) and (max-width: ${
+        breakpoints.large - 1
+    }px)`,
+    isLargeDevice: `(min-width: ${breakpoints.large}px) and (max-width: ${
+        breakpoints.xl - 1
+    }px)`,
     isXlDevice: `(min-width: ${breakpoints.xl}px)`,
     isPortrait: "(orientation: portrait)",
     isLandscape: "(orientation: landscape)",
 };
 
 const createAction = (property: keyof ScreenState): ScreenAction => ({
-    type: property === "isLandscape" || property === "isPortrait" ? ActionType.orientation : ActionType.deviceSize,
+    type:
+        property === "isLandscape" || property === "isPortrait"
+            ? ActionType.orientation
+            : ActionType.deviceSize,
     property,
 });
 
@@ -59,7 +70,9 @@ export const useScreen = (): ScreenState => {
         if (!hasMounted || !window.matchMedia) {
             return;
         }
-        const eventListenerPairs: Array<[MediaQueryList, (e: MediaQueryListEvent) => void]> = [];
+        const eventListenerPairs: Array<
+            [MediaQueryList, (e: MediaQueryListEvent) => void]
+        > = [];
 
         Object.entries(MEDIA_RULES).forEach(([key, rule]) => {
             const queryList = window.matchMedia(rule);
@@ -69,7 +82,9 @@ export const useScreen = (): ScreenState => {
         });
 
         return () => {
-            eventListenerPairs.forEach(([queryList, listener]) => removeMediaQueryListener(queryList, listener));
+            eventListenerPairs.forEach(([queryList, listener]) =>
+                removeMediaQueryListener(queryList, listener),
+            );
         };
     }, [createListener, hasMounted]);
 

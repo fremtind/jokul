@@ -16,7 +16,10 @@ import {
 import { type WithChildren } from "@fremtind/jkl-core";
 import React, { FC, createContext, useContext, useRef, useState } from "react";
 
-export type TooltipPlacement = Extract<Placement, "top-start" | "top-end" | "left" | "right" | "top">;
+export type TooltipPlacement = Extract<
+    Placement,
+    "top-start" | "top-end" | "left" | "right" | "top"
+>;
 
 export interface TooltipProps {
     /**
@@ -51,21 +54,34 @@ export const useTooltip = ({
     const [isOpen, setOpen] = useState(initialOpen);
     const arrowElement = useRef<HTMLElement>(null);
     const description = useRef<HTMLElement | null>(null);
-    const setDescription = (element: HTMLElement | null) => (description.current = element);
+    const setDescription = (element: HTMLElement | null) =>
+        (description.current = element);
 
     const data = useFloating({
         open: isOpen,
         onOpenChange: setOpen,
         placement,
         whileElementsMounted: autoUpdate,
-        middleware: [offset(16), flip(), shift({ padding: 16 }), arrow({ element: arrowElement, padding: 20 })],
+        middleware: [
+            offset(16),
+            flip(),
+            shift({ padding: 16 }),
+            arrow({ element: arrowElement, padding: 20 }),
+        ],
     });
 
     const role = useRole(data.context, { role: "tooltip" });
     const dismiss = useDismiss(data.context, { referencePress: false });
-    const click = useClick(data.context, { enabled: triggerOn === "click" && !isOpen });
-    const hover = useHover(data.context, { enabled: triggerOn === "hover", delay: isOpen ? 0 : delay });
-    const focus = useFocus(data.context, { enabled: triggerOn === "click" ? isOpen : true });
+    const click = useClick(data.context, {
+        enabled: triggerOn === "click" && !isOpen,
+    });
+    const hover = useHover(data.context, {
+        enabled: triggerOn === "hover",
+        delay: isOpen ? 0 : delay,
+    });
+    const focus = useFocus(data.context, {
+        enabled: triggerOn === "click" ? isOpen : true,
+    });
 
     const interactions = useInteractions([dismiss, focus, role, click, hover]);
 
@@ -94,13 +110,18 @@ export const useTooltipContext = () => {
     const context = useContext(tooltipContext);
 
     if (context === null) {
-        throw new Error("Tooltip-komponentene kan kun brukes inne i <Tooltip />");
+        throw new Error(
+            "Tooltip-komponentene kan kun brukes inne i <Tooltip />",
+        );
     }
 
     return context;
 };
 
-export const Tooltip: FC<TooltipProps & WithChildren> = ({ children, ...options }) => {
+export const Tooltip: FC<TooltipProps & WithChildren> = ({
+    children,
+    ...options
+}) => {
     const tooltip = useTooltip(options);
 
     return <TooltipProvider value={tooltip}>{children}</TooltipProvider>;

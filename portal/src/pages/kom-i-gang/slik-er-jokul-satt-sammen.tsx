@@ -6,7 +6,12 @@ import React, { FC } from "react";
 import { Grid } from "../../components/Grid";
 import { Image } from "../../components/image";
 import { Seo } from "../../components/seo";
-import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
+import {
+    HeadingLarge,
+    Ingress,
+    PageTitle,
+    Paragraph,
+} from "../../components/Typography";
 import { MainContent } from "../../layout/MainContent";
 
 const pageTitle = "Slik er Jøkul satt sammen";
@@ -17,23 +22,30 @@ const SlikErJokulSattSammen: FC = () => (
     <MainContent>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
-            Siden et system er summen av dets deler i samspill, så er det greit å ha en samlet oversikt over alle delene
-            på ett sted. Portalen er det stedet.
+            Siden et system er summen av dets deler i samspill, så er det greit
+            å ha en samlet oversikt over alle delene på ett sted. Portalen er
+            det stedet.
         </Ingress>
         <Image disableFullscreen>
-            <StaticImage src="../../../static/assets/kom-i-gang/systemet.png" alt="" />
+            <StaticImage
+                src="../../../static/assets/kom-i-gang/systemet.png"
+                alt=""
+            />
         </Image>
 
         <HeadingLarge>Portalen</HeadingLarge>
         <Paragraph>
-            All informasjon som er felles for designsystemet skal ligge i portalen (denne siden), slik at vi har ett
-            sted å gå til for å finne informasjon om vi lurer på noe. Se på dette området som et slags oppslagsverk for
-            hele designsystemet. I portalen skal du finne alt du trenger av eksempler, råd og regler for bruk av
-            komponenter og merkevaren vår.
+            All informasjon som er felles for designsystemet skal ligge i
+            portalen (denne siden), slik at vi har ett sted å gå til for å finne
+            informasjon om vi lurer på noe. Se på dette området som et slags
+            oppslagsverk for hele designsystemet. I portalen skal du finne alt
+            du trenger av eksempler, råd og regler for bruk av komponenter og
+            merkevaren vår.
         </Paragraph>
         <Paragraph>
-            I tillegg til portalen lever Jøkul i det daglige på to forskjellige områder: Figma for design, og Github for
-            kode. Felles dokumentasjon finner du i portalen.
+            I tillegg til portalen lever Jøkul i det daglige på to forskjellige
+            områder: Figma for design, og Github for kode. Felles dokumentasjon
+            finner du i portalen.
         </Paragraph>
         <Grid className="jkl-portal-paragraph">
             <NavCard
@@ -50,18 +62,26 @@ const SlikErJokulSattSammen: FC = () => (
 
         <HeadingLarge>Slik lages Jøkul</HeadingLarge>
         <Paragraph>
-            Designsystemet forandres og utvikles på mange forskjellige måter, men i korte trekk er det fire steg som
-            skal til for å mekke på systemet:
+            Designsystemet forandres og utvikles på mange forskjellige måter,
+            men i korte trekk er det fire steg som skal til for å mekke på
+            systemet:
         </Paragraph>
         <OrderedList className="jkl-portal-ol">
-            <ListItem>Du oppdager en bug eller noe annet du vil endre på</ListItem>
+            <ListItem>
+                Du oppdager en bug eller noe annet du vil endre på
+            </ListItem>
             <ListItem>Du fikser et forslag i Figma eller på GitHub</ListItem>
-            <ListItem>Du deler forslaget ditt med oss eller noen andre</ListItem>
-            <ListItem>Noen kameratsjekker deg, før det legges inn i Jøkul</ListItem>
+            <ListItem>
+                Du deler forslaget ditt med oss eller noen andre
+            </ListItem>
+            <ListItem>
+                Noen kameratsjekker deg, før det legges inn i Jøkul
+            </ListItem>
         </OrderedList>
         <Paragraph>
-            Det er noen detaljer underveis, men de er det lett å få hjelp med av en kollega i teamet ditt eller fra noen
-            i Jøkul-teamet, om du måtte behøve det.
+            Det er noen detaljer underveis, men de er det lett å få hjelp med av
+            en kollega i teamet ditt eller fra noen i Jøkul-teamet, om du måtte
+            behøve det.
         </Paragraph>
         <NavCard
             href="https://github.com/fremtind/jokul/discussions/new?category=ideer"
@@ -72,8 +92,8 @@ const SlikErJokulSattSammen: FC = () => (
 
         <HeadingLarge>Praktiske tips og triks</HeadingLarge>
         <Paragraph>
-            Til slutt har vi en samling med verktøy og ekstra ressurser som vil gjøre hverdagen din enklere som bruker
-            av verktøyene våre.
+            Til slutt har vi en samling med verktøy og ekstra ressurser som vil
+            gjøre hverdagen din enklere som bruker av verktøyene våre.
         </Paragraph>
         <Grid className="jkl-portal-paragraph">
             <NavCard

@@ -1,6 +1,11 @@
 import { DataTestAutoId, Density, Link } from "@fremtind/jkl-core";
 import cn from "classnames";
-import React, { HTMLAttributes, FC, ElementType, MouseEventHandler } from "react";
+import React, {
+    HTMLAttributes,
+    FC,
+    ElementType,
+    MouseEventHandler,
+} from "react";
 
 export interface FooterLink<T = HTMLAnchorElement> {
     title: string;
@@ -15,7 +20,9 @@ export interface FooterLink<T = HTMLAnchorElement> {
     onClick?: MouseEventHandler<T>;
 }
 
-export interface FooterProps extends DataTestAutoId, HTMLAttributes<HTMLElement> {
+export interface FooterProps
+    extends DataTestAutoId,
+        HTMLAttributes<HTMLElement> {
     heading?: string;
     links?: Array<FooterLink>;
     showFinansportalenLink?: boolean;
@@ -31,34 +38,53 @@ export const Footer: FC<FooterProps> = ({
     ...rest
 }) => {
     return (
-        <footer className={cn("jkl-footer", className)} data-density={density} {...rest}>
+        <footer
+            className={cn("jkl-footer", className)}
+            data-density={density}
+            {...rest}
+        >
             <p className="jkl-footer__description">{heading}</p>
             {links && (
                 <div className="jkl-footer__links">
                     <ul>
-                        {links.map(({ component = Link, title: children, external, ...rest }) => {
-                            const C = component;
-                            return (
-                                <li key={children}>
-                                    <C
-                                        className={
-                                            component === "button"
-                                                ? "jkl-link jkl-footer__links--small-text"
-                                                : "jkl-footer__links--small-text"
-                                        }
-                                        external={external !== undefined ? external : undefined}
-                                        {...rest}
-                                    >
-                                        {children}
-                                    </C>
-                                </li>
-                            );
-                        })}
+                        {links.map(
+                            ({
+                                component = Link,
+                                title: children,
+                                external,
+                                ...rest
+                            }) => {
+                                const C = component;
+                                return (
+                                    <li key={children}>
+                                        <C
+                                            className={
+                                                component === "button"
+                                                    ? "jkl-link jkl-footer__links--small-text"
+                                                    : "jkl-footer__links--small-text"
+                                            }
+                                            external={
+                                                external !== undefined
+                                                    ? external
+                                                    : undefined
+                                            }
+                                            {...rest}
+                                        >
+                                            {children}
+                                        </C>
+                                    </li>
+                                );
+                            },
+                        )}
                         {showFinansportalenLink && (
                             <li>
                                 <span className="jkl-footer__links--small-text">
-                                    Sammenlign våre priser med andre selskaper på{" "}
-                                    <Link href="https://www.finansportalen.no/" external={true}>
+                                    Sammenlign våre priser med andre selskaper
+                                    på{" "}
+                                    <Link
+                                        href="https://www.finansportalen.no/"
+                                        external={true}
+                                    >
                                         finansportalen.no
                                     </Link>
                                 </span>

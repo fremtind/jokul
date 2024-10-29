@@ -22,7 +22,8 @@ export interface InjectedProps {
  */
 export const TabList = ({ children, className, ...injected }: TabListProps) => {
     // props injected by Tabs
-    const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...rest } = injected as TabListProps & InjectedProps;
+    const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...rest } =
+        injected as TabListProps & InjectedProps;
     const { density } = useTabsContext();
 
     const [tabsRect, setTabsRect] = useState<DOMRect>();
@@ -40,33 +41,44 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
         }
     }, [activeIndex, density]);
 
-    const keyDownHandler = useCallback((event: React.KeyboardEvent<HTMLButtonElement>) => {
-        if (event.key === "ArrowLeft") {
-            const current = event.currentTarget;
-            const prev = event.currentTarget.previousSibling;
+    const keyDownHandler = useCallback(
+        (event: React.KeyboardEvent<HTMLButtonElement>) => {
+            if (event.key === "ArrowLeft") {
+                const current = event.currentTarget;
+                const prev = event.currentTarget.previousSibling;
 
-            if (prev) {
-                (prev as HTMLElement).focus();
-            } else {
-                (current.parentElement?.lastChild?.previousSibling as HTMLElement).focus();
+                if (prev) {
+                    (prev as HTMLElement).focus();
+                } else {
+                    (
+                        current.parentElement?.lastChild
+                            ?.previousSibling as HTMLElement
+                    ).focus();
+                }
             }
-        }
 
-        if (event.key === "ArrowRight") {
-            const current = event.currentTarget;
-            const next = event.currentTarget.nextSibling;
+            if (event.key === "ArrowRight") {
+                const current = event.currentTarget;
+                const next = event.currentTarget.nextSibling;
 
-            // skip the focus indicator element
-            if (next && next.nodeName === "BUTTON") {
-                (next as HTMLElement).focus();
-            } else {
-                (current.parentElement?.firstChild as HTMLElement).focus();
+                // skip the focus indicator element
+                if (next && next.nodeName === "BUTTON") {
+                    (next as HTMLElement).focus();
+                } else {
+                    (current.parentElement?.firstChild as HTMLElement).focus();
+                }
             }
-        }
-    }, []);
+        },
+        [],
+    );
 
     return (
-        <div role="tablist" ref={tabsRef} {...rest} className={cn("jkl-tablist", className)}>
+        <div
+            role="tablist"
+            ref={tabsRef}
+            {...rest}
+            className={cn("jkl-tablist", className)}
+        >
             {React.Children.map(children, (tab, tabIndex) => {
                 const isActive = activeIndex === tabIndex;
 
@@ -88,7 +100,9 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
                 style={{
                     left: (activeRect?.left || 0) - (tabsRect?.left || 0),
                     bottom: -1,
-                    width: (activeRect?.width || 0) - (density === "compact" ? 32 : 38),
+                    width:
+                        (activeRect?.width || 0) -
+                        (density === "compact" ? 32 : 38),
                 }}
             />
         </div>

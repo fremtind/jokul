@@ -15,7 +15,9 @@ export const RootTemplate: FC = () => {
             return;
         }
 
-        const headings = document.querySelector("main")?.querySelectorAll("h2,h3,h4");
+        const headings = document
+            .querySelector("main")
+            ?.querySelectorAll("h2,h3,h4");
 
         if (!headings) {
             return;

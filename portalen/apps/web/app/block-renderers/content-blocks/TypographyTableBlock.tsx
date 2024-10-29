@@ -1,9 +1,19 @@
 import { tokens } from "@fremtind/jkl-core";
-import { Table, TableBody, TableHead, TableHeader, TableRow } from "@fremtind/jkl-table-react";
+import {
+    Table,
+    TableBody,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@fremtind/jkl-table-react";
 import React from "react";
 import { TypographyTableRow } from "~/components/typography-table/TypographyTableRow";
 
-export const TypographyTableBlock = ({ screen = "base" }: { screen?: "base" | "small" }) => {
+export const TypographyTableBlock = ({
+    screen = "base",
+}: {
+    screen?: "base" | "small";
+}) => {
     const typography = [
         {
             level: "title",

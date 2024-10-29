@@ -41,14 +41,19 @@ const contactQuestion = {
     onSubmit: console.info,
 };
 
-export const FeedbackExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const FeedbackExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const followup = boolValues?.["Med oppfølgings-spørsmål"]
         ? {
               onSubmit: console.log,
               questions: followupQuestions,
           }
         : undefined;
-    const contact = boolValues?.["Med kontakt-spørsmål"] ? contactQuestion : undefined;
+    const contact = boolValues?.["Med kontakt-spørsmål"]
+        ? contactQuestion
+        : undefined;
     const counter = boolValues?.["Med teller"] ? { maxLength: 250 } : undefined;
 
     const preset = choiceValues?.["Forhåndsvalg"]
@@ -69,7 +74,10 @@ export const FeedbackExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
     );
 };
 
-export const feedbackCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const feedbackCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => `
 <Feedback
     {...PRESETS["${choiceValues?.["Forhåndsvalg"]}"]}${
     !!boolValues?.["Med oppfølgings-spørsmål"]

@@ -5,7 +5,14 @@ import { useClickOutside } from "@fremtind/jkl-react-hooks";
 import type { Component, General, Foundation, Pattern, Blog } from "@org/cms";
 import { NavLink, useNavigate } from "@remix-run/react";
 import { Command } from "cmdk";
-import React, { type Dispatch, type SetStateAction, useState, type FC, useRef, useCallback } from "react";
+import React, {
+    type Dispatch,
+    type SetStateAction,
+    useState,
+    type FC,
+    useRef,
+    useCallback,
+} from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { useMainMenu } from "../../utils";
 import { getPagePathFromId } from "../navigation/utils";
@@ -19,7 +26,10 @@ const doSearch = async (search: string) => {
         controller.abort();
     }
     controller = new AbortController();
-    const response = await fetch(`/api/search?q=${encodeURIComponent(search)}&limit=9`, { signal: controller.signal });
+    const response = await fetch(
+        `/api/search?q=${encodeURIComponent(search)}&limit=9`,
+        { signal: controller.signal },
+    );
     const data = await response.json();
     return data;
 };
@@ -92,7 +102,11 @@ export const CmdK: FC<{
             shouldFilter={false} // Vi gjør filtreringen på backend
         >
             <div className="cmdk-input-wrapper">
-                <Command.Input value={search} onValueChange={handleSearch} placeholder="Søk" />
+                <Command.Input
+                    value={search}
+                    onValueChange={handleSearch}
+                    placeholder="Søk"
+                />
                 <IconButton
                     className="jkl-text-input-action-button"
                     title="Avansert søk"
@@ -122,7 +136,9 @@ export const CmdK: FC<{
                         }}
                     >
                         {/* TODO: hent heading og kort fra en global i CMSet? */}
-                        <p className="jkl-heading-2 jkl-spacing-24--bottom">Ingen treff. Har du prøvd her?</p>
+                        <p className="jkl-heading-2 jkl-spacing-24--bottom">
+                            Ingen treff. Har du prøvd her?
+                        </p>
                         <div
                             style={{
                                 display: "flex",
@@ -171,7 +187,11 @@ export const CmdK: FC<{
                                 return null;
                             }
 
-                            const tab = getTabFromMatch(document, search, field);
+                            const tab = getTabFromMatch(
+                                document,
+                                search,
+                                field,
+                            );
                             if (tab) {
                                 to += `/${tab}`;
                             }
@@ -205,7 +225,10 @@ export const CmdK: FC<{
                                             onOpenChange(false);
                                         }}
                                     >
-                                        <SearchResult search={search} result={document} />
+                                        <SearchResult
+                                            search={search}
+                                            result={document}
+                                        />
                                     </Command.Item>
                                 );
                             })}

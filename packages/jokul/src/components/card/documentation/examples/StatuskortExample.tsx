@@ -2,7 +2,13 @@ import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React from "react";
 import { Image } from "../../../image/Image.js";
 import { SuccessTag } from "../../../tag/Tag.js";
-import { Card, CARD_PADDINGS, CARD_VARIANTS, CardPadding, CardVariant } from "../../Card.js";
+import {
+    Card,
+    CARD_PADDINGS,
+    CARD_VARIANTS,
+    CardPadding,
+    CardVariant,
+} from "../../Card.js";
 import { CardImage } from "../../CardImage.js";
 import grass400 from "/img/grass-400.jpg";
 import grass800 from "/img/grass-800.jpg";
@@ -15,7 +21,10 @@ const imageProps = {
     alt: "Nærbilde av strå, med en åker i bakgrunnen",
 };
 
-export const StatuskortExample = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+export const StatuskortExample = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps) => {
     const padding = choiceValues?.["Padding"] as CardPadding | undefined;
     const type = choiceValues?.["Type"] as CardVariant | undefined;
 

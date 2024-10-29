@@ -3,7 +3,11 @@ import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { DotsIcon } from "@fremtind/jkl-icons-react";
 import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 import React, { useCallback, useRef, useState, type FC } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../doc-utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../tooltip-react";
 import { ContextualMenu, ContextualMenuItemCheckbox } from "../src";
 
@@ -17,8 +21,13 @@ export const contextualMenuToggleSwitchExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const ContextualMenuToggleSwitchExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
-    const isOpen = choiceValues?.["isOpen"] !== "tom" ? choiceValues?.["isOpen"] === "true" : undefined;
+export const ContextualMenuToggleSwitchExample: FC<ExampleComponentProps> = ({
+    choiceValues,
+}) => {
+    const isOpen =
+        choiceValues?.["isOpen"] !== "tom"
+            ? choiceValues?.["isOpen"] === "true"
+            : undefined;
 
     const pref = useBrowserPreferences();
     const [colorScheme, setColorScheme] = useState(pref.prefersColorScheme);

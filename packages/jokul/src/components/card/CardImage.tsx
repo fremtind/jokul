@@ -2,19 +2,23 @@ import clsx from "clsx";
 import React from "react";
 import { AsChildProps } from "../../utilities/polymorphism/as-child.js";
 import { SlotComponent } from "../../utilities/polymorphism/index.js";
-import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import {
+    PolymorphicPropsWithRef,
+    PolymorphicRef,
+} from "../../utilities/polymorphism/polymorphism.js";
 
-export type CardImageProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
-    ElementType,
-    {
-        /**
-         * Legger til riktig negativ margin avhengig av hvor i kortet bildet
-         * skal plasseres. Margin justeres automatisk etter padding i kortet.
-         * @default "top"
-         */
-        placement?: "top" | "middle" | "bottom";
-    }
->;
+export type CardImageProps<ElementType extends React.ElementType> =
+    PolymorphicPropsWithRef<
+        ElementType,
+        {
+            /**
+             * Legger til riktig negativ margin avhengig av hvor i kortet bildet
+             * skal plasseres. Margin justeres automatisk etter padding i kortet.
+             * @default "top"
+             */
+            placement?: "top" | "middle" | "bottom";
+        }
+    >;
 
 type CardImageComponent = <ElementType extends React.ElementType = "img">(
     props: CardImageProps<ElementType>,
@@ -26,8 +30,16 @@ type CardImageComponent = <ElementType extends React.ElementType = "img">(
  * element, men du kan overstyre dette med `as` dersom du f.eks. har
  * en egen komponent for å håndtere responsive bilder.
  */
-export const CardImage = React.forwardRef(function CardImage<ElementType extends React.ElementType = "img">(
-    { as, asChild, className, placement = "top", ...imageProps }: CardImageProps<ElementType> & AsChildProps,
+export const CardImage = React.forwardRef(function CardImage<
+    ElementType extends React.ElementType = "img",
+>(
+    {
+        as,
+        asChild,
+        className,
+        placement = "top",
+        ...imageProps
+    }: CardImageProps<ElementType> & AsChildProps,
     ref?: PolymorphicRef<ElementType>,
 ) {
     const Component = asChild ? SlotComponent : as || "img";
@@ -35,7 +47,11 @@ export const CardImage = React.forwardRef(function CardImage<ElementType extends
     return (
         <Component
             ref={ref}
-            className={clsx("jkl-card-image", `jkl-card-image--${placement}`, className)}
+            className={clsx(
+                "jkl-card-image",
+                `jkl-card-image--${placement}`,
+                className,
+            )}
             {...imageProps}
         />
     );

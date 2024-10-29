@@ -7,7 +7,12 @@ interface Props {
     contextRef: (context: CanvasRenderingContext2D | null) => void;
 }
 
-export const PureCanvas: FC<Props> = ({ className, width, height, contextRef }) => {
+export const PureCanvas: FC<Props> = ({
+    className,
+    width,
+    height,
+    contextRef,
+}) => {
     return (
         <canvas
             className={className}

@@ -14,7 +14,9 @@ async function bumpMajor(packageJsonPath) {
 
     // Bump Jøkul-pakker i dependencies også
     if (packageJson.dependencies) {
-        for (const [name, version] of Object.entries(packageJson.dependencies)) {
+        for (const [name, version] of Object.entries(
+            packageJson.dependencies,
+        )) {
             if (name.includes("@fremtind/")) {
                 const versionNumber = version.replace("^", "").replace("~", "");
                 const currentMajor = versionNumber.split(".")[0];
@@ -25,7 +27,9 @@ async function bumpMajor(packageJsonPath) {
         }
     }
     if (packageJson.devDependencies) {
-        for (const [name, version] of Object.entries(packageJson.devDependencies)) {
+        for (const [name, version] of Object.entries(
+            packageJson.devDependencies,
+        )) {
             if (name.includes("@fremtind/")) {
                 const versionNumber = version.replace("^", "").replace("~", "");
                 const currentMajor = versionNumber.split(".")[0];
@@ -40,10 +44,13 @@ async function bumpMajor(packageJsonPath) {
 }
 
 async function prepareMajor() {
-    const packagesDir = await fs.readdir(path.join(__dirname, "..", "packages"), {
-        encoding: "utf-8",
-        withFileTypes: true,
-    });
+    const packagesDir = await fs.readdir(
+        path.join(__dirname, "..", "packages"),
+        {
+            encoding: "utf-8",
+            withFileTypes: true,
+        },
+    );
 
     for (const entry of packagesDir) {
         if (!entry.isDirectory()) {
@@ -64,8 +71,13 @@ async function prepareMajor() {
     await bumpMajor(path.join(__dirname, "..", "portal", "package.json"));
     await bumpMajor(path.join(__dirname, "..", "package.json"));
 
-    console.log("Oppdaterte versjonsnummer i alle pakkene, regenererer lockfil...");
-    execSync("pnpm install", { cwd: path.join(__dirname, ".."), windowsHide: true });
+    console.log(
+        "Oppdaterte versjonsnummer i alle pakkene, regenererer lockfil...",
+    );
+    execSync("pnpm install", {
+        cwd: path.join(__dirname, ".."),
+        windowsHide: true,
+    });
     console.log("✅ done");
 }
 

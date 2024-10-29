@@ -21,7 +21,11 @@ const shortTransition: Transition = {
     duration: 0.05,
 };
 
-export const Lightbox: FC<LightboxProps> = ({ aspectRatio = "16 / 9", className, children }) => {
+export const Lightbox: FC<LightboxProps> = ({
+    aspectRatio = "16 / 9",
+    className,
+    children,
+}) => {
     const { prefersReducedMotion } = useBrowserPreferences();
     const [isOpen, setIsOpen] = useState(false);
     const [isOverlay, setIsOverlay] = useState(false);
@@ -59,10 +63,16 @@ export const Lightbox: FC<LightboxProps> = ({ aspectRatio = "16 / 9", className,
             >
                 <span className="jkl-sr-only">Forminsk</span>
             </motion.button>
-            <button className="jkl-portal-lightbox__trigger" style={{ aspectRatio }} onClick={() => setIsOpen(!isOpen)}>
+            <button
+                className="jkl-portal-lightbox__trigger"
+                style={{ aspectRatio }}
+                onClick={() => setIsOpen(!isOpen)}
+            >
                 <motion.div
                     layout
-                    transition={prefersReducedMotion ? shortTransition : transition}
+                    transition={
+                        prefersReducedMotion ? shortTransition : transition
+                    }
                     data-open={isOpen}
                     data-overlay={isOverlay}
                     style={{ aspectRatio }}
@@ -77,7 +87,9 @@ export const Lightbox: FC<LightboxProps> = ({ aspectRatio = "16 / 9", className,
                 >
                     {children}
                 </motion.div>
-                <span className="jkl-sr-only">{isOpen ? "Forminsk" : "Forstørr"}</span>
+                <span className="jkl-sr-only">
+                    {isOpen ? "Forminsk" : "Forstørr"}
+                </span>
             </button>
         </div>
     );

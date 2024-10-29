@@ -4,16 +4,26 @@ import { ExampleComponentProps } from "../../../doc-utils";
 import { Button } from "../src";
 import { IconPosition } from "../src/types";
 
-export const Ghost: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const Ghost: React.FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const [showLoader] = useState(false);
-    const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
+    const loader = {
+        showLoader: showLoader || !!boolValues?.["isLoading"],
+        textDescription: "Laster innhold",
+    };
     const iconPosition =
-        choiceValues?.["iconPosition"] === "none" ? undefined : (choiceValues?.["iconPosition"] as IconPosition);
+        choiceValues?.["iconPosition"] === "none"
+            ? undefined
+            : (choiceValues?.["iconPosition"] as IconPosition);
 
     return (
         <Button
             variant="ghost"
-            loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
+            loader={
+                showLoader || !!boolValues?.["withLoader"] ? loader : undefined
+            }
             className="jkl-spacing-l--right"
             iconPosition={iconPosition as IconPosition}
             icon={<ChevronDownIcon />}

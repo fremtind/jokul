@@ -1,32 +1,40 @@
 import React, { useEffect } from "react";
-import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import {
+    PolymorphicPropsWithRef,
+    PolymorphicRef,
+} from "../../utilities/polymorphism/polymorphism.js";
 import { ChevronLeftIcon, ChevronRightIcon } from "../icon/index.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { PageButton } from "./PageButton.js";
 
-export type PaginationProps<ElementType extends React.ElementType> = PolymorphicPropsWithRef<
-    ElementType,
-    {
-        currentPage: number;
-        numberOfPages: number;
-        onPageChange: (toPage: number, fromPage: number) => void;
-        /**
-         * Dersom du ønsker å ha custom labels kan du sende inn disse. "next" og "previous"
-         * brukes som hint til skjermlesere for ikon-knappene til Neste/Forrige side
-         * @default { previous: "Forrige side", next: "Neste side" }
-         */
-        labels?: {
-            previous: string;
-            next: string;
-        };
-    }
->;
+export type PaginationProps<ElementType extends React.ElementType> =
+    PolymorphicPropsWithRef<
+        ElementType,
+        {
+            currentPage: number;
+            numberOfPages: number;
+            onPageChange: (toPage: number, fromPage: number) => void;
+            /**
+             * Dersom du ønsker å ha custom labels kan du sende inn disse. "next" og "previous"
+             * brukes som hint til skjermlesere for ikon-knappene til Neste/Forrige side
+             * @default { previous: "Forrige side", next: "Neste side" }
+             */
+            labels?: {
+                previous: string;
+                next: string;
+            };
+        }
+    >;
 
-export type PaginationComponent = <ElementType extends React.ElementType = "nav">(
+export type PaginationComponent = <
+    ElementType extends React.ElementType = "nav",
+>(
     props: PaginationProps<ElementType>,
 ) => React.ReactElement | null;
 
-export const Pagination = React.forwardRef(function Pagination<ElementType extends React.ElementType = "nav">(
+export const Pagination = React.forwardRef(function Pagination<
+    ElementType extends React.ElementType = "nav",
+>(
     {
         onPageChange,
         currentPage,
@@ -42,10 +50,14 @@ export const Pagination = React.forwardRef(function Pagination<ElementType exten
 ) {
     useEffect(() => {
         if (currentPage < 1) {
-            console.error("[Pagination]: currentPage prop should be set to a value larger than 0");
+            console.error(
+                "[Pagination]: currentPage prop should be set to a value larger than 0",
+            );
         }
         if (currentPage > numberOfPages) {
-            console.error("[Pagination]: currentPage prop should not be set to a value larger than numberOfPages");
+            console.error(
+                "[Pagination]: currentPage prop should not be set to a value larger than numberOfPages",
+            );
         }
     }, [currentPage, numberOfPages]);
 
@@ -93,10 +105,22 @@ export const Pagination = React.forwardRef(function Pagination<ElementType exten
     const showStartEllipsis = currentPage > 4;
     const showEndEllipsis = currentPage < numberOfPages - 3;
 
-    const startEllipsis = Math.min(Math.max(currentPage - 2, 2), numberOfPages - 5);
-    const centerPageNumberStart = Math.min(startEllipsis + 1, numberOfPages - 4);
-    const centerPageNumber = Math.min(centerPageNumberStart + 1, numberOfPages - 3);
-    const centerPageNumberEnd = Math.min(centerPageNumberStart + 2, numberOfPages - 2);
+    const startEllipsis = Math.min(
+        Math.max(currentPage - 2, 2),
+        numberOfPages - 5,
+    );
+    const centerPageNumberStart = Math.min(
+        startEllipsis + 1,
+        numberOfPages - 4,
+    );
+    const centerPageNumber = Math.min(
+        centerPageNumberStart + 1,
+        numberOfPages - 3,
+    );
+    const centerPageNumberEnd = Math.min(
+        centerPageNumberStart + 2,
+        numberOfPages - 2,
+    );
     const endEllipsis = Math.min(centerPageNumberStart + 3, numberOfPages - 1);
 
     return (
@@ -118,7 +142,10 @@ export const Pagination = React.forwardRef(function Pagination<ElementType exten
                     onClick={() => onPageChange(1, currentPage)}
                 />
                 {showStartEllipsis ? (
-                    <span aria-hidden className="jkl-pagination-button--elipsis">
+                    <span
+                        aria-hidden
+                        className="jkl-pagination-button--elipsis"
+                    >
                         {"..."}
                     </span>
                 ) : (
@@ -133,7 +160,9 @@ export const Pagination = React.forwardRef(function Pagination<ElementType exten
                     isActive={currentPage === centerPageNumberStart}
                     number={centerPageNumberStart}
                     total={numberOfPages}
-                    onClick={() => onPageChange(centerPageNumberStart, currentPage)}
+                    onClick={() =>
+                        onPageChange(centerPageNumberStart, currentPage)
+                    }
                 />
                 <PageButton
                     isActive={currentPage === centerPageNumber}
@@ -145,10 +174,15 @@ export const Pagination = React.forwardRef(function Pagination<ElementType exten
                     isActive={currentPage === centerPageNumberEnd}
                     number={centerPageNumberEnd}
                     total={numberOfPages}
-                    onClick={() => onPageChange(centerPageNumberEnd, currentPage)}
+                    onClick={() =>
+                        onPageChange(centerPageNumberEnd, currentPage)
+                    }
                 />
                 {showEndEllipsis ? (
-                    <span aria-hidden className="jkl-pagination-button--elipsis">
+                    <span
+                        aria-hidden
+                        className="jkl-pagination-button--elipsis"
+                    >
                         {"..."}
                     </span>
                 ) : (

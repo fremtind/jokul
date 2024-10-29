@@ -18,7 +18,11 @@ function throttle<R, A extends any[]>(fn: (...args: A) => R) {
     };
 }
 
-export const usePillStyles = (ref: RefObject<HTMLLabelElement>, shouldTransform: boolean, dependencies: unknown[]) => {
+export const usePillStyles = (
+    ref: RefObject<HTMLLabelElement>,
+    shouldTransform: boolean,
+    dependencies: unknown[],
+) => {
     const [width, setWidth] = useState(0);
     const [distance, setDistance] = useState(0);
 
@@ -27,7 +31,8 @@ export const usePillStyles = (ref: RefObject<HTMLLabelElement>, shouldTransform:
             setWidth(ref.current.clientWidth);
 
             const translateDistance = shouldTransform
-                ? ref.current.parentElement.clientWidth - ref.current.clientWidth
+                ? ref.current.parentElement.clientWidth -
+                  ref.current.clientWidth
                 : 0;
 
             setDistance(translateDistance);
@@ -39,9 +44,11 @@ export const usePillStyles = (ref: RefObject<HTMLLabelElement>, shouldTransform:
 
     useEffect(() => {
         setStyles();
-        typeof window !== "undefined" && window.addEventListener("resize", throttledSetStyles);
+        typeof window !== "undefined" &&
+            window.addEventListener("resize", throttledSetStyles);
         return () => {
-            typeof window !== "undefined" && window.removeEventListener("resize", throttledSetStyles);
+            typeof window !== "undefined" &&
+                window.removeEventListener("resize", throttledSetStyles);
         };
     }, [setStyles, throttledSetStyles]);
 

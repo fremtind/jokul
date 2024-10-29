@@ -1,6 +1,7 @@
 import { useEffect, useRef, RefObject } from "react";
 
-const hasWindowWithMutationObserver = () => typeof window !== "undefined" && typeof MutationObserver !== "undefined";
+const hasWindowWithMutationObserver = () =>
+    typeof window !== "undefined" && typeof MutationObserver !== "undefined";
 
 /**
  * Hook som gjør det enklere å sjekke en komponents children for endringer.

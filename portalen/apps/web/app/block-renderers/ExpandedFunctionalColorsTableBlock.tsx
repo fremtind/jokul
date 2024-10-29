@@ -1,4 +1,11 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@fremtind/jkl-table-react";
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@fremtind/jkl-table-react";
 import React from "react";
 import { hex, rgb } from "~/utils/colors";
 
@@ -29,7 +36,10 @@ export const ExpandedFunctionalColorsTableBlock = () => {
                         <TableCell>
                             <div className={`color-swatch--${color.value}`} />
                         </TableCell>
-                        <TableCell>{color.value.charAt(0).toUpperCase() + color.value.slice(1)}</TableCell>
+                        <TableCell>
+                            {color.value.charAt(0).toUpperCase() +
+                                color.value.slice(1)}
+                        </TableCell>
                         <TableCell>{color.hex.toUpperCase()}</TableCell>
                         <TableCell>{color.rgb}</TableCell>
                     </TableRow>

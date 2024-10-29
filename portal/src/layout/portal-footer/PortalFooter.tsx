@@ -22,7 +22,8 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
         <div className={cn("jkl-portal-footer", className)}>
             <div
                 className={cn("jkl-portal-footer__header", {
-                    "jkl-portal-footer__header--no-feedback": isFrontPage || consents.statistics !== "accepted",
+                    "jkl-portal-footer__header--no-feedback":
+                        isFrontPage || consents.statistics !== "accepted",
                 })}
             >
                 {!isFrontPage && consents.statistics === "accepted" && (
@@ -33,7 +34,8 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
                             {
                                 label: "Ja",
                                 value: "ja",
-                                textAreaLabel: "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
+                                textAreaLabel:
+                                    "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
                             },
                             {
                                 label: "Nei",
@@ -51,7 +53,8 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
                             children: (
                                 <>
                                     <p className="mb-12">
-                                        Spill gjerne inn på GitHub, eller delta på forum (hver tirsdag{" "}
+                                        Spill gjerne inn på GitHub, eller delta
+                                        på forum (hver tirsdag{" "}
                                         <time dateTime="14:00">kl. 14</time>)!
                                     </p>
                                     <a
@@ -71,17 +74,37 @@ export const PortalFooter: React.FC<PortalFooterProps> = ({ className }) => {
                         }}
                     />
                 )}
-                <LogoStamp className="jkl-portal-footer__stamp" animated title={TeknologiFraFremtind.displayName}>
+                <LogoStamp
+                    className="jkl-portal-footer__stamp"
+                    animated
+                    title={TeknologiFraFremtind.displayName}
+                >
                     <TeknologiFraFremtind />
                 </LogoStamp>
             </div>
             <Footer
                 heading="Jøkul er designsystemet til Fremtind Forsikring"
                 links={[
-                    { external: false, component: Cookies, title: "Bruk av informasjonskapsler" },
-                    { external: true, href: "https://www.fremtind.no/personvern/", title: "Personvernserklæring" },
-                    { external: true, href: "https://github.com/fremtind/jokul", title: "Jøkul på GitHub" },
-                    { external: true, href: "https://jobb.fremtind.no", title: "Jobb i Fremtind" },
+                    {
+                        external: false,
+                        component: Cookies,
+                        title: "Bruk av informasjonskapsler",
+                    },
+                    {
+                        external: true,
+                        href: "https://www.fremtind.no/personvern/",
+                        title: "Personvernserklæring",
+                    },
+                    {
+                        external: true,
+                        href: "https://github.com/fremtind/jokul",
+                        title: "Jøkul på GitHub",
+                    },
+                    {
+                        external: true,
+                        href: "https://jobb.fremtind.no",
+                        title: "Jobb i Fremtind",
+                    },
                 ]}
             />
         </div>

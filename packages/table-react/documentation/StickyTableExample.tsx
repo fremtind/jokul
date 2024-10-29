@@ -1,13 +1,34 @@
 import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../src";
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "../src";
 
-const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Milepæl", "Følger saken"];
+const columns = [
+    "Dato",
+    "Saksnummer",
+    "Kundenummer",
+    "Kundenavn",
+    "Milepæl",
+    "Følger saken",
+];
 
-const StickyTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const StickyTableExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const headless = boolValues?.["Skjul overskrift"];
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
+    const props =
+        type === "Liste"
+            ? { "data-collapse": "true", collapseToList: true }
+            : {};
 
     return (
         <div style={{ maxHeight: 200, overflow: "auto", padding: "0 16px" }}>
@@ -29,7 +50,11 @@ const StickyTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
                                 <TableCell
                                     key={cellIndex}
                                     data-th={columns[cellIndex]}
-                                    align={[1, 2].includes(cellIndex) ? "right" : "left"}
+                                    align={
+                                        [1, 2].includes(cellIndex)
+                                            ? "right"
+                                            : "left"
+                                    }
                                 >
                                     {cell}
                                 </TableCell>
@@ -43,23 +68,110 @@ const StickyTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
 };
 
 const rows = [
-    ["24.02.2020", "20-1234567", "010203 99887", "Ola Nordmann", "Opprettet", "Siri Saksbehandler"],
-    ["13.04.2019", "20-8382811", "010203 99887", "Kari Nordkvinne", "Opprettet", "Siri Saksbehandler"],
-    ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Opprettet", "Per Persen"],
-    ["24.02.2020", "20-1234567", "010203 99887", "Ola Nordmann", "Opprettet", "Siri Saksbehandler"],
-    ["13.04.2019", "20-8382811", "010203 99887", "Kari Nordkvinne", "Opprettet", "Siri Saksbehandler"],
-    ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Opprettet", "Per Persen"],
-    ["24.02.2020", "20-1234567", "010203 99887", "Ola Nordmann", "Opprettet", "Siri Saksbehandler"],
-    ["13.04.2019", "20-8382811", "010203 99887", "Kari Nordkvinne", "Opprettet", "Siri Saksbehandler"],
-    ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Opprettet", "Per Persen"],
-    ["24.02.2020", "20-1234567", "010203 99887", "Ola Nordmann", "Opprettet", "Siri Saksbehandler"],
-    ["13.04.2019", "20-8382811", "010203 99887", "Kari Nordkvinne", "Opprettet", "Siri Saksbehandler"],
-    ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Opprettet", "Per Persen"],
+    [
+        "24.02.2020",
+        "20-1234567",
+        "010203 99887",
+        "Ola Nordmann",
+        "Opprettet",
+        "Siri Saksbehandler",
+    ],
+    [
+        "13.04.2019",
+        "20-8382811",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Opprettet",
+        "Siri Saksbehandler",
+    ],
+    [
+        "31.07.2017",
+        "20-1111",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Opprettet",
+        "Per Persen",
+    ],
+    [
+        "24.02.2020",
+        "20-1234567",
+        "010203 99887",
+        "Ola Nordmann",
+        "Opprettet",
+        "Siri Saksbehandler",
+    ],
+    [
+        "13.04.2019",
+        "20-8382811",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Opprettet",
+        "Siri Saksbehandler",
+    ],
+    [
+        "31.07.2017",
+        "20-1111",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Opprettet",
+        "Per Persen",
+    ],
+    [
+        "24.02.2020",
+        "20-1234567",
+        "010203 99887",
+        "Ola Nordmann",
+        "Opprettet",
+        "Siri Saksbehandler",
+    ],
+    [
+        "13.04.2019",
+        "20-8382811",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Opprettet",
+        "Siri Saksbehandler",
+    ],
+    [
+        "31.07.2017",
+        "20-1111",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Opprettet",
+        "Per Persen",
+    ],
+    [
+        "24.02.2020",
+        "20-1234567",
+        "010203 99887",
+        "Ola Nordmann",
+        "Opprettet",
+        "Siri Saksbehandler",
+    ],
+    [
+        "13.04.2019",
+        "20-8382811",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Opprettet",
+        "Siri Saksbehandler",
+    ],
+    [
+        "31.07.2017",
+        "20-1111",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Opprettet",
+        "Per Persen",
+    ],
 ];
 
 export default StickyTableExample;
 
-export const stickyTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const stickyTableExampleCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => `
 <Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}} sticky>

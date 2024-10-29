@@ -26,13 +26,25 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
     const { prefersColorScheme } = useBrowserPreferences();
     const [style, setStyle] = useState(fremtindTheme);
 
-    useEffect(() => setStyle(prefersColorScheme === "dark" ? fremtindThemeDark : fremtindTheme), [prefersColorScheme]);
+    useEffect(
+        () =>
+            setStyle(
+                prefersColorScheme === "dark"
+                    ? fremtindThemeDark
+                    : fremtindTheme,
+            ),
+        [prefersColorScheme],
+    );
 
     return (
         <SyntaxHighlighter
             className="jkl-portal-code-block"
             style={style}
-            codeTagProps={{ style: {}, className: "jkl-portal-code-block__code", tabIndex: 0 }}
+            codeTagProps={{
+                style: {},
+                className: "jkl-portal-code-block__code",
+                tabIndex: 0,
+            }}
             language={language}
             data-language={language || undefined}
         >

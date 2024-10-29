@@ -1,5 +1,9 @@
 import React, { FC, ReactNode, useEffect, useRef, useState } from "react";
-import { PrimaryButton, SecondaryButton, TertiaryButton } from "../../button/Button.js";
+import {
+    PrimaryButton,
+    SecondaryButton,
+    TertiaryButton,
+} from "../../button/Button.js";
 import { useFeedbackContext } from "../feedbackContext.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
 import { FeedbackAnswer, FollowupQuestion } from "../types.js";
@@ -24,13 +28,22 @@ interface Props {
     onSubmit: (values: FeedbackAnswer[]) => void;
 }
 
-export const Followup: FC<Props> = ({ questions, successMessage = defaultSuccessMessage, onSubmit }) => {
+export const Followup: FC<Props> = ({
+    questions,
+    successMessage = defaultSuccessMessage,
+    onSubmit,
+}) => {
     const [noThanks, setNoThanks] = useState(false);
     const focusRef = useRef<HTMLParagraphElement>(null);
     const followupState = useFollowup(questions, onSubmit);
     const { handleAbort, handleNext, step, submitted } = followupState;
-    const { followupStarted, setFollowupStarted, setFollowupSubmitted, contactSubmitted, landmarkLabel } =
-        useFeedbackContext();
+    const {
+        followupStarted,
+        setFollowupStarted,
+        setFollowupSubmitted,
+        contactSubmitted,
+        landmarkLabel,
+    } = useFeedbackContext();
 
     useEffect(() => {
         if (step.number === 0) {
@@ -59,30 +72,54 @@ export const Followup: FC<Props> = ({ questions, successMessage = defaultSuccess
                             Har du tid til å svare på noen flere spørsmål?
                         </p>
                         <p className="jkl-body jkl-spacing-xl--bottom">
-                            Det tar kun et minutt, og hjelper oss å lage bedre løsninger for deg.
+                            Det tar kun et minutt, og hjelper oss å lage bedre
+                            løsninger for deg.
                         </p>
-                        <PrimaryButton onClick={() => setFollowupStarted(true)} className="jkl-spacing-xl--right">
+                        <PrimaryButton
+                            onClick={() => setFollowupStarted(true)}
+                            className="jkl-spacing-xl--right"
+                        >
                             Jeg har tid!
                         </PrimaryButton>
-                        <TertiaryButton onClick={() => setNoThanks(true)}>Nei takk</TertiaryButton>
+                        <TertiaryButton onClick={() => setNoThanks(true)}>
+                            Nei takk
+                        </TertiaryButton>
                     </div>
                 )}
                 {!submitted && followupStarted && (
-                    <form onSubmit={handleNext} className="jkl-feedback__fade-in" aria-label={landmarkLabel}>
-                        <p className="jkl-feedback__step-counter" ref={focusRef}>
+                    <form
+                        onSubmit={handleNext}
+                        className="jkl-feedback__fade-in"
+                        aria-label={landmarkLabel}
+                    >
+                        <p
+                            className="jkl-feedback__step-counter"
+                            ref={focusRef}
+                        >
                             Steg {step.number + 1} av {questions.length}
                         </p>
-                        {/* eslint-disable-next-line jsx-a11y/no-autofocus */}
-                        <QuestionComponent {...questions[step.number]} autoFocus key={step.number} />
+                        <QuestionComponent
+                            {...questions[step.number]}
+                            // eslint-disable-next-line jsx-a11y/no-autofocus
+                            autoFocus
+                            key={step.number}
+                        />
                         <div className="jkl-spacing-xl--top" aria-live="off">
-                            <Button type="submit">{step.isLast ? "Send inn" : "Neste"}</Button>
-                            <TertiaryButton onClick={handleAbort} className="jkl-spacing-xl--left">
+                            <Button type="submit">
+                                {step.isLast ? "Send inn" : "Neste"}
+                            </Button>
+                            <TertiaryButton
+                                onClick={handleAbort}
+                                className="jkl-spacing-xl--left"
+                            >
                                 Avbryt
                             </TertiaryButton>
                         </div>
                     </form>
                 )}
-                {submitted && !contactSubmitted && <FeedbackSuccess {...successMessage} />}
+                {submitted && !contactSubmitted && (
+                    <FeedbackSuccess {...successMessage} />
+                )}
             </FollowUpProvider>
         </div>
     );

@@ -1,6 +1,10 @@
 const DEFAULT_MAX_AGE = 10368000; // 120 days
 
-const setCookie = (name: string, content: any, maxAge = DEFAULT_MAX_AGE): void => {
+const setCookie = (
+    name: string,
+    content: any,
+    maxAge = DEFAULT_MAX_AGE,
+): void => {
     const cookie = [];
     cookie.push(`${name}=${JSON.stringify(content)}`);
     cookie.push(`max-age=${maxAge}`);
@@ -22,7 +26,10 @@ const hasCookie = (name: string, cookie = document.cookie): boolean => {
     return cookie.split(";").some((item) => item.trim().startsWith(`${name}=`));
 };
 
-const getCookie = (name: string, cookie = document.cookie): [string, string] | undefined => {
+const getCookie = (
+    name: string,
+    cookie = document.cookie,
+): [string, string] | undefined => {
     const nameValuePair = cookie
         .split(";")
         .map((s) => s.trim().split("="))

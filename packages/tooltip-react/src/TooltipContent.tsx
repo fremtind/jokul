@@ -1,4 +1,8 @@
-import { type Placement, useMergeRefs, FloatingPortal } from "@floating-ui/react";
+import {
+    type Placement,
+    useMergeRefs,
+    FloatingPortal,
+} from "@floating-ui/react";
 import { getThemeAndDensity } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
@@ -34,10 +38,10 @@ function getPositionAnimation(placement: Placement, value: number = 8) {
     }
 }
 
-export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(function TooltipContent(
-    { className, children, ...props },
-    forwardedRef,
-) {
+export const TooltipContent = forwardRef<
+    HTMLDivElement,
+    HTMLProps<HTMLDivElement>
+>(function TooltipContent({ className, children, ...props }, forwardedRef) {
     const {
         triggerOn,
         arrowElement,
@@ -54,7 +58,9 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
 
     // Siden tooltipet rendres på rot må vi hente lokal dark/light-verdi fra triggeren
     // Vi må gjøre dette for å ta hensyn til at tema kan styres lokalt for deler av UIet
-    const { density, theme } = getThemeAndDensity(refs.reference.current as HTMLElement);
+    const { density, theme } = getThemeAndDensity(
+        refs.reference.current as HTMLElement,
+    );
 
     return (
         <FloatingPortal>
@@ -63,7 +69,11 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                     {/* For å kunne bruke tekstinnholdet i tooltip som beskrivende tekst, selv når ikke
             tooltip er synlig, må vi rendre et skjult element å referere til for å hente innholdet. */}
                     {triggerOn === "hover" && (
-                        <span ref={refs.setDescription} hidden key={`${contentId}-trigger`}>
+                        <span
+                            ref={refs.setDescription}
+                            hidden
+                            key={`${contentId}-trigger`}
+                        >
                             {children}
                         </span>
                     )}
@@ -72,18 +82,34 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                             <m.span
                                 key={contentId}
                                 ref={ref}
-                                initial={{ opacity: 0, ...getPositionAnimation(placement, 5) }}
-                                animate={{ opacity: 1, ...getPositionAnimation(placement, 0) }}
+                                initial={{
+                                    opacity: 0,
+                                    ...getPositionAnimation(placement, 5),
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    ...getPositionAnimation(placement, 0),
+                                }}
                                 exit={{
                                     opacity: 0,
                                     ...getPositionAnimation(placement, -5),
-                                    transition: { ease: "easeIn", duration: 0.15 },
+                                    transition: {
+                                        ease: "easeIn",
+                                        duration: 0.15,
+                                    },
                                 }}
                                 transition={{ ease: "easeOut", duration: 0.25 }}
                                 data-placement={placement}
-                                aria-live={triggerOn === "click" ? "assertive" : undefined}
+                                aria-live={
+                                    triggerOn === "click"
+                                        ? "assertive"
+                                        : undefined
+                                }
                                 className={cn("jkl-tooltip-content", className)}
-                                {...getFloatingProps({ ...props, id: contentId })}
+                                {...getFloatingProps({
+                                    ...props,
+                                    id: contentId,
+                                })}
                                 style={{ ...floatingStyles }}
                                 data-theme={theme}
                                 data-layout-density={density}
@@ -94,8 +120,12 @@ export const TooltipContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElemen
                                     className="jkl-tooltip-content__arrow"
                                     ref={arrowElement}
                                     style={{
-                                        left: isPositioned ? `${arrow?.x}px` : "",
-                                        top: isPositioned ? `${arrow?.y}px` : "",
+                                        left: isPositioned
+                                            ? `${arrow?.x}px`
+                                            : "",
+                                        top: isPositioned
+                                            ? `${arrow?.y}px`
+                                            : "",
                                     }}
                                 />
                             </m.span>

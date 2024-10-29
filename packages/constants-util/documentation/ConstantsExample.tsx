@@ -7,7 +7,13 @@ const columns = ["Constant", "Verdi"];
 
 const rows = Object.entries(unicode).map((entry) => entry);
 
-export const Unicode: FC = () => <DataTable className="jkl-constant-example__table" columns={columns} rows={rows} />;
+export const Unicode: FC = () => (
+    <DataTable
+        className="jkl-constant-example__table"
+        columns={columns}
+        rows={rows}
+    />
+);
 
 export const ConstantsExample: FC = () => (
     <>

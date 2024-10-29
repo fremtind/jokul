@@ -1,5 +1,12 @@
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
-import { useRef, useState, forwardRef, RefObject, MutableRefObject, ReactElement } from "react";
+import {
+    useRef,
+    useState,
+    forwardRef,
+    RefObject,
+    MutableRefObject,
+    ReactElement,
+} from "react";
 
 type RenderFunction<T extends HTMLElement> = (
     ref: ((instance: T | null) => void) | MutableRefObject<T | null> | null,
@@ -20,7 +27,9 @@ export const VisibleDetector = forwardRef<HTMLDivElement, Props>(
 
         const onIntersect = (entries: IntersectionObserverEntry[]) => {
             // check if element is intersecting
-            const isIntersecting = entries.some((entry) => entry.isIntersecting);
+            const isIntersecting = entries.some(
+                (entry) => entry.isIntersecting,
+            );
 
             // trigger onLeave or onEnter if element left or entered
             if (isInViewport && !isIntersecting && onLeave) {
@@ -35,10 +44,16 @@ export const VisibleDetector = forwardRef<HTMLDivElement, Props>(
             setIsInViewport(isIntersecting);
         };
 
-        const fallback = () => console.log("IntersectionObserver not supported");
+        const fallback = () =>
+            console.log("IntersectionObserver not supported");
         const options = { rootMargin: "0px", threshold };
 
-        useIntersectionObserver(targetRef as RefObject<HTMLElement>, onIntersect, fallback, options);
+        useIntersectionObserver(
+            targetRef as RefObject<HTMLElement>,
+            onIntersect,
+            fallback,
+            options,
+        );
 
         return render(targetRef);
     },

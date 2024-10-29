@@ -11,7 +11,9 @@ interface Props extends WithChildren {
 
 export const Card: FC<Props> = ({ heading, link, children }) => {
     // right arrow for internal links, up/right for external links:
-    const arrow = link.startsWith("http") ? unicode.NORTH_EAST_ARROW : unicode.RIGHTWARDS_ARROW;
+    const arrow = link.startsWith("http")
+        ? unicode.NORTH_EAST_ARROW
+        : unicode.RIGHTWARDS_ARROW;
     const handleClick = () => navigate(link);
 
     return (

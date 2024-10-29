@@ -8,11 +8,14 @@ const ScreenContext = createContext<ReturnType<typeof useBrowserPreferences>>({
 });
 
 const BrowserPreferencesExample: FC = () => {
-    const { prefersReducedMotion, prefersColorScheme, forcedColors } = useContext(ScreenContext);
+    const { prefersReducedMotion, prefersColorScheme, forcedColors } =
+        useContext(ScreenContext);
 
     return (
         <section className="hooks-example key-listener-example jkl-spacing-2xl--bottom">
-            <h2 className="jkl-h2 jkl-spacing-xl--bottom">Preferanser fra nettleseren din</h2>
+            <h2 className="jkl-h2 jkl-spacing-xl--bottom">
+                Preferanser fra nettleseren din
+            </h2>
             <dl>
                 <dt>Redusert bevegelse</dt>
                 <dd>{prefersReducedMotion ? "Ja" : "Ingen preferanse"}</dd>
@@ -26,10 +29,13 @@ const BrowserPreferencesExample: FC = () => {
 };
 
 const Provider: FC = () => {
-    const { prefersColorScheme, prefersReducedMotion, forcedColors } = useBrowserPreferences();
+    const { prefersColorScheme, prefersReducedMotion, forcedColors } =
+        useBrowserPreferences();
 
     return (
-        <ScreenContext.Provider value={{ prefersReducedMotion, prefersColorScheme, forcedColors }}>
+        <ScreenContext.Provider
+            value={{ prefersReducedMotion, prefersColorScheme, forcedColors }}
+        >
             <BrowserPreferencesExample />
         </ScreenContext.Provider>
     );

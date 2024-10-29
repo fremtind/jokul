@@ -8,12 +8,15 @@ type Target =
     | RefObject<NodeListOf<ValidElement>>
     | NodeListOf<ValidElement>;
 
-function isNodeList(target: Target | ValidElement): target is NodeListOf<ValidElement> {
+function isNodeList(
+    target: Target | ValidElement,
+): target is NodeListOf<ValidElement> {
     return (target as NodeListOf<ValidElement>).forEach !== undefined;
 }
 
 const hasWindowWithIntersectionObserver = () =>
-    typeof window !== "undefined" && typeof IntersectionObserver !== "undefined";
+    typeof window !== "undefined" &&
+    typeof IntersectionObserver !== "undefined";
 
 /**
  * Hook som gjør det enkelt å observere om et element er synlig i viewporten.

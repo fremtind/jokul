@@ -34,7 +34,10 @@ async function updateHighlighterDimensions(
             width: elementRect.width,
             height: elementRect.height,
         }).forEach(([dimension, value]) => {
-            highlighter.style.setProperty(`--${camelToKebab(dimension)}`, `${value}px`);
+            highlighter.style.setProperty(
+                `--${camelToKebab(dimension)}`,
+                `${value}px`,
+            );
         });
     }
 }
@@ -44,7 +47,8 @@ export const HighlightExample: React.FC<HighlightExampleProps> = (props) => {
 
     const viewport = useRef<HTMLDivElement>(null);
     const highlighter = useRef<HTMLDivElement>(null);
-    const [highlightedElement, setHighlightedElement] = useState<HTMLElement | null>(null);
+    const [highlightedElement, setHighlightedElement] =
+        useState<HTMLElement | null>(null);
 
     useEffect(() => {
         // Skjul utheving dersom steg ikke er satt eller er minde enn 1
@@ -55,13 +59,21 @@ export const HighlightExample: React.FC<HighlightExampleProps> = (props) => {
             return;
         } else if (viewport.current) {
             // Oppdater state med uthevet element når step endrer seg
-            setHighlightedElement(viewport.current.querySelector<HTMLElement>(`[data-step="${step}"]`));
+            setHighlightedElement(
+                viewport.current.querySelector<HTMLElement>(
+                    `[data-step="${step}"]`,
+                ),
+            );
         }
     }, [step]);
 
     useEffect(() => {
         const handleUpdate = () =>
-            updateHighlighterDimensions(viewport.current, highlighter.current, highlightedElement);
+            updateHighlighterDimensions(
+                viewport.current,
+                highlighter.current,
+                highlightedElement,
+            );
         const handleResize = throttle(handleUpdate, 100);
 
         // Oppdater dimensjoner når uthevet element endres
@@ -86,7 +98,11 @@ export const HighlightExample: React.FC<HighlightExampleProps> = (props) => {
             data-hidden={hidden ? "hidden" : undefined}
             className={cn("jkl-portal-highlight-example", className)}
         >
-            <div id="highlighter" ref={highlighter} className="jkl-portal-highlight-example__highlighter" />
+            <div
+                id="highlighter"
+                ref={highlighter}
+                className="jkl-portal-highlight-example__highlighter"
+            />
             {children}
         </div>
     );

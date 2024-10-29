@@ -32,7 +32,9 @@ export const ProgressBarExample: FC = () => {
                     value={val}
                     onChange={(e) => setVal(parseInt(e.target.value, 10))}
                 />
-                <IconButton onClick={() => setVal(val + 10 > 100 ? 100 : val + 10)}>
+                <IconButton
+                    onClick={() => setVal(val + 10 > 100 ? 100 : val + 10)}
+                >
                     <ChevronRightIcon />
                 </IconButton>
             </div>

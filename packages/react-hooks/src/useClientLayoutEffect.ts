@@ -2,4 +2,6 @@
 
 import { useLayoutEffect } from "react";
 
-export const useClientLayoutEffect = globalThis?.document ? useLayoutEffect : () => {};
+export const useClientLayoutEffect = globalThis?.document
+    ? useLayoutEffect
+    : () => {};

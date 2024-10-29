@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useReducer, useState } from "react";
 import { tokens } from "../../core/index.js";
-import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils.js";
+import {
+    addMediaQueryListener,
+    getInitialMediaQueryMatch,
+    removeMediaQueryListener,
+} from "../mediaQueryUtils.js";
 import { ScreenAction, ActionType, reducer, ScreenState } from "./state.js";
 
 const { breakpoint } = tokens;
@@ -15,7 +19,10 @@ const MEDIA_RULES: Record<keyof ScreenState, string> = {
 };
 
 const createAction = (property: keyof ScreenState): ScreenAction => ({
-    type: property === "isLandscape" || property === "isPortrait" ? ActionType.orientation : ActionType.deviceSize,
+    type:
+        property === "isLandscape" || property === "isPortrait"
+            ? ActionType.orientation
+            : ActionType.deviceSize,
     property,
 });
 
@@ -61,7 +68,9 @@ export const useScreen = (): ScreenState => {
         if (!hasMounted || !window.matchMedia) {
             return;
         }
-        const eventListenerPairs: Array<[MediaQueryList, (e: MediaQueryListEvent) => void]> = [];
+        const eventListenerPairs: Array<
+            [MediaQueryList, (e: MediaQueryListEvent) => void]
+        > = [];
 
         Object.entries(MEDIA_RULES).forEach(([key, rule]) => {
             const queryList = window.matchMedia(rule);
@@ -71,7 +80,9 @@ export const useScreen = (): ScreenState => {
         });
 
         return () => {
-            eventListenerPairs.forEach(([queryList, listener]) => removeMediaQueryListener(queryList, listener));
+            eventListenerPairs.forEach(([queryList, listener]) =>
+                removeMediaQueryListener(queryList, listener),
+            );
         };
     }, [createListener, hasMounted]);
 

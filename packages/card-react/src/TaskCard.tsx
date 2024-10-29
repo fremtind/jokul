@@ -44,7 +44,10 @@ export const TaskCard: FC<TaskCardProps> = ({
         data-density={density}
         {...rest}
     >
-        <div className="jkl-task-card__content-wrapper" style={getPaddingStyles(padding)}>
+        <div
+            className="jkl-task-card__content-wrapper"
+            style={getPaddingStyles(padding)}
+        >
             {children}
         </div>
     </div>

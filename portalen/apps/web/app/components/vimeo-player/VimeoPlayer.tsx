@@ -1,6 +1,12 @@
 import { Loader } from "@fremtind/jkl-loader-react";
 import { usePreviousValue } from "@fremtind/jkl-react-hooks";
-import React, { type FC, useCallback, useEffect, useRef, useState } from "react";
+import React, {
+    type FC,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 
 export interface VimeoPlayerProps {
     title: string;
@@ -26,7 +32,10 @@ export const VimeoPlayer: FC<VimeoPlayerProps> = ({
         if (ref.current) {
             const method = play ? "pause" : "play";
             const playerData = { method };
-            ref.current.contentWindow?.postMessage(JSON.stringify(playerData), "*");
+            ref.current.contentWindow?.postMessage(
+                JSON.stringify(playerData),
+                "*",
+            );
         }
     }, [play]);
 
@@ -95,7 +104,11 @@ export const VimeoPlayer: FC<VimeoPlayerProps> = ({
             tabIndex={0}
         >
             {isActive && !playing && (
-                <Loader className="vimeo-player__loader" variant="small" textDescription="Venter på video" />
+                <Loader
+                    className="vimeo-player__loader"
+                    variant="small"
+                    textDescription="Venter på video"
+                />
             )}
             <iframe
                 tabIndex={-1}

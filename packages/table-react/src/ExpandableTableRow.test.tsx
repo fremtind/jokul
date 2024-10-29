@@ -93,11 +93,16 @@ describe("ExpandableTableRow", () => {
             const [isOpen, setIsOpen] = useState(false);
             return (
                 <>
-                    <button data-testid="controller" onClick={() => setIsOpen((value) => !value)}>
+                    <button
+                        data-testid="controller"
+                        onClick={() => setIsOpen((value) => !value)}
+                    >
                         Toggle
                     </button>
                     <Table fullWidth>
-                        <TableCaption srOnly>Tabell med ekspanderbare rader</TableCaption>
+                        <TableCaption srOnly>
+                            Tabell med ekspanderbare rader
+                        </TableCaption>
                         <TableHead>
                             <TableRow>
                                 <TableHeader>Header 1</TableHeader>
@@ -114,27 +119,51 @@ describe("ExpandableTableRow", () => {
                                     <Table fullWidth>
                                         <TableHead srOnly>
                                             <TableRow>
-                                                <TableHeader>Ekspandert 1</TableHeader>
-                                                <TableHeader>Ekspandert 2</TableHeader>
-                                                <TableHeader>Ekspandert 3</TableHeader>
-                                                <TableHeader>Ekspandert 4</TableHeader>
+                                                <TableHeader>
+                                                    Ekspandert 1
+                                                </TableHeader>
+                                                <TableHeader>
+                                                    Ekspandert 2
+                                                </TableHeader>
+                                                <TableHeader>
+                                                    Ekspandert 3
+                                                </TableHeader>
+                                                <TableHeader>
+                                                    Ekspandert 4
+                                                </TableHeader>
                                             </TableRow>
                                         </TableHead>
                                         <TableBody>
                                             <TableRow>
-                                                <TableCell>Hello, world 1!</TableCell>
-                                                <TableCell>Hello, world 2!</TableCell>
-                                                <TableCell>Hello, world 3!</TableCell>
-                                                <TableCell>Hello, world 4!</TableCell>
+                                                <TableCell>
+                                                    Hello, world 1!
+                                                </TableCell>
+                                                <TableCell>
+                                                    Hello, world 2!
+                                                </TableCell>
+                                                <TableCell>
+                                                    Hello, world 3!
+                                                </TableCell>
+                                                <TableCell>
+                                                    Hello, world 4!
+                                                </TableCell>
                                             </TableRow>
                                         </TableBody>
                                     </Table>
                                 }
                             >
-                                <TableCell data-th="Header 1">Celle 1</TableCell>
-                                <TableCell data-th="Header 2">Celle 2</TableCell>
-                                <TableCell data-th="Header 3">Celle 3</TableCell>
-                                <TableCell data-th="Header 4">Celle 4</TableCell>
+                                <TableCell data-th="Header 1">
+                                    Celle 1
+                                </TableCell>
+                                <TableCell data-th="Header 2">
+                                    Celle 2
+                                </TableCell>
+                                <TableCell data-th="Header 3">
+                                    Celle 3
+                                </TableCell>
+                                <TableCell data-th="Header 4">
+                                    Celle 4
+                                </TableCell>
                                 <ExpandableTableRowController data-th="Mer informasjon" />
                             </ExpandableTableRow>
                         </TableBody>

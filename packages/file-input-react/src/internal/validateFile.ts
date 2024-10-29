@@ -1,7 +1,11 @@
 import { formatBytes } from "@fremtind/jkl-formatters-util";
 import type { FileInputFileValidation } from "../types";
 
-export function validateFile(file: File, accept = "", maxSizeBytes?: number): FileInputFileValidation | undefined {
+export function validateFile(
+    file: File,
+    accept = "",
+    maxSizeBytes?: number,
+): FileInputFileValidation | undefined {
     const acceptStrings = accept
         .split(",")
         .map((s) => s.toLowerCase())
@@ -11,18 +15,26 @@ export function validateFile(file: File, accept = "", maxSizeBytes?: number): Fi
     let isValidFormat = acceptStrings.length === 0;
 
     isValidFormat = acceptStrings.reduce(
-        (found, acceptString) => found || file.type.includes(acceptString) || file.name.endsWith(acceptString),
+        (found, acceptString) =>
+            found ||
+            file.type.includes(acceptString) ||
+            file.name.endsWith(acceptString),
         isValidFormat,
     );
 
     if (!isValidFormat) {
-        return { type: "WRONG_TYPE", message: `Filtypen ${file.name?.split(".")[1] || ""} støttes ikke` };
+        return {
+            type: "WRONG_TYPE",
+            message: `Filtypen ${file.name?.split(".")[1] || ""} støttes ikke`,
+        };
     }
 
     if (typeof maxSizeBytes != "undefined" && file.size > maxSizeBytes) {
         return {
             type: "TOO_LARGE",
-            message: `Filen er ${formatBytes(file.size)}, men kan maksimalt være ${formatBytes(maxSizeBytes)}`,
+            message: `Filen er ${formatBytes(
+                file.size,
+            )}, men kan maksimalt være ${formatBytes(maxSizeBytes)}`,
         };
     }
 

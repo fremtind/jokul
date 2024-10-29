@@ -1,6 +1,10 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import { DatepickerExample, datepickerExampleKnobs, datepickerExampleCode } from "./DatepickerExample";
+import {
+    DatepickerExample,
+    datepickerExampleKnobs,
+    datepickerExampleCode,
+} from "./DatepickerExample";
 import "../../core/core.scss";
 import "../../datepicker/datepicker.scss";
 import "../../icon-button/icon-button.scss";

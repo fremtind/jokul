@@ -43,7 +43,10 @@ export const SubMenus: CollectionConfig = {
                     // så vi lar alltid feltet være gyldig selv om det er påkrevd.
                     validate: () => true,
                     hooks: {
-                        beforeValidate: [({ value, siblingData }) => value || slugify(siblingData.title)],
+                        beforeValidate: [
+                            ({ value, siblingData }) =>
+                                value || slugify(siblingData.title),
+                        ],
                     },
                 },
             ],

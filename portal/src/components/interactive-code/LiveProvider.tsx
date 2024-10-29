@@ -69,7 +69,11 @@ export interface LiveProviderProps extends WithChildren {
 
 export const LiveProvider: FC<LiveProviderProps> = (props) => {
     return (
-        <ReactLiveProvider code={props.code.trim()} scope={scope} transformCode={transformCode}>
+        <ReactLiveProvider
+            code={props.code.trim()}
+            scope={scope}
+            transformCode={transformCode}
+        >
             {props.children}
         </ReactLiveProvider>
     );

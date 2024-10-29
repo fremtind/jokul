@@ -1,20 +1,40 @@
 import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import ActionTableExample, { actionTableExampleKnobs } from "./ActionTableExample.js";
-import ClickableTableExample, { clickableTableExampleKnobs } from "./ClickableTableExample.js";
+import ActionTableExample, {
+    actionTableExampleKnobs,
+} from "./ActionTableExample.js";
+import ClickableTableExample, {
+    clickableTableExampleKnobs,
+} from "./ClickableTableExample.js";
 import DataTableExample, { dataTableExampleKnobs } from "./DataTableExample.js";
-import ExpandableTableExample, { expandableTableExampleKnobs } from "./ExpandableTableExample.js";
-import HeadlessTableExample, { headlessTableExampleKnobs } from "./HeadlessTableExample.js";
-import MobileListTableExample, { mobileListTableExampleKnobs } from "./MobileListTableExample.js";
+import ExpandableTableExample, {
+    expandableTableExampleKnobs,
+} from "./ExpandableTableExample.js";
+import HeadlessTableExample, {
+    headlessTableExampleKnobs,
+} from "./HeadlessTableExample.js";
+import MobileListTableExample, {
+    mobileListTableExampleKnobs,
+} from "./MobileListTableExample.js";
 import MobileScrollTableExample from "./MobileScrollTableExample.js";
-import { PaginatedTableExample, paginatedTableExamplesProps } from "./PaginatedTableExample.js";
-import { SortableTableExample, sortableTableExamplesProps } from "./SortableTableExample.js";
+import {
+    PaginatedTableExample,
+    paginatedTableExamplesProps,
+} from "./PaginatedTableExample.js";
+import {
+    SortableTableExample,
+    sortableTableExamplesProps,
+} from "./SortableTableExample.js";
 import StickyTableExample from "./StickyTableExample.js";
 
 export default function Example() {
     return (
         <>
-            <DevExample scrollable={true} title="Mobil: horisontal scroll" component={MobileScrollTableExample} />
+            <DevExample
+                scrollable={true}
+                title="Mobil: horisontal scroll"
+                component={MobileScrollTableExample}
+            />
             <DevExample
                 scrollable={true}
                 title="Mobil: tabell til liste"
@@ -51,7 +71,10 @@ export default function Example() {
                 component={ExpandableTableExample}
                 knobs={expandableTableExampleKnobs}
             />
-            <DevExample title="Tabell med sticky header" component={StickyTableExample} />
+            <DevExample
+                title="Tabell med sticky header"
+                component={StickyTableExample}
+            />
             <DevExample
                 scrollable={true}
                 title="Paginert"

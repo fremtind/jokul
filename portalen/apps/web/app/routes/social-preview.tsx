@@ -32,14 +32,26 @@ export async function loader({ request }: LoaderArgs) {
     }
 
     if (!fremtindGrotesk) {
-        fremtindGrotesk = await fs.readFile(path.join(process.cwd(), "public/fonts/FremtindGrotesk-Regular-Web.woff"));
+        fremtindGrotesk = await fs.readFile(
+            path.join(
+                process.cwd(),
+                "public/fonts/FremtindGrotesk-Regular-Web.woff",
+            ),
+        );
     }
     if (!fremtindGroteskBold) {
-        fremtindGroteskBold = await fs.readFile(path.join(process.cwd(), "public/fonts/FremtindGrotesk-Bold-Web.woff"));
+        fremtindGroteskBold = await fs.readFile(
+            path.join(
+                process.cwd(),
+                "public/fonts/FremtindGrotesk-Bold-Web.woff",
+            ),
+        );
     }
 
-    const backgroundColor = mode === "dark" ? tokens.color.granitt : tokens.color.dis;
-    const foregroundColor = mode === "dark" ? tokens.color.dis : tokens.color.granitt;
+    const backgroundColor =
+        mode === "dark" ? tokens.color.granitt : tokens.color.dis;
+    const foregroundColor =
+        mode === "dark" ? tokens.color.dis : tokens.color.granitt;
 
     const jsx = (
         <div
@@ -88,7 +100,11 @@ export async function loader({ request }: LoaderArgs) {
                 >
                     Jøkul
                 </p>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260.32 140.25" height="44px">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 260.32 140.25"
+                    height="44px"
+                >
                     <polygon
                         fill={foregroundColor}
                         points="248.27 138.54 257.75 129.06 130.11 1.42 2.56 128.97 12.41 138.82 72.29 78.94 132.17 138.83 141.66 129.34 81.78 69.45 130.48 20.75 248.27 138.54"

@@ -2,7 +2,10 @@ import clsx from "clsx";
 import React, { forwardRef, useEffect, useState } from "react";
 import { useAnimatedHeight } from "../../hooks/index.js";
 import { useId } from "../../hooks/useId/useId.js";
-import { ExpandableTableRowController, ExpandableTableRowControllerProps } from "./ExpandableTableRowController.js";
+import {
+    ExpandableTableRowController,
+    ExpandableTableRowControllerProps,
+} from "./ExpandableTableRowController.js";
 import { TableRow, TableRowProps } from "./TableRow.js";
 
 export interface ExpandableTableRowProps extends TableRowProps {
@@ -19,7 +22,10 @@ export interface ExpandableTableRowProps extends TableRowProps {
     onToggle?: (isOpen: boolean) => void;
 }
 
-const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowProps>((props, ref) => {
+const ExpandableTableRow = forwardRef<
+    HTMLTableRowElement,
+    ExpandableTableRowProps
+>((props, ref) => {
     const {
         className,
         clickable,
@@ -39,7 +45,9 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
         setIsOpen(isOpenProp);
     }, [isOpenProp]);
 
-    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, { timing: "expressive" });
+    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, {
+        timing: "expressive",
+    });
 
     const toggleOpen = () => {
         const newIsOpen = !isOpen;
@@ -55,12 +63,17 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
         ["jkl-table-row--expanded"]: isOpen,
         ["jkl-expandable-table-row--clickable-external"]: clickable,
     });
-    const childWrapperClassName = clsx("jkl-expandable-table-row__expanded-row", {
-        ["jkl-expandable-table-row__expanded-row--expanded"]: isOpen,
-    });
+    const childWrapperClassName = clsx(
+        "jkl-expandable-table-row__expanded-row",
+        {
+            ["jkl-expandable-table-row__expanded-row--expanded"]: isOpen,
+        },
+    );
 
     const tableRowId = useId("jkl-expandable-table-row");
-    const expandableTableRowControllerId = useId("jkl-expandable-table-row-controller");
+    const expandableTableRowControllerId = useId(
+        "jkl-expandable-table-row-controller",
+    );
 
     return (
         <>
@@ -76,15 +89,20 @@ const ExpandableTableRow = forwardRef<HTMLTableRowElement, ExpandableTableRowPro
             >
                 {React.Children.map(children, (child) => {
                     if (
-                        React.isValidElement<ExpandableTableRowControllerProps>(child) &&
+                        React.isValidElement<ExpandableTableRowControllerProps>(
+                            child,
+                        ) &&
                         child.type == ExpandableTableRowController
                     ) {
-                        return React.cloneElement<ExpandableTableRowControllerProps>(child, {
-                            isOpen,
-                            onClick: () => toggleOpen(),
-                            "aria-controls": tableRowId,
-                            id: expandableTableRowControllerId,
-                        });
+                        return React.cloneElement<ExpandableTableRowControllerProps>(
+                            child,
+                            {
+                                isOpen,
+                                onClick: () => toggleOpen(),
+                                "aria-controls": tableRowId,
+                                id: expandableTableRowControllerId,
+                            },
+                        );
                     } else {
                         return child;
                     }

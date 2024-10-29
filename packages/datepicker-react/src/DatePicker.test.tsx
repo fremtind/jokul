@@ -46,7 +46,9 @@ describe("Datepicker", () => {
     it("fires onChange method on edit input", async () => {
         const changeHandler = jest.fn();
 
-        const { user, getByTestId } = setup(<DatePicker onChange={changeHandler} />);
+        const { user, getByTestId } = setup(
+            <DatePicker onChange={changeHandler} />,
+        );
 
         await waitForPosition();
 
@@ -60,16 +62,22 @@ describe("Datepicker", () => {
         });
 
         expect(input).toHaveProperty("value", "01.12.2019");
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), expect.any(Date), {
-            error: null,
-            value: "01.12.2019",
-        });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            expect.any(Date),
+            {
+                error: null,
+                value: "01.12.2019",
+            },
+        );
     });
 
     it("fires onChange method on edit input with wrong format", async () => {
         const changeHandler = jest.fn();
 
-        const { user, getByTestId } = setup(<DatePicker onChange={changeHandler} />);
+        const { user, getByTestId } = setup(
+            <DatePicker onChange={changeHandler} />,
+        );
 
         await waitForPosition();
 
@@ -84,10 +92,14 @@ describe("Datepicker", () => {
 
         expect(input).toHaveProperty("value", "1.1");
 
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), null, {
-            error: "WRONG_FORMAT",
-            value: "1.1",
-        });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "1.1",
+            },
+        );
     });
 
     it("fires onChange method on edit input with date outside lower bound", async () => {
@@ -96,7 +108,10 @@ describe("Datepicker", () => {
         const lowerBound = new Date(2021, 8, 20);
 
         const { user, getByTestId } = setup(
-            <DatePicker onChange={changeHandler} disableBeforeDate={formatInput(lowerBound)} />,
+            <DatePicker
+                onChange={changeHandler}
+                disableBeforeDate={formatInput(lowerBound)}
+            />,
         );
 
         await waitForPosition();
@@ -110,10 +125,14 @@ describe("Datepicker", () => {
             await user.type(input, "19.09.2021");
         });
 
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), new Date(2021, 8, 19), {
-            error: "OUTSIDE_LOWER_BOUND",
-            value: "19.09.2021",
-        });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            new Date(2021, 8, 19),
+            {
+                error: "OUTSIDE_LOWER_BOUND",
+                value: "19.09.2021",
+            },
+        );
     });
 
     it("fires onChange method on edit input with date outside upper bound", async () => {
@@ -122,7 +141,10 @@ describe("Datepicker", () => {
         const upperBound = new Date(2021, 8, 20);
 
         const { user, getByTestId } = setup(
-            <DatePicker onChange={changeHandler} disableAfterDate={formatInput(upperBound)} />,
+            <DatePicker
+                onChange={changeHandler}
+                disableAfterDate={formatInput(upperBound)}
+            />,
         );
 
         await waitForPosition();
@@ -136,16 +158,22 @@ describe("Datepicker", () => {
             await user.type(input, "21.09.2021");
         });
 
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), new Date(2021, 8, 21), {
-            error: "OUTSIDE_UPPER_BOUND",
-            value: "21.09.2021",
-        });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            new Date(2021, 8, 21),
+            {
+                error: "OUTSIDE_UPPER_BOUND",
+                value: "21.09.2021",
+            },
+        );
     });
 
     it("fires onChange method when text input is cleared", async () => {
         const changeHandler = jest.fn();
 
-        const { user, getByTestId } = setup(<DatePicker onChange={changeHandler} />);
+        const { user, getByTestId } = setup(
+            <DatePicker onChange={changeHandler} />,
+        );
 
         await waitForPosition();
 
@@ -158,21 +186,31 @@ describe("Datepicker", () => {
             await user.type(input, "01.12.2019");
         });
 
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), new Date(2019, 11, 1), {
-            error: null,
-            value: "01.12.2019",
-        });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            new Date(2019, 11, 1),
+            {
+                error: null,
+                value: "01.12.2019",
+            },
+        );
 
         await act(async () => {
             await user.clear(input);
         });
 
         expect(input).toHaveProperty("value", "");
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), null, { error: null, value: "" });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            { error: null, value: "" },
+        );
     });
 
     it("should change date on new props", async () => {
-        const { container, getByTestId } = setup(<DatePicker value="02.02.2019" />);
+        const { container, getByTestId } = setup(
+            <DatePicker value="02.02.2019" />,
+        );
 
         setup(<DatePicker value="12.09.2019" />, { container });
 
@@ -184,7 +222,9 @@ describe("Datepicker", () => {
     });
 
     it("should close the datepicker when clicking outside the date picker", async () => {
-        const { user, getByTestId, queryByTestId } = setup(<DatePicker label="Some datepicker" />);
+        const { user, getByTestId, queryByTestId } = setup(
+            <DatePicker label="Some datepicker" />,
+        );
 
         expect(queryByTestId("jkl-calendar")).not.toBeInTheDocument();
 
@@ -204,7 +244,9 @@ describe("Datepicker", () => {
     });
 
     it("should keep focus on input field when clicking on the input field", async () => {
-        const { user, getByLabelText } = setup(<DatePicker label="Some datepicker" />);
+        const { user, getByLabelText } = setup(
+            <DatePicker label="Some datepicker" />,
+        );
 
         await waitForPosition();
 
@@ -220,7 +262,9 @@ describe("Datepicker", () => {
     it("should move focus to calendar button when opening datepicker with button", async () => {
         jest.setSystemTime(new Date(2019, 9, 20));
 
-        const { user, getByRole, getByLabelText } = setup(<DatePicker label="Some datepicker" />);
+        const { user, getByRole, getByLabelText } = setup(
+            <DatePicker label="Some datepicker" />,
+        );
 
         await waitForPosition();
 
@@ -242,7 +286,9 @@ describe("Datepicker", () => {
 
         const onChangeFn = jest.fn();
 
-        const { user, getByRole, getByLabelText } = setup(<DatePicker onChange={onChangeFn} />);
+        const { user, getByRole, getByLabelText } = setup(
+            <DatePicker onChange={onChangeFn} />,
+        );
 
         await waitForPosition();
 
@@ -253,10 +299,14 @@ describe("Datepicker", () => {
             await user.click(getByLabelText("31. oktober"));
         });
 
-        expect(onChangeFn).toHaveBeenCalledWith(expect.anything(), new Date(2019, 9, 31), {
-            error: null,
-            value: "31.10.2019",
-        });
+        expect(onChangeFn).toHaveBeenCalledWith(
+            expect.anything(),
+            new Date(2019, 9, 31),
+            {
+                error: null,
+                value: "31.10.2019",
+            },
+        );
         expect(onChangeFn).toHaveBeenCalledTimes(1);
     });
 
@@ -367,7 +417,10 @@ describe("Datepicker", () => {
 
     it("should have data-testautoid", async () => {
         const { getByTestId } = setup(
-            <DatePicker defaultValue="24.12.2019" data-testautoid="jkl-datepicker__testautoid" />,
+            <DatePicker
+                defaultValue="24.12.2019"
+                data-testautoid="jkl-datepicker__testautoid"
+            />,
         );
 
         await waitForPosition();
@@ -381,7 +434,11 @@ describe("Datepicker", () => {
 
     it("supports label only for screen readers", async () => {
         const { getByText } = setup(
-            <DatePicker defaultValue="24.12.2019" label="Hello" labelProps={{ srOnly: true }} />,
+            <DatePicker
+                defaultValue="24.12.2019"
+                label="Hello"
+                labelProps={{ srOnly: true }}
+            />,
         );
 
         await waitForPosition();
@@ -436,7 +493,9 @@ describe("Datepicker", () => {
             });
 
             expect(onBlur).toHaveBeenCalledTimes(1);
-            expect(onBlur.mock.calls[0][1]).toStrictEqual(new Date("01.01.2021"));
+            expect(onBlur.mock.calls[0][1]).toStrictEqual(
+                new Date("01.01.2021"),
+            );
         });
 
         it("should return correct date when pasting content", async () => {
@@ -473,7 +532,9 @@ describe("Datepicker", () => {
                     await user.click(getByText("Click"));
                 });
 
-                expect(onBlur.mock.lastCall?.[1]).toStrictEqual(new Date(returnDate));
+                expect(onBlur.mock.lastCall?.[1]).toStrictEqual(
+                    new Date(returnDate),
+                );
             }
         });
     });

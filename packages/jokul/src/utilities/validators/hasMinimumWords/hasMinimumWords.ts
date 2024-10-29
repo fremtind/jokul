@@ -8,5 +8,9 @@ export interface HasMinimumWordsOptions {
  * @param options Objekt med konfigurasjon for minimum antall ord som kreves
  * @returns Om verdien har minimum antall ord
  */
-export const hasMinimumWords = (value: string, options?: HasMinimumWordsOptions): boolean =>
-    value.split(" ").filter((str) => !["", " "].includes(str)).length >= (options?.minimumWords || 2);
+export const hasMinimumWords = (
+    value: string,
+    options?: HasMinimumWordsOptions,
+): boolean =>
+    value.split(" ").filter((str) => !["", " "].includes(str)).length >=
+    (options?.minimumWords || 2);

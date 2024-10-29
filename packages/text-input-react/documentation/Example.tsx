@@ -1,8 +1,20 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import { AutosuggestExample, autosuggestExampleCode, autosuggestExampleKnobs } from "./AutosuggestExample";
-import { TextAreaExample, textAreaExampleCode, textAreaExampleKnobs } from "./TextAreaExample";
-import { TextInputExample, textInputExampleCode, textInputExampleKnobs } from "./TextInputExample";
+import {
+    AutosuggestExample,
+    autosuggestExampleCode,
+    autosuggestExampleKnobs,
+} from "./AutosuggestExample";
+import {
+    TextAreaExample,
+    textAreaExampleCode,
+    textAreaExampleKnobs,
+} from "./TextAreaExample";
+import {
+    TextInputExample,
+    textInputExampleCode,
+    textInputExampleKnobs,
+} from "./TextInputExample";
 import "../../text-input/text-input.scss";
 import "../../icon-button/icon-button.scss";
 import "../../input-group/input-group.scss";

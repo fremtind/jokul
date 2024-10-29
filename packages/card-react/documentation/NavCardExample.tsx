@@ -14,11 +14,18 @@ const imageProps = {
     alt: "Nærbilde av strå, med en åker i bakgrunnen",
 };
 
-export const NavCardExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const NavCardExample: React.FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const image = boolValues?.["Image"] ? imageProps : undefined;
-    const tag = boolValues?.["Tag"] ? ({ type: "success", text: "Behandles" } as NavCardProps["tag"]) : undefined;
+    const tag = boolValues?.["Tag"]
+        ? ({ type: "success", text: "Behandles" } as NavCardProps["tag"])
+        : undefined;
     const description = boolValues?.["Description"] ? "Balder" : undefined;
-    const paddingChoice = (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") || "24";
+    const paddingChoice =
+        (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") ||
+        "24";
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
     const external = boolValues?.["Ekstern lenke"] ? true : undefined;
 
@@ -44,14 +51,23 @@ export const NavCardExample: React.FC<ExampleComponentProps> = ({ boolValues, ch
     );
 };
 
-export const navCardExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps) => {
+export const navCardExampleCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps) => {
     const image = boolValues?.["Image"]
         ? '\n    image={{ src:"wheat.jpg", alt:"Nærbilde av strå, med en åker i bakgrunnen" }}'
         : "";
-    const tag = boolValues?.["Tag"] ? '\n    tag={{ type: "success", text: "Behandles" }}' : "";
-    const description = boolValues?.["Description"] ? '\n    description="Balder"' : "";
+    const tag = boolValues?.["Tag"]
+        ? '\n    tag={{ type: "success", text: "Behandles" }}'
+        : "";
+    const description = boolValues?.["Description"]
+        ? '\n    description="Balder"'
+        : "";
     const paddingChoice = choiceValues?.["Padding"] || "l";
-    const external = boolValues?.["Ekstern lenke"] ? "\n    external={true}" : "";
+    const external = boolValues?.["Ekstern lenke"]
+        ? "\n    external={true}"
+        : "";
     const padding =
         paddingChoice === "blandet"
             ? `{{

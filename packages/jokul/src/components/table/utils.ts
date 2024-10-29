@@ -1,13 +1,20 @@
 import { TableSortDirection } from "./TableHeader.js";
 
-export type TableSortProps = ReturnType<ReturnType<typeof useSortableTableHeader>["getSortProps"]>["sortable"];
+export type TableSortProps = ReturnType<
+    ReturnType<typeof useSortableTableHeader>["getSortProps"]
+>["sortable"];
 
 export const useSortableTableHeader = (
     activeSortKey: string,
     activeSortDirection: TableSortDirection,
-    onChange: (newSortKey: string, newSortDirection: TableSortDirection) => void,
+    onChange: (
+        newSortKey: string,
+        newSortDirection: TableSortDirection,
+    ) => void,
 ) => {
-    const calculateNewSortParameters = (sortKey: string): TableSortDirection => {
+    const calculateNewSortParameters = (
+        sortKey: string,
+    ): TableSortDirection => {
         if (sortKey === activeSortKey && activeSortDirection === "desc") {
             return "asc";
         }
@@ -24,7 +31,8 @@ export const useSortableTableHeader = (
         return {
             sortable: {
                 onClick: () => handleClick(sortKey),
-                direction: activeSortKey === sortKey ? activeSortDirection : undefined,
+                direction:
+                    activeSortKey === sortKey ? activeSortDirection : undefined,
             },
         };
     };

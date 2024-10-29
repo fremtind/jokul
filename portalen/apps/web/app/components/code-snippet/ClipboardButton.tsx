@@ -1,6 +1,11 @@
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { CheckIcon } from "@fremtind/jkl-icons-react";
-import { Tooltip, TooltipContent, TooltipTrigger, type TooltipPlacement } from "@fremtind/jkl-tooltip-react";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+    type TooltipPlacement,
+} from "@fremtind/jkl-tooltip-react";
 import React, { type FC } from "react";
 import { CopyIcon } from "./CopyIcon";
 
@@ -26,7 +31,10 @@ export const ClipboardButton: FC<ClipboardProps> = ({ target }) => {
                     </IconButton>
                 </TooltipTrigger>
                 <TooltipContent>
-                    <div aria-live="assertive" className="clipboard-button__tooltip-content">
+                    <div
+                        aria-live="assertive"
+                        className="clipboard-button__tooltip-content"
+                    >
                         Kopiert <CheckIcon />
                     </div>
                 </TooltipContent>

@@ -6,7 +6,10 @@ export { TableCell } from "./TableCell";
 export { TableColumn } from "./TableColumn";
 export { TableColumnGroup } from "./TableColumnGroup";
 export { useTableContext, TableContextProvider } from "./tableContext";
-export { useTableSectionContext, TableSectionContextProvider } from "./tableSectionContext";
+export {
+    useTableSectionContext,
+    TableSectionContextProvider,
+} from "./tableSectionContext";
 export { TableFooter } from "./TableFooter";
 export { TableHead } from "./TableHead";
 export { TableHeader } from "./TableHeader";

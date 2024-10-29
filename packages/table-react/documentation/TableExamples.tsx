@@ -1,7 +1,11 @@
 import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-import ActionTableExample, { actionTableExampleCode } from "./ActionTableExample";
-import ClickableTableExample, { clickableTableExampleCode } from "./ClickableTableExample";
+import ActionTableExample, {
+    actionTableExampleCode,
+} from "./ActionTableExample";
+import ClickableTableExample, {
+    clickableTableExampleCode,
+} from "./ClickableTableExample";
 import TableExample, { tableExampleCode } from "./TableExample";
 
 export const tableExamplesProps = {
@@ -20,7 +24,10 @@ export const tableExamplesProps = {
     ],
 };
 
-const TableExamples: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const TableExamples: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const action = choiceValues?.["Variant"] === "Med handling";
     const clickable = choiceValues?.["Variant"] === "Klikkbar rad";
 
@@ -36,7 +43,10 @@ const TableExamples: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) 
 
 export default TableExamples;
 
-export const tableExamplesCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
+export const tableExamplesCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => {
     const action = choiceValues?.["Variant"] === "Med handling";
     const clickable = choiceValues?.["Variant"] === "Klikkbar rad";
 

@@ -8,7 +8,15 @@ import { Tag } from "@fremtind/jkl-tag-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { motion } from "framer-motion";
 import { Link as GatsbyLink } from "gatsby";
-import React, { ChangeEvent, FC, useCallback, useContext, useMemo, useRef, useState } from "react";
+import React, {
+    ChangeEvent,
+    FC,
+    useCallback,
+    useContext,
+    useMemo,
+    useRef,
+    useState,
+} from "react";
 import { a11yContext } from "../../a11yContext";
 import { UUContent, uuContent, UUTagType } from "./uu-content";
 import { getCriteriaById } from "./wcag";
@@ -52,7 +60,8 @@ export const UU: FC = () => {
 
     const handleClear = () => setSearch("");
 
-    const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
+    const onSearchChange = (e: ChangeEvent<HTMLInputElement>) =>
+        setSearch(e.target.value);
 
     const onTagChange = (e: ChangeEvent<HTMLInputElement>) => {
         const _t = { ...tagFilter };
@@ -66,10 +75,9 @@ export const UU: FC = () => {
     const filterByTag = useCallback(
         (node: UUContent) => {
             // find tags where checked is true, and make it into a tuple
-            const checkedTags = Object.entries(tagFilter).filter(([, { checked }]) => checked) as [
-                UUTagType,
-                { checked: boolean },
-            ][];
+            const checkedTags = Object.entries(tagFilter).filter(
+                ([, { checked }]) => checked,
+            ) as [UUTagType, { checked: boolean }][];
 
             // if no filter is set, #nofilter
             if (checkedTags.length === 0) {
@@ -77,15 +85,23 @@ export const UU: FC = () => {
             }
 
             // check if any checked tag matches a tag in the node
-            return node.tags.some((t) => checkedTags.find(([filterTag, { checked }]) => filterTag === t && checked));
+            return node.tags.some((t) =>
+                checkedTags.find(
+                    ([filterTag, { checked }]) => filterTag === t && checked,
+                ),
+            );
         },
         [tagFilter],
     );
 
     const filterBySearch = useCallback(
         (node: UUContent) => {
-            const titleMatch = node.title.toLowerCase().includes(search.toLowerCase());
-            const wcagMatch = node.wcagRules ? node.wcagRules.includes(search) : true;
+            const titleMatch = node.title
+                .toLowerCase()
+                .includes(search.toLowerCase());
+            const wcagMatch = node.wcagRules
+                ? node.wcagRules.includes(search)
+                : true;
             return titleMatch || wcagMatch;
         },
         [search],
@@ -94,7 +110,9 @@ export const UU: FC = () => {
     // check if a filter is enabled
     const hasFilter = useMemo(() => {
         const hasSearchFilter = !!search;
-        const hasTagsFilter = !!Object.entries(tagFilter).filter(([, { checked }]) => checked).length;
+        const hasTagsFilter = !!Object.entries(tagFilter).filter(
+            ([, { checked }]) => checked,
+        ).length;
 
         return hasSearchFilter || hasTagsFilter;
     }, [search, tagFilter]);
@@ -112,16 +130,27 @@ export const UU: FC = () => {
             <section className="uu__section--search">
                 <FieldGroup legend="Hva inneholder løsningen din?">
                     {Object.entries(tagFilter).map(([tag, { checked }]) => (
-                        <Checkbox name="uu-area-tag" value={tag} key={tag} checked={checked} onChange={onTagChange}>
+                        <Checkbox
+                            name="uu-area-tag"
+                            value={tag}
+                            key={tag}
+                            checked={checked}
+                            onChange={onTagChange}
+                        >
                             {tagMap[tag as UUTagType]}
                         </Checkbox>
                     ))}
                 </FieldGroup>
 
-                <PrimaryButton onClick={scrollToResults}>Vis resultat</PrimaryButton>
+                <PrimaryButton onClick={scrollToResults}>
+                    Vis resultat
+                </PrimaryButton>
             </section>
 
-            <section className="uu__section--search-results" ref={resultWrapperRef}>
+            <section
+                className="uu__section--search-results"
+                ref={resultWrapperRef}
+            >
                 <TextInput
                     width="316px"
                     label="Søk"
@@ -130,7 +159,15 @@ export const UU: FC = () => {
                     value={search}
                     onChange={onSearchChange}
                     className="uu__filter-search"
-                    action={hasFilter ? { icon: <CloseIcon />, label: "Fjern søk", onClick: handleClear } : undefined}
+                    action={
+                        hasFilter
+                            ? {
+                                  icon: <CloseIcon />,
+                                  label: "Fjern søk",
+                                  onClick: handleClear,
+                              }
+                            : undefined
+                    }
                     aria-label="Søk i artikler"
                 />
 
@@ -141,7 +178,10 @@ export const UU: FC = () => {
                         filteredNodes.map((node) => (
                             <motion.li
                                 key={node.id}
-                                initial={{ y: prefersReducedMotion ? 0 : -40, opacity: 0 }}
+                                initial={{
+                                    y: prefersReducedMotion ? 0 : -40,
+                                    opacity: 0,
+                                }}
                                 animate={{
                                     y: 0,
                                     opacity: 1,
@@ -158,7 +198,10 @@ export const UU: FC = () => {
                                     transition: { duration: 0.2 },
                                 }}
                             >
-                                <GatsbyLink to={`#${node.id}`} className="jkl-link">
+                                <GatsbyLink
+                                    to={`#${node.id}`}
+                                    className="jkl-link"
+                                >
                                     {node.title}
                                 </GatsbyLink>
                             </motion.li>
@@ -171,9 +214,16 @@ export const UU: FC = () => {
                             <h3 className="uu-article__heading" id={node.id}>
                                 {node.title}
                             </h3>
-                            <ul className="uu-article__tags" aria-label="Artikkel tags">
+                            <ul
+                                className="uu-article__tags"
+                                aria-label="Artikkel tags"
+                            >
                                 {node.tags.map((t) => (
-                                    <li key={t} /* className="uu-article__header__tag" */>
+                                    <li
+                                        key={
+                                            t
+                                        } /* className="uu-article__header__tag" */
+                                    >
                                         <Tag>{tagMap[t]}</Tag>
                                     </li>
                                 ))}
@@ -204,7 +254,13 @@ export const UU: FC = () => {
                                 <ul className="uu-article__links">
                                     {node.links?.map(([label, url]) => (
                                         <li key={url}>
-                                            <Link href={url} external={!url.startsWith("/") && !url.startsWith("#")}>
+                                            <Link
+                                                href={url}
+                                                external={
+                                                    !url.startsWith("/") &&
+                                                    !url.startsWith("#")
+                                                }
+                                            >
                                                 {label}
                                             </Link>
                                         </li>

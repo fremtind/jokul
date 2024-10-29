@@ -3,7 +3,8 @@ import { Density } from "../../core/types.js";
 import { FieldGroup, type FieldGroupProps } from "../input-group/FieldGroup.js";
 import { RadioGroupContextProvider } from "./radioGroupContext.js";
 
-export interface RadioButtonGroupProps extends Omit<FieldGroupProps, "onChange"> {
+export interface RadioButtonGroupProps
+    extends Omit<FieldGroupProps, "onChange"> {
     legend: string;
     /** Alle RadioButton i gruppen får dette som name. */
     name?: string;

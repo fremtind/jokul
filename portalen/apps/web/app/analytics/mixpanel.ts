@@ -23,7 +23,9 @@ export class MixpanelBackend implements AnalyticsBackend {
         this.options = Object.freeze({ ...options });
     }
 
-    private normalizeResponse(response: 1 | 0 | { status: 0 | 1; error: string | null }): TrackResponse {
+    private normalizeResponse(
+        response: 1 | 0 | { status: 0 | 1; error: string | null },
+    ): TrackResponse {
         if (response === 1) {
             return {
                 backend: this.name,
@@ -74,18 +76,25 @@ export class MixpanelBackend implements AnalyticsBackend {
         mixpanel.init(this.options.trackingId, initOptions);
     }
 
-    async optIn<T extends Partial<OptInOptions>>(options?: T | undefined): Promise<void> {
+    async optIn<T extends Partial<OptInOptions>>(
+        options?: T | undefined,
+    ): Promise<void> {
         mixpanel.opt_in_tracking({
             persistence_type: "cookie",
             ...options,
         });
     }
 
-    async optOut<T extends Partial<OptOutOptions>>(options?: T | undefined): Promise<void> {
+    async optOut<T extends Partial<OptOutOptions>>(
+        options?: T | undefined,
+    ): Promise<void> {
         mixpanel.opt_out_tracking(options);
     }
 
-    async register<T extends Register, O extends RegisterOptions>(register: T, options?: O): Promise<void> {
+    async register<T extends Register, O extends RegisterOptions>(
+        register: T,
+        options?: O,
+    ): Promise<void> {
         mixpanel.register(
             register.properties,
             // @ts-ignore Options godtar egentlig også { persistent: false } i følge docs, men typet til kun number.
@@ -99,9 +108,13 @@ export class MixpanelBackend implements AnalyticsBackend {
 
     async track<T extends Trackable>(trackable: T): Promise<void> {
         await new Promise((resolve) => {
-            mixpanel.track(trackable.eventName, trackable.properties, (response) => {
-                resolve(this.normalizeResponse(response));
-            });
+            mixpanel.track(
+                trackable.eventName,
+                trackable.properties,
+                (response) => {
+                    resolve(this.normalizeResponse(response));
+                },
+            );
         });
     }
 }

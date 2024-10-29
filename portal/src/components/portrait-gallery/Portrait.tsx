@@ -13,7 +13,9 @@ export const Portrait: FC<PortraitProps> = ({ children, name, title }) => {
     return (
         <figure className="jkl-portal-portrait">
             {children}
-            <figcaption className="jkl-portal-portrait__caption">{caption}</figcaption>
+            <figcaption className="jkl-portal-portrait__caption">
+                {caption}
+            </figcaption>
         </figure>
     );
 };

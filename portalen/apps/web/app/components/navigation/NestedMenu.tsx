@@ -10,13 +10,20 @@ type NestedMenuProps = SubMenu & {
     parentPath?: string;
 };
 
-export const NestedMenu: FC<NestedMenuProps> = ({ slug, title, items, parentPath }) => {
+export const NestedMenu: FC<NestedMenuProps> = ({
+    slug,
+    title,
+    items,
+    parentPath,
+}) => {
     const { pathname } = useLocation();
     const toggleMenu = () => setIsOpen((prevValue) => !prevValue);
     const menuId = useId("jkl-portal-nested-menu");
 
     const fullPath = [parentPath, slug].filter(Boolean).join("/");
-    const hasActiveChild = pathname.startsWith(`/${fullPath}`) && pathname.charAt(`/${fullPath}`.length) === "/";
+    const hasActiveChild =
+        pathname.startsWith(`/${fullPath}`) &&
+        pathname.charAt(`/${fullPath}`.length) === "/";
 
     const { setOpen: setGlobalOpen } = useNavigationMenu();
     // Menyen starter åpen hvis du kommer rett til en underside i den
@@ -70,7 +77,10 @@ export const NestedMenu: FC<NestedMenuProps> = ({ slug, title, items, parentPath
                         if (item.relationTo === "sub-menus") {
                             return (
                                 <li key={index}>
-                                    <NestedMenu {...item.value} parentPath={fullPath} />
+                                    <NestedMenu
+                                        {...item.value}
+                                        parentPath={fullPath}
+                                    />
                                 </li>
                             );
                         }

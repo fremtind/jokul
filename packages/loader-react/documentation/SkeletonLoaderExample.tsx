@@ -1,5 +1,9 @@
 import React, { FC } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../doc-utils";
 import {
     SkeletonAnimation,
     SkeletonButton,
@@ -41,10 +45,17 @@ export const SkeletonLoaderExample: FC<ExampleComponentProps> = () => {
                     {Array.from(Array(5)).map((_, index) => (
                         <SkeletonTableRow key={index}>
                             <div style={{ width: 215 }}>
-                                <SkeletonElement width={index % 2 ? 115 : 185} height={19} />
+                                <SkeletonElement
+                                    width={index % 2 ? 115 : 185}
+                                    height={19}
+                                />
                             </div>
                             <div style={{ width: 115 }}>
-                                <SkeletonElement width={24} height={24} shape="circle" />
+                                <SkeletonElement
+                                    width={24}
+                                    height={24}
+                                    shape="circle"
+                                />
                             </div>
                         </SkeletonTableRow>
                     ))}

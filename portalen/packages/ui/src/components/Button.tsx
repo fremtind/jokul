@@ -54,7 +54,12 @@ type ButtonProps = {
     [x: string]: any;
 };
 
-export function Button({ as = "button", size = "medium", color = "light", ...rest }: ButtonProps): JSX.Element {
+export function Button({
+    as = "button",
+    size = "medium",
+    color = "light",
+    ...rest
+}: ButtonProps): JSX.Element {
     // Using regular styles here for simplicity
     const Component = as;
     const styles = {

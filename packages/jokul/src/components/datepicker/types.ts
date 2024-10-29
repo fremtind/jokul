@@ -1,9 +1,17 @@
-import type { ButtonHTMLAttributes, ChangeEvent, FocusEvent, KeyboardEvent } from "react";
+import type {
+    ButtonHTMLAttributes,
+    ChangeEvent,
+    FocusEvent,
+    KeyboardEvent,
+} from "react";
 import { DataTestAutoId, Density } from "../../core/types.js";
 import { InputGroupProps } from "../input-group/InputGroup.js";
 import { LabelProps } from "../input-group/Label.js";
 
-export type DateValidationError = "WRONG_FORMAT" | "OUTSIDE_LOWER_BOUND" | "OUTSIDE_UPPER_BOUND";
+export type DateValidationError =
+    | "WRONG_FORMAT"
+    | "OUTSIDE_LOWER_BOUND"
+    | "OUTSIDE_UPPER_BOUND";
 
 export type DatePickerChangeEventHandler = (
     e: ChangeEvent<HTMLInputElement>,
@@ -33,7 +41,9 @@ export type DatePickerMetadata = {
 
 export type YearsToShow = number | "all" | { previous: number; coming: number };
 
-export interface DatePickerProps extends Omit<InputGroupProps, "label" | "children">, DataTestAutoId {
+export interface DatePickerProps
+    extends Omit<InputGroupProps, "label" | "children">,
+        DataTestAutoId {
     /** Settes på rotnivå. */
     id?: string;
     /** Settes på rotnivå. */
@@ -284,4 +294,5 @@ export interface DatePickerProps extends Omit<InputGroupProps, "label" | "childr
     hideCalendarLabel?: string;
 }
 
-export interface DatePickerAction extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {}
+export interface DatePickerAction
+    extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {}

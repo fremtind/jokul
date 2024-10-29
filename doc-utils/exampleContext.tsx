@@ -11,12 +11,16 @@ const exampleContext = createContext<ExampleContext>({
     theme: "light",
 });
 
-export const useExampleContext = (): ExampleContext => useContext(exampleContext);
+export const useExampleContext = (): ExampleContext =>
+    useContext(exampleContext);
 
 interface Props extends WithChildren {
     state: ExampleContext;
 }
 
-export const ExampleContextProvider: React.FC<Props> = ({ state, children }) => (
+export const ExampleContextProvider: React.FC<Props> = ({
+    state,
+    children,
+}) => (
     <exampleContext.Provider value={state}>{children}</exampleContext.Provider>
 );

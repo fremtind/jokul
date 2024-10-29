@@ -1,7 +1,18 @@
-import { Dispatch, FormEvent, SetStateAction, useCallback, useEffect, useRef, useState } from "react";
+import {
+    Dispatch,
+    FormEvent,
+    SetStateAction,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import { FeedbackAnswer, FeedbackOption, FollowupQuestion } from "../types";
 
-type CurrentValue = FeedbackOption<string | number> | FeedbackOption<string | number>[] | undefined;
+type CurrentValue =
+    | FeedbackOption<string | number>
+    | FeedbackOption<string | number>[]
+    | undefined;
 
 type Followup = {
     questions: FollowupQuestion[];
@@ -18,7 +29,10 @@ type Followup = {
     handleAbort: () => void;
 };
 
-export const useFollowup = (questions: FollowupQuestion[], onSubmit: (a: FeedbackAnswer[]) => void): Followup => {
+export const useFollowup = (
+    questions: FollowupQuestion[],
+    onSubmit: (a: FeedbackAnswer[]) => void,
+): Followup => {
     const [values, setValues] = useState<FeedbackAnswer[]>();
     const [step, setStep] = useState({
         number: 0,
@@ -27,7 +41,9 @@ export const useFollowup = (questions: FollowupQuestion[], onSubmit: (a: Feedbac
     });
     const [shouldSubmit, setShouldSubmit] = useState(false);
     const [submitted, setSubmitted] = useState(false);
-    const [currentValue, setCurrentValue] = useState<FeedbackOption | FeedbackOption[]>();
+    const [currentValue, setCurrentValue] = useState<
+        FeedbackOption | FeedbackOption[]
+    >();
 
     // Store info in a ref to facilitate autosubmit on component unmount,
     // or when leaving page
@@ -48,7 +64,10 @@ export const useFollowup = (questions: FollowupQuestion[], onSubmit: (a: Feedbac
 
     // General method for submitting info
     const _handleSubmit = useCallback(() => {
-        if (!followupRef.current.submitted && followupRef.current.values !== undefined) {
+        if (
+            !followupRef.current.submitted &&
+            followupRef.current.values !== undefined
+        ) {
             followupRef.current.onSubmit(followupRef.current.values);
         }
     }, []);
@@ -68,7 +87,10 @@ export const useFollowup = (questions: FollowupQuestion[], onSubmit: (a: Feedbac
         };
 
         setValues((oldValues) => {
-            const filteredValues = oldValues?.filter((oldValue) => oldValue.name !== newValue.name) || [];
+            const filteredValues =
+                oldValues?.filter(
+                    (oldValue) => oldValue.name !== newValue.name,
+                ) || [];
             return [...filteredValues, newValue as FeedbackAnswer];
         });
         setCurrentValue(undefined);
@@ -118,5 +140,14 @@ export const useFollowup = (questions: FollowupQuestion[], onSubmit: (a: Feedbac
         };
     }, [_handleSubmit]);
 
-    return { questions, values, step, currentValue, setCurrentValue, submitted, handleNext, handleAbort };
+    return {
+        questions,
+        values,
+        step,
+        currentValue,
+        setCurrentValue,
+        submitted,
+        handleNext,
+        handleAbort,
+    };
 };

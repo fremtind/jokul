@@ -51,7 +51,10 @@ describe("Feedback", () => {
         await screen.findByTestId("feedback");
 
         expect(mockFn).toBeCalledTimes(1);
-        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", intentionalSubmit: true });
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({
+            feedbackValue: "ja",
+            intentionalSubmit: true,
+        });
     });
 
     it("calls onSubmit function with feedback value and message", async () => {
@@ -59,7 +62,10 @@ describe("Feedback", () => {
 
         await act(async () => {
             await userEvent.click(screen.getByText("Ja"));
-            await userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+            await userEvent.type(
+                screen.getByTestId("jkl-feedback__open-question"),
+                "This is very nice",
+            );
             await userEvent.click(screen.getByText("Send"));
         });
 
@@ -78,7 +84,10 @@ describe("Feedback", () => {
 
         await act(async () => {
             await userEvent.click(screen.getByText("Ja"));
-            await userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+            await userEvent.type(
+                screen.getByTestId("jkl-feedback__open-question"),
+                "This is very nice",
+            );
             await userEvent.click(screen.getByText("Nei"));
             await userEvent.click(screen.getByText("Send"));
         });
@@ -93,7 +102,9 @@ describe("Feedback", () => {
     });
 
     it("calls onSubmit function if the component is unmounted", async () => {
-        const { unmount } = render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
+        const { unmount } = render(
+            <Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />,
+        );
 
         await act(async () => {
             await userEvent.click(screen.getByText("Ja"));
@@ -104,7 +115,9 @@ describe("Feedback", () => {
     });
 
     it("sets intentionalSubmit to false if submitted on unload", async () => {
-        const { unmount } = render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
+        const { unmount } = render(
+            <Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />,
+        );
 
         await act(async () => {
             await userEvent.click(screen.getByText("Ja"));
@@ -112,29 +125,45 @@ describe("Feedback", () => {
         unmount();
 
         expect(mockFn).toBeCalledTimes(1);
-        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", intentionalSubmit: false });
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({
+            feedbackValue: "ja",
+            intentionalSubmit: false,
+        });
     });
 
     it("does not submit message if submitted on unload", async () => {
-        const { unmount } = render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
+        const { unmount } = render(
+            <Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />,
+        );
 
         await act(async () => {
             await userEvent.click(screen.getByText("Ja"));
-            await userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+            await userEvent.type(
+                screen.getByTestId("jkl-feedback__open-question"),
+                "This is very nice",
+            );
         });
 
         unmount();
 
         expect(mockFn).toBeCalledTimes(1);
-        expect(mockFn.mock.calls[0][0]).toStrictEqual({ feedbackValue: "ja", intentionalSubmit: false });
+        expect(mockFn.mock.calls[0][0]).toStrictEqual({
+            feedbackValue: "ja",
+            intentionalSubmit: false,
+        });
     });
 
     it("does not call onSubmit on unmount if feedback already is submitted", async () => {
-        const { unmount } = render(<Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />);
+        const { unmount } = render(
+            <Feedback {...PRESETS["Fant du"]} onSubmit={mockFn} />,
+        );
 
         await act(async () => {
             await userEvent.click(screen.getByText("Ja"));
-            await userEvent.type(screen.getByTestId("jkl-feedback__open-question"), "This is very nice");
+            await userEvent.type(
+                screen.getByTestId("jkl-feedback__open-question"),
+                "This is very nice",
+            );
             await userEvent.click(screen.getByText("Send"));
         });
         await screen.findByTestId("feedback");
@@ -306,7 +335,10 @@ describe("Feedback", () => {
         });
 
         await act(async () => {
-            await userEvent.type(screen.getByLabelText("Er det noe mer du vil legge til?"), "mer");
+            await userEvent.type(
+                screen.getByLabelText("Er det noe mer du vil legge til?"),
+                "mer",
+            );
             await userEvent.click(screen.getByText("Neste"));
         });
 

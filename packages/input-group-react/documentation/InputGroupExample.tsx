@@ -1,6 +1,10 @@
 import { Link } from "@fremtind/jkl-core";
 import React, { FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps, CodeExample } from "../../../doc-utils";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+    CodeExample,
+} from "../../../doc-utils";
 import { BaseTextInput } from "../../text-input-react/src/BaseTextInput";
 import { InputGroup, type LabelVariant } from "../src";
 
@@ -15,12 +19,18 @@ export const inputGroupExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const InputGroupExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const helpLabel = boolValues?.["Med hjelpetekst"] ? "Fødselsnummer består av 11 siffer" : undefined;
+export const InputGroupExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
+    const helpLabel = boolValues?.["Med hjelpetekst"]
+        ? "Fødselsnummer består av 11 siffer"
+        : undefined;
     const errorLabel = boolValues?.["Med feil"] ? (
         <>
-            Du må fylle ut fødelsnummer eller D-nummer. Se <Link href="">guiden vår</Link> hvis du er usikker på hvordan
-            du finner D-nummer.
+            Du må fylle ut fødelsnummer eller D-nummer. Se{" "}
+            <Link href="">guiden vår</Link> hvis du er usikker på hvordan du
+            finner D-nummer.
         </>
     ) : undefined;
     const labelProps = {
@@ -31,8 +41,9 @@ export const InputGroupExample: FC<ExampleComponentProps> = ({ boolValues, choic
         ? {
               content: (
                   <>
-                      Du må fylle ut fødelsnummer eller D-nummer. Se <Link href="">guiden vår</Link> hvis du er usikker
-                      på hvordan du finner D-nummer.
+                      Du må fylle ut fødelsnummer eller D-nummer. Se{" "}
+                      <Link href="">guiden vår</Link> hvis du er usikker på
+                      hvordan du finner D-nummer.
                   </>
               ),
           }
@@ -56,7 +67,11 @@ export default InputGroupExample;
 export const inputGroupExampleCode: CodeExample = ({ boolValues }) => `
 <InputGroup
     label="Fødselsnummer"
-    helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Fødselsnummer består av 11 siffer"` : `{undefined}`}
+    helpLabel=${
+        boolValues?.["Med hjelpetekst"]
+            ? `"Fødselsnummer består av 11 siffer"`
+            : `{undefined}`
+    }
     errorLabel=${
         boolValues?.["Med feil"]
             ? `<>

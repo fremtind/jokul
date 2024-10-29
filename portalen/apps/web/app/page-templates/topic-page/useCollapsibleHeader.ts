@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef } from "react";
 
-export const useCollapsibleHeader = (setCollapsed: (collapsed: boolean) => void): void => {
+export const useCollapsibleHeader = (
+    setCollapsed: (collapsed: boolean) => void,
+): void => {
     const lastKnownScrollPosition = useRef(0);
     const ticking = useRef(false);
     const animating = useRef(false);
@@ -17,7 +19,10 @@ export const useCollapsibleHeader = (setCollapsed: (collapsed: boolean) => void)
                 setTimeout(() => {
                     animating.current = false;
                 }, animationDuration);
-            } else if (direction === "down" && scrollPosition < scrollTriggerDown) {
+            } else if (
+                direction === "down" &&
+                scrollPosition < scrollTriggerDown
+            ) {
                 animating.current = true;
                 setCollapsed(false);
                 setTimeout(() => {
@@ -33,12 +38,16 @@ export const useCollapsibleHeader = (setCollapsed: (collapsed: boolean) => void)
             if (typeof window === "undefined") return;
 
             const { scrollY } = window;
-            const direction = scrollY > lastKnownScrollPosition.current ? "up" : "down";
+            const direction =
+                scrollY > lastKnownScrollPosition.current ? "up" : "down";
             lastKnownScrollPosition.current = scrollY;
 
             if (!ticking.current) {
                 window.requestAnimationFrame(() => {
-                    checkIfTriggered(lastKnownScrollPosition.current, direction);
+                    checkIfTriggered(
+                        lastKnownScrollPosition.current,
+                        direction,
+                    );
                     ticking.current = false;
                 });
 

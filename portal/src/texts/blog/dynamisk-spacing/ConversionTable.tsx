@@ -15,4 +15,6 @@ const CONVERSIONS = [
     ["spacing-4xl", "spacing-168"],
 ];
 
-export const ConversionTable = () => <DataTable columns={["Gammelt steg", "Nytt steg"]} rows={CONVERSIONS} />;
+export const ConversionTable = () => (
+    <DataTable columns={["Gammelt steg", "Nytt steg"]} rows={CONVERSIONS} />
+);

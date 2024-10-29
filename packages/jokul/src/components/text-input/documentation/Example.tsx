@@ -8,8 +8,16 @@ import "./index.scss";
 export default function Example() {
     return (
         <>
-            <DevExample title="TextInput" component={TextInputExample} knobs={textInputExampleKnobs} />
-            <DevExample title="TextArea" component={TextAreaExample} knobs={textAreaExampleKnobs} />
+            <DevExample
+                title="TextInput"
+                component={TextInputExample}
+                knobs={textInputExampleKnobs}
+            />
+            <DevExample
+                title="TextArea"
+                component={TextAreaExample}
+                knobs={textAreaExampleKnobs}
+            />
         </>
     );
 }

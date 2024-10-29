@@ -16,7 +16,9 @@ declare namespace Cypress {
          *     },
          * });
          */
-        takeSnapshots(options: TakeSnapshotsOptions<Subject>): Chainable<Subject>;
+        takeSnapshots(
+            options: TakeSnapshotsOptions<Subject>,
+        ): Chainable<Subject>;
         getByTestid: (field: string) => Chainable<Subject>;
         /** Navigerer til komponentens side i portalen og verifiserer at det finnes et synlig eksempel som kan testes */
         testComponent: (component: string) => Chainable<Subject>;

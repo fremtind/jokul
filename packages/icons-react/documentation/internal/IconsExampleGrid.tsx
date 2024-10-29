@@ -7,8 +7,15 @@ interface IconsExampleGridProps extends WithChildren {
     style?: CSSProperties;
 }
 
-export const IconsExampleGrid: React.FC<IconsExampleGridProps> = ({ columns, children, ...rest }) => (
-    <div className={`jkl-example-grid jkl-example-grid--${columns}-columns`} {...rest}>
+export const IconsExampleGrid: React.FC<IconsExampleGridProps> = ({
+    columns,
+    children,
+    ...rest
+}) => (
+    <div
+        className={`jkl-example-grid jkl-example-grid--${columns}-columns`}
+        {...rest}
+    >
         {children}
     </div>
 );

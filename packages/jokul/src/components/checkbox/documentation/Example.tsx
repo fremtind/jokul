@@ -3,5 +3,7 @@ import React from "react";
 import { CheckboxExample, checkboxExampleKnobs } from "./CheckboxExample.js";
 
 export default function Example() {
-    return <DevExample component={CheckboxExample} knobs={checkboxExampleKnobs} />;
+    return (
+        <DevExample component={CheckboxExample} knobs={checkboxExampleKnobs} />
+    );
 }

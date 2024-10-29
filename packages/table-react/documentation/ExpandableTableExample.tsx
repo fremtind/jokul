@@ -31,12 +31,18 @@ const rows = [
     ["32312", "H", "PR", "2.2.0", "12.11.2021"],
 ];
 
-const ExpandableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const ExpandableTableExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const headless = boolValues?.["Skjul overskrift"];
     const markClickedRows = boolValues?.["Markér v/ klikk"];
     const extraText = boolValues?.["Tekst i ekspandérknapp"];
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
+    const props =
+        type === "Liste"
+            ? { "data-collapse": "true", collapseToList: true }
+            : {};
 
     return (
         <Table fullWidth {...props}>
@@ -55,7 +61,14 @@ const ExpandableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
                 {rows.map((row, rowIndex) => (
                     <ExpandableTableRow
                         key={rowIndex}
-                        clickable={markClickedRows ? { onClick: (e) => console.log(e), markClickedRows } : undefined}
+                        clickable={
+                            markClickedRows
+                                ? {
+                                      onClick: (e) => console.log(e),
+                                      markClickedRows,
+                                  }
+                                : undefined
+                        }
                         onToggle={(isOpen) => console.log({ isOpen })}
                         expandedChildren={
                             <Table fullWidth>
@@ -83,12 +96,19 @@ const ExpandableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
                                 key={cellIndex}
                                 data-th={headings[cellIndex]}
                                 verticalAlign="center"
-                                align={[0, 3, 5, 7].includes(cellIndex) ? "right" : "left"}
+                                align={
+                                    [0, 3, 5, 7].includes(cellIndex)
+                                        ? "right"
+                                        : "left"
+                                }
                             >
                                 {cell}
                             </TableCell>
                         ))}
-                        <ExpandableTableRowController data-th="Mer informasjon" verticalAlign="center">
+                        <ExpandableTableRowController
+                            data-th="Mer informasjon"
+                            verticalAlign="center"
+                        >
                             {extraText ? "Mer informasjon" : null}
                         </ExpandableTableRowController>
                     </ExpandableTableRow>
@@ -100,7 +120,10 @@ const ExpandableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceV
 
 export default ExpandableTableExample;
 
-export const expandableTableExampleCode = ({ choiceValues, boolValues }: ExampleComponentProps): string => `
+export const expandableTableExampleCode = ({
+    choiceValues,
+    boolValues,
+}: ExampleComponentProps): string => `
 <Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell med ekspanderbare rader</TableCaption>
     <TableHead srOnly={headless}>

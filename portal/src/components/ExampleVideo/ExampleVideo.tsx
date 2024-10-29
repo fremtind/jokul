@@ -15,7 +15,10 @@ export const ExampleVideo: FC<Props> = ({ videoUrl }) => {
         if (ref.current) {
             const method = playing ? "pause" : "play";
             const playerData = { method };
-            ref.current.contentWindow?.postMessage(JSON.stringify(playerData), "*");
+            ref.current.contentWindow?.postMessage(
+                JSON.stringify(playerData),
+                "*",
+            );
             togglePlayState(!playing);
         }
     };
@@ -27,8 +30,19 @@ export const ExampleVideo: FC<Props> = ({ videoUrl }) => {
 
     return (
         <div className="example-video">
-            <button aria-label={playing ? "Pause" : "Play"} className={buttonClass} onClick={togglePlay} />
-            <iframe ref={ref} title="Eksempelvideo" src={urlWithParams} width="100%" height="250" frameBorder="0" />
+            <button
+                aria-label={playing ? "Pause" : "Play"}
+                className={buttonClass}
+                onClick={togglePlay}
+            />
+            <iframe
+                ref={ref}
+                title="Eksempelvideo"
+                src={urlWithParams}
+                width="100%"
+                height="250"
+                frameBorder="0"
+            />
         </div>
     );
 };

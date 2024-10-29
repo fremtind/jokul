@@ -5,5 +5,11 @@ import "../../tag/tag.scss";
 import "../../icon-button/icon-button.scss";
 
 export default function Example() {
-    return <DevExample title="Tag" component={TagExample} knobs={tagExampleKnobs} />;
+    return (
+        <DevExample
+            title="Tag"
+            component={TagExample}
+            knobs={tagExampleKnobs}
+        />
+    );
 }

@@ -2,7 +2,18 @@ import { type WithOptionalChildren } from "@fremtind/jkl-core";
 import { ListItem, OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
 import React, { type FC } from "react";
 
-export const NODE_TYPES = ["h1", "h2", "h3", "h4", "h5", "h6", "quote", "ul", "ol", "li"] as const;
+export const NODE_TYPES = [
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "quote",
+    "ul",
+    "ol",
+    "li",
+] as const;
 
 const H1Renderer: FC<WithOptionalChildren> = ({ children }) => (
     <h1 className="jkl-heading-1 jkl-spacing-24--bottom">{children}</h1>
@@ -28,19 +39,30 @@ const H6Renderer: FC<WithOptionalChildren> = ({ children }) => (
     <h6 className="jkl-heading-6 jkl-spacing-24--bottom">{children}</h6>
 );
 
-const QuoteRenderer: FC<WithOptionalChildren> = ({ children }) => <blockquote>{children}</blockquote>;
+const QuoteRenderer: FC<WithOptionalChildren> = ({ children }) => (
+    <blockquote>{children}</blockquote>
+);
 
-const UlRenderer: FC<WithOptionalChildren> = ({ children }) => <UnorderedList>{children}</UnorderedList>;
+const UlRenderer: FC<WithOptionalChildren> = ({ children }) => (
+    <UnorderedList>{children}</UnorderedList>
+);
 
-const OlRenderer: FC<WithOptionalChildren> = ({ children }) => <OrderedList>{children}</OrderedList>;
+const OlRenderer: FC<WithOptionalChildren> = ({ children }) => (
+    <OrderedList>{children}</OrderedList>
+);
 
-const LiRenderer: FC<WithOptionalChildren> = ({ children }) => <ListItem>{children}</ListItem>;
+const LiRenderer: FC<WithOptionalChildren> = ({ children }) => (
+    <ListItem>{children}</ListItem>
+);
 
 const ParagraphRenderer: FC<WithOptionalChildren> = ({ children }) => (
     <p className="jkl-spacing-24--bottom">{children}</p>
 );
 
-export const defaultRenderers: Record<(typeof NODE_TYPES)[number], FC<WithOptionalChildren>> = {
+export const defaultRenderers: Record<
+    (typeof NODE_TYPES)[number],
+    FC<WithOptionalChildren>
+> = {
     h1: H1Renderer,
     h2: H2Renderer,
     h3: H3Renderer,

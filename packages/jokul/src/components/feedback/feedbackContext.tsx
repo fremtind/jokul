@@ -27,12 +27,18 @@ const initialState: FeedbackContext = {
 
 const feedbackContext = createContext(initialState);
 
-export const useFeedbackContext = (): FeedbackContext => useContext(feedbackContext);
+export const useFeedbackContext = (): FeedbackContext =>
+    useContext(feedbackContext);
 
 interface FeedbackContextProviderProps extends WithChildren {
     value: FeedbackContext;
 }
 
-export const FeedbackContextProvider: FC<FeedbackContextProviderProps> = ({ value, children }) => (
-    <feedbackContext.Provider value={value}>{children}</feedbackContext.Provider>
+export const FeedbackContextProvider: FC<FeedbackContextProviderProps> = ({
+    value,
+    children,
+}) => (
+    <feedbackContext.Provider value={value}>
+        {children}
+    </feedbackContext.Provider>
 );

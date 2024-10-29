@@ -12,18 +12,25 @@ const onTransitionEnd = (isOpen: boolean) => {
 
 const AnimationExample: FC = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, { onTransitionStart, onTransitionEnd });
+    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, {
+        onTransitionStart,
+        onTransitionEnd,
+    });
 
     return (
         <section>
-            <button className="jkl-button jkl-button--secondary" onClick={() => setIsOpen((isOpen) => !isOpen)}>
+            <button
+                className="jkl-button jkl-button--secondary"
+                onClick={() => setIsOpen((isOpen) => !isOpen)}
+            >
                 Animer {isOpen ? "ut" : "inn"}
             </button>
             <div ref={animationRef}>
                 <div className="lorem-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, aperiam asperiores aut
-                    beatae consequuntur cumque delectus dolore doloremque ea fugit inventore ipsam libero magnam
-                    officiis optio soluta veniam voluptatibus!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Adipisci amet, aperiam asperiores aut beatae consequuntur
+                    cumque delectus dolore doloremque ea fugit inventore ipsam
+                    libero magnam officiis optio soluta veniam voluptatibus!
                 </div>
             </div>
         </section>

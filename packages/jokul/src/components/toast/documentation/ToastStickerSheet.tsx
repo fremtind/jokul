@@ -34,7 +34,10 @@ export const ToastStickerSheet: FC<ExampleComponentProps> = () => {
                         content: (
                             <p>
                                 Les mer om{" "}
-                                <a className="jkl-link" href="/komponenter/toast/">
+                                <a
+                                    className="jkl-link"
+                                    href="/komponenter/toast/"
+                                >
                                     Toast
                                 </a>{" "}
                                 på komponentsiden.
@@ -47,7 +50,10 @@ export const ToastStickerSheet: FC<ExampleComponentProps> = () => {
                 state={mockState}
                 toast={{
                     key: getKey(),
-                    content: { content: "Navn Navnesen er fjernet som reell rettighetshaver" },
+                    content: {
+                        content:
+                            "Navn Navnesen er fjernet som reell rettighetshaver",
+                    },
                     variant: "success",
                 }}
             />
@@ -77,7 +83,8 @@ export const ToastStickerSheet: FC<ExampleComponentProps> = () => {
                     key: getKey(),
                     content: {
                         title: "Ingen internettforbindelse",
-                        content: "Du kan ikke lagre før forbindelsen er tilbake.",
+                        content:
+                            "Du kan ikke lagre før forbindelsen er tilbake.",
                     },
                     variant: "error",
                 }}

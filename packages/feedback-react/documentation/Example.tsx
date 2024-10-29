@@ -8,5 +8,11 @@ import "../../text-input/text-input.scss";
 import "../../message/message.scss";
 
 export default function Example() {
-    return <DevExample component={FeedbackExample} knobs={feedbackExampleProps} codeExample={feedbackCode} />;
+    return (
+        <DevExample
+            component={FeedbackExample}
+            knobs={feedbackExampleProps}
+            codeExample={feedbackCode}
+        />
+    );
 }

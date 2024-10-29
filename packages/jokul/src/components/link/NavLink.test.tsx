@@ -13,7 +13,9 @@ describe("NavLink", () => {
     });
 
     it("should have the correct href attribute", () => {
-        const { getByText } = render(<NavLink href="somepage.com">Some link</NavLink>);
+        const { getByText } = render(
+            <NavLink href="somepage.com">Some link</NavLink>,
+        );
 
         expect(getByText("Some link")).toHaveAttribute("href", "somepage.com");
     });
@@ -35,7 +37,9 @@ describe("NavLink", () => {
     });
 
     it("should get the supplied className", () => {
-        const { getByText } = render(<NavLink className="my-class">Some link</NavLink>);
+        const { getByText } = render(
+            <NavLink className="my-class">Some link</NavLink>,
+        );
 
         expect(getByText("Some link")).toHaveClass("my-class");
     });

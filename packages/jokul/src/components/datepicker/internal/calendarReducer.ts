@@ -20,13 +20,18 @@ export type CalendarState = {
     shownDate: Date;
 };
 
-export const calendarReducer: Reducer<CalendarState, CalendarAction> = (currentState, action) => {
+export const calendarReducer: Reducer<CalendarState, CalendarAction> = (
+    currentState,
+    action,
+) => {
     let shownDate: Date;
 
     switch (action.type) {
         case "SET_OFFSET":
             shownDate = new Date(currentState.selectedDate);
-            shownDate.setMonth(currentState.selectedDate.getMonth() + action.newOffset);
+            shownDate.setMonth(
+                currentState.selectedDate.getMonth() + action.newOffset,
+            );
 
             return {
                 ...currentState,
@@ -36,7 +41,11 @@ export const calendarReducer: Reducer<CalendarState, CalendarAction> = (currentS
 
         case "ADD_OFFSET":
             shownDate = new Date(currentState.selectedDate);
-            shownDate.setMonth(currentState.selectedDate.getMonth() + currentState.offset + action.addedOffset);
+            shownDate.setMonth(
+                currentState.selectedDate.getMonth() +
+                    currentState.offset +
+                    action.addedOffset,
+            );
 
             return {
                 ...currentState,

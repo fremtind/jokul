@@ -19,41 +19,49 @@ const defaultMessageProps = {
     title: "Feil og mangler i skjemaet",
 };
 
-export const FormErrorMessage = forwardRef<HTMLDivElement, FormErrorMessageProps>(
-    (props, forwardedRef): JSX.Element | null => {
-        const { className, errors, isSubmitted, isValid, messageProps, ...rest } = props;
+export const FormErrorMessage = forwardRef<
+    HTMLDivElement,
+    FormErrorMessageProps
+>((props, forwardedRef): JSX.Element | null => {
+    const { className, errors, isSubmitted, isValid, messageProps, ...rest } =
+        props;
 
-        const showSummary = isSubmitted && !isValid;
+    const showSummary = isSubmitted && !isValid;
 
-        const [messageRef] = useAnimatedHeight<HTMLDivElement>(showSummary, { display: "grid" });
+    const [messageRef] = useAnimatedHeight<HTMLDivElement>(showSummary, {
+        display: "grid",
+    });
 
-        const previousErrors = useRef<Array<string | undefined>>(errors);
-        useEffect(() => {
-            previousErrors.current = errors;
-        }, [errors]);
-        const hasNewErrors = errors.length > previousErrors.current.length;
+    const previousErrors = useRef<Array<string | undefined>>(errors);
+    useEffect(() => {
+        previousErrors.current = errors;
+    }, [errors]);
+    const hasNewErrors = errors.length > previousErrors.current.length;
 
-        return (
-            <div ref={forwardedRef} className={cn("jkl-form-error-message", className)} {...rest}>
-                <ErrorMessage
-                    {...defaultMessageProps}
-                    {...messageProps}
-                    ref={messageRef}
-                    role={hasNewErrors ? "alert" : "presentation"} // Unngå å repetere hele oppsummeringen etter hvert som feilene rettes
-                >
-                    <ul className="jkl-list">
-                        {errors
-                            .filter((error) => typeof error !== "undefined")
-                            .map((error) => (
-                                <li className="jkl-list__item" key={error}>
-                                    {error}
-                                </li>
-                            ))}
-                    </ul>
-                </ErrorMessage>
-            </div>
-        );
-    },
-);
+    return (
+        <div
+            ref={forwardedRef}
+            className={cn("jkl-form-error-message", className)}
+            {...rest}
+        >
+            <ErrorMessage
+                {...defaultMessageProps}
+                {...messageProps}
+                ref={messageRef}
+                role={hasNewErrors ? "alert" : "presentation"} // Unngå å repetere hele oppsummeringen etter hvert som feilene rettes
+            >
+                <ul className="jkl-list">
+                    {errors
+                        .filter((error) => typeof error !== "undefined")
+                        .map((error) => (
+                            <li className="jkl-list__item" key={error}>
+                                {error}
+                            </li>
+                        ))}
+                </ul>
+            </ErrorMessage>
+        </div>
+    );
+});
 
 FormErrorMessage.displayName = "FormErrorMessage";

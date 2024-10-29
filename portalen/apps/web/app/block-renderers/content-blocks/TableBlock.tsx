@@ -24,7 +24,11 @@ export const TableBlock: FC<ContentBlockProps> = ({ contentBlock }) => {
                     case "functionalColors":
                         return <FunctionalColorsTableBlock key={row.type} />;
                     case "expandedFunctionalColors":
-                        return <ExpandedFunctionalColorsTableBlock key={row.type} />;
+                        return (
+                            <ExpandedFunctionalColorsTableBlock
+                                key={row.type}
+                            />
+                        );
                     case "spacing":
                         return <SpacingTableBlock key={row.type} />;
                     case "typo":

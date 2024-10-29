@@ -1,6 +1,9 @@
 import React, { FC, useState } from "react";
 import { DatePicker, formatInput, isBlurTargetOutside } from "..";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../../../../utils/dev-example";
 import type { LabelVariant } from "../../input-group";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {
@@ -19,15 +22,24 @@ const monthsIsh = (num: number) => {
     return raw < 0 ? 12 + raw : raw;
 };
 
-export const DatepickerExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const DatepickerExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const helpLabel =
-        boolValues && boolValues["Med hjelpetekst"] ? "Du vil være forsikret fra denne datoen" : undefined;
-    const errorLabel = boolValues && boolValues["Med feil"] ? "Du kan ikke velge en dato som har vært" : undefined;
+        boolValues && boolValues["Med hjelpetekst"]
+            ? "Du vil være forsikret fra denne datoen"
+            : undefined;
+    const errorLabel =
+        boolValues && boolValues["Med feil"]
+            ? "Du kan ikke velge en dato som har vært"
+            : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
     const tooltipProps = boolValues?.["Med tooltip"]
         ? {
-              content: "Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært.",
+              content:
+                  "Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært.",
           }
         : undefined;
 
@@ -41,7 +53,9 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({ boolValues, choic
             errorLabel={errorLabel}
             name="datepicker"
             helpLabel={helpLabel}
-            disableBeforeDate={formatInput(new Date(Date.now() - monthsIsh(14)))}
+            disableBeforeDate={formatInput(
+                new Date(Date.now() - monthsIsh(14)),
+            )}
             disableAfterDate={formatInput(new Date(Date.now() + monthsIsh(14)))}
             value={value}
             onFocus={(e, date, meta) => {

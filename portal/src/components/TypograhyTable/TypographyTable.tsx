@@ -1,4 +1,10 @@
-import { Table, TableBody, TableHead, TableHeader, TableRow } from "@fremtind/jkl-table-react";
+import {
+    Table,
+    TableBody,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@fremtind/jkl-table-react";
 import { ToggleSlider } from "@fremtind/jkl-toggle-switch-react";
 import React, { FC, useState } from "react";
 import { TypographyTableRow, TypographyLevels } from "./TypographyTableRow";
@@ -29,7 +35,11 @@ const VariantTable: FC<{ variant: "desktop" | "mobile" }> = ({ variant }) => (
         </TableHead>
         <TableBody>
             {levels.map((level) => (
-                <TypographyTableRow key={level} level={level} variant={variant} />
+                <TypographyTableRow
+                    key={level}
+                    level={level}
+                    variant={variant}
+                />
             ))}
         </TableBody>
     </Table>
@@ -39,10 +49,17 @@ export const TypographyTable: FC = () => {
     const [skala, setSkala] = useState("Desktop");
     return (
         <div className="jkl-portal-content mb-40">
-            <ToggleSlider className="mb-40" defaultValue={skala} labels={["Desktop", "Mobile"]} onToggle={setSkala}>
+            <ToggleSlider
+                className="mb-40"
+                defaultValue={skala}
+                labels={["Desktop", "Mobile"]}
+                onToggle={setSkala}
+            >
                 Velg skala
             </ToggleSlider>
-            <VariantTable variant={skala.toLowerCase() as "desktop" | "mobile"} />
+            <VariantTable
+                variant={skala.toLowerCase() as "desktop" | "mobile"}
+            />
         </div>
     );
 };

@@ -149,7 +149,11 @@ const usePopover = ({
         onOpenChange,
         placement,
         strategy,
-        middleware: [offset(_offset), flip({ padding: 5 }), shift({ padding: 12 })],
+        middleware: [
+            offset(_offset),
+            flip({ padding: 5 }),
+            shift({ padding: 12 }),
+        ],
         whileElementsMounted: autoUpdate,
     });
 
@@ -192,7 +196,9 @@ const usePopoverContext = () => {
     const context = React.useContext(PopoverContext);
 
     if (context == null) {
-        throw new Error("Popover komponenter må brukes innenfor en <Popover /> komponent");
+        throw new Error(
+            "Popover komponenter må brukes innenfor en <Popover /> komponent",
+        );
     }
 
     return context;
@@ -205,7 +211,11 @@ const Popover = ({
     children: React.ReactNode;
 } & PopoverOptions) => {
     const popover = usePopover({ ...restOptions });
-    return <PopoverContext.Provider value={popover}>{children}</PopoverContext.Provider>;
+    return (
+        <PopoverContext.Provider value={popover}>
+            {children}
+        </PopoverContext.Provider>
+    );
 };
 
 interface PopoverTriggerProps {
@@ -228,30 +238,36 @@ interface PopoverTriggerProps {
     asChild?: boolean;
 }
 
-const PopoverTrigger = React.forwardRef<HTMLElement, React.HTMLProps<HTMLElement> & PopoverTriggerProps>(
-    function PopoverTrigger({ children, asChild = false, ...props }, propRef) {
-        const { refs, getReferenceProps, open, onOpenChange } = usePopoverContext();
-        const childrenRef = (children as any).ref;
-        const ref = useMergeRefs([refs.setReference, propRef, childrenRef]);
+const PopoverTrigger = React.forwardRef<
+    HTMLElement,
+    React.HTMLProps<HTMLElement> & PopoverTriggerProps
+>(function PopoverTrigger({ children, asChild = false, ...props }, propRef) {
+    const { refs, getReferenceProps, open, onOpenChange } = usePopoverContext();
+    const childrenRef = (children as any).ref;
+    const ref = useMergeRefs([refs.setReference, propRef, childrenRef]);
 
-        if (asChild && React.isValidElement(children)) {
-            return React.cloneElement(
-                children,
-                getReferenceProps({
-                    ref,
-                    ...children.props,
-                    ...props,
-                }),
-            );
-        }
-
-        return (
-            <button ref={ref} onClick={() => onOpenChange?.(!open)} aria-expanded={open} {...getReferenceProps(props)}>
-                {children}
-            </button>
+    if (asChild && React.isValidElement(children)) {
+        return React.cloneElement(
+            children,
+            getReferenceProps({
+                ref,
+                ...children.props,
+                ...props,
+            }),
         );
-    },
-);
+    }
+
+    return (
+        <button
+            ref={ref}
+            onClick={() => onOpenChange?.(!open)}
+            aria-expanded={open}
+            {...getReferenceProps(props)}
+        >
+            {children}
+        </button>
+    );
+});
 
 interface PopoverContentProps {
     /**
@@ -279,64 +295,78 @@ interface PopoverContentProps {
 }
 
 // Er popover-elementet posisjonert i forhold til et annet element enn triggeren?
-const isCustomPositioned = (referenceElement: ReferenceElement): referenceElement is VirtualElement => {
+const isCustomPositioned = (
+    referenceElement: ReferenceElement,
+): referenceElement is VirtualElement => {
     if (!referenceElement) return false;
 
     return "contextElement" in referenceElement;
 };
 
-const PopoverContent = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement> & PopoverContentProps>(
-    function PopoverContent(
-        { style, className, padding = 0, initialFocus = 0, returnFocus = true, ...props },
-        propRef,
-    ) {
-        const { context, modal, refs, open, floatingStyles, getFloatingProps } = usePopoverContext();
-        const ref = useMergeRefs([refs.setFloating, propRef]);
-
-        const referenceElement = refs.reference.current as ReferenceElement;
-
-        const { theme, density } = isCustomPositioned(referenceElement)
-            ? getThemeAndDensity(referenceElement.contextElement)
-            : getThemeAndDensity(referenceElement);
-
-        const floatingPortalRef = React.useRef<HTMLElement | null>(null);
-
-        // TODO: Løser et problem hvor nestede portaler ikke "fester" seg til det nærmeste portal-elementet. Fjernes når alle komponenter som rendres i en portal tar i bruk popover komponenten da den håndterer dette internt.
-        React.useEffect(() => {
-            floatingPortalRef.current = context.elements.domReference?.closest<HTMLElement>("[data-portal]") || null;
-        }, [context.elements.domReference]);
-
-        if (!open) return null;
-
-        return (
-            <FloatingPortal root={floatingPortalRef.current}>
-                <FloatingFocusManager
-                    context={context}
-                    modal={modal}
-                    initialFocus={initialFocus}
-                    returnFocus={returnFocus}
-                >
-                    <div
-                        data-theme={theme}
-                        data-layout-density={density}
-                        className={classNames("jkl jkl-popover", className)}
-                        ref={ref}
-                        style={
-                            {
-                                ...style,
-                                ...floatingStyles,
-                                "--popover-padding": `var(--jkl-spacing-${padding})`,
-                            } as React.CSSProperties
-                        }
-                        {...getFloatingProps(props)}
-                    >
-                        {props.children}
-                    </div>
-                </FloatingFocusManager>
-            </FloatingPortal>
-        );
+const PopoverContent = React.forwardRef<
+    HTMLDivElement,
+    React.HTMLProps<HTMLDivElement> & PopoverContentProps
+>(function PopoverContent(
+    {
+        style,
+        className,
+        padding = 0,
+        initialFocus = 0,
+        returnFocus = true,
+        ...props
     },
-);
+    propRef,
+) {
+    const { context, modal, refs, open, floatingStyles, getFloatingProps } =
+        usePopoverContext();
+    const ref = useMergeRefs([refs.setFloating, propRef]);
+
+    const referenceElement = refs.reference.current as ReferenceElement;
+
+    const { theme, density } = isCustomPositioned(referenceElement)
+        ? getThemeAndDensity(referenceElement.contextElement)
+        : getThemeAndDensity(referenceElement);
+
+    const floatingPortalRef = React.useRef<HTMLElement | null>(null);
+
+    // TODO: Løser et problem hvor nestede portaler ikke "fester" seg til det nærmeste portal-elementet. Fjernes når alle komponenter som rendres i en portal tar i bruk popover komponenten da den håndterer dette internt.
+    React.useEffect(() => {
+        floatingPortalRef.current =
+            context.elements.domReference?.closest<HTMLElement>(
+                "[data-portal]",
+            ) || null;
+    }, [context.elements.domReference]);
+
+    if (!open) return null;
+
+    return (
+        <FloatingPortal root={floatingPortalRef.current}>
+            <FloatingFocusManager
+                context={context}
+                modal={modal}
+                initialFocus={initialFocus}
+                returnFocus={returnFocus}
+            >
+                <div
+                    data-theme={theme}
+                    data-layout-density={density}
+                    className={classNames("jkl jkl-popover", className)}
+                    ref={ref}
+                    style={
+                        {
+                            ...style,
+                            ...floatingStyles,
+                            "--popover-padding": `var(--jkl-spacing-${padding})`,
+                        } as React.CSSProperties
+                    }
+                    {...getFloatingProps(props)}
+                >
+                    {props.children}
+                </div>
+            </FloatingFocusManager>
+        </FloatingPortal>
+    );
+});
 
 Popover.Trigger = PopoverTrigger;
 Popover.Content = PopoverContent;

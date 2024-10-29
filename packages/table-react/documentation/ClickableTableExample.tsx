@@ -1,6 +1,14 @@
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { Table, TableCaption, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../src";
+import {
+    Table,
+    TableCaption,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "../src";
 
 export const clickableTableExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Markér v/ klikk"],
@@ -13,7 +21,15 @@ export const clickableTableExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-const headings = ["Kravnr", "Kravtype", "Status", "Årsakskode", "Meldt dato", "Avsetning", "Prosesser"];
+const headings = [
+    "Kravnr",
+    "Kravtype",
+    "Status",
+    "Årsakskode",
+    "Meldt dato",
+    "Avsetning",
+    "Prosesser",
+];
 
 const rows = [
     ["11102", "F", "QA", "3.2.2", "22.11.2021", "233", "Ut"],
@@ -21,11 +37,17 @@ const rows = [
     ["32312", "H", "PR", "2.2.0", "12.11.2021", "1332", "Siden"],
 ];
 
-const ClickableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const ClickableTableExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const headless = boolValues?.["Skjul overskrift"];
     const markClickedRows = boolValues?.["Markér v/ klikk"];
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
+    const props =
+        type === "Liste"
+            ? { "data-collapse": "true", collapseToList: true }
+            : {};
 
     return (
         <Table fullWidth {...props}>
@@ -41,12 +63,22 @@ const ClickableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceVa
             </TableHead>
             <TableBody>
                 {rows.map((row, rowIndex) => (
-                    <TableRow key={rowIndex} clickable={{ onClick: (e) => console.log(e), markClickedRows }}>
+                    <TableRow
+                        key={rowIndex}
+                        clickable={{
+                            onClick: (e) => console.log(e),
+                            markClickedRows,
+                        }}
+                    >
                         {row.map((cell, cellIndex) => (
                             <TableCell
                                 key={cellIndex}
                                 data-th={headings[cellIndex]}
-                                align={[0, 3, 5].includes(cellIndex) ? "right" : "left"}
+                                align={
+                                    [0, 3, 5].includes(cellIndex)
+                                        ? "right"
+                                        : "left"
+                                }
                             >
                                 {cell}
                             </TableCell>
@@ -60,7 +92,10 @@ const ClickableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceVa
 
 export default ClickableTableExample;
 
-export const clickableTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const clickableTableExampleCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => `
 <Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell med klikkbare rader</TableCaption>
     <TableHead srOnly={${boolValues?.["Skjul overskrift"]}}>

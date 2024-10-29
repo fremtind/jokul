@@ -33,7 +33,12 @@ export const FeedbackList: React.FC<Props> = (props) => {
                     time.getDate().toString().padStart(2, "0"),
                 ].join(".");
 
-                return [feedback.feedbackValue, feedback.message, feedback.page, dateString];
+                return [
+                    feedback.feedbackValue,
+                    feedback.message,
+                    feedback.page,
+                    dateString,
+                ];
             })
             .sort((a, b) => {
                 const sorta = a[columns.indexOf(sortBy)];
@@ -63,12 +68,19 @@ export const FeedbackList: React.FC<Props> = (props) => {
 
     const visibleRows = rows.slice(startIndex, startIndex + rowsPerPage);
 
-    const handleSortChange = (sortKey: string, sortDirection: TableSortDirection) => {
+    const handleSortChange = (
+        sortKey: string,
+        sortDirection: TableSortDirection,
+    ) => {
         setSortBy(sortKey);
         setDirection(sortDirection);
     };
 
-    const { getSortProps } = useSortableTableHeader(sortBy, direction, handleSortChange);
+    const { getSortProps } = useSortableTableHeader(
+        sortBy,
+        direction,
+        handleSortChange,
+    );
 
     return (
         <div
@@ -79,11 +91,17 @@ export const FeedbackList: React.FC<Props> = (props) => {
             }}
         >
             <Table ref={ref} fullWidth>
-                <TableCaption srOnly>Oversikt over feedback fra sluttbrukere</TableCaption>
+                <TableCaption srOnly>
+                    Oversikt over feedback fra sluttbrukere
+                </TableCaption>
                 <TableHead>
                     <TableRow>
                         {columns.map((header, index) => (
-                            <TableHeader key={index} bold {...getSortProps(header)}>
+                            <TableHeader
+                                key={index}
+                                bold
+                                {...getSortProps(header)}
+                            >
                                 {header}
                             </TableHeader>
                         ))}
@@ -93,7 +111,10 @@ export const FeedbackList: React.FC<Props> = (props) => {
                     {visibleRows.map((row, rowIndex) => (
                         <TableRow key={rowIndex}>
                             {row.map((cell, cellIndex) => (
-                                <TableCell key={cellIndex} data-th={columns[cellIndex]}>
+                                <TableCell
+                                    key={cellIndex}
+                                    data-th={columns[cellIndex]}
+                                >
                                     {cell}
                                 </TableCell>
                             ))}
@@ -107,9 +128,18 @@ export const FeedbackList: React.FC<Props> = (props) => {
                                 activePage={activePage}
                                 totalNumberOfRows={rows.length}
                                 rowsPerPage={rowsPerPage}
-                                rowsPerPageItems={[10, 25, 50, 100, 150, { label: "Alle", value: -1 }]}
+                                rowsPerPageItems={[
+                                    10,
+                                    25,
+                                    50,
+                                    100,
+                                    150,
+                                    { label: "Alle", value: -1 },
+                                ]}
                                 onChangeRowsPerPage={(e) => {
-                                    const newRowsPerPage = Number.parseInt(e.target.value);
+                                    const newRowsPerPage = Number.parseInt(
+                                        e.target.value,
+                                    );
                                     setRowsPerPage(newRowsPerPage);
                                     setActivePage(0);
                                     if (ref.current) {

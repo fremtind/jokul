@@ -6,7 +6,10 @@ type MicromatchOptions = {
     ignore?: string[];
 };
 
-export async function findChangedFiles(patterns: string[], options?: MicromatchOptions): Promise<string[]> {
+export async function findChangedFiles(
+    patterns: string[],
+    options?: MicromatchOptions,
+): Promise<string[]> {
     const git = simpleGit();
 
     core.debug('Running "git status"');
@@ -18,7 +21,11 @@ export async function findChangedFiles(patterns: string[], options?: MicromatchO
     }
 
     const paths: string[] = status.files.map((file) => {
-        core.debug(`${file.index} ${file.from ? `${file.from} -> ` : ""} ${file.path} ${file.working_dir}`);
+        core.debug(
+            `${file.index} ${file.from ? `${file.from} -> ` : ""} ${
+                file.path
+            } ${file.working_dir}`,
+        );
         return file.path;
     });
     core.debug(`Paths from "git status": ${JSON.stringify(paths)}`);

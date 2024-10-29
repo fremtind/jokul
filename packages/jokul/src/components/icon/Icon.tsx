@@ -1,9 +1,14 @@
 import clsx from "clsx";
 import React from "react";
-import { PolymorphicPropsWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import {
+    PolymorphicPropsWithRef,
+    PolymorphicRef,
+} from "../../utilities/polymorphism/polymorphism.js";
 import { IconVariant } from "./types.js";
 
-type IconComponentProps<ElementType extends Extract<React.ElementType, "span" | "div">> = PolymorphicPropsWithRef<
+type IconComponentProps<
+    ElementType extends Extract<React.ElementType, "span" | "div">,
+> = PolymorphicPropsWithRef<
     ElementType,
     {
         "data-testid"?: string;
@@ -23,7 +28,9 @@ type IconComponentProps<ElementType extends Extract<React.ElementType, "span" | 
     }
 >;
 
-export type IconComponent = (<ElementType extends Extract<React.ElementType, "span" | "div"> = "span">(
+export type IconComponent = (<
+    ElementType extends Extract<React.ElementType, "span" | "div"> = "span",
+>(
     props: IconComponentProps<ElementType>,
 ) => React.ReactElement | null) & { displayName?: string };
 

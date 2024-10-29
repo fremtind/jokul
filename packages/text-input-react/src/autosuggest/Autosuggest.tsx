@@ -1,5 +1,8 @@
 import type { Density } from "@fremtind/jkl-core";
-import type { LabelProps, SupportLabelProps } from "@fremtind/jkl-input-group-react";
+import type {
+    LabelProps,
+    SupportLabelProps,
+} from "@fremtind/jkl-input-group-react";
 import type { PopupTipProps } from "@fremtind/jkl-tooltip-react";
 import type { StateChangeOptions } from "downshift";
 import React, { type ReactNode, useEffect, useState } from "react";
@@ -9,7 +12,10 @@ import { filter } from "./utils";
 export type CommonProps = (
     | {
           label: string;
-          labelProps?: Omit<LabelProps, "children" | "density" | "htmlFor" | "standAlone">;
+          labelProps?: Omit<
+              LabelProps,
+              "children" | "density" | "htmlFor" | "standAlone"
+          >;
           inputId?: null;
           labelId?: null;
       }
@@ -26,7 +32,10 @@ export type CommonProps = (
     leadText?: string;
     errorLabel?: string;
     helpLabel?: string;
-    supportLabelProps?: Omit<SupportLabelProps, "id" | "errorLabel" | "helpLabel" | "density">;
+    supportLabelProps?: Omit<
+        SupportLabelProps,
+        "id" | "errorLabel" | "helpLabel" | "density"
+    >;
     tooltipProps?: PopupTipProps;
     variant?: "large" | "medium" | "small";
     density?: Density;

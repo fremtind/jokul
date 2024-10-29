@@ -9,8 +9,16 @@ import "../../icons/icons.scss";
 export default function Example() {
     return (
         <>
-            <DevExample title="ExpandSection" component={ExpandSectionExample} knobs={expandExamplesProps} />
-            <DevExample title="ExpandButton" component={ExpandButtonExample} knobs={expandExamplesProps} />
+            <DevExample
+                title="ExpandSection"
+                component={ExpandSectionExample}
+                knobs={expandExamplesProps}
+            />
+            <DevExample
+                title="ExpandButton"
+                component={ExpandButtonExample}
+                knobs={expandExamplesProps}
+            />
         </>
     );
 }

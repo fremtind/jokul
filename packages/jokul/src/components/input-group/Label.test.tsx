@@ -8,7 +8,9 @@ describe("Label", () => {
     const variants: LabelVariant[] = ["small", "medium", "large"];
     variants.forEach((variant) => {
         it(`renders the expected class for variant ${variant}`, () => {
-            const { getByText } = render(<Label variant={variant}>Hello</Label>);
+            const { getByText } = render(
+                <Label variant={variant}>Hello</Label>,
+            );
             expect(getByText("Hello")).toHaveClass(`jkl-label--${variant}`);
         });
     });

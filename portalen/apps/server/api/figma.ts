@@ -33,12 +33,15 @@ figma.get("/images", async (req, res) => {
             return res.status(400).send();
         }
 
-        const result = await fetch.default(`https://api.figma.com/v1/images/${file}?ids=${node}`, {
-            method: "GET",
-            headers: {
-                "X-Figma-Token": FIGMA_TOKEN || "",
+        const result = await fetch.default(
+            `https://api.figma.com/v1/images/${file}?ids=${node}`,
+            {
+                method: "GET",
+                headers: {
+                    "X-Figma-Token": FIGMA_TOKEN || "",
+                },
             },
-        });
+        );
 
         const data = (await result.json()) as {
             images: Record<string, string>;
@@ -49,7 +52,10 @@ figma.get("/images", async (req, res) => {
         const buffer = await image.buffer();
         cache.set(figmaUrl, buffer);
 
-        return res.header("Content-Type", "image/png").status(result.status).send(buffer);
+        return res
+            .header("Content-Type", "image/png")
+            .status(result.status)
+            .send(buffer);
     } catch (e) {
         console.log(e);
         return res.status(500).send();

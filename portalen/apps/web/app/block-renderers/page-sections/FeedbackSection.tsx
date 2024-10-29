@@ -1,7 +1,10 @@
 import { Feedback, PRESETS } from "@fremtind/jkl-feedback-react";
 import { type FeedbackType } from "@fremtind/jkl-feedback-react/build/types";
 import React, { type FC, useCallback } from "react";
-import { assertSectionIs, type PageSectionProps } from "~/block-renderers/page-sections/types";
+import {
+    assertSectionIs,
+    type PageSectionProps,
+} from "~/block-renderers/page-sections/types";
 
 export const FeedbackSection: FC<PageSectionProps> = ({ pageSection }) => {
     assertSectionIs("feedback-section", pageSection);

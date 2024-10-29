@@ -6,8 +6,16 @@ import { TooltipExample, tooltipExampleKnobs } from "./TooltipExample.js";
 export default function Example() {
     return (
         <>
-            <DevExample title="Tooltip" component={TooltipExample} knobs={tooltipExampleKnobs} />
-            <DevExample title="Tooltip Click" component={PopupTipExample} knobs={tooltipExampleKnobs} />
+            <DevExample
+                title="Tooltip"
+                component={TooltipExample}
+                knobs={tooltipExampleKnobs}
+            />
+            <DevExample
+                title="Tooltip Click"
+                component={PopupTipExample}
+                knobs={tooltipExampleKnobs}
+            />
         </>
     );
 }

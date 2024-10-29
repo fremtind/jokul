@@ -18,7 +18,10 @@ const ScrollIntoViewExample: React.FC = () => {
                     >
                         {autoScroll ? "Skru av" : "Skru på"}
                     </button>
-                    <button className="jkl-button jkl-button--secondary jkl-spacing-l--left" onClick={manualScroll}>
+                    <button
+                        className="jkl-button jkl-button--secondary jkl-spacing-l--left"
+                        onClick={manualScroll}
+                    >
                         Scroll
                     </button>
                 </div>
@@ -34,7 +37,9 @@ const ScrollIntoViewExample: React.FC = () => {
                     onChange={(val) => {
                         toggleAutoScroll(false);
                         if (val.currentTarget.value !== "") {
-                            updateTimeout(parseInt(val.currentTarget.value, 10));
+                            updateTimeout(
+                                parseInt(val.currentTarget.value, 10),
+                            );
                         }
                     }}
                 />

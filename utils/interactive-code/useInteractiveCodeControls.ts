@@ -36,11 +36,15 @@ export const useInteractiveCodeControls = (code: string, knobs: Knobs) => {
                 if (type === "bool" && knob.boolOptions) {
                     const active = boolValues[name];
 
-                    return active ? knob.boolOptions.trueValue : knob.boolOptions.falseValue;
+                    return active
+                        ? knob.boolOptions.trueValue
+                        : knob.boolOptions.falseValue;
                 } else if (type === "choice") {
                     const value = choiceValues[name];
 
-                    return isValuePair(value) ? `"${value.value}"` : `"${value}"`;
+                    return isValuePair(value)
+                        ? `"${value.value}"`
+                        : `"${value}"`;
                 } else {
                     return "";
                 }
@@ -60,7 +64,10 @@ export const useInteractiveCodeControls = (code: string, knobs: Knobs) => {
         () =>
             (knobs ?? [])
                 .filter((knob) => knob.type === "bool")
-                .map((knob) => ({ prop: knob.label, defaultValue: !!knob.defaultValue })),
+                .map((knob) => ({
+                    prop: knob.label,
+                    defaultValue: !!knob.defaultValue,
+                })),
         [knobs],
     );
     const choiceProps: ChoiceProp[] = useMemo(

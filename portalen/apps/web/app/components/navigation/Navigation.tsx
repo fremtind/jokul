@@ -2,7 +2,13 @@ import { Hamburger } from "@fremtind/jkl-hamburger-react";
 import { useFocusOutside, useId } from "@fremtind/jkl-react-hooks";
 import { Link } from "@remix-run/react";
 import cn from "classnames";
-import React, { useState, type FC, useEffect, useCallback, useRef } from "react";
+import React, {
+    useState,
+    type FC,
+    useEffect,
+    useCallback,
+    useRef,
+} from "react";
 import { SearchTrigger, CmdK } from "../search";
 import { GlobalContextualMenu } from "./GlobalContextualMenu";
 import { useNavigationMenu } from "./navigationMenuContext";
@@ -14,7 +20,10 @@ export const Navigation: FC = () => {
     const mainMenu = useMainMenu();
     const pageTitle = usePageTitle();
 
-    const menuItems = mainMenu && Array.isArray(mainMenu.items) ? mainMenu.items.map((item) => item.item) : [];
+    const menuItems =
+        mainMenu && Array.isArray(mainMenu.items)
+            ? mainMenu.items.map((item) => item.item)
+            : [];
 
     const burgerId = useId("hamburger");
     const menuId = useId("navigation-menu");
@@ -95,20 +104,34 @@ export const Navigation: FC = () => {
                             onClick={() => setOpen(!open)}
                             isOpen={open}
                         />
-                        <Link tabIndex={open ? -1 : 0} className="jkl-portal-navigation__home" to="/">
+                        <Link
+                            tabIndex={open ? -1 : 0}
+                            className="jkl-portal-navigation__home"
+                            to="/"
+                        >
                             {pageTitle}
                         </Link>
                         <GlobalContextualMenu className="jkl-portal-navigation__contextual-menu" />
                     </div>
                     <div className="jkl-portal-navigation__header-column">
                         <CmdK open={searchOpen} onOpenChange={setSearchOpen} />
-                        <form className="jkl-portal-navigation__header-search" onSubmit={(e) => e.preventDefault()}>
-                            <SearchTrigger tabIndex={open ? -1 : 0} variant="icon" onClick={onOpenSearch} />
+                        <form
+                            className="jkl-portal-navigation__header-search"
+                            onSubmit={(e) => e.preventDefault()}
+                        >
+                            <SearchTrigger
+                                tabIndex={open ? -1 : 0}
+                                variant="icon"
+                                onClick={onOpenSearch}
+                            />
                         </form>
                     </div>
                 </header>
                 <div className="jkl-portal-navigation__menu jkl-portal-navigation-menu">
-                    <form className="jkl-portal-navigation__search" onSubmit={(e) => e.preventDefault()}>
+                    <form
+                        className="jkl-portal-navigation__search"
+                        onSubmit={(e) => e.preventDefault()}
+                    >
                         <SearchTrigger variant="full" onClick={onOpenSearch} />
                     </form>
                     <ul id={menuId} aria-labelledby={burgerId} role="group">

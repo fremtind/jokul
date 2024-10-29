@@ -9,8 +9,9 @@ const kontrast: UUContent = {
     wcagRules: ["2.1.1", "2.1.2", "2.4.3"],
     body: () => (
         <Paragraph>
-            Navigeringsmekanismer som gjentas på flere sider skal oppføre seg likt og se like ut på alle sider med
-            mindre brukeren selv gjør en endring.
+            Navigeringsmekanismer som gjentas på flere sider skal oppføre seg
+            likt og se like ut på alle sider med mindre brukeren selv gjør en
+            endring.
         </Paragraph>
     ),
 };

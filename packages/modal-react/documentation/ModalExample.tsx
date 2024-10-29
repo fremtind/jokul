@@ -1,6 +1,11 @@
 import React, { useEffect, type FC } from "react";
 import ReactDOM from "react-dom";
-import { ExampleComponentProps, ExampleKnobsProps, CodeExample, useExampleContext } from "../../../doc-utils";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+    CodeExample,
+    useExampleContext,
+} from "../../../doc-utils";
 import { PrimaryButton, TertiaryButton } from "../../button-react/src";
 import {
     Modal,
@@ -23,13 +28,19 @@ type ModalComponentProps = ExampleComponentProps & {
     onCancel: () => void;
 };
 
-function ModalComponent({ boolValues, dialogRef, onConfirm, onCancel }: ModalComponentProps) {
+function ModalComponent({
+    boolValues,
+    dialogRef,
+    onConfirm,
+    onCancel,
+}: ModalComponentProps) {
     const heading = "Bekreft sletting";
 
-    const [instance, { title, overlay, container, modal, closeButton }] = useModal({
-        title: heading,
-        role: "dialog", // "dialog" er default. Kan også være "alertdialog".
-    });
+    const [instance, { title, overlay, container, modal, closeButton }] =
+        useModal({
+            title: heading,
+            role: "dialog", // "dialog" er default. Kan også være "alertdialog".
+        });
 
     useEffect(() => {
         dialogRef(instance);
@@ -45,7 +56,11 @@ function ModalComponent({ boolValues, dialogRef, onConfirm, onCancel }: ModalCom
     const { theme, density } = useExampleContext();
 
     return ReactDOM.createPortal(
-        <ModalContainer {...container} data-theme={theme} data-layout-density={density}>
+        <ModalContainer
+            {...container}
+            data-theme={theme}
+            data-layout-density={density}
+        >
             <ModalOverlay
                 {...overlay}
                 onClick={() => {
@@ -62,7 +77,9 @@ function ModalComponent({ boolValues, dialogRef, onConfirm, onCancel }: ModalCom
                         }}
                     />
                 </ModalHeader>
-                <ModalBody>Er du sikker på at du vil slette Foo Bar Baz?</ModalBody>
+                <ModalBody>
+                    Er du sikker på at du vil slette Foo Bar Baz?
+                </ModalBody>
                 <ModalActions>
                     <PrimaryButton
                         data-testid="confirm-modal"

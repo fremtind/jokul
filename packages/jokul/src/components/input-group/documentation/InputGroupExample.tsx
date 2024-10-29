@@ -16,12 +16,18 @@ export const inputGroupExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const InputGroupExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const helpLabel = boolValues?.["Med hjelpetekst"] ? "Fødselsnummer består av 11 siffer" : undefined;
+export const InputGroupExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
+    const helpLabel = boolValues?.["Med hjelpetekst"]
+        ? "Fødselsnummer består av 11 siffer"
+        : undefined;
     const errorLabel = boolValues?.["Med feil"] ? (
         <>
-            Du må fylle ut fødelsnummer eller D-nummer. Se <Link href="">guiden vår</Link> hvis du er usikker på hvordan
-            du finner D-nummer.
+            Du må fylle ut fødelsnummer eller D-nummer. Se{" "}
+            <Link href="">guiden vår</Link> hvis du er usikker på hvordan du
+            finner D-nummer.
         </>
     ) : undefined;
     const labelProps = {
@@ -32,8 +38,9 @@ export const InputGroupExample: FC<ExampleComponentProps> = ({ boolValues, choic
         ? {
               content: (
                   <>
-                      Du må fylle ut fødelsnummer eller D-nummer. Se <Link href="">guiden vår</Link> hvis du er usikker
-                      på hvordan du finner D-nummer.
+                      Du må fylle ut fødelsnummer eller D-nummer. Se{" "}
+                      <Link href="">guiden vår</Link> hvis du er usikker på
+                      hvordan du finner D-nummer.
                   </>
               ),
           }

@@ -10,7 +10,11 @@ interface Props {
     darkbg?: boolean;
 }
 
-export const DownloadAsset: FC<Props> = ({ asset = "", name, darkbg = false }) => {
+export const DownloadAsset: FC<Props> = ({
+    asset = "",
+    name,
+    darkbg = false,
+}) => {
     const src = withPrefix(asset);
 
     return (
@@ -20,7 +24,13 @@ export const DownloadAsset: FC<Props> = ({ asset = "", name, darkbg = false }) =
             })}
         >
             <a className="jkl-portal-downloadasset__button" href={src}>
-                <img className="jkl-portal-downloadasset__image" src={src} alt="" loading="lazy" decoding="async" />
+                <img
+                    className="jkl-portal-downloadasset__image"
+                    src={src}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                />
                 <span
                     className={cn("jkl-portal-downloadasset__name", {
                         "jkl-portal-downloadasset__name--dark": darkbg,

@@ -2,7 +2,13 @@ import { SearchIcon } from "@fremtind/jkl-icons-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import type { Component, General, Foundation, Pattern } from "@org/cms";
 import { NavLink, useSearchParams } from "@remix-run/react";
-import React, { useEffect, useState, useCallback, type FC, type FormEvent } from "react";
+import React, {
+    useEffect,
+    useState,
+    useCallback,
+    type FC,
+    type FormEvent,
+} from "react";
 import { getPagePathFromId } from "../../components/navigation/utils";
 import { SearchResult } from "../../components/search";
 import { getTabFromMatch } from "../../components/search/search-utils";
@@ -42,7 +48,11 @@ export const SearchResults: FC = () => {
         (e: Event | FormEvent) => {
             e.preventDefault();
 
-            const query = (document.querySelector('input[type="search"]') as HTMLInputElement).value;
+            const query = (
+                document.querySelector(
+                    'input[type="search"]',
+                ) as HTMLInputElement
+            ).value;
 
             if (!query) {
                 return;
@@ -53,7 +63,9 @@ export const SearchResults: FC = () => {
         [setSearch],
     );
 
-    const isEmpty = Object.entries(matches).every(([, documents]) => documents.length === 0);
+    const isEmpty = Object.entries(matches).every(
+        ([, documents]) => documents.length === 0,
+    );
 
     return (
         <div className="search-results">
@@ -106,7 +118,10 @@ export const SearchResults: FC = () => {
                     }
 
                     return (
-                        <div className="search-results__category" key={collection}>
+                        <div
+                            className="search-results__category"
+                            key={collection}
+                        >
                             <h2 className="jkl-heading-1">{collection}</h2>
                             <div className="search-results__results">
                                 {withLinks.map((document) => {
@@ -114,8 +129,15 @@ export const SearchResults: FC = () => {
                                         return null;
                                     }
                                     return (
-                                        <NavLink className="search-results__result" to={document.to} key={document.id}>
-                                            <SearchResult search={q} result={document} />
+                                        <NavLink
+                                            className="search-results__result"
+                                            to={document.to}
+                                            key={document.id}
+                                        >
+                                            <SearchResult
+                                                search={q}
+                                                result={document}
+                                            />
                                         </NavLink>
                                     );
                                 })}

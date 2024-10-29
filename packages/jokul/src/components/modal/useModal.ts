@@ -1,7 +1,12 @@
-import { A11yDialogConfig, A11yDialogProps, useA11yDialog } from "react-a11y-dialog";
+import {
+    A11yDialogConfig,
+    A11yDialogProps,
+    useA11yDialog,
+} from "react-a11y-dialog";
 import { useId } from "../../hooks/useId/useId.js";
 
-export interface UseModalOptions extends Omit<A11yDialogProps, "id" | "closeButtonPosition"> {
+export interface UseModalOptions
+    extends Omit<A11yDialogProps, "id" | "closeButtonPosition"> {
     id?: string;
     /**
      * @default "Lukk"
@@ -72,7 +77,12 @@ export interface ModalConfig extends Omit<A11yDialogConfig, "dialog"> {
  * ```
  */
 export function useModal(props: UseModalOptions) {
-    const { id: idProp, role = "dialog", closeButtonLabel = "Lukk", ...rest } = props;
+    const {
+        id: idProp,
+        role = "dialog",
+        closeButtonLabel = "Lukk",
+        ...rest
+    } = props;
 
     const id = useId(idProp || "jkl-modal", { generateSuffix: !idProp });
 

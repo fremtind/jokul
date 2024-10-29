@@ -19,8 +19,13 @@ export const animatedIconsExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
-    const variant = choiceValues ? (choiceValues["Variant"] as IconVariant) : "small";
+export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({
+    choiceValues,
+    boolValues,
+}) => {
+    const variant = choiceValues
+        ? (choiceValues["Variant"] as IconVariant)
+        : "small";
     const bold = boolValues?.["Bold"] || false;
 
     const [fontSize, setFontSize] = useState("1rem");
@@ -39,18 +44,32 @@ export const AnimatedIconsExample: React.FC<ExampleComponentProps> = ({ choiceVa
             <IconsExampleGrid style={{ fontSize }} columns="two">
                 <AnimatedIcon
                     renderIcon={(isDown) => (
-                        <ArrowVerticalAnimated bold={bold} pointingDown={isDown} variant={variant} />
+                        <ArrowVerticalAnimated
+                            bold={bold}
+                            pointingDown={isDown}
+                            variant={variant}
+                        />
                     )}
                     iconName={ArrowVerticalAnimated.displayName}
                 />
                 <AnimatedIcon
                     renderIcon={(isRight) => (
-                        <ArrowHorizontalAnimated bold={bold} pointingRight={isRight} variant={variant} />
+                        <ArrowHorizontalAnimated
+                            bold={bold}
+                            pointingRight={isRight}
+                            variant={variant}
+                        />
                     )}
                     iconName={ArrowHorizontalAnimated.displayName}
                 />
                 <AnimatedIcon
-                    renderIcon={(isPlus) => <PlusRemoveAnimated bold={bold} isPlus={isPlus} variant={variant} />}
+                    renderIcon={(isPlus) => (
+                        <PlusRemoveAnimated
+                            bold={bold}
+                            isPlus={isPlus}
+                            variant={variant}
+                        />
+                    )}
                     iconName={PlusRemoveAnimated.displayName}
                 />
             </IconsExampleGrid>

@@ -1,6 +1,12 @@
 import { formatDate } from "../../../formatters-util/src";
 import { parseDateString } from "../utils";
-import { isSameDay, dateHasChanged, dateIsOutsideRange, getInitialDate, getYearSelectOptions } from "./utils";
+import {
+    isSameDay,
+    dateHasChanged,
+    dateIsOutsideRange,
+    getInitialDate,
+    getYearSelectOptions,
+} from "./utils";
 
 describe("formatDate", () => {
     it("renders the given date correctly", () => {
@@ -92,16 +98,24 @@ describe("dateIsOutsideRange", () => {
     });
 
     it("returns true if value is after rangeEnd", () => {
-        expect(dateIsOutsideRange(valueAfter, undefined, rangeEnd)).toBeTruthy();
+        expect(
+            dateIsOutsideRange(valueAfter, undefined, rangeEnd),
+        ).toBeTruthy();
     });
 
     it("returns true if value is before outside range", () => {
-        expect(dateIsOutsideRange(valueBefore, rangeStart, rangeEnd)).toBeTruthy();
-        expect(dateIsOutsideRange(valueAfter, rangeStart, rangeEnd)).toBeTruthy();
+        expect(
+            dateIsOutsideRange(valueBefore, rangeStart, rangeEnd),
+        ).toBeTruthy();
+        expect(
+            dateIsOutsideRange(valueAfter, rangeStart, rangeEnd),
+        ).toBeTruthy();
     });
 
     it("returns true if value is before rangeStart", () => {
-        expect(dateIsOutsideRange(valueBefore, rangeStart, undefined)).toBeTruthy();
+        expect(
+            dateIsOutsideRange(valueBefore, rangeStart, undefined),
+        ).toBeTruthy();
     });
 });
 
@@ -114,19 +128,27 @@ describe("getInitialDate", () => {
     const expectedInitialDate = new Date(2001, 9, 1);
 
     it("returns null if value is undefined and initialDate is outside range", () => {
-        expect(getInitialDate(undefined, "1986-10-14", minDate, maxDate)).toBeNull();
+        expect(
+            getInitialDate(undefined, "1986-10-14", minDate, maxDate),
+        ).toBeNull();
     });
 
     it("returns initialDate if value is undefined and initialDate is inside range", () => {
-        expect(getInitialDate(undefined, initialDate, minDate, maxDate)).toEqual(expectedInitialDate);
+        expect(
+            getInitialDate(undefined, initialDate, minDate, maxDate),
+        ).toEqual(expectedInitialDate);
     });
 
     it("returns value if initialDate is undefined and value is inside range", () => {
-        expect(getInitialDate(value, undefined, minDate, maxDate)).toEqual(expectedValue);
+        expect(getInitialDate(value, undefined, minDate, maxDate)).toEqual(
+            expectedValue,
+        );
     });
 
     it("returns value if both is defined and inside range", () => {
-        expect(getInitialDate(value, initialDate, minDate, maxDate)).toEqual(expectedValue);
+        expect(getInitialDate(value, initialDate, minDate, maxDate)).toEqual(
+            expectedValue,
+        );
     });
 });
 
@@ -134,10 +156,19 @@ describe("getYearSelectOptions", () => {
     it("returns given number of years before and after current year if no min or max is set", () => {
         const CURRENT_YEAR = 2023;
         const NUMBER_OF_YEARS_TO_SHOW = 3;
-        const years = getYearSelectOptions(CURRENT_YEAR, undefined, undefined, NUMBER_OF_YEARS_TO_SHOW);
+        const years = getYearSelectOptions(
+            CURRENT_YEAR,
+            undefined,
+            undefined,
+            NUMBER_OF_YEARS_TO_SHOW,
+        );
 
-        expect(years.indexOf((CURRENT_YEAR - NUMBER_OF_YEARS_TO_SHOW).toString())).not.toBe(-1);
-        expect(years.indexOf((CURRENT_YEAR + NUMBER_OF_YEARS_TO_SHOW).toString())).not.toBe(-1);
+        expect(
+            years.indexOf((CURRENT_YEAR - NUMBER_OF_YEARS_TO_SHOW).toString()),
+        ).not.toBe(-1);
+        expect(
+            years.indexOf((CURRENT_YEAR + NUMBER_OF_YEARS_TO_SHOW).toString()),
+        ).not.toBe(-1);
     });
 
     it("shows min and max dates when number of years to show is set to 'all'", () => {
@@ -156,14 +187,24 @@ describe("getYearSelectOptions", () => {
     });
 
     it("shows first possible year when min date is set after current year", () => {
-        const years = getYearSelectOptions(2023, new Date(2028, 2, 11), undefined, 3);
+        const years = getYearSelectOptions(
+            2023,
+            new Date(2028, 2, 11),
+            undefined,
+            3,
+        );
 
         expect(years.indexOf("2023")).toBe(-1);
         expect(years.indexOf("2028")).not.toBe(-1);
     });
 
     it("shows last possible year when max date is set before current year", () => {
-        const years = getYearSelectOptions(2023, undefined, new Date(2019, 2, 11), 3);
+        const years = getYearSelectOptions(
+            2023,
+            undefined,
+            new Date(2019, 2, 11),
+            3,
+        );
 
         expect(years.indexOf("2023")).toBe(-1);
         expect(years.indexOf("2019")).not.toBe(-1);

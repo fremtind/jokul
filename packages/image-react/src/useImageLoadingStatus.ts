@@ -15,7 +15,9 @@ const doWhenImageLoaded = (image: HTMLImageElement, callback?: () => void) => {
     checkLoaded();
 };
 
-export const useImageLoadingStatus = (callback?: () => void): [RefObject<HTMLImageElement>, boolean] => {
+export const useImageLoadingStatus = (
+    callback?: () => void,
+): [RefObject<HTMLImageElement>, boolean] => {
     const imageRef = useRef<HTMLImageElement>(null);
     const [imageLoaded, setImageLoaded] = useState(false);
 

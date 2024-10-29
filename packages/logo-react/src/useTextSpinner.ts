@@ -1,7 +1,9 @@
 import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
 import React, { useState } from "react";
 
-export function useTextSpinner<T extends HTMLElement | SVGElement>(ref: React.RefObject<T>) {
+export function useTextSpinner<T extends HTMLElement | SVGElement>(
+    ref: React.RefObject<T>,
+) {
     const [hasAnimated, setHasAnimated] = useState(false);
     const [visible, setVisible] = useState(false);
 

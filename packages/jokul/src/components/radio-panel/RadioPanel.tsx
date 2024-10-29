@@ -19,7 +19,15 @@ type Props = ComponentPropsWithRef<"input"> & {
 };
 
 export const RadioPanel = forwardRef(function RadioPanel(
-    { children, alwaysOpen = false, label, extraLabel, name, checked, ...rest }: Props,
+    {
+        children,
+        alwaysOpen = false,
+        label,
+        extraLabel,
+        name,
+        checked,
+        ...rest
+    }: Props,
     ref: ForwardedRef<HTMLDivElement>,
 ) {
     const [renderChildren, setRenderChildren] = useState(true);
@@ -53,12 +61,22 @@ export const RadioPanel = forwardRef(function RadioPanel(
     return (
         <div className="jkl-radio-panel" ref={ref}>
             <label className="jkl-radio-panel__label">
-                <input onChange={handleChange} className="jkl-radio-panel__input" type="radio" name={name} {...rest} />
-                <span aria-hidden="true" className="jkl-radio-panel__dot"></span>
+                <input
+                    onChange={handleChange}
+                    className="jkl-radio-panel__input"
+                    type="radio"
+                    name={name}
+                    {...rest}
+                />
+                <span
+                    aria-hidden="true"
+                    className="jkl-radio-panel__dot"
+                ></span>
                 <span className="jkl-radio-panel__main-label">{label}</span>
                 <span
                     className={clsx("jkl-radio-panel__extra-label", {
-                        "jkl-radio-panel__extra-label--text": typeof extraLabel === "string",
+                        "jkl-radio-panel__extra-label--text":
+                            typeof extraLabel === "string",
                     })}
                 >
                     {extraLabel}

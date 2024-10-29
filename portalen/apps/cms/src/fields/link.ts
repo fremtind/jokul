@@ -54,7 +54,8 @@ export const link = ({ withoutLabel, overrides }: linkProps): GroupField => {
                         maxDepth: 0,
                         admin: {
                             width: "50%",
-                            condition: (_, linkFields) => linkFields?.type === "reference",
+                            condition: (_, linkFields) =>
+                                linkFields?.type === "reference",
                         },
                     },
                     {
@@ -64,7 +65,8 @@ export const link = ({ withoutLabel, overrides }: linkProps): GroupField => {
                         required: true,
                         admin: {
                             width: "50%",
-                            condition: (_, linkFields) => linkFields?.type === "custom",
+                            condition: (_, linkFields) =>
+                                linkFields?.type === "custom",
                         },
                     },
                 ],

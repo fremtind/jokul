@@ -2,7 +2,9 @@ import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
 import { RadioButtonGroup, RadioButton } from "../src";
 
-export const RadioButtonPreselectedExample: FC<ExampleComponentProps> = ({ boolValues }) => {
+export const RadioButtonPreselectedExample: FC<ExampleComponentProps> = ({
+    boolValues,
+}) => {
     const choices = ["Månedspris", "Årspris"];
     const [selectedValue, setSelectedValue] = React.useState("Månedspris");
 
@@ -24,7 +26,9 @@ export const RadioButtonPreselectedExample: FC<ExampleComponentProps> = ({ boolV
     );
 };
 
-export const radioButtonPreselectedExampleCode = ({ boolValues }: ExampleComponentProps): string => `
+export const radioButtonPreselectedExampleCode = ({
+    boolValues,
+}: ExampleComponentProps): string => `
 <RadioButtonGroup
     legend="Velg prisvisning"
     name="prisvisning"

@@ -49,6 +49,8 @@ import "./src/components/Typography/typography.scss";
 
 initTabListener();
 
-export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({ element }) => {
+export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
+    element,
+}) => {
     return <SharedProviders>{element}</SharedProviders>;
 };

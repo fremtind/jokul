@@ -1,6 +1,14 @@
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "../src";
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "../src";
 
 export const mobileListTableExampleKnobs: ExampleKnobsProps = {
     choiceProps: [
@@ -12,20 +20,52 @@ export const mobileListTableExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Milepæl", "Følger saken"];
-
-const rows = [
-    ["24.02.2020", "20-1234567", "010203 99887", "Ola Nordmann", "Opprettet", "Siri Saksbehandler"],
-    ["13.04.2019", "20-8382811", "010203 99887", "Kari Nordkvinne", "Opprettet", "Siri Saksbehandler"],
-    ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Opprettet", "Per Persen"],
+const columns = [
+    "Dato",
+    "Saksnummer",
+    "Kundenummer",
+    "Kundenavn",
+    "Milepæl",
+    "Følger saken",
 ];
 
-const MobileListTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
+const rows = [
+    [
+        "24.02.2020",
+        "20-1234567",
+        "010203 99887",
+        "Ola Nordmann",
+        "Opprettet",
+        "Siri Saksbehandler",
+    ],
+    [
+        "13.04.2019",
+        "20-8382811",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Opprettet",
+        "Siri Saksbehandler",
+    ],
+    [
+        "31.07.2017",
+        "20-1111",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Opprettet",
+        "Per Persen",
+    ],
+];
+
+const MobileListTableExample: FC<ExampleComponentProps> = ({
+    choiceValues,
+}) => {
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true" } : {};
     return (
         <Table {...props} collapseToList fullWidth>
-            <TableCaption srOnly>Tabell som vises som liste på mobil</TableCaption>
+            <TableCaption srOnly>
+                Tabell som vises som liste på mobil
+            </TableCaption>
             <TableHead>
                 <TableRow>
                     {columns.map((column, index) => (
@@ -42,7 +82,11 @@ const MobileListTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => 
                             <TableCell
                                 key={cellIndex}
                                 data-th={columns[cellIndex]}
-                                align={[1, 2].includes(cellIndex) ? "right" : "left"}
+                                align={
+                                    [1, 2].includes(cellIndex)
+                                        ? "right"
+                                        : "left"
+                                }
                             >
                                 {row}
                             </TableCell>
@@ -56,7 +100,9 @@ const MobileListTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => 
 
 export default MobileListTableExample;
 
-export const mobileListTableExampleCode = ({ choiceValues }: ExampleComponentProps): string => `
+export const mobileListTableExampleCode = ({
+    choiceValues,
+}: ExampleComponentProps): string => `
 <Table fullWidth collapseToList={${choiceValues?.["Mobilvisning"] === "Liste"}}>
     <TableCaption srOnly>Tabell som vises som liste på mobil</TableCaption>
     <TableHead>

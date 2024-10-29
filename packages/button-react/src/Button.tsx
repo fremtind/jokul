@@ -2,13 +2,16 @@ import type { PolymorphicRef } from "@fremtind/jkl-core";
 import { Loader } from "@fremtind/jkl-loader-react";
 import { useAriaLiveRegion } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import React, { ButtonHTMLAttributes, type TouchEvent, useCallback } from "react";
+import React, {
+    ButtonHTMLAttributes,
+    type TouchEvent,
+    useCallback,
+} from "react";
 import type { ButtonComponent, ButtonProps } from "./types";
 
-export const Button = React.forwardRef(function Button<ElementType extends React.ElementType = "button">(
-    props: ButtonProps<ElementType>,
-    ref?: PolymorphicRef<ElementType>,
-) {
+export const Button = React.forwardRef(function Button<
+    ElementType extends React.ElementType = "button",
+>(props: ButtonProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
     const {
         as = "button",
         children,
@@ -32,10 +35,20 @@ export const Button = React.forwardRef(function Button<ElementType extends React
 
             const target = event.target as HTMLButtonElement;
             if (target && !target.disabled && event.targetTouches.length) {
-                const Xcoord = event.targetTouches[0].clientX - target.getBoundingClientRect().x;
-                const Ycoord = event.targetTouches[0].clientY - target.getBoundingClientRect().y;
-                target.style.setProperty("--jkl-touch-xcoord", Xcoord.toPrecision(4) + "px");
-                target.style.setProperty("--jkl-touch-ycoord", Ycoord.toPrecision(4) + "px");
+                const Xcoord =
+                    event.targetTouches[0].clientX -
+                    target.getBoundingClientRect().x;
+                const Ycoord =
+                    event.targetTouches[0].clientY -
+                    target.getBoundingClientRect().y;
+                target.style.setProperty(
+                    "--jkl-touch-xcoord",
+                    Xcoord.toPrecision(4) + "px",
+                );
+                target.style.setProperty(
+                    "--jkl-touch-ycoord",
+                    Ycoord.toPrecision(4) + "px",
+                );
                 target.classList.add("jkl-button--pressed");
 
                 setTimeout(() => {
@@ -65,7 +78,9 @@ export const Button = React.forwardRef(function Button<ElementType extends React
             <div className="jkl-button__label">
                 {iconLeft && iconLeft}
                 {icon && iconPosition === "left" && icon}
-                {children && <span className="jkl-button__text">{children}</span>}
+                {children && (
+                    <span className="jkl-button__text">{children}</span>
+                )}
                 {iconRight && iconRight}
                 {icon && iconPosition === "right" && icon}
             </div>
@@ -74,7 +89,9 @@ export const Button = React.forwardRef(function Button<ElementType extends React
                 <Loader
                     className="jkl-button__loader"
                     variant="medium"
-                    textDescription={loader?.textDescription || "Vennligst vent"}
+                    textDescription={
+                        loader?.textDescription || "Vennligst vent"
+                    }
                     aria-hidden={!loader?.showLoader}
                 />
             )}
@@ -86,29 +103,45 @@ export function PrimaryButton<ElementType extends React.ElementType = "button">(
     props: Omit<ButtonProps<ElementType>, "variant" | "onClick" | "as"> &
         Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">,
 ) {
-    const buttonProps = { ...props, variant: "primary" } as ButtonProps<ElementType>;
+    const buttonProps = {
+        ...props,
+        variant: "primary",
+    } as ButtonProps<ElementType>;
     return <Button {...buttonProps} />;
 }
 
-export function SecondaryButton<ElementType extends React.ElementType = "button">(
+export function SecondaryButton<
+    ElementType extends React.ElementType = "button",
+>(
     props: Omit<ButtonProps<ElementType>, "variant" | "onClick" | "as"> &
         Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">,
 ) {
-    const buttonProps = { ...props, variant: "secondary" } as ButtonProps<ElementType>;
+    const buttonProps = {
+        ...props,
+        variant: "secondary",
+    } as ButtonProps<ElementType>;
     return <Button {...buttonProps} />;
 }
 
-export function TertiaryButton<ElementType extends React.ElementType = "button">(
+export function TertiaryButton<
+    ElementType extends React.ElementType = "button",
+>(
     props: Omit<ButtonProps<ElementType>, "variant" | "onClick" | "as"> &
         Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">,
 ) {
-    const buttonProps = { ...props, variant: "tertiary" } as ButtonProps<ElementType>;
+    const buttonProps = {
+        ...props,
+        variant: "tertiary",
+    } as ButtonProps<ElementType>;
     return <Button {...buttonProps} />;
 }
 
 export function GhostButton<ElementType extends React.ElementType = "button">(
     props: Omit<ButtonProps<ElementType>, "variant" | "loader">,
 ) {
-    const buttonProps = { ...props, variant: "ghost" } as ButtonProps<ElementType>;
+    const buttonProps = {
+        ...props,
+        variant: "ghost",
+    } as ButtonProps<ElementType>;
     return <Button {...buttonProps} />;
 }

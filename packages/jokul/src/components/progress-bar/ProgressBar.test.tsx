@@ -14,7 +14,9 @@ describe("ProgressBar", () => {
         render(<ProgressBar {...defaultProps} />);
 
         expect(screen.getByTestId("jkl-progress-bar")).toBeInTheDocument();
-        expect(screen.getByTestId("jkl-progress-bar__tracker")).toBeInTheDocument();
+        expect(
+            screen.getByTestId("jkl-progress-bar__tracker"),
+        ).toBeInTheDocument();
     });
 
     [0, 10, 50, 90, 100].map((current) => {
@@ -29,7 +31,9 @@ describe("ProgressBar", () => {
     });
 
     [0, 1, 5, 9, 10].map((current) => {
-        it(`should render progress bar at ${current * 10}% with ${current} of total 10`, () => {
+        it(`should render progress bar at ${
+            current * 10
+        }% with ${current} of total 10`, () => {
             render(<ProgressBar aria-valuenow={current} aria-valuemax={10} />);
 
             const progress = screen.getByTestId("jkl-progress-bar__tracker");
@@ -42,7 +46,9 @@ describe("ProgressBar", () => {
     it("should show custom className", () => {
         render(<ProgressBar {...defaultProps} className="customClass" />);
 
-        expect(screen.getByTestId("jkl-progress-bar")).toHaveClass("customClass");
+        expect(screen.getByTestId("jkl-progress-bar")).toHaveClass(
+            "customClass",
+        );
     });
 
     it("should have progressbar as role", () => {
@@ -63,7 +69,13 @@ describe("ProgressBar", () => {
     });
 
     it("should have correct aria values and value text", () => {
-        render(<ProgressBar aria-valuenow={1} aria-valuemax={2} aria-valuetext="Almost there" />);
+        render(
+            <ProgressBar
+                aria-valuenow={1}
+                aria-valuemax={2}
+                aria-valuetext="Almost there"
+            />,
+        );
 
         const progressBar = screen.getByTestId("jkl-progress-bar");
 

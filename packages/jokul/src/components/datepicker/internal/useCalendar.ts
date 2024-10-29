@@ -56,7 +56,10 @@ type GetDatePropsResult = {
     role: "button";
 };
 
-function getDateProps(onDateSelected: BoundGetDateProps, { onClick, dateObj }: GetDateProps): GetDatePropsResult {
+function getDateProps(
+    onDateSelected: BoundGetDateProps,
+    { onClick, dateObj }: GetDateProps,
+): GetDatePropsResult {
     return {
         onClick: composeEventHandlers(onClick, (event) => {
             onDateSelected(dateObj, event);
@@ -93,7 +96,9 @@ function getBackProps(
     const label = `Gå tilbake ${offset} måned${offset === 1 ? "" : "er"}`;
     return {
         onClick: composeEventHandlers(onClick, () => {
-            handleOffsetChanged(offsetMonth - subtractMonth({ calendars, offset, minDate }));
+            handleOffsetChanged(
+                offsetMonth - subtractMonth({ calendars, offset, minDate }),
+            );
         }),
         disabled: isBackDisabled({ calendars, minDate }),
         "aria-label": label,
@@ -127,7 +132,9 @@ function getForwardProps(
     const label = `Gå frem ${offset} måned${offset === 1 ? "" : "er"}`;
     return {
         onClick: composeEventHandlers(onClick, () => {
-            handleOffsetChanged(offsetMonth + addMonth({ calendars, offset, maxDate }));
+            handleOffsetChanged(
+                offsetMonth + addMonth({ calendars, offset, maxDate }),
+            );
         }),
         disabled: isForwardDisabled({ calendars, maxDate }),
         "aria-label": label,
@@ -150,7 +157,9 @@ export interface UseCalendarProps {
 
 export type GetDatePropsFunc = (props: GetDateProps) => GetDatePropsResult;
 export type GetBackPropsFunc = (props: GetBackProps) => GetBackPropsResult;
-export type GetForwardPropsFunc = (props: GetForwardProps) => GetForwardPropsResult;
+export type GetForwardPropsFunc = (
+    props: GetForwardProps,
+) => GetForwardPropsResult;
 export type HandleOffsetFunc = (newOffset: number) => void;
 
 export type UseCalendarResult = {

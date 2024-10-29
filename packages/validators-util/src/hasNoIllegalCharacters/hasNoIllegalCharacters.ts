@@ -6,4 +6,5 @@ export const ILLEGAL_CHARS_STRING = '[]{}%¤/()$@£€^~*?_;:"';
  * @param value Verdien som skal valideres
  * @returns Om verdien er fri for spesialtegn som ikke er tillatt
  */
-export const hasNoIllegalCharacters = (value: string): boolean => !ILLEGAL_CHARS_REGEX.test(value);
+export const hasNoIllegalCharacters = (value: string): boolean =>
+    !ILLEGAL_CHARS_REGEX.test(value);

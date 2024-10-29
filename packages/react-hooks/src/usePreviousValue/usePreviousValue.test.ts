@@ -3,9 +3,12 @@ import { usePreviousValue } from "./usePreviousValue";
 
 describe("usePreviousValue", () => {
     it("usePreviousValue returns previous value", () => {
-        const { result, rerender } = renderHook(({ testVerdi }) => usePreviousValue(testVerdi), {
-            initialProps: { testVerdi: "initial value" },
-        });
+        const { result, rerender } = renderHook(
+            ({ testVerdi }) => usePreviousValue(testVerdi),
+            {
+                initialProps: { testVerdi: "initial value" },
+            },
+        );
 
         rerender({ testVerdi: "another value" });
         rerender({ testVerdi: "yet another value" });

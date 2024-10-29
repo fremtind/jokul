@@ -50,9 +50,13 @@ export const TopicPageTemplate: FC<TopicPageProps> = ({
     const selectedTab = tabs.every((tab) => !pathname.endsWith(tab.slug))
         ? tabs[0]
         : tabs.find((tab) => pathname.endsWith(tab.slug));
-    const pagePath = tabs.every((tab) => !pathname.endsWith(tab.slug)) ? path : path.split("/").slice(0, -1).join("/");
+    const pagePath = tabs.every((tab) => !pathname.endsWith(tab.slug))
+        ? path
+        : path.split("/").slice(0, -1).join("/");
 
-    const [isCollapsed, setCollapsed] = useState((state as PageState)?.isCollapsed || false);
+    const [isCollapsed, setCollapsed] = useState(
+        (state as PageState)?.isCollapsed || false,
+    );
     useCollapsibleHeader(setCollapsed);
 
     // Kollaps headeren (ved å hoppe til første overskrift) hvis vi
@@ -75,10 +79,15 @@ export const TopicPageTemplate: FC<TopicPageProps> = ({
         const heading = headingRef.current;
         const page = pageRef.current;
 
-        page.style.setProperty("--heading-height-for-ingress", `${headingHeight.expanded}px`);
+        page.style.setProperty(
+            "--heading-height-for-ingress",
+            `${headingHeight.expanded}px`,
+        );
         page.style.setProperty(
             "--heading-height",
-            `${isCollapsed ? headingHeight.collapsed : headingHeight.expanded}px`,
+            `${
+                isCollapsed ? headingHeight.collapsed : headingHeight.expanded
+            }px`,
         );
 
         // Sett riktig høyde på overskriften og sørg for at den animeres
@@ -90,17 +99,25 @@ export const TopicPageTemplate: FC<TopicPageProps> = ({
 
     useEffect(() => {
         const setIngressOpacity = () => {
-            if (typeof window !== "undefined" && ingressRef.current && headingHeight !== null) {
+            if (
+                typeof window !== "undefined" &&
+                ingressRef.current &&
+                headingHeight !== null
+            ) {
                 const { scrollY } = window;
 
-                const ingressHeight = ingressRef.current.getBoundingClientRect().height;
+                const ingressHeight =
+                    ingressRef.current.getBoundingClientRect().height;
                 const opacity = invlerp(
                     64 + headingHeight.collapsed + ingressHeight * 0.75,
                     64 + headingHeight.collapsed,
                     scrollY,
                 );
 
-                ingressRef.current?.style.setProperty("--opacity", `${opacity}`);
+                ingressRef.current?.style.setProperty(
+                    "--opacity",
+                    `${opacity}`,
+                );
             }
         };
 
@@ -135,7 +152,11 @@ export const TopicPageTemplate: FC<TopicPageProps> = ({
                     {camelShyte(heading)}
                 </h1>
             </div>
-            <div ref={ingressRef} className="topic-page__ingress" data-collapsed={isCollapsed}>
+            <div
+                ref={ingressRef}
+                className="topic-page__ingress"
+                data-collapsed={isCollapsed}
+            >
                 <RichText content={ingress} />
             </div>
             {tabs.length <= 1 ? null : (
@@ -146,13 +167,19 @@ export const TopicPageTemplate: FC<TopicPageProps> = ({
                                 key={tab.slug}
                                 aria-selected={
                                     idx === 0
-                                        ? tabs.every((page) => !pathname.endsWith(page.slug))
+                                        ? tabs.every(
+                                              (page) =>
+                                                  !pathname.endsWith(page.slug),
+                                          )
                                         : pathname.endsWith(tab.slug)
                                 }
                                 component={NavLink}
                                 componentProps={
                                     {
-                                        to: idx === 0 ? `/${pagePath}` : `/${pagePath}/${tab.slug}`,
+                                        to:
+                                            idx === 0
+                                                ? `/${pagePath}`
+                                                : `/${pagePath}/${tab.slug}`,
                                         prefetch: "intent",
                                         replace: true,
                                         preventScrollReset: isCollapsed,
@@ -169,7 +196,14 @@ export const TopicPageTemplate: FC<TopicPageProps> = ({
             )}
             <div className="topic-page__tab-content">
                 <TableOfContents />
-                <div role="tabpanel">{selectedTab && <TopicTab tabContent={selectedTab} packages={packages} />}</div>
+                <div role="tabpanel">
+                    {selectedTab && (
+                        <TopicTab
+                            tabContent={selectedTab}
+                            packages={packages}
+                        />
+                    )}
+                </div>
             </div>
         </AnimatedPageWrapper>
     );

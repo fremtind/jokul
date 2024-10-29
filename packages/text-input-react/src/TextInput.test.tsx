@@ -47,7 +47,9 @@ describe("TextInput", () => {
     });
 
     it("has the value given", () => {
-        render(<TextInput label="testing" value="testValue" onChange={() => {}} />);
+        render(
+            <TextInput label="testing" value="testValue" onChange={() => {}} />,
+        );
 
         const component = screen.getByLabelText("testing");
         expect(component).toHaveValue("testValue");
@@ -68,14 +70,18 @@ describe("TextInput", () => {
     });
 
     it("does not render helpLabel if both helpLabel and errorLabel is given", () => {
-        render(<TextInput label="testing" helpLabel="help" errorLabel="error" />);
+        render(
+            <TextInput label="testing" helpLabel="help" errorLabel="error" />,
+        );
 
         expect(screen.queryByText("help")).not.toBeInTheDocument();
         expect(screen.getByText("error")).toBeInTheDocument();
     });
 
     it("has the type specified", () => {
-        render(<TextInput label="testing" type="password" placeholder="test-ph" />);
+        render(
+            <TextInput label="testing" type="password" placeholder="test-ph" />,
+        );
 
         const component = screen.getByPlaceholderText("test-ph");
         expect(component).toHaveAttribute("type", "password");
@@ -143,13 +149,22 @@ describe("TextInput", () => {
 
 describe("a11y", () => {
     test("text-field should be a11y compliant", async () => {
-        const { container } = render(<TextInput label="testing" type="text" helpLabel="some help 4 u" />);
+        const { container } = render(
+            <TextInput label="testing" type="text" helpLabel="some help 4 u" />,
+        );
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
     test("inline text-field should be a11y compliant", async () => {
-        const { container } = render(<TextInput inline label="testing" type="text" helpLabel="some help 4 u" />);
+        const { container } = render(
+            <TextInput
+                inline
+                label="testing"
+                type="text"
+                helpLabel="some help 4 u"
+            />,
+        );
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();

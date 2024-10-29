@@ -19,8 +19,12 @@ Cypress.Commands.add("getByTestid", (field) => {
 });
 
 Cypress.Commands.add("testComponent", (component) => {
-    const forcedColorsActive = window.matchMedia("(forced-colors: active)").matches;
-    cy.visit(`/komponenter/${component}?mode=e2e`).wait(forcedColorsActive ? 500 : 300); // vent på Reacts hydrering
+    const forcedColorsActive = window.matchMedia(
+        "(forced-colors: active)",
+    ).matches;
+    cy.visit(`/komponenter/${component}?mode=e2e`).wait(
+        forcedColorsActive ? 500 : 300,
+    ); // vent på Reacts hydrering
     cy.getComponent().should("be.visible").as("componentIsVisible");
 });
 
@@ -58,7 +62,9 @@ Cypress.Commands.add("getComponent", () => {
 });
 
 Cypress.Commands.add("setChoice", (choice, value) =>
-    cy.get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`).click({ multiple: true }),
+    cy
+        .get(`input[name$="${choice.toLowerCase()}"][value="${value}"]`)
+        .click({ multiple: true }),
 );
 
 Cypress.Commands.add("setTheme", (value) => {
@@ -66,7 +72,9 @@ Cypress.Commands.add("setTheme", (value) => {
 });
 
 Cypress.Commands.add("setDensity", (value) => {
-    cy.get(`input[name$="density"][value="${value}"]`).click({ multiple: true });
+    cy.get(`input[name$="density"][value="${value}"]`).click({
+        multiple: true,
+    });
 });
 
 Cypress.Commands.add("setSelectChoice", (choice, value) => {
@@ -86,15 +94,24 @@ const setModeFactory = (knob) => {
     Cypress.Commands.add(`reset${pascalCase(knob)}`, setMode(knob, true));
 };
 
-["Inline", "Med feil", "Utvidet velger", "Med hjelpetekst", "Bytt verdi", "withLoader", "isLoading", "Dismissable"].map(
-    (knob) => setModeFactory(knob),
-);
+[
+    "Inline",
+    "Med feil",
+    "Utvidet velger",
+    "Med hjelpetekst",
+    "Bytt verdi",
+    "withLoader",
+    "isLoading",
+    "Dismissable",
+].map((knob) => setModeFactory(knob));
 
 Cypress.Commands.add("takeSnapshots", (options = {}) => {
     const pause = options.pause || false;
     const variants = options.variants || ["__DEFAULT__"];
     const variantsChoiceType = variants.length > 3 ? "select" : "checkbox";
-    const forcedColorsActive = window.matchMedia("(forced-colors: active)").matches;
+    const forcedColorsActive = window.matchMedia(
+        "(forced-colors: active)",
+    ).matches;
 
     variants.forEach((variant) => {
         doSnapshot(options, variant, variantsChoiceType);
@@ -125,7 +142,9 @@ Cypress.Commands.add("takeSnapshots", (options = {}) => {
         }
 
         const snapshotConfig = {
-            title: forcedColorsActive ? `${Cypress.currentTest.titlePath.join(" ")} in high contrast` : undefined,
+            title: forcedColorsActive
+                ? `${Cypress.currentTest.titlePath.join(" ")} in high contrast`
+                : undefined,
             maxDiffThreshold: 0.042,
         };
 

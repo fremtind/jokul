@@ -20,15 +20,26 @@ export const RedCrossIcon: FC<IconProps> = ({
 
     return (
         <El
-            className={cn(className, "jkl-icon", "jkl-icon-red-cross", `jkl-icon--${variant}`, {
-                "jkl-icon--bold": bold,
-            })}
+            className={cn(
+                className,
+                "jkl-icon",
+                "jkl-icon-red-cross",
+                `jkl-icon--${variant}`,
+                {
+                    "jkl-icon--bold": bold,
+                },
+            )}
             aria-hidden="true"
             style={style}
             data-testid={testId}
             {...rest}
         >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24px"
+                height="24px"
+            >
                 <circle cx="12" cy="12" r="10" />
                 <path d="m15.71 7.23 1.06 1.06-8.48 8.48-1.06-1.06 8.48-8.48Z" />
                 <path d="m8.29 7.23 8.48 8.48-1.06 1.06L7.23 8.3l1.06-1.06Z" />

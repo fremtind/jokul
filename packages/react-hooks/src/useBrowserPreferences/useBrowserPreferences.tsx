@@ -1,6 +1,10 @@
 import { ColorScheme } from "@fremtind/jkl-core";
 import { Reducer, useEffect, useReducer, useState } from "react";
-import { addMediaQueryListener, getInitialMediaQueryMatch, removeMediaQueryListener } from "../mediaQueryUtils";
+import {
+    addMediaQueryListener,
+    getInitialMediaQueryMatch,
+    removeMediaQueryListener,
+} from "../mediaQueryUtils";
 
 export type {
     /**
@@ -78,11 +82,23 @@ export const useBrowserPreferences = (): BrowserPreferences => {
 
     useEffect(() => {
         setHasMounted(true);
-        const prefersReducedMotion = getInitialMediaQueryMatch(PREFERS_REDUCED_MOTION);
-        const prefersColorScheme = getInitialMediaQueryMatch(PREFERS_LIGHT_COLOR_SCHEME) ? "light" : "dark";
+        const prefersReducedMotion = getInitialMediaQueryMatch(
+            PREFERS_REDUCED_MOTION,
+        );
+        const prefersColorScheme = getInitialMediaQueryMatch(
+            PREFERS_LIGHT_COLOR_SCHEME,
+        )
+            ? "light"
+            : "dark";
         const forcedColors = getInitialMediaQueryMatch(FORCED_COLORS);
-        dispatch({ type: ActionType.PrefersReducedMotion, value: prefersReducedMotion });
-        dispatch({ type: ActionType.PrefersColorScheme, value: prefersColorScheme });
+        dispatch({
+            type: ActionType.PrefersReducedMotion,
+            value: prefersReducedMotion,
+        });
+        dispatch({
+            type: ActionType.PrefersColorScheme,
+            value: prefersColorScheme,
+        });
         dispatch({ type: ActionType.ForcedColors, value: forcedColors });
     }, []);
 
@@ -91,23 +107,47 @@ export const useBrowserPreferences = (): BrowserPreferences => {
             return;
         }
         const onPrefersReducedMotionChange = (e: MediaQueryListEvent) => {
-            dispatch({ type: ActionType.PrefersReducedMotion, value: e.matches });
+            dispatch({
+                type: ActionType.PrefersReducedMotion,
+                value: e.matches,
+            });
         };
         const onPrefersColorSchemeChange = (e: MediaQueryListEvent) => {
-            dispatch({ type: ActionType.PrefersColorScheme, value: e.matches ? "light" : "dark" });
+            dispatch({
+                type: ActionType.PrefersColorScheme,
+                value: e.matches ? "light" : "dark",
+            });
         };
         const onForcedColorsChange = (e: MediaQueryListEvent) => {
             dispatch({ type: ActionType.ForcedColors, value: e.matches });
         };
 
-        addMediaQueryListener(window.matchMedia(PREFERS_REDUCED_MOTION), onPrefersReducedMotionChange);
-        addMediaQueryListener(window.matchMedia(PREFERS_LIGHT_COLOR_SCHEME), onPrefersColorSchemeChange);
-        addMediaQueryListener(window.matchMedia(FORCED_COLORS), onForcedColorsChange);
+        addMediaQueryListener(
+            window.matchMedia(PREFERS_REDUCED_MOTION),
+            onPrefersReducedMotionChange,
+        );
+        addMediaQueryListener(
+            window.matchMedia(PREFERS_LIGHT_COLOR_SCHEME),
+            onPrefersColorSchemeChange,
+        );
+        addMediaQueryListener(
+            window.matchMedia(FORCED_COLORS),
+            onForcedColorsChange,
+        );
 
         return () => {
-            removeMediaQueryListener(window.matchMedia(PREFERS_REDUCED_MOTION), onPrefersReducedMotionChange);
-            removeMediaQueryListener(window.matchMedia(PREFERS_LIGHT_COLOR_SCHEME), onPrefersColorSchemeChange);
-            removeMediaQueryListener(window.matchMedia(FORCED_COLORS), onForcedColorsChange);
+            removeMediaQueryListener(
+                window.matchMedia(PREFERS_REDUCED_MOTION),
+                onPrefersReducedMotionChange,
+            );
+            removeMediaQueryListener(
+                window.matchMedia(PREFERS_LIGHT_COLOR_SCHEME),
+                onPrefersColorSchemeChange,
+            );
+            removeMediaQueryListener(
+                window.matchMedia(FORCED_COLORS),
+                onForcedColorsChange,
+            );
         };
     }, [hasMounted]);
 

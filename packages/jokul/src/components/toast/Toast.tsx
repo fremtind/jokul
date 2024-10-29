@@ -3,7 +3,13 @@ import { QueuedToast, type ToastState } from "@react-stately/toast";
 import clsx from "clsx";
 import React, { useEffect, useRef } from "react";
 import { useBrowserPreferences } from "../../hooks/index.js";
-import { CloseIcon, ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "../icon/index.js";
+import {
+    CloseIcon,
+    ErrorIcon,
+    InfoIcon,
+    SuccessIcon,
+    WarningIcon,
+} from "../icon/index.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { Countdown } from "../progress-bar/Countdown.js";
 import { ToastContent, ToastOptions } from "./types.js";
@@ -29,12 +35,22 @@ const getIcon = (messageType?: "error" | "info" | "success" | "warning") => {
     }
 };
 
-export function Toast<T extends ToastContent>({ className, state, ...props }: ToastProps<T>) {
+export function Toast<T extends ToastContent>({
+    className,
+    state,
+    ...props
+}: ToastProps<T>) {
     let ref = useRef(null);
     let { toastProps, titleProps } = useToast(props, state, ref);
 
-    const content = typeof props.toast.content === "string" ? props.toast.content : props.toast.content.content;
-    const title = typeof props.toast.content === "string" ? undefined : props.toast.content.title;
+    const content =
+        typeof props.toast.content === "string"
+            ? props.toast.content
+            : props.toast.content.content;
+    const title =
+        typeof props.toast.content === "string"
+            ? undefined
+            : props.toast.content.title;
 
     // @ts-ignore Proxy for å sjekke om timeren er pauset: https://github.com/adobe/react-spectrum/blob/b1545c0d225b12672fb6a4e7b787268591d66b90/packages/%40react-stately/toast/src/useToastState.ts#L222
     const isPaused = props.toast.timer?.timerId == null;

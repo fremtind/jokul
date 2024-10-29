@@ -15,9 +15,14 @@ type FormatOrganisasjonsnummerOptions = {
  * @param options Angi at verdien er et ufullstendig organisasjonsnummer og likevel skal formateres.
  * @returns Den formaterte verdien
  */
-export function formatOrganisasjonsnummer(input: string, options?: FormatOrganisasjonsnummerOptions) {
+export function formatOrganisasjonsnummer(
+    input: string,
+    options?: FormatOrganisasjonsnummerOptions,
+) {
     const strippedInput = input.replace(/[\s-.]/g, "");
-    const regex = options?.partial ? ORGANISASJONSNUMMER_REGEX.partial : ORGANISASJONSNUMMER_REGEX.full;
+    const regex = options?.partial
+        ? ORGANISASJONSNUMMER_REGEX.partial
+        : ORGANISASJONSNUMMER_REGEX.full;
 
     const match = strippedInput.match(regex);
 

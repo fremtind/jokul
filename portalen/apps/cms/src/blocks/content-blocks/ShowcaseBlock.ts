@@ -15,7 +15,8 @@ export const showcaseFields: Field[] = [
                 label: "Tittel",
                 required: true,
                 admin: {
-                    description: "Kort stikkord om bruken av mønstret eller komponenten.",
+                    description:
+                        "Kort stikkord om bruken av mønstret eller komponenten.",
                     placeholder: 'F.eks. "Dekningsvelger"',
                 },
             },
@@ -25,7 +26,8 @@ export const showcaseFields: Field[] = [
                 label: "Videokilde",
                 required: false,
                 admin: {
-                    description: "Sett in URL hvis du skal laste opp fra Vimeo, ellers la stå tom.",
+                    description:
+                        "Sett in URL hvis du skal laste opp fra Vimeo, ellers la stå tom.",
                 },
             },
             {
@@ -41,7 +43,8 @@ export const showcaseFields: Field[] = [
                 label: "Opprinnelse",
                 required: true,
                 admin: {
-                    description: "Fortell hvor eksemplet kommer fra, f.eks. 'Fra PM øvrig skade'",
+                    description:
+                        "Fortell hvor eksemplet kommer fra, f.eks. 'Fra PM øvrig skade'",
                 },
             },
             {

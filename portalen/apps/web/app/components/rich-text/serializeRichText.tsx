@@ -5,7 +5,10 @@ import type { MainMenu } from "payload/generated-types";
 import React, { type FC, Fragment } from "react";
 import { Text } from "slate";
 import { MediaViewer } from "../media";
-import { defaultRenderers, fallbackRenderer as defaultFallbackRenderer } from "./defaultRenderers";
+import {
+    defaultRenderers,
+    fallbackRenderer as defaultFallbackRenderer,
+} from "./defaultRenderers";
 import type { RichTextChildren } from "./types";
 import { isInternalLink, isLink } from "./types";
 import { getPagePathFromId } from "~/components/navigation/utils";
@@ -27,7 +30,14 @@ export const serializeRichText = ({
         if (isLink(node)) {
             if (isInternalLink(node)) {
                 return (
-                    <Link key={i} className="jkl-link" to={getPagePathFromId(mainMenu, node.doc.value.id) || "#"}>
+                    <Link
+                        key={i}
+                        className="jkl-link"
+                        to={
+                            getPagePathFromId(mainMenu, node.doc.value.id) ||
+                            "#"
+                        }
+                    >
                         {serializeRichText({
                             mainMenu,
                             renderers,
@@ -50,7 +60,11 @@ export const serializeRichText = ({
             );
         }
         if (Text.isText(node)) {
-            let text = <span dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }} />;
+            let text = (
+                <span
+                    dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }}
+                />
+            );
 
             if (node.bold) {
                 text = <strong key={i}>{text}</strong>;

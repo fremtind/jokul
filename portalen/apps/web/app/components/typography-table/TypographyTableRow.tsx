@@ -9,13 +9,24 @@ interface TypographyTableRowProps {
     screen: "base" | "small";
 }
 
-export const TypographyTableRow: FC<TypographyTableRowProps> = ({ level, weight, size, lineHeight, screen }) => {
+export const TypographyTableRow: FC<TypographyTableRowProps> = ({
+    level,
+    weight,
+    size,
+    lineHeight,
+    screen,
+}) => {
     let newLevel = level.replace("_", "-");
     return (
         <TableRow>
             <TableCell>
-                <p className={`typography-cell--${newLevel}-${screen === "base" ? "large" : screen}`}>
-                    {newLevel.charAt(0).toUpperCase() + newLevel.slice(1).replace("-", " ")}
+                <p
+                    className={`typography-cell--${newLevel}-${
+                        screen === "base" ? "large" : screen
+                    }`}
+                >
+                    {newLevel.charAt(0).toUpperCase() +
+                        newLevel.slice(1).replace("-", " ")}
                 </p>
             </TableCell>
             <TableCell>

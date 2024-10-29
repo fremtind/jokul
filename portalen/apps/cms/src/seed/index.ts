@@ -7,15 +7,19 @@ export const seedComponentPages = async (payload: Payload) => {
     });
 
     if (!totalDocs) {
-        const componentPagesCreated = componentPagesSeed.map(async (componentPage) => {
-            return payload.create({
-                collection: "components",
-                data: componentPage,
-            });
-        });
+        const componentPagesCreated = componentPagesSeed.map(
+            async (componentPage) => {
+                return payload.create({
+                    collection: "components",
+                    data: componentPage,
+                });
+            },
+        );
 
         Promise.all(componentPagesCreated).then(() => {
-            payload.logger.info(`Succsessfully seeded Component pages into database`);
+            payload.logger.info(
+                `Succsessfully seeded Component pages into database`,
+            );
         });
     }
 };

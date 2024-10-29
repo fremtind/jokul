@@ -20,7 +20,10 @@ export const tableExamplesProps = {
     ],
 };
 
-const TableExamples: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+const TableExamples: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const action = choiceValues?.["Variant"] === "Med handling";
     const clickable = choiceValues?.["Variant"] === "Klikkbar rad";
 

@@ -43,7 +43,9 @@ export const LogoStamp = ({
             data-rotate={animated && (visible || hasAnimated)}
             role="img"
         >
-            <title id={uniqueId}>{title || "Forsikring levert av Fremtind"}</title>
+            <title id={uniqueId}>
+                {title || "Forsikring levert av Fremtind"}
+            </title>
             <g className="jkl-logo-stamp__logo">
                 <path
                     fill="currentColor"

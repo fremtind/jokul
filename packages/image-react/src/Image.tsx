@@ -15,9 +15,15 @@ export interface ImageProps {
     className?: string;
 }
 
-export const Image: FC<ImageProps> = ({ className, placeholder, alt, ...imageProperties }) => {
+export const Image: FC<ImageProps> = ({
+    className,
+    placeholder,
+    alt,
+    ...imageProperties
+}) => {
     const [imageRef, imageLoaded] = useImageLoadingStatus();
-    const [containerRef, dimensions] = useElementDimensions<HTMLDivElement>(400);
+    const [containerRef, dimensions] =
+        useElementDimensions<HTMLDivElement>(400);
 
     return (
         <div
@@ -27,7 +33,11 @@ export const Image: FC<ImageProps> = ({ className, placeholder, alt, ...imagePro
             })}
         >
             {/* Placeholder er bevisst uten loading og decoding for å vises umiddelbart */}
-            <img className="jkl-image__placeholder" alt={alt} src={placeholder || imageProperties.src} />
+            <img
+                className="jkl-image__placeholder"
+                alt={alt}
+                src={placeholder || imageProperties.src}
+            />
             <img
                 alt={alt}
                 className="jkl-image__image"

@@ -1,1 +1,4 @@
-export { useScrollIntoView, type ScrollIntoViewProps } from "./useScrollIntoView.js";
+export {
+    useScrollIntoView,
+    type ScrollIntoViewProps,
+} from "./useScrollIntoView.js";

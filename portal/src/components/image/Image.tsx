@@ -49,7 +49,12 @@ interface ImageProps {
  * @see PortalImage
  * @see https://www.gatsbyjs.com/blog/mdx-embedded-gatsby-image/
  */
-export const Image: FC<ImageProps> = ({ className, children, caption, disableFullscreen }) => {
+export const Image: FC<ImageProps> = ({
+    className,
+    children,
+    caption,
+    disableFullscreen,
+}) => {
     const [isFullscreen, setFullscreen] = useState(false);
     const ref = useRef<HTMLButtonElement>(null);
     useKeyListener(ref, "Escape", () => setFullscreen(false));
@@ -85,7 +90,8 @@ export const Image: FC<ImageProps> = ({ className, children, caption, disableFul
                     </motion.div>
                     {!disableFullscreen && !isFullscreen && (
                         <p className="jkl small">
-                            {caption && caption} Klikk for å se større{caption && "."}
+                            {caption && caption} Klikk for å se større
+                            {caption && "."}
                         </p>
                     )}
                 </motion.button>

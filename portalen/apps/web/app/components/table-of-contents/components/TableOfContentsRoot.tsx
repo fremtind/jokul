@@ -3,7 +3,11 @@ import { useLocation } from "@remix-run/react";
 import React, { useCallback, useEffect, useRef, type FC } from "react";
 import { slugify } from "../../../utils/string";
 import { useActiveHeader } from "../activeHeaderContext";
-import { type TableOfContentRootEntry, type TableOfContentsEntry, useTableOfContents } from "../tableOfContentsContext";
+import {
+    type TableOfContentRootEntry,
+    type TableOfContentsEntry,
+    useTableOfContents,
+} from "../tableOfContentsContext";
 import { TableOfContentsList } from "./TableOfContentsList";
 
 type TableOfContentsRootProps = {
@@ -40,7 +44,8 @@ export const TableOfContentsRoot: FC<TableOfContentsRootProps> = ({
         }
 
         const root = document.querySelector<HTMLElement>(rootSelector);
-        const headings: NodeListOf<HTMLHeadingElement> | undefined = root?.querySelectorAll(headingSelector);
+        const headings: NodeListOf<HTMLHeadingElement> | undefined =
+            root?.querySelectorAll(headingSelector);
 
         const tocRoot: TableOfContentRootEntry = {
             children: [],
@@ -67,8 +72,10 @@ export const TableOfContentsRoot: FC<TableOfContentsRootProps> = ({
             };
 
             const isSibling = !previous || previous.level === entry.level;
-            const isLowerHeadingLevel = previous && previous.level < entry.level;
-            const isHigherHeadingLevel = previous && previous.level > entry.level;
+            const isLowerHeadingLevel =
+                previous && previous.level < entry.level;
+            const isHigherHeadingLevel =
+                previous && previous.level > entry.level;
 
             if (isSibling) {
                 const parent = parentStack[parentStack.length - 1];
@@ -122,7 +129,9 @@ export const TableOfContentsRoot: FC<TableOfContentsRootProps> = ({
                     .filter((intersection) => intersection.isIntersecting)
                     .sort((a, b) => a.intersectionRatio - b.intersectionRatio);
 
-                const intersectingHeadings = intersecting.map((intersection) => intersection.target?.id);
+                const intersectingHeadings = intersecting.map(
+                    (intersection) => intersection.target?.id,
+                );
 
                 if (intersectingHeadings[0]) {
                     setActiveHeader(intersectingHeadings[0]);
@@ -133,7 +142,17 @@ export const TableOfContentsRoot: FC<TableOfContentsRootProps> = ({
     );
 
     // TODO: oppdater Jøkul til å tillate MutableRefObject.
-    useIntersectionObserver(headings as any, handleIntersect, pathbreaker, intersectionOptions);
+    useIntersectionObserver(
+        headings as any,
+        handleIntersect,
+        pathbreaker,
+        intersectionOptions,
+    );
 
-    return <TableOfContentsList entries={tableOfContents.children} onClick={onClick} />;
+    return (
+        <TableOfContentsList
+            entries={tableOfContents.children}
+            onClick={onClick}
+        />
+    );
 };

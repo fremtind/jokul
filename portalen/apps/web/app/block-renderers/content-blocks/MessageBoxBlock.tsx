@@ -1,4 +1,9 @@
-import { InfoMessageBox, ErrorMessageBox, SuccessMessageBox, WarningMessageBox } from "@fremtind/jkl-message-box-react";
+import {
+    InfoMessageBox,
+    ErrorMessageBox,
+    SuccessMessageBox,
+    WarningMessageBox,
+} from "@fremtind/jkl-message-box-react";
 import React, { type FC } from "react";
 import { type ContentBlockProps } from "./types";
 import { assertBlockIs } from "./types";

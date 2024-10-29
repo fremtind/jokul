@@ -11,38 +11,42 @@ describe("Buttons", () => {
         const secondaryButton = 1;
         const tertiaryButton = 2;
 
-        [primaryButton, secondaryButton, tertiaryButton].forEach((component) => {
-            cy.takeSnapshots({ eq: component });
+        [primaryButton, secondaryButton, tertiaryButton].forEach(
+            (component) => {
+                cy.takeSnapshots({ eq: component });
 
-            cy.takeSnapshots({
-                setup: () => {
-                    cy.setwithLoader().setisLoading();
-                },
-                teardown: () => {
-                    cy.resetwithLoader().resetisLoading();
-                },
-                eq: component,
-            });
+                cy.takeSnapshots({
+                    setup: () => {
+                        cy.setwithLoader().setisLoading();
+                    },
+                    teardown: () => {
+                        cy.resetwithLoader().resetisLoading();
+                    },
+                    eq: component,
+                });
 
-            cy.takeSnapshots({
-                setup: () => {
-                    cy.setDensity("compact");
-                },
-                teardown: () => {
-                    cy.setDensity("comfortable");
-                },
-                eq: component,
-            });
+                cy.takeSnapshots({
+                    setup: () => {
+                        cy.setDensity("compact");
+                    },
+                    teardown: () => {
+                        cy.setDensity("comfortable");
+                    },
+                    eq: component,
+                });
 
-            cy.takeSnapshots({
-                setup: () => {
-                    cy.setDensity("compact").setwithLoader().setisLoading();
-                },
-                teardown: () => {
-                    cy.setDensity("comfortable").resetwithLoader().resetisLoading();
-                },
-                eq: component,
-            });
-        });
+                cy.takeSnapshots({
+                    setup: () => {
+                        cy.setDensity("compact").setwithLoader().setisLoading();
+                    },
+                    teardown: () => {
+                        cy.setDensity("comfortable")
+                            .resetwithLoader()
+                            .resetisLoading();
+                    },
+                    eq: component,
+                });
+            },
+        );
     });
 });

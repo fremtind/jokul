@@ -52,9 +52,11 @@ export const menuItemFields = (subMenuItemFields?: Field[]): Field[] => [
                 required: true,
                 admin: {
                     width: "50%",
-                    description: "Del av URL som skal legges før menypunktene i undermenyen",
+                    description:
+                        "Del av URL som skal legges før menypunktene i undermenyen",
                     condition: (_, siblingData) =>
-                        siblingData.type === "menu" || siblingData.link?.type === "reference",
+                        siblingData.type === "menu" ||
+                        siblingData.link?.type === "reference",
                 },
             },
         ],
@@ -94,7 +96,8 @@ export const menuItemFields = (subMenuItemFields?: Field[]): Field[] => [
         label: "Undermeny",
         admin: {
             hideGutter: true,
-            condition: (_, siblingFields) => siblingFields.type === "menu" && !!subMenuItemFields,
+            condition: (_, siblingFields) =>
+                siblingFields.type === "menu" && !!subMenuItemFields,
         },
         fields: [
             {

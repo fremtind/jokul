@@ -14,7 +14,9 @@ export const SharedProviders: FC<WithChildren> = ({ children }) => {
                 <KBarProvider actions={[]}>
                     <A11yContextProvider>
                         <LocationContextProvider>
-                            <FSMenuContextProvider>{children}</FSMenuContextProvider>
+                            <FSMenuContextProvider>
+                                {children}
+                            </FSMenuContextProvider>
                         </LocationContextProvider>
                     </A11yContextProvider>
                 </KBarProvider>

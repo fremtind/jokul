@@ -6,7 +6,11 @@ import {
     UnorderedLinkListExample,
     unorderedLinkListExample,
 } from "./LinkListExample";
-import { ListExamples, listExamplesCode, listExamplesProps } from "./ListExample";
+import {
+    ListExamples,
+    listExamplesCode,
+    listExamplesProps,
+} from "./ListExample";
 import "../../list/list.scss";
 
 export default function Example() {

@@ -12,12 +12,22 @@ export interface SkeletonInputProps {
     inputProps?: SkeletonElementProps;
 }
 
-export const SkeletonInput = ({ className, density, labelProps, inputProps, ...rest }: SkeletonInputProps) => {
+export const SkeletonInput = ({
+    className,
+    density,
+    labelProps,
+    inputProps,
+    ...rest
+}: SkeletonInputProps) => {
     const compact = density === "compact";
     return (
         <div className={clsx("jkl-skeleton-input", className)} {...rest}>
             <SkeletonLabel density={density} {...labelProps} />
-            <SkeletonElement width={compact ? 301 : 316} height={compact ? 32 : 48} {...inputProps} />
+            <SkeletonElement
+                width={compact ? 301 : 316}
+                height={compact ? 32 : 48}
+                {...inputProps}
+            />
         </div>
     );
 };

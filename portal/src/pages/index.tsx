@@ -57,20 +57,28 @@ const IndexPage: React.FC = () => {
 
     return (
         <MainContent className="jkl-portal__main--frontpage jkl-portal__main--full-width">
-            {!isSmallDevice && <DelayText text="Jøkul Designsystem" delay={100} />}
+            {!isSmallDevice && (
+                <DelayText text="Jøkul Designsystem" delay={100} />
+            )}
             <div className="jkl-portal-frontpage">
                 <section className="jkl-portal-frontpage__section-intro">
                     <h1 className="jkl-sr-only">Jøkul Designsystem</h1>
-                    <p className="heading-1 jkl-portal-frontpage__tagline" data-testid="front-page__tagline">
-                        Velkommen til Jøkul — design&shy;systemet til Fremtind. Her har vi samlet alt du trenger for å
-                        lage løsninger i vår profil.
+                    <p
+                        className="heading-1 jkl-portal-frontpage__tagline"
+                        data-testid="front-page__tagline"
+                    >
+                        Velkommen til Jøkul — design&shy;systemet til Fremtind.
+                        Her har vi samlet alt du trenger for å lage løsninger i
+                        vår profil.
                     </p>
                     <div className="jkl-portal-frontpage__section-intro--content">
                         <div className="jkl-portal-frontpage__section-intro--image-container">
                             <div
                                 className="jkl-portal-frontpage__section-intro--image"
                                 style={{
-                                    backgroundImage: `url(${withPrefix("assets/img/frontpage.jpg")})`,
+                                    backgroundImage: `url(${withPrefix(
+                                        "assets/img/frontpage.jpg",
+                                    )})`,
                                 }}
                             />
                         </div>
@@ -125,13 +133,21 @@ const IndexPage: React.FC = () => {
                             onEnter={() => onPrincipleStateChange(1)}
                             onLeave={() => onLeave(1)}
                             render={(ref) => (
-                                <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
+                                <div
+                                    ref={ref}
+                                    className="jkl-portal-frontpage__section-principles__principle"
+                                >
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <p className="title" data-testid="title-elevasjon">
+                                        <p
+                                            className="title"
+                                            data-testid="title-elevasjon"
+                                        >
                                             Enkelt
                                         </p>
                                         <p className="heading-2">
-                                            Vi løfter det som er viktig og skaper et naturlig informasjonshierarki.
+                                            Vi løfter det som er viktig og
+                                            skaper et naturlig
+                                            informasjonshierarki.
                                         </p>
                                     </div>
                                 </div>
@@ -141,13 +157,20 @@ const IndexPage: React.FC = () => {
                             onEnter={() => onPrincipleStateChange(2)}
                             onLeave={() => onLeave(2)}
                             render={(ref) => (
-                                <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
+                                <div
+                                    ref={ref}
+                                    className="jkl-portal-frontpage__section-principles__principle"
+                                >
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <p className="title" data-testid="title-bevegelse">
+                                        <p
+                                            className="title"
+                                            data-testid="title-bevegelse"
+                                        >
                                             Varmt
                                         </p>
                                         <p className="heading-2">
-                                            Vi skal utforske, se fremover og være tilpasningsdyktige.
+                                            Vi skal utforske, se fremover og
+                                            være tilpasningsdyktige.
                                         </p>
                                     </div>
                                 </div>
@@ -157,13 +180,20 @@ const IndexPage: React.FC = () => {
                             onEnter={() => onPrincipleStateChange(3)}
                             onLeave={() => onLeave(3)}
                             render={(ref) => (
-                                <div ref={ref} className="jkl-portal-frontpage__section-principles__principle">
+                                <div
+                                    ref={ref}
+                                    className="jkl-portal-frontpage__section-principles__principle"
+                                >
                                     <div className="jkl-portal-frontpage__section-principles__principle--container">
-                                        <p className="title" data-testid="title-klarhet">
+                                        <p
+                                            className="title"
+                                            data-testid="title-klarhet"
+                                        >
                                             Tydelig
                                         </p>
                                         <p className="heading-2">
-                                            Vi skal fremstå som ærlig og klar, med en tydelig og varm stemme
+                                            Vi skal fremstå som ærlig og klar,
+                                            med en tydelig og varm stemme
                                         </p>
                                     </div>
                                 </div>
@@ -176,13 +206,17 @@ const IndexPage: React.FC = () => {
                     <div className="jkl-portal-frontpage__section--wrapper">
                         <h2 className="heading-1">Bidra</h2>
                         <p className="heading-2">
-                            Jøkul er et levende designsystem. For at vi skal holde det relevant, er det viktig at alle
-                            som bruker designsystemet og merkevareprofilen vår hjelper til med å forbedre det vi har.
-                            Send oss en mail eller bidra i GitHub.
+                            Jøkul er et levende designsystem. For at vi skal
+                            holde det relevant, er det viktig at alle som bruker
+                            designsystemet og merkevareprofilen vår hjelper til
+                            med å forbedre det vi har. Send oss en mail eller
+                            bidra i GitHub.
                         </p>
                         <p className="heading-2">
-                            Finn oss i Teams kanalen “Support Designsystem” eller kom på åpent forum hver tirsdag 14 til
-                            14.30. Her informerer vi om hva som skjer og tar imot innspill.
+                            Finn oss i Teams kanalen “Support Designsystem”
+                            eller kom på åpent forum hver tirsdag 14 til 14.30.
+                            Her informerer vi om hva som skjer og tar imot
+                            innspill.
                         </p>
                     </div>
                 </section>

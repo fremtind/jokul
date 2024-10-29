@@ -13,19 +13,28 @@ export const expanderExamplesKnobs = {
     ],
 };
 
-const ExpandSection = forwardRef<HTMLDivElement, { id: string; "aria-labelledby": string; hidden: boolean }>(
-    ({ ...rest }, ref) => (
-        <div ref={ref} className="jkl-expand-section__content-wrapper" role="group" {...rest}>
-            <div className="jkl-expand-section__content">
-                <p className="jkl-heading-4 jkl-spacing-xl--bottom">Skjult seksjon</p>
-                <p className="jkl-spacing-l--bottom">
-                    For at dette skal fungere på en god måte må man huske på <code>aria-controls</code>. Denne
-                    komponenten kan være nyttig i for eksempel ekspanderbare tabellrader.
-                </p>
-            </div>
+const ExpandSection = forwardRef<
+    HTMLDivElement,
+    { id: string; "aria-labelledby": string; hidden: boolean }
+>(({ ...rest }, ref) => (
+    <div
+        ref={ref}
+        className="jkl-expand-section__content-wrapper"
+        role="group"
+        {...rest}
+    >
+        <div className="jkl-expand-section__content">
+            <p className="jkl-heading-4 jkl-spacing-xl--bottom">
+                Skjult seksjon
+            </p>
+            <p className="jkl-spacing-l--bottom">
+                For at dette skal fungere på en god måte må man huske på{" "}
+                <code>aria-controls</code>. Denne komponenten kan være nyttig i
+                for eksempel ekspanderbare tabellrader.
+            </p>
         </div>
-    ),
-);
+    </div>
+));
 ExpandSection.displayName = "ExpandSection";
 
 export const ExpanderExample = ({ choiceValues }: ExampleComponentProps) => {
@@ -38,12 +47,14 @@ export const ExpanderExample = ({ choiceValues }: ExampleComponentProps) => {
         setIsExpanded(!isExpanded);
     };
 
-    const expandDirection = choiceValues?.["Ekspander i retning"] === "Oppover" ? "up" : "down";
+    const expandDirection =
+        choiceValues?.["Ekspander i retning"] === "Oppover" ? "up" : "down";
 
     return (
         <div>
             <p className="jkl-spacing-l--bottom">
-                Noen ganger trenger vi å gi brukerne som ønsker det litt mer informasjon.
+                Noen ganger trenger vi å gi brukerne som ønsker det litt mer
+                informasjon.
             </p>
             {expandDirection === "up" && (
                 <>
@@ -54,8 +65,9 @@ export const ExpanderExample = ({ choiceValues }: ExampleComponentProps) => {
                         hidden={!isExpanded}
                     />
                     <p className="jkl-spacing-l--bottom">
-                        Jeg er ikke styrt av ExpandButton. Jeg illustrerer muligheten for å kontrollere deler av siden
-                        som ikke er direkte under ExpandButton.
+                        Jeg er ikke styrt av ExpandButton. Jeg illustrerer
+                        muligheten for å kontrollere deler av siden som ikke er
+                        direkte under ExpandButton.
                     </p>
                 </>
             )}
@@ -67,13 +79,16 @@ export const ExpanderExample = ({ choiceValues }: ExampleComponentProps) => {
                 isExpanded={isExpanded}
                 onClick={onClick}
             >
-                {isExpanded ? "Skjul seksjonen igjen" : "Vis den skjulte seksjonen"}
+                {isExpanded
+                    ? "Skjul seksjonen igjen"
+                    : "Vis den skjulte seksjonen"}
             </Expander>
             {expandDirection === "down" && (
                 <>
                     <p className="jkl-spacing-l--bottom">
-                        Jeg er ikke styrt av ExpandButton. Jeg illustrerer muligheten for å kontrollere deler av siden
-                        som ikke er direkte under ExpandButton.
+                        Jeg er ikke styrt av ExpandButton. Jeg illustrerer
+                        muligheten for å kontrollere deler av siden som ikke er
+                        direkte under ExpandButton.
                     </p>
                     <ExpandSection
                         ref={elementRef}

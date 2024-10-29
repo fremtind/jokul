@@ -1,5 +1,10 @@
 import cn from "classnames";
-import React, { type ElementType, forwardRef, useCallback, type AnchorHTMLAttributes } from "react";
+import React, {
+    type ElementType,
+    forwardRef,
+    useCallback,
+    type AnchorHTMLAttributes,
+} from "react";
 
 export interface NavTabProps<T extends object = Record<string, unknown>>
     extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -23,81 +28,94 @@ export interface NavTabProps<T extends object = Record<string, unknown>>
      * Om default oppførsel ikke fungerer for deg og du mister tastaturfokus etter
      * navigasjon kan du returnere `false` her og sørge for korrekt oppførsel selv.
      */
-    onBeforeKeyboardNavigation?: (from: HTMLAnchorElement, to: HTMLAnchorElement) => boolean | void;
+    onBeforeKeyboardNavigation?: (
+        from: HTMLAnchorElement,
+        to: HTMLAnchorElement,
+    ) => boolean | void;
 }
 
-export const NavTab = forwardRef<HTMLAnchorElement, NavTabProps>((props, ref) => {
-    const {
-        component = "a",
-        "aria-selected": selected,
-        className,
-        componentProps = {},
-        onBeforeKeyboardNavigation: onBeforeNavigate,
-        ...rest
-    } = props;
+export const NavTab = forwardRef<HTMLAnchorElement, NavTabProps>(
+    (props, ref) => {
+        const {
+            component = "a",
+            "aria-selected": selected,
+            className,
+            componentProps = {},
+            onBeforeKeyboardNavigation: onBeforeNavigate,
+            ...rest
+        } = props;
 
-    const Component = component;
+        const Component = component;
 
-    const navigate = useCallback(
-        (from: HTMLAnchorElement, to: HTMLAnchorElement) => {
-            if (onBeforeNavigate) {
-                // Åpne for å stoppe selve navigeringen hvis det skulle være behov for å gjøre noe custom med fokus og navigasjon
-                const doNavigate = onBeforeNavigate(from, to);
-                if (doNavigate === false) {
-                    return;
+        const navigate = useCallback(
+            (from: HTMLAnchorElement, to: HTMLAnchorElement) => {
+                if (onBeforeNavigate) {
+                    // Åpne for å stoppe selve navigeringen hvis det skulle være behov for å gjøre noe custom med fokus og navigasjon
+                    const doNavigate = onBeforeNavigate(from, to);
+                    if (doNavigate === false) {
+                        return;
+                    }
                 }
-            }
 
-            to.focus();
-            // Click brukes for å være router-agnostisk
-            to.click();
-        },
-        [onBeforeNavigate],
-    );
+                to.focus();
+                // Click brukes for å være router-agnostisk
+                to.click();
+            },
+            [onBeforeNavigate],
+        );
 
-    const handleOnKeyDown = useCallback(
-        (event: React.KeyboardEvent<HTMLAnchorElement>) => {
-            if (event.key === "ArrowLeft") {
-                const current = event.currentTarget;
-                const prev = event.currentTarget.previousSibling;
+        const handleOnKeyDown = useCallback(
+            (event: React.KeyboardEvent<HTMLAnchorElement>) => {
+                if (event.key === "ArrowLeft") {
+                    const current = event.currentTarget;
+                    const prev = event.currentTarget.previousSibling;
 
-                if (prev) {
-                    navigate(current, prev as HTMLAnchorElement);
-                } else {
-                    navigate(current, current.parentElement?.lastChild?.previousSibling as HTMLAnchorElement);
+                    if (prev) {
+                        navigate(current, prev as HTMLAnchorElement);
+                    } else {
+                        navigate(
+                            current,
+                            current.parentElement?.lastChild
+                                ?.previousSibling as HTMLAnchorElement,
+                        );
+                    }
                 }
-            }
 
-            if (event.key === "ArrowRight") {
-                const current = event.currentTarget;
-                const next = event.currentTarget.nextSibling;
+                if (event.key === "ArrowRight") {
+                    const current = event.currentTarget;
+                    const next = event.currentTarget.nextSibling;
 
-                // skip the focus indicator element
-                if (next && next.nodeName === "A") {
-                    navigate(current, next as HTMLAnchorElement);
-                } else {
-                    navigate(current, current.parentElement?.firstChild as HTMLAnchorElement);
+                    // skip the focus indicator element
+                    if (next && next.nodeName === "A") {
+                        navigate(current, next as HTMLAnchorElement);
+                    } else {
+                        navigate(
+                            current,
+                            current.parentElement
+                                ?.firstChild as HTMLAnchorElement,
+                        );
+                    }
                 }
-            }
-        },
-        [navigate],
-    );
+            },
+            [navigate],
+        );
 
-    return (
-        <Component
-            ref={ref}
-            {...rest}
-            {...componentProps}
-            role="tab"
-            aria-selected={selected}
-            className={cn("jkl-tab", className)}
-            onKeyDown={handleOnKeyDown}
-            // En faneliste skal være én fokuserbar gruppe.
-            // Piltaster brukes for å veksle mellom faner.
-            // Bare den aktive fanen skal være fokuserbar med tastatur.
-            tabIndex={selected ? 0 : -1}
-        />
-    );
-});
+        return (
+            <Component
+                ref={ref}
+                {...rest}
+                {...componentProps}
+                role="tab"
+                aria-selected={selected}
+                className={cn("jkl-tab", className)}
+                onKeyDown={handleOnKeyDown}
+                // En faneliste skal være én fokuserbar gruppe.
+                // Piltaster brukes for å veksle mellom faner.
+                // Bare den aktive fanen skal være fokuserbar med tastatur.
+                tabIndex={selected ? 0 : -1}
+            />
+        );
+    },
+);
 
 NavTab.displayName = "NavTab";

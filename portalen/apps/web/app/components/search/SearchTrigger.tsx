@@ -9,7 +9,11 @@ interface SearchTriggerProps {
     tabIndex?: number;
 }
 
-export const SearchTrigger: FC<SearchTriggerProps> = ({ onClick, variant = "full", ...rest }) => {
+export const SearchTrigger: FC<SearchTriggerProps> = ({
+    onClick,
+    variant = "full",
+    ...rest
+}) => {
     return (
         <button
             type="button"
@@ -23,7 +27,9 @@ export const SearchTrigger: FC<SearchTriggerProps> = ({ onClick, variant = "full
                 <SearchIcon variant="medium" />
                 <span className="search-trigger__label">Søk</span>
             </div>
-            <KeyboardShortcut className="search-trigger__shortcut">⌘K</KeyboardShortcut>
+            <KeyboardShortcut className="search-trigger__shortcut">
+                ⌘K
+            </KeyboardShortcut>
         </button>
     );
 };

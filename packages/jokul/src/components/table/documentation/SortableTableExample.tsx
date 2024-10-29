@@ -18,28 +18,59 @@ export const sortableTableExamplesProps: ExampleKnobsProps = {
     choiceProps: [],
 };
 
-const columns = ["Dato", "Saksnummer", "Kundenummer", "Kundenavn", "Følger saken"];
+const columns = [
+    "Dato",
+    "Saksnummer",
+    "Kundenummer",
+    "Kundenavn",
+    "Følger saken",
+];
 
 const rows = [
-    ["24.02.2020", "20-1234567", "010203 99887", "Ola Nordmann", "Siri Saksbehandler"],
-    ["13.04.2019", "20-8382811", "010203 99887", "Kari Nordkvinne", "Siri Saksbehandler"],
+    [
+        "24.02.2020",
+        "20-1234567",
+        "010203 99887",
+        "Ola Nordmann",
+        "Siri Saksbehandler",
+    ],
+    [
+        "13.04.2019",
+        "20-8382811",
+        "010203 99887",
+        "Kari Nordkvinne",
+        "Siri Saksbehandler",
+    ],
     ["31.07.2017", "20-1111", "010203 99887", "Kari Nordkvinne", "Per Persen"],
 ];
 
-export const SortableTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const SortableTableExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const headless = boolValues?.["Skjul overskrift"];
     const type = choiceValues?.["Mobilvisning"];
-    const props = type === "Liste" ? { "data-collapse": "true", collapseToList: true } : {};
+    const props =
+        type === "Liste"
+            ? { "data-collapse": "true", collapseToList: true }
+            : {};
 
     const [sortBy, setSortBy] = useState("dato");
     const [direction, setDirection] = useState<TableSortDirection>("desc");
 
-    const handleSortChange = (sortKey: string, sortDirection: TableSortDirection) => {
+    const handleSortChange = (
+        sortKey: string,
+        sortDirection: TableSortDirection,
+    ) => {
         setSortBy(sortKey);
         setDirection(sortDirection);
     };
 
-    const { getSortProps } = useSortableTableHeader(sortBy, direction, handleSortChange);
+    const { getSortProps } = useSortableTableHeader(
+        sortBy,
+        direction,
+        handleSortChange,
+    );
 
     return (
         <Table fullWidth {...props}>
@@ -115,7 +146,10 @@ export const SortableTableExample: FC<ExampleComponentProps> = ({ boolValues, ch
                     .map((row, rowIndex) => (
                         <TableRow key={rowIndex}>
                             {row.map((cell, cellIndex) => (
-                                <TableCell key={cellIndex} data-th={columns[cellIndex]}>
+                                <TableCell
+                                    key={cellIndex}
+                                    data-th={columns[cellIndex]}
+                                >
                                     {cell}
                                 </TableCell>
                             ))}

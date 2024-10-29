@@ -1,21 +1,41 @@
 import type { LoaderArgs, V2_MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { isRouteErrorResponse, useLoaderData, useParams, useRouteError } from "@remix-run/react";
-import type { Blog, Component, Foundation, General, Media, Pattern } from "payload/generated-types";
+import {
+    isRouteErrorResponse,
+    useLoaderData,
+    useParams,
+    useRouteError,
+} from "@remix-run/react";
+import type {
+    Blog,
+    Component,
+    Foundation,
+    General,
+    Media,
+    Pattern,
+} from "payload/generated-types";
 import React from "react";
 import { PageNotFound } from "../page-templates/errors/PageNotFound";
 import { getPageFromPath } from "~/components/navigation/utils";
 import type { RichTextChildren } from "~/components/rich-text";
 import { richTextToString } from "~/components/rich-text";
-import { BlogPageTemplate, GeneralPageTemplate, TopicPageTemplate } from "~/page-templates";
+import {
+    BlogPageTemplate,
+    GeneralPageTemplate,
+    TopicPageTemplate,
+} from "~/page-templates";
 import { GeneralError } from "~/page-templates/errors/GeneralError";
 
 export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
     if (!data) {
-        return [{ title: "Jøkul Designsystem" }, { property: "og:site_name", content: "Jøkul designsystem" }];
+        return [
+            { title: "Jøkul Designsystem" },
+            { property: "og:site_name", content: "Jøkul designsystem" },
+        ];
     }
 
-    const title = data.page.meta?.title || data?.page?.title || "Jøkul Designsystem";
+    const title =
+        data.page.meta?.title || data?.page?.title || "Jøkul Designsystem";
 
     const image: {
         url: string;
@@ -24,17 +44,21 @@ export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
         height?: number;
     } = {
         url: data.page.meta?.figma
-            ? `/api/figma/images?url=${encodeURIComponent(data?.page.meta.figma)}`
+            ? `/api/figma/images?url=${encodeURIComponent(
+                  data?.page.meta.figma,
+              )}`
             : `/social-preview?title=${title}`,
     };
 
     if (data.page.meta?.imageLight) {
         image.url = (data.page.meta?.imageLight as Media).url || image.url;
-        image.type = (data.page.meta?.imageLight as Media).mimeType ?? undefined;
+        image.type =
+            (data.page.meta?.imageLight as Media).mimeType ?? undefined;
     }
 
     let description =
-        data.page.meta?.description || (data.page.ingress as unknown as RichTextChildren)?.[0]?.children
+        data.page.meta?.description ||
+        (data.page.ingress as unknown as RichTextChildren)?.[0]?.children
             ? richTextToString(data.page.ingress as unknown as RichTextChildren)
             : "";
 
@@ -86,8 +110,16 @@ export const loader = async ({ context, params }: LoaderArgs) => {
                     overrideAccess: false,
                 });
 
-                if (parentPage.tabs.some((tab: { slug: string }) => tab.slug === potentialTabSlug)) {
-                    return json({ page: parentPage, collection, serverUrl, path }, { status: 200 });
+                if (
+                    parentPage.tabs.some(
+                        (tab: { slug: string }) =>
+                            tab.slug === potentialTabSlug,
+                    )
+                ) {
+                    return json(
+                        { page: parentPage, collection, serverUrl, path },
+                        { status: 200 },
+                    );
                 }
             } catch {}
         }

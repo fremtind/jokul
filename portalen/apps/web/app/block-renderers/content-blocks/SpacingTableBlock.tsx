@@ -1,4 +1,10 @@
-import { Table, TableBody, TableHead, TableHeader, TableRow } from "@fremtind/jkl-table-react";
+import {
+    Table,
+    TableBody,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@fremtind/jkl-table-react";
 import React from "react";
 import { SpacingTableRow } from "~/components/spacing-table/SpacingTableRow";
 
