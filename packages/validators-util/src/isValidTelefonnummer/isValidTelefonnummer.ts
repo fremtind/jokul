@@ -5,4 +5,5 @@ export const PHONENR_REGEX = /^\d{8}$/;
  * @param value Kandidat for telefonnummer
  * @returns Om kandidaten er et gyldig telefonnummer
  */
-export const isValidTelefonnummer = (value: string): boolean => PHONENR_REGEX.test(value);
+export const isValidTelefonnummer = (value: string): boolean =>
+    PHONENR_REGEX.test(value);

@@ -1,4 +1,8 @@
-import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
+import {
+    DescriptionDetail,
+    DescriptionList,
+    DescriptionTerm,
+} from "@fremtind/jkl-description-list-react";
 import React, { type FC } from "react";
 import type { ContentBlockProps } from "./types";
 import { assertBlockIs } from "./types";
@@ -26,11 +30,17 @@ export const ColorCardBlock: FC<ContentBlockProps> = ({ contentBlock }) => {
 
                         <DescriptionList>
                             <DescriptionTerm>HEX</DescriptionTerm>
-                            <DescriptionDetail>{hex[card.color]?.toUpperCase()}</DescriptionDetail>
+                            <DescriptionDetail>
+                                {hex[card.color]?.toUpperCase()}
+                            </DescriptionDetail>
                             <DescriptionTerm>RGB</DescriptionTerm>
-                            <DescriptionDetail>{rgb[card.color]}</DescriptionDetail>
+                            <DescriptionDetail>
+                                {rgb[card.color]}
+                            </DescriptionDetail>
                             <DescriptionTerm>CMYK</DescriptionTerm>
-                            <DescriptionDetail>{cmyk[card.color]}</DescriptionDetail>
+                            <DescriptionDetail>
+                                {cmyk[card.color]}
+                            </DescriptionDetail>
                         </DescriptionList>
                     </div>
                 );

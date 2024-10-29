@@ -34,7 +34,11 @@ module.exports = function (gulp) {
             .pipe(gulp.dest("./"));
     });
     gulp.task("build:watch", function () {
-        return gulp.watch(scssFiles, { ignoreInitial: false }, gulp.series("build"));
+        return gulp.watch(
+            scssFiles,
+            { ignoreInitial: false },
+            gulp.series("build"),
+        );
     });
     return gulp;
 };

@@ -63,7 +63,10 @@ export interface AnalyticsBackend {
      * Egenskaper som registreres skal knyttes til alle sporingsevents.
      * @param register
      */
-    register<T extends Register, O extends RegisterOptions>(register: T, options?: O): Promise<void>;
+    register<T extends Register, O extends RegisterOptions>(
+        register: T,
+        options?: O,
+    ): Promise<void>;
     /**
      * Måler tiden fram til et `track`-event med samme navn.
      * @param timed

@@ -51,11 +51,17 @@ export const useAnimatedDetails = ({
             detailsRef.current.style.height = `${detailsRef.current.offsetHeight}px`;
             detailsRef.current.open = true;
             requestAnimationFrame(() => {
-                if (detailsRef.current && summaryRef.current && contentRef.current) {
+                if (
+                    detailsRef.current &&
+                    summaryRef.current &&
+                    contentRef.current
+                ) {
                     setIsExpanding(true);
                     onOpenChange(true, e);
                     const startHeight = detailsRef.current.offsetHeight;
-                    const endHeight = summaryRef.current.offsetHeight + contentRef.current.offsetHeight;
+                    const endHeight =
+                        summaryRef.current.offsetHeight +
+                        contentRef.current.offsetHeight;
 
                     if (animation.current) {
                         animation.current.cancel();
@@ -71,8 +77,10 @@ export const useAnimatedDetails = ({
                                 easing: "ease",
                             },
                         );
-                        animation.current.onfinish = () => onAnimationFinish(true);
-                        animation.current.oncancel = () => setIsExpanding(false);
+                        animation.current.onfinish = () =>
+                            onAnimationFinish(true);
+                        animation.current.oncancel = () =>
+                            setIsExpanding(false);
                     }
                 }
             });

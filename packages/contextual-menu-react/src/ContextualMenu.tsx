@@ -21,11 +21,22 @@ import {
     useMergeRefs,
     useRole,
 } from "@floating-ui/react";
-import { type DataTestAutoId, getThemeAndDensity, WithChildren } from "@fremtind/jkl-core";
+import {
+    type DataTestAutoId,
+    getThemeAndDensity,
+    WithChildren,
+} from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
-import React, { type ButtonHTMLAttributes, forwardRef, type ReactNode, useEffect, useRef, useState } from "react";
+import React, {
+    type ButtonHTMLAttributes,
+    forwardRef,
+    type ReactNode,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import * as ReactIs from "react-is";
 import { useMenuWideEvents } from "./useMenuWideEvents";
 
@@ -68,7 +79,10 @@ export interface ContextualMenuProps
     onToggle?: (isOpen: boolean) => void;
 }
 
-const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, forwardedRef) => {
+const ContextualMenuComponent = forwardRef<
+    HTMLButtonElement,
+    ContextualMenuProps
+>((props, forwardedRef) => {
     const {
         children,
         className,
@@ -90,9 +104,14 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
 
     const listItemsRef = useRef<Array<HTMLButtonElement | null>>([]);
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
-    const { allowHover, isOpen: isOpenDefault, setIsOpen } = useMenuWideEvents(tree, nodeId, parentId);
+    const {
+        allowHover,
+        isOpen: isOpenDefault,
+        setIsOpen,
+    } = useMenuWideEvents(tree, nodeId, parentId);
 
-    const isOpen = isOpenOverride !== undefined ? isOpenOverride : isOpenDefault;
+    const isOpen =
+        isOpenOverride !== undefined ? isOpenOverride : isOpenDefault;
 
     useEffect(() => onToggle?.(isOpen), [isOpen, onToggle]);
 
@@ -100,7 +119,8 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
         nodeId,
         open: isOpen,
         onOpenChange: setIsOpen,
-        placement: initialPlacement || (isNested ? "right-start" : "bottom-start"),
+        placement:
+            initialPlacement || (isNested ? "right-start" : "bottom-start"),
         middleware: [
             offset(2),
             flip({
@@ -112,38 +132,42 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
         whileElementsMounted: autoUpdate,
     });
 
-    const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions([
-        useHover(context, {
-            enabled: openOnHover && allowHover,
-            delay: { open: 75 },
-            handleClose: safePolygon({
-                requireIntent: true,
-                blockPointerEvents: true,
+    const { getReferenceProps, getFloatingProps, getItemProps } =
+        useInteractions([
+            useHover(context, {
+                enabled: openOnHover && allowHover,
+                delay: { open: 75 },
+                handleClose: safePolygon({
+                    requireIntent: true,
+                    blockPointerEvents: true,
+                }),
             }),
-        }),
-        useClick(context, {
-            event: "mousedown",
-        }),
-        useDismiss(context, { outsidePress: !keepOpenOnClickOutside }),
-        useRole(context, { role: "menu" }),
-        useListNavigation(context, {
-            listRef: listItemsRef,
-            activeIndex,
-            nested: isNested,
-            onNavigate: setActiveIndex,
-        }),
-    ]);
+            useClick(context, {
+                event: "mousedown",
+            }),
+            useDismiss(context, { outsidePress: !keepOpenOnClickOutside }),
+            useRole(context, { role: "menu" }),
+            useListNavigation(context, {
+                listRef: listItemsRef,
+                activeIndex,
+                nested: isNested,
+                onNavigate: setActiveIndex,
+            }),
+        ]);
 
     const referenceRef = useMergeRefs([refs.setReference, forwardedRef]);
 
     // Siden menyen rendres på rot må vi hente lokal dark/light-verdi fra triggeren
     // Vi må gjøre dette for å ta hensyn til at tema kan styres lokalt for deler av UIet
-    const { theme, density } = getThemeAndDensity(refs.reference.current as HTMLElement);
+    const { theme, density } = getThemeAndDensity(
+        refs.reference.current as HTMLElement,
+    );
 
     return (
         <FloatingNode id={nodeId}>
             {React.isValidElement(triggerElement) &&
-            (triggerElement.type === "button" || ReactIs.isForwardRef(triggerElement))
+            (triggerElement.type === "button" ||
+                ReactIs.isForwardRef(triggerElement))
                 ? // Dersom trigger-elementet er en knapp, sett riktige egenskaper på det
                   React.cloneElement(triggerElement, {
                       ...getReferenceProps({
@@ -172,14 +196,20 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                                 returnFocus={!isNested}
                             >
                                 <m.div
-                                    className={cn("jkl jkl-contextual-menu", className)}
+                                    className={cn(
+                                        "jkl jkl-contextual-menu",
+                                        className,
+                                    )}
                                     data-theme={theme}
                                     data-layout-density={density}
                                     role="menu"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
-                                    transition={{ ease: "easeIn", duration: 0.1 }}
+                                    transition={{
+                                        ease: "easeIn",
+                                        duration: 0.1,
+                                    }}
                                     data-placement={placement}
                                     aria-live="assertive"
                                     aria-hidden={!isOpen}
@@ -193,51 +223,86 @@ const ContextualMenuComponent = forwardRef<HTMLButtonElement, ContextualMenuProp
                                         },
                                     })}
                                 >
-                                    {React.Children.map(children, (child, index) => {
-                                        if (React.isValidElement(child) && ReactIs.isForwardRef(child)) {
-                                            return React.cloneElement(
-                                                child,
-                                                getItemProps({
-                                                    ...child.props,
-                                                    tabIndex: activeIndex === index ? 0 : -1,
-                                                    role: "menuitem",
-                                                    ref(node: HTMLButtonElement) {
-                                                        listItemsRef.current[index] = node;
-                                                    },
-                                                    onClick(event) {
-                                                        child.props.onClick?.(
-                                                            event as React.MouseEvent<HTMLButtonElement>,
-                                                        );
-                                                        if (event.defaultPrevented) {
-                                                            return;
-                                                        }
-                                                        tree?.events.emit("click");
-                                                    },
-                                                    onKeyDown(event) {
-                                                        child.props.onKeyDown?.(event);
-                                                        if (event.defaultPrevented) {
-                                                            return;
-                                                        }
-                                                        tree?.events.emit("keydown");
-                                                        if (
-                                                            event.currentTarget.role === "menuitemcheckbox" &&
-                                                            event.key === "Enter"
+                                    {React.Children.map(
+                                        children,
+                                        (child, index) => {
+                                            if (
+                                                React.isValidElement(child) &&
+                                                ReactIs.isForwardRef(child)
+                                            ) {
+                                                return React.cloneElement(
+                                                    child,
+                                                    getItemProps({
+                                                        ...child.props,
+                                                        tabIndex:
+                                                            activeIndex ===
+                                                            index
+                                                                ? 0
+                                                                : -1,
+                                                        role: "menuitem",
+                                                        ref(
+                                                            node: HTMLButtonElement,
                                                         ) {
-                                                            // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role#keyboard_interactions
-                                                            setIsOpen(false);
-                                                        }
-                                                    },
-                                                    onMouseEnter() {
-                                                        if (allowHover && isOpen) {
-                                                            setActiveIndex(index);
-                                                        }
-                                                    },
-                                                }),
-                                            );
-                                        }
+                                                            listItemsRef.current[
+                                                                index
+                                                            ] = node;
+                                                        },
+                                                        onClick(event) {
+                                                            child.props.onClick?.(
+                                                                event as React.MouseEvent<HTMLButtonElement>,
+                                                            );
+                                                            if (
+                                                                event.defaultPrevented
+                                                            ) {
+                                                                return;
+                                                            }
+                                                            tree?.events.emit(
+                                                                "click",
+                                                            );
+                                                        },
+                                                        onKeyDown(event) {
+                                                            child.props.onKeyDown?.(
+                                                                event,
+                                                            );
+                                                            if (
+                                                                event.defaultPrevented
+                                                            ) {
+                                                                return;
+                                                            }
+                                                            tree?.events.emit(
+                                                                "keydown",
+                                                            );
+                                                            if (
+                                                                event
+                                                                    .currentTarget
+                                                                    .role ===
+                                                                    "menuitemcheckbox" &&
+                                                                event.key ===
+                                                                    "Enter"
+                                                            ) {
+                                                                // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role#keyboard_interactions
+                                                                setIsOpen(
+                                                                    false,
+                                                                );
+                                                            }
+                                                        },
+                                                        onMouseEnter() {
+                                                            if (
+                                                                allowHover &&
+                                                                isOpen
+                                                            ) {
+                                                                setActiveIndex(
+                                                                    index,
+                                                                );
+                                                            }
+                                                        },
+                                                    }),
+                                                );
+                                            }
 
-                                        return child;
-                                    })}
+                                            return child;
+                                        },
+                                    )}
                                 </m.div>
                             </FloatingFocusManager>
                         </FloatingPortal>
@@ -253,7 +318,10 @@ ContextualMenuComponent.displayName = "ContextualMenuComponent";
  * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
  * Bruk heller komponenten `Menu` som er en erstatning for ContextualMenu
  */
-export const ContextualMenu = forwardRef<HTMLButtonElement, ContextualMenuProps>((props, ref) => {
+export const ContextualMenu = forwardRef<
+    HTMLButtonElement,
+    ContextualMenuProps
+>((props, ref) => {
     const parentId = useFloatingParentNodeId();
 
     if (parentId === null) {

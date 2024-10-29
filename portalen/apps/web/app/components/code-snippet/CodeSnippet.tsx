@@ -18,7 +18,12 @@ interface CodeSnippetProps {
     language?: Language;
 }
 
-export const CodeSnippet: FC<CodeSnippetProps> = ({ className, code, language = "tsx", inline = false }) => {
+export const CodeSnippet: FC<CodeSnippetProps> = ({
+    className,
+    code,
+    language = "tsx",
+    inline = false,
+}) => {
     return (
         <div
             className={classNames("code-snippet", className, {

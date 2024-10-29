@@ -58,7 +58,8 @@ describe("LinkList", () => {
 
     it("should have the correct href attribute", () => {
         const linkText = "SpareBank 1";
-        const linkUrl = "https://www.sparebank1.no/nb/bank/privat/forsikring.html";
+        const linkUrl =
+            "https://www.sparebank1.no/nb/bank/privat/forsikring.html";
 
         render(
             <LinkList variant="unordered">

@@ -6,7 +6,12 @@ interface LinkProps extends WithChildren {
     href: string;
 }
 const ExternalLink: FC<LinkProps> = ({ href, children }) => (
-    <a className="jkl-link" href={href} target="_blank" rel="noopener noreferrer">
+    <a
+        className="jkl-link"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
         {children}
     </a>
 );
@@ -24,7 +29,8 @@ export const GitHubLinks: FC<Props> = ({ react, scss, versions }) => {
     if (!react && !scss) {
         return null;
     }
-    const pkgLink = (pkgName: string) => `https://github.com/fremtind/jokul/tree/main/packages/${pkgName}`;
+    const pkgLink = (pkgName: string) =>
+        `https://github.com/fremtind/jokul/tree/main/packages/${pkgName}`;
 
     return (
         <p className="jkl-portal-github-links">
@@ -33,8 +39,13 @@ export const GitHubLinks: FC<Props> = ({ react, scss, versions }) => {
                     <ExternalLink href={pkgLink(react)}>React</ExternalLink>{" "}
                     {versions?.react && (
                         <span className="jkl-portal-github-links__version">
-                            <span className="jkl-sr-only">versjonsnummer {versions.react}</span>
-                            <span aria-hidden="true" title={`${react} versjon ${versions.react}`}>
+                            <span className="jkl-sr-only">
+                                versjonsnummer {versions.react}
+                            </span>
+                            <span
+                                aria-hidden="true"
+                                title={`${react} versjon ${versions.react}`}
+                            >
                                 v{versions.react}
                             </span>
                         </span>
@@ -46,8 +57,13 @@ export const GitHubLinks: FC<Props> = ({ react, scss, versions }) => {
                     <ExternalLink href={pkgLink(scss)}>Sass</ExternalLink>
                     {versions?.scss && (
                         <span className="jkl-portal-github-links__version">
-                            <span className="jkl-sr-only">versjonsnummer {versions.scss}</span>
-                            <span aria-hidden="true" title={`${scss} versjon ${versions.scss}`}>
+                            <span className="jkl-sr-only">
+                                versjonsnummer {versions.scss}
+                            </span>
+                            <span
+                                aria-hidden="true"
+                                title={`${scss} versjon ${versions.scss}`}
+                            >
                                 v{versions.scss}
                             </span>
                         </span>

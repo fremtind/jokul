@@ -1,8 +1,16 @@
 import { NavCard } from "@fremtind/jkl-card-react";
 import { WithChildren } from "@fremtind/jkl-core";
-import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
+import {
+    DescriptionDetail,
+    DescriptionList,
+    DescriptionTerm,
+} from "@fremtind/jkl-description-list-react";
 import { OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
-import { InfoMessage, SuccessMessage, WarningMessage } from "@fremtind/jkl-message-react";
+import {
+    InfoMessage,
+    SuccessMessage,
+    WarningMessage,
+} from "@fremtind/jkl-message-react";
 import {
     Table,
     TableBody,
@@ -44,9 +52,14 @@ interface WithClassNameProps {
     className?: string;
 }
 
-function withClassName<T extends WithClassNameProps>(component: React.FC<T>, wrapperClassName: string): React.FC<T> {
+function withClassName<T extends WithClassNameProps>(
+    component: React.FC<T>,
+    wrapperClassName: string,
+): React.FC<T> {
     const C = component;
-    const wrapped = (props: T) => <C {...props} className={cn(props.className, wrapperClassName)} />;
+    const wrapped = (props: T) => (
+        <C {...props} className={cn(props.className, wrapperClassName)} />
+    );
     wrapped.displayName = component.displayName;
     return wrapped;
 }

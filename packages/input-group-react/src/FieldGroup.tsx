@@ -6,10 +6,15 @@ import React, { FC, FieldsetHTMLAttributes } from "react";
 import { Label, type LabelProps } from "./Label";
 import { SupportLabel, type SupportLabelProps } from "./SupportLabel";
 
-export interface FieldGroupProps extends DataTestAutoId, FieldsetHTMLAttributes<HTMLFieldSetElement> {
+export interface FieldGroupProps
+    extends DataTestAutoId,
+        FieldsetHTMLAttributes<HTMLFieldSetElement> {
     legend: string;
     labelProps?: Omit<LabelProps, "children" | "density">;
-    supportLabelProps?: Omit<SupportLabelProps, "id" | "errorLabel" | "helpLabel" | "density">;
+    supportLabelProps?: Omit<
+        SupportLabelProps,
+        "id" | "errorLabel" | "helpLabel" | "density"
+    >;
     tooltipProps?: PopupTipProps;
     className?: string;
     helpLabel?: string;
@@ -37,7 +42,11 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
     const supportId = `${uid}_support-label`;
 
     const supportText = errorLabel || helpLabel;
-    const supportTextType = errorLabel ? "error" : helpLabel ? "help" : undefined;
+    const supportTextType = errorLabel
+        ? "error"
+        : helpLabel
+        ? "help"
+        : undefined;
 
     const describedBy = supportText ? supportId : undefined;
 
@@ -55,7 +64,9 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
                     {!tooltipProps && legend}
                     {tooltipProps && (
                         <>
-                            <span style={{ whiteSpace: "normal" }}>{legend}</span>
+                            <span style={{ whiteSpace: "normal" }}>
+                                {legend}
+                            </span>
                             {`\u00A0`}
                             <PopupTip {...tooltipProps} />
                         </>

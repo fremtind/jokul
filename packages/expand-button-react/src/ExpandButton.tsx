@@ -45,7 +45,8 @@ export const ExpandButton = React.forwardRef(
         ref: ForwardedRef<HTMLButtonElement>,
     ): JSX.Element => {
         const ContentWrapper = hideLabel ? ScreenReaderOnly : React.Fragment;
-        const pointingDown = expandDirection === "down" ? !isExpanded : isExpanded;
+        const pointingDown =
+            expandDirection === "down" ? !isExpanded : isExpanded;
 
         const El = as;
         const type = El === "button" ? "button" : undefined;
@@ -65,7 +66,9 @@ export const ExpandButton = React.forwardRef(
             >
                 {children && (
                     <ContentWrapper>
-                        <span className="jkl-expand-button__text">{children}</span>
+                        <span className="jkl-expand-button__text">
+                            {children}
+                        </span>
                     </ContentWrapper>
                 )}
                 <ArrowVerticalAnimated

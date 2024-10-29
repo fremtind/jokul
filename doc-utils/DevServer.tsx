@@ -18,7 +18,10 @@ const defaults: CreateServerOptions = {
     port: 1234,
 };
 
-export async function createServer(rootComponent: React.ReactElement, options = defaults): Promise<Express> {
+export async function createServer(
+    rootComponent: React.ReactElement,
+    options = defaults,
+): Promise<Express> {
     const opts = { ...defaults, ...options };
 
     if (process.env.PORT) {

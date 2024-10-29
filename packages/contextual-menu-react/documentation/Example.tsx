@@ -1,6 +1,10 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import { ContextualMenuExample, contextualMenuExampleCode, contextualMenuExampleKnobs } from "./ContextualMenuExample";
+import {
+    ContextualMenuExample,
+    contextualMenuExampleCode,
+    contextualMenuExampleKnobs,
+} from "./ContextualMenuExample";
 import {
     ContextualMenuToggleSwitchExample,
     contextualMenuToggleSwitchExampleCode,

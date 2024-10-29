@@ -24,7 +24,9 @@ type UseListNavigationProps<T> = {
     ref: RefObject<T>;
 };
 
-export function useListNavigation<T extends HTMLElement>({ ref }: UseListNavigationProps<T>): void {
+export function useListNavigation<T extends HTMLElement>({
+    ref,
+}: UseListNavigationProps<T>): void {
     useEffect(() => {
         let searchResetTimer: Timer;
         const search: KeyBuffer = { keys: "" }; // keypress buffer is an object to preserve state
@@ -47,12 +49,20 @@ export function useListNavigation<T extends HTMLElement>({ ref }: UseListNavigat
     }, [ref]);
 }
 
-function handleMoveTo(direction: Direction, { event, list, currentFocus }: MoveDetails) {
+function handleMoveTo(
+    direction: Direction,
+    { event, list, currentFocus }: MoveDetails,
+) {
     event.preventDefault();
     moveFocusTo(direction, list, currentFocus);
 }
 
-function handleListKeyNav({ list, event, search, searchResetTimer }: EventDetails) {
+function handleListKeyNav({
+    list,
+    event,
+    search,
+    searchResetTimer,
+}: EventDetails) {
     const { key, target } = event;
     const currentFocus = target as HTMLButtonElement;
 
@@ -84,7 +94,12 @@ function handleListKeyNav({ list, event, search, searchResetTimer }: EventDetail
 
         default:
             if (search !== undefined) {
-                const searchResult = findItem({ list, key, search, searchResetTimer });
+                const searchResult = findItem({
+                    list,
+                    key,
+                    search,
+                    searchResetTimer,
+                });
                 if (searchResult) {
                     searchResult.focus();
                 }
@@ -93,31 +108,39 @@ function handleListKeyNav({ list, event, search, searchResetTimer }: EventDetail
     }
 }
 
-function moveFocusTo(direction: Direction, list: HTMLElement, current: HTMLButtonElement) {
+function moveFocusTo(
+    direction: Direction,
+    list: HTMLElement,
+    current: HTMLButtonElement,
+) {
     const thisOption = current;
     switch (direction) {
         case "prev":
             const prevOption: HTMLButtonElement | null =
-                thisOption && (thisOption.previousElementSibling as HTMLButtonElement);
+                thisOption &&
+                (thisOption.previousElementSibling as HTMLButtonElement);
             if (prevOption) {
                 prevOption.focus();
             }
             break;
         case "next":
             const nextOption: HTMLButtonElement | null =
-                thisOption && (thisOption.nextElementSibling as HTMLButtonElement);
+                thisOption &&
+                (thisOption.nextElementSibling as HTMLButtonElement);
             if (nextOption) {
                 nextOption.focus();
             }
             break;
         case "first":
-            const firstItem = list.querySelector<HTMLButtonElement>(`[role="option"]`);
+            const firstItem =
+                list.querySelector<HTMLButtonElement>(`[role="option"]`);
             if (firstItem) {
                 firstItem.focus();
             }
             break;
         case "last":
-            const listItems = list.querySelectorAll<HTMLButtonElement>(`[role="option"]`);
+            const listItems =
+                list.querySelectorAll<HTMLButtonElement>(`[role="option"]`);
             if (listItems.length) {
                 listItems[listItems.length - 1].focus();
             }
@@ -125,7 +148,12 @@ function moveFocusTo(direction: Direction, list: HTMLElement, current: HTMLButto
     }
 }
 
-function findItem({ list, key, search, searchResetTimer }: SearchDetails): HTMLButtonElement | null {
+function findItem({
+    list,
+    key,
+    search,
+    searchResetTimer,
+}: SearchDetails): HTMLButtonElement | null {
     const listItems = list.querySelectorAll(`[role="option"]`);
     if (!listItems.length) return null;
 

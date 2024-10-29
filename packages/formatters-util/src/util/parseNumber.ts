@@ -1,4 +1,7 @@
-const replaceAllButLastOccurence = (input: string | string[], search: string) => {
+const replaceAllButLastOccurence = (
+    input: string | string[],
+    search: string,
+) => {
     const arrInput = Array.isArray(input) ? input : input.split("");
     const indexOfSearch = arrInput.lastIndexOf(search);
 
@@ -31,18 +34,27 @@ export function parseNumber(input: string | number) {
     const arrNumber = input.replaceAll(spaceRegex, "").split("");
 
     // find what separator is used for decimal notation
-    const decimalNotator = arrNumber.reduce<"." | "," | null>((notator, currentItem) => {
-        if (currentItem === "," || currentItem === ".") {
-            return currentItem;
-        }
+    const decimalNotator = arrNumber.reduce<"." | "," | null>(
+        (notator, currentItem) => {
+            if (currentItem === "," || currentItem === ".") {
+                return currentItem;
+            }
 
-        return notator;
-    }, null);
+            return notator;
+        },
+        null,
+    );
 
     if (decimalNotator === ".") {
-        return Number(replaceAllButLastOccurence(arrNumber, ".").replace(",", ""));
+        return Number(
+            replaceAllButLastOccurence(arrNumber, ".").replace(",", ""),
+        );
     } else if (decimalNotator === ",") {
-        return Number(replaceAllButLastOccurence(arrNumber, ",").replace(".", "").replace(",", "."));
+        return Number(
+            replaceAllButLastOccurence(arrNumber, ",")
+                .replace(".", "")
+                .replace(",", "."),
+        );
     } else {
         return Number(arrNumber.join(""));
     }

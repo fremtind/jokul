@@ -9,7 +9,11 @@ import Popover from "../Popover.js";
 
 export const popoverExampleKnobs: ExampleKnobsProps = {};
 
-const ExampleWrapperComponent = ({ children }: { children: React.ReactNode }) => {
+const ExampleWrapperComponent = ({
+    children,
+}: {
+    children: React.ReactNode;
+}) => {
     return (
         <section
             style={{
@@ -42,7 +46,10 @@ const ExampleTabPanel = () => {
                         <p>Politi</p>
                         <p>Bytte av forsikringstaker og betaler</p>
                         <p>Avbrutt svangerskap</p>
-                        <p>Fritekstbrev med purring og mulighet for basis-/utvidede fullmakter</p>
+                        <p>
+                            Fritekstbrev med purring og mulighet for
+                            basis-/utvidede fullmakter
+                        </p>
                         <p>Fritekstbrev uten purring (venter på svar)</p>
                         <p>Statsforvalteren</p>
                         <p>Lege</p>
@@ -161,7 +168,11 @@ export const PopoverControlledExample: FC<ExampleComponentProps> = () => {
                 role: "menu",
             }}
         >
-            <Popover.Trigger onClick={() => setOpen?.(!open)} aria-expanded={open} asChild>
+            <Popover.Trigger
+                onClick={() => setOpen?.(!open)}
+                aria-expanded={open}
+                asChild
+            >
                 <Button variant="primary">Åpne popover</Button>
             </Popover.Trigger>
             <Popover.Content padding={24}>

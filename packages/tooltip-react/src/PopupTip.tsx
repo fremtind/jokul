@@ -1,11 +1,18 @@
 import { QuestionIcon } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
-import React, { useState, type FC, type ReactNode, HTMLProps, FocusEventHandler } from "react";
+import React, {
+    useState,
+    type FC,
+    type ReactNode,
+    HTMLProps,
+    FocusEventHandler,
+} from "react";
 import { Tooltip, type TooltipProps } from "./Tooltip";
 import { TooltipContent } from "./TooltipContent";
 import { TooltipTrigger } from "./TooltipTrigger";
 
-export interface PopupTipProps extends Omit<TooltipProps, "triggerOn" | "children"> {
+export interface PopupTipProps
+    extends Omit<TooltipProps, "triggerOn" | "children"> {
     /**
      * Innholdet i tooltipet som vises
      */
@@ -16,7 +23,11 @@ export interface PopupTipProps extends Omit<TooltipProps, "triggerOn" | "childre
     triggerProps?: Omit<HTMLProps<HTMLButtonElement>, "children" | "type">;
 }
 
-export const PopupTip: FC<PopupTipProps> = ({ content, triggerProps, ...tooltipProps }) => {
+export const PopupTip: FC<PopupTipProps> = ({
+    content,
+    triggerProps,
+    ...tooltipProps
+}) => {
     const [isBold, setIsBold] = useState(false);
 
     const handleFocus: FocusEventHandler<HTMLButtonElement> = (event) => {
@@ -36,7 +47,10 @@ export const PopupTip: FC<PopupTipProps> = ({ content, triggerProps, ...tooltipP
                     onFocus={handleFocus}
                     onBlur={handleBlur}
                     type="button"
-                    className={cn("jkl-tooltip-question-button", triggerProps?.className)}
+                    className={cn(
+                        "jkl-tooltip-question-button",
+                        triggerProps?.className,
+                    )}
                     data-testid="jkl-tooltip-question-button"
                 >
                     <QuestionIcon variant="inherit" bold={isBold} />

@@ -6,7 +6,11 @@ export interface DescriptionListProps extends WithChildren {
     className?: string;
 }
 
-export const DescriptionList: FC<DescriptionListProps> = ({ children, className, ...rest }) => {
+export const DescriptionList: FC<DescriptionListProps> = ({
+    children,
+    className,
+    ...rest
+}) => {
     return (
         <dl {...rest} className={clsx("jkl-description-list", className)}>
             {children}
@@ -18,7 +22,11 @@ export interface DescriptionTermProps extends WithChildren {
     className?: string;
 }
 
-export const DescriptionTerm: FC<DescriptionTermProps> = ({ children, className, ...rest }) => {
+export const DescriptionTerm: FC<DescriptionTermProps> = ({
+    children,
+    className,
+    ...rest
+}) => {
     return (
         <dt {...rest} className={clsx("jkl-description-list__term", className)}>
             {children}
@@ -30,9 +38,16 @@ export interface DescriptionDetailProps extends WithChildren {
     className?: string;
 }
 
-export const DescriptionDetail: FC<DescriptionDetailProps> = ({ children, className, ...rest }) => {
+export const DescriptionDetail: FC<DescriptionDetailProps> = ({
+    children,
+    className,
+    ...rest
+}) => {
     return (
-        <dd {...rest} className={clsx("jkl-description-list__detail", className)}>
+        <dd
+            {...rest}
+            className={clsx("jkl-description-list__detail", className)}
+        >
             {children}
         </dd>
     );

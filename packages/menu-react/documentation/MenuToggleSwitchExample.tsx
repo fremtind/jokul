@@ -3,8 +3,16 @@ import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { DotsIcon } from "@fremtind/jkl-icons-react";
 import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 import React, { useCallback, useRef, useState, type FC } from "react";
-import { CodeExample, ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../../tooltip-react/src";
+import {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../doc-utils";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "../../tooltip-react/src";
 import { Menu, MenuItemCheckbox } from "../src";
 
 export const MenuToggleSwitchExampleKnobs: ExampleKnobsProps = {
@@ -17,8 +25,13 @@ export const MenuToggleSwitchExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const MenuToggleSwitchExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
-    const isOpen = choiceValues?.["isOpen"] !== "tom" ? choiceValues?.["isOpen"] === "true" : undefined;
+export const MenuToggleSwitchExample: FC<ExampleComponentProps> = ({
+    choiceValues,
+}) => {
+    const isOpen =
+        choiceValues?.["isOpen"] !== "tom"
+            ? choiceValues?.["isOpen"] === "true"
+            : undefined;
 
     const pref = useBrowserPreferences();
     const [colorScheme, setColorScheme] = useState(pref.prefersColorScheme);

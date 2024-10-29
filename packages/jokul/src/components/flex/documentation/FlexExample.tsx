@@ -14,17 +14,23 @@ export const flexExampleKnobs: ExampleKnobsProps = {
         },
         {
             name: "gap",
-            values: Object.keys(tokens.spacing).sort((a, b) => parseInt(a) - parseInt(b)),
+            values: Object.keys(tokens.spacing).sort(
+                (a, b) => parseInt(a) - parseInt(b),
+            ),
             defaultValue: 0,
         },
         {
             name: "rowGap",
-            values: Object.keys(tokens.spacing).sort((a, b) => parseInt(a) - parseInt(b)),
+            values: Object.keys(tokens.spacing).sort(
+                (a, b) => parseInt(a) - parseInt(b),
+            ),
             defaultValue: 0,
         },
         {
             name: "colGap",
-            values: Object.keys(tokens.spacing).sort((a, b) => parseInt(a) - parseInt(b)),
+            values: Object.keys(tokens.spacing).sort(
+                (a, b) => parseInt(a) - parseInt(b),
+            ),
             defaultValue: 0,
         },
     ],
@@ -41,12 +47,22 @@ const boxStyle: CSSProperties = {
     flexGrow: 1,
 };
 
-export const FlexExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const gap = choiceValues?.["gap"] === "0" ? undefined : (parseInt(choiceValues?.["gap"] || "0") as GapValue);
+export const FlexExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
+    const gap =
+        choiceValues?.["gap"] === "0"
+            ? undefined
+            : (parseInt(choiceValues?.["gap"] || "0") as GapValue);
     const colGap =
-        choiceValues?.["colGap"] === "0" ? undefined : (parseInt(choiceValues?.["colGap"] || "0") as GapValue);
+        choiceValues?.["colGap"] === "0"
+            ? undefined
+            : (parseInt(choiceValues?.["colGap"] || "0") as GapValue);
     const rowGap =
-        choiceValues?.["rowGap"] === "0" ? undefined : (parseInt(choiceValues?.["rowGap"] || "0") as GapValue);
+        choiceValues?.["rowGap"] === "0"
+            ? undefined
+            : (parseInt(choiceValues?.["rowGap"] || "0") as GapValue);
 
     return (
         <Flex

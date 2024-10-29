@@ -9,7 +9,12 @@ type ComponentHeaderProps = Frontmatter & {
     };
 };
 
-export const ComponentPageHeader: FC<ComponentHeaderProps> = ({ title, scss, react, versions }) => {
+export const ComponentPageHeader: FC<ComponentHeaderProps> = ({
+    title,
+    scss,
+    react,
+    versions,
+}) => {
     if (!(react || scss)) {
         // Other doc pages have the title in markup
         // Return null to avoid duplicate title

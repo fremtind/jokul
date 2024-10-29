@@ -8,7 +8,10 @@ type TableOfContentsListProps = {
     onClick?: (event: React.MouseEvent) => void;
 };
 
-export const TableOfContentsList: FC<TableOfContentsListProps> = ({ entries, onClick }) => {
+export const TableOfContentsList: FC<TableOfContentsListProps> = ({
+    entries,
+    onClick,
+}) => {
     const [activeHeader] = useActiveHeader();
 
     return (
@@ -18,9 +21,14 @@ export const TableOfContentsList: FC<TableOfContentsListProps> = ({ entries, onC
                     <li
                         key={element.textContent}
                         className="jkl-portal-toc__item"
-                        data-active={element.id !== "" && element.id === activeHeader}
+                        data-active={
+                            element.id !== "" && element.id === activeHeader
+                        }
                     >
-                        <span className="jkl-portal-toc__chapter" aria-hidden="true">
+                        <span
+                            className="jkl-portal-toc__chapter"
+                            aria-hidden="true"
+                        >
                             {String(index + 1).padStart(2, "0")}
                         </span>
                         <div className="jkl-portal-toc__link-container">
@@ -28,7 +36,10 @@ export const TableOfContentsList: FC<TableOfContentsListProps> = ({ entries, onC
                                 className="jkl-portal-toc__link"
                                 to={`#${element.id}`}
                                 onClick={onClick}
-                                data-active={element.id !== "" && element.id === activeHeader}
+                                data-active={
+                                    element.id !== "" &&
+                                    element.id === activeHeader
+                                }
                             >
                                 {element.textContent?.replace(/\W+$/, "")}
                             </Link>

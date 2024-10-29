@@ -19,7 +19,10 @@ type FormatDateStringOptions = {
     partial?: boolean;
 };
 
-export function formatDateString(input: string, options?: FormatDateStringOptions): string {
+export function formatDateString(
+    input: string,
+    options?: FormatDateStringOptions,
+): string {
     const strippedInput = input.replace(/\D/g, "");
     const regex = options?.partial ? DATE_REGEX.partial : DATE_REGEX.full;
 

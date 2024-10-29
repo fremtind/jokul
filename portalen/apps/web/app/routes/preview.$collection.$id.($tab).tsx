@@ -1,14 +1,34 @@
 import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { isRouteErrorResponse, useLoaderData, useRouteError } from "@remix-run/react";
-import type { Blog, Component, Foundation, General, Pattern } from "payload/generated-types";
+import {
+    isRouteErrorResponse,
+    useLoaderData,
+    useRouteError,
+} from "@remix-run/react";
+import type {
+    Blog,
+    Component,
+    Foundation,
+    General,
+    Pattern,
+} from "payload/generated-types";
 import React, { type FC } from "react";
-import { BlogPageTemplate, GeneralPageTemplate, TopicPageTemplate } from "~/page-templates";
+import {
+    BlogPageTemplate,
+    GeneralPageTemplate,
+    TopicPageTemplate,
+} from "~/page-templates";
 import { GeneralError } from "~/page-templates/errors/GeneralError";
 import { PageNotFound } from "~/page-templates/errors/PageNotFound";
 
 // TODO: Finn en bedre måte å dele disse på
-const allPageCollectionSlugs = ["components", "patterns", "foundations", "general", "blog"] as const;
+const allPageCollectionSlugs = [
+    "components",
+    "patterns",
+    "foundations",
+    "general",
+    "blog",
+] as const;
 
 export const loader = async ({ context, params }: LoaderArgs) => {
     const { payload, user } = context;

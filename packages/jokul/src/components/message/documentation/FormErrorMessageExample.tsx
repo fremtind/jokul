@@ -3,19 +3,34 @@ import React from "react";
 import { FormErrorMessage } from "../FormErrorMessage.js";
 
 export const formErrorMessageKnobs: ExampleKnobsProps = {
-    boolProps: ["Full width", "Submitted", "Gyldig fornavn", "Gyldig etternavn"],
+    boolProps: [
+        "Full width",
+        "Submitted",
+        "Gyldig fornavn",
+        "Gyldig etternavn",
+    ],
 };
 
-export const FormErrorMessageExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+export const FormErrorMessageExample: React.FC<ExampleComponentProps> = ({
+    boolValues,
+}) => {
     return (
         <div>
             <FormErrorMessage
                 errors={[
-                    !boolValues?.["Gyldig fornavn"] ? "Du må oppgi fornavn" : undefined,
-                    !boolValues?.["Gyldig etternavn"] ? "Du må oppgi etternavn" : undefined,
+                    !boolValues?.["Gyldig fornavn"]
+                        ? "Du må oppgi fornavn"
+                        : undefined,
+                    !boolValues?.["Gyldig etternavn"]
+                        ? "Du må oppgi etternavn"
+                        : undefined,
                 ]}
                 isSubmitted={boolValues?.["Submitted"] || false}
-                isValid={(boolValues?.["Gyldig fornavn"] && boolValues?.["Gyldig etternavn"]) || false}
+                isValid={
+                    (boolValues?.["Gyldig fornavn"] &&
+                        boolValues?.["Gyldig etternavn"]) ||
+                    false
+                }
                 messageProps={{
                     fullWidth: boolValues?.["Full width"],
                 }}

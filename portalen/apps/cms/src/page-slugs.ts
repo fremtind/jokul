@@ -1,1 +1,7 @@
-export const allPageCollectionSlugs = ["components", "general", "patterns", "foundations", "blog"];
+export const allPageCollectionSlugs = [
+    "components",
+    "general",
+    "patterns",
+    "foundations",
+    "blog",
+];

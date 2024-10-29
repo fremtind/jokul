@@ -10,9 +10,15 @@ const emptyExample = { code: "", knobs: [], noinline: false, title: "" };
 export const LiveDemoBlock: FC<ContentBlockProps> = ({ contentBlock }) => {
     assertBlockIs("live-demo-block", contentBlock);
 
-    const { defaultShowEditor, defaultShowControls, codeExample } = contentBlock;
+    const { defaultShowEditor, defaultShowControls, codeExample } =
+        contentBlock;
 
-    const { code, knobs, noinline, title: codeTitle } = typeof codeExample === "string" ? emptyExample : codeExample;
+    const {
+        code,
+        knobs,
+        noinline,
+        title: codeTitle,
+    } = typeof codeExample === "string" ? emptyExample : codeExample;
 
     const controls = useInteractiveCodeControls(code, knobs);
 

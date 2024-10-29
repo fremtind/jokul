@@ -6,5 +6,11 @@ import "../../input-group/input-group.scss";
 import "../../tooltip/tooltip.scss";
 
 export default function Example() {
-    return <DevExample component={SelectExample} knobs={selectExampleKnobs} codeExample={selectCode} />;
+    return (
+        <DevExample
+            component={SelectExample}
+            knobs={selectExampleKnobs}
+            codeExample={selectCode}
+        />
+    );
 }

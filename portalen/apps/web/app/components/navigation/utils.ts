@@ -7,7 +7,10 @@ export const getUrlFromLink = (link: Link, mainMenu: MainMenu) => {
     if (type === "custom") {
         return url;
     } else if (type === "reference") {
-        const id = typeof reference?.value === "string" ? reference.value : reference?.value.id;
+        const id =
+            typeof reference?.value === "string"
+                ? reference.value
+                : reference?.value.id;
 
         return getPagePathFromId(mainMenu, id);
     } else {
@@ -16,7 +19,9 @@ export const getUrlFromLink = (link: Link, mainMenu: MainMenu) => {
 };
 
 export const getReferenceId = (reference: Link["reference"]) =>
-    typeof reference?.value === "string" ? reference.value : reference?.value.id;
+    typeof reference?.value === "string"
+        ? reference.value
+        : reference?.value.id;
 
 export const getLinkId = (link: Link) => {
     if (link.type === "reference") {
@@ -37,7 +42,10 @@ export const getPageFromPath = (mainMenu: MainMenu, pathname?: string) => {
 
         const { slug } = item.value;
         if (slug === rootSlug && !drawerSlug) {
-            if (item.relationTo === "menu-items" && item.value.link?.type === "reference") {
+            if (
+                item.relationTo === "menu-items" &&
+                item.value.link?.type === "reference"
+            ) {
                 const reference = item.value.link.reference;
 
                 if (reference && "value" in reference) {
@@ -57,7 +65,10 @@ export const getPageFromPath = (mainMenu: MainMenu, pathname?: string) => {
 
                 const { slug } = drawerItem.value;
                 if (slug === drawerSlug && !expandableSlug) {
-                    if (drawerItem.relationTo === "menu-items" && drawerItem.value.link?.type === "reference") {
+                    if (
+                        drawerItem.relationTo === "menu-items" &&
+                        drawerItem.value.link?.type === "reference"
+                    ) {
                         const reference = drawerItem.value.link.reference;
 
                         if (reference && "value" in reference) {
@@ -65,14 +76,21 @@ export const getPageFromPath = (mainMenu: MainMenu, pathname?: string) => {
 
                             return {
                                 collection: relationTo,
-                                id: typeof value === "string" ? value : value.id,
+                                id:
+                                    typeof value === "string"
+                                        ? value
+                                        : value.id,
                             };
                         }
                     }
-                } else if (slug === drawerSlug && drawerItem.relationTo === "sub-menus") {
+                } else if (
+                    slug === drawerSlug &&
+                    drawerItem.relationTo === "sub-menus"
+                ) {
                     if (!drawerItem.value.items) continue;
 
-                    for (const { item: expandableItem } of drawerItem.value.items) {
+                    for (const { item: expandableItem } of drawerItem.value
+                        .items) {
                         if (typeof expandableItem.value === "string") continue;
 
                         const { slug } = expandableItem.value;
@@ -81,14 +99,18 @@ export const getPageFromPath = (mainMenu: MainMenu, pathname?: string) => {
                                 expandableItem.relationTo === "menu-items" &&
                                 expandableItem.value.link?.type === "reference"
                             ) {
-                                const reference = expandableItem.value.link.reference;
+                                const reference =
+                                    expandableItem.value.link.reference;
 
                                 if (reference && "value" in reference) {
                                     const { relationTo, value } = reference;
 
                                     return {
                                         collection: relationTo,
-                                        id: typeof value === "string" ? value : value.id,
+                                        id:
+                                            typeof value === "string"
+                                                ? value
+                                                : value.id,
                                     };
                                 }
                             }
@@ -119,16 +141,23 @@ export const getPagePathFromId = (mainMenu: MainMenu, pageId?: string) => {
                 if (typeof drawerItem.value === "string") continue;
                 const drawerSlug = drawerItem.value.slug;
 
-                if (isMenuLink(drawerItem.value) && itemIsMatchingLink(drawerItem.value, pageId)) {
+                if (
+                    isMenuLink(drawerItem.value) &&
+                    itemIsMatchingLink(drawerItem.value, pageId)
+                ) {
                     return `/${rootSlug}/${drawerSlug}`;
                 }
 
                 if (isSubMenu(drawerItem.value) && drawerItem.value.items) {
-                    for (const { item: expandableItem } of drawerItem.value.items) {
+                    for (const { item: expandableItem } of drawerItem.value
+                        .items) {
                         if (typeof expandableItem.value === "string") continue;
                         const expandableSlug = expandableItem.value.slug;
 
-                        if (isMenuLink(expandableItem.value) && itemIsMatchingLink(expandableItem.value, pageId)) {
+                        if (
+                            isMenuLink(expandableItem.value) &&
+                            itemIsMatchingLink(expandableItem.value, pageId)
+                        ) {
                             return `/${rootSlug}/${drawerSlug}/${expandableSlug}`;
                         }
                     }

@@ -8,7 +8,10 @@ import {
     useCookieConsent,
     useCookieConsentState,
 } from "../CookieConsentContext.js";
-import { buildRequirementsObject, setConsentCookie } from "../cookieConsentUtils.js";
+import {
+    buildRequirementsObject,
+    setConsentCookie,
+} from "../cookieConsentUtils.js";
 
 function clearConsentCookie() {
     setConsentCookie({
@@ -21,11 +24,11 @@ function clearConsentCookie() {
         maxAge: -1,
     });
 }
-const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: boolean }> = ({
-    functional = false,
-    statistics = false,
-    marketing = false,
-}) => {
+const Example: FC<{
+    functional?: boolean;
+    statistics?: boolean;
+    marketing?: boolean;
+}> = ({ functional = false, statistics = false, marketing = false }) => {
     const { openConsentModalWithDefaults } = useCookieConsent();
 
     // Start: Kun for demoen
@@ -36,7 +39,11 @@ const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: bool
             dispatch({ type: "SET_SHOW_SETTINGS", payload: false });
             dispatch({
                 type: "UPDATE_REQUIREMENTS",
-                payload: buildRequirementsObject({ functional, statistics, marketing }),
+                payload: buildRequirementsObject({
+                    functional,
+                    statistics,
+                    marketing,
+                }),
             });
         }, 0);
     }, [dispatch, functional, statistics, marketing]);
@@ -44,7 +51,10 @@ const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: bool
 
     return (
         <>
-            <TertiaryButton data-testid="trigger-cookie-consent" onClick={openConsentModalWithDefaults}>
+            <TertiaryButton
+                data-testid="trigger-cookie-consent"
+                onClick={openConsentModalWithDefaults}
+            >
                 Informasjonskapsler
             </TertiaryButton>
             <CookieConsent blocking onAccept={console.log} />
@@ -53,10 +63,16 @@ const Example: FC<{ functional?: boolean; statistics?: boolean; marketing?: bool
 };
 
 export const cookieConsentModalExampleKnobs: ExampleKnobsProps = {
-    boolProps: [{ prop: "Functional", defaultValue: true }, "Statistics", "Marketing"],
+    boolProps: [
+        { prop: "Functional", defaultValue: true },
+        "Statistics",
+        "Marketing",
+    ],
 };
 
-export const CookieConsentModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
+export const CookieConsentModalExample: FC<ExampleComponentProps> = ({
+    boolValues,
+}) => {
     const [hasMounted, setHasMounted] = useState(false);
     useEffect(() => {
         setHasMounted(true);

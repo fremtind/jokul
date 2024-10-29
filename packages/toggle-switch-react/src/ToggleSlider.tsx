@@ -1,7 +1,13 @@
 import { Density, WithChildren } from "@fremtind/jkl-core";
 import { useId, useSwipeGesture } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import React, { useState, Fragment, useRef, FC, MouseEventHandler } from "react";
+import React, {
+    useState,
+    Fragment,
+    useRef,
+    FC,
+    MouseEventHandler,
+} from "react";
 import { type ToggleChangeHandler } from "./ToggleSwitch";
 import { usePillStyles } from "./usePillStyles";
 
@@ -43,7 +49,10 @@ export const ToggleSlider: FC<Props> = ({
         onToggle(value);
     };
 
-    const { gestureHandlers } = useSwipeGesture<HTMLDivElement>({ onClick: handleClick, onChange: handleChange });
+    const { gestureHandlers } = useSwipeGesture<HTMLDivElement>({
+        onClick: handleClick,
+        onChange: handleChange,
+    });
     const { onClick, ...swipeHandlers } = gestureHandlers;
 
     if (process.env.NODE_ENV !== "production") {
@@ -83,7 +92,8 @@ export const ToggleSlider: FC<Props> = ({
                         />
                         <label
                             className={cn("jkl-toggle-slider__label", {
-                                "jkl-toggle-slider__label--selected": label === currentLabel,
+                                "jkl-toggle-slider__label--selected":
+                                    label === currentLabel,
                             })}
                             ref={label === currentLabel ? activeRef : undefined}
                             htmlFor={`${label}-${id}`}
@@ -92,7 +102,11 @@ export const ToggleSlider: FC<Props> = ({
                         </label>
                     </Fragment>
                 ))}
-                <span className="jkl-toggle-slider__pill" style={pillStyles} aria-hidden />
+                <span
+                    className="jkl-toggle-slider__pill"
+                    style={pillStyles}
+                    aria-hidden
+                />
             </div>
         </fieldset>
     );

@@ -5,7 +5,10 @@ interface AnimatedIconProps {
     iconName?: string;
 }
 
-export const AnimatedIcon: React.FC<AnimatedIconProps> = ({ renderIcon, iconName }) => {
+export const AnimatedIcon: React.FC<AnimatedIconProps> = ({
+    renderIcon,
+    iconName,
+}) => {
     const [state, setState] = React.useState(false);
     return (
         <>

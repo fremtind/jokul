@@ -3,7 +3,11 @@ export interface FileInputFileValidation {
     message: string;
 }
 
-export type FileInputFileState = "SELECTED" | "UPLOADING" | "UPLOAD_ERROR" | "UPLOAD_SUCCESS";
+export type FileInputFileState =
+    | "SELECTED"
+    | "UPLOADING"
+    | "UPLOAD_ERROR"
+    | "UPLOAD_SUCCESS";
 
 export interface FileInputFile {
     file: File;

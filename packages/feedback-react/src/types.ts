@@ -68,7 +68,9 @@ export type FeedbackType = {
 
 export type FeedbackState = {
     currentValue?: FeedbackOption | FeedbackOption[];
-    setCurrentValue: Dispatch<SetStateAction<FeedbackOption | FeedbackOption[] | undefined>>;
+    setCurrentValue: Dispatch<
+        SetStateAction<FeedbackOption | FeedbackOption[] | undefined>
+    >;
     message?: string;
     setMessage: Dispatch<SetStateAction<string | undefined>>;
     submitted: boolean;
@@ -89,7 +91,9 @@ export type FollowupState = {
     submitted: boolean;
     handleNext: (e?: FormEvent<HTMLFormElement>) => void;
     handleAbort: () => void;
-    setCurrentValue: Dispatch<SetStateAction<FeedbackOption | FeedbackOption[] | undefined>>;
+    setCurrentValue: Dispatch<
+        SetStateAction<FeedbackOption | FeedbackOption[] | undefined>
+    >;
 };
 
 export interface QuestionProps {

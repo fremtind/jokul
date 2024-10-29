@@ -1,11 +1,18 @@
 import { Link } from "@fremtind/jkl-core";
 import { CloseIcon } from "@fremtind/jkl-icons-react";
-import { RadioButton, RadioButtonGroup } from "@fremtind/jkl-radio-button-react";
+import {
+    RadioButton,
+    RadioButtonGroup,
+} from "@fremtind/jkl-radio-button-react";
 import { TextInput } from "@fremtind/jkl-text-input-react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import React, { useContext, useState, ChangeEvent } from "react";
 import { a11yContext } from "../../a11yContext";
-import { DocumentationPageInfo, pageNames, PageType } from "../header/useNavigationLinks";
+import {
+    DocumentationPageInfo,
+    pageNames,
+    PageType,
+} from "../header/useNavigationLinks";
 import { SidebarMenuItem } from "./SidebarMenuItem";
 
 interface Props {
@@ -17,7 +24,12 @@ interface Props {
 
 const allComponents = "alle";
 
-export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, showGroups }) => {
+export const SidebarMenu: React.FC<Props> = ({
+    links,
+    currentSection,
+    groups,
+    showGroups,
+}) => {
     const { prefersReducedMotion } = useContext(a11yContext);
     const [filter, setFilter] = useState("");
     const [selectedGroup, setSelectedGroup] = useState(allComponents);
@@ -25,21 +37,43 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
     const controls = useAnimation();
 
     const listItemInitial = { x: prefersReducedMotion ? 0 : -5, opacity: 0 };
-    const listItemAnimate = { x: prefersReducedMotion ? 0 : 0, opacity: 1, transition: { duration: 0.2 } };
-    const listItemExit = { x: prefersReducedMotion ? 0 : 5, opacity: 0, transition: { duration: 0.2 } };
+    const listItemAnimate = {
+        x: prefersReducedMotion ? 0 : 0,
+        opacity: 1,
+        transition: { duration: 0.2 },
+    };
+    const listItemExit = {
+        x: prefersReducedMotion ? 0 : 5,
+        opacity: 0,
+        transition: { duration: 0.2 },
+    };
 
     React.useEffect(() => {
         (async () => {
-            await controls.start({ x: prefersReducedMotion ? 0 : 0, opacity: 0, transition: { duration: 0 } });
-            await controls.start({ x: prefersReducedMotion ? 0 : -10, opacity: 0, transition: { duration: 0.2 } });
-            await controls.start({ x: prefersReducedMotion ? 0 : 0, opacity: 1, transition: { duration: 0.2 } });
+            await controls.start({
+                x: prefersReducedMotion ? 0 : 0,
+                opacity: 0,
+                transition: { duration: 0 },
+            });
+            await controls.start({
+                x: prefersReducedMotion ? 0 : -10,
+                opacity: 0,
+                transition: { duration: 0.2 },
+            });
+            await controls.start({
+                x: prefersReducedMotion ? 0 : 0,
+                opacity: 1,
+                transition: { duration: 0.2 },
+            });
         })();
     }, [currentSection, controls, prefersReducedMotion]);
 
     function filterLinks(e: ChangeEvent<HTMLInputElement>) {
         setFilter(e.target.value);
     }
-    const filteredLinks = links.filter((link) => link.title.toLowerCase().includes(filter.toLowerCase()));
+    const filteredLinks = links.filter((link) =>
+        link.title.toLowerCase().includes(filter.toLowerCase()),
+    );
 
     return (
         <motion.div
@@ -57,7 +91,11 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                 onChange={filterLinks}
                 action={
                     filter
-                        ? { icon: <CloseIcon />, label: "Nullstill filter", onClick: () => setFilter("") }
+                        ? {
+                              icon: <CloseIcon />,
+                              label: "Nullstill filter",
+                              onClick: () => setFilter(""),
+                          }
                         : undefined
                 }
                 className="jkl-portal-sidebar-menu__filter"
@@ -79,24 +117,37 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                     ))}
                 </RadioButtonGroup>
             )}
-            <motion.ul animate={controls} className="jkl-portal-sidebar-menu__items">
+            <motion.ul
+                animate={controls}
+                className="jkl-portal-sidebar-menu__items"
+            >
                 {filteredLinks.length === 0 ? (
                     <motion.li
-                        initial={{ y: prefersReducedMotion ? 0 : 40, opacity: 0 }}
+                        initial={{
+                            y: prefersReducedMotion ? 0 : 40,
+                            opacity: 0,
+                        }}
                         animate={{
                             y: prefersReducedMotion ? 0 : 0,
                             opacity: 1,
                             transition: { duration: 0.2, delay: 0.3 },
                         }}
-                        exit={{ y: prefersReducedMotion ? 0 : -40, opacity: 0, transition: { duration: 0.2 } }}
+                        exit={{
+                            y: prefersReducedMotion ? 0 : -40,
+                            opacity: 0,
+                            transition: { duration: 0.2 },
+                        }}
                         className="jkl-portal-sidebar-menu-item"
                         key={`li-none`}
                     >
                         <p className="small">
                             {filter && (
                                 <>
-                                    Fant ingen <span style={{ fontWeight: "bold" }}>{filter} </span> i{" "}
-                                    {pageNames[currentSection as PageType]}
+                                    Fant ingen{" "}
+                                    <span style={{ fontWeight: "bold" }}>
+                                        {filter}{" "}
+                                    </span>{" "}
+                                    i {pageNames[currentSection as PageType]}
                                     <br />
                                     <br />
                                 </>
@@ -112,7 +163,11 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                 ) : (
                     <AnimatePresence>
                         {filteredLinks.map((item: DocumentationPageInfo) => {
-                            if (!showGroups || selectedGroup === allComponents || selectedGroup === item.group) {
+                            if (
+                                !showGroups ||
+                                selectedGroup === allComponents ||
+                                selectedGroup === item.group
+                            ) {
                                 return (
                                     <motion.li
                                         initial={listItemInitial}
@@ -121,7 +176,11 @@ export const SidebarMenu: React.FC<Props> = ({ links, currentSection, groups, sh
                                         className="jkl-portal-sidebar-menu-item"
                                         key={`li-${item.title}`}
                                     >
-                                        <SidebarMenuItem key={item.title} path={item.path} title={item.title} />
+                                        <SidebarMenuItem
+                                            key={item.title}
+                                            path={item.path}
+                                            title={item.title}
+                                        />
                                     </motion.li>
                                 );
                             }

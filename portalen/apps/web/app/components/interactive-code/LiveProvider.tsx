@@ -42,7 +42,10 @@ import * as toolTipReact from "@fremtind/jkl-tooltip-react";
 import React, { type FC } from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
-import { LiveProvider as ReactLiveProvider, type LiveProviderProps as ReactLiveProviderProps } from "react-live";
+import {
+    LiveProvider as ReactLiveProvider,
+    type LiveProviderProps as ReactLiveProviderProps,
+} from "react-live";
 import { columns, rows } from "./tableData";
 
 const scope = {
@@ -109,12 +112,21 @@ export interface LiveProviderProps extends Omit<ReactLiveProviderProps, "ref"> {
     code: string;
 }
 
-export const LiveProvider: FC<LiveProviderProps> = ({ code, noInline, transformCode, ...rest }) => {
+export const LiveProvider: FC<LiveProviderProps> = ({
+    code,
+    noInline,
+    transformCode,
+    ...rest
+}) => {
     return (
         <ReactLiveProvider
             code={code}
             scope={scope}
-            transformCode={transformCode || noInline ? transformNoInlineCode : transformInlineCode}
+            transformCode={
+                transformCode || noInline
+                    ? transformNoInlineCode
+                    : transformInlineCode
+            }
             noInline={noInline}
             {...rest}
         />

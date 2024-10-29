@@ -1,4 +1,7 @@
-import { CookieConsent, useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
+import {
+    CookieConsent,
+    useCookieConsent,
+} from "@fremtind/jkl-cookie-consent-react";
 import { WithChildren } from "@fremtind/jkl-core";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, Suspense } from "react";
@@ -18,7 +21,11 @@ export const Cookies: FC<WithChildren> = ({ children }) => {
 
     return (
         <Suspense>
-            <button type="button" className="jkl-portal-cookie-consent jkl-link" onClick={openConsentModalWithSettings}>
+            <button
+                type="button"
+                className="jkl-portal-cookie-consent jkl-link"
+                onClick={openConsentModalWithSettings}
+            >
                 {children}
             </button>
             <CookieConsent
@@ -41,7 +48,10 @@ export const Cookies: FC<WithChildren> = ({ children }) => {
                     const hasOptedIn = await analytics.hasOptedInTracking();
                     if (consentValue.statistics === "accepted" && !hasOptedIn) {
                         await analytics.optInTracking();
-                    } else if (consentValue.statistics === "denied" && hasOptedIn) {
+                    } else if (
+                        consentValue.statistics === "denied" &&
+                        hasOptedIn
+                    ) {
                         await analytics.optOutTracking();
                     }
                 }}

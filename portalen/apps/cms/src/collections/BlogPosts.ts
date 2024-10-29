@@ -1,6 +1,10 @@
 import { slugify } from "@org/shared";
 import { CollectionConfig } from "payload/types";
-import { authenticatedAdmins, authenticatedContributors, defaultReadAccess } from "../access";
+import {
+    authenticatedAdmins,
+    authenticatedContributors,
+    defaultReadAccess,
+} from "../access";
 import { allPageSectionBlocks } from "../blocks/page-sections";
 import { pageMeta } from "../fields/meta";
 import Users from "./Users";
@@ -50,7 +54,8 @@ export const BlogPosts: CollectionConfig = {
                     displayFormat: "yyyy.MM.dd",
                 },
                 position: "sidebar",
-                description: 'Bloggposten vil ikke vises før denne datoen selv om den har status "Publisert"',
+                description:
+                    'Bloggposten vil ikke vises før denne datoen selv om den har status "Publisert"',
             },
         },
         {
@@ -66,7 +71,8 @@ export const BlogPosts: CollectionConfig = {
             label: "Tittel",
             required: true,
             admin: {
-                description: "Vises som tittel i søkeresultater, og i listen over sider i CMS-et",
+                description:
+                    "Vises som tittel i søkeresultater, og i listen over sider i CMS-et",
             },
         },
         {

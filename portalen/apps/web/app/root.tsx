@@ -1,10 +1,17 @@
 import { ErrorAlertMessage } from "@fremtind/jkl-alert-message-react";
-import { type Consent, CookieConsentProvider } from "@fremtind/jkl-cookie-consent-react";
+import {
+    type Consent,
+    CookieConsentProvider,
+} from "@fremtind/jkl-cookie-consent-react";
 import type { ColorScheme } from "@fremtind/jkl-core";
 import { initTabListener, Link } from "@fremtind/jkl-core";
 import type { MainMenu, User } from "@org/cms";
 import uiStyles from "@org/ui/styles.css";
-import type { LinksFunction, LoaderArgs, V2_MetaFunction } from "@remix-run/node";
+import type {
+    LinksFunction,
+    LoaderArgs,
+    V2_MetaFunction,
+} from "@remix-run/node";
 import {
     isRouteErrorResponse,
     Links,
@@ -29,7 +36,10 @@ initTabListener();
 
 export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
     if (!data) {
-        return [{ title: "Jøkul Designsystem" }, { property: "og:site_name", content: "Jøkul designsystem" }];
+        return [
+            { title: "Jøkul Designsystem" },
+            { property: "og:site_name", content: "Jøkul designsystem" },
+        ];
     }
 
     return [
@@ -86,7 +96,10 @@ export type RootLoaderData = {
     };
 };
 
-export const loader = async ({ context: { payload, user, serverUrl }, request }: LoaderArgs) => {
+export const loader = async ({
+    context: { payload, user, serverUrl },
+    request,
+}: LoaderArgs) => {
     const mainMenu = await payload.findGlobal({
         slug: "main-menu",
         user,
@@ -113,7 +126,10 @@ export const loader = async ({ context: { payload, user, serverUrl }, request }:
                 }
             }
         } catch (e) {
-            console.error("Failed to parse consents in order to set theme on first render", e);
+            console.error(
+                "Failed to parse consents in order to set theme on first render",
+                e,
+            );
         }
     }
 
@@ -135,13 +151,17 @@ export default function App() {
     const { theme, ENV } = useLoaderData<typeof loader>();
 
     const defaultBrowserTheme: ColorScheme =
-        typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+        typeof window !== "undefined" &&
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
             : "light";
 
     initTabListener();
 
-    const [colorScheme, setColorScheme] = useState<ColorScheme | undefined>(theme || defaultBrowserTheme);
+    const [colorScheme, setColorScheme] = useState<ColorScheme | undefined>(
+        theme || defaultBrowserTheme,
+    );
 
     const bodyRef = useRef<HTMLBodyElement>(null);
     const handleSetColorScheme = useCallback(
@@ -186,7 +206,10 @@ export default function App() {
                     Hopp til innhold
                 </Link>
                 <CookieConsentProvider statistics functional>
-                    <GlobalPreferencesContextProvider colorScheme={colorScheme} setColorScheme={handleSetColorScheme}>
+                    <GlobalPreferencesContextProvider
+                        colorScheme={colorScheme}
+                        setColorScheme={handleSetColorScheme}
+                    >
                         <NavigationMenuContextProvider>
                             <QueryClientProvider client={queryClient}>
                                 <RootTemplate />
@@ -235,7 +258,8 @@ export const ErrorBoundary = () => {
             </head>
             <body>
                 <ErrorAlertMessage>
-                    {(error as Error)?.message ?? "Noe gikk galt, men vi vet ikke helt hva"}
+                    {(error as Error)?.message ??
+                        "Noe gikk galt, men vi vet ikke helt hva"}
                 </ErrorAlertMessage>
                 <Outlet />
                 <ScrollRestoration />

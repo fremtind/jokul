@@ -16,36 +16,38 @@ export async function upload<T>(
 ): Promise<T> {
     // I skrivende stund er det ikke mulig å hente progress med fetch. Derfor bruker vi XMLHttpRequest.
     const xhr = new XMLHttpRequest();
-    const request = new Promise<ProgressEvent<XMLHttpRequestEventTarget>>((resolve, reject) => {
-        xhr.upload.addEventListener("progress", (e) => {
-            if (e.lengthComputable && progress) {
-                progress((e.loaded / e.total) * 100);
-            }
-        });
+    const request = new Promise<ProgressEvent<XMLHttpRequestEventTarget>>(
+        (resolve, reject) => {
+            xhr.upload.addEventListener("progress", (e) => {
+                if (e.lengthComputable && progress) {
+                    progress((e.loaded / e.total) * 100);
+                }
+            });
 
-        xhr.addEventListener("load", (e) => {
-            if (xhr.status >= 400) {
+            xhr.addEventListener("load", (e) => {
+                if (xhr.status >= 400) {
+                    reject(e);
+                }
+                resolve(e);
+            });
+
+            xhr.addEventListener("error", (e) => {
                 reject(e);
-            }
-            resolve(e);
-        });
+            });
 
-        xhr.addEventListener("error", (e) => {
-            reject(e);
-        });
+            xhr.addEventListener("abort", (e) => {
+                reject(e);
+            });
 
-        xhr.addEventListener("abort", (e) => {
-            reject(e);
-        });
+            xhr.open("POST", url);
 
-        xhr.open("POST", url);
+            Object.entries(headers || {}).forEach(([header, value]) => {
+                xhr.setRequestHeader(header, value);
+            });
 
-        Object.entries(headers || {}).forEach(([header, value]) => {
-            xhr.setRequestHeader(header, value);
-        });
-
-        xhr.send(data);
-    }).then(
+            xhr.send(data);
+        },
+    ).then(
         (e) => {
             const response: T = JSON.parse(xhr.responseText);
             return response;

@@ -6,7 +6,11 @@ interface KeyboardShortcutProps extends WithChildren {
     className?: string;
 }
 
-export const KeyboardShortcut: FC<KeyboardShortcutProps> = ({ className, children, ...rest }) => (
+export const KeyboardShortcut: FC<KeyboardShortcutProps> = ({
+    className,
+    children,
+    ...rest
+}) => (
     <kbd className={cn("kbd", className)} {...rest}>
         {children}
     </kbd>

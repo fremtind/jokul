@@ -1,7 +1,18 @@
-import { useState, useRef, useCallback, useEffect, SetStateAction, Dispatch, FormEventHandler } from "react";
+import {
+    useState,
+    useRef,
+    useCallback,
+    useEffect,
+    SetStateAction,
+    Dispatch,
+    FormEventHandler,
+} from "react";
 import { FeedbackType, FeedbackOption } from "../types.js";
 
-type Value = FeedbackOption<string | number> | FeedbackOption<string | number>[] | undefined;
+type Value =
+    | FeedbackOption<string | number>
+    | FeedbackOption<string | number>[]
+    | undefined;
 
 type MainQuestion = {
     currentValue: Value;
@@ -12,8 +23,12 @@ type MainQuestion = {
     handleSubmit: FormEventHandler<HTMLFormElement>;
 };
 
-export const useMainQuestion = (onSubmit: (f: FeedbackType) => void): MainQuestion => {
-    const [currentValue, setCurrentValue] = useState<FeedbackOption | FeedbackOption[]>();
+export const useMainQuestion = (
+    onSubmit: (f: FeedbackType) => void,
+): MainQuestion => {
+    const [currentValue, setCurrentValue] = useState<
+        FeedbackOption | FeedbackOption[]
+    >();
     const [message, setMessage] = useState<string>();
     const [submitted, setSubmitted] = useState(false);
 
@@ -35,7 +50,8 @@ export const useMainQuestion = (onSubmit: (f: FeedbackType) => void): MainQuesti
     }, [onSubmit, currentValue, message, submitted]);
 
     const submitHandler = useCallback((intentionalSubmit = true) => {
-        const { message, currentValue, submitted, onSubmit } = feedbackRef.current;
+        const { message, currentValue, submitted, onSubmit } =
+            feedbackRef.current;
 
         if (!submitted && currentValue !== undefined) {
             const feedbackValue = Array.isArray(currentValue)

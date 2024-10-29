@@ -19,14 +19,19 @@ describe("Card", () => {
     CARD_VARIANTS.forEach((variant) => {
         it("setter riktig klasse for variant", () => {
             render(<Card variant={variant}>Hello, world</Card>);
-            expect(screen.getByText("Hello, world")).toHaveClass(`jkl-card--${variant}`);
+            expect(screen.getByText("Hello, world")).toHaveClass(
+                `jkl-card--${variant}`,
+            );
         });
     });
 
     CARD_PADDINGS.forEach((padding) => {
         it("setter riktig attributt for padding", () => {
             render(<Card padding={padding}>Hello, world</Card>);
-            expect(screen.getByText("Hello, world")).toHaveAttribute("data-padding", padding);
+            expect(screen.getByText("Hello, world")).toHaveAttribute(
+                "data-padding",
+                padding,
+            );
         });
     });
 

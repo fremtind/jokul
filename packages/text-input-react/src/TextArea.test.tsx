@@ -35,14 +35,22 @@ describe("TextArea", () => {
 
 describe("a11y", () => {
     test("text-area should be a11y compliant", async () => {
-        const { container } = render(<TextArea label="testing" helpLabel="tips" />);
+        const { container } = render(
+            <TextArea label="testing" helpLabel="tips" />,
+        );
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
     });
 
     test("text-area with counter should be a11y compliant", async () => {
-        const { container } = render(<TextArea label="testing" helpLabel="tips" counter={{ maxLength: 200 }} />);
+        const { container } = render(
+            <TextArea
+                label="testing"
+                helpLabel="tips"
+                counter={{ maxLength: 200 }}
+            />,
+        );
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();

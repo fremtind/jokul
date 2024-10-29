@@ -25,7 +25,10 @@ const defaultOptions: FormatValutaOptions = {
  * @param options Valgene fra formatNumber, pluss valg for prefix og suffix
  * @returns Formatert beløp
  */
-export function formatValuta(input: string | number, options?: FormatValutaOptions) {
+export function formatValuta(
+    input: string | number,
+    options?: FormatValutaOptions,
+) {
     const number = parseNumber(input);
     if (isNaN(number)) {
         return input.toString();
@@ -37,8 +40,13 @@ export function formatValuta(input: string | number, options?: FormatValutaOptio
         ? {}
         : { minimumFractionDigits: 2, maximumFractionDigits: 2 };
 
-    const suffix = options?.suffix !== undefined ? options.suffix : defaultOptions.suffix;
-    const { prefix, ...formatOptions } = { ...defaultOptions, ...fractionOptions, ...options };
+    const suffix =
+        options?.suffix !== undefined ? options.suffix : defaultOptions.suffix;
+    const { prefix, ...formatOptions } = {
+        ...defaultOptions,
+        ...fractionOptions,
+        ...options,
+    };
 
     const prefixString = prefix?.length ? `${prefix}${unicode.nbsp}` : "";
     const suffixString = suffix?.length ? `${unicode.nbsp}${suffix}` : "";

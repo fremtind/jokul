@@ -6,7 +6,12 @@ import React, { FC } from "react";
 import { Grid } from "../../components/Grid";
 import { Image } from "../../components/image";
 import { Seo } from "../../components/seo";
-import { HeadingLarge, Ingress, PageTitle, Paragraph } from "../../components/Typography";
+import {
+    HeadingLarge,
+    Ingress,
+    PageTitle,
+    Paragraph,
+} from "../../components/Typography";
 import { MainContent } from "../../layout/MainContent";
 
 const pageTitle = "Jobb med Jøkul-teamet";
@@ -17,30 +22,38 @@ const JobbMedTeamet: FC = () => (
     <MainContent>
         <PageTitle>{pageTitle}</PageTitle>
         <Ingress>
-            Jøkul-teamet skal gjøre arbeidsvherdagen enklere for leveranseteamene. Vi har mange måter å hjelpe på, delt
-            inn i to servicespor: fasilitering og støtte.
+            Jøkul-teamet skal gjøre arbeidsvherdagen enklere for
+            leveranseteamene. Vi har mange måter å hjelpe på, delt inn i to
+            servicespor: fasilitering og støtte.
         </Ingress>
         <Image disableFullscreen>
-            <StaticImage src="../../../static/assets/kom-i-gang/team-api.png" alt="" />
+            <StaticImage
+                src="../../../static/assets/kom-i-gang/team-api.png"
+                alt=""
+            />
         </Image>
         <HeadingLarge>Fasilitering og deling av kunnskap</HeadingLarge>
         <Paragraph>
-            Få ekspert-coaching og rådgivning skreddersydd ditt team og tjeneste gjennom midlertidig-hospitering fra
-            Jøkul-teamet.
+            Få ekspert-coaching og rådgivning skreddersydd ditt team og tjeneste
+            gjennom midlertidig-hospitering fra Jøkul-teamet.
         </Paragraph>
         <UnorderedList className="jkl-portal-paragraph">
             <ListItem>
-                Vi tilbyr coaching og midleritidg hospitering for å øke den faglige forståelsen for designsystem ute i
-                leveranseteamene.
+                Vi tilbyr coaching og midleritidg hospitering for å øke den
+                faglige forståelsen for designsystem ute i leveranseteamene.
             </ListItem>
             <ListItem>
-                Vi holder fagforedrag innad i organsasjonen for å spre verdifull og relevant kunnskap om designystemet
-                og dets effekt på arbeidet vårt.
+                Vi holder fagforedrag innad i organsasjonen for å spre verdifull
+                og relevant kunnskap om designystemet og dets effekt på arbeidet
+                vårt.
             </ListItem>
-            <ListItem>Vi onboarder og introduserer nye designere og utviklere til designsystemtankegang</ListItem>
             <ListItem>
-                Vi forsker på og deler de nyeste teknikkene for å jobbe med designsystem på en effektiv måte innenfor
-                hver fagdisiplin.
+                Vi onboarder og introduserer nye designere og utviklere til
+                designsystemtankegang
+            </ListItem>
+            <ListItem>
+                Vi forsker på og deler de nyeste teknikkene for å jobbe med
+                designsystem på en effektiv måte innenfor hver fagdisiplin.
             </ListItem>
         </UnorderedList>
         <NavCard
@@ -52,23 +65,37 @@ const JobbMedTeamet: FC = () => (
         />
         <HeadingLarge>Støtte og vedlikehold</HeadingLarge>
         <Paragraph>
-            Vi tilbyr Jøkul som en plattform. Det betyr at vi i praksis har ansvar for forvaltning av designsystemet,
-            noe som ofte skjer gjennom bidrag fra leveranseteamene. Plattform-teamet er ansvarlig for at Jøkul fungerer,
-            og holdes til enhver tids gjeldende moderne standarder.
+            Vi tilbyr Jøkul som en plattform. Det betyr at vi i praksis har
+            ansvar for forvaltning av designsystemet, noe som ofte skjer gjennom
+            bidrag fra leveranseteamene. Plattform-teamet er ansvarlig for at
+            Jøkul fungerer, og holdes til enhver tids gjeldende moderne
+            standarder.
         </Paragraph>
         <UnorderedList className="jkl-portal-paragraph">
-            <ListItem>Vi sørger for at det er enkelt å bruke og endre på plattformen.</ListItem>
-            <ListItem>Vi holder deg oppdatert på hva som skjer i Jøkul.</ListItem>
-            <ListItem>Vi sørger for hjelp til selvhjelp gjennom lett tilgjengelig dokumentasjon.</ListItem>
             <ListItem>
-                Vi tilbyr revers-hospitering hvor medlemmer fra levereanseteamene midlertidig blir ansatt i Jøkul-teamet
-                for å jobbe med Jøkul, noe som kommer teamet til gode på sikt.
+                Vi sørger for at det er enkelt å bruke og endre på plattformen.
             </ListItem>
             <ListItem>
-                Vi organiserer arbeidsgrupper for å bygge ny funksjonalitet i Jøkul, i tillegg til å drøfte vår tolkning
-                og tilnærming av faglige temaer.
+                Vi holder deg oppdatert på hva som skjer i Jøkul.
             </ListItem>
-            <ListItem>Vi tilbyr support hvis du skulle ha enkle spørsmål om bruk og bidrag.</ListItem>
+            <ListItem>
+                Vi sørger for hjelp til selvhjelp gjennom lett tilgjengelig
+                dokumentasjon.
+            </ListItem>
+            <ListItem>
+                Vi tilbyr revers-hospitering hvor medlemmer fra
+                levereanseteamene midlertidig blir ansatt i Jøkul-teamet for å
+                jobbe med Jøkul, noe som kommer teamet til gode på sikt.
+            </ListItem>
+            <ListItem>
+                Vi organiserer arbeidsgrupper for å bygge ny funksjonalitet i
+                Jøkul, i tillegg til å drøfte vår tolkning og tilnærming av
+                faglige temaer.
+            </ListItem>
+            <ListItem>
+                Vi tilbyr support hvis du skulle ha enkle spørsmål om bruk og
+                bidrag.
+            </ListItem>
         </UnorderedList>
         <Grid className="jkl-portal-paragraph">
             <NavCard
@@ -84,9 +111,10 @@ const JobbMedTeamet: FC = () => (
         </Grid>
         <HeadingLarge>Ikke vær redd for å kontakte oss</HeadingLarge>
         <Paragraph>
-            Jøkul-teamet er her for å hjelpe deg. Det kan vi ikke om du ikke sier i fra til oss hvis noe er vanskelig,
-            noe mangler, eller noe rett og slett er blitt ødelagt. Om du finner noe som ser rart ut, ikke nøl med å ta
-            kontakt!
+            Jøkul-teamet er her for å hjelpe deg. Det kan vi ikke om du ikke
+            sier i fra til oss hvis noe er vanskelig, noe mangler, eller noe
+            rett og slett er blitt ødelagt. Om du finner noe som ser rart ut,
+            ikke nøl med å ta kontakt!
         </Paragraph>
         <NavCard
             className="mt-40"

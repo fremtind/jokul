@@ -20,7 +20,9 @@ export const CountdownExample: FC = () => {
                     gap: "1rem",
                 }}
             >
-                <PrimaryButton onClick={() => setIsPaused(!isPaused)}>{isPaused ? "Start" : "Pause"}</PrimaryButton>
+                <PrimaryButton onClick={() => setIsPaused(!isPaused)}>
+                    {isPaused ? "Start" : "Pause"}
+                </PrimaryButton>
                 <TertiaryButton
                     onClick={() => {
                         setIsPaused(true);

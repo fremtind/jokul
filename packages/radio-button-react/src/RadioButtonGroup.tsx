@@ -1,9 +1,13 @@
 import { Density } from "@fremtind/jkl-core";
-import { FieldGroup, type FieldGroupProps } from "@fremtind/jkl-input-group-react";
+import {
+    FieldGroup,
+    type FieldGroupProps,
+} from "@fremtind/jkl-input-group-react";
 import React, { ChangeEventHandler, FC } from "react";
 import { RadioGroupContextProvider } from "./radioGroupContext";
 
-export interface RadioButtonGroupProps extends Omit<FieldGroupProps, "onChange"> {
+export interface RadioButtonGroupProps
+    extends Omit<FieldGroupProps, "onChange"> {
     legend: string;
     /** Alle RadioButton i gruppen får dette som name. */
     name?: string;

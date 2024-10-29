@@ -18,12 +18,25 @@ interface ImageProps
     srcDark?: Media | string;
 }
 
-export const Image: FC<ImageProps> = ({ className, src, srcDark, alt, ...imageAttributes }) => {
+export const Image: FC<ImageProps> = ({
+    className,
+    src,
+    srcDark,
+    alt,
+    ...imageAttributes
+}) => {
     const prefersColorScheme = useTheme();
     const source = prefersColorScheme === "light" ? src : srcDark || src;
 
     if (typeof source === "string") {
-        return <img className={className} src={source} alt={alt || ""} {...imageAttributes} />;
+        return (
+            <img
+                className={className}
+                src={source}
+                alt={alt || ""}
+                {...imageAttributes}
+            />
+        );
     }
 
     if (!source) {

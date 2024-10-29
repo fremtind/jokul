@@ -58,7 +58,11 @@ export const HeroSection: FC<PageSectionProps> = ({ pageSection }) => {
                     actions.map((action) => {
                         return <ActionButton key={action.id} {...action} />;
                     })}
-                <LogoStamp aria-hidden animated className="jkl-portal-hero-block__stamp">
+                <LogoStamp
+                    aria-hidden
+                    animated
+                    className="jkl-portal-hero-block__stamp"
+                >
                     <TeknologiFraFremtind />
                 </LogoStamp>
             </div>

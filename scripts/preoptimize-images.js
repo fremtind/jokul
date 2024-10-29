@@ -31,9 +31,15 @@ Promise.all([
             return;
         }
 
-        const optimizedName = match.replace(/(\..+)$/, (match, ext) => `-optimized${ext}`);
+        const optimizedName = match.replace(
+            /(\..+)$/,
+            (match, ext) => `-optimized${ext}`,
+        );
 
-        await stream.resize(MAX_WIDTH).jpeg({ quality: QUALITY }).toFile(optimizedName);
+        await stream
+            .resize(MAX_WIDTH)
+            .jpeg({ quality: QUALITY })
+            .toFile(optimizedName);
 
         return fs.rename(optimizedName, match);
     }),

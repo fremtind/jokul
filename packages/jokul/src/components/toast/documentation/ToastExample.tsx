@@ -32,11 +32,15 @@ const examples: Array<[ToastContent, ToastOptions]> = [
         {},
     ],
     [{ content: "Saken går til automatisk behandling" }, { variant: "info" }],
-    [{ content: "Navn Navnesen er fjernet som reell rettighetshaver" }, { variant: "success" }],
+    [
+        { content: "Navn Navnesen er fjernet som reell rettighetshaver" },
+        { variant: "success" },
+    ],
     [
         {
             title: "Mistet internettforbindelsen",
-            content: "Du kan fortsette å fylle ut skjemaet, men får ikke lagret før forbindelsen er tilbake.",
+            content:
+                "Du kan fortsette å fylle ut skjemaet, men får ikke lagret før forbindelsen er tilbake.",
         },
         { variant: "warning" },
     ],
@@ -54,7 +58,8 @@ function ToastUsageExample() {
     return (
         <PrimaryButton
             onClick={() => {
-                const [content, options] = examples[Math.floor(Math.random() * examples.length)];
+                const [content, options] =
+                    examples[Math.floor(Math.random() * examples.length)];
                 add(content, options);
             }}
         >
@@ -64,7 +69,8 @@ function ToastUsageExample() {
 }
 
 export const ToastExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
-    const placement = choiceValues?.["Plassering"] === "Venstre" ? "left" : "center";
+    const placement =
+        choiceValues?.["Plassering"] === "Venstre" ? "left" : "center";
     return (
         <ToastProvider placement={placement}>
             <ToastUsageExample />

@@ -1,4 +1,11 @@
-import { Component, General, Foundation, Pattern, Blog, payload } from "@org/cms";
+import {
+    Component,
+    General,
+    Foundation,
+    Pattern,
+    Blog,
+    payload,
+} from "@org/cms";
 import express = require("express");
 import { Document, IndexOptionsForDocumentSearch } from "flexsearch";
 
@@ -148,7 +155,11 @@ const blogIndex = new Document({
     ...sharedOptions,
     document: {
         id: "id",
-        index: ["title", ...richTextIndices("ingress[]"), ...pageSectionIndices.map((index) => `sections[]:${index}`)],
+        index: [
+            "title",
+            ...richTextIndices("ingress[]"),
+            ...pageSectionIndices.map((index) => `sections[]:${index}`),
+        ],
     },
 });
 
@@ -251,7 +262,10 @@ search.get("/", async (req, res) => {
     >((acc, [collection, map]) => {
         return {
             ...acc,
-            [indexLabels[collection]]: [...(acc[indexLabels[collection]] || []), ...map.values()],
+            [indexLabels[collection]]: [
+                ...(acc[indexLabels[collection]] || []),
+                ...map.values(),
+            ],
         };
     }, {});
 

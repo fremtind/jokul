@@ -22,7 +22,9 @@ export const NavTabsExample: FC<ExampleComponentProps> = () => {
         if (typeof window === "undefined") {
             return;
         }
-        const selectedIndex = tabs.findIndex((tab) => tab.href === window.location.hash);
+        const selectedIndex = tabs.findIndex(
+            (tab) => tab.href === window.location.hash,
+        );
 
         setSelectedIndex(selectedIndex !== -1 ? selectedIndex : 0);
     }, [tabs]);

@@ -1,5 +1,8 @@
 import React, { FC } from "react";
-import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "../../../../../../utils/dev-example/index.js";
 import { Flex } from "../../flex/index.js";
 import { FieldGroup } from "../../input-group/index.js";
 import { InfoTag } from "../../tag/index.js";
@@ -9,13 +12,24 @@ export const knobs: ExampleKnobsProps = {
     boolProps: ["Med feilmelding"],
 };
 
-export const UncontrolledExample: FC<ExampleComponentProps> = ({ boolValues }) => {
+export const UncontrolledExample: FC<ExampleComponentProps> = ({
+    boolValues,
+}) => {
     return (
-        <Flex asChild={true} direction="column" gap={32} style={{ width: "100%" }}>
+        <Flex
+            asChild={true}
+            direction="column"
+            gap={32}
+            style={{ width: "100%" }}
+        >
             <FieldGroup
                 legend="Velg sesong"
                 defaultValue={"summer"}
-                errorLabel={boolValues?.["Med feilmelding"] ? "Nå har du gjort noe galt" : undefined}
+                errorLabel={
+                    boolValues?.["Med feilmelding"]
+                        ? "Nå har du gjort noe galt"
+                        : undefined
+                }
             >
                 <RadioPanel
                     name="season"
@@ -28,7 +42,9 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({ boolValues }) =
                             className="radio-panel-example__custom-label radio-panel-example__custom-label--small"
                         >
                             Den kalde fine tiden
-                            <InfoTag className="radio-panel-example__season-tag">Anbefalt</InfoTag>
+                            <InfoTag className="radio-panel-example__season-tag">
+                                Anbefalt
+                            </InfoTag>
                         </Flex>
                     }
                 >

@@ -21,12 +21,18 @@ const radioGroupContext = createContext<RadioGroupContext>({
     invalid: false,
 });
 
-export const useRadioGroupContext = (): RadioGroupContext => useContext(radioGroupContext);
+export const useRadioGroupContext = (): RadioGroupContext =>
+    useContext(radioGroupContext);
 
 interface Props extends WithChildren {
     state: RadioGroupContext;
 }
 
-export const RadioGroupContextProvider: React.FC<Props> = ({ state, children }) => (
-    <radioGroupContext.Provider value={state}>{children}</radioGroupContext.Provider>
+export const RadioGroupContextProvider: React.FC<Props> = ({
+    state,
+    children,
+}) => (
+    <radioGroupContext.Provider value={state}>
+        {children}
+    </radioGroupContext.Provider>
 );

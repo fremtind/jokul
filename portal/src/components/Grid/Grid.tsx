@@ -8,7 +8,11 @@ interface Props extends WithChildren {
     size?: "medium" | "responsive";
 }
 
-export const Grid: React.FC<Props> = ({ className, children, size = "medium" }) => {
+export const Grid: React.FC<Props> = ({
+    className,
+    children,
+    size = "medium",
+}) => {
     return (
         <div
             className={cn("jkl-portal-grid", className, {

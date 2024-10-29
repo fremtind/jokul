@@ -1,7 +1,15 @@
 import { cleanup, render, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React from "react";
-import { afterEach, beforeEach, describe, expect, it, MockInstance, vi } from "vitest";
+import {
+    afterEach,
+    beforeEach,
+    describe,
+    expect,
+    it,
+    MockInstance,
+    vi,
+} from "vitest";
 import { axe } from "vitest-axe";
 import { DatePicker } from "./DatePicker.js";
 import { formatInput } from "./utils.js";
@@ -21,7 +29,9 @@ describe("Datepicker", () => {
     });
 
     it("renders with the correct format", async () => {
-        const { getByTestId } = render(<DatePicker defaultValue="24.12.2019" />);
+        const { getByTestId } = render(
+            <DatePicker defaultValue="24.12.2019" />,
+        );
 
         const input = getByTestId("jkl-datepicker__input");
 
@@ -43,10 +53,14 @@ describe("Datepicker", () => {
         });
 
         expect(input).toHaveProperty("value", "01.12.2019");
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), expect.any(Date), {
-            error: null,
-            value: "01.12.2019",
-        });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            expect.any(Date),
+            {
+                error: null,
+                value: "01.12.2019",
+            },
+        );
     });
 
     it("fires onChange method on edit input with wrong format", async () => {
@@ -65,10 +79,14 @@ describe("Datepicker", () => {
 
         expect(input).toHaveProperty("value", "1.1");
 
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), null, {
-            error: "WRONG_FORMAT",
-            value: "1.1",
-        });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "1.1",
+            },
+        );
     });
 
     it("fires onChange method on edit input with date outside lower bound", async () => {
@@ -77,7 +95,10 @@ describe("Datepicker", () => {
         const lowerBound = new Date(2021, 8, 20);
 
         const { getByTestId } = render(
-            <DatePicker onChange={changeHandler} disableBeforeDate={formatInput(lowerBound)} />,
+            <DatePicker
+                onChange={changeHandler}
+                disableBeforeDate={formatInput(lowerBound)}
+            />,
         );
 
         const input = getByTestId("jkl-datepicker__input");
@@ -89,10 +110,14 @@ describe("Datepicker", () => {
             await userEvent.type(input, "19.09.2021");
         });
 
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), new Date(2021, 8, 19), {
-            error: "OUTSIDE_LOWER_BOUND",
-            value: "19.09.2021",
-        });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            new Date(2021, 8, 19),
+            {
+                error: "OUTSIDE_LOWER_BOUND",
+                value: "19.09.2021",
+            },
+        );
     });
 
     it("fires onChange method on edit input with date outside upper bound", async () => {
@@ -101,7 +126,10 @@ describe("Datepicker", () => {
         const upperBound = new Date(2021, 8, 20);
 
         const { getByTestId } = render(
-            <DatePicker onChange={changeHandler} disableAfterDate={formatInput(upperBound)} />,
+            <DatePicker
+                onChange={changeHandler}
+                disableAfterDate={formatInput(upperBound)}
+            />,
         );
 
         const input = getByTestId("jkl-datepicker__input");
@@ -113,10 +141,14 @@ describe("Datepicker", () => {
             await userEvent.type(input, "21.09.2021");
         });
 
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), new Date(2021, 8, 21), {
-            error: "OUTSIDE_UPPER_BOUND",
-            value: "21.09.2021",
-        });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            new Date(2021, 8, 21),
+            {
+                error: "OUTSIDE_UPPER_BOUND",
+                value: "21.09.2021",
+            },
+        );
     });
 
     it("fires onChange method when text input is cleared", async () => {
@@ -133,21 +165,31 @@ describe("Datepicker", () => {
             await userEvent.type(input, "01.12.2019");
         });
 
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), new Date(2019, 11, 1), {
-            error: null,
-            value: "01.12.2019",
-        });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            new Date(2019, 11, 1),
+            {
+                error: null,
+                value: "01.12.2019",
+            },
+        );
 
         await waitFor(async () => {
             await userEvent.clear(input);
         });
 
         expect(input).toHaveProperty("value", "");
-        expect(changeHandler).toHaveBeenLastCalledWith(expect.anything(), null, { error: null, value: "" });
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            { error: null, value: "" },
+        );
     });
 
     it("should change date on new props", async () => {
-        const { container, getByTestId } = render(<DatePicker value="02.02.2019" />);
+        const { container, getByTestId } = render(
+            <DatePicker value="02.02.2019" />,
+        );
         const input = getByTestId("jkl-datepicker__input");
 
         expect(input).toHaveProperty("value", "02.02.2019");
@@ -158,7 +200,9 @@ describe("Datepicker", () => {
     });
 
     it("should close the datepicker when clicking outside the date picker", async () => {
-        const { getByTestId, queryByTestId } = render(<DatePicker label="Some datepicker" />);
+        const { getByTestId, queryByTestId } = render(
+            <DatePicker label="Some datepicker" />,
+        );
 
         expect(queryByTestId("jkl-calendar")).not.toBeInTheDocument();
 
@@ -183,11 +227,15 @@ describe("Datepicker", () => {
         try {
             spy = vi
                 .spyOn(window, "requestAnimationFrame")
-                .mockImplementation((callback: FrameRequestCallback): number => {
-                    callback(0);
-                    return 0;
-                });
-            const { getByTestId, queryByTestId, getByTitle } = render(<DatePicker label="Some datepicker" />);
+                .mockImplementation(
+                    (callback: FrameRequestCallback): number => {
+                        callback(0);
+                        return 0;
+                    },
+                );
+            const { getByTestId, queryByTestId, getByTitle } = render(
+                <DatePicker label="Some datepicker" />,
+            );
 
             const button = getByTestId("jkl-datepicker__trigger");
 
@@ -222,7 +270,9 @@ describe("Datepicker", () => {
     });
 
     it("should keep focus on input field when clicking on the input field", async () => {
-        const { getByLabelText } = render(<DatePicker label="Some datepicker" />);
+        const { getByLabelText } = render(
+            <DatePicker label="Some datepicker" />,
+        );
 
         const input = getByLabelText("Some datepicker");
 
@@ -236,7 +286,9 @@ describe("Datepicker", () => {
     it.skip("should move focus to calendar button when opening datepicker with button", async () => {
         vi.setSystemTime(new Date(2019, 9, 20));
 
-        const { getByRole, getByLabelText } = render(<DatePicker label="Some datepicker" />);
+        const { getByRole, getByLabelText } = render(
+            <DatePicker label="Some datepicker" />,
+        );
 
         const openCalendarButtonElement = getByRole("button");
 
@@ -254,7 +306,9 @@ describe("Datepicker", () => {
 
         const onChangeFn = vi.fn();
 
-        const { getByRole, getByLabelText } = render(<DatePicker onChange={onChangeFn} />);
+        const { getByRole, getByLabelText } = render(
+            <DatePicker onChange={onChangeFn} />,
+        );
 
         const toggleCalendarButtonElement = getByRole("button");
 
@@ -263,10 +317,14 @@ describe("Datepicker", () => {
             await userEvent.click(getByLabelText("31. oktober"));
         });
 
-        expect(onChangeFn).toHaveBeenCalledWith(expect.anything(), new Date(2019, 9, 31), {
-            error: null,
-            value: "31.10.2019",
-        });
+        expect(onChangeFn).toHaveBeenCalledWith(
+            expect.anything(),
+            new Date(2019, 9, 31),
+            {
+                error: null,
+                value: "31.10.2019",
+            },
+        );
         expect(onChangeFn).toHaveBeenCalledTimes(1);
     });
 
@@ -367,7 +425,10 @@ describe("Datepicker", () => {
 
     it("should have data-testautoid", async () => {
         const { getByTestId } = render(
-            <DatePicker defaultValue="24.12.2019" data-testautoid="jkl-datepicker__testautoid" />,
+            <DatePicker
+                defaultValue="24.12.2019"
+                data-testautoid="jkl-datepicker__testautoid"
+            />,
         );
 
         const input = getByTestId("jkl-datepicker__input");
@@ -379,7 +440,11 @@ describe("Datepicker", () => {
 
     it("supports label only for screen readers", async () => {
         const { getByText } = render(
-            <DatePicker defaultValue="24.12.2019" label="Hello" labelProps={{ srOnly: true }} />,
+            <DatePicker
+                defaultValue="24.12.2019"
+                label="Hello"
+                labelProps={{ srOnly: true }}
+            />,
         );
 
         const label = getByText("Hello");
@@ -429,7 +494,9 @@ describe("Datepicker", () => {
             });
 
             expect(onBlur).toHaveBeenCalledTimes(1);
-            expect(onBlur.mock.calls[0][1]).toStrictEqual(new Date("01.01.2021"));
+            expect(onBlur.mock.calls[0][1]).toStrictEqual(
+                new Date("01.01.2021"),
+            );
         });
 
         it("should return correct date when pasting content", async () => {
@@ -464,7 +531,9 @@ describe("Datepicker", () => {
                     await userEvent.click(getByText("Click"));
                 });
 
-                expect(onBlur.mock.lastCall?.[1]).toStrictEqual(new Date(returnDate));
+                expect(onBlur.mock.lastCall?.[1]).toStrictEqual(
+                    new Date(returnDate),
+                );
             }
         });
     });

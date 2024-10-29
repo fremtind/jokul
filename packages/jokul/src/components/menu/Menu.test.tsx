@@ -35,7 +35,9 @@ describe("Menu", () => {
             </Menu>,
         );
 
-        expect(getByRole("button", { name: "En kontekstuell meny" })).toBeInTheDocument();
+        expect(
+            getByRole("button", { name: "En kontekstuell meny" }),
+        ).toBeInTheDocument();
         // Start med menyen skjult
         expect(queryByRole("menuitem")).not.toBeInTheDocument();
     });
@@ -75,7 +77,9 @@ describe("Menu", () => {
 
         await user.click(getByRole("button", { name: "En kontekstuell meny" }));
 
-        expect(queryByRole("menuitem", { name: "Menyvalg" })).not.toBeInTheDocument();
+        expect(
+            queryByRole("menuitem", { name: "Menyvalg" }),
+        ).not.toBeInTheDocument();
     });
 
     it("should open menu options when clicking on trigger element", async () => {
@@ -107,18 +111,29 @@ describe("Menu", () => {
                     </IconButton>
                 }
             >
-                <Menu openOnHover triggerElement={<MenuItem expandable>Ekspanderende</MenuItem>}>
+                <Menu
+                    openOnHover
+                    triggerElement={
+                        <MenuItem expandable>Ekspanderende</MenuItem>
+                    }
+                >
                     <MenuItem>Ekspandert</MenuItem>
                 </Menu>
             </Menu>,
         );
 
-        expect(queryByRole("menuitem", { name: "Ekspanderende" })).not.toBeInTheDocument();
+        expect(
+            queryByRole("menuitem", { name: "Ekspanderende" }),
+        ).not.toBeInTheDocument();
 
         await user.click(getByRole("button", { name: "En kontekstuell meny" }));
 
-        expect(getByRole("menuitem", { name: "Ekspanderende" })).toBeInTheDocument();
-        expect(queryByRole("menuitem", { name: "Ekspandert" })).not.toBeInTheDocument();
+        expect(
+            getByRole("menuitem", { name: "Ekspanderende" }),
+        ).toBeInTheDocument();
+        expect(
+            queryByRole("menuitem", { name: "Ekspandert" }),
+        ).not.toBeInTheDocument();
 
         await user.hover(getByRole("menuitem", { name: "Ekspanderende" }));
 
@@ -183,14 +198,21 @@ describe("Menu", () => {
             >
                 <MenuItem>Menyvalg</MenuItem>
                 <MenuDivider />
-                <Menu openOnHover triggerElement={<MenuItem expandable>Ekspanderende</MenuItem>}>
+                <Menu
+                    openOnHover
+                    triggerElement={
+                        <MenuItem expandable>Ekspanderende</MenuItem>
+                    }
+                >
                     <MenuItem>Ekspandert</MenuItem>
                 </Menu>
             </Menu>,
         );
 
         await user.click(getByRole("button", { name: "En kontekstuell meny" }));
-        expect(getByRole("menuitem", { name: "Ekspanderende" })).toBeInTheDocument();
+        expect(
+            getByRole("menuitem", { name: "Ekspanderende" }),
+        ).toBeInTheDocument();
 
         const results = await axe(container, {
             rules: {
@@ -214,7 +236,12 @@ describe("Menu", () => {
             >
                 <MenuItem>Menyvalg</MenuItem>
                 <MenuDivider />
-                <Menu openOnHover triggerElement={<MenuItem expandable>Ekspanderende</MenuItem>}>
+                <Menu
+                    openOnHover
+                    triggerElement={
+                        <MenuItem expandable>Ekspanderende</MenuItem>
+                    }
+                >
                     <MenuItem>Ekspandert</MenuItem>
                 </Menu>
             </Menu>,

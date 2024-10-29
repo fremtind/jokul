@@ -4,11 +4,19 @@ import { ExampleComponentProps } from "../../../doc-utils";
 import { Button } from "../src";
 import { IconPosition } from "../src/types";
 
-export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const Tertiary: React.FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const [showLoader, setShowLoader] = useState(false);
-    const loader = { showLoader: showLoader || !!boolValues?.["isLoading"], textDescription: "Laster innhold" };
+    const loader = {
+        showLoader: showLoader || !!boolValues?.["isLoading"],
+        textDescription: "Laster innhold",
+    };
     const iconPosition =
-        choiceValues?.["iconPosition"] === "none" ? undefined : (choiceValues?.["iconPosition"] as IconPosition);
+        choiceValues?.["iconPosition"] === "none"
+            ? undefined
+            : (choiceValues?.["iconPosition"] as IconPosition);
 
     const simulateLoading = () => {
         console.log("Hello!");
@@ -21,7 +29,9 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVa
     return (
         <Button
             variant="tertiary"
-            loader={showLoader || !!boolValues?.["withLoader"] ? loader : undefined}
+            loader={
+                showLoader || !!boolValues?.["withLoader"] ? loader : undefined
+            }
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
             iconPosition={iconPosition as IconPosition}
@@ -32,7 +42,10 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({ boolValues, choiceVa
     );
 };
 
-export const tertiaryCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
+export const tertiaryCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => {
     const iconPosition = choiceValues?.["iconPosition"] || "noIcon";
     return `
 <Button

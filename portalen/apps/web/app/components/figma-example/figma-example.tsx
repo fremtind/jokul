@@ -15,7 +15,10 @@ export const FigmaExample: FC<FigmaExampleProps> = ({ examples }) => {
             {examples.length > 1 ? (
                 <div className="jkl-portal-figma-example__files" role="tablist">
                     {examples.map((example) => (
-                        <FigmaFileButton key={example.fileName} onClick={() => setActiveExample(example)}>
+                        <FigmaFileButton
+                            key={example.fileName}
+                            onClick={() => setActiveExample(example)}
+                        >
                             {example.fileName}
                         </FigmaFileButton>
                     ))}
@@ -25,7 +28,9 @@ export const FigmaExample: FC<FigmaExampleProps> = ({ examples }) => {
             <iframe
                 title="Figma-eksempel"
                 className="jkl-portal-figma-example__example"
-                src={`https://www.figma.com/embed?embed_host=jokul-portal&url=${encodeURIComponent(activeExample.url)}`}
+                src={`https://www.figma.com/embed?embed_host=jokul-portal&url=${encodeURIComponent(
+                    activeExample.url,
+                )}`}
                 allowFullScreen
             />
         </div>
@@ -36,7 +41,11 @@ interface FigmaFileButtonProps extends HTMLAttributes<HTMLButtonElement> {
     example?: Example;
 }
 
-const FigmaFileButton: FC<FigmaFileButtonProps> = ({ children, example, ...rest }) => (
+const FigmaFileButton: FC<FigmaFileButtonProps> = ({
+    children,
+    example,
+    ...rest
+}) => (
     <button className="jkl-portal-figma-file-button" {...rest} type="button">
         <div
             style={{
@@ -48,8 +57,14 @@ const FigmaFileButton: FC<FigmaFileButtonProps> = ({ children, example, ...rest 
             aria-hidden
         >
             <p className="jkl-portal-figma-file-button__jokul">Jøkul</p>
-            <Logo isSymbol centered={false} className="jkl-portal-figma-file-button__logo" />
+            <Logo
+                isSymbol
+                centered={false}
+                className="jkl-portal-figma-file-button__logo"
+            />
         </div>
-        <span className="jkl-portal-figma-file-button__file-name">{children}</span>
+        <span className="jkl-portal-figma-file-button__file-name">
+            {children}
+        </span>
     </button>
 );

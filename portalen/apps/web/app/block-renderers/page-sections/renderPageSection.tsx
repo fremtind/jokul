@@ -10,7 +10,10 @@ import { ScrollSection } from "./ScrollSection";
 import { ShowcaseSection } from "./ShowcaseSection";
 import type { PageSection as PageSectionType } from "./types";
 import { VideoCTABlock } from "./VideoCTA";
-import { PackageStatsSection, renderContentBlock } from "~/block-renderers/content-blocks";
+import {
+    PackageStatsSection,
+    renderContentBlock,
+} from "~/block-renderers/content-blocks";
 import { ComponentOverviewSection } from "~/block-renderers/page-sections/ComponentOverviewSection";
 import { FeedbackSection } from "~/block-renderers/page-sections/FeedbackSection";
 
@@ -23,42 +26,95 @@ export function renderPageSection(
 ) {
     switch (pageSection.blockType) {
         case "call-to-action":
-            return <CallToAction key={pageSection.id} pageSection={pageSection} />;
+            return (
+                <CallToAction key={pageSection.id} pageSection={pageSection} />
+            );
         case "figma-example-section":
-            return <FigmaExampleSection key={pageSection.id} pageSection={pageSection} />;
+            return (
+                <FigmaExampleSection
+                    key={pageSection.id}
+                    pageSection={pageSection}
+                />
+            );
         case "hero-section":
-            return <HeroSection key={pageSection.id} pageSection={pageSection} />;
+            return (
+                <HeroSection key={pageSection.id} pageSection={pageSection} />
+            );
         case "link-card-list-section":
-            return <LinkCardListSection key={pageSection.id} pageSection={pageSection} />;
+            return (
+                <LinkCardListSection
+                    key={pageSection.id}
+                    pageSection={pageSection}
+                />
+            );
         case "live-demo-section":
-            return <LiveDemoSection key={pageSection.id} pageSection={pageSection} />;
+            return (
+                <LiveDemoSection
+                    key={pageSection.id}
+                    pageSection={pageSection}
+                />
+            );
         case "package-report-section":
-            return <PackageReportSection key={pageSection.id} pageSection={pageSection} packages={packages} />;
+            return (
+                <PackageReportSection
+                    key={pageSection.id}
+                    pageSection={pageSection}
+                    packages={packages}
+                />
+            );
         case "page-section":
             return (
-                <PageSection key={pageSection.id} title={pageSection.title} ingress={pageSection.ingress}>
+                <PageSection
+                    key={pageSection.id}
+                    title={pageSection.title}
+                    ingress={pageSection.ingress}
+                >
                     {pageSection.content?.map((block) => (
-                        <Fragment key={block.id}>{renderContentBlock(block)}</Fragment>
+                        <Fragment key={block.id}>
+                            {renderContentBlock(block)}
+                        </Fragment>
                     ))}
                 </PageSection>
             );
         case "showcase-section":
-            return <ShowcaseSection key={pageSection.id} pageSection={pageSection} />;
+            return (
+                <ShowcaseSection
+                    key={pageSection.id}
+                    pageSection={pageSection}
+                />
+            );
         case "video-cta":
-            return <VideoCTABlock key={pageSection.id} pageSection={pageSection} />;
+            return (
+                <VideoCTABlock key={pageSection.id} pageSection={pageSection} />
+            );
         case "feedback-section":
-            return <FeedbackSection key={pageSection.id} pageSection={pageSection} />;
+            return (
+                <FeedbackSection
+                    key={pageSection.id}
+                    pageSection={pageSection}
+                />
+            );
         case "component-overview":
-            return <ComponentOverviewSection key={pageSection.id} pageSection={pageSection} />;
+            return (
+                <ComponentOverviewSection
+                    key={pageSection.id}
+                    pageSection={pageSection}
+                />
+            );
 
         case "scroll":
-            return <ScrollSection key={pageSection.id} pageSection={pageSection} />;
+            return (
+                <ScrollSection key={pageSection.id} pageSection={pageSection} />
+            );
 
         case "package-stats-section":
             return <PackageStatsSection pageSection={pageSection} />;
 
         default:
-            console.warn("Fant ingen blokk for å rendre innholdet:", pageSection);
+            console.warn(
+                "Fant ingen blokk for å rendre innholdet:",
+                pageSection,
+            );
             return null;
     }
 }

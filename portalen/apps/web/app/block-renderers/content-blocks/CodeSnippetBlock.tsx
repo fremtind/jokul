@@ -7,5 +7,10 @@ import { CodeSnippet } from "~/components/code-snippet";
 export const CodeSnippetBlock: FC<ContentBlockProps> = ({ contentBlock }) => {
     assertBlockIs("code-snippet", contentBlock);
 
-    return <CodeSnippet code={contentBlock.code} language={contentBlock.language as Language} />;
+    return (
+        <CodeSnippet
+            code={contentBlock.code}
+            language={contentBlock.language as Language}
+        />
+    );
 };

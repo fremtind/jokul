@@ -17,7 +17,10 @@ export interface ExpandSectionProps {
     className?: string;
     density?: Density;
     onClick?: (e: React.MouseEvent<HTMLElement>, isExpanded: boolean) => void;
-    expandButtonProps?: Omit<ExpanderProps, "id" | "isExpanded" | "onClick" | "hideLabel">;
+    expandButtonProps?: Omit<
+        ExpanderProps,
+        "id" | "isExpanded" | "onClick" | "hideLabel"
+    >;
     useAnimatedHeightOptions?: UseAnimatedHeightOptions;
     /** Om du ønsker å styre komponenten utenfra */
     isExpanded?: boolean;
@@ -40,15 +43,16 @@ export const ExpandSection = ({
         setIsExpanded(isExpanded);
     }, [isExpanded]);
 
-    const { detailsRef, summaryRef, contentRef, onSummaryClick } = useAnimatedDetails({
-        onOpenChange: (open, e) => {
-            setIsExpanded(open);
-            if (onClick) {
-                onClick(e, open);
-            }
-        },
-        isExpanded,
-    });
+    const { detailsRef, summaryRef, contentRef, onSummaryClick } =
+        useAnimatedDetails({
+            onOpenChange: (open, e) => {
+                setIsExpanded(open);
+                if (onClick) {
+                    onClick(e, open);
+                }
+            },
+            isExpanded,
+        });
 
     return (
         <details

@@ -1,5 +1,11 @@
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { CloseIcon, ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "@fremtind/jkl-icons-react";
+import {
+    CloseIcon,
+    ErrorIcon,
+    InfoIcon,
+    SuccessIcon,
+    WarningIcon,
+} from "@fremtind/jkl-icons-react";
 import { Countdown } from "@fremtind/jkl-progress-bar-react";
 import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
 import { type AriaToastProps, useToast } from "@react-aria/toast";
@@ -29,12 +35,22 @@ const getIcon = (messageType?: "error" | "info" | "success" | "warning") => {
     }
 };
 
-export function Toast<T extends ToastContent>({ className, state, ...props }: ToastProps<T>) {
+export function Toast<T extends ToastContent>({
+    className,
+    state,
+    ...props
+}: ToastProps<T>) {
     let ref = useRef(null);
     let { toastProps, titleProps } = useToast(props, state, ref);
 
-    const content = typeof props.toast.content === "string" ? props.toast.content : props.toast.content.content;
-    const title = typeof props.toast.content === "string" ? undefined : props.toast.content.title;
+    const content =
+        typeof props.toast.content === "string"
+            ? props.toast.content
+            : props.toast.content.content;
+    const title =
+        typeof props.toast.content === "string"
+            ? undefined
+            : props.toast.content.title;
 
     // @ts-ignore Proxy for å sjekke om timeren er pauset: https://github.com/adobe/react-spectrum/blob/b1545c0d225b12672fb6a4e7b787268591d66b90/packages/%40react-stately/toast/src/useToastState.ts#L222
     const isPaused = props.toast.timer?.timerId == null;

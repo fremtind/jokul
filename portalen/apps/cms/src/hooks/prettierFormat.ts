@@ -19,7 +19,19 @@ export const languageSupport = {
 
 interface Options {
     noinline?: boolean;
-    language: "ts" | "tsx" | "sh" | "scss" | "css" | "js" | "jsx" | "html" | "xml" | "json" | "less" | "diff";
+    language:
+        | "ts"
+        | "tsx"
+        | "sh"
+        | "scss"
+        | "css"
+        | "js"
+        | "jsx"
+        | "html"
+        | "xml"
+        | "json"
+        | "less"
+        | "diff";
 }
 
 const formattableLanguages = ["ts", "tsx", "js", "jsx"];

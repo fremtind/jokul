@@ -102,7 +102,13 @@ export function useAutoAnimatedHeight<T extends HTMLElement = HTMLElement>(
         }
 
         animateElement();
-    }, [animateElement, trigger, previousTriggerValue, options, prefersReducedMotion]);
+    }, [
+        animateElement,
+        trigger,
+        previousTriggerValue,
+        options,
+        prefersReducedMotion,
+    ]);
 
     useEffect(() => {
         runAnimation();
@@ -116,7 +122,10 @@ export function useAutoAnimatedHeight<T extends HTMLElement = HTMLElement>(
 
         return () => {
             if (element) {
-                element.removeEventListener("transitionend", handleTransitionEnd);
+                element.removeEventListener(
+                    "transitionend",
+                    handleTransitionEnd,
+                );
             }
         };
     }, [handleTransitionEnd]);

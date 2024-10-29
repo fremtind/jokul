@@ -54,7 +54,9 @@ describe("PopupTip", () => {
 
     describe("a11y", () => {
         test("PopupTip should be a11y compliant", async () => {
-            const { container } = render(<PopupTip initialOpen content="Forklarende tekst" />);
+            const { container } = render(
+                <PopupTip initialOpen content="Forklarende tekst" />,
+            );
 
             await act(async () => {
                 const results = await axe(container);

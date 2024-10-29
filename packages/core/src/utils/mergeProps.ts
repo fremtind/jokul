@@ -1,4 +1,7 @@
-export function mergeProps(baseProps: Record<string, any>, addedProps: Record<string, any>) {
+export function mergeProps(
+    baseProps: Record<string, any>,
+    addedProps: Record<string, any>,
+) {
     const overrides = { ...addedProps };
 
     for (const prop in addedProps) {
@@ -23,7 +26,9 @@ export function mergeProps(baseProps: Record<string, any>, addedProps: Record<st
         }
 
         if (prop === "className") {
-            overrides[prop] = [basePropValue, addedPropValue].filter(Boolean).join(" ");
+            overrides[prop] = [basePropValue, addedPropValue]
+                .filter(Boolean)
+                .join(" ");
         }
     }
 

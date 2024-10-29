@@ -13,7 +13,15 @@ export type { SkeletonInputProps } from "./skeletons/SkeletonInput";
 export { SkeletonInput } from "./skeletons/SkeletonInput";
 export type { SkeletonRadioButtonGroupProps } from "./skeletons/SkeletonRadioButtonGroup";
 export { SkeletonRadioButtonGroup } from "./skeletons/SkeletonRadioButtonGroup";
-export type { SkeletonTableProps, SkeletonTableHeaderProps, SkeletonTableRowProps } from "./skeletons/SkeletonTable";
-export { SkeletonTable, SkeletonTableHeader, SkeletonTableRow } from "./skeletons/SkeletonTable";
+export type {
+    SkeletonTableProps,
+    SkeletonTableHeaderProps,
+    SkeletonTableRowProps,
+} from "./skeletons/SkeletonTable";
+export {
+    SkeletonTable,
+    SkeletonTableHeader,
+    SkeletonTableRow,
+} from "./skeletons/SkeletonTable";
 export type { SkeletonTextAreaProps } from "./skeletons/SkeletonTextArea";
 export { SkeletonTextArea } from "./skeletons/SkeletonTextArea";

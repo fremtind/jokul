@@ -5,7 +5,9 @@ import { CodeSnippet } from "../code-snippet";
 
 const isOwnProp = (prop: any) =>
     prop.declarations?.some(
-        (declaration: any) => prop.name === "children" || declaration.fileName.includes("jokul/packages"),
+        (declaration: any) =>
+            prop.name === "children" ||
+            declaration.fileName.includes("jokul/packages"),
     );
 
 const parsePropToSnippet = (prop: any) => {
@@ -22,7 +24,9 @@ const parsePropToSnippet = (prop: any) => {
 */
 `;
 
-    return `${description}${prop.name}${prop.required ? "" : "?"}: ${removeUndefinedFromOptional(prop)};
+    return `${description}${prop.name}${
+        prop.required ? "" : "?"
+    }: ${removeUndefinedFromOptional(prop)};
 `;
 };
 
@@ -32,8 +36,15 @@ const removeUndefinedFromOptional = (prop: any) => {
     return prop.type.name.replace(/ \| undefined/, "");
 };
 
-const includeJsDoc = (propTypes: { description: string; tags?: { param?: string; returns?: string } }) => {
-    if (!propTypes.description && !propTypes.tags?.param && !propTypes.tags?.returns) {
+const includeJsDoc = (propTypes: {
+    description: string;
+    tags?: { param?: string; returns?: string };
+}) => {
+    if (
+        !propTypes.description &&
+        !propTypes.tags?.param &&
+        !propTypes.tags?.returns
+    ) {
         return "";
     }
 
@@ -47,7 +58,9 @@ const includeJsDoc = (propTypes: { description: string; tags?: { param?: string;
         .map((param) => ` * @param ${param}`)
         .join("\n");
 
-    const returns: string | undefined = propTypes.tags?.returns ? ` * @returns ${propTypes.tags.returns}` : undefined;
+    const returns: string | undefined = propTypes.tags?.returns
+        ? ` * @returns ${propTypes.tags.returns}`
+        : undefined;
 
     const lines = ["/**", description, " *", params, returns, ` */`];
 
@@ -77,11 +90,18 @@ export const ReactApi: FC<APIDocumentationProps> = ({ packageName }) => {
     return (
         <Accordion>
             {Object.entries(types.types).map(([displayName, propTypes]) => {
-                const ownProps = propTypes.props ? Object.values(propTypes.props).filter(isOwnProp) : [];
+                const ownProps = propTypes.props
+                    ? Object.values(propTypes.props).filter(isOwnProp)
+                    : [];
 
-                const propCodeSnippet = ownProps.reduce((output, prop) => `${output}${parsePropToSnippet(prop)}`, ``);
+                const propCodeSnippet = ownProps.reduce(
+                    (output, prop) => `${output}${parsePropToSnippet(prop)}`,
+                    ``,
+                );
 
-                const code = [includeJsDoc(propTypes), propCodeSnippet].join("\n").trim();
+                const code = [includeJsDoc(propTypes), propCodeSnippet]
+                    .join("\n")
+                    .trim();
 
                 return (
                     <AccordionItem title={displayName} key={displayName}>

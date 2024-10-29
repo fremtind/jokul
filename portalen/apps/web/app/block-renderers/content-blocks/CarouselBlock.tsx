@@ -10,8 +10,16 @@ export const CarouselBlock: FC<ContentBlockProps> = ({ contentBlock }) => {
     return (
         <SteppedExample>
             {contentBlock.steps.map((step) => (
-                <ExampleStep key={step.id} headline={step.title} description={step.description}>
-                    {typeof step.image === "undefined" ? <div /> : <Image src={step.image} alt="" />}
+                <ExampleStep
+                    key={step.id}
+                    headline={step.title}
+                    description={step.description}
+                >
+                    {typeof step.image === "undefined" ? (
+                        <div />
+                    ) : (
+                        <Image src={step.image} alt="" />
+                    )}
                 </ExampleStep>
             ))}
         </SteppedExample>

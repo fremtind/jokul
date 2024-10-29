@@ -35,4 +35,6 @@ export interface ExampleKnobsProps {
 /**
  * Nye kodeeksempler skal være "live", altså funksjonsvarianten som tar inn ExampleComponentProps.
  */
-export type CodeExample = ((exampleComponentProps: ExampleComponentProps) => string) | string;
+export type CodeExample =
+    | ((exampleComponentProps: ExampleComponentProps) => string)
+    | string;

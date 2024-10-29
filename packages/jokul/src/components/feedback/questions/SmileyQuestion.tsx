@@ -21,27 +21,40 @@ export const SmileyQuestion: React.FC<QuestionProps> = ({
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         console.log(e.target.value);
-        const option = options?.find((option) => option.value.toString() === e.target.value);
+        const option = options?.find(
+            (option) => option.value.toString() === e.target.value,
+        );
         context?.setCurrentValue(option);
     };
 
     const selectedValue = useMemo(
-        () => (Array.isArray(context?.currentValue) ? context?.currentValue[0].value : context?.currentValue?.value),
+        () =>
+            Array.isArray(context?.currentValue)
+                ? context?.currentValue[0].value
+                : context?.currentValue?.value,
         [context?.currentValue],
     );
 
     if (options.some(isNotInScale)) {
-        console.error("SmileyQuestion må ha tallene 1 til 5 som verdier for alternativene sine");
+        console.error(
+            "SmileyQuestion må ha tallene 1 til 5 som verdier for alternativene sine",
+        );
         return null;
     }
 
     if (!context || !options) {
-        console.error("Questions must be used inside a Followup or Feedback context provider");
+        console.error(
+            "Questions must be used inside a Followup or Feedback context provider",
+        );
         return null;
     }
 
     return (
-        <FieldGroup labelProps={{ variant: "large" }} legend={label} helpLabel={helpLabel}>
+        <FieldGroup
+            labelProps={{ variant: "large" }}
+            legend={label}
+            helpLabel={helpLabel}
+        >
             <div className="jkl-feedback-smileys">
                 {options.map((option) => (
                     <Fragment key={option.value}>
@@ -54,7 +67,10 @@ export const SmileyQuestion: React.FC<QuestionProps> = ({
                             onChange={handleChange}
                             checked={selectedValue === option.value}
                         />
-                        <label className="jkl-feedback-smiley-option" htmlFor={`${id}-${name}-${option.value}`}>
+                        <label
+                            className="jkl-feedback-smiley-option"
+                            htmlFor={`${id}-${name}-${option.value}`}
+                        >
                             <span className="jkl-sr-only">{option.label}</span>
                             {getSmiley(Number(option.value))}
                         </label>

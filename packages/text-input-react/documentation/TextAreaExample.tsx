@@ -22,15 +22,21 @@ export const textAreaExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const TextAreaExample: FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
+export const TextAreaExample: FC<ExampleComponentProps> = ({
+    choiceValues,
+    boolValues,
+}) => {
     const [value, setValue] = useState("");
-    const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => setValue(e.target.value);
+    const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) =>
+        setValue(e.target.value);
     const variant = choiceValues?.["Variant"] as LabelVariant;
     const autoExpand = boolValues?.["Ekspanderende"];
     const startOpen = boolValues?.["Starter åpen"];
     const medTeller = boolValues?.["Med teller"];
     const skjulProgress = boolValues?.["Skjul progress"];
-    const helpLabel = boolValues?.["Med hjelpetekst"] ? "Beskriv så utfyllende som mulig" : undefined;
+    const helpLabel = boolValues?.["Med hjelpetekst"]
+        ? "Beskriv så utfyllende som mulig"
+        : undefined;
     const errorLabel = boolValues?.["Med feil"]
         ? "Du må fylle ut en beskrivelse. Beskriv så utfyllende som mulig."
         : undefined;
@@ -51,7 +57,11 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
             tooltipProps={tooltipProps}
             autoExpand={autoExpand}
             startOpen={startOpen}
-            counter={medTeller ? { maxLength: 200, hideProgress: skjulProgress } : undefined}
+            counter={
+                medTeller
+                    ? { maxLength: 200, hideProgress: skjulProgress }
+                    : undefined
+            }
             labelProps={{ variant }}
             value={value}
             onChange={handleChange}
@@ -59,13 +69,22 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({ choiceValues, boolV
     );
 };
 
-export const textAreaExampleCode = ({ choiceValues, boolValues }: ExampleComponentProps): string => `
+export const textAreaExampleCode = ({
+    choiceValues,
+    boolValues,
+}: ExampleComponentProps): string => `
 <TextArea
     label="Beskrivelse"
     name="beskrivelse"
-    helpLabel=${boolValues?.["Med hjelpetekst"] ? `"Beskriv så utfyllende som mulig"` : `{undefined}`}
+    helpLabel=${
+        boolValues?.["Med hjelpetekst"]
+            ? `"Beskriv så utfyllende som mulig"`
+            : `{undefined}`
+    }
     errorLabel=${
-        boolValues?.["Med feil"] ? `"Du må fylle ut en beskrivelse. Beskriv så utfyllende som mulig."` : `{undefined}`
+        boolValues?.["Med feil"]
+            ? `"Du må fylle ut en beskrivelse. Beskriv så utfyllende som mulig."`
+            : `{undefined}`
     }${
     boolValues?.["Med tooltip"]
         ? `
@@ -75,7 +94,9 @@ export const textAreaExampleCode = ({ choiceValues, boolValues }: ExampleCompone
     autoExpand={${boolValues?.["Ekspanderende"]}}
     startOpen={${boolValues?.["Starter åpen"]}}
     counter={${
-        boolValues?.["Med teller"] ? `{ maxLength: 200, hideProgress: ${boolValues?.["Skjul progress"]} }` : undefined
+        boolValues?.["Med teller"]
+            ? `{ maxLength: 200, hideProgress: ${boolValues?.["Skjul progress"]} }`
+            : undefined
     }}
     variant="${choiceValues?.["Variant"]}"
 />

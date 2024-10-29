@@ -1,7 +1,11 @@
 import { slugify } from "@org/shared";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import type { CollectionConfig, Field, TabsField } from "payload/types";
-import { authenticatedContributors, authenticatedEditors, defaultReadAccess } from "../access/index";
+import {
+    authenticatedContributors,
+    authenticatedEditors,
+    defaultReadAccess,
+} from "../access/index";
 import { allPageSectionBlocks } from "../blocks/page-sections";
 import { pageMeta } from "../fields/meta";
 
@@ -14,7 +18,11 @@ type TopicCreatorProps = {
     };
 };
 
-export const createTopicCollection = ({ slug, customFields, overrides }: TopicCreatorProps): CollectionConfig => {
+export const createTopicCollection = ({
+    slug,
+    customFields,
+    overrides,
+}: TopicCreatorProps): CollectionConfig => {
     const customFieldsTab: TabsField["tabs"] = customFields
         ? [
               {
@@ -105,7 +113,9 @@ export const createTopicCollection = ({ slug, customFields, overrides }: TopicCr
                                         required: true,
                                         hooks: {
                                             beforeValidate: [
-                                                ({ value, siblingData }) => value || slugify(siblingData.title),
+                                                ({ value, siblingData }) =>
+                                                    value ||
+                                                    slugify(siblingData.title),
                                             ],
                                         },
                                         admin: {

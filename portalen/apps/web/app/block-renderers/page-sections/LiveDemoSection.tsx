@@ -10,9 +10,19 @@ const emptyExample = { code: "", knobs: [], noinline: false, title: "" };
 export const LiveDemoSection: FC<PageSectionProps> = ({ pageSection }) => {
     assertSectionIs("live-demo-section", pageSection);
 
-    const { defaultShowEditor, defaultShowControls, codeExample, ...sectionProps } = pageSection;
+    const {
+        defaultShowEditor,
+        defaultShowControls,
+        codeExample,
+        ...sectionProps
+    } = pageSection;
 
-    const { code, knobs, noinline, title: codeTitle } = typeof codeExample === "string" ? emptyExample : codeExample;
+    const {
+        code,
+        knobs,
+        noinline,
+        title: codeTitle,
+    } = typeof codeExample === "string" ? emptyExample : codeExample;
 
     const controls = useInteractiveCodeControls(code, knobs);
 

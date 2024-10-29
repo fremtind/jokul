@@ -1,4 +1,10 @@
-import { act, fireEvent, render, RenderOptions, waitFor } from "@testing-library/react";
+import {
+    act,
+    fireEvent,
+    render,
+    RenderOptions,
+    waitFor,
+} from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -26,7 +32,11 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
 describe("Select", () => {
     it("should render correct amount of options", () => {
         const { getAllByTestId } = setup(
-            <Select name="snoop" items={["drop", "it", "like", "its", "hot"]} label="Snoop" />,
+            <Select
+                name="snoop"
+                items={["drop", "it", "like", "its", "hot"]}
+                label="Snoop"
+            />,
         );
 
         const options = getAllByTestId("jkl-select__option");
@@ -35,14 +45,28 @@ describe("Select", () => {
     });
 
     it("should be inline when specified", () => {
-        const screen = setup(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+        const screen = setup(
+            <Select
+                name="snoop"
+                inline
+                items={["drop", "it", "like", "its", "hot"]}
+                label="Snoop"
+            />,
+        );
 
         const dropdown = screen.getByTestId("jkl-select");
         expect(dropdown).toHaveClass("jkl-select--inline");
     });
 
     it("should open when clicked", async () => {
-        const screen = setup(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+        const screen = setup(
+            <Select
+                name="snoop"
+                inline
+                items={["drop", "it", "like", "its", "hot"]}
+                label="Snoop"
+            />,
+        );
 
         const button = screen.getByTestId("jkl-select__button");
 
@@ -53,7 +77,14 @@ describe("Select", () => {
     });
 
     it("should open when arrow down is pressed", async () => {
-        const screen = setup(<Select name="snoop" inline items={["drop", "it", "like", "its", "hot"]} label="Snoop" />);
+        const screen = setup(
+            <Select
+                name="snoop"
+                inline
+                items={["drop", "it", "like", "its", "hot"]}
+                label="Snoop"
+            />,
+        );
 
         const button = screen.getByTestId("jkl-select__button");
 
@@ -110,7 +141,13 @@ describe("Select", () => {
     it("should not get stuck in a loop if value is not in items (#3479)", () => {
         const onChange = vi.fn();
         const { getByTestId } = setup(
-            <Select label="Items" name="items" items={["A", "B", "C"]} value="D" onChange={onChange} />,
+            <Select
+                label="Items"
+                name="items"
+                items={["A", "B", "C"]}
+                value="D"
+                onChange={onChange}
+            />,
         );
 
         expect(getByTestId("jkl-select__button")).toHaveTextContent("Velg");
@@ -180,8 +217,16 @@ describe("Select", () => {
             return (
                 <form>
                     <Select
-                        {...register("stilling", { required: "Du må oppgi eierens stilling" })}
-                        items={["Designer", "Utvikler", "Tester", "Leder", "Annet"]}
+                        {...register("stilling", {
+                            required: "Du må oppgi eierens stilling",
+                        })}
+                        items={[
+                            "Designer",
+                            "Utvikler",
+                            "Tester",
+                            "Leder",
+                            "Annet",
+                        ]}
                         label="Stilling"
                     />
                 </form>
@@ -189,10 +234,14 @@ describe("Select", () => {
         }
 
         const defaultValue = "Tester";
-        const { getByTestId } = setup(<WrappedSelect defaultValues={{ stilling: defaultValue }} />);
+        const { getByTestId } = setup(
+            <WrappedSelect defaultValues={{ stilling: defaultValue }} />,
+        );
 
         expect(getByTestId("jkl-native-select")).toHaveValue(defaultValue); // Semantisk valgt
-        expect(getByTestId("jkl-select__button").textContent).toBe(defaultValue); // Visuelt valgt
+        expect(getByTestId("jkl-select__button").textContent).toBe(
+            defaultValue,
+        ); // Visuelt valgt
     });
 
     it("should change the controlled value of the select when clicking on a option", async () => {
@@ -261,7 +310,11 @@ describe("Select", () => {
 
     it("should have default text value in button when no option selected", () => {
         const { getByTestId } = setup(
-            <Select name="snoop" items={["drop", "it", "like", "its", "hot"]} label="Snoop" />,
+            <Select
+                name="snoop"
+                items={["drop", "it", "like", "its", "hot"]}
+                label="Snoop"
+            />,
         );
 
         expect(getByTestId("jkl-select__button")).toHaveTextContent("Velg");
@@ -269,9 +322,19 @@ describe("Select", () => {
     });
 
     it("can be forced into compact mode", () => {
-        const screen = setup(<Select name="count" items={["1", "2"]} label="test" density="compact" />);
+        const screen = setup(
+            <Select
+                name="count"
+                items={["1", "2"]}
+                label="test"
+                density="compact"
+            />,
+        );
 
-        expect(screen.getByTestId("jkl-select")).toHaveAttribute("data-density", "compact");
+        expect(screen.getByTestId("jkl-select")).toHaveAttribute(
+            "data-density",
+            "compact",
+        );
     });
 
     it("displays the ValuePair label of selected item on first render", () => {
@@ -279,10 +342,18 @@ describe("Select", () => {
         const valuePairs = [{ value: "datagreier", label: "Fin lesbar tekst" }];
 
         const { getByTestId } = setup(
-            <Select name="datagreier" label="test" items={valuePairs} value="datagreier" onChange={onChange} />,
+            <Select
+                name="datagreier"
+                label="test"
+                items={valuePairs}
+                value="datagreier"
+                onChange={onChange}
+            />,
         );
 
-        expect(getByTestId("jkl-select__button").innerHTML).toBe("Fin lesbar tekst");
+        expect(getByTestId("jkl-select__button").innerHTML).toBe(
+            "Fin lesbar tekst",
+        );
         expect(getByTestId("jkl-native-select")).toHaveValue("datagreier");
         expect(onChange).not.toHaveBeenCalled();
     });
@@ -404,7 +475,11 @@ describe("Select", () => {
         const screen = setup(
             <Accordion>
                 <AccordionItem title="Velg tingen" startExpanded>
-                    <Select name="items" items={[{ label: "Item 3", value: "3" }]} label="Ting" />
+                    <Select
+                        name="items"
+                        items={[{ label: "Item 3", value: "3" }]}
+                        label="Ting"
+                    />
                 </AccordionItem>
             </Accordion>,
         );
@@ -429,8 +504,15 @@ describe("Select", () => {
 
             return (
                 <>
-                    <button onClick={() => setValue(items[1].value)}>Click</button>
-                    <Select name="items" items={items} label="Ting" value={value} />
+                    <button onClick={() => setValue(items[1].value)}>
+                        Click
+                    </button>
+                    <Select
+                        name="items"
+                        items={items}
+                        label="Ting"
+                        value={value}
+                    />
                 </>
             );
         };
@@ -446,7 +528,14 @@ describe("Select", () => {
     });
 
     it("supports labels only for screen readers", () => {
-        const screen = setup(<Select name="count" items={["1", "2"]} label="test" labelProps={{ srOnly: true }} />);
+        const screen = setup(
+            <Select
+                name="count"
+                items={["1", "2"]}
+                label="test"
+                labelProps={{ srOnly: true }}
+            />,
+        );
 
         const label = screen.getByText("test");
         expect(label).toHaveClass("jkl-label--sr-only");
@@ -468,7 +557,12 @@ describe("Select", () => {
             }, []);
             return (
                 <div className="build-info-page">
-                    <Select name={"Hello"} label={"Utbetalingsmottaker"} items={["A", "B", "C"]} value={value} />
+                    <Select
+                        name={"Hello"}
+                        label={"Utbetalingsmottaker"}
+                        items={["A", "B", "C"]}
+                        value={value}
+                    />
                 </div>
             );
         };
@@ -507,7 +601,9 @@ describe("Searchable select", () => {
         }
         const screen = setup(<WrappedSelect />);
 
-        expect(screen.getByLabelText("List of items", { selector: "input" })).not.toBeVisible();
+        expect(
+            screen.getByLabelText("List of items", { selector: "input" }),
+        ).not.toBeVisible();
     });
 
     it("should change the value of the select when clicking on a option", async () => {
@@ -569,7 +665,9 @@ describe("Searchable select", () => {
         const screen = setup(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
+        const searchInputElement = screen.getByLabelText("List of items", {
+            selector: "input",
+        });
 
         expect(searchInputElement).not.toBeVisible();
 
@@ -606,7 +704,9 @@ describe("Searchable select", () => {
         const screen = setup(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
+        const searchInputElement = screen.getByLabelText("List of items", {
+            selector: "input",
+        });
 
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
@@ -647,7 +747,9 @@ describe("Searchable select", () => {
         const screen = setup(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
+        const searchInputElement = screen.getByLabelText("List of items", {
+            selector: "input",
+        });
 
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
@@ -699,7 +801,9 @@ describe("Searchable select", () => {
         const screen = setup(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
+        const searchInputElement = screen.getByLabelText("List of items", {
+            selector: "input",
+        });
 
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
@@ -707,9 +811,13 @@ describe("Searchable select", () => {
 
         expect(searchInputElement).toHaveAttribute("value", "");
 
-        const firstOptionElement = screen.getByRole("option", { name: "Item 11" });
+        const firstOptionElement = screen.getByRole("option", {
+            name: "Item 11",
+        });
         act(() => {
-            fireEvent.change(searchInputElement, { target: { value: "Item 11" } });
+            fireEvent.change(searchInputElement, {
+                target: { value: "Item 11" },
+            });
         });
 
         expect(searchInputElement).toHaveAttribute("value", "Item 11");
@@ -752,7 +860,9 @@ describe("Searchable select", () => {
         const screen = setup(<WrappedSelect />);
 
         const openDropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
+        const searchInputElement = screen.getByLabelText("List of items", {
+            selector: "input",
+        });
 
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
@@ -806,7 +916,9 @@ describe("Searchable select", () => {
         const screen = setup(<WrappedSelect />);
 
         const dropdownButtonElement = screen.getByText("Velg");
-        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
+        const searchInputElement = screen.getByLabelText("List of items", {
+            selector: "input",
+        });
         await act(async () => {
             await userEvent.click(dropdownButtonElement);
         });
@@ -952,13 +1064,17 @@ describe("Searchable select", () => {
 
         const dropdownButtonElement = screen.getByText("Velg");
         const outsideSelectButtonElement = screen.getByText("OUTSIDE BUTTON");
-        const searchInputElement = screen.getByLabelText("List of items", { selector: "input" });
+        const searchInputElement = screen.getByLabelText("List of items", {
+            selector: "input",
+        });
 
         await act(async () => {
             await userEvent.click(dropdownButtonElement);
         });
 
-        const firstItemButtonElement = screen.getByRole("option", { name: "Item 1" });
+        const firstItemButtonElement = screen.getByRole("option", {
+            name: "Item 1",
+        });
         await act(async () => {
             await userEvent.type(searchInputElement, "item 1");
         });
@@ -984,7 +1100,12 @@ describe("Searchable select", () => {
         const screen = setup(
             <Accordion>
                 <AccordionItem title="Velg tingen" startExpanded>
-                    <Select name="items" searchable items={[{ label: "Item 3", value: "3" }]} label="Ting" />
+                    <Select
+                        name="items"
+                        searchable
+                        items={[{ label: "Item 3", value: "3" }]}
+                        label="Ting"
+                    />
                 </AccordionItem>
             </Accordion>,
         );
@@ -1004,14 +1125,19 @@ describe("Searchable select", () => {
             { label: "Item 3", value: "3" },
         ];
 
-        const screen = setup(<Select name="items" items={items} label="Ting" searchable />);
+        const screen = setup(
+            <Select name="items" items={items} label="Ting" searchable />,
+        );
 
-        const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
+        const openDropdownButtonElement =
+            screen.getByTestId("jkl-select__button");
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
         });
 
-        const searchInputElement = screen.getByTestId("jkl-select__search-input");
+        const searchInputElement = screen.getByTestId(
+            "jkl-select__search-input",
+        );
         expect(searchInputElement).toBeVisible();
 
         await act(async () => {
@@ -1043,12 +1169,15 @@ describe("Searchable select", () => {
             />,
         );
 
-        const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
+        const openDropdownButtonElement =
+            screen.getByTestId("jkl-select__button");
         await act(async () => {
             await userEvent.click(openDropdownButtonElement);
         });
 
-        const searchInputElement = screen.getByTestId("jkl-select__search-input");
+        const searchInputElement = screen.getByTestId(
+            "jkl-select__search-input",
+        );
         act(() => {
             fireEvent.change(searchInputElement, { target: { value: "3" } });
         });
@@ -1070,17 +1199,23 @@ describe("Searchable select", () => {
                 name="items"
                 items={items}
                 label="Ting"
-                tooltipProps={{ content: "Jeg er en tooltip", placement: "left" }}
+                tooltipProps={{
+                    content: "Jeg er en tooltip",
+                    placement: "left",
+                }}
             />,
         );
 
-        const openDropdownButtonElement = screen.getByTestId("jkl-select__button");
+        const openDropdownButtonElement =
+            screen.getByTestId("jkl-select__button");
         await userEvent.click(openDropdownButtonElement);
 
         const listbox = screen.getByRole("listbox");
         expect(listbox).toBeVisible();
 
-        const tooltipTrigger = screen.getByTestId("jkl-tooltip-question-button");
+        const tooltipTrigger = screen.getByTestId(
+            "jkl-tooltip-question-button",
+        );
         await act(async () => {
             tooltipTrigger.focus();
         });
@@ -1092,7 +1227,14 @@ describe("Searchable select", () => {
 describe("a11y", () => {
     it("searchable select should be a11y compliant", async () => {
         const { container } = setup(
-            <Select name="items" searchable label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
+            <Select
+                name="items"
+                searchable
+                label="Select"
+                items={["1", "2"]}
+                value="1"
+                helpLabel="Velg en av to"
+            />,
         );
         const results = await axe(container);
 
@@ -1101,7 +1243,13 @@ describe("a11y", () => {
 
     it("select should be a11y compliant", async () => {
         const { container } = setup(
-            <Select name="items" label="Select" items={["1", "2"]} value="1" helpLabel="Velg en av to" />,
+            <Select
+                name="items"
+                label="Select"
+                items={["1", "2"]}
+                value="1"
+                helpLabel="Velg en av to"
+            />,
         );
         const results = await axe(container);
 
@@ -1163,6 +1311,8 @@ describe("a11y", () => {
         });
 
         expect(onChange).toHaveBeenCalled();
-        expect(screen.getByTestId("jkl-select__button").getAttribute("aria-label")).toContain("Apple");
+        expect(
+            screen.getByTestId("jkl-select__button").getAttribute("aria-label"),
+        ).toContain("Apple");
     });
 });

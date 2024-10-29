@@ -1,6 +1,13 @@
 import { WithChildren } from "@fremtind/jkl-core";
 import { withPrefix } from "gatsby";
-import React, { createContext, useState, useContext, useEffect, useReducer, FC } from "react";
+import React, {
+    createContext,
+    useState,
+    useContext,
+    useEffect,
+    useReducer,
+    FC,
+} from "react";
 
 type GatsbyLocation = Location & { state?: Record<string, string> };
 interface LocationContext {
@@ -35,12 +42,17 @@ interface LocationAction {
     };
 }
 
-const reducer = (state: LocationState, action: LocationAction): LocationState => {
+const reducer = (
+    state: LocationState,
+    action: LocationAction,
+): LocationState => {
     const { type, payload } = action;
     switch (type) {
         case "update":
             const newPath = payload.newLocation.pathname;
-            const newSection = payload.newLocation.pathname.substr(withPrefix("/").length).split("/")[0];
+            const newSection = payload.newLocation.pathname
+                .substr(withPrefix("/").length)
+                .split("/")[0];
             return {
                 ...state,
                 currentPath: newPath,
@@ -68,9 +80,16 @@ export const LocationContextProvider: FC<WithChildren> = ({ children }) => {
 
     useEffect(() => {
         if (gatsbyLocation) {
-            dispatch({ type: "update", payload: { newLocation: gatsbyLocation } });
+            dispatch({
+                type: "update",
+                payload: { newLocation: gatsbyLocation },
+            });
         }
     }, [gatsbyLocation]);
 
-    return <locationContext.Provider value={{ ...locationState, setLocation }}>{children}</locationContext.Provider>;
+    return (
+        <locationContext.Provider value={{ ...locationState, setLocation }}>
+            {children}
+        </locationContext.Provider>
+    );
 };

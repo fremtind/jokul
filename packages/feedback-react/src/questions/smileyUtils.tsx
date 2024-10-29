@@ -6,27 +6,32 @@ export const defaultOptions: FeedbackOption<number>[] = [
     {
         label: "Veldig misfornøyd",
         value: 1,
-        textAreaLabel: "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
+        textAreaLabel:
+            "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
     },
     {
         label: "Litt misfornøyd",
         value: 2,
-        textAreaLabel: "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
+        textAreaLabel:
+            "Det var leit! Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
     },
     {
         label: "Midt på treet",
         value: 3,
-        textAreaLabel: "Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
+        textAreaLabel:
+            "Fortell oss gjerne hva du savner, så kan vi gjøre sidene våre bedre.",
     },
     {
         label: "Ganske fornøyd",
         value: 4,
-        textAreaLabel: "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
+        textAreaLabel:
+            "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
     },
     {
         label: "Veldig fornøyd",
         value: 5,
-        textAreaLabel: "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
+        textAreaLabel:
+            "Så bra! Har du noen tilbakemeldinger kan du skrive dem her.",
     },
 ];
 
@@ -51,7 +56,11 @@ const VeldigSurSmiley = () => (
             strokeWidth="2"
         />
         <path d="M10 13.9865H16.6667" stroke="currentColor" strokeWidth="2" />
-        <path d="M23.3333 13.9865H29.9999" stroke="currentColor" strokeWidth="2" />
+        <path
+            d="M23.3333 13.9865H29.9999"
+            stroke="currentColor"
+            strokeWidth="2"
+        />
     </Smiley>
 );
 
@@ -69,7 +78,11 @@ const LittSurSmiley = () => (
 
 const NoytralSmiley = () => (
     <Smiley>
-        <path d="M9.15283 25.6986H30.8477" stroke="currentColor" strokeWidth="2" />
+        <path
+            d="M9.15283 25.6986H30.8477"
+            stroke="currentColor"
+            strokeWidth="2"
+        />
         <circle cx="12.5" cy="14.5" r="1.5" fill="currentColor" />
         <circle cx="27.5" cy="14.5" r="1.5" fill="currentColor" />
     </Smiley>

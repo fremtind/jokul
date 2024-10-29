@@ -1,5 +1,9 @@
 import clsx from "clsx";
-import React, { type ButtonHTMLAttributes, type MouseEventHandler, forwardRef } from "react";
+import React, {
+    type ButtonHTMLAttributes,
+    type MouseEventHandler,
+    forwardRef,
+} from "react";
 import { Density } from "../../core/types.js";
 import { SwipeChangeHandler, useSwipeGesture } from "../../hooks/index.js";
 import { useId } from "../../hooks/useId/useId.js";
@@ -7,7 +11,10 @@ import { CheckIcon } from "../icon/index.js";
 
 export type ToggleChangeHandler<T extends HTMLElement> = SwipeChangeHandler<T>;
 
-export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange"> & {
+export type ToggleProps = Omit<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    "onChange"
+> & {
     density?: Density;
     /**
      * Handler for å håndtere toggling av knappen. Tar inn en boolean som indikerer om knappen er er togglet på
@@ -23,14 +30,32 @@ export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChang
 };
 
 export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
-    ({ "aria-pressed": ariaPressed = false, children, className, density, id, onChange, ...rest }, ref) => {
+    (
+        {
+            "aria-pressed": ariaPressed = false,
+            children,
+            className,
+            density,
+            id,
+            onChange,
+            ...rest
+        },
+        ref,
+    ) => {
         const uid = useId(id || "jkl-toggle-switch", { generateSuffix: !id });
         const [pressed, setPressed] = React.useState(ariaPressed);
         React.useEffect(() => {
             setPressed(ariaPressed);
         }, [ariaPressed]);
 
-        const { onClick, onPointerCancel, onPointerDown, onPointerMove, onPointerUp, ...buttonProps } = rest;
+        const {
+            onClick,
+            onPointerCancel,
+            onPointerDown,
+            onPointerMove,
+            onPointerUp,
+            ...buttonProps
+        } = rest;
 
         const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
             setPressed(!pressed);
@@ -38,7 +63,10 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
             onClick?.(event);
         };
 
-        const handleChange: ToggleChangeHandler<HTMLButtonElement> = (event, toggleTo) => {
+        const handleChange: ToggleChangeHandler<HTMLButtonElement> = (
+            event,
+            toggleTo,
+        ) => {
             if (toggleTo !== pressed) {
                 setPressed(toggleTo);
                 onChange?.(event, toggleTo);
@@ -68,7 +96,11 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
                 <div aria-hidden className="jkl-toggle-switch-widget">
                     <div className="jkl-toggle-switch-widget__slider">
                         <div className="jkl-toggle-switch-widget__knob" />
-                        <CheckIcon variant="small" bold className="jkl-toggle-switch-widget__indicator" />
+                        <CheckIcon
+                            variant="small"
+                            bold
+                            className="jkl-toggle-switch-widget__indicator"
+                        />
                     </div>
                 </div>
             </button>

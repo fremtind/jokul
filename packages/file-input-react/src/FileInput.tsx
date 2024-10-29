@@ -1,5 +1,8 @@
 import type { Density } from "@fremtind/jkl-core";
-import { FieldGroup, type FieldGroupProps } from "@fremtind/jkl-input-group-react";
+import {
+    FieldGroup,
+    type FieldGroupProps,
+} from "@fremtind/jkl-input-group-react";
 import cn from "classnames";
 import React, { forwardRef } from "react";
 import { Dropzone } from "./internal/Dropzone";
@@ -27,72 +30,102 @@ export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
     value: FileInputFile[];
     variant?: "flexible" | "small";
     onChange: (
-        e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
+        e:
+            | React.ChangeEvent<HTMLInputElement>
+            | React.DragEvent<HTMLDivElement>,
         files: FileInputFile[],
     ) => void;
 }
 
-export const FileInput = forwardRef<HTMLInputElement, FileInputProps>((props, ref) => {
-    const {
-        accept,
-        className,
-        children,
-        id,
-        value,
-        density,
-        multiple = true,
-        maxSizeBytes,
-        onChange,
-        variant,
-        ...rest
-    } = props;
+export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
+    (props, ref) => {
+        const {
+            accept,
+            className,
+            children,
+            id,
+            value,
+            density,
+            multiple = true,
+            maxSizeBytes,
+            onChange,
+            variant,
+            ...rest
+        } = props;
 
-    const hasFiles = value.length > 0;
+        const hasFiles = value.length > 0;
 
-    if (variant === "small") {
+        if (variant === "small") {
+            return (
+                <FileInputContextProvider
+                    context={{ accept, onChange, maxSizeBytes, files: value }}
+                >
+                    <FieldGroup
+                        className={cn(
+                            "jkl-file-input",
+                            "jkl-file-input--small",
+                            className,
+                            {
+                                "jkl-file-input--has-files": hasFiles,
+                            },
+                        )}
+                        data-layout-density={density ? density : "compact"}
+                        {...rest}
+                    >
+                        <Dropzone>
+                            <div className="jkl-file-input__call-to-action">
+                                <Input
+                                    id={id}
+                                    label="Legg til fil"
+                                    multiple={multiple}
+                                    ref={ref}
+                                />
+                            </div>
+                        </Dropzone>
+                        {value.length > 0 && (
+                            <ul className="jkl-file-input__files">
+                                {children}
+                            </ul>
+                        )}
+                    </FieldGroup>
+                </FileInputContextProvider>
+            );
+        }
+
         return (
-            <FileInputContextProvider context={{ accept, onChange, maxSizeBytes, files: value }}>
+            <FileInputContextProvider
+                context={{ accept, onChange, maxSizeBytes, files: value }}
+            >
                 <FieldGroup
-                    className={cn("jkl-file-input", "jkl-file-input--small", className, {
+                    className={cn("jkl-file-input", className, {
                         "jkl-file-input--has-files": hasFiles,
                     })}
-                    data-layout-density={density ? density : "compact"}
+                    data-layout-density={density}
                     {...rest}
                 >
                     <Dropzone>
+                        {value.length > 0 && (
+                            <ul className="jkl-file-input__files">
+                                {children}
+                            </ul>
+                        )}
                         <div className="jkl-file-input__call-to-action">
-                            <Input id={id} label="Legg til fil" multiple={multiple} ref={ref} />
+                            <Input
+                                id={id}
+                                label={
+                                    multiple && hasFiles
+                                        ? "Legg til flere filer"
+                                        : "Legg til fil"
+                                }
+                                multiple={multiple}
+                                ref={ref}
+                            />
                         </div>
                     </Dropzone>
-                    {value.length > 0 && <ul className="jkl-file-input__files">{children}</ul>}
                 </FieldGroup>
             </FileInputContextProvider>
         );
-    }
-
-    return (
-        <FileInputContextProvider context={{ accept, onChange, maxSizeBytes, files: value }}>
-            <FieldGroup
-                className={cn("jkl-file-input", className, {
-                    "jkl-file-input--has-files": hasFiles,
-                })}
-                data-layout-density={density}
-                {...rest}
-            >
-                <Dropzone>
-                    {value.length > 0 && <ul className="jkl-file-input__files">{children}</ul>}
-                    <div className="jkl-file-input__call-to-action">
-                        <Input
-                            id={id}
-                            label={multiple && hasFiles ? "Legg til flere filer" : "Legg til fil"}
-                            multiple={multiple}
-                            ref={ref}
-                        />
-                    </div>
-                </Dropzone>
-            </FieldGroup>
-        </FileInputContextProvider>
-    );
-});
+    },
+);
 
 FileInput.displayName = "FileInput";

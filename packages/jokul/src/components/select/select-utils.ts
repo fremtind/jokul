@@ -2,11 +2,16 @@ export function toLower(str = "") {
     return str.toLowerCase().replace(/[\W_]+/g, ""); // strip all non-alphanumeric chars
 }
 
-export function focusSelected(listEl: HTMLElement, selected: string | undefined) {
+export function focusSelected(
+    listEl: HTMLElement,
+    selected: string | undefined,
+) {
     let focusedItem: HTMLElement | null = null;
     if (selected) {
         // Move focus to selected option
-        focusedItem = listEl.querySelector(`[aria-selected="true"]:not([hidden])`);
+        focusedItem = listEl.querySelector(
+            `[aria-selected="true"]:not([hidden])`,
+        );
     }
     if (!selected || !focusedItem) {
         // Move focus to first option if either no selected value or the value could not be found.

@@ -3,7 +3,9 @@ import cn from "classnames";
 import React from "react";
 import { IconVariant } from "./types";
 
-type IconComponentProps<ElementType extends Extract<React.ElementType, "span" | "div">> = PolymorphicPropsWithRef<
+type IconComponentProps<
+    ElementType extends Extract<React.ElementType, "span" | "div">,
+> = PolymorphicPropsWithRef<
     ElementType,
     {
         "data-testid"?: string;
@@ -23,7 +25,9 @@ type IconComponentProps<ElementType extends Extract<React.ElementType, "span" | 
     }
 >;
 
-export type IconComponent = (<ElementType extends Extract<React.ElementType, "span" | "div"> = "span">(
+export type IconComponent = (<
+    ElementType extends Extract<React.ElementType, "span" | "div"> = "span",
+>(
     props: IconComponentProps<ElementType>,
 ) => React.ReactElement | null) & { displayName?: string };
 

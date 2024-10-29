@@ -20,8 +20,8 @@ const DemoPage: FC = () => (
     >
         <h1 className="title my-64">Demoer</h1>
         <p className="jkl-portal-paragraph">
-            Demoer viser eksempler på bruk av komponenter i en større sammenheng. Hvert eksempel opner seg i en egen
-            fane.
+            Demoer viser eksempler på bruk av komponenter i en større
+            sammenheng. Hvert eksempel opner seg i en egen fane.
         </p>
         <ul className="jkl-portal-demoer__demo-list">
             <li className="jkl-portal-demoer__demo">

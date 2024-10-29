@@ -11,7 +11,10 @@ import { Density } from "../../core/types.js";
 import { IconProps } from "../icon/index.js";
 import { IconButton } from "../icon-button/IconButton.js";
 
-function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | undefined {
+function getWidthAsStyle(
+    width?: string,
+    maxLength?: number,
+): CSSProperties | undefined {
     if (width) {
         return { width }; // prioritize width prop
     }
@@ -26,7 +29,8 @@ function getWidthAsStyle(width?: string, maxLength?: number): CSSProperties | un
     return undefined;
 }
 
-interface ActionBaseProps extends Exclude<HTMLProps<HTMLButtonElement>, "disabled"> {
+interface ActionBaseProps
+    extends Exclude<HTMLProps<HTMLButtonElement>, "disabled"> {
     icon: React.ReactElement<IconProps>;
     label: string;
     buttonRef?: React.Ref<HTMLButtonElement>;
@@ -44,7 +48,8 @@ export interface ActionSubmit extends ActionBaseProps {
 
 export type Action = ActionButton | ActionSubmit;
 
-export interface BaseTextInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
+export interface BaseTextInputProps
+    extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
     /**
      * Brukes til inputfelter hvor det brukes maskering, for formatering av store tall. Brukes typisk bare til valuta.
      * @default "left"
@@ -68,56 +73,61 @@ export interface BaseTextInputProps extends Omit<InputHTMLAttributes<HTMLInputEl
     actionButton?: React.ReactElement<IconProps>;
 }
 
-export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((props, ref) => {
-    const {
-        action,
-        align = "left",
-        "aria-invalid": ariaInvalid,
-        className = "",
-        density,
-        maxLength,
-        style,
-        type = "text",
-        unit,
-        width,
-        actionButton,
-        ...rest
-    } = props;
+export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
+    (props, ref) => {
+        const {
+            action,
+            align = "left",
+            "aria-invalid": ariaInvalid,
+            className = "",
+            density,
+            maxLength,
+            style,
+            type = "text",
+            unit,
+            width,
+            actionButton,
+            ...rest
+        } = props;
 
-    return (
-        <div
-            className="jkl-text-input-wrapper"
-            data-invalid={ariaInvalid}
-            style={{ ...style, ...getWidthAsStyle(width, maxLength) }}
-        >
-            <input
-                aria-invalid={ariaInvalid}
-                ref={ref}
-                className={clsx("jkl-text-input__input", className, {
-                    "jkl-text-input__input--align-right": align === "right",
-                })}
-                maxLength={maxLength}
-                type={type}
-                {...rest}
-            />
-            {unit && <span className="jkl-text-input__unit">{unit}</span>}
-            {!action && actionButton && actionButton}
-            {action && !actionButton && (
-                <IconButton
-                    density={density}
-                    className={clsx("jkl-text-input-action-button", action.className)}
-                    title={action.label}
-                    onClick={action.onClick}
-                    onFocus={action.onFocus}
-                    onBlur={action.onBlur}
-                    ref={action.buttonRef}
-                    type={action.type || "button"}
-                >
-                    {action.icon}
-                </IconButton>
-            )}
-        </div>
-    );
-});
+        return (
+            <div
+                className="jkl-text-input-wrapper"
+                data-invalid={ariaInvalid}
+                style={{ ...style, ...getWidthAsStyle(width, maxLength) }}
+            >
+                <input
+                    aria-invalid={ariaInvalid}
+                    ref={ref}
+                    className={clsx("jkl-text-input__input", className, {
+                        "jkl-text-input__input--align-right": align === "right",
+                    })}
+                    maxLength={maxLength}
+                    type={type}
+                    {...rest}
+                />
+                {unit && <span className="jkl-text-input__unit">{unit}</span>}
+                {!action && actionButton && actionButton}
+                {action && !actionButton && (
+                    <IconButton
+                        density={density}
+                        className={clsx(
+                            "jkl-text-input-action-button",
+                            action.className,
+                        )}
+                        title={action.label}
+                        onClick={action.onClick}
+                        onFocus={action.onFocus}
+                        onBlur={action.onBlur}
+                        ref={action.buttonRef}
+                        type={action.type || "button"}
+                    >
+                        {action.icon}
+                    </IconButton>
+                )}
+            </div>
+        );
+    },
+);
 
 BaseTextInput.displayName = "BaseInputField";

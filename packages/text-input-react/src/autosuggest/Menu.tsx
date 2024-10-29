@@ -21,18 +21,25 @@ function Menu<T>({
     maxNumberOfHits = Infinity,
     noHits,
 }: MenuProps<T>): JSX.Element | null {
-    const visibleItems = items.length > maxNumberOfHits ? items.slice(0, maxNumberOfHits) : items;
+    const visibleItems =
+        items.length > maxNumberOfHits
+            ? items.slice(0, maxNumberOfHits)
+            : items;
 
     if (visibleItems.length === 0 && !noHitsMessage && !noHits) {
         return null;
     }
 
-    const itemList = visibleItems.length === 0 && noHits ? noHits.items : visibleItems;
+    const itemList =
+        visibleItems.length === 0 && noHits ? noHits.items : visibleItems;
 
     return (
         <div data-testid="autosuggest__menu" className="jkl-autosuggest__menu">
             {(noHitsMessage || noHits) && visibleItems.length === 0 && (
-                <div className="jkl-autosuggest__no-hits-message" aria-live="polite">
+                <div
+                    className="jkl-autosuggest__no-hits-message"
+                    aria-live="polite"
+                >
                     {noHitsMessage || noHits?.text}
                 </div>
             )}
@@ -48,7 +55,8 @@ function Menu<T>({
                             {...getItemProps({
                                 item,
                                 className: cn("jkl-autosuggest__item", {
-                                    "jkl-autosuggest__item--active": index === highlightedIndex,
+                                    "jkl-autosuggest__item--active":
+                                        index === highlightedIndex,
                                 }),
                             })}
                             data-testid="autosuggest__item"

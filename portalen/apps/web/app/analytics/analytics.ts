@@ -1,9 +1,19 @@
-import type { AnalyticsBackend, Trackable, InitOptions, OptInOptions, OptOutOptions, Timed } from "./types";
+import type {
+    AnalyticsBackend,
+    Trackable,
+    InitOptions,
+    OptInOptions,
+    OptOutOptions,
+    Timed,
+} from "./types";
 
 export class Analytics {
     private backends: Record<string, AnalyticsBackend> = {};
 
-    async init(backend: AnalyticsBackend, options?: InitOptions): Promise<void> {
+    async init(
+        backend: AnalyticsBackend,
+        options?: InitOptions,
+    ): Promise<void> {
         if (this.backends[backend.name]) {
             if (backend.options.debug) {
                 console.warn(
@@ -17,11 +27,17 @@ export class Analytics {
     }
 
     async hasOptedInTracking(): Promise<boolean> {
-        return Promise.race(Object.values(this.backends).map((backend) => backend.hasOptedIn()));
+        return Promise.race(
+            Object.values(this.backends).map((backend) => backend.hasOptedIn()),
+        );
     }
 
     async hasOptedOutTracking(): Promise<boolean> {
-        return Promise.race(Object.values(this.backends).map((backend) => backend.hasOptedOut()));
+        return Promise.race(
+            Object.values(this.backends).map((backend) =>
+                backend.hasOptedOut(),
+            ),
+        );
     }
 
     async optInTracking(options?: OptInOptions): Promise<void> {
@@ -64,7 +80,9 @@ export class Analytics {
     async time(timed: Timed): Promise<void> {
         for (const backend of Object.values(this.backends)) {
             if (backend.options.debug) {
-                console.groupCollapsed(`Track time from now to ${timed.eventName}`);
+                console.groupCollapsed(
+                    `Track time from now to ${timed.eventName}`,
+                );
                 console.table(timed);
                 console.groupEnd();
             }

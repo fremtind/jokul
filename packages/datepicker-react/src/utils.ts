@@ -58,8 +58,11 @@ export function parseDateString(dateString?: string): Date | undefined {
         return undefined;
     }
 
-    const currentTwoDigitYear = parseInt(new Date().toLocaleString("no-NB", { year: "2-digit" }));
-    const parseTwoDigitYear = (year: number) => (year > currentTwoDigitYear ? year + 1900 : year + 2000);
+    const currentTwoDigitYear = parseInt(
+        new Date().toLocaleString("no-NB", { year: "2-digit" }),
+    );
+    const parseTwoDigitYear = (year: number) =>
+        year > currentTwoDigitYear ? year + 1900 : year + 2000;
 
     const day = parseInt(inputDateSegments[0], 10);
     const month = parseInt(inputDateSegments[1], 10) - 1;
@@ -68,7 +71,10 @@ export function parseDateString(dateString?: string): Date | undefined {
 
     const generatedDate = new Date(year, month, day, 0, 0, 0);
     // Days can "overflow" to next month/year in Date(). Return undefined if it does:
-    return generatedDate.getMonth() === month && generatedDate.getFullYear() === year ? generatedDate : undefined;
+    return generatedDate.getMonth() === month &&
+        generatedDate.getFullYear() === year
+        ? generatedDate
+        : undefined;
 }
 
 /**
@@ -77,13 +83,17 @@ export function parseDateString(dateString?: string): Date | undefined {
  * @param {React.FocusEvent<HTMLButtonElement | HTMLInputElement>} e - Eventet fra onBlur og action.onBlur
  * @returns {boolean} true hvis e.relatedTarget er utenfor DatePicker
  */
-export function isBlurTargetOutside(e: React.FocusEvent<HTMLButtonElement | HTMLInputElement>): boolean {
+export function isBlurTargetOutside(
+    e: React.FocusEvent<HTMLButtonElement | HTMLInputElement>,
+): boolean {
     if (!e.relatedTarget) {
         return true;
     }
 
     const targetRoot = e.target.closest(".jkl-datepicker__input-wrapper");
-    const relatedTargetRoot = e.relatedTarget.closest(".jkl-datepicker__input-wrapper");
+    const relatedTargetRoot = e.relatedTarget.closest(
+        ".jkl-datepicker__input-wrapper",
+    );
 
     return relatedTargetRoot !== targetRoot;
 }

@@ -27,7 +27,9 @@ export const TableOfContentsWrapper: FC = () => {
             return;
         }
 
-        const activeLink = document.querySelector(`.jkl-portal-toc__link[href*="${activeHeader}"]`);
+        const activeLink = document.querySelector(
+            `.jkl-portal-toc__link[href*="${activeHeader}"]`,
+        );
 
         if (!activeLink) {
             return;
@@ -35,7 +37,8 @@ export const TableOfContentsWrapper: FC = () => {
 
         // Scroll den aktive lenken til midten av innholdsfortegnelsen
         setTimeout(() => {
-            (activeLink as HTMLElement).style.scrollMarginBlock = "var(--jkl-spacing-12)";
+            (activeLink as HTMLElement).style.scrollMarginBlock =
+                "var(--jkl-spacing-12)";
             activeLink.scrollIntoView({
                 block: "nearest",
                 behavior: "smooth",
@@ -44,7 +47,12 @@ export const TableOfContentsWrapper: FC = () => {
     }, [activeHeader]);
 
     return (
-        <nav ref={tocContainer} className="jkl-portal-toc" data-collapsed={!isOpen} title="sidenavigasjon">
+        <nav
+            ref={tocContainer}
+            className="jkl-portal-toc"
+            data-collapsed={!isOpen}
+            title="sidenavigasjon"
+        >
             <p className="jkl-portal-toc__heading">Innhold</p>
             <TableOfContentsRoot onClick={onClick} />
             <button

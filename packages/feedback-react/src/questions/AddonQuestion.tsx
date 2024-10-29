@@ -24,12 +24,15 @@ export const AddonQuestion: React.FC<Props> = ({
     }, [context?.currentValue, label]);
 
     if (!context) {
-        console.error("Addon question must be used inside a MainQuestion context provider");
+        console.error(
+            "Addon question must be used inside a MainQuestion context provider",
+        );
         return null;
     }
 
     const { message, setMessage } = context;
-    const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => setMessage(e.target.value);
+    const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) =>
+        setMessage(e.target.value);
 
     return (
         <>

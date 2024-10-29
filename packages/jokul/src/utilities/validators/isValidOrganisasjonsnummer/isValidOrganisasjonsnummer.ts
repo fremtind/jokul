@@ -6,7 +6,9 @@
  * It's used here to validate that an organization number is valid.
  */
 const calculateChecksum = (reversedNumbers: number[]) => {
-    const controlSum = reversedNumbers.map((number, i) => number * ((i % 6) + 2)).reduce((a, b) => a + b, 0);
+    const controlSum = reversedNumbers
+        .map((number, i) => number * ((i % 6) + 2))
+        .reduce((a, b) => a + b, 0);
     const result = 11 - (controlSum % 11);
     return result === 11 ? 0 : result;
 };

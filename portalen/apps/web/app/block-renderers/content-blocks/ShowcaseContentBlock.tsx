@@ -3,10 +3,15 @@ import { Showcase } from "../../components/showcase";
 import { type ContentBlockProps } from "./types";
 import { assertBlockIs } from "./types";
 
-export const ShowcaseContentBlock: FC<ContentBlockProps> = ({ contentBlock }) => {
+export const ShowcaseContentBlock: FC<ContentBlockProps> = ({
+    contentBlock,
+}) => {
     assertBlockIs("showcase", contentBlock);
 
-    if (!contentBlock["showcaseItem"] || contentBlock["showcaseItem"].length === 0) {
+    if (
+        !contentBlock["showcaseItem"] ||
+        contentBlock["showcaseItem"].length === 0
+    ) {
         return null;
     }
 

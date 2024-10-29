@@ -2,7 +2,12 @@ import clsx from "clsx";
 import React, { AriaRole, forwardRef } from "react";
 import { Density, WithChildren } from "../../core/types.js";
 import { useId } from "../../hooks/useId/useId.js";
-import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "../icon/index.js";
+import {
+    ErrorIcon,
+    InfoIcon,
+    SuccessIcon,
+    WarningIcon,
+} from "../icon/index.js";
 import { DismissButton } from "./DismissButton.js";
 
 export interface MessageProps extends WithChildren {
@@ -53,7 +58,10 @@ function messageFactory(messageType: messageTypes) {
 
         const boxId = useId(id || "jkl-message", { generateSuffix: !id });
 
-        const hasStringChild = React.Children.map(children, (child) => typeof child === "string");
+        const hasStringChild = React.Children.map(
+            children,
+            (child) => typeof child === "string",
+        );
         const newChildren = hasStringChild?.[0] ? <p>{children}</p> : children;
 
         return (
@@ -61,10 +69,15 @@ function messageFactory(messageType: messageTypes) {
                 {...rest}
                 id={id}
                 ref={ref}
-                className={clsx("jkl-message", "jkl-message--" + messageType, className, {
-                    "jkl-message--full": fullWidth,
-                    "jkl-message--dismissed": dismissed,
-                })}
+                className={clsx(
+                    "jkl-message",
+                    "jkl-message--" + messageType,
+                    className,
+                    {
+                        "jkl-message--full": fullWidth,
+                        "jkl-message--dismissed": dismissed,
+                    },
+                )}
                 role={role}
                 data-density={density}
             >

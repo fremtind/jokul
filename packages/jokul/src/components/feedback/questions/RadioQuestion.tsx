@@ -1,11 +1,23 @@
-import React, { ChangeEventHandler, useEffect, useId, useMemo, useRef } from "react";
+import React, {
+    ChangeEventHandler,
+    useEffect,
+    useId,
+    useMemo,
+    useRef,
+} from "react";
 import { RadioButton } from "../../radio-button/RadioButton.js";
 import { RadioButtonGroup } from "../../radio-button/RadioButtonGroup.js";
 import { useFollowUpContext } from "../followup/followupContext.js";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
 import { QuestionProps } from "../types.js";
 
-export const RadioQuestion: React.FC<QuestionProps> = ({ label, name, options, helpLabel, autoFocus = false }) => {
+export const RadioQuestion: React.FC<QuestionProps> = ({
+    label,
+    name,
+    options,
+    helpLabel,
+    autoFocus = false,
+}) => {
     const followupContext = useFollowUpContext();
     const feedbackContext = useMainQuestionContext();
     const context = followupContext || feedbackContext;
@@ -21,7 +33,9 @@ export const RadioQuestion: React.FC<QuestionProps> = ({ label, name, options, h
     }, [autoFocus, ref]);
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-        const option = options?.find((option) => option.value.toString() === e.target.value);
+        const option = options?.find(
+            (option) => option.value.toString() === e.target.value,
+        );
         context?.setCurrentValue(option);
     };
 
@@ -34,7 +48,9 @@ export const RadioQuestion: React.FC<QuestionProps> = ({ label, name, options, h
     );
 
     if (!context) {
-        console.error("Questions must be used inside a Followup or Feedback context provider");
+        console.error(
+            "Questions must be used inside a Followup or Feedback context provider",
+        );
         return null;
     }
 

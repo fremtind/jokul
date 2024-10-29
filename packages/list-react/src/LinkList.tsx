@@ -11,14 +11,20 @@ type LinkComponent = <ElementType extends React.ElementType = "a">(
     props: PolymorphicPropsWithRef<ElementType>,
 ) => React.ReactElement | null;
 
-const Link = React.forwardRef(function LinkListLink<ElementType extends React.ElementType = "a">(
+const Link = React.forwardRef(function LinkListLink<
+    ElementType extends React.ElementType = "a",
+>(
     props: PolymorphicPropsWithRef<ElementType>,
     ref: PolymorphicRef<ElementType>,
 ) {
     const { as: Component = "a", children, className, ...rest } = props;
 
     return (
-        <Component className={cn("jkl-link-list-link", className)} ref={ref} {...rest}>
+        <Component
+            className={cn("jkl-link-list-link", className)}
+            ref={ref}
+            {...rest}
+        >
             {children}
             <ArrowRightIcon className="jkl-link-list-link__arrow" />
         </Component>
@@ -35,7 +41,11 @@ type OrderedLinkListProps = React.HTMLAttributes<HTMLOListElement> & {
 
 type LinkListProps = UnorderedLinkListProps | OrderedLinkListProps;
 
-export const LinkList = ({ variant, className, ...rest }: LinkListProps): React.JSX.Element => {
+export const LinkList = ({
+    variant,
+    className,
+    ...rest
+}: LinkListProps): React.JSX.Element => {
     const Component = variant === "ordered" ? "ol" : "ul";
 
     return (

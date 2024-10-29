@@ -1,4 +1,5 @@
-export const EMAIL_REGEX = /^[a-zA-ZæøåÆØÅ0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-ZæøåÆØÅ0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
+export const EMAIL_REGEX =
+    /^[a-zA-ZæøåÆØÅ0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-ZæøåÆØÅ0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
 
 /**
  * Sjekker om verdien validerer som en gyldig epostadresse.

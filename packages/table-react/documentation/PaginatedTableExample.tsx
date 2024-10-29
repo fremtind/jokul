@@ -18,7 +18,10 @@ export const paginatedTableExamplesProps: ExampleKnobsProps = {
     choiceProps: [],
 };
 
-export const PaginatedTableExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const PaginatedTableExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const ref = useRef<HTMLTableElement>(null);
 
     const [activePage, setActivePage] = useState(0);
@@ -43,7 +46,10 @@ export const PaginatedTableExample: FC<ExampleComponentProps> = ({ boolValues, c
                 {visibleRows.map((row, rowIndex) => (
                     <TableRow key={rowIndex}>
                         {row.map((cell, cellIndex) => (
-                            <TableCell key={cellIndex} data-th={columns[cellIndex]}>
+                            <TableCell
+                                key={cellIndex}
+                                data-th={columns[cellIndex]}
+                            >
                                 {cell}
                             </TableCell>
                         ))}
@@ -57,9 +63,18 @@ export const PaginatedTableExample: FC<ExampleComponentProps> = ({ boolValues, c
                             activePage={activePage}
                             totalNumberOfRows={rows.length}
                             rowsPerPage={rowsPerPage}
-                            rowsPerPageItems={[10, 25, 50, 100, 150, { label: "Alle", value: -1 }]}
+                            rowsPerPageItems={[
+                                10,
+                                25,
+                                50,
+                                100,
+                                150,
+                                { label: "Alle", value: -1 },
+                            ]}
                             onChangeRowsPerPage={(e) => {
-                                const newRowsPerPage = Number.parseInt(e.target.value);
+                                const newRowsPerPage = Number.parseInt(
+                                    e.target.value,
+                                );
                                 setRowsPerPage(newRowsPerPage);
                                 setActivePage(0); // TODO: beregne oss fram til riktig side?
                                 if (ref.current) {
@@ -79,14 +94,18 @@ export const PaginatedTableExample: FC<ExampleComponentProps> = ({ boolValues, c
                             withGoToPage={
                                 boolValues?.["Med snarvei"]
                                     ? boolValues?.["Med custom labels"]
-                                        ? { gotoLabel: "Label for hopp til side" }
+                                        ? {
+                                              gotoLabel:
+                                                  "Label for hopp til side",
+                                          }
                                         : true
                                     : false
                             }
                             labels={
                                 boolValues?.["Med custom labels"]
                                     ? {
-                                          rowsPerPage: "Label for rader per side",
+                                          rowsPerPage:
+                                              "Label for rader per side",
                                           next: "Label for neste side",
                                           previous: "Label for forrige side",
                                       }
@@ -100,7 +119,10 @@ export const PaginatedTableExample: FC<ExampleComponentProps> = ({ boolValues, c
     );
 };
 
-export const paginatedTableExampleCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const paginatedTableExampleCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => `
 const ref = useRef<HTMLTableElement>(null);
 
 const [activePage, setActivePage] = useState(0);

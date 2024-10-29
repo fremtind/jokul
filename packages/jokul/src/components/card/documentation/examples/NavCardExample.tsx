@@ -13,11 +13,18 @@ const imageProps = {
     alt: "Nærbilde av strå, med en åker i bakgrunnen",
 };
 
-export const NavCardExample: React.FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const NavCardExample: React.FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const image = boolValues?.["Image"] ? imageProps : undefined;
-    const tag = boolValues?.["Tag"] ? ({ type: "success", text: "Behandles" } as NavCardProps["tag"]) : undefined;
+    const tag = boolValues?.["Tag"]
+        ? ({ type: "success", text: "Behandles" } as NavCardProps["tag"])
+        : undefined;
     const description = boolValues?.["Description"] ? "Balder" : undefined;
-    const paddingChoice = (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") || "24";
+    const paddingChoice =
+        (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") ||
+        "24";
     const padding = paddingChoice === "blandet" ? mixedPadding : paddingChoice;
     const external = boolValues?.["Ekstern lenke"] ? true : undefined;
 

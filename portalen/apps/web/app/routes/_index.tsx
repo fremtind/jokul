@@ -1,6 +1,10 @@
 import type { LoaderArgs, ActionArgs } from "@remix-run/node";
 import { json, Response } from "@remix-run/node";
-import { isRouteErrorResponse, useLoaderData, useRouteError } from "@remix-run/react";
+import {
+    isRouteErrorResponse,
+    useLoaderData,
+    useRouteError,
+} from "@remix-run/react";
 import React, { type FC } from "react";
 import { GeneralError } from "~/page-templates/errors/GeneralError";
 import { PageNotFound } from "~/page-templates/errors/PageNotFound";

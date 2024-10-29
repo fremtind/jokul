@@ -13,9 +13,18 @@ interface Props {
     fullWidth?: boolean;
 }
 
-export const DoDontExample: React.FC<Props> = ({ type, content, image = "", video, description, fullWidth }) => {
+export const DoDontExample: React.FC<Props> = ({
+    type,
+    content,
+    image = "",
+    video,
+    description,
+    fullWidth,
+}) => {
     const heading = type === "do" ? "Riktig" : "Feil";
-    const altText = description ? `${heading}: ${description}` : `${heading} bruk`;
+    const altText = description
+        ? `${heading}: ${description}`
+        : `${heading} bruk`;
 
     return (
         <section
@@ -24,7 +33,11 @@ export const DoDontExample: React.FC<Props> = ({ type, content, image = "", vide
                 "jkl-portal-do-dont-example--halfwidth": !fullWidth,
             })}
         >
-            {content && <div className="jkl-portal-do-dont-example__content">{content}</div>}
+            {content && (
+                <div className="jkl-portal-do-dont-example__content">
+                    {content}
+                </div>
+            )}
             {image && (
                 <div className="jkl-portal-do-dont-example__image">
                     <PortalImage src={image} alt={altText} noMargin fullWidth />
@@ -36,7 +49,9 @@ export const DoDontExample: React.FC<Props> = ({ type, content, image = "", vide
                 </div>
             )}
             <p className="jkl-portal-do-dont-example__heading">{heading}</p>
-            <p className="jkl-portal-do-dont-example__description">{description}</p>
+            <p className="jkl-portal-do-dont-example__description">
+                {description}
+            </p>
         </section>
     );
 };

@@ -14,9 +14,23 @@ export interface InfoCardProps extends PaddingOptions, WithChildren {
     density?: Density;
 }
 
-export const InfoCard: FC<InfoCardProps> = ({ title, children, density, className, padding = "l", ...rest }) => (
-    <div {...rest} className={cn("jkl-info-card", className)} data-density={density}>
-        <div className={cn("jkl-info-card__content-wrapper")} style={getPaddingStyles(padding)}>
+export const InfoCard: FC<InfoCardProps> = ({
+    title,
+    children,
+    density,
+    className,
+    padding = "l",
+    ...rest
+}) => (
+    <div
+        {...rest}
+        className={cn("jkl-info-card", className)}
+        data-density={density}
+    >
+        <div
+            className={cn("jkl-info-card__content-wrapper")}
+            style={getPaddingStyles(padding)}
+        >
             {title && <p className="jkl-info-card__title">{title}</p>}
             {children}
         </div>

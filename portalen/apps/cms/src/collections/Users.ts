@@ -1,5 +1,9 @@
 import type { CollectionConfig } from "payload/types";
-import { ROLES_THAT_CAN_EDIT, ROLE_DESCRIPTIONS, authenticatedAdmins } from "../access/index";
+import {
+    ROLES_THAT_CAN_EDIT,
+    ROLE_DESCRIPTIONS,
+    authenticatedAdmins,
+} from "../access/index";
 
 const Users: CollectionConfig = {
     slug: "users",
@@ -13,7 +17,8 @@ const Users: CollectionConfig = {
         create: authenticatedAdmins,
         delete: authenticatedAdmins,
         update: authenticatedAdmins,
-        admin: ({ req: { user } }) => user && ROLES_THAT_CAN_EDIT.includes(user.role),
+        admin: ({ req: { user } }) =>
+            user && ROLES_THAT_CAN_EDIT.includes(user.role),
     },
     fields: [
         {
@@ -25,10 +30,12 @@ const Users: CollectionConfig = {
             name: "role",
             type: "select",
             required: true,
-            options: Object.entries(ROLE_DESCRIPTIONS).map(([value, label]) => ({
-                value,
-                label,
-            })),
+            options: Object.entries(ROLE_DESCRIPTIONS).map(
+                ([value, label]) => ({
+                    value,
+                    label,
+                }),
+            ),
             defaultValue: "user",
         },
     ],

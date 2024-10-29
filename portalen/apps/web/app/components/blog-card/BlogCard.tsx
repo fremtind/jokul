@@ -3,7 +3,17 @@ import { type Blog, type BlogTag, type User } from "@org/cms";
 import { formatDate } from "payload/dist/admin/utilities/formatDate";
 import React, { type FC } from "react";
 
-export const BlogCard: FC<Blog> = ({ title, slug, ingress, id, sections, tag, author, published_date, ...rest }) => {
+export const BlogCard: FC<Blog> = ({
+    title,
+    slug,
+    ingress,
+    id,
+    sections,
+    tag,
+    author,
+    published_date,
+    ...rest
+}) => {
     return (
         <article>
             <NavCard
@@ -17,7 +27,8 @@ export const BlogCard: FC<Blog> = ({ title, slug, ingress, id, sections, tag, au
                 description={ingress}
             >
                 <InfoBlock>
-                    {(author as User).name} <br /> {formatDate(published_date ?? "", "yyyy.MM.dd")}
+                    {(author as User).name} <br />{" "}
+                    {formatDate(published_date ?? "", "yyyy.MM.dd")}
                 </InfoBlock>
             </NavCard>
         </article>

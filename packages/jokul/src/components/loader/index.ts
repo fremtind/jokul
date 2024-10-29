@@ -13,7 +13,15 @@ export type { SkeletonInputProps } from "./skeletons/SkeletonInput.js";
 export { SkeletonInput } from "./skeletons/SkeletonInput.js";
 export type { SkeletonRadioButtonGroupProps } from "./skeletons/SkeletonRadioButtonGroup.js";
 export { SkeletonRadioButtonGroup } from "./skeletons/SkeletonRadioButtonGroup.js";
-export type { SkeletonTableProps, SkeletonTableHeaderProps, SkeletonTableRowProps } from "./skeletons/SkeletonTable.js";
-export { SkeletonTable, SkeletonTableHeader, SkeletonTableRow } from "./skeletons/SkeletonTable.js";
+export type {
+    SkeletonTableProps,
+    SkeletonTableHeaderProps,
+    SkeletonTableRowProps,
+} from "./skeletons/SkeletonTable.js";
+export {
+    SkeletonTable,
+    SkeletonTableHeader,
+    SkeletonTableRow,
+} from "./skeletons/SkeletonTable.js";
 export type { SkeletonTextAreaProps } from "./skeletons/SkeletonTextArea.js";
 export { SkeletonTextArea } from "./skeletons/SkeletonTextArea.js";

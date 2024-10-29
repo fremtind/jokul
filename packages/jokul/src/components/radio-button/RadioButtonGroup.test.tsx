@@ -35,7 +35,12 @@ describe("RadioButtons", () => {
     it("selects the correct value from given props", () => {
         const onChange = vi.fn();
         render(
-            <RadioButtonGroup legend="Er du fornøyd?" name="happy" value="n" onChange={onChange}>
+            <RadioButtonGroup
+                legend="Er du fornøyd?"
+                name="happy"
+                value="n"
+                onChange={onChange}
+            >
                 <RadioButton value="y">Ja</RadioButton>
                 <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
@@ -60,7 +65,12 @@ describe("RadioButtons", () => {
             value = e.target.value;
         }) as ChangeEventHandler<HTMLInputElement>);
         render(
-            <RadioButtonGroup legend="Er du fornøyd?" name="happy" value={value} onChange={onChange}>
+            <RadioButtonGroup
+                legend="Er du fornøyd?"
+                name="happy"
+                value={value}
+                onChange={onChange}
+            >
                 <RadioButton value="y">Ja</RadioButton>
                 <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,
@@ -85,7 +95,9 @@ describe("RadioButtons", () => {
             </RadioButtonGroup>,
         );
         const component = await screen.findByTestId("jkl-radio-button-group");
-        expect(component.getAttribute("data-testautoid")).toEqual("jkl-radio-button-group__testautoid");
+        expect(component.getAttribute("data-testautoid")).toEqual(
+            "jkl-radio-button-group__testautoid",
+        );
     });
 
     it("should not override RadioButton name if not set on RadioButtonGroup", async () => {
@@ -135,7 +147,11 @@ describe("a11y", () => {
 
     it("compact radio buttons should be a11y compliant", async () => {
         const { container } = render(
-            <RadioButtonGroup legend="Er du fornøyd?" name="happy" density="compact">
+            <RadioButtonGroup
+                legend="Er du fornøyd?"
+                name="happy"
+                density="compact"
+            >
                 <RadioButton value="y">Ja</RadioButton>
                 <RadioButton value="n">Nei</RadioButton>
             </RadioButtonGroup>,

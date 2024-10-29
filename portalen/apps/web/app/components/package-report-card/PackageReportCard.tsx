@@ -1,5 +1,9 @@
 import { Link as FremtindLink } from "@fremtind/jkl-core";
-import { DescriptionDetail, DescriptionList, DescriptionTerm } from "@fremtind/jkl-description-list-react";
+import {
+    DescriptionDetail,
+    DescriptionList,
+    DescriptionTerm,
+} from "@fremtind/jkl-description-list-react";
 import cn from "classnames";
 import React, { type FC } from "react";
 import { CodeSnippet } from "../code-snippet";
@@ -29,18 +33,27 @@ export interface PackageReportCardProps {
     };
 }
 
-export const PackageReportCard: FC<PackageReportCardProps> = ({ install, usage, react, css }) => {
+export const PackageReportCard: FC<PackageReportCardProps> = ({
+    install,
+    usage,
+    react,
+    css,
+}) => {
     const hasCss = css && css.version;
 
     return (
         <div className="package-report-card">
-            <div className="package-report-card__title package-report-card__title-install">Installer</div>
+            <div className="package-report-card__title package-report-card__title-install">
+                Installer
+            </div>
             <CodeSnippet
                 className="package-report-card__details package-report-card__details--code package-report-card__details-install"
                 language="bash"
                 code={install}
             />
-            <div className="package-report-card__title package-report-card__title-use">Bruk</div>
+            <div className="package-report-card__title package-report-card__title-use">
+                Bruk
+            </div>
             <CodeSnippet
                 className="package-report-card__details package-report-card__details--code package-report-card__details-use"
                 language="tsx"
@@ -48,21 +61,35 @@ export const PackageReportCard: FC<PackageReportCardProps> = ({ install, usage, 
             />
             {react && (
                 <>
-                    <div className="package-report-card__title package-report-card__title-react">React</div>
+                    <div className="package-report-card__title package-report-card__title-react">
+                        React
+                    </div>
                     <div
-                        className={cn("package-report-card__details", "package-report-card__details-react", {
-                            "package-report-card__details-react--no-css": !hasCss,
-                        })}
+                        className={cn(
+                            "package-report-card__details",
+                            "package-report-card__details-react",
+                            {
+                                "package-report-card__details-react--no-css":
+                                    !hasCss,
+                            },
+                        )}
                     >
                         <DescriptionList>
                             <DescriptionTerm>Versjon</DescriptionTerm>
-                            <DescriptionDetail>{react.version}</DescriptionDetail>
+                            <DescriptionDetail>
+                                {react.version}
+                            </DescriptionDetail>
                             {react.docs && (
                                 <>
-                                    <DescriptionTerm>Dokumentasjon</DescriptionTerm>
+                                    <DescriptionTerm>
+                                        Dokumentasjon
+                                    </DescriptionTerm>
                                     {react.docs.map((doc) => (
                                         <DescriptionDetail key={doc.href}>
-                                            <FremtindLink external href={doc.href}>
+                                            <FremtindLink
+                                                external
+                                                href={doc.href}
+                                            >
                                                 {doc.title}
                                             </FremtindLink>
                                         </DescriptionDetail>
@@ -75,17 +102,24 @@ export const PackageReportCard: FC<PackageReportCardProps> = ({ install, usage, 
             )}
             {hasCss && (
                 <>
-                    <div className="package-report-card__title package-report-card__title-css">CSS</div>
+                    <div className="package-report-card__title package-report-card__title-css">
+                        CSS
+                    </div>
                     <div className="package-report-card__details package-report-card__details-css">
                         <DescriptionList>
                             <DescriptionTerm>Versjon</DescriptionTerm>
                             <DescriptionDetail>{css.version}</DescriptionDetail>
                             {css.docs && (
                                 <>
-                                    <DescriptionTerm>Dokumentasjon</DescriptionTerm>
+                                    <DescriptionTerm>
+                                        Dokumentasjon
+                                    </DescriptionTerm>
                                     {css.docs.map((doc) => (
                                         <DescriptionDetail key={doc.href}>
-                                            <FremtindLink external href={doc.href}>
+                                            <FremtindLink
+                                                external
+                                                href={doc.href}
+                                            >
                                                 {doc.title}
                                             </FremtindLink>
                                         </DescriptionDetail>

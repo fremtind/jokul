@@ -5,7 +5,9 @@ import { ScreenReaderOnly } from "./ScreenReaderOnly";
 
 describe("ScreenReaderOnly", () => {
     it("should show content with correct className", () => {
-        const { getByText } = render(<ScreenReaderOnly>Visually hidden</ScreenReaderOnly>);
+        const { getByText } = render(
+            <ScreenReaderOnly>Visually hidden</ScreenReaderOnly>,
+        );
 
         const hiddenText = getByText("Visually hidden");
 
@@ -13,15 +15,24 @@ describe("ScreenReaderOnly", () => {
     });
 
     it("should show content with correct className", () => {
-        const { getByText } = render(<ScreenReaderOnly showOnFocus>Visually hidden, unless focused</ScreenReaderOnly>);
+        const { getByText } = render(
+            <ScreenReaderOnly showOnFocus>
+                Visually hidden, unless focused
+            </ScreenReaderOnly>,
+        );
 
         const hiddenText = getByText("Visually hidden, unless focused");
 
-        expect(hiddenText).toHaveAttribute("class", "jkl-sr-only jkl-sr-only--focusable");
+        expect(hiddenText).toHaveAttribute(
+            "class",
+            "jkl-sr-only jkl-sr-only--focusable",
+        );
     });
 
     it("should pass jest-axe tests in default state", async () => {
-        const { container } = render(<ScreenReaderOnly>Visually hidden</ScreenReaderOnly>);
+        const { container } = render(
+            <ScreenReaderOnly>Visually hidden</ScreenReaderOnly>,
+        );
 
         const results = await axe(container);
 
@@ -29,7 +40,11 @@ describe("ScreenReaderOnly", () => {
     });
 
     it("should pass jest-axe tests when focusable", async () => {
-        const { container } = render(<ScreenReaderOnly showOnFocus>Visually hidden, unless focused</ScreenReaderOnly>);
+        const { container } = render(
+            <ScreenReaderOnly showOnFocus>
+                Visually hidden, unless focused
+            </ScreenReaderOnly>,
+        );
 
         const results = await axe(container);
 

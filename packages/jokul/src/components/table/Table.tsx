@@ -12,7 +12,16 @@ export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
 }
 
 const Table = forwardRef<HTMLTableElement, TableProps>(
-    ({ className, density, collapseToList = false, fullWidth = false, ...rest }, ref) => {
+    (
+        {
+            className,
+            density,
+            collapseToList = false,
+            fullWidth = false,
+            ...rest
+        },
+        ref,
+    ) => {
         return (
             <TableContextProvider state={{ density, collapseToList }}>
                 <table

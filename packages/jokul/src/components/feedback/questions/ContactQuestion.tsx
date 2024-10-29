@@ -1,5 +1,15 @@
-import React, { ChangeEvent, FC, ReactNode, useEffect, useRef, useState } from "react";
-import { isValidEpost, isValidTelefonnummer } from "../../../utilities/validators/index.js";
+import React, {
+    ChangeEvent,
+    FC,
+    ReactNode,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
+import {
+    isValidEpost,
+    isValidTelefonnummer,
+} from "../../../utilities/validators/index.js";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
 import { TextInput } from "../../text-input/TextInput.js";
 import { useFeedbackContext } from "../feedbackContext.js";
@@ -64,13 +74,16 @@ export const ContactQuestion: FC<Props> = ({
 }) => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
-    const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
+    const [errors, setErrors] = useState<{ email?: string; phone?: string }>(
+        {},
+    );
     const emailRef = useRef<HTMLInputElement>(null);
     const phoneRef = useRef<HTMLInputElement>(null);
     const [shouldValidate, setShouldValidate] = useState(false);
 
     const [noThanks, setNoThanks] = useState(false);
-    const { contactSubmitted, setContactSubmitted, landmarkLabel } = useFeedbackContext();
+    const { contactSubmitted, setContactSubmitted, landmarkLabel } =
+        useFeedbackContext();
 
     const ChildrenWrapper = typeof children === "string" ? "p" : "div";
 
@@ -91,8 +104,10 @@ export const ContactQuestion: FC<Props> = ({
         }
     }, [email, phone, shouldValidate, withPhone]);
 
-    const handleChange = (consumer: (value: string) => void) => (e: ChangeEvent<HTMLInputElement>) =>
-        consumer(e.target.value);
+    const handleChange =
+        (consumer: (value: string) => void) =>
+        (e: ChangeEvent<HTMLInputElement>) =>
+            consumer(e.target.value);
 
     const handleSubmit: React.FormEventHandler = (e) => {
         e.preventDefault();
@@ -122,9 +137,17 @@ export const ContactQuestion: FC<Props> = ({
     }
 
     return (
-        <form className="jkl-spacing-xl--top" onSubmit={handleSubmit} aria-label={landmarkLabel}>
+        <form
+            className="jkl-spacing-xl--top"
+            onSubmit={handleSubmit}
+            aria-label={landmarkLabel}
+        >
             <p className="jkl-heading-4 jkl-spacing-xs--bottom">{label}</p>
-            {children && <ChildrenWrapper className="jkl-body">{children}</ChildrenWrapper>}
+            {children && (
+                <ChildrenWrapper className="jkl-body">
+                    {children}
+                </ChildrenWrapper>
+            )}
 
             <TextInput
                 ref={emailRef}
@@ -155,7 +178,9 @@ export const ContactQuestion: FC<Props> = ({
                 <PrimaryButton type="submit" className="jkl-spacing-xl--right">
                     {sendButtonLabel}
                 </PrimaryButton>
-                <TertiaryButton onClick={() => setNoThanks(true)}>Nei takk</TertiaryButton>
+                <TertiaryButton onClick={() => setNoThanks(true)}>
+                    Nei takk
+                </TertiaryButton>
             </div>
         </form>
     );

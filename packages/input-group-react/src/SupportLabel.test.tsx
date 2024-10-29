@@ -8,14 +8,20 @@ describe("SupportLabel", () => {
     const errorLabel = "error error error, read in a computer voice";
 
     it("renders with help text when valid", () => {
-        const { getByText } = render(<SupportLabel id="test" helpLabel={helpLabel} />);
+        const { getByText } = render(
+            <SupportLabel id="test" helpLabel={helpLabel} />,
+        );
 
         expect(getByText(helpLabel)).toBeInTheDocument();
     });
 
     it("renders with error text when invalid", () => {
         const { getByText, queryByText } = render(
-            <SupportLabel id="test" errorLabel={errorLabel} helpLabel={helpLabel} />,
+            <SupportLabel
+                id="test"
+                errorLabel={errorLabel}
+                helpLabel={helpLabel}
+            />,
         );
 
         expect(getByText(errorLabel)).toBeInTheDocument();
@@ -23,7 +29,9 @@ describe("SupportLabel", () => {
     });
 
     it("should pass jest-axe tests in default state", async () => {
-        const { container } = render(<SupportLabel id="test" helpLabel={helpLabel} />);
+        const { container } = render(
+            <SupportLabel id="test" helpLabel={helpLabel} />,
+        );
 
         const results = await axe(container);
 
@@ -31,7 +39,13 @@ describe("SupportLabel", () => {
     });
 
     it("should pass jest-axe tests in error state", async () => {
-        const { container } = render(<SupportLabel id="test" errorLabel={errorLabel} helpLabel={helpLabel} />);
+        const { container } = render(
+            <SupportLabel
+                id="test"
+                errorLabel={errorLabel}
+                helpLabel={helpLabel}
+            />,
+        );
 
         const results = await axe(container);
 

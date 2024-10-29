@@ -66,10 +66,15 @@ export const setConsentCookie = ({
         .join(";");
 };
 
-export const shouldShowConsentDialog = (requirement: ConsentRequirement, consent: Consent | undefined): boolean => {
+export const shouldShowConsentDialog = (
+    requirement: ConsentRequirement,
+    consent: Consent | undefined,
+): boolean => {
     if (!consent) {
         // check if requirement has truthy values. should show consent if it has
-        return Object.values(requirement).some((requirementValue) => requirementValue);
+        return Object.values(requirement).some(
+            (requirementValue) => requirementValue,
+        );
     } else {
         // convert to a map to ease accessing dynamic keys
         const consentMap = new Map(Object.entries(consent));
@@ -93,7 +98,9 @@ export const shouldShowConsentDialog = (requirement: ConsentRequirement, consent
     }
 };
 
-export const convertConsentValueToFormValue = (consent: ConsentState): boolean | undefined => {
+export const convertConsentValueToFormValue = (
+    consent: ConsentState,
+): boolean | undefined => {
     if (!consent) {
         return undefined;
     }
@@ -114,13 +121,18 @@ export const convertConsentObjectToBooleans = (
         statistics: null,
     };
 
-    const consentEntries: Array<[string, boolean | undefined]> = Object.entries({ ...defaultConsent, ...consent }).map(
-        ([consentName, value]) => [consentName, convertConsentValueToFormValue(value)],
-    );
+    const consentEntries: Array<[string, boolean | undefined]> = Object.entries(
+        { ...defaultConsent, ...consent },
+    ).map(([consentName, value]) => [
+        consentName,
+        convertConsentValueToFormValue(value),
+    ]);
     return Object.fromEntries(consentEntries);
 };
 
-export const convertBooleanToConsentValue = (formValue: boolean | undefined): ConsentState => {
+export const convertBooleanToConsentValue = (
+    formValue: boolean | undefined,
+): ConsentState => {
     if (typeof formValue === "undefined") {
         return null;
     }
@@ -141,15 +153,21 @@ export const convertBooleanConsentObjectToConsentObject = (
         statistics: undefined,
     };
 
-    const consentEntries = Object.entries({ ...defaultObject, ...consent }).map(([consentName, value]) => [
-        consentName,
-        convertBooleanToConsentValue(value),
-    ]);
+    const consentEntries = Object.entries({ ...defaultObject, ...consent }).map(
+        ([consentName, value]) => [
+            consentName,
+            convertBooleanToConsentValue(value),
+        ],
+    );
 
     return Object.fromEntries(consentEntries);
 };
 
-export const buildRequirementsObject = ({ marketing, functional, statistics }: ConsentRequirement) => {
+export const buildRequirementsObject = ({
+    marketing,
+    functional,
+    statistics,
+}: ConsentRequirement) => {
     return {
         ...(marketing && { marketing }),
         ...(functional && { functional }),

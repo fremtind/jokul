@@ -20,8 +20,13 @@ export const MenuToggleSwitchExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-export const MenuToggleSwitchExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
-    const isOpen = choiceValues?.["isOpen"] !== "tom" ? choiceValues?.["isOpen"] === "true" : undefined;
+export const MenuToggleSwitchExample: FC<ExampleComponentProps> = ({
+    choiceValues,
+}) => {
+    const isOpen =
+        choiceValues?.["isOpen"] !== "tom"
+            ? choiceValues?.["isOpen"] === "true"
+            : undefined;
 
     const pref = useBrowserPreferences();
     const [colorScheme, setColorScheme] = useState(pref.prefersColorScheme);

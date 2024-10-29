@@ -1,7 +1,13 @@
 import React, { FC } from "react";
 import { ExampleComponentProps } from "../../../doc-utils";
-import { ExpandButtonExample, expandButtonExampleCode } from "./ExpandButtonExample";
-import { ExpandSectionExample, expandSectionExampleCode } from "./ExpandSectionExample";
+import {
+    ExpandButtonExample,
+    expandButtonExampleCode,
+} from "./ExpandButtonExample";
+import {
+    ExpandSectionExample,
+    expandSectionExampleCode,
+} from "./ExpandSectionExample";
 
 export const expandExamplesProps = {
     choiceProps: [
@@ -18,7 +24,10 @@ export const expandExamplesProps = {
     ],
 };
 
-export const ExpandExamples: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const ExpandExamples: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const frittstaende = choiceValues?.["Innhold"] === "Frittstående";
     let C = ExpandSectionExample;
     if (frittstaende) {
@@ -29,7 +38,10 @@ export const ExpandExamples: FC<ExampleComponentProps> = ({ boolValues, choiceVa
 
 export default ExpandExamples;
 
-export const expandExamplesCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => {
+export const expandExamplesCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => {
     const frittstaende = choiceValues?.["Innhold"] === "Frittstående";
 
     if (frittstaende) {

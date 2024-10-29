@@ -1,7 +1,11 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
 import { PopupTipExample, popupTipExampleCode } from "./PopupTipExample";
-import { TooltipExample, tooltipExampleCode, tooltipExampleKnobs } from "./TooltipExample";
+import {
+    TooltipExample,
+    tooltipExampleCode,
+    tooltipExampleKnobs,
+} from "./TooltipExample";
 import "../../tooltip/tooltip.scss";
 
 export default function Example() {

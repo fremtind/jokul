@@ -4,7 +4,14 @@ import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
 import { NativeSelect, Select } from "../src";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Native", "Med hjelpetekst", "Med feil", "Med tooltip", "Med søk", "Med sekundærtekst"],
+    boolProps: [
+        "Native",
+        "Med hjelpetekst",
+        "Med feil",
+        "Med tooltip",
+        "Med søk",
+        "Med sekundærtekst",
+    ],
     choiceProps: [
         {
             name: "Maks. viste valg",
@@ -34,7 +41,10 @@ const getMaxChoices = (rawMaxChoices?: string) => {
     }
 };
 
-export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
+export const SelectExample: FC<ExampleComponentProps> = ({
+    boolValues,
+    choiceValues,
+}) => {
     const isNativeSelect = boolValues && boolValues["Native"];
     const C = isNativeSelect ? NativeSelect : Select;
 
@@ -42,7 +52,9 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
         {
             value: "1",
             label: "Google Pixel",
-            description: boolValues?.["Med sekundærtekst"] ? "Gjelder også Nexus-serien" : undefined,
+            description: boolValues?.["Med sekundærtekst"]
+                ? "Gjelder også Nexus-serien"
+                : undefined,
         },
         { value: "2", label: "Apple" },
         { value: "3", label: "Samsung" },
@@ -57,7 +69,9 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
     const [value, setValue] = useState<string>("");
 
     const errorLabel =
-        boolValues && boolValues["Med feil"] ? "Du må velge merket til telefonen, for eksempel Apple." : undefined;
+        boolValues && boolValues["Med feil"]
+            ? "Du må velge merket til telefonen, for eksempel Apple."
+            : undefined;
     const helpLabel =
         boolValues && boolValues["Med hjelpetekst"]
             ? "Med merke mener vi for eksempel Apple eller Samsung."
@@ -68,7 +82,8 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
 
     const tooltipProps = boolValues?.["Med tooltip"]
         ? {
-              content: "Vi spør om merket på telefonen for å finne riktig reperatør for deg.",
+              content:
+                  "Vi spør om merket på telefonen for å finne riktig reperatør for deg.",
           }
         : undefined;
 
@@ -109,15 +124,22 @@ export const SelectExample: FC<ExampleComponentProps> = ({ boolValues, choiceVal
     );
 };
 
-export const selectCode = ({ boolValues, choiceValues }: ExampleComponentProps): string => `
+export const selectCode = ({
+    boolValues,
+    choiceValues,
+}: ExampleComponentProps): string => `
 <${!!boolValues?.["Native"] ? "NativeSelect" : "Select"}
     ref={selectRef}
     id="produsent"
     name="produsent"
     variant="${choiceValues?.["Variant"]}"
     label="Hvilket merke er telefonen?"
-    helpLabel=${!!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`}
-    errorLabel=${!!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`}${
+    helpLabel=${
+        !!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`
+    }
+    errorLabel=${
+        !!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`
+    }${
     boolValues?.["Med tooltip"]
         ? `
     tooltipProps={{ content: "Vi spør om merket på telefonen for å finne riktig reperatør for deg." }}`

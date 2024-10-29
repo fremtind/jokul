@@ -7,7 +7,8 @@ const CODE_END_BLOCK = "/* -- EXAMPLE CODE END -- */";
 export const formatCode = (originalCode: string) => {
     const code = `
         ${(originalCode as string).substring(
-            (originalCode as string).indexOf(CODE_START_BLOCK) + CODE_START_BLOCK.length,
+            (originalCode as string).indexOf(CODE_START_BLOCK) +
+                CODE_START_BLOCK.length,
             (originalCode as string).indexOf(CODE_END_BLOCK),
         )}
     `;
@@ -18,5 +19,7 @@ export const formatCode = (originalCode: string) => {
         trailingComma: "none",
     });
 
-    return formattedCode.endsWith(";\n") ? formattedCode.substring(0, formattedCode.length - 2) : formattedCode;
+    return formattedCode.endsWith(";\n")
+        ? formattedCode.substring(0, formattedCode.length - 2)
+        : formattedCode;
 };

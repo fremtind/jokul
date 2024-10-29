@@ -1,4 +1,7 @@
-import { CookieConsent, useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
+import {
+    CookieConsent,
+    useCookieConsent,
+} from "@fremtind/jkl-cookie-consent-react";
 import { type WithChildren } from "@fremtind/jkl-core";
 import React, { type FC, Suspense, useState, useEffect } from "react";
 import { useAnalytics, MixpanelBackend } from "~/analytics";
@@ -19,13 +22,20 @@ export const Cookies: FC<WithChildren> = ({ children }) => {
 
     return (
         <Suspense>
-            <button type="button" className="jkl-portal-cookie-consent jkl-link" onClick={openConsentModalWithSettings}>
+            <button
+                type="button"
+                className="jkl-portal-cookie-consent jkl-link"
+                onClick={openConsentModalWithSettings}
+            >
                 {children}
             </button>
             <CookieConsent
                 blocking
                 onAccept={async (consentValue) => {
-                    if (consentValue.functional === "denied" && userPreferencesCookie.exists()) {
+                    if (
+                        consentValue.functional === "denied" &&
+                        userPreferencesCookie.exists()
+                    ) {
                         userPreferencesCookie.clear();
                     }
 
@@ -40,7 +50,10 @@ export const Cookies: FC<WithChildren> = ({ children }) => {
                     const hasOptedIn = await analytics.hasOptedInTracking();
                     if (consentValue.statistics === "accepted" && !hasOptedIn) {
                         analytics.optInTracking();
-                    } else if (consentValue.statistics === "denied" && hasOptedIn) {
+                    } else if (
+                        consentValue.statistics === "denied" &&
+                        hasOptedIn
+                    ) {
                         analytics.optOutTracking();
                     }
                 }}

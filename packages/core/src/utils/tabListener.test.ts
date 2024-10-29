@@ -50,7 +50,10 @@ test("should remove data-mousenavigation attribute on html when tabbing after a 
 
     expect(htmlElement.getAttribute(mouseNavigation)).toBe("true");
 
-    fireEvent(document, new KeyboardEvent("keydown", { key: "Tab", bubbles: true }));
+    fireEvent(
+        document,
+        new KeyboardEvent("keydown", { key: "Tab", bubbles: true }),
+    );
 
     expect(htmlElement.getAttribute(mouseNavigation)).toBe(null);
 });

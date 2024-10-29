@@ -14,7 +14,9 @@ export const knobs: ExampleKnobsProps = {
     ],
 };
 
-export const PaginationExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
+export const PaginationExample: FC<ExampleComponentProps> = ({
+    choiceValues,
+}) => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [message, setMessage] = useState<string>();
     const [pagePickerValue, setPagePickerValue] = useState<string>("1");

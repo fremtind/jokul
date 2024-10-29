@@ -40,7 +40,11 @@ export const Logo = ({
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
             stroke="currentColor"
-            viewBox={!animated && isSymbol && !centered ? "31 60 150 83" : "32 27 581 120"}
+            viewBox={
+                !animated && isSymbol && !centered
+                    ? "31 60 150 83"
+                    : "32 27 581 120"
+            }
         >
             <title id={uniqueId}>{title}</title>
             <g
@@ -55,9 +59,16 @@ export const Logo = ({
                     y1="32.563024"
                     y2="32.563024"
                     className="jkl-logo__F-line"
-                    transform={isSymbol ? "scale(1.45, 1) translate(-10, 6)" : ""}
+                    transform={
+                        isSymbol ? "scale(1.45, 1) translate(-10, 6)" : ""
+                    }
                 />
-                <line x1="35.12226" x2="91.504088" y1="80.105318" y2="80.105318" />
+                <line
+                    x1="35.12226"
+                    x2="91.504088"
+                    y1="80.105318"
+                    y2="80.105318"
+                />
                 <line
                     x1="-10.820058"
                     x2="87.38984"

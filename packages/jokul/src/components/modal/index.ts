@@ -9,5 +9,9 @@ export {
     ModalBody,
     ModalActions,
 } from "./Modal.js";
-export type { UseModalOptions, ModalInstance, ModalConfig } from "./useModal.js";
+export type {
+    UseModalOptions,
+    ModalInstance,
+    ModalConfig,
+} from "./useModal.js";
 export { useModal } from "./useModal.js";

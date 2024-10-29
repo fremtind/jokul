@@ -1,21 +1,45 @@
 import React from "react";
 import { DevExample } from "../../../doc-utils";
-import ActionTableExample, { actionTableExampleCode, actionTableExampleKnobs } from "./ActionTableExample";
-import ClickableTableExample, { clickableTableExampleCode, clickableTableExampleKnobs } from "./ClickableTableExample";
-import DataTableExample, { dataTableExampleCode, dataTableExampleKnobs } from "./DataTableExample";
+import ActionTableExample, {
+    actionTableExampleCode,
+    actionTableExampleKnobs,
+} from "./ActionTableExample";
+import ClickableTableExample, {
+    clickableTableExampleCode,
+    clickableTableExampleKnobs,
+} from "./ClickableTableExample";
+import DataTableExample, {
+    dataTableExampleCode,
+    dataTableExampleKnobs,
+} from "./DataTableExample";
 import ExpandableTableExample, {
     expandableTableExampleCode,
     expandableTableExampleKnobs,
 } from "./ExpandableTableExample";
-import HeadlessTableExample, { headlessTableExampleCode, headlessTableExampleKnobs } from "./HeadlessTableExample";
+import HeadlessTableExample, {
+    headlessTableExampleCode,
+    headlessTableExampleKnobs,
+} from "./HeadlessTableExample";
 import MobileListTableExample, {
     mobileListTableExampleCode,
     mobileListTableExampleKnobs,
 } from "./MobileListTableExample";
-import MobileScrollTableExample, { mobileScrollTableExampleCode } from "./MobileScrollTableExample";
-import { PaginatedTableExample, paginatedTableExampleCode, paginatedTableExamplesProps } from "./PaginatedTableExample";
-import { SortableTableExample, sortableTableExampleCode, sortableTableExamplesProps } from "./SortableTableExample";
-import StickyTableExample, { stickyTableExampleCode } from "./StickyTableExample";
+import MobileScrollTableExample, {
+    mobileScrollTableExampleCode,
+} from "./MobileScrollTableExample";
+import {
+    PaginatedTableExample,
+    paginatedTableExampleCode,
+    paginatedTableExamplesProps,
+} from "./PaginatedTableExample";
+import {
+    SortableTableExample,
+    sortableTableExampleCode,
+    sortableTableExamplesProps,
+} from "./SortableTableExample";
+import StickyTableExample, {
+    stickyTableExampleCode,
+} from "./StickyTableExample";
 import "../../table/table.scss";
 import "../../button/button.scss";
 import "../../icons/icons.scss";

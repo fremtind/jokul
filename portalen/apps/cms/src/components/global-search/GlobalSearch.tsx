@@ -41,9 +41,10 @@ export const GlobalSearch = () => {
             controller = new AbortController();
             setIsLoading(true);
 
-            const result = await fetch(`/api/search?q=${debouncedSearch}&limit=9`, { signal: controller.signal }).then(
-                (res) => res.json(),
-            );
+            const result = await fetch(
+                `/api/search?q=${debouncedSearch}&limit=9`,
+                { signal: controller.signal },
+            ).then((res) => res.json());
 
             setMatches(result);
             setIsLoading(false);
@@ -67,12 +68,19 @@ export const GlobalSearch = () => {
                 {matches && (
                     <Command.List>
                         <>
-                            {!isLoading && <Command.Empty>Fant ingen sider</Command.Empty>}
-                            {isLoading && <Command.Loading>Søker…</Command.Loading>}
+                            {!isLoading && (
+                                <Command.Empty>Fant ingen sider</Command.Empty>
+                            )}
+                            {isLoading && (
+                                <Command.Loading>Søker…</Command.Loading>
+                            )}
                             {Object.entries(matches)
                                 .filter(([, documents]) => documents.length > 0)
                                 .map(([category, documents]) => (
-                                    <Command.Group heading={category} key={`${category}`}>
+                                    <Command.Group
+                                        heading={category}
+                                        key={`${category}`}
+                                    >
                                         {documents.map(({ document }) => (
                                             <Command.Item
                                                 key={document.id}

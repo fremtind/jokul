@@ -14,7 +14,13 @@ module.exports = {
         },
     },
     parser: "@typescript-eslint/parser",
-    plugins: ["@typescript-eslint", "prettier", "jsx-a11y", "react-hooks", "import"],
+    plugins: [
+        "@typescript-eslint",
+        "prettier",
+        "jsx-a11y",
+        "react-hooks",
+        "import",
+    ],
     extends: [
         "plugin:react/recommended",
         "plugin:import/errors",
@@ -41,5 +47,7 @@ module.exports = {
             },
         ],
     },
-    overrides: [{ files: ["**/*.spec.*"], extends: ["plugin:cypress/recommended"] }],
+    overrides: [
+        { files: ["**/*.spec.*"], extends: ["plugin:cypress/recommended"] },
+    ],
 };

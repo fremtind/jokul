@@ -29,7 +29,12 @@ export const ToastProvider: FC<ToastContextProviderProps> = ({
     maxVisibleToasts = 5,
     placement = "center",
 }) => {
-    const [queue] = useState(new ToastQueue<ToastContent>({ maxVisibleToasts, hasExitAnimation: true }));
+    const [queue] = useState(
+        new ToastQueue<ToastContent>({
+            maxVisibleToasts,
+            hasExitAnimation: true,
+        }),
+    );
 
     return (
         <context.Provider
@@ -39,7 +44,10 @@ export const ToastProvider: FC<ToastContextProviderProps> = ({
 
                     if (typeof options?.timeout === "number") {
                         timeout = options.timeout as number;
-                    } else if (options?.timeout === null || options?.timeout === "off") {
+                    } else if (
+                        options?.timeout === null ||
+                        options?.timeout === "off"
+                    ) {
                         timeout = undefined;
                     }
 

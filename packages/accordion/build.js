@@ -23,7 +23,11 @@ const errorHandler = (err) => {
             postcss([autoprefixer({ grid: true }), cssnano(litePreset)])
                 .process(result.css, { from: undefined })
                 .then((res) => {
-                    fs.writeFile(`${sourcePath.name}.min.css`, res.css, errorHandler);
+                    fs.writeFile(
+                        `${sourcePath.name}.min.css`,
+                        res.css,
+                        errorHandler,
+                    );
                 });
         }
     });

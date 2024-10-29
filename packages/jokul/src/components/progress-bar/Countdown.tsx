@@ -1,7 +1,10 @@
 import React, { useState, type CSSProperties, type FC, useEffect } from "react";
 
 export interface CountdownProps
-    extends Pick<React.HTMLAttributes<HTMLDivElement>, "onAnimationEnd" | "onAnimationStart"> {
+    extends Pick<
+        React.HTMLAttributes<HTMLDivElement>,
+        "onAnimationEnd" | "onAnimationStart"
+    > {
     id?: string;
     className?: string;
     /**
@@ -12,8 +15,15 @@ export interface CountdownProps
     style?: CSSProperties;
 }
 
-export const Countdown: FC<CountdownProps> = ({ className, from, isPaused, ...rest }) => {
-    const [remainingSeconds, setRemainingSeconds] = useState(Math.floor(from / 1000));
+export const Countdown: FC<CountdownProps> = ({
+    className,
+    from,
+    isPaused,
+    ...rest
+}) => {
+    const [remainingSeconds, setRemainingSeconds] = useState(
+        Math.floor(from / 1000),
+    );
 
     useEffect(() => {
         if (remainingSeconds <= 0) {
@@ -28,7 +38,12 @@ export const Countdown: FC<CountdownProps> = ({ className, from, isPaused, ...re
     }, [isPaused, from, remainingSeconds, setRemainingSeconds]);
 
     return (
-        <div className={`jkl-countdown ${className ?? ""}`} role="timer" data-testid="jkl-countdown" {...rest}>
+        <div
+            className={`jkl-countdown ${className ?? ""}`}
+            role="timer"
+            data-testid="jkl-countdown"
+            {...rest}
+        >
             <span
                 className="jkl-countdown__tracker"
                 role="presentation"

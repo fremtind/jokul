@@ -32,7 +32,9 @@ import React from "react";
 import type { YearsToShow } from "../types";
 import { parseDateString } from "../utils";
 
-export function composeEventHandlers(...fns: Array<React.MouseEventHandler | undefined>) {
+export function composeEventHandlers(
+    ...fns: Array<React.MouseEventHandler | undefined>
+) {
     return (event: React.MouseEvent) =>
         fns.some((fn) => {
             fn && fn(event);
@@ -60,7 +62,10 @@ export function subtractMonth({
 }): number {
     if (offset > 1 && minDate) {
         const { firstDayOfMonth } = calendars[0];
-        const diffInMonths = differenceInCalendarMonths(firstDayOfMonth, minDate);
+        const diffInMonths = differenceInCalendarMonths(
+            firstDayOfMonth,
+            minDate,
+        );
         if (diffInMonths < offset) {
             offset = diffInMonths;
         }
@@ -102,13 +107,19 @@ export function getYearSelectOptions(
         previousYearsToShow = DEFAULT_YEARS_TO_SHOW;
         comingYearsToShow = DEFAULT_YEARS_TO_SHOW;
     } else {
-        previousYearsToShow = typeof yearsToShow === "number" ? yearsToShow : yearsToShow.previous;
-        comingYearsToShow = typeof yearsToShow === "number" ? yearsToShow : yearsToShow.coming;
+        previousYearsToShow =
+            typeof yearsToShow === "number"
+                ? yearsToShow
+                : yearsToShow.previous;
+        comingYearsToShow =
+            typeof yearsToShow === "number" ? yearsToShow : yearsToShow.coming;
     }
 
     let startYear = currentYear - previousYearsToShow;
     if (minDate) {
-        const earliestStartYear = showAllYears ? minDate.getFullYear() : startYear;
+        const earliestStartYear = showAllYears
+            ? minDate.getFullYear()
+            : startYear;
         startYear = Math.max(minDate.getFullYear(), earliestStartYear);
     }
 
@@ -142,9 +153,11 @@ export function getMonthSelectOptions(
     maxDate: Date | undefined,
 ): ValuePair[] {
     const minDateYear = minDate?.getFullYear() || currentYear;
-    const minDateMonth = minDate?.getMonth() === undefined ? 0 : minDate.getMonth();
+    const minDateMonth =
+        minDate?.getMonth() === undefined ? 0 : minDate.getMonth();
     const maxDateYear = maxDate?.getFullYear() || currentYear;
-    const maxDateMonth = maxDate?.getMonth() === undefined ? 11 : maxDate.getMonth();
+    const maxDateMonth =
+        maxDate?.getMonth() === undefined ? 11 : maxDate.getMonth();
 
     let startMonth = 0;
     let endMonth = 11;
@@ -161,7 +174,10 @@ export function getMonthSelectOptions(
             value: index.toString(),
             label: month,
         }))
-        .filter(({ value }) => parseInt(value) >= startMonth && parseInt(value) <= endMonth);
+        .filter(
+            ({ value }) =>
+                parseInt(value) >= startMonth && parseInt(value) <= endMonth,
+        );
 
     return filteredMonths;
 }
@@ -186,7 +202,10 @@ export function addMonth({
 }): number {
     if (offset > 1 && maxDate) {
         const { lastDayOfMonth } = calendars[calendars.length - 1];
-        const diffInMonths = differenceInCalendarMonths(maxDate, lastDayOfMonth);
+        const diffInMonths = differenceInCalendarMonths(
+            maxDate,
+            lastDayOfMonth,
+        );
         if (diffInMonths < offset) {
             offset = diffInMonths;
         }
@@ -202,7 +221,13 @@ export function addMonth({
  * @param {Date} param.minDate The earliest date available
  * @returns {Boolean} Whether the back button should be disabled.
  */
-export function isBackDisabled({ calendars, minDate }: { calendars: CalendarMonth[]; minDate?: Date }): boolean {
+export function isBackDisabled({
+    calendars,
+    minDate,
+}: {
+    calendars: CalendarMonth[];
+    minDate?: Date;
+}): boolean {
     if (!minDate) {
         return false;
     }
@@ -222,7 +247,13 @@ export function isBackDisabled({ calendars, minDate }: { calendars: CalendarMont
  * @param {Date} param.maxDate The furthest date available
  * @returns {Boolean} Whether the forward button should be disabled.
  */
-export function isForwardDisabled({ calendars, maxDate }: { calendars: CalendarMonth[]; maxDate?: Date }): boolean {
+export function isForwardDisabled({
+    calendars,
+    maxDate,
+}: {
+    calendars: CalendarMonth[];
+    maxDate?: Date;
+}): boolean {
     if (!maxDate) {
         return false;
     }
@@ -476,7 +507,11 @@ function fillFrontWeek({
         // preceding month with dates from previous month.
         let counter = 0;
         while (counter < firstDay) {
-            const date = new Date(prevDateYear, prevDateMonth, prevDate - counter);
+            const date = new Date(
+                prevDateYear,
+                prevDateMonth,
+                prevDate - counter,
+            );
             const dateObj: DateInfo = {
                 date,
                 selected: isSelected(selectedDates, date),
@@ -586,7 +621,10 @@ function fillBackWeek({
  * @param {Number} year The year to normalize
  * @returns {Object} The normalized month and year along with the number of days in the month
  */
-function getNumDaysMonthYear(month: number, year: number): { daysInMonth: number; month: number; year: number } {
+function getNumDaysMonthYear(
+    month: number,
+    year: number,
+): { daysInMonth: number; month: number; year: number } {
     // If a parameter you specify is outside of the expected range for Month or Day,
     // JS Date attempts to update the date information in the Date object accordingly!
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/setMonth
@@ -630,13 +668,21 @@ function getWeeks(dates: CalendarWeek): Array<CalendarWeek> {
  * @param {Date} date The date to search with against selectedDates
  * @returns {Boolean} Whether day is found in selectedDates
  */
-function isSelected(selectedDates: Date | Date[] | undefined, date: Date): boolean {
+function isSelected(
+    selectedDates: Date | Date[] | undefined,
+    date: Date,
+): boolean {
     if (!selectedDates) {
         return false;
     }
-    selectedDates = Array.isArray(selectedDates) ? selectedDates : [selectedDates];
+    selectedDates = Array.isArray(selectedDates)
+        ? selectedDates
+        : [selectedDates];
     return selectedDates.some((selectedDate) => {
-        if (selectedDate instanceof Date && startOfDay(selectedDate).getTime() === startOfDay(date).getTime()) {
+        if (
+            selectedDate instanceof Date &&
+            startOfDay(selectedDate).getTime() === startOfDay(date).getTime()
+        ) {
             return true;
         }
         return false;
@@ -651,8 +697,15 @@ function isSelected(selectedDates: Date | Date[] | undefined, date: Date): boole
  * @param {Date} date The date to compare with
  * @returns {Boolean} Whether the date is between min and max date
  */
-function isSelectable(minDate: Date | undefined, maxDate: Date | undefined, date: Date): boolean {
-    if ((minDate && isBefore(date, minDate)) || (maxDate && isBefore(maxDate, date))) {
+function isSelectable(
+    minDate: Date | undefined,
+    maxDate: Date | undefined,
+    date: Date,
+): boolean {
+    if (
+        (minDate && isBefore(date, minDate)) ||
+        (maxDate && isBefore(maxDate, date))
+    ) {
         return false;
     }
     return true;
@@ -689,8 +742,14 @@ export function dateHasChanged(date: Date | undefined, newDate: Date): boolean {
  * @param rangeStart Dates before this date should be disabled
  * @param rangeEnd Dates after this date should be disabled
  */
-export function dateIsOutsideRange(date: Date, rangeStart: Date | undefined, rangeEnd: Date | undefined): boolean {
-    return Boolean((rangeEnd && date > rangeEnd) || (rangeStart && date < rangeStart));
+export function dateIsOutsideRange(
+    date: Date,
+    rangeStart: Date | undefined,
+    rangeEnd: Date | undefined,
+): boolean {
+    return Boolean(
+        (rangeEnd && date > rangeEnd) || (rangeStart && date < rangeStart),
+    );
 }
 
 /**
@@ -709,10 +768,14 @@ export function getInitialDate(
     const valueAsDate = parseDateString(value);
     const defaultValueAsDate = parseDateString(defaultValue);
     if (valueAsDate) {
-        return !dateIsOutsideRange(valueAsDate, minDate, maxDate) ? valueAsDate : null;
+        return !dateIsOutsideRange(valueAsDate, minDate, maxDate)
+            ? valueAsDate
+            : null;
     }
     if (defaultValueAsDate) {
-        return !dateIsOutsideRange(defaultValueAsDate, minDate, maxDate) ? defaultValueAsDate : null;
+        return !dateIsOutsideRange(defaultValueAsDate, minDate, maxDate)
+            ? defaultValueAsDate
+            : null;
     }
     return null;
 }

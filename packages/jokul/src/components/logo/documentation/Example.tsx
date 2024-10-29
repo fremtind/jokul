@@ -9,7 +9,10 @@ export default function Example() {
     return (
         <>
             <DevExample component={LogoExample} knobs={logoExampleKnobs} />
-            <DevExample component={LogoStampExample} knobs={logoStampExampleKnobs} />
+            <DevExample
+                component={LogoStampExample}
+                knobs={logoStampExampleKnobs}
+            />
         </>
     );
 }

@@ -20,13 +20,22 @@ export interface TabsProps extends WithChildren {
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tabs = ({ onChange, defaultTab, density, ...props }: TabsProps) => {
+export const Tabs = ({
+    onChange,
+    defaultTab,
+    density,
+    ...props
+}: TabsProps) => {
     const [activeIndex, setActiveIndex] = useState(defaultTab ?? 0);
 
     const previousTabIndex = usePreviousValue(activeIndex);
 
     useEffect(() => {
-        if (previousTabIndex !== undefined && previousTabIndex !== activeIndex && onChange) {
+        if (
+            previousTabIndex !== undefined &&
+            previousTabIndex !== activeIndex &&
+            onChange
+        ) {
             onChange(activeIndex);
         }
     }, [onChange, previousTabIndex, activeIndex]);
@@ -50,7 +59,8 @@ export const Tabs = ({ onChange, defaultTab, density, ...props }: TabsProps) => 
     const renderTabList = () => {
         const tabList = React.Children.toArray(props.children)[0];
 
-        if (!React.isValidElement<TabListProps & InjectedProps>(tabList)) return;
+        if (!React.isValidElement<TabListProps & InjectedProps>(tabList))
+            return;
 
         return React.cloneElement<TabListProps & InjectedProps>(tabList, {
             activeIndex,
@@ -62,13 +72,20 @@ export const Tabs = ({ onChange, defaultTab, density, ...props }: TabsProps) => 
 
     const renderTabPanels = () => {
         return React.Children.map(props.children, (child, childIndex) => {
-            if (!React.isValidElement<TabPanelProps & React.HTMLAttributes<HTMLDivElement>>(child) || childIndex === 0)
+            if (
+                !React.isValidElement<
+                    TabPanelProps & React.HTMLAttributes<HTMLDivElement>
+                >(child) ||
+                childIndex === 0
+            )
                 return;
 
             const tabPanelIndex = childIndex - 1;
 
             return tabPanelIndex === activeIndex
-                ? React.cloneElement<TabPanelProps & React.HTMLAttributes<HTMLDivElement>>(child, {
+                ? React.cloneElement<
+                      TabPanelProps & React.HTMLAttributes<HTMLDivElement>
+                  >(child, {
                       "aria-labelledby": tabIDs[tabPanelIndex],
                       id: tabPanelIDs[tabPanelIndex],
                   })
@@ -82,7 +99,11 @@ export const Tabs = ({ onChange, defaultTab, density, ...props }: TabsProps) => 
 
     return (
         <TabsContextProvider state={{ density }}>
-            <div {...props} className={clsx("jkl-tabs", props.className)} data-density={density}>
+            <div
+                {...props}
+                className={clsx("jkl-tabs", props.className)}
+                data-density={density}
+            >
                 {renderTabList()}
                 {renderTabPanels()}
             </div>

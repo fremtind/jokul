@@ -6,11 +6,15 @@ export const toggleSwitchExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Deaktivert"],
 };
 
-export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValues }) => {
+export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({
+    boolValues,
+}) => {
     const isDisabled = boolValues?.["Deaktivert"];
 
-    const handleToggle: ToggleChangeHandler<HTMLButtonElement> = (event, pressed) =>
-        console.log("Mørk modus satt til: ", pressed, event);
+    const handleToggle: ToggleChangeHandler<HTMLButtonElement> = (
+        event,
+        pressed,
+    ) => console.log("Mørk modus satt til: ", pressed, event);
 
     return (
         <ToggleSwitch disabled={isDisabled} onChange={handleToggle}>
@@ -19,7 +23,9 @@ export const ToggleSwitchExample: React.FC<ExampleComponentProps> = ({ boolValue
     );
 };
 
-export const ToggleSwitchExamples: React.FC<ExampleComponentProps> = (props) => (
+export const ToggleSwitchExamples: React.FC<ExampleComponentProps> = (
+    props,
+) => (
     <section>
         <ToggleSwitchExample {...props} />
     </section>

@@ -22,14 +22,20 @@ interface Props extends WithChildren {
     };
 }
 
-export const Head: React.FC<HeadProps<{ mdx: { frontmatter: { title: string } } }, { title: string }>> = ({
+export const Head: React.FC<
+    HeadProps<{ mdx: { frontmatter: { title: string } } }, { title: string }>
+> = ({
     pageContext,
     data: {
         mdx: { frontmatter },
     },
 }) => <Seo title={frontmatter.title || pageContext.title} />;
 
-export const Layout: React.FC<Props> = ({ children, location, pageContext }) => {
+export const Layout: React.FC<Props> = ({
+    children,
+    location,
+    pageContext,
+}) => {
     const [hasMounted, setHasMounted] = useState(false);
     useEffect(() => {
         setHasMounted(true);
@@ -69,8 +75,14 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
                 if (document.title) {
                     pageName = document.title;
                 }
-                const pageHeadings = document.querySelectorAll(`#gatsby-focus-wrapper h1`);
-                if (pageHeadings && pageHeadings.length && pageHeadings[0].textContent) {
+                const pageHeadings = document.querySelectorAll(
+                    `#gatsby-focus-wrapper h1`,
+                );
+                if (
+                    pageHeadings &&
+                    pageHeadings.length &&
+                    pageHeadings[0].textContent
+                ) {
                     pageName = pageHeadings[0].textContent;
                 }
 
@@ -87,7 +99,9 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
 
     const isGettingStarted = currentSection === "kom-i-gang"; // Disse sidene overstyrer tittel
     const shouldShowSidebar =
-        !isFrontPage && (pageContext.title || isGettingStarted) && !(screen.isSmallDevice || screen.isMediumDevice);
+        !isFrontPage &&
+        (pageContext.title || isGettingStarted) &&
+        !(screen.isSmallDevice || screen.isMediumDevice);
 
     const consent = useCookieConsent();
     const analytics = useAnalytics();
@@ -107,17 +121,35 @@ export const Layout: React.FC<Props> = ({ children, location, pageContext }) => 
         }
     }, [analytics, consent, location.pathname, previous]);
 
-    const isTestMode = hasMounted && window.location.search === "?mode=e2e" ? "e2e" : undefined;
+    const isTestMode =
+        hasMounted && window.location.search === "?mode=e2e"
+            ? "e2e"
+            : undefined;
 
     return (
         <div className="jkl jkl-portal" data-test-mode={isTestMode}>
-            <div ref={announcerRef} className="jkl-sr-only" aria-live="polite" aria-atomic="true"></div>
+            <div
+                ref={announcerRef}
+                className="jkl-sr-only"
+                aria-live="polite"
+                aria-atomic="true"
+            ></div>
             <div className="jkl-portal__theme-bg" />
             <Header className="jkl-portal__header" />
-            <AnimatePresence>{shouldShowSidebar && <Sidebar className="jkl-portal__sidebar" />}</AnimatePresence>
+            <AnimatePresence>
+                {shouldShowSidebar && (
+                    <Sidebar className="jkl-portal__sidebar" />
+                )}
+            </AnimatePresence>
             {hasMounted && <KBar />}
-            <FormatProvider>{hasMounted && <AnimatePresence mode="wait">{children}</AnimatePresence>}</FormatProvider>
-            {!isTestMode && hasMounted && <PortalFooter className="jkl-portal__footer" />}
+            <FormatProvider>
+                {hasMounted && (
+                    <AnimatePresence mode="wait">{children}</AnimatePresence>
+                )}
+            </FormatProvider>
+            {!isTestMode && hasMounted && (
+                <PortalFooter className="jkl-portal__footer" />
+            )}
         </div>
     );
 };

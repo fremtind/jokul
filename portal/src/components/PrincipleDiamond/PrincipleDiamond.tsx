@@ -91,8 +91,12 @@ export class PrincipleDiamond extends React.Component<Props> {
         let amount = t < 0 ? 0 : t;
         amount = t > 1 ? 1 : t;
 
-        const lerpMin = this.lastMinScale + (this.props.minScale - this.lastMinScale) * amount;
-        const lerpMax = this.lastMaxScale + (this.props.maxScale - this.lastMaxScale) * amount;
+        const lerpMin =
+            this.lastMinScale +
+            (this.props.minScale - this.lastMinScale) * amount;
+        const lerpMax =
+            this.lastMaxScale +
+            (this.props.maxScale - this.lastMaxScale) * amount;
 
         return [lerpMin, lerpMax];
     }
@@ -109,7 +113,10 @@ export class PrincipleDiamond extends React.Component<Props> {
             if (this.props.forcedColors) {
                 ctx.fillStyle = "CanvasText";
             } else {
-                ctx.fillStyle = this.props.colorScheme === "dark" ? tokens.color.hvit : tokens.color.svart;
+                ctx.fillStyle =
+                    this.props.colorScheme === "dark"
+                        ? tokens.color.hvit
+                        : tokens.color.svart;
             }
         }
 
@@ -119,7 +126,9 @@ export class PrincipleDiamond extends React.Component<Props> {
 
         for (let x = 0; x < tiles; x++) {
             for (let y = 0; y < tiles; y++) {
-                const baseScale = Math.abs(Math.sin(time * 0.001 + x * 50 + y * 50));
+                const baseScale = Math.abs(
+                    Math.sin(time * 0.001 + x * 50 + y * 50),
+                );
 
                 const nBaseScale = baseScale * (scale[1] - scale[0]) + scale[0];
                 const position = tileSize;
@@ -155,7 +164,9 @@ export class PrincipleDiamond extends React.Component<Props> {
     render(): JSX.Element {
         return (
             <PureCanvas
-                className={this.generateClasses("jkl-portal-principle-diamond__" + this.props.type)}
+                className={this.generateClasses(
+                    "jkl-portal-principle-diamond__" + this.props.type,
+                )}
                 contextRef={this.saveContext}
                 height={250}
                 width={250}

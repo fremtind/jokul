@@ -8,7 +8,12 @@ interface RequirementCheckboxProps extends WithChildren {
     label: string;
 }
 
-export const RequirementCheckbox = ({ defaultChecked, name, label, children }: RequirementCheckboxProps) => {
+export const RequirementCheckbox = ({
+    defaultChecked,
+    name,
+    label,
+    children,
+}: RequirementCheckboxProps) => {
     return (
         <>
             <Checkbox

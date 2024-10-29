@@ -3,7 +3,11 @@ import { Block } from "payload/types";
 
 type PageSectionCreatorOptions = Block & { defaultHeading?: string };
 
-export function createPageSectionBlock({ fields, defaultHeading, ...rest }: PageSectionCreatorOptions): Block {
+export function createPageSectionBlock({
+    fields,
+    defaultHeading,
+    ...rest
+}: PageSectionCreatorOptions): Block {
     return {
         fields: [
             {

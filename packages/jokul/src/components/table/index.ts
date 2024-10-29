@@ -6,7 +6,10 @@ export { TableCell } from "./TableCell.js";
 export { TableColumn } from "./TableColumn.js";
 export { TableColumnGroup } from "./TableColumnGroup.js";
 export { useTableContext, TableContextProvider } from "./tableContext.js";
-export { useTableSectionContext, TableSectionContextProvider } from "./tableSectionContext.js";
+export {
+    useTableSectionContext,
+    TableSectionContextProvider,
+} from "./tableSectionContext.js";
 export { TableFooter } from "./TableFooter.js";
 export { TableHead } from "./TableHead.js";
 export { TableHeader } from "./TableHeader.js";

@@ -27,7 +27,8 @@ describe("Modal", () => {
     function ModalTest({ role }: { role?: "dialog" | "alertdialog" }) {
         const heading = "Bekreft sletting";
 
-        const [instance, { title, overlay, container, modal, closeButton }] = useModal({ title: heading, role });
+        const [instance, { title, overlay, container, modal, closeButton }] =
+            useModal({ title: heading, role });
 
         useEffect(() => {
             if (!instance) {
@@ -44,10 +45,16 @@ describe("Modal", () => {
                         <ModalTitle {...title}>{heading}</ModalTitle>
                         <ModalCloseButton {...closeButton} />
                     </ModalHeader>
-                    <ModalBody>Er du sikker på at du vil slette Foo Bar Baz?</ModalBody>
+                    <ModalBody>
+                        Er du sikker på at du vil slette Foo Bar Baz?
+                    </ModalBody>
                     <ModalActions>
-                        <PrimaryButton onClick={() => instance?.hide()}>Bekreft</PrimaryButton>
-                        <TertiaryButton onClick={() => instance?.hide()}>Avbryt</TertiaryButton>
+                        <PrimaryButton onClick={() => instance?.hide()}>
+                            Bekreft
+                        </PrimaryButton>
+                        <TertiaryButton onClick={() => instance?.hide()}>
+                            Avbryt
+                        </TertiaryButton>
                     </ModalActions>
                 </Modal>
             </ModalContainer>,
@@ -59,7 +66,9 @@ describe("Modal", () => {
         const { getByText, getByRole } = setup(<ModalTest />);
         expect(getByRole("dialog")).toBeInTheDocument();
         expect(getByText("Bekreft sletting")).toBeInTheDocument();
-        expect(getByText("Er du sikker på at du vil slette Foo Bar Baz?")).toBeInTheDocument();
+        expect(
+            getByText("Er du sikker på at du vil slette Foo Bar Baz?"),
+        ).toBeInTheDocument();
     });
 
     it("should be closable", async () => {
@@ -71,11 +80,16 @@ describe("Modal", () => {
             await user.click(getByRole("button", { name: "Bekreft" }));
         });
 
-        expect(getByRole("dialog", { hidden: true })).toHaveAttribute("aria-hidden", "true");
+        expect(getByRole("dialog", { hidden: true })).toHaveAttribute(
+            "aria-hidden",
+            "true",
+        );
     });
 
     it("should be configurable as alertdialog", () => {
-        const { getByRole, queryByRole } = setup(<ModalTest role="alertdialog" />);
+        const { getByRole, queryByRole } = setup(
+            <ModalTest role="alertdialog" />,
+        );
         expect(getByRole("alertdialog")).toBeInTheDocument();
         expect(queryByRole("dialog")).not.toBeInTheDocument();
     });

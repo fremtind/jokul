@@ -23,7 +23,8 @@ export const Components = createTopicCollection({
                 label: "Pakkenavn, CSS",
                 type: "text",
                 admin: {
-                    description: "Hvis likt som React-pakkenavn, kan feltet stå tomt.",
+                    description:
+                        "Hvis likt som React-pakkenavn, kan feltet stå tomt.",
                 },
             },
         ],

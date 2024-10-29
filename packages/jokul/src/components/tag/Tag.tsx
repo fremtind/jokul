@@ -1,10 +1,16 @@
 import clsx from "clsx";
-import React, { ButtonHTMLAttributes, FC, HTMLAttributes, MouseEventHandler } from "react";
+import React, {
+    ButtonHTMLAttributes,
+    FC,
+    HTMLAttributes,
+    MouseEventHandler,
+} from "react";
 import { Density } from "../../core/types.js";
 import { CloseIcon } from "../icon/index.js";
 import { IconButton } from "../icon-button/IconButton.js";
 
-export interface DismissAction extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
+export interface DismissAction
+    extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
     label: string;
     onClick: MouseEventHandler<HTMLButtonElement>;
 }
@@ -32,7 +38,13 @@ function getDisplayName(variant?: Variant) {
 }
 
 function tagFactory(variant?: Variant) {
-    const Tag: FC<TagProps> = ({ className, density, dismissAction, children, ...rest }) => (
+    const Tag: FC<TagProps> = ({
+        className,
+        density,
+        dismissAction,
+        children,
+        ...rest
+    }) => (
         <span
             className={clsx(
                 "jkl-tag",

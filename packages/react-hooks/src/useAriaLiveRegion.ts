@@ -14,7 +14,10 @@ export interface UseAriaLiveRegionOptions {
  * @param options Bestem om aria-live skal være polite, assertive eller off.
  * @returns
  */
-export function useAriaLiveRegion(watch: unknown | unknown[], options?: UseAriaLiveRegionOptions) {
+export function useAriaLiveRegion(
+    watch: unknown | unknown[],
+    options?: UseAriaLiveRegionOptions,
+) {
     const previousValue = usePreviousValue(watch);
 
     const [hasChanged, setHasChanged] = useState(false);

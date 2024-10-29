@@ -1,4 +1,9 @@
-import { ErrorIcon, InfoIcon, WarningIcon, SuccessIcon } from "@fremtind/jkl-icons-react";
+import {
+    ErrorIcon,
+    InfoIcon,
+    WarningIcon,
+    SuccessIcon,
+} from "@fremtind/jkl-icons-react";
 import React, { FC } from "react";
 
 type MessageTypes = "info" | "error" | "success" | "warning";

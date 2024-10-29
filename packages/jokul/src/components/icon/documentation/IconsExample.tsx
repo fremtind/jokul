@@ -83,8 +83,13 @@ const allIcons = [
     PenIcon,
 ];
 
-export const IconsExample: React.FC<ExampleComponentProps> = ({ choiceValues, boolValues }) => {
-    const variant = choiceValues ? (choiceValues["Variant"] as IconVariant) : "small";
+export const IconsExample: React.FC<ExampleComponentProps> = ({
+    choiceValues,
+    boolValues,
+}) => {
+    const variant = choiceValues
+        ? (choiceValues["Variant"] as IconVariant)
+        : "small";
     const bold = boolValues?.["Bold"] || false;
 
     const [fontSize, setFontSize] = useState("1rem");
