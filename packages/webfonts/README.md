@@ -25,7 +25,8 @@ Om dere bruker Sass-stilark i prosjektet deres er dette ofte den enkleste måten
 // Variabelen `$webfonts-dir` angir hvor på disk filene ligger.
 // Hvis den ikke spesifiseres vil stilarket se etter fontfilene i mappen `/fonts`.
 @use "@fremtind/jkl-webfonts/webfonts.scss" with (
-    $webfonts-dir: "../relative/path/to/node_modules/@fremtind/jkl-webfonts/fonts"
+    $webfonts-dir:
+        "../relative/path/to/node_modules/@fremtind/jkl-webfonts/fonts"
 );
 ```
 
@@ -41,7 +42,8 @@ Om dere er nødt til å legge fontfilene et annet sted må dere kopiere CSS-file
     font-style: normal;
     src: local("Fremtind Grotesk"),
         /* Endre de to neste linjene så de stemmer */
-            url("/relative/path/to/font/files/FremtindGrotesk-Regular-Web.woff2") format("woff2"), url("/relative/path/to/font/files/FremtindGrotesk-Regular-Web.woff")
+            url("/relative/path/to/font/files/FremtindGrotesk-Regular-Web.woff2")
+            format("woff2"), url("/relative/path/to/font/files/FremtindGrotesk-Regular-Web.woff")
             format("woff");
 }
 ```

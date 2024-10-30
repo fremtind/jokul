@@ -10,11 +10,20 @@ import dts from "vite-plugin-dts";
 
 export default defineConfig({
     plugins: [
-        nodeExternals({ deps: true, devDeps: true, peerDeps: true, optDeps: true, exclude: ["clsx", "nanoid"] }),
+        nodeExternals({
+            deps: true,
+            devDeps: true,
+            peerDeps: true,
+            optDeps: true,
+            exclude: ["clsx", "nanoid"],
+        }),
         react(),
         dts({
             include: ["src"],
-            exclude: ["src/**/*.test.{ts,tsx}", "src/components/**/documentation/*"],
+            exclude: [
+                "src/**/*.test.{ts,tsx}",
+                "src/components/**/documentation/*",
+            ],
             entryRoot: "./src",
             outDir: ["./build/es", "./build/cjs"],
             beforeWriteFile(filePath, content) {
@@ -45,7 +54,10 @@ export default defineConfig({
                 globSync("src/**/!(*.test).{ts,tsx}")
                     .filter((file) => !file.includes("documentation/"))
                     .map((file) => [
-                        relative("src", file.slice(0, file.length - extname(file).length)),
+                        relative(
+                            "src",
+                            file.slice(0, file.length - extname(file).length),
+                        ),
                         fileURLToPath(new URL(file, import.meta.url)),
                     ]),
             ),

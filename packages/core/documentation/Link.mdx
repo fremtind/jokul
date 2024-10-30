@@ -8,15 +8,29 @@ displayTypes: |
     - NavLink
 ---
 
-import { LinkExample, linkExampleCode, linkExampleKnobs } from "./Link/LinkExample";
-import { NavLinkExample, navLinkExampleCode, navLinkExampleKnobs } from "./Link/NavLinkExample";
+import {
+    LinkExample,
+    linkExampleCode,
+    linkExampleKnobs,
+} from "./Link/LinkExample";
+import {
+    NavLinkExample,
+    navLinkExampleCode,
+    navLinkExampleKnobs,
+} from "./Link/NavLinkExample";
 
 <Ingress>
-    Vi bruker lenker for å lede brukeren til andre nettsider, eller til andre steder på samme nettside. Lenker til
-    eksterne nettsider markeres med en pil opp og til høyre etter lenketeksten.
+    Vi bruker lenker for å lede brukeren til andre nettsider, eller til andre
+    steder på samme nettside. Lenker til eksterne nettsider markeres med en pil
+    opp og til høyre etter lenketeksten.
 </Ingress>
 
-<ComponentExample component={LinkExample} title="Link" knobs={linkExampleKnobs} codeExample={linkExampleCode} />
+<ComponentExample
+    component={LinkExample}
+    title="Link"
+    knobs={linkExampleKnobs}
+    codeExample={linkExampleCode}
+/>
 
 <ComponentExample
     component={NavLinkExample}

@@ -24,7 +24,8 @@ $_border-size: jkl.rem(-1px);
 
             border-bottom: none;
 
-            box-shadow: inset 0 0 0 #000, inset 0 $_border-size 0 var(--jkl-table-row-hover-border-color);
+            box-shadow: inset 0 0 0 #000,
+                inset 0 $_border-size 0 var(--jkl-table-row-hover-border-color);
             background-clip: padding-box;
 
             // legg til litt (nesten-cirka 16px) over headingen

@@ -16,12 +16,18 @@ import { buttonExampleKnobs } from "./ButtonExample";
 import { Button } from "../src";
 
 <Ingress>
-    Knapper starter en handling. Teksten på knappen forteller hva som vil skje når brukeren klikker på den.
+    Knapper starter en handling. Teksten på knappen forteller hva som vil skje
+    når brukeren klikker på den.
 </Ingress>
 
 **Primærknapp:** brukes til den viktigste handlingen på en side - hovedhandlingen. En side kan noen ganger ha mer enn en hovedhandling, men ikke mange.
 
-<ComponentExample title="PrimaryButton" component={Primary} knobs={buttonExampleKnobs} codeExample={primaryCode} />
+<ComponentExample
+    title="PrimaryButton"
+    component={Primary}
+    knobs={buttonExampleKnobs}
+    codeExample={primaryCode}
+/>
 
 **Sekundærknapp:** brukes til handlinger som ikke er like viktige for oss eller brukeren.
 
@@ -34,11 +40,20 @@ import { Button } from "../src";
 
 **Tertiærknapp:** brukes til handlinger som er mindre viktige, eller som kan gi uønskede konsekvenser.
 
-<ComponentExample title="TertiaryButton" component={Tertiary} knobs={buttonExampleKnobs} codeExample={tertiaryCode} />
+<ComponentExample
+    title="TertiaryButton"
+    component={Tertiary}
+    knobs={buttonExampleKnobs}
+    codeExample={tertiaryCode}
+/>
 
 **Ghost-knapp:** brukes til sekundære handlinger som å åpne menyer. Bruk den gjerne som triggerelement for [ContextualMenu](/komponenter/contextualmenu)
 
-<ComponentExample title="GhostButton" component={Ghost} codeExample={ghostCode} />
+<ComponentExample
+    title="GhostButton"
+    component={Ghost}
+    codeExample={ghostCode}
+/>
 
 ## Lastemodus
 

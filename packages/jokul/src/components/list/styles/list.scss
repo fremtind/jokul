@@ -49,16 +49,28 @@ $_color-feil--darkbg: #ff8b79;
 @include jkl.light-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-granitt)};
     --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-granitt)};
-    --jkl-list-marker-cross: #{_cross(jkl.$color-functional-error, jkl.$color-granitt)};
-    --jkl-list-marker-check: #{_check(jkl.$color-functional-success, jkl.$color-granitt)};
+    --jkl-list-marker-cross: #{_cross(
+            jkl.$color-functional-error,
+            jkl.$color-granitt
+        )};
+    --jkl-list-marker-check: #{_check(
+            jkl.$color-functional-success,
+            jkl.$color-granitt
+        )};
     --jkl-list-text-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-list-marker-default: #{_solid-diamond(jkl.$color-snohvit)};
     --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-snohvit)};
-    --jkl-list-marker-cross: #{_cross(jkl.$color-functional-error-dark, jkl.$color-granitt)};
-    --jkl-list-marker-check: #{_check(jkl.$color-functional-success-dark, jkl.$color-granitt)};
+    --jkl-list-marker-cross: #{_cross(
+            jkl.$color-functional-error-dark,
+            jkl.$color-granitt
+        )};
+    --jkl-list-marker-check: #{_check(
+            jkl.$color-functional-success-dark,
+            jkl.$color-granitt
+        )};
     --jkl-list-text-color: #{jkl.$color-snohvit};
 }
 
@@ -145,11 +157,14 @@ $_color-feil--darkbg: #ff8b79;
     }
 
     @include jkl.forced-colors-mode {
-        &:not(.jkl-list--ordered) > .jkl-list__item:not(.jkl-list__item--iconed) {
+        &:not(.jkl-list--ordered)
+            > .jkl-list__item:not(.jkl-list__item--iconed) {
             list-style: disc _solid-diamond(CanvasText);
         }
 
-        & &:not(.jkl-list--ordered):not(.jkl-list--iconed) > .jkl-list__item:not(.jkl-list__item--iconed) {
+        &
+            &:not(.jkl-list--ordered):not(.jkl-list--iconed)
+            > .jkl-list__item:not(.jkl-list__item--iconed) {
             list-style: disc _outline-diamond(CanvasText);
         }
 

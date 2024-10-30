@@ -7,11 +7,16 @@ keywords: datovelger
 ---
 
 import { DatePicker } from "../src";
-import { DatepickerExample, datepickerExampleKnobs, datepickerExampleCode } from "./DatepickerExample";
+import {
+    DatepickerExample,
+    datepickerExampleKnobs,
+    datepickerExampleCode,
+} from "./DatepickerExample";
 
 <Ingress>
-    Datovelgeren gir brukerne mulighet til å skrive inn eller velge en dato. Ledeteksten beskriver hvilken dato brukeren
-    skal fylle inn. To datovelgere kan brukes sammen for å angi perioder.
+    Datovelgeren gir brukerne mulighet til å skrive inn eller velge en dato.
+    Ledeteksten beskriver hvilken dato brukeren skal fylle inn. To datovelgere
+    kan brukes sammen for å angi perioder.
 </Ingress>
 
 <ComponentExample
@@ -39,7 +44,12 @@ Hvis datovelgeren ikke validerer, vises en feilmelding, som forteller hva som er
     <DoDontExample
         type="do"
         description="Hjelpetekst i feilmelding"
-        content={<DatePicker label="Fra dato" errorLabel="Du må velge datoen da du først ble syk" />}
+        content={
+            <DatePicker
+                label="Fra dato"
+                errorLabel="Du må velge datoen da du først ble syk"
+            />
+        }
     />
     <DoDontExample
         type="dont"

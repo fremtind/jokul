@@ -6,12 +6,25 @@ group: skjema
 keywords: filopplaster last opp filer upload fileuploader
 ---
 
-import FileInputExample, { fileInputExampleCode, fileInputExampleKnobs } from "./FileInputExample";
-import FilePreviewExample, { filePreviewExampleCode, filePreviewExampleKnobs } from "./FilePreviewExample";
+import FileInputExample, {
+    fileInputExampleCode,
+    fileInputExampleKnobs,
+} from "./FileInputExample";
+import FilePreviewExample, {
+    filePreviewExampleCode,
+    filePreviewExampleKnobs,
+} from "./FilePreviewExample";
 
-<Ingress>Filinput lar brukeren dele filer med oss, for eksempel dokumentasjon i en sak.</Ingress>
+<Ingress>
+    Filinput lar brukeren dele filer med oss, for eksempel dokumentasjon i en
+    sak.
+</Ingress>
 
-<ComponentExample component={FileInputExample} codeExample={fileInputExampleCode} knobs={fileInputExampleKnobs} />
+<ComponentExample
+    component={FileInputExample}
+    codeExample={fileInputExampleCode}
+    knobs={fileInputExampleKnobs}
+/>
 
 Opplasting av filer skjer i to trinn:
 
@@ -40,7 +53,10 @@ Komponenten bør konfigureres slik at kun filer av ønsket type kan markeres i f
             src="/assets/documentation/file-uploader/macos-filvelger-lyst.png"
         />
     </picture>
-    <figcaption>Filvelgeren på macOS. I dette tilfellet kan ikke det komprimerte arkivet velges.</figcaption>
+    <figcaption>
+        Filvelgeren på macOS. I dette tilfellet kan ikke det komprimerte arkivet
+        velges.
+    </figcaption>
 </figure>
 
 Merk at dette ikke vil hindre en bruker i å dra en vilkårlig fil inn i slippfeltet i komponenten. Hvis dette skjer vil komponenten automatisk merke filen med valideringsfeil.

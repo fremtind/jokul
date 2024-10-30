@@ -5,17 +5,29 @@ scss: radio-button
 group: skjema
 ---
 
-import { RadioButtonExample, radioButtonExampleKnobs, radioButtonExampleCode } from "./RadioButtonExample";
+import {
+    RadioButtonExample,
+    radioButtonExampleKnobs,
+    radioButtonExampleCode,
+} from "./RadioButtonExample";
 import {
     RadioButtonInputRequiredExample,
     radioButtonInputRequiredExampleCode,
 } from "./RadioButtonInputRequiredExample";
-import { RadioButtonPreselectedExample, radioButtonPreselectedExampleCode } from "./RadioButtonPreselectedExample";
-import { RadioButtonHelpLabelExample, radioButtonHelpLabelExampleCode } from "./RadioButtonHelpLabelExample";
+import {
+    RadioButtonPreselectedExample,
+    radioButtonPreselectedExampleCode,
+} from "./RadioButtonPreselectedExample";
+import {
+    RadioButtonHelpLabelExample,
+    radioButtonHelpLabelExampleCode,
+} from "./RadioButtonHelpLabelExample";
 
 <Ingress>
-    Vi bruker radioknapper når vi vil at brukeren skal velge ett av flere alternativ. Bruk helst radioknapper for inntil
-    fire alternativ. Hvis du trenger å gi brukeren flere muligheter enn det, er det ofte bedre med en nedtrekksliste.
+    Vi bruker radioknapper når vi vil at brukeren skal velge ett av flere
+    alternativ. Bruk helst radioknapper for inntil fire alternativ. Hvis du
+    trenger å gi brukeren flere muligheter enn det, er det ofte bedre med en
+    nedtrekksliste.
 </Ingress>
 
 <ComponentExample
@@ -89,15 +101,26 @@ Om du bruker `react-hook-form` vil bruken kunne se slik ut:
 
 ```tsx
 <RadioButtonGroup legend="Hvilken dekning ønsker du?">
-    <RadioButton {...register("coverage", { required: true })} label="Delkasko" value="del" />
-    <RadioButton {...register("coverage", { required: true })} label="Fullkasko" value="full" />
+    <RadioButton
+        {...register("coverage", { required: true })}
+        label="Delkasko"
+        value="del"
+    />
+    <RadioButton
+        {...register("coverage", { required: true })}
+        label="Fullkasko"
+        value="full"
+    />
 </RadioButtonGroup>
 ```
 
 En mer manuell variant kan se slik ut:
 
 ```tsx
-const choices = ["Jeg vil at dere skal ringe meg", "Jeg vil at dere skal sende en e-post"];
+const choices = [
+    "Jeg vil at dere skal ringe meg",
+    "Jeg vil at dere skal sende en e-post",
+];
 const [selectedValue, setSelectedValue] = useState("");
 
 return (

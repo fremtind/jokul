@@ -267,7 +267,9 @@ $text-styles: (
             // Styles heading-5 and small are the same size on small and large screens. Skip to generate less CSS.
             @if $style != "small" and $style != "heading-5" {
                 @include screens.from-medium-device {
-                    @each $property, $value in map.get($variants, "large-screen") {
+                    @each $property,
+                        $value in map.get($variants, "large-screen")
+                    {
                         #{$property}: $value;
                     }
                     @content;
@@ -325,7 +327,11 @@ $text-styles: (
     font-weight: var(--#{$name}-font-weight);
 }
 
-$_valid-font-family-values: ("Fremtind Grotesk", "Fremtind Grotesk Display", "Fremtind Grotesk Mono");
+$_valid-font-family-values: (
+    "Fremtind Grotesk",
+    "Fremtind Grotesk Display",
+    "Fremtind Grotesk Mono"
+);
 
 /// Hjelper sette riktig remse med fallback-fonts for Fremtind Grotesk, Fremtind Grotesk Display, og Fremtind Grotesk Mono.
 /// @param {"Fremtind Grotesk" | "Fremtind Grotesk Mono" | "Fremtind Grotesk Display"} $font - Regular justerer seg automatisk til italic og bold basert på font-style og font-weight. Display og Mono er adskilte fontfamilier.
@@ -336,11 +342,13 @@ $_valid-font-family-values: ("Fremtind Grotesk", "Fremtind Grotesk Display", "Fr
     }
 
     @if $font == "Fremtind Grotesk Mono" {
-        font-family: "Fremtind Grotesk Mono", "Adjusted Courier New Fallback", -apple-system, BlinkMacSystemFont,
-            monospace;
+        font-family: "Fremtind Grotesk Mono", "Adjusted Courier New Fallback",
+            -apple-system, BlinkMacSystemFont, monospace;
     } @else if $font == "Fremtind Grotesk Display" {
-        font-family: "Fremtind Grotesk Display", "Adjusted Arial Display Fallback", Arial, sans-serif;
+        font-family: "Fremtind Grotesk Display",
+            "Adjusted Arial Display Fallback", Arial, sans-serif;
     } @else {
-        font-family: "Fremtind Grotesk", "Adjusted Arial Fallback", Arial, sans-serif;
+        font-family: "Fremtind Grotesk", "Adjusted Arial Fallback", Arial,
+            sans-serif;
     }
 }

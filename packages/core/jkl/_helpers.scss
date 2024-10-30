@@ -14,7 +14,13 @@
 /// @param {String} $left [initial]
 /// @param {String} $right [initial]
 /// @param {String} $bottom [initial]
-@mixin position($position, $top: initial, $left: initial, $right: initial, $bottom: initial) {
+@mixin position(
+    $position,
+    $top: initial,
+    $left: initial,
+    $right: initial,
+    $bottom: initial
+) {
     position: $position;
     inset: $top $right $bottom $left;
 }

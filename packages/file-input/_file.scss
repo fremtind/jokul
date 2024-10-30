@@ -4,7 +4,13 @@
 .jkl-file {
     --text-color: var(--jkl-color-text-default);
 
-    @include jkl.motion("standard", "snappy", background-color, border-color, color);
+    @include jkl.motion(
+        "standard",
+        "snappy",
+        background-color,
+        border-color,
+        color
+    );
 
     color: var(--jkl-color-text-default);
     margin: 0;

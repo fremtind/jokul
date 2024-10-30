@@ -28,7 +28,12 @@ Om du vil bruke `react-hook-form` med denne nye komponenten vil det kunne se ut 
 ```jsx
 <RadioButtonGroup legend="Hvilken boligtype?">
     {["Enebolig", "Tomannsbolig", "Rekkehus", "Leilighet"].map((type) => (
-        <RadioButton {...register("housetype", { required: true })} key={type} label={type} value={type} />
+        <RadioButton
+            {...register("housetype", { required: true })}
+            key={type}
+            label={type}
+            value={type}
+        />
     ))}
 </RadioButtonGroup>
 ```

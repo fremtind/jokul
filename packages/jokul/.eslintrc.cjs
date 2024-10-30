@@ -7,7 +7,8 @@ module.exports = {
                 patterns: [
                     {
                         group: ["@fremtind/jkl-*"],
-                        message: "Alle Jøkul-pakker skal importeres fra innad i @fremtind/jokul",
+                        message:
+                            "Alle Jøkul-pakker skal importeres fra innad i @fremtind/jokul",
                     },
                 ],
             },

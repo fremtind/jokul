@@ -15,11 +15,15 @@ import {
     singleCheckboxExampleCode,
     singleCheckboxExampleKnobs,
 } from "../../checkbox-react/documentation/SingleCheckboxExample";
-import { InputGroupExample, inputGroupExampleCode, inputGroupExampleKnobs } from "./InputGroupExample";
+import {
+    InputGroupExample,
+    inputGroupExampleCode,
+    inputGroupExampleKnobs,
+} from "./InputGroupExample";
 
 <Ingress>
-    Skjemafeltene våre har noen felles egenskaper. For å unngå duplisering av kode har vi laget en pakke for delte
-    komponenter.
+    Skjemafeltene våre har noen felles egenskaper. For å unngå duplisering av
+    kode har vi laget en pakke for delte komponenter.
 </Ingress>
 
 Pakken har fire komponenter:
@@ -61,7 +65,10 @@ Annet enn når du importerer CSS skal du vanligvis ikke trenge forholde deg til 
     title="SupportLabel"
     component={SingleCheckboxExample}
     knobs={{
-        boolProps: [{ prop: "Med hjelpetekst", defaultValue: true }, "Med feil"],
+        boolProps: [
+            { prop: "Med hjelpetekst", defaultValue: true },
+            "Med feil",
+        ],
     }}
     codeExample={singleCheckboxExampleCode}
 />

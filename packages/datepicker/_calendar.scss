@@ -20,17 +20,20 @@
     color: var(--jkl-calendar-text-color);
 
     @include jkl.comfortable-density {
-        --jkl-calendar-padding: var(--jkl-spacing-12) var(--jkl-spacing-16) var(--jkl-spacing-16);
+        --jkl-calendar-padding: var(--jkl-spacing-12) var(--jkl-spacing-16)
+            var(--jkl-spacing-16);
         --jkl-calendar-gap: var(--jkl-spacing-12);
 
         // Custom tweaks for iPhone SE
         @include jkl.screen-to(375px) {
-            --jkl-calendar-padding: var(--jkl-spacing-4) var(--jkl-spacing-8) var(--jkl-spacing-16);
+            --jkl-calendar-padding: var(--jkl-spacing-4) var(--jkl-spacing-8)
+                var(--jkl-spacing-16);
         }
     }
 
     @include jkl.compact-density {
-        --jkl-calendar-padding: var(--jkl-spacing-4) var(--jkl-spacing-8) var(--jkl-spacing-16);
+        --jkl-calendar-padding: var(--jkl-spacing-4) var(--jkl-spacing-8)
+            var(--jkl-spacing-16);
         --jkl-calendar-gap: 0;
     }
 

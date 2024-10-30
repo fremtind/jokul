@@ -9,12 +9,18 @@ keywords: dropdown nedtrekksliste søkbar
 import { SelectExample, selectExampleKnobs, selectCode } from "./SelectExample";
 
 <Ingress>
-    Vi bruker nedtrekkslister til å gi brukeren en liste med alternativ. Nedtrekkslister passer i de tilfellene det er
-    for mange valg til å bruke radioknapper. Nedtrekkslisten må ha en overskrift, som forteller hva det er brukerne kan
-    velge mellom i listen.
+    Vi bruker nedtrekkslister til å gi brukeren en liste med alternativ.
+    Nedtrekkslister passer i de tilfellene det er for mange valg til å bruke
+    radioknapper. Nedtrekkslisten må ha en overskrift, som forteller hva det er
+    brukerne kan velge mellom i listen.
 </Ingress>
 
-<ComponentExample title="Select" component={SelectExample} knobs={selectExampleKnobs} codeExample={selectCode} />
+<ComponentExample
+    title="Select"
+    component={SelectExample}
+    knobs={selectExampleKnobs}
+    codeExample={selectCode}
+/>
 
 Om du har fem eller færre valg kan det være bedre å bruke [Radio buttons](/komponenter/radiobutton). {/* Vi har bare fire i eksempelet for å få med oss hele rammen i de visuelle regresjonstestene. */}
 
@@ -42,4 +48,7 @@ En nedtrekksliste med søk har noen likhetstrekk med [Autosuggest](/komponenter/
 
 ### Eksempler på bruk
 
-<PortalImage src="/assets/documentation/select/select-dekningsvelger.png" caption="To Select i et skjema." />
+<PortalImage
+    src="/assets/documentation/select/select-dekningsvelger.png"
+    caption="To Select i et skjema."
+/>

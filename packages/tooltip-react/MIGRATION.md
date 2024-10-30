@@ -9,13 +9,21 @@ Der du har brukt den eksisterende `<Tooltip>`-komponenten kan du erstatte den me
     /* Før: */
 }
 <p className="jkl-body">
-    Du betaler 348 kr/mnd <Tooltip content="Månedsprisen varierer fra måned til måned" placement="top" />
+    Du betaler 348 kr/mnd{" "}
+    <Tooltip
+        content="Månedsprisen varierer fra måned til måned"
+        placement="top"
+    />
 </p>;
 
 {
     /* Etter: */
 }
 <p className="jkl-body">
-    Du betaler 348 kr/mnd <PopupTip content="Månedsprisen varierer fra måned til måned" placement="top" />
+    Du betaler 348 kr/mnd{" "}
+    <PopupTip
+        content="Månedsprisen varierer fra måned til måned"
+        placement="top"
+    />
 </p>;
 ```

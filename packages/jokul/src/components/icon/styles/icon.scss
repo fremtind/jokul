@@ -13,8 +13,8 @@
     --jkl-icon-fill: 0;
 
     font-family: "Fremtind Material Symbols", Arial, Helvetica, sans-serif;
-    font-variation-settings: "FILL" var(--jkl-icon-fill, 0), "GRAD" var(--jkl-icon-grade, 0),
-        "opsz" var(--jkl-icon-opsz, 24);
+    font-variation-settings: "FILL" var(--jkl-icon-fill, 0),
+        "GRAD" var(--jkl-icon-grade, 0), "opsz" var(--jkl-icon-opsz, 24);
     font-feature-settings: "liga";
     -webkit-font-feature-settings: "liga";
     font-size: var(--jkl-icon-size, #{jkl.rem(24px)});

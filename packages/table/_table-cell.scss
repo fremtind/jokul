@@ -49,7 +49,8 @@
 
     // only show inline text if it's not an ExpandController with text inside. if it doesn't
     // have text inside. the text is moved inside the ExpandButton
-    .jkl-table--collapse-to-list &[data-th]:not(.jkl-table-cell--expand-without-text)::before {
+    .jkl-table--collapse-to-list
+        &[data-th]:not(.jkl-table-cell--expand-without-text)::before {
         display: none;
 
         @include jkl.small-device {
@@ -57,11 +58,14 @@
         }
     }
 
-    .jkl-table--collapse-to-list[data-collapse] &:not(.jkl-table-cell--expand-without-text)::before {
+    .jkl-table--collapse-to-list[data-collapse]
+        &:not(.jkl-table-cell--expand-without-text)::before {
         @include _responsive-table-header;
     }
 
-    .jkl-table--collapse-to-list:not([data-collapse]) &--expand-without-text .jkl-expand-button__text {
+    .jkl-table--collapse-to-list:not([data-collapse])
+        &--expand-without-text
+        .jkl-expand-button__text {
         @include jkl.from-medium-device {
             display: none;
         }
@@ -73,7 +77,9 @@
     }
 }
 
-.jkl-table-row--expandable.jkl-table-row--clickable:not(.jkl-expandable-table-row--clickable-external) {
+.jkl-table-row--expandable.jkl-table-row--clickable:not(
+        .jkl-expandable-table-row--clickable-external
+    ) {
     &:hover,
     html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus {
         .jkl-table-row-expand-button {

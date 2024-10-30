@@ -5,11 +5,22 @@ scss: modal
 group: edit me!
 ---
 
-import ModalExample, { dialogExampleCode, dialogExampleKnobs } from "./ModalExample";
+import ModalExample, {
+    dialogExampleCode,
+    dialogExampleKnobs,
+} from "./ModalExample";
 
-<Ingress>En modal brukes der vi trenger å avbryte den nåværende flyten for å gjøre en handling.</Ingress>
+<Ingress>
+    En modal brukes der vi trenger å avbryte den nåværende flyten for å gjøre en
+    handling.
+</Ingress>
 
-<ComponentExample component={ModalExample} codeExample={dialogExampleCode} knobs={dialogExampleKnobs} noDensity />
+<ComponentExample
+    component={ModalExample}
+    codeExample={dialogExampleCode}
+    knobs={dialogExampleKnobs}
+    noDensity
+/>
 
 Modalen dimmer innholdet på siden, og legger seg sentrert i skjermen.
 

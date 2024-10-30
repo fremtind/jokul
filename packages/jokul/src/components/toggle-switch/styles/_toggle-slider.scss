@@ -48,7 +48,8 @@ $_slider-rounded: jkl.rem(100px);
     flex-direction: column;
     user-select: none;
 
-    html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
+    html:not([data-mousenavigation]):not([data-touchnavigation])
+        &:focus-within {
         .jkl-toggle-slider__pill {
             box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-slider-focus-color);
         }

@@ -11,13 +11,24 @@ keywords: textarea fritekst maske maskering
 ---
 
 import { TextInput, TextArea } from "../src";
-import { TextInputExample, textInputExampleCode, textInputExampleKnobs } from "./TextInputExample";
-import { TextAreaExample, textAreaExampleCode, textAreaExampleKnobs } from "./TextAreaExample";
-import { InputMaskExample, inputMaskExampleCode } from "../../formatters-util/documentation/InputMaskExample";
+import {
+    TextInputExample,
+    textInputExampleCode,
+    textInputExampleKnobs,
+} from "./TextInputExample";
+import {
+    TextAreaExample,
+    textAreaExampleCode,
+    textAreaExampleKnobs,
+} from "./TextAreaExample";
+import {
+    InputMaskExample,
+    inputMaskExampleCode,
+} from "../../formatters-util/documentation/InputMaskExample";
 
 <Ingress>
-    Vi bruker tekstfelt og tekstområder når vi vil at brukerne skal legge inn informasjon som tekst eller tall hvor vi
-    ikke gir brukeren forhåndsvalg.
+    Vi bruker tekstfelt og tekstområder når vi vil at brukerne skal legge inn
+    informasjon som tekst eller tall hvor vi ikke gir brukeren forhåndsvalg.
 </Ingress>
 
 **Tekstfelt:** brukes for eksempel til navn, e-postadresser, fødselsnummer og andre typer informasjon som får plass på én linje.
@@ -53,7 +64,11 @@ Dersom du har begrensninger på antall tegn kan du velge å vise en teller. Tell
 
 Eksempler på tilfeller hvor en maskert input kan være nyttig er når brukeren skal skrive inn fødselsnummer, kortnummer, kontonummer eller andre lange tall. Dette gjør at tallene blir enklere å lese, og gjør det lettere for brukeren å være sikre på at de har skrevet inn riktig informasjon.
 
-<ComponentExample title="Bruk med formaterer" component={InputMaskExample} codeExample={inputMaskExampleCode} />
+<ComponentExample
+    title="Bruk med formaterer"
+    component={InputMaskExample}
+    codeExample={inputMaskExampleCode}
+/>
 
 [Les mer om formattering og maskering av input](/komponenter/formatters#maskering-av-skjemafelter)
 
@@ -78,13 +93,23 @@ Det er noen faste regler som gjelder for både tekstfelt og tekstområder:
         type="do"
         description="Hjelpetekst i feilmelding"
         content={
-            <TextInput name="hjelpriktig" label="Fødselsnummer" errorLabel="Du må fylle ut fødselsnummer, 11 siffer" />
+            <TextInput
+                name="hjelpriktig"
+                label="Fødselsnummer"
+                errorLabel="Du må fylle ut fødselsnummer, 11 siffer"
+            />
         }
     />
     <DoDontExample
         type="dont"
         description="Feilmelding uten hjelp"
-        content={<TextInput name="hjelpfeil" label="Fødselsnummer" errorLabel="Du må fylle ut fødselsnummer" />}
+        content={
+            <TextInput
+                name="hjelpfeil"
+                label="Fødselsnummer"
+                errorLabel="Du må fylle ut fødselsnummer"
+            />
+        }
     />
 </Grid>
 
@@ -99,20 +124,37 @@ Det er også noen felles anbefalinger:
         type="do"
         description="Informasjon i hjelpetekst"
         content={
-            <TextInput name="placeholderriktig" label="Fødselsnummer" helpLabel="Fødselsnummer består av 11 siffer" />
+            <TextInput
+                name="placeholderriktig"
+                label="Fødselsnummer"
+                helpLabel="Fødselsnummer består av 11 siffer"
+            />
         }
     />
     <DoDontExample
         type="dont"
         description="Hjelpetekst som forsvinner"
-        content={<TextInput name="placeholderfeil" label="Fødselsnummer" placeholder="11 siffer" />}
+        content={
+            <TextInput
+                name="placeholderfeil"
+                label="Fødselsnummer"
+                placeholder="11 siffer"
+            />
+        }
     />
 </Grid>
 <Grid>
     <DoDontExample
         type="do"
         description="Bredde tilpasset innhold"
-        content={<TextInput name="bredderiktig" label="Postnummer" width="4.5rem" maxlength="4" />}
+        content={
+            <TextInput
+                name="bredderiktig"
+                label="Postnummer"
+                width="4.5rem"
+                maxlength="4"
+            />
+        }
     />
     <DoDontExample
         type="dont"

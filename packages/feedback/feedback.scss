@@ -59,7 +59,10 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     @include jkl.motion;
     transition-property: transform, color;
 
-    @include jkl.forced-colors-svg-fallback($stroke: ButtonFace, $fill: ButtonText);
+    @include jkl.forced-colors-svg-fallback(
+        $stroke: ButtonFace,
+        $fill: ButtonText
+    );
 
     &::before,
     &::after {

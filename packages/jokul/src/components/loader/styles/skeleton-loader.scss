@@ -33,7 +33,8 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
             var(--jkl-skeleton-sweeper-color) 50.09%,
             rgb(249 249 249 / 0%) 96.31%
         );
-        animation: var(--jkl-skeleton-sweep-duration) ease infinite $_sweep-animation-name;
+        animation: var(--jkl-skeleton-sweep-duration) ease infinite
+            $_sweep-animation-name;
     }
 
     @include jkl.small-device {
