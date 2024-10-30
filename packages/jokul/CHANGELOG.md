@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.27.2...@fremtind/jokul@0.27.3) (2024-10-30)
+
+### Bug Fixes
+
+- works properly when used as controlled ([8daeae4](https://github.com/fremtind/jokul/commit/8daeae486928aa77ebd102881ce27c329eed4ddc))
+
 ## [0.27.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.27.0...@fremtind/jokul@0.27.1) (2024-10-29)
 
 ### Bug Fixes
