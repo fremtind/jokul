@@ -5,5 +5,8 @@
 @use "labels";
 
 .jkl-text-input-action-button {
-    @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonFace);
+    @include jkl.forced-colors-svg-fallback(
+        $stroke: ButtonText,
+        $fill: ButtonFace
+    );
 }

@@ -5,14 +5,23 @@ group: hooks
 ---
 
 import AnimationExample, { animationExampleCode } from "./AnimationExample";
-import AnimationBetweenExample, { animationBetweenExampleCode } from "./AnimationBetweenExample";
-import AutoAnimationExample, { autoAnimationExampleCode } from "./AutoAnimationExample";
+import AnimationBetweenExample, {
+    animationBetweenExampleCode,
+} from "./AnimationBetweenExample";
+import AutoAnimationExample, {
+    autoAnimationExampleCode,
+} from "./AutoAnimationExample";
 
 <Ingress>
-    Animering av ting inn og ut av DOMet i React er ikke lett, men med useAnimatedHeight blir jobben en god del lettere.
+    Animering av ting inn og ut av DOMet i React er ikke lett, men med
+    useAnimatedHeight blir jobben en god del lettere.
 </Ingress>
 
-<ComponentExample title="useAnimatedHeight" component={AnimationExample} codeExample={animationExampleCode} />
+<ComponentExample
+    title="useAnimatedHeight"
+    component={AnimationExample}
+    codeExample={animationExampleCode}
+/>
 
 Hooken tar seg av all CSS for animasjonen selv. Du kan overstyre animasjonen om du trenger en annen timing eller easing-funksjon.
 

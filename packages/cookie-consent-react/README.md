@@ -10,7 +10,11 @@ Se portalen for [bruk og prinsipper](https://jokul.fremtind.no/komponenter/cooki
 2. Importér _både_ React-komponent og stilark i prosjektet ditt.
 
 ```js
-import { CookieConsentProvider, CookieConsent, useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
+import {
+    CookieConsentProvider,
+    CookieConsent,
+    useCookieConsent,
+} from "@fremtind/jkl-cookie-consent-react";
 
 // Importer stilark via JavaScript med CSS-loader.
 import "@fremtind/jkl-cookie-consent/cookie-consent.min.css";

@@ -13,7 +13,10 @@
     color: var(--jkl-logo-color);
 
     // I valget mellom å følge merkevaren og å være lesbar velger vi å være lesbar.
-    @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
+    @include jkl.forced-colors-svg-fallback(
+        $stroke: CanvasText,
+        $fill: CanvasText
+    );
 
     &__F {
         transform-origin: 30px 132px; /* Is connected to the viewbox of the logo, change at your own risk */
@@ -45,7 +48,8 @@
 
     &--animated {
         & .jkl-logo__F {
-            transition: transform jkl.timing("expressive") jkl.timing("energetic") cubic-bezier(0.5, 0, 0.62, 1);
+            transition: transform jkl.timing("expressive")
+                jkl.timing("energetic") cubic-bezier(0.5, 0, 0.62, 1);
         }
 
         & .jkl-logo__F-line {
@@ -53,7 +57,8 @@
         }
 
         & .jkl-logo__remtind {
-            transition: opacity jkl.timing("expressive") jkl.timing("energetic") ease-in,
+            transition: opacity jkl.timing("expressive") jkl.timing("energetic")
+                    ease-in,
                 transform jkl.timing("expressive") ease;
         }
     }
@@ -69,7 +74,10 @@
     color: var(--logo-stamp-color);
 
     // I valget mellom å følge merkevaren og å være lesbar velger vi å være lesbar.
-    @include jkl.forced-colors-svg-fallback($stroke: CanvasText, $fill: CanvasText);
+    @include jkl.forced-colors-svg-fallback(
+        $stroke: CanvasText,
+        $fill: CanvasText
+    );
 
     &--animated {
         .jkl-logo-stamp__text {

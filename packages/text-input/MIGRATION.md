@@ -17,7 +17,9 @@ Gammel struktur t.o.m. 9.X.X:
         <input class="jkl-text-input__input" aria-invalid="true" />
         <button class="jkl-text-input__action-button"><!-- ... --></button>
     </div>
-    <span class="jkl-form-support-label jkl-form-support-label--error">Feilmelding</span>
+    <span class="jkl-form-support-label jkl-form-support-label--error"
+        >Feilmelding</span
+    >
 </div>
 ```
 
@@ -29,10 +31,14 @@ Ny struktur f.o.m. 10.0.0:
     <div class="jkl-text-input-wrapper" data-invalid="true">
         <input class="jkl-text-input__input" aria-invalid="true" />
         <!-- Støtte for både handling og enhet. Bruk kun én av gangen -->
-        <button class="jkl-text-input-action-button"><!-- Uendret struktur --></button>
+        <button class="jkl-text-input-action-button">
+            <!-- Uendret struktur -->
+        </button>
         <span class="jkl-text-input__unit">kr</span>
     </div>
-    <span class="jkl-form-support-label jkl-form-support-label--error">Feilmelding</span>
+    <span class="jkl-form-support-label jkl-form-support-label--error"
+        >Feilmelding</span
+    >
 </div>
 ```
 
@@ -47,7 +53,11 @@ Gammel struktur t.o.m. 9.X.X:
     <label class="jkl-label jkl-label--small">Beskrivelse</label>
     <div class="jkl-text-area__content">
         <!-- aria-invalid settes på både wrapper og felt -->
-        <div class="jkl-text-input__input" aria-invalid="true" data-has-content="true">
+        <div
+            class="jkl-text-input__input"
+            aria-invalid="true"
+            data-has-content="true"
+        >
             <textarea
                 class="jkl-text-area__text-area jkl-text-input__text-input--7-rows"
                 aria-invalid="true"
@@ -55,7 +65,9 @@ Gammel struktur t.o.m. 9.X.X:
         </div>
         <div class="jkl-text-area__counter"><!-- ... --></div>
     </div>
-    <span class="jkl-form-support-label jkl-form-support-label--error">Feilmelding</span>
+    <span class="jkl-form-support-label jkl-form-support-label--error"
+        >Feilmelding</span
+    >
 </div>
 ```
 
@@ -64,11 +76,20 @@ Ny struktur f.o.m. 10.X.X:
 ```html
 <div class="jkl-text-area jkl-text-area--with-counter">
     <label class="jkl-label jkl-label--small">Beskrivelse</label>
-    <div class="jkl-text-input-wrapper" data-invalid="true" data-has-content="true">
-        <textarea class="jkl-text-area__text-area jkl-text-area__text-area--7-rows" aria-invalid="true"></textarea>
+    <div
+        class="jkl-text-input-wrapper"
+        data-invalid="true"
+        data-has-content="true"
+    >
+        <textarea
+            class="jkl-text-area__text-area jkl-text-area__text-area--7-rows"
+            aria-invalid="true"
+        ></textarea>
         <div class="jkl-text-area__counter"><!-- Uendret struktur --></div>
     </div>
-    <span class="jkl-form-support-label jkl-form-support-label--error">Feilmelding</span>
+    <span class="jkl-form-support-label jkl-form-support-label--error"
+        >Feilmelding</span
+    >
 </div>
 ```
 

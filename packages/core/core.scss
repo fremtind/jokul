@@ -32,14 +32,19 @@
 
 :root {
     @each $level, $values in typography.$text-styles {
-        @each $property, $value in map.get(typography.$text-styles, $level, "small-screen") {
+        @each $property,
+            $value in map.get(typography.$text-styles, $level, "small-screen")
+        {
             --jkl-#{$level}-#{$property}: #{$value};
         }
     }
 
     @include jkl.from-medium-device {
         @each $level, $values in typography.$text-styles {
-            @each $property, $value in map.get(typography.$text-styles, $level, "large-screen") {
+            @each $property,
+                $value
+                    in map.get(typography.$text-styles, $level, "large-screen")
+            {
                 --jkl-#{$level}-#{$property}: #{$value};
             }
         }

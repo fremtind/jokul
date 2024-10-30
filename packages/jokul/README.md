@@ -13,7 +13,13 @@ import { CalendarIcon, List, Link, Message, TextInput } from "@fremtind/jokul";
 eller fra en felles komponent-mappe
 
 ```jsx
-import { CalendarIcon, List, Link, Message, TextInput } from "@fremtind/jokul/components";
+import {
+    CalendarIcon,
+    List,
+    Link,
+    Message,
+    TextInput,
+} from "@fremtind/jokul/components";
 ```
 
 eller fra en fullt kvalifisert mappe
@@ -119,7 +125,8 @@ kopieres inn i prosjektet. Deretter må du endre URLen i hver `@font-face`-defin
     font-style: normal;
     src: local("Fremtind Grotesk"),
         /* Endre de to neste linjene så de stemmer */
-            url("/relative/path/to/font/files/FremtindGrotesk-Regular-Web.woff2") format("woff2"), url("/relative/path/to/font/files/FremtindGrotesk-Regular-Web.woff")
+            url("/relative/path/to/font/files/FremtindGrotesk-Regular-Web.woff2")
+            format("woff2"), url("/relative/path/to/font/files/FremtindGrotesk-Regular-Web.woff")
             format("woff");
 }
 ```

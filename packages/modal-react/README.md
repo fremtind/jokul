@@ -32,7 +32,10 @@ import "@fremtind/jkl-icons/icons.min.css";
 // Bruk av komponentene
 const heading = "Bekreft sletting";
 const role = "dialog";
-const [instance, { title, overlay, container, modal, closeButton }] = useModal({ title: heading, role });
+const [instance, { title, overlay, container, modal, closeButton }] = useModal({
+    title: heading,
+    role,
+});
 
 useEffect(() => {
     if (!instance) {
@@ -51,8 +54,12 @@ return ReactDOM.createPortal(
             </ModalHeader>
             <ModalBody>Er du sikker på at du vil slette Foo Bar Baz?</ModalBody>
             <ModalActions>
-                <PrimaryButton onClick={() => instance?.hide()}>Bekreft</PrimaryButton>
-                <TertiaryButton onClick={() => instance?.hide()}>Avbryt</TertiaryButton>
+                <PrimaryButton onClick={() => instance?.hide()}>
+                    Bekreft
+                </PrimaryButton>
+                <TertiaryButton onClick={() => instance?.hide()}>
+                    Avbryt
+                </TertiaryButton>
             </ModalActions>
         </Modal>
     </ModalContainer>,

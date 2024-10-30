@@ -81,7 +81,8 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 
     &__input:checked + &__dot {
         &::after {
-            animation: $_radio-panel-dot-animation-name jkl.timing("productive") ease;
+            animation: $_radio-panel-dot-animation-name jkl.timing("productive")
+                ease;
         }
     }
 

@@ -63,7 +63,8 @@
 
             @include jkl.keyboard-navigation {
                 &:focus::after {
-                    box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-autosuggest-error-text-color);
+                    box-shadow: inset 0 0 0 jkl.rem(2px)
+                        var(--jkl-autosuggest-error-text-color);
                 }
             }
         }
@@ -117,7 +118,9 @@
         &--active,
         &:hover {
             color: var(--jkl-autosuggest-hover-option-color);
-            background-color: var(--jkl-autosuggest-hover-option-background-color);
+            background-color: var(
+                --jkl-autosuggest-hover-option-background-color
+            );
         }
     }
 }

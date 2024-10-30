@@ -7,10 +7,14 @@ group: hooks
 import IntersectionObserverExample from "./IntersectionObserverExample";
 
 <Ingress>
-    useIntersectionObserver lar deg observere et eller flere elementer, og kalle en funksjon hver gang et av dem beveger
-    seg inn eller ut av et område av skjermen.
+    useIntersectionObserver lar deg observere et eller flere elementer, og kalle
+    en funksjon hver gang et av dem beveger seg inn eller ut av et område av
+    skjermen.
 </Ingress>
 
 Bruk useInteractionObserver når du vil utsette lasting av innhold til det nærmer seg den synlige delen av skjermen, eller bruk den til å utløse endringer på siden ut fra hvilket innhold som er synlig. I eksemplet under skifter boksen farge ettersom det nederste avsnittet beveger seg inn og ut av det synlige området.
 
-<ComponentExample title="useIntersectionObserver" component={IntersectionObserverExample} />
+<ComponentExample
+    title="useIntersectionObserver"
+    component={IntersectionObserverExample}
+/>

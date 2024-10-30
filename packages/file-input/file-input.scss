@@ -62,7 +62,8 @@
         flex-direction: column;
         flex-wrap: nowrap;
 
-        html:not([data-mousenavigation]):not([data-touchnavigation]) &:focus-within {
+        html:not([data-mousenavigation]):not([data-touchnavigation])
+            &:focus-within {
             .jkl-button {
                 transform: scale(1.05);
 

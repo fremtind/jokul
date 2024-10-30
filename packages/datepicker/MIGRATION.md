@@ -8,8 +8,15 @@ Gammel struktur t.o.m. 9.X.X:
 <div class="jkl-datepicker">
     <label class="jkl-label jkl-label--small">Velg dato</label>
     <div class="jkl-datepicker__input-wrapper jkl-text-input__input-wrapper">
-        <input class="jkl-datepicker__input jkl-text-input__input" aria-invalid="true" />
-        <button class="jkl-datepicker__action-button jkl-text-input__action-button"><!-- endret --></button>
+        <input
+            class="jkl-datepicker__input jkl-text-input__input"
+            aria-invalid="true"
+        />
+        <button
+            class="jkl-datepicker__action-button jkl-text-input__action-button"
+        >
+            <!-- endret -->
+        </button>
     </div>
     <!-- ... -->
 </div>
@@ -22,8 +29,15 @@ Ny struktur t.o.m. 10.0.0:
     <label class="jkl-label jkl-label--small">Velg dato</label>
     <div class="jkl-datepicker__input-wrapper jkl-text-input-wrapper">
         <!--                                      endret ^         -->
-        <input class="jkl-datepicker__input jkl-text-input__input" aria-invalid="true" />
-        <button class="jkl-datepicker__action-button jkl-text-input-action-button"><!-- ... --></button>
+        <input
+            class="jkl-datepicker__input jkl-text-input__input"
+            aria-invalid="true"
+        />
+        <button
+            class="jkl-datepicker__action-button jkl-text-input-action-button"
+        >
+            <!-- ... -->
+        </button>
         <!--                                                  endret ^          -->
     </div>
     <!-- ... -->

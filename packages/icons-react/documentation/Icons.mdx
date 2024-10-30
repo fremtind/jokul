@@ -5,12 +5,28 @@ scss: icons
 group: annet
 ---
 
-import { IconsExample, iconsExampleKnobs, iconsExampleCode } from "./IconsExample";
-import { AnimatedIconsExample, animatedIconsExampleKnobs, animatedIconsExampleCode } from "./AnimatedIconsExample";
+import {
+    IconsExample,
+    iconsExampleKnobs,
+    iconsExampleCode,
+} from "./IconsExample";
+import {
+    AnimatedIconsExample,
+    animatedIconsExampleKnobs,
+    animatedIconsExampleCode,
+} from "./AnimatedIconsExample";
 
-<Ingress>Vi bruker sjelden ikoner. De ikonene vi har valgt å ha, er funksjonelle, ikke til dekorasjon.</Ingress>
+<Ingress>
+    Vi bruker sjelden ikoner. De ikonene vi har valgt å ha, er funksjonelle,
+    ikke til dekorasjon.
+</Ingress>
 
-<ComponentExample title="Icons" component={IconsExample} knobs={iconsExampleKnobs} codeExample={iconsExampleCode} />
+<ComponentExample
+    title="Icons"
+    component={IconsExample}
+    knobs={iconsExampleKnobs}
+    codeExample={iconsExampleCode}
+/>
 
 Et lite utvalg av ikonene våre er animerbare. For å bruke animasjonene trengs [CSSen fra ikonpakka](https://github.com/fremtind/jokul/tree/main/packages/icons).
 

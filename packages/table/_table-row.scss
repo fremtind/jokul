@@ -21,7 +21,8 @@ $_focus-ring-width: jkl.rem(2px);
     border-bottom: solid $_border-size var(--jkl-table-row-border-color);
 
     .jkl-table-head > & {
-        border-bottom: solid $_border-size var(--jkl-table-row-hover-border-color);
+        border-bottom: solid $_border-size
+            var(--jkl-table-row-hover-border-color);
     }
 
     /* stylelint-disable-next-line selector-not-notation */
@@ -39,8 +40,10 @@ $_focus-ring-width: jkl.rem(2px);
             * https://stackoverflow.com/a/4096554
             * https://www.w3.org/TR/CSS2/tables.html#border-conflict-resolution
             */
-            border-top: double $_border-size var(--jkl-table-row-hover-border-color);
-            border-bottom: double $_border-size var(--jkl-table-row-hover-border-color);
+            border-top: double $_border-size
+                var(--jkl-table-row-hover-border-color);
+            border-bottom: double $_border-size
+                var(--jkl-table-row-hover-border-color);
         }
     }
 
@@ -77,7 +80,9 @@ $_focus-ring-width: jkl.rem(2px);
         @include _responsive-table-row;
     }
 
-    .jkl-table--collapse-to-list[data-collapse] :not(.jkl-table-head) > &.jkl-table-row--expandable {
+    .jkl-table--collapse-to-list[data-collapse]
+        :not(.jkl-table-head)
+        > &.jkl-table-row--expandable {
         transition-property: border, padding;
         @include jkl.motion;
 
@@ -113,7 +118,8 @@ $_focus-ring-width: jkl.rem(2px);
     @mixin _responsive-table-row--hover {
         /* Tilbakestill hacken som gir riktig border når tabellen ikke har display: block; */
         border-top: solid $_border-size var(--jkl-table-row-hover-border-color);
-        border-bottom: solid $_border-size var(--jkl-table-row-hover-border-color);
+        border-bottom: solid $_border-size
+            var(--jkl-table-row-hover-border-color);
     }
 
     .jkl-table--collapse-to-list :not(.jkl-table-head) > &:hover {
@@ -122,7 +128,9 @@ $_focus-ring-width: jkl.rem(2px);
         }
     }
 
-    .jkl-table--collapse-to-list[data-collapse] :not(.jkl-table-head) > &:hover {
+    .jkl-table--collapse-to-list[data-collapse]
+        :not(.jkl-table-head)
+        > &:hover {
         @include _responsive-table-row--hover;
     }
 
@@ -134,8 +142,10 @@ $_focus-ring-width: jkl.rem(2px);
             cursor: pointer;
             background-color: var(--jkl-table-row-highlight-color);
 
-            border-top: double $_border-size var(--jkl-table-row-hover-border-color);
-            border-bottom: double $_border-size var(--jkl-table-row-hover-border-color);
+            border-top: double $_border-size
+                var(--jkl-table-row-hover-border-color);
+            border-bottom: double $_border-size
+                var(--jkl-table-row-hover-border-color);
         }
 
         .jkl-table--collapse-to-list :not(.jkl-table-head) > &:hover {
@@ -144,7 +154,9 @@ $_focus-ring-width: jkl.rem(2px);
             }
         }
 
-        .jkl-table--collapse-to-list[data-collapse] :not(.jkl-table-head) > &:hover {
+        .jkl-table--collapse-to-list[data-collapse]
+            :not(.jkl-table-head)
+            > &:hover {
             @include _responsive-table-row--hover;
         }
 

@@ -60,7 +60,8 @@
         --indicator-color: var(--jkl-color-background-container-inverted);
         --knob-color: var(--jkl-color-text-inverted);
         --knob-position: calc(
-            var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) - var(--switch-padding) * 2
+            var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) -
+                var(--switch-padding) * 2
         );
     }
 

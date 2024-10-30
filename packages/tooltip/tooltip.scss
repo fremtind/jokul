@@ -3,7 +3,9 @@
 
 $_tooltip-border-width: jkl.rem(1px);
 $_tooltip-arrow-height: jkl.rem(8px);
-$_focus-ring-distance: jkl.rem(-1px); // Negativ margin for å unngå subpixel mellomrom mellom border og box-shadow
+$_focus-ring-distance: jkl.rem(
+    -1px
+); // Negativ margin for å unngå subpixel mellomrom mellom border og box-shadow
 $_focus-ring-width: jkl.rem(2px);
 
 @include jkl.comfortable-density(".jkl-tooltip-content") {
@@ -34,7 +36,10 @@ $_focus-ring-width: jkl.rem(2px);
     color: var(--jkl-color-text-inverted);
     display: inline-block;
     min-width: min-content;
-    max-width: min(jkl.rem(310px), 100%); // 10px mindre enn smaleste støttede skjerm
+    max-width: min(
+        jkl.rem(310px),
+        100%
+    ); // 10px mindre enn smaleste støttede skjerm
     padding: var(--content-padding);
     position: absolute;
     z-index: jkl.$z-index--floating;

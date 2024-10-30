@@ -77,7 +77,9 @@
     &__progress {
         grid-area: progress;
         margin-bottom: jkl.$spacing-16;
-        margin-inline: calc(-1 * var(--jkl-toast-padding)); // Motvirk padding for å gå kant i kant.
+        margin-inline: calc(
+            -1 * var(--jkl-toast-padding)
+        ); // Motvirk padding for å gå kant i kant.
 
         .jkl-countdown {
             --bar-color: var(--text-color);
@@ -98,7 +100,9 @@
     }
 
     &__message {
-        margin-top: jkl.rem(-2px); // Offset for å aligne med ikon hvis uten tittel.
+        margin-top: jkl.rem(
+            -2px
+        ); // Offset for å aligne med ikon hvis uten tittel.
     }
 
     &__title {
@@ -128,10 +132,13 @@
 
         // Sørg for å ha en stor nok touch target.
         &::after {
-            --tap-increment: calc((#{jkl.rem(44px)} - #{jkl.rem(20px)}) / 2 * -1);
+            --tap-increment: calc(
+                (#{jkl.rem(44px)} - #{jkl.rem(20px)}) / 2 * -1
+            );
             content: "";
             position: absolute;
-            inset: var(--tap-increment) var(--tap-increment) var(--tap-increment) var(--tap-increment);
+            inset: var(--tap-increment) var(--tap-increment)
+                var(--tap-increment) var(--tap-increment);
             border-radius: jkl.rem(3px);
         }
     }

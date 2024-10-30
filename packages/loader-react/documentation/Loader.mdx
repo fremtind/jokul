@@ -7,17 +7,34 @@ keywords: skeletonloader
 ---
 
 import { Loader } from "../src";
-import { LoaderExample, loaderExampleCode, loaderExampleKnobs } from "./LoaderExample";
-import { QuickLoaderExampleDo, QuickLoaderExampleDont } from "./QuickLoaderExample";
-import { SkeletonLoaderExample, skeletonLoaderExampleCode, skeletonLoaderExampleKnobs } from "./SkeletonLoaderExample";
+import {
+    LoaderExample,
+    loaderExampleCode,
+    loaderExampleKnobs,
+} from "./LoaderExample";
+import {
+    QuickLoaderExampleDo,
+    QuickLoaderExampleDont,
+} from "./QuickLoaderExample";
+import {
+    SkeletonLoaderExample,
+    skeletonLoaderExampleCode,
+    skeletonLoaderExampleKnobs,
+} from "./SkeletonLoaderExample";
 
 <Ingress>
-    En lasteindikator viser brukeren at systemet jobber. Vi bruker lasteindikatoren når vi har handlinger eller
-    prosesser som tar lengre tid enn ett sekund. For større seksjoner anbefaler vi <em>skeleton loaders</em>, heller enn
-    én stor lasteindikator.
+    En lasteindikator viser brukeren at systemet jobber. Vi bruker
+    lasteindikatoren når vi har handlinger eller prosesser som tar lengre tid
+    enn ett sekund. For større seksjoner anbefaler vi <em>skeleton loaders</em>,
+    heller enn én stor lasteindikator.
 </Ingress>
 
-<ComponentExample title="Loader" component={LoaderExample} knobs={loaderExampleKnobs} codeExample={loaderExampleCode} />
+<ComponentExample
+    title="Loader"
+    component={LoaderExample}
+    knobs={loaderExampleKnobs}
+    codeExample={loaderExampleCode}
+/>
 
 Plasser lasteindikatoren sammen med handlingen som utløser den. Den kan ha ulik posisjon og størrelse, avhengig av konteksten den skal fungere i. Lasteindikatoren tar farge etter teksten rundt.
 
@@ -57,8 +74,16 @@ Plasser lasteindikatoren sammen med handlingen som utløser den. Den kan ha ulik
 Dersom handlingen vanligvis tar under et halvt sekund, men _kan_ ta lenger tid enn ett sekund, er det lurt å vente med å vise loaderen til vi ser at den trengs tilbakemelding til brukeren.
 
 <Grid>
-    <DoDontExample type="do" description="Hopp over loader for raske handlinger" content={<QuickLoaderExampleDo />} />
-    <DoDontExample type="dont" description="Vis et kort glimt av en loader" content={<QuickLoaderExampleDont />} />
+    <DoDontExample
+        type="do"
+        description="Hopp over loader for raske handlinger"
+        content={<QuickLoaderExampleDo />}
+    />
+    <DoDontExample
+        type="dont"
+        description="Vis et kort glimt av en loader"
+        content={<QuickLoaderExampleDont />}
+    />
 </Grid>
 
 Gi brukeren tilbakemelding dersom handlingen tar lang tid (over fem sekunder). Om du har en målbar prosess, for eksempel [filopplasting](/komponenter/fileinput), bør du gi brukeren tilbakemelding på hvor langt prosessen har kommet, og hvor langt de har igjen. Se [ProgressBar](/komponenter/progressbar).

@@ -29,7 +29,11 @@ export const screenContext = createContext<ScreenState>(myInitialScreenState);
 export const ScreenContextWrapper: FC = ({ children }) => {
     const screen = useScreen();
 
-    return <screenContext.Provider value={screen}>{children}</screenContext.Provider>;
+    return (
+        <screenContext.Provider value={screen}>
+            {children}
+        </screenContext.Provider>
+    );
 };
 ```
 

@@ -145,7 +145,10 @@ $positions: (top, bottom, left, right);
 
     $first-value: string.slice($string, 0, $delimiter-index - 1);
     // Finn eventuelt flere substrenger ved å kjøre funksjonen rekursivt
-    $other-values: _split-string(string.slice($string, $delimiter-index + 1), $delimiter);
+    $other-values: _split-string(
+        string.slice($string, $delimiter-index + 1),
+        $delimiter
+    );
 
     // Returner en kommaseparert liste over substrengene
     @return list.join($first-value, $other-values, "comma");

@@ -132,14 +132,22 @@ $color-background-page-variant: var(--jkl-color-background-page-variant);
 $color-background-container: var(--jkl-color-background-container);
 $color-background-container-low: var(--jkl-color-background-container-low);
 $color-background-container-high: var(--jkl-color-background-container-high);
-$color-background-container-inverted: var(--jkl-color-background-container-inverted);
-$color-background-container-subdued: var(--jkl-color-background-container-subdued);
+$color-background-container-inverted: var(
+    --jkl-color-background-container-inverted
+);
+$color-background-container-subdued: var(
+    --jkl-color-background-container-subdued
+);
 $color-background-input-base: var(--jkl-color-background-input-base);
 $color-background-input-focus: var(--jkl-color-background-input-focus);
 $color-background-action: var(--jkl-color-background-action);
 $color-background-interactive: var(--jkl-color-background-interactive);
-$color-background-interactive-hover: var(--jkl-color-background-interactive-hover);
-$color-background-interactive-selected: var(--jkl-color-background-interactive-selected);
+$color-background-interactive-hover: var(
+    --jkl-color-background-interactive-hover
+);
+$color-background-interactive-selected: var(
+    --jkl-color-background-interactive-selected
+);
 $color-background-alert-neutral: var(--jkl-color-background-alert-neutral);
 $color-background-alert-info: var(--jkl-color-background-alert-info);
 $color-background-alert-success: var(--jkl-color-background-alert-success);

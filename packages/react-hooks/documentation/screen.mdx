@@ -6,9 +6,16 @@ group: hooks
 
 import { ScreenExample, screenExampleCode } from "./ScreenExample";
 
-<Ingress>useScreen gir deg informasjon om skjermens størrelse med utgangspunkt i breakpoints fra Jøkul.</Ingress>
+<Ingress>
+    useScreen gir deg informasjon om skjermens størrelse med utgangspunkt i
+    breakpoints fra Jøkul.
+</Ingress>
 
-<ComponentExample title="useScreen" component={ScreenExample} codeExample={screenExampleCode} />
+<ComponentExample
+    title="useScreen"
+    component={ScreenExample}
+    codeExample={screenExampleCode}
+/>
 
 Bruk denne hooken når du trenger å rendre forskjellig innhold på en side ut fra dimensjonene til nettleservinduet. Du bør foretrekke en løsning i ren CSS der det er mulig. Husk også at verdiene fra `useScreen` er upålitelige dersom du bruker server-side rendering.
 

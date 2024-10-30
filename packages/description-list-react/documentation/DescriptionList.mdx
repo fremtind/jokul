@@ -5,14 +5,22 @@ react: description-list-react
 ---
 
 import { DescriptionList, DescriptionDetail, DescriptionTerm } from "../src";
-import { DescriptionListExample, descriptionListExampleCode } from "./DescriptionListExample";
+import {
+    DescriptionListExample,
+    descriptionListExampleCode,
+} from "./DescriptionListExample";
 
 <Ingress>
-    En definisjonsliste brukes gjerne til <i>metadata</i> eller begrepsdefinisjoner, for eksempel detaljer om et produkt
-    eller en avtale kunden har.
+    En definisjonsliste brukes gjerne til <i>metadata</i> eller
+    begrepsdefinisjoner, for eksempel detaljer om et produkt eller en avtale
+    kunden har.
 </Ingress>
 
-<ComponentExample title="DescriptionList" component={DescriptionListExample} codeExample={descriptionListExampleCode} />
+<ComponentExample
+    title="DescriptionList"
+    component={DescriptionListExample}
+    codeExample={descriptionListExampleCode}
+/>
 
 Selv om en definisjonsliste visuelt sett kan deles inn i to kolonner, og kan sies å ha rader, så er det ikke en tabell. Om du trenger kolonneoverskrifter eller ønsker deg flere kolonner, se [Table](/komponenter/table).
 

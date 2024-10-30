@@ -54,7 +54,14 @@ export const MyComponent = () => {
     // "src" er den laveste oppløsningen av de du spesifiserte over
     const { src, srcSet, placeholder } = myResponsiveImage;
 
-    return <Image alt="Et fint bilde" src={src} srcSet={srcSet} placeholder={placeholder} />;
+    return (
+        <Image
+            alt="Et fint bilde"
+            src={src}
+            srcSet={srcSet}
+            placeholder={placeholder}
+        />
+    );
 };
 ```
 

@@ -16,11 +16,15 @@ import FormattersExample, { formattersExampleCode } from "./FormattersExample";
 import InputMaskExample, { inputMaskExampleCode } from "./InputMaskExample";
 
 <Ingress>
-    Bruk formatterere når du ønsker å vise et tall med et spesifikt format; for eksempel et telefonnummer, et
-    personnummer, eller et beløp.
+    Bruk formatterere når du ønsker å vise et tall med et spesifikt format; for
+    eksempel et telefonnummer, et personnummer, eller et beløp.
 </Ingress>
 
-<ComponentExample title="Eksempler på bruk" component={FormattersExample} codeExample={formattersExampleCode} />
+<ComponentExample
+    title="Eksempler på bruk"
+    component={FormattersExample}
+    codeExample={formattersExampleCode}
+/>
 
 Formatterere fungerer bra alle steder der du vil vise tallinformasjon på en måte som er enklere å lese for brukeren. Det kan være i løpende tekst, tabeller, lister, eller liknende. Ved å bruke formatererene fra Jøkul sikrer du at tallinformasjon representeres likt på tvers av løsningene våre. Det skaper gjenkjennelighet for brukeren!
 
@@ -30,6 +34,10 @@ Noen av formatererne kan også med fordel brukes til [maskering](https://en.wiki
 
 For å gjøre implementeringen av dette enklere tilbyr `jkl-formatters-util` hjelpefunksjoner for `react-hook-form` (kun for v7 eller nyere) som setter maske på feltet for deg:
 
-<ComponentExample title="Bruk med formaterer" component={InputMaskExample} codeExample={inputMaskExampleCode} />
+<ComponentExample
+    title="Bruk med formaterer"
+    component={InputMaskExample}
+    codeExample={inputMaskExampleCode}
+/>
 
 Hjelpefunksjonene brukes på samme måte som `register` fra `react-hook-form`, men du må sende inn `form`-objektet fra `useForm` som første argument. Det legges ikke til validering, så om du ønsker dette må du legge det inn selv. Bruk gjerne [validatorene i Jøkul](/komponenter/validators)!
