@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-progress-bar-react",
-    "version": "6.1.6",
+    "version": "6.1.7",
     "publishConfig": {
         "access": "public"
     },
@@ -36,8 +36,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.8.2",
-        "@fremtind/jkl-progress-bar": "^6.1.6"
+        "@fremtind/jkl-core": "^14.8.3",
+        "@fremtind/jkl-progress-bar": "^6.1.7"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

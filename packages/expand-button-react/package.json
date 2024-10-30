@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-expand-button-react",
-    "version": "7.0.24",
+    "version": "7.0.25",
     "publishConfig": {
         "access": "public"
     },
@@ -36,10 +36,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.8.2",
-        "@fremtind/jkl-expand-button": "^7.1.6",
-        "@fremtind/jkl-icons-react": "^9.1.14",
-        "@fremtind/jkl-react-hooks": "^12.2.6",
+        "@fremtind/jkl-core": "^14.8.3",
+        "@fremtind/jkl-expand-button": "^7.1.7",
+        "@fremtind/jkl-icons-react": "^9.1.15",
+        "@fremtind/jkl-react-hooks": "^12.2.7",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
