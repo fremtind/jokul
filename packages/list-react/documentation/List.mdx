@@ -13,14 +13,23 @@ import {
     OrderedLinkListExample,
     UnorderedLinkListExample,
 } from "./LinkListExample";
-import { ListExamples, listExamplesCode, listExamplesProps } from "./ListExample";
+import {
+    ListExamples,
+    listExamplesCode,
+    listExamplesProps,
+} from "./ListExample";
 
 <Ingress>
-    Lister er strukturelementer. De gjør at vi kan utheve viktig informasjon for brukerne eller fortelle dem at de må
-    gjøre noe i en bestemt rekkefølge.
+    Lister er strukturelementer. De gjør at vi kan utheve viktig informasjon for
+    brukerne eller fortelle dem at de må gjøre noe i en bestemt rekkefølge.
 </Ingress>
 
-<ComponentExample title="List" knobs={listExamplesProps} component={ListExamples} codeExample={listExamplesCode} />
+<ComponentExample
+    title="List"
+    knobs={listExamplesProps}
+    component={ListExamples}
+    codeExample={listExamplesCode}
+/>
 
 ## Nummererte lister
 
@@ -46,14 +55,22 @@ Vi kan bruke innrykk under et enkelt listepunkt når det punktet har tilleggsinf
                     Hvem skriver du for?
                     <UnorderedList>
                         <ListItem>Vurder hvem som er målgruppen din.</ListItem>
-                        <ListItem>Hvor skal mottakeren lese teksten? På en nettside eller et digitalt skjema?</ListItem>
+                        <ListItem>
+                            Hvor skal mottakeren lese teksten? På en nettside
+                            eller et digitalt skjema?
+                        </ListItem>
                     </UnorderedList>
                 </ListItem>
                 <ListItem>
                     Hva er målet med teksten?
                     <UnorderedList>
-                        <ListItem>Gjør budskapet tydelig fra begynnelsen av.</ListItem>
-                        <ListItem>Tenk på hva mottakeren vet fra før. Ta bare med det som er nødvendig.</ListItem>
+                        <ListItem>
+                            Gjør budskapet tydelig fra begynnelsen av.
+                        </ListItem>
+                        <ListItem>
+                            Tenk på hva mottakeren vet fra før. Ta bare med det
+                            som er nødvendig.
+                        </ListItem>
                     </UnorderedList>
                 </ListItem>
             </OrderedList>
@@ -104,7 +121,11 @@ Vi anbefaler å bruke `LinkList` med varianten `ordered` wrappet i en `<nav>`-ta
 
 Vi bruker `ListLink` med varianten `ordered` når vi skal lenke innad i en side, der rekkefølgen er viktig.
 
-<ComponentExample title="LinkList ordered" component={OrderedLinkListExample} codeExample={orderedLinkListExample} />
+<ComponentExample
+    title="LinkList ordered"
+    component={OrderedLinkListExample}
+    codeExample={orderedLinkListExample}
+/>
 
 ### Unummererte lenkelister
 
@@ -132,7 +153,9 @@ Når vi bruker lenkelister, anbefales det å benytte varianten `ordered` for int
                     </LinkList.Link>
                 </LinkList.Item>
                 <LinkList.Item>
-                    <LinkList.Link href="https://www.dnb.no/forsikring">DNB</LinkList.Link>
+                    <LinkList.Link href="https://www.dnb.no/forsikring">
+                        DNB
+                    </LinkList.Link>
                 </LinkList.Item>
                 <LinkList.Item>
                     <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring/lofavor-forsikring.html">
@@ -158,7 +181,9 @@ Når vi bruker lenkelister, anbefales det å benytte varianten `ordered` for int
                     </LinkList.Link>
                 </LinkList.Item>
                 <LinkList.Item>
-                    <LinkList.Link href="https://www.dnb.no/forsikring">DNB</LinkList.Link>
+                    <LinkList.Link href="https://www.dnb.no/forsikring">
+                        DNB
+                    </LinkList.Link>
                 </LinkList.Item>
                 <LinkList.Item>
                     <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring/lofavor-forsikring.html">

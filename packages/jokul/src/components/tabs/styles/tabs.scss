@@ -2,18 +2,21 @@
 @use "../../../core/jkl";
 
 @include jkl.comfortable-density-variables {
-    --jkl-tab-padding: var(--jkl-spacing-8) var(--jkl-spacing-40) var(--jkl-spacing-12) var(--jkl-spacing-2);
+    --jkl-tab-padding: var(--jkl-spacing-8) var(--jkl-spacing-40)
+        var(--jkl-spacing-12) var(--jkl-spacing-2);
 
     @include jkl.declare-font-variables("jkl-tab", "body");
     @include jkl.small-device {
-        --jkl-tab-padding: var(--jkl-spacing-8) var(--jkl-spacing-24) var(--jkl-spacing-12) var(--jkl-spacing-2);
+        --jkl-tab-padding: var(--jkl-spacing-8) var(--jkl-spacing-24)
+            var(--jkl-spacing-12) var(--jkl-spacing-2);
     }
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-tab", "small");
 
-    --jkl-tab-padding: var(--jkl-spacing-2) var(--jkl-spacing-32) var(--jkl-spacing-4) 0;
+    --jkl-tab-padding: var(--jkl-spacing-2) var(--jkl-spacing-32)
+        var(--jkl-spacing-4) 0;
 }
 
 .jkl-tabs {

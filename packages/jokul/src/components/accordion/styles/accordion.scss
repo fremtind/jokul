@@ -5,22 +5,30 @@
     width: 100%;
 
     @include jkl.comfortable-density {
-        --title-padding: var(--jkl-spacing-16) #{jkl.rem(48px)} var(--jkl-spacing-16) var(--jkl-spacing-16);
+        --title-padding: var(--jkl-spacing-16) #{jkl.rem(48px)} var(
+                --jkl-spacing-16
+            ) var(--jkl-spacing-16);
         --arrow-top: #{jkl.rem(20px)};
         --arrow-right: var(--jkl-spacing-12);
-        --content-padding: var(--jkl-spacing-8) var(--jkl-spacing-16) var(--jkl-spacing-16);
+        --content-padding: var(--jkl-spacing-8) var(--jkl-spacing-16)
+            var(--jkl-spacing-16);
         @include jkl.declare-font-variables("title", "body");
         @include jkl.declare-font-variables("content", "body");
 
         @include jkl.small-device {
-            --title-padding: var(--jkl-spacing-12) #{jkl.rem(44px)} var(--jkl-spacing-12) var(--jkl-spacing-12);
-            --content-padding: var(--jkl-spacing-8) var(--jkl-spacing-12) var(--jkl-spacing-16) var(--jkl-spacing-12);
+            --title-padding: var(--jkl-spacing-12) #{jkl.rem(44px)} var(
+                    --jkl-spacing-12
+                ) var(--jkl-spacing-12);
+            --content-padding: var(--jkl-spacing-8) var(--jkl-spacing-12)
+                var(--jkl-spacing-16) var(--jkl-spacing-12);
             --arrow-top: #{jkl.rem(23px)};
         }
     }
 
     @include jkl.compact-density {
-        --title-padding: var(--jkl-spacing-8) #{jkl.rem(32px)} var(--jkl-spacing-8) var(--jkl-spacing-8);
+        --title-padding: var(--jkl-spacing-8) #{jkl.rem(32px)} var(
+                --jkl-spacing-8
+            ) var(--jkl-spacing-8);
         --arrow-top: var(--jkl-spacing-8);
         --arrow-right: var(--jkl-spacing-4);
         --content-padding: var(--jkl-spacing-8);
@@ -104,7 +112,10 @@
         @include jkl.motion("standard", "snappy");
         transition-property: translate;
 
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText, $fill: ButtonText);
+        @include jkl.forced-colors-svg-fallback(
+            $stroke: ButtonText,
+            $fill: ButtonText
+        );
     }
 
     &__content-wrapper {

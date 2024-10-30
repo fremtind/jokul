@@ -26,7 +26,9 @@
 }
 
 $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
-$_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.unique-id()};
+$_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.unique-id(
+
+    )};
 
 @keyframes #{$_checkbox-checked-animation-name} {
     0% {
@@ -79,7 +81,8 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         // Checked state:
         &:checked {
             + .jkl-checkbox__label .jkl-checkbox__check-mark::after {
-                animation: $_checkbox-checked-animation-name jkl.timing("productive") ease-in-out forwards;
+                animation: $_checkbox-checked-animation-name
+                    jkl.timing("productive") ease-in-out forwards;
                 opacity: 1;
             }
         }
@@ -87,7 +90,8 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         // Indeterminate state:
         &:indeterminate:not(:checked) {
             + .jkl-checkbox__label .jkl-checkbox__indeterminate-mark::after {
-                animation: $_checkbox-indeterminate-animation-name jkl.timing("productive") ease-in-out forwards;
+                animation: $_checkbox-indeterminate-animation-name
+                    jkl.timing("productive") ease-in-out forwards;
                 opacity: 1;
             }
         }
@@ -128,7 +132,11 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
     }
 
     &__text {
-        margin: calc((var(--jkl-checkbox-height) - var(--jkl-checkbox-line-height)) * 0.5) 0;
+        margin: calc(
+                (var(--jkl-checkbox-height) - var(--jkl-checkbox-line-height)) *
+                    0.5
+            )
+            0;
         translate: 0 jkl.rem(1px);
 
         @include jkl.motion;
@@ -141,7 +149,9 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         height: var(--jkl-checkbox-box-size);
         width: var(--jkl-checkbox-box-size);
 
-        margin-block: calc((var(--jkl-checkbox-height) - var(--jkl-checkbox-box-size)) * 0.5);
+        margin-block: calc(
+            (var(--jkl-checkbox-height) - var(--jkl-checkbox-box-size)) * 0.5
+        );
         margin-inline-end: var(--jkl-spacing-8);
         align-self: flex-start;
         flex-shrink: 0; // Don't allow the mark to shrink in case of really long text

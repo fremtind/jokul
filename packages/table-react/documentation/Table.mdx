@@ -8,26 +8,63 @@ keywords: tabeller ekspanderbar
 
 import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
 import { CodeSection } from "../../../doc-utils/CodeSection";
-import { Table, TableCaption, TableHead, TableHeader, TableRow, TableBody, TableCell } from "../src";
-import TableExamples, { tableExamplesCode, tableExamplesProps } from "./TableExamples";
-import DataTableExample, { dataTableExampleCode, dataTableExampleKnobs } from "./DataTableExample";
-import HeadlessTableExample, { headlessTableExampleCode, headlessTableExampleKnobs } from "./HeadlessTableExample";
-import ClickableTableExample, { clickableTableExampleCode, clickableTableExampleKnobs } from "./ClickableTableExample";
+import {
+    Table,
+    TableCaption,
+    TableHead,
+    TableHeader,
+    TableRow,
+    TableBody,
+    TableCell,
+} from "../src";
+import TableExamples, {
+    tableExamplesCode,
+    tableExamplesProps,
+} from "./TableExamples";
+import DataTableExample, {
+    dataTableExampleCode,
+    dataTableExampleKnobs,
+} from "./DataTableExample";
+import HeadlessTableExample, {
+    headlessTableExampleCode,
+    headlessTableExampleKnobs,
+} from "./HeadlessTableExample";
+import ClickableTableExample, {
+    clickableTableExampleCode,
+    clickableTableExampleKnobs,
+} from "./ClickableTableExample";
 import ExpandableTableExample, {
     expandableTableExampleCode,
     expandableTableExampleKnobs,
 } from "./ExpandableTableExample";
-import ActionTableExample, { actionTableExampleCode, actionTableExampleKnobs } from "./ActionTableExample";
-import MobileScrollTableExample, { mobileScrollTableExampleCode } from "./MobileScrollTableExample";
+import ActionTableExample, {
+    actionTableExampleCode,
+    actionTableExampleKnobs,
+} from "./ActionTableExample";
+import MobileScrollTableExample, {
+    mobileScrollTableExampleCode,
+} from "./MobileScrollTableExample";
 import MobileListTableExample, {
     mobileListTableExampleCode,
     mobileListTableExampleKnobs,
 } from "./MobileListTableExample";
-import StickyTableExample, { stickyTableExampleCode } from "./StickyTableExample";
-import { PaginatedTableExample, paginatedTableExampleCode, paginatedTableExamplesProps } from "./PaginatedTableExample";
-import { SortableTableExample, sortableTableExampleCode } from "./SortableTableExample";
+import StickyTableExample, {
+    stickyTableExampleCode,
+} from "./StickyTableExample";
+import {
+    PaginatedTableExample,
+    paginatedTableExampleCode,
+    paginatedTableExamplesProps,
+} from "./PaginatedTableExample";
+import {
+    SortableTableExample,
+    sortableTableExampleCode,
+} from "./SortableTableExample";
 
-<Ingress>Vi bruker tabeller for å vise data på en ordnet måte som gjør sammenlikning enkelt.</Ingress>
+<Ingress>
+    Vi bruker tabeller for å vise data på en ordnet måte som gjør sammenlikning
+    enkelt.
+</Ingress>
 
 <ComponentExample
     scrollable={true}
@@ -44,7 +81,9 @@ Jøkul tilbyr enkeltkomponenter tilsvarende de du finner i HTML. Hvert tabell-el
     <Accordion>
         <AccordionItem title="Tabell-HTML og deres Jøkul-motparter">
             <Table className="jkl-spacing-xl--top jkl-spacing-2xl--bottom">
-                <TableCaption srOnly>Tabell-HTML og deres Jøkul-motpart</TableCaption>
+                <TableCaption srOnly>
+                    Tabell-HTML og deres Jøkul-motpart
+                </TableCaption>
                 <TableHead>
                     <TableRow>
                         <TableHeader>HTML</TableHeader>
@@ -294,7 +333,9 @@ Vanligvis skal innholdet være toppjustert i tabellraden på grunn av lesbarhet 
         description="Venstrejusterte tall blir gjerne rotete"
         content={
             <Table fullWidth>
-                <TableCaption srOnly>Eksempel: venstrejusterte tall</TableCaption>
+                <TableCaption srOnly>
+                    Eksempel: venstrejusterte tall
+                </TableCaption>
                 <TableHead>
                     <TableRow>
                         <TableHeader>Produkt</TableHeader>

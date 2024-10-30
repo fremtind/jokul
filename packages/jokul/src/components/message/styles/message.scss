@@ -71,7 +71,9 @@ $_dismiss-hover-color: jkl.$color-stein;
     &__message {
         @include jkl.use-font-variables("jkl-message-content");
 
-        margin-top: jkl.rem(-2px); // Offset for å aligne med ikon hvis uten tittel.
+        margin-top: jkl.rem(
+            -2px
+        ); // Offset for å aligne med ikon hvis uten tittel.
     }
 
     &__title {
@@ -103,10 +105,14 @@ $_dismiss-hover-color: jkl.$color-stein;
 
         // Sørg for å ha en stor nok touch target.
         &::after {
-            --tap-increment: calc((var(--jkl-message-dismiss-button-size) - #{jkl.rem(20px)}) / 2 * -1);
+            --tap-increment: calc(
+                (var(--jkl-message-dismiss-button-size) - #{jkl.rem(20px)}) / 2 *
+                    - 1
+            );
             content: "";
             position: absolute;
-            inset: var(--tap-increment) var(--tap-increment) var(--tap-increment) var(--tap-increment);
+            inset: var(--tap-increment) var(--tap-increment)
+                var(--tap-increment) var(--tap-increment);
         }
 
         &:hover {
@@ -140,7 +146,8 @@ $_dismiss-hover-color: jkl.$color-stein;
     }
 
     &--dismissed {
-        animation: $_dismiss-animation-name $_dismiss-animation-duration ease-in-out forwards;
+        animation: $_dismiss-animation-name $_dismiss-animation-duration
+            ease-in-out forwards;
         transition: visibility 0ms $_dismiss-animation-duration;
         visibility: hidden;
     }

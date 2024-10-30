@@ -7,14 +7,24 @@ keywords: stempel logostamp stamp
 ---
 
 import { LogoExample, logoExampleKnobs, logoExampleCode } from "./LogoExample";
-import { LogoStampExample, logoStampExampleKnobs, logoStampExampleCode } from "./LogoStampExample";
+import {
+    LogoStampExample,
+    logoStampExampleKnobs,
+    logoStampExampleCode,
+} from "./LogoStampExample";
 
 <Ingress>
-    Logoen, logosymbolet og logostemplene våre er merkevareelementer vi kan bruke i Fremtinds løsninger, eller i andre
-    løsninger der Fremtind skal være synlig.
+    Logoen, logosymbolet og logostemplene våre er merkevareelementer vi kan
+    bruke i Fremtinds løsninger, eller i andre løsninger der Fremtind skal være
+    synlig.
 </Ingress>
 
-<ComponentExample title="Logo" component={LogoExample} knobs={logoExampleKnobs} codeExample={logoExampleCode} />
+<ComponentExample
+    title="Logo"
+    component={LogoExample}
+    knobs={logoExampleKnobs}
+    codeExample={logoExampleCode}
+/>
 
 Logoen og logosymbolet skal ikke stå synlige sammen. Vi kan animere mellom dem, slik at vi ser at det skifter mellom logo og logosymbol. Velg _Animert_ og så _Kun symbol_ i eksempelet over for å se effekten.
 

@@ -24,11 +24,17 @@ StyleDictionary.registerFormat({
     name: "javascript/esm",
     formatter: function ({ dictionary, file, platform = {} }) {
         const { prefix } = platform;
-        const tokens = prefix ? { [prefix]: dictionary.tokens } : dictionary.tokens;
+        const tokens = prefix
+            ? { [prefix]: dictionary.tokens }
+            : dictionary.tokens;
 
         const output =
             StyleDictionary.formatHelpers.fileHeader({ file }) +
-            `export default \n${JSON.stringify(transformTokens(tokens), null, 2)}\n`;
+            `export default \n${JSON.stringify(
+                transformTokens(tokens),
+                null,
+                2,
+            )}\n`;
 
         // return prettified
         return format(output, {
@@ -54,7 +60,9 @@ const formatValueAsScssVar = (originalValue) => {
 StyleDictionary.registerFormat({
     name: "css/variables-ref-scss",
     formatter: function ({ dictionary, file, platform }) {
-        let output = StyleDictionary.formatHelpers.fileHeader({ file }) + `@use "../jkl";\n\n`;
+        let output =
+            StyleDictionary.formatHelpers.fileHeader({ file }) +
+            `@use "../jkl";\n\n`;
         const { prefix } = platform;
 
         // Light mode
@@ -65,7 +73,12 @@ StyleDictionary.registerFormat({
                 const value = dictionary.usesReference(token.original.value)
                     ? formatValueAsScssVar(token.original.value)
                     : token.value;
-                const name = [prefix, ...token.path.filter((step) => !["dark", "light"].includes(step))].join("-");
+                const name = [
+                    prefix,
+                    ...token.path.filter(
+                        (step) => !["dark", "light"].includes(step),
+                    ),
+                ].join("-");
 
                 return `--${name}: ${value};`;
             })
@@ -80,7 +93,12 @@ StyleDictionary.registerFormat({
                 const value = dictionary.usesReference(token.original.value)
                     ? formatValueAsScssVar(token.original.value)
                     : token.value;
-                const name = [prefix, ...token.path.filter((step) => !["dark", "light"].includes(step))].join("-");
+                const name = [
+                    prefix,
+                    ...token.path.filter(
+                        (step) => !["dark", "light"].includes(step),
+                    ),
+                ].join("-");
 
                 return `--${name}: ${value};`;
             })
@@ -97,7 +115,9 @@ const variableFormatter =
     ({ dictionary, file }) => {
         const variableDenotion = format == "sass" ? "$" : "@";
         const formatProperty = (token) => {
-            const path = token.path.filter((word) => !["light", "dark"].includes(word)).join("-");
+            const path = token.path
+                .filter((word) => !["light", "dark"].includes(word))
+                .join("-");
 
             return `${variableDenotion}${path}: var(--jkl-${path});`;
         };
@@ -111,11 +131,15 @@ const variableFormatter =
 
         const otherVariables = dictionary.allTokens.filter(
             (token) =>
-                !token.path.some((word) => ["light", "dark"].includes(word)) && !token.filePath.includes("legacy"),
+                !token.path.some((word) => ["light", "dark"].includes(word)) &&
+                !token.filePath.includes("legacy"),
         );
 
         return `${fileHeader({ file })}
-${formattedVariables({ dictionary: { ...dictionary, allTokens: otherVariables }, format: format })}
+${formattedVariables({
+    dictionary: { ...dictionary, allTokens: otherVariables },
+    format: format,
+})}
 
 // Dynamiske variabler for farge, via referanse til CSS-variabler
 ${colorVariables.map(formatProperty).join("\n")}`;
@@ -210,7 +234,9 @@ const myStyleDictionary = StyleDictionary.extend({
                 {
                     destination: "_color-tokens.scss",
                     format: "css/variables-ref-scss",
-                    filter: (token) => token.path.includes("light") || token.path.includes("dark"),
+                    filter: (token) =>
+                        token.path.includes("light") ||
+                        token.path.includes("dark"),
                 },
             ],
         },

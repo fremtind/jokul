@@ -13,7 +13,9 @@ $_dismiss-hover-color: jkl.$color-stein;
     --jkl-system-message-icon-padding: #{jkl.rem(3px)} 0 0 0;
     --jkl-system-message-content-padding: #{jkl.$spacing-l};
     --jkl-system-message-dismiss-button-size: #{jkl.rem(44px)};
-    --jkl-system-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)} auto;
+    --jkl-system-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(
+            18px
+        )} -#{jkl.rem(6.5px)} auto;
     --jkl-system-message-message-margin: 0 #{jkl.$spacing-m};
     @include jkl.declare-font-variables("jkl-system-message-message", "body");
 }
@@ -23,7 +25,9 @@ $_dismiss-hover-color: jkl.$color-stein;
     --jkl-system-message-icon-padding: #{jkl.rem(1px)} 0 0 0;
     --jkl-system-message-content-padding: #{jkl.$spacing-xs};
     --jkl-system-message-dismiss-button-size: #{jkl.rem(32px)};
-    --jkl-system-message-dismiss-button-margin: -#{jkl.rem(3px)} -#{jkl.rem(6px)} -#{jkl.rem(4.5px)} auto;
+    --jkl-system-message-dismiss-button-margin: -#{jkl.rem(3px)} -#{jkl.rem(
+            6px
+        )} -#{jkl.rem(4.5px)} auto;
     --jkl-system-message-message-margin: 0 #{jkl.$spacing-s};
     @include jkl.declare-font-variables("jkl-system-message-message", "small");
 }
@@ -106,7 +110,8 @@ $_dismiss-hover-color: jkl.$color-stein;
     }
 
     &--dismissed {
-        animation: $_dismiss-animation-name jkl.timing("lazy") jkl.easing("exit") forwards;
+        animation: $_dismiss-animation-name jkl.timing("lazy")
+            jkl.easing("exit") forwards;
         transition: visibility 0ms jkl.timing("lazy");
         visibility: hidden;
     }

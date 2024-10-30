@@ -64,7 +64,10 @@ Hvis du bruker `onBlur` til å gjøre noe i dag er det endringer som treffer deg
 tl;dr – du må ha `onBlur` to steder – på inputfeltet og på kalenderknappen (`action`) – og bruke `isBlurTargetOutside`:
 
 ```tsx
-import { DatePicker, isBlurTargetOutside } from "@fremtind/jkl-datepicker-react";
+import {
+    DatePicker,
+    isBlurTargetOutside,
+} from "@fremtind/jkl-datepicker-react";
 
 <DatePicker
     label="Velg startdato for forsikringen"

@@ -10,13 +10,19 @@ import * as sass from "sass-embedded";
 
 (async function build() {
     try {
-        const sources = await glob("./src/**/[!_]*.scss", { ignore: ["node_modules/**", "**/documentation/**"] });
-        const unfilteredSources = await glob("./src/**/*.scss", { ignore: ["node_modules/**", "**/documentation/**"] });
+        const sources = await glob("./src/**/[!_]*.scss", {
+            ignore: ["node_modules/**", "**/documentation/**"],
+        });
+        const unfilteredSources = await glob("./src/**/*.scss", {
+            ignore: ["node_modules/**", "**/documentation/**"],
+        });
         await Promise.all(
             sources
                 .flatMap((source) => {
                     const fileName = source.slice(source.lastIndexOf("/") + 1);
-                    const sourcePath = fileURLToPath(new URL(source, import.meta.url));
+                    const sourcePath = fileURLToPath(
+                        new URL(source, import.meta.url),
+                    );
                     const outDirName = sourcePath
                         .substring(0, sourcePath.lastIndexOf("/styles/"))
                         .replace("/src", "/styles");
@@ -25,18 +31,37 @@ import * as sass from "sass-embedded";
                     mkdirSync(outDirName, { recursive: true });
 
                     return [
-                        writeFile(`${outDirName}/${fileName.replace(".scss", ".css")}`, content.css).then(() =>
-                            console.log(`Wrote ${outDirName}/${fileName.replace(".scss", ".css")}`),
+                        writeFile(
+                            `${outDirName}/${fileName.replace(
+                                ".scss",
+                                ".css",
+                            )}`,
+                            content.css,
+                        ).then(() =>
+                            console.log(
+                                `Wrote ${outDirName}/${fileName.replace(
+                                    ".scss",
+                                    ".css",
+                                )}`,
+                            ),
                         ),
                         new Promise((resolve, reject) => {
                             postcss([autoprefixer(), cssnano(litePreset)])
                                 .process(content.css)
                                 .then((result) =>
                                     writeFile(
-                                        `${outDirName}/${fileName.replace(".scss", ".min.css")}`,
+                                        `${outDirName}/${fileName.replace(
+                                            ".scss",
+                                            ".min.css",
+                                        )}`,
                                         result.css,
                                     ).then(() => {
-                                        console.log(`Wrote ${outDirName}/${fileName.replace(".scss", ".min.css")}`);
+                                        console.log(
+                                            `Wrote ${outDirName}/${fileName.replace(
+                                                ".scss",
+                                                ".min.css",
+                                            )}`,
+                                        );
                                         resolve();
                                     }),
                                 )
@@ -46,11 +71,20 @@ import * as sass from "sass-embedded";
                 })
                 .concat(
                     unfilteredSources.map((source) => {
-                        const fileName = source.slice(source.lastIndexOf("/") + 1);
-                        const sourcePath = fileURLToPath(new URL(source, import.meta.url));
+                        const fileName = source.slice(
+                            source.lastIndexOf("/") + 1,
+                        );
+                        const sourcePath = fileURLToPath(
+                            new URL(source, import.meta.url),
+                        );
                         const cutPoint = sourcePath.lastIndexOf("/styles/");
                         const outDirName = sourcePath
-                            .substring(0, cutPoint > 0 ? cutPoint : sourcePath.lastIndexOf("/"))
+                            .substring(
+                                0,
+                                cutPoint > 0
+                                    ? cutPoint
+                                    : sourcePath.lastIndexOf("/"),
+                            )
                             .replace("/src", "/styles");
 
                         mkdirSync(outDirName, { recursive: true });
@@ -78,9 +112,16 @@ import * as sass from "sass-embedded";
                              * FRA: @use "../accordion/styles" as accordion;
                              * TIL: @use "../accordion";
                              */
-                            modifiedContent = modifiedContent.replaceAll(/@use "(.*)\/styles".*;/g, '@use "$1";');
+                            modifiedContent = modifiedContent.replaceAll(
+                                /@use "(.*)\/styles".*;/g,
+                                '@use "$1";',
+                            );
 
-                            writeFile(`${outDirName}/${fileName}`, modifiedContent, { encoding: "utf-8" });
+                            writeFile(
+                                `${outDirName}/${fileName}`,
+                                modifiedContent,
+                                { encoding: "utf-8" },
+                            );
                         });
                     }),
                 ),

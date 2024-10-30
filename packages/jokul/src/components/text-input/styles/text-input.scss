@@ -69,7 +69,8 @@ $_text-input-selection-color--inverted: color.scale(
     --jkl-text-input-height: #{$_text-input-height};
     --jkl-text-input-vertical-padding: #{$_text-input-vertical-padding};
     --jkl-text-input-horizontal-padding: #{$_text-input-horizontal-padding};
-    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding) var(--jkl-text-input-horizontal-padding);
+    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding)
+        var(--jkl-text-input-horizontal-padding);
     --jkl-text-input-action-button-size: #{$_action-button-size};
     --jkl-text-input-action-button-icon-size: #{$_action-button-icon-size};
     --jkl-text-input-action-button-padding: #{$_action-button-padding};
@@ -87,7 +88,8 @@ $_text-input-selection-color--inverted: color.scale(
     --jkl-text-input-height: #{$_text-input-height--compact};
     --jkl-text-input-vertical-padding: #{$_text-input-vertical-padding--compact};
     --jkl-text-input-horizontal-padding: #{$_text-input-horizontal-padding--compact};
-    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding) var(--jkl-text-input-horizontal-padding);
+    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding)
+        var(--jkl-text-input-horizontal-padding);
     --jkl-text-input-action-button-size: #{$_action-button-size--compact};
     --jkl-text-input-action-button-icon-size: #{$_action-button-icon-size--compact};
     --jkl-text-input-action-button-padding: #{$_action-button-padding--compact};
@@ -141,7 +143,8 @@ $_text-input-selection-color--inverted: color.scale(
             &:focus {
                 @include jkl.keyboard-navigation {
                     &::after {
-                        box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-text-input-error-text-color);
+                        box-shadow: inset 0 0 0 jkl.rem(2px)
+                            var(--jkl-text-input-error-text-color);
                     }
                 }
             }
@@ -195,7 +198,8 @@ $_text-input-selection-color--inverted: color.scale(
                     var(--jkl-text-input-action-button-focus-position)
                     var(--jkl-text-input-action-button-focus-position)
                     var(--jkl-text-input-action-button-focus-position);
-                box-shadow: inset 0 0 0 jkl.rem(2px) var(--jkl-text-input-focus-color);
+                box-shadow: inset 0 0 0 jkl.rem(2px)
+                    var(--jkl-text-input-focus-color);
             }
         }
     }
@@ -223,7 +227,8 @@ $_text-input-selection-color--inverted: color.scale(
     transition-property: color, box-shadow, background-color;
 
     color: var(--jkl-text-input-text-color);
-    box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-border-color), 0 0 0 jkl.rem(1px) transparent;
+    box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-border-color),
+        0 0 0 jkl.rem(1px) transparent;
     background-color: transparent;
 
     &:hover {
@@ -267,7 +272,9 @@ $_text-input-selection-color--inverted: color.scale(
     }
 
     &__action-button {
-        margin-inline-start: calc(var(--jkl-text-input-horizontal-padding) * -1);
+        margin-inline-start: calc(
+            var(--jkl-text-input-horizontal-padding) * -1
+        );
     }
 
     &--inline {
@@ -321,7 +328,9 @@ $_text-input-selection-color--inverted: color.scale(
 
             &[data-has-content="true"],
             &:focus-within {
-                padding-bottom: calc(var(--jkl-text-input-height) + #{$progress-bar-height});
+                padding-bottom: calc(
+                    var(--jkl-text-input-height) + #{$progress-bar-height}
+                );
             }
         }
 
@@ -362,7 +371,9 @@ $_text-input-selection-color--inverted: color.scale(
 
         &:focus-within .jkl-text-area__counter {
             opacity: 1;
-            transition-delay: jkl.timing("productive"); // Vent med å fade inn til feltet er ekspandert
+            transition-delay: jkl.timing(
+                "productive"
+            ); // Vent med å fade inn til feltet er ekspandert
         }
 
         [aria-invalid="true"] ~ .jkl-text-area__counter {

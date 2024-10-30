@@ -62,7 +62,12 @@
 /* Flush single line comment */
 @media screen and (resolution >= 192dpi), screen and (resolution >= 2dppx) {
     .selector {
-        background-image: repeating-linear-gradient(-45deg, transparent, #fff 25px, rgba(255 255 255 100%) 50px);
+        background-image: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            #fff 25px,
+            rgba(255 255 255 100%) 50px
+        );
         box-shadow: 0 1px 1px #000, 0 1px 0 #fff, 2px 2px 1px 1px #ccc inset;
         height: 10rem;
         margin: 10px;

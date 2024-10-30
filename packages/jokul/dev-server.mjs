@@ -56,7 +56,10 @@ export default function App() {
                 result.map((file) => {
                     return {
                         label: file.split("/")[2],
-                        value: resolve(fileURLToPath(new URL(file, import.meta.url)), ".."),
+                        value: resolve(
+                            fileURLToPath(new URL(file, import.meta.url)),
+                            "..",
+                        ),
                     };
                 }),
             );
@@ -76,7 +79,9 @@ export default function App() {
         } else if (input.match(/[a-zA-Z]/)) {
             setFilterString((current) => current + input.toLowerCase());
         } else if (key.delete || key.backspace) {
-            setFilterString((current) => current.substring(0, current.length - 1));
+            setFilterString((current) =>
+                current.substring(0, current.length - 1),
+            );
         }
     });
 
@@ -85,7 +90,11 @@ export default function App() {
 
         server.current = await createServer({
             mode: "development",
-            plugins: [react(), copyJklFonts(resolve(component.value, "public", "fonts")), setupDev(component.value)],
+            plugins: [
+                react(),
+                copyJklFonts(resolve(component.value, "public", "fonts")),
+                setupDev(component.value),
+            ],
             configFile: false,
             resolve: {
                 alias: {
@@ -114,7 +123,9 @@ export default function App() {
                     <Text>Choose a component from the list below</Text>
                     <Text>Filter: {filterString}</Text>
                     <SelectInput
-                        items={components.filter((component) => component.label.startsWith(filterString))}
+                        items={components.filter((component) =>
+                            component.label.startsWith(filterString),
+                        )}
                         onSelect={handleSelect}
                     />
                 </Box>
@@ -122,8 +133,9 @@ export default function App() {
             {selectedComponent !== null && (
                 <Box flexDirection="column" gap={1}>
                     <Text>
-                        Dev-server for component <Text color="green">{selectedComponent.label}</Text> started on port
-                        3000
+                        Dev-server for component{" "}
+                        <Text color="green">{selectedComponent.label}</Text>{" "}
+                        started on port 3000
                     </Text>
                     <Text>Use 'q' to exit to main menu</Text>
                 </Box>

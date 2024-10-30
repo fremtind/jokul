@@ -130,7 +130,8 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     }
 
     html[data-touchnavigation] &.jkl-button--pressed::before {
-        animation: jkl.easing("focus") jkl.timing("expressive") $_flash-animation-name;
+        animation: jkl.easing("focus") jkl.timing("expressive")
+            $_flash-animation-name;
     }
 
     &--primary,

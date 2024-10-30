@@ -35,7 +35,10 @@
         $character: string.slice($value, $i, $i);
 
         @if not(index(map.keys($numbers), $character) or $character == ".") {
-            @return to-length(if($minus, -$result, $result), string.slice($value, $i));
+            @return to-length(
+                if($minus, -$result, $result),
+                string.slice($value, $i)
+            );
         }
 
         @if $character == "." {
