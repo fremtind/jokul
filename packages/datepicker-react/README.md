@@ -17,6 +17,7 @@ import "@fremtind/jkl-datepicker/datepicker.min.css";
 import "@fremtind/jkl-icon-button/icon-button.min.css";
 import "@fremtind/jkl-icons/icons.min.css";
 import "@fremtind/jkl-input-group/input-group.min.css";
+import "@fremtind/jkl-popover/popover.min.css";
 
 // For enkelte features må du også ha denne CSSen importert.
 import "@fremtind/jkl-select/select.min.css";
@@ -30,6 +31,7 @@ import "@fremtind/jkl-tooltip/tooltip.min.css";
 @use "@fremtind/jkl-icon-button/icon-button";
 @use "@fremtind/jkl-icons/icons";
 @use "@fremtind/jkl-input-group/input-group";
+@use "@fremtind/jkl-popover/popover";
 
 @use "@fremtind/jkl-select/select";
 @use "@fremtind/jkl-text-input/text-input";
