@@ -1,8 +1,6 @@
 @use "../../../core/jkl/" as jkl;
 @use "sass:string";
 
-@use "../../radio-button/styles/" as radioButton;
-
 $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 
 @keyframes #{$_radio-panel-dot-animation-name} {
@@ -12,14 +10,6 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 
     100% {
         transform: scale(1);
-    }
-}
-
-.jkl-radio-panel-group {
-    width: 100%;
-
-    > .jkl-radio-panel {
-        margin-block: 30px;
     }
 }
 
