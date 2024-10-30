@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-input-group-react",
-    "version": "3.0.52",
+    "version": "3.0.53",
     "publishConfig": {
         "access": "public"
     },
@@ -37,11 +37,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.8.2",
-        "@fremtind/jkl-icons-react": "^9.1.14",
-        "@fremtind/jkl-input-group": "^3.1.6",
-        "@fremtind/jkl-react-hooks": "^12.2.6",
-        "@fremtind/jkl-tooltip-react": "^4.4.5",
+        "@fremtind/jkl-core": "^14.8.3",
+        "@fremtind/jkl-icons-react": "^9.1.15",
+        "@fremtind/jkl-input-group": "^3.1.7",
+        "@fremtind/jkl-react-hooks": "^12.2.7",
+        "@fremtind/jkl-tooltip-react": "^4.4.6",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
