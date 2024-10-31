@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { WithOptionalChildren } from "../../core/types.js";
-import { CloseIcon } from "../icon/index.js";
+import { CloseIcon } from "../icon/icons/CloseIcon.js";
 import { IconButton, IconButtonProps } from "../icon-button/IconButton.js";
 import { ModalConfig } from "./useModal.js";
 

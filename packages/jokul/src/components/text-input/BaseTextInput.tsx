@@ -2,13 +2,13 @@ import clsx from "clsx";
 import React, {
     type CSSProperties,
     forwardRef,
+    HTMLProps,
+    InputHTMLAttributes,
     type MouseEventHandler,
     type ReactNode,
-    InputHTMLAttributes,
-    HTMLProps,
 } from "react";
 import { Density } from "../../core/types.js";
-import { IconProps } from "../icon/index.js";
+import { IconProps } from "../icon/types.js";
 import { IconButton } from "../icon-button/IconButton.js";
 
 function getWidthAsStyle(

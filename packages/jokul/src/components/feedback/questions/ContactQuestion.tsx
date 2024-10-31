@@ -6,10 +6,8 @@ import React, {
     useRef,
     useState,
 } from "react";
-import {
-    isValidEpost,
-    isValidTelefonnummer,
-} from "../../../utilities/validators/index.js";
+import { isValidEpost } from "../../../utilities/validators/isValidEpost/isValidEpost.js";
+import { isValidTelefonnummer } from "../../../utilities/validators/isValidTelefonnummer/isValidTelefonnummer.js";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
 import { TextInput } from "../../text-input/TextInput.js";
 import { useFeedbackContext } from "../feedbackContext.js";
