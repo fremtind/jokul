@@ -1,11 +1,13 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "portalen"
-		}
-	],
-	"settings": {}
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "portalen"
+        }
+    ],
+    "settings": {
+        "typescript.tsdk": "portalen/node_modules/typescript/lib"
+    }
 }
