@@ -559,7 +559,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     }}
                     helpLabel={helpLabel}
                     errorLabel={errorLabel}
-                    render={(inputProps) => (
+                    render={({
+                        "aria-invalid": ariaInvalid,
+                        ...inputProps
+                    }) => (
                         <div
                             className="jkl-select__outer-wrapper"
                             style={{ width }}
@@ -567,6 +570,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             {isSearchable && (
                                 <input
                                     {...inputProps}
+                                    aria-invalid={ariaInvalid}
                                     id={searchInputId}
                                     hidden={!showSearchInputField}
                                     ref={searchFieldRef}
@@ -596,7 +600,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                     }}
                                 />
                             )}
+                            {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
                             <button
+                                // Nei dette er ikke i henhold til speccen, men VoiceOver leser den likevel og det er oppførselen vi ønsker
+                                aria-invalid={ariaInvalid}
                                 {...inputProps}
                                 id={buttonId}
                                 ref={buttonRef}
