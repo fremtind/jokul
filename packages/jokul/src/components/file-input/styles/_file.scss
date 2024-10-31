@@ -1,0 +1,172 @@
+@use "../../../core/jkl";
+@use "../../../core/jkl/colors";
+
+.jkl-file {
+    --text-color: var(--jkl-color-text-default);
+
+    @include jkl.motion(
+        "standard",
+        "snappy",
+        background-color,
+        border-color,
+        color
+    );
+
+    color: var(--jkl-color-text-default);
+    margin: 0;
+    min-width: jkl.rem(240px);
+
+    display: flex;
+    flex-flow: nowrap row;
+
+    @include jkl.text-style("small");
+    @include jkl.reset-outline;
+
+    @include jkl.comfortable-density {
+        --jkl-file-padding: #{jkl.$spacing-24};
+        --jkl-file-thumbnail-size: #{jkl.rem(64px)};
+        --jkl-file-gap: #{jkl.$spacing-16};
+        --jkl-file-font-size: #{jkl.rem(20px)};
+        --jkl-file-line-height: #{jkl.rem(32px)};
+    }
+
+    @include jkl.compact-density {
+        --jkl-file-padding: #{jkl.$spacing-12};
+        --jkl-file-thumbnail-size: #{jkl.rem(44px)};
+        --jkl-file-gap: #{jkl.$spacing-8};
+        --jkl-file-font-size: #{jkl.rem(16px)};
+        --jkl-file-line-height: #{jkl.rem(24px)};
+    }
+
+    &__content {
+        display: flex;
+        flex-basis: 100%;
+        gap: 1em;
+        background-color: var(--jkl-color-background-container-high);
+        padding: var(--jkl-file-padding);
+        border-radius: jkl.rem(2px);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+        color: var(--text-color);
+
+        &--error {
+            background-color: var(--jkl-color-background-alert-error);
+        }
+
+        &--warning {
+            background-color: var(--jkl-color-background-alert-warning);
+        }
+
+        &--error,
+        &--warning {
+            --text-color: var(--jkl-color-text-on-alert);
+
+            .jkl-form-support-label {
+                --color: var(--jkl-color-text-on-alert);
+            }
+        }
+    }
+
+    &__content:not(div) {
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--jkl-color-text-default);
+
+        &:hover ~ .jkl-file__description {
+            @include jkl.no-grow-bold;
+        }
+
+        @include jkl.keyboard-navigation {
+            &:focus {
+                outline: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
+            }
+        }
+
+        @include jkl.forced-colors-mode {
+            outline: revert;
+            border: jkl.rem(2px) solid LinkText;
+        }
+    }
+
+    &__delete {
+        padding: 0 var(--jkl-spacing-24);
+        align-items: stretch;
+
+        &:hover {
+            background-color: var(--jkl-color-background-interactive-hover);
+        }
+    }
+
+    &__thumbnail-wrapper {
+        position: relative;
+
+        & > :nth-child(2) {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 80%;
+        }
+    }
+
+    &__thumbnail {
+        width: var(--jkl-file-thumbnail-size);
+        height: var(--jkl-file-thumbnail-size);
+        flex: 0 0 var(--jkl-file-thumbnail-size);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        object-fit: contain;
+        opacity: 1;
+        border-radius: jkl.rem(4px);
+        color: var(--jkl-color-text-subdued);
+
+        @include jkl.motion;
+        transition-property: opacity;
+
+        &--selected {
+            opacity: 0.7;
+        }
+
+        &--uploading {
+            opacity: 0.4;
+        }
+    }
+
+    &__thumbnail:not(img) {
+        background: var(--jkl-color-background-container-low);
+    }
+
+    &__file-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        overflow-wrap: break-word;
+        gap: var(--jkl-spacing-8);
+    }
+
+    &__title {
+        @include jkl.text-style("heading-5");
+        overflow-wrap: anywhere;
+    }
+
+    &__name,
+    &__description {
+        font-size: var(--jkl-file-font-size);
+        line-height: var(--jkl-file-line-height);
+    }
+
+    &__name {
+        font-weight: #{jkl.$typography-weight-bold};
+    }
+
+    &__description {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: jkl.$spacing-12;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__support-label {
+        margin: 0;
+    }
+}
