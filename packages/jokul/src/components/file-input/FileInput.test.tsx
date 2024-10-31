@@ -2,6 +2,7 @@ import { render, RenderOptions } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
+import { describe, expect, it } from "vitest";
 import { File, FileInput, FileInputFile } from "./index.js";
 
 // https://github.com/testing-library/user-event/issues/1146
