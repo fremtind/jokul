@@ -1,4 +1,4 @@
-import { SearchIcon } from "@fremtind/jkl-icons-react";
+import { SearchIcon } from "@fremtind/jokul";
 import cn from "classnames";
 import React, { type FC, type MouseEventHandler } from "react";
 import { KeyboardShortcut } from "../keyboard-shortcut";

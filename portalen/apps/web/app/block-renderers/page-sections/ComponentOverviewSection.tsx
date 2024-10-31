@@ -1,4 +1,4 @@
-import { NavCard } from "@fremtind/jkl-card-react";
+import { NavCard } from "@fremtind/jokul";
 import {
     type Component,
     type Media,

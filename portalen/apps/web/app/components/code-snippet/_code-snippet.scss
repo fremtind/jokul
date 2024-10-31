@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --code-snippet-background: #{jkl.$color-sand};
@@ -11,8 +11,8 @@
 }
 
 .code-snippet {
-    @include jkl.text-style('small');
-    @include jkl.use-font-family('Fremtind Grotesk Mono');
+    @include jkl.text-style("small");
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
     border: 1px solid var(--gap-color);
     box-sizing: border-box;
     background-color: var(--code-snippet-background);

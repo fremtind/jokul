@@ -1,11 +1,11 @@
-import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { CheckIcon } from "@fremtind/jkl-icons-react";
 import {
+    IconButton,
+    CheckIcon,
     Tooltip,
     TooltipContent,
     TooltipTrigger,
     type TooltipPlacement,
-} from "@fremtind/jkl-tooltip-react";
+} from "@fremtind/jokul";
 import React, { type FC } from "react";
 import { CopyIcon } from "./CopyIcon";
 

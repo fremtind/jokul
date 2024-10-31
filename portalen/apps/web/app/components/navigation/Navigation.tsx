@@ -1,5 +1,10 @@
-import { Hamburger } from "@fremtind/jkl-hamburger-react";
-import { useFocusOutside, useId } from "@fremtind/jkl-react-hooks";
+import {
+    Button,
+    HamburgerIcon,
+    CloseIcon,
+    useFocusOutside,
+    useId,
+} from "@fremtind/jokul";
 import { Link } from "@remix-run/react";
 import cn from "classnames";
 import React, {
@@ -94,7 +99,7 @@ export const Navigation: FC = () => {
                 />
                 <header className="jkl-portal-navigation__header">
                     <div className="jkl-portal-navigation__header-column">
-                        <Hamburger
+                        <Button
                             className="jkl-portal-navigation__burger"
                             aria-controls={menuId}
                             aria-expanded={open}
@@ -102,7 +107,7 @@ export const Navigation: FC = () => {
                             density="compact"
                             aria-label={open ? "Lukk meny" : "Åpne meny"}
                             onClick={() => setOpen(!open)}
-                            isOpen={open}
+                            icon={open ? <CloseIcon /> : <HamburgerIcon />}
                         />
                         <Link
                             tabIndex={open ? -1 : 0}

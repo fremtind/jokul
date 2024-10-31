@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "@fremtind/jkl-icons-react";
+import { ChevronRightIcon } from "@fremtind/jokul";
 import { NavLink } from "@remix-run/react";
 import cn from "classnames";
 import React, { type FC, type HTMLAttributes } from "react";

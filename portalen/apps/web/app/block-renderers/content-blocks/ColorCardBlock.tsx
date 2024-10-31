@@ -2,7 +2,7 @@ import {
     DescriptionDetail,
     DescriptionList,
     DescriptionTerm,
-} from "@fremtind/jkl-description-list-react";
+} from "@fremtind/jokul";
 import React, { type FC } from "react";
 import type { ContentBlockProps } from "./types";
 import { assertBlockIs } from "./types";

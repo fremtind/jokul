@@ -21,6 +21,12 @@
     },
     "packageManager": "pnpm@8.6.7",
     "dependencies": {
+        "@fremtind/jokul": "file:../packages/jokul",
+        "@fremtind/jkl-footer-react": "^6.1.52",
+        "@fremtind/jkl-file-input-react": "^2.3.7",
+        "@payloadcms/bundler-vite": "^0.1.7",
+        "@payloadcms/db-mongodb": "^1.7.3",
+        "@payloadcms/richtext-slate": "^1.5.2",
         "express": "^4.18.2",
         "payload": "^2.30.1"
     },

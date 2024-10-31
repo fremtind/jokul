@@ -1,4 +1,4 @@
-import { unicode } from "@fremtind/jkl-constants-util/";
+import { unicode } from "@fremtind/jokul";
 
 export const camelToKebab = (camelCasedString: string) =>
     camelCasedString.replace(/([A-Z])/g, "-$1").toLocaleLowerCase();

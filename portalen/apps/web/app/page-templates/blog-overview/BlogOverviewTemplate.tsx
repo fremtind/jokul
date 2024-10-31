@@ -1,4 +1,4 @@
-import { useElementDimensions } from "@fremtind/jkl-react-hooks";
+import { useElementDimensions } from "@fremtind/jokul";
 import { type Blog } from "@org/cms";
 import { BlogCard } from "app/components/blog-card";
 import React, { type CSSProperties, type FC, useEffect, useState } from "react";

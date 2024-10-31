@@ -1,4 +1,4 @@
-import { useClickOutside } from "@fremtind/jkl-react-hooks";
+import { useClickOutside } from "@fremtind/jokul";
 import React, { useCallback, useEffect, useState, type FC } from "react";
 import { useAnimatedHeight } from "../../../hooks";
 import { useActiveHeader } from "../activeHeaderContext";

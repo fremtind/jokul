@@ -1,4 +1,4 @@
-import { type ValuePair } from "@fremtind/jkl-core";
+import { type ValuePair } from "@fremtind/jokul";
 import type { CodeExample } from "payload/generated-types";
 import { useCallback, useMemo } from "react";
 import type { BoolProp, ChoiceProp, CodeGenerator } from "./InteractiveCode";

@@ -1,5 +1,4 @@
-import { Loader } from "@fremtind/jkl-loader-react";
-import { usePreviousValue } from "@fremtind/jkl-react-hooks";
+import { Loader, usePreviousValue } from "@fremtind/jokul";
 import React, {
     type FC,
     useCallback,

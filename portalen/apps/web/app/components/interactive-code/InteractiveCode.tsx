@@ -1,15 +1,14 @@
-import { Checkbox } from "@fremtind/jkl-checkbox-react";
 import {
+    Checkbox,
+    Select,
+    RadioButton,
+    RadioButtonGroup,
+    useId,
+    usePreviousValue,
     type ColorScheme,
     type Density,
     type ValuePair,
-} from "@fremtind/jkl-core";
-import {
-    RadioButton,
-    RadioButtonGroup,
-} from "@fremtind/jkl-radio-button-react";
-import { useId, usePreviousValue } from "@fremtind/jkl-react-hooks";
-import { Select } from "@fremtind/jkl-select-react";
+} from "@fremtind/jokul";
 import cn from "classnames";
 import { type Language } from "prism-react-renderer";
 import { type FC, useCallback, useEffect, useState } from "react";

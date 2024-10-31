@@ -1,4 +1,4 @@
-import { type WithChildren } from "@fremtind/jkl-core";
+import { type WithChildren } from "@fremtind/jokul";
 import React, { type FC } from "react";
 
 interface AnatomyExampleProps extends WithChildren {

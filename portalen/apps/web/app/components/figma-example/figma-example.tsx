@@ -1,4 +1,4 @@
-import { Logo } from "@fremtind/jkl-logo-react";
+import { Logo } from "@fremtind/jokul";
 import React, { type HTMLAttributes, useState, type FC } from "react";
 
 type Example = { fileName: string; url: string };

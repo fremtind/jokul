@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --doused-color: #{jkl.$color-stein};
@@ -9,8 +9,8 @@
 }
 
 .jkl-portal-blog-page {
-    @include jkl.text-style('body');
-    @include jkl.declare-font-variables('blog-page-heading', 'title');
+    @include jkl.text-style("body");
+    @include jkl.declare-font-variables("blog-page-heading", "title");
 
     position: relative;
     counter-reset: sections;
@@ -27,7 +27,7 @@
 }
 
 .jkl-portal-blog-page-heading {
-    @include jkl.use-font-variables('blog-page-heading');
+    @include jkl.use-font-variables("blog-page-heading");
     margin-top: jkl.$spacing-16;
 }
 
@@ -67,14 +67,14 @@
     grid-template-rows: min-content 1fr;
     grid-template-columns: 1fr;
     grid-template-areas:
-        'divider'
-        'main';
+        "divider"
+        "main";
 
     @include jkl.screen-from(1512px) {
         grid-template-columns: fit-content(720px) auto;
         grid-template-areas:
-            'divider empty'
-            'main sidebar';
+            "divider empty"
+            "main sidebar";
     }
     column-gap: jkl.$spacing-104;
 

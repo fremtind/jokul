@@ -1,5 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
-@use '@fremtind/jkl-core/jkl/colors';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --cmdk-fadeout: rgba(99 96 96 / 20%);
@@ -31,7 +30,7 @@
     max-width: var(--jkl-portal-content);
     width: 100%;
     margin: 10vh auto;
-    @include jkl.motion('standard', 'energetic');
+    @include jkl.motion("standard", "energetic");
 
     @include jkl.small-device {
         margin: jkl.$spacing-16 auto;
@@ -53,7 +52,7 @@
     appearance: none;
     @include jkl.reset-outline;
     @include jkl.remove-inner-outer-button;
-    @include jkl.use-font-variables('jkl-text-input');
+    @include jkl.use-font-variables("jkl-text-input");
     padding: var(--jkl-spacing-8) var(--jkl-spacing-16);
     width: 100%;
     color: var(--jkl-text-input-color);
@@ -64,7 +63,7 @@
     cursor: pointer;
     user-select: none;
 
-    &[aria-selected='true'] {
+    &[aria-selected="true"] {
         outline: jkl.rem(1px) solid var(--jkl-color);
         outline-offset: jkl.rem(3px);
     }
@@ -74,7 +73,7 @@
     min-height: 330px;
     height: var(--cmdk-list-height);
     max-height: 70vh;
-    @include jkl.motion('standard', 'energetic');
+    @include jkl.motion("standard", "energetic");
     overscroll-behavior: contain;
     overflow-y: scroll;
 }
@@ -99,7 +98,7 @@
 
 [cmdk-group-heading] {
     user-select: none;
-    @include jkl.text-style('small');
+    @include jkl.text-style("small");
     color: var(--jkl-portal-muted);
 }
 

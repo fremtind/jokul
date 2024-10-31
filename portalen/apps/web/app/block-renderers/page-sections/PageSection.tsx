@@ -1,4 +1,4 @@
-import type { WithChildren } from "@fremtind/jkl-core";
+import type { WithChildren } from "@fremtind/jokul";
 import cn from "classnames";
 import React, { type FC } from "react";
 import { RichText } from "../../components/rich-text";

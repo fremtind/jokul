@@ -1,20 +1,20 @@
-@use '@fremtind/jkl-core/jkl';
-@use '../../block-renderers/page-sections';
-@use '../../components/anatomy-example';
-@use '../../components/code-snippet';
-@use '../../components/do-dont-example';
-@use '../../components/figma-example';
-@use '../../components/interactive-code';
-@use '../../components/keyboard-shortcut';
-@use '../../components/package-report-card';
-@use '../../components/section-heading';
-@use '../../components/react-api';
-@use '../../components/showcase';
-@use '../../components/stepped-example';
-@use '../../components/table-of-contents';
-@use '../../components/typography-table';
-@use '../../components/vimeo-player';
-@use '../../components/spacing-table';
+@use "@fremtind/jokul/styles/core/jkl";
+@use "../../block-renderers/page-sections";
+@use "../../components/anatomy-example";
+@use "../../components/code-snippet";
+@use "../../components/do-dont-example";
+@use "../../components/figma-example";
+@use "../../components/interactive-code";
+@use "../../components/keyboard-shortcut";
+@use "../../components/package-report-card";
+@use "../../components/section-heading";
+@use "../../components/react-api";
+@use "../../components/showcase";
+@use "../../components/stepped-example";
+@use "../../components/table-of-contents";
+@use "../../components/typography-table";
+@use "../../components/vimeo-player";
+@use "../../components/spacing-table";
 
 @include jkl.light-mode-variables {
     --outline-color: #{jkl.$color-hvit};
@@ -32,15 +32,15 @@
 
     display: grid;
     grid-template:
-        'nav' var(--header-height)
-        'content' minmax((calc(100vh - var(--header-height))), auto)
-        'footer' auto / 1fr;
+        "nav" var(--header-height)
+        "content" minmax((calc(100vh - var(--header-height))), auto)
+        "footer" auto / 1fr;
     background-color: var(--outline-color);
 
     @include jkl.screen-from(1512px) {
         grid-template:
-            'nav content' minmax(100vh, auto)
-            'nav footer' auto / minmax(350px, auto) 1fr;
+            "nav content" minmax(100vh, auto)
+            "nav footer" auto / minmax(350px, auto) 1fr;
     }
 
     &__content {

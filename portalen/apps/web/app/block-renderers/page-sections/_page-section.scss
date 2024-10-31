@@ -1,9 +1,9 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @counter-style section-counter {
     system: numeric;
-    symbols: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
-    pad: 2 '0';
+    symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9";
+    pad: 2 "0";
 }
 
 @include jkl.light-mode-variables {
@@ -24,11 +24,11 @@
         margin-bottom: jkl.$spacing-64;
     }
 
-    @include jkl.motion('standard', 'expressive');
+    @include jkl.motion("standard", "expressive");
     transition-property: opacity;
 
     & > p {
-        @include jkl.text-style('body');
+        @include jkl.text-style("body");
 
         &:not(:last-child) {
             margin-block-end: jkl.$spacing-24;

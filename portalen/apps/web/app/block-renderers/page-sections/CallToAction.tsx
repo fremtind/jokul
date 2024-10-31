@@ -1,4 +1,4 @@
-import { type WithOptionalChildren } from "@fremtind/jkl-core";
+import { type WithOptionalChildren } from "@fremtind/jokul";
 import { NavLink } from "@remix-run/react";
 import React, { type FC } from "react";
 import { getPagePathFromId } from "../../components/navigation/utils";

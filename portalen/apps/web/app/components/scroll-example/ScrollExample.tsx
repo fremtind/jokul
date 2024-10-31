@@ -1,4 +1,4 @@
-import { type WithChildren } from "@fremtind/jkl-core";
+import { type WithChildren } from "@fremtind/jokul";
 import cn from "classnames";
 import React, { useState, type FC, type ReactNode } from "react";
 import { HighlightExample } from "./HighlightExample";

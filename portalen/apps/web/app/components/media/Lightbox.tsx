@@ -1,5 +1,4 @@
-import { type WithChildren } from "@fremtind/jkl-core";
-import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import { useBrowserPreferences, type WithChildren } from "@fremtind/jokul";
 import cn from "classnames";
 import { type Transition } from "framer-motion";
 import { motion } from "framer-motion";

@@ -1,17 +1,17 @@
-@use '@fremtind/jkl-core/jkl';
-@use './highlight-example';
-@use './scroll-content';
+@use "@fremtind/jokul/styles/core/jkl";
+@use "./highlight-example";
+@use "./scroll-content";
 
 .jkl-portal-scroll-example {
     box-sizing: border-box;
 
     @include jkl.from-medium-device {
         display: grid;
-        grid-template: 'example content' auto / 2fr 3fr;
+        grid-template: "example content" auto / 2fr 3fr;
         align-content: center;
 
         &--flipped {
-            grid-template: 'content example' auto / 3fr 2fr;
+            grid-template: "content example" auto / 3fr 2fr;
         }
     }
 

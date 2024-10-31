@@ -1,7 +1,7 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 .general-page {
-    @include jkl.text-style('body');
+    @include jkl.text-style("body");
 
     position: relative;
     counter-reset: sections;
@@ -23,7 +23,7 @@
         }
 
         &-title {
-            @include jkl.text-style('title');
+            @include jkl.text-style("title");
             max-width: 100%;
             margin: 0;
             margin-left: -0.07em; // For å få overskriften i flukt med venstre marg
@@ -31,7 +31,7 @@
         }
 
         &-ingress {
-            @include jkl.text-style('heading-1');
+            @include jkl.text-style("heading-1");
             color: var(--jkl-portal-muted);
         }
     }

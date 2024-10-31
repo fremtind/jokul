@@ -1,4 +1,4 @@
-import type { WithChildren } from "@fremtind/jkl-core";
+import type { WithChildren } from "@fremtind/jokul";
 import React, { createContext, useContext, useState, type FC } from "react";
 
 type ActiveHeaderContext = [

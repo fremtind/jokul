@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { tokens } from "@fremtind/jkl-core";
+import { tokens } from "@fremtind/jokul";
 import type { LoaderArgs } from "@remix-run/node";
 import { Resvg } from "@resvg/resvg-js";
 import { LRUCache } from "lru-cache";

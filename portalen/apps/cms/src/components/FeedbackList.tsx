@@ -10,7 +10,7 @@ import {
     TableRow,
     TableSortDirection,
     useSortableTableHeader,
-} from "@fremtind/jkl-table-react";
+} from "@fremtind/jokul";
 import { Props } from "payload/dist/admin/components/views/collections/List/types";
 import React, { useRef, useState } from "react";
 

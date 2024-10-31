@@ -1,4 +1,4 @@
-import type { WithOptionalChildren } from "@fremtind/jkl-core";
+import type { WithOptionalChildren } from "@fremtind/jokul";
 import { Link } from "@remix-run/react";
 import escapeHTML from "escape-html";
 import type { MainMenu } from "payload/generated-types";

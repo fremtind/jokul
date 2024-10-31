@@ -1,4 +1,4 @@
-import type { WithChildren } from "@fremtind/jkl-core";
+import type { WithChildren } from "@fremtind/jokul";
 import { createContext, useContext, type FC } from "react";
 import React from "react";
 import { Analytics } from "./analytics";

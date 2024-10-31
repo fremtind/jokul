@@ -1,5 +1,5 @@
-@use '@fremtind/jkl-core/jkl';
-@use '../../components/section-heading/section-heading';
+@use "@fremtind/jokul/styles/core/jkl";
+@use "../../components/section-heading/section-heading";
 
 .jkl-portal-video-cta {
     --inline-padding: var(--jkl-spacing-16);

@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --jkl-do-dont-background: #{jkl.$color-hvit};
@@ -13,7 +13,7 @@
 }
 
 .jkl-portal-do-dont-example {
-    @include jkl.declare-font-variables('do-dont-content-description', 'body');
+    @include jkl.declare-font-variables("do-dont-content-description", "body");
 
     --do-dont-content-padding: #{jkl.$spacing-16 jkl.$spacing-24};
 
@@ -41,7 +41,7 @@
     }
 
     &__description {
-        @include jkl.use-font-variables('do-dont-content-description');
+        @include jkl.use-font-variables("do-dont-content-description");
 
         display: flex;
         flex-direction: column;

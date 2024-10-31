@@ -28,18 +28,7 @@
         "typecheck": "tsc -p ./tsconfig.json"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.1.0",
-        "@fremtind/jkl-icons": "^10.0.0",
-        "@fremtind/jkl-input-group": "^3.0.13",
-        "@fremtind/jkl-select": "^11.1.12",
-        "@fremtind/jkl-table": "^9.1.4",
-        "@fremtind/jkl-table-react": "^11.4.7",
-        "@fremtind/jkl-text-input": "^12.1.12",
-        "@fremtind/jkl-webfonts": "^4.0.0",
         "@org/ui": "workspace:*",
-        "@payloadcms/bundler-vite": "^0.1.7",
-        "@payloadcms/db-mongodb": "^1.7.3",
-        "@payloadcms/richtext-slate": "^1.5.2",
         "cmdk": "^0.2.0",
         "dotenv": "^16.3.1",
         "react": "^18.2.0",
@@ -52,8 +41,9 @@
         "copyfiles": "^2.4.1",
         "cross-env": "^7.0.3",
         "nodemon": "^2.0.22",
-        "ts-node": "^10.9.1",
-        "typescript": "^5.1.6"
+        "prettier": "^2.8.8",
+        "@types/prettier": "^2.7.3",
+        "ts-node": "^10.9.1"
     },
     "peerDependencies": {
         "@org/shared": "workspace:*"

@@ -1,5 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
-@use '@fremtind/jkl-core/jkl/spacing';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --code-bg-color: #{jkl.$color-sand};
@@ -12,17 +11,17 @@
 }
 
 $spacing: (
-    '2': jkl.$spacing-2,
-    '4': jkl.$spacing-4,
-    '8': jkl.$spacing-8,
-    '12': jkl.$spacing-12,
-    '16': jkl.$spacing-16,
-    '24': jkl.$spacing-24,
-    '32': jkl.$spacing-32,
-    '40': jkl.$spacing-40,
-    '64': jkl.$spacing-64,
-    '104': jkl.$spacing-104,
-    '168': jkl.$spacing-168,
+    "2": jkl.$spacing-2,
+    "4": jkl.$spacing-4,
+    "8": jkl.$spacing-8,
+    "12": jkl.$spacing-12,
+    "16": jkl.$spacing-16,
+    "24": jkl.$spacing-24,
+    "32": jkl.$spacing-32,
+    "40": jkl.$spacing-40,
+    "64": jkl.$spacing-64,
+    "104": jkl.$spacing-104,
+    "168": jkl.$spacing-168,
 );
 
 .spacing-swatch {

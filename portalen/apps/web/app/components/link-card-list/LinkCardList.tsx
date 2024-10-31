@@ -1,4 +1,4 @@
-import { NavCard } from "@fremtind/jkl-card-react";
+import { NavCard } from "@fremtind/jokul";
 import { NavLink } from "@remix-run/react";
 import { type AllSection } from "payload/generated-types";
 import React, { type FC } from "react";

@@ -1,10 +1,11 @@
-import { ErrorAlertMessage } from "@fremtind/jkl-alert-message-react";
 import {
-    type Consent,
+    ErrorMessage,
+    initTabListener,
+    Link,
     CookieConsentProvider,
-} from "@fremtind/jkl-cookie-consent-react";
-import type { ColorScheme } from "@fremtind/jkl-core";
-import { initTabListener, Link } from "@fremtind/jkl-core";
+    type Consent,
+    type ColorScheme,
+} from "@fremtind/jokul";
 import type { MainMenu, User } from "@org/cms";
 import uiStyles from "@org/ui/styles.css";
 import type {
@@ -240,7 +241,7 @@ export const ErrorBoundary = () => {
                     <Links />
                 </head>
                 <body>
-                    <ErrorAlertMessage>{error.data.message}</ErrorAlertMessage>
+                    <ErrorMessage>{error.data.message}</ErrorMessage>
                     <Outlet />
                     <ScrollRestoration />
                     <Scripts />
@@ -257,10 +258,10 @@ export const ErrorBoundary = () => {
                 <Links />
             </head>
             <body>
-                <ErrorAlertMessage>
+                <ErrorMessage>
                     {(error as Error)?.message ??
                         "Noe gikk galt, men vi vet ikke helt hva"}
-                </ErrorAlertMessage>
+                </ErrorMessage>
                 <Outlet />
                 <ScrollRestoration />
                 <Scripts />

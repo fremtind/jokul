@@ -1,5 +1,4 @@
-import { type WithChildren } from "@fremtind/jkl-core";
-import { usePreviousValue } from "@fremtind/jkl-react-hooks";
+import { usePreviousValue, type WithChildren } from "@fremtind/jokul";
 import classNames from "classnames";
 import React, { type FC, useState } from "react";
 import { RichText } from "../rich-text";

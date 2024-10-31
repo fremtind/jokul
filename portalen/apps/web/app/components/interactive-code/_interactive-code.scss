@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --interactive-code-background: #{jkl.$color-hvit};
@@ -13,7 +13,7 @@
 }
 
 .interactive-code {
-    @include jkl.declare-font-variables('interactive-code-title', 'small');
+    @include jkl.declare-font-variables("interactive-code-title", "small");
 
     $_title-row-height: jkl.rem(40px);
     $_box-padding-title-block: jkl.$spacing-8;
@@ -26,9 +26,9 @@
     border: 1px solid var(--gap-color);
     display: grid;
     grid-template-areas:
-        'title controls'
-        'preview controls'
-        'editor editor';
+        "title controls"
+        "preview controls"
+        "editor editor";
     grid-template-rows: $_title-row-height min-content min-content;
     grid-template-columns: 3fr 1fr;
     gap: jkl.rem(1px);
@@ -36,15 +36,15 @@
 
     @include jkl.small-device {
         grid-template-areas:
-            'title title'
-            'preview preview'
-            'controls controls'
-            'editor editor';
+            "title title"
+            "preview preview"
+            "controls controls"
+            "editor editor";
         grid-template-rows: $_title-row-height min-content min-content min-content;
     }
 
     &__title {
-        @include jkl.use-font-variables('interactive-code-title');
+        @include jkl.use-font-variables("interactive-code-title");
         background: var(--interactive-code-info-background);
         grid-area: title;
         padding: $_box-padding-title;
@@ -68,7 +68,7 @@
         grid-area: controls;
 
         &-title {
-            @include jkl.use-font-variables('interactive-code-title');
+            @include jkl.use-font-variables("interactive-code-title");
             border-bottom: 1px solid var(--gap-color);
             height: $_title-row-height - ($_box-padding-title-block * 2);
             padding: $_box-padding-title;
@@ -84,8 +84,8 @@
     }
 
     &__editor {
-        @include jkl.text-style('small');
-        @include jkl.use-font-family('Fremtind Grotesk Mono');
+        @include jkl.text-style("small");
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
         background: var(--interactive-code-editor-background);
         grid-area: editor;
         padding: $_box-padding-preview-block $_box-padding-inline;
@@ -95,15 +95,15 @@
         }
     }
 
-    &[data-show-controls='false'] > &__title {
+    &[data-show-controls="false"] > &__title {
         grid-area: title / title / title / controls;
     }
 
-    &[data-show-controls='false'] > &__preview {
+    &[data-show-controls="false"] > &__preview {
         grid-area: preview / preview / preview / controls;
     }
 
-    &[data-show-editor='false'][data-show-controls='true'] > &__preview {
+    &[data-show-editor="false"][data-show-controls="true"] > &__preview {
         grid-area: preview / preview / editor / preview;
 
         @include jkl.screen-from(1512px) {
@@ -115,25 +115,25 @@
         }
     }
 
-    &[data-show-editor='false'][data-show-controls='false'] > &__preview {
+    &[data-show-editor="false"][data-show-controls="false"] > &__preview {
         grid-area: preview / preview / editor / controls;
     }
 
-    &[data-show-editor='false'] > &__controls {
+    &[data-show-editor="false"] > &__controls {
         grid-area: controls / controls / editor / controls;
     }
 
-    &[data-show-editor='true'][data-show-preview='false'][data-show-controls='true']
+    &[data-show-editor="true"][data-show-preview="false"][data-show-controls="true"]
         > &__controls {
         grid-area: controls / controls / editor / controls;
     }
 
-    &[data-show-editor='true'][data-show-preview='false'][data-show-controls='true']
+    &[data-show-editor="true"][data-show-preview="false"][data-show-controls="true"]
         > &__editor {
         grid-area: preview / preview / editor / preview;
     }
 
-    &[data-show-editor='true'][data-show-preview='false'][data-show-controls='false']
+    &[data-show-editor="true"][data-show-preview="false"][data-show-controls="false"]
         > &__editor {
         grid-area: preview / preview / editor / editor;
     }

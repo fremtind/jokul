@@ -1,4 +1,4 @@
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useIntersectionObserver } from "@fremtind/jokul";
 import { useCallback, useEffect, useRef } from "react";
 import { clamp } from "~/utils/function";
 

@@ -1,5 +1,4 @@
-import { type WithChildren } from "@fremtind/jkl-core";
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useIntersectionObserver, type WithChildren } from "@fremtind/jokul";
 import cn from "classnames";
 import React, {
     type FC,

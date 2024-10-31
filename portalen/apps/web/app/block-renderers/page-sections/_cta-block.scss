@@ -1,5 +1,5 @@
-@use '@fremtind/jkl-core/jkl';
-@use '../../components/section-heading/section-heading';
+@use "@fremtind/jokul/styles/core/jkl";
+@use "../../components/section-heading/section-heading";
 
 .jkl-portal-cta-block {
     --cta-padding: var(--jkl-spacing-64);
@@ -17,12 +17,12 @@
     align-items: flex-start;
     justify-content: center;
     gap: var(--jkl-spacing-40);
-    @include jkl.text-style('title');
+    @include jkl.text-style("title");
     max-width: 35ch;
 
     &__text {
         max-width: 35ch;
-        @include jkl.text-style('title');
+        @include jkl.text-style("title");
         @include section-heading.section-counter;
     }
 

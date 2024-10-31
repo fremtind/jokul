@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 $indicator-background-color: jkl.$color-varde;
 $indicator-text-color: jkl.$color-granitt;
@@ -24,7 +24,7 @@ $indicator-size: jkl.$spacing-8;
 
         &::after {
             background-color: $indicator-background-color;
-            content: ' ';
+            content: " ";
             display: block;
             height: jkl.rem(2px);
             width: jkl.rem(37px);
