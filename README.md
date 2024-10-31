@@ -108,6 +108,38 @@ Jøkul er distribuert under [MIT-lisensen](./LICENSE) for åpen kildekode.
 
 Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontributors.org/docs/en/emoji-key)):
 
+## Særtilfeller og kjente problemer
+
+### Multi-root workspaces for Jøkul
+
+Prosjektet bruker [Multi-root Workspaces](https://code.visualstudio.com/docs/editor/workspaces#_multiroot-workspaces) i Visual Studio Code for å håndtere unike innstillinger for flere mapper i samme arbeidsområde. Ved å sette opp multi-root workspaces kan vi spesifisere konfigurasjoner som er tilpasset hver enkelt mappes krav, som spesifikke TypeScript-versjoner.
+
+### Formål
+
+I prosjektet fungerer `portalen`-mappen som et eget PNPM-workspace og krever **TypeScript versjon 5.4.5** for å være kompatibel med **Payload CMS v2**. Dette oppsettet sikrer korrekt IntelliSense-støtte og konsekvent funksjonalitet spesielt for `portalen`, uten å påvirke TypeScript-versjonen i hovedarbeidsområdet. Mer om dette behovet kan leses i denne [GitHub-saken](https://github.com/payloadcms/payload/issues/6799#issuecomment-2224211446).
+
+### Konfigurasjon
+
+Multi-root workspaces er lagret i en JSON-fil (`jokul.core-workspace`) med følgende relevante innstillinger:
+
+-   **Mapper**:
+    -   `.` (hovedprosjektkatalogen - jokul)
+    -   `portalen` (selvstendig arbeidsområde innenfor prosjektet)
+-   **TypeScript-versjon**:
+    -   `portalen`-mappen har en spesifikk TypeScript-versjonsbane: `"typescript.tsdk": "portalen/node_modules/typescript/lib"`. Dette peker Visual Studio Code til TypeScript 5.4.5 innenfor `portalen`, mens hovedarbeidsområdet kan operere uavhengig.
+
+### Bruksanvisning
+
+For å åpne multi-root workspaces og sikre riktig TypeScript-konfigurasjon:
+
+1. Åpne terminalen.
+2. Kjør følgende kommando:
+   `bash
+code jokul.core-workspace
+`. Vær oppmerksom på at hvis du bruker en annen IDE, må du sjekke dokumentasjonen for hvordan du åpner filen, da kommandoene kan variere.
+
+## Bidragsytere
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
