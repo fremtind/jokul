@@ -1,5 +1,4 @@
-import type { WithChildren } from "@fremtind/jkl-core";
-import { LinkIcon } from "@fremtind/jkl-icons-react";
+import { LinkIcon, type WithChildren } from "@fremtind/jokul";
 import { Link } from "@remix-run/react";
 import React, { type FC } from "react";
 import { useEffect, useRef, useState } from "react";

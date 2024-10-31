@@ -1,24 +1,24 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 $_levels: (
-    'title',
-    'title-small',
-    'heading-1',
-    'heading-2',
-    'heading-3',
-    'heading-4',
-    'heading-5',
-    'body',
-    'small'
+    "title",
+    "title-small",
+    "heading-1",
+    "heading-2",
+    "heading-3",
+    "heading-4",
+    "heading-5",
+    "body",
+    "small"
 );
 
-$_screens: ('large', 'small');
+$_screens: ("large", "small");
 
 .typography-cell {
     @each $_screen in $_screens {
         @each $_level in $_levels {
             &--#{$_level}-#{$_screen} {
-                @include jkl.text-style('#{$_level}/#{$_screen}-screen');
+                @include jkl.text-style("#{$_level}/#{$_screen}-screen");
             }
         }
     }

@@ -1,4 +1,4 @@
-import { useIntersectionObserver } from "@fremtind/jkl-react-hooks";
+import { useIntersectionObserver } from "@fremtind/jokul";
 import { useLocation } from "@remix-run/react";
 import React, { useCallback, useEffect, useRef, type FC } from "react";
 import { slugify } from "../../../utils/string";

@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 .jkl-portal-stepped-example-navigation {
     display: flex;
@@ -31,13 +31,13 @@
         margin-top: -0.1em; // Vertikal justering mot knapper
 
         &::after {
-            content: '';
+            content: "";
             position: absolute;
             inset: 0;
             background-color: var(--stepped-example-progress-color);
             transform: scale(var(--step-width, 0), 1);
             transform-origin: top left;
-            @include jkl.motion('standard');
+            @include jkl.motion("standard");
             transition-property: transform;
         }
     }

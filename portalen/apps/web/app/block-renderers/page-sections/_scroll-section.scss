@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --image-bg-color: #{jkl.$color-snohvit};
@@ -45,7 +45,7 @@
 
     &__tag {
         padding-bottom: #{jkl.$spacing-24};
-        @include jkl.use-font-family('Fremtind Grotesk Mono');
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
     }
 
     &__ingress {

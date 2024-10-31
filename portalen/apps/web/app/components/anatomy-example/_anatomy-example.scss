@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --jkl-anatomy-example-background: #{jkl.$color-hvit};
@@ -14,7 +14,7 @@
     --header-height: #{jkl.rem(40px)};
     --example-padding: #{jkl.$spacing-24};
 
-    @include jkl.declare-font-variables('anatomy-example-description', 'small');
+    @include jkl.declare-font-variables("anatomy-example-description", "small");
 
     background-color: var(--gap-color);
     border: 1px solid var(--gap-color);
@@ -45,7 +45,7 @@
         flex-direction: row;
         align-items: center;
 
-        @include jkl.use-font-variables('anatomy-example-description');
+        @include jkl.use-font-variables("anatomy-example-description");
     }
 
     &__description {
@@ -58,14 +58,14 @@
         justify-content: center;
         gap: jkl.$spacing-24;
 
-        @include jkl.use-font-variables('anatomy-example-description');
+        @include jkl.use-font-variables("anatomy-example-description");
     }
 
     @include jkl.from-medium-device {
         display: grid;
         grid-template:
-            'example title      ' var(--header-height)
-            'example description' auto / 1fr 1fr;
+            "example title      " var(--header-height)
+            "example description" auto / 1fr 1fr;
         min-height: 400px;
     }
 }

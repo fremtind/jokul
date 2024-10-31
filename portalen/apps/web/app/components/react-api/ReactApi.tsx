@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem } from "@fremtind/jkl-accordion-react";
+import { Accordion, AccordionItem } from "@fremtind/jokul";
 import { useQuery } from "@tanstack/react-query";
 import React, { type FC } from "react";
 import { CodeSnippet } from "../code-snippet";

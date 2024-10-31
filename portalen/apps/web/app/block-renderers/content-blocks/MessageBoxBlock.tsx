@@ -1,9 +1,9 @@
 import {
-    InfoMessageBox,
-    ErrorMessageBox,
-    SuccessMessageBox,
-    WarningMessageBox,
-} from "@fremtind/jkl-message-box-react";
+    InfoMessage,
+    ErrorMessage,
+    SuccessMessage,
+    WarningMessage,
+} from "@fremtind/jokul";
 import React, { type FC } from "react";
 import { type ContentBlockProps } from "./types";
 import { assertBlockIs } from "./types";
@@ -17,47 +17,47 @@ export const MessageBoxBlock: FC<ContentBlockProps> = ({ contentBlock }) => {
                 switch (box.type) {
                     case "info":
                         return (
-                            <InfoMessageBox
+                            <InfoMessage
                                 fullWidth
                                 key={index}
                                 title={box.title || "Default title"}
                                 className="jkl-spacing-l--top"
                             >
                                 {box.description}
-                            </InfoMessageBox>
+                            </InfoMessage>
                         );
                     case "error":
                         return (
-                            <ErrorMessageBox
+                            <ErrorMessage
                                 fullWidth
                                 key={index}
                                 title={box.title || "Default title"}
                                 className="jkl-spacing-l--top"
                             >
                                 {box.description}
-                            </ErrorMessageBox>
+                            </ErrorMessage>
                         );
                     case "success":
                         return (
-                            <SuccessMessageBox
+                            <SuccessMessage
                                 fullWidth
                                 key={index}
                                 title={box.title || "Default title"}
                                 className="jkl-spacing-l--top"
                             >
                                 {box.description}
-                            </SuccessMessageBox>
+                            </SuccessMessage>
                         );
                     case "warning":
                         return (
-                            <WarningMessageBox
+                            <WarningMessage
                                 fullWidth
                                 key={index}
                                 title={box.title || "Default title"}
                                 className="jkl-spacing-l--top"
                             >
                                 {box.description}
-                            </WarningMessageBox>
+                            </WarningMessage>
                         );
                     default:
                         return null;

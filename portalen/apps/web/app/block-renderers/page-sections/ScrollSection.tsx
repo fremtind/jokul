@@ -1,4 +1,4 @@
-import { NavLink } from "@fremtind/jkl-core";
+import { NavLink } from "@fremtind/jokul";
 import { formatDate } from "payload/dist/admin/utilities/formatDate";
 import React, { type FC } from "react";
 import { useEffect, useRef, useState } from "react";

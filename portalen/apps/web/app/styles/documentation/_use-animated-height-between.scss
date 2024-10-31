@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 .animation-between-example {
     position: relative;
@@ -13,12 +13,12 @@
     width: 45ch;
     max-width: 80%;
 
-    &[data-expanded='false'] {
+    &[data-expanded="false"] {
         height: 300px;
         overflow-y: hidden;
 
         &::after {
-            content: '';
+            content: "";
             position: absolute;
             inset: 50% 0 0;
             background: linear-gradient(
@@ -28,13 +28,13 @@
                 transparent 100%
             );
 
-            @include jkl.motion('standard', 'expressive');
+            @include jkl.motion("standard", "expressive");
             transition-property: opacity;
             opacity: 1;
         }
     }
 
-    &[data-expanded='true'] {
+    &[data-expanded="true"] {
         height: auto;
 
         &::after {

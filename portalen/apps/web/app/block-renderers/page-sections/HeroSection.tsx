@@ -1,5 +1,8 @@
-import { type WithOptionalChildren } from "@fremtind/jkl-core";
-import { LogoStamp, TeknologiFraFremtind } from "@fremtind/jkl-logo-react";
+import {
+    LogoStamp,
+    TeknologiFraFremtind,
+    type WithOptionalChildren,
+} from "@fremtind/jokul";
 import { NavLink } from "@remix-run/react";
 import React, { type FC } from "react";
 import { type PageSectionProps } from "./types";

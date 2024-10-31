@@ -5,7 +5,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@fremtind/jkl-table-react";
+} from "@fremtind/jokul";
 import React from "react";
 import { hex, rgb } from "~/utils/colors";
 

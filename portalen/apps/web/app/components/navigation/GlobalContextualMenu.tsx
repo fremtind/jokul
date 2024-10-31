@@ -1,13 +1,14 @@
 import {
-    ContextualMenu,
-    ContextualMenuDivider,
-    ContextualMenuItem,
-    ContextualMenuItemCheckbox,
-} from "@fremtind/jkl-contextual-menu-react";
-import { useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
-import { type ColorScheme, type WithChildren } from "@fremtind/jkl-core";
-import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { DotsIcon } from "@fremtind/jkl-icons-react";
+    Menu,
+    MenuDivider,
+    MenuItem,
+    MenuItemCheckbox,
+    IconButton,
+    DotsIcon,
+    useCookieConsent,
+    type ColorScheme,
+    type WithChildren,
+} from "@fremtind/jokul";
 import React, { createContext, useContext, type FC } from "react";
 
 type GlobalPreferencesContext = {
@@ -43,7 +44,7 @@ export const GlobalContextualMenu: FC<{ className: string }> = ({
     const { consents } = useCookieConsent();
     const { colorScheme, setColorScheme } = useGlobalPreferences();
     return (
-        <ContextualMenu
+        <Menu
             className={className}
             initialPlacement="bottom-start"
             triggerElement={
@@ -57,25 +58,25 @@ export const GlobalContextualMenu: FC<{ className: string }> = ({
         >
             {consents.functional === "accepted" && (
                 <>
-                    <ContextualMenuItemCheckbox
+                    <MenuItemCheckbox
                         aria-checked={colorScheme === "dark"}
                         onChange={(_, pressed) => {
                             setColorScheme(pressed ? "dark" : "light");
                         }}
                     >
                         Lights off
-                    </ContextualMenuItemCheckbox>
-                    <ContextualMenuDivider />
+                    </MenuItemCheckbox>
+                    <MenuDivider />
                 </>
             )}
-            <ContextualMenuItem
+            <MenuItem
                 onClick={() => {
                     window.location.assign("https://github.com/fremtind/jokul");
                 }}
             >
                 Gå til GitHub
-            </ContextualMenuItem>
-            <ContextualMenuItem
+            </MenuItem>
+            <MenuItem
                 onClick={() =>
                     window.location.assign(
                         "https://www.figma.com/files/project/52944370",
@@ -83,8 +84,8 @@ export const GlobalContextualMenu: FC<{ className: string }> = ({
                 }
             >
                 Gå til Figma
-            </ContextualMenuItem>
-            <ContextualMenuItem
+            </MenuItem>
+            <MenuItem
                 onClick={() => {
                     window.location.assign(
                         "https://teams.microsoft.com/l/channel/19%3adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%2520Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0",
@@ -92,7 +93,7 @@ export const GlobalContextualMenu: FC<{ className: string }> = ({
                 }}
             >
                 Gå til Teams
-            </ContextualMenuItem>
-        </ContextualMenu>
+            </MenuItem>
+        </Menu>
     );
 };

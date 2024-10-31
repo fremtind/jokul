@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --jkl-portal-toc-link-color: #{jkl.$color-granitt};
@@ -28,7 +28,7 @@
 
     background-color: var(--jkl-bg-color);
 
-    &[data-collapsed='true'] {
+    &[data-collapsed="true"] {
         height: calc(calc(var(--jkl-spacing-16) * 2) + 1.5rem);
 
         & [data-active] {
@@ -37,11 +37,11 @@
             transition-property: opacity;
         }
 
-        & .jkl-portal-toc__item[data-active='false'] {
+        & .jkl-portal-toc__item[data-active="false"] {
             opacity: 0;
         }
 
-        & .jkl-portal-toc__item[data-active='true'] {
+        & .jkl-portal-toc__item[data-active="true"] {
             opacity: 1;
         }
 
@@ -64,11 +64,11 @@
             display: none;
         }
 
-        &[data-collapsed='true'] {
+        &[data-collapsed="true"] {
             height: auto;
 
-            & .jkl-portal-toc__item[data-active='false'],
-            & .jkl-portal-toc__item[data-active='true'] {
+            & .jkl-portal-toc__item[data-active="false"],
+            & .jkl-portal-toc__item[data-active="true"] {
                 opacity: 1;
             }
 
@@ -95,7 +95,7 @@
     }
 
     &__heading {
-        @include jkl.text-style('heading-5');
+        @include jkl.text-style("heading-5");
         display: none;
 
         @include jkl.screen-from(1512px) {
@@ -120,11 +120,11 @@
     }
 
     &__item {
-        @include jkl.text-style('small');
+        @include jkl.text-style("small");
         color: var(--jkl-portal-toc-link-color);
         display: contents;
 
-        &[data-active='true'] {
+        &[data-active="true"] {
             font-weight: bold;
         }
 
@@ -160,13 +160,13 @@
         position: relative;
 
         &::after {
-            content: '→';
-            content: '→' / '';
+            content: "→";
+            content: "→" / "";
             opacity: 0;
             position: absolute;
             margin-inline-start: jkl.$spacing-4;
             transform: translate(-10%, 0);
-            @include jkl.motion('standard', 'expressive');
+            @include jkl.motion("standard", "expressive");
             transition-property: opacity, transform;
         }
 

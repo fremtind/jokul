@@ -1,4 +1,4 @@
-import { tokens } from "@fremtind/jkl-core";
+import { tokens } from "@fremtind/jokul";
 
 export const hex = {
     hvit: tokens.color.hvit,

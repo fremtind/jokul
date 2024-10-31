@@ -1,7 +1,9 @@
-import { NavCard } from "@fremtind/jkl-card-react";
-import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { SearchIcon } from "@fremtind/jkl-icons-react";
-import { useClickOutside } from "@fremtind/jkl-react-hooks";
+import {
+    SearchIcon,
+    IconButton,
+    NavCard,
+    useClickOutside,
+} from "@fremtind/jokul";
 import type { Component, General, Foundation, Pattern, Blog } from "@org/cms";
 import { NavLink, useNavigate } from "@remix-run/react";
 import { Command } from "cmdk";

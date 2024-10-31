@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --menu-item-color: #{jkl.$color-granitt};
@@ -12,7 +12,7 @@
 
 .jkl-portal-navigation-menu-item {
     @include jkl.reset-outline;
-    @include jkl.text-style('body');
+    @include jkl.text-style("body");
 
     background-color: transparent;
     color: var(--menu-item-color);
@@ -24,13 +24,13 @@
     text-decoration: none;
 
     &::after {
-        content: '\00A0\2192';
-        content: '\00A0\2192'/ ' '; // Skjul for skjermlesere i støttede nettlesere
+        content: "\00A0\2192";
+        content: "\00A0\2192"/ " "; // Skjul for skjermlesere i støttede nettlesere
         position: relative;
         transform: translate(calc(var(--jkl-spacing-4) * -1), 0);
         opacity: 0;
         transition-property: transform, opacity;
-        @include jkl.motion('standard', 'productive');
+        @include jkl.motion("standard", "productive");
     }
 
     &:hover {
@@ -57,17 +57,17 @@
 
     &__icon {
         transition-property: transform;
-        @include jkl.motion('standard', 'productive');
+        @include jkl.motion("standard", "productive");
         transform: rotate(0);
         color: var(--menu-icon-color);
     }
 
-    &[data-is-open='true'] &__icon {
+    &[data-is-open="true"] &__icon {
         transform: rotate(90deg);
     }
 
-    &[aria-current='page'],
-    &[data-has-active-child='true']:not([data-is-open='true']) {
+    &[aria-current="page"],
+    &[data-has-active-child="true"]:not([data-is-open="true"]) {
         @include jkl.no-grow-bold;
     }
 

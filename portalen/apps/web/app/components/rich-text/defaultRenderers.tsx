@@ -1,5 +1,9 @@
-import { type WithOptionalChildren } from "@fremtind/jkl-core";
-import { ListItem, OrderedList, UnorderedList } from "@fremtind/jkl-list-react";
+import {
+    ListItem,
+    OrderedList,
+    UnorderedList,
+    type WithOptionalChildren,
+} from "@fremtind/jokul";
 import React, { type FC } from "react";
 
 export const NODE_TYPES = [

@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --package-stats-bg-color: #{jkl.$color-sand};
@@ -23,9 +23,9 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas:
-        'header'
-        'panel'
-        'list';
+        "header"
+        "panel"
+        "list";
     place-items: center;
     overflow: hidden;
 
@@ -35,8 +35,8 @@
         grid-template-columns: 1fr 1fr;
         column-gap: jkl.$spacing-64;
         grid-template-areas:
-            'header list'
-            'panel list';
+            "header list"
+            "panel list";
         place-items: unset;
     }
 
@@ -45,7 +45,7 @@
         background-color: var(--package-stats-bg-color);
         font-size: jkl.rem(16px);
         font-weight: 400;
-        font-family: 'Fremtind Grotesk Mono', monospace;
+        font-family: "Fremtind Grotesk Mono", monospace;
         display: flex;
         align-items: flex-end;
         width: 100%;

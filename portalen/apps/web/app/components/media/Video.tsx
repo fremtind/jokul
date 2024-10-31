@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import { useBrowserPreferences } from "@fremtind/jokul";
 import { type Media } from "@org/cms";
 import cn from "classnames";
 import React, { type FC, type VideoHTMLAttributes } from "react";

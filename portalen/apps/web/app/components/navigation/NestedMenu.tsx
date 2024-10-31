@@ -1,4 +1,4 @@
-import { useAnimatedHeight, useId } from "@fremtind/jkl-react-hooks";
+import { useAnimatedHeight, useId } from "@fremtind/jokul";
 import { type SubMenu } from "@org/cms";
 import { useLocation } from "@remix-run/react";
 import React, { useState, type FC } from "react";

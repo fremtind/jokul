@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 $_sidebar-breakpoint: 1512px;
 
@@ -99,7 +99,7 @@ $_sidebar-breakpoint: 1512px;
 
     &__home {
         @include jkl.reset-outline;
-        @include jkl.use-font-variables('jkl-hamburger');
+        @include jkl.use-font-variables("jkl-hamburger");
 
         color: var(--jkl-color);
         cursor: pointer;
@@ -125,7 +125,7 @@ $_sidebar-breakpoint: 1512px;
 
         width: 410px;
         max-width: 80vw;
-        @include jkl.motion('standard', 'expressive');
+        @include jkl.motion("standard", "expressive");
         min-height: calc(var(--menu-height) - var(--header-offset));
         padding-left: var(--jkl-spacing-24);
         background-color: var(--jkl-bg-color);
@@ -200,7 +200,7 @@ $_sidebar-breakpoint: 1512px;
         & > nav,
         & > form {
             width: 100%;
-            @include jkl.text-style('body');
+            @include jkl.text-style("body");
             padding: jkl.$spacing-24;
         }
 
@@ -269,7 +269,7 @@ $_sidebar-breakpoint: 1512px;
         margin-left: var(--jkl-spacing-8);
         margin-top: var(--jkl-spacing-8);
 
-        &[aria-hidden='true'] {
+        &[aria-hidden="true"] {
             display: none;
         }
     }

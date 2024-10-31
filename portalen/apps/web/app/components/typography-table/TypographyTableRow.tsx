@@ -1,4 +1,4 @@
-import { TableCell, TableRow } from "@fremtind/jkl-table-react";
+import { TableCell, TableRow } from "@fremtind/jokul";
 import React, { type FC } from "react";
 
 interface TypographyTableRowProps {

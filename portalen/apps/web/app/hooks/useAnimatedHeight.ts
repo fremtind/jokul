@@ -1,14 +1,16 @@
-import { easings, type Easing, timings, type Timing } from "@fremtind/jkl-core";
 import {
     useBrowserPreferences,
     usePreviousValue,
-} from "@fremtind/jkl-react-hooks";
+    tokens,
+    type Easing,
+    type Timing,
+} from "@fremtind/jokul";
 import {
-    type MutableRefObject,
     useEffect,
     useRef,
-    type RefObject,
     useCallback,
+    type MutableRefObject,
+    type RefObject,
 } from "react";
 
 interface HTMLElementOrCoreToggleElement<
@@ -51,7 +53,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
     const wasOpen = usePreviousValue(isOpen);
     const easing = options?.easing || defaultEasing;
     const timing = options?.timing || defaultTiming;
-    const transition = `${timings[timing]} height ${easings[easing]}`;
+    const transition = `${tokens.motion.timing[timing]} height ${tokens.motion.easing[easing]}`;
 
     const { prefersReducedMotion } = useBrowserPreferences();
 
