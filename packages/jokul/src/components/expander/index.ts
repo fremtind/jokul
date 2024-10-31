@@ -1,4 +1,2 @@
-export type { ExpanderProps as ExpandButtonProps } from "./Expander.js";
-export { Expander } from "./Expander.js";
-export type { ExpandSectionProps } from "./ExpandSection.js";
-export { ExpandSection } from "./ExpandSection.js";
+export { Expander, type ExpanderProps } from "./Expander.js";
+export { ExpandSection, type ExpandSectionProps } from "./ExpandSection.js";

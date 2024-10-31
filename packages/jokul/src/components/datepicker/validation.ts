@@ -1,3 +1,4 @@
+import { ComparisonOptions } from "./types.js";
 import { parseDateString } from "./utils.js";
 
 export function isCorrectFormat(value: string | undefined): boolean {
@@ -7,14 +8,6 @@ export function isCorrectFormat(value: string | undefined): boolean {
     const val = parseDateString(value);
     return Boolean(val);
 }
-
-type ComparisonOptions = {
-    /**
-     * Kontroller om testen skal godkjennes om verdien er lik
-     * @default false
-     */
-    inclusive: boolean;
-};
 
 export function isWithinLowerBound(
     value: Date | string | undefined,

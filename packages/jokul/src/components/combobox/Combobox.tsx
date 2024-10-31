@@ -37,7 +37,7 @@ export function getComboboxValuePair(
     return typeof item === "string" ? { value: item, label: item } : item;
 }
 
-interface PartialChangeEvent
+export interface ComboboxPartialChangeEvent
     extends Partial<Omit<ChangeEvent<HTMLElement>, "target">> {
     type: "change" | "blur";
     target: {
@@ -47,9 +47,11 @@ interface PartialChangeEvent
     };
 }
 
-type ChangeEventHandler = (event: PartialChangeEvent) => void;
+export type ComboboxChangeEventHandler = (
+    event: ComboboxPartialChangeEvent,
+) => void;
 
-interface ComboboxProps extends InputGroupProps {
+export interface ComboboxProps extends InputGroupProps {
     id?: string;
     placeholder?: string;
     labelProps?: Omit<
@@ -68,9 +70,9 @@ interface ComboboxProps extends InputGroupProps {
     className?: string;
     invalid?: boolean;
     hasTagHover?: boolean;
-    onChange: ChangeEventHandler;
-    onBlur?: ChangeEventHandler;
-    onFocus?: ChangeEventHandler;
+    onChange: ComboboxChangeEventHandler;
+    onBlur?: ComboboxChangeEventHandler;
+    onFocus?: ComboboxChangeEventHandler;
 }
 
 export const Combobox: FC<ComboboxProps> = ({

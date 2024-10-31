@@ -14,7 +14,7 @@ import { CheckIcon } from "../icon/icons/CheckIcon.js";
 
 export type ToggleChangeHandler<T extends HTMLElement> = SwipeChangeHandler<T>;
 
-export type ToggleProps = Omit<
+export type ToggleSwitchProps = Omit<
     ButtonHTMLAttributes<HTMLButtonElement>,
     "onChange"
 > & {
@@ -32,7 +32,7 @@ export type ToggleProps = Omit<
     onChange?: ToggleChangeHandler<HTMLButtonElement>;
 };
 
-export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleProps>(
+export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
     (
         {
             "aria-pressed": ariaPressed = false,

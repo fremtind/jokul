@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { ReactNode, FC } from "react";
 
-export interface Props {
+export interface SummaryTableProps {
     className?: string;
     caption?: string;
     header: [string, string];
@@ -9,7 +9,7 @@ export interface Props {
     footer?: ReactNode;
 }
 
-export const SummaryTable: FC<Props> = ({
+export const SummaryTable: FC<SummaryTableProps> = ({
     className,
     caption,
     header,

@@ -1,20 +1,17 @@
-import React, {
-    ComponentProps,
-    ReactElement,
-    ReactNode,
-    useState,
-} from "react";
+import React, { ReactElement, ReactNode, useState } from "react";
 import { BaseTextAreaProps } from "../text-input/BaseTextArea.js";
 import { FeedbackContextProvider } from "./feedbackContext.js";
 import { Followup } from "./followup/Followup.js";
 import { MainQuestion } from "./main-question/MainQuestion.js";
 import { ContactQuestion } from "./questions/ContactQuestion.js";
-import { FeedbackOption, FeedbackType } from "./types.js";
+import {
+    ContactQuestionProps,
+    FeedbackOption,
+    FeedbackType,
+    FollowupProps,
+} from "./types.js";
 
-type FollowupProps = ComponentProps<typeof Followup>;
-type ContactQuestionProps = ComponentProps<typeof ContactQuestion>;
-
-type Props = {
+export type FeedbackProps = {
     className?: string;
     /** Velg typen alternativer, Smiley eller RadioButtons. */
     type: "radio" | "smiley";
@@ -65,7 +62,7 @@ export const Feedback = ({
     counter,
     landmarkLabel,
     ...mainQuestionProps
-}: Props): ReactElement => {
+}: FeedbackProps): ReactElement => {
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
     const [followupStarted, setFollowupStarted] = useState(false);
     const [followupSubmitted, setFollowupSubmitted] = useState(false);

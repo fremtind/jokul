@@ -4,4 +4,10 @@ export {
     SecondaryButton,
     TertiaryButton,
 } from "./Button.js";
-export type { ButtonProps, ButtonVariant } from "./types.js";
+
+export type {
+    ButtonProps,
+    ButtonVariant,
+    IconOptions,
+    IconPosition,
+} from "./types.js";

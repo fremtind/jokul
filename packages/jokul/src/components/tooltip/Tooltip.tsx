@@ -58,7 +58,7 @@ type UseTooltipReturn = {
 } & UseFloatingReturn &
     ReturnType<typeof useInteractions>;
 
-export const useTooltip = ({
+const useTooltip = ({
     initialOpen = false,
     placement = "top",
     delay = 250,

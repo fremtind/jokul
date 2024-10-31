@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import {
     PrimaryButton,
     SecondaryButton,
@@ -6,7 +6,7 @@ import {
 } from "../../button/Button.js";
 import { useFeedbackContext } from "../feedbackContext.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
-import { FeedbackAnswer, FollowupQuestion } from "../types.js";
+import { FollowupProps } from "../types.js";
 import { getQuestionFromType } from "../utils.js";
 import { FollowUpProvider } from "./followupContext.js";
 import { useFollowup } from "./useFollowup.js";
@@ -17,18 +17,7 @@ const defaultSuccessMessage = {
         "Vi setter pris på at du tok deg tid til å svare på flere spørsmål. Det hjelper oss med å gjøre nettsidene bedre for deg og alle andre som bruker dem.",
 };
 
-interface Props {
-    /** Spørsmålet/ene som skal stilles. Kan være av typen radio, checkbox eller text */
-    questions: FollowupQuestion[];
-    /** Lar deg tilpasse meldingen som kommer når brukeren har svart på spørsmålene.  */
-    successMessage?: {
-        title: string;
-        children: ReactNode;
-    };
-    onSubmit: (values: FeedbackAnswer[]) => void;
-}
-
-export const Followup: FC<Props> = ({
+export const Followup: FC<FollowupProps> = ({
     questions,
     successMessage = defaultSuccessMessage,
     onSubmit,
