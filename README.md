@@ -133,9 +133,7 @@ Multi-root workspaces er lagret i en JSON-fil (`jokul.code-workspace`) med følg
 For å åpne multi-root workspaces og sikre riktig TypeScript-konfigurasjon:
 
 1. Åpne terminalen.
-2. Kjør følgende kommando:
-   `bash
-   code jokul.code-workspace
+2. Kjør følgende kommando i jokul: `code jokul.code-workspace`
 
 **Merk:** Multi-root workspaces fungerer for øyeblikket kun i Visual Studio Code.
 
