@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.27.4...@fremtind/jokul@0.27.5) (2024-10-31)
+
+### Bug Fixes
+
+- remove remaining barrel imports ([8293515](https://github.com/fremtind/jokul/commit/8293515ed59df8d65cb82e0ccb3c7fdced70a901))
+
 ## [0.27.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.27.2...@fremtind/jokul@0.27.3) (2024-10-30)
 
 ### Bug Fixes
