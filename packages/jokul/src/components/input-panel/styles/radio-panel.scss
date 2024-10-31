@@ -15,8 +15,8 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 }
 
 .jkl-radio-panel {
-    --dot-color: transparent;
-    --ring-color: transparent;
+    --radio-dot-color: transparent;
+    --radio-ring-color: transparent;
 
     /* The ring */
     &__decorator {
@@ -29,7 +29,7 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         width: jkl.rem(24px);
         border-radius: 50%;
         border: jkl.rem(1px) solid var(--jkl-color-border-action);
-        background-color: var(--ring-color);
+        background-color: var(--radio-ring-color);
 
         transition-property: background-color, outline;
         @include jkl.motion;
@@ -47,7 +47,7 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             height: jkl.rem(16px);
             width: jkl.rem(16px);
             border-radius: 50%;
-            background-color: var(--dot-color);
+            background-color: var(--radio-dot-color);
 
             transition-property: transform;
             @include jkl.motion;
@@ -66,14 +66,14 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     }
 
     &:has(:checked) {
-        --dot-color: var(--jkl-color-border-action);
+        --radio-dot-color: var(--jkl-color-border-action);
     }
 
     [aria-invalid="true"] & {
-        --ring-color: var(--jkl-color-background-alert-error);
+        --radio-ring-color: var(--jkl-color-background-alert-error);
     }
 
     [aria-invalid="true"] &:has(:checked) {
-        --dot-color: var(--jkl-color-text-on-alert);
+        --radio-dot-color: var(--jkl-color-text-on-alert);
     }
 }

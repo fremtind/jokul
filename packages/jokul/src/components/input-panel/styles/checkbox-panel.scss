@@ -22,9 +22,9 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
 }
 
 .jkl-checkbox-panel {
-    --background-color: transparent;
-    --box-color: var(--jkl-color-border-action);
-    --check-color: var(--jkl-color-border-action);
+    --checkbox-background-color: transparent;
+    --checkbox-box-color: var(--jkl-color-border-action);
+    --checkbox-check-color: var(--jkl-color-border-action);
 
     // The box
     &__decorator {
@@ -36,8 +36,8 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
         outline: none;
         border-radius: 0; // fixes rounded corners in iOS Safari
         border: 1px solid;
-        border-color: var(--box-color);
-        background-color: var(--background-color);
+        border-color: var(--checkbox-box-color);
+        background-color: var(--checkbox-background-color);
         @include jkl.motion;
         transition-property: background-color;
 
@@ -59,7 +59,7 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
             height: 58%;
             transform: rotate(45deg);
 
-            border: solid jkl.rem(2px) var(--check-color);
+            border: solid jkl.rem(2px) var(--checkbox-check-color);
             border-left-width: 0;
             border-top-width: 0;
 
@@ -82,7 +82,7 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
     }
 
     &:has([aria-invalid="true"]) {
-        --background-color: var(--jkl-color-background-alert-error);
-        --check-color: var(--jkl-color-text-on-alert);
+        --checkbox-background-color: var(--jkl-color-background-alert-error);
+        --checkbox-check-color: var(--jkl-color-text-on-alert);
     }
 }
