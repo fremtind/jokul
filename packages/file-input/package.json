@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-file-input",
-    "version": "2.1.8",
+    "version": "2.1.9",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from file-input-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.8.3"
+        "@fremtind/jkl-core": "^14.8.4"
     },
     "repository": {
         "type": "git",
