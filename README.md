@@ -120,7 +120,7 @@ I prosjektet fungerer `portalen`-mappen som et eget PNPM-workspace og krever **T
 
 ### Konfigurasjon
 
-Multi-root workspaces er lagret i en JSON-fil (`jokul.core-workspace`) med følgende relevante innstillinger:
+Multi-root workspaces er lagret i en JSON-fil (`jokul.code-workspace`) med følgende relevante innstillinger:
 
 -   **Mapper**:
     -   `.` (hovedprosjektkatalogen - jokul)
@@ -135,8 +135,9 @@ For å åpne multi-root workspaces og sikre riktig TypeScript-konfigurasjon:
 1. Åpne terminalen.
 2. Kjør følgende kommando:
    `bash
-code jokul.core-workspace
-`. Vær oppmerksom på at hvis du bruker en annen IDE, må du sjekke dokumentasjonen for hvordan du åpner filen, da kommandoene kan variere.
+   code jokul.code-workspace
+
+**Merk:** Multi-root workspaces fungerer for øyeblikket kun i Visual Studio Code.
 
 ## Bidragsytere
 
