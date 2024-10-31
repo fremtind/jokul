@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.27.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.27.5...@fremtind/jokul@0.27.6) (2024-10-31)
+
+### Bug Fixes
+
+- fix broken imports ([b7c5d11](https://github.com/fremtind/jokul/commit/b7c5d1183f030ebb093d2ba1a1536646c5698ed2))
+
 ## [0.27.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.27.4...@fremtind/jokul@0.27.5) (2024-10-31)
 
 ### Bug Fixes
