@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { ForwardedRef } from "react";
 import { Density, WithChildren } from "../../core/types.js";
-import { ArrowVerticalAnimated } from "../icon/index.js";
+import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { ScreenReaderOnly } from "../ScreenReaderOnly.js";
 
 export type ExpandDirection = "up" | "down";

@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import React, {
+    FocusEventHandler,
+    HTMLProps,
     useState,
     type FC,
     type ReactNode,
-    HTMLProps,
-    FocusEventHandler,
 } from "react";
-import { QuestionIcon } from "../icon/index.js";
+import { QuestionIcon } from "../icon/icons/QuestionIcon.js";
 import { Tooltip, type TooltipProps } from "./Tooltip.js";
 import { TooltipContent } from "./TooltipContent.js";
 import { TooltipTrigger } from "./TooltipTrigger.js";

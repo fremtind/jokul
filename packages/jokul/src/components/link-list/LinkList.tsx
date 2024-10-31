@@ -4,7 +4,7 @@ import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
-import { ArrowRightIcon } from "../icon/index.js";
+import { ArrowRightIcon } from "../icon/icons/ArrowRightIcon.js";
 
 const Item: FC<ComponentProps<"li">> = ({ className, ...rest }) => {
     return (

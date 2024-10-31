@@ -4,7 +4,8 @@ import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
-import { ArrowNorthEastIcon, ChevronRightIcon } from "../icon/index.js";
+import { ArrowNorthEastIcon } from "../icon/icons/ArrowNorthEastIcon.js";
+import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
 
 export type MenuItemProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<

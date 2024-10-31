@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { forwardRef, useEffect, useState } from "react";
-import { useAnimatedHeight } from "../../hooks/index.js";
+import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { useId } from "../../hooks/useId/useId.js";
 import {
     ExpandableTableRowController,

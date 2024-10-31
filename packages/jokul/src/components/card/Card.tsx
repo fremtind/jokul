@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import React from "react";
 import { AsChildProps } from "../../utilities/polymorphism/as-child.js";
-import { SlotComponent } from "../../utilities/polymorphism/index.js";
 import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
+import { SlotComponent } from "../../utilities/polymorphism/SlotComponent.js";
 
 export const CARD_PADDINGS = ["s", "m", "l", "xl"] as const;
 export type CardPadding = (typeof CARD_PADDINGS)[number];

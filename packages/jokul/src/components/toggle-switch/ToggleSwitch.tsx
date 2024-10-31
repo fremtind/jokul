@@ -5,9 +5,12 @@ import React, {
     forwardRef,
 } from "react";
 import { Density } from "../../core/types.js";
-import { SwipeChangeHandler, useSwipeGesture } from "../../hooks/index.js";
 import { useId } from "../../hooks/useId/useId.js";
-import { CheckIcon } from "../icon/index.js";
+import {
+    SwipeChangeHandler,
+    useSwipeGesture,
+} from "../../hooks/useSwipeGesture/useSwipeGesture.js";
+import { CheckIcon } from "../icon/icons/CheckIcon.js";
 
 export type ToggleChangeHandler<T extends HTMLElement> = SwipeChangeHandler<T>;
 

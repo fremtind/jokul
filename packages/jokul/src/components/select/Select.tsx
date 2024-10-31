@@ -19,7 +19,7 @@ import { useId } from "../../hooks/useId/useId.js";
 import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
 import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
 import { getValuePair, ValuePair } from "../../utilities/valuePair.js";
-import { ArrowVerticalAnimated } from "../icon/index.js";
+import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
 import { LabelProps } from "../input-group/Label.js";
 import { focusSelected, toLower } from "./select-utils.js";
