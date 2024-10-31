@@ -182,6 +182,16 @@
                 "types": "./build/cjs/components/feedback/index.d.cts"
             }
         },
+        "./components/file-input": {
+            "import": {
+                "default": "./build/es/components/file-input/index.js",
+                "types": "./build/es/components/file-input/index.d.ts"
+            },
+            "require": {
+                "default": "./build/cjs/components/file-input/index.cjs",
+                "types": "./build/cjs/components/file-input/index.d.cts"
+            }
+        },
         "./components/flex": {
             "import": {
                 "default": "./build/es/components/flex/index.js",
