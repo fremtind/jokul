@@ -100,17 +100,13 @@ I [dokumentasjonen](https://jokul.fremtind.no/) finner du:
 
 Jøkul er et åpent og positivt felleskap der alle skal føle seg velkommen. Gjør deg kjent med [våre etiske regler for bidragsytere](./CODE_OF_CONDUCT.md) før du deltar med bidrag.
 
-## Lisens
-
-Jøkul er distribuert under [MIT-lisensen](./LICENSE) for åpen kildekode.
-
-## Bidragsytere
-
-Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontributors.org/docs/en/emoji-key)):
-
 ## Særtilfeller og kjente problemer
 
 ### Multi-root workspaces for Jøkul
+
+**Merk:** Følgende feil ser ut til å kun påvirke de som bruker Visual Studio Code. Bruker du et annet IDE, skal det ikke være nødvendig å følge denne veiledningen.
+
+### Bakgrunn
 
 Prosjektet bruker [Multi-root Workspaces](https://code.visualstudio.com/docs/editor/workspaces#_multiroot-workspaces) i Visual Studio Code for å håndtere unike innstillinger for flere mapper i samme arbeidsområde. Ved å sette opp multi-root workspaces kan vi spesifisere konfigurasjoner som er tilpasset hver enkelt mappes krav, som spesifikke TypeScript-versjoner.
 
@@ -135,9 +131,13 @@ For å åpne multi-root workspaces og sikre riktig TypeScript-konfigurasjon:
 1. Åpne terminalen.
 2. Kjør følgende kommando i jokul: `code jokul.code-workspace`
 
-**Merk:** Multi-root workspaces fungerer for øyeblikket kun i Visual Studio Code.
+## Lisens
+
+Jøkul er distribuert under [MIT-lisensen](./LICENSE) for åpen kildekode.
 
 ## Bidragsytere
+
+Takk for bidrag fra disse flotte menneskene ([emoji-oversikt](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
