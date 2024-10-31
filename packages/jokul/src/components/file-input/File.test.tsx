@@ -2,7 +2,7 @@ import { render, RenderOptions } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { File } from "./File.js";
 
 // https://github.com/testing-library/user-event/issues/1146
@@ -18,7 +18,7 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
 
 describe("File", () => {
     it("should render the given file name", () => {
-        const onRemove = jest.fn();
+        const onRemove = vi.fn();
         const { getByText } = setup(
             <File
                 fileName="test.txt"
@@ -33,7 +33,7 @@ describe("File", () => {
     });
 
     it("should call onRemove if the button is clicked", async () => {
-        const onRemove = jest.fn();
+        const onRemove = vi.fn();
         const { getByRole, user } = setup(
             <File
                 fileName="test.txt"
@@ -50,7 +50,7 @@ describe("File", () => {
     });
 
     it("should pass jext-axe tests in default state", async () => {
-        const onRemove = jest.fn();
+        const onRemove = vi.fn();
         const { container } = render(
             <File
                 fileName="test.tsx"

@@ -2,7 +2,7 @@ import { render, RenderOptions } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { File, FileInput, FileInputFile } from "./index.js";
 
 // https://github.com/testing-library/user-event/issues/1146
@@ -20,7 +20,7 @@ describe("FileInput", () => {
     const files: FileInputFile[] = [];
 
     it("should render", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const { getByText, queryByText } = setup(
             <FileInput legend="Vedlegg" onChange={onChange} value={files}>
                 {files.map((file) => (
@@ -41,7 +41,7 @@ describe("FileInput", () => {
     });
 
     it("should render hint about max size if given one", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const { getByText } = setup(
             <FileInput
                 legend="Vedlegg"
@@ -64,7 +64,7 @@ describe("FileInput", () => {
     });
 
     it("should pass jext-axe tests in default state", async () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const { container } = setup(
             <FileInput legend="Vedlegg" onChange={onChange} value={files}>
                 {files.map((file) => (
