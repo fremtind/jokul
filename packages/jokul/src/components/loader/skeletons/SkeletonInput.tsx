@@ -1,8 +1,7 @@
 import clsx from "clsx";
-import { SkeletonElementProps } from "packages/loader-react/build/index.js";
 import React from "react";
 import { Density } from "../../../core/types.js";
-import { SkeletonElement } from "./SkeletonElement.js";
+import { SkeletonElementProps, SkeletonElement } from "./SkeletonElement.js";
 import { SkeletonLabel, SkeletonLabelProps } from "./SkeletonLabel.js";
 
 export interface SkeletonInputProps {
