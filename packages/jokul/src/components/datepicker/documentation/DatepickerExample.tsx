@@ -1,10 +1,8 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
-import { DatePicker, formatInput, isBlurTargetOutside } from "..";
-import {
-    ExampleComponentProps,
-    ExampleKnobsProps,
-} from "../../../../../../utils/dev-example";
-import type { LabelVariant } from "../../input-group";
+import type { LabelVariant } from "../../input-group/Label.js";
+import { DatePicker } from "../DatePicker.js";
+import { formatInput, isBlurTargetOutside } from "../utils.js";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],
