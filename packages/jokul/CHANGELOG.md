@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.28.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.27.6...@fremtind/jokul@0.28.0) (2024-10-31)
+
+### Features
+
+- legg til file-input component i package.json exports ([63c9d64](https://github.com/fremtind/jokul/commit/63c9d6478e9b19e8e255073e24a1007e93b48f05))
+
 ## [0.27.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.27.5...@fremtind/jokul@0.27.6) (2024-10-31)
 
 ### Bug Fixes
