@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.28.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.28.0...@fremtind/jokul@0.28.1) (2024-10-31)
+
+### Bug Fixes
+
+- fixes the color of the action-button in error state ([26968e8](https://github.com/fremtind/jokul/commit/26968e8c06bfe947271a4872b4939c5397df4d60)), closes [#4194](https://github.com/fremtind/jokul/issues/4194)
+- minor color fixes for error state ([d4d86ab](https://github.com/fremtind/jokul/commit/d4d86abdcbff09ec14b8c2f87caad83cc54f749a)), closes [#4194](https://github.com/fremtind/jokul/issues/4194)
+
 # [0.28.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.27.6...@fremtind/jokul@0.28.0) (2024-10-31)
 
 ### Features

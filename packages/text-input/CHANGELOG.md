@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.1.28 (2024-10-31)
+
+### Bug Fixes
+
+- fixes the color of the action-button in error state ([26968e8](https://github.com/fremtind/jokul/commit/26968e8c06bfe947271a4872b4939c5397df4d60)), closes [#4194](https://github.com/fremtind/jokul/issues/4194)
+
 ## [12.1.17](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@12.1.16...@fremtind/jkl-text-input@12.1.17) (2024-09-03)
 
 ### Bug Fixes

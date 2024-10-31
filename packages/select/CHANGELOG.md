@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.1.27 (2024-10-31)
+
+### Bug Fixes
+
+- minor color fixes for error state ([d4d86ab](https://github.com/fremtind/jokul/commit/d4d86abdcbff09ec14b8c2f87caad83cc54f749a)), closes [#4194](https://github.com/fremtind/jokul/issues/4194)
+
 ## [11.1.15](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@11.1.14...@fremtind/jkl-select@11.1.15) (2024-09-02)
 
 ### Bug Fixes
