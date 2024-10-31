@@ -1,8 +1,8 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 .jkl-portal-blog-overview {
-    @include jkl.text-style('body');
-    @include jkl.declare-font-variables('blog-overview-heading', 'title');
+    @include jkl.text-style("body");
+    @include jkl.declare-font-variables("blog-overview-heading", "title");
 
     --top-margin: #{jkl.$spacing-64};
     --side-margin: #{jkl.$spacing-16};
@@ -15,7 +15,7 @@
 }
 
 .jkl-portal-blog-overview-heading {
-    @include jkl.use-font-variables('blog-overview-heading');
+    @include jkl.use-font-variables("blog-overview-heading");
 }
 
 .jkl-portal-overview-visually-hidden {

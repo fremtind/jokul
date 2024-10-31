@@ -1,24 +1,17 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/core";
+@use "@fremtind/jokul/styles/core/jkl/index" as jkl;
 
-@use '@fremtind/jkl-core/styles/reset';
-@use '@fremtind/jkl-core/styles/tokens';
-@use '@fremtind/jkl-core/styles/headings';
-@use '@fremtind/jkl-core/styles/paragraphs';
-@use '@fremtind/jkl-core/styles/links';
-@use '@fremtind/jkl-core/styles/spacing';
-@use '@fremtind/jkl-core/styles/screen-reader';
+@use "@fremtind/jokul/styles/fonts/webfonts";
 
-@use '@fremtind/jkl-webfonts';
-
-@use '@fremtind/jkl-table/table';
-@use '@fremtind/jkl-text-input/text-input';
-@use '@fremtind/jkl-select/select';
-@use '@fremtind/jkl-icons/icons';
-@use '@fremtind/jkl-input-group/input-group';
-@use '../../components/global-search';
+@use "@fremtind/jokul/styles/components/table/index" as table;
+@use "@fremtind/jokul/styles/components/text-input/index" as text-input;
+@use "@fremtind/jokul/styles/components/select/index" as select;
+@use "@fremtind/jokul/styles/components/icon/index" as icon;
+@use "@fremtind/jokul/styles/components/input-group/index" as input-group;
+@use "../../components/global-search";
 
 body {
-    @include jkl.use-font-family('Fremtind Grotesk');
+    @include jkl.use-font-family("Fremtind Grotesk");
 }
 
 .jkl {
@@ -26,7 +19,7 @@ body {
     font-size: jkl.rem(20px);
 }
 
-.field-type.textarea .textarea-element[name*='code'] {
+.field-type.textarea .textarea-element[name*="code"] {
     font-family: monospace;
 }
 

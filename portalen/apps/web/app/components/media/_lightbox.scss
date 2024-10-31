@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 .jkl-portal-lightbox {
     width: 100%;
@@ -15,12 +15,12 @@
         pointer-events: none;
         cursor: zoom-out;
 
-        &[data-open='true'] {
+        &[data-open="true"] {
             pointer-events: auto;
             opacity: 1;
         }
 
-        &[data-overlay='true'] {
+        &[data-overlay="true"] {
             z-index: jkl.$z-index--overlay;
         }
     }
@@ -52,7 +52,7 @@
         display: flex;
         align-items: center;
 
-        &[data-open='true'] {
+        &[data-open="true"] {
             cursor: zoom-out;
             position: fixed;
             width: auto;
@@ -63,7 +63,7 @@
             margin: auto;
         }
 
-        &[data-overlay='true'] {
+        &[data-overlay="true"] {
             z-index: jkl.$z-index--floating;
         }
 

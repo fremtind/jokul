@@ -1,5 +1,4 @@
-import { NavCard } from "@fremtind/jkl-card-react";
-import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import { NavCard, useBrowserPreferences } from "@fremtind/jokul";
 import { Link } from "@remix-run/react";
 import { useInView } from "framer-motion";
 import React, { type FC, useEffect, useRef } from "react";

@@ -4,7 +4,7 @@ import {
     SuccessTag,
     Tag,
     WarningTag,
-} from "@fremtind/jkl-tag-react";
+} from "@fremtind/jokul";
 import { formatDate } from "payload/dist/admin/utilities/formatDate";
 import type { Blog, BlogTag, User } from "payload/generated-types";
 import React, { type FC } from "react";

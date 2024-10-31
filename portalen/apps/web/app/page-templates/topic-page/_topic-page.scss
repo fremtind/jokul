@@ -1,10 +1,10 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 .topic-page {
     $_toc-height: calc(calc(var(--jkl-spacing-16) * 2) + 1rem);
 
-    @include jkl.text-style('body');
-    @include jkl.declare-font-variables('topic-page-ingress', 'heading-2');
+    @include jkl.text-style("body");
+    @include jkl.declare-font-variables("topic-page-ingress", "heading-2");
 
     --topic-page-ingress-margin: #{jkl.$spacing-16};
     --content-padding-block: #{jkl.$spacing-8};
@@ -69,25 +69,25 @@
         margin: 0;
         margin-left: -0.07em; // For å få overskriften i flukt med venstre marg
         max-width: 100%;
-        hyphenate-character: '';
-        -webkit-hyphenate-character: '';
+        hyphenate-character: "";
+        -webkit-hyphenate-character: "";
 
-        &[data-collapsed='true'] {
+        &[data-collapsed="true"] {
             font-size: var(--topic-page-header-small-size);
             margin-left: 0;
         }
 
-        &[data-animate='true'] {
+        &[data-animate="true"] {
             @include jkl.motion(
-                'standard',
-                'expressive'
+                "standard",
+                "expressive"
             ); // om du endrer timingen her, oppdater verdien også i useCollapsibleHeading
             transition-property: font-size, margin-left, width;
         }
     }
 
     &__ingress {
-        @include jkl.use-font-variables('topic-page-ingress');
+        @include jkl.use-font-variables("topic-page-ingress");
         max-width: var(--jkl-portal-content-narrow);
         opacity: var(--opacity, 1);
         margin-top: var(--jkl-spacing-24);
@@ -138,7 +138,7 @@
                 flex: 1;
             }
 
-            [role='tabpanel'] {
+            [role="tabpanel"] {
                 flex: 4;
             }
 

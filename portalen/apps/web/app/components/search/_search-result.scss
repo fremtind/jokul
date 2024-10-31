@@ -1,5 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
-@use '@fremtind/jkl-core/jkl/colors';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --search-result-background-color: #{jkl.$color-hvit};
@@ -14,7 +13,7 @@
 }
 
 .search-result {
-    @include jkl.text-style('body');
+    @include jkl.text-style("body");
     background-color: var(--search-result-background-color);
 
     &__preview,
@@ -31,7 +30,7 @@
 
     &__title {
         margin-inline: $_margin-inline;
-        @include jkl.text-style('body') {
+        @include jkl.text-style("body") {
             font-weight: jkl.$typography-weight-bold;
         }
     }

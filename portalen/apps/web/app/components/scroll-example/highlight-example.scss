@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --example-background: #{jkl.$color-dis};
@@ -23,7 +23,7 @@
     position: fixed;
     bottom: 0;
 
-    @include jkl.motion('standard', 'lazy');
+    @include jkl.motion("standard", "lazy");
     transition-property: opacity, transform;
 
     @include jkl.small-device {
@@ -45,7 +45,7 @@
 
     &__highlighter {
         position: absolute;
-        @include jkl.motion('standard', 'expressive');
+        @include jkl.motion("standard", "expressive");
         transition-property: top, left, width, height;
         border-radius: jkl.$spacing-8;
         z-index: jkl.$z-index--floating;

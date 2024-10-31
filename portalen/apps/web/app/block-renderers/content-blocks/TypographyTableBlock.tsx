@@ -1,11 +1,11 @@
-import { tokens } from "@fremtind/jkl-core";
 import {
     Table,
     TableBody,
     TableHead,
     TableHeader,
     TableRow,
-} from "@fremtind/jkl-table-react";
+    tokens,
+} from "@fremtind/jokul";
 import React from "react";
 import { TypographyTableRow } from "~/components/typography-table/TypographyTableRow";
 

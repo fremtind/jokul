@@ -1,9 +1,9 @@
-import { Link as FremtindLink } from "@fremtind/jkl-core";
 import {
+    Link as FremtindLink,
     DescriptionDetail,
     DescriptionList,
     DescriptionTerm,
-} from "@fremtind/jkl-description-list-react";
+} from "@fremtind/jokul";
 import cn from "classnames";
 import React, { type FC } from "react";
 import { CodeSnippet } from "../code-snippet";

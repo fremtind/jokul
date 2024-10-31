@@ -1,5 +1,4 @@
-import { SearchIcon } from "@fremtind/jkl-icons-react";
-import { TextInput } from "@fremtind/jkl-text-input-react";
+import { SearchIcon, TextInput } from "@fremtind/jokul";
 import type { Component, General, Foundation, Pattern } from "@org/cms";
 import { NavLink, useSearchParams } from "@remix-run/react";
 import React, {

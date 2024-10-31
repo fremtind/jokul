@@ -1,4 +1,4 @@
-import { InfoBlock, NavCard } from "@fremtind/jkl-card-react";
+import { InfoBlock, NavCard } from "@fremtind/jokul";
 import { type Blog, type BlogTag, type User } from "@org/cms";
 import { formatDate } from "payload/dist/admin/utilities/formatDate";
 import React, { type FC } from "react";

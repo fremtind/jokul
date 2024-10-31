@@ -1,5 +1,4 @@
-import type { WithOptionalChildren } from "@fremtind/jkl-core";
-import { NavTab, NavTabs } from "@fremtind/jkl-tabs-react";
+import { NavTab, NavTabs, type WithOptionalChildren } from "@fremtind/jokul";
 import type { Component, Pattern } from "@org/cms";
 import { NavLink, type NavLinkProps, useLocation } from "@remix-run/react";
 import React, { type FC, useEffect, useRef, useState } from "react";

@@ -1,5 +1,5 @@
-@use '@fremtind/jkl-core/jkl';
-@use '../react-api';
+@use "@fremtind/jokul/styles/core/jkl";
+@use "../react-api";
 
 @include jkl.light-mode-variables {
     --package-report-card-background: #{jkl.$color-hvit};
@@ -24,15 +24,15 @@
 
     display: grid;
     grid-template-areas:
-        'install-title react-title'
-        'install react'
-        'use-title css-title'
-        'use css';
+        "install-title react-title"
+        "install react"
+        "use-title css-title"
+        "use css";
     grid-template-rows: $_title-row-height min-content $_title-row-height min-content;
     grid-template-columns: 3fr 1fr;
 
     &__title {
-        @include jkl.text-style('small');
+        @include jkl.text-style("small");
         background: var(--package-report-card-background);
         padding: $_box-padding-title;
 
@@ -59,7 +59,7 @@
         margin: 0;
 
         &--code {
-            @include jkl.use-font-family('Fremtind Grotesk Mono');
+            @include jkl.use-font-family("Fremtind Grotesk Mono");
             background: var(--package-report-card-code-background);
             border: none; // skru av CodeSnippet sin default border, vi har vår egen
             overflow-x: auto;
@@ -88,14 +88,14 @@
 
     @include jkl.small-device {
         grid-template-areas:
-            'react-title'
-            'react'
-            'css-title'
-            'css'
-            'install-title'
-            'install'
-            'use-title'
-            'use';
+            "react-title"
+            "react"
+            "css-title"
+            "css"
+            "install-title"
+            "install"
+            "use-title"
+            "use";
 
         grid-template-rows: $_title-row-height min-content $_title-row-height min-content $_title-row-height min-content $_title-row-height min-content;
         grid-template-columns: 1fr;

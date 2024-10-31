@@ -1,8 +1,8 @@
 import {
     CookieConsent,
     useCookieConsent,
-} from "@fremtind/jkl-cookie-consent-react";
-import { type WithChildren } from "@fremtind/jkl-core";
+    type WithChildren,
+} from "@fremtind/jokul";
 import React, { type FC, Suspense, useState, useEffect } from "react";
 import { useAnalytics, MixpanelBackend } from "~/analytics";
 import { userPreferencesCookie } from "~/cookies";

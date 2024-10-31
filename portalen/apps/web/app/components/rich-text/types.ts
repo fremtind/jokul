@@ -1,4 +1,4 @@
-import type { WithOptionalChildren } from "@fremtind/jkl-core";
+import type { WithOptionalChildren } from "@fremtind/jokul";
 import type { Media } from "@org/cms";
 import type { FC } from "react";
 

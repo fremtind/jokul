@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --button-bg-color: #{jkl.$color-hvit};
@@ -51,8 +51,8 @@
     }
 
     &__jokul {
-        @include jkl.text-style('small');
-        @include jkl.use-font-family('Fremtind Grotesk Mono');
+        @include jkl.text-style("small");
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
     }
 
     &__logo {
@@ -60,7 +60,7 @@
     }
 
     &__file-name {
-        @include jkl.text-style('heading-1');
+        @include jkl.text-style("heading-1");
     }
 
     @include jkl.keyboard-navigation {

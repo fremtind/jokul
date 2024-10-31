@@ -5,7 +5,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@fremtind/jkl-table-react";
+} from "@fremtind/jokul";
 import React, { type FC } from "react";
 import { type ContentBlockProps } from "./types";
 import { assertBlockIs } from "./types";

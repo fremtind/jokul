@@ -1,4 +1,4 @@
-import { type WithChildren } from "@fremtind/jkl-core";
+import { type WithChildren } from "@fremtind/jokul";
 import type { Media } from "@org/cms";
 import React, { type FC, useState } from "react";
 import { Image, MediaViewer } from "../media";

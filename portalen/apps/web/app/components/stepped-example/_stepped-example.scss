@@ -1,4 +1,4 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 @include jkl.light-mode-variables {
     --stepped-example-desc-bg: #{jkl.$color-sand};
@@ -19,20 +19,20 @@
     display: grid;
     position: relative;
     grid-template:
-        'description' minmax(20vh, auto)
-        'example' auto
-        'navigation' auto / 1fr;
+        "description" minmax(20vh, auto)
+        "example" auto
+        "navigation" auto / 1fr;
 
     @include jkl.from-medium-device {
         grid-template:
-            'example description' minmax(350px, auto)
-            'navigation  navigation' auto / 1fr 1fr;
+            "example description" minmax(350px, auto)
+            "navigation  navigation" auto / 1fr 1fr;
     }
 
     margin: var(--jkl-spacing-64) 0;
 
     &__headline {
-        @include jkl.text-style('heading-2');
+        @include jkl.text-style("heading-2");
         position: absolute;
         top: var(--jkl-spacing-32);
         left: var(--jkl-spacing-32);

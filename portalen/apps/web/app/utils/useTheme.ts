@@ -1,5 +1,4 @@
-import type { ColorScheme } from "@fremtind/jkl-core";
-import { useBrowserPreferences } from "@fremtind/jkl-react-hooks";
+import { useBrowserPreferences, type ColorScheme } from "@fremtind/jokul";
 import { useGlobalPreferences } from "../components/navigation/GlobalContextualMenu";
 
 export function useTheme(): ColorScheme {

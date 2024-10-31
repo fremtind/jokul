@@ -1,5 +1,4 @@
-import { type WithChildren } from "@fremtind/jkl-core";
-import { ErrorTag, SuccessTag } from "@fremtind/jkl-tag-react";
+import { ErrorTag, SuccessTag, type WithChildren } from "@fremtind/jokul";
 import cn from "classnames";
 import React, { type FC } from "react";
 

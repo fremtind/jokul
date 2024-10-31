@@ -1,5 +1,4 @@
-import { Feedback, PRESETS } from "@fremtind/jkl-feedback-react";
-import { type FeedbackType } from "@fremtind/jkl-feedback-react/build/types";
+import { Feedback, PRESETS } from "@fremtind/jokul";
 import React, { type FC, useCallback } from "react";
 import {
     assertSectionIs,
@@ -9,7 +8,7 @@ import {
 export const FeedbackSection: FC<PageSectionProps> = ({ pageSection }) => {
     assertSectionIs("feedback-section", pageSection);
 
-    const onSubmit = useCallback((data: FeedbackType) => {
+    const onSubmit = useCallback((data: any) => {
         fetch("/api/user-feedback", {
             method: "POST",
             headers: {

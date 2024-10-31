@@ -1,7 +1,7 @@
-@use '@fremtind/jkl-core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 .search-results {
-    @include jkl.text-style('body');
+    @include jkl.text-style("body");
     padding: #{jkl.$spacing-16} 0;
     margin: 0 #{jkl.$spacing-24};
 
@@ -19,7 +19,7 @@
     }
 
     &__heading {
-        @include jkl.text-style('title');
+        @include jkl.text-style("title");
         max-width: 100%;
         margin: 0;
         margin-left: -0.07em; // For å få overskriften i flukt med venstre marg

@@ -1,5 +1,5 @@
-@use '@fremtind/jkl-core/jkl';
-@use '../keyboard-shortcut';
+@use "@fremtind/jokul/styles/core/jkl";
+@use "../keyboard-shortcut";
 
 @include jkl.light-mode-variables {
     --search-trigger-bg: #{jkl.$color-sand};
@@ -30,7 +30,7 @@
     padding: var(--jkl-spacing-4) var(--jkl-spacing-8);
     margin-block: var(--jkl-spacing-32);
 
-    @include jkl.motion('entrance', 'energetic');
+    @include jkl.motion("entrance", "energetic");
     transition-property: box-shadow;
 
     &__label-wrapper {
@@ -42,7 +42,7 @@
     }
 
     &__label {
-        @include jkl.text-style('body');
+        @include jkl.text-style("body");
         display: inline-block;
     }
 

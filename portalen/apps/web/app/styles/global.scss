@@ -1,13 +1,13 @@
-@use '@fremtind/jkl-core/jkl';
-@use '../block-renderers/content-blocks';
-@use '../block-renderers/page-sections';
-@use '../components/cookies';
-@use '../components/navigation';
-@use '../components/search';
-@use '../components/media';
-@use '../page-templates';
-@use './documentation/use-auto-animated-height';
-@use './documentation/use-animated-height-between';
+@use "@fremtind/jokul/styles/core/jkl";
+@use "../block-renderers/content-blocks";
+@use "../block-renderers/page-sections";
+@use "../components/cookies";
+@use "../components/navigation";
+@use "../components/search";
+@use "../components/media";
+@use "../page-templates";
+@use "./documentation/use-auto-animated-height";
+@use "./documentation/use-animated-height-between";
 
 :root {
     --jkl-portal-content: #{jkl.rem(950px)};
@@ -49,7 +49,7 @@
 }
 
 .jkl-portal-paragraph {
-    @include jkl.text-style('body');
+    @include jkl.text-style("body");
 
     &:not(:last-child) {
         margin-bottom: jkl.$spacing-24;
@@ -57,7 +57,7 @@
 }
 
 .jkl-portal-ingress {
-    @include jkl.text-style('heading-2');
+    @include jkl.text-style("heading-2");
     margin-bottom: jkl.$spacing-64;
 }
 
