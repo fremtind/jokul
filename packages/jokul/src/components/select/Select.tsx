@@ -24,7 +24,7 @@ import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
 import { LabelProps } from "../input-group/Label.js";
 import { focusSelected, toLower } from "./select-utils.js";
 
-interface PartialChangeEvent
+export interface SelectPartialChangeEvent
     extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
     /** Kreves av react-hook-form, det skjer ulike ting avhengig av om det er blur eller change */
     type: "change" | "blur";
@@ -35,7 +35,9 @@ interface PartialChangeEvent
     };
 }
 
-type ChangeEventHandler = (event: PartialChangeEvent) => void;
+export type SelectChangeEventHandler = (
+    event: SelectPartialChangeEvent,
+) => void;
 
 interface Option extends ValuePair {
     visible: boolean;
@@ -72,9 +74,9 @@ export interface SelectProps
         | ((searchValue: string, searchItem: string | ValuePair) => boolean);
     density?: Density;
     width?: string;
-    onChange?: ChangeEventHandler;
-    onBlur?: ChangeEventHandler;
-    onFocus?: ChangeEventHandler;
+    onChange?: SelectChangeEventHandler;
+    onBlur?: SelectChangeEventHandler;
+    onFocus?: SelectChangeEventHandler;
     /**
      * Merk som ugyldig uten å sende inn en errorLabel.
      * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.

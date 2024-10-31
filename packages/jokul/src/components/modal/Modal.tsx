@@ -16,7 +16,7 @@ export interface ModalProps extends WithOptionalChildren {
     padding?: 16 | 24 | 40;
 }
 
-type BaseModalProps = Omit<ModalProps, "padding" | "component">;
+export type BaseModalProps = Omit<ModalProps, "padding" | "component">;
 
 /**
  * Ment å brukes med `useModal`.
@@ -37,7 +37,7 @@ export const ModalContainer = forwardRef<
 });
 ModalContainer.displayName = "ModalContainer";
 
-type ModalOverlayProps = ModalConfig["overlay"] &
+export type ModalOverlayProps = ModalConfig["overlay"] &
     BaseModalProps & {
         /**
          * Rendre uten bakgrunnsfarge, men med click target for å lukke modalen ved klikk utenfor.

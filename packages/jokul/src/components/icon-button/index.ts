@@ -1,2 +1,1 @@
-export type { IconButtonProps } from "./IconButton.js";
-export { IconButton } from "./IconButton.js";
+export { IconButton, type IconButtonProps } from "./IconButton.js";

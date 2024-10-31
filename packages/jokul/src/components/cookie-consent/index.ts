@@ -1,8 +1,8 @@
-export type { AcceptConsentCallback, Consent, ConsentState } from "./types.js";
-export type { CookieConsentProps } from "./CookieConsent.js";
-export { CookieConsent } from "./CookieConsent.js";
-export type { CookieConsentProviderProps } from "./CookieConsentContext.js";
+export { CookieConsent, type CookieConsentProps } from "./CookieConsent.js";
 export {
     CookieConsentProvider,
     useCookieConsent,
+    type CookieConsentProviderProps,
 } from "./CookieConsentContext.js";
+
+export type { AcceptConsentCallback, Consent, ConsentState } from "./types.js";

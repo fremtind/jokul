@@ -1,17 +1,11 @@
-import React, {
-    ChangeEvent,
-    FC,
-    ReactNode,
-    useEffect,
-    useRef,
-    useState,
-} from "react";
+import React, { ChangeEvent, FC, useEffect, useRef, useState } from "react";
 import { isValidEpost } from "../../../utilities/validators/isValidEpost/isValidEpost.js";
 import { isValidTelefonnummer } from "../../../utilities/validators/isValidTelefonnummer/isValidTelefonnummer.js";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
 import { TextInput } from "../../text-input/TextInput.js";
 import { useFeedbackContext } from "../feedbackContext.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
+import { ContactQuestionProps } from "../types.js";
 
 const validateEmail = (email?: string) => {
     if (!email || email === "") {
@@ -39,30 +33,7 @@ const defaultSuccessMessage = {
         "Neste gang vi gjennomfører intervjuer og tester kan det hende vi tar kontakt med deg. Dine innspill hjelper oss med å gjøre nettsidene bedre for deg og alle andre som bruker dem.",
 };
 
-interface Props {
-    /**
-     * Lar deg tilpasse spørsmålsteksten.
-     * @default "Kan vi kontakte deg for flere innspill?"
-     * */
-    label?: string;
-    /**
-     * Lar deg tilpasse teksten på knappen for innsending.
-     * @default "Sett meg på lista!"
-     * */
-    sendButtonLabel?: string;
-    /** Sett til true om du også vil spørre om brukjerens telefonnummer i tillegg til epost */
-    withPhone?: boolean;
-    /** Her kan du legge inn eventuelt annet innhold du vil ha med. Kommer mellom overskriften og feltene for utfylling */
-    children?: ReactNode;
-    onSubmit: (values: { email: string; phone?: string }) => void;
-    /** Lar deg tilpasse meldingen som kommer når brukeren sender inn skjemaet.  */
-    successMessage?: {
-        title: string;
-        children: ReactNode;
-    };
-}
-
-export const ContactQuestion: FC<Props> = ({
+export const ContactQuestion: FC<ContactQuestionProps> = ({
     label = "Kan vi kontakte deg for flere innspill?",
     sendButtonLabel = "Sett meg på lista!",
     withPhone = false,

@@ -1,20 +1,12 @@
 import { ToastQueue } from "@react-stately/toast";
 import React, { createContext, useContext, useState, type FC } from "react";
-import { type WithChildren } from "../../core/types.js";
 import { ToastRegion } from "./ToastRegion.js";
-import { ToastContent, ToastOptions } from "./types.js";
-
-interface ToastContextProviderProps extends WithChildren {
-    maxVisibleToasts?: number;
-    /**
-     * @default "center"
-     */
-    placement?: "center" | "left";
-}
-
-type ToastContext = {
-    add: (toast: ToastContent, options?: ToastOptions) => string;
-};
+import {
+    ToastContent,
+    ToastContext,
+    ToastContextProviderProps,
+    ToastOptions,
+} from "./types.js";
 
 const context = createContext<ToastContext>({
     add: () => {

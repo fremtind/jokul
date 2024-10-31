@@ -1,4 +1,2 @@
-export type { BreadcrumbProps } from "./Breadcrumb.js";
-export { Breadcrumb } from "./Breadcrumb.js";
-export type { BreadcrumbItemProps } from "./BreadcrumbItem.js";
-export { BreadcrumbItem } from "./BreadcrumbItem.js";
+export { Breadcrumb, type BreadcrumbProps } from "./Breadcrumb.js";
+export { BreadcrumbItem, type BreadcrumbItemProps } from "./BreadcrumbItem.js";

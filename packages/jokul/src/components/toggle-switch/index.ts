@@ -1,2 +1,6 @@
-export { ToggleSwitch, type ToggleChangeHandler } from "./ToggleSwitch.js";
-export { ToggleSlider } from "./ToggleSlider.js";
+export {
+    ToggleSwitch,
+    type ToggleChangeHandler,
+    type ToggleSwitchProps,
+} from "./ToggleSwitch.js";
+export { ToggleSlider, type ToggleSliderProps } from "./ToggleSlider.js";
