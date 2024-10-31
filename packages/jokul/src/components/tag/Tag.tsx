@@ -6,7 +6,7 @@ import React, {
     MouseEventHandler,
 } from "react";
 import { Density } from "../../core/types.js";
-import { CloseIcon } from "../icon/index.js";
+import { CloseIcon } from "../icon/icons/CloseIcon.js";
 import { IconButton } from "../icon-button/IconButton.js";
 
 export interface DismissAction

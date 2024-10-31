@@ -2,14 +2,12 @@ import { type AriaToastProps, useToast } from "@react-aria/toast";
 import { QueuedToast, type ToastState } from "@react-stately/toast";
 import clsx from "clsx";
 import React, { useEffect, useRef } from "react";
-import { useBrowserPreferences } from "../../hooks/index.js";
-import {
-    CloseIcon,
-    ErrorIcon,
-    InfoIcon,
-    SuccessIcon,
-    WarningIcon,
-} from "../icon/index.js";
+import { useBrowserPreferences } from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
+import { CloseIcon } from "../icon/icons/CloseIcon.js";
+import { ErrorIcon } from "../icon/icons/ErrorIcon.js";
+import { InfoIcon } from "../icon/icons/InfoIcon.js";
+import { SuccessIcon } from "../icon/icons/SuccessIcon.js";
+import { WarningIcon } from "../icon/icons/WarningIcon.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { Countdown } from "../progress-bar/Countdown.js";
 import { ToastContent, ToastOptions } from "./types.js";

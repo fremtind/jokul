@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, MouseEventHandler, ThHTMLAttributes } from "react";
 import { Density } from "../../core/types.js";
-import { ArrowVerticalAnimated } from "../icon/index.js";
+import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { useTableContext } from "./tableContext.js";
 import { TableSortProps } from "./utils.js";
 

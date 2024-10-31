@@ -9,7 +9,7 @@ import React, {
     useEffect,
     useState,
 } from "react";
-import { useAutoAnimatedHeight } from "../../hooks/index.js";
+import { useAutoAnimatedHeight } from "../../hooks/useAnimatedHeight/useAutoAnimateHeight.js";
 
 type Props = Omit<ComponentPropsWithRef<"input">, "type"> & {
     name: string;

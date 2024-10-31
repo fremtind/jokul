@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, forwardRef } from "react";
-import { CloseIcon } from "../../icon/index.js";
+import { CloseIcon } from "../../icon/icons/CloseIcon.js";
 
 export interface DismissButtonProps
     extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {

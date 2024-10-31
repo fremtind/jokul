@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, SelectHTMLAttributes } from "react";
 import { getValuePair, ValuePair } from "../../utilities/valuePair.js";
-import { ArrowVerticalAnimated } from "../icon/index.js";
+import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
 
 export interface NativeSelectProps

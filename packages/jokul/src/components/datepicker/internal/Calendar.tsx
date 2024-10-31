@@ -8,11 +8,9 @@ import React, {
 import { flushSync } from "react-dom";
 import { Density } from "../../../core/types.js";
 import { useId } from "../../../hooks/useId/useId.js";
-import {
-    ArrowLeftIcon,
-    ArrowRightIcon,
-    ChevronDownIcon,
-} from "../../icon/index.js";
+import { ArrowLeftIcon } from "../../icon/icons/ArrowLeftIcon.js";
+import { ArrowRightIcon } from "../../icon/icons/ArrowRightIcon.js";
+import { ChevronDownIcon } from "../../icon/icons/ChevronDownIcon.js";
 import { YearsToShow } from "../types.js";
 import { calendarInitializer, calendarReducer } from "./calendarReducer.js";
 import { useCalendar, UseCalendarProps } from "./useCalendar.js";

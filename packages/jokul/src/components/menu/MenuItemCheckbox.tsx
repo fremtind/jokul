@@ -10,7 +10,7 @@ import {
     SwipeChangeHandler,
     useSwipeGesture,
 } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
-import { CheckIcon } from "../icon/index.js";
+import { CheckIcon } from "../icon/icons/CheckIcon.js";
 
 export interface MenuItemCheckboxProps
     extends Omit<HTMLAttributes<HTMLDivElement>, "aria-checked" | "onChange"> {

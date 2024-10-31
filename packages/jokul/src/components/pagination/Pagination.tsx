@@ -3,7 +3,8 @@ import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
-import { ChevronLeftIcon, ChevronRightIcon } from "../icon/index.js";
+import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
+import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { PageButton } from "./PageButton.js";
 

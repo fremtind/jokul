@@ -9,7 +9,8 @@ import React, {
 } from "react";
 import { Density } from "../../core/types.js";
 import { useId } from "../../hooks/useId/useId.js";
-import { ChevronLeftIcon, ChevronRightIcon } from "../icon/index.js";
+import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
+import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { NativeSelect } from "../select/NativeSelect.js";
 import { TextInput } from "../text-input/TextInput.js";
