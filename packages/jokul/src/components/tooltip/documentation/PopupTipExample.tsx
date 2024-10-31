@@ -1,6 +1,6 @@
 import { ExampleComponentProps } from "doc-utils/index.js";
-import { formatValuta } from "packages/formatters-util/src/index.js";
 import React, { FC } from "react";
+import { formatValuta } from "../../../utilities/formatters/valuta/formatValuta.js";
 import { PopupTip } from "../PopupTip.js";
 import { TooltipPlacement } from "../Tooltip.js";
 import { getPlacement } from "./getPlacement.js";

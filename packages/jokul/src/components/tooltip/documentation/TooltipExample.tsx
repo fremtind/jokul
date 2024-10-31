@@ -1,6 +1,6 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
-import { formatKontonummer } from "packages/formatters-util/src/index.js";
 import React, { FC, useState } from "react";
+import { formatKontonummer } from "../../../utilities/formatters/kontonummer/formatKontonummer.js";
 import { TooltipPlacement, Tooltip } from "../Tooltip.js";
 import { TooltipContent } from "../TooltipContent.js";
 import { TooltipTrigger } from "../TooltipTrigger.js";
