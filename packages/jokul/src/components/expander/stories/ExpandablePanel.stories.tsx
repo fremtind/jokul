@@ -36,7 +36,7 @@ export const ExpandablePanelStory: StoryExpanderPanel = {
         flipDirection: false,
     },
     render: ({ icon, flipDirection, ...props }) => (
-        <Flex style={{ width: "100%" }} direction="column" gap={4}>
+        <Flex style={{ width: "100%" }} direction="column" gap="xs">
             {[...Array(3)].map((_, index) => (
                 <ExpandablePanel key={index} {...props}>
                     <Expander

@@ -5,7 +5,6 @@ import { Flex } from "../../flex/Flex.js";
 import { ErrorTag } from "../../tag/Tag.js";
 import { Card as CardComponent } from "../Card.js";
 import { CARD_PADDINGS, CARD_VARIANTS } from "../types.js";
-import "../styles/_index.scss";
 
 const meta = {
     title: "Komponenter/Card",
@@ -46,15 +45,15 @@ export const Fakturainformasjon: Story = {
     },
     render: ({ asChild, as, ...props }) => (
         <CardComponent asChild {...props}>
-            <Flex as="a" href="#test" colGap={40}>
-                <Flex direction="column" gap={4}>
+            <Flex as="a" href="#test" gap="none xl">
+                <Flex direction="column" gap="xs">
                     <p className="jkl-heading-2">
                         {formatValuta(18856)}
                         <span aria-hidden> →</span>
                     </p>
                     <p className="jkl-body">Frist 20.03.2023</p>
                 </Flex>
-                <Flex direction="column" gap={12}>
+                <Flex direction="column" gap="sm">
                     <ErrorTag>Ubetalt</ErrorTag>
                     <p className="jkl-body">Purring</p>
                 </Flex>

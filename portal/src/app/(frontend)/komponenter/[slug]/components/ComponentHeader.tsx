@@ -23,11 +23,7 @@ export const ComponentHeader = ({
 }: ComponentHeaderProps) => {
     return (
         <Card variant="low" asChild>
-            <Flex
-                as="header"
-                className={styles.header}
-                justifyContent="space-between"
-            >
+            <Flex as="header" className={styles.header} justify="space-between">
                 <div>
                     {name && (
                         <h1 className={styles.name} lang="en">
@@ -41,7 +37,7 @@ export const ComponentHeader = ({
                     )}
                 </div>
                 {links && (
-                    <Flex className={styles.external_links} gap={16}>
+                    <Flex className={styles.external_links} gap="sm">
                         {links.storybook && (
                             <ComponentHeaderLink
                                 name="Storybook"
