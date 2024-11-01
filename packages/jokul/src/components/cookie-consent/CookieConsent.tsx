@@ -144,7 +144,7 @@ export const CookieConsent = ({
                         </ModalTitle>
                     </ModalHeader>
                     <ModalBody>
-                        <Flex direction="column" gap={24}>
+                        <Flex direction="column" gap="m">
                             <p>
                                 Vi ønsker å samle anonym statistikk for å forstå
                                 hvordan nettsidene våre brukes. Det hjelper oss

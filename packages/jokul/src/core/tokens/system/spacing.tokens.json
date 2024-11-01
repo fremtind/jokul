@@ -1,5 +1,7 @@
 {
     "spacing": {
+        "none": { "value": "0", "type": "spacing" },
+        "xxs": { "value": "{unit.05}", "type": "spacing" },
         "xs": { "value": "{unit.10}", "type": "spacing" },
         "s": { "value": "{unit.20}", "type": "spacing" },
         "m": { "value": "{unit.30}", "type": "spacing" },

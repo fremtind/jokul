@@ -94,7 +94,7 @@ export const Datovelger: Story = {
                 legend="Når er du født?"
                 labelProps={{ variant: "medium" }}
             >
-                <Flex gap={8}>
+                <Flex gap="xs">
                     <TextInputComponent
                         {...args}
                         maxLength={2}

@@ -63,7 +63,7 @@ export default async function Components({
                 title="komponenter"
                 className="jkl-spacing-40--bottom"
             >
-                <Flex wrap gap={8}>
+                <Flex wrap gap="xs">
                     {COMPONENT_KEYWORDS.map((keyword) => (
                         <FilterChip
                             key={keyword}

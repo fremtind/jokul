@@ -5,6 +5,7 @@
 
 @layer jokul.theme {
     :root {
+        --jkl-breakpoint-small: 0;
         --jkl-breakpoint-medium: 680px;
         --jkl-breakpoint-large: 1200px;
         --jkl-breakpoint-xl: 1600px;
@@ -68,6 +69,14 @@
         --jkl-spacing-64: 4rem;
         --jkl-spacing-104: 6.5rem;
         --jkl-spacing-168: 10.5rem;
+        --jkl-semantic-spacing-none: 0;
+        --jkl-semantic-spacing-2xs: 0.25rem;
+        --jkl-semantic-spacing-xs: 0.5rem;
+        --jkl-semantic-spacing-s: 1rem;
+        --jkl-semantic-spacing-m: 1.5rem;
+        --jkl-semantic-spacing-l: 2.5rem;
+        --jkl-semantic-spacing-xl: 4rem;
+        --jkl-semantic-spacing-2xl: 6.5rem;
         --jkl-icon-weight-normal: 300;
         --jkl-icon-weight-bold: 400;
         --jkl-typography-weight-normal: 400;
