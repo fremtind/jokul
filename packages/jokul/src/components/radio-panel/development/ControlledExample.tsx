@@ -39,9 +39,9 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                 name="dekning"
                 render={({ field: { value, ...inputProps } }) => (
                     <Flex
-                        asChild={true}
+                        asChild
                         direction="column"
-                        gap={32}
+                        gap="lg"
                         style={{ maxWidth: 580, width: "100%" }}
                     >
                         <RadioPanelGroup
@@ -60,8 +60,8 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                                 extraLabel={
                                     <Flex
                                         as="span"
-                                        alignItems="center"
-                                        justifyContent="flex-end"
+                                        align="center"
+                                        justify="end"
                                         className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                                     >
                                         500 kr/mnd
@@ -80,9 +80,9 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                                 extraLabel={
                                     <Flex
                                         as="span"
-                                        alignItems="center"
-                                        justifyContent="flex-end"
-                                        gap={24}
+                                        align="center"
+                                        justify="end"
+                                        gap="md"
                                         className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                                     >
                                         <SuccessTag>Anbefalt</SuccessTag>
@@ -102,8 +102,8 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                                 extraLabel={
                                     <Flex
                                         as="span"
-                                        alignItems="center"
-                                        justifyContent="flex-end"
+                                        align="center"
+                                        justify="end"
                                         className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                                     >
                                         200 kr/mnd
@@ -122,8 +122,8 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                                 extraLabel={
                                     <Flex
                                         as="span"
-                                        alignItems="center"
-                                        justifyContent="flex-end"
+                                        align="center"
+                                        justify="end"
                                         className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                                     >
                                         100 kr/mnd

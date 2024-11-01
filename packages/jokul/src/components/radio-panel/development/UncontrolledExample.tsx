@@ -30,12 +30,7 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Flex
-                asChild={true}
-                direction="column"
-                gap={32}
-                style={{ width: "100%" }}
-            >
+            <Flex asChild direction="column" gap="lg" style={{ width: "100%" }}>
                 <RadioPanelGroup
                     legend="Velg sesong"
                     errorLabel={
@@ -52,7 +47,7 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
                         extraLabel={
                             <Flex
                                 as="span"
-                                alignItems="center"
+                                align="center"
                                 className="input-panel-example__custom-label input-panel-example__custom-label--small"
                             >
                                 Den kalde fine tiden
@@ -83,7 +78,7 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
                         extraLabel={
                             <Flex
                                 as="span"
-                                alignItems="center"
+                                align="center"
                                 className="input-panel-example__custom-label input-panel-example__custom-label--small"
                             >
                                 Jeg velger meg april
@@ -97,7 +92,7 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
                         extraLabel={
                             <Flex
                                 as="span"
-                                alignItems="center"
+                                align="center"
                                 className="input-panel-example__custom-label input-panel-example__custom-label--small"
                             >
                                 Sol og regn og latter og sang
@@ -124,7 +119,7 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
                         extraLabel={
                             <Flex
                                 as="span"
-                                alignItems="center"
+                                align="center"
                                 className="input-panel-example__custom-label input-panel-example__custom-label--small"
                             >
                                 Vått, trist, kaldt og mørkt

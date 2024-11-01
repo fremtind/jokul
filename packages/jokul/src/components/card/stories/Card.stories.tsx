@@ -6,7 +6,6 @@ import { CheckIcon, CopyIcon } from "../../icon/index.js";
 import { InfoTag } from "../../tag/index.js";
 import { Card } from "../Card.js";
 import { CARD_PADDINGS, CARD_VARIANTS } from "../types.js";
-import "../styles/_index.scss";
 
 const dog1200 = "/images/dog-1200.jpg";
 
@@ -43,8 +42,8 @@ export const CardStory: Story = {
     render: (args) => (
         <Card {...args}>
             <Flex
-                alignItems="center"
-                justifyContent="center"
+                align="center"
+                justify="center"
                 style={{
                     outline: "1px dashed #9747FF",
                     height: "100px",
@@ -85,8 +84,8 @@ export const ImageCard: Story = {
                 }}
             />
 
-            <Flex direction="column" gap={16}>
-                <Flex direction="column" gap={8}>
+            <Flex direction="column" gap="md">
+                <Flex direction="column" gap="sm">
                     <p className="jkl-heading-2">Se forsikringene mine</p>
                     <p>
                         Du vil alltid ha en oversikt over forsikringene dine på
@@ -126,7 +125,7 @@ export const CopyCard: Story = {
                     }, 3000);
                 }}
             >
-                <Flex alignItems="center" gap={16}>
+                <Flex align="center" gap="md">
                     <p id="kode">{args.children}</p>
                     {hasCopied ? (
                         <CheckIcon aria-label="Kopiert" aria-hidden="false" />
@@ -158,11 +157,11 @@ export const LinkCard: Story = {
             asChild={false}
             aria-label="Husforsikring"
         >
-            <Flex direction="column" gap={16}>
+            <Flex direction="column" gap="md">
                 <div>
                     <InfoTag>Fornyelse</InfoTag>
                 </div>
-                <Flex direction="column" gap={8}>
+                <Flex direction="column" gap="sm">
                     <p className="jkl-heading-2">Hus</p>
                     <p>Kittel Nielsens vei 88 1163 Oslo</p>
                 </Flex>

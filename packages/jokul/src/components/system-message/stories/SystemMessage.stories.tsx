@@ -46,11 +46,11 @@ const insurances = [
 ];
 const exampleContent = (
     <Flex
-        gap={24}
-        wrap
+        gap="md"
+        wrap="wrap"
         direction="column"
-        alignContent="center"
-        justifyContent="center"
+        align="center"
+        justify="center"
         style={{ padding: "24px" }}
     >
         {insurances.map((insurance) => (
