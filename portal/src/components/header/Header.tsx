@@ -11,7 +11,7 @@ export const Header = async () => {
             <Menu>
                 <MenuItemList />
             </Menu>
-            <Flex as="p" gap={8} alignItems="center">
+            <Flex as="p" gap="xs" alignItems="center">
                 <Link href="/" className={styles.logo}>
                     Jøkul
                 </Link>

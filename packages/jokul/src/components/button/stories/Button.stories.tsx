@@ -75,7 +75,7 @@ export const ShortButtons: Story = {
         },
     },
     render: ({ icon }) => (
-        <Flex gap={16}>
+        <Flex gap="sm">
             <Button icon={icon ? <CloseIcon /> : undefined}>Nei</Button>
             <Button icon={icon ? <CheckIcon /> : undefined} variant="primary">
                 Ja

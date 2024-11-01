@@ -78,7 +78,7 @@ export default async function Page({ params }: Props) {
                 {component.documentation_article && <ComponentNav />}
 
                 {component.external_links && (
-                    <Flex className={styles.external_links} gap={16}>
+                    <Flex className={styles.external_links} gap="sm">
                         {component.external_links.storybook_link && (
                             <ComponentHeaderLink
                                 name="Storybook"

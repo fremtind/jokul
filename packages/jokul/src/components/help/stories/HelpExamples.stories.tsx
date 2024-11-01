@@ -32,8 +32,8 @@ export const Help1: Story = {
             "Reise SMS er en gratistjeneste levert av telefonoperatøren din.",
     },
     render: (args) => (
-        <Flex gap={24} direction="column" style={{ maxWidth: "40ch" }}>
-            <Flex gap={12} alignItems="center">
+        <Flex gap="md" direction="column" style={{ maxWidth: "40ch" }}>
+            <Flex gap="xs" alignItems="center">
                 <h1 className="jkl-heading-1">Reise SMS</h1>
                 <Help {...args} />
             </Flex>
@@ -67,7 +67,7 @@ export const Help2: Story = {
         <DescriptionList>
             <DescriptionTerm>Område</DescriptionTerm>
             <DescriptionDetail data-layout-density="compact">
-                <Flex gap={4}>
+                <Flex gap="xs">
                     <p>Hele verden</p>
                     <Help {...args} />
                 </Flex>

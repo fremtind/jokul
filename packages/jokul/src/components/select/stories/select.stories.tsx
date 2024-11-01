@@ -102,7 +102,7 @@ export const SelectInline: Story = {
     },
     render: (args) => {
         return (
-            <Flex gap={8} alignItems="center">
+            <Flex gap="xs" alignItems="center">
                 <p>Jeg jobber som</p>
                 <Select {...args} />
                 <p>hos Fremtind Forsikring.</p>

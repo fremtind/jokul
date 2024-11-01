@@ -37,7 +37,7 @@ export const ComponentHeader = ({
                     )}
                 </div>
                 {links && (
-                    <Flex className={styles.external_links} gap={16}>
+                    <Flex gap="sm" className={styles.external_links}>
                         {links.storybook && (
                             <ComponentHeaderLink
                                 name="Storybook"

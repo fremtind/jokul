@@ -1,45 +1,63 @@
-import React, { type CSSProperties } from "react";
-import tokens from "../../core/tokens.js";
-import { SlotComponent } from "../../utilities/polymorphism/SlotComponent.js";
+import clsx from "clsx";
+import React, { forwardRef } from "react";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import type { FlexComponent, FlexProps } from "./types.js";
+import { SlotComponent } from "../../utilities/index.js";
 
-export const Flex = React.forwardRef(function Flex<
+export const Flex = forwardRef(function Flex<
     ElementType extends React.ElementType = "div",
 >(props: FlexProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
     const {
         asChild,
-        as = "div",
-        alignContent,
         alignItems,
-        children,
-        colGap,
-        direction,
-        gap,
-        justifyContent,
-        justifyItems,
-        rowGap,
-        wrap = false,
+        alignContent,
+        as = "div",
+        center = false,
+        className,
+        direction = "row",
+        fill,
+        gap = "md",
+        inline,
+        justify,
+        layout = {},
+        text,
+        wrap = "wrap",
         ...rest
     } = props;
-    const Component = asChild ? SlotComponent : as;
 
-    const flexStyle: CSSProperties = {
-        display: "flex",
-        flexDirection: direction,
-        alignContent,
-        alignItems,
-        justifyContent,
-        justifyItems,
-        ...(wrap ? { flexWrap: "wrap" } : {}),
-        ...(gap ? { gap: tokens.spacing[gap] } : {}),
-        ...(colGap ? { columnGap: tokens.spacing[colGap] } : {}),
-        ...(rowGap ? { rowGap: tokens.spacing[rowGap] } : {}),
-    };
+    const Tag = asChild ? SlotComponent : as;
+    const gaps = toObj(gap).flatMap(([breakpoint, gap]) => {
+        const [row, col = row] = gap.trim().split(" ");
+        return [`${breakpoint}-row-gap-${row}`, `${breakpoint}-col-gap-${col}`];
+    });
+    const layouts = toObj(layout).map(
+        ([breakpoint, layout]) =>
+            `${breakpoint}-${Number(`${layout}`.replace("auto", "0"))}`, // Convert to number to convert 2.10 to 2.1 and false to 0
+    );
 
     return (
-        <Component ref={ref} {...rest} style={{ ...flexStyle, ...rest.style }}>
-            {children}
-        </Component>
+        <Tag
+            {...rest}
+            className={clsx(
+                "jkl-flex",
+                !alignItems || `align-${alignItems}`,
+                !alignContent || `align-content-${alignContent}`,
+                !center || `center-${center === true ? "xxl" : center}`,
+                !fill || "fill",
+                !inline || "inline",
+                !justify || `justify-${justify}`,
+                !text || `text-${text}`,
+                !wrap || `wrap-${wrap}`,
+                "flex",
+                direction,
+                ...gaps,
+                ...layouts,
+                className,
+            )}
+            ref={ref}
+        />
     );
-}) as FlexComponent;
+}) as FlexComponent; // Needed to tell Typescript this does not return ReactNode but acutally JSX.Element
+
+const toObj = (value: string | number | object) =>
+    Object.entries(typeof value === "object" ? value : { xs: value });

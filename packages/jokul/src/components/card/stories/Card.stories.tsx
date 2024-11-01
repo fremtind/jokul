@@ -46,7 +46,7 @@ export const CardStory: Story = {
         <Card {...args}>
             <Flex
                 alignItems="center"
-                justifyContent="center"
+                justify="center"
                 style={{
                     outline: "1px dashed #9747FF",
                     height: "100px",
@@ -87,8 +87,8 @@ export const ImageCard: Story = {
                 }}
             />
 
-            <Flex direction="column" gap={16}>
-                <Flex direction="column" gap={8}>
+            <Flex direction="column" gap="sm">
+                <Flex direction="column" gap="xs">
                     <p className="jkl-heading-2">Se forsikringene mine</p>
                     <p>
                         Du vil alltid ha en oversikt over forsikringene dine på
@@ -128,7 +128,7 @@ export const CopyCard: Story = {
                     }, 3000);
                 }}
             >
-                <Flex alignItems="center" gap={16}>
+                <Flex alignItems="center" gap="sm">
                     <p id="kode">{args.children}</p>
                     {hasCopied ? (
                         <CheckIcon aria-label="Kopiert" aria-hidden="false" />
@@ -160,11 +160,11 @@ export const LinkCard: Story = {
             asChild={false}
             aria-label="Husforsikring"
         >
-            <Flex direction="column" gap={16}>
+            <Flex direction="column" gap="none xl">
                 <div>
                     <InfoTag>Fornyelse</InfoTag>
                 </div>
-                <Flex direction="column" gap={8}>
+                <Flex direction="column" gap="sm">
                     <p className="jkl-heading-2">Hus</p>
                     <p>Kittel Nielsens vei 88 1163 Oslo</p>
                 </Flex>

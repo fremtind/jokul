@@ -1,25 +1,57 @@
-import React, { type CSSProperties } from "react";
-import type tokens from "../../core/tokens.js";
+import React from "react";
 import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
-import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type {
+    Expand,
+    PolymorphicComponentPropWithRef,
+} from "../../utilities/polymorphism/polymorphism.js";
 
-export type FlexDirection = "row" | "row-reverse" | "column" | "column-reverse";
-export type GapValue = Exclude<keyof (typeof tokens)["spacing"], 0>;
+type Size = 1 | 2 | 3 | 4 | 6 | 4.8 | 8.4 | 2.1 | 10.2 | 3.9 | 9.3 | 5.7 | 7.5;
+type Center = "md" | "lg" | "xl" | "xxl" | boolean;
+type Layout = Expand<"auto" | Size | `${Size}`[][number] | "2.10">;
+type GapValue = "none" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+type Gap = `${GapValue}` | `${GapValue} ${GapValue}`;
 
-export type FlexProps<ElementType extends React.ElementType> =
-    PolymorphicPropsWithRef<
-        ElementType,
-        {
-            direction?: FlexDirection;
-            wrap?: boolean;
-            gap?: GapValue;
-            colGap?: GapValue;
-            rowGap?: GapValue;
-        } & Pick<
-            CSSProperties,
-            "alignContent" | "alignItems" | "justifyContent" | "justifyItems"
-        >
-    >;
+type FlexBaseProps = {
+    alignItems?: "normal" | "start" | "center" | "end" | "baseline" | "stretch";
+    alignContent?:
+        | "normal"
+        | "start"
+        | "center"
+        | "end"
+        | "stretch"
+        | "baseline"
+        | "space-between"
+        | "space-around"
+        | "space-evenly";
+    center?: Center;
+    direction?: "row" | "column" | "row-reverse" | "column-reverse";
+    fill?: boolean;
+    gap?: Gap | { xs?: Gap; sm?: Gap; md?: Gap; lg?: Gap; xl?: Gap; xxl?: Gap };
+    inline?: boolean;
+    text?: "left" | "right" | "center";
+    justify?:
+        | "normal"
+        | "start"
+        | "center"
+        | "end"
+        | "space-between"
+        | "space-around"
+        | "space-evenly";
+    layout?:
+        | Layout
+        | {
+              xs?: Layout;
+              sm?: Layout;
+              md?: Layout;
+              lg?: Layout;
+              xl?: Layout;
+              xxl?: Layout;
+          };
+    wrap?: "wrap" | "nowrap" | "reverse";
+};
+
+export type FlexProps<As extends React.ElementType = "div"> =
+    PolymorphicComponentPropWithRef<As, FlexBaseProps>;
 
 export type FlexComponent = <ElementType extends React.ElementType = "div">(
     props: FlexProps<ElementType> & AsChildProps,
