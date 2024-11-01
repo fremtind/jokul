@@ -701,7 +701,6 @@ importers:
       cssnano: ^7.0.6
       cssnano-preset-lite: ^4.0.3
       date-fns: ^2.30.0
-      framer-motion: '>7.10.2 <12'
       glob: ^11.0.0
       ink: ^5.0.1
       ink-select-input: ^6.0.0
@@ -723,7 +722,6 @@ importers:
       '@react-aria/toast': 3.0.0-beta.1
       '@react-stately/toast': 3.0.0-beta.0
       date-fns: 2.30.0
-      framer-motion: 11.5.6
       react-a11y-dialog: 6.2.0
     devDependencies:
       '@babel/cli': 7.25.6
