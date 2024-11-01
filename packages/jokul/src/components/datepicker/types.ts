@@ -296,3 +296,11 @@ export interface DatePickerProps
 
 export interface DatePickerAction
     extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {}
+
+export type ComparisonOptions = {
+    /**
+     * Kontroller om testen skal godkjennes om verdien er lik
+     * @default false
+     */
+    inclusive: boolean;
+};

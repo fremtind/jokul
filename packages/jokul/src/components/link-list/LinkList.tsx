@@ -1,20 +1,17 @@
 import clsx from "clsx";
-import React, { ComponentProps, FC } from "react";
+import React from "react";
 import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
 import { ArrowRightIcon } from "../icon/icons/ArrowRightIcon.js";
+import { ItemProps, LinkComponent, LinkListProps } from "./types.js";
 
-const Item: FC<ComponentProps<"li">> = ({ className, ...rest }) => {
+const Item: ItemProps = ({ className, ...rest }) => {
     return (
         <li className={clsx("jkl-link-list-item", className)} {...rest}></li>
     );
 };
-
-type LinkComponent = <ElementType extends React.ElementType = "a">(
-    props: PolymorphicPropsWithRef<ElementType>,
-) => React.ReactElement | null;
 
 const Link = React.forwardRef(function LinkListLink<
     ElementType extends React.ElementType = "a",
@@ -35,16 +32,6 @@ const Link = React.forwardRef(function LinkListLink<
         </Component>
     );
 }) as LinkComponent;
-
-type UnorderedLinkListProps = React.HTMLAttributes<HTMLUListElement> & {
-    variant: "unordered";
-};
-
-type OrderedLinkListProps = React.HTMLAttributes<HTMLOListElement> & {
-    variant: "ordered";
-};
-
-type LinkListProps = UnorderedLinkListProps | OrderedLinkListProps;
 
 export const LinkList = ({
     variant,

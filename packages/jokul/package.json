@@ -242,6 +242,16 @@
                 "types": "./build/cjs/components/input-group/index.d.cts"
             }
         },
+        "./components/input-panel": {
+            "import": {
+                "default": "./build/es/components/input-panel/index.js",
+                "types": "./build/es/components/input-panel/index.d.ts"
+            },
+            "require": {
+                "default": "./build/cjs/components/input-panel/index.cjs",
+                "types": "./build/cjs/components/input-panel/index.d.cts"
+            }
+        },
         "./components/link": {
             "import": {
                 "default": "./build/es/components/link/index.js",

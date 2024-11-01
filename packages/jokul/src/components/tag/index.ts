@@ -1,5 +1,9 @@
-import { Tag, InfoTag, ErrorTag, WarningTag, SuccessTag } from "./Tag.js";
-
-export type { TagProps } from "./Tag.js";
-
-export { Tag, InfoTag, ErrorTag, WarningTag, SuccessTag };
+export {
+    Tag,
+    InfoTag,
+    ErrorTag,
+    WarningTag,
+    SuccessTag,
+    type TagProps,
+    type DismissAction,
+} from "./Tag.js";

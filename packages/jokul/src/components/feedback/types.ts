@@ -1,4 +1,10 @@
-import { Dispatch, FormEvent, FormEventHandler, SetStateAction } from "react";
+import {
+    Dispatch,
+    FormEvent,
+    FormEventHandler,
+    ReactNode,
+    SetStateAction,
+} from "react";
 
 export type FeedbackOption<T = string | number> = {
     /** Teksten som vises ved alternativet */
@@ -17,22 +23,22 @@ interface BaseQuestion {
     name?: string;
 }
 
-interface RadioQuestion extends BaseQuestion {
+export interface RadioQuestion extends BaseQuestion {
     type: "radio";
     options: FeedbackOption[];
 }
 
-interface CheckboxQuestion extends BaseQuestion {
+export interface CheckboxQuestion extends BaseQuestion {
     type: "checkbox";
     options: FeedbackOption[];
 }
 
-interface SmileyQuestion extends BaseQuestion {
+export interface SmileyQuestion extends BaseQuestion {
     type: "smiley";
     options: FeedbackOption<number>[];
 }
 
-interface TextQuestion extends BaseQuestion {
+export interface TextQuestion extends BaseQuestion {
     type: "text";
 }
 
@@ -45,12 +51,12 @@ interface BaseFeedbackAnswer {
     type: "radio" | "checkbox" | "text";
 }
 
-interface MultiFeedbackAnswer extends BaseFeedbackAnswer {
+export interface MultiFeedbackAnswer extends BaseFeedbackAnswer {
     type: "checkbox";
     value: string[];
 }
 
-interface SingleFeedbackAnswer extends BaseFeedbackAnswer {
+export interface SingleFeedbackAnswer extends BaseFeedbackAnswer {
     type: "radio" | "text";
     value: string;
 }
@@ -96,6 +102,17 @@ export type FollowupState = {
     >;
 };
 
+export type FollowupProps = {
+    /** Spørsmålet/ene som skal stilles. Kan være av typen radio, checkbox eller text */
+    questions: FollowupQuestion[];
+    /** Lar deg tilpasse meldingen som kommer når brukeren har svart på spørsmålene.  */
+    successMessage?: {
+        title: string;
+        children: ReactNode;
+    };
+    onSubmit: (values: FeedbackAnswer[]) => void;
+};
+
 export interface QuestionProps {
     type?: QuestionType;
     label: string;
@@ -104,3 +121,26 @@ export interface QuestionProps {
     options?: FeedbackOption[];
     autoFocus?: boolean;
 }
+
+export type ContactQuestionProps = {
+    /**
+     * Lar deg tilpasse spørsmålsteksten.
+     * @default "Kan vi kontakte deg for flere innspill?"
+     * */
+    label?: string;
+    /**
+     * Lar deg tilpasse teksten på knappen for innsending.
+     * @default "Sett meg på lista!"
+     * */
+    sendButtonLabel?: string;
+    /** Sett til true om du også vil spørre om brukjerens telefonnummer i tillegg til epost */
+    withPhone?: boolean;
+    /** Her kan du legge inn eventuelt annet innhold du vil ha med. Kommer mellom overskriften og feltene for utfylling */
+    children?: ReactNode;
+    onSubmit: (values: { email: string; phone?: string }) => void;
+    /** Lar deg tilpasse meldingen som kommer når brukeren sender inn skjemaet.  */
+    successMessage?: {
+        title: string;
+        children: ReactNode;
+    };
+};

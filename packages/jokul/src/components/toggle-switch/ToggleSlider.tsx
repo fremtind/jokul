@@ -12,7 +12,7 @@ import { useSwipeGesture } from "../../hooks/useSwipeGesture/useSwipeGesture.js"
 import { ToggleChangeHandler } from "./ToggleSwitch.js";
 import { usePillStyles } from "./usePillStyles.js";
 
-interface Props extends WithChildren {
+export interface ToggleSliderProps extends WithChildren {
     labels: [string, string];
     onToggle: (value: string) => void;
     defaultValue?: string;
@@ -21,7 +21,7 @@ interface Props extends WithChildren {
     density?: Density;
 }
 
-export const ToggleSlider: FC<Props> = ({
+export const ToggleSlider: FC<ToggleSliderProps> = ({
     children,
     labels,
     className = "",

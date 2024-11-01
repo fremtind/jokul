@@ -10,10 +10,8 @@ import {
     TagProps,
     WarningTag,
 } from "../tag/Tag.js";
-import { PaddingOptions } from "./types.js";
+import { CardTag, PaddingOptions, TagType } from "./types.js";
 import { getPaddingStyles } from "./utils.js";
-
-export type TagType = "success" | "warning" | "info" | "error";
 
 /**
  * Bruk denne komponenten for å legge til ekstra informasjon i NavCard.
@@ -22,14 +20,6 @@ export type TagType = "success" | "warning" | "info" | "error";
 export const InfoBlock: FC<WithChildren> = ({ children }) => (
     <div className="jkl-nav-card__info">{children}</div>
 );
-
-interface CardTag {
-    /**
-     * @default <none> Rendres som nøytral tag
-     */
-    type?: TagType;
-    text: string;
-}
 
 export interface NavCardProps
     extends PaddingOptions,

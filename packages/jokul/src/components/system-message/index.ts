@@ -3,4 +3,5 @@ export {
     WarningSystemMessage,
     ErrorSystemMessage,
     SuccessSystemMessage,
+    type SystemMessageProps,
 } from "./SystemMessage.js";

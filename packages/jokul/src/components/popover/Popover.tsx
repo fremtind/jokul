@@ -22,13 +22,13 @@ import clsx from "clsx";
 import * as React from "react";
 import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
 
-type ClickOptions = Parameters<typeof useClick>[1];
-type DismissOptions = Parameters<typeof useDismiss>[1];
-type FocusOptions = Parameters<typeof useFocus>[1];
-type HoverOptions = Parameters<typeof useHover>[1];
-type RoleOptions = Parameters<typeof useRole>[1];
+export type ClickOptions = Parameters<typeof useClick>[1];
+export type DismissOptions = Parameters<typeof useDismiss>[1];
+export type FocusOptions = Parameters<typeof useFocus>[1];
+export type HoverOptions = Parameters<typeof useHover>[1];
+export type RoleOptions = Parameters<typeof useRole>[1];
 
-interface PopoverOptions {
+export interface PopoverOptions {
     /**
      * Angir om popoveren er åpen eller lukket.
      *

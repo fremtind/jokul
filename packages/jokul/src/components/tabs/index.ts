@@ -1,6 +1,6 @@
-export * from "./NavTab.js";
-export * from "./NavTabs.js";
-export * from "./Tabs.js";
-export * from "./TabList.js";
-export * from "./Tab.js";
-export * from "./TabPanel.js";
+export { NavTab, type NavTabProps } from "./NavTab.js";
+export { NavTabs, type NavTabsProps } from "./NavTabs.js";
+export { Tabs, type TabsProps } from "./Tabs.js";
+export { TabList, type TabListProps } from "./TabList.js";
+export { Tab, type TabProps } from "./Tab.js";
+export { TabPanel, type TabPanelProps } from "./TabPanel.js";

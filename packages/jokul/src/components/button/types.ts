@@ -10,7 +10,7 @@ export const buttonVariants = [
 export type ButtonVariant = (typeof buttonVariants)[number];
 export type IconPosition = "left" | "right";
 
-type IconOptions<T extends React.ElementType> =
+export type IconOptions<T extends React.ElementType> =
     // Hvis ikke knappen har ikon, MÅ den ha children:
     | {
           iconPosition?: never;

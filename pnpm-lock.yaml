@@ -7744,7 +7744,7 @@ packages:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.7.23
-      vite: 5.4.2
+      vite: 5.4.2_sass-embedded@1.78.0
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -25835,7 +25835,7 @@ packages:
       kolorist: 1.8.0
       local-pkg: 0.5.0
       magic-string: 0.30.11
-      vite: 5.4.2
+      vite: 5.4.2_sass-embedded@1.78.0
       vue-tsc: 2.0.29
     transitivePeerDependencies:
       - '@types/node'

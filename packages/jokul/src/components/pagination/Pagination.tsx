@@ -27,9 +27,7 @@ export type PaginationProps<ElementType extends React.ElementType> =
         }
     >;
 
-export type PaginationComponent = <
-    ElementType extends React.ElementType = "nav",
->(
+type PaginationComponent = <ElementType extends React.ElementType = "nav">(
     props: PaginationProps<ElementType>,
 ) => React.ReactElement | null;
 

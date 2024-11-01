@@ -4,8 +4,6 @@ import { Density, WithChildren } from "../../core/types.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { ScreenReaderOnly } from "../ScreenReaderOnly.js";
 
-export type ExpandDirection = "up" | "down";
-
 export interface ExpanderProps extends WithChildren {
     as?: "summary" | "button";
     /** Må settes dersom du ikke bruker CoreToggle. Verdien skal være IDen til innholdet du ekspanderer. */
@@ -21,7 +19,7 @@ export interface ExpanderProps extends WithChildren {
      */
     isExpanded?: boolean;
     /** @default "down" */
-    expandDirection?: ExpandDirection;
+    expandDirection?: "up" | "down";
     density?: Density;
     /**
      * Skjul knappeteksten visuelt.

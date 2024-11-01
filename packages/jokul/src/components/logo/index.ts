@@ -1,7 +1,5 @@
-export type { LogoProps } from "./Logo.js";
-export { Logo } from "./Logo.js";
-export type { LogoStampProps } from "./LogoStamp.js";
-export { LogoStamp } from "./LogoStamp.js";
+export { Logo, type LogoProps } from "./Logo.js";
+export { LogoStamp, type LogoStampProps } from "./LogoStamp.js";
 export {
     ForsikringLevertAvFremtind,
     FraSB1ogDNB,

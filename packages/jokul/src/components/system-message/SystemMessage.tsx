@@ -7,7 +7,7 @@ import { MessageIcon } from "./common/MessageIcon.js";
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
-interface Props extends WithChildren {
+export interface SystemMessageProps extends WithChildren {
     id?: string;
     className?: string;
     density?: Density;
@@ -22,8 +22,10 @@ interface Props extends WithChildren {
     };
 }
 
-function systemFactory(messageType: messageTypes): React.FC<Props> {
-    const SystemMessage: React.FC<Props> = ({
+function systemFactory(
+    messageType: messageTypes,
+): React.FC<SystemMessageProps> {
+    const SystemMessage: React.FC<SystemMessageProps> = ({
         id,
         className,
         density,

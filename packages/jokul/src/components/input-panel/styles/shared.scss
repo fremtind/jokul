@@ -1,0 +1,75 @@
+@use "../../../core/jkl/" as jkl;
+
+.jkl-input-panel {
+    --outer-border-color: var(--jkl-color-border-input);
+    --outer-border-thickness: #{jkl.rem(1px)};
+    --background-color: transparent;
+
+    outline: var(--outer-border-thickness) solid var(--outer-border-color);
+    border-radius: 4px;
+    padding-left: jkl.rem(16px);
+
+    background-color: var(--background-color);
+
+    cursor: pointer;
+
+    &__input {
+        opacity: 0;
+        position: absolute;
+        top: -6px;
+    }
+
+    &__label {
+        display: grid;
+        grid-template-columns: min-content fit-content(30%) 1fr;
+        align-items: center;
+        gap: jkl.rem(8px);
+        cursor: pointer;
+    }
+
+    &__main-label {
+        padding-block: jkl.rem(24px);
+    }
+
+    &__extra-label {
+        margin-left: jkl.rem(16px);
+        align-self: stretch;
+
+        margin-right: jkl.rem(16px);
+
+        > :first-child {
+            padding-right: jkl.rem(16px);
+        }
+
+        &--text {
+            display: flex;
+            height: 100%;
+            align-items: center;
+        }
+    }
+
+    &__content {
+        height: 0;
+        overflow: hidden;
+        cursor: default;
+        padding-right: jkl.rem(24px);
+
+        &[data-alwaysopen="true"],
+        .jkl-input-panel:has([aria-expanded="true"]) & {
+            padding-bottom: 24px;
+            height: auto;
+        }
+    }
+
+    &:has(:focus-visible),
+    &:hover {
+        --outer-border-thickness: #{jkl.rem(2px)};
+        --outer-border-color: var(--jkl-color-border-separator-hover);
+    }
+
+    &:has(:checked) {
+        --outer-border-thickness: #{jkl.rem(2px)};
+        --outer-border-color: var(--jkl-color-border-action);
+        --background-color: var(--jkl-color-background-container-high);
+    }
+}

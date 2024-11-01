@@ -9,7 +9,7 @@ import React, {
     ChangeEvent,
 } from "react";
 
-type Counter = {
+export type Counter = {
     /** Antall tegn før telleren når maksimum og vi viser en feilmelding */
     maxLength: number;
     /**

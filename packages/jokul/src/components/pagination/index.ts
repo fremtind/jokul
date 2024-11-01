@@ -1,1 +1,1 @@
-export * from "./Pagination.js";
+export { Pagination, type PaginationProps } from "./Pagination.js";

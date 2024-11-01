@@ -64,3 +64,13 @@ export interface PaddingOptions {
      */
     padding?: BasePadding | PaddingShorthand;
 }
+
+export type TagType = "success" | "warning" | "info" | "error";
+
+export type CardTag = {
+    /**
+     * @default <none> Rendres som nøytral tag
+     */
+    type?: TagType;
+    text: string;
+};
