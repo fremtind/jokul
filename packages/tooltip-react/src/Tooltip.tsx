@@ -52,7 +52,7 @@ export const useTooltip = ({
     triggerOn = "hover",
 }: TooltipProps) => {
     const [isOpen, setOpen] = useState(initialOpen);
-    const arrowElement = useRef<HTMLElement>(null);
+    const arrowElement = useRef<SVGSVGElement>(null);
     const description = useRef<HTMLElement | null>(null);
     const setDescription = (element: HTMLElement | null) =>
         (description.current = element);
@@ -66,7 +66,7 @@ export const useTooltip = ({
             offset(16),
             flip(),
             shift({ padding: 16 }),
-            arrow({ element: arrowElement, padding: 20 }),
+            arrow({ element: arrowElement, padding: 8 }),
         ],
     });
 
