@@ -134,8 +134,7 @@ export const Filter: Story = {
             <FieldGroup legend="Velg forsikringer du ønsker tilbud på">
                 <Flex
                     as="ul"
-                    gap={8}
-                    wrap
+                    gap="xs"
                     style={{
                         listStyle: "none",
                         padding: 0,
@@ -201,8 +200,7 @@ export const Input: Story = {
             <FieldGroup legend="Valgte tilleggsdekninger">
                 <Flex
                     as="ul"
-                    gap={8}
-                    wrap
+                    gap="xs"
                     style={{
                         listStyle: "none",
                         padding: 0,

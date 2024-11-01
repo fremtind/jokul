@@ -1,3 +1,4 @@
+@forward "legacy";
 @forward "colors" hide varslingsfarge;
 @forward "convert";
 @forward "helpers";
@@ -12,7 +13,6 @@
 @forward "spacing" hide $spacing, $combinations, $positions;
 @forward "theme";
 @forward "tokens" hide $color-background-page, $color-border-subdued, $color-text-default, $color-text-subdued;
-@forward "legacy-tokens";
 @forward "typography" hide $text-styles;
 @forward "underline";
 @forward "z-index";

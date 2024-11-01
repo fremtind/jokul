@@ -1,6 +1,7 @@
+import { commentStyles } from "style-dictionary/enums";
+import type { Dictionary, File, Format } from "style-dictionary/types";
 import { fileHeader, formattedVariables } from "style-dictionary/utils";
 import { PREFIX } from "../config.js";
-import type { Dictionary, File, Format } from "style-dictionary/types";
 
 const scssThemeVariablesFormat: Format = {
     name: "scss/theme-variables",
@@ -8,7 +9,10 @@ const scssThemeVariablesFormat: Format = {
         dictionary,
         file,
     }: { dictionary: Dictionary; file: File }) => {
-        const header = await fileHeader({ file });
+        const header = await fileHeader({
+            file,
+            commentStyle: commentStyles.short,
+        });
         const staticColorTokens = dictionary.allTokens.filter(
             (token) =>
                 !token.path.some((word) => ["light", "dark"].includes(word)),

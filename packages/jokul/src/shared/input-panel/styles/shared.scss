@@ -5,8 +5,7 @@
     --outer-border-thickness: #{jkl.rem(1px)};
     --background-color: transparent;
 
-    box-shadow: inset 0 0 0 var(--outer-border-thickness)
-        var(--outer-border-color);
+    box-shadow: inset 0 0 0 var(--outer-border-thickness) var(--outer-border-color);
     border-radius: 4px;
     padding-left: jkl.rem(16px);
 
@@ -39,6 +38,7 @@
         margin-right: jkl.rem(16px);
 
         > :first-child {
+            box-sizing: content-box;
             padding-right: jkl.rem(16px);
         }
 
