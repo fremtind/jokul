@@ -6,7 +6,7 @@ import {
     useTransitionStyles,
 } from "@floating-ui/react";
 import { getThemeAndDensity } from "@fremtind/jkl-core";
-import { useId } from "@fremtind/jkl-react-hooks";
+import { useBrowserPreferences, useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
 import React, { HTMLProps, forwardRef } from "react";
 import { useTooltipContext } from "./Tooltip";
@@ -42,10 +42,14 @@ export const TooltipContent = forwardRef<
     } = useTooltipContext();
     const ref = useMergeRefs([forwardedRef, refs.setFloating]);
     const contentId = useId("jkl-tooltip-content");
+    const { prefersReducedMotion } = useBrowserPreferences();
     const { isMounted, styles: animationStyles } = useTransitionStyles(
         context,
         {
-            duration: { open: 250, close: 150 },
+            duration: {
+                open: prefersReducedMotion ? 0 : 250,
+                close: prefersReducedMotion ? 0 : 150,
+            },
             initial: ({ side }) => ({
                 opacity: 0,
                 translate: getTranslation(side, 5),
