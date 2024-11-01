@@ -1,12 +1,13 @@
 import {
+    FloatingArrow,
+    FloatingPortal,
     type Side,
     useMergeRefs,
-    FloatingPortal,
     useTransitionStyles,
-    FloatingArrow,
 } from "@floating-ui/react";
 import clsx from "clsx";
 import React, { HTMLProps, forwardRef } from "react";
+import { useBrowserPreferences } from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
 import { useTooltipContext } from "./Tooltip.js";
@@ -42,10 +43,14 @@ export const TooltipContent = forwardRef<
     } = useTooltipContext();
     const ref = useMergeRefs([forwardedRef, refs.setFloating]);
     const contentId = useId("jkl-tooltip-content");
+    const { prefersReducedMotion } = useBrowserPreferences();
     const { isMounted, styles: animationStyles } = useTransitionStyles(
         context,
         {
-            duration: { open: 250, close: 150 },
+            duration: {
+                open: prefersReducedMotion ? 0 : 250,
+                close: prefersReducedMotion ? 0 : 150,
+            },
             initial: ({ side }) => ({
                 opacity: 0,
                 translate: getTranslation(side, 5),
