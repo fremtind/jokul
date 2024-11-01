@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.29.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.28.1...@fremtind/jokul@0.29.0) (2024-11-01)
+
+### Bug Fixes
+
+- namespace css variables ([ca958e4](https://github.com/fremtind/jokul/commit/ca958e45dceee96ade66dbc1b8de9d43310c1056))
+
+### Features
+
+- add CheckboxPanel and move RadioPanel ([3bb0476](https://github.com/fremtind/jokul/commit/3bb0476c2b57e6b8dea8de2123176718247a776e)), closes [#4108](https://github.com/fremtind/jokul/issues/4108)
+- export all types that are part of publick APIs ([6765892](https://github.com/fremtind/jokul/commit/676589222af4ff083c51346dd470ed1a5a99a718))
+
 ## [0.28.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.28.0...@fremtind/jokul@0.28.1) (2024-10-31)
 
 ### Bug Fixes
