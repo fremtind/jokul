@@ -78,10 +78,10 @@ export const FlexStory: Story = {
             width: "50vw",
         },
         direction: "row",
-        wrap: true,
+        wrap: "nowrap",
         justifyContent: "center",
         alignItems: "center",
-        gap: 8,
+        gap: "lg",
         children: Array.from({ length: 5 }, (_, i) => (
             <Box key={i} label={`Box ${i + 1}`} />
         )),
