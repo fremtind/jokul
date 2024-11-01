@@ -18,10 +18,17 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(
             triggerOn === "click" && setOpen(false);
         };
 
+        const filterMaterialSymbols = (
+            maybeText: string | null | undefined,
+        ) => {
+            return maybeText?.replaceAll(/[\ue003-\uf8aa]/g, "");
+        };
+
         const ariaLabel = [
             (refs.reference.current as HTMLElement | null)?.textContent,
             refs.description.current?.textContent,
         ]
+            .map(filterMaterialSymbols)
             .filter(Boolean)
             .join(". ");
 
