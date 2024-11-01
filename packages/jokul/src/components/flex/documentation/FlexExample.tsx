@@ -1,8 +1,9 @@
 import React, { CSSProperties, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
 import { tokens } from "../../../core";
-import { Card } from "../../card";
-import { Flex, FlexDirection, GapValue } from "../Flex";
+import { Flex } from "../Flex";
+
+import "../styles/_index.scss";
 
 export const flexExampleKnobs: ExampleKnobsProps = {
     boolProps: ["wrap"],
@@ -31,14 +32,9 @@ export const flexExampleKnobs: ExampleKnobsProps = {
 };
 
 const boxStyle: CSSProperties = {
-    width: "250px",
-    height: "150px",
     backgroundColor: "var(--jkl-color-background-container-low)",
     border: "1px solid var(--jkl-color-border-subdued)",
     borderRadius: "4px",
-    display: "grid",
-    placeContent: "center",
-    flexGrow: 1,
 };
 
 export const FlexExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
@@ -49,26 +45,16 @@ export const FlexExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
         choiceValues?.["rowGap"] === "0" ? undefined : (parseInt(choiceValues?.["rowGap"] || "0") as GapValue);
 
     return (
-        <Flex
-            asChild
-            direction={choiceValues?.["direction"] as FlexDirection}
-            wrap={boolValues?.["wrap"]}
-            gap={gap}
-            colGap={colGap}
-            rowGap={rowGap}
-            style={{ maxWidth: "80vw" }}
-        >
-            <Card variant="outlined" padding="l">
-                <div style={boxStyle}>1</div>
-                <div style={boxStyle}>2</div>
-                <div style={boxStyle}>3</div>
-                <div style={boxStyle}>4</div>
-                <div style={boxStyle}>5</div>
-                <div style={boxStyle}>6</div>
-                <div style={boxStyle}>7</div>
-                <div style={boxStyle}>8</div>
-                <div style={boxStyle}>9</div>
-            </Card>
+        <Flex center layout={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 6 }}>
+            <div style={boxStyle}>1</div>
+            <div style={boxStyle}>2</div>
+            <div style={boxStyle}>3</div>
+            <div style={boxStyle}>4</div>
+            <div style={boxStyle}>5</div>
+            <div style={boxStyle}>6</div>
+            <div style={boxStyle}>7</div>
+            <div style={boxStyle}>8</div>
+            <div style={boxStyle}>9</div>
         </Flex>
     );
 };
