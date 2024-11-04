@@ -1,5 +1,5 @@
-import type { LoaderArgs, ActionArgs } from "@remix-run/node";
-import { json, Response } from "@remix-run/node";
+import type { LoaderFunctionArgs, ActionFunctionArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import {
     isRouteErrorResponse,
     useLoaderData,
@@ -10,7 +10,7 @@ import { GeneralError } from "~/page-templates/errors/GeneralError";
 import { PageNotFound } from "~/page-templates/errors/PageNotFound";
 import { HomePageTemplate } from "~/page-templates/home-page-template/HomePageTemplate";
 
-export const action = ({ request }: ActionArgs) => {
+export const action = ({ request }: ActionFunctionArgs) => {
     // Vi får innimellom POST-requests på rot-urlen, som vi ikke vil ha
     // Nekt dem, og gi oss selv litt info i loggene
     console.log(request.headers);
@@ -23,7 +23,9 @@ export const action = ({ request }: ActionArgs) => {
     });
 };
 
-export const loader = async ({ context: { payload, user } }: LoaderArgs) => {
+export const loader = async ({
+    context: { payload, user },
+}: LoaderFunctionArgs) => {
     try {
         const homePage = await payload.findGlobal({
             slug: "home-page",

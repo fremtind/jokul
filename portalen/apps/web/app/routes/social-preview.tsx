@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { tokens } from "@fremtind/jokul";
-import type { LoaderArgs } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
 import { Resvg } from "@resvg/resvg-js";
 import { LRUCache } from "lru-cache";
 import React from "react";
@@ -16,7 +16,7 @@ const cache = new LRUCache<string, Buffer>({
     ttl: 1000 * 60 * 60,
 });
 
-export async function loader({ request }: LoaderArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
     const params = new URL(request.url).searchParams;
 
     const mode = params.get("mode") || "light";
