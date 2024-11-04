@@ -27,7 +27,7 @@
         "@payloadcms/bundler-vite": "^0.1.7",
         "@payloadcms/db-mongodb": "^1.7.3",
         "@payloadcms/richtext-slate": "^1.5.2",
-        "express": "^4.18.2",
+        "express": "^4.20.0",
         "payload": "^2.30.1"
     },
     "peerDependenciesMeta": {
