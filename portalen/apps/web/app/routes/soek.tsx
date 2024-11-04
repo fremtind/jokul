@@ -1,9 +1,9 @@
-import type { LoaderArgs, V2_MetaFunction } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import React, { type FC } from "react";
 import { SearchResults } from "../page-templates/search-results";
 
-export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
     if (!data) {
         return [{ title: "Søk i Jøkul" }];
     }
@@ -27,7 +27,7 @@ export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
     ];
 };
 
-export const loader = async ({ context }: LoaderArgs) => {
+export const loader = async ({ context }: LoaderFunctionArgs) => {
     const { serverUrl } = context;
     return json({ serverUrl }, { status: 200 });
 };

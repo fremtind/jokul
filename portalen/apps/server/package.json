@@ -6,11 +6,11 @@
     "scripts": {
         "clean": "rm -rf node_modules build dist .turbo",
         "dev": "cross-env PAYLOAD_CONFIG_PATH=../cms/src/config.ts NODE_ENV=development nodemon",
-        "build:server": "rm -rf dist/* && tsc -p tsconfig.json",
+        "build:server": "rm -rf dist/* && ../../node_modules/.bin/tsc -p tsconfig.json",
         "build": "pnpm build:server",
         "serve": "cross-env PAYLOAD_CONFIG_PATH=../cms/dist/config.js NODE_ENV=production node --conditions=serve dist/index.js",
         "generate:types": "node ./generate-types.js",
-        "typecheck": "tsc -p ./tsconfig.json",
+        "typecheck": "../../node_modules/.bin/tsc -p ./tsconfig.json",
         "postinstall": "node ./postinstall"
     },
     "dependencies": {

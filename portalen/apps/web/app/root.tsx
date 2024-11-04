@@ -10,8 +10,8 @@ import type { MainMenu, User } from "@org/cms";
 import uiStyles from "@org/ui/styles.css";
 import type {
     LinksFunction,
-    LoaderArgs,
-    V2_MetaFunction,
+    LoaderFunctionArgs,
+    MetaFunction,
 } from "@remix-run/node";
 import {
     isRouteErrorResponse,
@@ -35,7 +35,7 @@ import { consentsCookie, userPreferencesCookie } from "~/cookies";
 
 initTabListener();
 
-export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
     if (!data) {
         return [
             { title: "Jøkul Designsystem" },
@@ -100,7 +100,7 @@ export type RootLoaderData = {
 export const loader = async ({
     context: { payload, user, serverUrl },
     request,
-}: LoaderArgs) => {
+}: LoaderFunctionArgs) => {
     const mainMenu = await payload.findGlobal({
         slug: "main-menu",
         user,

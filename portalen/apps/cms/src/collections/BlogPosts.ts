@@ -7,6 +7,7 @@ import {
 } from "../access";
 import { allPageSectionBlocks } from "../blocks/page-sections";
 import { pageMeta } from "../fields/meta";
+import { Blog } from "../types";
 import Users from "./Users";
 
 export const BLOG_POST_SLUG = "blog";
@@ -106,7 +107,7 @@ export const BlogPosts: CollectionConfig = {
                                     },
                                 },
                             })
-                        ).docs.map((blog) => blog.slug);
+                        ).docs.map((blog: Blog) => blog.slug);
 
                         let slug = titleSlug;
                         let counter = 1;

@@ -1,4 +1,4 @@
-import type { LoaderArgs, V2_MetaFunction } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
     isRouteErrorResponse,
@@ -26,7 +26,7 @@ import {
 } from "~/page-templates";
 import { GeneralError } from "~/page-templates/errors/GeneralError";
 
-export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
     if (!data) {
         return [
             { title: "Jøkul Designsystem" },
@@ -71,13 +71,16 @@ export const meta: V2_MetaFunction<typeof loader> = ({ data }) => {
         { property: "og:type", content: "website" },
         { property: "og:image", content: (data.serverUrl || "") + image.url },
         { property: "og:image:type", content: image.type },
-        { property: "og:url", content: (data.serverUrl || "") + data.path },
+        {
+            property: "og:url",
+            content: (data.serverUrl || "") + (data.path || ""),
+        },
         { property: "og:locale", content: "nb_NO" },
         { property: "og:site_name", content: "Jøkul designsystem" },
     ];
 };
 
-export const loader = async ({ context, params }: LoaderArgs) => {
+export const loader = async ({ context, params }: LoaderFunctionArgs) => {
     let { "*": path } = params;
     const { payload, user, serverUrl } = context;
 

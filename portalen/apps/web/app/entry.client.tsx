@@ -1,5 +1,12 @@
 import { RemixBrowser } from "@remix-run/react";
-import React from "react";
+import React, { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 
-hydrateRoot(document, <RemixBrowser />);
+startTransition(() => {
+    hydrateRoot(
+        document,
+        <StrictMode>
+            <RemixBrowser />
+        </StrictMode>,
+    );
+});
