@@ -7,6 +7,8 @@ import {
     tooltipExampleKnobs,
 } from "./TooltipExample";
 import "../../tooltip/tooltip.scss";
+import "../../button/button.scss";
+import "../../icons/icons.scss";
 
 export default function Example() {
     return (

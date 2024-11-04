@@ -1,7 +1,9 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
 import { formatKontonummer } from "../../../utilities/formatters/kontonummer/formatKontonummer.js";
-import { TooltipPlacement, Tooltip } from "../Tooltip.js";
+import { Button } from "../../button/Button.js";
+import { CopyIcon } from "../../icon/index.js";
+import { Tooltip, TooltipPlacement } from "../Tooltip.js";
 import { TooltipContent } from "../TooltipContent.js";
 import { TooltipTrigger } from "../TooltipTrigger.js";
 import { getPlacement } from "./getPlacement.js";
@@ -24,12 +26,17 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
 
     return (
         <p>
-            Kontonummer:{" "}
+            Kontonummer: {formatKontonummer(kontonummer)}
             <Tooltip placement={initialPlacement} delay={delay}>
                 <TooltipTrigger onClick={copyToClipboard}>
-                    {formatKontonummer(kontonummer)}
+                    <Button
+                        className="jkl-spacing-8--left"
+                        data-density="compact"
+                        variant="ghost"
+                        icon={<CopyIcon />}
+                    />
                 </TooltipTrigger>
-                <TooltipContent>
+                <TooltipContent data-layout-density="comfortable">
                     {copied ? (
                         <span aria-live="assertive">Kopiert</span>
                     ) : (
