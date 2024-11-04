@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.5.0 (2024-11-04)
+
+### Bug Fixes
+
+- ikke les opp material symbols i Tooltip ([d589410](https://github.com/fremtind/jokul/commit/d58941093ddc69ec30d7f89a62137a869e4cf63f))
+
+### Features
+
+- gå vekk fra framer motion for animasjon av tooltip ([aed7d15](https://github.com/fremtind/jokul/commit/aed7d157e8f62a3459d15c1b720405b26529ee41))
+- reduser bevegelse i tooltip v/prefersReducedMotion ([c4867d9](https://github.com/fremtind/jokul/commit/c4867d9fbef47e7912498a875b247891d9636fb5))
+
 ## [4.4.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@4.4.0...@fremtind/jkl-tooltip-react@4.4.1) (2024-10-04)
 
 ### Bug Fixes

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.30.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.29.0...@fremtind/jokul@0.30.0) (2024-11-04)
+
+### Bug Fixes
+
+- ikke les opp material symbols i Tooltip ([d589410](https://github.com/fremtind/jokul/commit/d58941093ddc69ec30d7f89a62137a869e4cf63f))
+
+### Features
+
+- fjern framer motion helt i @fremtind/jokul ([f62d754](https://github.com/fremtind/jokul/commit/f62d754e1f592869abe71ad4df1b0a51a9ebd686))
+- gå vekk fra framer motion for animasjon av jokul/tooltip ([4577a36](https://github.com/fremtind/jokul/commit/4577a3654b9b54515623351697a9627e890bc2ef))
+- reduser bevegelse i tooltip v/prefersReducedMotion ([c4867d9](https://github.com/fremtind/jokul/commit/c4867d9fbef47e7912498a875b247891d9636fb5))
+
 # [0.29.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.28.1...@fremtind/jokul@0.29.0) (2024-11-01)
 
 ### Bug Fixes
