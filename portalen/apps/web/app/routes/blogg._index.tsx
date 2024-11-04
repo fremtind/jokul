@@ -1,10 +1,12 @@
-import type { LoaderArgs } from "@remix-run/node";
-import { json, Response } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import React, { type FC } from "react";
 import { BlogOverviewTemplate } from "~/page-templates/blog-overview";
 
-export const loader = async ({ context: { payload, user } }: LoaderArgs) => {
+export const loader = async ({
+    context: { payload, user },
+}: LoaderFunctionArgs) => {
     try {
         const blogList = await payload.find({
             collection: "blog",

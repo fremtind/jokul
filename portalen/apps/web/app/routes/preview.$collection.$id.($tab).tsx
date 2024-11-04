@@ -1,4 +1,4 @@
-import type { LoaderArgs } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import {
     isRouteErrorResponse,
@@ -30,7 +30,7 @@ const allPageCollectionSlugs = [
     "blog",
 ] as const;
 
-export const loader = async ({ context, params }: LoaderArgs) => {
+export const loader = async ({ context, params }: LoaderFunctionArgs) => {
     const { payload, user } = context;
     const { collection, id, tab } = params;
 

@@ -1,6 +1,6 @@
 import { type Blog } from "@org/cms";
-import type { LoaderArgs } from "@remix-run/node";
-import { json, Response } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import React, { type FC } from "react";
 import { BlogPageTemplate } from "~/page-templates";
@@ -8,7 +8,7 @@ import { BlogPageTemplate } from "~/page-templates";
 export const loader = async ({
     params,
     context: { payload, user },
-}: LoaderArgs) => {
+}: LoaderFunctionArgs) => {
     try {
         const blogs = await payload.find({
             collection: "blog",
