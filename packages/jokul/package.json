@@ -15,7 +15,8 @@
     ],
     "files": [
         "./build",
-        "./styles"
+        "./styles",
+        "./src/fonts"
     ],
     "main": "./build/cjs/index.cjs",
     "exports": {
