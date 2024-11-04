@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.0...@fremtind/jokul@0.30.1) (2024-11-04)
+
+### Bug Fixes
+
+- include font files in artifact ([822980a](https://github.com/fremtind/jokul/commit/822980afff3cf267f9f1db7106ceac5ddcfccf41))
+
 # [0.30.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.29.0...@fremtind/jokul@0.30.0) (2024-11-04)
 
 ### Bug Fixes
