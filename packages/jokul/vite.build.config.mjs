@@ -15,7 +15,7 @@ export default defineConfig({
             devDeps: true,
             peerDeps: true,
             optDeps: true,
-            exclude: ["clsx", "nanoid"],
+            exclude: ["clsx", "nanoid", "react-is"],
         }),
         react(),
         dts({
