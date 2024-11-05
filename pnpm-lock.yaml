@@ -708,7 +708,9 @@ importers:
       nanoid: ^3.3.6
       postcss: ^8.4.24
       react-a11y-dialog: ^6.2.0
+      react-dom: ^18.0.0
       react-hook-form: ^7.44.3
+      react-is: ^18.0.0
       rollup-plugin-node-externals: ^7.1.3
       rollup-plugin-visualizer: ^5.12.0
       sass-embedded: ^1.78.0
@@ -717,12 +719,14 @@ importers:
       vite-plugin-dts: ^4.1.0
       vitest: ^2.1.3
       vitest-axe: ^0.1.0
+    dependencies:
+      react-dom: 18.2.0
     optionalDependencies:
-      '@floating-ui/react': 0.24.8
+      '@floating-ui/react': 0.24.8_react-dom@18.2.0
       '@react-aria/toast': 3.0.0-beta.1
       '@react-stately/toast': 3.0.0-beta.0
       date-fns: 2.30.0
-      react-a11y-dialog: 6.2.0
+      react-a11y-dialog: 6.2.0_react-dom@18.2.0
     devDependencies:
       '@babel/cli': 7.25.6
       '@babel/preset-react': 7.24.7
@@ -741,6 +745,7 @@ importers:
       nanoid: 3.3.7
       postcss: 8.4.41
       react-hook-form: 7.44.3
+      react-is: 18.2.0
       rollup-plugin-node-externals: 7.1.3
       rollup-plugin-visualizer: 5.12.0
       sass-embedded: 1.78.0
@@ -4136,13 +4141,14 @@ packages:
       '@floating-ui/dom': 1.2.9
     dev: false
 
-  /@floating-ui/react-dom/2.1.2:
+  /@floating-ui/react-dom/2.1.2_react-dom@18.2.0:
     resolution: {integrity: sha512-06okr5cgPzMNBy+Ycse2A6udMi4bqwW/zgBF/rwjcNqWkyr82Mcg8b0vjX8OJpZFy/FKjJmw6wV7t44kK6kW7A==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
       '@floating-ui/dom': 1.2.9
+      react-dom: 18.2.0
     dev: false
     optional: true
 
@@ -4158,15 +4164,16 @@ packages:
       tabbable: 6.1.2
     dev: false
 
-  /@floating-ui/react/0.24.8:
+  /@floating-ui/react/0.24.8_react-dom@18.2.0:
     resolution: {integrity: sha512-AuYeDoaR8jtUlUXtZ1IJ/6jtBkGnSpJXbGNzokBL87VDJ8opMq1Bgrc0szhK482ReQY6KZsMoZCVSb4xwalkBA==}
     requiresBuild: true
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@floating-ui/react-dom': 2.1.2
+      '@floating-ui/react-dom': 2.1.2_react-dom@18.2.0
       aria-hidden: 1.2.3
+      react-dom: 18.2.0
       tabbable: 6.1.2
     dev: false
     optional: true
@@ -4205,8 +4212,8 @@ packages:
       tslib: 2.5.3
     dev: false
 
-  /@fremtind/jkl-constants-util/3.0.97:
-    resolution: {integrity: sha512-7x2MjWt33yWFETPHk5E3gi+YVw5dkruCUGyxSLcVAidsYmQpFmjE9K+gmgWU3VgfEy3vOEAYR0UDUA9YozbpnQ==}
+  /@fremtind/jkl-constants-util/3.0.98:
+    resolution: {integrity: sha512-kXwqgCpWAUrioGG5hLO8U3ntQWQIOLvmqu+vdr0QtJJdjYC6GW+6giArbQ1BrG61lKALdEzebfzeYlEjHxrOlA==}
     dev: false
 
   /@fremtind/jkl-contact-information-react/2.1.52_biqbaboplfbrettd7655fr4n2y:
@@ -4219,7 +4226,7 @@ packages:
     dependencies:
       '@fremtind/jkl-contact-information': 2.0.22_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-core': 14.8.4_biqbaboplfbrettd7655fr4n2y
-      '@fremtind/jkl-formatters-util': 6.0.14_biqbaboplfbrettd7655fr4n2y
+      '@fremtind/jkl-formatters-util': 6.0.15_biqbaboplfbrettd7655fr4n2y
       classnames: 2.5.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -4296,7 +4303,7 @@ packages:
     dependencies:
       '@fremtind/jkl-core': 14.8.4_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-footer': 6.0.22_biqbaboplfbrettd7655fr4n2y
-      '@fremtind/jkl-formatters-util': 6.0.14_biqbaboplfbrettd7655fr4n2y
+      '@fremtind/jkl-formatters-util': 6.0.15_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-logo-react': 13.1.19_biqbaboplfbrettd7655fr4n2y
       classnames: 2.5.1
       react: 18.2.0
@@ -4314,15 +4321,15 @@ packages:
       - react-dom
     dev: false
 
-  /@fremtind/jkl-formatters-util/6.0.14_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-s8SRzOtF+Y7EiD8xClZnnmRWuenIWVVYViNYiUj4kA+vxgVS4zVdVmMgpLKGkZzljGp3SUR9zDDypcyeTkWtQA==}
+  /@fremtind/jkl-formatters-util/6.0.15_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-5L8ImNKs6lCS6n/SlKh+WuU4dbHG5sIUeGnX440QSPjf+0bb54IzHLliIFGrbkmYnzVTjRmMmTVmzpI96O6G/w==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@fremtind/jkl-constants-util': 3.0.97
+      '@fremtind/jkl-constants-util': 3.0.98
       '@fremtind/jkl-core': 14.8.4_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -21947,17 +21954,6 @@ packages:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  /react-a11y-dialog/6.2.0:
-    resolution: {integrity: sha512-/oW5vUjBDD4FvbF8L8K4RKStdro3J7V65ghhEgfWZmfqGW/+5bxpA6OZlChYgIUh47IlZvaBhL78ItBNIp1zHg==}
-    peerDependencies:
-      prop-types: ^15.6.0
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
-    dependencies:
-      a11y-dialog: 7.5.2
-    dev: false
-    optional: true
-
   /react-a11y-dialog/6.2.0_prop-types@15.8.1:
     resolution: {integrity: sha512-/oW5vUjBDD4FvbF8L8K4RKStdro3J7V65ghhEgfWZmfqGW/+5bxpA6OZlChYgIUh47IlZvaBhL78ItBNIp1zHg==}
     peerDependencies:
@@ -21968,6 +21964,18 @@ packages:
       a11y-dialog: 7.5.2
       prop-types: 15.8.1
     dev: false
+
+  /react-a11y-dialog/6.2.0_react-dom@18.2.0:
+    resolution: {integrity: sha512-/oW5vUjBDD4FvbF8L8K4RKStdro3J7V65ghhEgfWZmfqGW/+5bxpA6OZlChYgIUh47IlZvaBhL78ItBNIp1zHg==}
+    peerDependencies:
+      prop-types: ^15.6.0
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      a11y-dialog: 7.5.2
+      react-dom: 18.2.0
+    dev: false
+    optional: true
 
   /react-dev-utils/12.0.1_pikex2xyy6tm43fmzcjgwqlyoq:
     resolution: {integrity: sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ==}
@@ -22033,6 +22041,15 @@ packages:
       strip-indent: 3.0.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /react-dom/18.2.0:
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      loose-envify: 1.4.0
+      scheduler: 0.23.0
     dev: false
 
   /react-dom/18.2.0_react@18.2.0:

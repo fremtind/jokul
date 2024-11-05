@@ -32,7 +32,7 @@ import React, {
     useRef,
     useState,
 } from "react";
-import * as ReactIs from "react-is";
+import { isForwardRef } from "react-is";
 import { DataTestAutoId, WithChildren } from "../../core/types.js";
 import { useBrowserPreferences } from "../../hooks/index.js";
 import { useId } from "../../hooks/useId/useId.js";
@@ -204,7 +204,7 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
             <FloatingNode id={nodeId}>
                 {React.isValidElement(triggerElement) &&
                 (triggerElement.type === "button" ||
-                    ReactIs.isForwardRef(triggerElement))
+                    isForwardRef(triggerElement))
                     ? // Dersom trigger-elementet er en knapp, sett riktige egenskaper på det
                       React.cloneElement(triggerElement, {
                           ...getReferenceProps({
@@ -252,7 +252,7 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                                     (child, index) => {
                                         if (
                                             React.isValidElement(child) &&
-                                            ReactIs.isForwardRef(child)
+                                            isForwardRef(child)
                                         ) {
                                             return React.cloneElement(
                                                 child,
