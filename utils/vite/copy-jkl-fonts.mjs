@@ -5,9 +5,16 @@ import { resolve } from "node:path";
 function copyJklFonts(destination) {
     return {
         name: "copy-jkl-fonts",
-        buildStart() {
+        configResolved() {
             cpSync(
-                resolve(fileURLToPath(new URL(".", import.meta.url)), "..", "..", "packages", "webfonts", "fonts"),
+                resolve(
+                    fileURLToPath(new URL(".", import.meta.url)),
+                    "..",
+                    "..",
+                    "packages",
+                    "webfonts",
+                    "fonts",
+                ),
                 destination,
                 {
                     recursive: true,
