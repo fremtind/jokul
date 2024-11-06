@@ -1,6 +1,7 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
 import { LabelVariant } from "../../input-group/Label.js";
+import { PopupTip } from "../../tooltip/PopupTip.js";
 import { NativeSelect } from "../NativeSelect.js";
 import { Select } from "../Select.js";
 
@@ -81,12 +82,13 @@ export const SelectExample: FC<ExampleComponentProps> = ({
     const searchAble = boolValues && boolValues["Med søk"];
     const maxChoices = getMaxChoices(choiceValues?.["Maks. viste valg"]);
 
-    const tooltipProps = boolValues?.["Med tooltip"]
-        ? {
-              content:
-                  "Vi spør om merket på telefonen for å finne riktig reperatør for deg.",
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip
+            content={
+                "Vi spør om merket på telefonen for å finne riktig reperatør for deg."
+            }
+        />
+    ) : undefined;
 
     return (
         <C
@@ -98,7 +100,7 @@ export const SelectExample: FC<ExampleComponentProps> = ({
             value={value}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
-            tooltipProps={tooltipProps}
+            tooltip={tooltip}
             onChange={(event) => {
                 setValue(event.target.value);
                 console.log("Change: ", event);

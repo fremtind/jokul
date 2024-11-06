@@ -6,7 +6,6 @@ import {
     WithOptionalChildren,
 } from "../../core/types.js";
 import { useId } from "../../hooks/useId/useId.js";
-import { PopupTip, PopupTipProps } from "../tooltip/PopupTip.js";
 import { Label, LabelProps } from "./Label.js";
 import { SupportLabel, SupportLabelProps } from "./SupportLabel.js";
 
@@ -31,7 +30,7 @@ export type InputGroupProps = WithOptionalChildren &
             SupportLabelProps,
             "id" | "errorLabel" | "helpLabel" | "density"
         >;
-        tooltipProps?: PopupTipProps;
+        tooltip?: ReactNode;
         style?: CSSProperties;
         render?: (props: InputProps) => JSX.Element;
     };
@@ -49,13 +48,15 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
             labelProps,
             render,
             supportLabelProps,
-            tooltipProps,
+            tooltip,
             id,
             ...rest
         } = props;
 
         const uid = useId(id || "jkl-input", { generateSuffix: !id });
         const supportId = useId("jkl-support-label");
+
+        const hasTooltip = !!tooltip;
 
         const supportText = errorLabel || helpLabel;
         const supportTextType = errorLabel
@@ -100,20 +101,21 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                     srOnly={inline}
                     {...labelProps}
                     style={{
-                        whiteSpace: tooltipProps ? "nowrap" : undefined,
+                        whiteSpace: hasTooltip ? "nowrap" : undefined,
                         ...labelProps?.style,
                     }}
                     density={density}
                 >
-                    {!tooltipProps && label}
-                    {tooltipProps && (
+                    {hasTooltip ? (
                         <>
                             <span style={{ whiteSpace: "normal" }}>
                                 {label}
                             </span>
                             {`\u00A0`}
-                            <PopupTip {...tooltipProps} />
+                            {tooltip}
                         </>
+                    ) : (
+                        label
                     )}
                 </Label>
                 {renderInput()}

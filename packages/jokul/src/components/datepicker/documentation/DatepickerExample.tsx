@@ -1,6 +1,7 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
 import type { LabelVariant } from "../../input-group/Label.js";
+import { PopupTip } from "../../tooltip/PopupTip.js";
 import { DatePicker } from "../DatePicker.js";
 import { formatInput, isBlurTargetOutside } from "../utils.js";
 
@@ -34,12 +35,9 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({
             : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
-    const tooltipProps = boolValues?.["Med tooltip"]
-        ? {
-              content:
-                  "Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært.",
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip content="Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært." />
+    ) : undefined;
 
     const [value, setValue] = useState<string>("");
 
@@ -47,7 +45,7 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({
         <DatePicker
             label="Velg startdato for forsikringen"
             labelProps={{ variant }}
-            tooltipProps={tooltipProps}
+            tooltip={tooltip}
             errorLabel={errorLabel}
             name="datepicker"
             helpLabel={helpLabel}

@@ -1,6 +1,7 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { ChangeEvent, FC, useState } from "react";
 import { LabelVariant } from "../../input-group/Label.js";
+import { PopupTip } from "../../tooltip/PopupTip.js";
 import { TextArea } from "../TextArea.js";
 
 export const textAreaExampleKnobs: ExampleKnobsProps = {
@@ -41,11 +42,9 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({
         ? "Du må fylle ut en beskrivelse. Beskriv så utfyllende som mulig."
         : undefined;
 
-    const tooltipProps = boolValues?.["Med tooltip"]
-        ? {
-              content: "Beskriv så utfyllende som mulig.",
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip content={"Beskriv så utfyllende som mulig."} />
+    ) : undefined;
 
     return (
         <TextArea
@@ -54,7 +53,7 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({
             name="beskrivelse"
             helpLabel={helpLabel}
             errorLabel={errorLabel}
-            tooltipProps={tooltipProps}
+            tooltip={tooltip}
             autoExpand={autoExpand}
             startOpen={startOpen}
             counter={

@@ -12,6 +12,7 @@ import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
 import { Accordion } from "../accordion/Accordion.js";
 import { AccordionItem } from "../accordion/AccordionItem.js";
+import { PopupTip } from "../tooltip/PopupTip.js";
 import { Select } from "./Select.js";
 
 // https://github.com/testing-library/user-event/issues/1146
@@ -22,7 +23,6 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
     return {
         user: userEvent.setup({
             delay: 5,
-            advanceTimers: vi.advanceTimersByTime,
             skipHover: true,
         }),
         ...render(jsx, renderOptions),
@@ -1187,6 +1187,55 @@ describe("Searchable select", () => {
         expect(screen.queryByRole("option", { name: "bar" })).toBeFalsy();
     });
 
+    it("should render a visible tooltip when clicking on it", async () => {
+        const items = [
+            { label: "foo", value: "1" },
+            { label: "bar", value: "2" },
+            { label: "baz", value: "3" },
+        ];
+        const screen = setup(
+            <Select
+                name="items"
+                items={items}
+                label="Ting"
+                tooltip={
+                    <PopupTip content="Jeg er en tooltip" placement="left" />
+                }
+            />,
+        );
+        await screen.user.click(screen.getByText("Vis hjelpetekst"));
+
+        await waitFor(() =>
+            expect(screen.getByText("Jeg er en tooltip")).toBeVisible(),
+        );
+    });
+
+    it("should render a visible tooltip when initially open", async () => {
+        const items = [
+            { label: "foo", value: "1" },
+            { label: "bar", value: "2" },
+            { label: "baz", value: "3" },
+        ];
+        const screen = setup(
+            <Select
+                name="items"
+                items={items}
+                label="Ting"
+                tooltip={
+                    <PopupTip
+                        content="Jeg er en tooltip"
+                        placement="left"
+                        initialOpen
+                    />
+                }
+            />,
+        );
+
+        await waitFor(() =>
+            expect(screen.getByText("Jeg er en tooltip")).toBeVisible(),
+        );
+    });
+
     it("should close the listbox if a tooltip trigger receives focus", async () => {
         const items = [
             { label: "foo", value: "1" },
@@ -1199,10 +1248,9 @@ describe("Searchable select", () => {
                 name="items"
                 items={items}
                 label="Ting"
-                tooltipProps={{
-                    content: "Jeg er en tooltip",
-                    placement: "left",
-                }}
+                tooltip={
+                    <PopupTip content="Jeg er en tooltip" placement="left" />
+                }
             />,
         );
 
