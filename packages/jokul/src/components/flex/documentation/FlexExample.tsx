@@ -1,32 +1,128 @@
 import React, { CSSProperties, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../../../../utils/dev-example";
-import { tokens } from "../../../core";
 import { Flex } from "../Flex";
 
 import "../styles/_index.scss";
 
 export const flexExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["wrap"],
+    boolProps: ["fill", "inline"],
     choiceProps: [
         {
-            name: "direction",
-            values: ["row", "row-reverse", "column", "column-reverse"],
+            name: "layout",
+            values: [
+                "auto",
+                1,
+                2,
+                3,
+                4,
+                6,
+                4.8,
+                8.4,
+                "2.10",
+                10.2,
+                3.9,
+                9.3,
+                5.7,
+                7.5,
+                "{ xs: 1, md: 2, lg: 4 }",
+                "{ xs: 1, md: 'auto' }",
+            ],
             defaultValue: 0,
         },
         {
             name: "gap",
-            values: Object.keys(tokens.spacing).sort((a, b) => parseInt(a) - parseInt(b)),
+            values: [
+                "none",
+                "xs",
+                "sm",
+                "md",
+                "lg",
+                "xl",
+                "xxl",
+                "xxl xl",
+                "xxl lg",
+                "xxl md",
+                "xxl sm",
+                "xxl xs",
+                "xl none",
+                "xl xxl",
+                "xl lg",
+                "xl md",
+                "xl sm",
+                "xl xs",
+                "xl none",
+                "lg xxl",
+                "lg xl",
+                "lg md",
+                "lg sm",
+                "lg xs",
+                "lg none",
+                "md xxl",
+                "md xl",
+                "md lg",
+                "md sm",
+                "md xs",
+                "md none",
+                "sm xxl",
+                "sm xl",
+                "sm lg",
+                "sm md",
+                "sm xs",
+                "sm none",
+                "xs xxl",
+                "xs xl",
+                "xs lg",
+                "xs md",
+                "xs sm",
+                "xs none",
+                "none xxl",
+                "none xl",
+                "none lg",
+                "none md",
+                "none sm",
+                "none xs",
+            ],
             defaultValue: 0,
         },
         {
-            name: "rowGap",
-            values: Object.keys(tokens.spacing).sort((a, b) => parseInt(a) - parseInt(b)),
+            name: "direction",
+            values: ["row", "column", "row-reverse", "column-reverse"],
             defaultValue: 0,
         },
         {
-            name: "colGap",
-            values: Object.keys(tokens.spacing).sort((a, b) => parseInt(a) - parseInt(b)),
+            name: "center",
+            values: ["false", "true", "xxl", "xl", "lg", "md"],
             defaultValue: 0,
+        },
+        {
+            name: "align",
+            values: ["normal", "start", "center", "end", "baseline", "stretch"],
+            defaultValue: 0,
+        },
+        {
+            name: "alignContent",
+            values: [
+                "normal",
+                "start",
+                "center",
+                "end",
+                "baseline",
+                "stretch",
+                "space-around",
+                "space-between",
+                "space-evenly",
+            ],
+            defaultValue: "normal",
+        },
+        {
+            name: "justify",
+            values: ["normal", "start", "center", "end", "space-around", "space-between", "space-evenly"],
+            defaultValue: "normal",
+        },
+        {
+            name: "wrap",
+            values: ["wrap", "nowrap", "reverse"],
+            defaultValue: "wrap",
         },
     ],
 };
@@ -38,14 +134,8 @@ const boxStyle: CSSProperties = {
 };
 
 export const FlexExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
-    const gap = choiceValues?.["gap"] === "0" ? undefined : (parseInt(choiceValues?.["gap"] || "0") as GapValue);
-    const colGap =
-        choiceValues?.["colGap"] === "0" ? undefined : (parseInt(choiceValues?.["colGap"] || "0") as GapValue);
-    const rowGap =
-        choiceValues?.["rowGap"] === "0" ? undefined : (parseInt(choiceValues?.["rowGap"] || "0") as GapValue);
-
     return (
-        <Flex center layout={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 6 }}>
+        <Flex center fill layout={1}>
             <div style={boxStyle}>1</div>
             <div style={boxStyle}>2</div>
             <div style={boxStyle}>3</div>
@@ -55,6 +145,9 @@ export const FlexExample: FC<ExampleComponentProps> = ({ boolValues, choiceValue
             <div style={boxStyle}>7</div>
             <div style={boxStyle}>8</div>
             <div style={boxStyle}>9</div>
+            <div style={boxStyle}>10</div>
+            <div style={boxStyle}>11</div>
+            <div style={boxStyle}>12</div>
         </Flex>
     );
 };
