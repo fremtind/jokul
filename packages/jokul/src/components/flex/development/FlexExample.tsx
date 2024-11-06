@@ -149,7 +149,7 @@ export const FlexExample: FC<ExampleComponentProps> = ({
     choiceValues,
 }) => {
     return (
-        <Flex center fill layout={1}>
+        <Flex fill gap="xs" layout={1}>
             <div style={boxStyle}>1</div>
             <div style={boxStyle}>2</div>
             <div style={boxStyle}>3</div>
