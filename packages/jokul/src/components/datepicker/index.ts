@@ -15,4 +15,5 @@ export {
     type DatePickerKeyDownEventHandler,
     type DatePickerAction,
     type ComparisonOptions,
+    type DatePickerMetadata,
 } from "./types.js";
