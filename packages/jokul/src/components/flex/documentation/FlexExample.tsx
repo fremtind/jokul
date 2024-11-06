@@ -113,17 +113,17 @@ export const flexExampleKnobs: ExampleKnobsProps = {
                 "space-between",
                 "space-evenly",
             ],
-            defaultValue: "normal",
+            defaultValue: 0,
         },
         {
             name: "justify",
             values: ["normal", "start", "center", "end", "space-around", "space-between", "space-evenly"],
-            defaultValue: "normal",
+            defaultValue: 0,
         },
         {
             name: "wrap",
             values: ["wrap", "nowrap", "reverse"],
-            defaultValue: "wrap",
+            defaultValue: 0,
         },
     ],
 };
@@ -136,7 +136,7 @@ const boxStyle: CSSProperties = {
 
 export const FlexExample: FC<ExampleComponentProps> = ({ boolValues, choiceValues }) => {
     return (
-        <Flex center fill layout={1}>
+        <Flex fill gap="xs" layout={1}>
             <div style={boxStyle}>1</div>
             <div style={boxStyle}>2</div>
             <div style={boxStyle}>3</div>
