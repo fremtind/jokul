@@ -55,7 +55,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             showCalendarLabel = "Åpne kalender",
             hideCalendarLabel = "Lukk kalender",
             supportLabelProps,
-            tooltipProps,
+            tooltip,
             ...rest
         } = props;
 
@@ -262,7 +262,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                 helpLabel={helpLabel}
                 errorLabel={errorLabel}
                 supportLabelProps={supportLabelProps}
-                tooltipProps={tooltipProps}
+                tooltip={tooltip}
                 render={(inputProps) => (
                     <BaseTextInput
                         ref={unifiedInputRef}

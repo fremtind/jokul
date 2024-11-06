@@ -3,6 +3,7 @@ import React, { ChangeEvent, FC, useState } from "react";
 import { CloseIcon } from "../../icon/index.js";
 import { LabelVariant } from "../../input-group/Label.js";
 import { Link } from "../../link/Link.js";
+import { PopupTip } from "../../tooltip/PopupTip.js";
 import { Action } from "../BaseTextInput.js";
 import { TextInput } from "../TextInput.js";
 
@@ -42,16 +43,16 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
         </>
     ) : undefined;
 
-    const tooltipProps = boolValues?.["Med tooltip"]
-        ? {
-              content: (
-                  <>
-                      Boareal måles i kvadratmeter (m<sup>2</sup>). Hvis du ikke
-                      vet boarealet ditt kan du lese guiden vi lenker til under.
-                  </>
-              ),
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip
+            content={
+                <>
+                    Boareal måles i kvadratmeter (m<sup>2</sup>). Hvis du ikke
+                    vet boarealet ditt kan du lese guiden vi lenker til under.
+                </>
+            }
+        />
+    ) : undefined;
 
     const unit = boolValues?.["Med benevnelse"] ? (
         <>
@@ -94,7 +95,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             labelProps={{ variant }}
-            tooltipProps={tooltipProps}
+            tooltip={tooltip}
             value={value}
             onChange={handleChange}
             onKeyDown={() => console.log("onKeyDown event")}
