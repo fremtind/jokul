@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.2...@fremtind/jokul@0.30.3) (2024-11-06)
+
+### Bug Fixes
+
+- legg til react-dom som dependency og inline react-is ([aaf8aa9](https://github.com/fremtind/jokul/commit/aaf8aa9c6df520dcf7152f326411805c9ac6ffd6))
+
 ## [0.30.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.0...@fremtind/jokul@0.30.1) (2024-11-04)
 
 ### Bug Fixes
