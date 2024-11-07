@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.4...@fremtind/jokul@0.30.5) (2024-11-07)
+
+### Bug Fixes
+
+- endret rekkefølge på default i Jokul pakken ([ce1eff9](https://github.com/fremtind/jokul/commit/ce1eff9a82d1563b68360cc5ee5c05410fe00cc5))
+
 ## [0.30.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.3...@fremtind/jokul@0.30.4) (2024-11-07)
 
 ### Bug Fixes
