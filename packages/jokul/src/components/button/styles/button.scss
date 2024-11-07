@@ -33,6 +33,8 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     --border-radius: 0;
     --border-width: #{jkl.rem(1px)}; // For secondary og tertiary button
 
+    display: block;
+
     // button and link resets
     cursor: pointer;
     user-select: none;
