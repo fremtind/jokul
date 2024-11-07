@@ -1,8 +1,7 @@
 import clsx from "clsx";
-import React, { FC, FieldsetHTMLAttributes } from "react";
+import React, { FC, FieldsetHTMLAttributes, type ReactNode } from "react";
 import { DataTestAutoId, Density } from "../../core/types.js";
 import { useId } from "../../hooks/useId/useId.js";
-import { PopupTip, PopupTipProps } from "../tooltip/PopupTip.js";
 import { Label, LabelProps } from "./Label.js";
 import { SupportLabel, SupportLabelProps } from "./SupportLabel.js";
 
@@ -15,7 +14,7 @@ export interface FieldGroupProps
         SupportLabelProps,
         "id" | "errorLabel" | "helpLabel" | "density"
     >;
-    tooltipProps?: PopupTipProps;
+    tooltip?: ReactNode;
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
@@ -28,7 +27,7 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
         legend,
         labelProps,
         supportLabelProps,
-        tooltipProps,
+        tooltip,
         className,
         children,
         helpLabel,
@@ -61,15 +60,16 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
         >
             <legend className="jkl-field-group__legend">
                 <Label {...labelProps} density={density}>
-                    {!tooltipProps && legend}
-                    {tooltipProps && (
+                    {tooltip ? (
                         <>
                             <span style={{ whiteSpace: "normal" }}>
                                 {legend}
                             </span>
                             {`\u00A0`}
-                            <PopupTip {...tooltipProps} />
+                            {tooltip}
                         </>
+                    ) : (
+                        legend
                     )}
                 </Label>
             </legend>
