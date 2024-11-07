@@ -85,12 +85,12 @@
         },
         "./components/autosuggest": {
             "import": {
-                "default": "./build/es/components/autosuggest/index.js",
-                "types": "./build/es/components/autosuggest/index.d.ts"
+                "types": "./build/es/components/autosuggest/index.d.ts",
+                "default": "./build/es/components/autosuggest/index.js"
             },
             "require": {
-                "default": "./build/cjs/components/autosuggest/index.cjs",
-                "types": "./build/cjs/components/autosuggest/index.d.cts"
+                "types": "./build/cjs/components/autosuggest/index.d.cts",
+                "default": "./build/cjs/components/autosuggest/index.cjs"
             }
         },
         "./components/breadcrumb": {
