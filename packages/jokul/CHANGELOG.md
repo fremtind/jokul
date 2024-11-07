@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.3...@fremtind/jokul@0.30.4) (2024-11-07)
+
+### Bug Fixes
+
+- button labels have the same width as the button ([e4a4ed3](https://github.com/fremtind/jokul/commit/e4a4ed3a033526e588d88208b4c09afe24390ea7)), closes [#4259](https://github.com/fremtind/jokul/issues/4259)
+- buttons should render as block elements ([1f34208](https://github.com/fremtind/jokul/commit/1f3420886e46bc6eb07685a2137df17f024f6ef7))
+
 ## [0.30.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.2...@fremtind/jokul@0.30.3) (2024-11-06)
 
 ### Bug Fixes
