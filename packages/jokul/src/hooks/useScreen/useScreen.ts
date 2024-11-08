@@ -9,10 +9,19 @@ import { ScreenAction, ActionType, reducer, ScreenState } from "./state.js";
 
 const { breakpoint } = tokens;
 
+const breakpointsAsNumber = (breakpoint: string): number =>
+    parseInt(breakpoint.replace("px", ""));
+
 const MEDIA_RULES: Record<keyof ScreenState, string> = {
-    isSmallDevice: `(max-width: calc(${breakpoint.medium} - 1px))`,
-    isMediumDevice: `(min-width: ${breakpoint.medium}) and (max-width: calc(${breakpoint.large} -1px))`,
-    isLargeDevice: `(min-width: ${breakpoint.large}) and (max-width: calc(${breakpoint.xl} -1px))`,
+    isSmallDevice: `(max-width: ${
+        breakpointsAsNumber(breakpoint.medium) - 1
+    }px))`,
+    isMediumDevice: `(min-width: ${breakpoint.medium}) and (max-width: ${
+        breakpointsAsNumber(breakpoint.large) - 1
+    }px)`,
+    isLargeDevice: `(min-width: ${breakpoint.large}) and (max-width: ${
+        breakpointsAsNumber(breakpoint.xl) - 1
+    }px)`,
     isXlDevice: `(min-width: ${breakpoint.xl})`,
     isPortrait: "(orientation: portrait)",
     isLandscape: "(orientation: landscape)",
