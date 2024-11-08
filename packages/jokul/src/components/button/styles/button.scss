@@ -33,6 +33,8 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     --border-radius: 0;
     --border-width: #{jkl.rem(1px)}; // For secondary og tertiary button
 
+    display: block;
+
     // button and link resets
     cursor: pointer;
     user-select: none;
@@ -71,6 +73,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     &__label {
         @include jkl.motion("standard", "expressive", translate);
 
+        width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -93,6 +96,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
         // Håndter tekster som er lenger enn knappen
         // Knappen vokser til teksten, men kan f.eks. begrenses
         // av sidebredde på mobil
+        width: 100%;
         max-width: 100%;
         overflow: hidden;
         white-space: nowrap;
