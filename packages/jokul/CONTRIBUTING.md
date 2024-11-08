@@ -30,8 +30,8 @@ I [package.json](./package.json):
                 "default": "./build/es/components/[navn]/index.js",
             },
             "require": {
-                "default": "./build/cjs/components/[navn]/index.cjs",
                 "types": "./build/cjs/components/[navn]/index.d.cts"
+                "default": "./build/cjs/components/[navn]/index.cjs",
             }
         },
 ```
