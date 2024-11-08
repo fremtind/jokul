@@ -35,6 +35,10 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     &__fade-in {
         animation: $_show-animation-name 0.25s ease-out;
     }
+
+    &__buttons {
+        display: flex;
+    }
 }
 
 .jkl-feedback-smileys {

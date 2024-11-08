@@ -86,7 +86,7 @@ export const MainQuestion: FC<Props> = ({
                                     }
                                 />
                             )}
-                            <div className="jkl-spacing-xl--top">
+                            <div className="jkl-feedback__buttons jkl-spacing-xl--top">
                                 <PrimaryButton className="jkl-spacing-xl--right">
                                     Send
                                 </PrimaryButton>
