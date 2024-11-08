@@ -35,6 +35,7 @@ import "@fremtind/jkl-select/select.min.css";
 import "@fremtind/jkl-summary-table/summary-table.min.css";
 import "@fremtind/jkl-table/table.min.css";
 import "@fremtind/jkl-tag/tag.min.css";
+import "../packages/chip/chip.min.css";
 import "@fremtind/jkl-tabs/tabs.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
 import "@fremtind/jkl-toast/toast.min.css";

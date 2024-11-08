@@ -1,0 +1,53 @@
+---
+title: Chip
+react: chip-react
+scss: chip
+group: chip
+---
+
+import { Chip } from "../src/Chip";
+import { ChipExample, chipExampleKnobs, chipExampleCode } from "./ChipExample";
+
+<Ingress>
+    Chips er små interaktive komponenter som kan brukes til å gjøre valg,
+    filtrere innhold eller utløse handlinger. For eksempel kan de brukes til å
+    filtrere kategorier i et søkeresultat, samt vise hvilke filter som er
+    aktive.
+</Ingress>
+
+Vi har to varianter av chips:
+
+1.  Input chips som kan fjernes ved klikk.
+2.  Filter chips som kan aktiveres eller deaktiveres ved klikk.
+
+<ComponentExample
+    title="Chip"
+    component={ChipExample}
+    codeExample={chipExampleCode}
+    knobs={chipExampleKnobs}
+/>
+
+Prinsipper for bruk av chips:
+
+-   Teksten bør være kort og konsis.
+
+<div>
+    <DoDontExample
+        type="do"
+        description="Kort tekst"
+        content={<Chip>Kort</Chip>}
+    />
+    <DoDontExample
+        type="dont"
+        description="Lang tekst"
+        content={<Chip>Dette er en veldig lang tekst</Chip>}
+    />
+</div>
+
+## Når bruker vi chips?
+
+Før du bruker en chip bør du stille noen kontrollspørsmål:
+
+-   Er teksten kort nok til å passe inn i en chip?
+-   Er det tydelig for brukeren hva chipen representerer?
+-   Passer informasjonen jeg skal vise inn i én av de to variantene (input og filter)?
