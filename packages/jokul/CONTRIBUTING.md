@@ -26,8 +26,8 @@ I [package.json](./package.json):
 ```json
         "./components/[navn]": {
             "import": {
-                "default": "./build/es/components/[navn]/index.js",
                 "types": "./build/es/components/[navn]/index.d.ts"
+                "default": "./build/es/components/[navn]/index.js",
             },
             "require": {
                 "default": "./build/cjs/components/[navn]/index.cjs",
