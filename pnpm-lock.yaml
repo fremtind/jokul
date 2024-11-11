@@ -693,6 +693,7 @@ importers:
       '@react-aria/toast': ^3.0.0-beta.1
       '@react-stately/toast': ^3.0.0-beta.0
       '@rollup/plugin-terser': ^0.4.4
+      '@types/react': ^18.0.0
       '@vitejs/plugin-react': ^4.3.3
       '@vitejs/plugin-react-swc': ^3.7.0
       autoprefixer: ^10.4.14
@@ -723,6 +724,7 @@ importers:
       vitest: ^2.1.3
       vitest-axe: ^0.1.0
     dependencies:
+      '@types/react': 18.3.4
       downshift: 7.6.0_react@18.2.0
       match-sorter: 6.3.1
       react: 18.2.0
@@ -745,7 +747,7 @@ importers:
       cssnano: 7.0.6_postcss@8.4.41
       cssnano-preset-lite: 4.0.3_postcss@8.4.41
       glob: 11.0.0
-      ink: 5.0.1_react@18.2.0
+      ink: 5.0.1_uk6q6vvblbrzohwpjppq32wyiq
       ink-select-input: 6.0.0_ink@5.0.1+react@18.2.0
       jsdom: 25.0.1
       nanoid: 3.3.7
@@ -4220,8 +4222,8 @@ packages:
       tslib: 2.5.3
     dev: false
 
-  /@fremtind/jkl-constants-util/3.0.98:
-    resolution: {integrity: sha512-kXwqgCpWAUrioGG5hLO8U3ntQWQIOLvmqu+vdr0QtJJdjYC6GW+6giArbQ1BrG61lKALdEzebfzeYlEjHxrOlA==}
+  /@fremtind/jkl-constants-util/3.0.100:
+    resolution: {integrity: sha512-F1zKEOi9ONiBgoxHLv84hnuv9e6roF+39dXOfsbFF7gsJEIpqMT1aBMxCmUWQ9iWqQWOLm6fIfa1oIG1+ogi0A==}
     dev: false
 
   /@fremtind/jkl-contact-information-react/2.1.52_biqbaboplfbrettd7655fr4n2y:
@@ -4234,7 +4236,7 @@ packages:
     dependencies:
       '@fremtind/jkl-contact-information': 2.0.22_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-core': 14.8.4_biqbaboplfbrettd7655fr4n2y
-      '@fremtind/jkl-formatters-util': 6.0.15_biqbaboplfbrettd7655fr4n2y
+      '@fremtind/jkl-formatters-util': 6.0.17_biqbaboplfbrettd7655fr4n2y
       classnames: 2.5.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -4311,7 +4313,7 @@ packages:
     dependencies:
       '@fremtind/jkl-core': 14.8.4_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-footer': 6.0.22_biqbaboplfbrettd7655fr4n2y
-      '@fremtind/jkl-formatters-util': 6.0.15_biqbaboplfbrettd7655fr4n2y
+      '@fremtind/jkl-formatters-util': 6.0.17_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-logo-react': 13.1.19_biqbaboplfbrettd7655fr4n2y
       classnames: 2.5.1
       react: 18.2.0
@@ -4329,15 +4331,15 @@ packages:
       - react-dom
     dev: false
 
-  /@fremtind/jkl-formatters-util/6.0.15_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-5L8ImNKs6lCS6n/SlKh+WuU4dbHG5sIUeGnX440QSPjf+0bb54IzHLliIFGrbkmYnzVTjRmMmTVmzpI96O6G/w==}
+  /@fremtind/jkl-formatters-util/6.0.17_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-stl7CROm7qYzasSCVVnexltZbwkftkzx0Jx+WZY/uKtwxIv6aFzdcb0NB6dSNPtOglq5hfu7NuPjlFz2aA7Vwg==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@fremtind/jkl-constants-util': 3.0.98
+      '@fremtind/jkl-constants-util': 3.0.100
       '@fremtind/jkl-core': 14.8.4_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -5267,7 +5269,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.5
-      '@types/react': 18.2.8
+      '@types/react': 18.3.4
       react: 18.2.0
     dev: false
 
@@ -7538,14 +7540,6 @@ packages:
       '@types/react': 18.3.4
     dev: true
 
-  /@types/react/18.2.8:
-    resolution: {integrity: sha512-lTyWUNrd8ntVkqycEEplasWy2OxNlShj3zqS0LuB1ENUGis5HodmhM7DtCoUGbxj3VW/WsGA0DUhpG6XrM7gPA==}
-    dependencies:
-      '@types/prop-types': 15.7.5
-      '@types/scheduler': 0.16.3
-      csstype: 3.1.2
-    dev: false
-
   /@types/react/18.3.4:
     resolution: {integrity: sha512-J7W30FTdfCxDDjmfRM+/JqLHBIyl7xUIp9kwK637FGmY7+mkSFSe6L4jpZzhj5QMfLssSDP4/i75AKkrdC7/Jw==}
     dependencies:
@@ -7569,10 +7563,6 @@ packages:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
       '@types/node': 18.18.0
-    dev: false
-
-  /@types/scheduler/0.16.3:
-    resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
     dev: false
 
   /@types/semver/7.5.0:
@@ -16042,13 +16032,13 @@ packages:
       react: '>=18.0.0'
     dependencies:
       figures: 6.1.0
-      ink: 5.0.1_react@18.2.0
+      ink: 5.0.1_uk6q6vvblbrzohwpjppq32wyiq
       lodash.isequal: 4.5.0
       react: 18.2.0
       to-rotated: 1.0.0
     dev: true
 
-  /ink/5.0.1_react@18.2.0:
+  /ink/5.0.1_uk6q6vvblbrzohwpjppq32wyiq:
     resolution: {integrity: sha512-ae4AW/t8jlkj/6Ou21H2av0wxTk8vrGzXv+v2v7j4in+bl1M5XRMVbfNghzhBokV++FjF8RBDJvYo+ttR9YVRg==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -16062,6 +16052,7 @@ packages:
         optional: true
     dependencies:
       '@alcalzone/ansi-tokenize': 0.1.3
+      '@types/react': 18.3.4
       ansi-escapes: 7.0.0
       ansi-styles: 6.2.1
       auto-bind: 5.0.1
