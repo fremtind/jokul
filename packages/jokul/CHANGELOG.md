@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.5...@fremtind/jokul@0.30.6) (2024-11-11)
+
+### Bug Fixes
+
+- la til flex rundt feedback buttons ([edc1ed4](https://github.com/fremtind/jokul/commit/edc1ed498a9999c269ceac764ced13fc15af7f4a))
+
 ## [0.30.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.4...@fremtind/jokul@0.30.5) (2024-11-07)
 
 ### Bug Fixes
