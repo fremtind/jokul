@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.31.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.31.0...@fremtind/jokul@0.31.1) (2024-11-11)
+
+### Bug Fixes
+
+- la til @types/react slik at bazel i monorepo skal resolve typer riktig ([2a25339](https://github.com/fremtind/jokul/commit/2a25339c7448af64b3252af19f01f11f7a925b48))
+
 # [0.31.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.8...@fremtind/jokul@0.31.0) (2024-11-11)
 
 ### Bug Fixes
