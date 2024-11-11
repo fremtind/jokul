@@ -83,6 +83,16 @@
                 "default": "./build/cjs/components/accordion/index.cjs"
             }
         },
+        "./components/autosuggest": {
+            "import": {
+                "types": "./build/es/components/autosuggest/index.d.ts",
+                "default": "./build/es/components/autosuggest/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/autosuggest/index.d.cts",
+                "default": "./build/cjs/components/autosuggest/index.cjs"
+            }
+        },
         "./components/breadcrumb": {
             "import": {
                 "types": "./build/es/components/breadcrumb/index.d.ts",
@@ -483,10 +493,10 @@
         "test": "vitest --config vite.test.config.mjs"
     },
     "dependencies": {
+        "downshift": "^7.6.0",
+        "match-sorter": "^6.3.1",
+        "react": "^18.0.0",
         "react-dom": "^18.0.0"
-    },
-    "peerDependencies": {
-        "react": "^18.0.0"
     },
     "optionalDependencies": {
         "@floating-ui/react": ">0.24.1 <0.27",
