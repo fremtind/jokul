@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.8](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.7...@fremtind/jokul@0.30.8) (2024-11-11)
+
+### Bug Fixes
+
+- buttons should be inline-block elements ([8275e93](https://github.com/fremtind/jokul/commit/8275e93090fb0f53926f2a6399a55ba598b7c9ee))
+
 ## [0.30.7](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.6...@fremtind/jokul@0.30.7) (2024-11-11)
 
 ### Bug Fixes
