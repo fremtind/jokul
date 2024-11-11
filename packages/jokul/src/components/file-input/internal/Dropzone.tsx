@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef, useState } from "react";
 import { WithChildren } from "../../../core/types.js";
 import { FileInputFile } from "../types.js";
@@ -26,7 +26,7 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(
             <div
                 {...rest}
                 ref={ref}
-                className={cn("jkl-file-input__dropzone", onDragClassName)}
+                className={clsx("jkl-file-input__dropzone", onDragClassName)}
                 onDragEnter={(e) => {
                     setOnDragClassName("jkl-file-input__dropzone--enter");
                     e.preventDefault();
