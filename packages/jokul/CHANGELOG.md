@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.30.7](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.6...@fremtind/jokul@0.30.7) (2024-11-11)
+
+### Bug Fixes
+
+- fikset medium og large device i useScreen ([049e91c](https://github.com/fremtind/jokul/commit/049e91c7d38b0db8d0df5ead865f27e7ee057870))
+
 ## [0.30.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.5...@fremtind/jokul@0.30.6) (2024-11-11)
 
 ### Bug Fixes
