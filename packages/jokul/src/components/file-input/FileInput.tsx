@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { forwardRef } from "react";
 import {
     FieldGroup,
@@ -61,7 +61,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                     context={{ accept, onChange, maxSizeBytes, files: value }}
                 >
                     <FieldGroup
-                        className={cn(
+                        className={clsx(
                             "jkl-file-input",
                             "jkl-file-input--small",
                             className,
@@ -97,7 +97,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                 context={{ accept, onChange, maxSizeBytes, files: value }}
             >
                 <FieldGroup
-                    className={cn("jkl-file-input", className, {
+                    className={clsx("jkl-file-input", className, {
                         "jkl-file-input--has-files": hasFiles,
                     })}
                     data-layout-density={density}
