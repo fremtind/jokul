@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "12.1.25",
+    "version": "12.1.26",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-button": "^12.2.7",
+        "@fremtind/jkl-button": "^12.2.8",
         "@fremtind/jkl-expand-button": "^7.1.8",
         "@fremtind/jkl-icons": "^9.1.4",
         "@fremtind/jkl-list-react": "^10.2.19",
