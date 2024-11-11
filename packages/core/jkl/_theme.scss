@@ -62,18 +62,22 @@
 @mixin comfortable-density($selector: null) {
     @if $selector {
         .jkl #{$selector},
-        #{$selector}[data-layout-density="comfortable"],
-        #{$selector}[data-density="comfortable"],
-        [data-layout-density="comfortable"] #{$selector},
-        [data-density="comfortable"] #{$selector} {
+        .jkl #{$selector}[data-layout-density="comfortable"],
+        .jkl #{$selector}[data-density="comfortable"],
+        .jkl [data-layout-density="comfortable"] #{$selector},
+        .jkl [data-density="comfortable"] #{$selector},
+        .jkl[data-layout-density="comfortable"] #{$selector},
+        .jkl[data-density="comfortable"] #{$selector} {
             @content;
         }
     } @else {
         .jkl &,
-        &[data-layout-density="comfortable"],
-        &[data-density="comfortable"],
-        [data-layout-density="comfortable"] &,
-        [data-density="comfortable"] & {
+        .jkl &[data-layout-density="comfortable"],
+        .jkl &[data-density="comfortable"],
+        .jkl [data-layout-density="comfortable"] &,
+        .jkl [data-density="comfortable"] &,
+        .jkl[data-layout-density="comfortable"] &,
+        .jkl[data-density="comfortable"] & {
             @content;
         }
     }
@@ -83,17 +87,21 @@
 /// @content Settes på [data-density="compact"] &, og på [data-layout-density="compact"] &
 @mixin compact-density($selector: null) {
     @if $selector {
-        #{$selector}[data-layout-density="compact"],
-        #{$selector}[data-density="compact"],
-        [data-layout-density="compact"] #{$selector},
-        [data-density="compact"] #{$selector} {
+        .jkl #{$selector}[data-layout-density="compact"],
+        .jkl #{$selector}[data-density="compact"],
+        .jkl [data-layout-density="compact"] #{$selector},
+        .jkl [data-density="compact"] #{$selector},
+        .jkl[data-layout-density="compact"] #{$selector},
+        .jkl[data-density="compact"] #{$selector} {
             @content;
         }
     } @else {
-        &[data-layout-density="compact"],
-        &[data-density="compact"],
-        [data-layout-density="compact"] &,
-        [data-density="compact"] & {
+        .jkl &[data-layout-density="compact"],
+        .jkl &[data-density="compact"],
+        .jkl [data-layout-density="compact"] &,
+        .jkl [data-density="compact"] &,
+        .jkl[data-layout-density="compact"] &,
+        .jkl[data-density="compact"] & {
             @content;
         }
     }
