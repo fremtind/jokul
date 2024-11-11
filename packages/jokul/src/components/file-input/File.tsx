@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC, MouseEvent } from "react";
 import { TrashCanIcon, SuccessIcon } from "../../components/icon/index.js";
 import { IconButton } from "../../components/icon-button/IconButton.js";
@@ -73,7 +73,7 @@ export const File: FC<FileProps> = (props) => {
     const fileComponent = (
         <div id={id} className="jkl-file">
             <Component
-                className={cn("jkl-file__content", {
+                className={clsx("jkl-file__content", {
                     "jkl-file__content--error": supportLabelType === "error",
                     "jkl-file__content--warning":
                         supportLabelType === "warning",

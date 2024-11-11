@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import React, { FC } from "react";
 import type { WithOptionalChildren } from "../../../core/types.js";
 import { FileInputFileState } from "../types.js";
@@ -14,7 +14,7 @@ export interface ThumbnailProps extends WithOptionalChildren {
 export const Thumbnail: FC<ThumbnailProps> = (props) => {
     const { fileName, fileType, path, file, state, children } = props;
 
-    const classNames = cn("jkl-file__thumbnail", {
+    const classNames = clsx("jkl-file__thumbnail", {
         "jkl-file__thumbnail--selected": state === "SELECTED",
         "jkl-file__thumbnail--uploading": state === "UPLOADING",
     });

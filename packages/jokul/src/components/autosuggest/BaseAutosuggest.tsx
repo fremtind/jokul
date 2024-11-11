@@ -1,4 +1,4 @@
-import cn from "classnames";
+import clsx from "clsx";
 import {
     Callback,
     default as Downshift,
@@ -84,7 +84,7 @@ function BaseAutosuggest<T>({
                     <InputGroup
                         {...getRootProps()}
                         label={label}
-                        className={cn("jkl-autosuggest", className)}
+                        className={clsx("jkl-autosuggest", className)}
                         density={density}
                         labelProps={{
                             variant,
@@ -101,10 +101,15 @@ function BaseAutosuggest<T>({
                             <>
                                 {leadText && (
                                     <p
-                                        className={cn("jkl-spacing-l--bottom", {
-                                            "jkl-body": density !== "compact",
-                                            "jkl-small": density === "compact",
-                                        })}
+                                        className={clsx(
+                                            "jkl-spacing-l--bottom",
+                                            {
+                                                "jkl-body":
+                                                    density !== "compact",
+                                                "jkl-small":
+                                                    density === "compact",
+                                            },
+                                        )}
                                     >
                                         {leadText}
                                     </p>
