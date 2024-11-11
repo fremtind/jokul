@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jokul",
-    "version": "0.31.0",
+    "version": "0.31.1",
     "type": "module",
     "publishConfig": {
         "access": "public"
@@ -493,11 +493,11 @@
         "test": "vitest --config vite.test.config.mjs"
     },
     "dependencies": {
+        "@types/react": "^18.0.0",
         "downshift": "^7.6.0",
         "match-sorter": "^6.3.1",
         "react": "^18.0.0",
-        "react-dom": "^18.0.0",
-        "@types/react": "^18.0.0"
+        "react-dom": "^18.0.0"
     },
     "optionalDependencies": {
         "@floating-ui/react": ">0.24.1 <0.27",
