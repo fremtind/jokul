@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.31.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.8...@fremtind/jokul@0.31.0) (2024-11-11)
+
+### Bug Fixes
+
+- endret rekkefølge på default i package.json ([b122bb4](https://github.com/fremtind/jokul/commit/b122bb483ba8c0b6fc34004571b3355aea8d0626))
+- make styles alphabetic again ([e64bd51](https://github.com/fremtind/jokul/commit/e64bd514af3e706f3433c99265e3c6b6e6505dfe))
+
+### Features
+
+- la til autosuggest i all-pakka ([d6d716f](https://github.com/fremtind/jokul/commit/d6d716f37b92b5a9a4ca9e8e5191e9d34a15d0d4))
+
 ## [0.30.8](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.30.7...@fremtind/jokul@0.30.8) (2024-11-11)
 
 ### Bug Fixes
