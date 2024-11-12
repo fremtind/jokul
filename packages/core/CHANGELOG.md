@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.8.5 (2024-11-12)
+
+### Bug Fixes
+
+- sørg for riktig spesifisitet i density-mixins ([c7a2e51](https://github.com/fremtind/jokul/commit/c7a2e514f350a713fbbd6451dbe8466c52bc21bd))
+
 ## 14.8.4 (2024-10-31)
 
 ### Bug Fixes

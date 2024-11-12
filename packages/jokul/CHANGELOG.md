@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.31.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.31.2...@fremtind/jokul@0.31.3) (2024-11-12)
+
+### Bug Fixes
+
+- sørg for riktig spesifisitet i density-mixins ([c7a2e51](https://github.com/fremtind/jokul/commit/c7a2e514f350a713fbbd6451dbe8466c52bc21bd))
+
 ## [0.31.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.31.1...@fremtind/jokul@0.31.2) (2024-11-11)
 
 ### Bug Fixes
