@@ -5,7 +5,7 @@ import { useTooltipContext } from "./Tooltip.js";
 
 export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(
     function TooltipTrigger({ children, className, ...props }, forwardedRef) {
-        const { isOpen, setOpen, getReferenceProps, refs, triggerOn } =
+        const { isOpen, getReferenceProps, refs, triggerOn } =
             useTooltipContext();
         const childrenRef = (children as any).ref;
         const ref = useMergeRefs([
@@ -13,10 +13,6 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(
             refs.setReference,
             forwardedRef,
         ]);
-
-        const handleBlur = () => {
-            triggerOn === "click" && setOpen(false);
-        };
 
         const filterMaterialSymbols = (
             maybeText: string | null | undefined,
@@ -44,10 +40,6 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(
                     "data-tooltip-shown": isOpen,
                     style: { ...children.props.style },
                     tabIndex: triggerOn === "click" ? 0 : undefined,
-                    onBlur: () => {
-                        children.props.onBlur && children.props.onBlur();
-                        handleBlur();
-                    },
                 }),
             );
         }
@@ -60,7 +52,6 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(
                     // Sørg for at vi ikke sender inn skjemaer ved klikk på knappen
                     type: "button",
                     ref,
-                    onBlur: handleBlur,
                     "aria-label": ariaLabel,
                     ...props,
                 })}

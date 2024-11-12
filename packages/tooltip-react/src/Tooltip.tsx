@@ -71,9 +71,9 @@ export const useTooltip = ({
     });
 
     const role = useRole(data.context, { role: "tooltip" });
-    const dismiss = useDismiss(data.context, { referencePress: false });
+    const dismiss = useDismiss(data.context);
     const click = useClick(data.context, {
-        enabled: triggerOn === "click" && !isOpen,
+        enabled: triggerOn === "click",
     });
     const hover = useHover(data.context, {
         enabled: triggerOn === "hover",
