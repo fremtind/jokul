@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.5.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@4.5.1...@fremtind/jkl-tooltip-react@4.5.2) (2024-11-12)
+
+### Bug Fixes
+
+- la bruker interagere med åpent PopupTip ([1ff8ff7](https://github.com/fremtind/jokul/commit/1ff8ff7e7c2f1a3d115520e014e5621965efd58c))
+
 # 4.5.0 (2024-11-04)
 
 ### Bug Fixes
