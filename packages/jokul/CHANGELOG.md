@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.31.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.31.3...@fremtind/jokul@0.31.4) (2024-11-12)
+
+### Bug Fixes
+
+- la bruker interagere med åpent PopupTip ([1ff8ff7](https://github.com/fremtind/jokul/commit/1ff8ff7e7c2f1a3d115520e014e5621965efd58c))
+
 ## [0.31.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.31.2...@fremtind/jokul@0.31.3) (2024-11-12)
 
 ### Bug Fixes

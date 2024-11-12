@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table-react",
-    "version": "11.4.47",
+    "version": "11.4.48",
     "publishConfig": {
         "access": "public"
     },
@@ -39,12 +39,12 @@
     "dependencies": {
         "@fremtind/jkl-core": "^14.8.5",
         "@fremtind/jkl-expand-button-react": "^7.0.27",
-        "@fremtind/jkl-icon-button-react": "^5.0.23",
+        "@fremtind/jkl-icon-button-react": "^5.0.24",
         "@fremtind/jkl-icons-react": "^9.1.17",
         "@fremtind/jkl-react-hooks": "^12.2.9",
-        "@fremtind/jkl-select-react": "^14.1.73",
+        "@fremtind/jkl-select-react": "^14.1.74",
         "@fremtind/jkl-table": "^9.1.20",
-        "@fremtind/jkl-text-input-react": "^15.2.10",
+        "@fremtind/jkl-text-input-react": "^15.2.11",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
