@@ -105,24 +105,17 @@ const DegOgJokul: FC = () => (
                     alt=""
                 />
             </Portrait>
-            <Portrait name="Mona" title="Designer">
+            <Portrait name="Elise" title="Utvikler">
                 <StaticImage
                     className="jkl-portal-portrait__image"
-                    src="../../../static/assets/kom-i-gang/portrett-mona.jpg"
+                    src="../../../static/assets/kom-i-gang/portrett-elise.jpg"
                     alt=""
                 />
             </Portrait>
-            <Portrait name="Pio" title="Utvikler">
+            <Portrait name="Ivar" title="Utvikler">
                 <StaticImage
                     className="jkl-portal-portrait__image"
-                    src="../../../static/assets/kom-i-gang/portrett-pio.jpg"
-                    alt=""
-                />
-            </Portrait>
-            <Portrait name="Glenn" title="Teamleder">
-                <StaticImage
-                    className="jkl-portal-portrait__image"
-                    src="../../../static/assets/kom-i-gang/portrett-glenn.jpg"
+                    src="../../../static/assets/kom-i-gang/portrett-ivar.jpg"
                     alt=""
                 />
             </Portrait>
@@ -133,10 +126,17 @@ const DegOgJokul: FC = () => (
                     alt=""
                 />
             </Portrait>
-            <Portrait name="Øyvind" title="Designer">
+            <Portrait name="Leon" title="Designer">
                 <StaticImage
                     className="jkl-portal-portrait__image"
-                    src="../../../static/assets/kom-i-gang/portrett-oyvind.jpg"
+                    src="../../../static/assets/kom-i-gang/portrett-leon.png"
+                    alt=""
+                />
+            </Portrait>
+            <Portrait name="Pio" title="Teamleder">
+                <StaticImage
+                    className="jkl-portal-portrait__image"
+                    src="../../../static/assets/kom-i-gang/portrett-pio.jpg"
                     alt=""
                 />
             </Portrait>
