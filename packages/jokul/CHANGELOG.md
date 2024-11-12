@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.31.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.31.4...@fremtind/jokul@0.31.5) (2024-11-12)
+
+### Bug Fixes
+
+- inline downshift to try to work around module resolution issues ([10dc74d](https://github.com/fremtind/jokul/commit/10dc74da44841a9c93db60c8ba6f68435f0ce6d1))
+
 ## [0.31.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.31.3...@fremtind/jokul@0.31.4) (2024-11-12)
 
 ### Bug Fixes
