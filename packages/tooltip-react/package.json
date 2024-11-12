@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-tooltip-react",
-    "version": "4.5.0",
+    "version": "4.5.1",
     "publishConfig": {
         "access": "public"
     },
@@ -38,10 +38,10 @@
     },
     "dependencies": {
         "@floating-ui/react": "^0.24.2",
-        "@fremtind/jkl-core": "^14.8.4",
-        "@fremtind/jkl-icons-react": "^9.1.16",
-        "@fremtind/jkl-react-hooks": "^12.2.8",
-        "@fremtind/jkl-tooltip": "^4.3.0",
+        "@fremtind/jkl-core": "^14.8.5",
+        "@fremtind/jkl-icons-react": "^9.1.17",
+        "@fremtind/jkl-react-hooks": "^12.2.9",
+        "@fremtind/jkl-tooltip": "^4.3.1",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
