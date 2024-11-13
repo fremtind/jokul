@@ -5,6 +5,7 @@ import {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "../../../doc-utils";
+import { PopupTip } from "../../tooltip-react/src";
 import { Checkbox } from "../src";
 
 export const checkboxExampleKnobs: ExampleKnobsProps = {
@@ -39,12 +40,9 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({
     const invalid = boolValues?.["Med feil"];
     const indeterminate = boolValues?.["Indeterminate state"];
 
-    const tooltip = boolValues?.["Med tooltip"]
-        ? {
-              content:
-                  "Du kan velge flere metoder. Ved brev vil det ta lenger tid å få en beskjed.",
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip content="Du kan velge flere metoder. Ved brev vil det ta lenger tid å få en beskjed." />
+    ) : undefined;
 
     return (
         <FieldGroup
@@ -60,7 +58,7 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({
                     ? "Du må velge minst én kontaktmetode hvor vi kan sende viktige beskjeder"
                     : undefined
             }
-            tooltipProps={tooltip}
+            tooltip={tooltip}
         >
             <Checkbox
                 name="checklist"
@@ -119,7 +117,9 @@ export const checkboxExampleCode: CodeExample = ({
     }${
         boolValues?.["Med tooltip"]
             ? `
-    tooltipProps={{ content: "Du kan velge flere metoder. Ved brev vil det ta lenger tid å få en beskjed." }}`
+    tooltip={
+        <PopupTip content="Du kan velge flere metoder. Ved brev vil det ta lenger tid å få en beskjed." />
+    }`
             : ""
     }
 >

@@ -10,6 +10,7 @@ import userEvent from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { PopupTip } from "../../tooltip-react/src";
 import { Select } from ".";
 
 function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
@@ -1181,6 +1182,55 @@ describe("Searchable select", () => {
         expect(screen.queryByRole("option", { name: "bar" })).toBeFalsy();
     });
 
+    it("should render a visible tooltip when clicking on it", async () => {
+        const items = [
+            { label: "foo", value: "1" },
+            { label: "bar", value: "2" },
+            { label: "baz", value: "3" },
+        ];
+        const screen = setup(
+            <Select
+                name="items"
+                items={items}
+                label="Ting"
+                tooltip={
+                    <PopupTip content="Jeg er en tooltip" placement="left" />
+                }
+            />,
+        );
+        await screen.user.click(screen.getByText("Vis hjelpetekst"));
+
+        await waitFor(() =>
+            expect(screen.getByText("Jeg er en tooltip")).toBeVisible(),
+        );
+    });
+
+    it("should render a visible tooltip when initially open", async () => {
+        const items = [
+            { label: "foo", value: "1" },
+            { label: "bar", value: "2" },
+            { label: "baz", value: "3" },
+        ];
+        const screen = setup(
+            <Select
+                name="items"
+                items={items}
+                label="Ting"
+                tooltip={
+                    <PopupTip
+                        content="Jeg er en tooltip"
+                        placement="left"
+                        initialOpen
+                    />
+                }
+            />,
+        );
+
+        await waitFor(() =>
+            expect(screen.getByText("Jeg er en tooltip")).toBeVisible(),
+        );
+    });
+
     it("should close the listbox if a tooltip trigger receives focus", async () => {
         const items = [
             { label: "foo", value: "1" },
@@ -1193,10 +1243,9 @@ describe("Searchable select", () => {
                 name="items"
                 items={items}
                 label="Ting"
-                tooltipProps={{
-                    content: "Jeg er en tooltip",
-                    placement: "left",
-                }}
+                tooltip={
+                    <PopupTip content="Jeg er en tooltip" placement="left" />
+                }
             />,
         );
 

@@ -1,6 +1,7 @@
 import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { PopupTip } from "../../tooltip-react/src";
 import { RadioButtonGroup, RadioButton } from "../src";
 
 export const radioButtonExampleKnobs: ExampleKnobsProps = {
@@ -35,12 +36,9 @@ export const RadioButtonExample: FC<ExampleComponentProps> = ({
         ? (choiceValues["Variant"] as LabelVariant)
         : "medium";
 
-    const tooltip = boolValues?.["Med tooltip"]
-        ? {
-              content:
-                  "Dette burde kanskje vært en FieldGroup med Checkbox, og ikke en RadioButtonGroup? 🤔",
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip content="Dette burde kanskje vært en FieldGroup med Checkbox, og ikke en RadioButtonGroup? 🤔" />
+    ) : undefined;
 
     return (
         <RadioButtonGroup
@@ -49,7 +47,7 @@ export const RadioButtonExample: FC<ExampleComponentProps> = ({
             labelProps={{ variant }}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
-            tooltipProps={tooltip}
+            tooltip={tooltip}
             value={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
         >
@@ -82,7 +80,11 @@ export const radioButtonExampleCode = ({
 }${
     boolValues?.["Med tooltip"]
         ? `
-    tooltipProps={{ content: "Dette burde kanskje vært en FieldGroup med Checkbox, og ikke en RadioButtonGroup? 🤔" }}`
+    tooltip={
+        <PopupTip
+            content="Dette burde kanskje vært en FieldGroup med Checkbox, og ikke en RadioButtonGroup? 🤔"
+        />
+    }`
         : ""
 }
     value={selectedValue}

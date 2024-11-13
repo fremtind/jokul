@@ -23,7 +23,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             inputClassName,
             labelProps,
             supportLabelProps,
-            tooltipProps,
+            tooltip,
             ...rest
         } = props;
         const inputGroupProps = {
@@ -34,7 +34,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             labelProps,
             inline,
             supportLabelProps,
-            tooltipProps,
+            tooltip,
         };
         return (
             <InputGroup

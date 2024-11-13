@@ -1,6 +1,7 @@
 import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { useState, ChangeEvent, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { PopupTip } from "../../tooltip-react/src";
 import { TextArea } from "../src/TextArea";
 
 export const textAreaExampleKnobs: ExampleKnobsProps = {
@@ -41,11 +42,9 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({
         ? "Du må fylle ut en beskrivelse. Beskriv så utfyllende som mulig."
         : undefined;
 
-    const tooltipProps = boolValues?.["Med tooltip"]
-        ? {
-              content: "Beskriv så utfyllende som mulig.",
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip content="Beskriv så utfyllende som mulig." />
+    ) : undefined;
 
     return (
         <TextArea
@@ -54,7 +53,7 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({
             name="beskrivelse"
             helpLabel={helpLabel}
             errorLabel={errorLabel}
-            tooltipProps={tooltipProps}
+            tooltip={tooltip}
             autoExpand={autoExpand}
             startOpen={startOpen}
             counter={
@@ -88,7 +87,9 @@ export const textAreaExampleCode = ({
     }${
     boolValues?.["Med tooltip"]
         ? `
-    tooltipProps={{ content: "Beskriv så utfyllende som mulig." }}`
+    tooltip={
+        <PopupTip content="Beskriv så utfyllende som mulig." />
+    }`
         : ""
 }
     autoExpand={${boolValues?.["Ekspanderende"]}}
