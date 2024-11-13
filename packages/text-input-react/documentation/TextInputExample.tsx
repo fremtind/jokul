@@ -3,6 +3,7 @@ import { CloseIcon } from "@fremtind/jkl-icons-react";
 import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { useState, ChangeEvent, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { PopupTip } from "../../tooltip-react/src";
 import { type Action } from "../src/BaseTextInput";
 import { TextInput } from "../src/TextInput";
 
@@ -42,16 +43,16 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
         </>
     ) : undefined;
 
-    const tooltipProps = boolValues?.["Med tooltip"]
-        ? {
-              content: (
-                  <>
-                      Boareal måles i kvadratmeter (m<sup>2</sup>). Hvis du ikke
-                      vet boarealet ditt kan du lese guiden vi lenker til under.
-                  </>
-              ),
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip
+            content={
+                <>
+                    Boareal måles i kvadratmeter (m<sup>2</sup>). Hvis du ikke
+                    vet boarealet ditt kan du lese guiden vi lenker til under.
+                </>
+            }
+        />
+    ) : undefined;
 
     const unit = boolValues?.["Med benevnelse"] ? (
         <>
@@ -94,7 +95,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             labelProps={{ variant }}
-            tooltipProps={tooltipProps}
+            tooltip={tooltip}
             value={value}
             onChange={handleChange}
             onKeyDown={() => console.log("onKeyDown event")}
@@ -140,12 +141,16 @@ export const textInputExampleCode = ({
     }${
         boolValues?.["Med tooltip"]
             ? `
-    tooltipProps={{ content: (
-        <>
-            Boareal måles i kvadratmeter (m<sup>2</sup>). Hvis du ikke vet boarealet ditt kan du lese guiden
-            vi lenker til under.
-        </>
-    )}}`
+    tooltip={
+        <PopupTip
+            content={
+                <>
+                    Boareal måles i kvadratmeter (m<sup>2</sup>). Hvis du ikke
+                    vet boarealet ditt kan du lese guiden vi lenker til under.
+                </>
+            }
+        />
+    }`
             : ""
     }${
         boolValues?.["Med handling"]

@@ -1,6 +1,7 @@
 import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { useState, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { PopupTip } from "../../tooltip-react/src";
 import { DatePicker, formatInput, isBlurTargetOutside } from "../src";
 
 export const datepickerExampleKnobs: ExampleKnobsProps = {
@@ -33,12 +34,9 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({
             : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
-    const tooltipProps = boolValues?.["Med tooltip"]
-        ? {
-              content:
-                  "Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært.",
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip content="Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært." />
+    ) : undefined;
 
     const [value, setValue] = useState<string>("");
 
@@ -46,7 +44,7 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({
         <DatePicker
             label="Velg startdato for forsikringen"
             labelProps={{ variant }}
-            tooltipProps={tooltipProps}
+            tooltip={tooltip}
             errorLabel={errorLabel}
             name="datepicker"
             helpLabel={helpLabel}
@@ -118,7 +116,9 @@ export const datepickerExampleCode = ({
 }${
     boolValues?.["Med tooltip"]
         ? `
-    tooltipProps={{ content: "Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært." }}`
+    tooltip={
+        <PopupTip content="Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært." />
+    }`
         : ""
 }
 />
