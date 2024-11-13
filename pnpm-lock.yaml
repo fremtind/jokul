@@ -697,14 +697,12 @@ importers:
       '@fremtind/jkl-icons-react': ^9.1.17
       '@fremtind/jkl-input-group': ^3.1.9
       '@fremtind/jkl-react-hooks': ^12.2.9
-      '@fremtind/jkl-tooltip-react': ^4.5.2
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
       '@fremtind/jkl-icons-react': link:../icons-react
       '@fremtind/jkl-input-group': link:../input-group
       '@fremtind/jkl-react-hooks': link:../react-hooks
-      '@fremtind/jkl-tooltip-react': link:../tooltip-react
       classnames: 2.3.2
 
   packages/jokul:
@@ -1135,7 +1133,6 @@ importers:
       '@fremtind/jkl-input-group-react': ^3.0.57
       '@fremtind/jkl-react-hooks': ^12.2.9
       '@fremtind/jkl-text-input': ^12.1.29
-      '@fremtind/jkl-tooltip-react': ^4.5.2
       classnames: ^2.3.2
       downshift: ^7.6.0
       match-sorter: ^6.3.1
@@ -1146,7 +1143,6 @@ importers:
       '@fremtind/jkl-input-group-react': link:../input-group-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-text-input': link:../text-input
-      '@fremtind/jkl-tooltip-react': link:../tooltip-react
       classnames: 2.3.2
       downshift: 7.6.0
       match-sorter: 6.3.1
