@@ -41,7 +41,6 @@
         "@fremtind/jkl-icons-react": "^9.1.17",
         "@fremtind/jkl-input-group": "^3.1.9",
         "@fremtind/jkl-react-hooks": "^12.2.9",
-        "@fremtind/jkl-tooltip-react": "^4.5.2",
         "classnames": "^2.3.2"
     },
     "peerDependencies": {
