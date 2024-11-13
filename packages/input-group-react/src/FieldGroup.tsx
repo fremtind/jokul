@@ -1,8 +1,11 @@
-import type { Density, DataTestAutoId } from "@fremtind/jkl-core";
+import type { DataTestAutoId, Density } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { PopupTip, type PopupTipProps } from "@fremtind/jkl-tooltip-react";
 import cn from "classnames";
-import React, { FC, FieldsetHTMLAttributes } from "react";
+import React, {
+    type FC,
+    type FieldsetHTMLAttributes,
+    type ReactNode,
+} from "react";
 import { Label, type LabelProps } from "./Label";
 import { SupportLabel, type SupportLabelProps } from "./SupportLabel";
 
@@ -15,7 +18,7 @@ export interface FieldGroupProps
         SupportLabelProps,
         "id" | "errorLabel" | "helpLabel" | "density"
     >;
-    tooltipProps?: PopupTipProps;
+    tooltip?: ReactNode;
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
@@ -28,7 +31,7 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
         legend,
         labelProps,
         supportLabelProps,
-        tooltipProps,
+        tooltip,
         className,
         children,
         helpLabel,
@@ -61,15 +64,16 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
         >
             <legend className="jkl-field-group__legend">
                 <Label {...labelProps} density={density}>
-                    {!tooltipProps && legend}
-                    {tooltipProps && (
+                    {tooltip ? (
                         <>
                             <span style={{ whiteSpace: "normal" }}>
                                 {legend}
                             </span>
                             {`\u00A0`}
-                            <PopupTip {...tooltipProps} />
+                            {tooltip}
                         </>
+                    ) : (
+                        legend
                     )}
                 </Label>
             </legend>
