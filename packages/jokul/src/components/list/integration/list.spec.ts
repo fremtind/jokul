@@ -3,11 +3,11 @@ import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
-test.beforeEach(async ({ page }, wokerInfo) => {
+test.beforeEach(async ({ page }, workerInfo) => {
     helper = new TestHelper({
         page,
         package: "list",
-        projectName: wokerInfo.project.name,
+        projectName: workerInfo.project.name,
     });
     await helper.init();
 });
