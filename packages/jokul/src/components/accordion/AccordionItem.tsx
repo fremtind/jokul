@@ -49,7 +49,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
                 onClick={onSummaryClick}
                 ref={summaryRef}
             >
-                hei hei bare tester endringer jeg
+                {title}
                 <ArrowVerticalAnimated
                     variant="inherit"
                     className="jkl-accordion-item__arrow"
