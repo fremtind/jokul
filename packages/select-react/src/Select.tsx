@@ -16,6 +16,7 @@ import {
     usePreviousValue,
     useListNavigation,
 } from "@fremtind/jkl-react-hooks";
+import type { PopupTipProps } from "@fremtind/jkl-tooltip-react";
 import cn from "classnames";
 import React, {
     FocusEvent,
@@ -31,7 +32,6 @@ import React, {
     MouseEvent,
     CSSProperties,
 } from "react";
-import { PopupTipProps } from "../../tooltip-react/src";
 import { toLower, focusSelected } from "./select-utils";
 
 interface PartialChangeEvent
