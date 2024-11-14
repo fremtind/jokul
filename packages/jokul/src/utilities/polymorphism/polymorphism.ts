@@ -7,8 +7,6 @@ type ElementTypeProp<ElementType extends React.ElementType> = {
     as?: ElementType;
 };
 
-// type PropsToOmit<ElementType extends React.ElementType, Props> = keyof (ElementTypeProp<ElementType> & Props);
-
 export type PolymorphicProps<
     ElementType extends React.ElementType,
     // Vi er nødt til å defaulte til {} her for å sikre at komponenten
@@ -34,7 +32,11 @@ export type PolymorphicPropsWithRef<
     ref?: PolymorphicRef<ElementType>;
 };
 
-// This is a new type utitlity with ref
+export type PolymorphicComponentPropWithRef<
+    As extends React.ElementType,
+    Props = object,
+> = PolymorphicComponentProp<As, Props> & { ref?: PolymorphicRef<As> };
+
 // Implementation of reusable polymorphic types
 // Explaination: https://blog.logrocket.com/build-strongly-typed-polymorphic-components-react-typescript/
 type AsProp<As extends React.ElementType> = { as?: As };
@@ -44,11 +46,6 @@ type PolymorphicComponentProp<
     Props = object,
 > = React.PropsWithChildren<Props & AsProp<As>> &
     Omit<React.ComponentPropsWithoutRef<As>, PropsToOmit<As, Props>>;
-
-export type PolymorphicComponentPropWithRef<
-    As extends React.ElementType,
-    Props = object,
-> = PolymorphicComponentProp<As, Props> & { ref?: PolymorphicRef<As> };
 
 // Les https://stackoverflow.com/q/57683303
 export type Expand<T> = T extends (...args: infer A) => infer R
