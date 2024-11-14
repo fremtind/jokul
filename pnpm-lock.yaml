@@ -967,6 +967,7 @@ importers:
       '@fremtind/jkl-input-group-react': ^3.0.57
       '@fremtind/jkl-react-hooks': ^12.2.9
       '@fremtind/jkl-select': ^11.1.28
+      '@fremtind/jkl-tooltip-react': ^4.5.2
       classnames: ^2.3.2
       react-hook-form: ^7.44.3
     dependencies:
@@ -978,6 +979,7 @@ importers:
       classnames: 2.3.2
     devDependencies:
       '@fremtind/jkl-accordion-react': link:../accordion-react
+      '@fremtind/jkl-tooltip-react': link:../tooltip-react
       react-hook-form: 7.44.3
 
   packages/stylelint-config-jkl:
