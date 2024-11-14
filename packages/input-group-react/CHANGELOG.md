@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 4.0.0 (2024-11-14)
+
+### Features
+
+- ta inn tooltip som komponent heller enn som props ([756309c](https://github.com/fremtind/jokul/commit/756309cd9e8f851f88b5474a8f4d33d2d637bc25))
+
+### BREAKING CHANGES
+
+- Prop-en tooltipProps er fjernet, og erstattet med prop-en tooltip, som tar inn en ReactNode
+
 ## 3.0.27 (2024-06-11)
 
 ### Bug Fixes
