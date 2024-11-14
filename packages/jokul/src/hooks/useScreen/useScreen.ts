@@ -15,11 +15,11 @@ const breakpointsAsNumber = (breakpoint: string): number =>
 const MEDIA_RULES: Record<keyof ScreenState, string> = {
     isSmallDevice: `(max-width: ${
         breakpointsAsNumber(breakpoint.medium) - 1
-    }px))`,
+    }px)`,
     isMediumDevice: `(min-width: ${breakpoint.medium}) and (max-width: ${
         breakpointsAsNumber(breakpoint.large) - 1
     }px)`,
-    isLargeDevice: `(min-width: ${breakpoint.large}) and (max-width: ${
+    isLargeDevice: `(min-width: ${breakpoint.large}) and (max-width: $a{
         breakpointsAsNumber(breakpoint.xl) - 1
     }px)`,
     isXlDevice: `(min-width: ${breakpoint.xl})`,
