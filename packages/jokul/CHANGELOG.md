@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.32.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.32.0...@fremtind/jokul@0.32.1) (2024-11-14)
+
+### Bug Fixes
+
+- fjernet ekstra parantes ([c2c4e37](https://github.com/fremtind/jokul/commit/c2c4e37ffd9ccbcab8864dbe58a21d9a9a8ccbe8))
+
 # [0.32.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.31.5...@fremtind/jokul@0.32.0) (2024-11-14)
 
 ### Features
