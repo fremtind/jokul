@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 21.4.0 (2024-11-14)
+
+### Features
+
+- implementation of chip component ([d97eed1](https://github.com/fremtind/jokul/commit/d97eed1e5d0f79034def098bb6f987ac6f4f0cff))
+
 ## [21.3.9](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.3.8...@fremtind/portal@21.3.9) (2024-10-17)
 
 ### Bug Fixes
