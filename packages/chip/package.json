@@ -1,0 +1,37 @@
+{
+    "name": "@fremtind/jkl-chip",
+    "version": "1.0.0-alpha.0",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul style for chip",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/chip",
+    "keywords": [
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "git clean -xfd",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "echo \"Error: run dev from chip-react\" && exit 1"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^14.0.0",
+        "@fremtind/jkl-icon-button": "^4.0.28",
+        "@fremtind/jkl-icons": "^10.1.5"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

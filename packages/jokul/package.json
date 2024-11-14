@@ -482,6 +482,16 @@
                 "types": "./build/cjs/components/tooltip/index.d.cts",
                 "default": "./build/cjs/components/tooltip/index.cjs"
             }
+        },
+        "./components/chip": {
+            "import": {
+                "types": "./build/es/components/chip/index.d.ts",
+                "default": "./build/es/components/chip/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/chip/index.d.cts",
+                "default": "./build/cjs/components/chip/index.cjs"
+            }
         }
     },
     "scripts": {
