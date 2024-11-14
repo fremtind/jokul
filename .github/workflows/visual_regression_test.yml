@@ -6,7 +6,32 @@ on:
             - main
 
 jobs:
+    changes:
+        runs-on: ubuntu-latest
+        if: ${{ !contains(github.event.sender.login, 'fremtind-bot') }}
+
+        outputs:
+            visual: ${{ steps.changes.outputs.visual }}
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Check for changes that require running regression tests
+              if: ${{ github.event_name != 'merge_group' }}
+              uses: ./actions/paths-filter
+              id: changes
+              with:
+                  filters: |
+                      visual:
+                        - "packages/jokul/src/**/*.spec.ts"
+                        - "packages/jokul/src/**/*.scss"
+                        - "packages/jokul/src/**/!(*.test).tsx"
+                        - "pnpm-lock.yaml"
+
     snapshots:
+        needs: changes
+        # if: needs.changes.outputs.visual == 'true'
         runs-on: ubuntu-latest
         permissions:
             actions: write
@@ -50,7 +75,7 @@ jobs:
               run: pnpm exec playwright install --with-deps
 
             - name: Update integration screenshots
-              run: pnpm integration:update-screenshots
+              run: node ./run-regression-tests.js
 
             - name: Upload Playwright report on failure
               if: ${{ failure() }}
