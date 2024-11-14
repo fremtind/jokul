@@ -2,6 +2,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
 import { Link } from "../../link/Link.js";
 import { BaseTextInput } from "../../text-input/BaseTextInput.js";
+import { PopupTip } from "../../tooltip/PopupTip.js";
 import { InputGroup } from "../InputGroup.js";
 import { LabelVariant } from "../Label.js";
 
@@ -34,17 +35,17 @@ export const InputGroupExample: FC<ExampleComponentProps> = ({
         variant: choiceValues?.["Variant"] as LabelVariant,
     };
 
-    const tooltip = boolValues?.["Med tooltip"]
-        ? {
-              content: (
-                  <>
-                      Du må fylle ut fødelsnummer eller D-nummer. Se{" "}
-                      <Link href="">guiden vår</Link> hvis du er usikker på
-                      hvordan du finner D-nummer.
-                  </>
-              ),
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip
+            content={
+                <>
+                    Du må fylle ut fødelsnummer eller D-nummer. Se{" "}
+                    <Link href="">guiden vår</Link> hvis du er usikker på
+                    hvordan du finner D-nummer.
+                </>
+            }
+        />
+    ) : undefined;
 
     return (
         <InputGroup
@@ -52,7 +53,7 @@ export const InputGroupExample: FC<ExampleComponentProps> = ({
             errorLabel={errorLabel}
             helpLabel={helpLabel}
             labelProps={labelProps}
-            tooltipProps={tooltip}
+            tooltip={tooltip}
         >
             <BaseTextInput />
         </InputGroup>

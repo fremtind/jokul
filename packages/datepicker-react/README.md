@@ -22,7 +22,6 @@ import "@fremtind/jkl-popover/popover.min.css";
 // For enkelte features må du også ha denne CSSen importert.
 import "@fremtind/jkl-select/select.min.css";
 import "@fremtind/jkl-text-input/text-input.min.css";
-import "@fremtind/jkl-tooltip/tooltip.min.css";
 ```
 
 ```scss
@@ -35,7 +34,6 @@ import "@fremtind/jkl-tooltip/tooltip.min.css";
 
 @use "@fremtind/jkl-select/select";
 @use "@fremtind/jkl-text-input/text-input";
-@use "@fremtind/jkl-tooltip/tooltip";
 ```
 
 ### Bruk

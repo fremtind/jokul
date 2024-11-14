@@ -3,7 +3,6 @@ import React, { type ReactNode, useEffect, useState } from "react";
 import type { Density } from "../../core/types.js";
 import { LabelProps } from "../input-group/Label.js";
 import type { SupportLabelProps } from "../input-group/SupportLabel.js";
-import type { PopupTipProps } from "../tooltip/PopupTip.js";
 import BaseAutosuggest from "./BaseAutosuggest.js";
 import { filter } from "./utils.js";
 
@@ -34,7 +33,7 @@ export type CommonProps = (
         SupportLabelProps,
         "id" | "errorLabel" | "helpLabel" | "density"
     >;
-    tooltipProps?: PopupTipProps;
+    tooltip?: ReactNode;
     variant?: "large" | "medium" | "small";
     density?: Density;
     placeholder?: string;

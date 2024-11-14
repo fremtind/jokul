@@ -4,7 +4,6 @@ import {
     type DataTestAutoId,
 } from "@fremtind/jkl-core";
 import { useId } from "@fremtind/jkl-react-hooks";
-import { PopupTip, type PopupTipProps } from "@fremtind/jkl-tooltip-react";
 import cn from "classnames";
 import React, { forwardRef, type CSSProperties, type ReactNode } from "react";
 import { Label, type LabelProps } from "./Label";
@@ -31,7 +30,7 @@ export type InputGroupProps = WithOptionalChildren &
             SupportLabelProps,
             "id" | "errorLabel" | "helpLabel" | "density"
         >;
-        tooltipProps?: PopupTipProps;
+        tooltip?: ReactNode;
         style?: CSSProperties;
         render?: (props: InputProps) => JSX.Element;
     };
@@ -49,7 +48,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
             labelProps,
             render,
             supportLabelProps,
-            tooltipProps,
+            tooltip,
             id,
             ...rest
         } = props;
@@ -100,20 +99,21 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                     srOnly={inline}
                     {...labelProps}
                     style={{
-                        whiteSpace: tooltipProps ? "nowrap" : undefined,
+                        whiteSpace: tooltip ? "nowrap" : undefined,
                         ...labelProps?.style,
                     }}
                     density={density}
                 >
-                    {!tooltipProps && label}
-                    {tooltipProps && (
+                    {tooltip ? (
                         <>
                             <span style={{ whiteSpace: "normal" }}>
                                 {label}
                             </span>
                             {`\u00A0`}
-                            <PopupTip {...tooltipProps} />
+                            {tooltip}
                         </>
+                    ) : (
+                        label
                     )}
                 </Label>
                 {renderInput()}

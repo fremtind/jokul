@@ -22,6 +22,7 @@ import { getValuePair, ValuePair } from "../../utilities/valuePair.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
 import { LabelProps } from "../input-group/Label.js";
+import type { PopupTipProps } from "../tooltip/PopupTip.js";
 import { focusSelected, toLower } from "./select-utils.js";
 
 export interface SelectPartialChangeEvent
@@ -116,7 +117,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             width,
             maxShownOptions = 5,
             style,
-            tooltipProps,
+            tooltip,
             ...rest
         } = props;
 
@@ -531,17 +532,22 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                         "jkl-select--no-value": !hasSelectedValue,
                         "jkl-select--invalid": !!errorLabel || invalid,
                     })}
-                    tooltipProps={
-                        tooltipProps && {
-                            ...tooltipProps,
-                            triggerProps: {
-                                ...tooltipProps.triggerProps,
-                                onFocus: (e) => {
-                                    tooltipProps.triggerProps?.onFocus?.(e);
-                                    close();
-                                },
-                            },
-                        }
+                    tooltip={
+                        tooltip && React.isValidElement<PopupTipProps>(tooltip)
+                            ? React.cloneElement(tooltip, {
+                                  triggerProps: {
+                                      ...tooltip.props.triggerProps,
+                                      onFocus: (
+                                          e: FocusEvent<HTMLButtonElement>,
+                                      ) => {
+                                          tooltip.props.triggerProps?.onFocus?.(
+                                              e,
+                                          );
+                                          close();
+                                      },
+                                  },
+                              })
+                            : null
                     }
                     {...rest}
                     id={isSearchable ? searchInputId : buttonId}

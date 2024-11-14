@@ -1,6 +1,7 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
 import type { LabelVariant } from "../../input-group/Label.js";
+import { PopupTip } from "../../tooltip/PopupTip.js";
 import { RadioButton } from "../RadioButton.js";
 import { RadioButtonGroup } from "../RadioButtonGroup.js";
 
@@ -36,12 +37,13 @@ export const RadioButtonExample: FC<ExampleComponentProps> = ({
         ? (choiceValues["Variant"] as LabelVariant)
         : "medium";
 
-    const tooltip = boolValues?.["Med tooltip"]
-        ? {
-              content:
-                  "Dette burde kanskje vært en FieldGroup med Checkbox, og ikke en RadioButtonGroup? 🤔",
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip
+            content={
+                "Dette burde kanskje vært en FieldGroup med Checkbox, og ikke en RadioButtonGroup? 🤔"
+            }
+        />
+    ) : undefined;
 
     return (
         <RadioButtonGroup
@@ -50,7 +52,7 @@ export const RadioButtonExample: FC<ExampleComponentProps> = ({
             labelProps={{ variant }}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
-            tooltipProps={tooltip}
+            tooltip={tooltip}
             value={selectedValue}
             onChange={(e) => setSelectedValue(e.target.value)}
         >

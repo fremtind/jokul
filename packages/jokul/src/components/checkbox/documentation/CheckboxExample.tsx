@@ -2,6 +2,7 @@ import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
 import { FieldGroup } from "../../input-group/FieldGroup.js";
 import { LabelVariant } from "../../input-group/Label.js";
+import { PopupTip } from "../../tooltip/PopupTip.js";
 import { Checkbox } from "../Checkbox.js";
 
 export const checkboxExampleKnobs: ExampleKnobsProps = {
@@ -36,12 +37,13 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({
     const invalid = boolValues?.["Med feil"];
     const indeterminate = boolValues?.["Indeterminate state"];
 
-    const tooltip = boolValues?.["Med tooltip"]
-        ? {
-              content:
-                  "Du kan velge flere metoder. Ved brev vil det ta lenger tid å få en beskjed.",
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip
+            content={
+                "Du kan velge flere metoder. Ved brev vil det ta lenger tid å få en beskjed."
+            }
+        />
+    ) : undefined;
 
     return (
         <FieldGroup
@@ -57,7 +59,7 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({
                     ? "Du må velge minst én kontaktmetode hvor vi kan sende viktige beskjeder"
                     : undefined
             }
-            tooltipProps={tooltip}
+            tooltip={tooltip}
         >
             <Checkbox
                 name="checklist"

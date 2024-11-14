@@ -1,6 +1,7 @@
 import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { FC, useState } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { PopupTip } from "../../tooltip-react/src";
 import { NativeSelect, Select } from "../src";
 
 export const selectExampleKnobs: ExampleKnobsProps = {
@@ -80,12 +81,9 @@ export const SelectExample: FC<ExampleComponentProps> = ({
     const searchAble = boolValues && boolValues["Med søk"];
     const maxChoices = getMaxChoices(choiceValues?.["Maks. viste valg"]);
 
-    const tooltipProps = boolValues?.["Med tooltip"]
-        ? {
-              content:
-                  "Vi spør om merket på telefonen for å finne riktig reperatør for deg.",
-          }
-        : undefined;
+    const tooltip = boolValues?.["Med tooltip"] ? (
+        <PopupTip content="Vi spør om merket på telefonen for å finne riktig reperatør for deg." />
+    ) : undefined;
 
     return (
         <C
@@ -97,7 +95,7 @@ export const SelectExample: FC<ExampleComponentProps> = ({
             value={value}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
-            tooltipProps={tooltipProps}
+            tooltip={tooltip}
             onChange={(event) => {
                 setValue(event.target.value);
                 console.log("Change: ", event);
@@ -142,7 +140,9 @@ export const selectCode = ({
     }${
     boolValues?.["Med tooltip"]
         ? `
-    tooltipProps={{ content: "Vi spør om merket på telefonen for å finne riktig reperatør for deg." }}`
+    tooltip={
+        <PopupTip content="Vi spør om merket på telefonen for å finne riktig reperatør for deg." />
+    }`
         : ""
 }
     items={[

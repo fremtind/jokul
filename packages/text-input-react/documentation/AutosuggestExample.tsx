@@ -4,6 +4,7 @@ import {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "../../../doc-utils";
+import { PopupTip } from "../../tooltip-react/src";
 import { Autosuggest } from "../src";
 
 export const autosuggestExampleKnobs: ExampleKnobsProps = {
@@ -64,13 +65,10 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({
                         ? "Velg et land fra listen eller skriv inn landet selv"
                         : undefined
                 }
-                tooltipProps={
-                    boolValues?.["Med tooltip"]
-                        ? {
-                              content:
-                                  "Velg et land fra listen eller skriv inn landet selv.",
-                          }
-                        : undefined
+                tooltip={
+                    boolValues?.["Med tooltip"] ? (
+                        <PopupTip content="Velg et land fra listen eller skriv inn landet selv." />
+                    ) : undefined
                 }
                 errorLabel={
                     boolValues?.["Med feil"] ? "Du må velge et land" : undefined
@@ -140,7 +138,9 @@ return (
 }${
     boolValues?.["Med tooltip"]
         ? `
-            tooltipProps={{ content: "Velg et land fra listen eller skriv inn landet selv." }}`
+            tooltip={
+                <PopupTip content="Velg et land fra listen eller skriv inn landet selv." />
+            }`
         : ""
 }${
     boolValues?.["Med placeholder"]
