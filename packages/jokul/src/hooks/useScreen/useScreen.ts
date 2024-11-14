@@ -19,7 +19,7 @@ const MEDIA_RULES: Record<keyof ScreenState, string> = {
     isMediumDevice: `(min-width: ${breakpoint.medium}) and (max-width: ${
         breakpointsAsNumber(breakpoint.large) - 1
     }px)`,
-    isLargeDevice: `(min-width: ${breakpoint.large}) and (max-width: $a{
+    isLargeDevice: `(min-width: ${breakpoint.large}) and (max-width: ${
         breakpointsAsNumber(breakpoint.xl) - 1
     }px)`,
     isXlDevice: `(min-width: ${breakpoint.xl})`,
