@@ -1,10 +1,11 @@
-import { expect, Page } from "@playwright/test";
+import { expect, Page, test } from "@playwright/test";
 import react from "@vitejs/plugin-react-swc";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createServer, ViteDevServer } from "vite";
 /* @ts-ignore */
 import { copyJklFonts } from "../vite/copy-jkl-fonts.mjs";
+import { existsSync } from "node:fs";
 /* @ts-ignore */
 import { setupDev } from "../vite/setup-dev.mjs";
 
@@ -138,14 +139,28 @@ export class TestHelper {
             return;
         }
 
-        await expect(this.page).toHaveScreenshot(
-            `${this.projectName}-${name}`,
-            {
+        const screenshotRoot = `packages/jokul/src/components/${this.package}/integration/__screenshots__`;
+        const testName = test.info().title.replaceAll(" ", "-");
+        const screenshotPath = `${screenshotRoot}/${testName}-${this.projectName}-${name}.png`;
+
+        const hasScreenshot = existsSync(screenshotPath);
+
+        if (hasScreenshot) {
+            await expect(
+                await this.page.screenshot({
+                    animations: "disabled",
+                    caret: "hide",
+                    clip: { ...box },
+                }),
+            ).toMatchSnapshot(`${this.projectName}-${name}`);
+        } else {
+            await this.page.screenshot({
                 animations: "disabled",
                 caret: "hide",
                 clip: { ...box },
-            },
-        );
+                path: screenshotPath,
+            });
+        }
     }
 
     async snapshots({

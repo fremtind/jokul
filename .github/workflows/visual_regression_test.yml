@@ -75,7 +75,7 @@ jobs:
               run: pnpm exec playwright install --with-deps
 
             - name: Update integration screenshots
-              run: node ./run-regression-tests.js
+              run: pnpm integration:ci
 
             - name: Upload Playwright report on failure
               if: ${{ failure() }}
@@ -92,6 +92,7 @@ jobs:
                   path: test-results/
 
             - name: Commit screenshots
+              if: ${{ always() }}
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"

@@ -41,7 +41,7 @@
         "boot": "pnpm install && husky install && pnpm build",
         "reboot": "pnpm clean && pnpm boot",
         "scaffold": "node './scripts/scaffold'",
-        "integration:update-screenshots": "playwright test --update-snapshots",
+        "integration:ci": "playwright test",
         "integration:interactive": "playwright test --ui"
     },
     "packageManager": "pnpm@7.32.2",
