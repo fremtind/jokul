@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.32.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.32.1...@fremtind/jokul@0.32.2) (2024-11-14)
+
+### Bug Fixes
+
+- en a som ikke skulle være der ([e834251](https://github.com/fremtind/jokul/commit/e834251d46f597861fe378e3a45372ff9b26c07e))
+
 ## [0.32.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.32.0...@fremtind/jokul@0.32.1) (2024-11-14)
 
 ### Bug Fixes
