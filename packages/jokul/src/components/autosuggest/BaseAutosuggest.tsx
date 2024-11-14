@@ -30,7 +30,7 @@ function BaseAutosuggest<T>({
     className = "",
     label,
     labelProps,
-    tooltipProps,
+    tooltip,
     supportLabelProps,
     inputId,
     labelId,
@@ -94,7 +94,7 @@ function BaseAutosuggest<T>({
                             }),
                         }}
                         supportLabelProps={supportLabelProps}
-                        tooltipProps={tooltipProps}
+                        tooltip={tooltip}
                         errorLabel={errorLabel}
                         helpLabel={helpLabel}
                         render={(inputProps) => (
