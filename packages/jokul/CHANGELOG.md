@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.33.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.32.2...@fremtind/jokul@0.33.0) (2024-11-14)
+
+### Features
+
+- endre tooltipProp til å ta inn en komponent ([7837f29](https://github.com/fremtind/jokul/commit/7837f2936d481bcafb0314ee942c6e9850d3e7dd)), closes [#4260](https://github.com/fremtind/jokul/issues/4260)
+- endre tooltipProp til å ta inn en komponent ([0071fcb](https://github.com/fremtind/jokul/commit/0071fcbb1677b51d16f20ca97fe1e18547270e7c)), closes [#4260](https://github.com/fremtind/jokul/issues/4260)
+- ta i bruk nytt API for tooltip i Autosuggest ([b17a819](https://github.com/fremtind/jokul/commit/b17a819d86fb5c00bfed53c9613e3ea37011871e))
+
+### BREAKING CHANGES
+
+- For å få et tooltip i Autosuggest må du nå sende inn et PopupTip til prop-en tooltip. Prop-en
+tooltipProps finnes ikke lenger.
+- Fjernet tooltipProp og lagt til tooltip i FieldGroup.tsx.
+- Fjernet tooltipProp og lagt til tooltip i InputGroup.
+
 ## [0.32.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.32.1...@fremtind/jokul@0.32.2) (2024-11-14)
 
 ### Bug Fixes

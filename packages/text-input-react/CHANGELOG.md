@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 16.0.0 (2024-11-14)
+
+### Features
+
+- bytt over til nytt API for å vise tooltip ([11720cc](https://github.com/fremtind/jokul/commit/11720cc3839bdcc0242edc92fb9265dbcd3d9d38))
+
+### BREAKING CHANGES
+
+- Tooltips må nå sendes inn i prop-en \`tooltip\` ved hjelp av \`PopupTip\`-komponenten
+
 # 15.2.0 (2024-10-03)
 
 ### Features

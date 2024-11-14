@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 15.0.0 (2024-11-14)
+
+### Bug Fixes
+
+- legg til tooltip som dev dependency av select ([c51230e](https://github.com/fremtind/jokul/commit/c51230efbf61bb1ba930d457f491dde4e6ab1021))
+
+### Features
+
+- bytt over til nytt API for å vise tooltip ([11720cc](https://github.com/fremtind/jokul/commit/11720cc3839bdcc0242edc92fb9265dbcd3d9d38))
+
+### BREAKING CHANGES
+
+- Tooltips må nå sendes inn i prop-en \`tooltip\` ved hjelp av \`PopupTip\`-komponenten
+
 ## 14.1.69 (2024-10-31)
 
 ### Bug Fixes

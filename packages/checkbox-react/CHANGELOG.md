@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.0.0 (2024-11-14)
+
+### Features
+
+- bytt over til nytt API for å vise tooltip ([11720cc](https://github.com/fremtind/jokul/commit/11720cc3839bdcc0242edc92fb9265dbcd3d9d38))
+
+### BREAKING CHANGES
+
+- Tooltips må nå sendes inn i prop-en \`tooltip\` ved hjelp av \`PopupTip\`-komponenten
+
 # [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-checkbox-react@11.0.10...@fremtind/jkl-checkbox-react@11.1.0) (2023-09-21)
 
 ### Features
