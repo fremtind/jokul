@@ -2,9 +2,11 @@
 
 /// En omfattende reset for alt av outlines og borders på interaktive elementer
 @mixin reset-outline {
-    outline: 0;
-    border-style: none;
-    outline-style: none;
+    & {
+        outline: 0;
+        border-style: none;
+        outline-style: none;
+    }
 
     &:active,
     &:hover,
