@@ -65,13 +65,14 @@ $_dismiss-hover-color: jkl.$color-stein;
     }
 
     &__dismiss-button {
-        @include jkl.reset-outline;
         background-color: transparent;
         padding: 0;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
+        align-self: flex-start;
+        flex-shrink: 0;
 
         // Sørg for å ha en stor nok touch target.
         width: var(--jkl-system-message-dismiss-button-size);
@@ -84,8 +85,7 @@ $_dismiss-hover-color: jkl.$color-stein;
             background-color: ButtonFace;
         }
 
-        align-self: flex-start;
-        flex-shrink: 0;
+        @include jkl.reset-outline;
 
         &:hover {
             color: $_dismiss-hover-color;
