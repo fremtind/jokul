@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.33.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.33.0...@fremtind/jokul@0.33.1) (2024-11-15)
+
+### Bug Fixes
+
+- removes scss warnings about mixins ([4bfa5e0](https://github.com/fremtind/jokul/commit/4bfa5e0c39c2b8e75efbb09becf4079b9753856f))
+
 # [0.33.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.32.2...@fremtind/jokul@0.33.0) (2024-11-14)
 
 ### Features
