@@ -29,6 +29,11 @@ export interface TooltipProps {
      */
     initialOpen?: boolean;
     /**
+     * En funksjon som skal kalles når Tooltip åpnes eller lukkes
+     * @param open Hvorvidt tooltip endres til å være åpen eller ikke
+     */
+    onOpenChange?: (open: boolean) => void;
+    /**
      * Plassering av tooltipen i forhold til triggeren. Tooltipen vil automatisk
      * bytte posisjon dersom det ikke er plass.
      * @default "top"
@@ -63,6 +68,7 @@ const useTooltip = ({
     placement = "top",
     delay = 250,
     triggerOn = "hover",
+    onOpenChange,
 }: TooltipProps): UseTooltipReturn => {
     const [isOpen, setOpen] = useState(initialOpen);
     const arrowElement = useRef<SVGSVGElement>(null);
@@ -72,7 +78,10 @@ const useTooltip = ({
 
     const data = useFloating({
         open: isOpen,
-        onOpenChange: setOpen,
+        onOpenChange: (open) => {
+            onOpenChange?.(open);
+            setOpen(open);
+        },
         placement,
         whileElementsMounted: autoUpdate,
         middleware: [

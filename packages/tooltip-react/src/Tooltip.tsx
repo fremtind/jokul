@@ -28,6 +28,11 @@ export interface TooltipProps {
      */
     initialOpen?: boolean;
     /**
+     * En funksjon som skal kalles når Tooltip åpnes eller lukkes
+     * @param open Hvorvidt tooltip endres til å være åpen eller ikke
+     */
+    onOpenChange?: (open: boolean) => void;
+    /**
      * Plassering av tooltipen i forhold til triggeren. Tooltipen vil automatisk
      * bytte posisjon dersom det ikke er plass.
      * @default "top"
