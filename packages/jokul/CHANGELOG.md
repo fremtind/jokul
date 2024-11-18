@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.33.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.33.1...@fremtind/jokul@0.33.2) (2024-11-18)
+
+### Bug Fixes
+
+- fixes the test-test ([5ac2535](https://github.com/fremtind/jokul/commit/5ac2535b1004d55e773ab3bde6dea6c9381b4794))
+- generate missing screenshots, fail on diff ([d0a2cb2](https://github.com/fremtind/jokul/commit/d0a2cb23b826c2fb06d2a5fc117bf541fdf13633))
+
 ## [0.33.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.33.0...@fremtind/jokul@0.33.1) (2024-11-15)
 
 ### Bug Fixes
