@@ -45,6 +45,8 @@
 
     background-color: var(--background);
     color: var(--text-color);
+    /* stylelint-disable-next-line */
+    color: rebeccapurple;
     border-bottom: jkl.rem(1px) solid var(--border-color);
 
     @include jkl.motion("standard", "snappy", border-color);
