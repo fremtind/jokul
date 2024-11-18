@@ -53,7 +53,7 @@ export const LiveProvider: FC<LiveProviderProps> = ({
     return (
         <ReactLiveProvider
             code={code}
-            scope={{ ...scope }}
+            scope={scope}
             transformCode={
                 transformCode || noInline
                     ? transformNoInlineCode

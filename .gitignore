@@ -22,3 +22,5 @@ cypress/videos
 **/public/fonts
 **/vite.build.config.mjs.timestamp-*
 !portalen/**
+test-results/
+playwright-report/

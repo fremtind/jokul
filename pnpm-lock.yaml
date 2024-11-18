@@ -31,6 +31,7 @@ importers:
       '@fremtind/browserslist-config-jkl': ^2.0.0-alpha.0
       '@fremtind/stylelint-config-jkl': ^8.0.0-alpha.0
       '@frsource/cypress-plugin-visual-regression-diff': 3.1.6
+      '@playwright/test': ^1.46.1
       '@testing-library/dom': ^9.3.0
       '@testing-library/jest-dom': ^5.16.5
       '@testing-library/react': ^14.0.0
@@ -98,6 +99,7 @@ importers:
       react-syntax-highlighter: ^15.5.0
       replace-in-file: ^7.0.1
       resize-observer-polyfill: ^1.5.1
+      rimraf: ^6.0.1
       sass: ^1.77.6
       stylelint: ^15.7.0
       tiny-glob: ^0.2.9
@@ -117,6 +119,7 @@ importers:
       '@fremtind/browserslist-config-jkl': link:packages/browserslist-config-jkl
       '@fremtind/stylelint-config-jkl': link:packages/stylelint-config-jkl
       '@frsource/cypress-plugin-visual-regression-diff': 3.1.6_e6umj5xys57o3rbg6x3acuktgm_cypress@13.2.0
+      '@playwright/test': 1.46.1
       '@testing-library/dom': 9.3.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
@@ -178,6 +181,7 @@ importers:
       react-syntax-highlighter: 15.5.0_react@18.2.0
       replace-in-file: 7.0.1
       resize-observer-polyfill: 1.5.1
+      rimraf: 6.0.1
       sass: 1.77.8
       stylelint: 15.7.0
       tiny-glob: 0.2.9
@@ -6196,6 +6200,14 @@ packages:
     dev: true
     optional: true
 
+  /@playwright/test/1.46.1:
+    resolution: {integrity: sha512-Fq6SwLujA/DOIvNC2EL/SojJnkKf/rAwJ//APpJJHRyMi1PdKrY3Az+4XNQ51N4RTbItbIByQ0jgd1tayq1aeA==}
+    engines: {node: '>=18'}
+    hasBin: true
+    dependencies:
+      playwright: 1.46.1
+    dev: true
+
   /@pmmmwh/react-refresh-webpack-plugin/0.5.10_3onvlospczytg5m3plz246nuva:
     resolution: {integrity: sha512-j0Ya0hCFZPd4x40qLzbhGsh9TMtdb+CJQiso+WxLOPNasohq9cc5SNUcwsZaRH6++Xh91Xkm/xHCkuIiIu0LUA==}
     engines: {node: '>= 10.13'}
@@ -7905,7 +7917,7 @@ packages:
       vite: ^4 || ^5
     dependencies:
       '@swc/core': 1.7.23
-      vite: 5.4.2
+      vite: 5.4.2_qly2xqze27fzfdjycmqvs326c4
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -13919,6 +13931,14 @@ packages:
 
   /fs.realpath/1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
+
+  /fsevents/2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
 
   /fsevents/2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -20753,6 +20773,22 @@ packages:
     resolution: {integrity: sha512-fnWVljUchTro6RiCFvCXBbNhJc2NijN7oIQxbwsyL0buWJPG85v81ehlHI9fXrJsMNgTofEoWIQeClKpgxFLrg==}
     dev: false
 
+  /playwright-core/1.46.1:
+    resolution: {integrity: sha512-h9LqIQaAv+CYvWzsZ+h3RsrqCStkBHlgo6/TJlFst3cOTlLghBQlJwPOZKQJTKNaD3QIB7aAVQ+gfWbN3NXB7A==}
+    engines: {node: '>=18'}
+    hasBin: true
+    dev: true
+
+  /playwright/1.46.1:
+    resolution: {integrity: sha512-oPcr1yqoXLCkgKtD5eNUPLiN40rYEM39odNpIb6VE6S7/15gJmA1NzVv6zJYusV0e7tzvkU/utBFNa/Kpxmwng==}
+    engines: {node: '>=18'}
+    hasBin: true
+    dependencies:
+      playwright-core: 1.46.1
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /plugin-error/1.0.1:
     resolution: {integrity: sha512-L1zP0dk7vGweZME2i+EeakvUNqSrdiI3F91TwEoYiGrAfUXmVv6fJIq4g82PAXxNsWOp0J7ZqQy/3Szz0ajTxA==}
     engines: {node: '>= 0.10'}
@@ -22999,6 +23035,15 @@ packages:
     hasBin: true
     dependencies:
       glob: 9.3.5
+    dev: true
+
+  /rimraf/6.0.1:
+    resolution: {integrity: sha512-9dkvaxAsk/xNXSJzMgFqqMCuFgt2+KsOFek3TMLfo8NCPfWpBmqwyNn5Y+NX56QUYfCtsyhF3ayiboEoUmJk/A==}
+    engines: {node: 20 || >=22}
+    hasBin: true
+    dependencies:
+      glob: 11.0.0
+      package-json-from-dist: 1.0.0
     dev: true
 
   /rollup-plugin-node-externals/7.1.3:
