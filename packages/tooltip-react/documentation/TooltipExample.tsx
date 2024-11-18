@@ -21,6 +21,10 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const [copied, setCopied] = useState(false);
     const kontonummer = "16024454979";
 
+    function logState(open: boolean) {
+        console.log(`Tooltip er ${open ? "åpen" : "lukket"}`);
+    }
+
     function copyToClipboard() {
         navigator.clipboard.writeText(kontonummer);
         setCopied(true);
@@ -30,7 +34,11 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     return (
         <p>
             Kontonummer: {formatKontonummer(kontonummer)}
-            <Tooltip placement={initialPlacement} delay={delay}>
+            <Tooltip
+                onOpenChange={logState}
+                placement={initialPlacement}
+                delay={delay}
+            >
                 <TooltipTrigger onClick={copyToClipboard}>
                     <Button
                         className="jkl-spacing-8--left"
@@ -71,6 +79,10 @@ export const tooltipExampleCode = ({
 }: ExampleComponentProps): string => `const [copied, setCopied] = useState(false);
 const kontonummer = "16024454979";
 
+function logState(open: boolean) {
+    console.log(\`Tooltip er \${open ? "åpen" : "lukket"}\`);
+}
+
 function copyToClipboard() {
     navigator.clipboard.writeText(kontonummer);
     setCopied(true);
@@ -80,9 +92,11 @@ function copyToClipboard() {
 return (
     <p>
         Kontonummer:{" "}
-        <Tooltip placement="${getPlacement(
-            choiceValues?.["Plassering"],
-        )}" delay={${choiceValues?.["Forsinkelse (ms)"] || 250}}>
+        <Tooltip
+            onOpenChange={logState}
+            placement="${getPlacement(choiceValues?.["Plassering"])}"
+            delay={${choiceValues?.["Forsinkelse (ms)"] || 250}}
+        >
             <TooltipTrigger onClick={copyToClipboard}>{formatKontonummer(kontonummer)}</TooltipTrigger>
             <TooltipContent>
                 {copied ? <span aria-live="assertive">Kopiert</span> : "Klikk for å kopiere til utklippstavlen"}

@@ -18,6 +18,10 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     const [copied, setCopied] = useState(false);
     const kontonummer = "16024454979";
 
+    function logState(open: boolean) {
+        console.log(`Tooltip er ${open ? "åpen" : "lukket"}`);
+    }
+
     function copyToClipboard() {
         navigator.clipboard.writeText(kontonummer);
         setCopied(true);
@@ -27,7 +31,11 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     return (
         <p>
             Kontonummer: {formatKontonummer(kontonummer)}
-            <Tooltip placement={initialPlacement} delay={delay}>
+            <Tooltip
+                onOpenChange={logState}
+                placement={initialPlacement}
+                delay={delay}
+            >
                 <TooltipTrigger onClick={copyToClipboard}>
                     <Button
                         className="jkl-spacing-8--left"
