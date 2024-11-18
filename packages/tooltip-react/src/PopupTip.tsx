@@ -1,12 +1,6 @@
 import { QuestionIcon } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
-import React, {
-    useState,
-    type FC,
-    type ReactNode,
-    HTMLProps,
-    FocusEventHandler,
-} from "react";
+import React, { HTMLProps, useState, type FC, type ReactNode } from "react";
 import { Tooltip, type TooltipProps } from "./Tooltip";
 import { TooltipContent } from "./TooltipContent";
 import { TooltipTrigger } from "./TooltipTrigger";
@@ -30,22 +24,11 @@ export const PopupTip: FC<PopupTipProps> = ({
 }) => {
     const [isBold, setIsBold] = useState(false);
 
-    const handleFocus: FocusEventHandler<HTMLButtonElement> = (event) => {
-        setIsBold(true);
-        triggerProps?.onFocus?.(event);
-    };
-    const handleBlur: FocusEventHandler<HTMLButtonElement> = (event) => {
-        setIsBold(false);
-        triggerProps?.onBlur?.(event);
-    };
-
     return (
-        <Tooltip triggerOn="click" {...tooltipProps}>
+        <Tooltip onOpenChange={setIsBold} triggerOn="click" {...tooltipProps}>
             <TooltipTrigger>
                 <button
                     {...triggerProps}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
                     type="button"
                     className={cn(
                         "jkl-tooltip-question-button",
