@@ -1,11 +1,5 @@
 import clsx from "clsx";
-import React, {
-    FocusEventHandler,
-    HTMLProps,
-    useState,
-    type FC,
-    type ReactNode,
-} from "react";
+import React, { HTMLProps, useState, type FC, type ReactNode } from "react";
 import { QuestionIcon } from "../icon/icons/QuestionIcon.js";
 import { Tooltip, type TooltipProps } from "./Tooltip.js";
 import { TooltipContent } from "./TooltipContent.js";
@@ -30,22 +24,11 @@ export const PopupTip: FC<PopupTipProps> = ({
 }) => {
     const [isBold, setIsBold] = useState(false);
 
-    const handleFocus: FocusEventHandler<HTMLButtonElement> = (event) => {
-        setIsBold(true);
-        triggerProps?.onFocus?.(event);
-    };
-    const handleBlur: FocusEventHandler<HTMLButtonElement> = (event) => {
-        setIsBold(false);
-        triggerProps?.onBlur?.(event);
-    };
-
     return (
-        <Tooltip triggerOn="click" {...tooltipProps}>
+        <Tooltip onOpenChange={setIsBold} triggerOn="click" {...tooltipProps}>
             <TooltipTrigger>
                 <button
                     {...triggerProps}
-                    onFocus={handleFocus}
-                    onBlur={handleBlur}
                     type="button"
                     className={clsx(
                         "jkl-tooltip-question-button",
