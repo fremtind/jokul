@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @use "@fremtind/jkl-core/jkl";
 
+/// @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
+/// Bruk heller komponenten `Expandable`
 .jkl-accordion {
     width: 100%;
 
