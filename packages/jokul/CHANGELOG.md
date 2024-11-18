@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.34.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.33.2...@fremtind/jokul@0.34.0) (2024-11-18)
+
+### Bug Fixes
+
+- fjern en bug der PopupTip forble bold etter å lukkes ([8683672](https://github.com/fremtind/jokul/commit/8683672acd8d5ebe1c83d2d117efc94efa51400d))
+
+### Features
+
+- eksponer onOpenChange-funksjon for Tooltip ([7025fa1](https://github.com/fremtind/jokul/commit/7025fa1344a8c5083b79053de30587d38a171565))
+
 ## [0.33.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.33.1...@fremtind/jokul@0.33.2) (2024-11-18)
 
 ### Bug Fixes
