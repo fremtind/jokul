@@ -55,6 +55,7 @@ export const useTooltip = ({
     placement = "top",
     delay = 250,
     triggerOn = "hover",
+    onOpenChange,
 }: TooltipProps) => {
     const [isOpen, setOpen] = useState(initialOpen);
     const arrowElement = useRef<SVGSVGElement>(null);
@@ -64,7 +65,10 @@ export const useTooltip = ({
 
     const data = useFloating({
         open: isOpen,
-        onOpenChange: setOpen,
+        onOpenChange: (open) => {
+            onOpenChange?.(open);
+            setOpen(open);
+        },
         placement,
         whileElementsMounted: autoUpdate,
         middleware: [
