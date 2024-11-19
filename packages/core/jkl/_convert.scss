@@ -1,6 +1,8 @@
 @use "sass:color";
+@use "sass:list";
 @use "sass:map";
 @use "sass:math";
+@use "sass:meta";
 @use "sass:string";
 
 /// Casts a string into a number
@@ -9,9 +11,9 @@
 /// @param {String | Number} $value - Value to be parsed
 /// @return {Number} - $value converted to a number
 @function to-number($value) {
-    @if type-of($value) == "number" {
+    @if meta.type-of($value) == "number" {
         @return $value;
-    } @else if type-of($value) != "string" {
+    } @else if meta.type-of($value) != "string" {
         @warn "Value for `to-number` should be a number or a string.";
     }
 
@@ -31,10 +33,11 @@
         "9": 9,
     );
 
-    @for $i from if($minus, 2, 1) through str-length($value) {
+    @for $i from if($minus, 2, 1) through string.length($value) {
         $character: string.slice($value, $i, $i);
 
-        @if not(index(map.keys($numbers), $character) or $character == ".") {
+        @if not(list.index(map.keys($numbers), $character) or $character == ".")
+        {
             @return to-length(
                 if($minus, -$result, $result),
                 string.slice($value, $i)
@@ -77,7 +80,7 @@
         "vmax": 1vmax,
     );
 
-    @if not index(map.keys($units), $unit) {
+    @if not list.index(map.keys($units), $unit) {
         @warn "Invalid unit `#{$unit}`.";
     }
 
