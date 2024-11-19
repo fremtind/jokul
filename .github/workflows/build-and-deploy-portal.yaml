@@ -1,0 +1,126 @@
+name: Build and deploy portal
+on:
+    push:
+        branches:
+            - "main"
+        paths:
+            - portalen/**
+            - .github/workflows/build-and-deploy-portal.yaml
+
+permissions:
+    packages: read
+    contents: read
+    id-token: write
+
+defaults:
+    run:
+        working-directory: portalen
+
+jobs:
+    build:
+        name: Build portal
+        runs-on: [fremtind-docker]
+        concurrency:
+            group: portalen-${{ github.ref_name }}
+            cancel-in-progress: true
+        outputs:
+            committer_name: ${{ steps.commit-info.outputs.committer_name }}
+            committer_email: ${{ steps.commit-info.outputs.committer_email }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Get commit info
+              id: commit-info
+              run: |
+                  echo "committer_name=$(git log -1 --pretty=format:'%an')" >> $GITHUB_OUTPUT
+                  echo "committer_email=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_OUTPUT
+
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "20"
+            - run: npm i -g pnpm@8.3.1
+
+            - name: Cache dependencies
+              id: cache
+              uses: fremtind/action-cache-s3@v1
+              with:
+                  path: ./portalen/node_modules
+                  key: modules-${{ hashFiles('client/pnpm-lock.yaml') }}
+
+            - name: Install dependencies
+              if: steps.cache.outputs.cache-hit != 'true'
+              run: pnpm install --frozen-lockfile
+
+            - name: Test
+              run: "pnpm test"
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v2
+              with:
+                  role-to-assume: ${{vars.AWS_ROLE_FOR_PORTAL_DEPLOY}}
+                  aws-region: eu-north-1
+
+            - name: Login to Amazon ECR Private
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v1
+
+            - name: Build and tag Docker image
+              id: build-image
+              env:
+                  REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+                  IMAGE_NAME: jokul-portal
+                  IMAGE_TAG: ${{ github.ref_name }}-${{ github.sha }}
+                  SENTRY_AUTH_TOKEN: ${{ vars.SENTRY_AUTH_TOKEN }}
+                  COMMIT_ID: ${{ github.sha }}
+              run: |
+                  docker build --build-arg SENTRY_AUTH_TOKEN --build-arg COMMIT_ID -t $IMAGE_NAME:$IMAGE_TAG .
+                  echo "image_name=$IMAGE_NAME" >> $GITHUB_OUTPUT
+                  echo "image_tag=$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+            - name: Publish and deploy image
+              uses: fremtind/action-ecr-publish@v1
+              if: github.ref == 'refs/heads/main'
+              with:
+                  repository: app/joku-portal/joku-portal-ecr
+                  aws-role-to-assume: ${{vars.AWS_ROLE_FOR_PORTAL_DEPLOY}}
+                  local-image-name: ${{ steps.build-image.outputs.image_name }}
+                  tag: ${{ steps.build-image.outputs.image_tag }}
+
+    build-failure:
+        name: Failed build notification
+        needs: [build]
+        if: failure()
+        runs-on: ubuntu-latest
+        steps:
+            - name: Teams notification
+              uses: fremtind/action-teams-notification@v2
+              with:
+                  webhook-url: ${{ vars.PORTAL_TEAMS_WEBHOOK_URL }}
+                  mention: |
+                      ${{ needs.build.outputs.committer_name }}
+                      ${{ needs.build.outputs.committer_email }}
+                  message: |
+                      %NAME%
+                      ${{github.repository}} release av jokul-portalen feilet
+                      [ Bygg nr ${{ github.run_id }}](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})
+
+    build-success:
+        name: Successful build notification
+        needs: [build]
+        if: success()
+        runs-on: ubuntu-latest
+        steps:
+            - name: Teams notification
+              uses: fremtind/action-teams-notification@v2
+              with:
+                  webhook-url: ${{ vars.PORTAL_TEAMS_WEBHOOK_URL }}
+                  mention: |
+                      ${{ needs.build.outputs.committer_name }}
+                      ${{ needs.build.outputs.committer_email }}
+                  message: |
+                      %NAME%
+                      ${{github.repository}} release av jokul-portal er klar
+                      [ Bygg nr ${{ github.run_id }}](https://github.com/${{github.repository}}/actions/runs/${{github.run_id}})
+                      Se [åpne pull requests på Github](https://github.com/fremtind/app-configrepo-fremtind/pulls?q=is%3Apr+is%3Aopen+jokul-portal-) for å release til produksjon
