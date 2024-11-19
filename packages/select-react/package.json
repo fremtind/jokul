@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select-react",
-    "version": "15.0.1",
+    "version": "15.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -48,7 +48,7 @@
     },
     "devDependencies": {
         "@fremtind/jkl-accordion-react": "^12.1.27",
-        "@fremtind/jkl-tooltip-react": "^4.6.0",
+        "@fremtind/jkl-tooltip-react": "^4.6.1",
         "react-hook-form": "^7.44.3"
     },
     "peerDependencies": {

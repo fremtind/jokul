@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@4.6.0...@fremtind/jkl-tooltip-react@4.6.1) (2024-11-19)
+
+### Bug Fixes
+
+- utfør innsendt onOpenChange ved endring ([37e8603](https://github.com/fremtind/jokul/commit/37e8603902a7a8089450cf96187f147ef6fea27f))
+
 # 4.6.0 (2024-11-18)
 
 ### Bug Fixes
