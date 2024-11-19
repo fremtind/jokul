@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.34.1 (2024-11-19)
+
+### Bug Fixes
+
+- erstatt bruk av utdaterte sass-funksjoner ([a497458](https://github.com/fremtind/jokul/commit/a497458c73a3b2bd4f67d97833c0b788af3fecd0)), closes [#4300](https://github.com/fremtind/jokul/issues/4300)
+
 # [0.34.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.33.2...@fremtind/jokul@0.34.0) (2024-11-18)
 
 ### Bug Fixes
