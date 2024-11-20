@@ -1,3 +1,4 @@
+import { Chip } from "@fremtind/jkl-chip-react";
 import { ValuePair, Density } from "@fremtind/jkl-core";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
 import { ArrowVerticalAnimated, CheckIcon } from "@fremtind/jkl-icons-react";
@@ -11,7 +12,6 @@ import {
     useAnimatedHeight,
     useListNavigation,
 } from "@fremtind/jkl-react-hooks";
-import { Tag } from "@fremtind/jkl-tag-react";
 import {
     Tooltip,
     TooltipContent,
@@ -42,7 +42,7 @@ export function getComboboxValuePair(
     return typeof item === "string" ? { value: item, label: item } : item;
 }
 
-interface PartialChangeEvent
+export interface ComboboxPartialChangeEvent
     extends Partial<Omit<ChangeEvent<HTMLElement>, "target">> {
     type: "change" | "blur";
     target: {
@@ -52,9 +52,11 @@ interface PartialChangeEvent
     };
 }
 
-type ChangeEventHandler = (event: PartialChangeEvent) => void;
+export type ComboboxChangeEventHandler = (
+    event: ComboboxPartialChangeEvent,
+) => void;
 
-interface ComboboxProps extends InputGroupProps {
+export interface ComboboxProps extends InputGroupProps {
     id?: string;
     placeholder?: string;
     labelProps?: Omit<
@@ -73,9 +75,9 @@ interface ComboboxProps extends InputGroupProps {
     className?: string;
     invalid?: boolean;
     hasTagHover?: boolean;
-    onChange: ChangeEventHandler;
-    onBlur?: ChangeEventHandler;
-    onFocus?: ChangeEventHandler;
+    onChange: ComboboxChangeEventHandler;
+    onBlur?: ComboboxChangeEventHandler;
+    onFocus?: ComboboxChangeEventHandler;
 }
 
 export const Combobox: FC<ComboboxProps> = ({
@@ -409,6 +411,30 @@ export const Combobox: FC<ComboboxProps> = ({
 
     const hasSelection = selectedValue.length >= 1;
 
+    const renderSelectedOption = useCallback(
+        (option: ComboboxValuePair) => (
+            <Chip
+                key={option.value}
+                data-testid="jkl-chip"
+                aria-label={`Fjern ${option.tagLabel}`}
+                className={`jkl-combobox__selected-option ${
+                    marked && "jkl-combobox__selected-option--marked"
+                }`}
+                variant="input"
+                onClick={(e) => {
+                    if (searchRef.current) {
+                        searchRef.current.focus();
+                    }
+                    onTagRemove(e, option.value);
+                }}
+                onBlur={handleBlur}
+            >
+                {option.tagLabel ? option.tagLabel : option.label}
+            </Chip>
+        ),
+        [handleBlur, onTagRemove, marked],
+    );
+
     return (
         <InputGroup
             label={label}
@@ -438,58 +464,25 @@ export const Combobox: FC<ComboboxProps> = ({
                     onBlur={handleBlur}
                 >
                     <div
-                        className="jkl-combobox__tags"
-                        data-testid="jkl-combobox__tags"
+                        className="jkl-combobox__chips"
+                        data-testid="jkl-combobox__chips"
                     >
                         {selectedValue
                             .map(getComboboxValuePair)
-                            .map((option) => (
-                                <Tag
-                                    key={option.value}
-                                    className={`jkl-tag ${
-                                        marked && "jkl-tag__marked"
-                                    }`}
-                                    data-testid="jkl-tag"
-                                    dismissAction={{
-                                        onClick: (e) => {
-                                            if (searchRef.current) {
-                                                searchRef.current.focus();
-                                            }
-                                            onTagRemove(e, option.value);
-                                        },
-                                        onBlur: handleBlur,
-                                        label: `Fjern ${option.value}`,
-                                    }}
-                                >
-                                    {hasTagHover ? (
-                                        <Tooltip key={option.value}>
-                                            <TooltipTrigger>
-                                                {" "}
-                                                <span
-                                                    aria-hidden="true"
-                                                    data-testid="jkl-tag__content"
-                                                >
-                                                    {option.tagLabel
-                                                        ? option.tagLabel
-                                                        : option.label}
-                                                </span>
-                                            </TooltipTrigger>
-                                            <TooltipContent>
-                                                {option.label}
-                                            </TooltipContent>
-                                        </Tooltip>
-                                    ) : (
-                                        <span
-                                            aria-hidden="true"
-                                            data-testid="jkl-tag__content"
-                                        >
-                                            {option.tagLabel
-                                                ? option.tagLabel
-                                                : option.label}
-                                        </span>
-                                    )}
-                                </Tag>
-                            ))}
+                            .map((option) => {
+                                return hasTagHover ? (
+                                    <Tooltip key={option.value}>
+                                        <TooltipTrigger>
+                                            {renderSelectedOption(option)}
+                                        </TooltipTrigger>
+                                        <TooltipContent>
+                                            {option.label}
+                                        </TooltipContent>
+                                    </Tooltip>
+                                ) : (
+                                    renderSelectedOption(option)
+                                );
+                            })}
                         <input
                             {...inputProps}
                             className="jkl-combobox__search-input"

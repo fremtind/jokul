@@ -139,10 +139,10 @@ describe("Combobox", () => {
             await userEvent.click(selectOption2Element);
         });
 
-        const selectedTags = getAllByTestId("jkl-tag__content");
-        expect(selectedTags).toHaveLength(2);
-        expect(selectedTags[0]).toHaveTextContent("Item 1");
-        expect(selectedTags[1]).toHaveTextContent("Item 2");
+        const selectedChips = getAllByTestId("jkl-chip");
+        expect(selectedChips).toHaveLength(2);
+        expect(selectedChips[0]).toHaveTextContent("Item 1");
+        expect(selectedChips[1]).toHaveTextContent("Item 2");
 
         expect(onChangeSpy).toHaveBeenCalledTimes(2);
         expect(onChangeSpy).toHaveBeenLastCalledWith(

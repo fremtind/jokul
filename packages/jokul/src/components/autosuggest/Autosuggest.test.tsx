@@ -1,5 +1,6 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
+import { describe, expect, it, vi } from "vitest";
 import { Autosuggest, AutosuggestProps } from "./Autosuggest.js";
 
 const renderMount = (props?: Partial<AutosuggestProps>) =>
@@ -42,7 +43,7 @@ describe("Autosuggest", () => {
     });
 
     it("is possible to search and select a item", () => {
-        const onChange = jest.fn();
+        const onChange = vi.fn();
         const { getByTestId, queryAllByTestId } = renderMount({ onChange });
 
         const input = getByTestId("autosuggest__input");

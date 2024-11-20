@@ -1,10 +1,6 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
-import React, { FC, useState } from "react";
-import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "../Tag.js";
-
-export const tagExampleKnobs: ExampleKnobsProps = {
-    boolProps: ["Dismissable"],
-};
+import { ExampleComponentProps } from "doc-utils/index.js";
+import React, { FC } from "react";
+import { Tag, InfoTag, SuccessTag, WarningTag, ErrorTag } from "../Tag.js";
 
 type TagType = "Info" | "Success" | "Warning" | "Error";
 
@@ -40,41 +36,32 @@ const getTagContent = (typeofTag?: TagType): string => {
 
 const ExampleTagWrapper: React.FC<
     ExampleComponentProps & { variant?: TagType }
-> = ({ boolValues, variant }) => {
-    const [dismissed, setDismissed] = useState(false);
-    const C = getTypeOfTag(variant);
-    const dismissAction = boolValues?.["Dismissable"]
-        ? {
-              onClick: () => {
-                  setDismissed(true);
-                  setTimeout(() => setDismissed(false), 2600);
-              },
-              label: "Fjern filter",
-          }
-        : undefined;
-
-    if (dismissed) {
-        return null;
-    }
+> = ({ variant }) => {
+    const TagComponent = getTypeOfTag(variant);
 
     return (
-        <C
-            className="jkl-spacing-2xs--right jkl-spacing-2xs--top"
-            dismissAction={dismissAction}
-        >
+        <TagComponent className="jkl-spacing-2xs--right jkl-spacing-2xs--top">
             {getTagContent(variant)}
-        </C>
+        </TagComponent>
     );
 };
 
-export const TagExample: FC<ExampleComponentProps> = ({ boolValues }) => {
+export const TagExample: FC<ExampleComponentProps> = () => {
     return (
         <div>
-            <ExampleTagWrapper boolValues={boolValues} />
-            <ExampleTagWrapper boolValues={boolValues} variant="Info" />
-            <ExampleTagWrapper boolValues={boolValues} variant="Success" />
-            <ExampleTagWrapper boolValues={boolValues} variant="Warning" />
-            <ExampleTagWrapper boolValues={boolValues} variant="Error" />
+            <ExampleTagWrapper />
+            <ExampleTagWrapper variant="Info" />
+            <ExampleTagWrapper variant="Success" />
+            <ExampleTagWrapper variant="Warning" />
+            <ExampleTagWrapper variant="Error" />
         </div>
     );
 };
+
+export const tagExampleCode = (): string => `
+    <Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Emne</Tag>
+    <InfoTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Info Tag</InfoTag>
+    <SuccessTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Success Tag</SuccessTag>
+    <WarningTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Warning Tag</WarningTag>
+    <ErrorTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Error Tag</ErrorTag>
+`;

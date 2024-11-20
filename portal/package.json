@@ -14,6 +14,7 @@
         "@fremtind/jkl-button-react": "^15.2.15",
         "@fremtind/jkl-card-react": "^13.0.27",
         "@fremtind/jkl-checkbox-react": "^12.0.1",
+        "@fremtind/jkl-chip-react": "^1.0.0",
         "@fremtind/jkl-combobox-react": "^2.3.72",
         "@fremtind/jkl-constants-util": "^3.0.106",
         "@fremtind/jkl-contact-information-react": "^2.1.52",
