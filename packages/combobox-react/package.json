@@ -36,6 +36,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
+        "@fremtind/jkl-chip-react": "^1.0.0",
         "@fremtind/jkl-combobox": "^2.2.27",
         "@fremtind/jkl-core": "^14.8.6",
         "@fremtind/jkl-icon-button-react": "^5.0.26",
