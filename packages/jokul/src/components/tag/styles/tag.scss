@@ -1,15 +1,13 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-@include jkl.comfortable-density-variables {
+@include jkl.comfortable-density(".jkl-tag") {
     --jkl-tag-padding: var(--jkl-spacing-4) var(--jkl-spacing-8);
-    --jkl-tag-dismiss-margin: 0;
     --jkl-tag-gap: var(--jkl-spacing-4);
 }
 
-@include jkl.compact-density-variables {
+@include jkl.compact-density(".jkl-tag") {
     --jkl-tag-padding: 0 var(--jkl-spacing-4);
-    --jkl-tag-dismiss-margin: 0 calc(var(--jkl-spacing-2) * -1) 0 0;
     --jkl-tag-gap: var(--jkl-spacing-2);
 }
 
@@ -63,11 +61,5 @@
         &--success {
             border-style: solid;
         }
-    }
-
-    &__dismiss-action {
-        height: jkl.rem(24px);
-        padding: jkl.rem(2px) 0;
-        margin: var(--jkl-tag-dismiss-margin);
     }
 }
