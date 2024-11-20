@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.35.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.34.1...@fremtind/jokul@0.35.0) (2024-11-20)
+
+### Code Refactoring
+
+- fjern dismissableAction property ([c6f22d8](https://github.com/fremtind/jokul/commit/c6f22d847c80d3e41929217573dc084d40221e68)), closes [#4288](https://github.com/fremtind/jokul/issues/4288)
+
+### BREAKING CHANGES
+
+- Fjernet den påkrevde dismissableAction-propen fra Tag-komponenten.
+
 ## 0.34.1 (2024-11-19)
 
 ### Bug Fixes

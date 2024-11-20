@@ -323,7 +323,7 @@ importers:
       '@fremtind/jkl-constants-util': ^3.0.106
       '@fremtind/jkl-core': ^14.8.6
       '@fremtind/jkl-image-react': ^6.0.31
-      '@fremtind/jkl-tag-react': ^5.2.41
+      '@fremtind/jkl-tag-react': ^6.0.0
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-button-react': link:../button-react
@@ -386,15 +386,15 @@ importers:
 
   packages/combobox-react:
     specifiers:
-      '@fremtind/jkl-chip-react': ^1.0.0
-      '@fremtind/jkl-combobox': ^2.2.27
+      '@fremtind/jkl-chip-react': ^1.0.2
+      '@fremtind/jkl-combobox': ^2.2.28
       '@fremtind/jkl-core': ^14.8.6
       '@fremtind/jkl-icon-button-react': ^5.0.26
       '@fremtind/jkl-icons-react': ^9.1.18
       '@fremtind/jkl-input-group-react': ^4.0.1
       '@fremtind/jkl-react-hooks': ^12.2.10
       '@fremtind/jkl-select-react': ^15.0.3
-      '@fremtind/jkl-tag-react': ^5.2.41
+      '@fremtind/jkl-tag-react': ^6.0.0
       '@fremtind/jkl-tooltip-react': ^4.6.2
       classnames: ^2.3.2
     dependencies:
@@ -1118,7 +1118,7 @@ importers:
       '@fremtind/jkl-core': ^14.8.6
       '@fremtind/jkl-icon-button-react': ^5.0.26
       '@fremtind/jkl-icons-react': ^9.1.18
-      '@fremtind/jkl-tag': ^5.1.10
+      '@fremtind/jkl-tag': ^6.0.0
       classnames: ^2.3.2
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -1238,10 +1238,10 @@ importers:
       '@fremtind/jkl-accordion-react': ^12.1.28
       '@fremtind/jkl-breadcrumb-react': ^5.0.29
       '@fremtind/jkl-button-react': ^15.2.15
-      '@fremtind/jkl-card-react': ^13.0.27
+      '@fremtind/jkl-card-react': ^13.0.28
       '@fremtind/jkl-checkbox-react': ^12.0.1
-      '@fremtind/jkl-chip-react': ^1.0.0
-      '@fremtind/jkl-combobox-react': ^2.3.72
+      '@fremtind/jkl-chip-react': ^1.0.2
+      '@fremtind/jkl-combobox-react': ^2.3.73
       '@fremtind/jkl-constants-util': ^3.0.106
       '@fremtind/jkl-contact-information-react': ^2.1.52
       '@fremtind/jkl-content-toggle-react': ^6.0.23
@@ -1275,7 +1275,7 @@ importers:
       '@fremtind/jkl-system-message-react': ^1.0.14
       '@fremtind/jkl-table-react': ^11.4.52
       '@fremtind/jkl-tabs-react': ^6.0.21
-      '@fremtind/jkl-tag-react': ^5.2.41
+      '@fremtind/jkl-tag-react': ^6.0.0
       '@fremtind/jkl-text-input-react': ^16.0.1
       '@fremtind/jkl-toast-react': ^2.3.18
       '@fremtind/jkl-toggle-switch-react': ^13.1.39
