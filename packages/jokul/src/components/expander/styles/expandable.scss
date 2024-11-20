@@ -7,6 +7,7 @@
     border-radius: var(--border-radius);
     box-sizing: border-box;
     width: 100%;
+    overflow: hidden;
 
     &__content[data-expanded="true"] {
         height: auto;
@@ -14,7 +15,6 @@
 
     &__content[data-expanded="false"] {
         height: 0;
-        overflow: hidden;
     }
 
     &__content-wrapper {
@@ -41,10 +41,6 @@
             border-bottom-left-radius: var(--border-radius);
             border-bottom-right-radius: var(--border-radius);
         }
-    }
-
-    &--fill + &--fill {
-        margin-top: jkl.rem(16px);
     }
 }
 
@@ -87,14 +83,9 @@
         }
     }
 
-    // TODO sjekk om vi fremdeles trenger dette i 2024
     @media (hover: hover) {
         .jkl-expandable &:hover {
-            border-radius: var(--border-radius);
-
-            background-color: var(
-                --jkl-color-background-interactive-selected
-            ); // TODO create new token
+            background-color: var(--jkl-color-background-interactive-selected);
         }
     }
 }

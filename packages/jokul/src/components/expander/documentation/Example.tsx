@@ -1,19 +1,36 @@
 import { DevExample } from "doc-utils/DevExample.js";
 import React from "react";
-import ExpanderExample, { expanderExamplesKnobs } from "./ExpanderExample.js";
-import ExpandSectionExample from "./ExpandSectionExample.js";
+import {
+    ControlledExample,
+    knobs as controlledKnobs,
+} from "./ControlledExample.js";
+import {
+    CustomWidgetExample,
+    knobs as customWidgetKnobs,
+} from "./CustomWidgetExample.js";
+import {
+    UnControlledExample,
+    knobs as uncontrolledKnobs,
+} from "./UnControlledExample.js";
 
 export default function Example() {
     return (
         <>
             <DevExample
-                title="ExpandSection"
-                component={ExpandSectionExample}
+                title="UnControlled"
+                component={UnControlledExample}
+                knobs={uncontrolledKnobs}
+                codeExample="console.log('ohai)"
             />
             <DevExample
-                title="Expander"
-                component={ExpanderExample}
-                knobs={expanderExamplesKnobs}
+                title="Controlled"
+                component={ControlledExample}
+                knobs={controlledKnobs}
+            />
+            <DevExample
+                title="Custom widget"
+                component={CustomWidgetExample}
+                knobs={customWidgetKnobs}
             />
         </>
     );

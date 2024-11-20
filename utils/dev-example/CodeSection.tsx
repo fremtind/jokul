@@ -1,5 +1,8 @@
 import React, { useState, FC } from "react";
-import { ExpandSection } from "../../packages/jokul/src/components/expander";
+import {
+    ExpandablePanel,
+    Expander,
+} from "../../packages/jokul/src/components/expander";
 import { WithChildren } from "../../packages/jokul/src/core";
 
 export interface CodeSectionProps extends WithChildren {
@@ -9,14 +12,15 @@ export interface CodeSectionProps extends WithChildren {
 export const CodeSection: FC<CodeSectionProps> = ({ className, children }) => {
     const [showCodeText, setShowCodeText] = useState("Vis kode");
     return (
-        <ExpandSection
+        <ExpandablePanel
             className={className}
-            title={showCodeText}
-            onClick={(e, expanded) =>
-                setShowCodeText(expanded ? "Skjul kode" : "Vis kode")
+            style={{ maxWidth: 500 }}
+            onOpenChange={(open) =>
+                setShowCodeText(open ? "Skjul kode" : "Vis kode")
             }
         >
-            {children}
-        </ExpandSection>
+            <Expander>{showCodeText}</Expander>
+            <ExpandablePanel.Content>{children}</ExpandablePanel.Content>
+        </ExpandablePanel>
     );
 };
