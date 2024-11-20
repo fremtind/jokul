@@ -1,13 +1,13 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../../core/jkl";
 
 @mixin _expanded-arrow($px) {
-    .jkl-expander__arrow {
+    .jkl-old-expander__arrow {
         transform: translateY(jkl.rem($px));
     }
 }
 
-.jkl-expander {
+.jkl-old-expander {
     --color: var(--jkl-color-text-interactive);
 
     $_animation-timing: jkl.timing("snappy") jkl.easing("focus");
@@ -45,13 +45,13 @@
     }
 
     &--icon-only {
-        .jkl-expander__arrow {
+        .jkl-old-expander__arrow {
             margin: jkl.$spacing-4 jkl.$spacing-8;
         }
     }
 
     // Bevisst nøstet for høyere specificity enn icons uavhengig av importrekkefølge.
-    .jkl-expander__arrow {
+    .jkl-old-expander__arrow {
         transition-property: transform;
 
         display: inline-block;
@@ -71,6 +71,8 @@
     }
 }
 
+/// @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
+/// Bruk heller komponenten `Expandable`
 .jkl-expand-section {
     &__content-wrapper {
         transition-property: height;
