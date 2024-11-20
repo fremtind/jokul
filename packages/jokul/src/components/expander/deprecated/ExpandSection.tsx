@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React, { ReactNode, useEffect, useState } from "react";
-import { Density } from "../../core/types.js";
-import { useAnimatedDetails } from "../../hooks/useAnimatedDetails/useAnimatedDetails.js";
-import { UseAnimatedHeightOptions } from "../../hooks/useAnimatedHeight/types.js";
+import { Density } from "../../../core/types.js";
+import { useAnimatedDetails } from "../../../hooks/useAnimatedDetails/useAnimatedDetails.js";
+import { UseAnimatedHeightOptions } from "../../../hooks/useAnimatedHeight/types.js";
 import { Expander, ExpanderProps } from "./Expander.js";
 
 export interface ExpandSectionProps {
@@ -26,6 +26,10 @@ export interface ExpandSectionProps {
     isExpanded?: boolean;
 }
 
+/**
+ * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
+ * Bruk heller komponenten `Expandable`.
+ */
 export const ExpandSection = ({
     children,
     className,
