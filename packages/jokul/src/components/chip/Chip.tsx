@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { FC, HTMLAttributes } from "react";
+import React, { forwardRef, HTMLAttributes } from "react";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
 
@@ -19,25 +19,25 @@ export type ChipVariant =
 
 export type ChipProps = ChipVariant & HTMLAttributes<HTMLButtonElement>;
 
-export const Chip: FC<ChipProps> = ({
-    className,
-    variant,
-    onClick,
-    children,
-    selected,
-    size = "small",
-    ...rest
-}) => {
+export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
+    {
+        className,
+        variant,
+        onClick,
+        children,
+        selected,
+        size = "small",
+        ...rest
+    },
+    ref,
+) {
     return (
         <button
+            ref={ref}
             className={clsx(
                 "jkl-chip",
-                {
-                    "jkl-chip--input": variant === "input",
-                    "jkl-chip--filter": variant === "filter",
-                    "jkl-chip--small": size === "small",
-                    "jkl-chip--large": size === "large",
-                },
+                `jkl-chip--${size}`,
+                `jkl-chip--${variant}`,
                 className,
             )}
             onClick={onClick}
@@ -54,11 +54,11 @@ export const Chip: FC<ChipProps> = ({
             )}
             {variant === "input" && (
                 <CloseIcon
-                    className="jkl-chip__icon lol"
+                    className="jkl-chip__icon"
                     variant="small"
                     data-testid="jkl-close-icon"
                 />
             )}
         </button>
     );
-};
+});

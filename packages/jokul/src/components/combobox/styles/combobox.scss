@@ -51,7 +51,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-marked-value-shadow: #{jkl.$color-granitt};
 }
 
-@include jkl.comfortable-density-variables {
+@include jkl.comfortable-density(".jkl-combobox") {
     @include jkl.declare-font-variables("jkl-combobox", "body");
 
     --jkl-combobox-button-padding: #{jkl.$spacing-8} #{jkl.rem(6px)} #{jkl.$spacing-8}
@@ -68,15 +68,13 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-option-line-height: 2rem;
     --jkl-combobox-input-padding: #{jkl.rem(60px)};
     --jkl-combobox-search-input-height: #{jkl.rem(28px)};
-    --jkl-combobox-tag-padding: #{jkl.rem(2px)};
-    --jkl-combobox-tag-height: #{jkl.rem(24px)};
 
     @include jkl.small-device {
         --jkl-combobox-input-height: #{jkl.rem(44px)};
     }
 }
 
-@include jkl.compact-density-variables {
+@include jkl.compact-density(".jkl-combobox") {
     @include jkl.declare-font-variables("jkl-combobox", "small");
 
     --jkl-combobox-button-padding: #{jkl.$spacing-4} #{jkl.rem(30px)} #{jkl.$spacing-4}
@@ -93,15 +91,13 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-option-line-height: 1.5rem;
     --jkl-combobox-input-padding: #{jkl.$spacing-12};
     --jkl-combobox-search-input-height: #{jkl.rem(20px)};
-    --jkl-combobox-tag-padding: 0 0.25rem;
-    --jkl-combobox-tag-height: #{jkl.rem(20px)};
 }
 
 .jkl-combobox {
     position: relative;
     @include jkl.reset-outline;
 
-    & *:focus {
+    & .jkl-combobox__option:focus {
         outline: none;
     }
 
@@ -252,17 +248,15 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         top: var(--jkl-combobox-actions-top);
     }
 
-    &__tags {
+    &__chips {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         margin-left: -4px;
 
-        .jkl-tag {
+        .jkl-chip {
             margin: 1px 4px;
             z-index: 1;
-            padding: var(--jkl-combobox-tag-padding);
-            height: var(--jkl-combobox-tag-height);
 
             &__marked {
                 border-radius: 6px;
@@ -270,7 +264,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
                     inset;
                 box-sizing: border-box;
                 border: 1px solid var(--jkl-combobox-marked-value-border);
-                margin: 0 4px;
+                margin: 4px;
             }
 
             .jkl-tooltip-trigger {

@@ -6,7 +6,7 @@ import {
     comboboxExampleKnobs,
 } from "./ComboboxExample";
 import "../../combobox/combobox.scss";
-import "../../tag/tag.scss";
+import "../../chip/chip.scss";
 import "../../icon-button/icon-button.scss";
 import "../../icons/icons.scss";
 

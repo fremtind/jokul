@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
+import { describe, expect, it, vi } from "vitest";
 import { Chip } from "./Chip.js";
 
 describe("Chip-komponenten", () => {
@@ -34,7 +35,7 @@ describe("Chip-komponenten", () => {
     });
 
     it("håndterer onClick-hendelsen", () => {
-        const handleClick = jest.fn();
+        const handleClick = vi.fn();
         render(
             <Chip variant="input" onClick={handleClick}>
                 Input
