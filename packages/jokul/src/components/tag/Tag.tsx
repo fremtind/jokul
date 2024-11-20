@@ -1,23 +1,9 @@
 import clsx from "clsx";
-import React, {
-    ButtonHTMLAttributes,
-    FC,
-    HTMLAttributes,
-    MouseEventHandler,
-} from "react";
+import React, { FC, HTMLAttributes } from "react";
 import { Density } from "../../core/types.js";
-import { CloseIcon } from "../icon/icons/CloseIcon.js";
-import { IconButton } from "../icon-button/IconButton.js";
-
-export interface DismissAction
-    extends Exclude<ButtonHTMLAttributes<HTMLButtonElement>, "disabled"> {
-    label: string;
-    onClick: MouseEventHandler<HTMLButtonElement>;
-}
 
 export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
     density?: Density;
-    dismissAction?: DismissAction;
 }
 
 type Variant = "info" | "error" | "warning" | "success";
@@ -38,13 +24,7 @@ function getDisplayName(variant?: Variant) {
 }
 
 function tagFactory(variant?: Variant) {
-    const Tag: FC<TagProps> = ({
-        className,
-        density,
-        dismissAction,
-        children,
-        ...rest
-    }) => (
+    const Tag: FC<TagProps> = ({ className, density, children, ...rest }) => (
         <span
             className={clsx(
                 "jkl-tag",
@@ -60,18 +40,6 @@ function tagFactory(variant?: Variant) {
             {...rest}
         >
             {children}
-            {dismissAction && (
-                <IconButton
-                    className="jkl-tag__dismiss-action"
-                    density={density}
-                    title={dismissAction.label}
-                    onClick={dismissAction.onClick}
-                    onFocus={dismissAction.onFocus}
-                    onBlur={dismissAction.onBlur}
-                >
-                    <CloseIcon variant="small" bold />
-                </IconButton>
-            )}
         </span>
     );
     Tag.displayName = getDisplayName(variant);

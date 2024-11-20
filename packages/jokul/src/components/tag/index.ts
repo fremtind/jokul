@@ -5,5 +5,4 @@ export {
     WarningTag,
     SuccessTag,
     type TagProps,
-    type DismissAction,
 } from "./Tag.js";
