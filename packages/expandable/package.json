@@ -1,0 +1,35 @@
+{
+    "name": "@fremtind/jkl-expandable",
+    "version": "7.1.10",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Jøkul style for expandable",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/expandable",
+    "keywords": [
+        "jøkul",
+        "fremtind"
+    ],
+    "files": [
+        "*.css",
+        "*.scss"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "clean": "git clean -xfd",
+        "build": "gulp build",
+        "build:watch": "gulp build:watch",
+        "test": "echo \"Error: run tests from root\" && exit 1",
+        "dev": "echo \"Error: run dev from expand-button-react\" && exit 1"
+    },
+    "dependencies": {
+        "@fremtind/jkl-core": "^14.8.6"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    }
+}

@@ -1,0 +1,91 @@
+@use "@fremtind/jkl-core/jkl";
+
+.jkl-expandable {
+    --border-radius: #{jkl.rem(4px)};
+
+    background-color: var(--jkl-color-background-container-low);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+
+    &__content[data-expanded="true"] {
+        height: auto;
+    }
+
+    &__content[data-expanded="false"] {
+        height: 0;
+    }
+
+    &__content-wrapper {
+        padding: jkl.rem(16px);
+    }
+
+    &--stroke {
+        border: 1px solid var(--jkl-color-border-separator);
+        background-color: transparent;
+
+        border-radius: 0;
+
+        & + & {
+            // Matches every expandable that follows directly after another
+            border-top: none;
+        }
+
+        &:first-child {
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+
+        &:last-child {
+            border-bottom-left-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
+        }
+    }
+}
+
+.jkl-expander {
+    box-sizing: border-box;
+    background: none;
+    appearance: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    padding: jkl.rem(16px);
+    cursor: pointer;
+
+    display: flex;
+    gap: jkl.rem(8px);
+    align-items: center;
+
+    /* Removes the default disclosure triangle without breaking semantics */
+    list-style: none;
+
+    &::-webkit-details-marker {
+        display: none;
+    }
+
+    &__label {
+        flex-grow: 1;
+    }
+
+    &__chevron {
+        user-select: none;
+        transition-property: transform;
+        transform: rotate(0turn);
+        text-align: right;
+    }
+
+    &--open {
+        .jkl-expander__chevron {
+            transform: rotate(-0.5turn);
+            @include jkl.motion("standard", "snappy");
+        }
+    }
+
+    @media (hover: hover) {
+        .jkl-expandable &:hover {
+            background-color: var(--jkl-color-background-interactive-selected);
+        }
+    }
+}
