@@ -557,6 +557,26 @@ importers:
       '@fremtind/jkl-react-hooks': link:../react-hooks
       classnames: 2.3.2
 
+  packages/expandable:
+    specifiers:
+      '@fremtind/jkl-core': ^14.8.6
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+
+  packages/expandable-react:
+    specifiers:
+      '@fremtind/jkl-core': ^14.8.6
+      '@fremtind/jkl-expandable': ^7.1.10
+      '@fremtind/jkl-icons-react': ^9.1.18
+      '@fremtind/jkl-react-hooks': ^12.2.10
+      classnames: ^2.3.2
+    dependencies:
+      '@fremtind/jkl-core': link:../core
+      '@fremtind/jkl-expandable': link:../expandable
+      '@fremtind/jkl-icons-react': link:../icons-react
+      '@fremtind/jkl-react-hooks': link:../react-hooks
+      classnames: 2.5.1
+
   packages/feedback:
     specifiers:
       '@fremtind/jkl-core': ^14.8.6

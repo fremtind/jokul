@@ -30,6 +30,10 @@ export interface ExpandButtonProps extends WithChildren {
     hideLabel?: boolean;
 }
 
+/**
+ * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
+ * Bruk heller komponenten `Expander`.
+ */
 export const ExpandButton = React.forwardRef(
     (
         {
