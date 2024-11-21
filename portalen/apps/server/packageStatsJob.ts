@@ -62,7 +62,7 @@ export const packageStatsJob = (payload: cms.Payload) =>
                             data: {
                                 ...(await getPackageStats(packageName)),
                                 title,
-                                componentId: id,
+                                componentId: `${id}`,
                             },
                         });
                         console.log(`Created stats for package ${packageName}`);
@@ -78,7 +78,7 @@ export const packageStatsJob = (payload: cms.Payload) =>
                                 data: {
                                     ...(await getPackageStats(packageName)),
                                     title,
-                                    componentId: id,
+                                    componentId: `${id}`,
                                 },
                             };
                             await payload.update(update);

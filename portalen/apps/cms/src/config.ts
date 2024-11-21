@@ -18,12 +18,12 @@ import Patterns from "./collections/Patterns";
 import { SubMenus } from "./collections/SubMenus";
 import Users from "./collections/Users";
 import { GlobalSearch } from "./components/global-search/GlobalSearch";
-import getMongooseAdapter from "./dbAdapter";
 import { AllContentBlocks } from "./globals/AllBlocks";
 import { AllBlocks } from "./globals/AllContentBlocks";
 import { AllSections } from "./globals/AllSections";
 import { HomePage } from "./globals/HomePage";
 import { MainMenu } from "./globals/MainMenu";
+import getPostgresAdapter from "./postgresAdapter";
 import { seedComponentPages, seedUsers } from "./seed/index";
 
 const config = buildConfig({
@@ -64,7 +64,7 @@ const config = buildConfig({
         }
     },
     editor: slateEditor({}),
-    db: getMongooseAdapter(),
+    db: getPostgresAdapter(),
 });
 
 export default config;
