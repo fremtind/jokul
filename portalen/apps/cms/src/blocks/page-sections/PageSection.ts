@@ -2,7 +2,7 @@ import { allContentBlocks } from "../content-blocks";
 import { createPageSectionBlock } from "./createPageSectionBlock";
 
 export const PageSection = createPageSectionBlock({
-    slug: "page-section",
+    slug: "page-s",
     labels: {
         singular: "Generell sideseksjon",
         plural: "Generelle sideseksjoner",

@@ -3,7 +3,7 @@ import { Block, Field } from "payload/types";
 export const showcaseFields: Field[] = [
     {
         type: "array",
-        name: "showcaseItem",
+        name: "sci",
         labels: {
             singular: "Eksempel",
             plural: "Eksempler",
@@ -60,7 +60,7 @@ export const showcaseFields: Field[] = [
 ];
 
 export const ShowcaseBlock: Block = {
-    slug: "showcase",
+    slug: "sc",
     imageURL: "/media/mediashowcase.webp",
     fields: showcaseFields,
 };

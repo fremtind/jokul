@@ -4,7 +4,7 @@ import { createPageSectionBlock } from "./createPageSectionBlock";
 
 export const LiveDemoSection: Block = createPageSectionBlock({
     ...LiveDemoBlock,
-    slug: "live-demo-section",
+    slug: "lds",
     defaultHeading: "Live demo",
     imageURL: "/media/mediakodeeksempel.webp",
 });

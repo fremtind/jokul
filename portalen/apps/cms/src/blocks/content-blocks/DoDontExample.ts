@@ -2,7 +2,7 @@ import { type Block } from "payload/types";
 import prettierFormat from "../../hooks/prettierFormat";
 
 export const DoDontExample: Block = {
-    slug: "dodont-example",
+    slug: "dd-ex",
     labels: {
         singular: "Do/Don't-eksempel",
         plural: "Do/Don't-eksempler",

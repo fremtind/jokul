@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 export const TokensTable: Block = {
-    slug: "tokens-table",
+    slug: "tkns-t",
     fields: [
         {
             name: "rows",

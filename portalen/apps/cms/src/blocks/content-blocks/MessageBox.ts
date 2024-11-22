@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 export const MessageBox: Block = {
-    slug: "message-box",
+    slug: "msg-b",
     imageURL: "/media/mediamessagebox.webp",
     fields: [
         {

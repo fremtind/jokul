@@ -3,7 +3,7 @@ import { showcaseFields } from "../content-blocks/ShowcaseBlock";
 import { createPageSectionBlock } from "./createPageSectionBlock";
 
 export const ShowcaseSection: Block = createPageSectionBlock({
-    slug: "showcase-section",
+    slug: "sc-s",
     fields: showcaseFields,
     defaultHeading: "Showcase",
     labels: {
