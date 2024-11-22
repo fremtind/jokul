@@ -55,6 +55,8 @@ export const ExpandablePanel = Object.assign(
                      * the element is open *before* the transition starts */
                     as === "details" ? isOpen || contentIsVisible : undefined
                 }
+                /* this attribute is used for styling purposes */
+                data-visible-content={isOpen || contentIsVisible}
                 {...rest}
             >
                 <ExpanderContext.Provider

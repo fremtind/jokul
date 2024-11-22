@@ -17,6 +17,10 @@
         height: 0;
     }
 
+    &[data-visible-content="true"] .jkl-expander {
+        border-bottom: 1px solid transparent;
+    }
+
     &__content-wrapper {
         padding: jkl.rem(16px);
     }
