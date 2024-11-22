@@ -2,7 +2,7 @@ import { Block } from "payload/types";
 import { createPageSectionBlock } from "./createPageSectionBlock";
 
 export const FigmaExampleSection: Block = createPageSectionBlock({
-    slug: "figma-example-section",
+    slug: "fga-ex-s",
     defaultHeading: "Figma-eksempler",
     labels: {
         singular: "Figma-eksempel",

@@ -23,10 +23,10 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                             {
                                 id: "640f358e3eeaf1650d49dc29",
                                 blockName: "Intro",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
-                                showcaseItem: [
+                                sci: [
                                     {
                                         title: "Dekningsvelger",
                                         src: "https://player.vimeo.com/video/504726780",
@@ -38,12 +38,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "640f357e3eeaf1650d49dc27",
                                 blockName: "Showcase",
-                                blockType: "showcase",
+                                blockType: "sc",
                             },
                         ],
                         id: "640f35763eeaf1650d49dc26",
                         blockName: "Showcase",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Figmaeksempler",
@@ -56,7 +56,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                         ],
                         id: "640f371f3eeaf1650d49dc2a",
                         blockName: "Figmaeksempler",
-                        blockType: "figma-example-section",
+                        blockType: "fga-ex-s",
                     },
                 ],
                 id: "640f34a33eeaf1650d49dc1e",
@@ -80,12 +80,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "640f37ba3eeaf1650d49dc2f",
                                 blockName: "Prinsipper",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "640f37a33eeaf1650d49dc2e",
                         blockName: "Prinsipper",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Plassering",
@@ -102,12 +102,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64118b4b58d19ba916ba105f",
                                 blockName: "Intro",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "64118b4158d19ba916ba105e",
                         blockName: "Plassering",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Når skal du bruke radio buttons?",
@@ -135,7 +135,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64118c0658d19ba916ba1064",
                                 blockName: "Ikke alene",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                             {
                                 doDontItem: [
@@ -160,7 +160,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64118cd658d19ba916ba1067",
                                 blockName: "Ikke ved flervalg",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                             {
                                 content: [
@@ -171,7 +171,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64118d1958d19ba916ba106a",
                                 blockName: "Antall valg",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
                                 doDontItem: [
@@ -196,7 +196,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64118d2558d19ba916ba106b",
                                 blockName: "Mange valg",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                             {
                                 content: [
@@ -207,7 +207,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64118d5158d19ba916ba106e",
                                 blockName: "Layout",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
                                 doDontItem: [
@@ -232,7 +232,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64118d5c58d19ba916ba106f",
                                 blockName: "Vertikal",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                             {
                                 content: [
@@ -243,7 +243,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64118d9258d19ba916ba1072",
                                 blockName: "Bryter",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
                                 doDontItem: [
@@ -268,12 +268,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64118d9d58d19ba916ba1073",
                                 blockName: "Switch",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                         ],
                         id: "64118bee58d19ba916ba1062",
                         blockName: "Når skal du bruke",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                 ],
                 id: "640f379b3eeaf1650d49dc2d",
@@ -372,12 +372,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64118f7f58d19ba916ba107a",
                                 blockName: "Quick tips",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "64118f6f58d19ba916ba1079",
                         blockName: "Intro",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Overskrift",
@@ -404,12 +404,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "6411902b58d19ba916ba107c",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                         ],
                         id: "6411901758d19ba916ba107b",
                         blockName: "Overskrift",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Valg",
@@ -436,12 +436,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "6411907658d19ba916ba1083",
                                 blockName: "Valg",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                         ],
                         id: "6411905658d19ba916ba107f",
                         blockName: "Valg",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Hjelpetekst",
@@ -469,12 +469,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "6411909e58d19ba916ba1086",
                                 blockName: "Hjelp",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                         ],
                         id: "6411906358d19ba916ba1081",
                         blockName: "Hjelpetekst",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Feilmelding",
@@ -501,12 +501,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "641190c858d19ba916ba1089",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                         ],
                         id: "6411906b58d19ba916ba1082",
                         blockName: "Feilmelding",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                 ],
                 id: "64118ddf58d19ba916ba1076",
@@ -567,12 +567,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "6411921f58d19ba916ba108d",
                                 blockName: "Komposisjon",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "6411920858d19ba916ba108c",
                         blockName: "Oppbygging",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Grunnverdier",
@@ -581,12 +581,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 content: [{ children: [{ text: "TBD" }] }],
                                 id: "6411925b58d19ba916ba108f",
                                 blockName: "Tokens",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "6411925158d19ba916ba108e",
                         blockName: "Grunnverdier",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Relaterte komponenter og mønstre",
@@ -776,15 +776,14 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                                                                     content:
                                                                                         [
                                                                                             {
-                                                                                                showcaseItem:
-                                                                                                    [
-                                                                                                        {
-                                                                                                            title: "Dekningsvelger",
-                                                                                                            src: "https://player.vimeo.com/video/504726780",
-                                                                                                            origin: "PM Øvrig",
-                                                                                                            id: "64119acacffdca2cf5b3b298",
-                                                                                                        },
-                                                                                                    ],
+                                                                                                sci: [
+                                                                                                    {
+                                                                                                        title: "Dekningsvelger",
+                                                                                                        src: "https://player.vimeo.com/video/504726780",
+                                                                                                        origin: "PM Øvrig",
+                                                                                                        id: "64119acacffdca2cf5b3b298",
+                                                                                                    },
+                                                                                                ],
                                                                                                 id: "64119ac6cffdca2cf5b3b297",
                                                                                                 blockName:
                                                                                                     "Showcase",
@@ -1157,15 +1156,14 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                                                                                                                                     content:
                                                                                                                                                         [
                                                                                                                                                             {
-                                                                                                                                                                showcaseItem:
-                                                                                                                                                                    [
-                                                                                                                                                                        {
-                                                                                                                                                                            title: "Dekningsvelger",
-                                                                                                                                                                            src: "https://player.vimeo.com/video/504726780",
-                                                                                                                                                                            origin: "PM Øvrig",
-                                                                                                                                                                            id: "64132794c6f529b954ae075b",
-                                                                                                                                                                        },
-                                                                                                                                                                    ],
+                                                                                                                                                                sci: [
+                                                                                                                                                                    {
+                                                                                                                                                                        title: "Dekningsvelger",
+                                                                                                                                                                        src: "https://player.vimeo.com/video/504726780",
+                                                                                                                                                                        origin: "PM Øvrig",
+                                                                                                                                                                        id: "64132794c6f529b954ae075b",
+                                                                                                                                                                    },
+                                                                                                                                                                ],
                                                                                                                                                                 id: "64132792c6f529b954ae075a",
                                                                                                                                                                 blockType:
                                                                                                                                                                     "showcase",
@@ -2296,15 +2294,14 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                                                                                                                                     content:
                                                                                                                                                         [
                                                                                                                                                             {
-                                                                                                                                                                showcaseItem:
-                                                                                                                                                                    [
-                                                                                                                                                                        {
-                                                                                                                                                                            title: "Dekningsvelger",
-                                                                                                                                                                            src: "https://player.vimeo.com/video/504726780",
-                                                                                                                                                                            origin: "PM Øvrig",
-                                                                                                                                                                            id: "64132794c6f529b954ae075b",
-                                                                                                                                                                        },
-                                                                                                                                                                    ],
+                                                                                                                                                                sci: [
+                                                                                                                                                                    {
+                                                                                                                                                                        title: "Dekningsvelger",
+                                                                                                                                                                        src: "https://player.vimeo.com/video/504726780",
+                                                                                                                                                                        origin: "PM Øvrig",
+                                                                                                                                                                        id: "64132794c6f529b954ae075b",
+                                                                                                                                                                    },
+                                                                                                                                                                ],
                                                                                                                                                                 id: "64132792c6f529b954ae075a",
                                                                                                                                                                 blockType:
                                                                                                                                                                     "showcase",
@@ -3693,12 +3690,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "6411933858d19ba916ba1091",
                                 blockName: "Relaterte",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "6411932e58d19ba916ba1090",
                         blockName: "Relaterte komponenter og mønstre",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                 ],
                 id: "64118e0f58d19ba916ba1077",
@@ -3743,7 +3740,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                             },
                         ],
                         id: "64257fd99f75ab4232823355",
-                        blockType: "package-report-section",
+                        blockType: "pkg-rs",
                     },
                     {
                         title: "Hvordan bruke i skjemaer",
@@ -3760,13 +3757,13 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "641194d758d19ba916ba1099",
                                 blockName: "Uten bibliotek",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
                                 code: 'const [selectedValue, setSelectedValue] = useState("email");\n\nreturn (\n  <RadioButtonGroup\n    legend="Hvordan vil du bli kontaktet?"\n    name="kontaktmetode"\n    value={selectedValue}\n  >\n    <RadioButton value="email" onChange={() => setSelectedValue("email")}>\n      E-post\n    </RadioButton>\n    <RadioButton value="phone" onChange={() => setSelectedValue("phone")}>\n      Telefon\n    </RadioButton>\n  </RadioButtonGroup>\n);',
                                 language: "tsx",
                                 id: "642423ecff56632507dee6cf",
-                                blockType: "code-snippet",
+                                blockType: "code-s",
                             },
                             {
                                 content: [
@@ -3786,18 +3783,18 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "6411957558d19ba916ba109b",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
                                 code: '<RadioButtonGroup legend="Hvilken dekning ønsker du?">\n  <RadioButton {...register("coverage", { required: true })} label="Delkasko" value="del" />\n  <RadioButton {...register("coverage", { required: true })} label="Fullkasko" value="full" />\n</RadioButtonGroup>',
                                 language: "tsx",
                                 id: "64242408ff56632507dee6d0",
-                                blockType: "code-snippet",
+                                blockType: "code-s",
                             },
                         ],
                         id: "641194cd58d19ba916ba1098",
                         blockName: "Skjema",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Uten forhåndsvalg",
@@ -3816,18 +3813,18 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "6411959758d19ba916ba109d",
                                 blockName: "Intro",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
                                 code: 'const [selectedValue, setSelectedValue] = useState("");\n\nreturn (\n  <RadioButtonGroup\n    legend="Hvordan vil du bli kontaktet?"\n    name="kontaktmetode"\n    value={selectedValue}\n  >\n    <RadioButton value="email" onChange={() => setSelectedValue("email")}>\n      E-post\n    </RadioButton>\n    <RadioButton value="phone" onChange={() => setSelectedValue("phone")}>\n      Telefon\n    </RadioButton>\n  </RadioButtonGroup>\n);',
                                 language: "tsx",
                                 id: "6424241aff56632507dee6d1",
-                                blockType: "code-snippet",
+                                blockType: "code-s",
                             },
                         ],
                         id: "6411958e58d19ba916ba109c",
                         blockName: "Uten forhåndsvalg",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Skjul label visuelt",
@@ -3849,18 +3846,18 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "641195e058d19ba916ba109f",
                                 blockName: "Intro",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
                                 code: '<RadioButtonGroup\n  legend="Hvilken dekning ønsker du?"\n  labelProps={{ srOnly: true }}\n>\n  <RadioButton {...register("coverage", { required: true })} label="Delkasko" value="del" />\n  <RadioButton {...register("coverage", { required: true })} label="Fullkasko" value="full" />\n</RadioButtonGroup>',
                                 language: "tsx",
                                 id: "64242426ff56632507dee6d2",
-                                blockType: "code-snippet",
+                                blockType: "code-s",
                             },
                         ],
                         id: "641195d958d19ba916ba109e",
                         blockName: "Skjul label visuelt",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Frittstående radioknapper",
@@ -3894,18 +3891,18 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "6411960958d19ba916ba10a1",
                                 blockName: "Intro",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
                                 code: 'const [value, setValue] = useState("toppkasko");\n\nreturn (\n  <fieldset>\n    <legend className="jkl-sr-only">Velg forsikring</legend>\n    <TaskCard>\n      <BaseRadioButton\n        name="dekning"\n        value="toppkasko"\n        checked={value === "toppkasko"}\n        onChange={() => setValue("toppkasko")}\n      >\n        <p className="jkl-heading-3">Toppkasko</p>\n      </BaseRadioButton>\n      {/* Skjema for toppkasko */}\n    </TaskCard>\n    <TaskCard>\n      <BaseRadioButton\n        name="dekning"\n        value="kasko"\n        checked={value === "kasko"}\n        onChange={() => setValue("kasko")}\n      >\n        <p className="jkl-heading-3">Kasko</p>\n      </BaseRadioButton>\n      {/* Skjema for kasko */}\n    </TaskCard>\n    <TaskCard>\n      <BaseRadioButton\n        name="dekning"\n        value="minikasko"\n        checked={value === "minikasko"}\n        onChange={() => setValue("minikasko")}\n      >\n        <p className="jkl-heading-3">Minikasko</p>\n      </BaseRadioButton>\n      {/* Skjema for minikasko */}\n    </TaskCard>\n    <TaskCard>\n      <BaseRadioButton\n        name="dekning"\n        value="ansvar"\n        checked={value === "ansvar"}\n        onChange={() => setValue("ansvar")}\n      >\n        <p className="jkl-heading-3">Ansvar</p>\n      </BaseRadioButton>\n      {/* Skjema for ansvar */}\n    </TaskCard>\n  </fieldset>',
                                 language: "tsx",
                                 id: "64242433ff56632507dee6d3",
-                                blockType: "code-snippet",
+                                blockType: "code-s",
                             },
                         ],
                         id: "6411960158d19ba916ba10a0",
                         blockName: "Frittstående",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                 ],
                 id: "64118e1858d19ba916ba1078",
@@ -3943,7 +3940,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                         title: "Showcase",
                         content: [
                             {
-                                showcaseItem: [
+                                sci: [
                                     {
                                         title: "Dekningsvelger",
                                         src: "https://player.vimeo.com/video/504726780",
@@ -3953,12 +3950,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64119ac6cffdca2cf5b3b297",
                                 blockName: "Showcase",
-                                blockType: "showcase",
+                                blockType: "sc",
                             },
                         ],
                         id: "64118ca5cffdca2cf5b3b27d",
                         blockName: "Showcase",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Figmaeksempler",
@@ -3971,7 +3968,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                         ],
                         id: "64118cbbcffdca2cf5b3b27e",
                         blockName: "Figmaeksempler",
-                        blockType: "figma-example-section",
+                        blockType: "fga-ex-s",
                     },
                 ],
                 id: "64118c26cffdca2cf5b3b279",
@@ -4015,12 +4012,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64119c28cffdca2cf5b3b29b",
                                 blockName: "Prinsipper",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "64118ce1cffdca2cf5b3b280",
                         blockName: "Prinsipper",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Plassering",
@@ -4037,7 +4034,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                 ],
                                 id: "64119c94cffdca2cf5b3b29c",
                                 blockName: "Plassering",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
                                 doDontItem: [
@@ -4060,12 +4057,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "6411a2afcffdca2cf5b3b2a0",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                         ],
                         id: "64118ce8cffdca2cf5b3b281",
                         blockName: "Plassering",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Når skal du bruke TextInput",
@@ -4232,15 +4229,14 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                                                         content:
                                                                             [
                                                                                 {
-                                                                                    showcaseItem:
-                                                                                        [
-                                                                                            {
-                                                                                                title: "Dekningsvelger",
-                                                                                                src: "https://player.vimeo.com/video/504726780",
-                                                                                                origin: "PM Øvrig",
-                                                                                                id: "64132794c6f529b954ae075b",
-                                                                                            },
-                                                                                        ],
+                                                                                    sci: [
+                                                                                        {
+                                                                                            title: "Dekningsvelger",
+                                                                                            src: "https://player.vimeo.com/video/504726780",
+                                                                                            origin: "PM Øvrig",
+                                                                                            id: "64132794c6f529b954ae075b",
+                                                                                        },
+                                                                                    ],
                                                                                     id: "64132792c6f529b954ae075a",
                                                                                     blockType:
                                                                                         "showcase",
@@ -4613,15 +4609,14 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                                                                                                                         content:
                                                                                                                                             [
                                                                                                                                                 {
-                                                                                                                                                    showcaseItem:
-                                                                                                                                                        [
-                                                                                                                                                            {
-                                                                                                                                                                title: "Dekningsvelger",
-                                                                                                                                                                src: "https://player.vimeo.com/video/504726780",
-                                                                                                                                                                origin: "PM Øvrig",
-                                                                                                                                                                id: "64119acacffdca2cf5b3b298",
-                                                                                                                                                            },
-                                                                                                                                                        ],
+                                                                                                                                                    sci: [
+                                                                                                                                                        {
+                                                                                                                                                            title: "Dekningsvelger",
+                                                                                                                                                            src: "https://player.vimeo.com/video/504726780",
+                                                                                                                                                            origin: "PM Øvrig",
+                                                                                                                                                            id: "64119acacffdca2cf5b3b298",
+                                                                                                                                                        },
+                                                                                                                                                    ],
                                                                                                                                                     id: "64119ac6cffdca2cf5b3b297",
                                                                                                                                                     blockName:
                                                                                                                                                         "Showcase",
@@ -6337,12 +6332,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "64119d5fcffdca2cf5b3b29e",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "64118eb5cffdca2cf5b3b282",
                         blockName: "Når skal du bruke TextInput",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                 ],
                 id: "64118cd1cffdca2cf5b3b27f",
@@ -6516,15 +6511,14 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                                                         content:
                                                                             [
                                                                                 {
-                                                                                    showcaseItem:
-                                                                                        [
-                                                                                            {
-                                                                                                title: "Dekningsvelger",
-                                                                                                src: "https://player.vimeo.com/video/504726780",
-                                                                                                origin: "PM Øvrig",
-                                                                                                id: "64132794c6f529b954ae075b",
-                                                                                            },
-                                                                                        ],
+                                                                                    sci: [
+                                                                                        {
+                                                                                            title: "Dekningsvelger",
+                                                                                            src: "https://player.vimeo.com/video/504726780",
+                                                                                            origin: "PM Øvrig",
+                                                                                            id: "64132794c6f529b954ae075b",
+                                                                                        },
+                                                                                    ],
                                                                                     id: "64132792c6f529b954ae075a",
                                                                                     blockType:
                                                                                         "showcase",
@@ -6897,15 +6891,14 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                                                                                                                         content:
                                                                                                                                             [
                                                                                                                                                 {
-                                                                                                                                                    showcaseItem:
-                                                                                                                                                        [
-                                                                                                                                                            {
-                                                                                                                                                                title: "Dekningsvelger",
-                                                                                                                                                                src: "https://player.vimeo.com/video/504726780",
-                                                                                                                                                                origin: "PM Øvrig",
-                                                                                                                                                                id: "64119acacffdca2cf5b3b298",
-                                                                                                                                                            },
-                                                                                                                                                        ],
+                                                                                                                                                    sci: [
+                                                                                                                                                        {
+                                                                                                                                                            title: "Dekningsvelger",
+                                                                                                                                                            src: "https://player.vimeo.com/video/504726780",
+                                                                                                                                                            origin: "PM Øvrig",
+                                                                                                                                                            id: "64119acacffdca2cf5b3b298",
+                                                                                                                                                        },
+                                                                                                                                                    ],
                                                                                                                                                     id: "64119ac6cffdca2cf5b3b297",
                                                                                                                                                     blockName:
                                                                                                                                                         "Showcase",
@@ -8531,12 +8524,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "64119f06cffdca2cf5b3b29f",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "64118ee4cffdca2cf5b3b285",
                         blockName: "Introduksjon",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Feilmelding",
@@ -8562,12 +8555,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "6411b89196c856642e270332",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                         ],
                         id: "6411b88396c856642e270331",
                         blockName: "Feilmelding",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Hjelpetekst",
@@ -8594,12 +8587,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "6411b94896c856642e270337",
-                                blockType: "dodont-example",
+                                blockType: "dd-ex",
                             },
                         ],
                         id: "6411b93796c856642e270336",
                         blockName: "Hjelpetekst",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                 ],
                 id: "64118ed8cffdca2cf5b3b284",
@@ -8659,12 +8652,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "643660ee3aefd879c6c691ff",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "64118f0dcffdca2cf5b3b287",
                         blockName: "Oppbygging",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Grunnverdier",
@@ -8672,12 +8665,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                             {
                                 content: [{ children: [{ text: "TBD" }] }],
                                 id: "6423f28c3ea7c02cf77ad8b0",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "64118f17cffdca2cf5b3b288",
                         blockName: "Grunnverdier",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                     {
                         title: "Relaterte komponenter og mønstre🔗",
@@ -8733,12 +8726,12 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "6423f3573ea7c02cf77ad8b1",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                         ],
                         id: "64118f1dcffdca2cf5b3b289",
                         blockName: "Relaterte komponenter og mønstre🔗",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                 ],
                 id: "64118f00cffdca2cf5b3b286",
@@ -8768,7 +8761,7 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                             },
                         ],
                         id: "64243860c46f2d7d268e72db",
-                        blockType: "package-report-section",
+                        blockType: "pkg-rs",
                     },
                     {
                         title: "Maskert input",
@@ -8791,18 +8784,18 @@ export const componentPagesSeed: Omit<Component, "id">[] = [
                                     },
                                 ],
                                 id: "642443c2c46f2d7d268e72e5",
-                                blockType: "rich-text",
+                                blockType: "rt",
                             },
                             {
                                 code: 'import { registerWithMasks } from "@fremtind/jkl-formatters-util";\nimport { useForm } from "react-hook-form";\n\nconst form = useForm<Skjema>();\nconst [formData, setFormData] = useState<Skjema>();\n\nconst {\n    registerWithFodselsnummerMask,\n    registerWithKontonummerMask,\n    registerWithKortnummerMask,\n    registerWithTelefonnummerMask,\n} = registerWithMasks(form);\n\nreturn (\n    <>\n        <form className="input-mask-example-form" onSubmit={form.handleSubmit(setFormData)}>\n            <TextInput\n                label="Telefonnummer"\n                // Husk å gi plass til mellomrommene som settes inn!\n                maxLength={11}\n                {...registerWithTelefonnummerMask("telefonnummer", {\n                    required: "Du må fylle inn telefonnummeret ditt",\n                })}\n                errorLabel={form.formState.errors.telefonnummer?.message}\n            />\n            <TextInput\n                label="Fødselsnummer"\n                maxLength={12}\n                {...registerWithFodselsnummerMask("fodselsnummer")}\n            />\n            <TextInput label="Kortnummer" maxLength={19} {...registerWithKortnummerMask("kortnummer")} />\n            <TextInput label="Kontonummer" maxLength={13} {...registerWithKontonummerMask("kontonummer")} />\n            <PrimaryButton type="submit">Send inn</PrimaryButton>\n        </form>\n        {formData && (\n            <>\n                <p className="jkl-heading-1 jkl-spacing-2xl--top">Innsendt data:</p>\n                <DescriptionList className="jkl-body jkl-spacing-l--top">\n                    {Object.entries(formData).map(([field, value]) => (\n                        <>\n                            <DescriptionTerm>{field}:</DescriptionTerm>\n                            <DescriptionDetail>{value}</DescriptionDetail>\n                        </>\n                    ))}\n                </DescriptionList>\n            </>\n        )}\n    </>\n);',
                                 language: "tsx",
                                 id: "64244371c46f2d7d268e72e4",
-                                blockType: "code-snippet",
+                                blockType: "code-s",
                             },
                         ],
                         id: "64244367c46f2d7d268e72e3",
                         blockName: "Maskert input",
-                        blockType: "page-section",
+                        blockType: "page-s",
                     },
                 ],
                 id: "64118f38cffdca2cf5b3b28b",

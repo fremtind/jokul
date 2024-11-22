@@ -2,7 +2,7 @@ import { Block } from "payload/types";
 import { linkCardFields } from "../content-blocks/LinkCardList";
 
 export const VideoCTA: Block = {
-    slug: "video-cta",
+    slug: "v-cta",
     labels: {
         singular: "Video med lenkekort",
         plural: "Videoer med lenkekort",

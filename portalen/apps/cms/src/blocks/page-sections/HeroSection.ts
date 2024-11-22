@@ -3,7 +3,7 @@ import { Block } from "payload/types";
 import { link } from "../../fields/link";
 
 export const HeroSection: Block = {
-    slug: "hero-section",
+    slug: "hs",
     labels: {
         singular: "Hero",
         plural: "Hero-seksjoner",

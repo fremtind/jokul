@@ -2,7 +2,7 @@ import { slateEditor } from "@payloadcms/richtext-slate";
 import { type Block } from "payload/types";
 
 export const RichTextBlock: Block = {
-    slug: "rich-text",
+    slug: "rt",
     labels: {
         singular: "Rikt tekstinnhold",
         plural: "Rikt tekstinnhold",

@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 export const ColorCard: Block = {
-    slug: "color-card",
+    slug: "color-c",
     imageURL: "/media/mediacolorcard.webp",
     fields: [
         {

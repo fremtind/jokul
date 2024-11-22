@@ -24,7 +24,7 @@ const fetchContent: FieldHook = async ({ req }) => {
     });
 };
 export const PackageStats: Block = {
-    slug: "package-stats-section",
+    slug: "pkg-ss",
     imageURL: "/media/mediapackagestats.webp",
     fields: [
         {

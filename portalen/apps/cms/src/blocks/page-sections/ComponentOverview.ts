@@ -2,7 +2,7 @@ import { Block } from "payload/types";
 import { Component } from "../../types";
 
 export const ComponentOverview: Block = {
-    slug: "component-overview",
+    slug: "cmp-o",
     imageURL: "/media/mediakomponentoversikt.webp",
     fields: [
         {

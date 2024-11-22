@@ -11,6 +11,7 @@ import { pageMeta } from "../fields/meta";
 
 type TopicCreatorProps = {
     slug: string;
+    dbName?: string;
     overrides?: Partial<Omit<CollectionConfig, "slug" | "fields">>;
     customFields?: {
         heading?: string;
@@ -20,6 +21,7 @@ type TopicCreatorProps = {
 
 export const createTopicCollection = ({
     slug,
+    dbName,
     customFields,
     overrides,
 }: TopicCreatorProps): CollectionConfig => {
@@ -34,6 +36,7 @@ export const createTopicCollection = ({
 
     return {
         slug: slug,
+        dbName: dbName,
         admin: {
             group: "Innholdssider",
             useAsTitle: "title",
