@@ -13,7 +13,7 @@ Basert på [Payloads mal for Payload CMS + Remix](https://github.com/payloadcms/
 Som utvikler for Jøkul Portal trenger du:
 
 -   [Node LTS](https://nodejs.org/en/)
--   [MongoDB Community Server](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/#install-mongodb-community-edition) (eller [via Docker](https://www.mongodb.com/compatibility/docker)).
+-   [Postgresql](https://www.postgresql.org/download/) (eller [via Docker](https://hub.docker.com/_/postgres) eller [Homebrew](https://formulae.brew.sh/formula/postgresql@14#default)).
 
 Prosjektet bruker `pnpm`, som du kan installere via [`corepack`](https://nodejs.org/dist/latest/docs/api/corepack.html).
 
@@ -35,7 +35,22 @@ cd jkl-portal
 
 ## Setup
 
-Start MongoDB om den ikke kjører.
+### Oppsett av PostgreSQL lokalt
+
+Du kan starte PostgreSQL lokalt på flere måter:
+
+#### Docker
+
+```sh
+docker run --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+```
+
+#### Homebrew (macOS)
+
+```sh
+brew install postgresql@14
+brew services start postgresql
+```
 
 -   Lag en `.env`-fil i `apps/server/` basert på `.env.example`.
 -   Kjør `pnpm install`.
@@ -105,7 +120,7 @@ Jøkul-portalens infrastruktur består kort fortalt av:
 -   [AWS Elastic Container Service](https://aws.amazon.com/ecs/) for å kjøre Docker containere.
 -   [AWS Elastic Load Balancer](https://aws.amazon.com/elasticloadbalancing/) som inngangsport fra internet til kjørende Docker containers.
 -   [AWS Route 53](https://aws.amazon.com/route53/) som DNS for besøkende fra internet.
--   [AWS DocumentDB](https://aws.amazon.com/documentdb/) som database for CMSet.
+-   [AWS RDS](https://aws.amazon.com/rds/) som database for CMSet.
 -   [AWS Elastic File System](https://aws.amazon.com/efs/) til lagring av bilder og filer fra CMSet.
 -   [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) for miljøvariabler.
 
@@ -315,12 +330,12 @@ Gjenta prosessen for disse tjenestene:
 -   `com.amazonaws.eu-west-1.logs`
 -   `com.amazonaws.eu-west-1.s3` (Gateway, velg route table for clusteret. Fikser [cannotpullcontainererror](https://aws.amazon.com/premiumsupport/knowledge-center/ecs-fargate-pull-container-error/))
 
-##### DocumentDB
+##### RDS
 
-Sett opp en ny Amazon DocumentDB Instance Based Cluster.
+Sett opp en ny Amazon RDS Instance Based Cluster.
 
--   Name: `jkl-portal-ddb`
--   Engine: 4.0.0
+-   Name: `jkl-portal-rds`
+-   Engine: PostgreSQL
 -   Instance class: `db.t3.medium` (eller hva enn som er billigst)
 -   Number of instances: 1
 -   Master username: `jokul`
@@ -330,7 +345,7 @@ Om du får valget om å lage en ny security group, gjør dette og gi den et gjen
 
 Du vil få et eksempel på en connection string og en kommando for å laste ned en PEM-fil. PEM-fila lastes ned ved bygg av Docker-image, så den trenger du ikke tenke på.
 
-Eksempel på connection string: `mongodb://jokul:<ditt passord>@jkl-portal-ddb.cluster-cabosnhft73t.eu-west-1.docdb.amazonaws.com:27017`
+Eksempel på connection string: `postgresql://jokul:<ditt passord>@jkl-portal-rds.cluster-cabosnhft73t.eu-west-1.rds.amazonaws.com:5432`
 
 Kopier denne stringen og ta vare på den et lurt sted inntil videre.
 
@@ -342,7 +357,7 @@ Settes i [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/syste
 | --------------------- | -------------------------------- | -------------------------------------------------- |
 | `MIXPANEL_PROJECT_ID` | `/jkl-portal/frontend/mixpanel`  | Kan lagres som plaintext.                          |
 | `PAYLOADCMS_SECRET`   | `/jkl-portal/prm/session-secret` | Minst 32 tegn lang passordstring som SecretString. |
-| `MONGODB_URL`         | `/jkl-portal/prm/mongodb-url`    | Secret. Inneholder master password fra DocumentDB. |
+| `POSTGRESQL_URL`      | `/jkl-portal/prm/postgresql-url` | Secret. Inneholder master password fra RDS.        |
 
 ##### ALB
 
@@ -459,10 +474,7 @@ I tillegg må vi ha [disse IAM permissions](https://docs.aws.amazon.com/AmazonEC
         {
             "Effect": "Allow",
             "Action": ["ssm:GetParameters", "secretsmanager:GetSecretValue", "kms:Decrypt"],
-            "Resource": [
-                "arn:aws:ssm:eu-west-1:<kontoid>:parameter/*jkl-portal*",
-                "arn:aws:secretsmanager:eu-west-1:<kontoid>:secret:*jkl-portal*"
-            ]
+            "Resource": ["arn:aws:ssm:eu-west-1:<kontoid>:parameter/*jkl-portal*", "arn:aws:secretsmanager:eu-west-1:<kontoid>:secret:*jkl-portal*"]
         }
     ]
 }
@@ -474,7 +486,7 @@ Miljøvariabler defineres enten i [AWS Secrets Manager](https://docs.aws.amazon.
 
 Se `docker-compose.yml` eller [Miljøvariabler](#miljøvariabler) for en oversikt over hvilke miljøvariabler som må settes. Andre deler av denne READMEen beskriver innholdet i de ulike variablene.
 
-Definer dem som `ValueFrom`, og bruk for eksempel `arn:aws:ssm:eu-west-1:197434302239:parameter/jkl-portal/prm/mongodb-url` osv som verdi.
+Definer dem som `ValueFrom`, og bruk for eksempel `arn:aws:ssm:eu-west-1:197434302239:parameter/jkl-portal/prm/postgresql-url` osv som verdi.
 
 **NB!** Om du får en feilmelding om `executionRoleArn`, trykk på _Configure as JSON_ og erstatt `"executionRoleArn": null,` med `"executionRoleArn": "arn:aws:iam::<kontoid>:role/ecsTaskExecutionRole",`.
 
