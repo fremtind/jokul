@@ -81,6 +81,10 @@
     }
 
     &--open {
+        .jkl-expander__label {
+            @include jkl.no-grow-bold;
+        }
+
         .jkl-expander__chevron {
             transform: rotate(-0.5turn);
             @include jkl.motion("standard", "snappy");
