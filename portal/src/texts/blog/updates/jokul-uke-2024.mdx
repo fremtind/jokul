@@ -1,0 +1,84 @@
+---
+title: Jøkuluka 2024
+author: Jøkul-teamet
+publishDate: "2024.11.25"
+---
+
+6-8. november var det endelig duket for årets Jøkuluke!
+I forkant hadde vi en felles idemyldring på hvilke temaer man ønsket å jobbe med.
+
+Vi samlet oss i sola på Tinden og hadde tre effetive arbeidsdager, ispedt bollepauser, LEGO-bygging og standups. Fredagen ble avsluttet med presentasjoner og pizza.
+
+<div style={{ fontSize: "2em", lineHeight: 0.4, paddingTop: 16 }}>
+    5 oppgaver
+    <br />
+    12 boller
+    <br />
+    1 brannalarm
+    <br />
+    X l kaffe
+    <br />
+    1 sofavipp
+    <br />
+</div>
+
+![](/assets/blog/updates/jokul-uke-2024/IMG_2412.jpg)
+
+Dette jobbet vi med:
+
+## Dekningsvelger
+
+Joachim, Mona og Audun
+
+Er det mulig å finne et felles mønster for dekningsvelger på tvers av produkt og team? Hvordan legger man tilrette ulike behov som ekspresspris, sammenligning, rabatter og anbefalinger? Med en representant fra BM og to fra PM (skade og person) ble dette en prima gruppe for å finne fellesnevnere og ulikheter. Behovene er kartlagt og konseptskisser ble testet på ulike produkter.
+
+![](/assets/blog/updates/jokul-uke-2024/coverage.png)
+
+## Feedbackmodul
+
+Kristine, Barbro, Martine, Dusan
+
+Hvordan kan vi bruke feedbackmodul til å få relevant innsikt på riktig sted? Denne gjengen så på ulike behov for tilbakemeldinger og knyttet det opp mot prinsipper for bruk. Det ble utformet eksempler på tekst og flyt som tydeliggjør at tilbakemeldingen går til utviklingsteamet og ikke til rådgiver. Grepene som er brukt kan muligens gjøre at man mister litt av mengden tilbakemeldinger, men til gjengjeld er de forhåpentligvis mer relevante og brukanes!
+
+Dagens kompliserte feedback-komponent blir deprecated - og erstattet med prinsipper og eksempler i Jøkulportalen. Mulig det blir lagd en enkel komponent eller template man kan bruke som et startpunkt. Ved å unngå en ferdig tilbakemeldings-modul som enkelt kan settes inn på siden, men i stedet kreve at den tilpasses manuelt, oppfordrer vi til mer refleksjon rundt hvilke tilbakemeldinger man faktisk ønsker å innhente.
+
+![](/assets/blog/updates/jokul-uke-2024/fb.png)
+
+## Accordion / expand button
+
+Kjetil, Maria, Ivar, Heidi
+
+Oppgaven startet med et behov for å differensiere det visuelle uttrykket til Accordion og Linklist, og endte opp med å bli en sammenslåing av Accordion og Expand button. To komponenter med lik funksjonalitet ble tilpasset til én som kan brukes alene eller i gruppe, samt inni andre komponenter: Si hei til “Expandable panel”!
+Den finnes i fill og stroke, som gjør den fleksibel i bruk, og har en prop for leading icon til eksempelvis dekningslister.
+Expandable panel gir et lite løft til de triste og enslige accordionlinjene der ute - og er på vei inn i systemet som komponent som forhåpentligvis forenkler og dekker flere behov.
+
+![](/assets/blog/updates/jokul-uke-2024/expandable.png)
+
+## Kjips
+
+Ivana, Kari, Christopher, Kristian, Jonas
+
+En etterlengtet liten knapp er nå rett rundt hjørnet takket være denne gjengen. Chips brukes til å filtrere innhold, eller representere input fra bruker. Det har vært et uttalt behov fra de som jobber med saksbehandlingsverktøy, og en gevinst for andre løsninger hvor vi i dag bruker tabs og tags i mangel på filter-komponent.
+
+Gruppa har også sett på knappene våre som en helhet og gjort grep for å skille “Tag” fra “Chips”. Chips har fått full avrunding og dermed blitt en del av knappe-familien, mens tag har tatt en tydeligere statisk merkelapp-posisjon uten close-ikon.
+
+Som et ledd i å konsolidere knappene er Chip en testknapp med opacity på hoverstate, i stedet for at de vokser. Da får man en mer konsekvent hover på tvers av light- og darkmode, samt vi hopper bukk over hullene i dagens fargesystem.
+
+![](/assets/blog/updates/jokul-uke-2024/chips.png)
+
+## Optimalisering av Jøkul: Reduserte avhengigheter og bedre ytelse
+
+Simen, Kristian
+
+Forbedring av ytelse og optimalisering av avhengigheter har vært et viktig fokusområde i Jøkul-prosjektet den siste tiden. Arbeidet har ført til flere justeringer som gjør biblioteket både enklere å bruke og mer effektivt.
+
+I utgangspunktet startet oppgaven med et mål om å fjerne avhengigheten til framer-motion, et stort bibliotek som kun ble brukt i begrenset grad i prosjektet. Endringen ble gjennomført før Jøkul-uka startet og frigjorde muligheten til å utforske andre lignende forbedringer i koden. Arbeidet inspirerte til ytterligere optimaliseringer, inkludert en løsning som reduserer avhengighetene til Tooltip-funksjonaliteten.
+
+En endring ble gjort i API-ene til flere komponenter, hvor de nå tar imot selve Tooltip-komponenten i stedet for tooltipProps. Tilnærmingen gjør at avhengigheter som Floating-UI ikke blir inkludert i produksjonsbygget med mindre brukerne eksplisitt sender inn en Tooltip som prop. Dette sikrer at unødvendige avhengigheter utelates i prosjekter hvor Tooltip ikke er i bruk, noe som igjen resulterer i mindre pakkestørrelse, raskere byggetider og bedre ytelse i produksjon.
+
+Tusen takk for super innsats alle sammen!
+
+![Alle deltakerne samles for å spise boller og bygge Lego](/assets/blog/updates/jokul-uke-2024/IMG_2401.jpg)
+![Det ble holdt en felles presentasjon da vi var ferdig](/assets/blog/updates/jokul-uke-2024/IMG_2419.jpg)
+![Det var en konkurranse om å bygge det høyeste Lego-tårnet](/assets/blog/updates/jokul-uke-2024/IMG_2408.jpg)
+![Noen valgt å sitte for seg selv i "privacy"-stoler](/assets/blog/updates/jokul-uke-2024/IMG_2409.jpg)
