@@ -46,6 +46,12 @@
             border-bottom-right-radius: var(--border-radius);
         }
     }
+
+    @media (hover: hover) {
+        &:hover .jkl-expander {
+            background-color: var(--jkl-color-background-interactive-selected);
+        }
+    }
 }
 
 .jkl-expander {
@@ -92,8 +98,8 @@
     }
 
     @media (hover: hover) {
-        .jkl-expandable &:hover {
-            background-color: var(--jkl-color-background-interactive-selected);
+        &:hover {
+            background-color: var(--jkl-color-background-interactive-hover);
         }
     }
 }
