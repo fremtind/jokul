@@ -12,25 +12,11 @@ env:
     PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
     PREFIX_PATHS: true
 
-##
-# Sjekker først om det er endringer som krever grundigere test.
-# Bygger i så fall pakkene og cacher dem via Nx.
-# Bygger så portalen og en branch preview dersom det er visuelle endringer og cacher på samme måte.
-# Cachen lastes ned av jobbene testlint, cypress.
-# Førstnevnte kjører enhetstester, ESLint, og TypeScript typesjekk.
-# N instanser av cypress-jobben spinner opp og kjører deler av testene fordelt mellom seg.
-# Om en jobb har nye snapshots lastes disse opp som en artifact.
-# Til slutt sjekker en jobb om nye snapshots har blitt generert av en eller
-# flere av cypressjobbene. I så fall samles disse i én commit
-# som pushes til branchen som testes.
-##
-
 jobs:
     build:
         name: Sjekk for endringer og bygg pakker
         if: ${{ !contains(github.event.sender.login, 'fremtind-bot') }}
         outputs:
-            visual: ${{ steps.changes.outputs.visual }}
             preview: ${{ steps.changes.outputs.preview }}
             testlint: ${{ steps.changes.outputs.testlint }}
         runs-on: ubuntu-latest
@@ -54,16 +40,13 @@ jobs:
                         - "**/*.ts"
                         - "**/*.tsx"
                         - "pnpm-lock.yaml"
-                      visual:
-                        - "cypress/**"
-                        - "packages/**/*.spec.js"
+                      preview:
                         - "packages/**/*.scss"
                         - "packages/core/**/!(*.d|*.test).ts"
                         - "packages/core/**/!(*.test).tsx"
                         - "packages/*-react/**/!(*.d|*.test).ts"
                         - "packages/*-react/**/!(*.test).tsx"
                         - "pnpm-lock.yaml"
-                      preview:
                         - "packages/**/*.mdx"
                         - "portal/src/texts/**"
 
@@ -95,7 +78,7 @@ jobs:
     preview:
         name: Publiser forhåndsvisning
         needs: [build]
-        if: github.event_name != 'merge_group' && (needs.build.outputs.visual == 'true' || needs.build.outputs.preview == 'true')
+        if: github.event_name != 'merge_group' && needs.build.outputs.preview == 'true'
         runs-on: ubuntu-latest
         permissions:
             actions: write

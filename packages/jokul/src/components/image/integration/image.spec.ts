@@ -21,5 +21,9 @@ test("renders correctly", async () => {
 
     await helper.clickElement('[data-testid="load-image-button"]');
 
-    await helper.snapshots();
+    await helper.snapshots({
+        before() {
+            return new Promise((resolve) => setTimeout(resolve, 200));
+        },
+    });
 });
