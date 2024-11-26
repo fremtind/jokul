@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from "react";
  *
  * @param onOpenChange Callback med informasjon om når elementet åpner/lukker seg.
  * @param isExpanded Styr åpning/lukking utenfra.
+ * @deprecated Bruk heller `useAnimatedHeightBetween` eller lignende på selve innholdet
  */
 export const useAnimatedDetails = ({
     onOpenChange,
