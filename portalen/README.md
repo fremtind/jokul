@@ -13,7 +13,7 @@ Basert på [Payloads mal for Payload CMS + Remix](https://github.com/payloadcms/
 Som utvikler for Jøkul Portal trenger du:
 
 -   [Node LTS](https://nodejs.org/en/)
--   [Postgresql](https://www.postgresql.org/download/) (eller [via Docker](https://hub.docker.com/_/postgres) eller [Homebrew](https://formulae.brew.sh/formula/postgresql@14#default)).
+-   [Postgresql](https://www.postgresql.org/).
 
 Prosjektet bruker `pnpm`, som du kan installere via [`corepack`](https://nodejs.org/dist/latest/docs/api/corepack.html).
 
@@ -26,34 +26,43 @@ Valgfritt, men kan være nyttig:
 -   Konto: fremtind-distlosn-ds-jkl-preprod
 -   Docker, via Self Service (spør leder om lisens for Docker Desktop) for å bygge og teste containers lokalt.
 
-Med verktøyene installert kloner du dette repoet på vanlig måte.
-
-```
-git clone https://github.com/fremtind/jkl-portal.git
-cd jkl-portal
-```
-
 ## Setup
 
-### Oppsett av PostgreSQL lokalt
+Portalen avhenger av Jøkul via `file:../packages/jokul`. Før du starter portalen, sørg for å installere og bygge Jøkul.
 
-Du kan starte PostgreSQL lokalt på flere måter:
+1. Kjør `pnpm install` og `pnpm build` på rotnivået (Jøkul).
 
-#### Docker
+### Lokalt oppsett av PostgreSQL
 
-```sh
-docker run --name postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
-```
+Følg disse trinnene for å sette opp PostgreSQL lokalt:
 
-#### Homebrew (macOS)
+#### Installer og start PostgreSQL (macOS)
+
+Bruk Homebrew til å installere PostgreSQL versjon 14 og starte tjenesten:
 
 ```sh
 brew install postgresql@14
-brew services start postgresql
+brew services start postgresql@14
 ```
 
+#### Opprett en database
+
+Koble til PostgreSQL via terminalen:
+
+```sh
+psql postgres
+```
+
+Opprett en ny database ved å kjøre følgende SQL-kommando:
+
+```sql
+CREATE DATABASE jkl_portal;
+```
+
+#### Konfigurer prosjektet
+
 -   Lag en `.env`-fil i `apps/server/` basert på `.env.example`.
--   Kjør `pnpm install`.
+-   Kjør `pnpm install` på rotnivå (portalen).
 -   Kjør `pnpm dev`.
 
 Om alt går som det skal vil devserveren være tilgjengelig på [localhost:3000](http://localhost:3000).
