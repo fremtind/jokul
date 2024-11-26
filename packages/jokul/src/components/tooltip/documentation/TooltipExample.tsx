@@ -29,7 +29,7 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     }
 
     return (
-        <p>
+        <p style={{ marginTop: 40 }}>
             Kontonummer: {formatKontonummer(kontonummer)}
             <Tooltip
                 onOpenChange={logState}

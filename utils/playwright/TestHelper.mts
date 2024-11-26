@@ -11,14 +11,19 @@ import { setupDev } from "../vite/setup-dev.mjs";
 
 export class TestHelper {
     private server?: ViteDevServer;
-    private page: Page;
+    private _page: Page;
     private package: string;
     private projectName: string;
 
     constructor(args: { page: Page; package: string; projectName: string }) {
-        this.page = args.page;
+        this._page = args.page;
         this.package = args.package;
         this.projectName = args.projectName;
+
+        this._page.emulateMedia({
+            forcedColors: "none",
+            reducedMotion: "reduce",
+        });
     }
 
     async init() {
@@ -84,31 +89,35 @@ export class TestHelper {
         return this.server.config.server.port as number;
     }
 
+    get page() {
+        return this._page;
+    }
+
     async close() {
         await this.server?.close();
     }
 
     async open(path: string = "/") {
-        await this.page.goto(
+        await this._page.goto(
             `http://localhost:${this.server?.config.server.port}${path}`,
         );
     }
 
     async clickElement(selector: string) {
-        await this.page.click(selector);
+        await this._page.click(selector);
     }
 
     async pressKey(key: string) {
-        await this.page.keyboard.press(key);
+        await this._page.keyboard.press(key);
     }
 
     async checkProp(testid: string) {
-        await this.page.getByTestId(testid).first().check({ force: true });
+        await this._page.getByTestId(testid).first().check({ force: true });
         return this;
     }
 
     async setDensity(value: "compact" | "default") {
-        await this.page
+        await this._page
             .getByTestId(`density-${value}`)
             .first()
             .check({ force: true });
@@ -116,7 +125,7 @@ export class TestHelper {
     }
 
     async setTheme(value: "light" | "dark") {
-        await this.page
+        await this._page
             .getByTestId(`theme-${value}`)
             .first()
             .check({ force: true });
@@ -124,13 +133,9 @@ export class TestHelper {
     }
 
     private async snapshot(name: string, selector?: string) {
-        await this.page.evaluate(() => document.fonts.ready);
+        await this._page.evaluate(() => document.fonts.ready);
 
-        await this.page.evaluate(() => {
-            return new Promise((resolve) => setTimeout(resolve, 600));
-        });
-
-        const locator = this.page
+        const locator = this._page
             .locator(selector || "[data-testid='component-example']")
             .first();
         const box = await locator.boundingBox();
@@ -147,14 +152,14 @@ export class TestHelper {
 
         if (hasScreenshot) {
             await expect(
-                await this.page.screenshot({
+                await this._page.screenshot({
                     animations: "disabled",
                     caret: "hide",
                     clip: { ...box },
                 }),
             ).toMatchSnapshot(`${this.projectName}-${name}`);
         } else {
-            await this.page.screenshot({
+            await this._page.screenshot({
                 animations: "disabled",
                 caret: "hide",
                 clip: { ...box },
