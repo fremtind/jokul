@@ -21,6 +21,8 @@ test("renders correctly", async () => {
 
     await helper.snapshots({
         before: () =>
-            helper.clickElement('[data-testid="jkl-tooltip-question-button"]'),
+            helper
+                .clickElement('[data-testid="jkl-tooltip-question-button"]')
+                .then(() => new Promise((resolve) => setTimeout(resolve, 200))),
     });
 });

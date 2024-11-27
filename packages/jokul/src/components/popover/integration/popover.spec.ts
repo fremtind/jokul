@@ -20,7 +20,10 @@ test("renders correctly", async () => {
     await helper.open();
 
     await helper.snapshots({
-        before: () => helper.clickElement('[aria-haspopup="menu"]'),
+        before: () =>
+            helper
+                .clickElement('[aria-haspopup="menu"]')
+                .then(() => new Promise((resolve) => setTimeout(resolve, 200))),
         after: () => helper.pressKey("Escape"),
         selector: "html",
     });

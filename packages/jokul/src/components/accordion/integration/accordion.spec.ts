@@ -27,5 +27,9 @@ test("opens accordion", async () => {
 
     await helper.clickElement('[data-testid="jkl-accordion-item"]');
 
-    await helper.snapshots();
+    await helper.snapshots({
+        before() {
+            return new Promise((resolve) => setTimeout(resolve, 600));
+        },
+    });
 });

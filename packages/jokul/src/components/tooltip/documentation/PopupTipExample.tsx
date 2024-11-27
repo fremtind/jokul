@@ -13,7 +13,7 @@ export const PopupTipExample: FC<ExampleComponentProps> = ({
     );
 
     return (
-        <p>
+        <p style={{ marginTop: 40 }}>
             Du betaler 348 kr/mnd{" "}
             <PopupTip
                 placement={initialPlacement}
