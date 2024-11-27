@@ -4,7 +4,7 @@ const glob = require("glob");
 
 async function copyJokulFonts() {
     const files = glob.sync(
-        "../../node_modules/@fremtind/jkl-webfonts/fonts/*",
+        "../../node_modules/@fremtind/jokul/src/fonts/*.woff*",
     );
     for (const file of files) {
         const fileName = file.substring(file.lastIndexOf("/"));
