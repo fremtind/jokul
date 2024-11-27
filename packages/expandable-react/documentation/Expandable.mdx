@@ -66,3 +66,6 @@ da er det viktig å huske på å bruke riktige ARIA tags.
 
 `ExpandablePanel.Content` må ha en `id` og innholdet må merkes med `aria-hidden` når
 den er lukket.
+
+Ikke lag custom widgets med details/summary elementer. Du risikerer at deler av innholdet
+på siden din vil kunne søkes etter i browseren men ikke være synlig.
