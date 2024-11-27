@@ -2,7 +2,7 @@ import type { Block } from "payload/types";
 import { createPageSectionBlock } from "./createPageSectionBlock";
 
 export const PackageReportSection: Block = createPageSectionBlock({
-    slug: "package-report-section",
+    slug: "pkg-rs",
     defaultHeading: "Kom i gang",
     labels: {
         singular: "Pakkeinformasjon",

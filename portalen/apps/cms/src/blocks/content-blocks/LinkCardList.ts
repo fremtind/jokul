@@ -17,7 +17,7 @@ export const linkCardFields: Field[] = [
 ];
 
 export const LinkCardList: Block = {
-    slug: "link-card-list",
+    slug: "lcl",
     labels: {
         singular: "Liste med lenkekort",
         plural: "Lister med lenkekort",

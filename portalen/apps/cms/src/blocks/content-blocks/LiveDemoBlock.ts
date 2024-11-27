@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 export const LiveDemoBlock: Block = {
-    slug: "live-demo-block",
+    slug: "ldb",
     labels: {
         singular: "Kodeeksempel",
         plural: "Kodeeksempler",

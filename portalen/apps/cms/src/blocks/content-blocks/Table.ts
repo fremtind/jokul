@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 export const Table: Block = {
-    slug: "table",
+    slug: "tbl",
     imageURL: "/media/mediatable.webp",
     fields: [
         {

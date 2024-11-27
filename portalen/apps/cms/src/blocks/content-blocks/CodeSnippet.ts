@@ -2,7 +2,7 @@ import type { Block } from "payload/types";
 import prettierFormat, { languageSupport } from "../../hooks/prettierFormat";
 
 export const CodeSnippet: Block = {
-    slug: "code-snippet",
+    slug: "code-s",
     labels: {
         singular: "Kodesnutt",
         plural: "Kodesnutter",

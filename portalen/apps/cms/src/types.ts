@@ -37,7 +37,7 @@ export interface Config {
  * via the `definition` "components".
  */
 export interface Component {
-    id: string;
+    id: number;
     title: string;
     ingress?:
         | {
@@ -63,23 +63,23 @@ export interface Component {
                                 reference?:
                                     | ({
                                           relationTo: "components";
-                                          value: string | Component;
+                                          value: number | Component;
                                       } | null)
                                     | ({
                                           relationTo: "general";
-                                          value: string | General;
+                                          value: number | General;
                                       } | null)
                                     | ({
                                           relationTo: "patterns";
-                                          value: string | Pattern;
+                                          value: number | Pattern;
                                       } | null)
                                     | ({
                                           relationTo: "foundations";
-                                          value: string | Foundation;
+                                          value: number | Foundation;
                                       } | null)
                                     | ({
                                           relationTo: "blog";
-                                          value: string | Blog;
+                                          value: number | Blog;
                                       } | null);
                                 url?: string | null;
                                 newTab?: boolean | null;
@@ -89,7 +89,7 @@ export interface Component {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "call-to-action";
+                  blockType: "cta";
               }
             | {
                   intro?:
@@ -99,13 +99,13 @@ export interface Component {
                       | null;
                   components?:
                       | {
-                            component: string | Component;
+                            component: number | Component;
                             id?: string | null;
                         }[]
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "component-overview";
+                  blockType: "cmp-o";
               }
             | {
                   title: string;
@@ -123,7 +123,7 @@ export interface Component {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "figma-example-section";
+                  blockType: "fga-ex-s";
               }
             | {
                   heroText?:
@@ -140,23 +140,23 @@ export interface Component {
                                 reference?:
                                     | ({
                                           relationTo: "components";
-                                          value: string | Component;
+                                          value: number | Component;
                                       } | null)
                                     | ({
                                           relationTo: "general";
-                                          value: string | General;
+                                          value: number | General;
                                       } | null)
                                     | ({
                                           relationTo: "patterns";
-                                          value: string | Pattern;
+                                          value: number | Pattern;
                                       } | null)
                                     | ({
                                           relationTo: "foundations";
-                                          value: string | Foundation;
+                                          value: number | Foundation;
                                       } | null)
                                     | ({
                                           relationTo: "blog";
-                                          value: string | Blog;
+                                          value: number | Blog;
                                       } | null);
                                 url?: string | null;
                                 newTab?: boolean | null;
@@ -166,7 +166,7 @@ export interface Component {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "hero-section";
+                  blockType: "hs";
               }
             | {
                   title: string;
@@ -185,23 +185,23 @@ export interface Component {
                                 reference?:
                                     | ({
                                           relationTo: "components";
-                                          value: string | Component;
+                                          value: number | Component;
                                       } | null)
                                     | ({
                                           relationTo: "general";
-                                          value: string | General;
+                                          value: number | General;
                                       } | null)
                                     | ({
                                           relationTo: "patterns";
-                                          value: string | Pattern;
+                                          value: number | Pattern;
                                       } | null)
                                     | ({
                                           relationTo: "foundations";
-                                          value: string | Foundation;
+                                          value: number | Foundation;
                                       } | null)
                                     | ({
                                           relationTo: "blog";
-                                          value: string | Blog;
+                                          value: number | Blog;
                                       } | null);
                                 url?: string | null;
                                 newTab?: boolean | null;
@@ -211,7 +211,7 @@ export interface Component {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "link-card-list-section";
+                  blockType: "lcls";
               }
             | {
                   title: string;
@@ -220,12 +220,12 @@ export interface Component {
                             [k: string]: unknown;
                         }[]
                       | null;
-                  codeExample: string | CodeExample;
+                  codeExample: number | CodeExample;
                   defaultShowControls?: boolean | null;
                   defaultShowEditor?: boolean | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "live-demo-section";
+                  blockType: "lds";
               }
             | {
                   title: string;
@@ -252,7 +252,7 @@ export interface Component {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "package-report-section";
+                  blockType: "pkg-rs";
               }
             | {
                   title: string;
@@ -275,11 +275,11 @@ export interface Component {
                                   urlDark: string;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "anatomy-example";
+                                  blockType: "anatomy-ex";
                               }
                             | {
                                   steps: {
-                                      image?: string | Media | null;
+                                      image?: number | Media | null;
                                       title?: string | null;
                                       description?:
                                           | {
@@ -309,7 +309,7 @@ export interface Component {
                                       | "diff";
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "code-snippet";
+                                  blockType: "code-s";
                               }
                             | {
                                   cards?:
@@ -334,7 +334,7 @@ export interface Component {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "color-card";
+                                  blockType: "color-c";
                               }
                             | {
                                   doDontItem?:
@@ -342,7 +342,7 @@ export interface Component {
                                             variant?: ("code" | "image") | null;
                                             code?: string | null;
                                             noinline?: boolean | null;
-                                            image?: string | Media | null;
+                                            image?: number | Media | null;
                                             description?: string | null;
                                             type: "do" | "dont" | "avoid";
                                             id?: string | null;
@@ -350,7 +350,7 @@ export interface Component {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "dodont-example";
+                                  blockType: "dd-ex";
                               }
                             | {
                                   links?:
@@ -363,23 +363,31 @@ export interface Component {
                                                 reference?:
                                                     | ({
                                                           relationTo: "components";
-                                                          value: string | Component;
+                                                          value:
+                                                              | number
+                                                              | Component;
                                                       } | null)
                                                     | ({
                                                           relationTo: "general";
-                                                          value: string | General;
+                                                          value:
+                                                              | number
+                                                              | General;
                                                       } | null)
                                                     | ({
                                                           relationTo: "patterns";
-                                                          value: string | Pattern;
+                                                          value:
+                                                              | number
+                                                              | Pattern;
                                                       } | null)
                                                     | ({
                                                           relationTo: "foundations";
-                                                          value: string | Foundation;
+                                                          value:
+                                                              | number
+                                                              | Foundation;
                                                       } | null)
                                                     | ({
                                                           relationTo: "blog";
-                                                          value: string | Blog;
+                                                          value: number | Blog;
                                                       } | null);
                                                 url?: string | null;
                                                 newTab?: boolean | null;
@@ -389,20 +397,24 @@ export interface Component {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "link-card-list";
+                                  blockType: "lcl";
                               }
                             | {
-                                  codeExample: string | CodeExample;
+                                  codeExample: number | CodeExample;
                                   defaultShowControls?: boolean | null;
                                   defaultShowEditor?: boolean | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "live-demo-block";
+                                  blockType: "ldb";
                               }
                             | {
                                   boxes?:
                                       | {
-                                            type: "info" | "success" | "error" | "warning";
+                                            type:
+                                                | "info"
+                                                | "success"
+                                                | "error"
+                                                | "warning";
                                             title?: string | null;
                                             description: string;
                                             id?: string | null;
@@ -410,7 +422,7 @@ export interface Component {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "message-box";
+                                  blockType: "msg-b";
                               }
                             | {
                                   content?:
@@ -420,14 +432,14 @@ export interface Component {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "rich-text";
+                                  blockType: "rt";
                               }
                             | {
-                                  showcaseItem?:
+                                  sci?:
                                       | {
                                             title: string;
                                             src?: string | null;
-                                            example?: string | Media | null;
+                                            example?: number | Media | null;
                                             origin: string;
                                             description?: string | null;
                                             id?: string | null;
@@ -435,7 +447,7 @@ export interface Component {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "showcase";
+                                  blockType: "sc";
                               }
                             | {
                                   rows?:
@@ -449,7 +461,7 @@ export interface Component {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "tokens-table";
+                                  blockType: "tkns-t";
                               }
                             | {
                                   rows?:
@@ -466,13 +478,13 @@ export interface Component {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "table";
+                                  blockType: "tbl";
                               }
                         )[]
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "page-section";
+                  blockType: "page-s";
               }
             | {
                   title: string;
@@ -481,11 +493,11 @@ export interface Component {
                             [k: string]: unknown;
                         }[]
                       | null;
-                  showcaseItem?:
+                  sci?:
                       | {
                             title: string;
                             src?: string | null;
-                            example?: string | Media | null;
+                            example?: number | Media | null;
                             origin: string;
                             description?: string | null;
                             id?: string | null;
@@ -493,7 +505,7 @@ export interface Component {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "showcase-section";
+                  blockType: "sc-s";
               }
             | {
                   video: {
@@ -508,30 +520,30 @@ export interface Component {
                       reference?:
                           | ({
                                 relationTo: "components";
-                                value: string | Component;
+                                value: number | Component;
                             } | null)
                           | ({
                                 relationTo: "general";
-                                value: string | General;
+                                value: number | General;
                             } | null)
                           | ({
                                 relationTo: "patterns";
-                                value: string | Pattern;
+                                value: number | Pattern;
                             } | null)
                           | ({
                                 relationTo: "foundations";
-                                value: string | Foundation;
+                                value: number | Foundation;
                             } | null)
                           | ({
                                 relationTo: "blog";
-                                value: string | Blog;
+                                value: number | Blog;
                             } | null);
                       url?: string | null;
                       newTab?: boolean | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "video-cta";
+                  blockType: "v-cta";
               }
             | {
                   type: {
@@ -558,7 +570,7 @@ export interface Component {
                   addOnQuestion: string;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "feedback-section";
+                  blockType: "fbk-s";
               }
             | {
                   content: {
@@ -575,7 +587,7 @@ export interface Component {
                   }[];
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "package-stats-section";
+                  blockType: "pkg-ss";
               }
         )[];
         id?: string | null;
@@ -587,8 +599,8 @@ export interface Component {
         title?: string | null;
         description?: string | null;
         keywords?: string | null;
-        imageLight?: string | Media | null;
-        imageDark?: string | Media | null;
+        imageLight?: number | Media | null;
+        imageDark?: number | Media | null;
         figma?: string | null;
     };
     updatedAt: string;
@@ -600,7 +612,7 @@ export interface Component {
  * via the `definition` "general".
  */
 export interface General {
-    id: string;
+    id: number;
     title: string;
     ingress?:
         | {
@@ -623,23 +635,23 @@ export interface General {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -649,7 +661,7 @@ export interface General {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "call-to-action";
+              blockType: "cta";
           }
         | {
               intro?:
@@ -659,13 +671,13 @@ export interface General {
                   | null;
               components?:
                   | {
-                        component: string | Component;
+                        component: number | Component;
                         id?: string | null;
                     }[]
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "component-overview";
+              blockType: "cmp-o";
           }
         | {
               title: string;
@@ -683,7 +695,7 @@ export interface General {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "figma-example-section";
+              blockType: "fga-ex-s";
           }
         | {
               heroText?:
@@ -700,23 +712,23 @@ export interface General {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -726,7 +738,7 @@ export interface General {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "hero-section";
+              blockType: "hs";
           }
         | {
               title: string;
@@ -745,23 +757,23 @@ export interface General {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -771,7 +783,7 @@ export interface General {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "link-card-list-section";
+              blockType: "lcls";
           }
         | {
               title: string;
@@ -780,12 +792,12 @@ export interface General {
                         [k: string]: unknown;
                     }[]
                   | null;
-              codeExample: string | CodeExample;
+              codeExample: number | CodeExample;
               defaultShowControls?: boolean | null;
               defaultShowEditor?: boolean | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "live-demo-section";
+              blockType: "lds";
           }
         | {
               title: string;
@@ -812,7 +824,7 @@ export interface General {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "package-report-section";
+              blockType: "pkg-rs";
           }
         | {
               title: string;
@@ -835,11 +847,11 @@ export interface General {
                               urlDark: string;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "anatomy-example";
+                              blockType: "anatomy-ex";
                           }
                         | {
                               steps: {
-                                  image?: string | Media | null;
+                                  image?: number | Media | null;
                                   title?: string | null;
                                   description?:
                                       | {
@@ -869,7 +881,7 @@ export interface General {
                                   | "diff";
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "code-snippet";
+                              blockType: "code-s";
                           }
                         | {
                               cards?:
@@ -894,7 +906,7 @@ export interface General {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "color-card";
+                              blockType: "color-c";
                           }
                         | {
                               doDontItem?:
@@ -902,7 +914,7 @@ export interface General {
                                         variant?: ("code" | "image") | null;
                                         code?: string | null;
                                         noinline?: boolean | null;
-                                        image?: string | Media | null;
+                                        image?: number | Media | null;
                                         description?: string | null;
                                         type: "do" | "dont" | "avoid";
                                         id?: string | null;
@@ -910,7 +922,7 @@ export interface General {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "dodont-example";
+                              blockType: "dd-ex";
                           }
                         | {
                               links?:
@@ -923,23 +935,25 @@ export interface General {
                                             reference?:
                                                 | ({
                                                       relationTo: "components";
-                                                      value: string | Component;
+                                                      value: number | Component;
                                                   } | null)
                                                 | ({
                                                       relationTo: "general";
-                                                      value: string | General;
+                                                      value: number | General;
                                                   } | null)
                                                 | ({
                                                       relationTo: "patterns";
-                                                      value: string | Pattern;
+                                                      value: number | Pattern;
                                                   } | null)
                                                 | ({
                                                       relationTo: "foundations";
-                                                      value: string | Foundation;
+                                                      value:
+                                                          | number
+                                                          | Foundation;
                                                   } | null)
                                                 | ({
                                                       relationTo: "blog";
-                                                      value: string | Blog;
+                                                      value: number | Blog;
                                                   } | null);
                                             url?: string | null;
                                             newTab?: boolean | null;
@@ -949,20 +963,24 @@ export interface General {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "link-card-list";
+                              blockType: "lcl";
                           }
                         | {
-                              codeExample: string | CodeExample;
+                              codeExample: number | CodeExample;
                               defaultShowControls?: boolean | null;
                               defaultShowEditor?: boolean | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "live-demo-block";
+                              blockType: "ldb";
                           }
                         | {
                               boxes?:
                                   | {
-                                        type: "info" | "success" | "error" | "warning";
+                                        type:
+                                            | "info"
+                                            | "success"
+                                            | "error"
+                                            | "warning";
                                         title?: string | null;
                                         description: string;
                                         id?: string | null;
@@ -970,7 +988,7 @@ export interface General {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "message-box";
+                              blockType: "msg-b";
                           }
                         | {
                               content?:
@@ -980,14 +998,14 @@ export interface General {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "rich-text";
+                              blockType: "rt";
                           }
                         | {
-                              showcaseItem?:
+                              sci?:
                                   | {
                                         title: string;
                                         src?: string | null;
-                                        example?: string | Media | null;
+                                        example?: number | Media | null;
                                         origin: string;
                                         description?: string | null;
                                         id?: string | null;
@@ -995,7 +1013,7 @@ export interface General {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "showcase";
+                              blockType: "sc";
                           }
                         | {
                               rows?:
@@ -1009,7 +1027,7 @@ export interface General {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "tokens-table";
+                              blockType: "tkns-t";
                           }
                         | {
                               rows?:
@@ -1026,13 +1044,13 @@ export interface General {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "table";
+                              blockType: "tbl";
                           }
                     )[]
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "page-section";
+              blockType: "page-s";
           }
         | {
               title: string;
@@ -1041,11 +1059,11 @@ export interface General {
                         [k: string]: unknown;
                     }[]
                   | null;
-              showcaseItem?:
+              sci?:
                   | {
                         title: string;
                         src?: string | null;
-                        example?: string | Media | null;
+                        example?: number | Media | null;
                         origin: string;
                         description?: string | null;
                         id?: string | null;
@@ -1053,7 +1071,7 @@ export interface General {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "showcase-section";
+              blockType: "sc-s";
           }
         | {
               video: {
@@ -1068,30 +1086,30 @@ export interface General {
                   reference?:
                       | ({
                             relationTo: "components";
-                            value: string | Component;
+                            value: number | Component;
                         } | null)
                       | ({
                             relationTo: "general";
-                            value: string | General;
+                            value: number | General;
                         } | null)
                       | ({
                             relationTo: "patterns";
-                            value: string | Pattern;
+                            value: number | Pattern;
                         } | null)
                       | ({
                             relationTo: "foundations";
-                            value: string | Foundation;
+                            value: number | Foundation;
                         } | null)
                       | ({
                             relationTo: "blog";
-                            value: string | Blog;
+                            value: number | Blog;
                         } | null);
                   url?: string | null;
                   newTab?: boolean | null;
               };
               id?: string | null;
               blockName?: string | null;
-              blockType: "video-cta";
+              blockType: "v-cta";
           }
         | {
               type: {
@@ -1118,7 +1136,7 @@ export interface General {
               addOnQuestion: string;
               id?: string | null;
               blockName?: string | null;
-              blockType: "feedback-section";
+              blockType: "fbk-s";
           }
         | {
               content: {
@@ -1135,15 +1153,15 @@ export interface General {
               }[];
               id?: string | null;
               blockName?: string | null;
-              blockType: "package-stats-section";
+              blockType: "pkg-ss";
           }
     )[];
     meta?: {
         title?: string | null;
         description?: string | null;
         keywords?: string | null;
-        imageLight?: string | Media | null;
-        imageDark?: string | Media | null;
+        imageLight?: number | Media | null;
+        imageDark?: number | Media | null;
         figma?: string | null;
     };
     updatedAt: string;
@@ -1155,7 +1173,7 @@ export interface General {
  * via the `definition` "patterns".
  */
 export interface Pattern {
-    id: string;
+    id: number;
     title: string;
     ingress?:
         | {
@@ -1181,23 +1199,23 @@ export interface Pattern {
                                 reference?:
                                     | ({
                                           relationTo: "components";
-                                          value: string | Component;
+                                          value: number | Component;
                                       } | null)
                                     | ({
                                           relationTo: "general";
-                                          value: string | General;
+                                          value: number | General;
                                       } | null)
                                     | ({
                                           relationTo: "patterns";
-                                          value: string | Pattern;
+                                          value: number | Pattern;
                                       } | null)
                                     | ({
                                           relationTo: "foundations";
-                                          value: string | Foundation;
+                                          value: number | Foundation;
                                       } | null)
                                     | ({
                                           relationTo: "blog";
-                                          value: string | Blog;
+                                          value: number | Blog;
                                       } | null);
                                 url?: string | null;
                                 newTab?: boolean | null;
@@ -1207,7 +1225,7 @@ export interface Pattern {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "call-to-action";
+                  blockType: "cta";
               }
             | {
                   intro?:
@@ -1217,13 +1235,13 @@ export interface Pattern {
                       | null;
                   components?:
                       | {
-                            component: string | Component;
+                            component: number | Component;
                             id?: string | null;
                         }[]
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "component-overview";
+                  blockType: "cmp-o";
               }
             | {
                   title: string;
@@ -1241,7 +1259,7 @@ export interface Pattern {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "figma-example-section";
+                  blockType: "fga-ex-s";
               }
             | {
                   heroText?:
@@ -1258,23 +1276,23 @@ export interface Pattern {
                                 reference?:
                                     | ({
                                           relationTo: "components";
-                                          value: string | Component;
+                                          value: number | Component;
                                       } | null)
                                     | ({
                                           relationTo: "general";
-                                          value: string | General;
+                                          value: number | General;
                                       } | null)
                                     | ({
                                           relationTo: "patterns";
-                                          value: string | Pattern;
+                                          value: number | Pattern;
                                       } | null)
                                     | ({
                                           relationTo: "foundations";
-                                          value: string | Foundation;
+                                          value: number | Foundation;
                                       } | null)
                                     | ({
                                           relationTo: "blog";
-                                          value: string | Blog;
+                                          value: number | Blog;
                                       } | null);
                                 url?: string | null;
                                 newTab?: boolean | null;
@@ -1284,7 +1302,7 @@ export interface Pattern {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "hero-section";
+                  blockType: "hs";
               }
             | {
                   title: string;
@@ -1303,23 +1321,23 @@ export interface Pattern {
                                 reference?:
                                     | ({
                                           relationTo: "components";
-                                          value: string | Component;
+                                          value: number | Component;
                                       } | null)
                                     | ({
                                           relationTo: "general";
-                                          value: string | General;
+                                          value: number | General;
                                       } | null)
                                     | ({
                                           relationTo: "patterns";
-                                          value: string | Pattern;
+                                          value: number | Pattern;
                                       } | null)
                                     | ({
                                           relationTo: "foundations";
-                                          value: string | Foundation;
+                                          value: number | Foundation;
                                       } | null)
                                     | ({
                                           relationTo: "blog";
-                                          value: string | Blog;
+                                          value: number | Blog;
                                       } | null);
                                 url?: string | null;
                                 newTab?: boolean | null;
@@ -1329,7 +1347,7 @@ export interface Pattern {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "link-card-list-section";
+                  blockType: "lcls";
               }
             | {
                   title: string;
@@ -1338,12 +1356,12 @@ export interface Pattern {
                             [k: string]: unknown;
                         }[]
                       | null;
-                  codeExample: string | CodeExample;
+                  codeExample: number | CodeExample;
                   defaultShowControls?: boolean | null;
                   defaultShowEditor?: boolean | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "live-demo-section";
+                  blockType: "lds";
               }
             | {
                   title: string;
@@ -1370,7 +1388,7 @@ export interface Pattern {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "package-report-section";
+                  blockType: "pkg-rs";
               }
             | {
                   title: string;
@@ -1393,11 +1411,11 @@ export interface Pattern {
                                   urlDark: string;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "anatomy-example";
+                                  blockType: "anatomy-ex";
                               }
                             | {
                                   steps: {
-                                      image?: string | Media | null;
+                                      image?: number | Media | null;
                                       title?: string | null;
                                       description?:
                                           | {
@@ -1427,7 +1445,7 @@ export interface Pattern {
                                       | "diff";
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "code-snippet";
+                                  blockType: "code-s";
                               }
                             | {
                                   cards?:
@@ -1452,7 +1470,7 @@ export interface Pattern {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "color-card";
+                                  blockType: "color-c";
                               }
                             | {
                                   doDontItem?:
@@ -1460,7 +1478,7 @@ export interface Pattern {
                                             variant?: ("code" | "image") | null;
                                             code?: string | null;
                                             noinline?: boolean | null;
-                                            image?: string | Media | null;
+                                            image?: number | Media | null;
                                             description?: string | null;
                                             type: "do" | "dont" | "avoid";
                                             id?: string | null;
@@ -1468,7 +1486,7 @@ export interface Pattern {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "dodont-example";
+                                  blockType: "dd-ex";
                               }
                             | {
                                   links?:
@@ -1481,23 +1499,31 @@ export interface Pattern {
                                                 reference?:
                                                     | ({
                                                           relationTo: "components";
-                                                          value: string | Component;
+                                                          value:
+                                                              | number
+                                                              | Component;
                                                       } | null)
                                                     | ({
                                                           relationTo: "general";
-                                                          value: string | General;
+                                                          value:
+                                                              | number
+                                                              | General;
                                                       } | null)
                                                     | ({
                                                           relationTo: "patterns";
-                                                          value: string | Pattern;
+                                                          value:
+                                                              | number
+                                                              | Pattern;
                                                       } | null)
                                                     | ({
                                                           relationTo: "foundations";
-                                                          value: string | Foundation;
+                                                          value:
+                                                              | number
+                                                              | Foundation;
                                                       } | null)
                                                     | ({
                                                           relationTo: "blog";
-                                                          value: string | Blog;
+                                                          value: number | Blog;
                                                       } | null);
                                                 url?: string | null;
                                                 newTab?: boolean | null;
@@ -1507,20 +1533,24 @@ export interface Pattern {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "link-card-list";
+                                  blockType: "lcl";
                               }
                             | {
-                                  codeExample: string | CodeExample;
+                                  codeExample: number | CodeExample;
                                   defaultShowControls?: boolean | null;
                                   defaultShowEditor?: boolean | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "live-demo-block";
+                                  blockType: "ldb";
                               }
                             | {
                                   boxes?:
                                       | {
-                                            type: "info" | "success" | "error" | "warning";
+                                            type:
+                                                | "info"
+                                                | "success"
+                                                | "error"
+                                                | "warning";
                                             title?: string | null;
                                             description: string;
                                             id?: string | null;
@@ -1528,7 +1558,7 @@ export interface Pattern {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "message-box";
+                                  blockType: "msg-b";
                               }
                             | {
                                   content?:
@@ -1538,14 +1568,14 @@ export interface Pattern {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "rich-text";
+                                  blockType: "rt";
                               }
                             | {
-                                  showcaseItem?:
+                                  sci?:
                                       | {
                                             title: string;
                                             src?: string | null;
-                                            example?: string | Media | null;
+                                            example?: number | Media | null;
                                             origin: string;
                                             description?: string | null;
                                             id?: string | null;
@@ -1553,7 +1583,7 @@ export interface Pattern {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "showcase";
+                                  blockType: "sc";
                               }
                             | {
                                   rows?:
@@ -1567,7 +1597,7 @@ export interface Pattern {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "tokens-table";
+                                  blockType: "tkns-t";
                               }
                             | {
                                   rows?:
@@ -1584,13 +1614,13 @@ export interface Pattern {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "table";
+                                  blockType: "tbl";
                               }
                         )[]
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "page-section";
+                  blockType: "page-s";
               }
             | {
                   title: string;
@@ -1599,11 +1629,11 @@ export interface Pattern {
                             [k: string]: unknown;
                         }[]
                       | null;
-                  showcaseItem?:
+                  sci?:
                       | {
                             title: string;
                             src?: string | null;
-                            example?: string | Media | null;
+                            example?: number | Media | null;
                             origin: string;
                             description?: string | null;
                             id?: string | null;
@@ -1611,7 +1641,7 @@ export interface Pattern {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "showcase-section";
+                  blockType: "sc-s";
               }
             | {
                   video: {
@@ -1626,30 +1656,30 @@ export interface Pattern {
                       reference?:
                           | ({
                                 relationTo: "components";
-                                value: string | Component;
+                                value: number | Component;
                             } | null)
                           | ({
                                 relationTo: "general";
-                                value: string | General;
+                                value: number | General;
                             } | null)
                           | ({
                                 relationTo: "patterns";
-                                value: string | Pattern;
+                                value: number | Pattern;
                             } | null)
                           | ({
                                 relationTo: "foundations";
-                                value: string | Foundation;
+                                value: number | Foundation;
                             } | null)
                           | ({
                                 relationTo: "blog";
-                                value: string | Blog;
+                                value: number | Blog;
                             } | null);
                       url?: string | null;
                       newTab?: boolean | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "video-cta";
+                  blockType: "v-cta";
               }
             | {
                   type: {
@@ -1676,7 +1706,7 @@ export interface Pattern {
                   addOnQuestion: string;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "feedback-section";
+                  blockType: "fbk-s";
               }
             | {
                   content: {
@@ -1693,7 +1723,7 @@ export interface Pattern {
                   }[];
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "package-stats-section";
+                  blockType: "pkg-ss";
               }
         )[];
         id?: string | null;
@@ -1702,8 +1732,8 @@ export interface Pattern {
         title?: string | null;
         description?: string | null;
         keywords?: string | null;
-        imageLight?: string | Media | null;
-        imageDark?: string | Media | null;
+        imageLight?: number | Media | null;
+        imageDark?: number | Media | null;
         figma?: string | null;
     };
     updatedAt: string;
@@ -1715,7 +1745,7 @@ export interface Pattern {
  * via the `definition` "foundations".
  */
 export interface Foundation {
-    id: string;
+    id: number;
     title: string;
     ingress?:
         | {
@@ -1741,23 +1771,23 @@ export interface Foundation {
                                 reference?:
                                     | ({
                                           relationTo: "components";
-                                          value: string | Component;
+                                          value: number | Component;
                                       } | null)
                                     | ({
                                           relationTo: "general";
-                                          value: string | General;
+                                          value: number | General;
                                       } | null)
                                     | ({
                                           relationTo: "patterns";
-                                          value: string | Pattern;
+                                          value: number | Pattern;
                                       } | null)
                                     | ({
                                           relationTo: "foundations";
-                                          value: string | Foundation;
+                                          value: number | Foundation;
                                       } | null)
                                     | ({
                                           relationTo: "blog";
-                                          value: string | Blog;
+                                          value: number | Blog;
                                       } | null);
                                 url?: string | null;
                                 newTab?: boolean | null;
@@ -1767,7 +1797,7 @@ export interface Foundation {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "call-to-action";
+                  blockType: "cta";
               }
             | {
                   intro?:
@@ -1777,13 +1807,13 @@ export interface Foundation {
                       | null;
                   components?:
                       | {
-                            component: string | Component;
+                            component: number | Component;
                             id?: string | null;
                         }[]
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "component-overview";
+                  blockType: "cmp-o";
               }
             | {
                   title: string;
@@ -1801,7 +1831,7 @@ export interface Foundation {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "figma-example-section";
+                  blockType: "fga-ex-s";
               }
             | {
                   heroText?:
@@ -1818,23 +1848,23 @@ export interface Foundation {
                                 reference?:
                                     | ({
                                           relationTo: "components";
-                                          value: string | Component;
+                                          value: number | Component;
                                       } | null)
                                     | ({
                                           relationTo: "general";
-                                          value: string | General;
+                                          value: number | General;
                                       } | null)
                                     | ({
                                           relationTo: "patterns";
-                                          value: string | Pattern;
+                                          value: number | Pattern;
                                       } | null)
                                     | ({
                                           relationTo: "foundations";
-                                          value: string | Foundation;
+                                          value: number | Foundation;
                                       } | null)
                                     | ({
                                           relationTo: "blog";
-                                          value: string | Blog;
+                                          value: number | Blog;
                                       } | null);
                                 url?: string | null;
                                 newTab?: boolean | null;
@@ -1844,7 +1874,7 @@ export interface Foundation {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "hero-section";
+                  blockType: "hs";
               }
             | {
                   title: string;
@@ -1863,23 +1893,23 @@ export interface Foundation {
                                 reference?:
                                     | ({
                                           relationTo: "components";
-                                          value: string | Component;
+                                          value: number | Component;
                                       } | null)
                                     | ({
                                           relationTo: "general";
-                                          value: string | General;
+                                          value: number | General;
                                       } | null)
                                     | ({
                                           relationTo: "patterns";
-                                          value: string | Pattern;
+                                          value: number | Pattern;
                                       } | null)
                                     | ({
                                           relationTo: "foundations";
-                                          value: string | Foundation;
+                                          value: number | Foundation;
                                       } | null)
                                     | ({
                                           relationTo: "blog";
-                                          value: string | Blog;
+                                          value: number | Blog;
                                       } | null);
                                 url?: string | null;
                                 newTab?: boolean | null;
@@ -1889,7 +1919,7 @@ export interface Foundation {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "link-card-list-section";
+                  blockType: "lcls";
               }
             | {
                   title: string;
@@ -1898,12 +1928,12 @@ export interface Foundation {
                             [k: string]: unknown;
                         }[]
                       | null;
-                  codeExample: string | CodeExample;
+                  codeExample: number | CodeExample;
                   defaultShowControls?: boolean | null;
                   defaultShowEditor?: boolean | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "live-demo-section";
+                  blockType: "lds";
               }
             | {
                   title: string;
@@ -1930,7 +1960,7 @@ export interface Foundation {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "package-report-section";
+                  blockType: "pkg-rs";
               }
             | {
                   title: string;
@@ -1953,11 +1983,11 @@ export interface Foundation {
                                   urlDark: string;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "anatomy-example";
+                                  blockType: "anatomy-ex";
                               }
                             | {
                                   steps: {
-                                      image?: string | Media | null;
+                                      image?: number | Media | null;
                                       title?: string | null;
                                       description?:
                                           | {
@@ -1987,7 +2017,7 @@ export interface Foundation {
                                       | "diff";
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "code-snippet";
+                                  blockType: "code-s";
                               }
                             | {
                                   cards?:
@@ -2012,7 +2042,7 @@ export interface Foundation {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "color-card";
+                                  blockType: "color-c";
                               }
                             | {
                                   doDontItem?:
@@ -2020,7 +2050,7 @@ export interface Foundation {
                                             variant?: ("code" | "image") | null;
                                             code?: string | null;
                                             noinline?: boolean | null;
-                                            image?: string | Media | null;
+                                            image?: number | Media | null;
                                             description?: string | null;
                                             type: "do" | "dont" | "avoid";
                                             id?: string | null;
@@ -2028,7 +2058,7 @@ export interface Foundation {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "dodont-example";
+                                  blockType: "dd-ex";
                               }
                             | {
                                   links?:
@@ -2041,23 +2071,31 @@ export interface Foundation {
                                                 reference?:
                                                     | ({
                                                           relationTo: "components";
-                                                          value: string | Component;
+                                                          value:
+                                                              | number
+                                                              | Component;
                                                       } | null)
                                                     | ({
                                                           relationTo: "general";
-                                                          value: string | General;
+                                                          value:
+                                                              | number
+                                                              | General;
                                                       } | null)
                                                     | ({
                                                           relationTo: "patterns";
-                                                          value: string | Pattern;
+                                                          value:
+                                                              | number
+                                                              | Pattern;
                                                       } | null)
                                                     | ({
                                                           relationTo: "foundations";
-                                                          value: string | Foundation;
+                                                          value:
+                                                              | number
+                                                              | Foundation;
                                                       } | null)
                                                     | ({
                                                           relationTo: "blog";
-                                                          value: string | Blog;
+                                                          value: number | Blog;
                                                       } | null);
                                                 url?: string | null;
                                                 newTab?: boolean | null;
@@ -2067,20 +2105,24 @@ export interface Foundation {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "link-card-list";
+                                  blockType: "lcl";
                               }
                             | {
-                                  codeExample: string | CodeExample;
+                                  codeExample: number | CodeExample;
                                   defaultShowControls?: boolean | null;
                                   defaultShowEditor?: boolean | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "live-demo-block";
+                                  blockType: "ldb";
                               }
                             | {
                                   boxes?:
                                       | {
-                                            type: "info" | "success" | "error" | "warning";
+                                            type:
+                                                | "info"
+                                                | "success"
+                                                | "error"
+                                                | "warning";
                                             title?: string | null;
                                             description: string;
                                             id?: string | null;
@@ -2088,7 +2130,7 @@ export interface Foundation {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "message-box";
+                                  blockType: "msg-b";
                               }
                             | {
                                   content?:
@@ -2098,14 +2140,14 @@ export interface Foundation {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "rich-text";
+                                  blockType: "rt";
                               }
                             | {
-                                  showcaseItem?:
+                                  sci?:
                                       | {
                                             title: string;
                                             src?: string | null;
-                                            example?: string | Media | null;
+                                            example?: number | Media | null;
                                             origin: string;
                                             description?: string | null;
                                             id?: string | null;
@@ -2113,7 +2155,7 @@ export interface Foundation {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "showcase";
+                                  blockType: "sc";
                               }
                             | {
                                   rows?:
@@ -2127,7 +2169,7 @@ export interface Foundation {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "tokens-table";
+                                  blockType: "tkns-t";
                               }
                             | {
                                   rows?:
@@ -2144,13 +2186,13 @@ export interface Foundation {
                                       | null;
                                   id?: string | null;
                                   blockName?: string | null;
-                                  blockType: "table";
+                                  blockType: "tbl";
                               }
                         )[]
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "page-section";
+                  blockType: "page-s";
               }
             | {
                   title: string;
@@ -2159,11 +2201,11 @@ export interface Foundation {
                             [k: string]: unknown;
                         }[]
                       | null;
-                  showcaseItem?:
+                  sci?:
                       | {
                             title: string;
                             src?: string | null;
-                            example?: string | Media | null;
+                            example?: number | Media | null;
                             origin: string;
                             description?: string | null;
                             id?: string | null;
@@ -2171,7 +2213,7 @@ export interface Foundation {
                       | null;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "showcase-section";
+                  blockType: "sc-s";
               }
             | {
                   video: {
@@ -2186,30 +2228,30 @@ export interface Foundation {
                       reference?:
                           | ({
                                 relationTo: "components";
-                                value: string | Component;
+                                value: number | Component;
                             } | null)
                           | ({
                                 relationTo: "general";
-                                value: string | General;
+                                value: number | General;
                             } | null)
                           | ({
                                 relationTo: "patterns";
-                                value: string | Pattern;
+                                value: number | Pattern;
                             } | null)
                           | ({
                                 relationTo: "foundations";
-                                value: string | Foundation;
+                                value: number | Foundation;
                             } | null)
                           | ({
                                 relationTo: "blog";
-                                value: string | Blog;
+                                value: number | Blog;
                             } | null);
                       url?: string | null;
                       newTab?: boolean | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "video-cta";
+                  blockType: "v-cta";
               }
             | {
                   type: {
@@ -2236,7 +2278,7 @@ export interface Foundation {
                   addOnQuestion: string;
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "feedback-section";
+                  blockType: "fbk-s";
               }
             | {
                   content: {
@@ -2253,7 +2295,7 @@ export interface Foundation {
                   }[];
                   id?: string | null;
                   blockName?: string | null;
-                  blockType: "package-stats-section";
+                  blockType: "pkg-ss";
               }
         )[];
         id?: string | null;
@@ -2262,8 +2304,8 @@ export interface Foundation {
         title?: string | null;
         description?: string | null;
         keywords?: string | null;
-        imageLight?: string | Media | null;
-        imageDark?: string | Media | null;
+        imageLight?: number | Media | null;
+        imageDark?: number | Media | null;
         figma?: string | null;
     };
     updatedAt: string;
@@ -2275,13 +2317,13 @@ export interface Foundation {
  * via the `definition` "blog".
  */
 export interface Blog {
-    id: string;
+    id: number;
     published_date?: string | null;
-    tag: string | BlogTag;
+    tag: number | BlogTag;
     title: string;
     slug?: string | null;
     ingress: string;
-    author: string | User;
+    author: number | User;
     sections: (
         | {
               heroText?:
@@ -2298,23 +2340,23 @@ export interface Blog {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -2324,7 +2366,7 @@ export interface Blog {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "call-to-action";
+              blockType: "cta";
           }
         | {
               intro?:
@@ -2334,13 +2376,13 @@ export interface Blog {
                   | null;
               components?:
                   | {
-                        component: string | Component;
+                        component: number | Component;
                         id?: string | null;
                     }[]
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "component-overview";
+              blockType: "cmp-o";
           }
         | {
               title: string;
@@ -2358,7 +2400,7 @@ export interface Blog {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "figma-example-section";
+              blockType: "fga-ex-s";
           }
         | {
               heroText?:
@@ -2375,23 +2417,23 @@ export interface Blog {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -2401,7 +2443,7 @@ export interface Blog {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "hero-section";
+              blockType: "hs";
           }
         | {
               title: string;
@@ -2420,23 +2462,23 @@ export interface Blog {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -2446,7 +2488,7 @@ export interface Blog {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "link-card-list-section";
+              blockType: "lcls";
           }
         | {
               title: string;
@@ -2455,12 +2497,12 @@ export interface Blog {
                         [k: string]: unknown;
                     }[]
                   | null;
-              codeExample: string | CodeExample;
+              codeExample: number | CodeExample;
               defaultShowControls?: boolean | null;
               defaultShowEditor?: boolean | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "live-demo-section";
+              blockType: "lds";
           }
         | {
               title: string;
@@ -2487,7 +2529,7 @@ export interface Blog {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "package-report-section";
+              blockType: "pkg-rs";
           }
         | {
               title: string;
@@ -2510,11 +2552,11 @@ export interface Blog {
                               urlDark: string;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "anatomy-example";
+                              blockType: "anatomy-ex";
                           }
                         | {
                               steps: {
-                                  image?: string | Media | null;
+                                  image?: number | Media | null;
                                   title?: string | null;
                                   description?:
                                       | {
@@ -2544,7 +2586,7 @@ export interface Blog {
                                   | "diff";
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "code-snippet";
+                              blockType: "code-s";
                           }
                         | {
                               cards?:
@@ -2569,7 +2611,7 @@ export interface Blog {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "color-card";
+                              blockType: "color-c";
                           }
                         | {
                               doDontItem?:
@@ -2577,7 +2619,7 @@ export interface Blog {
                                         variant?: ("code" | "image") | null;
                                         code?: string | null;
                                         noinline?: boolean | null;
-                                        image?: string | Media | null;
+                                        image?: number | Media | null;
                                         description?: string | null;
                                         type: "do" | "dont" | "avoid";
                                         id?: string | null;
@@ -2585,7 +2627,7 @@ export interface Blog {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "dodont-example";
+                              blockType: "dd-ex";
                           }
                         | {
                               links?:
@@ -2598,23 +2640,25 @@ export interface Blog {
                                             reference?:
                                                 | ({
                                                       relationTo: "components";
-                                                      value: string | Component;
+                                                      value: number | Component;
                                                   } | null)
                                                 | ({
                                                       relationTo: "general";
-                                                      value: string | General;
+                                                      value: number | General;
                                                   } | null)
                                                 | ({
                                                       relationTo: "patterns";
-                                                      value: string | Pattern;
+                                                      value: number | Pattern;
                                                   } | null)
                                                 | ({
                                                       relationTo: "foundations";
-                                                      value: string | Foundation;
+                                                      value:
+                                                          | number
+                                                          | Foundation;
                                                   } | null)
                                                 | ({
                                                       relationTo: "blog";
-                                                      value: string | Blog;
+                                                      value: number | Blog;
                                                   } | null);
                                             url?: string | null;
                                             newTab?: boolean | null;
@@ -2624,20 +2668,24 @@ export interface Blog {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "link-card-list";
+                              blockType: "lcl";
                           }
                         | {
-                              codeExample: string | CodeExample;
+                              codeExample: number | CodeExample;
                               defaultShowControls?: boolean | null;
                               defaultShowEditor?: boolean | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "live-demo-block";
+                              blockType: "ldb";
                           }
                         | {
                               boxes?:
                                   | {
-                                        type: "info" | "success" | "error" | "warning";
+                                        type:
+                                            | "info"
+                                            | "success"
+                                            | "error"
+                                            | "warning";
                                         title?: string | null;
                                         description: string;
                                         id?: string | null;
@@ -2645,7 +2693,7 @@ export interface Blog {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "message-box";
+                              blockType: "msg-b";
                           }
                         | {
                               content?:
@@ -2655,14 +2703,14 @@ export interface Blog {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "rich-text";
+                              blockType: "rt";
                           }
                         | {
-                              showcaseItem?:
+                              sci?:
                                   | {
                                         title: string;
                                         src?: string | null;
-                                        example?: string | Media | null;
+                                        example?: number | Media | null;
                                         origin: string;
                                         description?: string | null;
                                         id?: string | null;
@@ -2670,7 +2718,7 @@ export interface Blog {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "showcase";
+                              blockType: "sc";
                           }
                         | {
                               rows?:
@@ -2684,7 +2732,7 @@ export interface Blog {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "tokens-table";
+                              blockType: "tkns-t";
                           }
                         | {
                               rows?:
@@ -2701,13 +2749,13 @@ export interface Blog {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "table";
+                              blockType: "tbl";
                           }
                     )[]
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "page-section";
+              blockType: "page-s";
           }
         | {
               title: string;
@@ -2716,11 +2764,11 @@ export interface Blog {
                         [k: string]: unknown;
                     }[]
                   | null;
-              showcaseItem?:
+              sci?:
                   | {
                         title: string;
                         src?: string | null;
-                        example?: string | Media | null;
+                        example?: number | Media | null;
                         origin: string;
                         description?: string | null;
                         id?: string | null;
@@ -2728,7 +2776,7 @@ export interface Blog {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "showcase-section";
+              blockType: "sc-s";
           }
         | {
               video: {
@@ -2743,30 +2791,30 @@ export interface Blog {
                   reference?:
                       | ({
                             relationTo: "components";
-                            value: string | Component;
+                            value: number | Component;
                         } | null)
                       | ({
                             relationTo: "general";
-                            value: string | General;
+                            value: number | General;
                         } | null)
                       | ({
                             relationTo: "patterns";
-                            value: string | Pattern;
+                            value: number | Pattern;
                         } | null)
                       | ({
                             relationTo: "foundations";
-                            value: string | Foundation;
+                            value: number | Foundation;
                         } | null)
                       | ({
                             relationTo: "blog";
-                            value: string | Blog;
+                            value: number | Blog;
                         } | null);
                   url?: string | null;
                   newTab?: boolean | null;
               };
               id?: string | null;
               blockName?: string | null;
-              blockType: "video-cta";
+              blockType: "v-cta";
           }
         | {
               type: {
@@ -2793,7 +2841,7 @@ export interface Blog {
               addOnQuestion: string;
               id?: string | null;
               blockName?: string | null;
-              blockType: "feedback-section";
+              blockType: "fbk-s";
           }
         | {
               content: {
@@ -2810,15 +2858,15 @@ export interface Blog {
               }[];
               id?: string | null;
               blockName?: string | null;
-              blockType: "package-stats-section";
+              blockType: "pkg-ss";
           }
     )[];
     meta?: {
         title?: string | null;
         description?: string | null;
         keywords?: string | null;
-        imageLight?: string | Media | null;
-        imageDark?: string | Media | null;
+        imageLight?: number | Media | null;
+        imageDark?: number | Media | null;
         figma?: string | null;
     };
     updatedAt: string;
@@ -2830,7 +2878,7 @@ export interface Blog {
  * via the `definition` "blog-tag".
  */
 export interface BlogTag {
-    id: string;
+    id: number;
     label: string;
     type?: ("success" | "warning" | "info" | "error") | null;
     updatedAt: string;
@@ -2841,7 +2889,7 @@ export interface BlogTag {
  * via the `definition` "users".
  */
 export interface User {
-    id: string;
+    id: number;
     name: string;
     role: "admin" | "editor" | "writer" | "user";
     updatedAt: string;
@@ -2860,7 +2908,7 @@ export interface User {
  * via the `definition` "codeExample".
  */
 export interface CodeExample {
-    id: string;
+    id: number;
     title?: string | null;
     noinline?: boolean | null;
     code: string;
@@ -2883,7 +2931,7 @@ export interface CodeExample {
               id?: string | null;
           }[]
         | null;
-    components?: (string | Component)[] | null;
+    components?: (number | Component)[] | null;
     updatedAt: string;
     createdAt: string;
 }
@@ -2892,7 +2940,7 @@ export interface CodeExample {
  * via the `definition` "media".
  */
 export interface Media {
-    id: string;
+    id: number;
     aspectRatio?: string | null;
     alt?: string | null;
     updatedAt: string;
@@ -2953,7 +3001,7 @@ export interface Media {
  * via the `definition` "menu-items".
  */
 export interface MenuItem {
-    id: string;
+    id: number;
     title: string;
     slug: string;
     link: {
@@ -2962,23 +3010,23 @@ export interface MenuItem {
         reference?:
             | ({
                   relationTo: "components";
-                  value: string | Component;
+                  value: number | Component;
               } | null)
             | ({
                   relationTo: "general";
-                  value: string | General;
+                  value: number | General;
               } | null)
             | ({
                   relationTo: "patterns";
-                  value: string | Pattern;
+                  value: number | Pattern;
               } | null)
             | ({
                   relationTo: "foundations";
-                  value: string | Foundation;
+                  value: number | Foundation;
               } | null)
             | ({
                   relationTo: "blog";
-                  value: string | Blog;
+                  value: number | Blog;
               } | null);
         url?: string | null;
         newTab?: boolean | null;
@@ -2991,7 +3039,7 @@ export interface MenuItem {
  * via the `definition` "sub-menus".
  */
 export interface SubMenu {
-    id: string;
+    id: number;
     title: string;
     slug: string;
     items?:
@@ -2999,11 +3047,11 @@ export interface SubMenu {
               item:
                   | {
                         relationTo: "menu-items";
-                        value: string | MenuItem;
+                        value: number | MenuItem;
                     }
                   | {
                         relationTo: "sub-menus";
-                        value: string | SubMenu;
+                        value: number | SubMenu;
                     };
               id?: string | null;
           }[]
@@ -3016,7 +3064,7 @@ export interface SubMenu {
  * via the `definition` "feedback".
  */
 export interface Feedback {
-    id: string;
+    id: number;
     page?: string | null;
     feedbackValue?: number | null;
     message?: string | null;
@@ -3028,7 +3076,7 @@ export interface Feedback {
  * via the `definition` "package-stats".
  */
 export interface PackageStat {
-    id: string;
+    id: number;
     title?: string | null;
     package?: string | null;
     downloads?: number | null;
@@ -3041,10 +3089,10 @@ export interface PackageStat {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-    id: string;
+    id: number;
     user: {
         relationTo: "users";
-        value: string | User;
+        value: number | User;
     };
     key?: string | null;
     value?:
@@ -3064,7 +3112,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-    id: string;
+    id: number;
     name?: string | null;
     batch?: number | null;
     updatedAt: string;
@@ -3075,7 +3123,7 @@ export interface PayloadMigration {
  * via the `definition` "all-content".
  */
 export interface AllContent {
-    id: string;
+    id: number;
     blocks: (
         | {
               heroText?:
@@ -3092,23 +3140,23 @@ export interface AllContent {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -3118,7 +3166,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "call-to-action";
+              blockType: "cta";
           }
         | {
               intro?:
@@ -3128,13 +3176,13 @@ export interface AllContent {
                   | null;
               components?:
                   | {
-                        component: string | Component;
+                        component: number | Component;
                         id?: string | null;
                     }[]
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "component-overview";
+              blockType: "cmp-o";
           }
         | {
               title: string;
@@ -3152,7 +3200,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "figma-example-section";
+              blockType: "fga-ex-s";
           }
         | {
               heroText?:
@@ -3169,23 +3217,23 @@ export interface AllContent {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -3195,7 +3243,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "hero-section";
+              blockType: "hs";
           }
         | {
               title: string;
@@ -3214,23 +3262,23 @@ export interface AllContent {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -3240,7 +3288,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "link-card-list-section";
+              blockType: "lcls";
           }
         | {
               title: string;
@@ -3249,12 +3297,12 @@ export interface AllContent {
                         [k: string]: unknown;
                     }[]
                   | null;
-              codeExample: string | CodeExample;
+              codeExample: number | CodeExample;
               defaultShowControls?: boolean | null;
               defaultShowEditor?: boolean | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "live-demo-section";
+              blockType: "lds";
           }
         | {
               title: string;
@@ -3281,7 +3329,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "package-report-section";
+              blockType: "pkg-rs";
           }
         | {
               title: string;
@@ -3304,11 +3352,11 @@ export interface AllContent {
                               urlDark: string;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "anatomy-example";
+                              blockType: "anatomy-ex";
                           }
                         | {
                               steps: {
-                                  image?: string | Media | null;
+                                  image?: number | Media | null;
                                   title?: string | null;
                                   description?:
                                       | {
@@ -3338,7 +3386,7 @@ export interface AllContent {
                                   | "diff";
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "code-snippet";
+                              blockType: "code-s";
                           }
                         | {
                               cards?:
@@ -3363,7 +3411,7 @@ export interface AllContent {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "color-card";
+                              blockType: "color-c";
                           }
                         | {
                               doDontItem?:
@@ -3371,7 +3419,7 @@ export interface AllContent {
                                         variant?: ("code" | "image") | null;
                                         code?: string | null;
                                         noinline?: boolean | null;
-                                        image?: string | Media | null;
+                                        image?: number | Media | null;
                                         description?: string | null;
                                         type: "do" | "dont" | "avoid";
                                         id?: string | null;
@@ -3379,7 +3427,7 @@ export interface AllContent {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "dodont-example";
+                              blockType: "dd-ex";
                           }
                         | {
                               links?:
@@ -3392,23 +3440,25 @@ export interface AllContent {
                                             reference?:
                                                 | ({
                                                       relationTo: "components";
-                                                      value: string | Component;
+                                                      value: number | Component;
                                                   } | null)
                                                 | ({
                                                       relationTo: "general";
-                                                      value: string | General;
+                                                      value: number | General;
                                                   } | null)
                                                 | ({
                                                       relationTo: "patterns";
-                                                      value: string | Pattern;
+                                                      value: number | Pattern;
                                                   } | null)
                                                 | ({
                                                       relationTo: "foundations";
-                                                      value: string | Foundation;
+                                                      value:
+                                                          | number
+                                                          | Foundation;
                                                   } | null)
                                                 | ({
                                                       relationTo: "blog";
-                                                      value: string | Blog;
+                                                      value: number | Blog;
                                                   } | null);
                                             url?: string | null;
                                             newTab?: boolean | null;
@@ -3418,20 +3468,24 @@ export interface AllContent {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "link-card-list";
+                              blockType: "lcl";
                           }
                         | {
-                              codeExample: string | CodeExample;
+                              codeExample: number | CodeExample;
                               defaultShowControls?: boolean | null;
                               defaultShowEditor?: boolean | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "live-demo-block";
+                              blockType: "ldb";
                           }
                         | {
                               boxes?:
                                   | {
-                                        type: "info" | "success" | "error" | "warning";
+                                        type:
+                                            | "info"
+                                            | "success"
+                                            | "error"
+                                            | "warning";
                                         title?: string | null;
                                         description: string;
                                         id?: string | null;
@@ -3439,7 +3493,7 @@ export interface AllContent {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "message-box";
+                              blockType: "msg-b";
                           }
                         | {
                               content?:
@@ -3449,14 +3503,14 @@ export interface AllContent {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "rich-text";
+                              blockType: "rt";
                           }
                         | {
-                              showcaseItem?:
+                              sci?:
                                   | {
                                         title: string;
                                         src?: string | null;
-                                        example?: string | Media | null;
+                                        example?: number | Media | null;
                                         origin: string;
                                         description?: string | null;
                                         id?: string | null;
@@ -3464,7 +3518,7 @@ export interface AllContent {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "showcase";
+                              blockType: "sc";
                           }
                         | {
                               rows?:
@@ -3478,7 +3532,7 @@ export interface AllContent {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "tokens-table";
+                              blockType: "tkns-t";
                           }
                         | {
                               rows?:
@@ -3495,13 +3549,13 @@ export interface AllContent {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "table";
+                              blockType: "tbl";
                           }
                     )[]
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "page-section";
+              blockType: "page-s";
           }
         | {
               title: string;
@@ -3510,11 +3564,11 @@ export interface AllContent {
                         [k: string]: unknown;
                     }[]
                   | null;
-              showcaseItem?:
+              sci?:
                   | {
                         title: string;
                         src?: string | null;
-                        example?: string | Media | null;
+                        example?: number | Media | null;
                         origin: string;
                         description?: string | null;
                         id?: string | null;
@@ -3522,7 +3576,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "showcase-section";
+              blockType: "sc-s";
           }
         | {
               video: {
@@ -3537,30 +3591,30 @@ export interface AllContent {
                   reference?:
                       | ({
                             relationTo: "components";
-                            value: string | Component;
+                            value: number | Component;
                         } | null)
                       | ({
                             relationTo: "general";
-                            value: string | General;
+                            value: number | General;
                         } | null)
                       | ({
                             relationTo: "patterns";
-                            value: string | Pattern;
+                            value: number | Pattern;
                         } | null)
                       | ({
                             relationTo: "foundations";
-                            value: string | Foundation;
+                            value: number | Foundation;
                         } | null)
                       | ({
                             relationTo: "blog";
-                            value: string | Blog;
+                            value: number | Blog;
                         } | null);
                   url?: string | null;
                   newTab?: boolean | null;
               };
               id?: string | null;
               blockName?: string | null;
-              blockType: "video-cta";
+              blockType: "v-cta";
           }
         | {
               type: {
@@ -3587,7 +3641,7 @@ export interface AllContent {
               addOnQuestion: string;
               id?: string | null;
               blockName?: string | null;
-              blockType: "feedback-section";
+              blockType: "fbk-s";
           }
         | {
               content: {
@@ -3604,7 +3658,7 @@ export interface AllContent {
               }[];
               id?: string | null;
               blockName?: string | null;
-              blockType: "package-stats-section";
+              blockType: "pkg-ss";
           }
         | {
               steps?:
@@ -3618,11 +3672,11 @@ export interface AllContent {
               urlDark: string;
               id?: string | null;
               blockName?: string | null;
-              blockType: "anatomy-example";
+              blockType: "anatomy-ex";
           }
         | {
               steps: {
-                  image?: string | Media | null;
+                  image?: number | Media | null;
                   title?: string | null;
                   description?:
                       | {
@@ -3637,10 +3691,22 @@ export interface AllContent {
           }
         | {
               code: string;
-              language: "ts" | "tsx" | "sh" | "scss" | "css" | "js" | "jsx" | "html" | "xml" | "json" | "less" | "diff";
+              language:
+                  | "ts"
+                  | "tsx"
+                  | "sh"
+                  | "scss"
+                  | "css"
+                  | "js"
+                  | "jsx"
+                  | "html"
+                  | "xml"
+                  | "json"
+                  | "less"
+                  | "diff";
               id?: string | null;
               blockName?: string | null;
-              blockType: "code-snippet";
+              blockType: "code-s";
           }
         | {
               cards?:
@@ -3665,7 +3731,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "color-card";
+              blockType: "color-c";
           }
         | {
               doDontItem?:
@@ -3673,7 +3739,7 @@ export interface AllContent {
                         variant?: ("code" | "image") | null;
                         code?: string | null;
                         noinline?: boolean | null;
-                        image?: string | Media | null;
+                        image?: number | Media | null;
                         description?: string | null;
                         type: "do" | "dont" | "avoid";
                         id?: string | null;
@@ -3681,7 +3747,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "dodont-example";
+              blockType: "dd-ex";
           }
         | {
               links?:
@@ -3694,23 +3760,23 @@ export interface AllContent {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -3720,15 +3786,15 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "link-card-list";
+              blockType: "lcl";
           }
         | {
-              codeExample: string | CodeExample;
+              codeExample: number | CodeExample;
               defaultShowControls?: boolean | null;
               defaultShowEditor?: boolean | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "live-demo-block";
+              blockType: "ldb";
           }
         | {
               boxes?:
@@ -3741,7 +3807,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "message-box";
+              blockType: "msg-b";
           }
         | {
               content?:
@@ -3751,14 +3817,14 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "rich-text";
+              blockType: "rt";
           }
         | {
-              showcaseItem?:
+              sci?:
                   | {
                         title: string;
                         src?: string | null;
-                        example?: string | Media | null;
+                        example?: number | Media | null;
                         origin: string;
                         description?: string | null;
                         id?: string | null;
@@ -3766,7 +3832,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "showcase";
+              blockType: "sc";
           }
         | {
               rows?:
@@ -3780,7 +3846,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "tokens-table";
+              blockType: "tkns-t";
           }
         | {
               rows?:
@@ -3797,7 +3863,7 @@ export interface AllContent {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "table";
+              blockType: "tbl";
           }
         | {
               link: {
@@ -3806,23 +3872,23 @@ export interface AllContent {
                   reference?:
                       | ({
                             relationTo: "components";
-                            value: string | Component;
+                            value: number | Component;
                         } | null)
                       | ({
                             relationTo: "general";
-                            value: string | General;
+                            value: number | General;
                         } | null)
                       | ({
                             relationTo: "patterns";
-                            value: string | Pattern;
+                            value: number | Pattern;
                         } | null)
                       | ({
                             relationTo: "foundations";
-                            value: string | Foundation;
+                            value: number | Foundation;
                         } | null)
                       | ({
                             relationTo: "blog";
-                            value: string | Blog;
+                            value: number | Blog;
                         } | null);
                   url?: string | null;
                   newTab?: boolean | null;
@@ -3840,7 +3906,7 @@ export interface AllContent {
  * via the `definition` "all-content-blocks".
  */
 export interface AllContentBlock {
-    id: string;
+    id: number;
     blocks: (
         | {
               steps?:
@@ -3854,11 +3920,11 @@ export interface AllContentBlock {
               urlDark: string;
               id?: string | null;
               blockName?: string | null;
-              blockType: "anatomy-example";
+              blockType: "anatomy-ex";
           }
         | {
               steps: {
-                  image?: string | Media | null;
+                  image?: number | Media | null;
                   title?: string | null;
                   description?:
                       | {
@@ -3873,10 +3939,22 @@ export interface AllContentBlock {
           }
         | {
               code: string;
-              language: "ts" | "tsx" | "sh" | "scss" | "css" | "js" | "jsx" | "html" | "xml" | "json" | "less" | "diff";
+              language:
+                  | "ts"
+                  | "tsx"
+                  | "sh"
+                  | "scss"
+                  | "css"
+                  | "js"
+                  | "jsx"
+                  | "html"
+                  | "xml"
+                  | "json"
+                  | "less"
+                  | "diff";
               id?: string | null;
               blockName?: string | null;
-              blockType: "code-snippet";
+              blockType: "code-s";
           }
         | {
               cards?:
@@ -3901,7 +3979,7 @@ export interface AllContentBlock {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "color-card";
+              blockType: "color-c";
           }
         | {
               doDontItem?:
@@ -3909,7 +3987,7 @@ export interface AllContentBlock {
                         variant?: ("code" | "image") | null;
                         code?: string | null;
                         noinline?: boolean | null;
-                        image?: string | Media | null;
+                        image?: number | Media | null;
                         description?: string | null;
                         type: "do" | "dont" | "avoid";
                         id?: string | null;
@@ -3917,7 +3995,7 @@ export interface AllContentBlock {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "dodont-example";
+              blockType: "dd-ex";
           }
         | {
               links?:
@@ -3930,23 +4008,23 @@ export interface AllContentBlock {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -3956,15 +4034,15 @@ export interface AllContentBlock {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "link-card-list";
+              blockType: "lcl";
           }
         | {
-              codeExample: string | CodeExample;
+              codeExample: number | CodeExample;
               defaultShowControls?: boolean | null;
               defaultShowEditor?: boolean | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "live-demo-block";
+              blockType: "ldb";
           }
         | {
               boxes?:
@@ -3977,7 +4055,7 @@ export interface AllContentBlock {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "message-box";
+              blockType: "msg-b";
           }
         | {
               content?:
@@ -3987,14 +4065,14 @@ export interface AllContentBlock {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "rich-text";
+              blockType: "rt";
           }
         | {
-              showcaseItem?:
+              sci?:
                   | {
                         title: string;
                         src?: string | null;
-                        example?: string | Media | null;
+                        example?: number | Media | null;
                         origin: string;
                         description?: string | null;
                         id?: string | null;
@@ -4002,7 +4080,7 @@ export interface AllContentBlock {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "showcase";
+              blockType: "sc";
           }
         | {
               rows?:
@@ -4016,7 +4094,7 @@ export interface AllContentBlock {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "tokens-table";
+              blockType: "tkns-t";
           }
         | {
               rows?:
@@ -4033,7 +4111,7 @@ export interface AllContentBlock {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "table";
+              blockType: "tbl";
           }
     )[];
     updatedAt?: string | null;
@@ -4044,7 +4122,7 @@ export interface AllContentBlock {
  * via the `definition` "all-sections".
  */
 export interface AllSection {
-    id: string;
+    id: number;
     sections: (
         | {
               heroText?:
@@ -4061,23 +4139,23 @@ export interface AllSection {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -4087,7 +4165,7 @@ export interface AllSection {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "call-to-action";
+              blockType: "cta";
           }
         | {
               intro?:
@@ -4097,13 +4175,13 @@ export interface AllSection {
                   | null;
               components?:
                   | {
-                        component: string | Component;
+                        component: number | Component;
                         id?: string | null;
                     }[]
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "component-overview";
+              blockType: "cmp-o";
           }
         | {
               title: string;
@@ -4121,7 +4199,7 @@ export interface AllSection {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "figma-example-section";
+              blockType: "fga-ex-s";
           }
         | {
               heroText?:
@@ -4138,23 +4216,23 @@ export interface AllSection {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -4164,7 +4242,7 @@ export interface AllSection {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "hero-section";
+              blockType: "hs";
           }
         | {
               title: string;
@@ -4183,23 +4261,23 @@ export interface AllSection {
                             reference?:
                                 | ({
                                       relationTo: "components";
-                                      value: string | Component;
+                                      value: number | Component;
                                   } | null)
                                 | ({
                                       relationTo: "general";
-                                      value: string | General;
+                                      value: number | General;
                                   } | null)
                                 | ({
                                       relationTo: "patterns";
-                                      value: string | Pattern;
+                                      value: number | Pattern;
                                   } | null)
                                 | ({
                                       relationTo: "foundations";
-                                      value: string | Foundation;
+                                      value: number | Foundation;
                                   } | null)
                                 | ({
                                       relationTo: "blog";
-                                      value: string | Blog;
+                                      value: number | Blog;
                                   } | null);
                             url?: string | null;
                             newTab?: boolean | null;
@@ -4209,7 +4287,7 @@ export interface AllSection {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "link-card-list-section";
+              blockType: "lcls";
           }
         | {
               title: string;
@@ -4218,12 +4296,12 @@ export interface AllSection {
                         [k: string]: unknown;
                     }[]
                   | null;
-              codeExample: string | CodeExample;
+              codeExample: number | CodeExample;
               defaultShowControls?: boolean | null;
               defaultShowEditor?: boolean | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "live-demo-section";
+              blockType: "lds";
           }
         | {
               title: string;
@@ -4250,7 +4328,7 @@ export interface AllSection {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "package-report-section";
+              blockType: "pkg-rs";
           }
         | {
               title: string;
@@ -4273,11 +4351,11 @@ export interface AllSection {
                               urlDark: string;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "anatomy-example";
+                              blockType: "anatomy-ex";
                           }
                         | {
                               steps: {
-                                  image?: string | Media | null;
+                                  image?: number | Media | null;
                                   title?: string | null;
                                   description?:
                                       | {
@@ -4307,7 +4385,7 @@ export interface AllSection {
                                   | "diff";
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "code-snippet";
+                              blockType: "code-s";
                           }
                         | {
                               cards?:
@@ -4332,7 +4410,7 @@ export interface AllSection {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "color-card";
+                              blockType: "color-c";
                           }
                         | {
                               doDontItem?:
@@ -4340,7 +4418,7 @@ export interface AllSection {
                                         variant?: ("code" | "image") | null;
                                         code?: string | null;
                                         noinline?: boolean | null;
-                                        image?: string | Media | null;
+                                        image?: number | Media | null;
                                         description?: string | null;
                                         type: "do" | "dont" | "avoid";
                                         id?: string | null;
@@ -4348,7 +4426,7 @@ export interface AllSection {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "dodont-example";
+                              blockType: "dd-ex";
                           }
                         | {
                               links?:
@@ -4361,23 +4439,25 @@ export interface AllSection {
                                             reference?:
                                                 | ({
                                                       relationTo: "components";
-                                                      value: string | Component;
+                                                      value: number | Component;
                                                   } | null)
                                                 | ({
                                                       relationTo: "general";
-                                                      value: string | General;
+                                                      value: number | General;
                                                   } | null)
                                                 | ({
                                                       relationTo: "patterns";
-                                                      value: string | Pattern;
+                                                      value: number | Pattern;
                                                   } | null)
                                                 | ({
                                                       relationTo: "foundations";
-                                                      value: string | Foundation;
+                                                      value:
+                                                          | number
+                                                          | Foundation;
                                                   } | null)
                                                 | ({
                                                       relationTo: "blog";
-                                                      value: string | Blog;
+                                                      value: number | Blog;
                                                   } | null);
                                             url?: string | null;
                                             newTab?: boolean | null;
@@ -4387,20 +4467,24 @@ export interface AllSection {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "link-card-list";
+                              blockType: "lcl";
                           }
                         | {
-                              codeExample: string | CodeExample;
+                              codeExample: number | CodeExample;
                               defaultShowControls?: boolean | null;
                               defaultShowEditor?: boolean | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "live-demo-block";
+                              blockType: "ldb";
                           }
                         | {
                               boxes?:
                                   | {
-                                        type: "info" | "success" | "error" | "warning";
+                                        type:
+                                            | "info"
+                                            | "success"
+                                            | "error"
+                                            | "warning";
                                         title?: string | null;
                                         description: string;
                                         id?: string | null;
@@ -4408,7 +4492,7 @@ export interface AllSection {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "message-box";
+                              blockType: "msg-b";
                           }
                         | {
                               content?:
@@ -4418,14 +4502,14 @@ export interface AllSection {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "rich-text";
+                              blockType: "rt";
                           }
                         | {
-                              showcaseItem?:
+                              sci?:
                                   | {
                                         title: string;
                                         src?: string | null;
-                                        example?: string | Media | null;
+                                        example?: number | Media | null;
                                         origin: string;
                                         description?: string | null;
                                         id?: string | null;
@@ -4433,7 +4517,7 @@ export interface AllSection {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "showcase";
+                              blockType: "sc";
                           }
                         | {
                               rows?:
@@ -4447,7 +4531,7 @@ export interface AllSection {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "tokens-table";
+                              blockType: "tkns-t";
                           }
                         | {
                               rows?:
@@ -4464,13 +4548,13 @@ export interface AllSection {
                                   | null;
                               id?: string | null;
                               blockName?: string | null;
-                              blockType: "table";
+                              blockType: "tbl";
                           }
                     )[]
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "page-section";
+              blockType: "page-s";
           }
         | {
               title: string;
@@ -4479,11 +4563,11 @@ export interface AllSection {
                         [k: string]: unknown;
                     }[]
                   | null;
-              showcaseItem?:
+              sci?:
                   | {
                         title: string;
                         src?: string | null;
-                        example?: string | Media | null;
+                        example?: number | Media | null;
                         origin: string;
                         description?: string | null;
                         id?: string | null;
@@ -4491,7 +4575,7 @@ export interface AllSection {
                   | null;
               id?: string | null;
               blockName?: string | null;
-              blockType: "showcase-section";
+              blockType: "sc-s";
           }
         | {
               video: {
@@ -4506,30 +4590,30 @@ export interface AllSection {
                   reference?:
                       | ({
                             relationTo: "components";
-                            value: string | Component;
+                            value: number | Component;
                         } | null)
                       | ({
                             relationTo: "general";
-                            value: string | General;
+                            value: number | General;
                         } | null)
                       | ({
                             relationTo: "patterns";
-                            value: string | Pattern;
+                            value: number | Pattern;
                         } | null)
                       | ({
                             relationTo: "foundations";
-                            value: string | Foundation;
+                            value: number | Foundation;
                         } | null)
                       | ({
                             relationTo: "blog";
-                            value: string | Blog;
+                            value: number | Blog;
                         } | null);
                   url?: string | null;
                   newTab?: boolean | null;
               };
               id?: string | null;
               blockName?: string | null;
-              blockType: "video-cta";
+              blockType: "v-cta";
           }
         | {
               type: {
@@ -4556,7 +4640,7 @@ export interface AllSection {
               addOnQuestion: string;
               id?: string | null;
               blockName?: string | null;
-              blockType: "feedback-section";
+              blockType: "fbk-s";
           }
         | {
               content: {
@@ -4573,7 +4657,7 @@ export interface AllSection {
               }[];
               id?: string | null;
               blockName?: string | null;
-              blockType: "package-stats-section";
+              blockType: "pkg-ss";
           }
     )[];
     updatedAt?: string | null;
@@ -4584,17 +4668,17 @@ export interface AllSection {
  * via the `definition` "main-menu".
  */
 export interface MainMenu {
-    id: string;
+    id: number;
     items?:
         | {
               item:
                   | {
                         relationTo: "menu-items";
-                        value: string | MenuItem;
+                        value: number | MenuItem;
                     }
                   | {
                         relationTo: "sub-menus";
-                        value: string | SubMenu;
+                        value: number | SubMenu;
                     };
               id?: string | null;
           }[]
@@ -4607,7 +4691,7 @@ export interface MainMenu {
  * via the `definition` "home-page".
  */
 export interface HomePage {
-    id: string;
+    id: number;
     sections?:
         | (
               | {
@@ -4631,11 +4715,11 @@ export interface HomePage {
                                     urlDark: string;
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "anatomy-example";
+                                    blockType: "anatomy-ex";
                                 }
                               | {
                                     steps: {
-                                        image?: string | Media | null;
+                                        image?: number | Media | null;
                                         title?: string | null;
                                         description?:
                                             | {
@@ -4665,7 +4749,7 @@ export interface HomePage {
                                         | "diff";
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "code-snippet";
+                                    blockType: "code-s";
                                 }
                               | {
                                     cards?:
@@ -4690,15 +4774,17 @@ export interface HomePage {
                                         | null;
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "color-card";
+                                    blockType: "color-c";
                                 }
                               | {
                                     doDontItem?:
                                         | {
-                                              variant?: ("code" | "image") | null;
+                                              variant?:
+                                                  | ("code" | "image")
+                                                  | null;
                                               code?: string | null;
                                               noinline?: boolean | null;
-                                              image?: string | Media | null;
+                                              image?: number | Media | null;
                                               description?: string | null;
                                               type: "do" | "dont" | "avoid";
                                               id?: string | null;
@@ -4706,7 +4792,7 @@ export interface HomePage {
                                         | null;
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "dodont-example";
+                                    blockType: "dd-ex";
                                 }
                               | {
                                     links?:
@@ -4719,23 +4805,33 @@ export interface HomePage {
                                                   reference?:
                                                       | ({
                                                             relationTo: "components";
-                                                            value: string | Component;
+                                                            value:
+                                                                | number
+                                                                | Component;
                                                         } | null)
                                                       | ({
                                                             relationTo: "general";
-                                                            value: string | General;
+                                                            value:
+                                                                | number
+                                                                | General;
                                                         } | null)
                                                       | ({
                                                             relationTo: "patterns";
-                                                            value: string | Pattern;
+                                                            value:
+                                                                | number
+                                                                | Pattern;
                                                         } | null)
                                                       | ({
                                                             relationTo: "foundations";
-                                                            value: string | Foundation;
+                                                            value:
+                                                                | number
+                                                                | Foundation;
                                                         } | null)
                                                       | ({
                                                             relationTo: "blog";
-                                                            value: string | Blog;
+                                                            value:
+                                                                | number
+                                                                | Blog;
                                                         } | null);
                                                   url?: string | null;
                                                   newTab?: boolean | null;
@@ -4745,20 +4841,24 @@ export interface HomePage {
                                         | null;
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "link-card-list";
+                                    blockType: "lcl";
                                 }
                               | {
-                                    codeExample: string | CodeExample;
+                                    codeExample: number | CodeExample;
                                     defaultShowControls?: boolean | null;
                                     defaultShowEditor?: boolean | null;
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "live-demo-block";
+                                    blockType: "ldb";
                                 }
                               | {
                                     boxes?:
                                         | {
-                                              type: "info" | "success" | "error" | "warning";
+                                              type:
+                                                  | "info"
+                                                  | "success"
+                                                  | "error"
+                                                  | "warning";
                                               title?: string | null;
                                               description: string;
                                               id?: string | null;
@@ -4766,7 +4866,7 @@ export interface HomePage {
                                         | null;
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "message-box";
+                                    blockType: "msg-b";
                                 }
                               | {
                                     content?:
@@ -4776,14 +4876,14 @@ export interface HomePage {
                                         | null;
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "rich-text";
+                                    blockType: "rt";
                                 }
                               | {
-                                    showcaseItem?:
+                                    sci?:
                                         | {
                                               title: string;
                                               src?: string | null;
-                                              example?: string | Media | null;
+                                              example?: number | Media | null;
                                               origin: string;
                                               description?: string | null;
                                               id?: string | null;
@@ -4791,7 +4891,7 @@ export interface HomePage {
                                         | null;
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "showcase";
+                                    blockType: "sc";
                                 }
                               | {
                                     rows?:
@@ -4805,7 +4905,7 @@ export interface HomePage {
                                         | null;
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "tokens-table";
+                                    blockType: "tkns-t";
                                 }
                               | {
                                     rows?:
@@ -4822,13 +4922,13 @@ export interface HomePage {
                                         | null;
                                     id?: string | null;
                                     blockName?: string | null;
-                                    blockType: "table";
+                                    blockType: "tbl";
                                 }
                           )[]
                         | null;
                     id?: string | null;
                     blockName?: string | null;
-                    blockType: "page-section";
+                    blockType: "page-s";
                 }
               | {
                     heroText?:
@@ -4845,23 +4945,23 @@ export interface HomePage {
                                   reference?:
                                       | ({
                                             relationTo: "components";
-                                            value: string | Component;
+                                            value: number | Component;
                                         } | null)
                                       | ({
                                             relationTo: "general";
-                                            value: string | General;
+                                            value: number | General;
                                         } | null)
                                       | ({
                                             relationTo: "patterns";
-                                            value: string | Pattern;
+                                            value: number | Pattern;
                                         } | null)
                                       | ({
                                             relationTo: "foundations";
-                                            value: string | Foundation;
+                                            value: number | Foundation;
                                         } | null)
                                       | ({
                                             relationTo: "blog";
-                                            value: string | Blog;
+                                            value: number | Blog;
                                         } | null);
                                   url?: string | null;
                                   newTab?: boolean | null;
@@ -4871,7 +4971,7 @@ export interface HomePage {
                         | null;
                     id?: string | null;
                     blockName?: string | null;
-                    blockType: "hero-section";
+                    blockType: "hs";
                 }
               | {
                     video: {
@@ -4886,30 +4986,30 @@ export interface HomePage {
                         reference?:
                             | ({
                                   relationTo: "components";
-                                  value: string | Component;
+                                  value: number | Component;
                               } | null)
                             | ({
                                   relationTo: "general";
-                                  value: string | General;
+                                  value: number | General;
                               } | null)
                             | ({
                                   relationTo: "patterns";
-                                  value: string | Pattern;
+                                  value: number | Pattern;
                               } | null)
                             | ({
                                   relationTo: "foundations";
-                                  value: string | Foundation;
+                                  value: number | Foundation;
                               } | null)
                             | ({
                                   relationTo: "blog";
-                                  value: string | Blog;
+                                  value: number | Blog;
                               } | null);
                         url?: string | null;
                         newTab?: boolean | null;
                     };
                     id?: string | null;
                     blockName?: string | null;
-                    blockType: "video-cta";
+                    blockType: "v-cta";
                 }
               | {
                     heroText?:
@@ -4926,23 +5026,23 @@ export interface HomePage {
                                   reference?:
                                       | ({
                                             relationTo: "components";
-                                            value: string | Component;
+                                            value: number | Component;
                                         } | null)
                                       | ({
                                             relationTo: "general";
-                                            value: string | General;
+                                            value: number | General;
                                         } | null)
                                       | ({
                                             relationTo: "patterns";
-                                            value: string | Pattern;
+                                            value: number | Pattern;
                                         } | null)
                                       | ({
                                             relationTo: "foundations";
-                                            value: string | Foundation;
+                                            value: number | Foundation;
                                         } | null)
                                       | ({
                                             relationTo: "blog";
-                                            value: string | Blog;
+                                            value: number | Blog;
                                         } | null);
                                   url?: string | null;
                                   newTab?: boolean | null;
@@ -4952,7 +5052,7 @@ export interface HomePage {
                         | null;
                     id?: string | null;
                     blockName?: string | null;
-                    blockType: "call-to-action";
+                    blockType: "cta";
                 }
               | {
                     type: {
@@ -4979,7 +5079,7 @@ export interface HomePage {
                     addOnQuestion: string;
                     id?: string | null;
                     blockName?: string | null;
-                    blockType: "feedback-section";
+                    blockType: "fbk-s";
                 }
               | {
                     content: {
@@ -4996,7 +5096,7 @@ export interface HomePage {
                     }[];
                     id?: string | null;
                     blockName?: string | null;
-                    blockType: "package-stats-section";
+                    blockType: "pkg-ss";
                 }
           )[]
         | null;
@@ -5004,8 +5104,8 @@ export interface HomePage {
         title?: string | null;
         description?: string | null;
         keywords?: string | null;
-        imageLight?: string | Media | null;
-        imageDark?: string | Media | null;
+        imageLight?: number | Media | null;
+        imageDark?: number | Media | null;
         figma?: string | null;
     };
     updatedAt?: string | null;

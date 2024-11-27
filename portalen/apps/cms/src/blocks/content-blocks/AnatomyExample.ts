@@ -1,7 +1,7 @@
 import type { Block } from "payload/types";
 
 export const AnatomyExample: Block = {
-    slug: "anatomy-example",
+    slug: "anatomy-ex",
     labels: {
         singular: "Anatomieksempel",
         plural: "Anatomieksempler",

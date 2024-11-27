@@ -1,7 +1,7 @@
 import { Block } from "payload/types";
 
 export const FeedbackSection: Block = {
-    slug: "feedback-section",
+    slug: "fbk-s",
     imageURL: "/media/mediafeedback.webp",
     fields: [
         {

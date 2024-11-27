@@ -3,7 +3,7 @@ import { Block } from "payload/types";
 import { link } from "../../fields/link";
 
 export const CallToAction: Block = {
-    slug: "call-to-action",
+    slug: "cta",
     imageURL: "/media/mediacta.webp",
     fields: [
         {

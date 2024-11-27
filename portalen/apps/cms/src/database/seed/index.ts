@@ -1,4 +1,4 @@
-import type { Payload } from "..";
+import type { Payload } from "../..";
 import { componentPagesSeed } from "./data";
 
 export const seedComponentPages = async (payload: Payload) => {

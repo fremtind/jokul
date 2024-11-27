@@ -4,6 +4,6 @@ import { createPageSectionBlock } from "./createPageSectionBlock";
 
 export const LinkCardListSection: Block = createPageSectionBlock({
     ...LinkCardList,
-    slug: "link-card-list-section",
+    slug: "lcls",
     imageURL: "/media/medialenkekort.webp",
 });
