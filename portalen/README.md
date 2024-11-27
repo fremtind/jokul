@@ -61,7 +61,7 @@ CREATE DATABASE jkl_portal;
 
 #### Konfigurer prosjektet
 
--   Lag en `.env`-fil i `apps/server/` basert på `.env.example`.
+-   Lag en `.env`-fil i [`./apps/server/`](./apps/server/) basert på [`.env.example`](./apps/server/.env.example).
 -   Kjør `pnpm install` på rotnivå (portalen).
 -   Kjør `pnpm dev`.
 
