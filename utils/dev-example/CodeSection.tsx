@@ -19,7 +19,9 @@ export const CodeSection: FC<CodeSectionProps> = ({ className, children }) => {
                 setShowCodeText(open ? "Skjul kode" : "Vis kode")
             }
         >
-            <Expander>{showCodeText}</Expander>
+            <Expander style={{ width: "fit-content", minWidth: 150 }}>
+                {showCodeText}
+            </Expander>
             <ExpandablePanel.Content>{children}</ExpandablePanel.Content>
         </ExpandablePanel>
     );
