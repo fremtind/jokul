@@ -6,44 +6,30 @@ on:
             - main
 
         paths:
-            - packages/jokul/**
             - utils/**
-            - .github/workflows/**
+            - .github/workflows/visual_regression_test.yml
+            - "packages/jokul/src/**/*.spec.ts"
+            - "packages/jokul/src/**/*.scss"
+            - "packages/jokul/src/**/!(*.test).tsx"
+            - "pnpm-lock.yaml"
 
 jobs:
-    changes:
-        runs-on: ubuntu-latest
+    tests:
         if: ${{ !contains(github.event.sender.login, 'fremtind-bot') }}
-
-        outputs:
-            visual: ${{ steps.changes.outputs.visual }}
-
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-
-            - name: Check for changes that require running regression tests
-              if: ${{ github.event_name != 'merge_group' }}
-              uses: ./actions/paths-filter
-              id: changes
-              with:
-                  filters: |
-                      visual:
-                        - "packages/jokul/src/**/*.spec.ts"
-                        - "packages/jokul/src/**/*.scss"
-                        - "packages/jokul/src/**/!(*.test).tsx"
-                        - "utils/**/*.*"
-                        - "pnpm-lock.yaml"
-                        - ".github/workflows/visual_regression_test.yml"
-
-    snapshots:
-        needs: changes
-        if: needs.changes.outputs.visual == 'true'
         runs-on: ubuntu-latest
         permissions:
             actions: write
             contents: write
             pull-requests: write
+
+        outputs:
+            new-screenshots: ${{ steps.check.outputs.new-screenshots }}
+
+        strategy:
+            fail-fast: false
+            matrix:
+                SHARD: [1, 2, 3]
+                NUM_SHARDS: [3]
         steps:
             - name: Checkout
               uses: actions/checkout@v3
@@ -61,7 +47,7 @@ jobs:
                   cache: "pnpm"
 
             - name: Monorepo Runner Cache
-              uses: actions/cache@v3
+              uses: actions/cache/restore@v3
               id: nx-cache
               with:
                   path: .nx
@@ -72,38 +58,80 @@ jobs:
             - name: Install dependencies and build packages
               run: pnpm ci:install
 
+            - name: Find Playwright version
+              shell: bash
+              run: |
+                  PLAYWRIGHT_VERSION=$(npm ls --json @playwright/test | jq --raw-output '.dependencies["@playwright/test"].version')
+                  echo "PLAYWRIGHT_VERSION=$PLAYWRIGHT_VERSION" >> $GITHUB_ENV
+
             - name: Playwright binary cache
               uses: actions/cache@v3
               id: playwright-cache
               with:
                   path: /home/runner/.cache/ms-playwright
-                  key: playwright-${{ hashFiles('pnpm-lock.yaml') }}
+                  key: playwright-${{ env.PLAYWRIGHT_VERSION }}
+                  restore-keys: |
+                      playwright-
 
             - name: Playwright binaries
-              run: pnpm exec playwright install --with-deps
+              if: steps.playwright-cache.outputs.cache-hit != 'true'
+              run: pnpm exec playwright install --with-deps chromium
 
-            - name: Update integration screenshots
-              run: pnpm integration:ci
+            - name: Run tests
+              run: pnpm integration:ci --shard ${{ matrix.SHARD }}/${{ matrix.NUM_SHARDS }}
 
             - name: Upload Playwright report on failure
               if: ${{ failure() }}
               uses: actions/upload-artifact@v4
               with:
-                  name: playwright-report.tar.gz
+                  name: playwright-report-${{ matrix.SHARD }}.tar.gz
                   path: playwright-report/
 
             - name: Upload Playwright test-results on failure
               if: ${{ failure() }}
               uses: actions/upload-artifact@v4
               with:
-                  name: test-results.tar.gz
+                  name: test-results-${{ matrix.SHARD }}.tar.gz
                   path: test-results/
 
-            - name: Commit screenshots
-              if: ${{ always() }}
+            - name: Check for new screenshots
+              id: check
+              run: |
+                  echo "new-screenshots=$(if [ -z "$(git status --porcelain)" ]; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
+
+            - name: Upload screenshots
+              if: steps.check.outputs.new-screenshots == 'true'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: playwright-screenshots-${{ matrix.SHARD }}
+                  path: |
+                      packages/jokul/src/components/**/integration/__screenshots__/*
+
+    commit:
+        needs: [tests]
+        if: needs.tests.outputs.new-screenshots == 'true'
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: write
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  ref: ${{ github.event.pull_request.head.ref }}
+                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+
+            - name: Download screenshots
+              uses: actions/download-artifact@v4
+              with:
+                  pattern: playwright-screenshots-*
+                  path: packages/jokul/src/components
+                  merge-multiple: true
+
+            - name: Commit snapshots
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"
                   git add **/integration/__screenshots__/* || echo "No updated screenshots, nothing to add!"
-                  git commit -m "chore: update integration screenshots [playwright]" --no-verify || echo "No updated screenshots, nothing to commit!"
+                  git commit -m "chore: update integration screenshots [ci skip playwright]" --no-verify || echo "No updated screenshots, nothing to commit!"
                   git push
