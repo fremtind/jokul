@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const DB_HOST = process.env.PAYLOAD_PUBLIC_DB_HOST;
+const DB_HOST = process.env.DB_HOST;
 const DB_USER = process.env.PAYLOAD_PUBLIC_DB_USER;
 const DB_PASSWORD = process.env.PAYLOAD_PUBLIC_DB_PASSWORD;
 const CUSTOM_CA = process.env.PAYLOAD_PUBLIC_CUSTOM_CA;
