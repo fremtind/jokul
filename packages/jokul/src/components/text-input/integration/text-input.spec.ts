@@ -22,7 +22,7 @@ test("renders correctly", async () => {
     await helper.snapshots();
 });
 
-test("renders :allthethings: correctly", async () => {
+test("renders allthethings correctly", async () => {
     await helper.open();
 
     await helper.checkProp("bool-prop-med-feil");
