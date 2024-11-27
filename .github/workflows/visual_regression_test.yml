@@ -8,6 +8,7 @@ on:
         paths:
             - packages/jokul/**
             - utils/**
+            - .github/workflows/**
 
 jobs:
     changes:
@@ -33,6 +34,7 @@ jobs:
                         - "packages/jokul/src/**/!(*.test).tsx"
                         - "utils/**/*.*"
                         - "pnpm-lock.yaml"
+                        - ".github/workflows/visual_regression_test.yml"
 
     snapshots:
         needs: changes
