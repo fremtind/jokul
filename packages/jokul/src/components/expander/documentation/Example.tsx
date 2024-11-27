@@ -16,7 +16,6 @@ export default function Example() {
                 title="UnControlled"
                 component={UnControlledExample}
                 knobs={uncontrolledKnobs}
-                codeExample="console.log('ohai)"
             />
             <DevExample
                 title="Custom widget"
