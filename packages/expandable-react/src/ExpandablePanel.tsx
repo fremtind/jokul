@@ -1,6 +1,6 @@
 import { PolymorphicRef } from "@fremtind/jkl-core";
 import cn from "classnames";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 import { ExpanderContext } from "./context";
 import { ExpandablePanelContent } from "./ExpandablePanelContent";
 import { ExpandablePanelComponent, ExpandablePanelProps } from "./types";
@@ -24,6 +24,9 @@ export const ExpandablePanel = Object.assign(
         const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
         const [contentIsVisible, setContentIsVisible] = useState(false);
 
+        const internalRef = useRef<HTMLDetailsElement>();
+        useImperativeHandle(ref, () => internalRef.current, [internalRef]);
+
         const El = as;
         const isControlled = typeof controlledOpen !== "undefined";
         const isOpen = isControlled ? controlledOpen : uncontrolledOpen;
@@ -45,9 +48,25 @@ export const ExpandablePanel = Object.assign(
             setUncontrolledOpen((previousValue) => !previousValue);
         };
 
+        useEffect(() => {
+            const callback = (e: ToggleEvent) => {
+                setUncontrolledOpen(e.newState === "open");
+            };
+
+            const element = internalRef.current;
+
+            element?.addEventListener("toggle", callback as EventListener);
+
+            return () =>
+                element?.removeEventListener(
+                    "toggle",
+                    callback as EventListener,
+                );
+        }, [setContentIsVisible, setUncontrolledOpen]);
+
         return (
             <El
-                ref={ref}
+                ref={internalRef}
                 data-testid={"jkl-expand-section"}
                 className={cn("jkl-expandable", `jkl-expandable--${variant}`)}
                 open={
