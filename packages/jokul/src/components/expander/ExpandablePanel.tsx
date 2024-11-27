@@ -49,7 +49,7 @@ export const ExpandablePanel = Object.assign(
         };
 
         useEffect(() => {
-            const callback = (e: ToggleEvent) => {
+            const callback = (e: ToggleEvent & { newState: string }) => {
                 setUncontrolledOpen(e.newState === "open");
             };
 
