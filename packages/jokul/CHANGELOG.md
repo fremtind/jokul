@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.35.1 (2024-11-27)
+
+### Bug Fixes
+
+- deprecate useAnimatedDetails hook ([79a24ef](https://github.com/fremtind/jokul/commit/79a24ef5e26d93999fcac6ab7798949f4ed2ea07))
+
 # [0.35.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.34.1...@fremtind/jokul@0.35.0) (2024-11-20)
 
 ### Code Refactoring
