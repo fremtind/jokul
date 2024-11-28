@@ -62,9 +62,17 @@ jobs:
                   cache: "pnpm"
 
             - name: Monorepo Runner Cache
-              if: steps.changes.outputs.has_matches == 'true' || github.event_name == 'merge_group'
+              if: github.event_name == 'merge_group'
+              uses: actions/cache/restore@v3
+              with:
+                  path: .nx
+                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+                  restore-keys: |
+                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
+
+            - name: Monorepo Runner Cache
+              if: github.event_name == 'pull_request' && steps.changes.outputs.has_matches == 'true'
               uses: actions/cache@v3
-              id: nx-cache
               with:
                   path: .nx
                   key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
@@ -102,8 +110,7 @@ jobs:
                   cache: "pnpm"
 
             - name: Monorepo Runner Cache
-              uses: actions/cache@v3
-              id: nx-cache
+              uses: actions/cache/restore@v3
               with:
                   path: .nx
                   key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
@@ -173,8 +180,7 @@ jobs:
                   cache: "pnpm"
 
             - name: Monorepo Runner Cache
-              uses: actions/cache@v3
-              id: nx-cache
+              uses: actions/cache/restore@v3
               with:
                   path: .nx
                   key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
