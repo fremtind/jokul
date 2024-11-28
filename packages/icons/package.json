@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-icons",
-    "version": "10.1.7",
+    "version": "10.1.8",
     "publishConfig": {
         "access": "public"
     },

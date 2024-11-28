@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.1.22 (2024-11-28)
+
+### Bug Fixes
+
+- fixes width of expand row button ([b2a761c](https://github.com/fremtind/jokul/commit/b2a761ca4885566859635b7b05e20817bbd3ed7a))
+
 ## [9.1.9](https://github.com/fremtind/jokul/compare/@fremtind/jkl-table@9.1.8...@fremtind/jkl-table@9.1.9) (2024-09-04)
 
 ### Bug Fixes

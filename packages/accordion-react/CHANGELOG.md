@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.1.29 (2024-11-28)
+
+### Bug Fixes
+
+- deprecate Accordion component ([55a08d9](https://github.com/fremtind/jokul/commit/55a08d95d49fe98f4e275a18655bfb0eef1616b1))
+
 ## 12.1.7 (2024-09-04)
 
 ### Bug Fixes

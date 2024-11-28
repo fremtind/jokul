@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.1.8 (2024-11-28)
+
+### Bug Fixes
+
+- adds transform as a transition-property to support animations ([3306beb](https://github.com/fremtind/jokul/commit/3306beb7ca6ba3926ef85a703649357d6ace4b71))
+
 ## 10.1.1 (2024-10-16)
 
 ### Bug Fixes

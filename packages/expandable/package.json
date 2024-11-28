@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-expandable",
-    "version": "7.1.10",
+    "version": "7.2.0",
     "publishConfig": {
         "access": "public"
     },
