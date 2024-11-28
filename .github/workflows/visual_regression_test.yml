@@ -55,8 +55,11 @@ jobs:
                   restore-keys: |
                       nx-${{ hashFiles('pnpm-lock.yaml') }}-
 
-            - name: Install dependencies and build packages
-              run: pnpm ci:install
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Build packages
+              run: pnpm build
 
             - name: Find Playwright version
               shell: bash
