@@ -1,4 +1,4 @@
-name: "CodeQL"
+name: "Sjekk kodekvalitet"
 
 on:
     push:
@@ -13,7 +13,7 @@ on:
     schedule:
         - cron: "0 18 * * 3"
 
-run-name: Sjekker kodekvalitet for commit ${{ github.sha }}
+run-name: Sjekk kodekvalitet for commit ${{ github.sha }}
 
 jobs:
     analyze:
