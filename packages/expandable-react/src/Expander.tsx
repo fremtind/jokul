@@ -1,14 +1,9 @@
-import clsx from "clsx";
+import { PolymorphicRef } from "@fremtind/jkl-core";
+import { ChevronDownIcon, ChevronUpIcon } from "@fremtind/jkl-icons-react";
+import cn from "classnames";
 import React, { useContext } from "react";
-import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
-import { ChevronDownIcon } from "../icon/icons/ChevronDownIcon.js";
-import { ChevronUpIcon } from "../icon/index.js";
-import { ExpanderContext } from "./context.js";
-import {
-    ExpandableContext,
-    ExpanderComponent,
-    ExpanderProps,
-} from "./types.js";
+import { ExpanderContext } from "./context";
+import { ExpandableContext, ExpanderComponent, ExpanderProps } from "./types";
 
 export const Expander = React.forwardRef(function Expander<
     ElementType extends React.ElementType = "summary",
@@ -35,7 +30,7 @@ export const Expander = React.forwardRef(function Expander<
     return (
         <El
             ref={ref}
-            className={clsx(
+            className={cn(
                 "jkl-expander",
                 {
                     "jkl-expander--open": isOpen,

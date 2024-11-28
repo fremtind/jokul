@@ -33,7 +33,7 @@ const ExpandableTableRowController = forwardRef<
             );
         }
 
-        const { density, collapseToList } = useTableContext();
+        const { collapseToList } = useTableContext();
 
         const dataTh = (rest as Record<string, string>)["data-th"];
 
@@ -53,21 +53,21 @@ const ExpandableTableRowController = forwardRef<
                 ref={ref}
             >
                 <Expander
+                    as="button"
                     className={clsx("jkl-table-row-expand-button", {
                         ["jkl-table-row-expand-button--expanded"]: isOpen,
                     })}
                     id={id}
-                    density={density}
-                    isExpanded={isOpen}
+                    open={isOpen}
                     aria-controls={ariaControls}
                     aria-label={
                         children ? undefined : dataTh || "Ekspander rad"
                     }
-                    onClick={(e) => {
+                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                         e.stopPropagation();
                         onClick();
                     }}
-                    onKeyDown={(e) => {
+                    onKeyDown={(e: React.KeyboardEvent<HTMLButtonElement>) => {
                         if (e.key === "Enter" || e.key === " ") {
                             e.stopPropagation();
                             e.preventDefault();

@@ -24,7 +24,7 @@
     -webkit-font-smoothing: antialiased;
 
     @include jkl.motion("standard", "productive");
-    transition-property: font-variation-settings;
+    transition-property: font-variation-settings, transform;
 
     &--bold {
         --jkl-icon-weight: 500;

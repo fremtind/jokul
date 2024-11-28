@@ -1,0 +1,66 @@
+---
+title: ExpandablePanel
+react: expandable-react
+scss: expandable
+keywords: expandable ekspanderbar accordion
+---
+
+import { ExpandableExample, knobs, code } from "./ExpandableExample";
+
+<Ingress>
+    Expandable panel er en komponent som brukes for å vise og skjule
+    informasjon.
+</Ingress>
+
+<ComponentExample
+    title="ExpandablePanel"
+    component={ExpandableExample}
+    knobs={knobs}
+    codeExample={code}
+/>
+
+Expandable panel brukes for å vise innhold på liten plass. Den passer godt til
+tilleggsinformasjon og er med på å prioritere og organisere grensesnittet ditt.
+
+Komponenten kan brukes alene og i gruppe.
+
+Bruk alltid en beskrivende tittel slik at det er lett å forstå hvilken informasjon
+som skjuler seg bak den. Dette gjør det også lettere for brukere av skjermlesere å
+navigere innholdet. Ved bruk i gruppe bør man legge til en overskrift, f.eks “Vanlige spørsmål”.
+
+Unngå å bruke
+
+-   Generelle beskrivelser som "Les mer"
+-   Passive setninger som "Du finner mer informasjon ved å klikke her"
+
+_Obs! Viktig informasjon bør alltid ligge synlig, ikke skjult i en Expandable._
+
+## Varianter
+
+Velg fill eller stroke etter hva som kler løsningen din best, men ved behov for lengre
+lister og inni andre komponenter brukes varianten med stroke.
+
+## Plassering
+
+Som hovedregel skal ekspanderingen av innhold skje i retning nedover. Et unntak er
+dersom du har innhold i en bunnmeny som skal ekspanderes oppover. I de tilfellene kan
+Expander brukes med pila pekende i retningen innholdet kommer til å ekspandere,
+altså motsatt retning av det vanlige.
+
+## Oppbygging
+
+Det er laget 3 React-komponenter. `ExpandablePanel` er hele den ekspanderende komponenten og
+den skal igjen inneholde en `Expander` og innhold i `ExpandablePanel.Content`.
+
+## Tilgjengelighet
+
+Komponentene er polymorfe slik at man også kan bruke dem til å lage custom widgets,
+da er det viktig å huske på å bruke riktige ARIA tags.
+
+`Expander` må ha `aria-controls` og `aria-expanded`.
+
+`ExpandablePanel.Content` må ha en `id` og innholdet må merkes med `aria-hidden` når
+den er lukket.
+
+Ikke lag custom widgets med details/summary elementer. Du risikerer at deler av innholdet
+på siden din vil kunne søkes etter i browseren men ikke være synlig.

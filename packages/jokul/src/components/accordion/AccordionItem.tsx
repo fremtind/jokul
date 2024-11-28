@@ -12,6 +12,10 @@ export interface AccordionItemProps extends WithChildren {
     id?: string;
 }
 
+/**
+ * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
+ * Bruk heller komponenten `Expandable.Content`.
+ */
 export const AccordionItem: FC<AccordionItemProps> = ({
     children,
     title,

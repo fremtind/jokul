@@ -1,11 +1,10 @@
-import { Density, ScreenReaderOnly, WithChildren } from "@fremtind/jkl-core";
-import { ArrowVerticalAnimated } from "@fremtind/jkl-icons-react";
-import cx from "classnames";
+import clsx from "clsx";
 import React, { ForwardedRef } from "react";
+import { Density, WithChildren } from "../../../core/types.js";
+import { ArrowVerticalAnimated } from "../../icon/icons/animated/ArrowVerticalAnimated.js";
+import { ScreenReaderOnly } from "../../ScreenReaderOnly.js";
 
-export type ExpandDirection = "up" | "down";
-
-export interface ExpandButtonProps extends WithChildren {
+export interface ExpanderProps extends WithChildren {
     as?: "summary" | "button";
     /** Må settes dersom du ikke bruker CoreToggle. Verdien skal være IDen til innholdet du ekspanderer. */
     "aria-controls"?: string;
@@ -20,7 +19,7 @@ export interface ExpandButtonProps extends WithChildren {
      */
     isExpanded?: boolean;
     /** @default "down" */
-    expandDirection?: ExpandDirection;
+    expandDirection?: "up" | "down";
     density?: Density;
     /**
      * Skjul knappeteksten visuelt.
@@ -30,11 +29,7 @@ export interface ExpandButtonProps extends WithChildren {
     hideLabel?: boolean;
 }
 
-/**
- * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
- * Bruk heller komponenten `Expander`.
- */
-export const ExpandButton = React.forwardRef(
+export const Expander = React.forwardRef(
     (
         {
             as = "button",
@@ -45,7 +40,7 @@ export const ExpandButton = React.forwardRef(
             isExpanded = false,
             hideLabel = false,
             ...rest
-        }: ExpandButtonProps,
+        }: ExpanderProps,
         ref: ForwardedRef<HTMLButtonElement>,
     ): JSX.Element => {
         const ContentWrapper = hideLabel ? ScreenReaderOnly : React.Fragment;
@@ -58,11 +53,11 @@ export const ExpandButton = React.forwardRef(
         return (
             <El
                 aria-expanded={isExpanded}
-                data-testid="jkl-expand-button"
+                data-testid="jkl-old-expander"
                 type={type}
-                className={cx("jkl-expand-button", className, {
-                    "jkl-expand-button--expanded": isExpanded,
-                    "jkl-expand-button--icon-only": !children,
+                className={clsx("jkl-old-expander", className, {
+                    "jkl-old-expander--expanded": isExpanded,
+                    "jkl-old-expander--icon-only": !children,
                 })}
                 {...rest}
                 data-density={density}
@@ -70,13 +65,13 @@ export const ExpandButton = React.forwardRef(
             >
                 {children && (
                     <ContentWrapper>
-                        <span className="jkl-expand-button__text">
+                        <span className="jkl-old-expander__text">
                             {children}
                         </span>
                     </ContentWrapper>
                 )}
                 <ArrowVerticalAnimated
-                    className="jkl-expand-button__arrow"
+                    className="jkl-old-expander__arrow"
                     pointingDown={pointingDown}
                     bold={isExpanded}
                 />
@@ -85,4 +80,4 @@ export const ExpandButton = React.forwardRef(
     },
 );
 
-ExpandButton.displayName = "ExpandButton";
+Expander.displayName = "Expander";
