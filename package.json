@@ -17,7 +17,7 @@
         "lint:fix": "pnpm lint:eslint --fix && pnpm lint:stylelint --fix",
         "ci:test": "run-p test lint:eslint lint:stylelint typecheck",
         "ci:changed": "lerna changed --parseable --loglevel error",
-        "test": "pnpm test:unit",
+        "test": "run-p test:unit test:jokul",
         "test:unit": "jest --testMatch '**/*.test.+(ts|tsx|js)'",
         "test:jokul": "pnpm --filter \"@fremtind/jokul\" test",
         "test:watch": "jest --watch",
