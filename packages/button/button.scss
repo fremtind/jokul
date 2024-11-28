@@ -28,7 +28,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
 }
 
 .jkl-button {
-    --text-color: var(--jkl-color-text-default);
+    --text-color: #ff0000;
     --background-color: transparent;
     --border-radius: 0;
     --border-width: #{jkl.rem(1px)}; // For secondary og tertiary button
