@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table",
-    "version": "9.1.21",
+    "version": "9.1.22",
     "publishConfig": {
         "access": "public"
     },

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 21.5.0 (2024-11-28)
+
+### Features
+
+- adds new expandable component ([6fcde9b](https://github.com/fremtind/jokul/commit/6fcde9becc7df81d5196949d0f3ada582b6e7797))
+
 # 21.4.0 (2024-11-14)
 
 ### Features

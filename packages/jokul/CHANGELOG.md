@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.36.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.35.1...@fremtind/jokul@0.36.0) (2024-11-28)
+
+### Bug Fixes
+
+- adds transform as a transition-property to support animations ([3306beb](https://github.com/fremtind/jokul/commit/3306beb7ca6ba3926ef85a703649357d6ace4b71))
+- better hover ([0e967a6](https://github.com/fremtind/jokul/commit/0e967a65a912ca711980e95d4fdff961e447f260))
+- deprecate Accordion component ([55a08d9](https://github.com/fremtind/jokul/commit/55a08d95d49fe98f4e275a18655bfb0eef1616b1))
+- fixes width of expand row button ([b2a761c](https://github.com/fremtind/jokul/commit/b2a761ca4885566859635b7b05e20817bbd3ed7a))
+- open expandable on native toggle event ([77dd4c1](https://github.com/fremtind/jokul/commit/77dd4c1bf3feb6f9feb98575a61ec3ca0d0bf907))
+- title should be bold when open ([e45ee69](https://github.com/fremtind/jokul/commit/e45ee6902cbd8d24e8c26627ac3b371853cebda6))
+- visible height of expander in open state should match closed ([cebec61](https://github.com/fremtind/jokul/commit/cebec61f0d31b53c15d9662c40582fe978f366fc))
+
+### Code Refactoring
+
+- makes Expander a true polymorfic component ([217b73f](https://github.com/fremtind/jokul/commit/217b73fb712e1858233e5ec6aff68443fc780c1c))
+
+### Features
+
+- adds new expandable component ([37e731e](https://github.com/fremtind/jokul/commit/37e731e08e8f5d22971c5622a0ba839d68e33daf))
+
+### BREAKING CHANGES
+
+- Prop `isExpanded` er endret til `open`
+Prop `expandDirection` er fjernet
+Prop `density` er fjernet, styr dette med `data-density` HTML attributet
+Prop `hideLabel` er fjernet, wrap heller children i `ScreenReaderOnly`
+
 ## 0.35.1 (2024-11-27)
 
 ### Bug Fixes
