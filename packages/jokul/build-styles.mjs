@@ -24,8 +24,9 @@ import * as sass from "sass-embedded";
                         new URL(source, import.meta.url),
                     );
                     const outDirName = sourcePath
-                        .substring(0, sourcePath.lastIndexOf("/styles/"))
-                        .replace("/src", "/styles");
+                        .replace("/styles/", "/") // Fjern styles-mappa inne i komponenten
+                        .replace(/\/[\w-]+.scss/, "") // Fjern filnavn og siste slash
+                        .replace("/src", "/styles"); // Flytt til mappen styles på rot
 
                     const content = sass.compile(sourcePath);
                     mkdirSync(outDirName, { recursive: true });
@@ -77,15 +78,11 @@ import * as sass from "sass-embedded";
                         const sourcePath = fileURLToPath(
                             new URL(source, import.meta.url),
                         );
-                        const cutPoint = sourcePath.lastIndexOf("/styles/");
+
                         const outDirName = sourcePath
-                            .substring(
-                                0,
-                                cutPoint > 0
-                                    ? cutPoint
-                                    : sourcePath.lastIndexOf("/"),
-                            )
-                            .replace("/src", "/styles");
+                            .replace("/styles/", "/") // Fjern styles-mappa inne i komponenten
+                            .replace(/\/[\w-]+.scss/, "") // Fjern filnavn og siste slash
+                            .replace("/src", "/styles"); // Flytt til mappen styles på rot
 
                         mkdirSync(outDirName, { recursive: true });
 
