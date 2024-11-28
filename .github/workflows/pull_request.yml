@@ -39,6 +39,7 @@ jobs:
                         - "**/*.scss"
                         - "**/*.ts"
                         - "**/*.tsx"
+                        - "**/vite.test.config.mjs"
                         - "pnpm-lock.yaml"
                       preview:
                         - "packages/**/*.scss"
