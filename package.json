@@ -16,8 +16,6 @@
         "lint:stylelint": "stylelint --config=packages/stylelint-config-jkl/index.js '**/*.scss'",
         "lint:fix": "pnpm lint:eslint --fix && pnpm lint:stylelint --fix",
         "ci:test": "run-p test lint:eslint lint:stylelint typecheck",
-        "ci:install": "pnpm install --frozen-lockfile && pnpm build",
-        "ci:install-cypress": "pnpm ci:install && pnpm build:docs",
         "ci:changed": "lerna changed --parseable --loglevel error",
         "test": "pnpm test:unit",
         "test:unit": "jest --testMatch '**/*.test.+(ts|tsx|js)'",
