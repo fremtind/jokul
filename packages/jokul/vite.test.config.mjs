@@ -8,5 +8,6 @@ export default defineConfig({
     test: {
         environment: "jsdom",
         setupFiles: ["vitest-setup.js"],
+        include: ["src/**/*.test.?(c|m)ts?(x)"],
     },
 });
