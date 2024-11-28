@@ -14,7 +14,7 @@ env:
 
 jobs:
     build:
-        name: Sjekk for endringer og bygg pakker
+        name: Sjekk for endringer og sett opp cache
         if: ${{ !contains(github.event.sender.login, 'fremtind-bot') }}
         outputs:
             preview: ${{ steps.changes.outputs.preview }}
@@ -71,7 +71,7 @@ jobs:
                   restore-keys: |
                       nx-${{ hashFiles('pnpm-lock.yaml') }}-
 
-            - name: Install dependencies and build packages
+            - name: Install dependencies
               if: steps.changes.outputs.has_matches == 'true' || github.event_name == 'merge_group'
               run: pnpm ci:install
 
@@ -98,7 +98,7 @@ jobs:
                   cache: "pnpm"
 
             - name: Monorepo Runner Cache
-              uses: actions/cache@v3
+              uses: actions/cache/restore@v3
               id: nx-cache
               with:
                   path: .nx
@@ -107,7 +107,7 @@ jobs:
                       nx-${{ hashFiles('pnpm-lock.yaml') }}-
 
               # Steget må være med, men vil være cachet
-            - name: Install dependencies and build packages
+            - name: Install dependencies
               run: pnpm ci:install
 
             - name: Add a comment with a link to the preview
@@ -166,7 +166,7 @@ jobs:
                   cache: "pnpm"
 
             - name: Monorepo Runner Cache
-              uses: actions/cache@v3
+              uses: actions/cache/restore@v3
               id: nx-cache
               with:
                   path: .nx
@@ -175,7 +175,7 @@ jobs:
                       nx-${{ hashFiles('pnpm-lock.yaml') }}-
 
               # Steget må være med, men vil være cachet
-            - name: Install dependencies and build packages
+            - name: Install dependencies
               run: pnpm ci:install
 
             - name: Lint and test
