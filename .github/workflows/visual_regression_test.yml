@@ -1,4 +1,4 @@
-name: Visual regression tests
+name: Visuelle regresjonstester
 
 on:
     pull_request:
@@ -12,6 +12,8 @@ on:
             - "packages/jokul/src/**/*.scss"
             - "packages/jokul/src/**/!(*.test).tsx"
             - "pnpm-lock.yaml"
+
+run-name: Kjør visuelle regresjonstester for ${{ github.event.pull_request.title }}
 
 jobs:
     tests:
@@ -46,9 +48,8 @@ jobs:
                   node-version: 18
                   cache: "pnpm"
 
-            - name: Monorepo Runner Cache
+            - name: Restore Monorepo Runner Cache
               uses: actions/cache/restore@v3
-              id: nx-cache
               with:
                   path: .nx
                   key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}

@@ -1,4 +1,4 @@
-name: Pull Request
+name: Pull request
 
 on:
     pull_request:
@@ -6,7 +6,7 @@ on:
     merge_group:
         types: [checks_requested]
 
-run-name: Bygger og tester ${{ github.event_name == 'merge_group' && github.event.merge_group.head_commit.message || github.event.pull_request.title }}
+run-name: Bygg og test ${{ github.event_name == 'merge_group' && github.event.merge_group.head_commit.message || github.event.pull_request.title }}
 
 env:
     PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
@@ -61,7 +61,7 @@ jobs:
                   node-version: 18
                   cache: "pnpm"
 
-            - name: Monorepo Runner Cache
+            - name: Restore Monorepo Runner Cache
               if: github.event_name == 'merge_group'
               uses: actions/cache/restore@v3
               with:
@@ -70,7 +70,7 @@ jobs:
                   restore-keys: |
                       nx-${{ hashFiles('pnpm-lock.yaml') }}-
 
-            - name: Monorepo Runner Cache
+            - name: Cache Monorepo Runner
               if: github.event_name == 'pull_request' && steps.changes.outputs.has_matches == 'true'
               uses: actions/cache@v3
               with:
@@ -109,7 +109,7 @@ jobs:
                   node-version: 18
                   cache: "pnpm"
 
-            - name: Monorepo Runner Cache
+            - name: Restore Monorepo Runner Cache
               uses: actions/cache/restore@v3
               with:
                   path: .nx
@@ -179,7 +179,7 @@ jobs:
                   node-version: 18
                   cache: "pnpm"
 
-            - name: Monorepo Runner Cache
+            - name: Restore Monorepo Runner Cache
               uses: actions/cache/restore@v3
               with:
                   path: .nx
