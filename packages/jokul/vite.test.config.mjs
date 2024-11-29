@@ -6,7 +6,9 @@ import { defineConfig } from "vite";
 export default defineConfig({
     plugins: [react()],
     test: {
+        pool: "threads",
         environment: "jsdom",
         setupFiles: ["vitest-setup.js"],
+        include: ["src/**/*.test.?(c|m)ts?(x)"],
     },
 });
