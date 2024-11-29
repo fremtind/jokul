@@ -24,9 +24,6 @@ jobs:
             contents: write
             pull-requests: write
 
-        outputs:
-            new-screenshots: ${{ steps.check.outputs.new-screenshots }}
-
         strategy:
             fail-fast: false
             matrix:
@@ -113,7 +110,6 @@ jobs:
 
     commit:
         needs: [tests]
-        if: needs.tests.outputs.new-screenshots == 'true'
         runs-on: ubuntu-latest
         permissions:
             actions: write
