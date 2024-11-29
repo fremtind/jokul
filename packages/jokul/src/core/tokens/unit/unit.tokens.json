@@ -1,5 +1,6 @@
 {
     "unit": {
+        "02": { "value": "calc(var(--unit-10) * .25)" },
         "05": { "value": "calc(var(--unit-10) * .5)" },
         "10": { "value": "0.5rem" },
         "15": { "value": "calc(var(--unit-10) * 1.5)" },
@@ -12,7 +13,7 @@
         "70": { "value": "calc(var(--unit-10) * 7)" },
         "80": { "value": "calc(var(--unit-10) * 8)" },
         "90": { "value": "calc(var(--unit-10) * 9)" },
-        "104": { "value": "calc(var(--unit-10) * 13)" },
-        "168": { "value": "calc(var(--unit-10) * 21)" }
+        "130": { "value": "calc(var(--unit-10) * 13)" },
+        "210": { "value": "calc(var(--unit-10) * 21)" }
     }
 }
