@@ -23,7 +23,8 @@ $_link-underline-thickness--focus: jkl.rem(2px);
 }
 
 .jkl-link {
-    color: var(--jkl-link-color);
+    color: #ff0000;
+    font-size: 40px !important;
     @include _underline-gradient(var(--jkl-link-color));
     background-position: 0
         calc(
