@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.36.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.36.1...@fremtind/jokul@0.36.2) (2024-11-29)
+
+### Bug Fixes
+
+- sørg for at vi tar med undermapper når vi bygger stiler ([be58af8](https://github.com/fremtind/jokul/commit/be58af895aa81724ef27a2c991a159f5d598aa08))
+
 # [0.36.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.35.1...@fremtind/jokul@0.36.0) (2024-11-28)
 
 ### Bug Fixes
