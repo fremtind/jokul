@@ -14,7 +14,7 @@ jobs:
             - name: Create issue to upgrade dependencies
               uses: imjohnbo/issue-bot@76645b39cda009302cc49d8624af634795e9eab5
               with:
-                  assignees: "wkillerud, piofinn, fremtindelise"
+                  assignees: "zenabii, kristianulv23, piofinn, fremtindelise, ivarni"
                   rotate-assignees: true
                   labels: "🔁 round robin, 🔗 dependencies"
                   close-previous: true
