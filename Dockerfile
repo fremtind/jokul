@@ -58,7 +58,12 @@ COPY utils utils
 
 COPY portalen/patches/* patches/
 
+WORKDIR /app/packages/jokul
 RUN pnpm install
+RUN pnpm build
+
+WORKDIR /app
+
 
 ### BUILDER
 FROM dependencies as build
@@ -68,6 +73,7 @@ WORKDIR /app
 COPY portalen/apps/ apps/
 COPY portalen/packages/ packages/
 COPY portalen/tsconfig.json .
+COPY portalen/turbo.json .
 
 RUN pnpm build
 
