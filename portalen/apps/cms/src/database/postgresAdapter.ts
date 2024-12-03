@@ -1,12 +1,12 @@
-import { readFileSync } from "node:fs";
-import path from "node:path";
+import fs from "fs";
+import path from "path";
 import { Signer } from "@aws-sdk/rds-signer";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const ca = readFileSync(path.join(__dirname, "cacert.pem"), "utf-8");
+const ca = fs.readFileSync(path.join(__dirname, "cacert.pem"), "utf-8");
 
 const signer = new Signer({
     hostname: process.env.DB_HOST || "",
