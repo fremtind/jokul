@@ -2,25 +2,25 @@
 @use "../../../core/jkl";
 
 @include jkl.compact-density-variables {
-    --padding-inline-s: #{jkl.$spacing-8};
-    --padding-inline-l: #{jkl.$spacing-12};
-    --padding-icon-s: #{jkl.$spacing-4};
-    --padding-icon-l: #{jkl.$spacing-8};
-    --height-l: #{jkl.$spacing-32};
-    --height-s: #{jkl.$spacing-24};
-    --gap-s: #{jkl.$spacing-2};
-    --gap-l: #{jkl.$spacing-4};
+    --padding-inline-s: #{jkl.$unit-10};
+    --padding-inline-l: #{jkl.$unit-15};
+    --padding-icon-s: #{jkl.$unit-05};
+    --padding-icon-l: #{jkl.$unit-10};
+    --height-l: #{jkl.$unit-40};
+    --height-s: #{jkl.$unit-30};
+    --gap-s: #{jkl.$unit-02};
+    --gap-l: #{jkl.$unit-05};
 }
 
 @include jkl.comfortable-density-variables {
-    --padding-inline-s: #{jkl.$spacing-12};
-    --padding-inline-l: #{jkl.$spacing-16};
-    --padding-icon-s: #{jkl.$spacing-8};
-    --padding-icon-l: #{jkl.$spacing-12};
-    --height-l: #{jkl.$spacing-40};
-    --height-s: #{jkl.$spacing-32};
-    --gap-s: #{jkl.$spacing-4};
-    --gap-l: #{jkl.$spacing-8};
+    --padding-inline-s: #{jkl.$unit-15};
+    --padding-inline-l: #{jkl.$unit-20};
+    --padding-icon-s: #{jkl.$unit-10};
+    --padding-icon-l: #{jkl.$unit-15};
+    --height-l: #{jkl.$unit-50};
+    --height-s: #{jkl.$unit-40};
+    --gap-s: #{jkl.$unit-05};
+    --gap-l: #{jkl.$unit-10};
 }
 
 .jkl-chip {
