@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.1.30 (2024-12-03)
+
+### Bug Fixes
+
+- makes cascading of layout density work again ([1e87f31](https://github.com/fremtind/jokul/commit/1e87f3108faa3ab19ebf436ce7bb5699b29628cb)), closes [#4340](https://github.com/fremtind/jokul/issues/4340)
+
 ## 11.1.27 (2024-10-31)
 
 ### Bug Fixes
