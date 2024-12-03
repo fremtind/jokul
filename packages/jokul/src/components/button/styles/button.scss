@@ -5,12 +5,12 @@
 $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
 
 @include jkl.comfortable-density-variables {
-    --jkl-button-padding-block: #{jkl.$spacing-8};
-    --jkl-button-padding-text: #{jkl.$spacing-24};
-    --jkl-button-padding-icon: #{jkl.$spacing-16};
-    --jkl-button-padding-icon-button: #{jkl.$spacing-8};
-    --jkl-button-padding-tertiary-inline: #{jkl.$spacing-4};
-    --jkl-button-padding-ghost-inline: #{jkl.$spacing-8};
+    --jkl-button-padding-block: #{jkl.$unit-10};
+    --jkl-button-padding-text: #{jkl.$unit-30};
+    --jkl-button-padding-icon: #{jkl.$unit-20};
+    --jkl-button-padding-icon-button: #{jkl.$unit-10};
+    --jkl-button-padding-tertiary-inline: #{jkl.$unit-05};
+    --jkl-button-padding-ghost-inline: #{jkl.$unit-10};
     --jkl-button-font-size: #{jkl.$typography-body-small-font-size};
     --jkl-button-line-height: #{jkl.$typography-body-small-line-height};
 
@@ -21,12 +21,12 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
 }
 
 @include jkl.compact-density-variables {
-    --jkl-button-padding-block: #{jkl.$spacing-4};
-    --jkl-button-padding-text: #{jkl.$spacing-12};
-    --jkl-button-padding-icon: #{jkl.$spacing-8};
-    --jkl-button-padding-icon-button: #{jkl.$spacing-4};
-    --jkl-button-padding-tertiary-inline: #{jkl.$spacing-2};
-    --jkl-button-padding-ghost-inline: #{jkl.$spacing-4};
+    --jkl-button-padding-block: #{jkl.$unit-05};
+    --jkl-button-padding-text: #{jkl.$unit-15};
+    --jkl-button-padding-icon: #{jkl.$unit-10};
+    --jkl-button-padding-icon-button: #{jkl.$unit-05};
+    --jkl-button-padding-tertiary-inline: #{jkl.$unit-02};
+    --jkl-button-padding-ghost-inline: #{jkl.$unit-05};
     --jkl-button-font-size: #{jkl.$typography-small-small-font-size};
     --jkl-button-line-height: #{jkl.$typography-small-small-line-height};
 
@@ -87,7 +87,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: jkl.$spacing-2;
+        gap: jkl.$unit-02; // hva tenker vi om disse 2px spacingene?
         pointer-events: none;
     }
 
