@@ -36,7 +36,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         --jkl-radio-button-height: #{$_mobile-radio-button-height};
         --jkl-radio-button-line-height: #{$_mobile-radio-button-line-height};
         --jkl-radio-button-size: #{$_mobile-radio-button-size};
-        --jkl-radio-button-text-margin: #{jkl.$spacing-8} 0;
+        --jkl-radio-button-text-margin: #{jkl.$unit-10} 0;
         --jkl-radio-button-text-transform: translate3d(0, 0, 0);
         --jkl-radio-button-dot-margin: #{jkl.rem(10px)} #{jkl.$spacing-xs} #{jkl.rem(
                 10px
@@ -54,7 +54,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     --jkl-radio-button-height: #{$_compact-radio-button-height};
     --jkl-radio-button-line-height: #{$_compact-radio-button-line-height};
     --jkl-radio-button-size: #{$_compact-radio-button-size};
-    --jkl-radio-button-text-margin: #{jkl.$spacing-4} 0;
+    --jkl-radio-button-text-margin: #{jkl.$unit-05} 0;
     --jkl-radio-button-text-transform: translate3d(0, 0, 0);
     --jkl-radio-button-dot-margin: #{jkl.rem(7px)} #{jkl.$spacing-xs} #{jkl.rem(
             7px
@@ -209,8 +209,8 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     }
 
     + .jkl-form-support-label {
-        margin-left: calc(var(--jkl-radio-button-size) + #{jkl.$spacing-8});
+        margin-left: calc(var(--jkl-radio-button-size) + #{jkl.$unit-10});
         margin-top: jkl.rem(-6px);
-        margin-bottom: jkl.$spacing-8;
+        margin-bottom: jkl.$unit-10;
     }
 }

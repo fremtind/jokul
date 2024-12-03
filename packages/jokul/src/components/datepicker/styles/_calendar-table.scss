@@ -6,7 +6,7 @@
 
     th {
         @include jkl.text-style("small");
-        padding-bottom: var(--jkl-spacing-8);
+        padding-bottom: var(--jkl-unit-10);
     }
 
     // Calendar table styles

@@ -2,13 +2,13 @@
 
 .jkl-table-pagination {
     display: flex;
-    gap: jkl.$spacing-16;
+    gap: jkl.$unit-20;
     flex-direction: column;
     width: 100%;
 
     @include jkl.from-medium-device {
         flex-direction: row;
-        gap: jkl.$spacing-12;
+        gap: jkl.$unit-15;
         justify-content: space-between;
     }
 
@@ -29,7 +29,7 @@
         white-space: nowrap;
 
         &--page {
-            padding-inline-end: jkl.$spacing-24;
+            padding-inline-end: jkl.$unit-30;
             width: min(12rem, 100%);
 
             @include jkl.from-medium-device {
@@ -43,7 +43,7 @@
     }
 
     &__picker-label {
-        margin-inline-end: jkl.$spacing-8;
+        margin-inline-end: jkl.$unit-10;
     }
 
     &__nav {
@@ -52,7 +52,7 @@
         flex-direction: column;
         justify-content: center;
         flex-wrap: wrap;
-        gap: jkl.$spacing-16;
+        gap: jkl.$unit-20;
 
         @include jkl.from-medium-device {
             flex-direction: row;
