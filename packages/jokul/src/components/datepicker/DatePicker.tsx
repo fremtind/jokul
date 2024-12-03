@@ -56,6 +56,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             hideCalendarLabel = "Lukk kalender",
             supportLabelProps,
             tooltip,
+            textInputProps,
             ...rest
         } = props;
 
@@ -324,6 +325,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                                 </Popover.Content>
                             </Popover>
                         }
+                        {...textInputProps}
                         {...inputProps}
                     />
                 )}
