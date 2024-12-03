@@ -2,21 +2,21 @@
 @use "../../../core/jkl";
 
 @include jkl.comfortable-density-variables {
-    --jkl-tab-padding: var(--jkl-spacing-8) var(--jkl-spacing-40)
-        var(--jkl-spacing-12) var(--jkl-spacing-2);
+    --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-50) var(--jkl-unit-15)
+        var(--jkl-unit-02);
 
     @include jkl.declare-font-variables("jkl-tab", "body");
     @include jkl.small-device {
-        --jkl-tab-padding: var(--jkl-spacing-8) var(--jkl-spacing-24)
-            var(--jkl-spacing-12) var(--jkl-spacing-2);
+        --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-30)
+            var(--jkl-unit-15) var(--jkl-unit-02);
     }
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-tab", "small");
 
-    --jkl-tab-padding: var(--jkl-spacing-2) var(--jkl-spacing-32)
-        var(--jkl-spacing-4) 0;
+    --jkl-tab-padding: var(--jkl-unit-02) var(--jkl-unit-40) var(--jkl-unit-05)
+        0;
 }
 
 .jkl-tabs {
@@ -71,7 +71,7 @@
     background-color: transparent;
     cursor: pointer;
     position: relative;
-    scroll-margin-inline-start: var(--jkl-spacing-16);
+    scroll-margin-inline-start: var(--jkl-unit-20);
     scroll-snap-align: start;
     text-decoration: none;
     white-space: nowrap;

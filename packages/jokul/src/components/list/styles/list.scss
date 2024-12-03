@@ -32,7 +32,7 @@
     @return url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='9.5' fill='#{$c1}'/%3E%3Cpath d='M4.75 11l2.35 2.36 7.84-7.84' stroke='#{$c2}' stroke-width='1.5'/%3E%3C/svg%3E%0A");
 }
 
-$_item-space-between: jkl.$spacing-8;
+$_item-space-between: jkl.$unit-10;
 
 /// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
 $_color-suksess: #287e68;

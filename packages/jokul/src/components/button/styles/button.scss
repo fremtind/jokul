@@ -5,21 +5,21 @@
 $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
 
 @include jkl.comfortable-density(".jkl-button") {
-    --padding-block: #{jkl.$spacing-8};
-    --padding-text: #{jkl.$spacing-24};
-    --padding-icon: #{jkl.$spacing-16};
-    --padding-icon-button: #{jkl.$spacing-8};
-    --padding-tertiary-inline: #{jkl.$spacing-4};
-    --padding-ghost-inline: #{jkl.$spacing-8};
+    --padding-block: #{jkl.$unit-10};
+    --padding-text: #{jkl.$unit-30};
+    --padding-icon: #{jkl.$unit-20};
+    --padding-icon-button: #{jkl.$unit-10};
+    --padding-tertiary-inline: #{jkl.$unit-05};
+    --padding-ghost-inline: #{jkl.$unit-10};
 }
 
 @include jkl.compact-density(".jkl-button") {
-    --padding-block: #{jkl.$spacing-4};
-    --padding-text: #{jkl.$spacing-12};
-    --padding-icon: #{jkl.$spacing-8};
-    --padding-icon-button: #{jkl.$spacing-4};
-    --padding-tertiary-inline: #{jkl.$spacing-2};
-    --padding-ghost-inline: #{jkl.$spacing-4};
+    --padding-block: #{jkl.$unit-05};
+    --padding-text: #{jkl.$unit-15};
+    --padding-icon: #{jkl.$unit-10};
+    --padding-icon-button: #{jkl.$unit-05};
+    --padding-tertiary-inline: #{jkl.$unit-02};
+    --padding-ghost-inline: #{jkl.$unit-05};
 
     @include jkl.text-style("small") {
         --jkl-icon-weight: #{jkl.$icon-weight-bold};
@@ -77,7 +77,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: jkl.$spacing-2;
+        gap: jkl.$unit-02;
         pointer-events: none;
     }
 
