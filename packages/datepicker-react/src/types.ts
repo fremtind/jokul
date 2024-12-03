@@ -8,6 +8,7 @@ import type {
     KeyboardEvent,
     FocusEvent,
     ButtonHTMLAttributes,
+    ComponentProps,
 } from "react";
 
 export type DateValidationError =
@@ -294,6 +295,23 @@ export interface DatePickerProps
     action?: DatePickerAction;
     showCalendarLabel?: string;
     hideCalendarLabel?: string;
+    /**
+     * Props som sendes direkte til komponentens TextInput
+     */
+    textInputProps?: Omit<
+        ComponentProps<"input">,
+        | "type"
+        | "children"
+        | "className"
+        | "name"
+        | "defaultValue"
+        | "value"
+        | "placeholder"
+        | "width"
+        | "onFocus"
+        | "onBlur"
+        | "onChange"
+    >;
 }
 
 export interface DatePickerAction

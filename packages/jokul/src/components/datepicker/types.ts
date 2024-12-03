@@ -1,6 +1,7 @@
 import type {
     ButtonHTMLAttributes,
     ChangeEvent,
+    ComponentProps,
     FocusEvent,
     KeyboardEvent,
 } from "react";
@@ -292,6 +293,23 @@ export interface DatePickerProps
     action?: DatePickerAction;
     showCalendarLabel?: string;
     hideCalendarLabel?: string;
+    /**
+     * Props som sendes direkte til komponentens TextInput
+     */
+    textInputProps?: Omit<
+        ComponentProps<"input">,
+        | "type"
+        | "children"
+        | "className"
+        | "name"
+        | "defaultValue"
+        | "value"
+        | "placeholder"
+        | "width"
+        | "onFocus"
+        | "onBlur"
+        | "onChange"
+    >;
 }
 
 export interface DatePickerAction
