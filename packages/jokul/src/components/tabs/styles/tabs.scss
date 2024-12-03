@@ -8,7 +8,7 @@
     @include jkl.declare-font-variables("jkl-tab", "body");
     @include jkl.small-device {
         --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-30)
-            var(--jkl-unit-15) var(--jkl-unit-22);
+            var(--jkl-unit-15) var(--jkl-unit-02);
     }
 }
 
