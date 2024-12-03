@@ -16,14 +16,14 @@ $_dismiss-hover-color: jkl.$color-stein;
     --jkl-message-icon-size: #{jkl.rem(24px)};
     --jkl-message-icon-left: #{jkl.rem(16px)};
     --jkl-message-icon-top: #{jkl.rem(24px)};
-    --jkl-message-title-margin: 0 0 #{jkl.$spacing-4} 0;
+    --jkl-message-title-margin: 0 0 #{jkl.$unit-05} 0;
     --jkl-message-dismiss-button-size: #{jkl.rem(44px)};
-    --jkl-message-gap: #{jkl.$spacing-12};
-    --jkl-message-padding: #{jkl.$spacing-16} #{jkl.$spacing-12};
+    --jkl-message-gap: #{jkl.$unit-15};
+    --jkl-message-padding: #{jkl.$unit-20} #{jkl.$unit-15};
 
     @include jkl.from-medium-device {
-        --jkl-message-gap: #{jkl.$spacing-16};
-        --jkl-message-padding: #{jkl.$spacing-24} #{jkl.$spacing-16};
+        --jkl-message-gap: #{jkl.$unit-20};
+        --jkl-message-padding: #{jkl.$unit-30} #{jkl.$unit-20};
     }
 }
 
@@ -35,8 +35,8 @@ $_dismiss-hover-color: jkl.$color-stein;
     --jkl-message-icon-left: #{jkl.rem(6px)};
     --jkl-message-icon-top: #{jkl.rem(14px)};
     --jkl-message-dismiss-button-size: #{jkl.rem(32px)};
-    --jkl-message-gap: #{jkl.$spacing-8};
-    --jkl-message-padding: #{jkl.$spacing-12} #{jkl.$spacing-8};
+    --jkl-message-gap: #{jkl.$unit-10};
+    --jkl-message-padding: #{jkl.$unit-15} #{jkl.$unit-10};
 }
 
 .jkl-message {
@@ -185,5 +185,5 @@ $_dismiss-hover-color: jkl.$color-stein;
 }
 
 .jkl-form-error-message {
-    padding-bottom: jkl.$spacing-40;
+    padding-bottom: jkl.$unit-50;
 }

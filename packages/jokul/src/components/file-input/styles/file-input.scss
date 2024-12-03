@@ -5,21 +5,21 @@
     @include jkl.declare-font-variables("jkl-file-input-drag", "heading-2");
     @include jkl.declare-font-variables("jkl-file-size-hint", "small");
 
-    --jkl-file-input-dropzone-padding: #{jkl.$spacing-24};
-    --jkl-file-input-dropzone-gap: #{jkl.$spacing-24};
-    --jkl-file-cta-gap: #{jkl.$spacing-24};
-    --jkl-file-cta-with-files-gap: #{jkl.$spacing-12};
-    --jkl-file-list-gap: #{jkl.$spacing-16};
+    --jkl-file-input-dropzone-padding: #{jkl.$unit-30};
+    --jkl-file-input-dropzone-gap: #{jkl.$unit-30};
+    --jkl-file-cta-gap: #{jkl.$unit-30};
+    --jkl-file-cta-with-files-gap: #{jkl.$unit-15};
+    --jkl-file-list-gap: #{jkl.$unit-10};
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-file-input-drag", "body");
 
-    --jkl-file-input-dropzone-padding: #{jkl.$spacing-16};
-    --jkl-file-input-dropzone-gap: #{jkl.$spacing-16};
-    --jkl-file-cta-gap: #{jkl.$spacing-12};
-    --jkl-file-cta-with-files-gap: #{jkl.$spacing-4};
-    --jkl-file-list-gap: #{jkl.$spacing-8};
+    --jkl-file-input-dropzone-padding: #{jkl.$unit-10};
+    --jkl-file-input-dropzone-gap: #{jkl.$unit-10};
+    --jkl-file-cta-gap: #{jkl.$unit-15};
+    --jkl-file-cta-with-files-gap: #{jkl.$unit-05};
+    --jkl-file-list-gap: #{jkl.$unit-10};
 }
 
 .jkl-file-input {
@@ -95,9 +95,9 @@
 
     &--small {
         .jkl-file-input__dropzone {
-            padding: jkl.$spacing-16;
-            gap: jkl.$spacing-16;
-            margin-bottom: jkl.$spacing-16;
+            padding: jkl.$unit-10;
+            gap: jkl.$unit-10;
+            margin-bottom: jkl.$unit-10;
             justify-content: flex-start;
             flex-direction: row;
             max-width: fit-content;
@@ -106,7 +106,7 @@
         .jkl-file-input__call-to-action {
             @include jkl.use-font-variables("jkl-file-size-hint");
 
-            gap: #{jkl.$spacing-12};
+            gap: #{jkl.$unit-15};
             flex-direction: row;
             justify-content: flex-start;
         }
