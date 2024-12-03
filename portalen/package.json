@@ -10,6 +10,7 @@
         "test": "turbo run test"
     },
     "devDependencies": {
+        "@types/pg": "^8.11.10",
         "turbo": "^1.10.7",
         "typescript": "^5.4.5"
     },
@@ -20,7 +21,7 @@
     "dependencies": {
         "@fremtind/jkl-file-input-react": "^2.3.7",
         "@fremtind/jkl-footer-react": "^6.1.52",
-        "@fremtind/jokul": "file:packages/jokul",
+        "@fremtind/jokul": "file:../packages/jokul",
         "@payloadcms/bundler-vite": "^0.1.7",
         "@payloadcms/db-mongodb": "^1.7.3",
         "@payloadcms/db-postgres": "^0.8.10",
