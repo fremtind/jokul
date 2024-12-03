@@ -63,7 +63,7 @@ RUN pnpm install
 RUN pnpm build
 
 WORKDIR /app
-
+RUN pnpm install
 
 ### BUILDER
 FROM dependencies as build
