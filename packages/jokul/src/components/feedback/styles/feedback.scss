@@ -28,7 +28,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
 
     &__step-counter {
         color: var(--jkl-color-text-subdued);
-        margin-bottom: jkl.$spacing-16;
+        margin-bottom: jkl.$unit-20;
         @include jkl.text-style("body");
     }
 
@@ -42,7 +42,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
 }
 
 .jkl-feedback-smileys {
-    margin-top: jkl.$spacing-8;
+    margin-top: jkl.$unit-10;
     display: flex;
     justify-content: space-between;
     width: 100%;

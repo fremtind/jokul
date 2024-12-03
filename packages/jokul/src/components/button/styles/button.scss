@@ -9,17 +9,17 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     --padding-text: #{jkl.$unit-30};
     --padding-icon: #{jkl.$unit-20};
     --padding-icon-button: #{jkl.$unit-10};
-    --padding-tertiary-inline: #{jkl.$unit-02};
+    --padding-tertiary-inline: #{jkl.$unit-05};
     --padding-ghost-inline: #{jkl.$unit-10};
 }
 
 @include jkl.compact-density(".jkl-button") {
-    --padding-block: #{jkl.$unit-02};
+    --padding-block: #{jkl.$unit-05};
     --padding-text: #{jkl.$unit-15};
     --padding-icon: #{jkl.$unit-10};
-    --padding-icon-button: #{jkl.$unit-02};
-    --padding-tertiary-inline: #{jkl.$spacing-2}; // hva tenker vi her? 2px spacing?
-    --padding-ghost-inline: #{jkl.$unit-02};
+    --padding-icon-button: #{jkl.$unit-05};
+    --padding-tertiary-inline: #{jkl.$unit-02};
+    --padding-ghost-inline: #{jkl.$unit-05};
 
     @include jkl.text-style("small") {
         --jkl-icon-weight: #{jkl.$icon-weight-bold};
@@ -77,7 +77,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: jkl.$spacing-2; // hva tenker vi om disse 2px spacingene?
+        gap: jkl.$unit-02;
         pointer-events: none;
     }
 

@@ -44,8 +44,8 @@
         @include jkl.motion("entrance", "energetic");
         transition-property: opacity;
         display: inline-block;
-        margin-bottom: jkl.$spacing-2;
-        margin-left: jkl.$spacing-4;
+        margin-bottom: jkl.$unit-02;
+        margin-left: jkl.$unit-05;
         vertical-align: middle;
         opacity: 0;
 

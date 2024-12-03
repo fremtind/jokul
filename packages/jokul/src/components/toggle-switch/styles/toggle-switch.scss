@@ -10,7 +10,7 @@
     --jkl-toggle-switch-width: #{jkl.rem(48px)};
     --jkl-toggle-switch-knob-size: #{jkl.rem(20px)};
     --jkl-toggle-switch-indicator-spacing: 0;
-    --jkl-toggle-switch-help-label-spacing: var(--jkl-spacing-2);
+    --jkl-toggle-switch-help-label-spacing: var(--jkl-unit-02);
 }
 
 @include jkl.compact-density-variables {
@@ -43,7 +43,7 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    gap: var(--jkl-spacing-8);
+    gap: var(--jkl-unit-10);
     touch-action: none; // Forhindrer at siden flytter på seg når man drar i toggle
 
     @include jkl.use-font-variables("jkl-toggle");
