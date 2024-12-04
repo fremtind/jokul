@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.37.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.36.4...@fremtind/jokul@0.37.0) (2024-12-04)
+
+### Features
+
+- allows sending props to inner TextInput ([fc23a6d](https://github.com/fremtind/jokul/commit/fc23a6d6f344d158a8035245580f06ae3aaa0b57))
+
 ## [0.36.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.36.3...@fremtind/jokul@0.36.4) (2024-12-03)
 
 ### Bug Fixes

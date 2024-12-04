@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@16.0.5...@fremtind/jkl-datepicker-react@16.1.0) (2024-12-04)
+
+### Features
+
+- allows sending props to inner TextInput ([fc23a6d](https://github.com/fremtind/jokul/commit/fc23a6d6f344d158a8035245580f06ae3aaa0b57))
+
 # 16.0.0 (2024-11-14)
 
 ### Features
