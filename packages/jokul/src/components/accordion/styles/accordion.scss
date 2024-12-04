@@ -1,42 +1,42 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
+@include jkl.comfortable-density-variables {
+    --jkl-accordion-title-padding: var(--jkl-spacing-16) #{jkl.rem(48px)} var(
+            --jkl-spacing-16
+        ) var(--jkl-spacing-16);
+    --jkl-accordion-arrow-top: #{jkl.rem(20px)};
+    --jkl-accordion-arrow-right: var(--jkl-spacing-12);
+    --jkl-accordion-content-padding: var(--jkl-spacing-8) var(--jkl-spacing-16)
+        var(--jkl-spacing-16);
+    @include jkl.declare-font-variables("title", "body");
+    @include jkl.declare-font-variables("content", "body");
+
+    @include jkl.small-device {
+        --jkl-accordion-title-padding: var(--jkl-spacing-12) #{jkl.rem(44px)} var(
+                --jkl-spacing-12
+            ) var(--jkl-spacing-12);
+        --jkl-accordion-content-padding: var(--jkl-spacing-8)
+            var(--jkl-spacing-12) var(--jkl-spacing-16) var(--jkl-spacing-12);
+        --jkl-accordion-arrow-top: #{jkl.rem(23px)};
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-accordion-title-padding: var(--jkl-spacing-8) #{jkl.rem(32px)} var(
+            --jkl-spacing-8
+        ) var(--jkl-spacing-8);
+    --jkl-accordion-arrow-top: var(--jkl-spacing-8);
+    --jkl-accordion-arrow-right: var(--jkl-spacing-4);
+    --jkl-accordion-content-padding: var(--jkl-spacing-8);
+    @include jkl.declare-font-variables("title", "small");
+    @include jkl.declare-font-variables("content", "small");
+}
+
 /// @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.
 /// Bruk heller komponenten `Expandable`
 .jkl-accordion {
     width: 100%;
-
-    @include jkl.comfortable-density {
-        --title-padding: var(--jkl-spacing-16) #{jkl.rem(48px)} var(
-                --jkl-spacing-16
-            ) var(--jkl-spacing-16);
-        --arrow-top: #{jkl.rem(20px)};
-        --arrow-right: var(--jkl-spacing-12);
-        --content-padding: var(--jkl-spacing-8) var(--jkl-spacing-16)
-            var(--jkl-spacing-16);
-        @include jkl.declare-font-variables("title", "body");
-        @include jkl.declare-font-variables("content", "body");
-
-        @include jkl.small-device {
-            --title-padding: var(--jkl-spacing-12) #{jkl.rem(44px)} var(
-                    --jkl-spacing-12
-                ) var(--jkl-spacing-12);
-            --content-padding: var(--jkl-spacing-8) var(--jkl-spacing-12)
-                var(--jkl-spacing-16) var(--jkl-spacing-12);
-            --arrow-top: #{jkl.rem(23px)};
-        }
-    }
-
-    @include jkl.compact-density {
-        --title-padding: var(--jkl-spacing-8) #{jkl.rem(32px)} var(
-                --jkl-spacing-8
-            ) var(--jkl-spacing-8);
-        --arrow-top: var(--jkl-spacing-8);
-        --arrow-right: var(--jkl-spacing-4);
-        --content-padding: var(--jkl-spacing-8);
-        @include jkl.declare-font-variables("title", "small");
-        @include jkl.declare-font-variables("content", "small");
-    }
 }
 
 .jkl-accordion-item {
@@ -81,7 +81,7 @@
         list-style: none;
         background-color: transparent;
         position: relative;
-        padding: var(--title-padding);
+        padding: var(--jkl-accordion-title-padding);
         text-align: left;
         width: 100%;
         box-sizing: border-box;
@@ -108,8 +108,8 @@
     &__arrow {
         pointer-events: none;
         position: absolute;
-        right: var(--arrow-right);
-        top: var(--arrow-top);
+        right: var(--jkl-accordion-arrow-right);
+        top: var(--jkl-accordion-arrow-top);
 
         @include jkl.motion("standard", "snappy");
         transition-property: translate;
@@ -128,7 +128,7 @@
     &__content {
         @include jkl.use-font-variables("content");
         height: auto;
-        padding: var(--content-padding);
+        padding: var(--jkl-accordion-content-padding);
     }
 
     @include jkl.forced-colors-mode {

@@ -1,12 +1,12 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-@include jkl.comfortable-density(".jkl-tag") {
+@include jkl.comfortable-density-variables {
     --jkl-tag-padding: var(--jkl-spacing-4) var(--jkl-spacing-8);
     --jkl-tag-gap: var(--jkl-spacing-4);
 }
 
-@include jkl.compact-density(".jkl-tag") {
+@include jkl.compact-density-variables {
     --jkl-tag-padding: 0 var(--jkl-spacing-4);
     --jkl-tag-gap: var(--jkl-spacing-2);
 }

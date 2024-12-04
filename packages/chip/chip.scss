@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @use "@fremtind/jkl-core/jkl";
 
-@include jkl.compact-density(".jkl-chip") {
+@include jkl.compact-density-variables {
     --padding-inline-s: #{jkl.$spacing-8};
     --padding-inline-l: #{jkl.$spacing-12};
     --padding-icon-s: #{jkl.$spacing-4};
@@ -12,7 +12,7 @@
     --gap-l: #{jkl.$spacing-4};
 }
 
-@include jkl.comfortable-density(".jkl-chip") {
+@include jkl.comfortable-density-variables {
     --padding-inline-s: #{jkl.$spacing-12};
     --padding-inline-l: #{jkl.$spacing-16};
     --padding-icon-s: #{jkl.$spacing-8};

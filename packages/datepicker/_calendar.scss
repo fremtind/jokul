@@ -14,28 +14,28 @@
     --jkl-calendar-focus-color: #{jkl.$color-snohvit};
 }
 
+@include jkl.comfortable-density-variables {
+    --jkl-calendar-padding: var(--jkl-spacing-12) var(--jkl-spacing-16)
+        var(--jkl-spacing-16);
+    --jkl-calendar-gap: var(--jkl-spacing-12);
+
+    // Custom tweaks for iPhone SE
+    @include jkl.screen-to(375px) {
+        --jkl-calendar-padding: var(--jkl-spacing-4) var(--jkl-spacing-8)
+            var(--jkl-spacing-16);
+    }
+}
+
+@include jkl.compact-density-variables {
+    --jkl-calendar-padding: var(--jkl-spacing-4) var(--jkl-spacing-8)
+        var(--jkl-spacing-16);
+    --jkl-calendar-gap: 0;
+}
+
 .jkl-calendar {
     display: block;
     background-color: var(--jkl-calendar-background-color);
     color: var(--jkl-calendar-text-color);
-
-    @include jkl.comfortable-density {
-        --jkl-calendar-padding: var(--jkl-spacing-12) var(--jkl-spacing-16)
-            var(--jkl-spacing-16);
-        --jkl-calendar-gap: var(--jkl-spacing-12);
-
-        // Custom tweaks for iPhone SE
-        @include jkl.screen-to(375px) {
-            --jkl-calendar-padding: var(--jkl-spacing-4) var(--jkl-spacing-8)
-                var(--jkl-spacing-16);
-        }
-    }
-
-    @include jkl.compact-density {
-        --jkl-calendar-padding: var(--jkl-spacing-4) var(--jkl-spacing-8)
-            var(--jkl-spacing-16);
-        --jkl-calendar-gap: 0;
-    }
 
     &__padding {
         display: flex;
