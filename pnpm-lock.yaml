@@ -1268,7 +1268,7 @@ importers:
       '@fremtind/jkl-contextual-menu-react': ^3.8.13
       '@fremtind/jkl-cookie-consent-react': ^10.2.35
       '@fremtind/jkl-core': ^14.8.6
-      '@fremtind/jkl-datepicker-react': ^16.0.5
+      '@fremtind/jkl-datepicker-react': ^16.1.0
       '@fremtind/jkl-description-list-react': ^8.0.29
       '@fremtind/jkl-expand-button-react': ^7.1.0
       '@fremtind/jkl-feedback-react': ^18.2.25
@@ -4270,8 +4270,8 @@ packages:
       tslib: 2.5.3
     dev: false
 
-  /@fremtind/jkl-constants-util/3.0.106:
-    resolution: {integrity: sha512-h9QjTY6KXBgWe2eZtgHyz6vtpKC5S0D3Ya4nAJhEhmNo3zbemB5rTd7mG0qUKpOucOoz/0F8BuXnxGus/oNYoA==}
+  /@fremtind/jkl-constants-util/3.0.108:
+    resolution: {integrity: sha512-l4CD2NgjUVp/Orjk4oRLKa4NPaU2Xu7814l14KJYi5MKn/I2IXtorjvK4xQ/JVrfEaUGWaQ9tl2b/ahRqtjJcA==}
     dev: false
 
   /@fremtind/jkl-contact-information-react/2.1.52_biqbaboplfbrettd7655fr4n2y:
@@ -4284,7 +4284,7 @@ packages:
     dependencies:
       '@fremtind/jkl-contact-information': 2.0.22_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-core': 14.8.6_biqbaboplfbrettd7655fr4n2y
-      '@fremtind/jkl-formatters-util': 6.0.23_biqbaboplfbrettd7655fr4n2y
+      '@fremtind/jkl-formatters-util': 6.0.25_biqbaboplfbrettd7655fr4n2y
       classnames: 2.5.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -4361,7 +4361,7 @@ packages:
     dependencies:
       '@fremtind/jkl-core': 14.8.6_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-footer': 6.0.22_biqbaboplfbrettd7655fr4n2y
-      '@fremtind/jkl-formatters-util': 6.0.23_biqbaboplfbrettd7655fr4n2y
+      '@fremtind/jkl-formatters-util': 6.0.25_biqbaboplfbrettd7655fr4n2y
       '@fremtind/jkl-logo-react': 13.1.21_biqbaboplfbrettd7655fr4n2y
       classnames: 2.5.1
       react: 18.2.0
@@ -4379,15 +4379,15 @@ packages:
       - react-dom
     dev: false
 
-  /@fremtind/jkl-formatters-util/6.0.23_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-o/lRJiv8nBe+sVZakA+xuEbH1SKTfv0Rkl8VN4XCF/bbQcOO8S3nXquUVwWdLnb94U5FAulD4hRC5606cIjIIQ==}
+  /@fremtind/jkl-formatters-util/6.0.25_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-YEcrVKPhxljeOi+nytcz6jq6Lne7s4RyUOJgPTlwveUWxKat5WhlVTVzNvJPOKvkBVQkY/HVA8YO9aQ0plZYQA==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@fremtind/jkl-constants-util': 3.0.106
+      '@fremtind/jkl-constants-util': 3.0.108
       '@fremtind/jkl-core': 14.8.6_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
