@@ -7,7 +7,7 @@ $_focus-ring-distance: jkl.rem(
 ); // Negativ margin for å unngå subpixel mellomrom mellom border og box-shadow
 $_focus-ring-width: jkl.rem(2px);
 
-@include jkl.comfortable-density(".jkl-tooltip-content") {
+@include jkl.comfortable-density-variables {
     --content-padding: #{jkl.$spacing-16};
 
     @include jkl.small-device {
@@ -15,7 +15,7 @@ $_focus-ring-width: jkl.rem(2px);
     }
 }
 
-@include jkl.compact-density(".jkl-tooltip-content") {
+@include jkl.compact-density-variables {
     --content-padding: #{jkl.$spacing-8};
 }
 

@@ -1,6 +1,22 @@
 @use "../../../core/jkl";
 @use "../../../core/jkl/colors";
 
+@include jkl.comfortable-density-variables {
+    --jkl-file-padding: #{jkl.$spacing-24};
+    --jkl-file-thumbnail-size: #{jkl.rem(64px)};
+    --jkl-file-gap: #{jkl.$spacing-16};
+    --jkl-file-font-size: #{jkl.rem(20px)};
+    --jkl-file-line-height: #{jkl.rem(32px)};
+}
+
+@include jkl.compact-density-variables {
+    --jkl-file-padding: #{jkl.$spacing-12};
+    --jkl-file-thumbnail-size: #{jkl.rem(44px)};
+    --jkl-file-gap: #{jkl.$spacing-8};
+    --jkl-file-font-size: #{jkl.rem(16px)};
+    --jkl-file-line-height: #{jkl.rem(24px)};
+}
+
 .jkl-file {
     --text-color: var(--jkl-color-text-default);
 
@@ -21,22 +37,6 @@
 
     @include jkl.text-style("small");
     @include jkl.reset-outline;
-
-    @include jkl.comfortable-density {
-        --jkl-file-padding: #{jkl.$spacing-24};
-        --jkl-file-thumbnail-size: #{jkl.rem(64px)};
-        --jkl-file-gap: #{jkl.$spacing-16};
-        --jkl-file-font-size: #{jkl.rem(20px)};
-        --jkl-file-line-height: #{jkl.rem(32px)};
-    }
-
-    @include jkl.compact-density {
-        --jkl-file-padding: #{jkl.$spacing-12};
-        --jkl-file-thumbnail-size: #{jkl.rem(44px)};
-        --jkl-file-gap: #{jkl.$spacing-8};
-        --jkl-file-font-size: #{jkl.rem(16px)};
-        --jkl-file-line-height: #{jkl.rem(24px)};
-    }
 
     &__content {
         display: flex;

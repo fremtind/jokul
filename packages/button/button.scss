@@ -4,36 +4,51 @@
 
 $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
 
-@include jkl.comfortable-density(".jkl-button") {
-    --padding-block: #{jkl.$spacing-8};
-    --padding-text: #{jkl.$spacing-24};
-    --padding-icon: #{jkl.$spacing-16};
-    --padding-icon-button: #{jkl.$spacing-8};
-    --padding-tertiary-inline: #{jkl.$spacing-4};
-    --padding-ghost-inline: #{jkl.$spacing-8};
+@include jkl.comfortable-density-variables {
+    --jkl-button-padding-block: #{jkl.$spacing-8};
+    --jkl-button-padding-text: #{jkl.$spacing-24};
+    --jkl-button-padding-icon: #{jkl.$spacing-16};
+    --jkl-button-padding-icon-button: #{jkl.$spacing-8};
+    --jkl-button-padding-tertiary-inline: #{jkl.$spacing-4};
+    --jkl-button-padding-ghost-inline: #{jkl.$spacing-8};
+    --jkl-button-font-size: #{jkl.$typography-body-small-font-size};
+    --jkl-button-line-height: #{jkl.$typography-body-small-line-height};
+
+    @include jkl.from-medium-device {
+        --jkl-button-font-size: #{jkl.$typography-body-base-font-size};
+        --jkl-button-line-height: #{jkl.$typography-body-base-line-height};
+    }
 }
 
-@include jkl.compact-density(".jkl-button") {
-    --padding-block: #{jkl.$spacing-4};
-    --padding-text: #{jkl.$spacing-12};
-    --padding-icon: #{jkl.$spacing-8};
-    --padding-icon-button: #{jkl.$spacing-4};
-    --padding-tertiary-inline: #{jkl.$spacing-2};
-    --padding-ghost-inline: #{jkl.$spacing-4};
+@include jkl.compact-density-variables {
+    --jkl-button-padding-block: #{jkl.$spacing-4};
+    --jkl-button-padding-text: #{jkl.$spacing-12};
+    --jkl-button-padding-icon: #{jkl.$spacing-8};
+    --jkl-button-padding-icon-button: #{jkl.$spacing-4};
+    --jkl-button-padding-tertiary-inline: #{jkl.$spacing-2};
+    --jkl-button-padding-ghost-inline: #{jkl.$spacing-4};
+    --jkl-button-font-size: #{jkl.$typography-small-small-font-size};
+    --jkl-button-line-height: #{jkl.$typography-small-small-line-height};
 
-    @include jkl.text-style("small") {
-        --jkl-icon-weight: #{jkl.$icon-weight-bold};
-        font-weight: jkl.$typography-weight-bold;
+    @include jkl.from-medium-device {
+        --jkl-button-font-size: #{jkl.$typography-small-base-font-size};
+        --jkl-button-line-height: #{jkl.$typography-small-base-line-height};
+        --jkl-button-icon-weight: #{jkl.$icon-weight-bold};
     }
 }
 
 .jkl-button {
+    --jkl-icon-weight: var(--jkl-button-icon-weight, initial);
     --text-color: var(--jkl-color-text-default);
     --background-color: transparent;
     --border-radius: 0;
     --border-width: #{jkl.rem(1px)}; // For secondary og tertiary button
 
     display: inline-block;
+
+    font-weight: #{jkl.$typography-weight-bold};
+    font-size: var(--jkl-button-font-size);
+    line-height: var(--jkl-button-line-height);
 
     // button and link resets
     cursor: pointer;
@@ -45,29 +60,24 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     -webkit-tap-highlight-color: transparent;
 
     border-radius: var(--border-radius);
-    padding-inline: var(--padding-text);
-    padding-block: var(--padding-block);
+    padding-inline: var(--jkl-button-padding-text);
+    padding-block: var(--jkl-button-padding-block);
     position: relative;
     overflow: hidden;
     max-width: 100%;
 
     @include jkl.motion("standard", "productive", scale);
 
-    @include jkl.text-style("body") {
-        --jkl-icon-weight: #{jkl.$icon-weight-bold};
-        font-weight: jkl.$typography-weight-bold;
-    }
-
     &:has(.jkl-icon:first-child) {
-        padding-inline-start: var(--padding-icon);
+        padding-inline-start: var(--jkl-button-padding-icon);
     }
 
     &:has(.jkl-icon:last-child) {
-        padding-inline-end: var(--padding-icon);
+        padding-inline-end: var(--jkl-button-padding-icon);
     }
 
     &:has(.jkl-icon:first-child):has(.jkl-icon:last-child) {
-        padding-inline: var(--padding-icon-button);
+        padding-inline: var(--jkl-button-padding-icon-button);
     }
 
     &__label {
@@ -170,7 +180,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     &--tertiary,
     &--tertiary:has(.jkl-icon:first-child),
     &--tertiary:has(.jkl-icon:last-child) {
-        padding-inline: var(--padding-tertiary-inline);
+        padding-inline: var(--jkl-button-padding-tertiary-inline);
 
         &::after {
             content: "";
@@ -189,7 +199,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     &--ghost,
     &--ghost:has(.jkl-icon:first-child),
     &--ghost:has(.jkl-icon:last-child) {
-        padding-inline: var(--padding-ghost-inline);
+        padding-inline: var(--jkl-button-padding-ghost-inline);
         border-radius: jkl.rem(4px);
 
         @include jkl.motion("standard", "productive", background-color);
