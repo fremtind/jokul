@@ -22,10 +22,10 @@ export const PopupTip: FC<PopupTipProps> = ({
     triggerProps,
     ...tooltipProps
 }) => {
-    const [isBold, setIsBold] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <Tooltip onOpenChange={setIsBold} triggerOn="click" {...tooltipProps}>
+        <Tooltip onOpenChange={setIsOpen} triggerOn="click" {...tooltipProps}>
             <TooltipTrigger>
                 <button
                     {...triggerProps}
@@ -36,11 +36,18 @@ export const PopupTip: FC<PopupTipProps> = ({
                     )}
                     data-testid="jkl-tooltip-question-button"
                 >
-                    <QuestionIcon variant="inherit" bold={isBold} />
+                    <QuestionIcon variant="inherit" bold={isOpen} />
                     <span className="jkl-sr-only">Vis hjelpetekst</span>
+                    <span
+                        className="jkl-sr-only"
+                        aria-live="polite"
+                        data-testid="popuptip-content"
+                    >
+                        {isOpen ? content : ""}
+                    </span>
                 </button>
             </TooltipTrigger>
-            <TooltipContent>{content}</TooltipContent>
+            <TooltipContent data-ispopup={true}>{content}</TooltipContent>
         </Tooltip>
     );
 };
