@@ -30,8 +30,11 @@ function getTranslation(side: Side, value: number = 0) {
 
 export const TooltipContent = forwardRef<
     HTMLDivElement,
-    HTMLProps<HTMLDivElement>
->(function TooltipContent({ className, children, ...props }, forwardedRef) {
+    HTMLProps<HTMLDivElement> & { "data-ispopup"?: boolean }
+>(function TooltipContent(
+    { className, children, ["data-ispopup"]: isPopup, ...props },
+    forwardedRef,
+) {
     const {
         triggerOn,
         arrowElement,
@@ -91,9 +94,8 @@ export const TooltipContent = forwardRef<
                         key={contentId}
                         ref={ref}
                         data-placement={placement}
-                        aria-live={
-                            triggerOn === "click" ? "assertive" : undefined
-                        }
+                        aria-hidden={isPopup}
+                        data-testid={"tooltip-content"}
                         data-theme={theme}
                         data-layout-density={density}
                         className={clsx("jkl-tooltip-content", className)}

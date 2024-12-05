@@ -29,8 +29,11 @@ function getTranslation(side: Side, value: number = 0) {
 
 export const TooltipContent = forwardRef<
     HTMLDivElement,
-    HTMLProps<HTMLDivElement>
->(function TooltipContent({ className, children, ...props }, forwardedRef) {
+    HTMLProps<HTMLDivElement> & { "data-ispopup"?: boolean }
+>(function TooltipContent(
+    { className, children, ["data-ispopup"]: isPopup, ...props },
+    forwardedRef,
+) {
     const {
         context,
         triggerOn,
@@ -40,6 +43,7 @@ export const TooltipContent = forwardRef<
         floatingStyles,
         refs,
     } = useTooltipContext();
+
     const ref = useMergeRefs([forwardedRef, refs.setFloating]);
     const contentId = useId("jkl-tooltip-content");
     const { prefersReducedMotion } = useBrowserPreferences();
@@ -90,9 +94,8 @@ export const TooltipContent = forwardRef<
                         key={contentId}
                         ref={ref}
                         data-placement={placement}
-                        aria-live={
-                            triggerOn === "click" ? "assertive" : undefined
-                        }
+                        aria-hidden={isPopup}
+                        data-testid={"tooltip-content"}
                         data-theme={theme}
                         data-layout-density={density}
                         className={cn("jkl-tooltip-content", className)}

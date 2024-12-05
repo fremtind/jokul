@@ -28,9 +28,7 @@ describe("Tooltip", () => {
 
         await user.hover(tooltipTrigger as HTMLElement);
         await waitFor(() =>
-            expect(
-                screen.queryByText(/Forklarende tekst/, { ignore: "[hidden]" }),
-            ).toBeVisible(),
+            expect(screen.getByTestId("tooltip-content")).toBeVisible(),
         );
     });
 
@@ -122,9 +120,7 @@ describe("Tooltip", () => {
                 </Tooltip>,
             );
 
-            const tooltipContent = screen.queryByText(/Forklarende tekst/, {
-                ignore: "[hidden]",
-            });
+            const tooltipContent = screen.getByTestId("tooltip-content");
             expect(tooltipContent).toBeInTheDocument();
         });
     });
