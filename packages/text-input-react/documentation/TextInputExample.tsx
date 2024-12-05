@@ -3,8 +3,8 @@ import { CloseIcon } from "@fremtind/jkl-icons-react";
 import type { LabelVariant } from "@fremtind/jkl-input-group-react";
 import React, { useState, ChangeEvent, FC } from "react";
 import { ExampleComponentProps, ExampleKnobsProps } from "../../../doc-utils";
+import { IconButton } from "../../icon-button-react/src";
 import { PopupTip } from "../../tooltip-react/src";
-import { type Action } from "../src/BaseTextInput";
 import { TextInput } from "../src/TextInput";
 
 export const textInputExampleKnobs: ExampleKnobsProps = {
@@ -61,13 +61,11 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
     ) : undefined;
     const inline = boolValues?.["Inline"];
     const variant = choiceValues?.["Variant"] as LabelVariant;
-    const action = boolValues?.["Med handling"]
-        ? ({
-              icon: <CloseIcon />,
-              label: "Nullstill feltet",
-              onClick: () => setValue(""),
-          } as Action)
-        : undefined;
+    const actionButton = boolValues?.["Med handling"] ? (
+        <IconButton title="Nullstill feltet" onClick={() => setValue("")}>
+            <CloseIcon />
+        </IconButton>
+    ) : undefined;
 
     if (inline) {
         return (
@@ -81,7 +79,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
                     maxLength={3}
                     width="2rem"
                     errorLabel={errorLabel}
-                    action={action}
+                    actionButton={actionButton}
                 />{" "}
                 år gammel
             </div>
@@ -100,7 +98,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
             onChange={handleChange}
             onKeyDown={() => console.log("onKeyDown event")}
             inline={inline}
-            action={action}
+            actionButton={actionButton}
             unit={unit}
             align="right"
             width="min(10rem, 100%)"
@@ -155,11 +153,11 @@ export const textInputExampleCode = ({
     }${
         boolValues?.["Med handling"]
             ? `
-    action={{
-        icon: <CloseIcon />,
-        label: "Nullstill feltet",
-        onClick: () => setValue(""),
-    }}`
+    actionButton={
+        <IconButton title="Nullstill feltet" onClick={() => setValue("")}>
+            <CloseIcon />
+        </IconButton>    
+    }`
             : ""
     }${
         boolValues?.["Med benevnelse"]
