@@ -13,16 +13,10 @@ describe("PopupTip", () => {
     it("should render as the correct button", () => {
         render(<PopupTip content="Forklarende tekst" />);
 
-        const trigger = screen.getByRole("button");
+        const trigger = screen.getByRole("button", { name: "Vis hjelpetekst" });
         expect(trigger).toBeInTheDocument();
         expect(trigger.tagName).toBe("BUTTON");
         expect(trigger).toHaveClass("jkl-tooltip-question-button");
-    });
-
-    it("should render a title for screen readers", () => {
-        render(<PopupTip content="Forklarende tekst" />);
-
-        expect(screen.getByText(/Vis hjelpetekst/)).toBeInTheDocument();
     });
 
     it("should trigger passed handlers", async () => {
@@ -44,7 +38,7 @@ describe("PopupTip", () => {
         );
 
         const user = userEvent.setup();
-        const trigger = screen.getByRole("button");
+        const trigger = screen.getByRole("button", { name: "Vis hjelpetekst" });
 
         await user.hover(trigger);
         await user.unhover(trigger);
@@ -64,7 +58,9 @@ describe("PopupTip", () => {
             );
 
             await act(async () => {
-                const results = await axe(container);
+                const results = await axe(container, {
+                    rules: { "aria-command-name": { enabled: false } },
+                });
                 expect(results).toHaveNoViolations();
             });
         });

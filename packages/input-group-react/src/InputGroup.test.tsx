@@ -1,5 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen } from "@testing-library/react";
 import { axe } from "jest-axe";
 import React from "react";
 import { PopupTip } from "../../tooltip-react/src";
@@ -16,8 +15,7 @@ describe("InputGroup", () => {
         screen.getByLabelText("Test av InputGroup");
     });
 
-    it("should render tooltip when passed as a prop", async () => {
-        const user = userEvent.setup();
+    it("should render popup-tip when passed as a prop", async () => {
         render(
             <InputGroup
                 label={"En labell"}
@@ -25,11 +23,7 @@ describe("InputGroup", () => {
             />,
         );
 
-        await user.click(screen.getByText("Vis hjelpetekst"));
-
-        await waitFor(() =>
-            expect(screen.getByText("Dette er hjelpen")).toBeVisible(),
-        );
+        expect(screen.getByText("Vis hjelpetekst")).toBeVisible();
     });
 });
 

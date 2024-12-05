@@ -1,5 +1,6 @@
 import {
     FloatingArrow,
+    FloatingFocusManager,
     FloatingPortal,
     type Side,
     useMergeRefs,
@@ -30,8 +31,11 @@ function getTranslation(side: Side, value: number = 0) {
 
 export const TooltipContent = forwardRef<
     HTMLDivElement,
-    HTMLProps<HTMLDivElement>
->(function TooltipContent({ className, children, ...props }, forwardedRef) {
+    HTMLProps<HTMLDivElement> & { "data-ispopup"?: boolean }
+>(function TooltipContent(
+    { className, children, ["data-ispopup"]: isPopup, ...props },
+    forwardedRef,
+) {
     const {
         triggerOn,
         arrowElement,
@@ -74,46 +78,60 @@ export const TooltipContent = forwardRef<
 
     return (
         <FloatingPortal>
-            {/* For å kunne bruke tekstinnholdet i tooltip som beskrivende tekst, selv når ikke
+            <FloatingFocusManager
+                initialFocus={triggerOn === "click" ? 0 : -1}
+                returnFocus={true}
+                context={context}
+                modal={false}
+                closeOnFocusOut={true}
+            >
+                <>
+                    {/* For å kunne bruke tekstinnholdet i tooltip som beskrivende tekst, selv når ikke
             tooltip er synlig, må vi rendre et skjult element å referere til for å hente innholdet. */}
-            {triggerOn === "hover" && (
-                <span
-                    ref={refs.setDescription}
-                    hidden
-                    key={`${contentId}-trigger`}
-                >
-                    {children}
-                </span>
-            )}
-            {isMounted && (
-                <span className="jkl" key={`${contentId}-wrapper`}>
-                    <span
-                        key={contentId}
-                        ref={ref}
-                        data-placement={placement}
-                        aria-live={
-                            triggerOn === "click" ? "assertive" : undefined
-                        }
-                        data-theme={theme}
-                        data-layout-density={density}
-                        className={clsx("jkl-tooltip-content", className)}
-                        {...getFloatingProps({
-                            ...props,
-                            id: contentId,
-                        })}
-                        style={{ ...floatingStyles, ...animationStyles }}
-                    >
-                        {children}
-                        <FloatingArrow
-                            context={context}
-                            ref={arrowElement}
-                            width={24}
-                            height={12}
-                            fill="var(--background-color)"
-                        />
-                    </span>
-                </span>
-            )}
+                    {triggerOn === "hover" && (
+                        <span
+                            ref={refs.setDescription}
+                            hidden
+                            key={`${contentId}-trigger`}
+                        >
+                            {children}
+                        </span>
+                    )}
+                    {isMounted && (
+                        <span className="jkl" key={`${contentId}-wrapper`}>
+                            <span
+                                key={contentId}
+                                ref={ref}
+                                data-placement={placement}
+                                data-testid={"tooltip-content"}
+                                data-theme={theme}
+                                data-layout-density={density}
+                                className={clsx(
+                                    "jkl-tooltip-content",
+                                    className,
+                                )}
+                                {...getFloatingProps({
+                                    ...props,
+                                    id: contentId,
+                                })}
+                                style={{
+                                    ...floatingStyles,
+                                    ...animationStyles,
+                                }}
+                            >
+                                {children}
+                                <FloatingArrow
+                                    context={context}
+                                    ref={arrowElement}
+                                    width={24}
+                                    height={12}
+                                    fill="var(--background-color)"
+                                />
+                            </span>
+                        </span>
+                    )}
+                </>
+            </FloatingFocusManager>
         </FloatingPortal>
     );
 });

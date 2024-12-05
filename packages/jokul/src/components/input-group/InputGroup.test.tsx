@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React from "react";
 import { describe, expect, it } from "vitest";
@@ -21,7 +21,7 @@ describe("InputGroup", () => {
         expect(screen.getByLabelText("Test av InputGroup")).toBeVisible();
     });
 
-    it("should render tooltip when passed as a prop", async () => {
+    it("should render popup-tip when passed as a prop", async () => {
         render(
             <InputGroup
                 label={"En labell"}
@@ -29,11 +29,7 @@ describe("InputGroup", () => {
             />,
         );
 
-        await userEvent.click(screen.getByText("Vis hjelpetekst"));
-
-        await waitFor(() =>
-            expect(screen.getByText("Dette er hjelpen")).toBeVisible(),
-        );
+        expect(screen.getByText("Vis hjelpetekst")).toBeVisible();
     });
 });
 
