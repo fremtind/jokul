@@ -164,17 +164,12 @@ $_text-input-selection-color--inverted: color.scale(
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
-    background-color: transparent;
-    cursor: pointer;
     padding: var(--jkl-text-input-action-button-padding);
     height: var(--jkl-text-input-action-button-size);
     width: var(--jkl-text-input-action-button-size);
-    color: var(--jkl-text-input-border-color);
 
     // Unngå for langt mellomrom mellom ikon og teksten i feltet
     margin-inline-start: calc(var(--jkl-text-input-horizontal-padding) * -1);
-
-    @include jkl.reset-outline;
 
     .jkl-icon-button__icon {
         height: var(--jkl-text-input-action-button-icon-size);
@@ -187,6 +182,12 @@ $_text-input-selection-color--inverted: color.scale(
         @include jkl.forced-colors-mode {
             border: jkl.rem(2px) inset ButtonText;
         }
+    }
+
+    &:focus-visible {
+        // The default icon-button focus looks pretty terrible when the button
+        // is inside an input field so make sure to remove it.
+        outline: none !important;
     }
 
     &:focus {
