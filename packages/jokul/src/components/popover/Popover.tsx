@@ -334,7 +334,7 @@ const PopoverContent = React.forwardRef<
         floatingPortalRef.current =
             context.elements.domReference?.closest<HTMLElement>(
                 "[data-portal]",
-            ) || null;
+            ) || document.body;
     }, [context.elements.domReference]);
 
     if (!open) return null;
