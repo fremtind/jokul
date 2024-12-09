@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-popover-react@1.2.9...@fremtind/jkl-popover-react@1.2.10) (2024-12-09)
+
+### Bug Fixes
+
+- fallback to document.body for floating portal reference ([12ac4fb](https://github.com/fremtind/jokul/commit/12ac4fb8703444504e638f4b85dfd2ddbcdc07b7))
+
 ## 1.2.3 (2024-10-29)
 
 ### Bug Fixes

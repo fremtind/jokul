@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.2...@fremtind/jokul@0.37.3) (2024-12-09)
+
+### Bug Fixes
+
+- fallback to document.body for floating portal reference ([12ac4fb](https://github.com/fremtind/jokul/commit/12ac4fb8703444504e638f4b85dfd2ddbcdc07b7))
+
 ## [0.37.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.1...@fremtind/jokul@0.37.2) (2024-12-09)
 
 ### Bug Fixes
