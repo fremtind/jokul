@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.1...@fremtind/jokul@0.37.2) (2024-12-09)
+
+### Bug Fixes
+
+- lets screenreaders know if links are external ([e7b3e83](https://github.com/fremtind/jokul/commit/e7b3e834540c4aa55a3e3c76e431d69d3f2d41da))
+
 ## [0.37.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.0...@fremtind/jokul@0.37.1) (2024-12-09)
 
 ### Bug Fixes
