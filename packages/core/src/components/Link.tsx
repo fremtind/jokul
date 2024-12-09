@@ -1,5 +1,5 @@
 import cn from "classnames";
-import React from "react";
+import React, { useId } from "react";
 import { PolymorphicPropsWithRef, PolymorphicRef } from "../polymorphism";
 
 export type LinkProps<ElementType extends React.ElementType> =
@@ -26,15 +26,23 @@ export const Link = React.forwardRef(function Link<
     } = props;
     const Component = as;
 
+    const srId = useId();
+
     return (
         <Component
             ref={ref}
             className={cn("jkl-link", className, {
                 "jkl-link--external": external,
             })}
+            aria-describedby={external ? srId : undefined}
             {...rest}
         >
             {children}
+            {external && (
+                <span hidden={true} id={srId}>
+                    Ekstern lenke
+                </span>
+            )}
         </Component>
     );
 });
