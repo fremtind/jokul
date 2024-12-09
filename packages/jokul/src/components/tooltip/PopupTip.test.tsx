@@ -19,10 +19,17 @@ describe("PopupTip", () => {
         expect(trigger).toHaveClass("jkl-tooltip-question-button");
     });
 
-    it("should render a title for screen readers", () => {
+    it("should announce content for screen readers", async () => {
         render(<PopupTip content="Forklarende tekst" />);
+        const trigger = screen.getByRole("button");
 
-        expect(screen.getByText(/Vis hjelpetekst/)).toBeInTheDocument();
+        const content = screen.getByTestId("popuptip-content");
+        expect(content).toHaveAttribute("aria-live", "polite");
+        expect(content).toHaveTextContent("");
+
+        await userEvent.click(trigger);
+
+        expect(content).toHaveTextContent("Forklarende tekst");
     });
 
     it("should trigger passed handlers", async () => {
