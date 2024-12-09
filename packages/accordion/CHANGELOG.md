@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.0.20 (2024-12-09)
+
+### Bug Fixes
+
+- fixes an issue with nested density-layouts ([235fd1f](https://github.com/fremtind/jokul/commit/235fd1fe755376c0e49c3a02b3e6585050258012))
+
 ## 12.0.19 (2024-11-28)
 
 ### Bug Fixes

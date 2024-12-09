@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-file-input",
-    "version": "2.1.11",
+    "version": "2.1.12",
     "publishConfig": {
         "access": "public"
     },
