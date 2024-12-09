@@ -28,7 +28,7 @@ export const ModalContainer = forwardRef<
     HTMLDivElement,
     ModalConfig["container"] & BaseModalProps
 >(({ className, ...rest }, ref) => {
-    // TODO: 'data-portal' fjernes når modalen tar i bruk Popover komponenten
+    // TODO: 'data-portal' fjernes når modalen tar i bruk Popover komponenten. Issue: https://github.com/fremtind/jokul/issues/4356
     return (
         <div
             className={cn("jkl-modal-container", className)}
