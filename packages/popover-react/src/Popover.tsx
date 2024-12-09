@@ -329,12 +329,12 @@ const PopoverContent = React.forwardRef<
 
     const floatingPortalRef = React.useRef<HTMLElement | null>(null);
 
-    // TODO: Løser et problem hvor nestede portaler ikke "fester" seg til det nærmeste portal-elementet. Fjernes når alle komponenter som rendres i en portal tar i bruk popover komponenten da den håndterer dette internt.
+    // TODO: Løser et problem hvor nestede portaler ikke "fester" seg til det nærmeste portal-elementet. Fjernes når alle komponenter som rendres i en portal tar i bruk popover komponenten da den håndterer dette internt. Issue: https://github.com/fremtind/jokul/issues/4356
     React.useEffect(() => {
         floatingPortalRef.current =
             context.elements.domReference?.closest<HTMLElement>(
                 "[data-portal]",
-            ) || null;
+            ) || document.body;
     }, [context.elements.domReference]);
 
     if (!open) return null;
