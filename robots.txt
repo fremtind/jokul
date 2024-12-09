@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /beta
+Disallow: /preview
+Sitemap: https://jokul.fremtind.no/sitemap/sitemap-index.xml
+Host: https://jokul.fremtind.no
