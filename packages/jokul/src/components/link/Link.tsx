@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import React from "react";
+import React, { useId } from "react";
 import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
@@ -29,15 +29,23 @@ export const Link = React.forwardRef(function Link<
     } = props;
     const Component = as;
 
+    const srId = useId();
+
     return (
         <Component
             ref={ref}
             className={clsx("jkl-link", className, {
                 "jkl-link--external": external,
             })}
+            aria-describedby={external ? srId : undefined}
             {...rest}
         >
             {children}
+            {external && (
+                <span hidden={true} id={srId}>
+                    Ekstern lenke
+                </span>
+            )}
         </Component>
     );
 });
