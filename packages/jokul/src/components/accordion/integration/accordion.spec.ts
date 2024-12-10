@@ -19,7 +19,9 @@ test.afterEach(async () => {
 test("renders in default state", async () => {
     await helper.open();
 
-    await helper.snapshots();
+    await helper.snapshots({
+        focusElement: "summary",
+    });
 });
 
 test("opens accordion", async () => {
