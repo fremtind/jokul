@@ -21,5 +21,5 @@ test("renders correctly", async () => {
 
     await helper.checkProp("bool-prop-med-tooltip");
 
-    await helper.snapshots();
+    await helper.snapshots({ focusElement: ".jkl-text-input__input" });
 });
