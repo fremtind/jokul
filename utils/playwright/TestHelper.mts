@@ -132,6 +132,10 @@ export class TestHelper {
         return this;
     }
 
+    async focus(selector: string) {
+        await this._page.locator(selector).first().focus();
+    }
+
     private async snapshot(name: string, selector?: string) {
         await this._page.evaluate(() => document.fonts.ready);
 
@@ -172,15 +176,21 @@ export class TestHelper {
         before,
         after,
         selector,
+        focusElement,
     }: {
         before?: () => Promise<any>;
         after?: () => Promise<any>;
         selector?: string;
+        focusElement?: string;
     } = {}) {
         await this.setDensity("default");
         await this.setTheme("light");
         await before?.();
         await this.snapshot("default", selector);
+        if (focusElement) {
+            await this.focus(focusElement);
+            await this.snapshot("default-focus", selector);
+        }
         await after?.();
 
         await this.setDensity("default");

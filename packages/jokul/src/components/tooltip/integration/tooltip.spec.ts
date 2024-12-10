@@ -20,6 +20,7 @@ test("renders correctly", async () => {
     await helper.open();
 
     await helper.snapshots({
+        focusElement: ".jkl-tooltip-question-button",
         before: () =>
             helper
                 .clickElement('[data-testid="jkl-tooltip-question-button"]')

@@ -20,6 +20,7 @@ test("renders correctly", async () => {
     await helper.open();
 
     await helper.snapshots({
+        focusElement: ".jkl-button",
         before: () => helper.clickElement('[data-testid="open-menu"]'),
     });
 });

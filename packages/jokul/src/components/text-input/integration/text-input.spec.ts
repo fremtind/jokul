@@ -19,7 +19,7 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots();
+    await helper.snapshots({ focusElement: ".jkl-text-input__input" });
 });
 
 test("renders allthethings correctly", async () => {

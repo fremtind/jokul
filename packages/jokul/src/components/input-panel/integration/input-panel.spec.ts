@@ -29,5 +29,5 @@ test("CheckPanel renders correctly", async () => {
 
     await helper.clickElement('[data-testid="check-panel"]');
 
-    await helper.snapshots();
+    await helper.snapshots({ focusElement: "[aria-expanded='false']" });
 });

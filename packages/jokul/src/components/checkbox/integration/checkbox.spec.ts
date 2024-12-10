@@ -19,7 +19,7 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots();
+    await helper.snapshots({ focusElement: ".jkl-checkbox__input" });
 });
 
 test("renders correctly with error message", async () => {
