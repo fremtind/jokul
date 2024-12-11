@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.3...@fremtind/jokul@0.37.4) (2024-12-11)
+
+### Bug Fixes
+
+- fixes styling when using `actionButton` prop ([f73b44b](https://github.com/fremtind/jokul/commit/f73b44b7cfa16d2eb939c41df9ede510f2953a4a))
+- makes focus on action-button look better ([da9b1ee](https://github.com/fremtind/jokul/commit/da9b1ee810acd1ddbfa8d31601a356ffd35a9dbc))
+
 ## [0.37.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.2...@fremtind/jokul@0.37.3) (2024-12-09)
 
 ### Bug Fixes

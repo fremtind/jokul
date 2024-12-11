@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.1.32 (2024-12-11)
+
+### Bug Fixes
+
+- makes focus on action-button look better ([da9b1ee](https://github.com/fremtind/jokul/commit/da9b1ee810acd1ddbfa8d31601a356ffd35a9dbc))
+
 ## 12.1.28 (2024-10-31)
 
 ### Bug Fixes
