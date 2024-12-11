@@ -28,7 +28,9 @@ export const AccordionExample = () => {
                             : console.log("Closing first accordion item");
                     }}
                 >
-                    <UnorderedList>
+                    <UnorderedList
+                        style={{ margin: "var(--jkl-spacing-16) 0" }}
+                    >
                         <ListItem>
                             Personer med et norsk fødselsnummer.
                         </ListItem>

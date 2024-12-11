@@ -1,10 +1,6 @@
 import clsx from "clsx";
 import React, { FC } from "react";
-import { WithChildren } from "../../core/types.js";
-
-export interface ListProps extends WithChildren {
-    className?: string;
-}
+import { ListProps } from "./types.js";
 
 type ValidLists = "unordered" | "ordered";
 
