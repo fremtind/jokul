@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 16.0.4 (2024-12-11)
+
+### Bug Fixes
+
+- fixes styling when using `actionButton` prop ([f73b44b](https://github.com/fremtind/jokul/commit/f73b44b7cfa16d2eb939c41df9ede510f2953a4a))
+
 # 16.0.0 (2024-11-14)
 
 ### Features
