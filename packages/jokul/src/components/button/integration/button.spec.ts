@@ -19,7 +19,7 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots();
+    await helper.snapshots({ focusElement: ".jkl-button" });
 });
 
 test("renders correctly with icon", async () => {
