@@ -48,6 +48,7 @@
 .jkl-list {
     list-style-type: "\2022";
     padding-left: jkl.$spacing-16;
+    margin: 0;
 
     & > .jkl-list__item {
         & > .jkl-list {
