@@ -55,6 +55,10 @@
         }
     }
 
+    &:has(.jkl-list__item--iconed) {
+        padding: 0;
+    }
+
     &--ordered {
         padding-left: revert;
 
@@ -79,17 +83,17 @@
         &--iconed {
             list-style: none;
             position: relative;
-            padding-left: 1em;
+            padding-left: 0;
 
             &::before {
+                vertical-align: middle;
+                translate: 0 -0.07em;
                 text-indent: -9999px;
-                position: absolute;
-                top: 0.25em;
-                left: clamp(-1em, -1rem, jkl.rem(-23px));
                 background-size: contain;
                 display: inline-block;
                 width: 1em;
                 height: 1em;
+                margin-right: 0.5em;
             }
         }
 
