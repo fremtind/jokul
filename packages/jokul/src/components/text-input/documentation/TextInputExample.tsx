@@ -1,10 +1,10 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { ChangeEvent, FC, useState } from "react";
 import { CloseIcon } from "../../icon/index.js";
+import { IconButton } from "../../icon-button/IconButton.js";
 import { LabelVariant } from "../../input-group/Label.js";
 import { Link } from "../../link/Link.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
-import { Action } from "../BaseTextInput.js";
 import { TextInput } from "../TextInput.js";
 
 export const textInputExampleKnobs: ExampleKnobsProps = {
@@ -61,13 +61,11 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
     ) : undefined;
     const inline = boolValues?.["Inline"];
     const variant = choiceValues?.["Variant"] as LabelVariant;
-    const action = boolValues?.["Med handling"]
-        ? ({
-              icon: <CloseIcon />,
-              label: "Nullstill feltet",
-              onClick: () => setValue(""),
-          } as Action)
-        : undefined;
+    const actionButton = boolValues?.["Med handling"] ? (
+        <IconButton title="Nullstill feltet" onClick={() => setValue("")}>
+            <CloseIcon />
+        </IconButton>
+    ) : undefined;
 
     if (inline) {
         return (
@@ -81,7 +79,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
                     maxLength={3}
                     width="2rem"
                     errorLabel={errorLabel}
-                    action={action}
+                    actionButton={actionButton}
                 />{" "}
                 år gammel
             </div>
@@ -100,7 +98,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
             onChange={handleChange}
             onKeyDown={() => console.log("onKeyDown event")}
             inline={inline}
-            action={action}
+            actionButton={actionButton}
             unit={unit}
             align="right"
             width="min(10rem, 100%)"

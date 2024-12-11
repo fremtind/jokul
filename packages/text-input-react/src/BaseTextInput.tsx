@@ -1,5 +1,5 @@
 import { Density } from "@fremtind/jkl-core";
-import { IconButton } from "@fremtind/jkl-icon-button-react";
+import { IconButton, IconButtonProps } from "@fremtind/jkl-icon-button-react";
 import type { IconProps } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
 import React, {
@@ -70,7 +70,7 @@ export interface BaseTextInputProps
     /**
      * Element som vises til høyre for inputfeltet. Brukes typisk til å trigge en handling som f.eks. å vise/skjule passord.
      */
-    actionButton?: React.ReactElement<IconProps>;
+    actionButton?: React.ReactElement<IconButtonProps>;
 }
 
 export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
@@ -107,7 +107,14 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
                     {...rest}
                 />
                 {unit && <span className="jkl-text-input__unit">{unit}</span>}
-                {!action && actionButton && actionButton}
+                {!action &&
+                    actionButton &&
+                    React.cloneElement(actionButton, {
+                        className: cn(
+                            "jkl-text-input-action-button",
+                            actionButton.props.className,
+                        ),
+                    })}
                 {action && !actionButton && (
                     <IconButton
                         density={density}

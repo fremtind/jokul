@@ -107,7 +107,14 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
                     {...rest}
                 />
                 {unit && <span className="jkl-text-input__unit">{unit}</span>}
-                {!action && actionButton && actionButton}
+                {!action &&
+                    actionButton &&
+                    React.cloneElement(actionButton, {
+                        className: clsx(
+                            "jkl-text-input-action-button",
+                            actionButton.props.className,
+                        ),
+                    })}
                 {action && !actionButton && (
                     <IconButton
                         density={density}
