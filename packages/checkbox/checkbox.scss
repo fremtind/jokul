@@ -78,7 +78,6 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         // Position the hidden input so that Cypress can hit it without it being obscured by the visual checkbox
         top: -6px;
 
-        // Checked state:
         &:checked {
             + .jkl-checkbox__label .jkl-checkbox__check-mark::after {
                 animation: $_checkbox-checked-animation-name
@@ -87,7 +86,6 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             }
         }
 
-        // Indeterminate state:
         &:indeterminate:not(:checked) {
             + .jkl-checkbox__label .jkl-checkbox__indeterminate-mark::after {
                 animation: $_checkbox-indeterminate-animation-name
@@ -96,17 +94,14 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             }
         }
 
-        // Focused state:
         &:focus-visible + .jkl-checkbox__label {
             color: var(--jkl-checkbox-focus-color);
 
             & > .jkl-checkbox__mark {
-                --background-color: var(--jkl-color-background-input-focus);
                 @include jkl.focus-outline;
             }
         }
 
-        // Disabled state:
         &:disabled + .jkl-checkbox__label {
             color: var(--jkl-checkbox-disabled-color);
         }
@@ -124,10 +119,6 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             .jkl-checkbox__mark {
                 outline: 1px solid var(--box-color);
             }
-        }
-
-        &:active {
-            --background-color: var(--jkl-color-background-input-focus);
         }
     }
 
