@@ -43,6 +43,10 @@
         outline: none;
     }
 
+    & .jkl-tooltip-question-button:focus {
+        @include jkl.focus-outline($offset: 0);
+    }
+
     & select {
         appearance: none;
 
@@ -110,10 +114,7 @@
         }
 
         &:focus {
-            border-color: var(--jkl-color-border-input-focus);
-            color: var(--jkl-color-border-input-focus);
-            box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-input-focus);
-            background-color: var(--jkl-color-background-container-high);
+            @include jkl.focus-outline;
         }
 
         &:hover {
@@ -150,7 +151,7 @@
             $fill: CanvasText
         );
 
-        :has([aria-invalid="true"]) & {
+        .jkl-select:has([aria-invalid="true"]) & {
             color: var(--jkl-color-text-on-alert);
         }
     }

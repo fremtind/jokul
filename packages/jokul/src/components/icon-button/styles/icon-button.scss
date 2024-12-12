@@ -1,24 +1,6 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-icon-button-border-color: #{jkl.$color-granitt};
-    --jkl-icon-button-focus-color: #{jkl.$color-stein};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-icon-button-border-color: #{jkl.$color-snohvit};
-    --jkl-icon-button-focus-color: #{jkl.$color-svaberg};
-}
-
-@include jkl.comfortable-density-variables {
-    --jkl-icon-button-icon-width: #{jkl.rem(20px)};
-}
-
-@include jkl.compact-density-variables {
-    --jkl-icon-button-icon-width: #{jkl.rem(14px)};
-}
-
 .jkl-icon-button {
     background-color: transparent;
     cursor: pointer;
@@ -39,17 +21,17 @@
         }
     }
 
-    &:hover {
-        color: var(--jkl-icon-button-focus-color);
-    }
-
     &:focus-visible {
-        color: var(--jkl-icon-button-focus-color);
+        color: var(--jkl-color);
 
         @include jkl.focus-outline;
         @include jkl.forced-colors-mode {
             border: revert;
         }
+    }
+
+    &:hover {
+        color: var(--jkl-color-text-interactive-hover);
     }
 
     @include jkl.forced-colors-mode {

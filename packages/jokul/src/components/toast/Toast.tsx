@@ -104,6 +104,7 @@ export function Toast<T extends ToastContent>({
                 <p className="jkl-toast__message">{content}</p>
             </div>
             <IconButton
+                data-theme={!props.toast.variant ? undefined : "light"}
                 aria-label="Lukk varsel"
                 className="jkl-toast__dismiss-button"
                 onClick={() => {

@@ -18,7 +18,7 @@ $_action-button-icon-size: jkl.rem(20px);
 $_action-button-icon-size--compact: jkl.rem(18px);
 $_action-button-padding: jkl.$spacing-xs 0;
 $_action-button-padding--compact: 0;
-$_action-button-focus-position: jkl.rem(8px);
+$_action-button-focus-position: jkl.rem(6px);
 $_action-button-focus-position--compact: 0;
 
 $_text-input-focus-color: jkl.$color-granitt;
@@ -156,63 +156,6 @@ $_text-input-selection-color--inverted: color.scale(
     }
 }
 
-.jkl-text-input-action-button {
-    flex-shrink: 0;
-    display: flex;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-    padding: var(--jkl-text-input-action-button-padding);
-    height: var(--jkl-text-input-action-button-size);
-    width: var(--jkl-text-input-action-button-size);
-
-    // Unngå for langt mellomrom mellom ikon og teksten i feltet
-    margin-inline-start: calc(var(--jkl-text-input-horizontal-padding) * -1);
-
-    .jkl-icon-button__icon {
-        height: var(--jkl-text-input-action-button-icon-size);
-        width: var(--jkl-text-input-action-button-icon-size);
-    }
-
-    &:hover {
-        color: var(--jkl-text-input-focus-color);
-
-        @include jkl.forced-colors-mode {
-            border: jkl.rem(2px) inset ButtonText;
-        }
-    }
-
-    &:focus-visible {
-        // The default icon-button focus looks pretty terrible when the button
-        // is inside an input field so make sure to remove it.
-        outline: none !important;
-    }
-
-    &:focus {
-        @include jkl.keyboard-navigation {
-            position: relative;
-
-            &::after {
-                content: "";
-                position: absolute;
-                inset: var(--jkl-text-input-action-button-focus-position)
-                    var(--jkl-text-input-action-button-focus-position)
-                    var(--jkl-text-input-action-button-focus-position)
-                    var(--jkl-text-input-action-button-focus-position);
-                box-shadow: inset 0 0 0 jkl.rem(2px)
-                    var(--jkl-text-input-focus-color);
-            }
-        }
-    }
-
-    @include jkl.forced-colors-mode {
-        border: revert;
-        background-color: revert;
-    }
-
-    @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
-}
-
 .jkl-text-input-wrapper {
     border-radius: jkl.rem(3px);
     box-sizing: border-box;
@@ -232,22 +175,64 @@ $_text-input-selection-color--inverted: color.scale(
         0 0 0 jkl.rem(1px) transparent;
     background-color: transparent;
 
+    &[data-invalid="true"] {
+        background-color: var(--jkl-text-input-error-background-color);
+        color: var(--jkl-text-input-error-text-color);
+    }
+
     &:hover {
         box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
             0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
         border-color: var(--jkl-text-input-focus-color);
     }
 
-    &:focus-within {
+    &:has(:active) {
         background-color: var(--jkl-text-input-background-color);
-        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
-            0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
-        border-color: var(--jkl-text-input-focus-color);
     }
 
-    &[data-invalid="true"] {
-        background-color: var(--jkl-text-input-error-background-color);
-        color: var(--jkl-text-input-error-text-color);
+    &:has(.jkl-text-input__input:focus-visible),
+    &:has(.jkl-text-area__text-area:focus-visible) {
+        @include jkl.focus-outline;
+    }
+
+    > .jkl-icon-button:focus-visible {
+        @include jkl.focus-outline($offset: -8px);
+    }
+
+    > .jkl-text-input-action-button {
+        flex-shrink: 0;
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        padding: var(--jkl-text-input-action-button-padding);
+        height: var(--jkl-text-input-action-button-size);
+        width: var(--jkl-text-input-action-button-size);
+
+        // Unngå for langt mellomrom mellom ikon og teksten i feltet
+        margin-inline-start: calc(
+            var(--jkl-text-input-horizontal-padding) * -1
+        );
+
+        .jkl-icon-button__icon {
+            height: var(--jkl-text-input-action-button-icon-size);
+            width: var(--jkl-text-input-action-button-icon-size);
+        }
+
+        &:hover {
+            color: var(--jkl-text-input-focus-color);
+
+            @include jkl.forced-colors-mode {
+                border: jkl.rem(2px) inset ButtonText;
+            }
+        }
+
+        @include jkl.forced-colors-mode {
+            border: revert;
+            background-color: revert;
+        }
+
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
     }
 }
 

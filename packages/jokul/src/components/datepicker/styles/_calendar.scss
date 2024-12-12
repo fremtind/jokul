@@ -1,19 +1,5 @@
 @use "../../../core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-calendar-text-color: #{jkl.$color-granitt};
-    --jkl-calendar-background-color: #{jkl.$color-hvit};
-    --jkl-calendar-border-color: #{jkl.$color-granitt};
-    --jkl-calendar-focus-color: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-calendar-text-color: #{jkl.$color-snohvit};
-    --jkl-calendar-background-color: #{jkl.$color-skifer};
-    --jkl-calendar-border-color: #{jkl.$color-snohvit};
-    --jkl-calendar-focus-color: #{jkl.$color-snohvit};
-}
-
 @include jkl.comfortable-density-variables {
     --jkl-calendar-padding: var(--jkl-spacing-12) var(--jkl-spacing-16)
         var(--jkl-spacing-16);
@@ -34,8 +20,8 @@
 
 .jkl-calendar {
     display: block;
-    background-color: var(--jkl-calendar-background-color);
-    color: var(--jkl-calendar-text-color);
+    background-color: var(--jkl-color-background-container-high);
+    color: var(--jkl-color);
 
     &__padding {
         display: flex;

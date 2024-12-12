@@ -26,7 +26,9 @@ test("opens correctly", async () => {
     await helper.open();
 
     await helper.clickElement("summary");
-    await helper.clickElement("details:nth-of-type(3) summary");
+    await helper.clickElement(
+        ".jkl-expandable__wrapper:nth-of-type(3) summary",
+    );
 
     await helper.snapshots();
 });

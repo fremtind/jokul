@@ -71,6 +71,7 @@ function systemFactory(
                     </span>
                     {dismissAction?.handleDismiss && (
                         <DismissButton
+                            data-theme="light"
                             aria-controls={systemId}
                             className="jkl-system-message__dismiss-button"
                             label={dismissAction.buttonTitle || "Lukk"}
