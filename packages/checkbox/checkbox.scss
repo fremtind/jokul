@@ -105,6 +105,10 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         &:disabled + .jkl-checkbox__label {
             color: var(--jkl-checkbox-disabled-color);
         }
+
+        &:active {
+            --background-color: var(--jkl-color-background-input-focus);
+        }
     }
 
     &__label {
