@@ -114,6 +114,7 @@
         padding: var(--jkl-autosuggest-option-padding);
         cursor: pointer;
 
+        &:focus,
         &--active,
         &:hover {
             color: var(--jkl-autosuggest-hover-option-color);
