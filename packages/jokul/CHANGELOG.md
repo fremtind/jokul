@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.5...@fremtind/jokul@0.37.6) (2024-12-16)
+
+### Bug Fixes
+
+- eksporter listprops ([f64693f](https://github.com/fremtind/jokul/commit/f64693f386c21f78de2e58e27f819b68be5b98b2))
+- fjern gamle playwright screenshots ([0837721](https://github.com/fremtind/jokul/commit/0837721926c6d21211d87b1282891ed7c138bb7e))
+- slett gamle cookie-screenshots ([b091475](https://github.com/fremtind/jokul/commit/b09147525c949a7e8212beb3235072c3571531db))
+
 ## [0.37.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.3...@fremtind/jokul@0.37.4) (2024-12-11)
 
 ### Bug Fixes
