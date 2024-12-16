@@ -6,7 +6,7 @@ import {
     Blog,
     payload,
 } from "@org/cms";
-import express = require("express");
+import * as express from "express";
 import { Document, IndexOptionsForDocumentSearch } from "flexsearch";
 
 /**

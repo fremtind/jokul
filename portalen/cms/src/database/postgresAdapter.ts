@@ -17,6 +17,7 @@ const signer = new Signer({
 
 const getPostgresAdapter = () => {
     return postgresAdapter({
+        idType: "uuid",
         pool: {
             ssl: { ca },
             host: process.env.DB_HOST,

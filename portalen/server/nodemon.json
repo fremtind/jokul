@@ -1,6 +1,6 @@
 {
     "verbose": true,
-    "ext": "ts",
-    "exec": "ts-node index.ts",
+    "ext": "ts,mts",
+    "exec": "tsx index.ts",
     "watch": ["./index.ts", "../cms/src", "./api"]
 }

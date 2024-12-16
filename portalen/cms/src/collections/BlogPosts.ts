@@ -1,5 +1,5 @@
-import { slugify } from "@org/shared";
 import { CollectionConfig } from "payload/types";
+import { slugify } from "../../../utils/string";
 import {
     authenticatedAdmins,
     authenticatedContributors,

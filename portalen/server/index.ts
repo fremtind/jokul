@@ -12,21 +12,19 @@ clientFiles.forEach((ext) => {
     require.extensions[ext] = () => null;
 });
 
-import fs = require("fs");
-import path = require("path");
-import * as url from "url";
-import cms = require("@org/cms");
-import shared = require("@org/shared");
-import webExpressAdapter = require("@org/web/express");
-import compression = require("compression");
-import express = require("express");
+import fs from "fs";
+import path from "path";
+import url from "url";
+import webExpressAdapter from "@org/web/express";
+import compression from "compression";
+import dotenv from "dotenv";
+import express from "express";
 import api from "./api/api";
 import { indexes } from "./api/search";
 import { packageStatsJob } from "./packageStatsJob";
+const payload = require("payload").default;
 
 async function start() {
-    const { payload } = cms;
-    const { dotenv } = shared;
     const { createRequestHandler } = webExpressAdapter;
 
     // Loading environment variables, .env > .env.local

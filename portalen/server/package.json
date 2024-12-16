@@ -14,9 +14,8 @@
         "postinstall": "node ./postinstall"
     },
     "dependencies": {
-        "@org/cms": "workspace:*",
-        "@org/shared": "workspace:*",
-        "@org/web": "workspace:*",
+        "@org/cms": "^1.0.0",
+        "@org/web": "^1.0.0",
         "compression": "^1.7.4",
         "cron": "^2.4.4",
         "date-fns": "^2.30.0",
@@ -25,7 +24,8 @@
         "express-validator": "^7.0.1",
         "flexsearch": "^0.7.31",
         "lru-cache": "^9.1.2",
-        "node-fetch": "^2.7.0"
+        "node-fetch": "^2.7.0",
+        "payload": "2"
     },
     "devDependencies": {
         "@types/compression": "^1.7.5",
@@ -35,10 +35,12 @@
         "@types/node-fetch": "^2.6.9",
         "copyfiles": "^2.4.1",
         "cross-env": "^7.0.3",
+        "dotenv": "^16.4.7",
         "glob": "^8.1.0",
         "nodemon": "^2.0.22",
         "react-docgen-typescript": "^2.2.2",
         "ts-node": "^10.9.1",
+        "tsx": "^4.19.2",
         "webpack-hot-middleware": "^2.26.1"
     },
     "engines": {

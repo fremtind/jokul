@@ -1,26 +1,25 @@
 import {
-    ErrorMessage,
-    initTabListener,
-    Link,
     CookieConsentProvider,
-    type Consent,
+    ErrorMessage,
+    Link,
+    initTabListener,
     type ColorScheme,
+    type Consent,
 } from "@fremtind/jokul";
-import type { MainMenu, User } from "@org/cms";
-import uiStyles from "@org/ui/styles.css";
+import { type MainMenu, type User } from "@org/cms";
 import type {
     LinksFunction,
     LoaderFunctionArgs,
     MetaFunction,
 } from "@remix-run/node";
 import {
-    isRouteErrorResponse,
     Links,
     LiveReload,
     Meta,
     Outlet,
     Scripts,
     ScrollRestoration,
+    isRouteErrorResponse,
     useLoaderData,
     useRouteError,
 } from "@remix-run/react";
@@ -69,10 +68,6 @@ export const links: LinksFunction = () => [
     {
         rel: "stylesheet",
         href: jokulStyles,
-    },
-    {
-        rel: "stylesheet",
-        href: uiStyles,
     },
     {
         rel: "stylesheet",

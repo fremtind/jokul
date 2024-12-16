@@ -1,6 +1,6 @@
-import { slugify } from "@org/shared";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import type { CollectionConfig, Field, TabsField } from "payload/types";
+import { slugify } from "../../../utils/string";
 import {
     authenticatedContributors,
     authenticatedEditors,

@@ -6,11 +6,13 @@
         "clean": "turbo run clean && rm -rf node_modules",
         "build": "turbo run build",
         "serve": "turbo run serve",
+        "generate:types": "cross-env PAYLOAD_CONFIG_PATH=cms/src/config.ts payload generate:types",
         "dev": "turbo run dev --parallel",
         "test": "turbo run test"
     },
     "devDependencies": {
         "@types/pg": "^8.11.10",
+        "cross-env": "^7.0.3",
         "turbo": "^1.10.7",
         "typescript": "^5.4.5"
     },
@@ -19,9 +21,11 @@
     },
     "packageManager": "pnpm@8.6.7",
     "dependencies": {
+        "@fremtind/jkl-file-input": "^2.1.13",
         "@fremtind/jkl-file-input-react": "^2.3.7",
+        "@fremtind/jkl-footer": "^6.0.22",
         "@fremtind/jkl-footer-react": "^6.1.52",
-        "@fremtind/jokul": "file:packages/jokul",
+        "@fremtind/jokul": "^0.37.6",
         "@payloadcms/bundler-vite": "^0.1.7",
         "@payloadcms/db-mongodb": "^1.7.3",
         "@payloadcms/db-postgres": "^0.8.10",
@@ -32,16 +36,6 @@
     "peerDependenciesMeta": {
         "express": {
             "optional": true
-        }
-    },
-    "pnpm": {
-        "peerDependencyRules": {
-            "ignoreMissing": [
-                "express"
-            ]
-        },
-        "patchedDependencies": {
-            "flexsearch@0.7.31": "patches/flexsearch@0.7.31.patch"
         }
     },
     "lint-staged": {
