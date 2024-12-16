@@ -103,7 +103,6 @@ export const Combobox: FC<ComboboxProps> = ({
     const [selectedValue, setSelectedValue] = useState<
         Array<ComboboxValuePair>
     >(value || []);
-    const [isPointingDown, setIsPointingDown] = useState<boolean>(true);
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
     const [noResults, setNoResults] = useState(false);
@@ -215,13 +214,7 @@ export const Combobox: FC<ComboboxProps> = ({
     >(options[0]?.value ? `${listId}-${options[0]?.value}` : undefined);
 
     // Håndtere arrow-state
-    useEffect(() => {
-        if (showMenu) {
-            setIsPointingDown(false);
-        } else {
-            setIsPointingDown(true);
-        }
-    }, [showMenu]);
+    const isPointingDown = !showMenu;
 
     // Lukk meny med ESC
     useEffect(() => {
@@ -575,7 +568,7 @@ export const Combobox: FC<ComboboxProps> = ({
                             aria-expanded={showMenu}
                             aria-controls={listId}
                             role="button"
-                            onClick={() => setShowMenu(true)}
+                            onClick={() => setShowMenu((previous) => !previous)}
                             onMouseDown={(e) => {
                                 e.preventDefault();
                                 inputRef.current?.focus();
