@@ -11,3 +11,4 @@ export const UPWARDS_ARROW = "\u2191";
 export const RIGHTWARDS_ARROW = "\u2192";
 export const DOWNWARDS_ARROW = "\u2193";
 export const ZERO_WIDTH_SPACE = "\u200B";
+export const BULLET = "\u2022";

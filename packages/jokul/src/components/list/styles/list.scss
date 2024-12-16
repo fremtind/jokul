@@ -1,18 +1,6 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-@function _solid-diamond($color) {
-    $c: jkl.urlencodecolor($color);
-
-    @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' fill='#{$c}' width='9px' height='9px'%3E%3Cpath d='M4.01 0l4.002 4.002L4.01 8.004.008 4.002z'/%3E%3C/svg%3E");
-}
-
-@function _outline-diamond($color) {
-    $c: jkl.urlencodecolor($color);
-
-    @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 9' width='9px' height='9px' fill='transparent'%3E%3Cpath stroke='#{$c}' d='M4.002.707l3.295 3.295-3.295 3.295L.707 4.002z'/%3E%3C/svg%3E");
-}
-
 /*
  * NOTE: These icon also exists as a copy in the jkl-icons-react package.
  *       If you're here to change them, consider changing them there as well, or
@@ -32,23 +20,7 @@
     @return url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='9.5' fill='#{$c1}'/%3E%3Cpath d='M4.75 11l2.35 2.36 7.84-7.84' stroke='#{$c2}' stroke-width='1.5'/%3E%3C/svg%3E%0A");
 }
 
-$_item-space-between: jkl.$spacing-8;
-
-/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$_color-suksess: #287e68;
-
-/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$_color-feil: #aa1f23;
-
-/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$_color-suksess--darkbg: #5effa0;
-
-/// @deprecated Fargen er ikke lenger en del av profilen og skal ikke brukes
-$_color-feil--darkbg: #ff8b79;
-
 @include jkl.light-mode-variables {
-    --jkl-list-marker-default: #{_solid-diamond(jkl.$color-granitt)};
-    --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-granitt)};
     --jkl-list-marker-cross: #{_cross(
             jkl.$color-functional-error,
             jkl.$color-granitt
@@ -61,8 +33,6 @@ $_color-feil--darkbg: #ff8b79;
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-list-marker-default: #{_solid-diamond(jkl.$color-snohvit)};
-    --jkl-list-marker-secondary: #{_outline-diamond(jkl.$color-snohvit)};
     --jkl-list-marker-cross: #{_cross(
             jkl.$color-functional-error-dark,
             jkl.$color-granitt
@@ -75,36 +45,18 @@ $_color-feil--darkbg: #ff8b79;
 }
 
 .jkl-list {
-    list-style: disc var(--jkl-list-marker-default);
-    padding-left: jkl.rem(28px);
+    list-style-type: "\2022";
+    padding-left: jkl.$spacing-16;
+    margin: 0;
 
     & > .jkl-list__item {
-        margin: $_item-space-between 0;
-
-        &:first-of-type {
-            margin-top: 0;
-        }
-
-        &:last-of-type {
-            margin-bottom: 0;
-        }
-
         & > .jkl-list {
-            margin-bottom: 0;
+            margin: jkl.$spacing-8 0;
         }
     }
 
-    & & > .jkl-list__item {
-        list-style: disc var(--jkl-list-marker-secondary);
-        margin: 0;
-
-        &:first-of-type {
-            margin-top: $_item-space-between;
-        }
-
-        &:last-of-type {
-            margin-bottom: $_item-space-between;
-        }
+    &:has(.jkl-list__item--iconed) {
+        padding: 0;
     }
 
     &--ordered {
@@ -122,7 +74,7 @@ $_color-feil--darkbg: #ff8b79;
 
     &__item {
         color: var(--jkl-list-text-color);
-        padding-left: jkl.rem(6px);
+        padding-left: jkl.$spacing-12;
 
         &::marker {
             color: var(--jkl-list-text-color);
@@ -131,17 +83,17 @@ $_color-feil--darkbg: #ff8b79;
         &--iconed {
             list-style: none;
             position: relative;
-            padding-left: 1em;
+            padding-left: 0;
 
             &::before {
+                vertical-align: middle;
+                translate: 0 -0.07em;
                 text-indent: -9999px;
-                position: absolute;
-                top: 0.25em;
-                left: clamp(-1em, -1rem, jkl.rem(-23px));
                 background-size: contain;
                 display: inline-block;
                 width: 1em;
                 height: 1em;
+                margin-right: 0.5em;
             }
         }
 
@@ -157,17 +109,6 @@ $_color-feil--darkbg: #ff8b79;
     }
 
     @include jkl.forced-colors-mode {
-        &:not(.jkl-list--ordered)
-            > .jkl-list__item:not(.jkl-list__item--iconed) {
-            list-style: disc _solid-diamond(CanvasText);
-        }
-
-        &
-            &:not(.jkl-list--ordered):not(.jkl-list--iconed)
-            > .jkl-list__item:not(.jkl-list__item--iconed) {
-            list-style: disc _outline-diamond(CanvasText);
-        }
-
         & .jkl-list__item {
             &--check::before {
                 background-image: _check(CanvasText, Canvas);

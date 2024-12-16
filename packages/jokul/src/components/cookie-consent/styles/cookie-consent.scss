@@ -51,8 +51,8 @@ $_container-width--compact: jkl.rem(320px);
         }
     }
 
-    &__checklist {
-        margin-bottom: jkl.$spacing-16;
+    &__checklist.jkl-list {
+        margin-block: jkl.$spacing-16;
     }
 
     &__info-text {
