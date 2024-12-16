@@ -79,7 +79,7 @@ import "@fremtind/jokul/styles/components/[komponent]/[komponent].min.css";
 Du kan importere stilarkene for alle Jøkulkomponentene på en gang med
 
 ```scss
-@use "@fremtind/jokul/styles";
+@use "@fremtind/jokul/styles/styles";
 ```
 
 eller i ts/js
