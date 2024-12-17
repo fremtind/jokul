@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.8](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.7...@fremtind/jokul@0.37.8) (2024-12-17)
+
+### Bug Fixes
+
+- bruk moderne sass globals i urlencodecolor ([e3a16e9](https://github.com/fremtind/jokul/commit/e3a16e9a19ceabca1aa2c67357e4618ff10a3481))
+- eksponer index-filer for alle stilpakkene i exports ([4013f6a](https://github.com/fremtind/jokul/commit/4013f6afe6522e12c33a23a998e38c6f26616942)), closes [#4378](https://github.com/fremtind/jokul/issues/4378)
+
 ## [0.37.7](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.6...@fremtind/jokul@0.37.7) (2024-12-17)
 
 ### Bug Fixes
