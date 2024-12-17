@@ -28,6 +28,7 @@
         content: "";
         position: absolute;
         inset: 0;
+        pointer-events: none;
         border-radius: var(--border-radius);
         border: var(--border-width) solid var(--border-color);
         @include jkl.motion("standard", "snappy", border-color, border-size);
