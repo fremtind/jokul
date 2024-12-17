@@ -1270,6 +1270,33 @@ describe("Searchable select", () => {
 
         expect(listbox).not.toBeVisible();
     });
+
+    it("should return focus to the input when an option is selected", async () => {
+        const items = [
+            { label: "foo", value: "1" },
+            { label: "bar", value: "2" },
+            { label: "baz", value: "3" },
+        ];
+
+        const screen = setup(
+            <Select
+                name="items"
+                items={items}
+                label="Ting"
+                tooltip={
+                    <PopupTip content="Jeg er en tooltip" placement="left" />
+                }
+            />,
+        );
+
+        const button = screen.getByTestId("jkl-select__button");
+        await userEvent.click(button);
+
+        const option = screen.getAllByTestId("jkl-select__option")[0];
+        await userEvent.click(option);
+
+        expect(button).toHaveFocus();
+    });
 });
 
 describe("a11y", () => {
