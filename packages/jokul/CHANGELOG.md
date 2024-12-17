@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.7](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.6...@fremtind/jokul@0.37.7) (2024-12-17)
+
+### Bug Fixes
+
+- toggles open state on arrow button click ([be32bd5](https://github.com/fremtind/jokul/commit/be32bd5a3f9b828ebd3fae7e0a4734f42fb566af))
+
 ## [0.37.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.5...@fremtind/jokul@0.37.6) (2024-12-16)
 
 ### Bug Fixes
