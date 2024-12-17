@@ -222,6 +222,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 setSearchValue("");
                 setSelectedValue(nextValue);
                 toggleListVisibility();
+                buttonRef.current?.focus();
             },
             [setSearchValue, setSelectedValue, toggleListVisibility],
         );
