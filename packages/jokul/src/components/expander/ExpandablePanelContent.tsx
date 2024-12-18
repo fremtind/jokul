@@ -24,6 +24,7 @@ export const ExpandablePanelContent: ExpandablePanelContentComponent = ({
             className={clsx("jkl-expandable__content", className)}
             {...rest}
             data-expanded={open}
+            {...(!open ? { inert: "true" } : {})}
         >
             <div className="jkl-expandable__content-wrapper">{children}</div>
         </div>

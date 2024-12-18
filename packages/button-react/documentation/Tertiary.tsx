@@ -26,6 +26,8 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({
         }, 2200);
     };
 
+    const hasLabel = boolValues?.["label"];
+
     return (
         <Button
             variant="tertiary"
@@ -34,10 +36,11 @@ export const Tertiary: React.FC<ExampleComponentProps> = ({
             }
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
+            aria-label={!hasLabel ? "Avbryt" : undefined}
             iconPosition={iconPosition as IconPosition}
             icon={<CloseIcon />}
         >
-            Avbryt
+            {hasLabel ? "Avbryt" : null}
         </Button>
     );
 };

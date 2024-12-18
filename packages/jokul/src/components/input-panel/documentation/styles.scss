@@ -3,11 +3,11 @@
 .input-panel-example {
     &__season-tag {
         position: absolute;
-        top: -50%;
-        right: 0;
+        top: calc(-50% - 2px);
+        right: 2px;
 
         @include jkl.from-medium-device {
-            top: 0;
+            top: 2px;
         }
     }
 

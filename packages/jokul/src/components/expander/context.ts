@@ -6,4 +6,5 @@ export const ExpanderContext = createContext<ExpandableContext>({
     onToggle: () => {},
     onTransitionStart: () => {},
     onTransitionEnd: () => {},
+    setExpanderHeight: () => {},
 });

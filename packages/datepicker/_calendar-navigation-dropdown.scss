@@ -34,11 +34,8 @@
             background-color: var(--jkl-select-open-background-color);
         }
 
-        @include jkl.keyboard-navigation {
-            &:focus {
-                outline: jkl.rem(2px) solid var(--jkl-calendar-focus-color);
-                outline-offset: 1px;
-            }
+        &:focus-visible {
+            @include jkl.focus-outline;
         }
     }
 

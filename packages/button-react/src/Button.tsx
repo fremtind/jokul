@@ -29,6 +29,18 @@ export const Button = React.forwardRef(function Button<
 
     const Component = as;
 
+    if (
+        process.env.NODE_ENV !== "production" &&
+        React.Children.count(children) === 0 &&
+        !props["aria-label"] &&
+        !props["aria-labelledby"] &&
+        !props.title
+    ) {
+        console.warn(
+            "Når du lager en Button uten synlig tekst må du huske å gi den et navn med enten aria-label, aria-labelledby eller title",
+        );
+    }
+
     const handleTouch = useCallback(
         (event: TouchEvent<HTMLButtonElement>) => {
             onTouchStart && onTouchStart(event);

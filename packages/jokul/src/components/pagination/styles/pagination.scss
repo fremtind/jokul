@@ -32,7 +32,7 @@ $_button-size: jkl.rem(32px);
     }
 
     &:focus-visible {
-        @include jkl.focus-outline(0, jkl.rem(2px));
+        @include jkl.focus-outline;
     }
 
     &--current {

@@ -88,6 +88,7 @@ function messageFactory(messageType: messageTypes) {
                 </div>
                 {dismissAction?.handleDismiss && (
                     <DismissButton
+                        data-theme="light"
                         aria-controls={boxId}
                         className="jkl-message__dismiss-button"
                         label={dismissAction.buttonTitle || "Lukk"}

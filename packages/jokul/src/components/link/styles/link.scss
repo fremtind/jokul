@@ -49,8 +49,7 @@ $_link-underline-thickness--focus: jkl.rem(2px);
     }
 
     &:focus-visible {
-        @include jkl.focus-outline;
-        background: none;
+        @include jkl.focus-outline($offset: 0);
     }
 
     &:active {
@@ -108,7 +107,7 @@ $_link-underline-thickness--focus: jkl.rem(2px);
     }
 
     &:focus-visible {
-        @include jkl.focus-outline;
+        @include jkl.focus-outline($offset: 0);
 
         &::after {
             padding-left: 0.7em;

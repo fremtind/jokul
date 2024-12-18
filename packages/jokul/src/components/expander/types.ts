@@ -49,4 +49,5 @@ export type ExpandableContext = {
         isOpen: boolean,
         ref: RefObject<HTMLElement | HTMLDetailsElement>,
     ) => void;
+    setExpanderHeight: (height: number) => void;
 };

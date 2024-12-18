@@ -22,7 +22,7 @@
     alt: " "; // WebKit-alternativ, fases ut når varianten fra speccen er støttet
 }
 
-@mixin focus-outline($offset: 2px, $thickness: 2px) {
+@mixin focus-outline($offset: 3px, $thickness: 3px) {
     outline: $thickness solid var(--jkl-color-border-action);
     outline-offset: $offset;
 }

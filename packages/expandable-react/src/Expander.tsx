@@ -1,7 +1,12 @@
 import { PolymorphicRef } from "@fremtind/jkl-core";
 import { ChevronDownIcon, ChevronUpIcon } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
-import React, { useContext } from "react";
+import React, {
+    useContext,
+    useEffect,
+    useImperativeHandle,
+    useRef,
+} from "react";
 import { ExpanderContext } from "./context";
 import { ExpandableContext, ExpanderComponent, ExpanderProps } from "./types";
 
@@ -20,16 +25,30 @@ export const Expander = React.forwardRef(function Expander<
     } = props;
     const El = as;
 
-    const { open: contextOpen, onToggle } =
-        useContext<ExpandableContext>(ExpanderContext);
+    const {
+        open: contextOpen,
+        onToggle,
+        setExpanderHeight,
+    } = useContext<ExpandableContext>(ExpanderContext);
+
+    const internalRef = useRef<HTMLElement>();
+    useImperativeHandle(ref, () => internalRef.current, [internalRef]);
 
     const isOpen = controlledOpen || contextOpen;
 
     const Chevron = expandDirection === "up" ? ChevronUpIcon : ChevronDownIcon;
 
+    useEffect(() => {
+        const observer = new ResizeObserver(function () {
+            setExpanderHeight(internalRef.current!.offsetHeight);
+        });
+        observer.observe(internalRef.current!);
+        return () => observer.disconnect();
+    }, [setExpanderHeight]);
+
     return (
         <El
-            ref={ref}
+            ref={internalRef}
             className={cn(
                 "jkl-expander",
                 {
