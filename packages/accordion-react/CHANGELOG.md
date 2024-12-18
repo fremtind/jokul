@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.1.33 (2024-12-18)
+
+### Bug Fixes
+
+- riktig størrelse på pila i AccorionItem ([b7d313a](https://github.com/fremtind/jokul/commit/b7d313ac3912ad9e56e34f58cc4300d423ec9ebc)), closes [#4385](https://github.com/fremtind/jokul/issues/4385)
+
 ## 12.1.29 (2024-11-28)
 
 ### Bug Fixes
