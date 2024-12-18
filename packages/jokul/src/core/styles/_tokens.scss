@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Dec 2024 08:17:09 GMT
+ * Generated on Wed, 18 Dec 2024 12:25:37 GMT
  */
 
 :root {
@@ -111,4 +111,19 @@
     --jkl-typography-small-base-font-size: 1rem;
     --jkl-typography-small-base-line-height: 1.5rem;
     --jkl-typography-small-base-font-weight: 400;
+    --jkl-unit-10: 0.5rem;
+    --jkl-unit-15: calc(var(--jkl-unit-10) * 1.5);
+    --jkl-unit-20: calc(var(--jkl-unit-10) * 2);
+    --jkl-unit-25: calc(var(--jkl-unit-10) * 2.5);
+    --jkl-unit-30: calc(var(--jkl-unit-10) * 3);
+    --jkl-unit-40: calc(var(--jkl-unit-10) * 4);
+    --jkl-unit-50: calc(var(--jkl-unit-10) * 5);
+    --jkl-unit-60: calc(var(--jkl-unit-10) * 6);
+    --jkl-unit-70: calc(var(--jkl-unit-10) * 7);
+    --jkl-unit-80: calc(var(--jkl-unit-10) * 8);
+    --jkl-unit-90: calc(var(--jkl-unit-10) * 9);
+    --jkl-unit-130: calc(var(--jkl-unit-10) * 13);
+    --jkl-unit-210: calc(var(--jkl-unit-10) * 21);
+    --jkl-unit-02: calc(var(--jkl-unit-10) * 0.25);
+    --jkl-unit-05: calc(var(--jkl-unit-10) * 0.5);
 }
