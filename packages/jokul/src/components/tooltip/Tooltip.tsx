@@ -102,7 +102,7 @@ const useTooltip = ({
         delay: isOpen ? 0 : delay,
     });
     const focus = useFocus(data.context, {
-        enabled: triggerOn === "click" ? isOpen : true,
+        enabled: triggerOn === "hover",
     });
 
     const interactions = useInteractions([dismiss, focus, role, click, hover]);

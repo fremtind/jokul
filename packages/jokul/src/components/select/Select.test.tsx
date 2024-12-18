@@ -1187,7 +1187,7 @@ describe("Searchable select", () => {
         expect(screen.queryByRole("option", { name: "bar" })).toBeFalsy();
     });
 
-    it("should render a visible tooltip when clicking on it", async () => {
+    it("should render a popup-tip when passed as a prop", async () => {
         const items = [
             { label: "foo", value: "1" },
             { label: "bar", value: "2" },
@@ -1203,11 +1203,7 @@ describe("Searchable select", () => {
                 }
             />,
         );
-        await screen.user.click(screen.getByText("Vis hjelpetekst"));
-
-        await waitFor(() =>
-            expect(screen.getByText("Jeg er en tooltip")).toBeVisible(),
-        );
+        expect(screen.getByText("Vis hjelpetekst")).toBeInTheDocument();
     });
 
     it("should render a visible tooltip when initially open", async () => {

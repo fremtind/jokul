@@ -7,7 +7,7 @@ export default function Example() {
     return (
         <>
             <DevExample
-                title="Tooltip Click"
+                title="PopupTip"
                 component={PopupTipExample}
                 knobs={tooltipExampleKnobs}
             />
