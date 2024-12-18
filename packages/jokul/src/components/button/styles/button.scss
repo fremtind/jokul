@@ -87,11 +87,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
         display: flex;
         flex-direction: row;
         align-items: center;
-<<<<<<< HEAD
-        gap: jkl.$unit-02; // hva tenker vi om disse 2px spacingene?
-=======
         gap: jkl.$unit-02;
->>>>>>> 7f436c9a6 (fix: erstatte spacing med units i alle komponenter)
         pointer-events: none;
     }
 
