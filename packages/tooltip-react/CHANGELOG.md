@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.6.6 (2024-12-18)
+
+### Bug Fixes
+
+- makes sure SR announces popuptip content ([f4f5d43](https://github.com/fremtind/jokul/commit/f4f5d438e0cfe7f4fda46cd9b61401166fd7aa96))
+
 ## [4.6.1](https://github.com/fremtind/jokul/compare/@fremtind/jkl-tooltip-react@4.6.0...@fremtind/jkl-tooltip-react@4.6.1) (2024-11-19)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card",
-    "version": "13.0.11",
+    "version": "13.0.12",
     "publishConfig": {
         "access": "public"
     },
