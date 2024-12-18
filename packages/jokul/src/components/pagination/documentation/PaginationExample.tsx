@@ -47,7 +47,7 @@ export const PaginationExample: FC<ExampleComponentProps> = ({
                 onPageChange={updatePage}
             />
             <p>Pagination brukt med snarvei</p>
-            <nav aria-label="Velg side" className="page-selector">
+            <nav aria-label="Velg side med snarvei" className="page-selector">
                 <div className="page-selector__input">
                     <span aria-hidden="true">Gå til side:</span>
                     <form onSubmit={onSubmit}>
