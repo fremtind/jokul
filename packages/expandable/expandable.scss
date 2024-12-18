@@ -77,12 +77,6 @@
         position: absolute;
         inset: 0;
     }
-
-    @media (hover: hover) {
-        &:hover .jkl-expander {
-            background-color: var(--jkl-color-background-interactive-selected);
-        }
-    }
 }
 
 .jkl-expander {
