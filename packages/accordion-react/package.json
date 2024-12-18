@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-accordion-react",
-    "version": "12.1.33",
+    "version": "12.1.34",
     "publishConfig": {
         "access": "public"
     },
@@ -29,17 +29,17 @@
         "test": "jest --testMatch '**/accordion-react/**/*.test.+(ts|tsx|js)' --config=../../jest.config.js"
     },
     "dependencies": {
-        "@fremtind/jkl-accordion": "^12.0.22",
-        "@fremtind/jkl-core": "^14.8.7",
-        "@fremtind/jkl-icons-react": "^9.1.20",
-        "@fremtind/jkl-react-hooks": "^12.2.11",
+        "@fremtind/jkl-accordion": "^12.0.23",
+        "@fremtind/jkl-core": "^14.8.8",
+        "@fremtind/jkl-icons-react": "^9.1.21",
+        "@fremtind/jkl-react-hooks": "^12.2.12",
         "classnames": "^2.3.2"
     },
     "devDependencies": {
-        "@fremtind/jkl-button": "^12.2.12",
-        "@fremtind/jkl-expand-button": "^7.1.11",
+        "@fremtind/jkl-button": "^12.2.13",
+        "@fremtind/jkl-expand-button": "^7.1.12",
         "@fremtind/jkl-icons": "^9.1.4",
-        "@fremtind/jkl-list-react": "^10.2.24",
+        "@fremtind/jkl-list-react": "^10.2.25",
         "@rollup/plugin-terser": "^0.4.4",
         "@vitejs/plugin-react-swc": "^3.7.0",
         "glob": "^8.1.0",

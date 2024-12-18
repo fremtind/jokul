@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 15.2.19 (2024-12-18)
+
+### Bug Fixes
+
+- warns if button is missing accessible name ([7ad40ab](https://github.com/fremtind/jokul/commit/7ad40ab4910f78fa131d4290fc391767be112fa8))
+
 # 15.2.0 (2024-10-03)
 
 ### Features
