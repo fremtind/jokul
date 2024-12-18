@@ -7,6 +7,7 @@
     color: inherit;
     position: relative;
     transition-property: box-shadow;
+    padding: 0;
 
     @include jkl.motion(focus, snappy);
     @include jkl.reset-outline;

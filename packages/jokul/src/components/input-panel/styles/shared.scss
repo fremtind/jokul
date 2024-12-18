@@ -5,7 +5,8 @@
     --outer-border-thickness: #{jkl.rem(1px)};
     --background-color: transparent;
 
-    outline: var(--outer-border-thickness) solid var(--outer-border-color);
+    box-shadow: inset 0 0 0 var(--outer-border-thickness)
+        var(--outer-border-color);
     border-radius: 4px;
     padding-left: jkl.rem(16px);
 
@@ -66,12 +67,11 @@
     }
 
     &:has(:checked) {
-        --outer-border-thickness: #{jkl.rem(2px)};
-        --outer-border-color: var(--jkl-color-border-action);
         --background-color: var(--jkl-color-background-container-high);
     }
 
     &:hover {
-        box-shadow: inset 0 0 0 #{jkl.rem(2px)} var(--jkl-color-border-separator-hover);
+        --outer-border-color: var(--jkl-color-border-separator-hover);
+        --outer-border-thickness: #{jkl.rem(2px)};
     }
 }
