@@ -14,6 +14,10 @@
         }
     }
 
+    a:focus-visible {
+        @include jkl.focus-outline;
+    }
+
     &__list {
         display: flex;
         flex-wrap: wrap;

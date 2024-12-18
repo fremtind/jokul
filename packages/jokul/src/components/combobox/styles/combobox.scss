@@ -123,6 +123,10 @@ $_combobox-search-input-selection-color--inverted: color.scale(
             background-color: var(--jkl-combobox-open-background-color);
         }
 
+        &:has(.jkl-icon-button:focus-visible) {
+            outline: none;
+        }
+
         &:hover {
             border-color: var(--jkl-combobox-focus-color);
             box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-combobox-focus-color);

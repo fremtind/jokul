@@ -1,14 +1,14 @@
 import { Density } from "@fremtind/jkl-core";
-import { IconButton, IconButtonProps } from "@fremtind/jkl-icon-button-react";
+import { IconButton } from "@fremtind/jkl-icon-button-react";
 import type { IconProps } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
 import React, {
     type CSSProperties,
     forwardRef,
+    HTMLProps,
+    InputHTMLAttributes,
     type MouseEventHandler,
     type ReactNode,
-    InputHTMLAttributes,
-    HTMLProps,
 } from "react";
 
 function getWidthAsStyle(
@@ -70,7 +70,7 @@ export interface BaseTextInputProps
     /**
      * Element som vises til høyre for inputfeltet. Brukes typisk til å trigge en handling som f.eks. å vise/skjule passord.
      */
-    actionButton?: React.ReactElement<IconButtonProps>;
+    actionButton?: React.ReactElement;
 }
 
 export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
@@ -114,9 +114,11 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
                             "jkl-text-input-action-button",
                             actionButton.props.className,
                         ),
+                        "data-theme": ariaInvalid ? "light" : undefined,
                     })}
                 {action && !actionButton && (
                     <IconButton
+                        data-theme={ariaInvalid ? "light" : undefined}
                         density={density}
                         className={cn(
                             "jkl-text-input-action-button",

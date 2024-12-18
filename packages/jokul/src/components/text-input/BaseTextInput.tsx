@@ -73,7 +73,7 @@ export interface BaseTextInputProps
     /**
      * Element som vises til høyre for inputfeltet. Brukes typisk til å trigge en handling som f.eks. å vise/skjule passord.
      */
-    actionButton?: React.ReactElement<IconProps>;
+    actionButton?: React.ReactElement;
     /**
      * Setter maxlength attributtet og justerer bredden på feltet til å passe det tallet som settes
      *
@@ -126,9 +126,11 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
                             "jkl-text-input-action-button",
                             actionButton.props.className,
                         ),
+                        "data-theme": ariaInvalid ? "light" : undefined,
                     })}
                 {action && !actionButton && (
                     <IconButton
+                        data-theme={ariaInvalid ? "light" : undefined}
                         density={density}
                         className={clsx(
                             "jkl-text-input-action-button",
