@@ -26,6 +26,8 @@ export const Secondary: React.FC<ExampleComponentProps> = ({
         }, 2200);
     };
 
+    const hasLabel = boolValues?.["label"];
+
     return (
         <Button
             loader={
@@ -33,10 +35,11 @@ export const Secondary: React.FC<ExampleComponentProps> = ({
             }
             className="jkl-spacing-l--right"
             onClick={simulateLoading}
+            aria-label={!hasLabel ? "Lagre" : undefined}
             iconPosition={iconPosition as IconPosition}
             icon={<CheckIcon />}
         >
-            Lagre
+            {hasLabel ? "Lagre" : null}
         </Button>
     );
 };

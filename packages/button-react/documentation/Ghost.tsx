@@ -18,6 +18,8 @@ export const Ghost: React.FC<ExampleComponentProps> = ({
             ? undefined
             : (choiceValues?.["iconPosition"] as IconPosition);
 
+    const hasLabel = boolValues?.["label"];
+
     return (
         <Button
             variant="ghost"
@@ -25,10 +27,11 @@ export const Ghost: React.FC<ExampleComponentProps> = ({
                 showLoader || !!boolValues?.["withLoader"] ? loader : undefined
             }
             className="jkl-spacing-l--right"
+            aria-label={!hasLabel ? "Ola Nordmann" : undefined}
             iconPosition={iconPosition as IconPosition}
             icon={<ChevronDownIcon />}
         >
-            Ola Nordmann
+            {hasLabel ? "Ola Nordmann" : null}
         </Button>
     );
 };
