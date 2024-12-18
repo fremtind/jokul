@@ -40,7 +40,8 @@
         "reboot": "pnpm clean && pnpm boot",
         "scaffold": "node './scripts/scaffold'",
         "integration:ci": "playwright test",
-        "integration:interactive": "playwright test --ui"
+        "integration:interactive": "playwright test --ui",
+        "integration:axe": "playwright test -g axe"
     },
     "packageManager": "pnpm@7.32.2",
     "pnpm": {
@@ -68,6 +69,7 @@
         "react-is": "^18.2.0"
     },
     "devDependencies": {
+        "@axe-core/playwright": "^4.10.1",
         "@commitlint/cli": "^17.6.5",
         "@commitlint/config-conventional": "^17.6.5",
         "@fremtind/browserslist-config-jkl": "^2.0.0-alpha.0",

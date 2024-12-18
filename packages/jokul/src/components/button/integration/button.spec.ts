@@ -1,5 +1,5 @@
-import { test } from "@playwright/test";
-import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
@@ -28,4 +28,14 @@ test("renders correctly with icon", async () => {
     await helper.checkProp("bool-prop-icon");
 
     await helper.snapshots();
+});
+
+test("axe", async ({ axe }) => {
+    await helper.open();
+
+    await axe();
+
+    await helper.checkProp("bool-prop-icon");
+
+    await axe();
 });

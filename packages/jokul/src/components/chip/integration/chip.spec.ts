@@ -1,5 +1,5 @@
-import { test } from "@playwright/test";
-import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
@@ -28,4 +28,13 @@ test("renders correctly as filter", async () => {
     await helper.checkProp("choice-prop-filter");
 
     await helper.snapshots({ focusElement: ".jkl-chip" });
+});
+
+test("axe", async ({ axe }) => {
+    await helper.open();
+
+    await axe();
+    await helper.checkProp("choice-prop-filter");
+
+    await axe();
 });

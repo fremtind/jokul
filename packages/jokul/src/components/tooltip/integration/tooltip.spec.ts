@@ -1,5 +1,5 @@
-import { test } from "@playwright/test";
-import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
@@ -25,5 +25,22 @@ test("renders correctly", async () => {
             helper
                 .clickElement('[data-testid="jkl-tooltip-question-button"]')
                 .then(() => new Promise((resolve) => setTimeout(resolve, 200))),
+    });
+});
+
+test("axe", async ({ axe }) => {
+    await helper.open();
+
+    await helper
+        .clickElement('[data-testid="jkl-tooltip-question-button"]')
+        .then(() => new Promise((resolve) => setTimeout(resolve, 200)));
+
+    await axe({
+        disableRules: [
+            // The plugin has issues with floating-ui that is out of our control
+            "aria-hidden-focus",
+            // The way we calculate the aria-label does not work in Playwrights rendering environment
+            "button-name",
+        ],
     });
 });

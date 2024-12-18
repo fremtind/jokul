@@ -1,5 +1,5 @@
-import { test } from "@playwright/test";
-import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
@@ -20,4 +20,11 @@ test("renders correctly", async () => {
     await helper.open();
 
     await helper.snapshots({ focusElement: ".jkl-card" });
+});
+
+test("axe", async ({ axe }) => {
+    await helper.open();
+
+    // The plugin claims aria-expanded can't be used with the checkbox role. We disagree.
+    await axe({ disableRules: ["aria-allowed-attr"] });
 });
