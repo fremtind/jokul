@@ -158,7 +158,13 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFilter({
     name: "isBaseVariable",
     matcher: function (token) {
-        const baseCategories = ["brand", "functional", "spacing", "typography"];
+        const baseCategories = [
+            "brand",
+            "functional",
+            "spacing",
+            "typography",
+            "unit",
+        ];
         return token.path.some((word) => baseCategories.includes(word));
     },
 });

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 18 Dec 2024 08:17:09 GMT
+ * Generated on Wed, 18 Dec 2024 12:25:37 GMT
  */
 
 export default {
@@ -375,19 +375,19 @@ export default {
     },
     unit: {
         10: "0.5rem",
-        15: "calc(var(--unit-10) * 1.5)",
-        20: "calc(var(--unit-10) * 2)",
-        25: "calc(var(--unit-10) * 2.5)",
-        30: "calc(var(--unit-10) * 3)",
-        40: "calc(var(--unit-10) * 4)",
-        50: "calc(var(--unit-10) * 5)",
-        60: "calc(var(--unit-10) * 6)",
-        70: "calc(var(--unit-10) * 7)",
-        80: "calc(var(--unit-10) * 8)",
-        90: "calc(var(--unit-10) * 9)",
-        130: "calc(var(--unit-10) * 13)",
-        210: "calc(var(--unit-10) * 21)",
-        "02": "calc(var(--unit-10) * .25)",
-        "05": "calc(var(--unit-10) * .5)",
+        15: "calc(var(--jkl-unit-10) * 1.5)",
+        20: "calc(var(--jkl-unit-10) * 2)",
+        25: "calc(var(--jkl-unit-10) * 2.5)",
+        30: "calc(var(--jkl-unit-10) * 3)",
+        40: "calc(var(--jkl-unit-10) * 4)",
+        50: "calc(var(--jkl-unit-10) * 5)",
+        60: "calc(var(--jkl-unit-10) * 6)",
+        70: "calc(var(--jkl-unit-10) * 7)",
+        80: "calc(var(--jkl-unit-10) * 8)",
+        90: "calc(var(--jkl-unit-10) * 9)",
+        130: "calc(var(--jkl-unit-10) * 13)",
+        210: "calc(var(--jkl-unit-10) * 21)",
+        "02": "calc(var(--jkl-unit-10) * .25)",
+        "05": "calc(var(--jkl-unit-10) * .5)",
     },
 };
