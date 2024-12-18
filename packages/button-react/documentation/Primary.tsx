@@ -33,6 +33,8 @@ export const Primary: React.FC<ExampleComponentProps> = ({
         }, 2200);
     };
 
+    const hasLabel = boolValues?.["label"];
+
     return (
         <Button
             variant="primary"
@@ -40,9 +42,10 @@ export const Primary: React.FC<ExampleComponentProps> = ({
                 showLoader || !!boolValues?.["withLoader"] ? loader : undefined
             }
             onClick={simulateLoading}
+            aria-label={!hasLabel ? "Lagre og send inn" : undefined}
             {...iconProps}
         >
-            {boolValues?.["label"] && "Lagre og send inn"}
+            {hasLabel ? "Lagre og send inn" : null}
         </Button>
     );
 };
