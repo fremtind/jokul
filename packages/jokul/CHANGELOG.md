@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.9](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.8...@fremtind/jokul@0.37.9) (2024-12-18)
+
+### Bug Fixes
+
+- allows content to be interacted with ([24f3d52](https://github.com/fremtind/jokul/commit/24f3d52c77d4d75e3ea4a0df01c2b92c231cdb5a))
+- makes sure SR announces popuptip content ([f4f5d43](https://github.com/fremtind/jokul/commit/f4f5d438e0cfe7f4fda46cd9b61401166fd7aa96))
+- returns focus to main element after selection ([25037a4](https://github.com/fremtind/jokul/commit/25037a4a7afdad6286c901d2d0dc8c93e46a8589))
+
 ## [0.37.8](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.7...@fremtind/jokul@0.37.8) (2024-12-17)
 
 ### Bug Fixes
