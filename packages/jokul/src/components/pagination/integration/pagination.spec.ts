@@ -1,5 +1,5 @@
-import { test } from "@playwright/test";
-import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
@@ -20,4 +20,10 @@ test("renders correctly", async () => {
     await helper.open();
 
     await helper.snapshots({ focusElement: "[aria-current='false']" });
+});
+
+test("axe", async ({ axe }) => {
+    await helper.open();
+
+    await axe();
 });
