@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.1.2 (2024-12-18)
+
+### Bug Fixes
+
+- implements new focus state ([119a8a7](https://github.com/fremtind/jokul/commit/119a8a76efc5162b9ec48e6357c5297b4ac5f05c))
+- properly hides content in closed expander ([5fdf878](https://github.com/fremtind/jokul/commit/5fdf8782c41c017f4c3e3de3a400e7c768691519))
+
 # 7.1.0 (2024-11-28)
 
 ### Bug Fixes

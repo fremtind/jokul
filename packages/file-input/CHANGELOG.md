@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.14 (2024-12-18)
+
+### Bug Fixes
+
+- implements new focus state ([119a8a7](https://github.com/fremtind/jokul/commit/119a8a76efc5162b9ec48e6357c5297b4ac5f05c))
+
 ## 2.1.12 (2024-12-09)
 
 ### Bug Fixes

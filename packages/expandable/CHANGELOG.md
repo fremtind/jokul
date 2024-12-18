@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 7.2.2 (2024-12-18)
+
+### Bug Fixes
+
+- implements new focus state ([119a8a7](https://github.com/fremtind/jokul/commit/119a8a76efc5162b9ec48e6357c5297b4ac5f05c))
+- removes hover effect on summary when content is hovered ([1367ed4](https://github.com/fremtind/jokul/commit/1367ed4d412c4151255276a969223d1c36c623a6))
+
 # 7.2.0 (2024-11-28)
 
 ### Bug Fixes
