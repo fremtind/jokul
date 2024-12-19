@@ -15,8 +15,8 @@
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-file-input-drag", "body");
 
-    --jkl-file-input-dropzone-padding: #{jkl.$unit-10};
-    --jkl-file-input-dropzone-gap: #{jkl.$unit-10};
+    --jkl-file-input-dropzone-padding: #{jkl.$unit-20};
+    --jkl-file-input-dropzone-gap: #{jkl.$unit-20};
     --jkl-file-cta-gap: #{jkl.$unit-15};
     --jkl-file-cta-with-files-gap: #{jkl.$unit-05};
     --jkl-file-list-gap: #{jkl.$unit-10};
@@ -95,9 +95,9 @@
 
     &--small {
         .jkl-file-input__dropzone {
-            padding: jkl.$unit-10;
-            gap: jkl.$unit-10;
-            margin-bottom: jkl.$unit-10;
+            padding: jkl.$unit-20;
+            gap: jkl.$unit-20;
+            margin-bottom: jkl.$unit-20;
             justify-content: flex-start;
             flex-direction: row;
             max-width: fit-content;
