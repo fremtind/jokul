@@ -52,7 +52,7 @@ $_container-width--compact: jkl.rem(320px);
     }
 
     &__checklist.jkl-list {
-        margin-bottom: jkl.$unit-20;
+        margin-block: jkl.$unit-20;
     }
 
     &__info-text {
