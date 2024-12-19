@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.12](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.11...@fremtind/jokul@0.37.12) (2024-12-19)
+
+### Bug Fixes
+
+- erstatt legacy spacing med units ([e52d9a8](https://github.com/fremtind/jokul/commit/e52d9a812dec03681b434d1275b0b88ddf0f0957))
+- erstatte spacing med units i alle komponenter ([69df782](https://github.com/fremtind/jokul/commit/69df78284a7674fa54bf73d40b20971d99987ddf))
+- feedback fiks ([49a1d9b](https://github.com/fremtind/jokul/commit/49a1d9bff12871721a53d02901843eb2f296b6b2))
+- fjern uløst konflikt fra stilark ([f450464](https://github.com/fremtind/jokul/commit/f4504648cbeb5f38f525aa45ab60144fe0a20301))
+- gjør legacy spacing tilgjengelig for spacing-mixin ([a196a47](https://github.com/fremtind/jokul/commit/a196a47ff7f0cd701d22d44bd73c606632b09b16))
+- legg tilbake margin rundt liste i cookie consent ([da8dfe6](https://github.com/fremtind/jokul/commit/da8dfe6f74765781067d01d79ec79e9ec0221cbc))
+- påbegynt å bruke units i komponenter ([ac00dc4](https://github.com/fremtind/jokul/commit/ac00dc485a413448a6adc6bd60c62bfa190f7b15))
+- rett opp paddinger i file input ([035e550](https://github.com/fremtind/jokul/commit/035e55094e0a0d283843ee72ac843f4e7e69bbcb))
+- sørg for å generere css-variabler for units ([3b53680](https://github.com/fremtind/jokul/commit/3b53680e14e3fd2f48685376871a9a84dbdab27b))
+- unit tokens ([5da3ddc](https://github.com/fremtind/jokul/commit/5da3ddcb9291f68c1d87b2e8e7acc65ce4ceb610))
+
 ## [0.37.11](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.10...@fremtind/jokul@0.37.11) (2024-12-18)
 
 ### Bug Fixes
