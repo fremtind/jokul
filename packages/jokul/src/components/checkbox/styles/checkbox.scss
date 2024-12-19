@@ -147,7 +147,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         margin-block: calc(
             (var(--jkl-checkbox-height) - var(--jkl-checkbox-box-size)) * 0.5
         );
-        margin-inline-end: var(--jkl-spacing-8);
+        margin-inline-end: var(--jkl-unit-10);
         align-self: flex-start;
         flex-shrink: 0; // Don't allow the mark to shrink in case of really long text
 
@@ -223,7 +223,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         display: inline-flex;
 
         &:not(:last-of-type) {
-            margin-right: jkl.$spacing-24;
+            margin-right: jkl.$unit-30;
         }
     }
 

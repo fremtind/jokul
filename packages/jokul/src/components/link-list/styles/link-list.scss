@@ -1,11 +1,11 @@
 @use "../../../core/jkl";
 
 @include jkl.comfortable-density-variables {
-    --jkl-link-list-padding: var(--jkl-spacing-8);
+    --jkl-link-list-padding: var(--jkl-unit-10);
 }
 
 @include jkl.compact-density-variables {
-    --jkl-link-list-padding: var(--jkl-spacing-4);
+    --jkl-link-list-padding: var(--jkl-unit-05);
 }
 
 .jkl-link-list {
@@ -42,7 +42,7 @@
     display: flex;
     justify-content: space-between;
     align-items: first baseline;
-    gap: var(--jkl-spacing-16);
+    gap: var(--jkl-unit-20);
     padding: var(--jkl-link-list-padding) 0;
     border-top: jkl.rem(1px) solid var(--border-color);
     width: 100%;

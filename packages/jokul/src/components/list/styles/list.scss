@@ -46,12 +46,12 @@
 
 .jkl-list {
     list-style-type: "\2022";
-    padding-left: jkl.$spacing-16;
+    padding-left: jkl.$unit-20;
     margin: 0;
 
     & > .jkl-list__item {
         & > .jkl-list {
-            margin: jkl.$spacing-8 0;
+            margin: jkl.$unit-10 0;
         }
     }
 
@@ -74,7 +74,7 @@
 
     &__item {
         color: var(--jkl-list-text-color);
-        padding-left: jkl.$spacing-12;
+        padding-left: jkl.$unit-15;
 
         &::marker {
             color: var(--jkl-list-text-color);

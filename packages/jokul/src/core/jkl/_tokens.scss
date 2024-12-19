@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 14:22:00 GMT
+ * Generated on Wed, 18 Dec 2024 12:25:37 GMT
  */
 
 $breakpoint-medium: 680px;
@@ -35,18 +35,6 @@ $motion-easing-entrance: ease-out;
 $motion-easing-exit: ease-in;
 $motion-easing-ease-in-bounce-out: cubic-bezier(0, 0, 0.375, 1.17);
 $motion-easing-focus: cubic-bezier(0.6, 0.2, 0.35, 1);
-$spacing-0: 0;
-$spacing-2: 0.125rem;
-$spacing-4: 0.25rem;
-$spacing-8: 0.5rem;
-$spacing-12: 0.75rem;
-$spacing-16: 1rem;
-$spacing-24: 1.5rem;
-$spacing-32: 2rem;
-$spacing-40: 2.5rem;
-$spacing-64: 4rem;
-$spacing-104: 6.5rem;
-$spacing-168: 10.5rem;
 $icon-weight-normal: 300;
 $icon-weight-bold: 500;
 $typography-weight-normal: 400;
@@ -125,6 +113,21 @@ $typography-small-small-font-weight: 400;
 $typography-small-base-font-size: 1rem;
 $typography-small-base-line-height: 1.5rem;
 $typography-small-base-font-weight: 400;
+$unit-10: 0.5rem;
+$unit-15: calc(var(--jkl-unit-10) * 1.5);
+$unit-20: calc(var(--jkl-unit-10) * 2);
+$unit-25: calc(var(--jkl-unit-10) * 2.5);
+$unit-30: calc(var(--jkl-unit-10) * 3);
+$unit-40: calc(var(--jkl-unit-10) * 4);
+$unit-50: calc(var(--jkl-unit-10) * 5);
+$unit-60: calc(var(--jkl-unit-10) * 6);
+$unit-70: calc(var(--jkl-unit-10) * 7);
+$unit-80: calc(var(--jkl-unit-10) * 8);
+$unit-90: calc(var(--jkl-unit-10) * 9);
+$unit-130: calc(var(--jkl-unit-10) * 13);
+$unit-210: calc(var(--jkl-unit-10) * 21);
+$unit-02: calc(var(--jkl-unit-10) * 0.25);
+$unit-05: calc(var(--jkl-unit-10) * 0.5);
 
 // Dynamiske variabler for farge, via referanse til CSS-variabler
 $color-background-page: var(--jkl-color-background-page);

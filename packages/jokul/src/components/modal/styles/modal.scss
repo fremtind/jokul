@@ -5,16 +5,16 @@
     @include jkl.declare-font-variables("jkl-modal-body", "body");
     @include jkl.declare-font-variables("jkl-modal-title", "heading-3");
 
-    --jkl-modal-padding: #{jkl.$spacing-40};
+    --jkl-modal-padding: #{jkl.$unit-50};
     --jkl-modal-min-width: #{jkl.rem(220px)};
     --jkl-modal-max-width: #{jkl.rem(660px)};
-    --jkl-modal-header-margin: 0 0 #{jkl.$spacing-24};
-    --jkl-modal-actions-margin: #{jkl.$spacing-40} 0 0 0;
+    --jkl-modal-header-margin: 0 0 #{jkl.$unit-30};
+    --jkl-modal-actions-margin: #{jkl.$unit-50} 0 0 0;
 
     @include jkl.small-device {
-        --jkl-modal-padding: #{jkl.$spacing-32};
-        --jkl-modal-header-margin: 0 0 #{jkl.$spacing-16};
-        --jkl-modal-actions-margin: #{jkl.$spacing-32} 0 0 0;
+        --jkl-modal-padding: #{jkl.$unit-40};
+        --jkl-modal-header-margin: 0 0 #{jkl.$unit-20};
+        --jkl-modal-actions-margin: #{jkl.$unit-40} 0 0 0;
     }
 }
 
@@ -22,9 +22,9 @@
     @include jkl.declare-font-variables("jkl-modal-body", "small");
     @include jkl.declare-font-variables("jkl-modal-title", "heading-4");
 
-    --jkl-modal-padding: #{jkl.$spacing-24};
-    --jkl-modal-header-margin: 0 0 #{jkl.$spacing-12};
-    --jkl-modal-actions-margin: #{jkl.$spacing-24} 0 0 0;
+    --jkl-modal-padding: #{jkl.$unit-30};
+    --jkl-modal-header-margin: 0 0 #{jkl.$unit-15};
+    --jkl-modal-actions-margin: #{jkl.$unit-30} 0 0 0;
     --jkl-modal-min-width: #{jkl.rem(220px)};
 }
 
@@ -71,7 +71,7 @@
     }
 
     @include jkl.small-device {
-        margin: auto jkl.$spacing-24;
+        margin: auto jkl.$unit-30;
     }
 }
 
@@ -96,5 +96,5 @@
     margin: var(--jkl-modal-actions-margin);
     display: flex;
     flex-direction: row;
-    gap: jkl.$spacing-16;
+    gap: jkl.$unit-20;
 }

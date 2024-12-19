@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 28 Oct 2024 14:22:00 GMT
+ * Generated on Wed, 18 Dec 2024 12:25:37 GMT
  */
 
 export default {
@@ -195,6 +195,20 @@ export default {
         advarsel: "#efdd9e",
         advarselDark: "#decc8d",
     },
+    spacing: {
+        0: "0",
+        2: "0.125rem",
+        4: "0.25rem",
+        8: "0.5rem",
+        12: "0.75rem",
+        16: "1rem",
+        24: "1.5rem",
+        32: "2rem",
+        40: "2.5rem",
+        64: "4rem",
+        104: "6.5rem",
+        168: "10.5rem",
+    },
     motion: {
         timing: {
             energetic: "75ms",
@@ -210,20 +224,6 @@ export default {
             easeInBounceOut: "cubic-bezier(0, 0, 0.375, 1.17)",
             focus: "cubic-bezier(0.6, 0.2, 0.35, 1)",
         },
-    },
-    spacing: {
-        0: "0",
-        2: "0.125rem",
-        4: "0.25rem",
-        8: "0.5rem",
-        12: "0.75rem",
-        16: "1rem",
-        24: "1.5rem",
-        32: "2rem",
-        40: "2.5rem",
-        64: "4rem",
-        104: "6.5rem",
-        168: "10.5rem",
     },
     icon: {
         weight: {
@@ -372,5 +372,22 @@ export default {
                 fontWeight: "400",
             },
         },
+    },
+    unit: {
+        10: "0.5rem",
+        15: "calc(var(--jkl-unit-10) * 1.5)",
+        20: "calc(var(--jkl-unit-10) * 2)",
+        25: "calc(var(--jkl-unit-10) * 2.5)",
+        30: "calc(var(--jkl-unit-10) * 3)",
+        40: "calc(var(--jkl-unit-10) * 4)",
+        50: "calc(var(--jkl-unit-10) * 5)",
+        60: "calc(var(--jkl-unit-10) * 6)",
+        70: "calc(var(--jkl-unit-10) * 7)",
+        80: "calc(var(--jkl-unit-10) * 8)",
+        90: "calc(var(--jkl-unit-10) * 9)",
+        130: "calc(var(--jkl-unit-10) * 13)",
+        210: "calc(var(--jkl-unit-10) * 21)",
+        "02": "calc(var(--jkl-unit-10) * .25)",
+        "05": "calc(var(--jkl-unit-10) * .5)",
     },
 };
