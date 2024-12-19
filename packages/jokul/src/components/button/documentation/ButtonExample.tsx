@@ -33,7 +33,7 @@ export const ButtonExample: FC<ExampleComponentProps> = ({
               }
             : {};
 
-    const hasLabel = !boolValues?.["label"];
+    const hasLabel = Boolean(boolValues?.["label"]);
 
     return (
         <div className="flex flex-column gap-32 justify-between items-center">
