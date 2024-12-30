@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef, TableHTMLAttributes } from "react";
+import React, { forwardRef, TableHTMLAttributes, useState } from "react";
 import { Density } from "../../core/types.js";
 import { TableContextProvider } from "./tableContext.js";
 
@@ -18,18 +18,29 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
             density,
             collapseToList = false,
             fullWidth = false,
+            tabIndex,
             ...rest
         },
         ref,
     ) => {
+        const [hasStickyHead, setHasStickyHead] = useState<boolean | undefined>(
+            false,
+        );
+
         return (
-            <TableContextProvider state={{ density, collapseToList }}>
+            <TableContextProvider
+                state={{ density, collapseToList, setHasStickyHead }}
+            >
                 <table
                     className={clsx("jkl-table", className, {
                         ["jkl-table--full-width"]: fullWidth,
                         ["jkl-table--collapse-to-list"]: collapseToList,
                     })}
                     {...rest}
+                    // For content in a scrollable table to be accessible with keyboard
+                    // navigation we need to set tabIndex
+                    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                    tabIndex={hasStickyHead ? 0 : tabIndex}
                     ref={ref}
                 />
             </TableContextProvider>
