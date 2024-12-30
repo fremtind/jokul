@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import { APIDocumentation } from "../components/APIDocumentation";
 import { Seo } from "../components/seo";
+import { SuggestionBlock } from "../components/SuggestionBlock";
 import { BlogPageHeader, ComponentPageHeader } from "../layout/header";
 import { MainContent } from "../layout/MainContent";
 
@@ -22,6 +23,10 @@ export const DocPageLayout = ({ location, data, pageContext, children }) => {
             <ComponentPageHeader
                 {...frontmatter}
                 versions={pageContext.versions}
+            />
+            <SuggestionBlock
+                variant="komponent"
+                component={frontmatter.title}
             />
             <BlogPageHeader {...frontmatter} />
             {children}
