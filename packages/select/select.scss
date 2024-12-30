@@ -39,7 +39,7 @@
 
     @include jkl.reset-outline;
 
-    & *:focus {
+    & *:focus-visible {
         outline: none;
     }
 
@@ -113,16 +113,33 @@
             color: var(--jkl-color-text-default);
         }
 
-        &:focus {
-            @include jkl.focus-outline;
-        }
-
         &:hover {
             border-color: var(--jkl-color-border-input-focus);
             box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-input-focus);
 
             & ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{jkl.rem(3px)}));
+            }
+        }
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
+    @include jkl.keyboard-navigation {
+        &__search-input,
+        &__button {
+            &:focus-visible,
+            &:has(:focus-visible) {
+                @include jkl.focus-outline;
+            }
+        }
+
+        &:has(:focus-visible) {
+            .jkl-select__button,
+            .jkl-select__search-input {
+                @include jkl.focus-outline;
             }
         }
     }

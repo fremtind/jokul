@@ -116,9 +116,11 @@ $_combobox-search-input-selection-color--inverted: color.scale(
             padding: var(--jkl-combobox-button-active-value-padding);
         }
 
-        &:has(:focus-visible) {
-            @include jkl.focus-outline;
-            background-color: var(--jkl-combobox-open-background-color);
+        @include jkl.keyboard-navigation {
+            &:has(:focus-visible) {
+                @include jkl.focus-outline;
+                background-color: var(--jkl-combobox-open-background-color);
+            }
         }
 
         &:has(.jkl-icon-button:focus-visible) {
