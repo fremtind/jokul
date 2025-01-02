@@ -1,12 +1,8 @@
-import react from "@vitejs/plugin-react-swc";
 import { Box, Text, render, useApp, useInput } from "ink";
 import SelectInput from "ink-select-input";
-import { resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import glob from "tiny-glob";
-import { createServer } from "vite";
-import { copyJklFonts, setupDev } from "../../utils/vite/index.mjs";
+import { createViteServer } from "./create-vite-server.mjs";
 
 export default function App() {
     const [components, setComponents] = useState([]);
@@ -52,17 +48,7 @@ export default function App() {
 
     useEffect(() => {
         glob("**/documentation/Example.tsx").then((result) => {
-            setComponents(
-                result.map((file) => {
-                    return {
-                        label: file.split("/")[2],
-                        value: resolve(
-                            fileURLToPath(new URL(file, import.meta.url)),
-                            "..",
-                        ),
-                    };
-                }),
-            );
+            setComponents(result.map((file) => file.split("/")[2]));
         });
     }, []);
 
@@ -86,33 +72,9 @@ export default function App() {
     });
 
     const handleSelect = async (component) => {
-        setSelectedComponent(component);
+        setSelectedComponent(component.label);
 
-        server.current = await createServer({
-            mode: "development",
-            configFile: false,
-            plugins: [
-                react(),
-                copyJklFonts(resolve(component.value, "public", "fonts")),
-                setupDev(component.value),
-            ],
-            resolve: {
-                alias: {
-                    "doc-utils": resolve(
-                        fileURLToPath(new URL(".", import.meta.url)),
-                        "..",
-                        "..",
-                        "utils",
-                        "dev-example",
-                    ),
-                },
-            },
-            root: component.value,
-            server: {
-                port: 3000,
-            },
-            customLogger,
-        });
+        server.current = await createViteServer(component.label, customLogger);
         await server.current.listen();
     };
 
@@ -123,9 +85,13 @@ export default function App() {
                     <Text>Choose a component from the list below</Text>
                     <Text>Filter: {filterString}</Text>
                     <SelectInput
-                        items={components.filter((component) =>
-                            component.label.startsWith(filterString),
-                        )}
+                        items={components
+                            .filter((component) =>
+                                component.startsWith(filterString),
+                            )
+                            .map((component) => ({
+                                label: component,
+                            }))}
                         onSelect={handleSelect}
                     />
                 </Box>
@@ -134,8 +100,8 @@ export default function App() {
                 <Box flexDirection="column" gap={1}>
                     <Text>
                         Dev-server for component{" "}
-                        <Text color="green">{selectedComponent.label}</Text>{" "}
-                        started on port 3000
+                        <Text color="green">{selectedComponent}</Text> started
+                        on port 3000
                     </Text>
                     <Text>Use 'q' to exit to main menu</Text>
                 </Box>

@@ -543,7 +543,8 @@
     "scripts": {
         "generate:tokens": "node tokens.build.mjs",
         "build": "pnpm run /compile:*/",
-        "dev": "babel --out-dir=. dev-server.mjs && node dev-server.js",
+        "dev": "sh ./dev.sh",
+        "dev-server": "babel --out-dir=. dev-server.mjs && node dev-server.js",
         "compile:style": "node build-styles.mjs",
         "compile:scripts": "vite build --config vite.build.config.mjs",
         "test": "vitest --config vite.test.config.mjs"
