@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React, { forwardRef, HTMLAttributes } from "react";
+import { useTableContext } from "./tableContext.js";
 import { TableSectionContextProvider } from "./tableSectionContext.js";
 
 export interface TableHeadProps
@@ -10,6 +11,9 @@ export interface TableHeadProps
 
 const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(
     ({ className, srOnly, sticky, ...rest }, ref) => {
+        const { setHasStickyHead } = useTableContext();
+        setHasStickyHead(sticky);
+
         return (
             <TableSectionContextProvider
                 state={{
