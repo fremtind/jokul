@@ -226,7 +226,7 @@ importers:
       '@fremtind/jkl-button': ^12.2.13
       '@fremtind/jkl-core': ^14.8.8
       '@fremtind/jkl-expand-button': ^7.1.12
-      '@fremtind/jkl-icons': ^9.1.5
+      '@fremtind/jkl-icons': ^10.1.10
       '@fremtind/jkl-icons-react': ^9.1.21
       '@fremtind/jkl-list-react': ^10.2.25
       '@fremtind/jkl-react-hooks': ^12.2.12
@@ -247,7 +247,7 @@ importers:
     devDependencies:
       '@fremtind/jkl-button': link:../button
       '@fremtind/jkl-expand-button': link:../expand-button
-      '@fremtind/jkl-icons': 9.1.5
+      '@fremtind/jkl-icons': link:../icons
       '@fremtind/jkl-list-react': link:../list-react
       '@rollup/plugin-terser': 0.4.4
       '@vitejs/plugin-react-swc': 3.7.2_vite@5.4.11
@@ -561,6 +561,7 @@ importers:
       '@fremtind/jkl-expandable': ^7.2.3
       '@fremtind/jkl-icons-react': ^9.1.21
       '@fremtind/jkl-react-hooks': ^12.2.12
+      '@fremtind/jkl-text-input-react': ^16.0.5
       classnames: ^2.5.1
     dependencies:
       '@fremtind/jkl-core': link:../core
@@ -3934,17 +3935,6 @@ packages:
       - react-dom
     dev: false
 
-  /@fremtind/jkl-core/14.8.8:
-    resolution: {integrity: sha512-mpCxz7gaPovETp8kK7gNEE+o7VaFjQ/vzhIy6G7dxPTf8sA/Y2vqEbNP0ISaC2fzak+EljSzTWqICeH3f9oe2Q==}
-    peerDependencies:
-      '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
-      '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
-      react: ^16.8.6 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
-    dependencies:
-      classnames: 2.5.1
-    dev: true
-
   /@fremtind/jkl-core/14.8.8_nnrd3gsncyragczmpvfhocinkq:
     resolution: {integrity: sha512-mpCxz7gaPovETp8kK7gNEE+o7VaFjQ/vzhIy6G7dxPTf8sA/Y2vqEbNP0ISaC2fzak+EljSzTWqICeH3f9oe2Q==}
     peerDependencies:
@@ -3999,17 +3989,6 @@ packages:
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
     dev: false
-
-  /@fremtind/jkl-icons/9.1.5:
-    resolution: {integrity: sha512-JDn9qAWTc68CI0Ua41MJ7/NOcOQBHr8T0mr2Qcwd1nTJPVuNRD7X+RHNs54bMykugp24hq+xbPGQWShOnb6qSQ==}
-    dependencies:
-      '@fremtind/jkl-core': 14.8.8
-    transitivePeerDependencies:
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
-    dev: true
 
   /@fremtind/jkl-logo-react/13.1.23_nnrd3gsncyragczmpvfhocinkq:
     resolution: {integrity: sha512-RzSayBU/GpizN5WbzetwvaSBhmw3Ev3yMM/UXr6WvygQX/Nk6ees3TPG60MXVEkde1TcOTXrv4MBo7pN2hJisA==}

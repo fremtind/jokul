@@ -38,7 +38,7 @@
     "devDependencies": {
         "@fremtind/jkl-button": "^12.2.13",
         "@fremtind/jkl-expand-button": "^7.1.12",
-        "@fremtind/jkl-icons": "^9.1.5",
+        "@fremtind/jkl-icons": "^10.1.10",
         "@fremtind/jkl-list-react": "^10.2.25",
         "@rollup/plugin-terser": "^0.4.4",
         "@vitejs/plugin-react-swc": "^3.7.2",
