@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.13](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.12...@fremtind/jokul@0.37.13) (2025-01-06)
+
+### Bug Fixes
+
+- tables with a sticky header has tabindex ([d74ebc7](https://github.com/fremtind/jokul/commit/d74ebc7acde3fb84e3f9c0105c82b0cf4a7d9ca6))
+
 ## [0.37.12](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.11...@fremtind/jokul@0.37.12) (2024-12-19)
 
 ### Bug Fixes
