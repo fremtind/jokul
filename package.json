@@ -23,8 +23,6 @@
         "test:watch": "jest --watch",
         "version:check": "lerna changed -l -a",
         "version": "lernacleanchangelog '**' && git add **/CHANGELOG.md **/package.json package.json pnpm-lock.yaml",
-        "cypress:open": "ELECTRON_EXTRA_LAUNCH_ARGS=\"--force-prefers-reduced-motion\" cypress open --project .",
-        "cypress:dev": "cypress open --project . --config baseUrl=http://localhost:8000",
         "release": "pnpm build && lerna publish --conventional-graduate",
         "release:alpha": "pnpm build && lerna publish --conventional-prerelease --no-git-tag-version --no-changelog --no-private --dist-tag alpha",
         "release-gh": "lerna publish from-package",
@@ -55,8 +53,7 @@
         "patchedDependencies": {
             "gulp-sass@5.1.0": "patches/gulp-sass@5.1.0.patch",
             "cz-lerna-changelog@2.0.3": "patches/cz-lerna-changelog@2.0.3.patch",
-            "kbar@0.1.0-beta.39": "patches/kbar@0.1.0-beta.39.patch",
-            "@frsource/cypress-plugin-visual-regression-diff@3.1.6": "patches/@frsource__cypress-plugin-visual-regression-diff@3.1.6.patch"
+            "kbar@0.1.0-beta.39": "patches/kbar@0.1.0-beta.39.patch"
         }
     },
     "dependencies": {
@@ -72,7 +69,6 @@
         "@commitlint/config-conventional": "^17.8.1",
         "@fremtind/browserslist-config-jkl": "^2.0.1",
         "@fremtind/stylelint-config-jkl": "^8.0.4",
-        "@frsource/cypress-plugin-visual-regression-diff": "3.1.6",
         "@playwright/test": "^1.49.1",
         "@testing-library/dom": "^9.3.4",
         "@testing-library/jest-dom": "^5.17.0",
@@ -97,14 +93,12 @@
         "commitizen": "^4.3.1",
         "cssnano": "^6.1.2",
         "cssnano-preset-lite": "^3.1.0",
-        "cypress": "^13.17.0",
         "cz-lerna-changelog": "2.0.3",
         "esbuild": "^0.19.12",
         "esbuild-plugin-browserslist": "~0.7.2",
         "esbuild-sass-plugin": "^2.16.1",
         "eslint": "^8.57.1",
         "eslint-config-prettier": "^8.10.0",
-        "eslint-plugin-cypress": "^2.15.2",
         "eslint-plugin-import": "^2.31.0",
         "eslint-plugin-jsx-a11y": "^6.10.2",
         "eslint-plugin-prettier": "^4.2.1",

@@ -47,7 +47,4 @@ module.exports = {
             },
         ],
     },
-    overrides: [
-        { files: ["**/*.spec.*"], extends: ["plugin:cypress/recommended"] },
-    ],
 };
