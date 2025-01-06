@@ -3,8 +3,7 @@
 .jkl-portal-portrait-gallery {
     display: flex;
     flex-wrap: wrap;
-    column-gap: jkl.$spacing-m;
-    row-gap: jkl.$spacing-l;
+    gap: jkl.$spacing-l jkl.$spacing-m;
     max-width: jkl.rem(750px);
 
     margin-top: jkl.$spacing-l;

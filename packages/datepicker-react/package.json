@@ -46,11 +46,11 @@
         "@fremtind/jkl-react-hooks": "^12.2.12",
         "@fremtind/jkl-select-react": "^15.0.11",
         "@fremtind/jkl-text-input-react": "^16.0.5",
-        "classnames": "^2.3.2",
+        "classnames": "^2.5.1",
         "date-fns": "^2.30.0"
     },
     "devDependencies": {
-        "@jest/globals": "^29.5.0"
+        "@jest/globals": "^29.7.0"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

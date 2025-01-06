@@ -42,7 +42,7 @@
         "@fremtind/jkl-icon-button-react": "^5.0.29",
         "@fremtind/jkl-icons-react": "^9.1.21",
         "@fremtind/jkl-tag": "^6.0.3",
-        "classnames": "^2.3.2"
+        "classnames": "^2.5.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

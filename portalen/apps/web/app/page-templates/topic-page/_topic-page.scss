@@ -171,8 +171,7 @@
 
 .jkl-tabs {
     scroll-snap-type: x proximity;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow: scroll hidden;
 
     scrollbar-width: none;
 
@@ -185,8 +184,7 @@
     display: inline-flex;
     min-width: fit-content;
     width: calc(100% - calc(2 * var(--content-padding-inline)));
-    margin-inline-start: var(--content-padding-inline);
-    margin-inline-end: var(--content-padding-inline);
+    margin-inline: var(--content-padding-inline) var(--content-padding-inline);
 }
 
 .jkl-tab {

@@ -30,7 +30,7 @@
         "stylelint": "^15.0.0"
     },
     "devDependencies": {
-        "stylelint": "^15.7.0"
+        "stylelint": "^15.11.0"
     },
     "repository": {
         "type": "git",
