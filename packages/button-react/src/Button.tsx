@@ -41,6 +41,8 @@ export const Button = React.forwardRef(function Button<
         );
     }
 
+    console.log("ohai");
+
     const handleTouch = useCallback(
         (event: TouchEvent<HTMLButtonElement>) => {
             onTouchStart && onTouchStart(event);
