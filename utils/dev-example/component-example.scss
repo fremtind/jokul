@@ -109,8 +109,7 @@
 }
 
 .jkl-device {
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: auto hidden;
     max-width: calc(100vw - 600px);
     width: 100%;
 

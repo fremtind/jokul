@@ -73,10 +73,12 @@ function handleListKeyNav({
     };
 
     switch (key) {
-        case "ArrowUp" || "PageUp":
+        case "ArrowUp":
+        case "PageUp":
             handleMoveTo("prev", moveDetails);
             break;
-        case "ArrowDown" || "PageDown":
+        case "ArrowDown":
+        case "PageDown":
             handleMoveTo("next", moveDetails);
             break;
         case "Home":
@@ -89,7 +91,8 @@ function handleListKeyNav({
             // in a standard select, tab does nothing in-menu
             event.preventDefault();
             break;
-        case "Enter" || " ":
+        case "Enter":
+        case " ":
             break;
 
         default:

@@ -43,7 +43,7 @@
         "@fremtind/jkl-button": "^12.2.13",
         "@fremtind/jkl-datepicker": "^12.1.38",
         "@fremtind/jkl-text-input": "^12.1.33",
-        "react-hook-form": "^7.44.3"
+        "react-hook-form": "^7.54.2"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
