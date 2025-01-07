@@ -3,17 +3,15 @@ import React, { FC } from "react";
 import { NavLink } from "../NavLink.js";
 
 export const knobs: ExampleKnobsProps = {
-    boolProps: ["active", "back"],
+    boolProps: ["Aktiv", "Tilbakelenke"],
 };
 
 export const NavLinkExample: FC<ExampleComponentProps> = ({ boolValues }) => {
-    const active = boolValues?.["active"];
-    const back = boolValues?.["back"];
+    const active = boolValues?.["Aktiv"];
+    const back = boolValues?.["Tilbakelenke"];
     return (
-        <div>
-            <NavLink href="#" active={active} back={back}>
-                NavLenke
-            </NavLink>
-        </div>
+        <NavLink href="#" active={active} back={back}>
+            NavLenke
+        </NavLink>
     );
 };

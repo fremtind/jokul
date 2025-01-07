@@ -38,6 +38,22 @@ export const Link = React.forwardRef(function Link<
             {...rest}
         >
             {children}
+            {(external || rest.target === "_blank") && (
+                <>
+                    {/* This corresponds with ArrowNorthEastIcon from icon-react package */}
+                    <span
+                        aria-hidden
+                        ref={ref}
+                        className={cn(
+                            "jkl-icon",
+                            `jkl-icon--small`,
+                            "jkl-nav-link__icon",
+                        )}
+                    >
+                        {"\uf1e1"}
+                    </span>
+                </>
+            )}
             {external && (
                 <span hidden={true} id={srId}>
                     Ekstern lenke

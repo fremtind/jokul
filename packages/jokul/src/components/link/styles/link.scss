@@ -4,16 +4,18 @@
     background-image: linear-gradient(to bottom, $color 0%, $color 100%);
 }
 
-$_right-arrow: "\2192"; // unicode right arrow
-$_left-arrow: "\2190"; // unicode left arrow
-$_north-east-arrow: "\2197"; // unicode north east arrow (up/right)
-
 $_link-underline-thickness: jkl.rem(1px);
 $_link-underline-thickness--focus: jkl.rem(2px);
 
 .jkl-link {
     color: var(--jkl-color-text-default);
-    @include _underline-gradient(var(--jkl-color-text-default));
+    outline: none;
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+    gap: jkl.rem(1.5px);
+
     background-position: 0
         calc(
             100% -
@@ -23,10 +25,11 @@ $_link-underline-thickness--focus: jkl.rem(2px);
         );
     background-size: $_link-underline-thickness $_link-underline-thickness;
     background-repeat: repeat-x;
-    @include jkl.motion("standard", "energetic");
+
     transition-property: color;
-    outline: none;
-    text-decoration: none;
+    @include jkl.motion("standard", "energetic");
+
+    @include _underline-gradient(var(--jkl-color-text-default));
 
     &:hover:not(:focus) {
         color: var(--jkl-color-text-subdued);
@@ -49,15 +52,6 @@ $_link-underline-thickness--focus: jkl.rem(2px);
                         #{$_link-underline-thickness--focus} - #{$_link-underline-thickness}
                     )
             );
-    }
-
-    /* Show arrow after external links, or links opening
-    in a new window or tab: */
-    &[target="_blank"],
-    &--external {
-        &::after {
-            @include jkl.decorative($content: $_north-east-arrow);
-        }
     }
 
     @include jkl.forced-colors-mode {
