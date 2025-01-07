@@ -46,15 +46,8 @@ _Obs! Viktig informasjon bør alltid ligge synlig, ikke skjult i en Expandable._
 
 ## Varianter
 
-Velg fill eller stroke etter hva som kler løsningen din best, men ved behov for lengre
-lister og inni andre komponenter brukes varianten med stroke.
-
-## Plassering
-
-Som hovedregel skal ekspanderingen av innhold skje i retning nedover. Et unntak er
-dersom du har innhold i en bunnmeny som skal ekspanderes oppover. I de tilfellene kan
-Expander brukes med pila pekende i retningen innholdet kommer til å ekspandere,
-altså motsatt retning av det vanlige.
+Velg fill eller stroke etter hva som kler løsningen din best, men _ved behov for lengre
+lister og inni andre komponenter brukes varianten med stroke_.
 
 ## Oppbygging
 
@@ -63,7 +56,14 @@ den skal igjen inneholde en `Expander` og innhold i `ExpandablePanel.Content`.
 
 ## Lag din egen ekspanderbare komponent
 
-Komponentene er polymorfe slik at man også kan bruke dem til å lage custom widgets.
+Komponentene er polymorfe slik at man også kan bruke dem til å lage custom widgets. Her er det viktig å huske på å bruke riktige ARIA tags.
+
+-   `Expander` må ha `aria-controls` og `aria-expanded`.
+-   `ExpandablePanel.Content` må ha en `id` og innholdet må merkes med `aria-hidden` når
+    den er lukket.
+
+Ikke lag custom widgets med details/summary elementer. Du risikerer at deler av innholdet
+på siden din vil kunne søkes etter i browseren men ikke være synlig.
 
 <ComponentExample
     title="Egen komponent"
@@ -72,23 +72,12 @@ Komponentene er polymorfe slik at man også kan bruke dem til å lage custom wid
     codeExample={customCode}
 />
 
-da er det viktig å huske på å bruke riktige ARIA tags.
-
-`Expander` må ha `aria-controls` og `aria-expanded`.
-
-`ExpandablePanel.Content` må ha en `id` og innholdet må merkes med `aria-hidden` når
-den er lukket.
-
-Ikke lag custom widgets med details/summary elementer. Du risikerer at deler av innholdet
-på siden din vil kunne søkes etter i browseren men ikke være synlig.
-
 ## Bruk `Expander` komponenten alene
 
 Dersom du har veldig spesifikke behov og/eller ønsker et helt annet utseende enn
-det `ExpandablePanel` har kan du også bruke bare `Expander` knappen og ordne resten
-av jobben selv.
+det `ExpandablePanel` har kan du også bruke bare `Expander` knappen og ordne resten selv.
 
-Importer knappen fra samme pakke
+Importer knappen fra samme pakke:
 
 ```jsx
 import { Expander } from "@fremtind/jkl-expander-react";
