@@ -60,19 +60,10 @@
 
     @include jkl.text-style("body");
 
-    @include jkl.small-device {
-        grid-template-areas:
-            "progress progress"
-            "icon dismiss"
-            "content content";
-    }
-
-    @include jkl.from-medium-device {
-        grid-template-areas:
-            "progress progress progress"
-            "icon content dismiss";
-        grid-template-columns: auto 1fr auto;
-    }
+    grid-template-areas:
+        "progress progress progress"
+        "icon content dismiss";
+    grid-template-columns: auto 1fr auto;
 
     &__progress {
         grid-area: progress;
