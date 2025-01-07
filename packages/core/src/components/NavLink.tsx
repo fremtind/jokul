@@ -41,7 +41,39 @@ export const NavLink = React.forwardRef(function NavLink<
             )}
             {...rest}
         >
+            {back && (
+                <>
+                    {/* This corresponds with ArrowLeftIcon from icon-react package */}
+                    <span
+                        aria-hidden
+                        ref={ref}
+                        className={cn(
+                            "jkl-icon",
+                            `jkl-icon--small`,
+                            "jkl-nav-link__icon",
+                        )}
+                    >
+                        {"\ue5c4"}
+                    </span>
+                </>
+            )}
             {children}
+            {!back && (
+                <>
+                    {/* This corresponds with ArrowRightIcon from icon-react package */}
+                    <span
+                        aria-hidden
+                        ref={ref}
+                        className={cn(
+                            "jkl-icon",
+                            `jkl-icon--small`,
+                            "jkl-nav-link__icon",
+                        )}
+                    >
+                        {"\ue5c8"}
+                    </span>
+                </>
+            )}
         </Component>
     );
 });

@@ -4,6 +4,8 @@ import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
+import { ArrowRightIcon } from "../icon/icons/ArrowRightIcon.js";
+import { ArrowLeftIcon } from "../icon/index.js";
 
 export type NavLinkProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
@@ -44,7 +46,16 @@ export const NavLink = React.forwardRef(function NavLink<
             )}
             {...rest}
         >
+            {back && (
+                <ArrowLeftIcon variant="small" className="jkl-nav-link__icon" />
+            )}
             {children}
+            {!back && (
+                <ArrowRightIcon
+                    variant="small"
+                    className="jkl-nav-link__icon"
+                />
+            )}
         </Component>
     );
 });

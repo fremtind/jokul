@@ -21,3 +21,11 @@ test("renders correctly", async () => {
 
     await helper.snapshots({ focusElement: ".jkl-link" });
 });
+
+test("renders external link correctly", async () => {
+    await helper.open();
+
+    await helper.checkProp("bool-prop-ekstern");
+
+    await helper.snapshots();
+});

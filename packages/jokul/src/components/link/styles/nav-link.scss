@@ -1,8 +1,5 @@
 @use "../../../core/jkl";
 
-$_right-arrow: "\2192"; // unicode right arrow
-$_left-arrow: "\2190"; // unicode left arrow
-
 .jkl-nav-link {
     color: var(--jkl-color-text-default);
 
@@ -11,65 +8,53 @@ $_left-arrow: "\2190"; // unicode left arrow
     text-decoration: none;
     position: relative;
 
-    @include jkl.reset-outline;
+    display: inline-flex;
+    align-items: center;
+    gap: jkl.rem(1.5px);
 
-    &::after {
-        @include jkl.decorative($content: $_right-arrow);
-        @include jkl.motion;
-        transition-property: padding-left, padding-right;
-        display: inline;
-        margin-left: -0.2em;
-        padding-left: 0.35em;
-        padding-right: 0.35em;
-    }
+    @include jkl.reset-outline;
 
     &:hover:not(:focus) {
         color: var(--jkl-color-text-subdued);
-
-        &::after {
-            padding-left: 0.7em;
-            padding-right: 0;
-        }
     }
 
     &:focus-visible {
         @include jkl.focus-outline($offset: 0);
+    }
 
-        &::after {
-            padding-left: 0.7em;
-            padding-right: 0;
+    &:focus-visible,
+    &:hover:not(:focus) {
+        .jkl-nav-link__icon {
+            transform: translateX(0.3rem);
         }
+    }
+
+    &__icon {
+        @include jkl.motion;
+        transition-property: transform;
     }
 
     &--active {
         @include jkl.no-grow-bold;
     }
-}
 
-.jkl-nav-link--back {
-    padding-right: 0;
+    // Unngå at border ved tastaturfokus "kapper" pila
+    $arrow-spacing: 0.15rem;
+    padding-right: $arrow-spacing;
+    margin-right: -#{$arrow-spacing};
 
-    $left-arrow-focus-margin: 0.3em; // Unngå at border ved tastaturfokus "kapper" pila
-    padding-left: $left-arrow-focus-margin;
-    margin-left: -#{$left-arrow-focus-margin};
+    &--back {
+        padding-right: 0;
+        margin-right: 0;
+        padding-left: $arrow-spacing;
+        margin-left: -#{$arrow-spacing};
 
-    &::after {
-        display: none;
-    }
-
-    &::before {
-        @include jkl.decorative($content: $_left-arrow);
-        @include jkl.motion;
-        transform: translateX(0);
-        transition-property: transform;
-        display: inline-block;
-        padding-right: jkl.rem(4px);
-    }
-
-    &:hover,
-    &:focus-visible {
-        &::before {
-            transform: translateX(-33%);
+        &:focus-visible,
+        &:hover:not(:focus) {
+            .jkl-nav-link__icon {
+                padding-left: 0;
+                transform: translateX(-0.3rem);
+            }
         }
     }
 }
