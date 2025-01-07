@@ -56,7 +56,7 @@
             --border-bottom-right-radius: var(--border-radius);
         }
 
-        &:has(:focus-visible) {
+        &:has(.jkl-expander:focus-visible) {
             &:has(.jkl-expandable--stroke) {
                 --outline-offset: -1px;
             }
