@@ -5,10 +5,10 @@
 @use "task-card";
 
 .jkl-card {
-    --padding-s: var(--jkl-spacing-4);
-    --padding-m: var(--jkl-spacing-12);
-    --padding-l: var(--jkl-spacing-16);
-    --padding-xl: var(--jkl-spacing-24);
+    --padding-s: var(--jkl-unit-05);
+    --padding-m: var(--jkl-unit-15);
+    --padding-l: var(--jkl-unit-20);
+    --padding-xl: var(--jkl-unit-30);
     --border-radius: #{jkl.rem(4px)};
     --border-color: transparent;
     --border-width: #{jkl.rem(1px)};
@@ -28,16 +28,17 @@
         content: "";
         position: absolute;
         inset: 0;
+        pointer-events: none;
         border-radius: var(--border-radius);
         border: var(--border-width) solid var(--border-color);
         @include jkl.motion("standard", "snappy", border-color, border-size);
     }
 
     @include jkl.from-medium-device {
-        --padding-s: var(--jkl-spacing-8);
-        --padding-m: var(--jkl-spacing-16);
-        --padding-l: var(--jkl-spacing-24);
-        --padding-xl: var(--jkl-spacing-32);
+        --padding-s: var(--jkl-unit-10);
+        --padding-m: var(--jkl-unit-20);
+        --padding-l: var(--jkl-unit-30);
+        --padding-xl: var(--jkl-unit-40);
     }
 
     &[data-padding="s"] {

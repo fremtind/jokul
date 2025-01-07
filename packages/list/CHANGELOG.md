@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 11.0.1 (2024-12-18)
+
+### Bug Fixes
+
+- implements new focus state ([119a8a7](https://github.com/fremtind/jokul/commit/119a8a76efc5162b9ec48e6357c5297b4ac5f05c))
+
+# 11.0.0 (2024-12-16)
+
+### Features
+
+- fjern margin på listelement for å la brukere håndtere spacing selv ([74a4dfc](https://github.com/fremtind/jokul/commit/74a4dfc8799d7212a33434b71fac1789c8a0db97)), closes [#4188](https://github.com/fremtind/jokul/issues/4188)
+
+### BREAKING CHANGES
+
+- Margin på listelement er fjernet, og spacing må nå håndteres av de som bruker komponenten. Dette kan
+kreve oppdateringer i prosjekter som tidligere var avhengige av standard margin i komponenten.
+
 ## 10.3.8 (2024-09-16)
 
 ### Bug Fixes

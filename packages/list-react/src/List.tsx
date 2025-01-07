@@ -1,10 +1,6 @@
-import { WithChildren } from "@fremtind/jkl-core";
 import cx from "classnames";
 import React, { FC } from "react";
-
-export interface ListProps extends WithChildren {
-    className?: string;
-}
+import { ListProps } from "./types";
 
 type ValidLists = "unordered" | "ordered";
 

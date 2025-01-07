@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.79](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox-react@2.3.78...@fremtind/jkl-combobox-react@2.3.79) (2024-12-17)
+
+### Bug Fixes
+
+- toggles open state on arrow button click ([be32bd5](https://github.com/fremtind/jokul/commit/be32bd5a3f9b828ebd3fae7e0a4734f42fb566af))
+
 ## 2.3.26 (2024-06-26)
 
 ### Bug Fixes

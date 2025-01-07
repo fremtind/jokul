@@ -1,0 +1,19 @@
+{
+    "unit": {
+        "02": { "value": "calc(var(--jkl-unit-10) * .25)" },
+        "05": { "value": "calc(var(--jkl-unit-10) * .5)" },
+        "10": { "value": "0.5rem" },
+        "15": { "value": "calc(var(--jkl-unit-10) * 1.5)" },
+        "20": { "value": "calc(var(--jkl-unit-10) * 2)" },
+        "25": { "value": "calc(var(--jkl-unit-10) * 2.5)" },
+        "30": { "value": "calc(var(--jkl-unit-10) * 3)" },
+        "40": { "value": "calc(var(--jkl-unit-10) * 4)" },
+        "50": { "value": "calc(var(--jkl-unit-10) * 5)" },
+        "60": { "value": "calc(var(--jkl-unit-10) * 6)" },
+        "70": { "value": "calc(var(--jkl-unit-10) * 7)" },
+        "80": { "value": "calc(var(--jkl-unit-10) * 8)" },
+        "90": { "value": "calc(var(--jkl-unit-10) * 9)" },
+        "130": { "value": "calc(var(--jkl-unit-10) * 13)" },
+        "210": { "value": "calc(var(--jkl-unit-10) * 21)" }
+    }
+}

@@ -3,6 +3,72 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.13](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.12...@fremtind/jokul@0.37.13) (2025-01-06)
+
+### Bug Fixes
+
+- tables with a sticky header has tabindex ([d74ebc7](https://github.com/fremtind/jokul/commit/d74ebc7acde3fb84e3f9c0105c82b0cf4a7d9ca6))
+
+## [0.37.12](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.11...@fremtind/jokul@0.37.12) (2024-12-19)
+
+### Bug Fixes
+
+- erstatt legacy spacing med units ([e52d9a8](https://github.com/fremtind/jokul/commit/e52d9a812dec03681b434d1275b0b88ddf0f0957))
+- erstatte spacing med units i alle komponenter ([69df782](https://github.com/fremtind/jokul/commit/69df78284a7674fa54bf73d40b20971d99987ddf))
+- feedback fiks ([49a1d9b](https://github.com/fremtind/jokul/commit/49a1d9bff12871721a53d02901843eb2f296b6b2))
+- fjern uløst konflikt fra stilark ([f450464](https://github.com/fremtind/jokul/commit/f4504648cbeb5f38f525aa45ab60144fe0a20301))
+- gjør legacy spacing tilgjengelig for spacing-mixin ([a196a47](https://github.com/fremtind/jokul/commit/a196a47ff7f0cd701d22d44bd73c606632b09b16))
+- legg tilbake margin rundt liste i cookie consent ([da8dfe6](https://github.com/fremtind/jokul/commit/da8dfe6f74765781067d01d79ec79e9ec0221cbc))
+- påbegynt å bruke units i komponenter ([ac00dc4](https://github.com/fremtind/jokul/commit/ac00dc485a413448a6adc6bd60c62bfa190f7b15))
+- rett opp paddinger i file input ([035e550](https://github.com/fremtind/jokul/commit/035e55094e0a0d283843ee72ac843f4e7e69bbcb))
+- sørg for å generere css-variabler for units ([3b53680](https://github.com/fremtind/jokul/commit/3b53680e14e3fd2f48685376871a9a84dbdab27b))
+- unit tokens ([5da3ddc](https://github.com/fremtind/jokul/commit/5da3ddcb9291f68c1d87b2e8e7acc65ce4ceb610))
+
+## [0.37.11](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.10...@fremtind/jokul@0.37.11) (2024-12-18)
+
+### Bug Fixes
+
+- implements new focus state ([119a8a7](https://github.com/fremtind/jokul/commit/119a8a76efc5162b9ec48e6357c5297b4ac5f05c))
+- properly hides content in closed expander ([5fdf878](https://github.com/fremtind/jokul/commit/5fdf8782c41c017f4c3e3de3a400e7c768691519))
+- removes hover effect on summary when content is hovered ([1367ed4](https://github.com/fremtind/jokul/commit/1367ed4d412c4151255276a969223d1c36c623a6))
+- updates focus styles after review with designer ([ec80048](https://github.com/fremtind/jokul/commit/ec80048ac37499e67b6d56633b66d7a498aa92ba))
+- warns if button is missing accessible name ([7ad40ab](https://github.com/fremtind/jokul/commit/7ad40ab4910f78fa131d4290fc391767be112fa8))
+
+## [0.37.10](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.9...@fremtind/jokul@0.37.10) (2024-12-18)
+
+### Bug Fixes
+
+- riktig størrelse på pila i AccorionItem ([b7d313a](https://github.com/fremtind/jokul/commit/b7d313ac3912ad9e56e34f58cc4300d423ec9ebc)), closes [#4385](https://github.com/fremtind/jokul/issues/4385)
+
+## [0.37.9](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.8...@fremtind/jokul@0.37.9) (2024-12-18)
+
+### Bug Fixes
+
+- allows content to be interacted with ([24f3d52](https://github.com/fremtind/jokul/commit/24f3d52c77d4d75e3ea4a0df01c2b92c231cdb5a))
+- makes sure SR announces popuptip content ([f4f5d43](https://github.com/fremtind/jokul/commit/f4f5d438e0cfe7f4fda46cd9b61401166fd7aa96))
+- returns focus to main element after selection ([25037a4](https://github.com/fremtind/jokul/commit/25037a4a7afdad6286c901d2d0dc8c93e46a8589))
+
+## [0.37.8](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.7...@fremtind/jokul@0.37.8) (2024-12-17)
+
+### Bug Fixes
+
+- bruk moderne sass globals i urlencodecolor ([e3a16e9](https://github.com/fremtind/jokul/commit/e3a16e9a19ceabca1aa2c67357e4618ff10a3481))
+- eksponer index-filer for alle stilpakkene i exports ([4013f6a](https://github.com/fremtind/jokul/commit/4013f6afe6522e12c33a23a998e38c6f26616942)), closes [#4378](https://github.com/fremtind/jokul/issues/4378)
+
+## [0.37.7](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.6...@fremtind/jokul@0.37.7) (2024-12-17)
+
+### Bug Fixes
+
+- toggles open state on arrow button click ([be32bd5](https://github.com/fremtind/jokul/commit/be32bd5a3f9b828ebd3fae7e0a4734f42fb566af))
+
+## [0.37.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.5...@fremtind/jokul@0.37.6) (2024-12-16)
+
+### Bug Fixes
+
+- eksporter listprops ([f64693f](https://github.com/fremtind/jokul/commit/f64693f386c21f78de2e58e27f819b68be5b98b2))
+- fjern gamle playwright screenshots ([0837721](https://github.com/fremtind/jokul/commit/0837721926c6d21211d87b1282891ed7c138bb7e))
+- slett gamle cookie-screenshots ([b091475](https://github.com/fremtind/jokul/commit/b09147525c949a7e8212beb3235072c3571531db))
+
 ## [0.37.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.3...@fremtind/jokul@0.37.4) (2024-12-11)
 
 ### Bug Fixes

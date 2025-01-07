@@ -9,6 +9,8 @@
     --jkl-accordion-arrow-right: var(--jkl-spacing-12);
     --jkl-accordion-content-padding: var(--jkl-spacing-8) var(--jkl-spacing-16)
         var(--jkl-spacing-16);
+    --jkl-accordion-icon-opsz: 24;
+    --jkl-accordion-icon-size: 1.5rem;
     @include jkl.declare-font-variables("title", "body");
     @include jkl.declare-font-variables("content", "body");
 
@@ -29,6 +31,8 @@
     --jkl-accordion-arrow-top: var(--jkl-spacing-8);
     --jkl-accordion-arrow-right: var(--jkl-spacing-4);
     --jkl-accordion-content-padding: var(--jkl-spacing-8);
+    --jkl-accordion-icon-opsz: 20;
+    --jkl-accordion-icon-size: 1.25rem;
     @include jkl.declare-font-variables("title", "small");
     @include jkl.declare-font-variables("content", "small");
 }
@@ -44,6 +48,8 @@
     --text-color: var(--jkl-color-text-default);
     --title-text-color: var(--jkl-color-text-interactive);
     --border-color: var(--jkl-color-border-separator);
+    --jkl-icon-opsz: var(--jkl-accordion-icon-opsz);
+    --jkl-icon-size: var(--jkl-accordion-icon-size);
 
     background-color: var(--background);
     color: var(--text-color);

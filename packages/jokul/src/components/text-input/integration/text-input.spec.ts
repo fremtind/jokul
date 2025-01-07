@@ -30,5 +30,5 @@ test("renders allthethings correctly", async () => {
     await helper.checkProp("bool-prop-med-handling");
     await helper.checkProp("bool-prop-med-benevnelse");
 
-    await helper.snapshots();
+    await helper.snapshots({ focusElement: ".jkl-text-input-action-button" });
 });

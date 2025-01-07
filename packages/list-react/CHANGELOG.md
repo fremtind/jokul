@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 10.2.24 (2024-12-16)
+
+### Bug Fixes
+
+- eksporter listprops ([f64693f](https://github.com/fremtind/jokul/commit/f64693f386c21f78de2e58e27f819b68be5b98b2))
+
 ## 10.2.9 (2024-09-16)
 
 ### Bug Fixes

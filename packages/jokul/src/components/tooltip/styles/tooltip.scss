@@ -8,15 +8,15 @@ $_focus-ring-distance: jkl.rem(
 $_focus-ring-width: jkl.rem(2px);
 
 @include jkl.comfortable-density-variables {
-    --content-padding: #{jkl.$spacing-16};
+    --content-padding: #{jkl.$unit-20};
 
     @include jkl.small-device {
-        --content-padding: #{jkl.$spacing-12};
+        --content-padding: #{jkl.$unit-15};
     }
 }
 
 @include jkl.compact-density-variables {
-    --content-padding: #{jkl.$spacing-8};
+    --content-padding: #{jkl.$unit-10};
 }
 
 .jkl-tooltip-trigger {

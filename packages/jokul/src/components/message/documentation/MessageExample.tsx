@@ -64,7 +64,7 @@ export const MessageExample: React.FC<ExampleComponentProps> = ({
         >
             <p>
                 Hei, jeg er en melding av typen {choiceValues?.["Variant"]} med{" "}
-                <NavLink href="/komponenter/Message">en navlink</NavLink>
+                <NavLink href="/komponenter/Message">en&nbsp;navlink</NavLink>
             </p>
         </C>
     );

@@ -1,5 +1,10 @@
 import clsx from "clsx";
-import React, { useContext } from "react";
+import React, {
+    useContext,
+    useEffect,
+    useImperativeHandle,
+    useRef,
+} from "react";
 import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ChevronDownIcon } from "../icon/icons/ChevronDownIcon.js";
 import { ChevronUpIcon } from "../icon/index.js";
@@ -25,16 +30,30 @@ export const Expander = React.forwardRef(function Expander<
     } = props;
     const El = as;
 
-    const { open: contextOpen, onToggle } =
-        useContext<ExpandableContext>(ExpanderContext);
+    const {
+        open: contextOpen,
+        onToggle,
+        setExpanderHeight,
+    } = useContext<ExpandableContext>(ExpanderContext);
+
+    const internalRef = useRef<HTMLElement>();
+    useImperativeHandle(ref, () => internalRef.current, [internalRef]);
 
     const isOpen = controlledOpen || contextOpen;
 
     const Chevron = expandDirection === "up" ? ChevronUpIcon : ChevronDownIcon;
 
+    useEffect(() => {
+        const observer = new ResizeObserver(function () {
+            setExpanderHeight(internalRef.current!.offsetHeight);
+        });
+        observer.observe(internalRef.current!);
+        return () => observer.disconnect();
+    }, [setExpanderHeight]);
+
     return (
         <El
-            ref={ref}
+            ref={internalRef}
             className={clsx(
                 "jkl-expander",
                 {

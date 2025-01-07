@@ -23,6 +23,7 @@ export const ExpandablePanel = Object.assign(
 
         const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
         const [contentIsVisible, setContentIsVisible] = useState(false);
+        const [expanderHeight, setExpanderHeight] = useState(0);
 
         const internalRef = useRef<HTMLDetailsElement>();
         useImperativeHandle(ref, () => internalRef.current, [internalRef]);
@@ -65,30 +66,45 @@ export const ExpandablePanel = Object.assign(
         }, [setContentIsVisible, setUncontrolledOpen]);
 
         return (
-            <El
-                ref={internalRef}
-                data-testid={"jkl-expand-section"}
-                className={cn("jkl-expandable", `jkl-expandable--${variant}`)}
-                open={
-                    /* for the animation to work in Safari we must ensure that
-                     * the element is open *before* the transition starts */
-                    as === "details" ? isOpen || contentIsVisible : undefined
-                }
-                /* this attribute is used for styling purposes */
-                data-visible-content={isOpen || contentIsVisible}
-                {...rest}
-            >
-                <ExpanderContext.Provider
-                    value={{
-                        open: isOpen,
-                        onToggle: syncUncontrolledState,
-                        onTransitionEnd: setContentIsVisible,
-                        onTransitionStart: setVisibleIfOpening,
-                    }}
+            <div className="jkl-expandable__wrapper">
+                <div
+                    // React typings don't include inert for some reason,
+                    // but destructuring lets us calm down the TS compiler
+                    {...{ inert: "true" }}
+                    className="jkl-expandable__focus-container"
+                    style={{ height: expanderHeight }}
+                ></div>
+                <El
+                    ref={internalRef}
+                    data-testid={"jkl-expand-section"}
+                    className={cn(
+                        "jkl-expandable",
+                        `jkl-expandable--${variant}`,
+                    )}
+                    open={
+                        /* for the animation to work in Safari we must ensure that
+                         * the element is open *before* the transition starts */
+                        as === "details"
+                            ? isOpen || contentIsVisible
+                            : undefined
+                    }
+                    /* this attribute is used for styling purposes */
+                    data-visible-content={isOpen || contentIsVisible}
+                    {...rest}
                 >
-                    {children}
-                </ExpanderContext.Provider>
-            </El>
+                    <ExpanderContext.Provider
+                        value={{
+                            open: isOpen,
+                            onToggle: syncUncontrolledState,
+                            onTransitionEnd: setContentIsVisible,
+                            onTransitionStart: setVisibleIfOpening,
+                            setExpanderHeight,
+                        }}
+                    >
+                        {children}
+                    </ExpanderContext.Provider>
+                </El>
+            </div>
         );
     }),
     { Content: ExpandablePanelContent },

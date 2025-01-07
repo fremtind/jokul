@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 15.0.9 (2024-12-18)
+
+### Bug Fixes
+
+- makes sure SR announces popuptip content ([f4f5d43](https://github.com/fremtind/jokul/commit/f4f5d438e0cfe7f4fda46cd9b61401166fd7aa96))
+- returns focus to main element after selection ([25037a4](https://github.com/fremtind/jokul/commit/25037a4a7afdad6286c901d2d0dc8c93e46a8589))
+
 # 15.0.0 (2024-11-14)
 
 ### Bug Fixes

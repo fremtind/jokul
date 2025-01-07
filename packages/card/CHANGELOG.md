@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 13.0.12 (2024-12-18)
+
+### Bug Fixes
+
+- allows content to be interacted with ([24f3d52](https://github.com/fremtind/jokul/commit/24f3d52c77d4d75e3ea4a0df01c2b92c231cdb5a))
+
 # 13.0.0 (2024-09-16)
 
 ### Features

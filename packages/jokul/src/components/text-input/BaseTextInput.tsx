@@ -49,7 +49,10 @@ export interface ActionSubmit extends ActionBaseProps {
 export type Action = ActionButton | ActionSubmit;
 
 export interface BaseTextInputProps
-    extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
+    extends Omit<
+        InputHTMLAttributes<HTMLInputElement>,
+        "children" | "maxLength"
+    > {
     /**
      * Brukes til inputfelter hvor det brukes maskering, for formatering av store tall. Brukes typisk bare til valuta.
      * @default "left"
@@ -70,7 +73,16 @@ export interface BaseTextInputProps
     /**
      * Element som vises til høyre for inputfeltet. Brukes typisk til å trigge en handling som f.eks. å vise/skjule passord.
      */
-    actionButton?: React.ReactElement<IconProps>;
+    actionButton?: React.ReactElement;
+    /**
+     * Setter maxlength attributtet og justerer bredden på feltet til å passe det tallet som settes
+     *
+     * Merk: I noen Android-browsere vil dette ikke fungere som forventet. Det er gjort sånn
+     * pga begrensninger med hvordan software-tastaturet fungerer og er ikke en bug. Dersom
+     * man er veldig avhengig av at maxLength håndteres på alle plattformer anbefales det
+     * å bruke input-feltet som en controlled input og selv begrense lengden på verdien.
+     */
+    maxLength?: number | undefined;
 }
 
 export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
@@ -114,9 +126,11 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
                             "jkl-text-input-action-button",
                             actionButton.props.className,
                         ),
+                        "data-theme": ariaInvalid ? "light" : undefined,
                     })}
                 {action && !actionButton && (
                     <IconButton
+                        data-theme={ariaInvalid ? "light" : undefined}
                         density={density}
                         className={clsx(
                             "jkl-text-input-action-button",

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 16.0.5 (2024-12-18)
+
+### Bug Fixes
+
+- updates focus styles after review with designer ([ec80048](https://github.com/fremtind/jokul/commit/ec80048ac37499e67b6d56633b66d7a498aa92ba))
+
 ## 16.0.4 (2024-12-11)
 
 ### Bug Fixes

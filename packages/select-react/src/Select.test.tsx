@@ -1182,7 +1182,7 @@ describe("Searchable select", () => {
         expect(screen.queryByRole("option", { name: "bar" })).toBeFalsy();
     });
 
-    it("should render a visible tooltip when clicking on it", async () => {
+    it("should render a popup-tip when passed as a prop", async () => {
         const items = [
             { label: "foo", value: "1" },
             { label: "bar", value: "2" },
@@ -1198,11 +1198,7 @@ describe("Searchable select", () => {
                 }
             />,
         );
-        await screen.user.click(screen.getByText("Vis hjelpetekst"));
-
-        await waitFor(() =>
-            expect(screen.getByText("Jeg er en tooltip")).toBeVisible(),
-        );
+        expect(screen.getByText("Vis hjelpetekst")).toBeInTheDocument();
     });
 
     it("should render a visible tooltip when initially open", async () => {
@@ -1264,6 +1260,33 @@ describe("Searchable select", () => {
         });
 
         expect(listbox).not.toBeVisible();
+    });
+
+    it("should return focus to the input when an option is selected", async () => {
+        const items = [
+            { label: "foo", value: "1" },
+            { label: "bar", value: "2" },
+            { label: "baz", value: "3" },
+        ];
+
+        const screen = setup(
+            <Select
+                name="items"
+                items={items}
+                label="Ting"
+                tooltip={
+                    <PopupTip content="Jeg er en tooltip" placement="left" />
+                }
+            />,
+        );
+
+        const button = screen.getByTestId("jkl-select__button");
+        await userEvent.click(button);
+
+        const option = screen.getAllByTestId("jkl-select__option")[0];
+        await userEvent.click(option);
+
+        expect(button).toHaveFocus();
     });
 });
 

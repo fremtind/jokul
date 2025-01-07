@@ -33,6 +33,8 @@ export const ButtonExample: FC<ExampleComponentProps> = ({
               }
             : {};
 
+    const hasLabel = Boolean(boolValues?.["label"]);
+
     return (
         <div className="flex flex-column gap-32 justify-between items-center">
             <Button
@@ -41,10 +43,11 @@ export const ButtonExample: FC<ExampleComponentProps> = ({
                     showLoader,
                     textDescription: "Laster innhold",
                 }}
+                aria-label={!hasLabel ? "Lagre og send inn" : undefined}
                 onClick={simulateLoading}
                 {...iconProps(<CheckIcon />)}
             >
-                {boolValues?.["label"] ? "Lagre og send inn" : null}
+                {hasLabel ? "Lagre og send inn" : null}
             </Button>
             <Button
                 variant="secondary"
@@ -52,10 +55,11 @@ export const ButtonExample: FC<ExampleComponentProps> = ({
                     showLoader,
                     textDescription: "Laster innhold",
                 }}
+                aria-label={!hasLabel ? "Lagre" : undefined}
                 onClick={simulateLoading}
                 {...iconProps(<CheckIcon />)}
             >
-                {boolValues?.["label"] ? "Lagre" : null}
+                {hasLabel ? "Lagre" : null}
             </Button>
             <Button
                 variant="tertiary"
@@ -63,13 +67,19 @@ export const ButtonExample: FC<ExampleComponentProps> = ({
                     showLoader,
                     textDescription: "Laster innhold",
                 }}
+                aria-label={!hasLabel ? "Avbryt" : undefined}
                 onClick={simulateLoading}
                 {...iconProps(<CloseIcon />)}
             >
-                {boolValues?.["label"] ? "Avbryt" : null}
+                {hasLabel ? "Avbryt" : null}
             </Button>
-            <Button variant="ghost" {...iconProps(<ChevronDownIcon />)}>
-                {boolValues?.["label"] ? "Ola Nordmann" : null}
+
+            <Button
+                variant="ghost"
+                {...iconProps(<ChevronDownIcon />)}
+                aria-label={!hasLabel ? "Ola Nordmann" : undefined}
+            >
+                {hasLabel ? "Ola Nordmann" : null}
             </Button>
         </div>
     );

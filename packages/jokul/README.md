@@ -42,7 +42,7 @@ Det finnes en del grunnleggende stiler som må med for at ting skal fungere rikt
 kan du importere med
 
 ```scss
-@use "@fremtind/jokul/styles/core/core";
+@use "@fremtind/jokul/styles/core";
 ```
 
 eller i ts/js
@@ -132,6 +132,8 @@ kopieres inn i prosjektet. Deretter må du endre URLen i hver `@font-face`-defin
 ```
 
 ## SASS mixins
+
+OBS: Vi har et kjent problem med dette i Vite v6, se [#4378](https://github.com/fremtind/jokul/issues/4378)
 
 For å få tilgang til mixins vi tilbyr kan du i din .scss fil bruke
 

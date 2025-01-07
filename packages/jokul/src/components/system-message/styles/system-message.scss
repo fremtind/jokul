@@ -5,7 +5,6 @@
 
 $_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
 $_dismiss-animation-duration: jkl.timing("lazy");
-$_dismiss-focus-border-color: jkl.$color-granitt;
 $_dismiss-hover-color: jkl.$color-stein;
 
 @include jkl.comfortable-density-variables {
@@ -44,14 +43,14 @@ $_dismiss-hover-color: jkl.$color-stein;
     &__content {
         box-sizing: border-box;
         padding: var(--jkl-system-message-content-padding);
-        display: flex;
+        display: grid;
+        grid-template-columns: min-content 1fr min-content;
         align-items: flex-start;
         width: 100%;
         margin: 0 auto;
     }
 
     &__icon {
-        align-self: flex-start;
         height: var(--jkl-system-message-icon-height);
         margin: var(--jkl-system-message-icon-padding);
         flex-shrink: 0;
@@ -68,18 +67,25 @@ $_dismiss-hover-color: jkl.$color-stein;
         background-color: transparent;
         padding: 0;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        align-self: flex-start;
+        display: grid;
+        place-content: center;
+        position: relative;
         flex-shrink: 0;
+        margin-top: jkl.rem(3px); // visual alignment with text
+        color: inherit;
 
         // Sørg for å ha en stor nok touch target.
-        width: var(--jkl-system-message-dismiss-button-size);
-        height: var(--jkl-system-message-dismiss-button-size);
-        margin: var(--jkl-system-message-dismiss-button-margin);
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: var(--jkl-system-message-dismiss-button-size);
+            height: var(--jkl-system-message-dismiss-button-size);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-        color: inherit;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         @include jkl.forced-colors-mode {
             background-color: ButtonFace;
@@ -92,14 +98,12 @@ $_dismiss-hover-color: jkl.$color-stein;
             @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         }
 
-        &:focus {
-            @include jkl.keyboard-navigation {
-                outline: 2px solid $_dismiss-focus-border-color;
+        &:focus-visible {
+            @include jkl.focus-outline;
 
-                @include jkl.forced-colors-mode {
-                    outline: 2px solid ButtonText;
-                    outline-offset: 2px;
-                }
+            @include jkl.forced-colors-mode {
+                outline: 2px solid ButtonText;
+                outline-offset: 2px;
             }
         }
     }

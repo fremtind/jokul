@@ -78,7 +78,6 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         // Position the hidden input so that Cypress can hit it without it being obscured by the visual checkbox
         top: -6px;
 
-        // Checked state:
         &:checked {
             + .jkl-checkbox__label .jkl-checkbox__check-mark::after {
                 animation: $_checkbox-checked-animation-name
@@ -87,7 +86,6 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             }
         }
 
-        // Indeterminate state:
         &:indeterminate:not(:checked) {
             + .jkl-checkbox__label .jkl-checkbox__indeterminate-mark::after {
                 animation: $_checkbox-indeterminate-animation-name
@@ -96,19 +94,20 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             }
         }
 
-        // Focused state:
         &:focus-visible + .jkl-checkbox__label {
             color: var(--jkl-checkbox-focus-color);
 
             & > .jkl-checkbox__mark {
-                --background-color: var(--jkl-color-background-input-focus);
                 @include jkl.focus-outline;
             }
         }
 
-        // Disabled state:
         &:disabled + .jkl-checkbox__label {
             color: var(--jkl-checkbox-disabled-color);
+        }
+
+        &:active {
+            --background-color: var(--jkl-color-background-input-focus);
         }
     }
 
@@ -124,10 +123,6 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             .jkl-checkbox__mark {
                 outline: 1px solid var(--box-color);
             }
-        }
-
-        &:active {
-            --background-color: var(--jkl-color-background-input-focus);
         }
     }
 
@@ -152,7 +147,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         margin-block: calc(
             (var(--jkl-checkbox-height) - var(--jkl-checkbox-box-size)) * 0.5
         );
-        margin-inline-end: var(--jkl-spacing-8);
+        margin-inline-end: var(--jkl-unit-10);
         align-self: flex-start;
         flex-shrink: 0; // Don't allow the mark to shrink in case of really long text
 
@@ -228,7 +223,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         display: inline-flex;
 
         &:not(:last-of-type) {
-            margin-right: jkl.$spacing-24;
+            margin-right: jkl.$unit-30;
         }
     }
 
