@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.14](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.13...@fremtind/jokul@0.37.14) (2025-01-07)
+
+### Bug Fixes
+
+- only shows focus triangle when expander has focus ([e0daa1d](https://github.com/fremtind/jokul/commit/e0daa1d87616e783f1d605ae2bd9f7d78f8752ec))
+
 ## [0.37.13](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.12...@fremtind/jokul@0.37.13) (2025-01-06)
 
 ### Bug Fixes
