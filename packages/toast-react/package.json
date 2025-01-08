@@ -42,9 +42,9 @@
         "@fremtind/jkl-progress-bar-react": "^6.1.12",
         "@fremtind/jkl-react-hooks": "^12.2.12",
         "@fremtind/jkl-toast": "^2.2.12",
-        "@react-aria/toast": "^3.0.0-beta.1",
-        "@react-stately/toast": "^3.0.0-beta.0",
-        "classnames": "^2.2.6"
+        "@react-aria/toast": "3.0.0-beta.18",
+        "@react-stately/toast": "3.0.0-beta.7",
+        "classnames": "^2.5.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

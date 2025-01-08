@@ -4,8 +4,8 @@
     "description": "Documentation portal for Jøkul",
     "version": "21.5.12",
     "devDependencies": {
-        "@jest/globals": "^29.5.0",
-        "@types/mixpanel-browser": "^2.38.1",
+        "@jest/globals": "^29.7.0",
+        "@types/mixpanel-browser": "^2.51.0",
         "react-docgen-typescript": "^2.2.2"
     },
     "dependencies": {
@@ -58,11 +58,11 @@
         "@fremtind/jkl-webfonts": "^4.0.2",
         "@mdx-js/react": "^2.3.0",
         "@sindresorhus/slugify": "^1.1.2",
-        "classnames": "^2.3.2",
+        "classnames": "^2.5.1",
         "dotenv": "^8.6.0",
-        "focus-trap-react": "^10.1.4",
+        "focus-trap-react": "^10.3.1",
         "framer-motion": "^7.10.3",
-        "gatsby": "^4.25.7",
+        "gatsby": "4.25.7",
         "gatsby-plugin-canonical-urls": "4.24.0",
         "gatsby-plugin-feed": "^4.25.0",
         "gatsby-plugin-image": "^2.25.0",
@@ -77,15 +77,15 @@
         "gatsby-plugin-sitemap": "^5.25.0",
         "gatsby-plugin-typescript": "^4.25.0",
         "gatsby-source-filesystem": "^4.25.0",
-        "gatsby-source-package": "^1.0.1",
+        "gatsby-source-package": "1.0.1",
         "gatsby-transformer-react-docgen": "^7.25.0",
         "gatsby-transformer-sharp": "^4.25.0",
         "kbar": "0.1.0-beta.39",
-        "mixpanel-browser": "^2.47.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-hook-form": "^7.44.3",
-        "react-live": "^4.1.2"
+        "mixpanel-browser": "^2.58.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-hook-form": "^7.54.2",
+        "react-live": "^4.1.8"
     },
     "browserslist": [
         ">0.2% in no",

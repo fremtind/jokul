@@ -24,8 +24,7 @@
         list-style: none;
         display: flex;
         flex-wrap: wrap;
-        column-gap: jkl.rem(18px);
-        row-gap: jkl.rem(21px);
+        gap: jkl.rem(21px) jkl.rem(18px);
         padding-inline-start: 0;
         max-width: jkl.rem(750px);
 
@@ -96,8 +95,7 @@
             list-style: none;
             padding-inline-start: 0;
             margin-block-start: jkl.$spacing-xs;
-            column-gap: jkl.$spacing-xs;
-            row-gap: jkl.$spacing-xs;
+            gap: jkl.$spacing-xs jkl.$spacing-xs;
             margin-bottom: jkl.$spacing-l;
             max-width: jkl.rem(750px);
         }
@@ -107,8 +105,7 @@
             flex-direction: column;
             list-style: none;
             padding-inline-start: 0;
-            column-gap: jkl.$spacing-m;
-            row-gap: jkl.$spacing-l;
+            gap: jkl.$spacing-l jkl.$spacing-m;
             max-width: jkl.rem(750px);
 
             &--wcag {

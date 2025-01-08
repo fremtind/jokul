@@ -36,10 +36,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@floating-ui/react": "^0.24.2",
+        "@floating-ui/react": "^0.24.8",
         "@fremtind/jkl-core": "^14.8.8",
         "@fremtind/jkl-popover": "^1.0.13",
-        "@types/lodash": "^4.17.7",
+        "@types/lodash": "^4.17.14",
         "classnames": "^2.5.1"
     },
     "peerDependencies": {
