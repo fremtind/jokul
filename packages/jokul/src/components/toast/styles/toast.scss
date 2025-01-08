@@ -81,8 +81,7 @@
 
     &__icon {
         grid-area: icon;
-        width: jkl.$unit-30;
-        margin-right: jkl.$unit-20;
+        margin-right: jkl.$unit-15;
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
 
