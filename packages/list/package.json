@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-list",
-    "version": "11.0.1",
+    "version": "11.0.2",
     "publishConfig": {
         "access": "public"
     },
@@ -28,7 +28,7 @@
         "dev": "echo \"Error: run dev from list-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.8.8"
+        "@fremtind/jkl-core": "^14.8.9"
     },
     "repository": {
         "type": "git",

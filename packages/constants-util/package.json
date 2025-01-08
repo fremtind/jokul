@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-constants-util",
-    "version": "3.0.116",
+    "version": "3.0.117",
     "publishConfig": {
         "access": "public"
     },
@@ -22,8 +22,8 @@
         "build"
     ],
     "devDependencies": {
-        "@fremtind/jkl-core": "^14.8.8",
-        "@fremtind/jkl-table-react": "^11.4.62"
+        "@fremtind/jkl-core": "^14.8.9",
+        "@fremtind/jkl-table-react": "^11.4.63"
     },
     "scripts": {
         "clean": "git clean -xfd",
