@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 13.0.0 (2025-01-08)
+
+### Bug Fixes
+
+- prefers gap/overflow shorthands ([be856d4](https://github.com/fremtind/jokul/commit/be856d40a274c7cfa88da109b2812e34840907a7))
+- updates the expected version of jkl-icons ([214040c](https://github.com/fremtind/jokul/commit/214040cc2cdf29e8898c1b93f38f4b82bfd7a20c))
+
+### BREAKING CHANGES
+
+- Requires major version 10 of jkl-icons
+
 ## 12.1.33 (2024-12-18)
 
 ### Bug Fixes

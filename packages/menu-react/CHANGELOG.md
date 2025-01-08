@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.4.50 (2025-01-08)
+
+### Bug Fixes
+
+- prefers gap/overflow shorthands ([be856d4](https://github.com/fremtind/jokul/commit/be856d40a274c7cfa88da109b2812e34840907a7))
+
 ## 3.4.38 (2024-10-17)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-expandable-react",
-    "version": "7.1.3",
+    "version": "7.1.4",
     "publishConfig": {
         "access": "public"
     },
@@ -36,10 +36,10 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.8.8",
-        "@fremtind/jkl-expandable": "^7.2.3",
-        "@fremtind/jkl-icons-react": "^9.1.21",
-        "@fremtind/jkl-react-hooks": "^12.2.12",
+        "@fremtind/jkl-core": "^14.8.9",
+        "@fremtind/jkl-expandable": "^7.2.4",
+        "@fremtind/jkl-icons-react": "^9.1.22",
+        "@fremtind/jkl-react-hooks": "^12.2.13",
         "classnames": "^2.5.1"
     },
     "peerDependencies": {
@@ -56,7 +56,7 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "devDependencies": {
-        "@fremtind/jkl-button-react": "^15.2.19",
-        "@fremtind/jkl-text-input-react": "^16.0.5"
+        "@fremtind/jkl-button-react": "^15.2.20",
+        "@fremtind/jkl-text-input-react": "^16.0.6"
     }
 }
