@@ -1,16 +1,15 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "@fremtind/jkl-core/jkl";
+@use "../../../core/jkl";
 
 $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
 
 @include jkl.comfortable-density-variables {
-    --jkl-button-padding-block: #{jkl.$spacing-8};
-    --jkl-button-padding-text: #{jkl.$spacing-24};
-    --jkl-button-padding-icon: #{jkl.$spacing-16};
-    --jkl-button-padding-icon-button: #{jkl.$spacing-8};
-    --jkl-button-padding-tertiary-inline: #{jkl.$spacing-4};
-    --jkl-button-padding-ghost-inline: #{jkl.$spacing-8};
+    --jkl-button-padding-block: #{jkl.$unit-10};
+    --jkl-button-padding-text: #{jkl.$unit-30};
+    --jkl-button-padding-icon: #{jkl.$unit-20};
+    --jkl-button-padding-icon-button: #{jkl.$unit-10};
+    --jkl-button-teritary-padding-icon: #{jkl.$unit-10};
     --jkl-button-font-size: #{jkl.$typography-body-small-font-size};
     --jkl-button-line-height: #{jkl.$typography-body-small-line-height};
 
@@ -21,12 +20,12 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
 }
 
 @include jkl.compact-density-variables {
-    --jkl-button-padding-block: #{jkl.$spacing-4};
-    --jkl-button-padding-text: #{jkl.$spacing-12};
-    --jkl-button-padding-icon: #{jkl.$spacing-8};
-    --jkl-button-padding-icon-button: #{jkl.$spacing-4};
-    --jkl-button-padding-tertiary-inline: #{jkl.$spacing-2};
-    --jkl-button-padding-ghost-inline: #{jkl.$spacing-4};
+    --jkl-button-padding-block: #{jkl.$unit-05};
+    --jkl-button-padding-text: #{jkl.$unit-15};
+    --jkl-button-padding-icon: #{jkl.$unit-10};
+    --jkl-button-padding-icon-button: #{jkl.$unit-05};
+    --jkl-button-padding-tertiary-inline: #{jkl.$unit-02};
+    --jkl-button-padding-ghost-inline: #{jkl.$unit-05};
     --jkl-button-font-size: #{jkl.$typography-small-small-font-size};
     --jkl-button-line-height: #{jkl.$typography-small-small-line-height};
 
@@ -87,7 +86,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: jkl.$spacing-2;
+        gap: jkl.$unit-02;
         pointer-events: none;
     }
 
@@ -143,6 +142,22 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
         height: jkl.rem(16px);
     }
 
+    &::after {
+        content: "";
+        opacity: 0;
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background-color: var(--text-color);
+        @include jkl.motion("standard", "productive", opacity);
+    }
+
+    &:hover {
+        &::after {
+            opacity: 0.15;
+        }
+    }
+
     html[data-touchnavigation] &.jkl-button--pressed::before {
         animation: jkl.easing("focus") jkl.timing("expressive")
             $_flash-animation-name;
@@ -150,15 +165,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
 
     &--primary,
     &--secondary,
-    &--tertiary {
-        :not([data-touchnavigation]) &:hover {
-            scale: 1.05;
-            transform-origin: center;
-        }
-    }
-
-    &--primary,
-    &--secondary {
+    &--ghost {
         --border-radius: 999px;
     }
 
@@ -168,40 +175,38 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     }
 
     &--secondary {
+        border: var(--border-width) solid var(--text-color);
+
         &::after {
             content: "";
             position: absolute;
             inset: 0;
-            border-radius: var(--border-radius);
-            border: var(--border-width) solid var(--text-color);
         }
     }
 
-    &--tertiary,
-    &--tertiary:has(.jkl-icon:first-child),
-    &--tertiary:has(.jkl-icon:last-child) {
-        padding-inline: var(--jkl-button-padding-tertiary-inline);
+    &--tertiary {
+        border-bottom: var(--border-width) solid var(--text-color);
+        padding-inline: var(--jkl-button-teritary-padding-icon);
 
         &::after {
             content: "";
             position: absolute;
             inset: 0;
             border-radius: var(--border-radius);
-            border-bottom: var(--border-width) solid var(--text-color);
         }
 
-        &:hover,
-        &:focus-visible {
-            --border-width: #{jkl.rem(2px)};
+        &:has(.jkl-icon:first-child) {
+            padding-inline-start: var(--jkl-button-teritary-padding-icon);
+        }
+
+        &:has(.jkl-icon:last-child) {
+            padding-inline-end: var(--jkl-button-teritary-padding-icon);
         }
     }
 
     &--ghost,
     &--ghost:has(.jkl-icon:first-child),
     &--ghost:has(.jkl-icon:last-child) {
-        padding-inline: var(--jkl-button-padding-ghost-inline);
-        border-radius: jkl.rem(4px);
-
         @include jkl.motion("standard", "productive", background-color);
 
         &:hover {
