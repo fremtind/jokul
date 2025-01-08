@@ -1,5 +1,5 @@
-import { test } from "@playwright/test";
-import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
@@ -31,4 +31,17 @@ test("opens correctly", async () => {
     );
 
     await helper.snapshots();
+});
+
+test("axe", async ({ axe }) => {
+    await helper.open();
+
+    // The plugin claims aria-expanded can't be used with the checkbox role. We disagree.
+    await axe({ disableRules: ["aria-allowed-attr"] });
+
+    await helper.clickElement("summary");
+    await helper.clickElement("details:nth-of-type(3) summary");
+
+    // The plugin claims aria-expanded can't be used with the checkbox role. We disagree.
+    await axe({ disableRules: ["aria-allowed-attr"] });
 });

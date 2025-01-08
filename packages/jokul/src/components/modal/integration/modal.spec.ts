@@ -1,5 +1,5 @@
-import { test } from "@playwright/test";
-import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
@@ -24,4 +24,12 @@ test("renders correctly", async () => {
         after: () => helper.clickElement('[data-testid="confirm-modal"]'),
         selector: ".jkl-modal",
     });
+});
+
+test("axe", async ({ axe }) => {
+    await helper.open();
+
+    await helper.clickElement('[data-testid="open-modal"]');
+
+    await axe();
 });

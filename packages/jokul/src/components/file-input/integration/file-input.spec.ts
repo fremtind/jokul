@@ -1,5 +1,5 @@
-import { test } from "@playwright/test";
-import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
@@ -28,4 +28,10 @@ test("renders correctly in small mode", async () => {
     await helper.checkProp("choice-prop-small");
 
     await helper.snapshots();
+});
+
+test("axe", async ({ axe }) => {
+    await helper.open();
+
+    await axe();
 });
