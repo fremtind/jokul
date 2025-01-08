@@ -119,7 +119,6 @@ export const ExampleBase: FC<Props> = ({
                 >
                     <div
                         data-testid="component-example"
-                        id={hyphenate(title)}
                         data-layout-density={density}
                         data-theme={theme}
                         data-example-text={title}

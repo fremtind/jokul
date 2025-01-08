@@ -1,5 +1,5 @@
-import { test } from "@playwright/test";
-import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
@@ -20,4 +20,11 @@ test("renders correctly", async () => {
     await helper.open();
 
     await helper.snapshots();
+});
+
+test("axe", async ({ axe }) => {
+    await helper.open();
+
+    // TODO Fix in https://github.com/fremtind/jokul/issues/4389
+    await axe({ disableRules: ["scrollable-region-focusable"] });
 });

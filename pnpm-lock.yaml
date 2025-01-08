@@ -23,6 +23,7 @@ importers:
 
   .:
     specifiers:
+      '@axe-core/playwright': ^4.10.1
       '@commitlint/cli': ^17.8.1
       '@commitlint/config-conventional': ^17.8.1
       '@fremtind/browserslist-config-jkl': ^2.0.1
@@ -108,6 +109,7 @@ importers:
       react-dom: 18.3.1_react@18.3.1
       react-is: 18.3.1
     devDependencies:
+      '@axe-core/playwright': 4.10.1
       '@commitlint/cli': 17.8.1
       '@commitlint/config-conventional': 17.8.1
       '@fremtind/browserslist-config-jkl': link:packages/browserslist-config-jkl
@@ -1510,8 +1512,16 @@ packages:
       - supports-color
     dev: false
 
+  /@axe-core/playwright/4.10.1:
+    resolution: {integrity: sha512-EV5t39VV68kuAfMKqb/RL+YjYKhfuGim9rgIaQ6Vntb2HgaCaau0h98Y3WEUqW1+PbdzxDtDNjFAipbtZuBmEA==}
+    peerDependencies:
+      playwright-core: '>= 1.0.0'
+    dependencies:
+      axe-core: 4.7.2
+    dev: true
+
   /@babel/cli/7.26.4:
-    resolution: {integrity: sha512-+mORf3ezU3p3qr+82WvJSnQNE1GAYeoCfEv4fik6B5/2cvKZ75AX8oawWQdXtM9MmndooQj15Jr9kelRFWsuRw==}
+    resolution: {integrity: sha512-Z+Doemr4VtvSD2SNHTrkiFZ1LX+JI6tyRXAAOb4N9khIuPyoEPmTPJarPm8ljJV1D6bnMQjyHMWTT9NeKbQuXA==}
     engines: {node: '>=6.9.0'}
     hasBin: true
     peerDependencies:
