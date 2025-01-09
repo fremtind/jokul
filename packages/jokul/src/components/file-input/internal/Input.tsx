@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import { useId } from "../../../hooks/useId/useId.js";
-import { formatBytes } from "../../../utilities/formatters/bytes/formatBytes.js";
 import { FileInputFile } from "../types.js";
 import { useFileInputContext } from "./fileInputContext.js";
 import { validateFile } from "./validateFile.js";
@@ -27,7 +26,7 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                 <p>Input must be placed inside a FileInputContextProvider.</p>
             );
         }
-        const { accept, maxSizeBytes, onChange, files } = context;
+        const { accept, maxSizeBytes, onChange } = context;
 
         return (
             <>
@@ -68,15 +67,9 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                         }
                     }}
                 />
-                {files.length === 0 && <p>eller slipp {descriptor} her</p>}
-                {typeof maxSizeBytes !== "undefined" && (
-                    <div
-                        id={maxSizeDescriptionId}
-                        className="jkl-file-input__max-size-text"
-                    >
-                        Maks {formatBytes(maxSizeBytes)} per fil
-                    </div>
-                )}
+                <p className="jkl-file-input__dropzone-hint">
+                    eller slipp {descriptor} her
+                </p>{" "}
             </>
         );
     },

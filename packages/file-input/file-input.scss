@@ -9,7 +9,7 @@
     --jkl-file-input-dropzone-gap: #{jkl.$spacing-24};
     --jkl-file-cta-gap: #{jkl.$spacing-24};
     --jkl-file-cta-with-files-gap: #{jkl.$spacing-12};
-    --jkl-file-list-gap: #{jkl.$spacing-16};
+    --jkl-file-list-gap: #{jkl.$spacing-8};
 }
 
 @include jkl.compact-density-variables {
@@ -55,7 +55,6 @@
     }
 
     &__call-to-action {
-        gap: var(--jkl-file-cta-gap);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -75,13 +74,18 @@
         }
     }
 
-    &--has-files &__call-to-action {
-        gap: var(--jkl-file-cta-with-files-gap);
+    &__dropzone-hint {
+        margin-top: jkl.$spacing-24;
+    }
+
+    &--has-files &__dropzone-hint {
+        display: none;
     }
 
     &__max-size-text {
         @include jkl.use-font-variables("jkl-file-size-hint");
         color: var(--jkl-color-text-subdued);
+        margin-top: jkl.$spacing-24;
     }
 
     &__files {
@@ -94,6 +98,11 @@
     }
 
     &--small {
+        .jkl-file-input__dropzone-hint {
+            margin: 0;
+            display: block;
+        }
+
         .jkl-file-input__dropzone {
             padding: jkl.$spacing-16;
             gap: jkl.$spacing-16;
@@ -112,7 +121,8 @@
         }
 
         .jkl-file-input__max-size-text {
-            @include jkl.screenreader-only;
+            margin-top: calc(-1 * #{jkl.$spacing-12});
+            margin-bottom: jkl.$spacing-16;
         }
     }
 }
