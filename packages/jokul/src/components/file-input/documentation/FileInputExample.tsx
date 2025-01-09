@@ -180,20 +180,21 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                     );
 
                     const promises = toUpload.map(
-                        (fileState, i) =>
+                        (fileToUpload) =>
                             new Promise<void>((resolve) => {
-                                const timeout = 2_000;
+                                const timeout = 2000;
                                 setTimeout(() => {
-                                    setFiles((currentState) => {
-                                        return [
-                                            ...currentState.slice(0, i),
-                                            {
-                                                ...currentState[i],
-                                                state: "UPLOAD_SUCCESS",
-                                            },
-                                            ...currentState.slice(i + 1),
-                                        ];
-                                    });
+                                    setFiles((currentFiles) =>
+                                        currentFiles.map((file) =>
+                                            file.file.name ===
+                                            fileToUpload.file.name
+                                                ? {
+                                                      ...file,
+                                                      state: "UPLOAD_SUCCESS",
+                                                  }
+                                                : file,
+                                        ),
+                                    );
                                     resolve();
                                 }, timeout);
                             }),
