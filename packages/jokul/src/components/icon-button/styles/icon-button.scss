@@ -15,7 +15,6 @@
     .jkl-icon {
         display: flex;
         align-items: center;
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
 
         &--animated {
             display: revert;
@@ -26,9 +25,6 @@
         color: var(--jkl-color);
 
         @include jkl.focus-outline;
-        @include jkl.forced-colors-mode {
-            border: revert;
-        }
     }
 
     &:hover {
@@ -36,7 +32,7 @@
     }
 
     @include jkl.forced-colors-mode {
-        border: revert;
-        background-color: revert;
+        border: none;
+        background: none;
     }
 }
