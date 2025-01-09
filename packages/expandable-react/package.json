@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-expandable-react",
-    "version": "7.1.4",
+    "version": "7.1.5",
     "publishConfig": {
         "access": "public"
     },
@@ -57,6 +57,6 @@
     },
     "devDependencies": {
         "@fremtind/jkl-button-react": "^15.2.20",
-        "@fremtind/jkl-text-input-react": "^16.0.6"
+        "@fremtind/jkl-text-input-react": "^16.0.7"
     }
 }

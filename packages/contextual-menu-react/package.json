@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-contextual-menu-react",
-    "version": "3.8.16",
+    "version": "3.8.17",
     "publishConfig": {
         "access": "public"
     },
@@ -46,7 +46,7 @@
         "framer-motion": "^11.15.0"
     },
     "devDependencies": {
-        "@fremtind/jkl-icon-button-react": "^5.0.30"
+        "@fremtind/jkl-icon-button-react": "^5.0.31"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
