@@ -17,11 +17,14 @@ export const ExpandablePanel = Object.assign(
             as = "details",
             variant = "fill",
             open: controlledOpen,
+            defaultOpen,
             onOpenChange,
             ...rest
         } = props;
 
-        const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
+        const [uncontrolledOpen, setUncontrolledOpen] = useState(
+            defaultOpen || false,
+        );
         const [contentIsVisible, setContentIsVisible] = useState(false);
         const [expanderHeight, setExpanderHeight] = useState(0);
 
