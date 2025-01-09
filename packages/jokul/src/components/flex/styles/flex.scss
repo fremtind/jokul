@@ -46,7 +46,10 @@ $container: (
     --jkl-flex-gap: 0px;
     --jkl-flex-layout: auto;
     box-sizing: border-box;
-    flex-basis: calc((100% - (12 / var(--jkl-flex-layout) - 1) * var(--jkl-flex-gap)) / 12 * var(--jkl-flex-layout));
+    flex-basis: calc(
+        (100% - (12 / var(--jkl-flex-layout) - 1) * var(--jkl-flex-gap)) / 12 *
+            var(--jkl-flex-layout)
+    );
 
     min-width: calc(var(--jkl-flex-layout) * 0px);
     min-height: calc(var(--jkl-flex-layout) * 0px);

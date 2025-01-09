@@ -1,6 +1,10 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { Expand, PolymorphicComponentPropWithRef, PolymorphicRef } from "../../utilities/polymorphism/polymorphism";
+import {
+    Expand,
+    PolymorphicComponentPropWithRef,
+    PolymorphicRef,
+} from "../../utilities/polymorphism/polymorphism.js";
 
 type Size = 1 | 2 | 3 | 4 | 6 | 4.8 | 8.4 | 2.1 | 10.2 | 3.9 | 9.3 | 5.7 | 7.5;
 type Center = "md" | "lg" | "xl" | "xxl" | boolean;
@@ -74,7 +78,14 @@ type FlexBaseProps = {
     gap?: Gap | { xs?: Gap; sm?: Gap; md?: Gap; lg?: Gap; xl?: Gap; xxl?: Gap };
     inline?: boolean;
     text?: "left" | "right" | "center";
-    justify?: "normal" | "start" | "center" | "end" | "space-between" | "space-around" | "space-evenly";
+    justify?:
+        | "normal"
+        | "start"
+        | "center"
+        | "end"
+        | "space-between"
+        | "space-around"
+        | "space-evenly";
     layout?:
         | Layout
         | {
@@ -88,11 +99,16 @@ type FlexBaseProps = {
     wrap?: "wrap" | "nowrap" | "reverse";
 };
 
-export type FlexProps<As extends React.ElementType = "div"> = PolymorphicComponentPropWithRef<As, FlexBaseProps>;
+export type FlexProps<As extends React.ElementType = "div"> =
+    PolymorphicComponentPropWithRef<As, FlexBaseProps>;
 
-type FlexComponent = <As extends React.ElementType = "div">(props: FlexProps<As>) => JSX.Element;
+type FlexComponent = <As extends React.ElementType = "div">(
+    props: FlexProps<As>,
+) => JSX.Element;
 
-export const Flex: FlexComponent = forwardRef(function Flex<As extends React.ElementType = "div">(
+export const Flex: FlexComponent = forwardRef(function Flex<
+    As extends React.ElementType = "div",
+>(
     {
         align,
         alignContent,
@@ -117,7 +133,8 @@ export const Flex: FlexComponent = forwardRef(function Flex<As extends React.Ele
         return [`${breakpoint}-row-gap-${row}`, `${breakpoint}-col-gap-${col}`];
     });
     const layouts = toObj(layout).map(
-        ([breakpoint, layout]) => `${breakpoint}-${Number(`${layout}`.replace("auto", "0"))}`, // Convert to number to convert 2.10 to 2.1 and false to 0
+        ([breakpoint, layout]) =>
+            `${breakpoint}-${Number(`${layout}`.replace("auto", "0"))}`, // Convert to number to convert 2.10 to 2.1 and false to 0
     );
 
     return (
@@ -144,4 +161,5 @@ export const Flex: FlexComponent = forwardRef(function Flex<As extends React.Ele
     );
 }) as FlexComponent; // Needed to tell Typescript this does not return ReactNode but acutally JSX.Element
 
-const toObj = (value: string | number | object) => Object.entries(typeof value === "object" ? value : { xs: value });
+const toObj = (value: string | number | object) =>
+    Object.entries(typeof value === "object" ? value : { xs: value });
