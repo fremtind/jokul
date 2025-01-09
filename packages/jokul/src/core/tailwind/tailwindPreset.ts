@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
 import tokens from "../tokens.js";
-import { colors } from "./tailwind.config.js";
+import colors from "./colors.js";
 
-const tailwindPresets: Partial<Config> = {
+const tailwindPreset: Partial<Config> = {
     theme: {
         colors,
         spacing: tokens.spacing,
@@ -18,4 +18,4 @@ const tailwindPresets: Partial<Config> = {
     plugins: [],
 };
 
-export default tailwindPresets;
+export default tailwindPreset;

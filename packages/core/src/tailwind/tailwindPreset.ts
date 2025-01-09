@@ -3,7 +3,7 @@ import tokens from "../tokens.js";
 import { breakpoints } from "../utils/breakpoints.js";
 import colors from "./colors.js";
 
-const tailwindPresets: Partial<Config> = {
+const tailwindPreset: Partial<Config> = {
     theme: {
         colors,
         spacing: tokens.spacing,
@@ -19,4 +19,4 @@ const tailwindPresets: Partial<Config> = {
     plugins: [],
 };
 
-export default tailwindPresets;
+export default tailwindPreset;
