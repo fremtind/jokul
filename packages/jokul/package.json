@@ -542,7 +542,6 @@
     },
     "scripts": {
         "generate:tokens": "node tokens.build.mjs",
-        "generate:tailwind": "node tailwind.build.mjs",
         "build": "pnpm run /compile:*/",
         "dev": "babel --out-dir=. dev-server.mjs && node dev-server.js",
         "compile:style": "node build-styles.mjs",
