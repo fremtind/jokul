@@ -1,0 +1,14 @@
+name: Forslag til forbedring av komponent
+description: Del dine forslag og innspill til en komponent
+title: "[Forslag til forbedring]: "
+labels: ["✨ Forslag"]
+body:
+    - type: markdown
+      attributes:
+          value: |
+              Tusen takk for at du bidrar til å forbedre Jøkul!
+    - type: textarea
+      id: feedback
+      attributes:
+          label: Innspill
+          description: Beskriv hvilke forbedringer eller tilbakemeldinger du har til komponenten.
