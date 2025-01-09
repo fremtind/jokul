@@ -21,3 +21,11 @@ test("renders correctly", async () => {
 
     await helper.snapshots({ focusElement: ".jkl-file__delete" });
 });
+
+test("renders correctly in small mode", async () => {
+    await helper.open();
+
+    await helper.checkProp("choice-prop-small");
+
+    await helper.snapshots();
+});
