@@ -30,4 +30,4 @@ export type {
     PolymorphicRef,
 } from "./polymorphism";
 export type { AsChildProps } from "./as-child";
-export { default as tailwindPresets } from "./tailwind/tailwindConfig";
+export { default as tailwindPresets } from "./tailwind/tailwindPreset";

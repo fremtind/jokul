@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
-import { colors } from "../../../tailwind/tailwind.config.js";
 import tokens from "../tokens.js";
+import { colors } from "./tailwind.config.js";
 
 const tailwindPresets: Partial<Config> = {
     theme: {

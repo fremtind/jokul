@@ -1,9 +1,9 @@
 /**
  * Do not edit directly
- * Generated on Wed, 08 Jan 2025 13:54:22 GMT
+ * Generated on Thu, 09 Jan 2025 11:12:06 GMT
  */
 
-export const colors = {
+const colors = {
     "background-page": "var(--jkl-color-background-page)",
     "background-page-variant": "var(--jkl-color-background-page-variant)",
     "background-container": "var(--jkl-color-background-container)",
@@ -42,3 +42,5 @@ export const colors = {
     "border-separator-hover": "var(--jkl-color-border-separator-hover)",
     "border-subdued": "var(--jkl-color-border-subdued)",
 };
+
+export default colors;

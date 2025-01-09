@@ -30,7 +30,6 @@
     "scripts": {
         "clean": "git clean -xfd",
         "generate:tokens": "node tokens.build.mjs",
-        "generate:tailwind": "node tailwind.build.mjs",
         "build": "run-s build:*",
         "build:style": "gulp build",
         "build:types": "tsc -p tsconfig-for-declarations.json",
