@@ -14,12 +14,10 @@ export function validateFile(
 
     let isValidFormat = acceptStrings.length === 0;
 
-    isValidFormat = acceptStrings.reduce(
-        (found, acceptString) =>
-            found ||
-            file.type.includes(acceptString) ||
-            file.name.endsWith(acceptString),
-        isValidFormat,
+    isValidFormat = acceptStrings.some(
+        (acceptString) =>
+            file.type.toLowerCase().includes(acceptString) ||
+            file.name.toLowerCase().endsWith(acceptString),
     );
 
     if (!isValidFormat) {
