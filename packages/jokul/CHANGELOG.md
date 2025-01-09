@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.38.0 (2025-01-09)
+
+### Features
+
+- legg til defaultOpen som prop i ExpandablePanel ([3305bac](https://github.com/fremtind/jokul/commit/3305bac91646fc62d830ccf34afd0755555a2cd0)), closes [#4420](https://github.com/fremtind/jokul/issues/4420)
+
 ## [0.37.17](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.16...@fremtind/jokul@0.37.17) (2025-01-09)
 
 ### Bug Fixes

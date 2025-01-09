@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 7.2.0 (2025-01-09)
+
+### Features
+
+- legg til defaultOpen som prop i ExpandablePanel ([3305bac](https://github.com/fremtind/jokul/commit/3305bac91646fc62d830ccf34afd0755555a2cd0)), closes [#4420](https://github.com/fremtind/jokul/issues/4420)
+
 ## [7.1.4](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expandable-react@7.1.3...@fremtind/jkl-expandable-react@7.1.4) (2025-01-08)
 
 ### Bug Fixes
