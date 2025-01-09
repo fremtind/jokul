@@ -10,6 +10,10 @@ export type ExpandablePanelProps<ElementType extends React.ElementType> =
         {
             variant?: "fill" | "stroke";
             open?: boolean;
+            /*
+             * Initiell state av content.
+             */
+            defaultOpen?: boolean;
             onOpenChange?: (open: boolean) => void;
         }
     >;
