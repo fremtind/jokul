@@ -276,8 +276,6 @@ StyleDictionary.registerFormat({
         output += dictionary.allTokens
             .filter((token) => token.path.includes("light"))
             .map((token) => {
-                console.log(token);
-
                 const key = [
                     ...token.path
                         .slice(1)
