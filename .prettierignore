@@ -7,3 +7,4 @@ tsconfig.json
 tsconfig-for-declarations.json
 pnpm-lock.yaml
 packages/jokul/dev-server.js
+packages/jokul/src/components/flex/styles/flex.scss
