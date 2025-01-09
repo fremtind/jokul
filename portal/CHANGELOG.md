@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [21.6.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.5.15...@fremtind/portal@21.6.0) (2025-01-09)
+
+### Features
+
+- innspill komponent ([3fb476c](https://github.com/fremtind/jokul/commit/3fb476cf86bd7e9485ae18d7f3048c91ae50afad))
+
+## 21.5.13 (2025-01-08)
+
+### Bug Fixes
+
+- prefers gap/overflow shorthands ([be856d4](https://github.com/fremtind/jokul/commit/be856d40a274c7cfa88da109b2812e34840907a7))
+
 # 21.5.0 (2024-11-28)
 
 ### Features

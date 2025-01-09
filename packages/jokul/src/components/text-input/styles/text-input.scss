@@ -105,6 +105,15 @@ $_text-input-selection-color--inverted: color.scale(
     @include jkl.reset-outline;
     @include jkl.remove-inner-outer-button;
 
+    @include jkl.forced-colors-mode {
+        outline: none;
+        border: none;
+
+        &:focus-visible {
+            outline: none;
+        }
+    }
+
     // Placeholder text style
     &::placeholder {
         opacity: 1;
@@ -184,6 +193,10 @@ $_text-input-selection-color--inverted: color.scale(
         box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
             0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
         border-color: var(--jkl-text-input-focus-color);
+
+        @include jkl.forced-colors-mode {
+            border: jkl.rem(2px) solid ButtonText;
+        }
     }
 
     &:has(:active) {
@@ -196,6 +209,10 @@ $_text-input-selection-color--inverted: color.scale(
     }
 
     > .jkl-icon-button:focus-visible {
+        @include jkl.forced-colors-mode {
+            --jkl-color-border-action: ButtonText;
+        }
+
         @include jkl.focus-outline($offset: -8px);
     }
 
@@ -226,13 +243,10 @@ $_text-input-selection-color--inverted: color.scale(
                 border: jkl.rem(2px) inset ButtonText;
             }
         }
+    }
 
-        @include jkl.forced-colors-mode {
-            border: revert;
-            background-color: revert;
-        }
-
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+    @include jkl.forced-colors-mode {
+        border: jkl.rem(2px) inset ButtonText;
     }
 }
 

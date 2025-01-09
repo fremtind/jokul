@@ -21,8 +21,7 @@
 
 .jkl-tabs {
     scroll-snap-type: x proximity;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow: scroll hidden;
 
     scrollbar-width: none;
 

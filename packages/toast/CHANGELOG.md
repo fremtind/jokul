@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-toast@2.2.13...@fremtind/jkl-toast@2.2.14) (2025-01-09)
+
+### Bug Fixes
+
+- fixes margin of toast icon ([01aa575](https://github.com/fremtind/jokul/commit/01aa5753ece8ab47f71d072b1808d251b7922b34))
+- puts icon next to content on mobile devices ([ef68f75](https://github.com/fremtind/jokul/commit/ef68f75a4448fe7d69197753fd5e37232b903949)), closes [#3995](https://github.com/fremtind/jokul/issues/3995)
+
 # 2.2.0 (2024-09-09)
 
 ### Features

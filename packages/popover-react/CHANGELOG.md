@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.12 (2025-01-08)
+
+### Bug Fixes
+
+- prefers gap/overflow shorthands ([be856d4](https://github.com/fremtind/jokul/commit/be856d40a274c7cfa88da109b2812e34840907a7))
+
 ## [1.2.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-popover-react@1.2.9...@fremtind/jkl-popover-react@1.2.10) (2024-12-09)
 
 ### Bug Fixes

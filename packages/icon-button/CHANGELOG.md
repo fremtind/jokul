@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.34](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icon-button@4.0.33...@fremtind/jkl-icon-button@4.0.34) (2025-01-09)
+
+### Bug Fixes
+
+- small improvements to forced colors mode ([b14d3de](https://github.com/fremtind/jokul/commit/b14d3ded90cbf8eaf7353f46fca1b9e632d0875d))
+
 ## 4.0.32 (2024-12-18)
 
 ### Bug Fixes

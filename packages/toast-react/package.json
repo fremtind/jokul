@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-toast-react",
-    "version": "2.3.21",
+    "version": "2.3.23",
     "publishConfig": {
         "access": "public"
     },
@@ -36,15 +36,15 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.8.8",
-        "@fremtind/jkl-icon-button-react": "^5.0.29",
-        "@fremtind/jkl-icons-react": "^9.1.21",
-        "@fremtind/jkl-progress-bar-react": "^6.1.12",
-        "@fremtind/jkl-react-hooks": "^12.2.12",
-        "@fremtind/jkl-toast": "^2.2.12",
-        "@react-aria/toast": "^3.0.0-beta.1",
-        "@react-stately/toast": "^3.0.0-beta.0",
-        "classnames": "^2.2.6"
+        "@fremtind/jkl-core": "^14.8.9",
+        "@fremtind/jkl-icon-button-react": "^5.0.31",
+        "@fremtind/jkl-icons-react": "^9.1.22",
+        "@fremtind/jkl-progress-bar-react": "^6.1.13",
+        "@fremtind/jkl-react-hooks": "^12.2.13",
+        "@fremtind/jkl-toast": "^2.2.14",
+        "@react-aria/toast": "3.0.0-beta.18",
+        "@react-stately/toast": "3.0.0-beta.7",
+        "classnames": "^2.5.1"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

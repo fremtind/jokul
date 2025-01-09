@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.33](https://github.com/fremtind/jokul/compare/@fremtind/jkl-combobox@2.2.32...@fremtind/jkl-combobox@2.2.33) (2025-01-09)
+
+### Bug Fixes
+
+- no focus-outline when using mouse navigation ([ccdae2c](https://github.com/fremtind/jokul/commit/ccdae2c5243c878a4ea1e0a2e1626289ff2b41ae)), closes [#4393](https://github.com/fremtind/jokul/issues/4393)
+
 ## 2.2.31 (2024-12-18)
 
 ### Bug Fixes
