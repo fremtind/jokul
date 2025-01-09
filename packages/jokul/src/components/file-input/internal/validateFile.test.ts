@@ -46,4 +46,15 @@ describe("validateFile", () => {
         expect(result?.message).toMatch(/Filtypen/);
         expect(result?.message).toMatch(/støttes ikke/);
     });
+
+    it("should handle differences in case", () => {
+        const file = new File(["BRRRRRRRR"], "TEST.TxT", {
+            type: "text/plain",
+        });
+        const accept = "txt,exe";
+
+        const result = validateFile(file, accept);
+
+        expect(result).toBeUndefined();
+    });
 });
