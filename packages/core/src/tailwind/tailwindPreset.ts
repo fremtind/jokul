@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
-import tokens from "../tokens.js";
-import { breakpoints } from "../utils/breakpoints.js";
-import colors from "./colors.js";
+import tokens from "../tokens";
+import { breakpoints } from "../utils/breakpoints";
+import colors from "./colors";
 
 const tailwindPreset: Partial<Config> = {
     theme: {
