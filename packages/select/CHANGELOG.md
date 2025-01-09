@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [11.1.34](https://github.com/fremtind/jokul/compare/@fremtind/jkl-select@11.1.33...@fremtind/jkl-select@11.1.34) (2025-01-09)
+
+### Bug Fixes
+
+- no focus-outline when using mouse navigation ([ccdae2c](https://github.com/fremtind/jokul/commit/ccdae2c5243c878a4ea1e0a2e1626289ff2b41ae)), closes [#4393](https://github.com/fremtind/jokul/issues/4393)
+
 ## 11.1.32 (2024-12-18)
 
 ### Bug Fixes

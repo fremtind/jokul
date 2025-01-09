@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.16](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.15...@fremtind/jokul@0.37.16) (2025-01-09)
+
+### Bug Fixes
+
+- fixes margin of toast icon ([01aa575](https://github.com/fremtind/jokul/commit/01aa5753ece8ab47f71d072b1808d251b7922b34))
+- no focus-outline when using mouse navigation ([ccdae2c](https://github.com/fremtind/jokul/commit/ccdae2c5243c878a4ea1e0a2e1626289ff2b41ae)), closes [#4393](https://github.com/fremtind/jokul/issues/4393)
+- puts icon next to content on mobile devices ([ef68f75](https://github.com/fremtind/jokul/commit/ef68f75a4448fe7d69197753fd5e37232b903949)), closes [#3995](https://github.com/fremtind/jokul/issues/3995)
+- small improvements to forced colors mode ([b14d3de](https://github.com/fremtind/jokul/commit/b14d3ded90cbf8eaf7353f46fca1b9e632d0875d))
+
 ## [0.37.15](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.14...@fremtind/jokul@0.37.15) (2025-01-08)
 
 ### Bug Fixes
