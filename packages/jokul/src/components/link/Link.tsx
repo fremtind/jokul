@@ -39,7 +39,7 @@ export const Link = React.forwardRef(function Link<
             aria-describedby={external ? srId : undefined}
             {...rest}
         >
-            {children}
+            <span className="jkl-link__content">{children}</span>
             {(external || rest.target === "_blank") && (
                 <ArrowNorthEastIcon variant="small" />
             )}

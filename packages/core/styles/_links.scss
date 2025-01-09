@@ -8,7 +8,9 @@ $_link-underline-thickness: jkl.rem(1px);
 $_link-underline-thickness--focus: jkl.rem(2px);
 
 .jkl-link {
-    color: var(--jkl-color-text-default);
+    --link-color: var(--jkl-color-text-default);
+
+    color: var(--link-color);
     outline: none;
     text-decoration: none;
 
@@ -16,35 +18,7 @@ $_link-underline-thickness--focus: jkl.rem(2px);
     align-items: center;
     gap: jkl.rem(1.5px);
 
-    background-position: 0
-        calc(
-            100% -
-                (
-                    #{$_link-underline-thickness--focus} - #{$_link-underline-thickness}
-                )
-        );
-    background-size: $_link-underline-thickness $_link-underline-thickness;
-    background-repeat: repeat-x;
-
-    transition-property: color;
-    @include jkl.motion("standard", "energetic");
-
-    @include _underline-gradient(var(--jkl-color-text-default));
-
-    &:hover:not(:focus) {
-        color: var(--jkl-color-text-subdued);
-        @include _underline-gradient(var(--jkl-color-text-subdued));
-    }
-
-    &:hover {
-        @include _underline-gradient(var(--jkl-color-text-subdued));
-    }
-
-    &:focus-visible {
-        @include jkl.focus-outline($offset: 0);
-    }
-
-    &:active {
+    &__content {
         background-position: 0
             calc(
                 100% -
@@ -52,6 +26,21 @@ $_link-underline-thickness--focus: jkl.rem(2px);
                         #{$_link-underline-thickness--focus} - #{$_link-underline-thickness}
                     )
             );
+        background-size: $_link-underline-thickness $_link-underline-thickness;
+        background-repeat: repeat-x;
+
+        @include jkl.motion("standard", "energetic");
+        transition-property: color;
+
+        @include _underline-gradient(var(--link-color));
+    }
+
+    &:hover:not(:focus) {
+        --link-color: var(--jkl-color-text-subdued);
+    }
+
+    &:focus-visible {
+        @include jkl.focus-outline($offset: 0);
     }
 
     @include jkl.forced-colors-mode {
