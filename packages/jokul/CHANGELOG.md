@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.37.17](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.16...@fremtind/jokul@0.37.17) (2025-01-09)
+
+### Bug Fixes
+
+- file validation is case insensitive ([d208a14](https://github.com/fremtind/jokul/commit/d208a14d6022d0febe91e54373f668950f8c0cd2))
+
 ## [0.37.16](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.37.15...@fremtind/jokul@0.37.16) (2025-01-09)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.67](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.3.66...@fremtind/jkl-file-input-react@2.3.67) (2025-01-09)
+
+### Bug Fixes
+
+- file validation is case insensitive ([d208a14](https://github.com/fremtind/jokul/commit/d208a14d6022d0febe91e54373f668950f8c0cd2))
+
 ## 2.3.65 (2025-01-08)
 
 ### Bug Fixes
