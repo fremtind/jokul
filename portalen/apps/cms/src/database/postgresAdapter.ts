@@ -18,7 +18,7 @@ const signer = new Signer({
 const getPostgresAdapter = () => {
     return postgresAdapter({
         pool: {
-            ssl: { ca },
+            ssl: process.env.NODE_ENV === "production" ? { ca } : false,
             host: process.env.DB_HOST,
             port: Number(process.env.DB_PORT),
             user: process.env.DB_USER,
