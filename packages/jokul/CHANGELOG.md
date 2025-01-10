@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.39.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.38.0...@fremtind/jokul@0.39.0) (2025-01-10)
+
+### Bug Fixes
+
+- cicd pipe failing & refactor tailwind setup ([c9ade19](https://github.com/fremtind/jokul/commit/c9ade19eaaf8135efc9e1c59c6f47cc25559dd4c))
+- rename tailwind related files ([747c320](https://github.com/fremtind/jokul/commit/747c32046626ee2dbaa0fd730b82551cf7ecbd31))
+
+### Features
+
+- initial jokul tailwind config ([2849412](https://github.com/fremtind/jokul/commit/284941255f0d6af17684dfd891226d8a4ce668d0))
+
 # 0.38.0 (2025-01-09)
 
 ### Features
