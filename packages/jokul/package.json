@@ -585,6 +585,7 @@
         "rollup-plugin-visualizer": "^5.13.1",
         "sass-embedded": "^1.83.1",
         "style-dictionary": "^3.9.2",
+        "tailwindcss": "^3.4.17",
         "vite": "^5.4.11",
         "vite-plugin-dts": "^4.4.0",
         "vitest": "^2.1.8",

@@ -265,6 +265,57 @@ const lessStyleDictionary = StyleDictionary.extend({
     },
 });
 
+StyleDictionary.registerFormat({
+    name: "tailwindcss/colors",
+    formatter: function ({ dictionary, file, platform }) {
+        const { prefix } = platform;
+
+        let output = StyleDictionary.formatHelpers.fileHeader({ file });
+
+        output += `const colors = {\n    `;
+        output += dictionary.allTokens
+            .filter((token) => token.path.includes("light"))
+            .map((token) => {
+                const key = [
+                    ...token.path
+                        .slice(1)
+                        .filter((step) => !["dark", "light"].includes(step)),
+                ].join("-");
+
+                const value = [
+                    prefix,
+                    ...token.path.filter(
+                        (step) => !["dark", "light"].includes(step),
+                    ),
+                ].join("-");
+
+                return `"${key}": "var(--${value})",`;
+            })
+            .join("\n    ");
+        output += "\n};\n\n";
+        output += `export default colors;\n`;
+
+        return output;
+    },
+});
+
+const tailwindPreset = StyleDictionary.extend({
+    source: ["src/core/tokens/**/*.json"],
+    platforms: {
+        tailwind: {
+            buildPath: "src/core/tailwind/",
+            prefix: "jkl",
+            files: [
+                {
+                    destination: "colors.ts",
+                    format: "tailwindcss/colors",
+                },
+            ],
+        },
+    },
+});
+
+tailwindPreset.buildAllPlatforms();
 myStyleDictionary.buildAllPlatforms();
 lessStyleDictionary.buildAllPlatforms();
 legacyDictionary.buildAllPlatforms();
