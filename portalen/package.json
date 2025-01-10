@@ -35,6 +35,9 @@
         }
     },
     "pnpm": {
+        "overrides": {
+            "sharp": "0.33.5"
+        },
         "peerDependencyRules": {
             "ignoreMissing": [
                 "express"
