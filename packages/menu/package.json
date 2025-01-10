@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-menu",
-    "version": "2.3.10",
+    "version": "2.3.11",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from menu-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.8.9"
+        "@fremtind/jkl-core": "^14.9.0"
     },
     "repository": {
         "type": "git",
