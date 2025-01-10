@@ -56,7 +56,7 @@ psql postgres
 Opprett en ny database ved å kjøre følgende SQL-kommando:
 
 ```sql
-CREATE DATABASE jokul-portal;
+CREATE DATABASE "jokul-portal";
 ```
 
 #### Konfigurer prosjektet
