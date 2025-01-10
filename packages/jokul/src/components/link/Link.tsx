@@ -4,7 +4,7 @@ import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
-import { ArrowNorthEastIcon } from "../icon/icons/ArrowNorthEastIcon.js";
+import { OpenInNewIcon } from "../icon/icons/OpenInNewIcon.js";
 
 export type LinkProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
@@ -41,7 +41,7 @@ export const Link = React.forwardRef(function Link<
         >
             <span className="jkl-link__content">{children}</span>
             {(external || rest.target === "_blank") && (
-                <ArrowNorthEastIcon variant="small" />
+                <OpenInNewIcon variant="small" />
             )}
             {external && (
                 <span hidden={true} id={srId}>

@@ -40,7 +40,7 @@ export const Link = React.forwardRef(function Link<
             <span className="jkl-link__content">{children}</span>
             {(external || rest.target === "_blank") && (
                 <>
-                    {/* This corresponds with ArrowNorthEastIcon from icon-react package */}
+                    {/* This corresponds with OpenInNewIcon from icon-react package */}
                     <span
                         aria-hidden
                         ref={ref}
@@ -50,7 +50,7 @@ export const Link = React.forwardRef(function Link<
                             "jkl-nav-link__icon",
                         )}
                     >
-                        {"\uf1e1"}
+                        {"\ue89e"}
                     </span>
                 </>
             )}
