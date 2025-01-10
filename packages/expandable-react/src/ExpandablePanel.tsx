@@ -19,6 +19,7 @@ export const ExpandablePanel = Object.assign(
             open: controlledOpen,
             defaultOpen,
             onOpenChange,
+            className,
             ...rest
         } = props;
 
@@ -83,6 +84,7 @@ export const ExpandablePanel = Object.assign(
                     className={cn(
                         "jkl-expandable",
                         `jkl-expandable--${variant}`,
+                        className,
                     )}
                     open={
                         /* for the animation to work in Safari we must ensure that
