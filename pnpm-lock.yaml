@@ -230,6 +230,7 @@ importers:
       '@fremtind/jkl-icons-react': ^9.2.1
       '@fremtind/jkl-list-react': ^10.2.29
       '@fremtind/jkl-react-hooks': ^12.2.15
+      '@fremtind/jkl-tag-react': ^6.0.8
       '@rollup/plugin-terser': ^0.4.4
       '@vitejs/plugin-react-swc': ^3.7.2
       classnames: ^2.5.1
@@ -249,6 +250,7 @@ importers:
       '@fremtind/jkl-expand-button': link:../expand-button
       '@fremtind/jkl-icons': link:../icons
       '@fremtind/jkl-list-react': link:../list-react
+      '@fremtind/jkl-tag-react': link:../tag-react
       '@rollup/plugin-terser': 0.4.4
       '@vitejs/plugin-react-swc': 3.7.2_vite@5.4.11
       glob: 8.1.0
