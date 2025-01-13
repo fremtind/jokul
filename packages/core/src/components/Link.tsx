@@ -37,7 +37,23 @@ export const Link = React.forwardRef(function Link<
             aria-describedby={external ? srId : undefined}
             {...rest}
         >
-            {children}
+            <span className="jkl-link__content">{children}</span>
+            {(external || rest.target === "_blank") && (
+                <>
+                    {/* This corresponds with OpenInNewIcon from icon-react package */}
+                    <span
+                        aria-hidden
+                        ref={ref}
+                        className={cn(
+                            "jkl-icon",
+                            `jkl-icon--small`,
+                            "jkl-nav-link__icon",
+                        )}
+                    >
+                        {"\ue89e"}
+                    </span>
+                </>
+            )}
             {external && (
                 <span hidden={true} id={srId}>
                     Ekstern lenke

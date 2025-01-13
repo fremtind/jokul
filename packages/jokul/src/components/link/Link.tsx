@@ -4,6 +4,7 @@ import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
+import { OpenInNewIcon } from "../icon/icons/OpenInNewIcon.js";
 
 export type LinkProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
@@ -34,13 +35,14 @@ export const Link = React.forwardRef(function Link<
     return (
         <Component
             ref={ref}
-            className={clsx("jkl-link", className, {
-                "jkl-link--external": external,
-            })}
+            className={clsx("jkl-link", className, {})}
             aria-describedby={external ? srId : undefined}
             {...rest}
         >
-            {children}
+            <span className="jkl-link__content">{children}</span>
+            {(external || rest.target === "_blank") && (
+                <OpenInNewIcon variant="small" />
+            )}
             {external && (
                 <span hidden={true} id={srId}>
                     Ekstern lenke
