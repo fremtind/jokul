@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [14.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@14.9.0...@fremtind/jkl-core@14.10.0) (2025-01-13)
+
+### Bug Fixes
+
+- links only have underline for the text content ([9e20b9f](https://github.com/fremtind/jokul/commit/9e20b9f862ef21c5836348738a9d4e099543befb))
+
+### Features
+
+- external links use OpenInNew icon instead of arrow ([fc7bba2](https://github.com/fremtind/jokul/commit/fc7bba2c04c0f0c837b119f94077f1bf3aea7498))
+- uses the new material icons for link arrows ([58b8f72](https://github.com/fremtind/jokul/commit/58b8f72a92c6b70bbcb99a5c8ff155d007334591))
+
 # 14.9.0 (2025-01-10)
 
 ### Bug Fixes
