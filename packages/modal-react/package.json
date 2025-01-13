@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-modal-react",
-    "version": "2.1.66",
+    "version": "2.1.67",
     "publishConfig": {
         "access": "public"
     },
@@ -36,11 +36,11 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.9.0",
-        "@fremtind/jkl-icon-button-react": "^5.0.32",
-        "@fremtind/jkl-icons-react": "^9.1.23",
-        "@fremtind/jkl-modal": "^2.2.14",
-        "@fremtind/jkl-react-hooks": "^12.2.14",
+        "@fremtind/jkl-core": "^14.10.0",
+        "@fremtind/jkl-icon-button-react": "^5.0.33",
+        "@fremtind/jkl-icons-react": "^9.2.0",
+        "@fremtind/jkl-modal": "^2.2.15",
+        "@fremtind/jkl-react-hooks": "^12.2.15",
         "classnames": "^2.5.1",
         "prop-types": "^15.8.1",
         "react-a11y-dialog": "^6.2.0"

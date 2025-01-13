@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@9.1.23...@fremtind/jkl-icons-react@9.2.0) (2025-01-13)
+
+### Features
+
+- adds new icon: OpenInNew ([8693e05](https://github.com/fremtind/jokul/commit/8693e054cf29ce818e0082b723cb28eac0107a29))
+
 ## 9.1.22 (2025-01-08)
 
 ### Bug Fixes
