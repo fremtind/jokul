@@ -86,7 +86,7 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: jkl.$unit-02;
+        gap: #{jkl.$spacing-4};
         pointer-events: none;
     }
 
