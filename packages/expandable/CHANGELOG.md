@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.7](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expandable@7.2.6...@fremtind/jkl-expandable@7.2.7) (2025-01-14)
+
+### Bug Fixes
+
+- makes stroke corners round again ([abc5eab](https://github.com/fremtind/jokul/commit/abc5eab4a3260be228b248460d1089c02547987a)), closes [#4424](https://github.com/fremtind/jokul/issues/4424)
+
 ## 7.2.3 (2025-01-07)
 
 ### Bug Fixes

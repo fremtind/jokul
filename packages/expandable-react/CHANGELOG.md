@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expandable-react@7.2.2...@fremtind/jkl-expandable-react@7.2.3) (2025-01-14)
+
+### Bug Fixes
+
+- sending className to ExpandablePanel no longer removes component styles ([12273f4](https://github.com/fremtind/jokul/commit/12273f42d3746bcc0af62f272e67e4fd5956b814)), closes [#4425](https://github.com/fremtind/jokul/issues/4425)
+
 # 7.2.0 (2025-01-09)
 
 ### Features
