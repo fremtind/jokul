@@ -619,7 +619,7 @@ importers:
     specifiers:
       '@fremtind/jkl-button-react': ^15.2.24
       '@fremtind/jkl-core': ^14.10.0
-      '@fremtind/jkl-file-input': ^2.1.17
+      '@fremtind/jkl-file-input': ^2.1.18
       '@fremtind/jkl-formatters-util': ^6.0.39
       '@fremtind/jkl-icon-button-react': ^5.0.34
       '@fremtind/jkl-icons-react': ^9.2.1
@@ -1274,7 +1274,7 @@ importers:
       '@fremtind/jkl-description-list-react': ^8.0.34
       '@fremtind/jkl-expand-button-react': ^7.1.6
       '@fremtind/jkl-feedback-react': ^18.2.39
-      '@fremtind/jkl-file-input-react': ^2.3.71
+      '@fremtind/jkl-file-input-react': ^2.3.72
       '@fremtind/jkl-footer-react': ^6.1.52
       '@fremtind/jkl-formatters-util': ^6.0.39
       '@fremtind/jkl-icon-button-react': ^5.0.34
@@ -3889,8 +3889,8 @@ packages:
       tslib: 2.8.1
     dev: false
 
-  /@fremtind/jkl-constants-util/3.0.120:
-    resolution: {integrity: sha512-gl7gPoArFwXwNN0++ibhhGJYjob+o/6LSJkyA3hccvFBXUnPlQ3SopBVM5z5na/waYgnf3boDnz5cChWR+JSMA==}
+  /@fremtind/jkl-constants-util/3.0.122:
+    resolution: {integrity: sha512-Moz3+8sMSZbePmGhLt1PtU+I2zw4RKVqF4vOG8ux3z+ACiA9XMnldd5hEW0wTV2SPVzXkZLFso6U3NPcxnX/+w==}
     dev: false
 
   /@fremtind/jkl-contact-information-react/2.1.52_nnrd3gsncyragczmpvfhocinkq:
@@ -3903,7 +3903,7 @@ packages:
     dependencies:
       '@fremtind/jkl-contact-information': 2.0.22_nnrd3gsncyragczmpvfhocinkq
       '@fremtind/jkl-core': 14.10.0_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-formatters-util': 6.0.37_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-formatters-util': 6.0.39_nnrd3gsncyragczmpvfhocinkq
       classnames: 2.5.1
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
@@ -3969,7 +3969,7 @@ packages:
     dependencies:
       '@fremtind/jkl-core': 14.10.0_nnrd3gsncyragczmpvfhocinkq
       '@fremtind/jkl-footer': 6.0.22_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-formatters-util': 6.0.37_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-formatters-util': 6.0.39_nnrd3gsncyragczmpvfhocinkq
       '@fremtind/jkl-logo-react': 13.1.26_nnrd3gsncyragczmpvfhocinkq
       classnames: 2.5.1
       react: 18.3.1
@@ -3987,15 +3987,15 @@ packages:
       - react-dom
     dev: false
 
-  /@fremtind/jkl-formatters-util/6.0.37_nnrd3gsncyragczmpvfhocinkq:
-    resolution: {integrity: sha512-lbwkFT1ugf3gdOA1pDjKYxDZ/bRY2RZKCbj27t3SDIl+lCueFJhwMkOflCv+srD/zwO4FVymQoAcRohWca/JQQ==}
+  /@fremtind/jkl-formatters-util/6.0.39_nnrd3gsncyragczmpvfhocinkq:
+    resolution: {integrity: sha512-fmbhpSE0svmqZxt42rrMt3ijTR1XucAwVpGzgmqY7mOoeiBg1M/FAvMkKta9BTnjE+1BC2flwcYn3X0wUy7nbg==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@fremtind/jkl-constants-util': 3.0.120
+      '@fremtind/jkl-constants-util': 3.0.122
       '@fremtind/jkl-core': 14.10.0_nnrd3gsncyragczmpvfhocinkq
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1

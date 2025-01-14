@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.72](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.3.71...@fremtind/jkl-file-input-react@2.3.72) (2025-01-14)
+
+### Bug Fixes
+
+- sync figma and code ([340981e](https://github.com/fremtind/jokul/commit/340981eb25c3669899f95dbf5bd1f97aa8380f08))
+
 ## [2.3.67](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.3.66...@fremtind/jkl-file-input-react@2.3.67) (2025-01-09)
 
 ### Bug Fixes
