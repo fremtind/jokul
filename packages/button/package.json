@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-button",
-    "version": "12.2.16",
+    "version": "12.2.17",
     "publishConfig": {
         "access": "public"
     },

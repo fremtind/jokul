@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.40.2 (2025-01-14)
+
+### Bug Fixes
+
+- only has focus style with keyboard-nav ([a1c4e43](https://github.com/fremtind/jokul/commit/a1c4e43711806b60adfaba20ff919c8962dc7c87))
+
 ## [0.40.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.40.0...@fremtind/jokul@0.40.1) (2025-01-14)
 
 ### Bug Fixes
