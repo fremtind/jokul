@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useId } from "react";
 import {
     FieldGroup,
     type FieldGroupProps,
@@ -8,6 +8,7 @@ import { type Density } from "../../core/types.js";
 import { Dropzone } from "./internal/Dropzone.js";
 import { FileInputContextProvider } from "./internal/fileInputContext.js";
 import { Input } from "./internal/Input.js";
+import { MaxSize } from "./internal/MaxSize.js";
 import { FileInputFile } from "./types.js";
 
 export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
@@ -55,6 +56,8 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 
         const hasFiles = value.length > 0;
 
+        const maxSizeDescriptionId = useId();
+
         if (variant === "small") {
             return (
                 <FileInputContextProvider
@@ -79,9 +82,11 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                     label="Legg til fil"
                                     multiple={multiple}
                                     ref={ref}
+                                    aria-describedby={maxSizeDescriptionId}
                                 />
                             </div>
                         </Dropzone>
+                        <MaxSize id={maxSizeDescriptionId} />
                         {value.length > 0 && (
                             <ul className="jkl-file-input__files">
                                 {children}
@@ -119,7 +124,9 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                 }
                                 multiple={multiple}
                                 ref={ref}
+                                aria-describedby={maxSizeDescriptionId}
                             />
+                            <MaxSize id={maxSizeDescriptionId} />
                         </div>
                     </Dropzone>
                 </FieldGroup>

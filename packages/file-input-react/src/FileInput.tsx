@@ -4,10 +4,11 @@ import {
     type FieldGroupProps,
 } from "@fremtind/jkl-input-group-react";
 import cn from "classnames";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useId } from "react";
 import { Dropzone } from "./internal/Dropzone";
 import { FileInputContextProvider } from "./internal/fileInputContext";
 import { Input } from "./internal/Input";
+import { MaxSize } from "./internal/MaxSize";
 import { FileInputFile } from "./types";
 
 export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
@@ -55,6 +56,8 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 
         const hasFiles = value.length > 0;
 
+        const maxSizeDescriptionId = useId();
+
         if (variant === "small") {
             return (
                 <FileInputContextProvider
@@ -79,9 +82,11 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                     label="Legg til fil"
                                     multiple={multiple}
                                     ref={ref}
+                                    aria-describedby={maxSizeDescriptionId}
                                 />
                             </div>
                         </Dropzone>
+                        <MaxSize id={maxSizeDescriptionId} />
                         {value.length > 0 && (
                             <ul className="jkl-file-input__files">
                                 {children}
@@ -119,7 +124,9 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                 }
                                 multiple={multiple}
                                 ref={ref}
+                                aria-describedby={maxSizeDescriptionId}
                             />
+                            <MaxSize id={maxSizeDescriptionId} />
                         </div>
                     </Dropzone>
                 </FieldGroup>
