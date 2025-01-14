@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.40.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.40.0...@fremtind/jokul@0.40.1) (2025-01-14)
+
+### Bug Fixes
+
+- makes stroke corners round again ([abc5eab](https://github.com/fremtind/jokul/commit/abc5eab4a3260be228b248460d1089c02547987a)), closes [#4424](https://github.com/fremtind/jokul/issues/4424)
+- sending className to ExpandablePanel no longer removes component styles ([12273f4](https://github.com/fremtind/jokul/commit/12273f42d3746bcc0af62f272e67e4fd5956b814)), closes [#4425](https://github.com/fremtind/jokul/issues/4425)
+
 # [0.40.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.39.0...@fremtind/jokul@0.40.0) (2025-01-13)
 
 ### Bug Fixes
