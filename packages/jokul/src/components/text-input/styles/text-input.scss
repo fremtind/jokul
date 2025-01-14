@@ -203,9 +203,11 @@ $_text-input-selection-color--inverted: color.scale(
         background-color: var(--jkl-text-input-background-color);
     }
 
-    &:has(.jkl-text-input__input:focus-visible),
-    &:has(.jkl-text-area__text-area:focus-visible) {
-        @include jkl.focus-outline;
+    @include jkl.keyboard-navigation {
+        &:has(.jkl-text-input__input:focus-visible),
+        &:has(.jkl-text-area__text-area:focus-visible) {
+            @include jkl.focus-outline;
+        }
     }
 
     > .jkl-icon-button:focus-visible {
