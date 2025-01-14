@@ -42,7 +42,7 @@ Det finnes en del grunnleggende stiler som må med for at ting skal fungere rikt
 kan du importere med
 
 ```scss
-@use "@fremtind/jokul/styles/core";
+@use "@fremtind/jokul/styles/core/core";
 ```
 
 eller i ts/js
