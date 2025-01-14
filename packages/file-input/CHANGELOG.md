@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.18 (2025-01-14)
+
+### Bug Fixes
+
+- sync figma and code ([340981e](https://github.com/fremtind/jokul/commit/340981eb25c3669899f95dbf5bd1f97aa8380f08))
+
 ## 2.1.14 (2024-12-18)
 
 ### Bug Fixes
