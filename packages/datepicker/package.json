@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-datepicker",
-    "version": "12.1.42",
+    "version": "12.1.43",
     "publishConfig": {
         "access": "public"
     },
@@ -27,7 +27,7 @@
     "dependencies": {
         "@fremtind/jkl-core": "^14.10.0",
         "@fremtind/jkl-select": "^11.1.36",
-        "@fremtind/jkl-text-input": "^12.1.37"
+        "@fremtind/jkl-text-input": "^12.1.38"
     },
     "repository": {
         "type": "git",

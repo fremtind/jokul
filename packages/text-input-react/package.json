@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input-react",
-    "version": "16.0.10",
+    "version": "16.0.11",
     "publishConfig": {
         "access": "public"
     },
@@ -47,7 +47,7 @@
         "@fremtind/jkl-icons-react": "^9.2.1",
         "@fremtind/jkl-input-group-react": "^4.0.8",
         "@fremtind/jkl-react-hooks": "^12.2.15",
-        "@fremtind/jkl-text-input": "^12.1.37",
+        "@fremtind/jkl-text-input": "^12.1.38",
         "classnames": "^2.5.1",
         "downshift": "^7.6.2",
         "match-sorter": "^6.3.4"

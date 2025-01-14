@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 12.1.38 (2025-01-14)
+
+### Bug Fixes
+
+- only has focus style with keyboard-nav ([a1c4e43](https://github.com/fremtind/jokul/commit/a1c4e43711806b60adfaba20ff919c8962dc7c87))
+
 ## [12.1.35](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@12.1.34...@fremtind/jkl-text-input@12.1.35) (2025-01-09)
 
 ### Bug Fixes

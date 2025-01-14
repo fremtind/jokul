@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-expandable-react",
-    "version": "7.2.4",
+    "version": "7.2.5",
     "publishConfig": {
         "access": "public"
     },
@@ -56,7 +56,7 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "devDependencies": {
-        "@fremtind/jkl-button-react": "^15.2.23",
-        "@fremtind/jkl-text-input-react": "^16.0.10"
+        "@fremtind/jkl-button-react": "^15.2.24",
+        "@fremtind/jkl-text-input-react": "^16.0.11"
     }
 }
