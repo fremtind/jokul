@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 9.2.1 (2025-01-14)
+
+### Bug Fixes
+
+- fix import paths in old package ([2808a68](https://github.com/fremtind/jokul/commit/2808a68d0ef976c451c07036add5f25d6c520026))
+
 # [9.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-icons-react@9.1.23...@fremtind/jkl-icons-react@9.2.0) (2025-01-13)
 
 ### Features

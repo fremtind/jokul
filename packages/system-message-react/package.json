@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-system-message-react",
-    "version": "1.0.20",
+    "version": "1.0.21",
     "publishConfig": {
         "access": "public"
     },
@@ -39,7 +39,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^14.10.0",
-        "@fremtind/jkl-icons-react": "^9.2.0",
+        "@fremtind/jkl-icons-react": "^9.2.1",
         "@fremtind/jkl-react-hooks": "^12.2.15",
         "@fremtind/jkl-system-message": "^1.1.15",
         "classnames": "^2.5.1"
