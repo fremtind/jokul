@@ -17,7 +17,7 @@ jobs:
             - uses: actions/stale@v5
               with:
                   only-issue-labels: ⁉️ no-reproduction
-                  days-before-issue-stale: 2
+                  days-before-issue-stale: 21
                   days-before-issue-close: 7
                   stale-issue-label: "stale"
                   stale-issue-message: "This issue is stale as it has been open for 21 days while being labeled with 'no-reproductuion'."
