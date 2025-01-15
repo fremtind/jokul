@@ -20,7 +20,7 @@ jobs:
                   days-before-issue-stale: 21
                   days-before-issue-close: 7
                   stale-issue-label: "stale"
-                  stale-issue-message: "This issue is stale as it has been open for 21 days while being labeled with 'no-reproductuion'."
+                  stale-issue-message: "This issue is stale as it has been open for 21 days while being labeled with 'no-reproduction'."
                   close-issue-message: "This issue was closed because it has been stale for 7 days."
                   days-before-pr-stale: -1
                   days-before-pr-close: -1
