@@ -4,99 +4,73 @@ import { TertiaryButton } from "../../button/Button.js";
 import { CookieConsent } from "../CookieConsent.js";
 import {
     CookieConsentProvider,
-    DEFAULT_COOKIE_NAME,
     useCookieConsent,
-    useCookieConsentState,
 } from "../CookieConsentContext.js";
-import {
-    buildRequirementsObject,
-    setConsentCookie,
-} from "../cookieConsentUtils.js";
+import { setConsentCookie } from "../cookieConsentUtils.js";
 
-function clearConsentCookie() {
-    setConsentCookie({
-        consent: {
-            functional: null,
-            statistics: null,
-            marketing: null,
-        },
-        name: DEFAULT_COOKIE_NAME,
-        maxAge: -1,
-    });
-}
-const Example: FC<{
-    functional?: boolean;
-    statistics?: boolean;
-    marketing?: boolean;
-}> = ({ functional = false, statistics = false, marketing = false }) => {
-    const { openConsentModalWithDefaults } = useCookieConsent();
-
-    // Start: Kun for demoen
-    const { dispatch } = useCookieConsentState();
-    useEffect(() => {
-        setTimeout(() => {
-            dispatch({ type: "SET_SHOW_CONSENT", payload: false });
-            dispatch({ type: "SET_SHOW_SETTINGS", payload: false });
-            dispatch({
-                type: "UPDATE_REQUIREMENTS",
-                payload: buildRequirementsObject({
-                    functional,
-                    statistics,
-                    marketing,
-                }),
-            });
-        }, 0);
-    }, [dispatch, functional, statistics, marketing]);
-    // Slutt: Kun for demoen
-
-    return (
-        <>
-            <TertiaryButton
-                data-testid="trigger-cookie-consent"
-                onClick={openConsentModalWithDefaults}
-            >
-                Informasjonskapsler
-            </TertiaryButton>
-            <CookieConsent blocking onAccept={console.log} />
-        </>
-    );
-};
-
-export const cookieConsentModalExampleKnobs: ExampleKnobsProps = {
+export const knobs: ExampleKnobsProps = {
     boolProps: [
+        { prop: "Blocking", defaultValue: true },
         { prop: "Functional", defaultValue: true },
         "Statistics",
         "Marketing",
     ],
 };
 
+const Example: FC<{ blocking: boolean }> = ({ blocking }) => {
+    const { openConsentModal, consents } = useCookieConsent();
+
+    useEffect(() => {
+        console.log("Current consents:", consents);
+    }, [consents]);
+
+    return (
+        <>
+            <TertiaryButton
+                data-testid="trigger-cookie-consent"
+                onClick={openConsentModal}
+            >
+                Informasjonskapsler
+            </TertiaryButton>
+            <CookieConsent
+                blocking={blocking}
+                onAccept={(newConsents) =>
+                    console.log("Updated consents: ", newConsents)
+                }
+            />
+        </>
+    );
+};
+
 export const CookieConsentModalExample: FC<ExampleComponentProps> = ({
     boolValues,
 }) => {
-    const [hasMounted, setHasMounted] = useState(false);
+    const [hasResetCookie, setHasResetCookie] = useState(false);
     useEffect(() => {
-        setHasMounted(true);
-    }, []);
+        // Write a cookie to avoid having the modal pop up on first render
+        setConsentCookie({
+            consent: {
+                functional: "denied",
+                statistics: "denied",
+                marketing: "denied",
+            },
+            name: "demo-consent-cookie",
+        });
+        setHasResetCookie(true);
+    }, [setHasResetCookie, boolValues]);
 
-    if (!hasMounted) {
+    if (!hasResetCookie) {
         return null;
     }
 
-    // Start: Kun for demoen
-    clearConsentCookie();
-    // Slutt: Kun for demoen
-
     return (
         <CookieConsentProvider
+            cookieName="demo-consent-cookie"
             functional={boolValues?.["Functional"]}
             statistics={boolValues?.["Statistics"]}
             marketing={boolValues?.["Marketing"]}
         >
-            <Example
-                functional={boolValues?.["Functional"]}
-                statistics={boolValues?.["Statistics"]}
-                marketing={boolValues?.["Marketing"]}
-            />
+            <Example blocking={boolValues?.["Blocking"] || false} />
         </CookieConsentProvider>
     );
 };

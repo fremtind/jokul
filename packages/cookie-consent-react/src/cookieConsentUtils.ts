@@ -98,38 +98,6 @@ export const shouldShowConsentDialog = (
     }
 };
 
-export const convertConsentValueToFormValue = (
-    consent: ConsentState,
-): boolean | undefined => {
-    if (!consent) {
-        return undefined;
-    }
-
-    if (consent === "denied") {
-        return false;
-    }
-
-    return true;
-};
-
-export const convertConsentObjectToBooleans = (
-    consent: Partial<Record<keyof Consent, ConsentState>>,
-): { [k: string]: boolean | undefined } => {
-    const defaultConsent = {
-        functional: null,
-        marketing: null,
-        statistics: null,
-    };
-
-    const consentEntries: Array<[string, boolean | undefined]> = Object.entries(
-        { ...defaultConsent, ...consent },
-    ).map(([consentName, value]) => [
-        consentName,
-        convertConsentValueToFormValue(value),
-    ]);
-    return Object.fromEntries(consentEntries);
-};
-
 export const convertBooleanToConsentValue = (
     formValue: boolean | undefined,
 ): ConsentState => {
@@ -146,21 +114,19 @@ export const convertBooleanToConsentValue = (
 
 export const convertBooleanConsentObjectToConsentObject = (
     consent: Partial<Record<keyof Consent, boolean | undefined>>,
+    requirement: ConsentRequirement,
 ): Consent => {
-    const defaultObject = {
-        functional: undefined,
-        marketing: undefined,
-        statistics: undefined,
+    return {
+        functional: requirement.functional
+            ? convertBooleanToConsentValue(consent.functional)
+            : undefined,
+        statistics: requirement.statistics
+            ? convertBooleanToConsentValue(consent.statistics)
+            : undefined,
+        marketing: requirement.marketing
+            ? convertBooleanToConsentValue(consent.marketing)
+            : undefined,
     };
-
-    const consentEntries = Object.entries({ ...defaultObject, ...consent }).map(
-        ([consentName, value]) => [
-            consentName,
-            convertBooleanToConsentValue(value),
-        ],
-    );
-
-    return Object.fromEntries(consentEntries);
 };
 
 export const buildRequirementsObject = ({
