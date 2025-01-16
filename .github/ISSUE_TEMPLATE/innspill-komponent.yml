@@ -2,6 +2,7 @@ name: Forslag til forbedring av komponent
 description: Del dine forslag og innspill til en komponent
 title: "[Forslag til forbedring]: "
 labels: ["✨ Forslag"]
+type: "Feature"
 body:
     - type: markdown
       attributes:
