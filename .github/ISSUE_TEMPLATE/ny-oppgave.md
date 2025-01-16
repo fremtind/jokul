@@ -3,6 +3,7 @@ name: Forslag
 about: Du har en idé til noe som kan endres på eller legges til i designsystemet
 title: ""
 labels: "✨ Forslag"
+type: "Feature"
 assignees: ""
 ---
 
