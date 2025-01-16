@@ -1,10 +1,10 @@
-import { act, renderHook } from "@testing-library/react";
+import { renderHook } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
 import { WithChildren } from "../../core/types.js";
 import {
     CookieConsentProvider,
-    useCookieConsentState,
+    useInternalState,
 } from "./CookieConsentContext.js";
 import { Consent, ConsentState } from "./types.js";
 
@@ -33,14 +33,13 @@ describe("cookie-consent-react/CookieConsentContext", () => {
         });
     };
     it("initial state behaves as expected", () => {
-        const { result } = renderHook(() => useCookieConsentState(), {
+        const { result } = renderHook(() => useInternalState(), {
             wrapper: CookieConsentProvider,
         });
 
-        expect(result.current.showSettings).toEqual(false);
         expect(result.current.isOpen).toEqual(false);
         expect(result.current.requirement).toEqual({});
-        expect(result.current.consent).toEqual(
+        expect(result.current.currentConsent).toEqual(
             generateConsent(null, null, null),
         );
     });
@@ -55,11 +54,11 @@ describe("cookie-consent-react/CookieConsentContext", () => {
             ],
         ]);
 
-        const { result } = renderHook(() => useCookieConsentState(), {
+        const { result } = renderHook(() => useInternalState(), {
             wrapper: CookieConsentProvider,
         });
 
-        expect(result.current.consent).toEqual(
+        expect(result.current.currentConsent).toEqual(
             generateConsent(null, "accepted", "denied"),
         );
     });
@@ -71,7 +70,7 @@ describe("cookie-consent-react/CookieConsentContext", () => {
             </CookieConsentProvider>
         );
 
-        const { result } = renderHook(() => useCookieConsentState(), {
+        const { result } = renderHook(() => useInternalState(), {
             wrapper,
         });
 
@@ -93,7 +92,7 @@ describe("cookie-consent-react/CookieConsentContext", () => {
             </CookieConsentProvider>
         );
 
-        const { result } = renderHook(() => useCookieConsentState(), {
+        const { result } = renderHook(() => useInternalState(), {
             wrapper,
         });
 
@@ -115,7 +114,7 @@ describe("cookie-consent-react/CookieConsentContext", () => {
             </CookieConsentProvider>
         );
 
-        const { result } = renderHook(() => useCookieConsentState(), {
+        const { result } = renderHook(() => useInternalState(), {
             wrapper,
         });
 
@@ -137,97 +136,10 @@ describe("cookie-consent-react/CookieConsentContext", () => {
             </CookieConsentProvider>
         );
 
-        const { result } = renderHook(() => useCookieConsentState(), {
+        const { result } = renderHook(() => useInternalState(), {
             wrapper,
         });
 
         expect(result.current.isOpen).toEqual(false);
-    });
-
-    it("dispatching open and close works as expected", () => {
-        const { result } = renderHook(() => useCookieConsentState(), {
-            wrapper: CookieConsentProvider,
-        });
-
-        expect(result.current.isOpen).toEqual(false);
-
-        act(() => {
-            result.current.dispatch({
-                type: "SET_SHOW_CONSENT",
-                payload: true,
-            });
-        });
-
-        expect(result.current.isOpen).toEqual(true);
-
-        act(() => {
-            result.current.dispatch({
-                type: "SET_SHOW_CONSENT",
-                payload: false,
-            });
-        });
-
-        expect(result.current.isOpen).toEqual(false);
-    });
-
-    it("dispatching settings display state works as expected", () => {
-        const { result } = renderHook(() => useCookieConsentState(), {
-            wrapper: CookieConsentProvider,
-        });
-
-        expect(result.current.showSettings).toEqual(false);
-
-        act(() => {
-            result.current.dispatch({
-                type: "SET_SHOW_SETTINGS",
-                payload: true,
-            });
-        });
-
-        expect(result.current.showSettings).toEqual(true);
-
-        act(() => {
-            result.current.dispatch({
-                type: "SET_SHOW_SETTINGS",
-                payload: false,
-            });
-        });
-
-        expect(result.current.showSettings).toEqual(false);
-    });
-
-    it("updating consent works as expected", () => {
-        setDocumentCookieState([
-            [
-                "fremtind-cookie-consent",
-                JSON.stringify({
-                    ...generateConsent("denied", "accepted", null),
-                }),
-            ],
-        ]);
-        const wrapper: React.FC<WithChildren> = ({ children }) => (
-            <CookieConsentProvider marketing functional>
-                {children}
-            </CookieConsentProvider>
-        );
-
-        const { result } = renderHook(() => useCookieConsentState(), {
-            wrapper,
-        });
-
-        expect(result.current.consent).toEqual(
-            generateConsent("denied", "accepted", null),
-        );
-
-        act(() => {
-            result.current.dispatch({
-                type: "UPDATE_CONSENT",
-                payload: generateConsent("accepted", "accepted", "accepted"),
-            });
-        });
-
-        expect(result.current.consent).toEqual(
-            generateConsent("accepted", "accepted", "accepted"),
-        );
     });
 });

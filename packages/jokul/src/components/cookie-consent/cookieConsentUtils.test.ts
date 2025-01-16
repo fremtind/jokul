@@ -1,9 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 import {
-    convertBooleanConsentObjectToConsentObject,
     convertBooleanToConsentValue,
-    convertConsentObjectToBooleans,
-    convertConsentValueToFormValue,
     getConsentCookie,
     setConsentCookie,
     shouldShowConsentDialog,
@@ -207,60 +204,10 @@ describe("cookieConsentUtils/shouldShowConsentDialog", () => {
     });
 });
 
-describe("cookieConsentUtils/convertConsentValueToFormValue", () => {
-    it("konverterer et consent om til verdier som et form kan bruke", () => {
-        expect(convertConsentValueToFormValue(null)).toEqual(undefined);
-        expect(convertConsentValueToFormValue("accepted")).toEqual(true);
-        expect(convertConsentValueToFormValue("denied")).toEqual(false);
-    });
-});
-
 describe("cookieConsentUtils/convertBooleanToConsentValue", () => {
     it("konverterer et consent om til verdier som et form kan bruke", () => {
         expect(convertBooleanToConsentValue(false)).toEqual("denied");
         expect(convertBooleanToConsentValue(true)).toEqual("accepted");
         expect(convertBooleanToConsentValue(undefined)).toEqual(null);
-    });
-});
-
-describe("cookieConsentUtils/convertConsentBooleanObjectToConsentObject", () => {
-    it("konverterer et objekt med booleans til et consent", () => {
-        expect(
-            convertBooleanConsentObjectToConsentObject({
-                functional: true,
-                marketing: false,
-                statistics: false,
-            }),
-        ).toEqual({
-            functional: "accepted",
-            marketing: "denied",
-            statistics: "denied",
-        });
-
-        expect(
-            convertBooleanConsentObjectToConsentObject({
-                functional: true,
-                marketing: false,
-            }),
-        ).toEqual({
-            functional: "accepted",
-            marketing: "denied",
-            statistics: null,
-        });
-    });
-});
-
-describe("cookieConsentUtils/convertConsentObjectToBooleans", () => {
-    it("konverterer et consent objekt til et objekt med booleans", () => {
-        expect(
-            convertConsentObjectToBooleans({
-                functional: "accepted",
-                marketing: "denied",
-            }),
-        ).toEqual({
-            functional: true,
-            marketing: false,
-            statistics: undefined,
-        });
     });
 });
