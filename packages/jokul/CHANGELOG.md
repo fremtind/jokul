@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.41.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.41.0...@fremtind/jokul@0.41.1) (2025-01-20)
+
+### Bug Fixes
+
+- adds axe plugin and fixes warnings ([b4e8fda](https://github.com/fremtind/jokul/commit/b4e8fda4ee78c479348459c6840386ae50431d9d))
+
 # [0.41.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.40.3...@fremtind/jokul@0.41.0) (2025-01-20)
 
 ### Bug Fixes
