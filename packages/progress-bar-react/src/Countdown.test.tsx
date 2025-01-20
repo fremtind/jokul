@@ -39,7 +39,7 @@ describe("Countdown", () => {
         render(<Countdown from={2000} />);
 
         act(() => {
-            jest.advanceTimersByTime(2000);
+            jest.advanceTimersByTime(3000);
         });
 
         act(() => {

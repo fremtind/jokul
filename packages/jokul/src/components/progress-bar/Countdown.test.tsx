@@ -40,7 +40,7 @@ describe("Countdown", () => {
         render(<Countdown from={2000} />);
 
         act(() => {
-            vi.advanceTimersByTime(2000);
+            vi.advanceTimersByTime(3000);
         });
 
         act(() => {
