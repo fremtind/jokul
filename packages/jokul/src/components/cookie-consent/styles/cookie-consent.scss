@@ -20,60 +20,12 @@ $_container-width--compact: jkl.rem(320px);
         transition: 0.2s;
     }
 
-    &__content {
-        z-index: jkl.$z-index--floating !important;
-        position: fixed;
-        margin: auto;
-        top: 10%;
-        max-height: 80vh;
-        overflow-y: auto;
-        box-sizing: border-box;
-        left: 0;
-        right: 0;
-        width: 100%;
-        padding: jkl.$unit-50 jkl.$unit-50 jkl.rem(30px) jkl.$unit-50;
-        min-width: $_container-width--compact;
-        max-width: $_container-width;
-        background-color: var(--jkl-background-color);
-        box-shadow: jkl.$drop-shadow--large;
-        transition: 0.2s;
-        @include jkl.text-style("body");
-
-        @include jkl.small-device {
-            top: jkl.$unit-50;
-            margin: jkl.$unit-30;
-            max-width: calc(100% - #{jkl.$unit-30} - #{jkl.$unit-30});
-            padding: jkl.$unit-30;
-        }
-
-        @include jkl.forced-colors-mode {
-            border: 2px solid CanvasText;
-        }
-    }
-
-    &__checklist.jkl-list {
-        margin-block: jkl.$unit-20;
-    }
-
     &__info-text {
         @include jkl.text-style("small");
-    }
-
-    &__header {
-        margin-bottom: jkl.$unit-30;
-        @include jkl.text-style("heading-3");
     }
 
     &__checkbox {
         margin-bottom: jkl.$unit-10;
         margin-top: jkl.$unit-30;
-    }
-
-    &__button-group {
-        margin-top: jkl.$unit-50;
-
-        & > :not(:first-child) {
-            margin-left: jkl.$unit-30;
-        }
     }
 }

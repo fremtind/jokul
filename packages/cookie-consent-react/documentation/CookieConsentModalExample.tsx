@@ -1,71 +1,41 @@
 import { TertiaryButton } from "@fremtind/jkl-button-react";
-import React, { useEffect, useState, FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import {
     CodeExample,
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "../../../doc-utils";
-import { CookieConsentProvider, CookieConsent, useCookieConsent } from "../src";
-import {
-    DEFAULT_COOKIE_NAME,
-    useCookieConsentState,
-} from "../src/CookieConsentContext";
-import {
-    buildRequirementsObject,
-    setConsentCookie,
-} from "../src/cookieConsentUtils";
+import { CookieConsent, CookieConsentProvider, useCookieConsent } from "../src";
+import { setConsentCookie } from "../src/cookieConsentUtils";
 
-function clearConsentCookie() {
-    setConsentCookie({
-        consent: {
-            functional: null,
-            statistics: null,
-            marketing: null,
-        },
-        name: DEFAULT_COOKIE_NAME,
-        maxAge: -1,
-    });
-}
-const Example: FC<{
-    functional?: boolean;
-    statistics?: boolean;
-    marketing?: boolean;
-}> = ({ functional = false, statistics = false, marketing = false }) => {
-    const { openConsentModalWithDefaults } = useCookieConsent();
+const Example: FC<{ blocking: boolean }> = ({ blocking }) => {
+    const { openConsentModal, consents } = useCookieConsent();
 
-    // Start: Kun for demoen
-    const { dispatch } = useCookieConsentState();
     useEffect(() => {
-        setTimeout(() => {
-            dispatch({ type: "SET_SHOW_CONSENT", payload: false });
-            dispatch({ type: "SET_SHOW_SETTINGS", payload: false });
-            dispatch({
-                type: "UPDATE_REQUIREMENTS",
-                payload: buildRequirementsObject({
-                    functional,
-                    statistics,
-                    marketing,
-                }),
-            });
-        }, 0);
-    }, [dispatch, functional, statistics, marketing]);
-    // Slutt: Kun for demoen
+        console.log("Current consents:", consents);
+    }, [consents]);
 
     return (
         <>
             <TertiaryButton
                 data-testid="trigger-cookie-consent"
-                onClick={openConsentModalWithDefaults}
+                onClick={openConsentModal}
             >
                 Informasjonskapsler
             </TertiaryButton>
-            <CookieConsent blocking onAccept={console.log} />
+            <CookieConsent
+                blocking={blocking}
+                onAccept={(newConsents) =>
+                    console.log("Updated consents: ", newConsents)
+                }
+            />
         </>
     );
 };
 
 export const cookieConsentModalExampleKnobs: ExampleKnobsProps = {
     boolProps: [
+        { prop: "Blocking", defaultValue: true },
         { prop: "Functional", defaultValue: true },
         "Statistics",
         "Marketing",
@@ -75,55 +45,93 @@ export const cookieConsentModalExampleKnobs: ExampleKnobsProps = {
 export const CookieConsentModalExample: FC<ExampleComponentProps> = ({
     boolValues,
 }) => {
-    const [hasMounted, setHasMounted] = useState(false);
+    const [hasResetCookie, setHasResetCookie] = useState(false);
     useEffect(() => {
-        setHasMounted(true);
-    }, []);
+        // Write an initial cookie to avoid having the modal pop up on first render
+        // We are setting the values to "denied" in order to ensure that the
+        // component does not automatically open itself, which it would have
+        // done if it contained null-values. In an actual application context
+        // there is no need to initialise anything.
+        setConsentCookie({
+            consent: {
+                functional: "denied",
+                statistics: "denied",
+                marketing: "denied",
+            },
+            name: "demo-consent-cookie",
+        });
+        setHasResetCookie(true);
+    }, [setHasResetCookie, boolValues]);
 
-    if (!hasMounted) {
+    if (!hasResetCookie) {
         return null;
     }
 
-    // Start: Kun for demoen
-    clearConsentCookie();
-    // Slutt: Kun for demoen
-
     return (
         <CookieConsentProvider
+            cookieName="demo-consent-cookie"
             functional={boolValues?.["Functional"]}
             statistics={boolValues?.["Statistics"]}
             marketing={boolValues?.["Marketing"]}
         >
-            <Example
-                functional={boolValues?.["Functional"]}
-                statistics={boolValues?.["Statistics"]}
-                marketing={boolValues?.["Marketing"]}
-            />
+            <Example blocking={boolValues?.["Blocking"] || false} />
         </CookieConsentProvider>
     );
 };
 
 export const cookieConsentModalExampleCode: CodeExample = ({ boolValues }) => `
-const Example = () => {
-    const { openConsentModalWithSettings } = useCookieConsent();
+const Example: FC<{ blocking: boolean }> = ({ blocking }) => {
+    const { openConsentModal, consents } = useCookieConsent();
+
+    useEffect(() => {
+        console.log("Current consents:", consents);
+    }, [consents]);
+
     return (
         <>
-            <TertiaryButton onClick={openConsentModalWithSettings}>
+            <TertiaryButton
+                data-testid="trigger-cookie-consent"
+                onClick={openConsentModal}
+            >
                 Informasjonskapsler
             </TertiaryButton>
-            <CookieConsent blocking onAccept={handleUserChoices} />
+            <CookieConsent
+                blocking={blocking}
+                onAccept={(newConsents) =>
+                    console.log("Updated consents: ", newConsents)
+                }
+            />
         </>
     );
 };
 
 export const App = () => {
+    const [hasResetCookie, setHasResetCookie] = useState(false);
+    useEffect(() => {
+        // Write a cookie to avoid having the modal pop up on first render
+        setConsentCookie({
+            consent: {
+                functional: "denied",
+                statistics: "denied",
+                marketing: "denied",
+            },
+            name: "demo-consent-cookie",
+        });
+        setHasResetCookie(true);
+    }, [setHasResetCookie, boolValues]);
+
+    if (!hasResetCookie) {
+        return null;
+    }
+
     return (
         <CookieConsentProvider
+            cookieName="demo-consent-cookie"
             functional={${boolValues?.["Functional"]}}
             statistics={${boolValues?.["Statistics"]}}
             marketing={${boolValues?.["Marketing"]}}
         >
-            <Example />
+            <Example blocking={${boolValues?.["Blocking"] || false}} />
         </CookieConsentProvider>
     );
 };

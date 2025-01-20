@@ -8,7 +8,7 @@ import React, { FC, Suspense } from "react";
 import { MixpanelBackend, useAnalytics } from "../../analytics";
 
 export const Cookies: FC<WithChildren> = ({ children }) => {
-    const { openConsentModalWithSettings } = useCookieConsent();
+    const { openConsentModal } = useCookieConsent();
     const analytics = useAnalytics();
 
     const data = useStaticQuery<{ package: { version: string } }>(graphql`
@@ -24,7 +24,7 @@ export const Cookies: FC<WithChildren> = ({ children }) => {
             <button
                 type="button"
                 className="jkl-portal-cookie-consent jkl-link"
-                onClick={openConsentModalWithSettings}
+                onClick={openConsentModal}
             >
                 {children}
             </button>
