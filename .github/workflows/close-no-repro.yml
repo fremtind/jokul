@@ -1,0 +1,27 @@
+name: Close old issues with no-reproduction label
+
+on:
+    schedule:
+        # 08:00 every monday
+        - cron: 0 8 * * 1
+
+jobs:
+    find-issues:
+        name: Search and destroy
+
+        runs-on: ubuntu-latest
+        permissions:
+            issues: write
+            pull-requests: write
+        steps:
+            - uses: actions/stale@v5
+              with:
+                  only-issue-labels: ⁉️ no-reproduction
+                  days-before-issue-stale: 21
+                  days-before-issue-close: 7
+                  stale-issue-label: "stale"
+                  stale-issue-message: "This issue is stale as it has been open for 21 days while being labeled with 'no-reproduction'."
+                  close-issue-message: "This issue was closed because it has been stale for 7 days."
+                  days-before-pr-stale: -1
+                  days-before-pr-close: -1
+                  repo-token: ${{ secrets.GITHUB_TOKEN }}
