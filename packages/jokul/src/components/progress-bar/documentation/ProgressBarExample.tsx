@@ -22,10 +22,14 @@ export const ProgressBarExample: FC = () => {
                     justifyContent: "space-between",
                 }}
             >
-                <IconButton onClick={() => setVal(val - 10 < 0 ? 0 : val - 10)}>
+                <IconButton
+                    onClick={() => setVal(val - 10 < 0 ? 0 : val - 10)}
+                    aria-label="Minsk verdi"
+                >
                     <ChevronLeftIcon />
                 </IconButton>
                 <input
+                    aria-label="Juster verdi"
                     type="range"
                     min="0"
                     max="100"
@@ -34,6 +38,7 @@ export const ProgressBarExample: FC = () => {
                 />
                 <IconButton
                     onClick={() => setVal(val + 10 > 100 ? 100 : val + 10)}
+                    aria-label="Øk verdi"
                 >
                     <ChevronRightIcon />
                 </IconButton>

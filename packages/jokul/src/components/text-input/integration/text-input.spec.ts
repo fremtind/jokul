@@ -1,5 +1,5 @@
-import { test } from "@playwright/test";
-import { TestHelper } from "../../../../../../utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
 
 let helper: TestHelper;
 
@@ -31,4 +31,17 @@ test("renders allthethings correctly", async () => {
     await helper.checkProp("bool-prop-med-benevnelse");
 
     await helper.snapshots({ focusElement: ".jkl-text-input-action-button" });
+});
+
+test("axe", async ({ axe }) => {
+    await helper.open();
+
+    await axe();
+
+    await helper.checkProp("bool-prop-med-feil");
+    await helper.checkProp("bool-prop-med-tooltip");
+    await helper.checkProp("bool-prop-med-handling");
+    await helper.checkProp("bool-prop-med-benevnelse");
+
+    await axe();
 });
