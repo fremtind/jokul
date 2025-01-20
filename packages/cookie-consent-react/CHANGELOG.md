@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.0.0 (2025-01-20)
+
+### Bug Fixes
+
+- changes CookieConsent to single step ui ([bae8c78](https://github.com/fremtind/jokul/commit/bae8c781921366cb4f53fb4a9d575e3f42a342ae)), closes [#4403](https://github.com/fremtind/jokul/issues/4403)
+
+### BREAKING CHANGES
+
+- - The "blocking" prop now controls if the dialog is a modal or not
+- Interfaces "Consent" and "ConsentComponentBaseProps" and
+  "CookieConsentProviderProps" are changed to types
+- Methods "openConsentModalWithSettings" and "openConsentModalWithDefaults"
+  are replaced with "openConsentModal" when using the hook
+
 ## 10.2.11 (2024-09-13)
 
 ### Bug Fixes

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [22.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.6.5...@fremtind/portal@22.0.0) (2025-01-20)
+
+### Bug Fixes
+
+- changes CookieConsent to single step ui ([bae8c78](https://github.com/fremtind/jokul/commit/bae8c781921366cb4f53fb4a9d575e3f42a342ae)), closes [#4403](https://github.com/fremtind/jokul/issues/4403)
+
+### BREAKING CHANGES
+
+- - The "blocking" prop now controls if the dialog is a modal or not
+- Interfaces "Consent" and "ConsentComponentBaseProps" and
+  "CookieConsentProviderProps" are changed to types
+- Methods "openConsentModalWithSettings" and "openConsentModalWithDefaults"
+  are replaced with "openConsentModal" when using the hook
+
 # [21.6.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.5.15...@fremtind/portal@21.6.0) (2025-01-09)
 
 ### Features
