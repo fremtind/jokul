@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import React, { act } from "react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { Countdown } from "./Countdown.js";
 
 describe("Countdown", () => {
@@ -11,40 +11,40 @@ describe("Countdown", () => {
     });
 
     it("counts down correctly", () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         render(<Countdown from={5000} />);
 
         act(() => {
-            jest.advanceTimersByTime(1000);
+            vi.advanceTimersByTime(1000);
         });
 
         expect(screen.getByText("4")).toBeInTheDocument();
 
         act(() => {
-            jest.advanceTimersByTime(1000);
+            vi.advanceTimersByTime(1000);
         });
 
         expect(screen.getByText("3")).toBeInTheDocument();
     });
 
     it("pauses the countdown when isPaused is true", () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         render(<Countdown from={5000} isPaused={true} />);
 
-        jest.advanceTimersByTime(1000);
+        vi.advanceTimersByTime(1000);
         expect(screen.getByText("5")).toBeInTheDocument();
     });
 
     it("stops countdown at zero", () => {
-        jest.useFakeTimers();
+        vi.useFakeTimers();
         render(<Countdown from={2000} />);
 
         act(() => {
-            jest.advanceTimersByTime(2000);
+            vi.advanceTimersByTime(2000);
         });
 
         act(() => {
-            jest.runAllTimers();
+            vi.runAllTimers();
         });
 
         expect(screen.getByTestId("jkl-countdown")).toHaveTextContent("0");
