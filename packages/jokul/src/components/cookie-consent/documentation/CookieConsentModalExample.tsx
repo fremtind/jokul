@@ -47,7 +47,11 @@ export const CookieConsentModalExample: FC<ExampleComponentProps> = ({
 }) => {
     const [hasResetCookie, setHasResetCookie] = useState(false);
     useEffect(() => {
-        // Write a cookie to avoid having the modal pop up on first render
+        // Write an initial cookie to avoid having the modal pop up on first render
+        // We are setting the values to "denied" in order to ensure that the
+        // component does not automatically open itself, which it would have
+        // done if it contained null-values. In an actual application context
+        // there is no need to initialise anything.
         setConsentCookie({
             consent: {
                 functional: "denied",
