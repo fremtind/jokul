@@ -1,15 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import React, { act } from "react";
+import { describe, expect, it } from "vitest";
 import { Countdown } from "./Countdown.js";
 
 describe("Countdown", () => {
-    test("renders the countdown with correct initial time", () => {
+    it("renders the countdown with correct initial time", () => {
         render(<Countdown from={5000} />);
 
         expect(screen.getByText("5")).toBeInTheDocument();
     });
 
-    test("counts down correctly", () => {
+    it("counts down correctly", () => {
         jest.useFakeTimers();
         render(<Countdown from={5000} />);
 
@@ -26,7 +27,7 @@ describe("Countdown", () => {
         expect(screen.getByText("3")).toBeInTheDocument();
     });
 
-    test("pauses the countdown when isPaused is true", () => {
+    it("pauses the countdown when isPaused is true", () => {
         jest.useFakeTimers();
         render(<Countdown from={5000} isPaused={true} />);
 
@@ -34,7 +35,7 @@ describe("Countdown", () => {
         expect(screen.getByText("5")).toBeInTheDocument();
     });
 
-    test("stops countdown at zero", () => {
+    it("stops countdown at zero", () => {
         jest.useFakeTimers();
         render(<Countdown from={2000} />);
 
