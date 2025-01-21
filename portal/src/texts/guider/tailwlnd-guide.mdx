@@ -1,0 +1,43 @@
+---
+title: Hvordan ta i bruk tailwind i Jøkul
+path: /guider/tailwind
+order: 22
+keywords: tailwind, css
+---
+
+# Tailwind
+
+<Ingress>
+    Vil du bruke Tailwind sammen med Jøkul? Her er en enkel guide for å komme i
+    gang.
+</Ingress>
+
+## Slik bruker du Tailwind i Jøkul
+
+1. Følg offisielle [installasjonsinstruksjoner](https://tailwindcss.com/docs/installation) for å legge til Tailwind i prosjektet ditt.
+
+2. For å integrere Jøkul med Tailwind, må du legge til Jøkul-preseten i `tailwind.config.js`.
+
+#### Eksempel (tailwind.config.js)
+
+```ts
+import { tailwindPresets } from "@fremtind/jokul";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+    presets: [tailwindPresets],
+    // ...
+};
+```
+
+#### Eksempel (Komponent)
+
+```tsx
+export const TailwindExample = () => {
+    return (
+        <div className="background-page">
+            <h1>Hei, Tailwind!</h1>
+        </div>
+    );
+};
+```

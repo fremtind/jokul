@@ -82,6 +82,36 @@ Hvis prosjektet ditt også bruker SCSS kan du hente stiler via samme filnavn som
 // osv.
 ```
 
+### Oppsett av Tailwind i prosjektet
+
+1. Følg offisielle [installasjonsinstruksjoner](https://tailwindcss.com/docs/installation) for å legge til Tailwind i prosjektet ditt.
+
+2. For å integrere Jøkul med Tailwind, må du legge til Jøkul-preseten i `tailwind.config.js`.
+
+#### Eksempel (tailwind.config.js)
+
+```ts
+import { tailwindPresets } from "@fremtind/jokul";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+    presets: [tailwindPresets],
+    // ...
+};
+```
+
+#### Eksempel (Komponent)
+
+```tsx
+export const TailwindExample = () => {
+    return (
+        <div className="background-page">
+            <h1>Hei, Tailwind!</h1>
+        </div>
+    );
+};
+```
+
 ### Bruk kjernen til å lage egne komponenter i Jøkul-drakt
 
 Om du skal bygge komponenter for Fremtind, utover de som finnes i Jøkul, bør du bruke variablene fra [@fremtind/jkl-core](./packages/core/). Det sørger for at farger, sperring, typografisk skala og liknende holder seg oppdatert mot endringer i designsystemet.
