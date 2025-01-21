@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.42.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.41.1...@fremtind/jokul@0.42.0) (2025-01-21)
+
+### Bug Fixes
+
+- import needed funcs from vitest ([1eea829](https://github.com/fremtind/jokul/commit/1eea829d47c91d5e799bd17c0c897d246a56a5d1))
+- oppdater test for å sikre riktig stoppunkt ([95b2c71](https://github.com/fremtind/jokul/commit/95b2c71adc5ff80d874f89b35057fd7db41c333e))
+- use vi rather than jest ([bed5dac](https://github.com/fremtind/jokul/commit/bed5dacddbfa4765e25764d14b9bcc9f9c63f171))
+
+### Features
+
+- typography tokens ([35bdd54](https://github.com/fremtind/jokul/commit/35bdd5411a64320d9ad06b2025efb2f82daf07d3))
+
 ## [0.41.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.41.0...@fremtind/jokul@0.41.1) (2025-01-20)
 
 ### Bug Fixes
