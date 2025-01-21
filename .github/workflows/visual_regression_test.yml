@@ -10,7 +10,7 @@ on:
             - .github/workflows/visual_regression_test.yml
             - "packages/jokul/src/**/*.spec.ts"
             - "packages/jokul/src/**/*.scss"
-            - "packages/jokul/src/**/!(*.test).tsx"
+            - "packages/jokul/src/**/*.tsx"
             - "pnpm-lock.yaml"
 
 run-name: Kjør visuelle regresjonstester for ${{ github.event.pull_request.title }}
