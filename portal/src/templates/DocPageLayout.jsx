@@ -24,10 +24,12 @@ export const DocPageLayout = ({ location, data, pageContext, children }) => {
                 {...frontmatter}
                 versions={pageContext.versions}
             />
-            <SuggestionBlock
-                variant="komponent"
-                component={frontmatter.title}
-            />
+            {location.pathname.includes("komponenter") && (
+                <SuggestionBlock
+                    variant="komponent"
+                    component={frontmatter.title}
+                />
+            )}
             <BlogPageHeader {...frontmatter} />
             {children}
             {types && <APIDocumentation types={types} />}
