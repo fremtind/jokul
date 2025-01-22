@@ -135,7 +135,11 @@ export const CookieConsent = ({
     };
 
     return ReactDOM.createPortal(
-        <ModalContainer {...modalConfig.container} {...rest}>
+        <ModalContainer
+            {...modalConfig.container}
+            {...rest}
+            data-cookie-consent-open={isOpen}
+        >
             <ModalOverlay {...modalConfig.overlay} />
             <Modal component="form" {...modalConfig.modal} {...{ onSubmit }}>
                 <ModalHeader>
