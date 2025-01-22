@@ -1,10 +1,11 @@
-import { ChevronRightIcon, OpenInNewIcon } from "@fremtind/jokul";
 import clsx from "clsx";
 import React, { forwardRef, ReactNode } from "react";
 import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
+import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
+import { OpenInNewIcon } from "../icon/icons/OpenInNewIcon.js";
 
 export type MenuItemProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
