@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload'
 
-export const Components: CollectionConfig = {
-  slug: 'components',
+export const ComponentPages: CollectionConfig = {
+  slug: 'component-page',
   admin: {
     useAsTitle: 'title',
   },
@@ -13,9 +13,14 @@ export const Components: CollectionConfig = {
       required: true,
     },
     {
-      name: 'ingress',
+      name: 'lede',
       type: 'richText',
       label: 'Ingress',
+    },
+    {
+      name: 'content',
+      type: 'richText',
+      label: 'Innhold',
     },
   ],
 }
