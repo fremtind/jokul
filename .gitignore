@@ -24,3 +24,5 @@ cypress/videos
 !portalen/**
 test-results/
 playwright-report/
+
+*storybook.log

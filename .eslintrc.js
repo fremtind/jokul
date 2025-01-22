@@ -28,6 +28,7 @@ module.exports = {
         "plugin:import/typescript",
         "prettier",
         "plugin:jsx-a11y/recommended",
+        "plugin:storybook/recommended"
     ],
     parserOptions: { ecmaVersion: 2018, sourceType: "module" },
     rules: {
