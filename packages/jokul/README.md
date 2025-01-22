@@ -1,6 +1,8 @@
 # @fremtind/jokul
 
-Her finner du alle React-komponenter, stilark og diverse utilities
+## Migrering til monopakke
+
+Les mer om migrering fra gammel pakkestruktur [her](./MIGRATION.md).
 
 ## React-komponenter
 
