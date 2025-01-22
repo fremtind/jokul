@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 import tokens from "../tokens";
 import { breakpoints } from "../utils/breakpoints";
 import colors from "./colors";
+import typographyPlugin from "./plugins/typographyPlugin";
 
 const tailwindPreset: Partial<Config> = {
     theme: {
@@ -16,7 +17,7 @@ const tailwindPreset: Partial<Config> = {
             lg: `${breakpoints.xl}px`,
         },
     },
-    plugins: [],
+    plugins: [typographyPlugin],
 };
 
 export default tailwindPreset;

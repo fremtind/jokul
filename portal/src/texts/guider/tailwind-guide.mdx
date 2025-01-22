@@ -21,6 +21,10 @@ keywords: tailwind, css
 #### Eksempel (tailwind.config.js)
 
 ```ts
+import { tailwindPresets } from "@fremtind/jkl-core";
+
+Eller om du bruker monopakken:
+
 import { tailwindPresets } from "@fremtind/jokul";
 
 /** @type {import('tailwindcss').Config} */
@@ -35,7 +39,7 @@ export default {
 ```tsx
 export const TailwindExample = () => {
     return (
-        <div className="background-page">
+        <div className="bg-background-page">
             <h1>Hei, Tailwind!</h1>
         </div>
     );
