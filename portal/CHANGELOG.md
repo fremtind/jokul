@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 22.0.1 (2025-01-22)
+
+### Bug Fixes
+
+- conditionally render suggestionblock ([5184112](https://github.com/fremtind/jokul/commit/518411263121033d60f2bda7f4382272e2ae031f))
+
 # [22.0.0](https://github.com/fremtind/jokul/compare/@fremtind/portal@21.6.5...@fremtind/portal@22.0.0) (2025-01-20)
 
 ### Bug Fixes
