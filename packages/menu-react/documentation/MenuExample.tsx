@@ -74,17 +74,27 @@ export const MenuExample: FC<ExampleComponentProps> = ({
                 </MenuItem>
                 <MenuItem icon={<ErrorIcon />}>Skadesaker</MenuItem>
                 <MenuDivider />
-                <MenuItem as="a" href="https://jokul.fremtind.no/">
-                    Jøkuls hjemmeside
-                </MenuItem>
-                <MenuItem
-                    as={CustomLink}
-                    href="https://www.fremtind.no/"
-                    external
-                    target="_blank"
+                <Menu
+                    triggerElement={
+                        <MenuItem expandable={true}>Ressurser</MenuItem>
+                    }
                 >
-                    Fremtind Forsikring
-                </MenuItem>
+                    <MenuItem as="a" href="https://jokul.fremtind.no/">
+                        Jøkuls hjemmeside
+                    </MenuItem>
+                    <MenuItem as="a" href="https://fremtind.no/">
+                        Fremtind Forsikring
+                    </MenuItem>
+                    <MenuDivider />
+                    <MenuItem
+                        as={CustomLink}
+                        href="https://www.w3.org/TR/WCAG22/"
+                        external
+                        target="_blank"
+                    >
+                        WCAG 2.2
+                    </MenuItem>
+                </Menu>
             </Menu>
         </div>
     );
@@ -113,12 +123,27 @@ export const MenuExampleCode: CodeExample = ({ boolValues, choiceValues }) => {
     <MenuItem onClick={() => console.log("Hei fra Skadesaker")}>Dokumenter</MenuItem>
     <MenuItem icon={<ErrorIcon />}>Skadesaker</MenuItem>
     <MenuDivider />
-    <MenuItem as="a" href="https://jokul.fremtind.no/">
-        Jøkuls hjemmeside
-    </MenuItem>
-    <MenuItem as={CustomLink} href="https://www.fremtind.no/" external target="_blank">
-        Fremtind Forsikring
-    </MenuItem>
+    <Menu
+        triggerElement={
+            <MenuItem expandable={true}>Ressurser</MenuItem>
+        }
+    >
+        <MenuItem as="a" href="https://jokul.fremtind.no/">
+            Jøkuls hjemmeside
+        </MenuItem>
+        <MenuItem as="a" href="https://fremtind.no/">
+            Fremtind Forsikring
+        </MenuItem>
+        <MenuDivider />
+        <MenuItem
+            as={CustomLink}
+            href="https://www.w3.org/TR/WCAG22/"
+            external
+            target="_blank"
+        >
+            WCAG 2.2
+        </MenuItem>
+    </Menu>
 </Menu>
 `;
 };
