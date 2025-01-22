@@ -173,6 +173,56 @@ import { tabListener, unicode } from "@fremtind/jokul/utilities";
 
 For en full liste over utilities kan du kikke i [utilities-mappa](src/utilities/)
 
+## Ønsker du å ta i bruk Tailwind i prosjektet?
+
+1. Følg offisielle [installasjonsinstruksjoner](https://tailwindcss.com/docs/installation) for å legge til Tailwind i prosjektet ditt.
+
+2. For å integrere Jøkul med Tailwind, må du legge til Jøkul-preseten i `tailwind.config.js`.
+
+### Eksempel (tailwind.config.js)
+
+```ts
+import { tailwindPreset } from "@fremtind/jokul";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+    presets: [tailwindPreset],
+    // ...
+};
+```
+
+### Eksempel (Komponent)
+
+```tsx
+export const TailwindExample = () => {
+    return (
+        <div className="bg-background-page">
+            <h1>Hei, Tailwind!</h1>
+        </div>
+    );
+};
+```
+
+TailwindPreset er for øyeblikket konfigurert ved hjelp av Jøkul-tokens for følgende:
+
+-   Farger
+-   Typografi
+-   Breakpoints
+
+Preseten inkluderer en custom plugin som oppretter egne utility-klasser for typografi, tilpasset vår egen typografiskala.
+
+```scss
+.title
+.title-small
+.heading-1
+.heading-2
+.heading-3
+.heading-4
+.heading-5
+.body
+.small
+```
+
 ## Vind
 
 Vi tilbyr også en Jøkulifisert versjon av Tailwind, tilgjengelig via
