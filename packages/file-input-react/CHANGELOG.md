@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.3.73 (2025-01-22)
+
+### Bug Fixes
+
+- allows adding the same file twice ([1904ae3](https://github.com/fremtind/jokul/commit/1904ae3fe28a845bcf9f9ff4c9ac5384e787e436)), closes [#4471](https://github.com/fremtind/jokul/issues/4471)
+
 ## [2.3.72](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.3.71...@fremtind/jkl-file-input-react@2.3.72) (2025-01-14)
 
 ### Bug Fixes
