@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-loader",
-    "version": "11.0.33",
+    "version": "11.0.34",
     "publishConfig": {
         "access": "public"
     },
@@ -25,7 +25,7 @@
         "dev": "echo \"Error: run dev from loader-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.10.0"
+        "@fremtind/jkl-core": "^14.10.1"
     },
     "repository": {
         "type": "git",
