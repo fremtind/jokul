@@ -86,6 +86,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
     return (
         <div>
             <FileInput
+                id="file-input-example"
                 legend="Vedlegg"
                 labelProps={{ variant: "medium" }}
                 className="jkl-spacing-16-24--bottom"
