@@ -190,8 +190,7 @@ $_sidebar-breakpoint: 1512px;
     height: 100vh;
     width: 385px;
     flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden auto;
     z-index: revert;
 
     & > nav,
