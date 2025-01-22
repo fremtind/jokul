@@ -49,7 +49,7 @@ jobs:
                         - "packages/*-react/**/!(*.test).tsx"
                         - "pnpm-lock.yaml"
                         - "packages/**/*.mdx"
-                        - "portal/src/texts/**"
+                        - "portal/src/**"
 
             - name: Setup pnpm
               if: steps.changes.outputs.has_matches == 'true' || github.event_name == 'merge_group'
