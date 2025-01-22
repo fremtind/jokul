@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-popover",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from popover-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.10.0"
+        "@fremtind/jkl-core": "^14.10.1"
     },
     "repository": {
         "type": "git",
