@@ -1,5 +1,4 @@
-import React, { forwardRef } from "react";
-import { useId } from "../../../hooks/useId/useId.js";
+import React, { forwardRef, useId } from "react";
 import { FileInputFile } from "../types.js";
 import { useFileInputContext } from "./fileInputContext.js";
 import { validateFile } from "./validateFile.js";
@@ -12,11 +11,10 @@ interface FileInputProps {
 
 export const Input = forwardRef<HTMLInputElement, FileInputProps>(
     (props, ref) => {
-        const { multiple, id: idProp, label, ...rest } = props;
+        const { multiple, id, label, ...rest } = props;
 
-        const id = useId(idProp || "jkl-file-input", {
-            generateSuffix: !idProp,
-        });
+        const defaultId = useId();
+
         const maxSizeDescriptionId = id + "-description";
         const descriptor = multiple ? "filer" : "fil";
 
@@ -32,14 +30,14 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
             <>
                 <label
                     className="jkl-button jkl-button--secondary"
-                    htmlFor={id}
+                    htmlFor={id || defaultId}
                 >
                     {label}
                 </label>
                 <input
                     {...rest}
                     ref={ref}
-                    id={id}
+                    id={id || defaultId}
                     accept={accept}
                     aria-describedby={
                         maxSizeBytes ? maxSizeDescriptionId : undefined
@@ -47,6 +45,7 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                     className="jkl-sr-only"
                     type="file"
                     multiple={multiple}
+                    value=""
                     onChange={(e) => {
                         if (e.target.files) {
                             onChange(

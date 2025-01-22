@@ -135,7 +135,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
 
                     return (
                         <File
-                            key={file.name}
+                            key={`${file.name}-${index}`}
                             fileName={file.name}
                             fileType={file.type}
                             fileSize={file.size}
