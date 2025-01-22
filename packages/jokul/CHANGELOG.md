@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.42.1 (2025-01-22)
+
+### Bug Fixes
+
+- allows adding the same file twice ([1904ae3](https://github.com/fremtind/jokul/commit/1904ae3fe28a845bcf9f9ff4c9ac5384e787e436)), closes [#4471](https://github.com/fremtind/jokul/issues/4471)
+
 # [0.42.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.41.1...@fremtind/jokul@0.42.0) (2025-01-21)
 
 ### Bug Fixes
