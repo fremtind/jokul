@@ -1,5 +1,5 @@
 import { PolymorphicPropsWithRef, PolymorphicRef } from "@fremtind/jkl-core";
-import { Icon } from "@fremtind/jkl-icons-react";
+import { ChevronRightIcon, OpenInNewIcon } from "@fremtind/jkl-icons-react";
 import cn from "classnames";
 import React, { forwardRef, ReactNode } from "react";
 
@@ -63,11 +63,11 @@ export const MenuItem = forwardRef(function MenuItem<
                 {children}
                 {external && (
                     <div className={"jkl-menu-item__arrow"}>
-                        <Icon>{"\ue89e"}</Icon>
+                        <OpenInNewIcon />
                     </div>
                 )}
             </div>
-            {expandable && <Icon>{"\ue89e"}</Icon>}
+            {expandable && <ChevronRightIcon />}
         </Component>
     );
 }) as MenuItemComponent;

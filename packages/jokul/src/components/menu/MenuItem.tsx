@@ -1,10 +1,10 @@
+import { ChevronRightIcon, OpenInNewIcon } from "@fremtind/jokul";
 import clsx from "clsx";
 import React, { forwardRef, ReactNode } from "react";
 import {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
-import { Icon } from "../icon/index.js";
 
 export type MenuItemProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
@@ -66,11 +66,11 @@ export const MenuItem = forwardRef(function MenuItem<
                 {children}
                 {external && (
                     <div className={"jkl-menu-item__arrow"}>
-                        <Icon>{"\ue89e"}</Icon>
+                        <OpenInNewIcon />
                     </div>
                 )}
             </div>
-            {expandable && <Icon>{"\ue5cc"}</Icon>}
+            {expandable && <ChevronRightIcon />}
         </Component>
     );
 }) as MenuItemComponent;
