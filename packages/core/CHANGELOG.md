@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.10.2 (2025-01-23)
+
+### Reverts
+
+- rull tilbake tailwind-plugin som førte til bug i core ([af1ed99](https://github.com/fremtind/jokul/commit/af1ed99284c11d6a799c0621fa34064289c49104)), closes [#4493](https://github.com/fremtind/jokul/issues/4493)
+
 # [14.10.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@14.9.0...@fremtind/jkl-core@14.10.0) (2025-01-13)
 
 ### Bug Fixes

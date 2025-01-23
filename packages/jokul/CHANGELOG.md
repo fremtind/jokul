@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.43.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.43.0...@fremtind/jokul@0.43.1) (2025-01-23)
+
+### Reverts
+
+- rull tilbake tailwind-plugin som førte til bug i core ([af1ed99](https://github.com/fremtind/jokul/commit/af1ed99284c11d6a799c0621fa34064289c49104)), closes [#4493](https://github.com/fremtind/jokul/issues/4493)
+
 # [0.43.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.42.3...@fremtind/jokul@0.43.0) (2025-01-23)
 
 ### Features
