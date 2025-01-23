@@ -26,18 +26,21 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
         }
         const { accept, maxSizeBytes, onChange } = context;
 
+        const elementId = id || defaultId;
+
         return (
             <>
                 <label
                     className="jkl-button jkl-button--secondary"
                     htmlFor={id || defaultId}
+                    id={`${elementId}__add-btn`}
                 >
                     {label}
                 </label>
                 <input
                     {...rest}
                     ref={ref}
-                    id={id || defaultId}
+                    id={elementId}
                     accept={accept}
                     aria-describedby={
                         maxSizeBytes ? maxSizeDescriptionId : undefined
