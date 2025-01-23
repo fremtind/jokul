@@ -11,6 +11,8 @@
 
 .jkl-icon {
     --jkl-icon-fill: 0;
+    --jkl-color-red-cross: var(--jkl-color-functional-error-dark);
+    --jkl-color-green-check: var(--jkl-color-functional-success-dark);
 
     font-family: "Fremtind Material Symbols", Arial, Helvetica, sans-serif;
     font-variation-settings: "FILL" var(--jkl-icon-fill, 0),
@@ -25,6 +27,20 @@
 
     @include jkl.motion("standard", "productive");
     transition-property: font-variation-settings, transform;
+
+    &-green-check,
+    &-red-cross {
+        font-variation-settings: "FILL" 1, "GRAD" var(--jkl-icon-grade, 0),
+            "opsz" var(--jkl-icon-opsz, 24);
+    }
+
+    &-green-check {
+        color: var(--jkl-color-green-check);
+    }
+
+    &-red-cross {
+        color: var(--jkl-color-red-cross);
+    }
 
     &--bold {
         --jkl-icon-weight: 500;
@@ -51,38 +67,6 @@
 
     &--animated {
         display: block;
-    }
-}
-
-.jkl-icon-red-cross {
-    --red-cross-circle: var(--jkl-color-background-alert-error);
-    --red-cross-path: #{jkl.$color-brand-granitt};
-
-    width: jkl.rem(24px);
-    height: jkl.rem(24px);
-
-    & path {
-        fill: var(--red-cross-path);
-    }
-
-    & circle {
-        fill: var(--red-cross-circle);
-    }
-}
-
-.jkl-icon-green-check {
-    --green-check-circle: var(--jkl-color-background-alert-success);
-    --green-check-path: #{jkl.$color-brand-granitt};
-
-    width: jkl.rem(24px);
-    height: jkl.rem(24px);
-
-    & path {
-        fill: var(--green-check-path);
-    }
-
-    & circle {
-        fill: var(--green-check-circle);
     }
 }
 
