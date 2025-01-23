@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@11.0.1...@fremtind/jkl-cookie-consent-react@11.1.0) (2025-01-23)
+
+### Features
+
+- adds a data attribute indicating if consent is open or not ([c9306ee](https://github.com/fremtind/jokul/commit/c9306ee03b83877b1c7b6f312b0300511ccc3d46))
+
 # 11.0.0 (2025-01-20)
 
 ### Bug Fixes
