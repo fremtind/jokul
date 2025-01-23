@@ -1,8 +1,9 @@
 import type { Config } from "tailwindcss";
-import tokens from "../tokens.js";
+import tokens from "../core/tokens.js";
 import colors from "./colors.js";
+import { jokulTypographyPlugin } from "./plugins/jokulTypographyPlugin.js";
 
-const tailwindPreset: Partial<Config> = {
+export const jokulPreset: Partial<Config> = {
     theme: {
         colors,
         spacing: tokens.spacing,
@@ -15,6 +16,5 @@ const tailwindPreset: Partial<Config> = {
             lg: tokens.breakpoint.xl,
         },
     },
+    plugins: [jokulTypographyPlugin],
 };
-
-export default tailwindPreset;
