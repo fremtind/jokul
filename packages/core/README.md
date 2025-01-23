@@ -134,22 +134,8 @@ export const TailwindExample = () => {
 TailwindPreset er for øyeblikket konfigurert ved hjelp av Jøkul-tokens for følgende:
 
 -   Farger
--   Typografi
+-   Spacing
 -   Breakpoints
-
-Preseten inkluderer en custom plugin som oppretter egne utility-klasser for typografi, tilpasset vår egen typografiskala.
-
-```scss
-.title
-.title-small
-.heading-1
-.heading-2
-.heading-3
-.heading-4
-.heading-5
-.body
-.small
-```
 
 ### Vind
 
