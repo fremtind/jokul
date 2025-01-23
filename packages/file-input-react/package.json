@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-file-input-react",
-    "version": "2.3.74",
+    "version": "2.4.0",
     "publishConfig": {
         "access": "public"
     },

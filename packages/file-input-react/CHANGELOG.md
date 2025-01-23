@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.3.74...@fremtind/jkl-file-input-react@2.4.0) (2025-01-23)
+
+### Features
+
+- adds an id to the upload button in FileInput ([5effddc](https://github.com/fremtind/jokul/commit/5effddc813192052d710c52d124514f3c1ceba00))
+
 ## 2.3.73 (2025-01-22)
 
 ### Bug Fixes

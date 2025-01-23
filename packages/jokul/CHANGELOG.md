@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.43.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.42.3...@fremtind/jokul@0.43.0) (2025-01-23)
+
+### Features
+
+- adds a data attribute indicating if consent is open or not ([c9306ee](https://github.com/fremtind/jokul/commit/c9306ee03b83877b1c7b6f312b0300511ccc3d46))
+- adds an id to the upload button in FileInput ([5effddc](https://github.com/fremtind/jokul/commit/5effddc813192052d710c52d124514f3c1ceba00))
+
 ## 0.42.1 (2025-01-22)
 
 ### Bug Fixes
