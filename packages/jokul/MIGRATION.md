@@ -89,8 +89,6 @@ Med noen unntak gjøres dette på samme måte for alle
 
 Komponenten er flyttet ut fra TextInput
 
-import { Autosuggest } from "@fremtind/jkl-text-input-react";
-
 Import av React komponent endres
 
 ```diff
@@ -163,3 +161,5 @@ Import av styling endres
 - @use "@fremtind/jkl-feedback/feedback";
 + @use "@fremtind/jokul/styles/components/feedback";
 ```
+
+Les mer om hvordan du bruker stilark i `@fremtind/jokul` i [README-filen](./README.md#stilark)
