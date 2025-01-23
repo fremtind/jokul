@@ -2,9 +2,9 @@
 
 Ting å passe på når man går over fra gammel pakkestruktur til monopakke
 
-## Vi er en ESM node_modules
+## Vi er en ren ESM-modul
 
-Les mer om hva dette har å si først:
+Før du begynner å bruke pakken bør du sette deg inn i hva dette har å si i praksis:
 
 https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 
