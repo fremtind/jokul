@@ -1,5 +1,14 @@
 # @fremtind/jokul
 
+-   [Migrering til monopakke](#migrering-til-monopakke)
+-   [React-komponenter](#react-komponenter)
+-   [Stilark](stilark)
+-   [Fonter](#fonter)
+-   [Hooks](#hooks)
+-   [Utilities](#utilities)
+-   [Tailwind](#tailwind)
+-   [Vind](#vind)
+
 ## Migrering til monopakke
 
 Les mer om migrering fra gammel pakkestruktur [her](./MIGRATION.md).
@@ -175,46 +184,66 @@ import { tabListener, unicode } from "@fremtind/jokul/utilities";
 
 For en full liste over utilities kan du kikke i [utilities-mappa](src/utilities/)
 
-## Ønsker du å ta i bruk Tailwind i prosjektet?
+## Tailwind
 
-1. Følg offisielle [installasjonsinstruksjoner](https://tailwindcss.com/docs/installation) for å legge til Tailwind i prosjektet ditt.
-
-2. For å integrere Jøkul med Tailwind, må du legge til Jøkul-preseten i `tailwind.config.js`.
-
-### Eksempel (tailwind.config.js)
+Jøkul har støtte for Tailwind gjennom et offisielt preset du kan legge til i Tailwind-konfigurasjonen din. For øyeblikket støttes kun Tailwind versjon 3.
 
 ```ts
-import { tailwindPreset } from "@fremtind/jokul";
+import { jokulPreset } from "@fremtind/jokul/tailwind";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-    presets: [tailwindPreset],
-    // ...
+    presets: [jokulPreset],
+    // Dine tilpasninger og tema her
 };
 ```
 
-### Eksempel (Komponent)
+### Farger
 
-```tsx
-export const TailwindExample = () => {
-    return (
-        <div className="bg-background-page">
-            <h1>Hei, Tailwind!</h1>
-        </div>
-    );
-};
+Preset-et kommer med alle semantiske farger fra Jøkul definert. Vi anbefaler å bruke Tailwind sin plugin til VSCode eller IntelliJ for å få autocomplete for farger og andre verdier i preset-et.
+
+```html
+<main class="bg-background-page">
+    <h1 class="text-text-default">Hei, Tailwind!</h1>
+    <div class="bg-background-container-low">
+        <p class="text-text-subdued">Shhh...</p>
+    </div>
+</main>
 ```
 
-TailwindPreset er for øyeblikket konfigurert ved hjelp av Jøkul-tokens for følgende:
+### Spacing
 
--   Farger
--   Spacing
--   Breakpoints
+Alle steg i spacing-skalaen til Jøkul er tilgjengelige alle steder der avstander brukes i Tailwind. Sammen med breakpoints (fra Jøkul eller egne) kan du lage dynamisk spacing.
+
+```html
+<h1 class="heading-1 mt-24 md:mt-40">Hei, Tailwind!</h1>
+```
+
+### Typografi
+
+Preset-en inkluderer også hjelpeklasser for alle tekststilene i Jøkul via en plugin. Denne er automatisk lastet inn dersom du bruker `jokulPreset`.
+
+```html
+<h1 class="title">Min Tailwind-applikasjon</h1>
+<p class="body">Lorem ipsum…</p>
+```
+
+I tillegg finnes verdier for fontvekt og -størrelse, og for linjehøyder fra skalaen til Jøkul.
+
+```html
+<p>Dette er <em class="font-bold">veldig</em> viktig</p>
+```
+
+### Skjermstørrelser
+
+Preset-et kommer med tre breakpoints, `sm`, `md` og `lg`. Vi oppfordrer til å legge til egne breakpoints, eller overskrive disse, der det gir mening for din applikasjon.
 
 ## Vind
 
-Vi tilbyr også en Jøkulifisert versjon av Tailwind, tilgjengelig via
+Vi tilbyr også et Tailwind-aktig sett av hjelpeklasser for Jøkul via
 
 ```scss
 @use "@fremtind/jokul/styles/vind";
 ```
+
+Dette inkluderer hjelpeklasser for typografi, spacing, layout, og mer; men uten kompileringssteget fra Tailwind.
