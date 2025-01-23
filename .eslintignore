@@ -9,3 +9,7 @@ public/
 node_modules/
 scripts/scaffold/templates/
 packages/jokul/dev-server.js
+
+# Autogenererte filer fra Payload i portalen
+ny-portal/src/payload-types.ts
+ny-portal/src/app/(payload)/
