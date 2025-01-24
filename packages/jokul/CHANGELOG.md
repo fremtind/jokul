@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.44.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.43.1...@fremtind/jokul@0.44.0) (2025-01-24)
+
+### Features
+
+- legg til typografistiler i tailwind-preset ([955c545](https://github.com/fremtind/jokul/commit/955c54535f89a3e45abcddb7d8a71b583ede375a)), closes [#4495](https://github.com/fremtind/jokul/issues/4495)
+
+### BREAKING CHANGES
+
+- Ny importsti for Tailwind-preset og -plugins
+
 ## [0.43.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.43.0...@fremtind/jokul@0.43.1) (2025-01-23)
 
 ### Reverts
