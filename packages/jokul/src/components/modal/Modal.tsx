@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { WithOptionalChildren } from "../../core/types.js";
+import { ButtonGroup } from "../button/ButtonGroup.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
 import { IconButton, IconButtonProps } from "../icon-button/IconButton.js";
 import { ModalConfig } from "./useModal.js";
@@ -150,7 +151,7 @@ ModalBody.displayName = "ModalBody";
  */
 export const ModalActions = forwardRef<HTMLDivElement, BaseModalProps>(
     ({ className, ...rest }, ref) => (
-        <div
+        <ButtonGroup
             className={clsx("jkl-modal-actions", className)}
             {...rest}
             ref={ref}
