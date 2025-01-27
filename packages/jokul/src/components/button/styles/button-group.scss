@@ -1,0 +1,10 @@
+@use "../../../core/jkl";
+
+.jkl-button-group {
+    container: --button-group / inline-size;
+
+    width: 100%;
+    display: flex;
+    gap: jkl.$unit-15 jkl.$unit-20;
+    flex-wrap: wrap;
+}

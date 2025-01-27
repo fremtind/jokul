@@ -65,6 +65,11 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
     overflow: hidden;
     max-width: 100%;
 
+    // La knappene ta full bredde hvis de er i en smal ButtonGroup
+    @container --button-group (max-width: 350px) {
+        width: 100%;
+    }
+
     @include jkl.motion("standard", "productive", scale);
 
     &:has(.jkl-icon:first-child) {
@@ -196,15 +201,13 @@ $_flash-animation-name: jkl-tertiary-flash-#{string.unique-id()};
         }
 
         &:has(.jkl-icon:first-child) {
-            padding-inline: var(--jkl-button-teritary-padding-icon) calc(
-                var(--jkl-button-teritary-padding-icon) * 2
-            );
+            padding-inline: var(--jkl-button-teritary-padding-icon)
+                calc(var(--jkl-button-teritary-padding-icon) * 2);
         }
 
         &:has(.jkl-icon:last-child) {
-            padding-inline: calc(
-                var(--jkl-button-teritary-padding-icon) * 2
-            ) var(--jkl-button-teritary-padding-icon);
+            padding-inline: calc(var(--jkl-button-teritary-padding-icon) * 2)
+                var(--jkl-button-teritary-padding-icon);
         }
     }
 
