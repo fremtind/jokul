@@ -9,9 +9,9 @@
 -   [Tailwind](#tailwind)
 -   [Vind](#vind)
 
-## Migrering til monopakke
+## Migrering til `@fremtind/jokul`
 
-Les mer om migrering fra gammel pakkestruktur [her](./MIGRATION.md).
+Dersom du bruker dagens pakkestruktur med pakker for hver komponent har vi laget en [migrasjonsguide](./MIGRATION.md) for hvordan du går over til å bruke `@fremtind/jokul`.
 
 ## React-komponenter
 
