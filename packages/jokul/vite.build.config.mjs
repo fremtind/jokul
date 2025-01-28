@@ -23,7 +23,7 @@ export default defineConfig({
             exclude: [
                 "src/**/*.test.{ts,tsx}",
                 "src/**/*.spec.{ts,tsx}",
-                "src/components/**/documentation/*",
+                "src/components/**/development/*",
             ],
             entryRoot: "./src",
             outDir: ["./build/es", "./build/cjs"],
@@ -53,7 +53,7 @@ export default defineConfig({
             input: Object.fromEntries(
                 // https://rollupjs.org/configuration-options/#input
                 globSync("src/**/!(*.test|*.spec).{ts,tsx}")
-                    .filter((file) => !file.includes("documentation/"))
+                    .filter((file) => !file.includes("development/"))
                     .map((file) => [
                         relative(
                             "src",
