@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.2.18 (2025-01-28)
+
+### Bug Fixes
+
+- actions in a modal stack on small screens ([b467520](https://github.com/fremtind/jokul/commit/b467520926cbe9958f924b89d99a46c27740b4bd))
+
 # 2.2.0 (2024-09-09)
 
 ### Features

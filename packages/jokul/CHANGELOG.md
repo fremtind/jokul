@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.44.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.44.0...@fremtind/jokul@0.44.1) (2025-01-28)
+
+### Bug Fixes
+
+- actions in a modal stack on small screens ([b467520](https://github.com/fremtind/jokul/commit/b467520926cbe9958f924b89d99a46c27740b4bd))
+
 # [0.44.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.43.1...@fremtind/jokul@0.44.0) (2025-01-24)
 
 ### Features
