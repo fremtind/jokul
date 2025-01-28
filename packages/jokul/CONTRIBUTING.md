@@ -32,7 +32,7 @@ Følg mappe- og filstruktur fra de andre komponentene.
 | - [navn]/
 | -- [Navn].tsx
 | -- index.ts
-| -- documentation/
+| -- development/
 | --- [Navn]Example.tsx
 | --- Example.tsx
 | -- styles/

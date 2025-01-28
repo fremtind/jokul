@@ -51,7 +51,7 @@ export default function App() {
     }, [setLog, log]);
 
     useEffect(() => {
-        glob("**/documentation/Example.tsx").then((result) => {
+        glob("**/development/Example.tsx").then((result) => {
             setComponents(
                 result.map((file) => {
                     return {
