@@ -1,6 +1,6 @@
 dev-server.js
-**/documentation/index.html
-**/documentation/main.tsx
+**/development/index.html
+**/development/main.tsx
 
 # Byggmappe for stilark
 /styles/
