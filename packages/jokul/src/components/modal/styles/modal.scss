@@ -95,6 +95,10 @@
 .jkl-modal-actions {
     margin: var(--jkl-modal-actions-margin);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: jkl.$unit-20;
+
+    @include jkl.from-medium-device {
+        flex-direction: row;
+    }
 }
