@@ -102,6 +102,7 @@ export interface Media {
  */
 export interface ComponentPage {
   id: number;
+  slug: string;
   title: string;
   lede?: {
     root: {
@@ -237,6 +238,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "component-page_select".
  */
 export interface ComponentPageSelect<T extends boolean = true> {
+  slug?: T;
   title?: T;
   lede?: T;
   content?: T;
