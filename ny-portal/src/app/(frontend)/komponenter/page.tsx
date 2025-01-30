@@ -14,13 +14,12 @@ export default async function Components() {
             slug: true,
         },
     });
-    console.log(data);
 
     return (
         <ul style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             {data.docs.map((page) => (
                 <Link
-                    style={{ color: "white" }}
+                    style={{ color: "var(--jkl-color-text-default)" }}
                     key={page.slug}
                     href={`/komponenter/${page.slug}`}
                 >
