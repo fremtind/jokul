@@ -4,6 +4,7 @@ import { breakpoints } from "../utils/breakpoints";
 import colors from "./colors";
 
 const tailwindPreset: Partial<Config> = {
+    presets: [], // Deaktiverer innebygde themes fra Tailwind
     theme: {
         colors,
         spacing: tokens.spacing,

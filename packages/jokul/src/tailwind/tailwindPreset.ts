@@ -4,6 +4,7 @@ import colors from "./colors.js";
 import { jokulTypographyPlugin } from "./plugins/jokulTypographyPlugin.js";
 
 export const jokulPreset: Partial<Config> = {
+    presets: [], // Deaktiverer innebygde presets fra Tailwind
     theme: {
         colors,
         spacing: tokens.spacing,
