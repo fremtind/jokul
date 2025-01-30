@@ -1,4 +1,5 @@
-import { CollectionConfig } from "payload";
+import { CollectionBeforeReadHook, CollectionConfig } from "payload";
+import { CodeExampleField } from "@/fields/code-example";
 
 export const ComponentPages: CollectionConfig = {
     slug: "component-page",
@@ -6,6 +7,12 @@ export const ComponentPages: CollectionConfig = {
         useAsTitle: "title",
     },
     fields: [
+        {
+            name: "slug",
+            type: "text",
+            label: "URL-segment",
+            required: true,
+        },
         {
             name: "title",
             type: "text",
@@ -22,5 +29,6 @@ export const ComponentPages: CollectionConfig = {
             type: "richText",
             label: "Innhold",
         },
+        CodeExampleField,
     ],
 };
