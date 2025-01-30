@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.10.3 (2025-01-30)
+
+### Bug Fixes
+
+- deaktiver innebygde tailwind-tema i vår preset ([71a8648](https://github.com/fremtind/jokul/commit/71a8648c9e9a2867518f61c12f936e985854935e))
+
 ## 14.10.2 (2025-01-23)
 
 ### Reverts
