@@ -43,7 +43,8 @@
         "@fremtind/jkl-react-hooks": "^12.2.18",
         "@fremtind/jkl-toggle-switch": "^13.2.18",
         "classnames": "^2.5.1",
-        "framer-motion": "^11.15.0"
+        "framer-motion": "^11.15.0",
+        "react-is": "^18"
     },
     "devDependencies": {
         "@fremtind/jkl-icon-button-react": "^5.0.37"
@@ -53,8 +54,7 @@
         "@types/react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
         "@types/react-is": "^17.0.0 || ^18.0.0",
         "react": "^16.8.6 || ^17.0.0 || ^18.0.0",
-        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0",
-        "react-is": "^17.0.0 || ^18.0.0"
+        "react-dom": "^16.8.6 || ^17.0.0 || ^18.0.0"
     },
     "repository": {
         "type": "git",

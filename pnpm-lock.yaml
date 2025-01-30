@@ -482,6 +482,7 @@ importers:
       '@fremtind/jkl-toggle-switch': ^13.2.18
       classnames: ^2.5.1
       framer-motion: ^11.15.0
+      react-is: ^18
     dependencies:
       '@floating-ui/react': 0.24.8
       '@fremtind/jkl-contextual-menu': link:../contextual-menu
@@ -491,6 +492,7 @@ importers:
       '@fremtind/jkl-toggle-switch': link:../toggle-switch
       classnames: 2.5.1
       framer-motion: 11.18.2
+      react-is: 18.3.1
     devDependencies:
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
 
@@ -934,6 +936,7 @@ importers:
       '@fremtind/jkl-toggle-switch': ^13.2.18
       classnames: ^2.5.1
       framer-motion: ^7.10.3
+      react-is: ^18
     dependencies:
       '@floating-ui/react': 0.24.8
       '@fremtind/jkl-core': link:../core
@@ -943,6 +946,7 @@ importers:
       '@fremtind/jkl-toggle-switch': link:../toggle-switch
       classnames: 2.5.1
       framer-motion: 7.10.3
+      react-is: 18.3.1
     devDependencies:
       '@fremtind/jkl-icon-button-react': link:../icon-button-react
 
@@ -5479,8 +5483,8 @@ packages:
       tslib: 2.8.1
     dev: false
 
-  /@fremtind/jkl-constants-util/3.0.124:
-    resolution: {integrity: sha512-FG6hxl7coUifc0vTVEPdy/eOkGizvNiNPvSvhKVvy1Cn6Jrwkdf4IzIfZzIbNlyZzAHPzgBIAdfcO6XvGVSL3A==}
+  /@fremtind/jkl-constants-util/3.0.125:
+    resolution: {integrity: sha512-hcchxuOKFZic7b4zR443ssPwcVox6UfByzfJp5s12D7CxGQhbEqxdAT9/Z0TkBJtF6Buj3QnnkEIqY512dFE1g==}
     dev: false
 
   /@fremtind/jkl-contact-information-react/2.1.52_nnrd3gsncyragczmpvfhocinkq:
@@ -5492,8 +5496,8 @@ packages:
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
       '@fremtind/jkl-contact-information': 2.0.22_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-core': 14.10.2_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-formatters-util': 6.0.41_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-formatters-util': 6.0.42_nnrd3gsncyragczmpvfhocinkq
       classnames: 2.5.1
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
@@ -5502,7 +5506,7 @@ packages:
   /@fremtind/jkl-contact-information/2.0.22_nnrd3gsncyragczmpvfhocinkq:
     resolution: {integrity: sha512-c4NRZ9EsJC0XCDXVRk6D1pjR3RWOTtJhz/Z+w+mW0tBxkW+rb6SG/TbZzFmunbdU+MRwqII3HIane9XRBfoSfQ==}
     dependencies:
-      '@fremtind/jkl-core': 14.10.2_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
@@ -5519,7 +5523,7 @@ packages:
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
       '@fremtind/jkl-content-toggle': 6.0.22_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-core': 14.10.2_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
       classnames: 2.5.1
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
@@ -5528,7 +5532,7 @@ packages:
   /@fremtind/jkl-content-toggle/6.0.22_nnrd3gsncyragczmpvfhocinkq:
     resolution: {integrity: sha512-MlXlWOhPaAKFPLbfBPVDYe+RJpa2sTcpYBaVCpedGlRjThXw/pwqknHdc67xsinn6slRgOC2S/knC56bXQAM4Q==}
     dependencies:
-      '@fremtind/jkl-core': 14.10.2_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
@@ -5536,8 +5540,8 @@ packages:
       - react-dom
     dev: false
 
-  /@fremtind/jkl-core/14.10.2_nnrd3gsncyragczmpvfhocinkq:
-    resolution: {integrity: sha512-q5W0N/3+iJ0CrYHhiwq48q7ZGN5xj65/h9tQYpWY6VG7IHIF/XuIGRUqGpgYIXzSAIwGv94X5o9nm6BBEINyDg==}
+  /@fremtind/jkl-core/14.10.3_nnrd3gsncyragczmpvfhocinkq:
+    resolution: {integrity: sha512-wIKzN2gOWrStUw2PJDPCaI6rPXvTRSeDJBLa7j+tMWIGfTwoVazDrCwAk4puryiaZGM6ymwNlOs1mUYGq6kkSA==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
@@ -5557,10 +5561,10 @@ packages:
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@fremtind/jkl-core': 14.10.2_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
       '@fremtind/jkl-footer': 6.0.22_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-formatters-util': 6.0.41_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-logo-react': 13.1.28_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-formatters-util': 6.0.42_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-logo-react': 13.1.29_nnrd3gsncyragczmpvfhocinkq
       classnames: 2.5.1
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
@@ -5569,7 +5573,7 @@ packages:
   /@fremtind/jkl-footer/6.0.22_nnrd3gsncyragczmpvfhocinkq:
     resolution: {integrity: sha512-rMMiRn+UrMPn5zh7siUvoSnyShza0jhkZxbdEF8pz75rXPS2kv8lnZkd6fYIVD4o2drmbVrFTZMf/Ga9c7F8eg==}
     dependencies:
-      '@fremtind/jkl-core': 14.10.2_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
@@ -5577,40 +5581,40 @@ packages:
       - react-dom
     dev: false
 
-  /@fremtind/jkl-formatters-util/6.0.41_nnrd3gsncyragczmpvfhocinkq:
-    resolution: {integrity: sha512-Xj1I1gQ+L9l8Eb5gFXYkyXyfqLA3SEJtaAbomSjp8qzU2XaCkOSyram5bCuiw7rK7ImlbA5W6CxXyEC8R8glmQ==}
+  /@fremtind/jkl-formatters-util/6.0.42_nnrd3gsncyragczmpvfhocinkq:
+    resolution: {integrity: sha512-GEIGDmriOfM4dvWsc4L1BN1kAZHKvpb/bANsdjmtpWGsBwQ9js9QzulHrSyKaF+JfmdFqPCoA8PX4jipSIX0VQ==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@fremtind/jkl-constants-util': 3.0.124
-      '@fremtind/jkl-core': 14.10.2_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-constants-util': 3.0.125
+      '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
     dev: false
 
-  /@fremtind/jkl-logo-react/13.1.28_nnrd3gsncyragczmpvfhocinkq:
-    resolution: {integrity: sha512-TP/AlQ7jff1Nv+zTDDQQOpdbOGwHWt4q0Hodf7Pqn6FXczWeLZi4jVG5dg1jgpMSYN78crH1/I4qrkEqnYOqlg==}
+  /@fremtind/jkl-logo-react/13.1.29_nnrd3gsncyragczmpvfhocinkq:
+    resolution: {integrity: sha512-6oPiikTwb3ZYLOPYlczWJljW+QB0w9NPu4fvXso5/Dsa+pXLLkVOnsL/QNzDMOSuLwg3NQUMTMG+C2sffbKGPA==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@fremtind/jkl-core': 14.10.2_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-logo': 11.0.35_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-react-hooks': 12.2.17_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-logo': 11.0.36_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-react-hooks': 12.2.18_nnrd3gsncyragczmpvfhocinkq
       classnames: 2.5.1
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
     dev: false
 
-  /@fremtind/jkl-logo/11.0.35_nnrd3gsncyragczmpvfhocinkq:
-    resolution: {integrity: sha512-JwXkEERv9zWvDcijqbZijsfWgBBpOMiaOqRPswO/dPBkJ9NQV/shCnYg0swoGllCpD82+7K3nKv89Sstg52vvA==}
+  /@fremtind/jkl-logo/11.0.36_nnrd3gsncyragczmpvfhocinkq:
+    resolution: {integrity: sha512-xc2nb6z+0tyc9SqK0H+/ehCmbRh15Ta+wf/eNV0vnbdDSZmA7Ma7SQ0++hGITTmDLZulrygLN7pBR49mqxja3g==}
     dependencies:
-      '@fremtind/jkl-core': 14.10.2_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'
@@ -5618,15 +5622,15 @@ packages:
       - react-dom
     dev: false
 
-  /@fremtind/jkl-react-hooks/12.2.17_nnrd3gsncyragczmpvfhocinkq:
-    resolution: {integrity: sha512-PLpBPRxmlGjFwxpUflZWLsVLywUV2XLK+pCoDjJCWv0s9Ov8xBeLaaHFdDsLph5NOrQskhEc5sstGETRkIYAGA==}
+  /@fremtind/jkl-react-hooks/12.2.18_nnrd3gsncyragczmpvfhocinkq:
+    resolution: {integrity: sha512-RsU/6JQpJ5az6cJbOsRjVQs33h6ZM353oTSuy+qV9emd4+hxo9g0CD1+uS4fTN1bzilX8qZBxlA01R2IPUfLvw==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@fremtind/jkl-core': 14.10.2_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
       nanoid: 3.3.8
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
