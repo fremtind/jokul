@@ -24,7 +24,7 @@
         "@payloadcms/db-postgres": "latest",
         "@payloadcms/next": "latest",
         "@payloadcms/richtext-lexical": "latest",
-        "@payloadcms/ui": "^3.20.0",
+        "@payloadcms/ui": "latest",
         "@types/mdx": "^2.0.13",
         "clsx": "^2.1.1",
         "cross-env": "^7.0.3",
