@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button-react",
-    "version": "12.0.22",
+    "version": "12.0.23",
     "publishConfig": {
         "access": "public"
     },
@@ -46,7 +46,7 @@
         "classnames": "^2.5.1"
     },
     "devDependencies": {
-        "@fremtind/jkl-formatters-util": "^6.0.42"
+        "@fremtind/jkl-formatters-util": "^6.0.43"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",
