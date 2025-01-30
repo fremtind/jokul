@@ -7,6 +7,6 @@ const nextConfig = {
     pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
-const witthMdx = createMDX({});
+const withMdx = createMDX({});
 
-export default withPayload(witthMdx(nextConfig));
+export default withPayload(withMdx(nextConfig));
