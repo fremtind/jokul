@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-menu-react",
-    "version": "3.4.58",
+    "version": "3.4.59",
     "publishConfig": {
         "access": "public"
     },

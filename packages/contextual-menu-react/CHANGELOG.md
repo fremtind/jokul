@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.8.24](https://github.com/fremtind/jokul/compare/@fremtind/jkl-contextual-menu-react@3.8.23...@fremtind/jkl-contextual-menu-react@3.8.24) (2025-01-30)
+
+### Bug Fixes
+
+- adds react-is as a direct dependency ([4cf82e0](https://github.com/fremtind/jokul/commit/4cf82e0ad0721aaa44bb940a24dadddf133c490e))
+
 ## 3.8.16 (2025-01-08)
 
 ### Bug Fixes

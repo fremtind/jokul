@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.59](https://github.com/fremtind/jokul/compare/@fremtind/jkl-menu-react@3.4.58...@fremtind/jkl-menu-react@3.4.59) (2025-01-30)
+
+### Bug Fixes
+
+- adds react-is as a direct dependency ([4cf82e0](https://github.com/fremtind/jokul/commit/4cf82e0ad0721aaa44bb940a24dadddf133c490e))
+
 ## 3.4.50 (2025-01-08)
 
 ### Bug Fixes

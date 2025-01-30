@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-table-react",
-    "version": "11.4.71",
+    "version": "11.4.72",
     "publishConfig": {
         "access": "public"
     },
@@ -42,7 +42,7 @@
         "@fremtind/jkl-icon-button-react": "^5.0.37",
         "@fremtind/jkl-icons-react": "^9.2.4",
         "@fremtind/jkl-react-hooks": "^12.2.18",
-        "@fremtind/jkl-select-react": "^15.0.20",
+        "@fremtind/jkl-select-react": "^15.0.21",
         "@fremtind/jkl-table": "^9.1.30",
         "@fremtind/jkl-text-input-react": "^16.0.14",
         "classnames": "^2.5.1"
