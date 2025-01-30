@@ -133,6 +133,7 @@ export interface ComponentPage {
     };
     [k: string]: unknown;
   } | null;
+  'code-example'?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -239,6 +240,7 @@ export interface ComponentPageSelect<T extends boolean = true> {
   title?: T;
   lede?: T;
   content?: T;
+  'code-example'?: T;
   updatedAt?: T;
   createdAt?: T;
 }

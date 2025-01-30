@@ -24,6 +24,7 @@
         "@payloadcms/db-postgres": "latest",
         "@payloadcms/next": "latest",
         "@payloadcms/richtext-lexical": "latest",
+        "@payloadcms/ui": "^3.20.0",
         "@types/mdx": "^2.0.13",
         "clsx": "^2.1.1",
         "cross-env": "^7.0.3",
@@ -32,6 +33,7 @@
         "payload": "latest",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
+        "react-live": "^4.1.8",
         "sharp": "0.32.6"
     },
     "devDependencies": {
