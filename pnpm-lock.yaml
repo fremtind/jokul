@@ -231,7 +231,7 @@ importers:
       '@payloadcms/db-postgres': latest
       '@payloadcms/next': latest
       '@payloadcms/richtext-lexical': latest
-      '@payloadcms/ui': ^3.20.0
+      '@payloadcms/ui': latest
       '@types/mdx': ^2.0.13
       '@types/node': ^22.5.4
       '@types/react': ^18.3.1
@@ -6384,7 +6384,7 @@ packages:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.19.71
+      '@types/node': 22.10.2
       jest-mock: 29.7.0
     dev: true
 
@@ -6542,7 +6542,7 @@ packages:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 18.19.71
+      '@types/node': 22.10.2
       '@types/yargs': 17.0.24
       chalk: 4.1.2
     dev: true
@@ -20932,7 +20932,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 18.19.71
+      '@types/node': 22.10.2
       jest-util: 29.7.0
     dev: true
 
