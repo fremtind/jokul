@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
@@ -8,12 +9,23 @@ export default async function Components() {
 
     const data = await payload.find({
         collection: "component-page",
+        select: {
+            title: true,
+            slug: true,
+        },
     });
+    console.log(data);
 
     return (
-        <ul>
+        <ul style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             {data.docs.map((page) => (
-                <li key={page.title}>{page.title}</li>
+                <Link
+                    style={{ color: "white" }}
+                    key={page.slug}
+                    href={`/komponenter/${page.slug}`}
+                >
+                    {page.title}
+                </Link>
             ))}
         </ul>
     );
