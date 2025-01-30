@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.44.4 (2025-01-30)
+
+### Bug Fixes
+
+- supports importing autosuggest and file-input from root path ([107de36](https://github.com/fremtind/jokul/commit/107de364e6a3e47085538ef41cc3a421bd9e2268))
+
 ## [0.44.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.44.2...@fremtind/jokul@0.44.3) (2025-01-30)
 
 ### Bug Fixes
