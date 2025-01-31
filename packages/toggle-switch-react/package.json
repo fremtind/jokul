@@ -3,7 +3,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "version": "13.1.49",
+    "version": "13.1.50",
     "description": "Jøkul react toggle switch component",
     "homepage": "https://github.com/fremtind/jokul/tree/main/packages/toggle-switch-react",
     "keywords": [
