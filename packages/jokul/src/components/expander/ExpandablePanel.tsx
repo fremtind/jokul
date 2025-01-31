@@ -36,10 +36,6 @@ export const ExpandablePanel = Object.assign(
         const isControlled = typeof controlledOpen !== "undefined";
         const isOpen = isControlled ? controlledOpen : uncontrolledOpen;
 
-        useEffect(() => {
-            onOpenChange?.(isOpen);
-        }, [isOpen, onOpenChange]);
-
         const setVisibleIfOpening = (isOpening: boolean) => {
             if (isOpening) {
                 setContentIsVisible(true);
@@ -50,7 +46,10 @@ export const ExpandablePanel = Object.assign(
             if (isControlled) {
                 return;
             }
-            setUncontrolledOpen((previousValue) => !previousValue);
+            setUncontrolledOpen((previousValue) => {
+                onOpenChange?.(!previousValue);
+                return !previousValue;
+            });
         };
 
         useEffect(() => {
