@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-menu-react",
-    "version": "3.4.59",
+    "version": "3.4.60",
     "publishConfig": {
         "access": "public"
     },
@@ -47,7 +47,7 @@
         "react-is": "^18"
     },
     "devDependencies": {
-        "@fremtind/jkl-icon-button-react": "^5.0.37"
+        "@fremtind/jkl-icon-button-react": "^5.0.38"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

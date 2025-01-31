@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-cookie-consent-react",
-    "version": "11.1.3",
+    "version": "11.1.4",
     "publishConfig": {
         "access": "public"
     },
@@ -37,12 +37,12 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-button-react": "^15.2.27",
+        "@fremtind/jkl-button-react": "^15.2.28",
         "@fremtind/jkl-checkbox-react": "^12.0.11",
         "@fremtind/jkl-cookie-consent": "^12.0.3",
         "@fremtind/jkl-core": "^14.10.3",
         "@fremtind/jkl-list-react": "^10.2.32",
-        "@fremtind/jkl-modal-react": "^2.1.72",
+        "@fremtind/jkl-modal-react": "^2.1.73",
         "@fremtind/jkl-react-hooks": "^12.2.18"
     },
     "peerDependencies": {
