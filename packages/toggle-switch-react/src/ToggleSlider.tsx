@@ -20,6 +20,11 @@ interface Props extends WithChildren {
     density?: Density;
 }
 
+/**
+ * @deprecated Vi anbefaler ikke lenger å bruke dette mønstret. Finn heller en
+ * bedre måte å veksle mellom verdier ved hjelp av andre komponenter i systemet.
+ * @see ToggleSwitch, CheckBox, RadioButtonGroup, Chip, Button
+ */
 export const ToggleSlider: FC<Props> = ({
     children,
     labels,
