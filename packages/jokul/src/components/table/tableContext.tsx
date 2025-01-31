@@ -4,7 +4,7 @@ import { Density, WithChildren } from "../../core/types.js";
 type TableContext = {
     density?: Density;
     collapseToList: boolean;
-    setHasStickyHead: (hasStcikyHead: boolean | undefined) => void;
+    setHasStickyHead: (hasStcikyHead: boolean) => void;
 };
 
 const tableContext = createContext<TableContext>({
