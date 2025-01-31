@@ -19,12 +19,8 @@ export default async function Components() {
     return (
         <Flex as="ul" direction="column" gap={16}>
             {data.docs.map((page) => (
-                <li key={page.title}>
-                    <Link
-                        as={NextLink}
-                        key={page.slug}
-                        href={`/komponenter/${page.slug}`}
-                    >
+                <li key={page.slug}>
+                    <Link as={NextLink} href={`/komponenter/${page.slug}`}>
                         {page.title}
                     </Link>
                 </li>
