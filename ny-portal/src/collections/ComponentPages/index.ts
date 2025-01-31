@@ -1,5 +1,6 @@
-import { CollectionBeforeReadHook, CollectionConfig } from "payload";
+import { CollectionConfig } from "payload";
 import { CodeExampleField } from "@/fields/code-example";
+import { slugField } from "@/fields/slug";
 
 export const ComponentPages: CollectionConfig = {
     slug: "component-page",
@@ -7,12 +8,7 @@ export const ComponentPages: CollectionConfig = {
         useAsTitle: "title",
     },
     fields: [
-        {
-            name: "slug",
-            type: "text",
-            label: "URL-segment",
-            required: true,
-        },
+        ...slugField(),
         {
             name: "title",
             type: "text",
