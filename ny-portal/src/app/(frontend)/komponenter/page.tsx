@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Flex, Link } from "@fremtind/jokul/components";
+import NextLink from "next/link";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
@@ -16,16 +17,18 @@ export default async function Components() {
     });
 
     return (
-        <ul style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <Flex as="ul" direction="column" gap={16}>
             {data.docs.map((page) => (
-                <Link
-                    style={{ color: "var(--jkl-color-text-default)" }}
-                    key={page.slug}
-                    href={`/komponenter/${page.slug}`}
-                >
-                    {page.title}
-                </Link>
+                <li key={page.title}>
+                    <Link
+                        as={NextLink}
+                        key={page.slug}
+                        href={`/komponenter/${page.slug}`}
+                    >
+                        {page.title}
+                    </Link>
+                </li>
             ))}
-        </ul>
+        </Flex>
     );
 }
