@@ -23,9 +23,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
         },
         ref,
     ) => {
-        const [hasStickyHead, setHasStickyHead] = useState<boolean | undefined>(
-            false,
-        );
+        const [hasStickyHead, setHasStickyHead] = useState<boolean>(false);
 
         return (
             <TableContextProvider
