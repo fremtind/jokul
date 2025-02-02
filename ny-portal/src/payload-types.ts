@@ -102,7 +102,8 @@ export interface Media {
  */
 export interface ComponentPage {
   id: number;
-  slug: string;
+  slug?: string | null;
+  slugLock?: boolean | null;
   title: string;
   lede?: {
     root: {
@@ -239,6 +240,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface ComponentPageSelect<T extends boolean = true> {
   slug?: T;
+  slugLock?: T;
   title?: T;
   lede?: T;
   content?: T;

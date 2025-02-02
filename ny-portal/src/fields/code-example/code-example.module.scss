@@ -1,0 +1,27 @@
+.select {
+    padding: 7px 12px;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    background: var(--theme-input-bg);
+    border: 1px solid var(--theme-elevation-150);
+    border-radius: var(--style-radius-s);
+    min-height: 38px;
+
+    &:focus,
+    &:active {
+        outline: none;
+        border-color: var(--theme-elevation-400);
+    }
+}
+
+.icon {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    pointer-events: none;
+}
+
+.wrapper {
+    position: relative;
+}
