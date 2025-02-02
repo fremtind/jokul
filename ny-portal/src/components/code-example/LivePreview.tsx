@@ -9,7 +9,7 @@ import {
     LiveProvider as ReactLiveProvider,
 } from "react-live";
 
-type Props = { code: string };
+type Props = { code: string; showEditor: boolean };
 
 const transformCode = (code: string) => `
     const Wrapper = () => {
@@ -18,7 +18,7 @@ const transformCode = (code: string) => `
     render(<Wrapper />);
 `;
 
-export const LivePreview: FC<Props> = ({ code }) => {
+export const LivePreview: FC<Props> = ({ code, showEditor }) => {
     return (
         <ReactLiveProvider
             code={code}
@@ -27,7 +27,7 @@ export const LivePreview: FC<Props> = ({ code }) => {
             noInline={true}
         >
             <ReactLivePreview />
-            <ReactLiveEditor />
+            {showEditor && <ReactLiveEditor />}
             <ReactLiveError />
         </ReactLiveProvider>
     );
