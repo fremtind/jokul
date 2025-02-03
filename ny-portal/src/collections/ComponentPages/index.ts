@@ -1,4 +1,6 @@
+import { BlocksFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 import { CollectionConfig } from "payload";
+import CodeExampleBlock from "@/blocks/CodeExampleBlock";
 import { CodeExampleField } from "@/fields/code-example";
 import { slugField } from "@/fields/slug";
 
@@ -24,6 +26,15 @@ export const ComponentPages: CollectionConfig = {
             name: "content",
             type: "richText",
             label: "Innhold",
+            editor: lexicalEditor({
+                features({ defaultFeatures, rootFeatures }) {
+                    return [
+                        ...defaultFeatures,
+                        ...rootFeatures,
+                        BlocksFeature({ blocks: [CodeExampleBlock] }),
+                    ];
+                },
+            }),
         },
         CodeExampleField,
     ],

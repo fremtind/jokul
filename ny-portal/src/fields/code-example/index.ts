@@ -1,2 +1,1 @@
-export { CodeExampleField } from "./CodeExampleField";
-export { PATH_SEPARATOR } from "./CodeExampleInput";
+export { CodeExampleField, PATH_SEPARATOR } from "./CodeExampleField";

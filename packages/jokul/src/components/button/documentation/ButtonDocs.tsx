@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import { Flex } from "../../flex/Flex.js";
 import { Button } from "../Button.js";
 
 export const ButtonExample = () => {
@@ -13,7 +14,12 @@ export const ButtonExample = () => {
     }, []);
 
     return (
-        <div className="flex flex-column gap-32 justify-between items-center">
+        <Flex
+            direction="column"
+            gap={32}
+            justifyContent="space-between"
+            alignItems="center"
+        >
             <Button
                 variant="primary"
                 loader={{
@@ -46,7 +52,7 @@ export const ButtonExample = () => {
             </Button>
 
             <Button variant="ghost">Ola Nordmann</Button>
-        </div>
+        </Flex>
     );
     /* -- EXAMPLE CODE END -- */
 };
