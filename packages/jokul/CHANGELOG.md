@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.44.5 (2025-02-03)
+
+### Bug Fixes
+
+- onOpenChange i ExpandablePanel.tsx trigger nå bare på onChange dersom den ikke er controlled ([cf8628f](https://github.com/fremtind/jokul/commit/cf8628f531693dc8f414b84c1ea3e82ff465426a))
+
 ## 0.44.4 (2025-01-30)
 
 ### Bug Fixes
