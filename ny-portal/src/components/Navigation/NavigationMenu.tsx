@@ -12,7 +12,6 @@ type NavItem = {
 };
 
 export type NavChildItem = {
-    id: number;
     title: string;
     slug?: string | null;
 };
@@ -42,7 +41,13 @@ export const NavigationMenu = async () => {
     });
 
     const navChildItems: Record<RootPath, NavChildItem[]> = {
-        komponenter: components,
+        komponenter: [
+            {
+                title: "Oversikt",
+                slug: "oversikt",
+            },
+            ...components,
+        ],
     };
 
     return (

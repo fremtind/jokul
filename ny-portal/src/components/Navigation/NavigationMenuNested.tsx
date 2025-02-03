@@ -22,7 +22,9 @@ export const NavigationMenuNested: FC<NavigationMenuNestedProps> = ({
 }) => {
     const menuId = useId("navigation-menu-nested");
     const pathname = usePathname();
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(
+        items.some((item) => pathname === `/${parentPath}/${item.slug}`),
+    );
     const [menuRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
 
     return (
@@ -48,11 +50,10 @@ export const NavigationMenuNested: FC<NavigationMenuNestedProps> = ({
                 <ul>
                     {items.map((item) => {
                         const hasActiveChild =
-                            pathname === `/${parentPath}/${item.slug}` &&
-                            pathname.includes(item.slug ?? "");
+                            pathname === `/${parentPath}/${item.slug}`;
 
                         return (
-                            <li key={item.id}>
+                            <li key={item.slug}>
                                 <NavigationMenuLink
                                     label={item.title}
                                     path={item.slug ?? ""}
