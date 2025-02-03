@@ -1,5 +1,6 @@
 import { clsx } from "clsx";
 import React, { type ComponentPropsWithRef } from "react";
+import { Flex } from "../flex/Flex.js";
 
 export type ButtonGroupProps = {
     /**
@@ -16,11 +17,14 @@ export const ButtonGroup = ({
     stacked = false,
     ...props
 }: ButtonGroupProps): JSX.Element => (
-    <div
+    <Flex
+        wrap
+        colGap={12}
+        rowGap={16}
         data-stacked={stacked}
         className={clsx("jkl-button-group", className)}
         {...props}
     >
         {children}
-    </div>
+    </Flex>
 );
