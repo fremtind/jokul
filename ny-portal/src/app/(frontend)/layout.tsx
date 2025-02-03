@@ -1,10 +1,8 @@
-"use client";
-
-import { CookieConsentProvider } from "@fremtind/jokul/components/cookie-consent";
 import Link from "next/link";
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/Navigation/Navigation";
 import "./global.scss";
 import styles from "./layout.module.scss";
+import { CookieConsent } from "@/components/CookieConsent/CookieConsent";
 
 interface Props {
     children: React.ReactNode;
@@ -21,14 +19,13 @@ export default function PortalLayout({ children }: Props) {
                 >
                     Hopp til innhold
                 </Link>
-                <CookieConsentProvider statistics functional>
-                    <div className={styles.layout}>
-                        <Navigation />
+                <div className={styles.layout}>
+                    <Navigation />
+                    <CookieConsent>
                         <main
                             className={styles.layout__content}
                             style={
                                 {
-                                    backgroundColor: "var(--jkl-bg-color)",
                                     "--scrollbar-width": `${
                                         /* scrollbarWidth */ 6
                                     }px`,
@@ -64,8 +61,8 @@ export default function PortalLayout({ children }: Props) {
                 ]}
               /> */}
                         </div>
-                    </div>
-                </CookieConsentProvider>
+                    </CookieConsent>
+                </div>
             </body>
         </html>
     );
