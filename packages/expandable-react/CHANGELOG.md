@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expandable-react@7.2.9...@fremtind/jkl-expandable-react@7.2.10) (2025-02-03)
+
+### Bug Fixes
+
+- onOpenChange i ExpandablePanel.tsx trigger nå bare på onChange dersom den ikke er controlled ([cf8628f](https://github.com/fremtind/jokul/commit/cf8628f531693dc8f414b84c1ea3e82ff465426a))
+
 ## [7.2.3](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expandable-react@7.2.2...@fremtind/jkl-expandable-react@7.2.3) (2025-01-14)
 
 ### Bug Fixes
