@@ -5,7 +5,7 @@ import styles from "./navigation.module.scss";
 
 const onOpenSearch = () => {};
 
-export const Search = () => {
+export const NavigationSearch = () => {
     return (
         <form
             className={styles.navigation__search}

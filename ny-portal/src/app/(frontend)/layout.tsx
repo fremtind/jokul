@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { Navigation } from "@/components/Navigation/Navigation";
+import { Navigation } from "@/components/navigation";
 import "./global.scss";
 import styles from "./layout.module.scss";
-import { CookieConsent } from "@/components/CookieConsent/CookieConsent";
 
 interface Props {
     children: React.ReactNode;
@@ -21,21 +20,20 @@ export default function PortalLayout({ children }: Props) {
                 </Link>
                 <div className={styles.layout}>
                     <Navigation />
-                    <CookieConsent>
-                        <main
-                            className={styles.layout__content}
-                            style={
-                                {
-                                    "--scrollbar-width": `${
-                                        /* scrollbarWidth */ 6
-                                    }px`,
-                                } as React.CSSProperties
-                            }
-                        >
-                            {children}
-                        </main>
-                        <div className={styles.layout__footer}>
-                            {/* <Footer
+                    <main
+                        className={styles.layout__content}
+                        style={
+                            {
+                                "--scrollbar-width": `${
+                                    /* scrollbarWidth */ 6
+                                }px`,
+                            } as React.CSSProperties
+                        }
+                    >
+                        {children}
+                    </main>
+                    <div className={styles.layout__footer}>
+                        {/* <Footer
                 heading="Jøkul er designsystemet til Fremtind Forsikring"
                 links={[
                   {
@@ -60,8 +58,7 @@ export default function PortalLayout({ children }: Props) {
                   },
                 ]}
               /> */}
-                        </div>
-                    </CookieConsent>
+                    </div>
                 </div>
             </body>
         </html>

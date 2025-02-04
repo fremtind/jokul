@@ -102,7 +102,7 @@ export interface Media {
  */
 export interface ComponentPage {
   id: number;
-  slug?: string | null;
+  slug: string;
   slugLock?: boolean | null;
   title: string;
   lede?: {

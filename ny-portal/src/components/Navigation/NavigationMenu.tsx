@@ -1,5 +1,6 @@
 import { getPayload } from "payload";
 import { useId } from "react";
+import { NavigationMenuLink } from "./NavigationMenuLink";
 import { NavigationMenuNested } from "./NavigationMenuNested";
 import configPromise from "@/payload.config";
 
@@ -13,7 +14,7 @@ type NavItem = {
 
 export type NavChildItem = {
     title: string;
-    slug?: string | null;
+    slug: string;
 };
 
 const navItems: NavItem[] = [
@@ -26,7 +27,6 @@ const navItems: NavItem[] = [
 
 export const NavigationMenu = async () => {
     const navId = useId();
-    const burgerId = useId();
 
     const payload = await getPayload({
         config: configPromise,
@@ -44,14 +44,14 @@ export const NavigationMenu = async () => {
         komponenter: [
             {
                 title: "Oversikt",
-                slug: "oversikt",
+                slug: "",
             },
             ...components,
         ],
     };
 
     return (
-        <ul id={navId} aria-labelledby={burgerId} role="group">
+        <ul id={navId}>
             {navItems.map((item) => {
                 if (item.hasChildren) {
                     return (
@@ -64,7 +64,14 @@ export const NavigationMenu = async () => {
                     );
                 }
 
-                return <li key={item.title}></li>;
+                return (
+                    <li key={item.title}>
+                        <NavigationMenuLink
+                            label={item.title}
+                            path={item.rootPath}
+                        />
+                    </li>
+                );
             })}
         </ul>
     );

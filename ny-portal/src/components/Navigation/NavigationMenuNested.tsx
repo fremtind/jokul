@@ -1,9 +1,9 @@
 "use client";
 
-import { useAnimatedHeight, useId } from "@fremtind/jokul";
-import cn from "clsx";
+import { useAnimatedHeight } from "@fremtind/jokul";
+import { clsx } from "clsx";
 import { usePathname } from "next/navigation";
-import { FC, Fragment, useState } from "react";
+import { FC, Fragment, useState, useId } from "react";
 import styles from "./navigation.module.scss";
 import { NavChildItem } from "./NavigationMenu";
 import { NavigationMenuButton } from "./NavigationMenuButton";
@@ -20,7 +20,7 @@ export const NavigationMenuNested: FC<NavigationMenuNestedProps> = ({
     parentPath,
     items,
 }) => {
-    const menuId = useId("navigation-menu-nested");
+    const menuId = `navigation-menu-nested-${useId()}`;
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(
         items.some((item) => pathname === `/${parentPath}/${item.slug}`),
@@ -38,7 +38,7 @@ export const NavigationMenuNested: FC<NavigationMenuNestedProps> = ({
                 {title}
             </NavigationMenuButton>
             <div
-                className={cn(
+                className={clsx(
                     styles["navigation-menu"],
                     styles["navigation-menu--nested"],
                 )}
@@ -56,7 +56,7 @@ export const NavigationMenuNested: FC<NavigationMenuNestedProps> = ({
                             <li key={item.slug}>
                                 <NavigationMenuLink
                                     label={item.title}
-                                    path={item.slug ?? ""}
+                                    path={item.slug}
                                     parentPath={parentPath}
                                     data-has-active-child={hasActiveChild}
                                 />

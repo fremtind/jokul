@@ -1,20 +1,18 @@
 import { ChevronRightIcon } from "@fremtind/jokul";
-import cn from "classnames";
+import { clsx } from "clsx";
 import type { FC, HTMLAttributes } from "react";
 import styles from "./navigation-menu-item.module.scss";
 
 export interface NavigationMenuButtonProps
-    extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
-    linkTo?: string;
-}
+    extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {}
 
 export const NavigationMenuButton: FC<NavigationMenuButtonProps> = (props) => {
-    const { className, children, linkTo, ...buttonProps } = props;
+    const { className, children, ...buttonProps } = props;
 
     return (
         <button
             {...buttonProps}
-            className={cn(styles["navigation-menu-item"], className)}
+            className={clsx(styles["navigation-menu-item"], className)}
         >
             {children}
             <ChevronRightIcon

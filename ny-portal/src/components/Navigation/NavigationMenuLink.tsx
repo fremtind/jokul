@@ -1,8 +1,9 @@
-import cn from "classnames";
+"use client";
+
+import { clsx } from "clsx";
 import Link from "next/link";
 import { useCallback, type FC, type HTMLAttributes } from "react";
 import styles from "./navigation-menu-item.module.scss";
-import { useNavigationMenu } from "./NavigationMenuContext";
 
 type NavigationMenuLinkProps = HTMLAttributes<HTMLAnchorElement> & {
     label: string;
@@ -18,22 +19,19 @@ export const NavigationMenuLink: FC<NavigationMenuLinkProps> = ({
     onClick,
     ...restProps
 }) => {
-    const { setOpen } = useNavigationMenu();
-
-    const href = `/${parentPath}/${path}`;
+    const href = parentPath ? `/${parentPath}/${path}` : `/${path}`;
 
     const handleClick = useCallback(
         (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-            setOpen(false);
             onClick?.(e);
         },
-        [onClick, setOpen],
+        [onClick],
     );
 
     return (
         <Link
             href={href}
-            className={cn(styles["navigation-menu-item"], className)}
+            className={clsx(styles["navigation-menu-item"], className)}
             onClick={handleClick}
             {...restProps}
         >
