@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.44.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.44.5...@fremtind/jokul@0.44.6) (2025-02-04)
+
+### Bug Fixes
+
+- no longer updates Table while rendering TableHead ([4dc0239](https://github.com/fremtind/jokul/commit/4dc0239debf646a34343e752285598762ee92a2b))
+
 ## 0.44.5 (2025-02-03)
 
 ### Bug Fixes
