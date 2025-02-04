@@ -224,6 +224,7 @@ importers:
       '@aws-sdk/client-sts': ^3.731.1
       '@aws-sdk/rds-signer': ^3.731.1
       '@eslint/eslintrc': ^3.2.0
+      '@fremtind/browserslist-config-jkl': ^2.0.1
       '@fremtind/jokul': ^0.37.11
       '@mdx-js/loader': ^3.1.0
       '@mdx-js/react': ^2.3.0
@@ -272,6 +273,7 @@ importers:
       sharp: 0.33.5
     devDependencies:
       '@eslint/eslintrc': 3.2.0
+      '@fremtind/browserslist-config-jkl': link:../packages/browserslist-config-jkl
       '@types/node': 22.10.2
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.5_@types+react@18.3.3
@@ -8559,7 +8561,7 @@ packages:
       react-image-crop: 10.1.8_react@18.3.1
       react-select: 5.9.0_psuonouaqi5wuc37nxyknoubym
       scheduler: 0.25.0
-      sonner: 1.7.2_nnrd3gsncyragczmpvfhocinkq
+      sonner: 1.7.3_nnrd3gsncyragczmpvfhocinkq
       ts-essentials: 10.0.3_typescript@5.7.2
       use-context-selector: 2.0.0_yv2zgowtpvbi5o76ktpmgscevy
       uuid: 10.0.0
@@ -10832,7 +10834,7 @@ packages:
       vite: ^4 || ^5 || ^6
     dependencies:
       '@swc/core': 1.10.9
-      vite: 5.4.14
+      vite: 5.4.14_wuqbsma3qgqk5tdosann5rauia
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -28752,16 +28754,6 @@ packages:
     resolution: {integrity: sha512-INb7TM37/mAcsGmc9hyyI6+QR3rR1zVRu36B0NeGXKnOOLiZOfER5SA+N7X7k3yUYRzLWafduTDvJAfDswwEww==}
     dependencies:
       atomic-sleep: 1.0.0
-    dev: false
-
-  /sonner/1.7.2_nnrd3gsncyragczmpvfhocinkq:
-    resolution: {integrity: sha512-zMbseqjrOzQD1a93lxahm+qMGxWovdMxBlkTbbnZdNqVLt4j+amF9PQxUCL32WfztOFt9t9ADYkejAL3jF9iNA==}
-    peerDependencies:
-      react: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
-      react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1_react@18.3.1
     dev: false
 
   /sonner/1.7.3_nnrd3gsncyragczmpvfhocinkq:
