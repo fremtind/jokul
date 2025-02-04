@@ -1,4 +1,4 @@
-import type { WithChildren } from "@fremtind/jokul";
+import type { WithChildren } from "@fremtind/jokul/core";
 import type { FC } from "react";
 import { createContext, useContext, useState } from "react";
 
