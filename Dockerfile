@@ -1,89 +1,44 @@
-### BASE
-FROM docker.intern.sparebank1.no/ubi8-nodejs18/master:latest as base
+FROM docker.intern.sparebank1.no/base/cicd-container-base-images/node22-ubi9-minimal:latest as base
 
 WORKDIR /app
-
-RUN node -v
-RUN npm -v
-
-COPY portalen/cacert.pem .
-RUN npm config set cafile /app/cacert.pem
-ENV NODE_EXTRA_CA_CERTS=/app/cacert.pem
-
-COPY portalen/package.json .
+USER root
 RUN npm install -g corepack
-
-# Version of pnpm controlled via package.json#packageManager
+COPY package.json .
+COPY pnpm-lock.yaml .
 RUN corepack enable
 RUN corepack prepare --activate
+RUN useradd -ms /bin/bash appuser
+RUN microdnf install tar -y
+RUN microdnf install findutils -y
 
-### DEPENDENCIES
 FROM base as dependencies
 
 WORKDIR /app
+COPY package.json .
+COPY pnpm-lock.yaml .
+COPY patches ./patches
+COPY packages ./packages
+COPY ny-portal ./ny-portal
+COPY pnpm-workspace.yaml .
+RUN pnpm install --frozen-lockfile
+RUN find . -name 'node_modules' -print0 | tar -cf node_modules.tar --null --files-from -
 
-COPY portalen/pnpm-lock.yaml .
-COPY portalen/pnpm-workspace.yaml .
-COPY portalen/.npmrc .
+FROM base as builder
 
-# Recreate minimal monorepo structure to install dependencies
-# but not break Docker cache w/ changes in source code.
-
-RUN mkdir -p apps/cms
-RUN mkdir -p apps/server/public/fonts
-RUN mkdir -p apps/server/public/types
-RUN mkdir -p apps/web/app/data
-
-RUN mkdir -p utils
-
-RUN mkdir -p packages/shared
-RUN mkdir -p packages/ui
-RUN mkdir -p packages/jokul
-
-RUN mkdir patches
-
-COPY portalen/apps/cms/package.json apps/cms/package.json
-COPY portalen/apps/server/package.json apps/server/package.json
-COPY portalen/apps/web/package.json apps/web/package.json
-
-COPY portalen/apps/server/postinstall.js apps/server/postinstall.js
-COPY portalen/apps/web/tsconfig.types.json apps/web/tsconfig.types.json
-
-COPY portalen/packages/shared/package.json packages/shared/package.json
-COPY portalen/packages/ui/package.json packages/ui/package.json
-
-COPY tsconfig.json .
-COPY packages/jokul packages/jokul
-COPY utils utils
-
-COPY portalen/patches/* patches/
-
-WORKDIR /app/packages/jokul
-RUN pnpm install
+WORKDIR /app
+COPY --from=dependencies /app/node_modules.tar ./node_modules.tar
+COPY . .
+RUN tar -xf node_modules.tar 
 RUN pnpm build
+RUN cd ny-portal && pnpm build
+
+FROM base as runner
 
 WORKDIR /app
-RUN pnpm install
-
-### BUILDER
-FROM dependencies as build
-
-WORKDIR /app
-
-COPY portalen/apps/ apps/
-COPY portalen/packages/ packages/
-COPY portalen/tsconfig.json .
-COPY portalen/turbo.json .
-
-RUN pnpm build
-
-### OUTPUT
-FROM build as output
-
-WORKDIR /app
-
-RUN ls -al
-
+COPY --from=builder /app/package.json package.json
+COPY --from=builder /app/ny-portal ./ny-portal
+COPY --from=builder /app/packages/jokul ./packages/jokul
+COPY --from=builder /app/node_modules ./node_modules
 EXPOSE 3000
-
-CMD pnpm serve
+WORKDIR /app/ny-portal
+CMD pnpm start
