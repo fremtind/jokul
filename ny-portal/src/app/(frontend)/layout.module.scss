@@ -1,45 +1,46 @@
-@use '@fremtind/jokul/styles/core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 .layout {
-  --outline-color: var(--jkl-color-background-container-high);
-  --jkl-bg-color: var(--jkl-color-background-page);
-  --bg-color: var(--jkl-color-background-page);
-  --header-height: #{jkl.rem(50px)};
+    --outline-color: var(--jkl-color-background-container-high);
+    --jkl-bg-color: var(--jkl-color-background-page);
+    --bg-color: var(--jkl-color-background-page);
+    --header-height: #{jkl.rem(50px)};
 
-  display: grid;
-  grid-template:
-    'nav' var(--header-height)
-    'content' minmax((calc(100vh - var(--header-height))), auto)
-    'footer' auto / 1fr;
-  background-color: var(--outline-color);
-
-  @include jkl.screen-from(1512px) {
+    display: grid;
     grid-template:
-      'nav content' minmax(100vh, auto)
-      'nav footer' auto / minmax(350px, auto) 1fr;
-  }
-
-  &__content {
-    grid-area: content;
+        "nav" var(--header-height)
+        "content" minmax((calc(100vh - var(--header-height))), auto)
+        "footer" auto / 1fr;
+    background-color: var(--jkl-bg-color);
 
     @include jkl.screen-from(1512px) {
-      margin: var(--jkl-spacing-16);
-      margin-inline-start: 0;
-      border-radius: jkl.rem(8px);
+        grid-template:
+            "nav content" minmax(100vh, auto)
+            "nav footer" auto / minmax(350px, auto) 1fr;
     }
-  }
 
-  &__footer {
-    grid-area: footer;
-  }
+    &__content {
+        grid-area: content;
+        background-color: var(--outline-color);
+
+        @include jkl.screen-from(1512px) {
+            margin: var(--jkl-spacing-16);
+            margin-inline-start: 0;
+            border-radius: jkl.rem(8px);
+        }
+    }
+
+    &__footer {
+        grid-area: footer;
+    }
 }
 
 .nav-card-container {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(280px, 1fr));
-  gap: #{jkl.$spacing-8};
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: #{jkl.$spacing-8};
 
-  @include jkl.small-device {
-    grid-template-columns: 1fr;
-  }
+    @include jkl.small-device {
+        grid-template-columns: 1fr;
+    }
 }

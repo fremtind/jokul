@@ -1,8 +1,5 @@
-"use client";
-
-import { CookieConsentProvider } from "@fremtind/jokul/components/cookie-consent";
 import Link from "next/link";
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation";
 import "./global.scss";
 import styles from "./layout.module.scss";
 
@@ -21,24 +18,22 @@ export default function PortalLayout({ children }: Props) {
                 >
                     Hopp til innhold
                 </Link>
-                <CookieConsentProvider statistics functional>
-                    <div className={styles.layout}>
-                        <Navigation />
-                        <main
-                            className={styles.layout__content}
-                            style={
-                                {
-                                    backgroundColor: "var(--jkl-bg-color)",
-                                    "--scrollbar-width": `${
-                                        /* scrollbarWidth */ 6
-                                    }px`,
-                                } as React.CSSProperties
-                            }
-                        >
-                            {children}
-                        </main>
-                        <div className={styles.layout__footer}>
-                            {/* <Footer
+                <div className={styles.layout}>
+                    <Navigation />
+                    <main
+                        className={styles.layout__content}
+                        style={
+                            {
+                                "--scrollbar-width": `${
+                                    /* scrollbarWidth */ 6
+                                }px`,
+                            } as React.CSSProperties
+                        }
+                    >
+                        {children}
+                    </main>
+                    <div className={styles.layout__footer}>
+                        {/* <Footer
                 heading="Jøkul er designsystemet til Fremtind Forsikring"
                 links={[
                   {
@@ -63,9 +58,8 @@ export default function PortalLayout({ children }: Props) {
                   },
                 ]}
               /> */}
-                        </div>
                     </div>
-                </CookieConsentProvider>
+                </div>
             </body>
         </html>
     );
