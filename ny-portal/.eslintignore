@@ -1,0 +1,3 @@
+# Autogenererte filer fra Payload i portalen
+src/payload-types.ts
+src/app/(payload)/
