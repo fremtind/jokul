@@ -1,23 +1,14 @@
+@charset "UTF-8";
+@use "../../../core/jkl";
+
 :root {
     --container-md: 43.75rem;
     --container-lg: 60rem;
     --container-xl: 75rem;
     --container-xxl: 90rem;
     --container-full: 100%;
-    --jkl-unit-10: 0.5rem;
-    --jkl-unit-05: calc(var(--jkl-unit-10) * 0.5);
-    --jkl-unit-15: calc(var(--jkl-unit-10) * 1.5);
-    --jkl-unit-20: calc(var(--jkl-unit-10) * 2);
-    --jkl-unit-25: calc(var(--jkl-unit-10) * 2.5);
-    --jkl-unit-30: calc(var(--jkl-unit-10) * 3);
-    --jkl-unit-40: calc(var(--jkl-unit-10) * 4);
-    --jkl-unit-50: calc(var(--jkl-unit-10) * 5);
-    --jkl-unit-60: calc(var(--jkl-unit-10) * 6);
-    --jkl-unit-70: calc(var(--jkl-unit-10) * 7);
-    --jkl-unit-80: calc(var(--jkl-unit-10) * 8);
-    --jkl-unit-90: calc(var(--jkl-unit-10) * 9);
-    --jkl-unit-100: calc(var(--jkl-unit-10) * 10);
 }
+
 
 :where(.flex) {
     box-sizing: border-box;
