@@ -1,5 +1,3 @@
-"use client";
-
 import { ChevronRightIcon } from "@fremtind/jokul/components/icon";
 import { clsx } from "clsx";
 import type { FC, HTMLAttributes } from "react";

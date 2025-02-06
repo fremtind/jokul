@@ -1,6 +1,4 @@
-"use client";
-
-import { FC, useId } from "react";
+import { FC } from "react";
 
 type NavigationMenuListProps = {
     children: React.ReactNode;
@@ -9,7 +7,5 @@ type NavigationMenuListProps = {
 export const NavigationMenuList: FC<NavigationMenuListProps> = ({
     children,
 }) => {
-    const navId = useId();
-
-    return <ul id={navId}>{children}</ul>;
+    return <ul>{children}</ul>;
 };
