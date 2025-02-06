@@ -1,26 +1,14 @@
 import React, {
     ChangeEvent,
-    ComponentPropsWithRef,
     ForwardedRef,
     forwardRef,
     useCallback,
     useContext,
     useEffect,
 } from "react";
-import { BasePanel } from "./BasePanel.js";
+import { BasePanel } from "../../shared/input-panel/BasePanel.js";
 import { context } from "./radioPanelContext.js";
-
-// aria-invalid has been deprecated for the "radio" role, it should go on the
-// parent radiogroup
-export type RadioPanelProps = Omit<
-    ComponentPropsWithRef<"input">,
-    "type" | "aria-invalid"
-> & {
-    value: string;
-    label: string;
-    extraLabel?: React.ReactNode;
-    alwaysOpen?: boolean;
-};
+import { RadioPanelProps } from "./types.js";
 
 export const RadioPanel = forwardRef(function RadioPanel(
     {

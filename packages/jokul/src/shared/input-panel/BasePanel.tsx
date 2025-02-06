@@ -31,6 +31,7 @@ export const BasePanel = forwardRef(function BasePanel(
     ref: ForwardedRef<HTMLInputElement>,
 ) {
     const contentId = `content-${useId()}`;
+    const inputId = `input-${useId()}`;
     const hasChildren = Children.count(children) > 0;
     const animationRef = useAutoAnimatedHeight<HTMLDivElement>(isChecked);
 
@@ -38,9 +39,10 @@ export const BasePanel = forwardRef(function BasePanel(
         <div
             className={clsx("jkl-input-panel", `jkl-${type}-panel`, className)}
         >
-            <label className="jkl-input-panel__label">
+            <label className="jkl-input-panel__label" htmlFor={inputId}>
                 <input
                     ref={ref}
+                    id={inputId}
                     className="jkl-input-panel__input"
                     type={type}
                     aria-controls={!alwaysOpen ? contentId : undefined}
