@@ -1,6 +1,6 @@
-@use "../../../core/jkl/" as jkl;
+@use "../../../core/jkl" as jkl;
 @use "sass:string";
-@use "./shared.scss";
+@use "../../../shared/input-panel/styles/shared.scss";
 
 $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
 

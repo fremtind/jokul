@@ -1,6 +1,6 @@
 @use "../../../core/jkl/" as jkl;
 @use "sass:string";
-@use "./shared.scss";
+@use "../../../shared/input-panel/styles/shared.scss";
 
 $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 

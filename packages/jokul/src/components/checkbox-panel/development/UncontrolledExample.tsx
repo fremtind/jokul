@@ -1,10 +1,10 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { PrimaryButton } from "../../../button/Button.js";
-import { Flex } from "../../../flex/Flex.js";
-import { SuccessTag } from "../../../tag/Tag.js";
+import { PrimaryButton } from "../../button/Button.js";
+import { Flex } from "../../flex/index.js";
 import { CheckboxPanel } from "../../index.js";
+import { SuccessTag } from "../../tag/index.js";
 
 export const knobs: ExampleKnobsProps = {
     boolProps: ["Med feil"],
@@ -16,7 +16,7 @@ type Inputs = {
     ansvar: boolean;
 };
 
-export const ControlledExample: FC<ExampleComponentProps> = ({
+export const UncontrolledExample: FC<ExampleComponentProps> = ({
     boolValues,
 }) => {
     const { register, handleSubmit, watch } = useForm<Inputs>({
@@ -33,16 +33,12 @@ Ansvar:    ${ansvar}
 `,
         );
 
-    const kasko = watch("kasko");
-    const minikasko = watch("minikasko");
-    const ansvar = watch("ansvar");
-
     console.log(
         `
 Selected values:
-Kasko:     ${kasko}
-Minikasko: ${minikasko}
-Ansvar:    ${ansvar}
+Kasko:     ${watch("kasko")}
+Minikasko: ${watch("minikasko")}
+Ansvar:    ${watch("ansvar")}
 `,
     );
 
@@ -57,7 +53,7 @@ Ansvar:    ${ansvar}
                 <CheckboxPanel
                     label="Kasko"
                     {...register("kasko")}
-                    checked={kasko}
+                    defaultChecked={true}
                     aria-invalid={boolValues?.["Med feil"] ? "true" : undefined}
                     alwaysOpen={true}
                     extraLabel={
@@ -80,7 +76,6 @@ Ansvar:    ${ansvar}
                 <CheckboxPanel
                     label="Minikasko"
                     {...register("minikasko")}
-                    checked={minikasko}
                     aria-invalid={boolValues?.["Med feil"] ? "true" : undefined}
                     extraLabel={
                         <Flex
@@ -99,7 +94,6 @@ Ansvar:    ${ansvar}
                 <CheckboxPanel
                     label="Ansvar"
                     {...register("ansvar")}
-                    checked={ansvar}
                     aria-invalid={boolValues?.["Med feil"] ? "true" : undefined}
                     extraLabel={
                         <Flex

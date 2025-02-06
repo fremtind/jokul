@@ -153,6 +153,17 @@
                 "default": "./build/cjs/components/checkbox/index.cjs"
             }
         },
+        "./styles/components/checkbox-panel": "./styles/components/checkbox-panel/_index.scss",
+        "./components/checkbox-panel": {
+            "import": {
+                "types": "./build/es/components/checkbox-panel/index.d.ts",
+                "default": "./build/es/components/checkbox-panel/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/checkbox-panel/index.d.cts",
+                "default": "./build/cjs/components/checkbox-panel/index.cjs"
+            }
+        },
         "./styles/components/chip": "./styles/components/chip/_index.scss",
         "./components/chip": {
             "import": {
@@ -296,17 +307,6 @@
                 "default": "./build/cjs/components/input-group/index.cjs"
             }
         },
-        "./styles/components/input-panel": "./styles/components/input-panel/_index.scss",
-        "./components/input-panel": {
-            "import": {
-                "types": "./build/es/components/input-panel/index.d.ts",
-                "default": "./build/es/components/input-panel/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/input-panel/index.d.cts",
-                "default": "./build/cjs/components/input-panel/index.cjs"
-            }
-        },
         "./styles/components/link": "./styles/components/link/_index.scss",
         "./components/link": {
             "import": {
@@ -437,6 +437,17 @@
             "require": {
                 "types": "./build/cjs/components/radio-button/index.d.cts",
                 "default": "./build/cjs/components/radio-button/index.cjs"
+            }
+        },
+        "./styles/components/radio-panel": "./styles/components/radio-panel/_index.scss",
+        "./components/radio-panel": {
+            "import": {
+                "types": "./build/es/components/radio-panel/index.d.ts",
+                "default": "./build/es/components/radio-panel/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/radio-panel/index.d.cts",
+                "default": "./build/cjs/components/radio-panel/index.cjs"
             }
         },
         "./styles/components/select": "./styles/components/select/_index.scss",

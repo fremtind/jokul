@@ -1,8 +1,7 @@
 import React, { FC, useState } from "react";
-import { FieldGroup, FieldGroupProps } from "../input-group/FieldGroup.js";
+import { FieldGroup } from "../input-group/FieldGroup.js";
 import { context } from "./radioPanelContext.js";
-
-export type RadioPanelGroupProps = FieldGroupProps & {};
+import { RadioPanelGroupProps } from "./types.js";
 
 export const RadioPanelGroup: FC<RadioPanelGroupProps> = ({
     className,

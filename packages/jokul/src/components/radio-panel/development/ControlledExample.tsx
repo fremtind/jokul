@@ -1,11 +1,11 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { PrimaryButton } from "../../../button/Button.js";
-import { Flex } from "../../../flex/index.js";
-import { SuccessTag } from "../../../tag/index.js";
-import { RadioPanel } from "../../RadioPanel.js";
-import { RadioPanelGroup } from "../../RadioPanelGroup.js";
+import { PrimaryButton } from "../../button/Button.js";
+import { Flex } from "../../flex/index.js";
+import { SuccessTag } from "../../tag/index.js";
+import { RadioPanel } from "../RadioPanel.js";
+import { RadioPanelGroup } from "../RadioPanelGroup.js";
 
 export const knobs: ExampleKnobsProps = {
     boolProps: ["Med feilmelding"],
