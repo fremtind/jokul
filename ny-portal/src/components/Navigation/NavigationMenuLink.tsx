@@ -6,7 +6,7 @@ import { useCallback, type FC, type HTMLAttributes } from "react";
 import styles from "./navigation-menu-item.module.scss";
 
 type NavigationMenuLinkProps = HTMLAttributes<HTMLAnchorElement> & {
-    label: string;
+    title: string;
     path: string;
     parentPath?: string;
 };
@@ -15,7 +15,7 @@ export const NavigationMenuLink: FC<NavigationMenuLinkProps> = ({
     className,
     path,
     parentPath,
-    label,
+    title,
     onClick,
     ...restProps
 }) => {
@@ -29,13 +29,15 @@ export const NavigationMenuLink: FC<NavigationMenuLinkProps> = ({
     );
 
     return (
-        <Link
-            href={href}
-            className={clsx(styles["navigation-menu-item"], className)}
-            onClick={handleClick}
-            {...restProps}
-        >
-            {label}
-        </Link>
+        <li>
+            <Link
+                href={href}
+                className={clsx(styles["navigation-menu-item"], className)}
+                onClick={handleClick}
+                {...restProps}
+            >
+                {title}
+            </Link>
+        </li>
     );
 };

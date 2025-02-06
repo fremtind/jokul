@@ -1,34 +1,39 @@
 "use client";
 
 import { useAnimatedHeight } from "@fremtind/jokul";
-import { clsx } from "clsx";
+import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import { FC, Fragment, useState, useId } from "react";
+import { FC, useId, useState } from "react";
 import styles from "./navigation.module.scss";
-import { NavChildItem } from "./NavigationMenu";
+import { MenuItems } from "./NavigationMenu";
 import { NavigationMenuButton } from "./NavigationMenuButton";
 import { NavigationMenuLink } from "./NavigationMenuLink";
 
-type NavigationMenuNestedProps = {
+type NavigationMenuGroupProps = {
     title: string;
-    parentPath?: string;
-    items: NavChildItem[];
+    parentPath: string;
+    items: MenuItems[];
 };
 
-export const NavigationMenuNested: FC<NavigationMenuNestedProps> = ({
+export const NavigationMenuGroup: FC<NavigationMenuGroupProps> = ({
     title,
     parentPath,
     items,
 }) => {
-    const menuId = `navigation-menu-nested-${useId()}`;
+    const menuId = `navigation-menu-group-${useId()}`;
     const pathname = usePathname();
+
+    const getItemPath = (slug?: string) =>
+        `/${parentPath}${slug ? `/${slug}` : ""}`;
+
     const [isOpen, setIsOpen] = useState(
-        items.some((item) => pathname === `/${parentPath}/${item.slug}`),
+        items.some(({ slug }) => pathname === getItemPath(slug)),
     );
+
     const [menuRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
 
     return (
-        <Fragment>
+        <li>
             <NavigationMenuButton
                 onClick={() => setIsOpen((open) => !open)}
                 aria-expanded={isOpen}
@@ -40,7 +45,7 @@ export const NavigationMenuNested: FC<NavigationMenuNestedProps> = ({
             <div
                 className={clsx(
                     styles["navigation-menu"],
-                    styles["navigation-menu--nested"],
+                    styles["navigation-menu--group"],
                 )}
                 id={menuId}
                 data-hidden={!isOpen}
@@ -48,23 +53,21 @@ export const NavigationMenuNested: FC<NavigationMenuNestedProps> = ({
                 ref={menuRef}
             >
                 <ul>
-                    {items.map((item) => {
-                        const hasActiveChild =
-                            pathname === `/${parentPath}/${item.slug}`;
+                    {items.map(({ slug, title }) => {
+                        const isActive = pathname === getItemPath(slug);
 
                         return (
-                            <li key={item.slug}>
-                                <NavigationMenuLink
-                                    label={item.title}
-                                    path={item.slug}
-                                    parentPath={parentPath}
-                                    data-has-active-child={hasActiveChild}
-                                />
-                            </li>
+                            <NavigationMenuLink
+                                key={`${slug}-${title}`}
+                                title={title}
+                                path={slug}
+                                parentPath={parentPath}
+                                data-has-active-child={isActive}
+                            />
                         );
                     })}
                 </ul>
             </div>
-        </Fragment>
+        </li>
     );
 };
