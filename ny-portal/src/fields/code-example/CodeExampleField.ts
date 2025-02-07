@@ -22,7 +22,7 @@ const optionGroups = Object.groupBy(
 
 export const CodeExampleField: Field = {
     type: "text",
-    name: "code-example",
+    name: "path",
     admin: {
         components: {
             Field: {

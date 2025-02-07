@@ -6,14 +6,14 @@ type Props = {
     optionGroups: OptionGroups;
 };
 
-export const CodeExampleInput: FC<Props> = ({ path, optionGroups }) => {
+export const PropDocumentationInput: FC<Props> = ({ path, optionGroups }) => {
     return (
         <Select
             optionGroups={JSON.stringify(optionGroups)}
             path={path}
-            label="Velg kodeeksempel"
+            label="Velg komponentmappe"
         />
     );
 };
 
-export default CodeExampleInput;
+export default PropDocumentationInput;

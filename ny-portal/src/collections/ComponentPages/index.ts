@@ -1,7 +1,7 @@
 import { BlocksFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 import { CollectionConfig } from "payload";
 import CodeExampleBlock from "@/blocks/CodeExampleBlock";
-import { CodeExampleField } from "@/fields/code-example";
+import { ComponentFolderField } from "@/fields/component-folder";
 import { slugField } from "@/fields/slug";
 
 export const ComponentPages: CollectionConfig = {
@@ -36,6 +36,6 @@ export const ComponentPages: CollectionConfig = {
                 },
             }),
         },
-        CodeExampleField,
+        ComponentFolderField("sidebar"),
     ],
 };
