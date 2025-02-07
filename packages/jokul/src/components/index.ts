@@ -7,6 +7,7 @@ export * from "./checkbox/index.js";
 export * from "./checkbox-panel/index.js";
 export * from "./combobox/index.js";
 export * from "./cookie-consent/index.js";
+export * from "./countdown/index.js";
 export * from "./datepicker/index.js";
 export * from "./feedback/index.js";
 export * from "./file-input/index.js";

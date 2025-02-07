@@ -197,6 +197,17 @@
                 "default": "./build/cjs/components/cookie-consent/index.cjs"
             }
         },
+        "./styles/components/countdown": "./styles/components/countdown/_index.scss",
+        "./components/countdown": {
+            "import": {
+                "types": "./build/es/components/countdown/index.d.ts",
+                "default": "./build/es/components/countdown/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/countdown/index.d.cts",
+                "default": "./build/cjs/components/countdown/index.cjs"
+            }
+        },
         "./styles/components/datepicker": "./styles/components/datepicker/_index.scss",
         "./components/datepicker": {
             "import": {

@@ -1,17 +1,16 @@
 @use "sass:string";
-@use "../../../core/jkl";
 @use "../../../shared/track/styles/track.scss" as track;
 
-.jkl-progress-bar {
+$_downcount: jkl-downcount-#{string.unique-id()};
+
+.jkl-countdown {
     @include track.track;
 
     &__tracker {
-        transition-property: width;
-        @include jkl.motion("standard", "productive");
+        animation: $_downcount var(--duration) linear forwards;
+        animation-play-state: var(--play-state, running);
     }
 }
-
-$_downcount: jkl-downcount-#{string.unique-id()};
 
 @keyframes #{$_downcount} {
     from {

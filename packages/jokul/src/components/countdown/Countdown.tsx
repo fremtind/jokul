@@ -1,19 +1,5 @@
 import React, { useState, type CSSProperties, type FC, useEffect } from "react";
-
-export interface CountdownProps
-    extends Pick<
-        React.HTMLAttributes<HTMLDivElement>,
-        "onAnimationEnd" | "onAnimationStart"
-    > {
-    id?: string;
-    className?: string;
-    /**
-     * Millisekunder å telle ned fra
-     */
-    from: number;
-    isPaused?: boolean;
-    style?: CSSProperties;
-}
+import { CountdownProps } from "./types.js";
 
 export const Countdown: FC<CountdownProps> = ({
     className,
