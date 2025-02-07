@@ -2,7 +2,10 @@ export {
     DescriptionList,
     DescriptionTerm,
     DescriptionDetail,
-    type DescriptionListProps,
-    type DescriptionTermProps,
-    type DescriptionDetailProps,
 } from "./DescriptionList.js";
+
+export type {
+    DescriptionListProps,
+    DescriptionTermProps,
+    DescriptionDetailProps,
+} from "./types.js";

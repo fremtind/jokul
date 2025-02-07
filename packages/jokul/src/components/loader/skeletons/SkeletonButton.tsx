@@ -1,11 +1,6 @@
 import React from "react";
-import { Density } from "../../../core/types.js";
-import { SkeletonElement, SkeletonElementProps } from "./SkeletonElement.js";
-
-export interface SkeletonButtonProps
-    extends Omit<SkeletonElementProps, "height"> {
-    density?: Density;
-}
+import { SkeletonButtonProps } from "../types.js";
+import { SkeletonElement } from "./SkeletonElement.js";
 
 export const SkeletonButton = ({
     style,

@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React, {
-    ChangeEvent,
     CSSProperties,
     FocusEvent,
     forwardRef,
@@ -13,86 +12,24 @@ import React, {
     useRef,
     useState,
 } from "react";
-import { DataTestAutoId, Density } from "../../core/types.js";
 import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
 import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
 import { getValuePair, ValuePair } from "../../utilities/valuePair.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
-import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
-import { LabelProps } from "../input-group/Label.js";
-import type { PopupTipProps } from "../tooltip/PopupTip.js";
+import { InputGroup } from "../input-group/InputGroup.js";
+import type { PopupTipProps } from "../tooltip/types.js";
 import { focusSelected, toLower } from "./select-utils.js";
-
-export interface SelectPartialChangeEvent
-    extends Partial<Omit<ChangeEvent<HTMLSelectElement>, "target">> {
-    /** Kreves av react-hook-form, det skjer ulike ting avhengig av om det er blur eller change */
-    type: "change" | "blur";
-    target: {
-        /** Kreves av react-hook-form for å vite hvilket skjemafelt som ble endret */
-        name: string;
-        value: string;
-    };
-}
-
-export type SelectChangeEventHandler = (
-    event: SelectPartialChangeEvent,
-) => void;
-
-interface Option extends ValuePair {
-    visible: boolean;
-}
-
-export interface SelectProps
-    extends Omit<InputGroupProps, "children">,
-        DataTestAutoId {
-    id?: string;
-    name: string;
-    label: string;
-    labelProps?: Omit<
-        LabelProps,
-        "children" | "density" | "htmlFor" | "standAlone"
-    >;
-    items: Array<string | ValuePair>;
-    /**
-     * @default false
-     */
-    inline?: boolean;
-    /**
-     * @default "Velg"
-     */
-    defaultPrompt?: string;
-    className?: string;
-    value?: string;
-    helpLabel?: string;
-    errorLabel?: string;
-    /**
-     * @default false
-     */
-    searchable?:
-        | boolean
-        | ((searchValue: string, searchItem: string | ValuePair) => boolean);
-    density?: Density;
-    width?: string;
-    onChange?: SelectChangeEventHandler;
-    onBlur?: SelectChangeEventHandler;
-    onFocus?: SelectChangeEventHandler;
-    /**
-     * Merk som ugyldig uten å sende inn en errorLabel.
-     * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
-     */
-    invalid?: boolean;
-    /**
-     * Hvor mange valg skal vises i listen før den begynner å scrolle.
-     * @default 5
-     */
-    maxShownOptions?: number;
-}
+import { SelectProps } from "./types.js";
 
 const noop = () => {
     return;
 };
+
+interface Option extends ValuePair {
+    visible: boolean;
+}
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     (props, forwardedSelectRef) => {

@@ -2,7 +2,7 @@ import { ExampleComponentProps } from "doc-utils/index.js";
 import React, { FC } from "react";
 import { formatValuta } from "../../../utilities/formatters/valuta/formatValuta.js";
 import { PopupTip } from "../PopupTip.js";
-import { TooltipPlacement } from "../Tooltip.js";
+import { TooltipPlacement } from "../types.js";
 import { getPlacement } from "./getPlacement.js";
 
 export const PopupTipExample: FC<ExampleComponentProps> = ({

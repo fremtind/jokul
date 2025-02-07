@@ -3,9 +3,10 @@ import React, { FC, useState } from "react";
 import { formatKontonummer } from "../../../utilities/formatters/kontonummer/formatKontonummer.js";
 import { Button } from "../../button/Button.js";
 import { CopyIcon } from "../../icon/index.js";
-import { Tooltip, TooltipPlacement } from "../Tooltip.js";
+import { Tooltip } from "../Tooltip.js";
 import { TooltipContent } from "../TooltipContent.js";
 import { TooltipTrigger } from "../TooltipTrigger.js";
+import { TooltipPlacement } from "../types.js";
 import { getPlacement } from "./getPlacement.js";
 
 export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {

@@ -1,12 +1,13 @@
-export {
-    BaseTextArea,
-    type BaseTextAreaProps,
-    type Counter,
-} from "./BaseTextArea.js";
-export {
-    BaseTextInput,
-    type BaseTextInputProps,
-    type Action,
-} from "./BaseTextInput.js";
-export { TextArea, type TextAreaProps } from "./TextArea.js";
-export { TextInput, type TextInputProps } from "./TextInput.js";
+export { BaseTextArea } from "./BaseTextArea.js";
+export { BaseTextInput } from "./BaseTextInput.js";
+export { TextArea } from "./TextArea.js";
+export { TextInput } from "./TextInput.js";
+
+export type {
+    BaseTextAreaProps,
+    Counter,
+    BaseTextInputProps,
+    Action,
+    TextAreaProps,
+    TextInputProps,
+} from "./types.js";

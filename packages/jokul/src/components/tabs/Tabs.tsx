@@ -1,18 +1,10 @@
 import clsx from "clsx";
 import { nanoid } from "nanoid";
-import React, { useState, useCallback, useEffect } from "react";
-import { Density, WithChildren } from "../../core/types.js";
+import React, { useCallback, useEffect, useState } from "react";
 import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
-import { InjectedProps, TabListProps } from "./TabList.js";
-import { TabPanelProps } from "./TabPanel.js";
+import { InjectedProps } from "./TabList.js";
 import { TabsContextProvider } from "./tabsContext.js";
-
-export interface TabsProps extends WithChildren {
-    className?: string;
-    density?: Density;
-    onChange?: (tabIndex: number) => void;
-    defaultTab?: number;
-}
+import { TabListProps, TabPanelProps, TabsProps } from "./types.js";
 
 /**
  * Konteiner for et grensesnitt hvor man kan tabbe mellom innhold.

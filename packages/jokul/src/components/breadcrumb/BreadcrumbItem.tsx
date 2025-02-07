@@ -1,15 +1,6 @@
 import clsx from "clsx";
 import React, { AnchorHTMLAttributes } from "react";
-import { WithChildren } from "../../core/types.js";
-
-export interface BreadcrumbItemProps extends WithChildren {
-    className?: string;
-    /**
-     * Settes automatisk av Breadcrumb
-     * @default false
-     */
-    isLastElement?: boolean;
-}
+import { BreadcrumbItemProps } from "./types.js";
 
 export const BreadcrumbItem = ({
     className,

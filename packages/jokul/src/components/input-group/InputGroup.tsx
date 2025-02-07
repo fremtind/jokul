@@ -1,39 +1,9 @@
 import clsx from "clsx";
-import React, { forwardRef, type CSSProperties, type ReactNode } from "react";
-import {
-    DataTestAutoId,
-    Density,
-    WithOptionalChildren,
-} from "../../core/types.js";
+import React, { forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
-import { Label, LabelProps } from "./Label.js";
-import { SupportLabel, SupportLabelProps } from "./SupportLabel.js";
-
-export interface InputProps {
-    "aria-describedby"?: string;
-    "aria-invalid"?: boolean;
-    id?: string;
-}
-
-export type InputGroupProps = WithOptionalChildren &
-    DataTestAutoId & {
-        id?: string;
-        className?: string;
-        "data-testid"?: string;
-        density?: Density;
-        errorLabel?: ReactNode;
-        helpLabel?: ReactNode;
-        inline?: boolean;
-        label: ReactNode;
-        labelProps?: Omit<LabelProps, "children" | "density">;
-        supportLabelProps?: Omit<
-            SupportLabelProps,
-            "id" | "errorLabel" | "helpLabel" | "density"
-        >;
-        tooltip?: ReactNode;
-        style?: CSSProperties;
-        render?: (props: InputProps) => JSX.Element;
-    };
+import { Label } from "./Label.js";
+import { SupportLabel } from "./SupportLabel.js";
+import { InputGroupProps, InputProps } from "./types.js";
 
 export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
     (props, ref) => {

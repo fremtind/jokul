@@ -1,7 +1,8 @@
 import { fireEvent, render } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
-import { Autosuggest, AutosuggestProps } from "./Autosuggest.js";
+import { Autosuggest } from "./Autosuggest.js";
+import { AutosuggestProps } from "./types.js";
 
 const renderMount = (props?: Partial<AutosuggestProps>) =>
     render(

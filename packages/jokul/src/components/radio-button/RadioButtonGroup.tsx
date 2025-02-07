@@ -1,29 +1,7 @@
-import React, { ChangeEventHandler, FC } from "react";
-import { Density } from "../../core/types.js";
-import { FieldGroup, type FieldGroupProps } from "../input-group/FieldGroup.js";
+import React, { FC } from "react";
+import { FieldGroup } from "../input-group/FieldGroup.js";
 import { RadioGroupContextProvider } from "./radioGroupContext.js";
-
-export interface RadioButtonGroupProps
-    extends Omit<FieldGroupProps, "onChange"> {
-    legend: string;
-    /** Alle RadioButton i gruppen får dette som name. */
-    name?: string;
-    /** Om gruppen skal være controlled setter du den valgte verdien her. */
-    value?: string;
-    onChange?: ChangeEventHandler<HTMLInputElement>;
-    helpLabel?: string;
-    /**
-     * Erstatter hjelpeteksten (hvis noen) med en feilmelding.
-     * Merker samtidig alle RadioButton i gruppen som ugyldige.
-     */
-    errorLabel?: string;
-    /**
-     * Setter inline-modifieren på alle RadioButton i gruppen.
-     * @default false
-     */
-    inline?: boolean;
-    density?: Density;
-}
+import { RadioButtonGroupProps } from "./types.js";
 
 export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
     const {

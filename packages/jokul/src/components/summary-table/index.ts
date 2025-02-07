@@ -1,5 +1,4 @@
-export { SummaryTable, type SummaryTableProps } from "./SummaryTable.js";
-export {
-    SummaryTableRow,
-    type SummaryTableRowProps,
-} from "./SummaryTableRow.js";
+export { SummaryTable } from "./SummaryTable.js";
+export { SummaryTableRow } from "./SummaryTableRow.js";
+
+export type { SummaryTableProps, SummaryTableRowProps } from "./types.js";

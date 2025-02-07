@@ -1,10 +1,5 @@
-import React, { FC, ReactNode } from "react";
-
-export interface SummaryTableRowProps {
-    className?: string;
-    header: string | ReactNode;
-    content: string | ReactNode;
-}
+import React, { FC } from "react";
+import { SummaryTableRowProps } from "./types.js";
 
 export const SummaryTableRow: FC<SummaryTableRowProps> = ({
     className,

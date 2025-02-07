@@ -1,29 +1,10 @@
 import clsx from "clsx";
-import React, { forwardRef, MouseEventHandler, ThHTMLAttributes } from "react";
-import { Density } from "../../core/types.js";
+import React, { forwardRef, MouseEventHandler } from "react";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { useTableContext } from "./tableContext.js";
-import { TableSortProps } from "./utils.js";
+import { TableHeaderProps } from "./types.js";
 
 export type TableSortDirection = "asc" | "desc";
-
-export interface TableHeaderProps
-    extends ThHTMLAttributes<HTMLTableCellElement> {
-    bold?: boolean;
-    density?: Density;
-    /**
-     * Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal header følge innholdet i radene.
-     * @default "left"
-     */
-    align?: "left" | "center" | "right";
-    /**
-     * Si om headeren gjelder for en kolonne eller en rad
-     * @default "col"
-     */
-    scope?: "col" | "row";
-    srOnly?: boolean;
-    sortable?: TableSortProps;
-}
 
 const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
     (props, ref) => {

@@ -1,13 +1,6 @@
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
-import type { Density, WithChildren } from "../../core/types.js";
-
-export interface NavTabsProps extends WithChildren {
-    "aria-label"?: string;
-    className?: string;
-    density?: Density;
-    id?: string;
-}
+import { NavTabsProps } from "./types.js";
 
 export const NavTabs = ({
     "aria-label": ariaLabel,

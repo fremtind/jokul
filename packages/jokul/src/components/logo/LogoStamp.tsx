@@ -1,22 +1,8 @@
 import clsx from "clsx";
-import React, { CSSProperties, useRef } from "react";
-import { WithChildren } from "../../core/types.js";
+import React, { useRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
+import { LogoStampProps } from "./types.js";
 import { useTextSpinner } from "./useTextSpinner.js";
-
-export interface LogoStampProps extends WithChildren {
-    className?: string;
-    id?: string;
-    style?: CSSProperties;
-    /**
-     * Beskrivelse av logostempelet tilgjengelig for skjermlesere.
-     * Teksten i logostempelet er en path, og ikke tilgjengelig for skjermlesere.
-     * @default "Forsikring levert av Fremtind"
-     */
-    title?: string;
-    /** Roterer teksten rundt logostempelet første gangen stempelet kommer til syne */
-    animated?: boolean;
-}
 
 export const LogoStamp = ({
     children,

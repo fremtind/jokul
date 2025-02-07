@@ -1,6 +1,6 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { useState } from "react";
-import { NavLink } from "../../link/NavLink.js";
+import { NavLink } from "../../nav-link/NavLink.js";
 import {
     ErrorSystemMessage,
     InfoSystemMessage,

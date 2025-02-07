@@ -1,7 +1,5 @@
-import React, { forwardRef, ColgroupHTMLAttributes } from "react";
-
-export interface TableColumnGroupProps
-    extends ColgroupHTMLAttributes<HTMLTableColElement> {}
+import React, { forwardRef } from "react";
+import { TableColumnGroupProps } from "./types.js";
 
 const TableColumnGroup = forwardRef<HTMLTableColElement, TableColumnGroupProps>(
     (props, ref) => {

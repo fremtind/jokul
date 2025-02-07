@@ -1,32 +1,15 @@
 import clsx from "clsx";
 import React, {
     forwardRef,
-    type HTMLAttributes,
     type KeyboardEventHandler,
     type MouseEventHandler,
-    type ReactNode,
 } from "react";
 import {
     SwipeChangeHandler,
     useSwipeGesture,
 } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
-
-export interface MenuItemCheckboxProps
-    extends Omit<HTMLAttributes<HTMLDivElement>, "aria-checked" | "onChange"> {
-    "aria-checked": boolean;
-    /**
-     * Et ikon som vises før innholdet i menypunktet
-     */
-    icon?: ReactNode;
-    onChange?: SwipeChangeHandler<HTMLDivElement> &
-        ((
-            event:
-                | React.KeyboardEvent<HTMLDivElement>
-                | React.PointerEvent<HTMLDivElement>,
-            pressed: boolean,
-        ) => void);
-}
+import { MenuItemCheckboxProps } from "./types.js";
 
 export const MenuItemCheckbox = forwardRef<
     HTMLDivElement,

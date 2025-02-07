@@ -1,6 +1,6 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import type { LabelVariant } from "../../input-group/Label.js";
+import type { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { RadioButton } from "../RadioButton.js";
 import { RadioButtonGroup } from "../RadioButtonGroup.js";

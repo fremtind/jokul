@@ -1,11 +1,8 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
-import { BaseTextArea, BaseTextAreaProps } from "./BaseTextArea.js";
-
-export interface TextAreaProps
-    extends Omit<InputGroupProps, "children">,
-        BaseTextAreaProps {}
+import { InputGroup } from "../input-group/InputGroup.js";
+import { BaseTextArea } from "./BaseTextArea.js";
+import { TextAreaProps } from "./types.js";
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     (props, ref) => {

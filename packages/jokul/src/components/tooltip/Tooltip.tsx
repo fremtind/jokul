@@ -1,5 +1,4 @@
 import {
-    type Placement,
     type UseFloatingReturn,
     arrow,
     autoUpdate,
@@ -16,40 +15,7 @@ import {
 } from "@floating-ui/react";
 import React, { FC, createContext, useContext, useRef, useState } from "react";
 import { type WithChildren } from "../../core/types.js";
-
-export type TooltipPlacement = Extract<
-    Placement,
-    "top-start" | "top-end" | "left" | "right" | "top"
->;
-
-export interface TooltipProps {
-    /**
-     * Sett til true dersom du ønsker at tooltipen skal være åpen som default
-     * @default false
-     */
-    initialOpen?: boolean;
-    /**
-     * En funksjon som skal kalles når Tooltip åpnes eller lukkes
-     * @param open Hvorvidt tooltip endres til å være åpen eller ikke
-     */
-    onOpenChange?: (open: boolean) => void;
-    /**
-     * Plassering av tooltipen i forhold til triggeren. Tooltipen vil automatisk
-     * bytte posisjon dersom det ikke er plass.
-     * @default "top"
-     */
-    placement?: TooltipPlacement;
-    /**
-     * Valgfri forsinkelse før tooltipen åpner. Ignoreres dersom triggerOn er satt til "click"
-     * @default 250
-     */
-    delay?: number;
-    /**
-     * Angir om tooltipen skal åpnes ved klikk eller hover
-     * @default "hover"
-     */
-    triggerOn?: "click" | "hover";
-}
+import { TooltipProps } from "./types.js";
 
 type UseTooltipReturn = {
     triggerOn: NonNullable<TooltipProps["triggerOn"]>;

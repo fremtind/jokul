@@ -1,10 +1,8 @@
 import clsx from "clsx";
 import React, { forwardRef, useId } from "react";
-import {
-    FieldGroup,
-    type FieldGroupProps,
-} from "../../components/input-group/FieldGroup.js";
+import { FieldGroup } from "../../components/input-group/FieldGroup.js";
 import { type Density } from "../../core/types.js";
+import { FieldGroupProps } from "../input-group/types.js";
 import { Dropzone } from "./internal/Dropzone.js";
 import { FileInputContextProvider } from "./internal/fileInputContext.js";
 import { Input } from "./internal/Input.js";

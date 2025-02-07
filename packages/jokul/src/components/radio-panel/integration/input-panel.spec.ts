@@ -6,7 +6,7 @@ let helper: TestHelper;
 test.beforeEach(async ({ page }, workerInfo) => {
     helper = new TestHelper({
         page,
-        package: "input-panel",
+        package: "radio-panel",
         projectName: workerInfo.project.name,
     });
     await helper.init();

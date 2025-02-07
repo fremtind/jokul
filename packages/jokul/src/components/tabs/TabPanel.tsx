@@ -1,10 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { WithChildren } from "../../core/types.js";
-
-export interface TabPanelProps extends WithChildren {
-    className?: string;
-}
+import { TabPanelProps } from "./types.js";
 
 /**
  * Konteiner for innhold i et tabbet brukergrensesnitt. Ikke funksjonell utenfor et Tabs element.

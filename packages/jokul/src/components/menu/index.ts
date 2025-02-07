@@ -1,7 +1,10 @@
-export { Menu, type MenuProps } from "./Menu.js";
-export { MenuItem, type MenuItemProps } from "./MenuItem.js";
-export {
-    MenuItemCheckbox,
-    type MenuItemCheckboxProps,
-} from "./MenuItemCheckbox.js";
+export { Menu } from "./Menu.js";
+export { MenuItem } from "./MenuItem.js";
+export { MenuItemCheckbox } from "./MenuItemCheckbox.js";
 export { MenuDivider } from "./MenuDivider.js";
+
+export type {
+    MenuProps,
+    MenuItemProps,
+    MenuItemCheckboxProps,
+} from "./types.js";

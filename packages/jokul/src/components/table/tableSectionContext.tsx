@@ -1,11 +1,8 @@
 import React, { createContext, useContext } from "react";
-import { WithChildren } from "../../core/types.js";
-
-type TableSectionContext = {
-    isTableHead: boolean;
-    isTableBody: boolean;
-    isTableFooter: boolean;
-};
+import {
+    TableSectionContext,
+    TableSectionContextProviderProps,
+} from "./types.js";
 
 const tableSectionContext = createContext<TableSectionContext>({
     isTableHead: false,
@@ -15,10 +12,6 @@ const tableSectionContext = createContext<TableSectionContext>({
 
 export const useTableSectionContext = (): TableSectionContext =>
     useContext(tableSectionContext);
-
-export interface TableSectionContextProviderProps extends WithChildren {
-    state: TableSectionContext;
-}
 
 export const TableSectionContextProvider: React.FC<
     TableSectionContextProviderProps
