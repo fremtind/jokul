@@ -1,20 +1,10 @@
 import { clsx } from "clsx";
 import React, { useId } from "react";
-import {
-    PolymorphicPropsWithRef,
-    PolymorphicRef,
-} from "../../utilities/polymorphism/polymorphism.js";
+import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { OpenInNewIcon } from "../icon/icons/OpenInNewIcon.js";
+import { LinkProps } from "./types.js";
 
-export type LinkProps<ElementType extends React.ElementType> =
-    PolymorphicPropsWithRef<
-        ElementType,
-        {
-            external?: boolean;
-        }
-    >;
-
-export type LinkComponent = <ElementType extends React.ElementType = "a">(
+type LinkComponent = <ElementType extends React.ElementType = "a">(
     props: LinkProps<ElementType>,
 ) => React.ReactElement | null;
 
@@ -50,4 +40,4 @@ export const Link = React.forwardRef(function Link<
             )}
         </Component>
     );
-});
+}) as LinkComponent;

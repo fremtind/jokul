@@ -1,22 +1,11 @@
 import { clsx } from "clsx";
 import React from "react";
-import {
-    PolymorphicPropsWithRef,
-    PolymorphicRef,
-} from "../../utilities/polymorphism/polymorphism.js";
+import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ArrowRightIcon } from "../icon/icons/ArrowRightIcon.js";
 import { ArrowLeftIcon } from "../icon/index.js";
+import { NavLinkProps } from "./types.js";
 
-export type NavLinkProps<ElementType extends React.ElementType> =
-    PolymorphicPropsWithRef<
-        ElementType,
-        {
-            active?: boolean;
-            back?: boolean;
-        }
-    >;
-
-export type LinkComponent = <ElementType extends React.ElementType = "a">(
+type LinkComponent = <ElementType extends React.ElementType = "a">(
     props: NavLinkProps<ElementType>,
 ) => React.ReactElement | null;
 
@@ -58,4 +47,4 @@ export const NavLink = React.forwardRef(function NavLink<
             )}
         </Component>
     );
-});
+}) as LinkComponent;
