@@ -23,6 +23,7 @@ import { BoldFeatureClient as BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864
 import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { BlocksFeatureClient as BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { default as default_6b73bc0444f03fe7497cdc21a73ec1c0 } from '@/fields/code-example/CodeExampleInput'
+import { default as default_8a075f8a29a704cca3fc9e063bdbe5c8 } from '@/fields/component-folder/ComponentFolderInput'
 
 export const importMap = {
   "@/fields/slug/SlugComponent#SlugComponent": SlugComponent_92cc057d0a2abb4f6cf0307edf59f986,
@@ -49,5 +50,6 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#BoldFeatureClient": BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#ItalicFeatureClient": ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#BlocksFeatureClient": BlocksFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
-  "@/fields/code-example/CodeExampleInput#default": default_6b73bc0444f03fe7497cdc21a73ec1c0
+  "@/fields/code-example/CodeExampleInput#default": default_6b73bc0444f03fe7497cdc21a73ec1c0,
+  "@/fields/component-folder/ComponentFolderInput#default": default_8a075f8a29a704cca3fc9e063bdbe5c8
 }

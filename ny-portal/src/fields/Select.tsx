@@ -2,7 +2,7 @@
 
 import { useField } from "@payloadcms/ui";
 import { FC } from "react";
-import styles from "./code-example.module.scss";
+import styles from "./select.module.scss";
 
 export type OptionGroups = {
     [key: string]: {
@@ -14,9 +14,10 @@ export type OptionGroups = {
 type Props = {
     optionGroups: string;
     path: string;
+    label: string;
 };
 
-export const CodeExampleSelect: FC<Props> = ({ optionGroups, path }) => {
+export const Select: FC<Props> = ({ optionGroups, path, label }) => {
     const { value, setValue } = useField<string>({ path });
 
     const groups: OptionGroups = JSON.parse(optionGroups);
@@ -24,7 +25,7 @@ export const CodeExampleSelect: FC<Props> = ({ optionGroups, path }) => {
     return (
         <div className="field-type select">
             <label className="field-label" htmlFor="code-example-select">
-                Velg fil
+                {label}
                 <span className="required">*</span>
             </label>
             <div className={styles.wrapper}>
@@ -35,15 +36,24 @@ export const CodeExampleSelect: FC<Props> = ({ optionGroups, path }) => {
                     value={value}
                 >
                     <option value={""}>Select a value</option>
-                    {Object.entries(groups).map(([group, items]) => (
-                        <optgroup label={group} key={group}>
-                            {items?.map((item) => (
+                    {Object.entries(groups).length > 1 &&
+                        Object.entries(groups).map(([group, items]) => (
+                            <optgroup label={group} key={group}>
+                                {items?.map((item) => (
+                                    <option value={item.value} key={item.value}>
+                                        {item.label}
+                                    </option>
+                                ))}
+                            </optgroup>
+                        ))}
+                    {Object.entries(groups).length === 1 &&
+                        Object.entries(groups).flatMap(([_, items]) =>
+                            items.map((item) => (
                                 <option value={item.value} key={item.value}>
                                     {item.label}
                                 </option>
-                            ))}
-                        </optgroup>
-                    ))}
+                            )),
+                        )}
                 </select>
                 <svg
                     className={`icon icon--chevron dropdown-indicator__icon ${styles.icon}`}
