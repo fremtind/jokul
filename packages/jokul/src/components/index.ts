@@ -25,6 +25,7 @@ export * from "./logo/index.js";
 export * from "./menu/index.js";
 export * from "./message/index.js";
 export * from "./modal/index.js";
+export * from "./nav-link/index.js";
 export * from "./pagination/index.js";
 export * from "./popover/index.js";
 export * from "./progress-bar/index.js";

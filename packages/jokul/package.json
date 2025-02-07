@@ -395,6 +395,17 @@
                 "default": "./build/cjs/components/modal/index.cjs"
             }
         },
+        "./styles/components/nav-link": "./styles/components/nav-link/_index.scss",
+        "./components/nav-link": {
+            "import": {
+                "types": "./build/es/components/nav-link/index.d.ts",
+                "default": "./build/es/components/nav-link/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/nav-link/index.d.cts",
+                "default": "./build/cjs/components/nav-link/index.cjs"
+            }
+        },
         "./styles/components/pagination": "./styles/components/pagination/_index.scss",
         "./components/pagination": {
             "import": {
