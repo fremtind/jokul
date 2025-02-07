@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-loader-react",
-    "version": "12.0.37",
+    "version": "12.0.38",
     "publishConfig": {
         "access": "public"
     },
@@ -37,8 +37,8 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.10.3",
-        "@fremtind/jkl-loader": "^11.0.36",
+        "@fremtind/jkl-core": "^14.10.4",
+        "@fremtind/jkl-loader": "^11.0.37",
         "classnames": "^2.5.1"
     },
     "peerDependencies": {
