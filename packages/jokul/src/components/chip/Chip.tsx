@@ -1,23 +1,8 @@
 import clsx from "clsx";
-import React, { forwardRef, HTMLAttributes } from "react";
+import React, { forwardRef } from "react";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
-
-type Size = "small" | "large";
-
-export type ChipVariant =
-    | {
-          variant: "input";
-          selected?: never;
-          size?: Size;
-      }
-    | {
-          variant: "filter";
-          selected?: boolean;
-          size?: Size;
-      };
-
-export type ChipProps = ChipVariant & HTMLAttributes<HTMLButtonElement>;
+import { ChipProps } from "./types.js";
 
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
     {

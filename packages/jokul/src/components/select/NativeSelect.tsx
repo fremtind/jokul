@@ -1,26 +1,9 @@
 import clsx from "clsx";
-import React, { forwardRef, SelectHTMLAttributes } from "react";
-import { getValuePair, ValuePair } from "../../utilities/valuePair.js";
+import React, { forwardRef } from "react";
+import { getValuePair } from "../../utilities/valuePair.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
-import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
-
-export interface NativeSelectProps
-    extends Omit<InputGroupProps, "children">,
-        SelectHTMLAttributes<HTMLSelectElement> {
-    /**
-     * Merk som ugyldig uten å sende inn en errorLabel.
-     * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
-     */
-    invalid?: boolean;
-    /**
-     * Setter inn et placeholderelement som vises når ingenting er valgt i nedtrekkslisten.
-     * @default "Velg"
-     */
-    placeholder?: string;
-    items: Array<string | ValuePair>;
-    selectClassName?: string;
-    width?: string;
-}
+import { InputGroup } from "../input-group/InputGroup.js";
+import { NativeSelectProps } from "./types.js";
 
 export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
     (props, ref) => {

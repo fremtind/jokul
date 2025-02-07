@@ -3,9 +3,7 @@ export {
     ErrorMessage,
     SuccessMessage,
     WarningMessage,
-    type MessageProps,
 } from "./Message.js";
-export {
-    FormErrorMessage,
-    type FormErrorMessageProps,
-} from "./FormErrorMessage.js";
+export { FormErrorMessage } from "./FormErrorMessage.js";
+
+export type { MessageProps, FormErrorMessageProps } from "./types.js";

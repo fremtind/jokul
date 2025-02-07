@@ -1,12 +1,6 @@
 import clsx from "clsx";
 import React, { FC } from "react";
-import { Density, WithChildren } from "../../core/types.js";
-
-export interface AccordionProps extends WithChildren {
-    className?: string;
-    density?: Density;
-    id?: string;
-}
+import { AccordionProps } from "./types.js";
 
 /**
  * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.

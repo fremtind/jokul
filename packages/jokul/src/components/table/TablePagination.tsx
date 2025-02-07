@@ -7,7 +7,6 @@ import React, {
     type FC,
     type MouseEventHandler,
 } from "react";
-import { Density } from "../../core/types.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
@@ -15,46 +14,7 @@ import { IconButton } from "../icon-button/IconButton.js";
 import { NativeSelect } from "../select/NativeSelect.js";
 import { TextInput } from "../text-input/TextInput.js";
 import { useTableContext } from "./tableContext.js";
-
-export interface TablePaginationProps {
-    className?: string;
-    id?: string;
-    density?: Density;
-    /**
-     * @default 0
-     */
-    activePage?: number;
-    /**
-     * Null eller negativt tall tolkes som "vis alle".
-     */
-    rowsPerPage: number;
-    rowsPerPageItems: Array<number | { label: string; value: number }>;
-    totalNumberOfRows: number;
-    /**
-     * Viser et valgfritt inputfelt for å hoppe raskt til en spesifik side.
-     * Du kan også sende inn en custom label hvis du ønsker det, ellers bruke
-     * true for default label
-     * @default false
-     */
-    withGoToPage?: boolean | { gotoLabel: string };
-    onChange: (
-        e: React.SyntheticEvent,
-        toPage: number,
-        fromPage: number,
-    ) => void;
-    onChangeRowsPerPage: ChangeEventHandler<HTMLSelectElement>;
-    /**
-     * Dersom du ønsker å ha custom labels kan du sende inn disse. "rowsPerPage"
-     * vises alltid på skjerm mens "next" og "previous" brukes som hint til
-     * skjermlesere for ikon-knappene til Neste/Forrige side
-     * @default { rowsPerPage: "Rader per side", previous: "Forrige", next: "Neste" }
-     */
-    labels?: {
-        rowsPerPage: string;
-        previous: string;
-        next: string;
-    };
-}
+import { TablePaginationProps } from "./types.js";
 
 function clamp(min: number, num: number, max: number): number {
     if (num < min) {

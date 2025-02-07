@@ -1,10 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { WithChildren } from "../../core/types.js";
-
-export interface TabProps extends WithChildren {
-    className?: string;
-}
+import { TabProps } from "./types.js";
 
 /**
  * En Tab til bruk som element i TabList. Ikke funksjonell utenfor et TabList element.

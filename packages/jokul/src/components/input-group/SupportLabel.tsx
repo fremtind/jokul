@@ -1,69 +1,9 @@
 import clsx from "clsx";
-import React, { type FC, type ReactNode } from "react";
-import { Density } from "../../core/types.js";
+import React, { type FC } from "react";
 import { ErrorIcon } from "../icon/icons/ErrorIcon.js";
 import { SuccessIcon } from "../icon/icons/SuccessIcon.js";
 import { WarningIcon } from "../icon/icons/WarningIcon.js";
-
-export type SupportLabelType = "help" | "error" | "warning" | "success";
-
-export interface SupportLabelProps {
-    /**
-     * En ID er påkrevd for å kunne referere til SupportLabel med aria-describedby.
-     *
-     * @example
-     *  ```tsx
-     *  const uid = useId();
-     *  const supportId = useId();
-     *  const hasSupportText = helpLabel || errorLabel;
-     *  const describedBy = hasSupportText ? supportId : undefined;
-     *
-     *  return (
-     *    <div>
-     *      <Label standAlone htmlFor={uid}>
-     *        Velg en tekst
-     *      </Label>
-     *      <select
-     *        id={uid}
-     *        aria-describedby={describedBy}
-     *      >
-     *        <option value="e">Example</option>
-     *      </select>
-     *      <SupportLabel
-     *        id={supportId}
-     *        label={errorLabel}
-     *        labelType="error"
-     *        density={density}
-     *      />
-     *    </div>
-     *  );
-     *  ```
-     */
-    id: string;
-    /**
-     * @deprecated Bruk `label` for å få samme resultat.
-     */
-    helpLabel?: ReactNode;
-    /**
-     * @deprecated Bruk `label` og `labelType="warning"` for å få samme resultat.
-     */
-    errorLabel?: ReactNode;
-    label?: ReactNode;
-    /**
-     * Bestemmer hvilket ikon som skal vises:
-     *
-     * - "help" viser ikke noe ikon
-     * - "warning" viser WarningIcon, det som tidligere ble vist med `errorLabel`
-     * - "error" viser ErrorIcon
-     * - "success" viser SuccessIcon
-     *
-     * @default "help"
-     */
-    labelType?: SupportLabelType;
-    density?: Density;
-    className?: string;
-    srOnly?: boolean;
-}
+import { SupportLabelProps } from "./types.js";
 
 export const SupportLabel: FC<SupportLabelProps> = ({
     id,

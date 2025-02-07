@@ -1,31 +1,10 @@
 import React, { useEffect } from "react";
-import {
-    PolymorphicPropsWithRef,
-    PolymorphicRef,
-} from "../../utilities/polymorphism/polymorphism.js";
+import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { PageButton } from "./PageButton.js";
-
-export type PaginationProps<ElementType extends React.ElementType> =
-    PolymorphicPropsWithRef<
-        ElementType,
-        {
-            currentPage: number;
-            numberOfPages: number;
-            onPageChange: (toPage: number, fromPage: number) => void;
-            /**
-             * Dersom du ønsker å ha custom labels kan du sende inn disse. "next" og "previous"
-             * brukes som hint til skjermlesere for ikon-knappene til Neste/Forrige side
-             * @default { previous: "Forrige side", next: "Neste side" }
-             */
-            labels?: {
-                previous: string;
-                next: string;
-            };
-        }
-    >;
+import { PaginationProps } from "./types.js";
 
 type PaginationComponent = <ElementType extends React.ElementType = "nav">(
     props: PaginationProps<ElementType>,

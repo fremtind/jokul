@@ -1,10 +1,6 @@
 import clsx from "clsx";
-import React, { FC, HTMLAttributes } from "react";
-import { Density } from "../../core/types.js";
-
-export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
-    density?: Density;
-}
+import React, { FC } from "react";
+import { TagProps } from "./types.js";
 
 type Variant = "info" | "error" | "warning" | "success";
 

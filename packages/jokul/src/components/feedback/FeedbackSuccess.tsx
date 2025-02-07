@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import React, { FC } from "react";
-import { MessageProps, SuccessMessage } from "../message/Message.js";
+import { SuccessMessage } from "../message/Message.js";
+import { MessageProps } from "../message/types.js";
 
 export const FeedbackSuccess: FC<MessageProps> = ({
     children,

@@ -1,36 +1,9 @@
 import clsx from "clsx";
-import React, {
-    type ButtonHTMLAttributes,
-    type MouseEventHandler,
-    forwardRef,
-} from "react";
-import { Density } from "../../core/types.js";
+import React, { type MouseEventHandler, forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
-import {
-    SwipeChangeHandler,
-    useSwipeGesture,
-} from "../../hooks/useSwipeGesture/useSwipeGesture.js";
+import { useSwipeGesture } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
-
-export type ToggleChangeHandler<T extends HTMLElement> = SwipeChangeHandler<T>;
-
-export type ToggleSwitchProps = Omit<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    "onChange"
-> & {
-    density?: Density;
-    /**
-     * Handler for å håndtere toggling av knappen. Tar inn en boolean som indikerer om knappen er er togglet på
-     * eller ikke, samt en MouseEvent eller en PointerEvent avhengig av om togglingen skjedde via klikk eller swipe.
-     * @example
-     * ```js
-     * function handleChange(event, pressed) {
-     *    console.log(`ToggleSwitch er ${pressed ? "på" : "av"}`);
-     * }
-     * ```
-     */
-    onChange?: ToggleChangeHandler<HTMLButtonElement>;
-};
+import { ToggleChangeHandler, ToggleSwitchProps } from "./types.js";
 
 export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
     (

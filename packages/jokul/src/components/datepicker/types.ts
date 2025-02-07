@@ -6,8 +6,7 @@ import type {
     KeyboardEvent,
 } from "react";
 import { DataTestAutoId, Density } from "../../core/types.js";
-import { InputGroupProps } from "../input-group/InputGroup.js";
-import { LabelProps } from "../input-group/Label.js";
+import { InputGroupProps, LabelProps } from "../input-group/types.js";
 
 export type DateValidationError =
     | "WRONG_FORMAT"
@@ -125,7 +124,8 @@ export interface DatePickerProps
     invalid?: boolean;
     density?: Density;
     /**
-     * @deprecated Kalenderen viser nå alltid kontroller for å navigere mellom år og måneder. Denne prop'en gjør ikke lenger noe og kan fjernes.
+     * @deprecated Kalenderen viser nå alltid kontroller for å navigere mellom år og måneder.
+     * Denne prop'en gjør ikke lenger noe og kan fjernes.
      */
     extended?: boolean;
     /**

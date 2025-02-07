@@ -1,21 +1,7 @@
 import clsx from "clsx";
-import React, { forwardRef, TdHTMLAttributes } from "react";
-import { Density } from "../../core/types.js";
+import React, { forwardRef } from "react";
 import { useTableContext } from "./tableContext.js";
-
-export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
-    density?: Density;
-    /**
-     * Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal innholdet være venstrejustert, men for eksempel summer er høyrejustert.
-     * @default "left"
-     */
-    align?: "left" | "center" | "right";
-    /**
-     * Velg mellom vertikal sentrering av innholdet eller toppjustering. Typisk skal innholdet være toppjustert, men dersom raden har knapper kan midtstilling fungere bedre.
-     * @default "top"
-     */
-    verticalAlign?: "center" | "top";
-}
+import { TableCellProps } from "./types.js";
 
 const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
     (

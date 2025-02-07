@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React, {
-    ChangeEvent,
     FC,
     FocusEvent,
     KeyboardEvent,
@@ -11,7 +10,6 @@ import React, {
     useRef,
     useState,
 } from "react";
-import { Density } from "../../core/types.js";
 import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
@@ -20,59 +18,16 @@ import { Chip } from "../chip/Chip.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
 import { IconButton } from "../icon-button/IconButton.js";
-import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
-import { LabelProps } from "../input-group/Label.js";
+import { InputGroup } from "../input-group/InputGroup.js";
 import { Tooltip } from "../tooltip/Tooltip.js";
 import { TooltipContent } from "../tooltip/TooltipContent.js";
 import { TooltipTrigger } from "../tooltip/TooltipTrigger.js";
-
-export type ComboboxValuePair = ValuePair & {
-    tagLabel?: string;
-    isMarked?: boolean;
-};
+import { ComboboxProps, ComboboxValuePair } from "./types.js";
 
 export function getComboboxValuePair(
     item: string | ComboboxValuePair,
 ): ComboboxValuePair {
     return typeof item === "string" ? { value: item, label: item } : item;
-}
-
-export interface ComboboxPartialChangeEvent
-    extends Partial<Omit<ChangeEvent<HTMLElement>, "target">> {
-    type: "change" | "blur";
-    target: {
-        name: string;
-        value: string;
-        selectedOptions: Array<ValuePair>;
-    };
-}
-
-export type ComboboxChangeEventHandler = (
-    event: ComboboxPartialChangeEvent,
-) => void;
-
-export interface ComboboxProps extends InputGroupProps {
-    id?: string;
-    placeholder?: string;
-    labelProps?: Omit<
-        LabelProps,
-        "children" | "density" | "htmlFor" | "standAlone"
-    >;
-    items: Array<ValuePair>;
-    noMatchingOption?: string;
-    label: string;
-    name: string;
-    value?: Array<ValuePair>;
-    density?: Density;
-    width?: string;
-    helpLabel?: string;
-    errorLabel?: string;
-    className?: string;
-    invalid?: boolean;
-    hasTagHover?: boolean;
-    onChange: ComboboxChangeEventHandler;
-    onBlur?: ComboboxChangeEventHandler;
-    onFocus?: ComboboxChangeEventHandler;
 }
 
 export const Combobox: FC<ComboboxProps> = ({

@@ -1,26 +1,11 @@
 import clsx from "clsx";
 import React from "react";
-import { Density, WithChildren } from "../../core/types.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { DismissButton } from "../message/DismissButton.js";
 import { MessageIcon } from "./common/MessageIcon.js";
+import { SystemMessageProps } from "./types.js";
 
 type messageTypes = "info" | "error" | "success" | "warning";
-
-export interface SystemMessageProps extends WithChildren {
-    id?: string;
-    className?: string;
-    density?: Density;
-    maxContentWidth?: string;
-    paddingLeft?: string;
-    /** Overstyr standardrollen til meldingen. Om du ønsker å "skru av" rollen kan du bruke verdien `none presentation`. */
-    role?: string;
-    dismissed?: boolean;
-    dismissAction?: {
-        handleDismiss: () => void;
-        buttonTitle?: string;
-    };
-}
 
 function systemFactory(
     messageType: messageTypes,

@@ -1,8 +1,6 @@
-export {
-    Tooltip,
-    type TooltipPlacement,
-    type TooltipProps,
-} from "./Tooltip.js";
+export { Tooltip } from "./Tooltip.js";
 export { TooltipContent } from "./TooltipContent.js";
 export { TooltipTrigger } from "./TooltipTrigger.js";
-export { PopupTip, type PopupTipProps } from "./PopupTip.js";
+export { PopupTip } from "./PopupTip.js";
+
+export type { TooltipPlacement, TooltipProps, PopupTipProps } from "./types.js";

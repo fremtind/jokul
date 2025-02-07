@@ -1,6 +1,7 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { Loader, LoaderVariant } from "../Loader.js";
+import { Loader } from "../Loader.js";
+import { LoaderVariant } from "../types.js";
 
 export const knobs: ExampleKnobsProps = {
     choiceProps: [

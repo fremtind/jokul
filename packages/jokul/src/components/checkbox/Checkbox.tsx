@@ -1,33 +1,12 @@
 import clsx from "clsx";
 import React, {
-    ReactNode,
     forwardRef,
-    ChangeEventHandler,
-    FocusEventHandler,
-    InputHTMLAttributes,
     useEffect,
     useImperativeHandle,
     useRef,
 } from "react";
-import { DataTestAutoId, Density } from "../../core/types.js";
 import { useId } from "../../hooks/useId/useId.js";
-
-export interface CheckboxProps
-    extends DataTestAutoId,
-        InputHTMLAttributes<HTMLInputElement> {
-    children: ReactNode;
-    name: string;
-    value: string;
-    checked?: boolean;
-    inline?: boolean;
-    className?: string;
-    density?: Density;
-    invalid?: boolean;
-    onChange?: ChangeEventHandler<HTMLInputElement>;
-    onFocus?: FocusEventHandler<HTMLInputElement>;
-    onBlur?: FocusEventHandler<HTMLInputElement>;
-    indeterminate?: boolean;
-}
+import { CheckboxProps } from "./types.js";
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     (props, ref) => {

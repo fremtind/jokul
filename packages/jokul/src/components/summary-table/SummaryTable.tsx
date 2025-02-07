@@ -1,13 +1,6 @@
 import clsx from "clsx";
-import React, { ReactNode, FC } from "react";
-
-export interface SummaryTableProps {
-    className?: string;
-    caption?: string;
-    header: [string, string];
-    body: ReactNode;
-    footer?: ReactNode;
-}
+import React, { FC } from "react";
+import { SummaryTableProps } from "./types.js";
 
 export const SummaryTable: FC<SummaryTableProps> = ({
     className,

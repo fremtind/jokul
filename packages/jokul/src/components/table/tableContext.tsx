@@ -1,11 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { Density, WithChildren } from "../../core/types.js";
-
-type TableContext = {
-    density?: Density;
-    collapseToList: boolean;
-    setHasStickyHead: (hasStcikyHead: boolean) => void;
-};
+import { TableContext, TableContextProviderProps } from "./types.js";
 
 const tableContext = createContext<TableContext>({
     density: undefined,
@@ -14,10 +8,6 @@ const tableContext = createContext<TableContext>({
 });
 
 export const useTableContext = (): TableContext => useContext(tableContext);
-
-export interface TableContextProviderProps extends WithChildren {
-    state: TableContext;
-}
 
 export const TableContextProvider: React.FC<TableContextProviderProps> = ({
     state,

@@ -1,20 +1,7 @@
 import clsx from "clsx";
-import React, { CSSProperties } from "react";
+import React from "react";
 import { useId } from "../../hooks/useId/useId.js";
-
-export interface LogoProps {
-    className?: string;
-    id?: string;
-    style?: CSSProperties;
-    /** Sentrerer logosymbolet i viewboksen i stedet for den vanlige venstrejusteringen */
-    centered?: boolean;
-    /** Animerer overgangen mellom logo og logosymbol */
-    animated?: boolean;
-    /** Vis logosymbol i stedet for logo */
-    isSymbol?: boolean;
-    /** Beskrivelse av logoen tilgjengelig for skjermlesere */
-    title?: string;
-}
+import { LogoProps } from "./types.js";
 
 export const Logo = ({
     className,

@@ -4,7 +4,7 @@ import {
     ExampleKnobsProps,
 } from "doc-utils/index.js";
 import React, { FC, useEffect, useState } from "react";
-import type { SupportLabelType } from "../../../components/input-group/SupportLabel.js";
+import type { SupportLabelType } from "../../../components/input-group/types.js";
 import { ProgressBar } from "../../../components/progress-bar/ProgressBar.js";
 import { formatBytes } from "../../../utilities/formatters/bytes/formatBytes.js";
 import { PrimaryButton } from "../../button/Button.js";

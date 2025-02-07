@@ -2,7 +2,8 @@ import { render } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
-import { Label, type LabelVariant } from "./Label.js";
+import { Label } from "./Label.js";
+import { LabelVariant } from "./types.js";
 
 describe("Label", () => {
     const variants: LabelVariant[] = ["small", "medium", "large"];

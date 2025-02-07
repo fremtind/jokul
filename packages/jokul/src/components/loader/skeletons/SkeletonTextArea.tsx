@@ -1,15 +1,8 @@
 import clsx from "clsx";
 import React from "react";
-import { Density } from "../../../core/types.js";
-import { SkeletonElement, SkeletonElementProps } from "./SkeletonElement.js";
-import { SkeletonLabel, SkeletonLabelProps } from "./SkeletonLabel.js";
-
-export interface SkeletonTextAreaProps {
-    className?: string;
-    labelProps?: SkeletonLabelProps;
-    inputProps?: SkeletonElementProps;
-    density?: Density;
-}
+import { SkeletonTextAreaProps } from "../types.js";
+import { SkeletonElement } from "./SkeletonElement.js";
+import { SkeletonLabel } from "./SkeletonLabel.js";
 
 export const SkeletonTextArea = ({
     className,

@@ -1,15 +1,7 @@
 import clsx from "clsx";
-import React, { forwardRef, TableHTMLAttributes, useState } from "react";
-import { Density } from "../../core/types.js";
+import React, { forwardRef, useState } from "react";
 import { TableContextProvider } from "./tableContext.js";
-
-export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
-    density?: Density;
-    /** Bryt ned til en stablet listevisning på små skjermer. NB: husk å sette `data-th` på hver celle! */
-    collapseToList?: boolean;
-    /** Setter width: 100% */
-    fullWidth?: boolean;
-}
+import { TableProps } from "./types.js";
 
 const Table = forwardRef<HTMLTableElement, TableProps>(
     (

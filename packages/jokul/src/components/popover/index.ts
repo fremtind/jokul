@@ -1,9 +1,10 @@
-export {
-    default as Popover,
-    type PopoverOptions,
-    type ClickOptions,
-    type DismissOptions,
-    type FocusOptions,
-    type HoverOptions,
-    type RoleOptions,
-} from "./Popover.js";
+export { default as Popover } from "./Popover.js";
+
+export type {
+    PopoverOptions,
+    ClickOptions,
+    DismissOptions,
+    FocusOptions,
+    HoverOptions,
+    RoleOptions,
+} from "./types.js";

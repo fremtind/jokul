@@ -1,8 +1,8 @@
-export {
-    Combobox,
-    getComboboxValuePair,
-    type ComboboxValuePair,
-    type ComboboxProps,
-    type ComboboxChangeEventHandler,
-    type ComboboxPartialChangeEvent,
-} from "./Combobox.js";
+export { Combobox, getComboboxValuePair } from "./Combobox.js";
+
+export type {
+    ComboboxValuePair,
+    ComboboxProps,
+    ComboboxChangeEventHandler,
+    ComboboxPartialChangeEvent,
+} from "./types.js";

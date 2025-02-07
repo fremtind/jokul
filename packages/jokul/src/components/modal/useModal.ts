@@ -1,37 +1,8 @@
-import {
-    A11yDialogConfig,
-    A11yDialogProps,
-    useA11yDialog,
-} from "react-a11y-dialog";
+import { useA11yDialog } from "react-a11y-dialog";
 import { useId } from "../../hooks/useId/useId.js";
-
-export interface UseModalOptions
-    extends Omit<A11yDialogProps, "id" | "closeButtonPosition"> {
-    id?: string;
-    /**
-     * @default "Lukk"
-     */
-    closeButtonLabel?: string;
-    /**
-     * Sett til `alertdialog` om du ønsker å slå av muligheten til å lukke med ESC og klikk utenfor.
-     *
-     * @default "dialog"
-     */
-    role?: "dialog" | "alertdialog";
-    /**
-     * Påkrevd for universell utforming. Tittelen kan gjenbrukes som `children` i `<ModalTitle>` med en konstant.
-     */
-    title: string;
-}
+import { ModalConfig, UseModalOptions } from "./types.js";
 
 export type ModalInstance = ReturnType<typeof useModal>[0];
-
-export interface ModalConfig extends Omit<A11yDialogConfig, "dialog"> {
-    modal: A11yDialogConfig["dialog"];
-    closeButton: A11yDialogConfig["closeButton"] & {
-        "aria-label": string;
-    };
-}
 
 /**
  * @example

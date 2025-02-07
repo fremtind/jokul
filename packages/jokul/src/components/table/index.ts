@@ -19,20 +19,23 @@ export { ExpandableTableRow } from "./ExpandableTableRow.js";
 export { ExpandableTableRowController } from "./ExpandableTableRowController.js";
 export { useSortableTableHeader } from "./utils.js";
 
-export type { DataTableProps } from "./DataTable.js";
-export type { TableProps } from "./Table.js";
-export type { TableBodyProps } from "./TableBody.js";
-export type { TableCaptionProps } from "./TableCaption.js";
-export type { TableCellProps } from "./TableCell.js";
-export type { TableColumnProps } from "./TableColumn.js";
-export type { TableColumnGroupProps } from "./TableColumnGroup.js";
-export type { TableContextProviderProps } from "./tableContext.js";
-export type { TableSectionContextProviderProps } from "./tableSectionContext.js";
-export type { TableFooterProps } from "./TableFooter.js";
-export type { TableHeadProps } from "./TableHead.js";
-export type { TableHeaderProps, TableSortDirection } from "./TableHeader.js";
-export type { TablePaginationProps } from "./TablePagination.js";
-export type { TableRowProps } from "./TableRow.js";
-export type { ExpandableTableRowProps } from "./ExpandableTableRow.js";
-export type { ExpandableTableRowControllerProps } from "./ExpandableTableRowController.js";
+export type {
+    DataTableProps,
+    TableProps,
+    TableBodyProps,
+    TableCaptionProps,
+    TableCellProps,
+    TableColumnProps,
+    TableColumnGroupProps,
+    TableContextProviderProps,
+    TableSectionContextProviderProps,
+    TableFooterProps,
+    TableHeadProps,
+    TableHeaderProps,
+    TablePaginationProps,
+    TableRowProps,
+    ExpandableTableRowProps,
+    ExpandableTableRowControllerProps,
+} from "./types.js";
+
 export type { TableSortProps } from "./utils.js";

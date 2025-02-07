@@ -1,7 +1,7 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
 import { FieldGroup } from "../../input-group/FieldGroup.js";
-import { LabelVariant } from "../../input-group/Label.js";
+import { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { Checkbox } from "../Checkbox.js";
 

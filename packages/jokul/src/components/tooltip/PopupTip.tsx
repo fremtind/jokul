@@ -1,21 +1,10 @@
 import clsx from "clsx";
-import React, { HTMLProps, useState, type FC, type ReactNode } from "react";
+import React, { useState, type FC } from "react";
 import { QuestionIcon } from "../icon/icons/QuestionIcon.js";
-import { Tooltip, type TooltipProps } from "./Tooltip.js";
+import { Tooltip } from "./Tooltip.js";
 import { TooltipContent } from "./TooltipContent.js";
 import { TooltipTrigger } from "./TooltipTrigger.js";
-
-export interface PopupTipProps
-    extends Omit<TooltipProps, "triggerOn" | "children"> {
-    /**
-     * Innholdet i tooltipet som vises
-     */
-    content: ReactNode;
-    /**
-     * Eventuelle props du vil sette på trigger-knappen for tooltipet
-     */
-    triggerProps?: Omit<HTMLProps<HTMLButtonElement>, "children" | "type">;
-}
+import { PopupTipProps } from "./types.js";
 
 export const PopupTip: FC<PopupTipProps> = ({
     content,

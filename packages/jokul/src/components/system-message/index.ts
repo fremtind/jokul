@@ -3,5 +3,6 @@ export {
     WarningSystemMessage,
     ErrorSystemMessage,
     SuccessSystemMessage,
-    type SystemMessageProps,
 } from "./SystemMessage.js";
+
+export type { SystemMessageProps } from "./types.js";
