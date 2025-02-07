@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.10.4 (2025-02-07)
+
+### Bug Fixes
+
+- sørg for at custom stiler funker med tailwind-preset ([37e16d5](https://github.com/fremtind/jokul/commit/37e16d550a773a57b1f8926ac823736a36d3d02b))
+
 ## 14.10.3 (2025-01-30)
 
 ### Bug Fixes
