@@ -58,12 +58,12 @@
     padding: var(--jkl-toast-padding);
     padding-top: 0;
 
-    @include jkl.text-style("body");
-
     grid-template-areas:
         "progress progress progress"
         "icon content dismiss";
     grid-template-columns: auto 1fr auto;
+
+    @include jkl.text-style("body");
 
     &__progress {
         grid-area: progress;
