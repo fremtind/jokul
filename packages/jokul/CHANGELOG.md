@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.45.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.44.7...@fremtind/jokul@0.45.0) (2025-02-10)
+
+### Features
+
+- splits input-panel into checkbox and radio ([e405f46](https://github.com/fremtind/jokul/commit/e405f466c71dbcc4da632bfd078921d8d75f1b84))
+- splits link into link and nav-link ([9c438a4](https://github.com/fremtind/jokul/commit/9c438a4e6f140df73ed7885880a3bf6d56a93c29))
+- splits progress-bar into progress-bar and countdown ([ab909f0](https://github.com/fremtind/jokul/commit/ab909f089c9803f48bcdcbedfb9e634014b1701a))
+
 ## [0.44.7](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.44.6...@fremtind/jokul@0.44.7) (2025-02-07)
 
 ### Bug Fixes
