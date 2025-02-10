@@ -1,13 +1,6 @@
 import clsx from "clsx";
-import React, { HTMLProps } from "react";
-
-export interface SkeletonElementProps
-    extends Pick<HTMLProps<HTMLDivElement>, "style"> {
-    className?: string;
-    shape?: "rect" | "circle";
-    width: number | string;
-    height: number | string;
-}
+import React from "react";
+import { SkeletonElementProps } from "../types.js";
 
 export const SkeletonElement = ({
     shape = "rect",

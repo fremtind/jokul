@@ -1,15 +1,8 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { InputGroup, InputGroupProps } from "../input-group/InputGroup.js";
-import { BaseTextInput, BaseTextInputProps } from "./BaseTextInput.js";
-
-export interface TextInputProps
-    extends Omit<InputGroupProps, "children">,
-        BaseTextInputProps {
-    "data-testautoid"?: string;
-    inline?: boolean;
-    inputClassName?: string;
-}
+import { InputGroup } from "../input-group/InputGroup.js";
+import { BaseTextInput } from "./BaseTextInput.js";
+import { TextInputProps } from "./types.js";
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     (props, ref) => {

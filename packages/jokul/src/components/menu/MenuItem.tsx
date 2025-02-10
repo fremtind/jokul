@@ -1,39 +1,9 @@
 import clsx from "clsx";
-import React, { forwardRef, ReactNode } from "react";
-import {
-    PolymorphicPropsWithRef,
-    PolymorphicRef,
-} from "../../utilities/polymorphism/polymorphism.js";
+import React, { forwardRef } from "react";
+import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
 import { OpenInNewIcon } from "../icon/icons/OpenInNewIcon.js";
-
-export type MenuItemProps<ElementType extends React.ElementType> =
-    PolymorphicPropsWithRef<
-        ElementType,
-        {
-            /**
-             * Et ikon som vises før innholdet i menypunktet
-             */
-            icon?: ReactNode;
-        } & (
-            | {
-                  expandable?: never;
-                  /**
-                   * Indikerer at menypunktet åpner noe i et nytt vindu eller tab
-                   * @default false
-                   */
-                  external?: boolean;
-              }
-            | {
-                  external?: never;
-                  /**
-                   * Indikerer at menypunktet er utvidbart ved å vise en chevron
-                   * @default false
-                   */
-                  expandable?: boolean;
-              }
-        )
-    >;
+import { MenuItemProps } from "./types.js";
 
 type MenuItemComponent = <ElementType extends React.ElementType = "button">(
     props: MenuItemProps<ElementType>,

@@ -1,6 +1,6 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
-import { LabelVariant } from "../../input-group/Label.js";
+import { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { NativeSelect } from "../NativeSelect.js";
 import { Select } from "../Select.js";

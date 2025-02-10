@@ -2,25 +2,12 @@ import clsx from "clsx";
 import React, { forwardRef, useEffect, useState } from "react";
 import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { useId } from "../../hooks/useId/useId.js";
+import { ExpandableTableRowController } from "./ExpandableTableRowController.js";
+import { TableRow } from "./TableRow.js";
 import {
-    ExpandableTableRowController,
     ExpandableTableRowControllerProps,
-} from "./ExpandableTableRowController.js";
-import { TableRow, TableRowProps } from "./TableRow.js";
-
-export interface ExpandableTableRowProps extends TableRowProps {
-    expandedChildren: React.ReactNode;
-    /**
-     * Setter bredden på raden som blir åpnet
-     * @default 100
-     */
-    colSpan?: number;
-    /**
-     * Om du ønsker en controlled komponent. Hvis du ikke setter denne vil komponenten håndtere state selv.
-     */
-    isOpen?: boolean;
-    onToggle?: (isOpen: boolean) => void;
-}
+    ExpandableTableRowProps,
+} from "./types.js";
 
 const ExpandableTableRow = forwardRef<
     HTMLTableRowElement,

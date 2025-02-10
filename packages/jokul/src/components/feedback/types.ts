@@ -10,7 +10,10 @@ export type FeedbackOption<T = string | number> = {
     /** Teksten som vises ved alternativet */
     label: string;
     value: T;
-    /** Her kan du spesifisere en egen tekst til oppfølgingsspørsmålet dersom dette alternativet er valgt (gjelder kun alternativene til hovedspørsmålet i Feedback, ignoreres ellers) */
+    /** Her kan du spesifisere en egen tekst til oppfølgingsspørsmålet dersom
+     *  dette alternativet er valgt (gjelder kun alternativene til
+     *  hovedspørsmålet i Feedback, ignoreres ellers)
+     **/
     textAreaLabel?: string;
 };
 
@@ -66,9 +69,12 @@ export type FeedbackAnswer = SingleFeedbackAnswer | MultiFeedbackAnswer;
 export type FeedbackType = {
     /** Feedbackverdien, format avhenger av typen spørsmål */
     feedbackValue: number | string | Array<string | number>;
-    /** Angir hvorvidt brukeren aktivt sendte inn tilbakemeldingen. Dersom `false` ble skjemaet sendt inn da brukeren forlot siden */
+    /** Angir hvorvidt brukeren aktivt sendte inn tilbakemeldingen.
+     *  Dersom `false` ble skjemaet sendt inn da brukeren forlot siden
+     */
     intentionalSubmit: boolean;
-    /** Eventuell utfyllende melding fra brukeren. Blir bare sendt inn dersom brukeren aktivt sender inn tilbakemelding */
+    /** Eventuell utfyllende melding fra brukeren. Blir bare sendt inn dersom
+     *  brukeren aktivt sender inn tilbakemelding */
     message?: string;
 };
 
@@ -135,7 +141,9 @@ export type ContactQuestionProps = {
     sendButtonLabel?: string;
     /** Sett til true om du også vil spørre om brukjerens telefonnummer i tillegg til epost */
     withPhone?: boolean;
-    /** Her kan du legge inn eventuelt annet innhold du vil ha med. Kommer mellom overskriften og feltene for utfylling */
+    /** Her kan du legge inn eventuelt annet innhold du vil ha med.
+     *  Kommer mellom overskriften og feltene for utfylling
+     */
     children?: ReactNode;
     onSubmit: (values: { email: string; phone?: string }) => void;
     /** Lar deg tilpasse meldingen som kommer når brukeren sender inn skjemaet.  */

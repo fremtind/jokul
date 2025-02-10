@@ -1,5 +1,4 @@
-import React, { forwardRef, TableHTMLAttributes } from "react";
-import { Density } from "../../core/types.js";
+import React, { forwardRef } from "react";
 import { Table } from "./Table.js";
 import { TableBody } from "./TableBody.js";
 import { TableCaption } from "./TableCaption.js";
@@ -7,21 +6,7 @@ import { TableCell } from "./TableCell.js";
 import { TableHead } from "./TableHead.js";
 import { TableHeader } from "./TableHeader.js";
 import { TableRow } from "./TableRow.js";
-
-export interface DataTableProps extends TableHTMLAttributes<HTMLTableElement> {
-    /** Beskrivelse av tabellen for skjermlesere */
-    caption?: string;
-    density?: Density;
-    collapseToList?: boolean;
-    rows: React.ReactNode[][];
-    columns: string[];
-    emptyTableText?: string;
-    /**
-     * Velg mellom vertikal sentrering av innholdet eller toppjustering. Typisk skal innholdet være toppjustert, men dersom raden har knapper kan midtstilling fungere bedre.
-     * @default "top"
-     */
-    verticalAlign?: "center" | "top";
-}
+import { DataTableProps } from "./types.js";
 
 const DataTable = forwardRef<HTMLTableElement, DataTableProps>(
     (

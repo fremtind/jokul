@@ -1,0 +1,23 @@
+@use "sass:string";
+@use "../../../shared/track/styles/track.scss" as track;
+
+$_downcount: jkl-downcount-#{string.unique-id()};
+
+.jkl-countdown {
+    @include track.track;
+
+    &__tracker {
+        animation: $_downcount var(--duration) linear forwards;
+        animation-play-state: var(--play-state, running);
+    }
+}
+
+@keyframes #{$_downcount} {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}

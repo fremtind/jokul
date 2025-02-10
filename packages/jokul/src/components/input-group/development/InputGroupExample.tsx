@@ -4,7 +4,7 @@ import { Link } from "../../link/Link.js";
 import { BaseTextInput } from "../../text-input/BaseTextInput.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { InputGroup } from "../InputGroup.js";
-import { LabelVariant } from "../Label.js";
+import { LabelVariant } from "../types.js";
 
 export const inputGroupExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],

@@ -1,25 +1,8 @@
 import clsx from "clsx";
-import React, { forwardRef, HTMLAttributes, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { useTableContext } from "./tableContext.js";
 import { useTableSectionContext } from "./tableSectionContext.js";
-
-export interface ClickableRowProps {
-    markClickedRows?: boolean;
-    /** Lar deg kontrollere radens tilstand untenfra */
-    isClicked?: boolean;
-    onClick: (
-        e:
-            | React.MouseEvent<HTMLTableRowElement, MouseEvent>
-            | React.KeyboardEvent<HTMLTableRowElement>,
-    ) => void;
-}
-
-export interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
-    /**
-     * Gir raden interaktivitet og en click-handler.
-     */
-    clickable?: ClickableRowProps;
-}
+import { TableRowProps } from "./types.js";
 
 const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
     ({ className, clickable, children, ...rest }, ref) => {

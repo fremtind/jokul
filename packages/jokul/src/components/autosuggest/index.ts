@@ -1,2 +1,3 @@
-export type { AutosuggestProps } from "./Autosuggest.js";
 export { Autosuggest } from "./Autosuggest.js";
+
+export type { AutosuggestProps } from "./types.js";

@@ -1,10 +1,7 @@
+import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC } from "react";
-import { IconButton } from "..";
-import {
-    ExampleComponentProps,
-    ExampleKnobsProps,
-} from "../../../../../../utils/dev-example";
-import { SearchIcon } from "../../icon";
+import { SearchIcon } from "../../icon/icons/SearchIcon.js";
+import { IconButton } from "../IconButton.js";
 
 export const iconButtonExampleKnobs: ExampleKnobsProps = {};
 

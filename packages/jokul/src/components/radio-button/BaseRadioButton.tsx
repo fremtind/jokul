@@ -1,15 +1,7 @@
 import clsx from "clsx";
-import React, { ChangeEventHandler, forwardRef } from "react";
-import { Density } from "../../core/types.js";
+import React, { forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
-import { RadioButtonProps } from "./RadioButton.js";
-
-export interface BaseRadioButtonProps extends RadioButtonProps {
-    inline?: boolean;
-    density?: Density;
-    invalid?: boolean;
-    onChange?: ChangeEventHandler<HTMLInputElement>;
-}
+import { BaseRadioButtonProps } from "./types.js";
 
 export const BaseRadioButton = forwardRef<
     HTMLInputElement,

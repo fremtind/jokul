@@ -10,8 +10,8 @@ import {
     TableHeader,
     TableRow,
     useSortableTableHeader,
-    type TableSortDirection,
 } from "../index.js";
+import { TableSortDirection } from "../TableHeader.js";
 
 export const sortableTableExamplesProps: ExampleKnobsProps = {
     boolProps: [],

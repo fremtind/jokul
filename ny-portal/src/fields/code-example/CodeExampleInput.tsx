@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { CodeExampleSelect, OptionGroups } from "./CodeExampleSelect";
+import { Select, OptionGroups } from "../Select";
 
 type Props = {
     path: string;
@@ -8,9 +8,10 @@ type Props = {
 
 export const CodeExampleInput: FC<Props> = ({ path, optionGroups }) => {
     return (
-        <CodeExampleSelect
+        <Select
             optionGroups={JSON.stringify(optionGroups)}
             path={path}
+            label="Velg kodeeksempel"
         />
     );
 };

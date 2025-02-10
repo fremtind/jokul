@@ -1,16 +1,8 @@
 import clsx from "clsx";
 import React from "react";
-import { Density } from "../../../core/types.js";
-import { SkeletonElement, SkeletonElementProps } from "./SkeletonElement.js";
-import { SkeletonLabel, SkeletonLabelProps } from "./SkeletonLabel.js";
-
-export interface SkeletonCheckboxGroupProps {
-    className?: string;
-    checkboxes: number;
-    density?: Density;
-    labelProps?: SkeletonLabelProps;
-    inputProps?: SkeletonElementProps;
-}
+import { SkeletonCheckboxGroupProps } from "../types.js";
+import { SkeletonElement } from "./SkeletonElement.js";
+import { SkeletonLabel } from "./SkeletonLabel.js";
 
 export const SkeletonCheckboxGroup = ({
     className,

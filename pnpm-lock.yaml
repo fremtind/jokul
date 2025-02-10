@@ -5534,8 +5534,8 @@ packages:
       tslib: 2.8.1
     dev: false
 
-  /@fremtind/jkl-constants-util/3.0.125:
-    resolution: {integrity: sha512-hcchxuOKFZic7b4zR443ssPwcVox6UfByzfJp5s12D7CxGQhbEqxdAT9/Z0TkBJtF6Buj3QnnkEIqY512dFE1g==}
+  /@fremtind/jkl-constants-util/3.0.128:
+    resolution: {integrity: sha512-/85WYVWYSuWtsNIk3Zhrvd/kKRyaEZVt4NmrPcwyCAMa6W1q88qj1TA4230bMj0f/nwMwQ7QhjoA4JkgmaVKvw==}
     dev: false
 
   /@fremtind/jkl-contact-information-react/2.1.52_nnrd3gsncyragczmpvfhocinkq:
@@ -5548,7 +5548,7 @@ packages:
     dependencies:
       '@fremtind/jkl-contact-information': 2.0.22_nnrd3gsncyragczmpvfhocinkq
       '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-formatters-util': 6.0.42_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-formatters-util': 6.0.45_nnrd3gsncyragczmpvfhocinkq
       classnames: 2.5.1
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
@@ -5614,7 +5614,7 @@ packages:
     dependencies:
       '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
       '@fremtind/jkl-footer': 6.0.22_nnrd3gsncyragczmpvfhocinkq
-      '@fremtind/jkl-formatters-util': 6.0.42_nnrd3gsncyragczmpvfhocinkq
+      '@fremtind/jkl-formatters-util': 6.0.45_nnrd3gsncyragczmpvfhocinkq
       '@fremtind/jkl-logo-react': 13.1.29_nnrd3gsncyragczmpvfhocinkq
       classnames: 2.5.1
       react: 18.3.1
@@ -5632,15 +5632,15 @@ packages:
       - react-dom
     dev: false
 
-  /@fremtind/jkl-formatters-util/6.0.42_nnrd3gsncyragczmpvfhocinkq:
-    resolution: {integrity: sha512-GEIGDmriOfM4dvWsc4L1BN1kAZHKvpb/bANsdjmtpWGsBwQ9js9QzulHrSyKaF+JfmdFqPCoA8PX4jipSIX0VQ==}
+  /@fremtind/jkl-formatters-util/6.0.45_nnrd3gsncyragczmpvfhocinkq:
+    resolution: {integrity: sha512-MqFWpO1bq0YpmtDs7obBUbCy4I9j67twqfLE7gH5cVP2vigZ3qxHpLY0GiB92Mf48LuYxtlxeE3NbBrMjBLn8w==}
     peerDependencies:
       '@types/react': ^16.8.6 || ^17.0.0 || ^18.0.0
       '@types/react-dom': ^16.8.6 || ^17.0.0 || ^18.0.0
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@fremtind/jkl-constants-util': 3.0.125
+      '@fremtind/jkl-constants-util': 3.0.128
       '@fremtind/jkl-core': 14.10.3_nnrd3gsncyragczmpvfhocinkq
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1

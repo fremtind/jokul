@@ -1,12 +1,14 @@
-export { FieldGroup, type FieldGroupProps } from "./FieldGroup.js";
-export {
-    InputGroup,
-    type InputGroupProps,
-    type InputProps,
-} from "./InputGroup.js";
-export { Label, type LabelProps, type LabelVariant } from "./Label.js";
-export {
-    SupportLabel,
-    type SupportLabelProps,
-    type SupportLabelType,
-} from "./SupportLabel.js";
+export { FieldGroup } from "./FieldGroup.js";
+export { InputGroup } from "./InputGroup.js";
+export { Label } from "./Label.js";
+export { SupportLabel } from "./SupportLabel.js";
+
+export type {
+    FieldGroupProps,
+    InputGroupProps,
+    InputProps,
+    LabelProps,
+    LabelVariant,
+    SupportLabelProps,
+    SupportLabelType,
+} from "./types.js";

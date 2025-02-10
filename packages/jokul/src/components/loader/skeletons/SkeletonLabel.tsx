@@ -1,12 +1,6 @@
 import React from "react";
-import { Density } from "../../../core/types.js";
-import { SkeletonElement, SkeletonElementProps } from "./SkeletonElement.js";
-
-export interface SkeletonLabelProps
-    extends Omit<SkeletonElementProps, "width" | "height"> {
-    className?: string;
-    density?: Density;
-}
+import { SkeletonLabelProps } from "../types.js";
+import { SkeletonElement } from "./SkeletonElement.js";
 
 export const SkeletonLabel = ({ density, ...rest }: SkeletonLabelProps) => {
     const compact = density === "compact";

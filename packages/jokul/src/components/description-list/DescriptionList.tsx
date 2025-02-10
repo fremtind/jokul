@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import React, { FC } from "react";
-import { WithChildren } from "../../core/types.js";
-
-export interface DescriptionListProps extends WithChildren {
-    className?: string;
-}
+import {
+    DescriptionDetailProps,
+    DescriptionListProps,
+    DescriptionTermProps,
+} from "./types.js";
 
 export const DescriptionList: FC<DescriptionListProps> = ({
     children,
@@ -18,10 +18,6 @@ export const DescriptionList: FC<DescriptionListProps> = ({
     );
 };
 
-export interface DescriptionTermProps extends WithChildren {
-    className?: string;
-}
-
 export const DescriptionTerm: FC<DescriptionTermProps> = ({
     children,
     className,
@@ -33,10 +29,6 @@ export const DescriptionTerm: FC<DescriptionTermProps> = ({
         </dt>
     );
 };
-
-export interface DescriptionDetailProps extends WithChildren {
-    className?: string;
-}
 
 export const DescriptionDetail: FC<DescriptionDetailProps> = ({
     children,

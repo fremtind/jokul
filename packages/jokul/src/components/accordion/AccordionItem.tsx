@@ -1,16 +1,8 @@
 import clsx from "clsx";
 import React, { FC, useState } from "react";
-import { WithChildren } from "../../core/types.js";
 import { useAnimatedDetails } from "../../hooks/useAnimatedDetails/useAnimatedDetails.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
-
-export interface AccordionItemProps extends WithChildren {
-    title: string;
-    startExpanded?: boolean;
-    className?: string;
-    onClick?: (e: React.MouseEvent, isOpen: boolean) => void;
-    id?: string;
-}
+import { AccordionItemProps } from "./types.js";
 
 /**
  * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.

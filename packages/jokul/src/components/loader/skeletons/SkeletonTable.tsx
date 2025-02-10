@@ -1,14 +1,10 @@
 import clsx from "clsx";
-import React, { HTMLProps, ReactNode } from "react";
-import { Density } from "../../../core/types.js";
-
-export interface SkeletonTableProps
-    extends Pick<HTMLProps<HTMLDivElement>, "style"> {
-    className?: string;
-    children: ReactNode;
-    density?: Density;
-    width?: number | string;
-}
+import React from "react";
+import {
+    SkeletonTableHeaderProps,
+    SkeletonTableProps,
+    SkeletonTableRowProps,
+} from "../types.js";
 
 export const SkeletonTable = ({
     className,
@@ -27,11 +23,6 @@ export const SkeletonTable = ({
     );
 };
 
-export interface SkeletonTableHeaderProps {
-    className?: string;
-    children: ReactNode;
-}
-
 export const SkeletonTableHeader = ({
     className,
     ...rest
@@ -43,11 +34,6 @@ export const SkeletonTableHeader = ({
         />
     );
 };
-
-export interface SkeletonTableRowProps {
-    className?: string;
-    children: ReactNode;
-}
 
 export const SkeletonTableRow = ({
     className,

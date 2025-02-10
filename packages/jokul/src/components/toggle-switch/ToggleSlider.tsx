@@ -6,20 +6,10 @@ import React, {
     useRef,
     useState,
 } from "react";
-import { Density, WithChildren } from "../../core/types.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { useSwipeGesture } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
-import { ToggleChangeHandler } from "./ToggleSwitch.js";
+import { ToggleChangeHandler, ToggleSliderProps } from "./types.js";
 import { usePillStyles } from "./usePillStyles.js";
-
-export interface ToggleSliderProps extends WithChildren {
-    labels: [string, string];
-    onToggle: (value: string) => void;
-    defaultValue?: string;
-    className?: string;
-    hideLegend?: boolean;
-    density?: Density;
-}
 
 export const ToggleSlider: FC<ToggleSliderProps> = ({
     children,

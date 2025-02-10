@@ -1,22 +1,7 @@
 import clsx from "clsx";
-import React, { AriaRole } from "react";
+import React from "react";
+import { LoaderProps } from "./types.js";
 import { useDelayedRender } from "./useDelayedRender.js";
-
-export type LoaderVariant = "small" | "medium" | "large";
-
-export interface LoaderProps {
-    variant?: LoaderVariant;
-    textDescription: string;
-    className?: string;
-    dataTestAutoId?: string;
-    role?: AriaRole;
-    inline?: boolean;
-    /**
-     * Antall millisekunder komponenten vil vente før den rendrer
-     * @default 0
-     */
-    delay?: number;
-}
 
 export const Loader = ({
     delay = 0,

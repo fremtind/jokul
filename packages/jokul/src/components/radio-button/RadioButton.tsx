@@ -1,33 +1,9 @@
-import React, {
-    forwardRef,
-    InputHTMLAttributes,
-    ChangeEventHandler,
-    ReactNode,
-} from "react";
+import React, { forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
-import {
-    SupportLabel,
-    SupportLabelProps,
-} from "../input-group/SupportLabel.js";
+import { SupportLabel } from "../input-group/SupportLabel.js";
 import { BaseRadioButton } from "./BaseRadioButton.js";
 import { useRadioGroupContext } from "./radioGroupContext.js";
-
-export interface RadioButtonProps
-    extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
-    children?: ReactNode;
-    value: string;
-    /** Kan også settes på RadioButtonGroup, men settes på RadioButton f. eks. av react-hook-form */
-    name?: string;
-    /** Kan også settes på RadioButtonGroup, men settes på RadioButton f. eks. av react-hook-form */
-    onChange?: ChangeEventHandler<HTMLInputElement>;
-    /** @deprecated Bruk children */
-    label?: ReactNode;
-    helpLabel?: ReactNode;
-    supportLabelProps?: Omit<
-        SupportLabelProps,
-        "id" | "errorLabel" | "helpLabel" | "density"
-    >;
-}
+import { RadioButtonProps } from "./types.js";
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     (props, ref) => {

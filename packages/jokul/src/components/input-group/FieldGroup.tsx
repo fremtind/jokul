@@ -1,25 +1,9 @@
 import clsx from "clsx";
-import React, { FC, FieldsetHTMLAttributes, type ReactNode } from "react";
-import { DataTestAutoId, Density } from "../../core/types.js";
+import React, { FC } from "react";
 import { useId } from "../../hooks/useId/useId.js";
-import { Label, LabelProps } from "./Label.js";
-import { SupportLabel, SupportLabelProps } from "./SupportLabel.js";
-
-export interface FieldGroupProps
-    extends DataTestAutoId,
-        FieldsetHTMLAttributes<HTMLFieldSetElement> {
-    legend: string;
-    labelProps?: Omit<LabelProps, "children" | "density">;
-    supportLabelProps?: Omit<
-        SupportLabelProps,
-        "id" | "errorLabel" | "helpLabel" | "density"
-    >;
-    tooltip?: ReactNode;
-    className?: string;
-    helpLabel?: string;
-    errorLabel?: string;
-    density?: Density;
-}
+import { Label } from "./Label.js";
+import { SupportLabel } from "./SupportLabel.js";
+import { FieldGroupProps } from "./types.js";
 
 export const FieldGroup: FC<FieldGroupProps> = (props) => {
     const {

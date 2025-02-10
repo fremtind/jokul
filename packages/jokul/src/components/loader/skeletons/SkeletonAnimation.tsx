@@ -1,22 +1,7 @@
 import clsx from "clsx";
-import React, { AriaRole, HTMLProps, ReactNode } from "react";
-import { Density } from "../../../core/types.js";
+import React from "react";
+import { SkeletonAnimationProps } from "../types.js";
 import { useDelayedRender } from "../useDelayedRender.js";
-
-export interface SkeletonAnimationProps
-    extends Pick<HTMLProps<HTMLDivElement>, "style"> {
-    className?: string;
-    children: ReactNode;
-    density?: Density;
-    /** @default "Vennligst vent" */
-    textDescription?: string;
-    role?: AriaRole;
-    /**
-     * Antall millisekunder komponenten vil vente før den rendrer
-     * @default 0
-     */
-    delay?: number;
-}
 
 export const SkeletonAnimation = ({
     className,

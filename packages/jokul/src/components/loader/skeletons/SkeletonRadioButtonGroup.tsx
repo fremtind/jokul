@@ -1,16 +1,8 @@
 import clsx from "clsx";
 import React from "react";
-import { Density } from "../../../core/types.js";
-import { SkeletonElement, SkeletonElementProps } from "./SkeletonElement.js";
-import { SkeletonLabel, SkeletonLabelProps } from "./SkeletonLabel.js";
-
-export interface SkeletonRadioButtonGroupProps {
-    className?: string;
-    density?: Density;
-    labelProps?: SkeletonLabelProps;
-    inputProps?: SkeletonElementProps;
-    radioButtons: number;
-}
+import { SkeletonRadioButtonGroupProps } from "../types.js";
+import { SkeletonElement } from "./SkeletonElement.js";
+import { SkeletonLabel } from "./SkeletonLabel.js";
 
 export const SkeletonRadioButtonGroup = ({
     className,

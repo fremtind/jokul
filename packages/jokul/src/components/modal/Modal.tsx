@@ -1,22 +1,14 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { WithOptionalChildren } from "../../core/types.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
-import { IconButton, IconButtonProps } from "../icon-button/IconButton.js";
-import { ModalConfig } from "./useModal.js";
-
-export interface ModalProps extends WithOptionalChildren {
-    id?: string;
-    className?: string;
-    component?: React.ElementType;
-    style?: React.CSSProperties;
-    /**
-     * Overstyrer padding på modalen via en CSS-variabel.
-     */
-    padding?: 16 | 24 | 40;
-}
-
-export type BaseModalProps = Omit<ModalProps, "padding" | "component">;
+import { IconButton } from "../icon-button/IconButton.js";
+import { IconButtonProps } from "../icon-button/types.js";
+import {
+    BaseModalProps,
+    ModalConfig,
+    ModalOverlayProps,
+    ModalProps,
+} from "./types.js";
 
 /**
  * Ment å brukes med `useModal`.
@@ -36,14 +28,6 @@ export const ModalContainer = forwardRef<
     );
 });
 ModalContainer.displayName = "ModalContainer";
-
-export type ModalOverlayProps = ModalConfig["overlay"] &
-    BaseModalProps & {
-        /**
-         * Rendre uten bakgrunnsfarge, men med click target for å lukke modalen ved klikk utenfor.
-         */
-        transparent?: boolean;
-    };
 
 /**
  * Ment å brukes med `useModal`.

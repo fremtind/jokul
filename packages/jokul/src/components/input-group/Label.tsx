@@ -1,19 +1,6 @@
 import clsx from "clsx";
-import React, { type CSSProperties, type FC } from "react";
-import { Density, WithChildren } from "../../core/types.js";
-
-export type LabelVariant = "small" | "medium" | "large";
-
-export interface LabelProps extends WithChildren {
-    id?: string;
-    variant?: LabelVariant;
-    density?: Density;
-    srOnly?: boolean;
-    standAlone?: boolean;
-    htmlFor?: string;
-    className?: string;
-    style?: CSSProperties;
-}
+import React, { type FC } from "react";
+import { LabelProps } from "./types.js";
 
 export const Label: FC<LabelProps> = ({
     variant = "small",

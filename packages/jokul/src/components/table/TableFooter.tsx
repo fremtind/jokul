@@ -1,9 +1,7 @@
 import clsx from "clsx";
-import React, { forwardRef, HTMLAttributes } from "react";
+import React, { forwardRef } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext.js";
-
-export interface TableFooterProps
-    extends HTMLAttributes<HTMLTableSectionElement> {}
+import { TableFooterProps } from "./types.js";
 
 const TableFooter = forwardRef<HTMLTableSectionElement, TableFooterProps>(
     ({ className, ...rest }, ref) => {

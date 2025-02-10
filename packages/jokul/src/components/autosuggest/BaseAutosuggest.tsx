@@ -8,9 +8,9 @@ import {
 import React, { type ReactNode } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { InputGroup } from "../input-group/InputGroup.js";
-import { type CommonProps } from "./Autosuggest.js";
 import ControllerButton from "./ControllerButton.js";
 import Menu from "./Menu.js";
+import { type CommonProps } from "./types.js";
 
 const KEY_ENTER = 13;
 
