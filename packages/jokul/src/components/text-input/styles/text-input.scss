@@ -211,11 +211,11 @@ $_text-input-selection-color--inverted: color.scale(
     }
 
     > .jkl-icon-button:focus-visible {
+        @include jkl.focus-outline($offset: -8px);
+
         @include jkl.forced-colors-mode {
             --jkl-color-border-action: ButtonText;
         }
-
-        @include jkl.focus-outline($offset: -8px);
     }
 
     > .jkl-text-input-action-button {

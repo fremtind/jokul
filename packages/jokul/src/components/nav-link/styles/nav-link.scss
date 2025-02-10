@@ -12,6 +12,11 @@
     align-items: center;
     gap: jkl.rem(1.5px);
 
+    // Unngå at border ved tastaturfokus "kapper" pila
+    $arrow-spacing: 0.15rem;
+    padding-right: $arrow-spacing;
+    margin-right: -#{$arrow-spacing};
+
     @include jkl.reset-outline;
 
     &:hover:not(:focus) {
@@ -37,11 +42,6 @@
     &--active {
         @include jkl.no-grow-bold;
     }
-
-    // Unngå at border ved tastaturfokus "kapper" pila
-    $arrow-spacing: 0.15rem;
-    padding-right: $arrow-spacing;
-    margin-right: -#{$arrow-spacing};
 
     &--back {
         padding-right: 0;
