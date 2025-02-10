@@ -47,6 +47,16 @@ For en full liste over komponenter kan du kikke i [components-mappa](src/compone
 
 Stilarkene i Jøkul tilbys som Sass-filer, og som ferdigbygget CSS i både formatert og minifisert versjon. Vi anbefaler å bruke Sass-versjonene dersom du bruker en bundler, siden det kan optimalisere størrelsen på de ferdige stilene.
 
+Dersom du bruker Vite bør du be bundleren om å bruke det moderne Sass-APIet for å unngå advarsler i konsollen. Det gjør du ved å legge til følgende i `vite.config.js`:
+
+```js
+css: {
+    preprocessorOptions: {
+        scss: { api: 'modern' },
+    },
+},
+```
+
 ### Felles stiler
 
 Det finnes en del grunnleggende stiler som må med for at ting skal fungere riktig, disse
