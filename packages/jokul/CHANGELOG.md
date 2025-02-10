@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.45.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.45.1...@fremtind/jokul@0.45.2) (2025-02-10)
+
+### Bug Fixes
+
+- rett opp feil eksport i cookie-consent ([fcdccb5](https://github.com/fremtind/jokul/commit/fcdccb5254e2e7c0b6b3a88727d5bfb91b24fbe4))
+
 ## [0.45.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.45.0...@fremtind/jokul@0.45.1) (2025-02-10)
 
 ### Bug Fixes
