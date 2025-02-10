@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.45.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.45.0...@fremtind/jokul@0.45.1) (2025-02-10)
+
+### Bug Fixes
+
+- makes cookie-consent automatically pull in modal SCSS ([98155b4](https://github.com/fremtind/jokul/commit/98155b4cea7a0654bf6d8229acb0348546e8f9f1))
+
 # [0.45.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.44.7...@fremtind/jokul@0.45.0) (2025-02-10)
 
 ### Features
