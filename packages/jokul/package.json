@@ -538,6 +538,17 @@
                 "default": "./build/cjs/components/tag/index.cjs"
             }
         },
+        "./styles/components/text-area": "./styles/components/text-area/_index.scss",
+        "./components/text-area": {
+            "import": {
+                "types": "./build/es/components/text-area/index.d.ts",
+                "default": "./build/es/components/text-area/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/text-area/index.d.cts",
+                "default": "./build/cjs/components/text-area/index.cjs"
+            }
+        },
         "./styles/components/text-input": "./styles/components/text-input/_index.scss",
         "./components/text-input": {
             "import": {
