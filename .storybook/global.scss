@@ -1,0 +1,5 @@
+@use "../packages/jokul/src/core/styles/core.scss";
+@use "../packages/jokul/src/vind/styles/vind.scss";
+@use "../packages/jokul/src/fonts/styles/webfonts.scss" with (
+    $webfonts-dir: "../packages/jokul/src/fonts"
+);
