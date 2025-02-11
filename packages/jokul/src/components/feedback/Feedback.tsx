@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode, useState } from "react";
-import { BaseTextAreaProps } from "../text-input/types.js";
+import { BaseTextAreaProps } from "../text-area/types.js";
 import { FeedbackContextProvider } from "./feedbackContext.js";
 import { Followup } from "./followup/Followup.js";
 import { MainQuestion } from "./main-question/MainQuestion.js";

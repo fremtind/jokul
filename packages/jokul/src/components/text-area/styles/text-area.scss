@@ -1,0 +1,123 @@
+@charset "UTF-8";
+@use "sass:color";
+@use "../../../core/jkl";
+@use "../../../shared/input/styles/shared-input-styles" as shared;
+
+.jkl-text-area-wrapper {
+    @include shared.wrapper_styles;
+}
+
+.jkl-text-area {
+    height: auto;
+    width: 100%;
+
+    &__text-area {
+        scrollbar-color: var(--jkl-color) transparent; // Unngå at scrollbar ligger oppå rammen
+        box-sizing: border-box;
+        resize: none; // Fjern mulighet for resizing av feltet
+        width: 100%;
+        padding: var(--jkl-text-input-padding);
+        max-height: var(--jkl-text-input-height);
+        height: var(--jkl-text-input-height);
+        min-height: var(--jkl-text-input-height);
+
+        @include jkl.motion;
+        transition-property: height, min-height, max-height, padding;
+        @include shared.input-styles;
+    }
+
+    .jkl-text-area-wrapper {
+        height: auto;
+        max-height: 100%;
+    }
+
+    &--start-open {
+        .jkl-text-area-wrapper {
+            max-height: 100%;
+        }
+    }
+
+    &--auto-expand {
+        .jkl-text-area__text-area {
+            overflow: hidden; // Skjul scrollbar når høyden autojusteres
+        }
+    }
+
+    &:has(.jkl-text-area__counter) {
+        $progress-bar-height: jkl.rem(4px);
+
+        .jkl-text-area-wrapper {
+            position: relative;
+
+            &[data-has-content="true"],
+            &:focus-within {
+                padding-bottom: calc(
+                    var(--jkl-text-input-height) + #{$progress-bar-height}
+                );
+            }
+        }
+
+        .jkl-text-area__counter {
+            @include jkl.motion;
+            transition-property: opacity;
+            opacity: 0;
+
+            pointer-events: none; // La brukeren klikke gjennom telleren når feltet er kollapset
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            &-count {
+                padding: var(--jkl-text-input-padding);
+                color: var(--jkl-text-area-counter-count-color);
+                @include jkl.text-style("small");
+            }
+
+            &-progress {
+                background-color: transparent;
+                height: $progress-bar-height;
+                width: 100%;
+                overflow: hidden;
+
+                &::after {
+                    content: "";
+                    width: var(--progress-width, 100%);
+                    display: block;
+                    height: $progress-bar-height;
+                    background-color: var(--jkl-color);
+                    transition-property: width;
+                    @include jkl.motion("standard", "lazy");
+                }
+            }
+        }
+
+        &:focus-within .jkl-text-area__counter {
+            opacity: 1;
+            transition-delay: jkl.timing(
+                "productive"
+            ); // Vent med å fade inn til feltet er ekspandert
+        }
+
+        [aria-invalid="true"] ~ .jkl-text-area__counter {
+            color: var(--jkl-text-input-error-text-color);
+        }
+    }
+}
+
+// Nytteklasser for tekstfelt med $num antall rader
+@for $num from 3 through 10 {
+    .jkl-text-area__text-area--#{$num}-rows:focus,
+    .jkl-text-area__text-area--#{$num}-rows:not(:placeholder-shown),
+    .jkl-text-area--start-open .jkl-text-area__text-area--#{$num}-rows {
+        --height: calc(var(--jkl-text-input-line-height) * #{$num});
+        --vertical-padding: calc(var(--jkl-text-input-vertical-padding) * 2);
+
+        // (#2751) Ekspanderende får inline style med height auto,
+        //         som gir et "hopp" dersom det er en teller og vi
+        //         ikke har en minimumshøyde.
+        min-height: calc(var(--height) + var(--vertical-padding)); // (#2751)
+        height: calc(var(--height) + var(--vertical-padding));
+        max-height: 100%;
+    }
+}

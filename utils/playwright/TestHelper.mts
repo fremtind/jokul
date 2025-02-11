@@ -1,8 +1,8 @@
-import { expect, Page, test } from "@playwright/test";
+import { expect, type Page, test } from "@playwright/test";
 import react from "@vitejs/plugin-react-swc";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createServer, ViteDevServer } from "vite";
+import { createServer, type ViteDevServer } from "vite";
 /* @ts-ignore */
 import { copyJklFonts } from "../vite/copy-jkl-fonts.mjs";
 import { existsSync } from "node:fs";
@@ -109,6 +109,10 @@ export class TestHelper {
 
     async pressKey(key: string) {
         await this._page.keyboard.press(key);
+    }
+
+    async type(selector: string, text: string) {
+        await this._page.locator(selector).fill(text);
     }
 
     async checkProp(testid: string) {
