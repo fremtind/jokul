@@ -25,6 +25,7 @@ export type InternalContext = {
     currentConsent: Consent;
     cookieName: string;
     cookieDomain?: string;
+    cookiePath?: string;
 };
 
 export type CookieConsentProviderProps = Partial<ConsentRequirement> &
@@ -32,4 +33,5 @@ export type CookieConsentProviderProps = Partial<ConsentRequirement> &
         cookieAdapter?: () => Consent | undefined;
         cookieName?: string;
         cookieDomain?: string;
+        cookiePath?: string;
     };

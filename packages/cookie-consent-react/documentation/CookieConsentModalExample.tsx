@@ -70,6 +70,7 @@ export const CookieConsentModalExample: FC<ExampleComponentProps> = ({
     return (
         <CookieConsentProvider
             cookieName="demo-consent-cookie"
+            cookiePath="/"
             functional={boolValues?.["Functional"]}
             statistics={boolValues?.["Statistics"]}
             marketing={boolValues?.["Marketing"]}

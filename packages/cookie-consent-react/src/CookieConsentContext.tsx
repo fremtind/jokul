@@ -18,6 +18,7 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     statistics,
     cookieName = DEFAULT_COOKIE_NAME,
     cookieDomain,
+    cookiePath,
 }) => {
     const [timestamp, setTimestamp] = useState(() => Date.now());
 
@@ -52,6 +53,7 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
                 currentConsent: consentCookie,
                 cookieName,
                 cookieDomain,
+                cookiePath,
             }}
         >
             {children}

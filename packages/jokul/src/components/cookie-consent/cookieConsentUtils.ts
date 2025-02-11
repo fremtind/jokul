@@ -50,17 +50,20 @@ export const setConsentCookie = ({
     maxAge = DEFAULT_MAX_AGE,
     name,
     domain,
+    path,
 }: {
     consent: Consent;
     maxAge?: number;
     name: string;
     domain?: string;
+    path?: string;
 }): void => {
     document.cookie = [
         `${name}=${JSON.stringify(consent)}`,
         `max-age=${maxAge}`,
         `SameSite=Lax`,
         !!domain && `domain=${domain}`,
+        !!path && `path=${path}`,
     ]
         .filter((f) => f)
         .join(";");

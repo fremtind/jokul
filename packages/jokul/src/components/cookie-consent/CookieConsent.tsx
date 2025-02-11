@@ -33,6 +33,7 @@ export const CookieConsent = ({
         currentConsent,
         cookieName,
         cookieDomain,
+        cookiePath,
         requirement,
         isOpen,
         setIsOpen,
@@ -108,6 +109,7 @@ export const CookieConsent = ({
             consent: updatedConsent,
             name: cookieName,
             domain: cookieDomain,
+            path: cookiePath,
         });
 
         updateCurrentConsents();
