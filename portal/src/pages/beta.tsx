@@ -1,24 +1,16 @@
+import { Link } from "@fremtind/jkl-core";
 import React from "react";
-import { Seo } from "../components/seo";
 import { MainContent } from "../layout/MainContent";
 
-export const Head: React.FC = () => (
-    <Seo title="Beta av den nye Jøkul-portalen" />
-);
-
-const betaLink = "https://jkl-portal.aws.fremtind.no";
-
 const BetaPage: React.FC = () => {
-    if (window.location) {
-        window.location.assign(betaLink);
-    }
-
     return (
         <MainContent>
-            <a className="jkl-link jkl-link--external" href={betaLink}>
-                Klikk her om du ikke blir videresendt
-            </a>
-            .
+            <p style={{ maxWidth: "60ch" }}>
+                Vi jobber for tiden med en ny beta-portal, den vil bli
+                tilgjengelig når det arbeidet er ferdig og i mellomtiden er det
+                denne portalen som blir oppdatert.
+            </p>
+            <Link href="/">Gå til forsiden</Link>
         </MainContent>
     );
 };
