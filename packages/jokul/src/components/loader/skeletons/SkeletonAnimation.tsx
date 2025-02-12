@@ -3,6 +3,11 @@ import React from "react";
 import { SkeletonAnimationProps } from "../types.js";
 import { useDelayedRender } from "../useDelayedRender.js";
 
+/**
+ * Wrapper-komponent for Skeleton loaders.
+ * Legg denne rundt en gruppe med SkeletonElement-komponenter
+ * for å rendre dem med synkronisert animasjon.
+ */
 export const SkeletonAnimation = ({
     className,
     delay = 0,

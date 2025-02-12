@@ -21,7 +21,10 @@ export interface SkeletonAnimationProps
     className?: string;
     children: ReactNode;
     density?: Density;
-    /** @default "Vennligst vent" */
+    /**
+     * Beskrivende tekst for skjermlesere
+     * @default "Vennligst vent"
+     */
     textDescription?: string;
     role?: AriaRole;
     /**
