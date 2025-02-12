@@ -75,3 +75,13 @@ Default-verdien dersom ingenting angis er `"fremtind-cookie-consent"`.
 Merk at denne verdien vil brukes direkte i `domain=<domain>;` delen av cookien som lagres.
 Det er ditt ansvar at det som sendes inn er gyldig og at du bruker en verdi som gir deg tilgang til å lese cookien senere.
 Dersom det ikke angis noen custom verdi brukes det domenet siden er på og dette er mest sannsynlig det du ønsker.
+
+Du kan også styre hvilken path cookien lagres på via `cookiePath` prop. Dette
+påvirker hvilke URLer cookien kan leses fra. Hvis applikasjonen din for eksempel
+har en side på URLen _/app/forsikringer/11231_ vil du på denne siden ha tilgang til
+cookies som er lagret under _/_, _/app_, _/app/forsikringer_ og _/app/forsikringer/11231_.
+En side som ligger på _/app_ vil derimot bare kunne lese cookies med path satt til
+_/_ eller _/app_. Dersom du ikke angir noen `cookiePath` gjør browseren det den
+mener er riktig. Hvis du har dype stier i applikasjonen din er det ikke sikkert
+det er dette du ønsker, og i så fall bør du sette verdien til det som er roten
+for din applikasjon (feks _/app_ eller _/_).
