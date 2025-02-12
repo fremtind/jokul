@@ -27,5 +27,8 @@ export const UnorderedList = makeListComponent("unordered");
 UnorderedList.displayName = "UnorderedList";
 export const OrderedList = makeListComponent("ordered");
 OrderedList.displayName = "OrderedList";
-export const List = UnorderedList;
+/**
+ * @deprecated Bruk heller UnorderedList, som gir samme resultat
+ */
+export const List = makeListComponent("unordered");
 List.displayName = "List";
