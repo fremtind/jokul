@@ -10,12 +10,12 @@ export const buttonVariants = [
 export type ButtonVariant = (typeof buttonVariants)[number];
 export type IconPosition = "left" | "right";
 
-export type IconOptions<T extends React.ElementType> =
+export type IconOptions =
     // Hvis ikke knappen har ikon, MÅ den ha children:
     | {
           iconPosition?: never;
           icon?: never;
-          children: React.ComponentPropsWithoutRef<T>["children"];
+          children: React.ReactNode;
       }
     | {
           /**
@@ -29,31 +29,30 @@ export type IconOptions<T extends React.ElementType> =
           icon: React.ReactElement;
       };
 
+type Props = {
+    density?: Density;
+    /**
+     * Hvilken variant av knappen skal vises
+     * @default "secondary"
+     */
+    variant?: ButtonVariant;
+    className?: string;
+    loader?: {
+        showLoader: boolean;
+        textDescription: string;
+    };
+    /**
+     * @deprecated Bruk `icon` i kombinasjon med `iconPosition="left"`
+     */
+    iconLeft?: React.ReactNode;
+    /**
+     * @deprecated Bruk `icon` i kombinasjon med `iconPosition="right"`
+     */
+    iconRight?: React.ReactNode;
+} & IconOptions;
+
 export type ButtonProps<ElementType extends React.ElementType> =
-    PolymorphicPropsWithRef<
-        ElementType,
-        {
-            density?: Density;
-            /**
-             * Hvilken variant av knappen skal vises
-             * @default "secondary"
-             */
-            variant?: ButtonVariant;
-            className?: string;
-            loader?: {
-                showLoader: boolean;
-                textDescription: string;
-            };
-            /**
-             * @deprecated Bruk `icon` i kombinasjon med `iconPosition="left"`
-             */
-            iconLeft?: React.ReactNode;
-            /**
-             * @deprecated Bruk `icon` i kombinasjon med `iconPosition="right"`
-             */
-            iconRight?: React.ReactNode;
-        } & IconOptions<ElementType>
-    >;
+    PolymorphicPropsWithRef<ElementType, Props> & Props;
 
 export type ButtonComponent = <
     ElementType extends React.ElementType = "button",
