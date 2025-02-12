@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 11.2.0 (2025-02-12)
+
+### Features
+
+- supports setting cookie path for cookie-consent ([f501696](https://github.com/fremtind/jokul/commit/f5016965726b2db9e17cd825686e4a0aa7f7dbff))
+
 # [11.1.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-cookie-consent-react@11.0.1...@fremtind/jkl-cookie-consent-react@11.1.0) (2025-01-23)
 
 ### Features

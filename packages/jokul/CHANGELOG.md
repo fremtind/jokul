@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.46.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.45.3...@fremtind/jokul@0.46.0) (2025-02-12)
+
+### Features
+
+- supports setting cookie path for cookie-consent ([f501696](https://github.com/fremtind/jokul/commit/f5016965726b2db9e17cd825686e4a0aa7f7dbff))
+
 ## [0.45.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.45.1...@fremtind/jokul@0.45.2) (2025-02-10)
 
 ### Bug Fixes
