@@ -47,33 +47,32 @@ export interface MenuProps
     onToggle?: (isOpen: boolean) => void;
 }
 
+type Props = {
+    /**
+     * Et ikon som vises før innholdet i menypunktet
+     */
+    icon?: ReactNode;
+} & (
+    | {
+          expandable?: never;
+          /**
+           * Indikerer at menypunktet åpner noe i et nytt vindu eller tab
+           * @default false
+           */
+          external?: boolean;
+      }
+    | {
+          external?: never;
+          /**
+           * Indikerer at menypunktet er utvidbart ved å vise en chevron
+           * @default false
+           */
+          expandable?: boolean;
+      }
+);
+
 export type MenuItemProps<ElementType extends React.ElementType> =
-    PolymorphicPropsWithRef<
-        ElementType,
-        {
-            /**
-             * Et ikon som vises før innholdet i menypunktet
-             */
-            icon?: ReactNode;
-        } & (
-            | {
-                  expandable?: never;
-                  /**
-                   * Indikerer at menypunktet åpner noe i et nytt vindu eller tab
-                   * @default false
-                   */
-                  external?: boolean;
-              }
-            | {
-                  external?: never;
-                  /**
-                   * Indikerer at menypunktet er utvidbart ved å vise en chevron
-                   * @default false
-                   */
-                  expandable?: boolean;
-              }
-        )
-    >;
+    PolymorphicPropsWithRef<ElementType, Props> & Props;
 
 export interface MenuItemCheckboxProps
     extends Omit<HTMLAttributes<HTMLDivElement>, "aria-checked" | "onChange"> {
