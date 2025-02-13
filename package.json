@@ -106,6 +106,7 @@
         "browserslist": "^4.24.3",
         "case": "^1.6.3",
         "classnames": "^2.5.1",
+        "clsx": "^2.1.1",
         "commitizen": "^4.3.1",
         "cssnano": "^6.1.2",
         "cssnano-preset-lite": "^3.1.0",
