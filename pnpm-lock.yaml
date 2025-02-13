@@ -61,6 +61,7 @@ importers:
       browserslist: ^4.24.3
       case: ^1.6.3
       classnames: ^2.5.1
+      clsx: ^2.1.1
       commitizen: ^4.3.1
       cssnano: ^6.1.2
       cssnano-preset-lite: ^3.1.0
@@ -158,6 +159,7 @@ importers:
       browserslist: 4.24.4
       case: 1.6.3
       classnames: 2.5.1
+      clsx: 2.1.1
       commitizen: 4.3.1_czd4pp6vpq7ftcykqfuusek4eu
       cssnano: 6.1.2_postcss@8.5.1
       cssnano-preset-lite: 3.1.0_postcss@8.5.1

@@ -3,11 +3,8 @@ import React from "react";
 import { formatValuta } from "../../../utilities/formatters/valuta/formatValuta.js";
 import { Flex } from "../../flex/Flex.js";
 import { ErrorTag } from "../../tag/Tag.js";
-import {
-    Card as CardComponent,
-    CARD_PADDINGS,
-    CARD_VARIANTS,
-} from "../Card.js";
+import { Card as CardComponent } from "../Card.js";
+import { CARD_PADDINGS, CARD_VARIANTS } from "../types.js";
 import "../styles/_index.scss";
 
 const meta = {
@@ -17,8 +14,14 @@ const meta = {
         layout: "centered",
     },
     tags: ["autodocs"],
+    args: {
+        //  as: "object",
+    },
     argTypes: {
-        variant: { control: "select", options: CARD_VARIANTS },
+        variant: {
+            control: "select",
+            options: CARD_VARIANTS,
+        },
         padding: { control: "select", options: CARD_PADDINGS },
     },
 } satisfies Meta<typeof CardComponent>;

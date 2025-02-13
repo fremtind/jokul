@@ -2,7 +2,8 @@ import { render, screen } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
-import { Card, CARD_PADDINGS, CARD_VARIANTS } from "./Card.js";
+import { Card } from "./Card.js";
+import { CARD_PADDINGS, CARD_VARIANTS } from "./types.js";
 
 describe("Card", () => {
     it("rendrer uten å kræsje", () => {

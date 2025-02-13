@@ -1,7 +1,9 @@
+import { Title } from "@storybook/blocks";
 import type { Preview } from "@storybook/react";
-
-import "./global.scss";
+import React from "react";
 import "../packages/jokul/src/components/card/styles/_index.scss";
+import { PropDocs } from "./docs/props/PropDocs.js";
+import "./global.scss";
 
 const preview: Preview = {
     parameters: {
@@ -29,6 +31,16 @@ const preview: Preview = {
                 color: /(background|color)$/i,
                 date: /Date$/i,
             },
+        },
+        docs: {
+            page: () => (
+                <>
+                    <Title />
+                    <PropDocs />
+                    {/* For comparison with default ArgTypes table */}
+                    {/* <ArgTypes /> */}
+                </>
+            ),
         },
     },
 };
