@@ -99,7 +99,7 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
 
         return (
             <div
-                className="jkl-text-input-wrapper"
+                className="jkl-text-area-wrapper"
                 data-invalid={invalid}
                 data-has-content={counterCurrent > 0}
             >

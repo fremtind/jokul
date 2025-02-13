@@ -38,6 +38,7 @@ export * from "./system-message/index.js";
 export * from "./table/index.js";
 export * from "./tabs/index.js";
 export * from "./tag/index.js";
+export * from "./text-area/index.js";
 export * from "./text-input/index.js";
 export * from "./toast/index.js";
 export * from "./toggle-switch/index.js";

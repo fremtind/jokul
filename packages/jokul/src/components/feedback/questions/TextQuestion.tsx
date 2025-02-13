@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler, useEffect, useMemo, useRef } from "react";
-import { TextArea } from "../../text-input/TextArea.js";
+import { TextArea } from "../../text-area/TextArea.js";
 import { useFeedbackContext } from "../feedbackContext.js";
 import { useFollowUpContext } from "../followup/followupContext.js";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
