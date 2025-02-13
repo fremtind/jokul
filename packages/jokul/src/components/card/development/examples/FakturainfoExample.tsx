@@ -2,13 +2,13 @@ import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React from "react";
 import { formatValuta } from "../../../../utilities/formatters/valuta/formatValuta.js";
 import { ErrorTag } from "../../../tag/Tag.js";
+import { Card } from "../../Card.js";
 import {
-    Card,
     CARD_PADDINGS,
     CARD_VARIANTS,
     CardPadding,
     CardVariant,
-} from "../../Card.js";
+} from "../../types.js";
 
 export const FakturainfoExample = ({
     boolValues,
