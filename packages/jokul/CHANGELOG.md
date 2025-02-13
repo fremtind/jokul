@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.47.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.46.0...@fremtind/jokul@0.47.0) (2025-02-13)
+
+### Features
+
+- splits text-input into text-input and text-area ([04806d2](https://github.com/fremtind/jokul/commit/04806d21df9b735a9ffe78bfd144a5198c99df77))
+
+### BREAKING CHANGES
+
+- TextArea er ikke lenger en del av TextInput mappa og har fått sin egen
+import-sti
+
+```diff
+- import { TextArea } from "@fremtind/jokul/components/text-input"
++ import { TextArea } from "@fremtind/jokul/components/text-area"
+```
+
 # [0.46.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.45.3...@fremtind/jokul@0.46.0) (2025-02-12)
 
 ### Features
