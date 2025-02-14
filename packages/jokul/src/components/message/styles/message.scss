@@ -85,48 +85,6 @@ $_dismiss-hover-color: jkl.$color-stein;
         }
     }
 
-    &__dismiss-button {
-        grid-area: dismiss;
-        justify-self: end;
-        position: relative;
-
-        background-color: transparent;
-        padding: 0;
-        cursor: pointer;
-
-        color: inherit;
-
-        display: grid;
-        place-content: center;
-
-        @include jkl.reset-outline;
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
-        @include jkl.forced-colors-mode {
-            background-color: ButtonFace;
-        }
-
-        // Sørg for å ha en stor nok touch target.
-        &::after {
-            content: "";
-            position: absolute;
-            display: block;
-            width: var(--jkl-message-dismiss-button-size);
-            height: var(--jkl-message-dismiss-button-size);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        &:hover {
-            color: $_dismiss-hover-color;
-            @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
-        }
-
-        &:focus-visible {
-            @include jkl.focus-outline;
-        }
-    }
-
     &--full {
         max-width: 100%;
     }

@@ -9,7 +9,13 @@ export interface DismissButtonProps
 export const DismissButton = forwardRef<HTMLButtonElement, DismissButtonProps>(
     ({ label = "Lukk", ...rest }, ref) => {
         return (
-            <button ref={ref} type="button" title={label} {...rest}>
+            <button
+                ref={ref}
+                type="button"
+                title={label}
+                className="jkl-message-dismiss-button"
+                {...rest}
+            >
                 <CloseIcon variant="small" bold />
                 <span className="jkl-sr-only">{label}</span>
             </button>
