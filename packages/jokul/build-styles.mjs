@@ -97,7 +97,7 @@ import * as sass from "sass-embedded";
                              * TIL: @use "../../core/jkl";
                              */
                             let modifiedContent = content.replaceAll(
-                                /@use "(\.\.\/)(\.\.\/)?(\.\.\/)?(\.\.\/)?([\w\/\"\- ]+);/g,
+                                /@use "(\.\.\/)(\.\.\/)?(\.\.\/)?(\.\.\/)?([\w\/\"\-\. ]+);/g,
                                 '@use "$2$3$4$5;',
                             );
                             /*
