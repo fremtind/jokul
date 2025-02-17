@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.48.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.47.0...@fremtind/jokul@0.48.0) (2025-02-17)
+
+### Bug Fixes
+
+- datepicker respects invalid prop ([b64119d](https://github.com/fremtind/jokul/commit/b64119da5366693abd7f13b695fb44b02d488b37))
+
+### Features
+
+- datepicker automatically pulls in popover styling ([1105744](https://github.com/fremtind/jokul/commit/11057444b0632650e961b6a454d0d00ba4c32088))
+- exports chip from "@fremtind/jokul/components" ([6ba8769](https://github.com/fremtind/jokul/commit/6ba8769023ce2e16d6ace84835bf6c50167a331f))
+
 # [0.47.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.46.0...@fremtind/jokul@0.47.0) (2025-02-13)
 
 ### Features
