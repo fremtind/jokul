@@ -1,6 +1,6 @@
 @use "sass:string";
 @use "../../../core/jkl";
-@use "../../../shared/track/styles/track.scss" as track;
+@use "../../../shared/track/styles/track";
 
 .jkl-progress-bar {
     @include track.track;
