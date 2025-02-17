@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.2...@fremtind/jokul@0.48.3) (2025-02-17)
+
+### Bug Fixes
+
+- fiks importer av delte stilark for input-panels et al ([51bf077](https://github.com/fremtind/jokul/commit/51bf077be36d5bb575eb26107474c2cbd68678e5))
+- mer robust regex for omskriving av sass-importer ved bygg ([f88922c](https://github.com/fremtind/jokul/commit/f88922cf7929c9f163ce85a08c7b17d076ca1c86))
+
 ## [0.48.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.1...@fremtind/jokul@0.48.2) (2025-02-17)
 
 ### Bug Fixes
