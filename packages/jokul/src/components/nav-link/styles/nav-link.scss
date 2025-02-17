@@ -8,10 +8,6 @@
     text-decoration: none;
     position: relative;
 
-    display: inline-flex;
-    align-items: center;
-    gap: jkl.rem(1.5px);
-
     // Unngå at border ved tastaturfokus "kapper" pila
     $arrow-spacing: 0.15rem;
     padding-right: $arrow-spacing;
@@ -35,6 +31,10 @@
     }
 
     &__icon {
+        margin-inline-start: 0.1em;
+        margin-block-start: -0.1em;
+        vertical-align: middle;
+
         @include jkl.motion;
         transition-property: transform;
     }
@@ -48,6 +48,10 @@
         margin-right: 0;
         padding-left: $arrow-spacing;
         margin-left: -#{$arrow-spacing};
+
+        .jkl-nav-link__icon {
+            margin-inline: 0 0.1em;
+        }
 
         &:focus-visible,
         &:hover:not(:focus) {
