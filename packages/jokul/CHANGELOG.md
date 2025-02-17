@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.1...@fremtind/jokul@0.48.2) (2025-02-17)
+
+### Bug Fixes
+
+- import av stiler i text-input og noen andre komponenter ([af3dd12](https://github.com/fremtind/jokul/commit/af3dd126b4c30d3eae4f385bcd09568dd4952d37))
+
 # [0.48.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.47.0...@fremtind/jokul@0.48.0) (2025-02-17)
 
 ### Bug Fixes
