@@ -110,8 +110,8 @@ import * as sass from "sass-embedded";
                              * TIL: @use "../accordion";
                              */
                             modifiedContent = modifiedContent.replaceAll(
-                                /@use "(.*)\/styles".*;/g,
-                                '@use "$1";',
+                                /@use "(.*)\/styles(.*)"(.*);/g,
+                                '@use "$1$2"$3;',
                             );
 
                             writeFile(
