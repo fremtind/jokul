@@ -1,5 +1,5 @@
 @use "sass:string";
-@use "../../../shared/track/styles/track.scss" as track;
+@use "../../../shared/track/styles/track" as track;
 
 $_downcount: jkl-downcount-#{string.unique-id()};
 
