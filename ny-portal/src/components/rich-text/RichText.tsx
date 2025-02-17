@@ -11,17 +11,17 @@ const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
         "code-example": (props: {
             node: {
                 fields: {
-                    ["code-example"]: string;
+                    ["path"]: string;
                     showEditor: boolean;
                 };
             };
         }) => {
-            if (!props.node.fields["code-example"]) {
+            if (!props.node.fields["path"]) {
                 return null;
             }
             return (
                 <CodeExample
-                    examplePath={props.node.fields["code-example"]}
+                    examplePath={props.node.fields["path"]}
                     showEditor={props.node.fields.showEditor}
                 />
             );
