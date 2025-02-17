@@ -3,23 +3,24 @@ export * from "./autosuggest/index.js";
 export * from "./breadcrumb/index.js";
 export * from "./button/index.js";
 export * from "./card/index.js";
-export * from "./checkbox/index.js";
 export * from "./checkbox-panel/index.js";
+export * from "./checkbox/index.js";
+export * from "./chip/index.js";
 export * from "./combobox/index.js";
 export * from "./cookie-consent/index.js";
 export * from "./countdown/index.js";
 export * from "./datepicker/index.js";
+export * from "./description-list/index.js";
+export * from "./expander/index.js";
 export * from "./feedback/index.js";
 export * from "./file-input/index.js";
 export * from "./flex/index.js";
-export * from "./description-list/index.js";
-export * from "./expander/index.js";
-export * from "./icon/index.js";
 export * from "./icon-button/index.js";
+export * from "./icon/index.js";
 export * from "./image/index.js";
 export * from "./input-group/index.js";
-export * from "./link/index.js";
 export * from "./link-list/index.js";
+export * from "./link/index.js";
 export * from "./list/index.js";
 export * from "./loader/index.js";
 export * from "./logo/index.js";
@@ -43,6 +44,7 @@ export * from "./text-input/index.js";
 export * from "./toast/index.js";
 export * from "./toggle-switch/index.js";
 export * from "./tooltip/index.js";
+
 export {
     ScreenReaderOnly,
     type ScreenReaderOnlyProps,

@@ -1,4 +1,9 @@
 type ElementTypeProp<ElementType extends React.ElementType> = {
+    /**
+     * Her kan du angi hva slags element komponenten skal rendres
+     * som. Det kan enten være en string for native HTML elementer
+     * eller en komponent (som Link fra react-router og lignende).
+     */
     as?: ElementType;
 };
 
@@ -14,7 +19,8 @@ export type PolymorphicProps<
     Omit<
         React.ComponentPropsWithoutRef<ElementType>,
         PropsToOmit<ElementType, Props>
-    >;
+    > &
+    ElementTypeProp<ElementType>;
 
 export type PolymorphicRef<ElementType extends React.ElementType> =
     React.ComponentPropsWithRef<ElementType>["ref"];
@@ -24,4 +30,4 @@ export type PolymorphicPropsWithRef<
     Props = {},
 > = PolymorphicProps<ElementType, Props> & {
     ref?: PolymorphicRef<ElementType>;
-};
+} & ElementTypeProp<ElementType>;

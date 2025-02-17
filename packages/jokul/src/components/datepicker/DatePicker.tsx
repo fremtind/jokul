@@ -327,6 +327,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                         }
                         {...textInputProps}
                         {...inputProps}
+                        aria-invalid={invalid || !!errorLabel}
                     />
                 )}
             />
