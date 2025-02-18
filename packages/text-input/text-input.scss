@@ -201,7 +201,7 @@ $_text-input-selection-color--inverted: color.scale(
         }
     }
 
-    &:has(:active) {
+    &:focus-within {
         background-color: var(--jkl-text-input-background-color);
     }
 
