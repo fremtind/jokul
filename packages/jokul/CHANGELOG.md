@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.3...@fremtind/jokul@0.48.4) (2025-02-18)
+
+### Bug Fixes
+
+- gjør at understrek på lenker bryter sammen med teksten ([9ab41eb](https://github.com/fremtind/jokul/commit/9ab41eb52bdd907780604356934215381ac5c273))
+- riktig plassering av ikonet i nav-link ([9568759](https://github.com/fremtind/jokul/commit/9568759eef9af2acd7e29bc455d08dc43df13201))
+
 ## [0.48.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.2...@fremtind/jokul@0.48.3) (2025-02-17)
 
 ### Bug Fixes
