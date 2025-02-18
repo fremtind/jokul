@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 14.10.5 (2025-02-18)
+
+### Bug Fixes
+
+- riktig visning av understrek og ikon for link og nav-link ([1594b29](https://github.com/fremtind/jokul/commit/1594b297929f9a97095f326418300580d74a8c31))
+
 ## 14.10.4 (2025-02-07)
 
 ### Bug Fixes
