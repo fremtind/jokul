@@ -14,25 +14,19 @@ $_link-underline-thickness--focus: jkl.rem(2px);
     outline: none;
     text-decoration: none;
 
-    display: inline-flex;
-    align-items: center;
-    gap: jkl.rem(1.5px);
+    @include jkl.motion("standard", "energetic");
+    transition-property: color;
 
     &__content {
-        background-position: 0
-            calc(
-                100% -
-                    (
-                        #{$_link-underline-thickness--focus} - #{$_link-underline-thickness}
-                    )
-            );
-        background-size: $_link-underline-thickness $_link-underline-thickness;
-        background-repeat: repeat-x;
+        text-decoration: underline;
+        text-underline-offset: 0.4em;
+        text-decoration-thickness: 1px;
+    }
 
-        @include jkl.motion("standard", "energetic");
-        transition-property: color;
-
-        @include _underline-gradient(var(--link-color));
+    &__icon {
+        margin-inline-start: 0.2em;
+        margin-block-start: -0.1em;
+        vertical-align: middle;
     }
 
     &:hover:not(:focus) {
@@ -79,6 +73,10 @@ $_link-underline-thickness--focus: jkl.rem(2px);
     }
 
     &__icon {
+        margin-inline-start: 0.1em;
+        margin-block-start: -0.1em;
+        vertical-align: middle;
+
         @include jkl.motion;
         transition-property: transform;
     }
@@ -97,6 +95,10 @@ $_link-underline-thickness--focus: jkl.rem(2px);
         margin-right: 0;
         padding-left: $arrow-spacing;
         margin-left: -#{$arrow-spacing};
+
+        .jkl-nav-link__icon {
+            margin-inline: 0 0.1em;
+        }
 
         &:focus-visible,
         &:hover:not(:focus) {

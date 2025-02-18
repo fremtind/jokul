@@ -31,7 +31,7 @@ export const Link = React.forwardRef(function Link<
         >
             <span className="jkl-link__content">{children}</span>
             {(external || rest.target === "_blank") && (
-                <OpenInNewIcon variant="small" />
+                <OpenInNewIcon variant="small" className="jkl-link__icon" />
             )}
             {external && (
                 <span hidden={true} id={srId}>

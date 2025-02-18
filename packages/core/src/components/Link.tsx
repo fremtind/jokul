@@ -47,7 +47,7 @@ export const Link = React.forwardRef(function Link<
                         className={cn(
                             "jkl-icon",
                             `jkl-icon--small`,
-                            "jkl-nav-link__icon",
+                            "jkl-link__icon",
                         )}
                     >
                         {"\ue89e"}
