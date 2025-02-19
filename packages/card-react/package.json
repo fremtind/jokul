@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-card-react",
-    "version": "13.0.52",
+    "version": "13.0.53",
     "publishConfig": {
         "access": "public"
     },
@@ -43,7 +43,7 @@
         "classnames": "^2.5.1"
     },
     "devDependencies": {
-        "@fremtind/jkl-constants-util": "^3.0.130"
+        "@fremtind/jkl-constants-util": "^3.0.131"
     },
     "peerDependencies": {
         "@types/react": "^16.8.6 || ^17.0.0 || ^18.0.0",

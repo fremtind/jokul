@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.4...@fremtind/jokul@0.48.5) (2025-02-19)
+
+### Bug Fixes
+
+- byttet active-state med focus for delte input-felt ([16c8113](https://github.com/fremtind/jokul/commit/16c81133f5284fa674d47d3bb29dc55bbd50b525)), closes [#4570](https://github.com/fremtind/jokul/issues/4570)
+
 ## [0.48.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.3...@fremtind/jokul@0.48.4) (2025-02-18)
 
 ### Bug Fixes
