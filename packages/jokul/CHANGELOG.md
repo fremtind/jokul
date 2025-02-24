@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.48.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.5...@fremtind/jokul@0.48.6) (2025-02-24)
+
+### Bug Fixes
+
+- checks if element exists before reading height ([c789206](https://github.com/fremtind/jokul/commit/c789206d085b831acca54f97fe0a5ace7396f22a))
+
 ## [0.48.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.4...@fremtind/jokul@0.48.5) (2025-02-19)
 
 ### Bug Fixes
