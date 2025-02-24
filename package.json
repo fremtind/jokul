@@ -63,6 +63,7 @@
         }
     },
     "dependencies": {
+        "@storybook/addon-actions": "^8.5.8",
         "fs-extra": "^11.2.0",
         "glob": "^8.1.0",
         "nodemon": "^2.0.22",
