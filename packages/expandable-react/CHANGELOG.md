@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.14](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expandable-react@7.2.13...@fremtind/jkl-expandable-react@7.2.14) (2025-02-24)
+
+### Bug Fixes
+
+- checks if element exists before reading height ([c789206](https://github.com/fremtind/jokul/commit/c789206d085b831acca54f97fe0a5ace7396f22a))
+
 ## [7.2.10](https://github.com/fremtind/jokul/compare/@fremtind/jkl-expandable-react@7.2.9...@fremtind/jkl-expandable-react@7.2.10) (2025-02-03)
 
 ### Bug Fixes
