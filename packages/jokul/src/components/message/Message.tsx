@@ -6,9 +6,13 @@ import { InfoIcon } from "../icon/icons/InfoIcon.js";
 import { SuccessIcon } from "../icon/icons/SuccessIcon.js";
 import { WarningIcon } from "../icon/icons/WarningIcon.js";
 import { DismissButton } from "./DismissButton.js";
-import { MessageProps } from "./types.js";
+import { MessageProps as ExistingMessageProps } from "./types.js";
 
 type messageTypes = "info" | "error" | "success" | "warning";
+
+interface MessageProps extends ExistingMessageProps {
+    variant: messageTypes;
+}
 
 const getIcon = (messageType: messageTypes) => {
     switch (messageType) {
@@ -23,6 +27,12 @@ const getIcon = (messageType: messageTypes) => {
         default:
             return null;
     }
+};
+
+export const Message: React.FC<MessageProps> = (props) => {
+    const { variant = "info" } = props; // Legg til `variant` prop for å velge meldings-type
+    const MessageComponent = messageFactory(variant);
+    return <MessageComponent {...props} />;
 };
 
 function messageFactory(messageType: messageTypes) {
@@ -40,7 +50,9 @@ function messageFactory(messageType: messageTypes) {
             ...rest
         } = props;
 
-        const boxId = useId(id || "jkl-message", { generateSuffix: !id });
+        const boxId = useId(id || "jkl-message", {
+            generateSuffix: !id,
+        });
 
         const hasStringChild = React.Children.map(
             children,
@@ -83,16 +95,7 @@ function messageFactory(messageType: messageTypes) {
         );
     });
 
-    Message.displayName = "Message";
+    Message.displayName = `Message(${messageType})`;
 
     return Message;
 }
-
-export const InfoMessage = messageFactory("info");
-InfoMessage.displayName = "InfoMessage";
-export const ErrorMessage = messageFactory("error");
-ErrorMessage.displayName = "ErrorMessage";
-export const WarningMessage = messageFactory("warning");
-WarningMessage.displayName = "WarningMessage";
-export const SuccessMessage = messageFactory("success");
-SuccessMessage.displayName = "SuccessMessage";

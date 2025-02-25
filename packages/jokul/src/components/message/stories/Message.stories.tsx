@@ -1,8 +1,6 @@
-import { action } from "@storybook/addon-actions";
 import { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
-import { InfoMessage as MessageComponent } from "../Message.js";
-import { MessageProps } from "../types.js";
+import { Message as MessageComponent } from "../Message.js";
 import "../styles/_index.scss";
 
 const meta = {
@@ -12,43 +10,21 @@ const meta = {
         layout: "centered",
     },
     tags: ["autodocs"],
-    decorators: [
-        (Story, context) => {
-            const [dismissed, setDismissed] = useState(false);
-
-            return Story({
-                ...context,
-                args: {
-                    ...(context.args as MessageProps),
-                    dismissed,
-                    dismissAction: {
-                        handleDismiss: () => {
-                            action("handleDismissed")();
-                            setDismissed(true);
-                            setTimeout(() => setDismissed(false), 2600);
-                        },
-                        buttonTitle: "Merk som lest",
-                    },
-                },
-            });
-        },
-    ],
 } satisfies Meta<typeof MessageComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// const baseArgs = {
-//     dismissed: false,
-//     dismissAction: {
-//         handleDismiss: action("handleDismissed"),
-//         buttonTitle: "Merk som lest",
-//     },
-// };
-
-export const InfoMessage: Story = {
+export const Message: Story = {
     args: {
-        children: "Hei, jeg er en melding av typen Info",
+        children: `Hei, jeg er en melding av typen info`,
         title: "Info",
+        variant: "info",
+        dismissAction: { handleDismiss() {} },
     },
+    render: (args) => (
+        <MessageComponent {...args}>
+            {`Hei, jeg er en melding av typen ${args.variant}`}
+        </MessageComponent>
+    ),
 };
