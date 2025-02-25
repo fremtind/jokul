@@ -25,6 +25,7 @@
         "@payloadcms/next": "latest",
         "@payloadcms/richtext-lexical": "latest",
         "@payloadcms/ui": "latest",
+        "@sanity/image-url": "^1.1.0",
         "@sanity/vision": "^3.76.3",
         "@types/mdx": "^2.0.13",
         "clsx": "^2.1.1",
@@ -37,7 +38,8 @@
         "react-dom": "^18.3.1",
         "react-live": "^4.1.8",
         "sanity": "^3.76.3",
-        "sharp": "0.32.6"
+        "sharp": "0.32.6",
+        "styled-components": "^6.1.15"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.2.0",
