@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import React from "react";
-import { Message as MessageComponent } from "../Message.js";
+import { InfoMessage as MessageComponent } from "../Message.js";
 import "../styles/_index.scss";
 
 const meta = {
@@ -15,16 +14,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Message: Story = {
+export const InfoMessage: Story = {
     args: {
         children: `Hei, jeg er en melding av typen info`,
         title: "Info",
-        variant: "info",
         dismissAction: { handleDismiss() {} },
     },
-    render: (args) => (
-        <MessageComponent {...args}>
-            {`Hei, jeg er en melding av typen ${args.variant}`}
-        </MessageComponent>
-    ),
 };
