@@ -12,7 +12,8 @@
         "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
         "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
         "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-        "start": "cross-env NODE_OPTIONS=--no-deprecation next start -p 3333"
+        "start": "cross-env NODE_OPTIONS=--no-deprecation next start -p 3333",
+        "typegen": "sanity schema extract --path=src/sanity/extract.json && sanity typegen generate"
     },
     "dependencies": {
         "@aws-sdk/client-sts": "^3.731.1",
@@ -26,6 +27,7 @@
         "@payloadcms/richtext-lexical": "latest",
         "@payloadcms/ui": "latest",
         "@sanity/image-url": "^1.1.0",
+        "@sanity/client": "^6.28.1",
         "@sanity/vision": "^3.76.3",
         "@types/mdx": "^2.0.13",
         "clsx": "^2.1.1",
