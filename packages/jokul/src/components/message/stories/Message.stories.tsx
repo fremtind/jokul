@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import React, { useState } from "react";
+import React from "react";
 import { Message as MessageComponent } from "../Message.js";
 import "../styles/_index.scss";
 
