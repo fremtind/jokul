@@ -5,14 +5,14 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { FC, useId, useState } from "react";
 import styles from "./navigation.module.scss";
-import { MenuItems } from "./NavigationMenu";
 import { NavigationMenuButton } from "./NavigationMenuButton";
 import { NavigationMenuLink } from "./NavigationMenuLink";
+import { ComponentsQueryResult, Slug } from "@/sanity/types";
 
 type NavigationMenuGroupProps = {
     title: string;
     parentPath: string;
-    items: MenuItems[];
+    items: ComponentsQueryResult;
 };
 
 export const NavigationMenuGroup: FC<NavigationMenuGroupProps> = ({
@@ -23,11 +23,11 @@ export const NavigationMenuGroup: FC<NavigationMenuGroupProps> = ({
     const menuId = `navigation-menu-group-${useId()}`;
     const pathname = usePathname();
 
-    const getItemPath = (slug?: string) =>
+    const getItemPath = (slug: Slug | null) =>
         `/${parentPath}${slug ? `/${slug}` : ""}`;
 
     const [isOpen, setIsOpen] = useState(
-        items.some(({ slug }) => pathname === getItemPath(slug)),
+        items.some((item) => pathname === getItemPath(item.slug)),
     );
 
     const [menuRef] = useAnimatedHeight<HTMLDivElement>(isOpen);
@@ -53,13 +53,14 @@ export const NavigationMenuGroup: FC<NavigationMenuGroupProps> = ({
                 ref={menuRef}
             >
                 <ul>
-                    {items.map(({ slug, title }) => {
+                    {items.map((item) => {
+                        const { slug, title } = item;
                         const isActive = pathname === getItemPath(slug);
 
                         return (
                             <NavigationMenuLink
                                 key={`${slug}-${title}`}
-                                title={title}
+                                title={title ?? "Untitled"}
                                 path={slug}
                                 parentPath={parentPath}
                                 data-has-active-child={isActive}
