@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { useEffect } from "react";
 import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
@@ -22,6 +23,7 @@ export const Pagination = React.forwardRef(function Pagination<
             next: "Neste side",
         },
         as,
+        className,
         ...rest
     }: PaginationProps<ElementType>,
     ref?: PolymorphicRef<ElementType>,
@@ -43,7 +45,11 @@ export const Pagination = React.forwardRef(function Pagination<
 
     if (numberOfPages <= 7) {
         return (
-            <Component ref={ref} {...rest} className="jkl-pagination">
+            <Component
+                ref={ref}
+                {...rest}
+                className={clsx("jkl-pagination", className)}
+            >
                 <IconButton
                     className="jkl-pagination-button"
                     title={labels.previous}
