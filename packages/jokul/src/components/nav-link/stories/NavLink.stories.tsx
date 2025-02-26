@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from "@storybook/react";
-import React from "react";
 import { NavLink as NavLinkComponent } from "../NavLink.js";
 import "../styles/_index.scss";
 
