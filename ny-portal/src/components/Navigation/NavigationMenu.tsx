@@ -1,24 +1,10 @@
-import { getPayload } from "payload";
 import { NavigationMenuGroup } from "./NavigationMenuGroup";
 import { NavigationMenuList } from "./NavigationMenuList";
-import configPromise from "@/payload.config";
-
-export type MenuItems = {
-    id?: number;
-    title: string;
-    slug: string;
-};
+import { client } from "@/sanity/client";
+import { componentsQuery } from "@/sanity/queries/componentPage";
 
 export const NavigationMenu = async () => {
-    const payload = await getPayload({ config: configPromise });
-
-    const { docs: components } = await payload.find({
-        collection: "component-page",
-        select: {
-            title: true,
-            slug: true,
-        },
-    });
+    const components = await client.fetch(componentsQuery);
 
     return (
         <NavigationMenuList>
@@ -28,7 +14,10 @@ export const NavigationMenu = async () => {
                 items={[
                     {
                         title: "Oversikt",
-                        slug: "",
+                        slug: {
+                            current: "",
+                            _type: "slug",
+                        },
                     },
                     ...components,
                 ]}
