@@ -113,18 +113,25 @@ $_text-input-selection-color--inverted: color.scale(
         0 0 0 jkl.rem(1px) transparent;
     background-color: transparent;
 
+    &:has(input[disabled]) {
+        opacity: 0.4;
+    }
+
     &[data-invalid="true"] {
         background-color: var(--jkl-text-input-error-background-color);
         color: var(--jkl-text-input-error-text-color);
     }
 
-    &:hover {
-        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
-            0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
-        border-color: var(--jkl-text-input-focus-color);
+    &:not(:has(input[disabled])):not(:has(input[readonly])) {
+        &:hover {
+            box-shadow: inset 0 0 0 jkl.rem(1px)
+                    var(--jkl-text-input-focus-color),
+                0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
+            border-color: var(--jkl-text-input-focus-color);
 
-        @include jkl.forced-colors-mode {
-            border: jkl.rem(2px) solid ButtonText;
+            @include jkl.forced-colors-mode {
+                border: jkl.rem(2px) solid ButtonText;
+            }
         }
     }
 
@@ -212,6 +219,11 @@ $_text-input-selection-color--inverted: color.scale(
         [data-theme="dark"] & {
             background-color: var(--jkl-text-input-selection-color);
         }
+    }
+
+    &[disabled],
+    &:read-only {
+        cursor: not-allowed;
     }
 
     //  Invalid state
