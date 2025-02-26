@@ -3,13 +3,12 @@ import cn from "classnames";
 import React, { forwardRef } from "react";
 import { BaseTextInput, BaseTextInputProps } from "./BaseTextInput";
 
-export interface TextInputProps
-    extends Omit<InputGroupProps, "children">,
-        BaseTextInputProps {
-    "data-testautoid"?: string;
-    inline?: boolean;
-    inputClassName?: string;
-}
+export type TextInputProps = Omit<InputGroupProps, "children"> &
+    BaseTextInputProps & {
+        "data-testautoid"?: string;
+        inline?: boolean;
+        inputClassName?: string;
+    };
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     (props, ref) => {

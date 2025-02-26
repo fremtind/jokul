@@ -4,6 +4,7 @@
 @use "@fremtind/jkl-core/jkl/colors";
 
 @use "./autosuggest";
+@layer default, disabled;
 
 $_text-input-height: jkl.rem(48px);
 $_text-input-height--mobile: jkl.rem(44px);
@@ -131,6 +132,16 @@ $_text-input-selection-color--inverted: color.scale(
         }
     }
 
+    &:has(input[disabled]) {
+        opacity: 0.4;
+    }
+
+    // Disabled & read only
+    &[disabled],
+    &[readonly] {
+        cursor: not-allowed;
+    }
+
     //  Invalid state
     &[aria-invalid="true"] {
         color: var(--jkl-text-input-error-text-color);
@@ -167,124 +178,179 @@ $_text-input-selection-color--inverted: color.scale(
     }
 }
 
-.jkl-text-input-wrapper {
-    border-radius: jkl.rem(3px);
-    box-sizing: border-box;
-    max-width: 100%;
+@layer disabled {
+    .jkl-text-input-wrapper {
+        &:not(:has(input[disabled])):not(:has(input[readonly])) {
+            @include jkl.keyboard-navigation {
+                &:has(.jkl-text-input__input:focus-visible),
+                &:has(.jkl-text-area__text-area:focus-visible) {
+                    @include jkl.focus-outline;
+                }
+            }
 
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: var(--jkl-text-input-height);
+            &:hover {
+                box-shadow: inset 0 0 0 jkl.rem(1px)
+                        var(--jkl-text-input-focus-color),
+                    0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
+                border-color: var(--jkl-text-input-focus-color);
 
-    @include jkl.use-font-variables("jkl-text-input");
-    @include jkl.motion;
-    transition-property: color, box-shadow, background-color;
-
-    color: var(--jkl-text-input-text-color);
-    box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-border-color),
-        0 0 0 jkl.rem(1px) transparent;
-    background-color: transparent;
-
-    &[data-invalid="true"] {
-        background-color: var(--jkl-text-input-error-background-color);
-        color: var(--jkl-text-input-error-text-color);
-    }
-
-    &:hover {
-        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
-            0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
-        border-color: var(--jkl-text-input-focus-color);
-
-        @include jkl.forced-colors-mode {
-            border: jkl.rem(2px) solid ButtonText;
-        }
-    }
-
-    &:focus-within {
-        background-color: var(--jkl-text-input-background-color);
-    }
-
-    @include jkl.keyboard-navigation {
-        &:has(.jkl-text-input__input:focus-visible),
-        &:has(.jkl-text-area__text-area:focus-visible) {
-            @include jkl.focus-outline;
-        }
-    }
-
-    > .jkl-icon-button:focus-visible {
-        @include jkl.forced-colors-mode {
-            --jkl-color-border-action: ButtonText;
-        }
-
-        @include jkl.focus-outline($offset: -8px);
-    }
-
-    > .jkl-text-input-action-button {
-        flex-shrink: 0;
-        display: flex;
-        box-sizing: border-box;
-        align-items: center;
-        justify-content: center;
-        padding: var(--jkl-text-input-action-button-padding);
-        height: var(--jkl-text-input-action-button-size);
-        width: var(--jkl-text-input-action-button-size);
-
-        // Unngå for langt mellomrom mellom ikon og teksten i feltet
-        margin-inline-start: calc(
-            var(--jkl-text-input-horizontal-padding) * -1
-        );
-
-        .jkl-icon-button__icon {
-            height: var(--jkl-text-input-action-button-icon-size);
-            width: var(--jkl-text-input-action-button-icon-size);
-        }
-
-        &:hover {
-            color: var(--jkl-text-input-focus-color);
-
-            @include jkl.forced-colors-mode {
-                border: jkl.rem(2px) inset ButtonText;
+                @include jkl.forced-colors-mode {
+                    border: jkl.rem(2px) solid ButtonText;
+                }
             }
         }
+
+        &:has(input[disabled], input[readonly]) {
+            background-color: jkl.$color-background-container-subdued;
+            box-shadow: unset;
+        }
+
+        &[disabled] {
+            color: jkl.$color-text-subdued;
+        }
     }
 
-    @include jkl.forced-colors-mode {
-        border: jkl.rem(2px) inset ButtonText;
+    .jkl-text-input {
+        &:has(input[readonly], input[disabled]) {
+            cursor: not-allowed;
+
+            > *,
+            input {
+                cursor: not-allowed;
+            }
+
+            .jkl-label::before {
+                font-family: "Fremtind Material Symbols", Arial, Helvetica,
+                    sans-serif;
+                content: "lock" / "";
+                margin-inline-end: jkl.$spacing-xs;
+                vertical-align: text-bottom;
+                line-height: 23px; // Unngår layout shift mellom default og read only
+            }
+        }
+
+        &:has(input[disabled]) input,
+        &:has(input[disabled]) > *,
+        &:has(input[disabled]) &__unit {
+            color: color-mix(
+                in sRGB,
+                jkl.$color-text-default 40%,
+                jkl.$color-background-page 60%
+            );
+        }
     }
 }
 
-.jkl-text-input {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+@layer default {
+    .jkl-text-input-wrapper {
+        border-radius: jkl.rem(3px);
+        box-sizing: border-box;
+        max-width: 100%;
 
-    &__input {
-        padding: var(--jkl-text-input-padding);
-        width: 100%;
-        @include _shared-input-styles;
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: var(--jkl-text-input-height);
 
-        &--align-right {
-            text-align: right;
+        @include jkl.use-font-variables("jkl-text-input");
+        @include jkl.motion;
+        transition-property: color, box-shadow, background-color;
+
+        color: var(--jkl-text-input-text-color);
+        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-border-color),
+            0 0 0 jkl.rem(1px) transparent;
+        background-color: transparent;
+
+        &[data-invalid="true"] {
+            background-color: var(--jkl-text-input-error-background-color);
+            color: var(--jkl-text-input-error-text-color);
+        }
+
+        &:focus-within {
+            background-color: var(--jkl-text-input-background-color);
+        }
+
+        @include jkl.keyboard-navigation {
+            &:has(.jkl-text-input__input:focus-visible),
+            &:has(.jkl-text-area__text-area:focus-visible) {
+                @include jkl.focus-outline;
+            }
+        }
+
+        > .jkl-icon-button:focus-visible {
+            @include jkl.forced-colors-mode {
+                --jkl-color-border-action: ButtonText;
+            }
+
+            @include jkl.focus-outline($offset: -8px);
+        }
+
+        > .jkl-text-input-action-button {
+            flex-shrink: 0;
+            display: flex;
+            box-sizing: border-box;
+            align-items: center;
+            justify-content: center;
+            padding: var(--jkl-text-input-action-button-padding);
+            height: var(--jkl-text-input-action-button-size);
+            width: var(--jkl-text-input-action-button-size);
+
+            // Unngå for langt mellomrom mellom ikon og teksten i feltet
+            margin-inline-start: calc(
+                var(--jkl-text-input-horizontal-padding) * -1
+            );
+
+            .jkl-icon-button__icon {
+                height: var(--jkl-text-input-action-button-icon-size);
+                width: var(--jkl-text-input-action-button-icon-size);
+            }
+
+            &:hover {
+                color: var(--jkl-text-input-focus-color);
+
+                @include jkl.forced-colors-mode {
+                    border: jkl.rem(2px) inset ButtonText;
+                }
+            }
+        }
+
+        @include jkl.forced-colors-mode {
+            border: jkl.rem(2px) inset ButtonText;
         }
     }
 
-    &__unit {
-        padding-inline-end: var(--jkl-text-input-horizontal-padding);
-        padding-block: var(--jkl-text-input-vertical-padding);
-        color: var(--jkl-text-input-unit-color);
-    }
+    .jkl-text-input {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
-    &__action-button {
-        margin-inline-start: calc(
-            var(--jkl-text-input-horizontal-padding) * -1
-        );
-    }
+        &__input {
+            padding: var(--jkl-text-input-padding);
+            width: 100%;
+            @include _shared-input-styles;
 
-    &--inline {
-        display: inline-block;
-        vertical-align: middle;
-        margin: jkl.rem(-2px) jkl.rem(4px);
+            &--align-right {
+                text-align: right;
+            }
+        }
+
+        &__unit {
+            padding-inline-end: var(--jkl-text-input-horizontal-padding);
+            padding-block: var(--jkl-text-input-vertical-padding);
+            color: var(--jkl-text-input-unit-color);
+        }
+
+        &__action-button {
+            margin-inline-start: calc(
+                var(--jkl-text-input-horizontal-padding) * -1
+            );
+        }
+
+        &--inline {
+            display: inline-block;
+            vertical-align: middle;
+            margin: jkl.rem(-2px) jkl.rem(4px);
+        }
     }
 }
 

@@ -10,6 +10,30 @@ const meta = {
     },
     tags: ["autodocs"],
     argTypes: {
+        disabled: {
+            control: "boolean",
+            table: {
+                defaultValue: { summary: "undefined" },
+            },
+        },
+        tip: {
+            control: "text",
+            if: {
+                arg: "disabled",
+                truthy: true,
+            },
+            table: {
+                defaultValue: {
+                    summary: "Dette feltet er utilgjengelig",
+                },
+            },
+        },
+        readOnly: {
+            control: "boolean",
+            table: {
+                defaultValue: { summary: "undefined" },
+            },
+        },
         value: {
             control: "text",
             description: "Verdien i feltet",

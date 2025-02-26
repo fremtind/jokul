@@ -48,6 +48,7 @@
         "@fremtind/jkl-input-group-react": "^4.0.13",
         "@fremtind/jkl-react-hooks": "^12.2.20",
         "@fremtind/jkl-text-input": "^12.1.44",
+        "@fremtind/jkl-tooltip-react": "^4.6.16",
         "classnames": "^2.5.1",
         "downshift": "^7.6.2",
         "match-sorter": "^6.3.4"

@@ -1,6 +1,9 @@
 import clsx from "clsx";
 import React, { type CSSProperties, forwardRef } from "react";
 import { IconButton } from "../icon-button/IconButton.js";
+import { Tooltip } from "../tooltip/Tooltip.js";
+import { TooltipContent } from "../tooltip/TooltipContent.js";
+import { TooltipTrigger } from "../tooltip/TooltipTrigger.js";
 import { BaseTextInputProps } from "./types.js";
 
 function getWidthAsStyle(
@@ -21,6 +24,19 @@ function getWidthAsStyle(
     return undefined;
 }
 
+const Tip = ({
+    children,
+    description,
+}: {
+    children: React.ReactNode;
+    description?: string;
+}) => (
+    <Tooltip>
+        <TooltipContent>{description}</TooltipContent>
+        <TooltipTrigger>{children}</TooltipTrigger>
+    </Tooltip>
+);
+
 export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
     (props, ref) => {
         const {
@@ -35,54 +51,67 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
             unit,
             width,
             actionButton,
+            disabled,
+            tip = "Dette feltet er utilgjengelig",
             ...rest
         } = props;
 
+        const Wrapper = tip ? Tip : React.Fragment;
+
         return (
-            <div
-                className="jkl-text-input-wrapper"
-                data-invalid={ariaInvalid}
-                style={{ ...style, ...getWidthAsStyle(width, maxLength) }}
-            >
-                <input
-                    aria-invalid={ariaInvalid}
-                    ref={ref}
-                    className={clsx("jkl-text-input__input", className, {
-                        "jkl-text-input__input--align-right": align === "right",
-                    })}
-                    maxLength={maxLength}
-                    type={type}
-                    {...rest}
-                />
-                {unit && <span className="jkl-text-input__unit">{unit}</span>}
-                {!action &&
-                    actionButton &&
-                    React.cloneElement(actionButton, {
-                        className: clsx(
-                            "jkl-text-input-action-button",
-                            actionButton.props.className,
-                        ),
-                        "data-theme": ariaInvalid ? "light" : undefined,
-                    })}
-                {action && !actionButton && (
-                    <IconButton
-                        data-theme={ariaInvalid ? "light" : undefined}
-                        density={density}
-                        className={clsx(
-                            "jkl-text-input-action-button",
-                            action.className,
-                        )}
-                        title={action.label}
-                        onClick={action.onClick}
-                        onFocus={action.onFocus}
-                        onBlur={action.onBlur}
-                        ref={action.buttonRef}
-                        type={action.type || "button"}
-                    >
-                        {action.icon}
-                    </IconButton>
-                )}
-            </div>
+            <Wrapper description={tip}>
+                <div
+                    className="jkl-text-input-wrapper"
+                    data-invalid={ariaInvalid}
+                    style={{
+                        ...style,
+                        ...getWidthAsStyle(width, maxLength),
+                    }}
+                >
+                    <input
+                        aria-invalid={ariaInvalid}
+                        ref={ref}
+                        className={clsx("jkl-text-input__input", className, {
+                            "jkl-text-input__input--align-right":
+                                align === "right",
+                        })}
+                        maxLength={maxLength}
+                        type={type}
+                        disabled={disabled}
+                        {...rest}
+                    />
+                    {unit && (
+                        <span className="jkl-text-input__unit">{unit}</span>
+                    )}
+                    {!action &&
+                        actionButton &&
+                        React.cloneElement(actionButton, {
+                            className: clsx(
+                                "jkl-text-input-action-button",
+                                actionButton.props.className,
+                            ),
+                            "data-theme": ariaInvalid ? "light" : undefined,
+                        })}
+                    {action && !actionButton && (
+                        <IconButton
+                            data-theme={ariaInvalid ? "light" : undefined}
+                            density={density}
+                            className={clsx(
+                                "jkl-text-input-action-button",
+                                action.className,
+                            )}
+                            title={action.label}
+                            onClick={action.onClick}
+                            onFocus={action.onFocus}
+                            onBlur={action.onBlur}
+                            ref={action.buttonRef}
+                            type={action.type || "button"}
+                        >
+                            {action.icon}
+                        </IconButton>
+                    )}
+                </div>
+            </Wrapper>
         );
     },
 );

@@ -162,3 +162,28 @@ Det er også noen felles anbefalinger:
         content={<TextInput name="breddefeil" label="Postnummer" />}
     />
 </Grid>
+
+## Read only state
+
+Dersom du trenger å vise et felt som kun kan leses kan du bruke readonly.
+
+Skjermlesere vil ikke hoppe over feltet, men lese at det er deaktivert til brukerne.
+
+<ComponentExample
+    title="Read only state"
+    component={ReadOnlyTextInputExample}
+    codeExample={readOnlyTextInputExample}
+/>
+
+## Disabled state
+
+Dersom du ønsker at et felt ikke skal kunne interageres med kan du bruke disabled. **Husk at skjermlesere hopper over disse feltene**.
+
+Et eksempel kan være når du oppretter et nytt tilbud på en kunde, og den automatisk blir satt til personen som lager tilbudet.
+Det er i dette tilfellet ikke relevant å sende med innholdet i feltet første gang, men for å unngå layout shift kan du vise det.
+
+<ComponentExample
+    title="Disabled state"
+    component={DisabledTextInputExample}
+    codeExample={disabledTextInputExampleCode}
+/>
