@@ -15,4 +15,8 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const ModalBody: Story = {};
+export const ModalBody: Story = {
+    args: {
+        children: "Er du sikker på at du vil slette Foo Bar Baz?",
+    },
+};
