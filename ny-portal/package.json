@@ -6,13 +6,14 @@
     "type": "module",
     "scripts": {
         "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
-        "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+        "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 3333",
         "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
         "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
         "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
         "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
         "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-        "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
+        "start": "cross-env NODE_OPTIONS=--no-deprecation next start -p 3333",
+        "typegen": "sanity schema extract --path=src/sanity/extract.json && sanity typegen generate"
     },
     "dependencies": {
         "@aws-sdk/client-sts": "^3.731.1",
@@ -25,16 +26,23 @@
         "@payloadcms/next": "latest",
         "@payloadcms/richtext-lexical": "latest",
         "@payloadcms/ui": "latest",
+        "@portabletext/react": "^3.2.1",
+        "@sanity/client": "^6.28.1",
+        "@sanity/image-url": "^1.1.0",
+        "@sanity/vision": "^3.76.3",
         "@types/mdx": "^2.0.13",
         "clsx": "^2.1.1",
         "cross-env": "^7.0.3",
         "graphql": "^16.8.1",
         "next": "15.1.0",
+        "next-sanity": "^9.8.59",
         "payload": "latest",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-live": "^4.1.8",
-        "sharp": "0.32.6"
+        "sanity": "^3.76.3",
+        "sharp": "0.32.6",
+        "styled-components": "^6.1.15"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.2.0",

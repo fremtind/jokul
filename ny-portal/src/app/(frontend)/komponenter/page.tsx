@@ -1,27 +1,20 @@
 import { Flex, Link } from "@fremtind/jokul/components";
 import NextLink from "next/link";
-import { getPayload } from "payload";
-import configPromise from "@/payload.config";
+import { client } from "@/sanity/client";
+import { componentsQuery } from "@/sanity/queries/componentPage";
 
 export default async function Components() {
-    const payload = await getPayload({
-        config: configPromise,
-    });
-
-    const data = await payload.find({
-        collection: "component-page",
-        select: {
-            title: true,
-            slug: true,
-        },
-    });
+    const components = await client.fetch(componentsQuery);
 
     return (
         <Flex as="ul" direction="column" gap={16}>
-            {data.docs.map((page) => (
-                <li key={page.slug}>
-                    <Link as={NextLink} href={`/komponenter/${page.slug}`}>
-                        {page.title}
+            {components.map((component) => (
+                <li key={component.slug?.current}>
+                    <Link
+                        as={NextLink}
+                        href={`/komponenter/${component.slug?.current}`}
+                    >
+                        {component.title}
                     </Link>
                 </li>
             ))}

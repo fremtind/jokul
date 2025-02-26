@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.50.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.49.0...@fremtind/jokul@0.50.0) (2025-02-26)
+
+### Features
+
+- pagination will use className if provided ([67102e0](https://github.com/fremtind/jokul/commit/67102e09e097fcf6c01a6f5b8f910755417fea87))
+
+# [0.49.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.6...@fremtind/jokul@0.49.0) (2025-02-25)
+
+### Features
+
+- fjerne ubrukt import ([7c44f21](https://github.com/fremtind/jokul/commit/7c44f21487085fae509159468c9883f8b1c5ae79))
+- fjernet screenshots ([a411e54](https://github.com/fremtind/jokul/commit/a411e5477d5679da442704be02f1644c99f9f299))
+- lagde story for message ([b197b7e](https://github.com/fremtind/jokul/commit/b197b7ede8473f5e3081287dccd5ffa8272dbde3))
+- skrev tilbake message-komponenten ([a015a16](https://github.com/fremtind/jokul/commit/a015a16ee3b10c68228ec01f357b26356f78b040))
+- wip ([83198b0](https://github.com/fremtind/jokul/commit/83198b07b205126a86a7fb8ba0b75d837b4f4fcf))
+
+### Reverts
+
+- la tilbake screen shots ([28a67ba](https://github.com/fremtind/jokul/commit/28a67ba2b8c3eb08cf22c39bc17f0d78ef754e21))
+
 ## [0.48.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.5...@fremtind/jokul@0.48.6) (2025-02-24)
 
 ### Bug Fixes
