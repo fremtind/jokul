@@ -13,6 +13,21 @@
     flex-direction: column;
     align-items: flex-start;
 
+    &:has(input[disabled]) {
+        opacity: 0.4;
+    }
+
+    &:has(input[readonly]) {
+        .jkl-label::before {
+            font-family: "Fremtind Material Symbols", Arial, Helvetica,
+                sans-serif;
+            content: "lock" / "";
+            alt: "";
+            margin-inline-end: 5px;
+            vertical-align: text-bottom;
+        }
+    }
+
     &__input {
         padding: var(--jkl-text-input-padding);
         width: 100%;

@@ -131,6 +131,10 @@ $_text-input-selection-color--inverted: color.scale(
         }
     }
 
+    &:has(input[disabled]) {
+        opacity: 0.4;
+    }
+
     //  Invalid state
     &[aria-invalid="true"] {
         color: var(--jkl-text-input-error-text-color);
@@ -191,13 +195,16 @@ $_text-input-selection-color--inverted: color.scale(
         color: var(--jkl-text-input-error-text-color);
     }
 
-    &:hover {
-        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
-            0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
-        border-color: var(--jkl-text-input-focus-color);
+    &:not(:has(input[disabled])):not(:has(input[readonly])) {
+        &:hover {
+            box-shadow: inset 0 0 0 jkl.rem(1px)
+                    var(--jkl-text-input-focus-color),
+                0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
+            border-color: var(--jkl-text-input-focus-color);
 
-        @include jkl.forced-colors-mode {
-            border: jkl.rem(2px) solid ButtonText;
+            @include jkl.forced-colors-mode {
+                border: jkl.rem(2px) solid ButtonText;
+            }
         }
     }
 
@@ -258,6 +265,21 @@ $_text-input-selection-color--inverted: color.scale(
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    &:has(input[disabled]) {
+        opacity: 0.4;
+    }
+
+    &:has(input[readonly]) {
+        .jkl-label::before {
+            font-family: "Fremtind Material Symbols", Arial, Helvetica,
+                sans-serif;
+            content: "lock" / "";
+            alt: "";
+            margin-inline-end: 5px;
+            vertical-align: text-bottom;
+        }
+    }
 
     &__input {
         padding: var(--jkl-text-input-padding);
