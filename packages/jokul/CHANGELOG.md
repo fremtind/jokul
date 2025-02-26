@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.50.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.49.0...@fremtind/jokul@0.50.0) (2025-02-26)
+
+### Features
+
+- pagination will use className if provided ([67102e0](https://github.com/fremtind/jokul/commit/67102e09e097fcf6c01a6f5b8f910755417fea87))
+
 # [0.49.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.6...@fremtind/jokul@0.49.0) (2025-02-25)
 
 ### Features
