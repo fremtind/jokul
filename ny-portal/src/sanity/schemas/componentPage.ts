@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { ComponentFolderInput } from "../components/ComponentFolderInput";
 
 const MAX_LENGTH = 70;
 
@@ -35,6 +36,15 @@ export const componentPage = defineType({
             title: "Innhold",
             type: "array",
             of: [{ type: "block" }],
+        }),
+        defineField({
+            name: "component_folder",
+            title: "Komponentmappe",
+            type: "string",
+            components: {
+                input: ComponentFolderInput,
+            },
+            validation: (Rule) => Rule.required(),
         }),
     ],
 });

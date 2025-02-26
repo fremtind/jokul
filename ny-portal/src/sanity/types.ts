@@ -185,6 +185,7 @@ export type Jokul_componentPage = {
         _type: "block";
         _key: string;
     }>;
+    component_folder?: string;
 };
 
 export type Slug = {
@@ -276,6 +277,7 @@ export type ComponentPageBySlugQueryResult = {
         _type: "block";
         _key: string;
     }>;
+    component_folder?: string;
 } | null;
 
 // Query TypeMap
