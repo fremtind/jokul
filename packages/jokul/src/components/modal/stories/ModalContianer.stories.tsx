@@ -15,4 +15,12 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const ModalContainer: Story = {};
+export const ModalContainer: Story = {
+    args: {
+        id: "modal-container",
+        role: "document",
+        "aria-hidden": false,
+        "aria-modal": true,
+        "aria-labelledby": "modal-title",
+    },
+};
