@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.51.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.50.0...@fremtind/jokul@0.51.0) (2025-02-27)
+
+### Features
+
+- fjernet ubrukt import ([caa3900](https://github.com/fremtind/jokul/commit/caa390084c9cdc886f2962acc5fe2b4a66894a95))
+- lagde story for NavLink ([9e37b73](https://github.com/fremtind/jokul/commit/9e37b73f011aa4e0faae082f71bf5c4af130a1eb))
+
 # [0.50.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.49.0...@fremtind/jokul@0.50.0) (2025-02-26)
 
 ### Features
