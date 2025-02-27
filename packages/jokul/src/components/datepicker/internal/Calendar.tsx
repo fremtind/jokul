@@ -40,6 +40,7 @@ interface CalendarProps
     yearLabel?: string;
     yearsToShow?: YearsToShow;
     onTabOutside: React.KeyboardEventHandler;
+    tabIndex?: number;
 }
 
 const defaultMonths = [
@@ -73,6 +74,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             yearLabel = "Velg år",
             yearsToShow = DEFAULT_YEARS_TO_SHOW,
             onTabOutside,
+            tabIndex,
             ...rest
         } = props;
 
@@ -442,6 +444,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 id={id}
                 className="jkl-calendar"
                 data-testid="jkl-calendar"
+                tabIndex={tabIndex}
             >
                 {/* Vi lytter på på trykk på Tab inne i kalenderen for å håndtere fokus */}
                 {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
