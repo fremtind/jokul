@@ -1,4 +1,5 @@
 import PortableTextRenderer from "@/components/portable-text";
+import { PropDocumentation } from "@/components/prop-documentation/PropDocumentation";
 import { client } from "@/sanity/client";
 import { componentPageBySlugQuery } from "@/sanity/queries/componentPage";
 
@@ -18,6 +19,10 @@ export default async function Page({
             {data?.lede && <PortableTextRenderer value={data.lede} />}
 
             {data?.content && <PortableTextRenderer value={data.content} />}
+
+            {data?.component_folder && (
+                <PropDocumentation component={data.component_folder} />
+            )}
         </>
     );
 }
