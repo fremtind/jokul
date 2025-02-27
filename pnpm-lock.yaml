@@ -260,6 +260,7 @@ importers:
       '@portabletext/react': ^3.2.1
       '@sanity/client': ^6.28.1
       '@sanity/image-url': ^1.1.0
+      '@sanity/ui': ^2.14.3
       '@sanity/vision': ^3.76.3
       '@types/mdx': ^2.0.13
       '@types/node': ^22.5.4
@@ -295,13 +296,14 @@ importers:
       '@portabletext/react': 3.2.1_react@18.3.1
       '@sanity/client': 6.28.1
       '@sanity/image-url': 1.1.0
+      '@sanity/ui': 2.14.3_aozy4kbx7dhcjwlqs4cq7taznu
       '@sanity/vision': 3.76.3_aozy4kbx7dhcjwlqs4cq7taznu
       '@types/mdx': 2.0.13
       clsx: 2.1.1
       cross-env: 7.0.3
       graphql: 16.10.0
       next: 15.1.0_nnrd3gsncyragczmpvfhocinkq
-      next-sanity: 9.8.59_ilpwvhiazejukvufnlysgzkfke
+      next-sanity: 9.8.59_s6vtao65oylichngzqvffc6iia
       payload: 3.24.0_s6lbxizs6452vhm4dr63c6bkim
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
@@ -28257,7 +28259,7 @@ packages:
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  /next-sanity/9.8.59_ilpwvhiazejukvufnlysgzkfke:
+  /next-sanity/9.8.59_s6vtao65oylichngzqvffc6iia:
     resolution: {integrity: sha512-fG+woZkM4o19ZFvR8b+RMRzkNZFUcbdHKFazTmELpJVpLlVhA8pIJXiyAw9csk++NsW1iHRoFeNz1plEV4pa0A==}
     engines: {node: '>=18.18'}
     peerDependencies:
@@ -28275,6 +28277,7 @@ packages:
       '@sanity/next-loader': 1.3.2_next@15.1.0+react@18.3.1
       '@sanity/preview-kit': 5.2.7_idiqc7lz43m2ohxyjhugdc6yjm
       '@sanity/preview-url-secret': 2.1.4_@sanity+client@6.28.1
+      '@sanity/ui': 2.14.3_aozy4kbx7dhcjwlqs4cq7taznu
       '@sanity/visual-editing': 2.13.5_ciostr3idcy62kxosm2quj63jy
       groq: 3.76.3
       history: 5.3.0
