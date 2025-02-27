@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.54.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.53.0...@fremtind/jokul@0.54.0) (2025-02-27)
+
+### Features
+
+- la til story for progressbar ([6563733](https://github.com/fremtind/jokul/commit/6563733ef42dbe282d9da3913d5907ded97582e6))
+- lagde story for popover ([ee8986a](https://github.com/fremtind/jokul/commit/ee8986afa11205eea9ce93e98e1108495adadd32))
+- skriveleif ([720a779](https://github.com/fremtind/jokul/commit/720a7794c38e84e2dc3d4240113fd9e6d1d3c940))
+
 # [0.53.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.52.0...@fremtind/jokul@0.53.0) (2025-02-27)
 
 ### Features
