@@ -38,7 +38,7 @@ const PopoverUncontrolledComponent = (args: PopoverProps) => {
     );
 };
 
-export const PopoverControlled: Story = {
+export const PopoverUncontrolled: Story = {
     args: {
         open: false,
         onOpenChange: () => {},
