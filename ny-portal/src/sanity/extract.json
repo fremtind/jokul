@@ -1069,6 +1069,13 @@
                     }
                 },
                 "optional": true
+            },
+            "component_folder": {
+                "type": "objectAttribute",
+                "value": {
+                    "type": "string"
+                },
+                "optional": true
             }
         }
     },
