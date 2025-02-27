@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.53.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.52.0...@fremtind/jokul@0.53.0) (2025-02-27)
+
+### Features
+
+- jobbet med stories for Modal ([d548997](https://github.com/fremtind/jokul/commit/d548997d2653805e3a5e2a1ea2e060b21d0c0d4c))
+- la til påkrevde props i ModalContainer ([8ffe438](https://github.com/fremtind/jokul/commit/8ffe438726be0f88d412b1fb24d8250a994ebaaf))
+- work in progress ([4510bc0](https://github.com/fremtind/jokul/commit/4510bc0b17c0acb99aac77c40a3abd2850bc7065))
+
 # [0.52.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.51.0...@fremtind/jokul@0.52.0) (2025-02-27)
 
 ### Features
