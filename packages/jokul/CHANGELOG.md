@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.52.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.51.0...@fremtind/jokul@0.52.0) (2025-02-27)
+
+### Features
+
+- la til story for pagination ([685bcdb](https://github.com/fremtind/jokul/commit/685bcdb8d6bd925e9d63f4e4c77b89fb39b2788f))
+
 # [0.51.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.50.0...@fremtind/jokul@0.51.0) (2025-02-27)
 
 ### Features
