@@ -5,11 +5,13 @@ const config: StorybookConfig = {
     stories: ["../packages/jokul/**/*.stories.@(ts|tsx)"],
     staticDirs: ["../storybook-public"],
     addons: [
-        "@storybook/addon-onboarding",
         "@storybook/addon-essentials",
         "@chromatic-com/storybook",
         "@storybook/addon-interactions",
     ],
+    features: {
+        backgroundsStoryGlobals: true,
+    },
     framework: {
         name: "@storybook/react-vite",
         options: {},
