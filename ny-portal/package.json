@@ -20,6 +20,7 @@
         "@mdx-js/react": "^2.3.0",
         "@next/mdx": "^15.1.6",
         "@portabletext/react": "^3.2.1",
+        "@portabletext/types": "^2.0.13",
         "@sanity/client": "^6.28.1",
         "@sanity/image-url": "^1.1.0",
         "@sanity/ui": "^2.14.3",

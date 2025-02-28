@@ -1,5 +1,4 @@
-import PortableTextRenderer from "@/components/portable-text";
-import { PropDocumentation } from "@/components/prop-documentation/PropDocumentation";
+import { PortableText } from "@/components/portable-text/PortableText";
 import { client } from "@/sanity/client";
 import { componentPageBySlugQuery } from "@/sanity/queries/componentPage";
 
@@ -16,13 +15,9 @@ export default async function Page({
         <>
             <div>Hei jeg er {data?.title || "ikke i databasen"}</div>
 
-            {data?.lede && <PortableTextRenderer value={data.lede} />}
+            {data?.lede && <PortableText blocks={data.lede} />}
 
-            {data?.content && <PortableTextRenderer value={data.content} />}
-
-            {data?.component_folder && (
-                <PropDocumentation component={data.component_folder} />
-            )}
+            {data?.content && <PortableText blocks={data.content} />}
         </>
     );
 }
