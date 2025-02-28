@@ -258,6 +258,7 @@ importers:
       '@payloadcms/richtext-lexical': latest
       '@payloadcms/ui': latest
       '@portabletext/react': ^3.2.1
+      '@portabletext/types': ^2.0.13
       '@sanity/client': ^6.28.1
       '@sanity/image-url': ^1.1.0
       '@sanity/ui': ^2.14.3
@@ -289,11 +290,12 @@ importers:
       '@mdx-js/loader': 3.1.0
       '@mdx-js/react': 2.3.0_react@18.3.1
       '@next/mdx': 15.1.6_bkjeya7tld6moapcbnjitwp45y
-      '@payloadcms/db-postgres': 3.24.0_oj6ak5y22fd4ch7drjgp4bmvuu
-      '@payloadcms/next': 3.24.0_zwv7dxb5sqox5sobdoa2myy6c4
-      '@payloadcms/richtext-lexical': 3.24.0_uxvwbg5x3kcclzt4szg2os5bai
-      '@payloadcms/ui': 3.24.0_jwiilpqprnahropgbz3p5zgcuq
+      '@payloadcms/db-postgres': 3.25.0_gnwrrybmqujxewdcopebzjbqqq
+      '@payloadcms/next': 3.25.0_25r3232jwuacboiy4xl26uwbam
+      '@payloadcms/richtext-lexical': 3.25.0_a67dt7g5ivw3i7wsiphphupqzq
+      '@payloadcms/ui': 3.25.0_urdij7l5xmq5zk5plgo5yz6tp4
       '@portabletext/react': 3.2.1_react@18.3.1
+      '@portabletext/types': 2.0.13
       '@sanity/client': 6.28.1
       '@sanity/image-url': 1.1.0
       '@sanity/ui': 2.14.3_aozy4kbx7dhcjwlqs4cq7taznu
@@ -304,7 +306,7 @@ importers:
       graphql: 16.10.0
       next: 15.1.0_nnrd3gsncyragczmpvfhocinkq
       next-sanity: 9.8.59_s6vtao65oylichngzqvffc6iia
-      payload: 3.24.0_s6lbxizs6452vhm4dr63c6bkim
+      payload: 3.25.0_s6lbxizs6452vhm4dr63c6bkim
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
       react-live: 4.1.8_nnrd3gsncyragczmpvfhocinkq
@@ -313,7 +315,7 @@ importers:
       styled-components: 6.1.15_nnrd3gsncyragczmpvfhocinkq
     devDependencies:
       '@eslint/eslintrc': 3.2.0
-      '@fremtind/browserslist-config-jkl': link:../packages/browserslist-config-jkl
+      '@fremtind/browserslist-config-jkl': 2.0.1
       '@types/node': 22.10.2
       '@types/react': 18.3.3
       '@types/react-dom': 18.3.5_@types+react@18.3.3
@@ -2291,12 +2293,12 @@ packages:
     dependencies:
       '@ampproject/remapping': 2.2.1
       '@babel/code-frame': 7.26.2
-      '@babel/generator': 7.26.5
+      '@babel/generator': 7.26.9
       '@babel/helper-compilation-targets': 7.25.9
       '@babel/helper-module-transforms': 7.26.0_@babel+core@7.26.0
       '@babel/helpers': 7.26.0
-      '@babel/parser': 7.26.7
-      '@babel/template': 7.25.9
+      '@babel/parser': 7.26.9
+      '@babel/template': 7.26.9
       '@babel/traverse': 7.26.9
       '@babel/types': 7.26.9
       convert-source-map: 2.0.0
@@ -2320,16 +2322,6 @@ packages:
       eslint-visitor-keys: 2.1.0
       semver: 6.3.1
     dev: false
-
-  /@babel/generator/7.26.5:
-    resolution: {integrity: sha512-2caSP6fN9I7HOe6nqhtft7V4g7/V/gfDsC3Ag4W7kEzzvRGKqiv0pu0HogPiZ3KaVSoNDhUws6IJjDjpfmYIXw==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/parser': 7.26.9
-      '@babel/types': 7.26.9
-      '@jridgewell/gen-mapping': 0.3.8
-      '@jridgewell/trace-mapping': 0.3.25
-      jsesc: 3.1.0
 
   /@babel/generator/7.26.9:
     resolution: {integrity: sha512-kEWdzjOAUMW4hAyrzJ0ZaTOu9OmpyDIQicIh0zg0EEcEkYXZb2TjtBhnHi2ViX7PKwZqF4xwqfAm299/QMP3lg==}
@@ -2809,13 +2801,6 @@ packages:
     dependencies:
       '@babel/types': 7.26.9
     dev: false
-
-  /@babel/parser/7.26.7:
-    resolution: {integrity: sha512-kEvgGGgEjRUutvdVvZhbn/BxVt+5VSpwXz1j3WYXQbXDo8KzFOPNG2GQbdAiNq8g6wn1yKk7C/qrke03a84V+w==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-    dependencies:
-      '@babel/types': 7.26.9
 
   /@babel/parser/7.26.9:
     resolution: {integrity: sha512-81NWa1njQblgZbQHxWHpxxCzNsa3ZwvFqpUg7P+NNUU6f3UU2jBEg4OlF/J6rl8+PQGh1q6/zWScd001YwcA5A==}
@@ -4942,14 +4927,6 @@ packages:
     dependencies:
       regenerator-runtime: 0.14.1
 
-  /@babel/template/7.25.9:
-    resolution: {integrity: sha512-9DGttpmPvIxBb/2uwpVo3dqJ+O6RooAFOS+lB+xDqoE2PVCE8nfoHMdZLpfCQRLwvohzXISPZcgxt80xLfsuwg==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/code-frame': 7.26.2
-      '@babel/parser': 7.26.9
-      '@babel/types': 7.26.9
-
   /@babel/template/7.26.9:
     resolution: {integrity: sha512-qyRplbeIpNZhmzOysF/wFMuP9sctmh2cFzRAZOn1YapxBsE1i9bJIY586R/WBLfLcmcBlM8ROBiQURnnNy+zfA==}
     engines: {node: '>=6.9.0'}
@@ -6939,6 +6916,10 @@ packages:
     dependencies:
       tslib: 2.8.1
     dev: false
+
+  /@fremtind/browserslist-config-jkl/2.0.1:
+    resolution: {integrity: sha512-GCeG20efj/vkvLSCsyom+oZXqiG8eEVrI9E1OjtZn72ao48VVItzSInlQJ2XG3P06I7aGRK5nZfpc1RScQzz8A==}
+    dev: true
 
   /@fremtind/jkl-constants-util/3.0.131:
     resolution: {integrity: sha512-ItFtFImQj2I+r6gZ4aV5SbShpshkVADTc+q1PllwiKVt8d3edOV8BAdJeOw20Rjkya6qd8eLvLFZlXy2h57Gkg==}
@@ -9943,17 +9924,17 @@ packages:
       nullthrows: 1.1.1
     dev: false
 
-  /@payloadcms/db-postgres/3.24.0_oj6ak5y22fd4ch7drjgp4bmvuu:
-    resolution: {integrity: sha512-7/H41bvjZXKILF7tUcIkH2OCzxNbxyJBm4qqjm+vd9wBAKocXGG2pzDhfEFDzM5hpcJ9gBkEgal0BtB/rQBH3A==}
+  /@payloadcms/db-postgres/3.25.0_gnwrrybmqujxewdcopebzjbqqq:
+    resolution: {integrity: sha512-wrYQErmJIbiHzw/BY8c52M2l6Q9HGoF41Km+2H3n3cmXtg9RbAgp7PmxucEDitk6JCRCn6G0WxtrAfGyqizosQ==}
     peerDependencies:
-      payload: 3.24.0
+      payload: 3.25.0
     dependencies:
-      '@payloadcms/drizzle': 3.24.0_yasi4toc3zab7ftal4zoqtpdlu
+      '@payloadcms/drizzle': 3.25.0_3pyprsxrbpcnodgmzkhriwvnru
       '@types/pg': 8.10.2
       console-table-printer: 2.12.1
       drizzle-kit: 0.28.0
       drizzle-orm: 0.36.1_bjgwyhjhvvwy6t3txtwlrvkkam
-      payload: 3.24.0_s6lbxizs6452vhm4dr63c6bkim
+      payload: 3.25.0_s6lbxizs6452vhm4dr63c6bkim
       pg: 8.11.3
       prompts: 2.4.2
       to-snake-case: 1.0.0
@@ -9990,14 +9971,14 @@ packages:
       - supports-color
     dev: false
 
-  /@payloadcms/drizzle/3.24.0_yasi4toc3zab7ftal4zoqtpdlu:
-    resolution: {integrity: sha512-SXIE79DfEkgUcIFYvhHjGAz1oq3gLVY/H3l4zFxin1sPhELiJTRwUSb2wg3KSlw4hg/474Mz9NEukXvrQsBY8A==}
+  /@payloadcms/drizzle/3.25.0_3pyprsxrbpcnodgmzkhriwvnru:
+    resolution: {integrity: sha512-8ZRwQhTqS3PcvXae8k+RIoNaaFCTD4kdeoOCeIt6/Y/F6OzYzespU1Wci7jDlaJruUxzb+CdZWHWZbv27pbwzQ==}
     peerDependencies:
-      payload: 3.24.0
+      payload: 3.25.0
     dependencies:
       console-table-printer: 2.12.1
       drizzle-orm: 0.36.1_bjgwyhjhvvwy6t3txtwlrvkkam
-      payload: 3.24.0_s6lbxizs6452vhm4dr63c6bkim
+      payload: 3.25.0_s6lbxizs6452vhm4dr63c6bkim
       prompts: 2.4.2
       to-snake-case: 1.0.0
       uuid: 9.0.0
@@ -10033,16 +10014,16 @@ packages:
       - sqlite3
     dev: false
 
-  /@payloadcms/graphql/3.24.0_lap3gajgggqvdxve34hnsm4wmm:
-    resolution: {integrity: sha512-5/RDr69giaAVWhx2Xo5SzM90toh4clSqwoQv/+KtsYS1rSA3F1gl0C5zuMuy+SPg6ecaE8O2id/POC8W5tyfrw==}
+  /@payloadcms/graphql/3.25.0_bueu3l2myp2yn4z5ipxjx3z56u:
+    resolution: {integrity: sha512-JbffYYHcsqOPK7GH6WgQd+xbtNQxG+is3el+qxIVIqTGwrZtGy7EFg2OK3XMk3Hb/bJUH/Ino3X3XsgdD6ffyg==}
     hasBin: true
     peerDependencies:
       graphql: ^16.8.1
-      payload: 3.24.0
+      payload: 3.25.0
     dependencies:
       graphql: 16.10.0
       graphql-scalars: 1.22.2_graphql@16.10.0
-      payload: 3.24.0_s6lbxizs6452vhm4dr63c6bkim
+      payload: 3.25.0_s6lbxizs6452vhm4dr63c6bkim
       pluralize: 8.0.0
       ts-essentials: 10.0.3_typescript@5.7.2
       tsx: 4.19.2
@@ -10050,18 +10031,18 @@ packages:
       - typescript
     dev: false
 
-  /@payloadcms/next/3.24.0_zwv7dxb5sqox5sobdoa2myy6c4:
-    resolution: {integrity: sha512-JF7ImDSaJh7HzbKbkBLvZpB7Zn+r6Lp5pdUTv2c4iEXAk3sO5UXchAven/D9QXYHe+2MHhw/9jOCNXtNBWKxrw==}
+  /@payloadcms/next/3.25.0_25r3232jwuacboiy4xl26uwbam:
+    resolution: {integrity: sha512-Xx703RpURJ34yRMTgjcbyg555p0yXCH5C6ZxLCinEs1Lv3nE6FymVjlMGs2y+5IqPZfjaH4qnkgcwtxBE+fHQw==}
     engines: {node: ^18.20.2 || >=20.9.0}
     peerDependencies:
       graphql: ^16.8.1
       next: ^15.0.0
-      payload: 3.24.0
+      payload: 3.25.0
     dependencies:
       '@dnd-kit/core': 6.0.8_nnrd3gsncyragczmpvfhocinkq
-      '@payloadcms/graphql': 3.24.0_lap3gajgggqvdxve34hnsm4wmm
-      '@payloadcms/translations': 3.24.0
-      '@payloadcms/ui': 3.24.0_jwiilpqprnahropgbz3p5zgcuq
+      '@payloadcms/graphql': 3.25.0_bueu3l2myp2yn4z5ipxjx3z56u
+      '@payloadcms/translations': 3.25.0
+      '@payloadcms/ui': 3.25.0_urdij7l5xmq5zk5plgo5yz6tp4
       busboy: 1.6.0
       dequal: 2.0.3
       file-type: 19.3.0
@@ -10071,7 +10052,7 @@ packages:
       http-status: 2.1.0
       next: 15.1.0_nnrd3gsncyragczmpvfhocinkq
       path-to-regexp: 6.3.0
-      payload: 3.24.0_s6lbxizs6452vhm4dr63c6bkim
+      payload: 3.25.0_s6lbxizs6452vhm4dr63c6bkim
       qs-esm: 7.0.2
       react-diff-viewer-continued: 4.0.4_psuonouaqi5wuc37nxyknoubym
       sass: 1.77.4
@@ -10085,14 +10066,14 @@ packages:
       - typescript
     dev: false
 
-  /@payloadcms/richtext-lexical/3.24.0_uxvwbg5x3kcclzt4szg2os5bai:
-    resolution: {integrity: sha512-JT2RZvgXnH+gvYFIll/WFkZ+iM4Ppmi5PKlJWTePnJePas1uPJYFw3GzE1nuJrcB7VEAEVNV8B45qb6gl9mP2g==}
+  /@payloadcms/richtext-lexical/3.25.0_a67dt7g5ivw3i7wsiphphupqzq:
+    resolution: {integrity: sha512-VHRqbhRu137bRYopYnPJef+5G2XyQO2a7LFUKPcnscwKDJKxkNQ5+jbUMKUjpm5zdxfbirnDVjWgJcsixau0Og==}
     engines: {node: ^18.20.2 || >=20.9.0}
     peerDependencies:
       '@faceless-ui/modal': 3.0.0-beta.2
       '@faceless-ui/scroll-info': 2.0.0
-      '@payloadcms/next': 3.24.0
-      payload: 3.24.0
+      '@payloadcms/next': 3.25.0
+      payload: 3.25.0
       react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
       react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
     dependencies:
@@ -10106,9 +10087,9 @@ packages:
       '@lexical/selection': 0.21.0
       '@lexical/table': 0.21.0
       '@lexical/utils': 0.21.0
-      '@payloadcms/next': 3.24.0_zwv7dxb5sqox5sobdoa2myy6c4
-      '@payloadcms/translations': 3.24.0
-      '@payloadcms/ui': 3.24.0_jwiilpqprnahropgbz3p5zgcuq
+      '@payloadcms/next': 3.25.0_25r3232jwuacboiy4xl26uwbam
+      '@payloadcms/translations': 3.25.0
+      '@payloadcms/ui': 3.25.0_urdij7l5xmq5zk5plgo5yz6tp4
       '@types/uuid': 10.0.0
       acorn: 8.12.1
       bson-objectid: 2.0.4
@@ -10119,7 +10100,7 @@ packages:
       mdast-util-from-markdown: 2.0.2
       mdast-util-mdx-jsx: 3.1.3
       micromark-extension-mdx-jsx: 3.0.1
-      payload: 3.24.0_s6lbxizs6452vhm4dr63c6bkim
+      payload: 3.25.0_s6lbxizs6452vhm4dr63c6bkim
       react: 18.3.1
       react-dom: 18.3.1_react@18.3.1
       react-error-boundary: 4.1.2_react@18.3.1
@@ -10134,18 +10115,18 @@ packages:
       - yjs
     dev: false
 
-  /@payloadcms/translations/3.24.0:
-    resolution: {integrity: sha512-IsexOErEyF2pzyudW8y/glLdv3njNlS/hO1ADMsULZEiZiaRkVK+96Co6CIOHWDLKggJ6elRA5NKvDRL2cLboQ==}
+  /@payloadcms/translations/3.25.0:
+    resolution: {integrity: sha512-af+fDh+fzfExx9oeM8AJqwdEfc6X291smMUUe3mOCRlwIylcxXKzgj8ITdwPonGzaV/GJjAsc4U0mZIkaA6MMg==}
     dependencies:
       date-fns: 4.1.0
     dev: false
 
-  /@payloadcms/ui/3.24.0_jwiilpqprnahropgbz3p5zgcuq:
-    resolution: {integrity: sha512-NcmYLzPsJPL2Hz4TSMgaRCmo19vGP7Q1qrgk/rX19vNERLvxEUCkIgtfBaGLvR4vKY8azfbKjyBRsFtr29Bc6w==}
+  /@payloadcms/ui/3.25.0_urdij7l5xmq5zk5plgo5yz6tp4:
+    resolution: {integrity: sha512-9zOv8zeenZlNua+WlFtldVAUn6NatMY5BPXzWRMWSfIVnrRqimY87HQyS6uvncSPdsPwqf9UH6mBkbIqbeusgw==}
     engines: {node: ^18.20.2 || >=20.9.0}
     peerDependencies:
       next: ^15.0.0
-      payload: 3.24.0
+      payload: 3.25.0
       react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
       react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
     dependencies:
@@ -10156,14 +10137,14 @@ packages:
       '@faceless-ui/scroll-info': 2.0.0_nnrd3gsncyragczmpvfhocinkq
       '@faceless-ui/window-info': 3.0.1_nnrd3gsncyragczmpvfhocinkq
       '@monaco-editor/react': 4.7.0_nnrd3gsncyragczmpvfhocinkq
-      '@payloadcms/translations': 3.24.0
+      '@payloadcms/translations': 3.25.0
       bson-objectid: 2.0.4
       date-fns: 4.1.0
       dequal: 2.0.3
       md5: 2.3.0
       next: 15.1.0_nnrd3gsncyragczmpvfhocinkq
       object-to-formdata: 4.5.1
-      payload: 3.24.0_s6lbxizs6452vhm4dr63c6bkim
+      payload: 3.25.0_s6lbxizs6452vhm4dr63c6bkim
       qs-esm: 7.0.2
       react: 18.3.1
       react-datepicker: 7.6.0_nnrd3gsncyragczmpvfhocinkq
@@ -13264,7 +13245,7 @@ packages:
   /@types/babel__core/7.20.5:
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
     dependencies:
-      '@babel/parser': 7.26.7
+      '@babel/parser': 7.26.9
       '@babel/types': 7.26.9
       '@types/babel__generator': 7.6.4
       '@types/babel__template': 7.4.1
@@ -19336,7 +19317,7 @@ packages:
       browserslist: 4.24.4
       debug: 4.3.4
       esbuild: 0.19.12
-      zod: 3.21.4
+      zod: 3.24.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -29572,15 +29553,15 @@ packages:
     engines: {node: '>= 14.16'}
     dev: true
 
-  /payload/3.24.0_s6lbxizs6452vhm4dr63c6bkim:
-    resolution: {integrity: sha512-kqB+EHmKt+HRH8nTnfxPjQK15QSbtDrPwfaJ2ccF1x8w/JggpuKClB8omUi4PA8pVeh+glBGpJmWUe5cX8hoqw==}
+  /payload/3.25.0_s6lbxizs6452vhm4dr63c6bkim:
+    resolution: {integrity: sha512-azT1qtirV8QqIPpyWaxbF5TJPoWT5fpYoxin83wZxF5gmg0O06bL5YKCGFfCpzgCcw4FrFtLSzD68zGMc5m5Eg==}
     engines: {node: ^18.20.2 || >=20.9.0}
     hasBin: true
     peerDependencies:
       graphql: ^16.8.1
     dependencies:
       '@next/env': 15.1.6
-      '@payloadcms/translations': 3.24.0
+      '@payloadcms/translations': 3.25.0
       '@types/busboy': 1.5.4
       ajv: 8.17.1
       bson-objectid: 2.0.4
@@ -37665,17 +37646,12 @@ packages:
       zod: 3.24.1
     dev: false
 
-  /zod/3.21.4:
-    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
-    dev: true
-
   /zod/3.24.1:
     resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
     dev: false
 
   /zod/3.24.2:
     resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
-    dev: false
 
   /zwitch/2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}

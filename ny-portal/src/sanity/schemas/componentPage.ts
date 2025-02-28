@@ -35,16 +35,11 @@ export const componentPage = defineType({
             name: "content",
             title: "Innhold",
             type: "array",
-            of: [{ type: "block" }],
-        }),
-        defineField({
-            name: "component_folder",
-            title: "Komponentmappe",
-            type: "string",
-            components: {
-                input: ComponentFolderInput,
-            },
-            validation: (Rule) => Rule.required(),
+            of: [
+                { type: "block" },
+                { type: "image" },
+                { type: "jokul_component-props" },
+            ],
         }),
     ],
 });
