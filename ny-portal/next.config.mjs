@@ -1,4 +1,3 @@
-import { withPayload } from "@payloadcms/next/withPayload";
 import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
@@ -9,4 +8,4 @@ const nextConfig = {
 
 const withMdx = createMDX({});
 
-export default withPayload(withMdx(nextConfig));
+export default withMdx(nextConfig);
