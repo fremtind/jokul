@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import { ComponentFolderInput } from "../components/ComponentFolderInput";
 
 const MAX_LENGTH = 70;
 
@@ -38,7 +37,8 @@ export const componentPage = defineType({
             of: [
                 { type: "block" },
                 { type: "image" },
-                { type: "jokul_component-props" },
+                { type: "jokul_componentProps" },
+                { type: "jokul_codeExample" },
             ],
         }),
     ],

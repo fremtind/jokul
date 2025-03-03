@@ -326,7 +326,7 @@
         }
     },
     {
-        "name": "jokul_component-props",
+        "name": "jokul_codeExample",
         "type": "type",
         "value": {
             "type": "object",
@@ -335,10 +335,40 @@
                     "type": "objectAttribute",
                     "value": {
                         "type": "string",
-                        "value": "jokul_component-props"
+                        "value": "jokul_codeExample"
                     }
                 },
-                "component_folder": {
+                "showEditor": {
+                    "type": "objectAttribute",
+                    "value": {
+                        "type": "boolean"
+                    },
+                    "optional": true
+                },
+                "codeExample": {
+                    "type": "objectAttribute",
+                    "value": {
+                        "type": "string"
+                    },
+                    "optional": true
+                }
+            }
+        }
+    },
+    {
+        "name": "jokul_componentProps",
+        "type": "type",
+        "value": {
+            "type": "object",
+            "attributes": {
+                "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                        "type": "string",
+                        "value": "jokul_componentProps"
+                    }
+                },
+                "componentFolder": {
                     "type": "objectAttribute",
                     "value": {
                         "type": "string"
@@ -837,7 +867,22 @@
                                 },
                                 "rest": {
                                     "type": "inline",
-                                    "name": "jokul_component-props"
+                                    "name": "jokul_componentProps"
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "attributes": {
+                                    "_key": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "rest": {
+                                    "type": "inline",
+                                    "name": "jokul_codeExample"
                                 }
                             }
                         ]
