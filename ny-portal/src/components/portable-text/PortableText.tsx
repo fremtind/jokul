@@ -5,6 +5,7 @@ import type {
 import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import type { FC } from "react";
+import { CodeExample } from "./code-example";
 import { PropsDocumentation } from "./props-documentation/PropsDocumentation";
 
 interface Props {
@@ -15,7 +16,8 @@ const portableTextComponents: Record<
     string,
     FC<PortableTextComponentProps<any>>
 > = {
-    "jokul_component-props": PropsDocumentation,
+    jokul_componentProps: PropsDocumentation,
+    jokul_codeExample: CodeExample,
 };
 
 export const baseComponentDefinition: Partial<PortableTextReactComponents> = {
