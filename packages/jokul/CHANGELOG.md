@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.55.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.54.0...@fremtind/jokul@0.55.0) (2025-03-03)
+
+### Features
+
+- la til story for radiobutton ([1493a5d](https://github.com/fremtind/jokul/commit/1493a5d4158d893ca94694f8604339e550bb9631))
+
 # [0.54.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.53.0...@fremtind/jokul@0.54.0) (2025-02-27)
 
 ### Features
