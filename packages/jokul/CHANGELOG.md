@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.56.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.56.0...@fremtind/jokul@0.56.1) (2025-03-04)
+
+### Bug Fixes
+
+- seperate table to its own branch ([7dc6544](https://github.com/fremtind/jokul/commit/7dc65443ff0e9c3ba34b942881ceead09567c176))
+- stories for komponenter ([f599d4c](https://github.com/fremtind/jokul/commit/f599d4cd4b5bcd7854e078c94181b49bfbbde772))
+
 # [0.56.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.55.1...@fremtind/jokul@0.56.0) (2025-03-04)
 
 ### Features
