@@ -1,4 +1,4 @@
-FROM docker.intern.sparebank1.no/base/cicd-container-base-images/node22-ubi9-minimal:latest as base
+FROM docker.intern.sparebank1.no/base/cicd-container-base-images/node22-ubi9-minimal:latest AS base
 
 WORKDIR /app
 USER root
@@ -12,6 +12,7 @@ RUN microdnf install tar -y
 RUN microdnf install findutils -y
 
 FROM base AS dependencies
+ARG NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID
 
 WORKDIR /app
 COPY package.json .
@@ -26,6 +27,7 @@ RUN pnpm install --frozen-lockfile
 RUN find . -name 'node_modules' -print0 | tar -cf node_modules.tar --null --files-from -
 
 FROM base AS builder
+ARG NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID
 
 WORKDIR /app
 COPY --from=dependencies /app/node_modules.tar ./node_modules.tar
