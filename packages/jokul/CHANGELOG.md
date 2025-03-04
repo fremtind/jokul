@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.56.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.55.1...@fremtind/jokul@0.56.0) (2025-03-04)
+
+### Features
+
+- la til komplett modal-story ([c758d5d](https://github.com/fremtind/jokul/commit/c758d5d405135a00c36baeed511ff9c802ada8f4))
+
+# [0.55.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.54.0...@fremtind/jokul@0.55.0) (2025-03-03)
+
+### Features
+
+- la til story for radiobutton ([1493a5d](https://github.com/fremtind/jokul/commit/1493a5d4158d893ca94694f8604339e550bb9631))
+
+# [0.54.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.53.0...@fremtind/jokul@0.54.0) (2025-02-27)
+
+### Features
+
+- la til story for progressbar ([6563733](https://github.com/fremtind/jokul/commit/6563733ef42dbe282d9da3913d5907ded97582e6))
+- lagde story for popover ([ee8986a](https://github.com/fremtind/jokul/commit/ee8986afa11205eea9ce93e98e1108495adadd32))
+- skriveleif ([720a779](https://github.com/fremtind/jokul/commit/720a7794c38e84e2dc3d4240113fd9e6d1d3c940))
+
+# [0.53.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.52.0...@fremtind/jokul@0.53.0) (2025-02-27)
+
+### Features
+
+- jobbet med stories for Modal ([d548997](https://github.com/fremtind/jokul/commit/d548997d2653805e3a5e2a1ea2e060b21d0c0d4c))
+- la til påkrevde props i ModalContainer ([8ffe438](https://github.com/fremtind/jokul/commit/8ffe438726be0f88d412b1fb24d8250a994ebaaf))
+- work in progress ([4510bc0](https://github.com/fremtind/jokul/commit/4510bc0b17c0acb99aac77c40a3abd2850bc7065))
+
+# [0.52.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.51.0...@fremtind/jokul@0.52.0) (2025-02-27)
+
+### Features
+
+- la til story for pagination ([685bcdb](https://github.com/fremtind/jokul/commit/685bcdb8d6bd925e9d63f4e4c77b89fb39b2788f))
+
+# [0.51.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.50.0...@fremtind/jokul@0.51.0) (2025-02-27)
+
+### Features
+
+- fjernet ubrukt import ([caa3900](https://github.com/fremtind/jokul/commit/caa390084c9cdc886f2962acc5fe2b4a66894a95))
+- lagde story for NavLink ([9e37b73](https://github.com/fremtind/jokul/commit/9e37b73f011aa4e0faae082f71bf5c4af130a1eb))
+
+# [0.50.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.49.0...@fremtind/jokul@0.50.0) (2025-02-26)
+
+### Features
+
+- pagination will use className if provided ([67102e0](https://github.com/fremtind/jokul/commit/67102e09e097fcf6c01a6f5b8f910755417fea87))
+
+# [0.49.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.6...@fremtind/jokul@0.49.0) (2025-02-25)
+
+### Features
+
+- fjerne ubrukt import ([7c44f21](https://github.com/fremtind/jokul/commit/7c44f21487085fae509159468c9883f8b1c5ae79))
+- fjernet screenshots ([a411e54](https://github.com/fremtind/jokul/commit/a411e5477d5679da442704be02f1644c99f9f299))
+- lagde story for message ([b197b7e](https://github.com/fremtind/jokul/commit/b197b7ede8473f5e3081287dccd5ffa8272dbde3))
+- skrev tilbake message-komponenten ([a015a16](https://github.com/fremtind/jokul/commit/a015a16ee3b10c68228ec01f357b26356f78b040))
+- wip ([83198b0](https://github.com/fremtind/jokul/commit/83198b07b205126a86a7fb8ba0b75d837b4f4fcf))
+
+### Reverts
+
+- la tilbake screen shots ([28a67ba](https://github.com/fremtind/jokul/commit/28a67ba2b8c3eb08cf22c39bc17f0d78ef754e21))
+
+## [0.48.6](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.5...@fremtind/jokul@0.48.6) (2025-02-24)
+
+### Bug Fixes
+
+- checks if element exists before reading height ([c789206](https://github.com/fremtind/jokul/commit/c789206d085b831acca54f97fe0a5ace7396f22a))
+
+## [0.48.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.4...@fremtind/jokul@0.48.5) (2025-02-19)
+
+### Bug Fixes
+
+- byttet active-state med focus for delte input-felt ([16c8113](https://github.com/fremtind/jokul/commit/16c81133f5284fa674d47d3bb29dc55bbd50b525)), closes [#4570](https://github.com/fremtind/jokul/issues/4570)
+
+## [0.48.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.3...@fremtind/jokul@0.48.4) (2025-02-18)
+
+### Bug Fixes
+
+- gjør at understrek på lenker bryter sammen med teksten ([9ab41eb](https://github.com/fremtind/jokul/commit/9ab41eb52bdd907780604356934215381ac5c273))
+- riktig plassering av ikonet i nav-link ([9568759](https://github.com/fremtind/jokul/commit/9568759eef9af2acd7e29bc455d08dc43df13201))
+
 ## [0.48.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.48.2...@fremtind/jokul@0.48.3) (2025-02-17)
 
 ### Bug Fixes

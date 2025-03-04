@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [12.1.44](https://github.com/fremtind/jokul/compare/@fremtind/jkl-text-input@12.1.43...@fremtind/jkl-text-input@12.1.44) (2025-02-19)
+
+### Bug Fixes
+
+- byttet active-state med focus for delte input-felt ([16c8113](https://github.com/fremtind/jokul/commit/16c81133f5284fa674d47d3bb29dc55bbd50b525)), closes [#4570](https://github.com/fremtind/jokul/issues/4570)
+
 ## 12.1.38 (2025-01-14)
 
 ### Bug Fixes

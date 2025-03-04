@@ -45,10 +45,17 @@ export const Expander = React.forwardRef(function Expander<
 
     useEffect(() => {
         const observer = new ResizeObserver(function () {
-            setExpanderHeight(internalRef.current!.offsetHeight);
+            // Default to 64 if the height can not be read because that is
+            // the height of the default summary element. In a custom component
+            // this means that the focus ring might be slightly misaligned but
+            // in most cases we will be able to read the ref correctly.
+            setExpanderHeight(internalRef.current?.offsetHeight || 64);
         });
-        observer.observe(internalRef.current!);
-        return () => observer.disconnect();
+        if (internalRef.current) {
+            observer.observe(internalRef.current);
+            return () => observer.disconnect();
+        }
+        return () => {};
     }, [setExpanderHeight]);
 
     return (

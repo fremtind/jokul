@@ -29,7 +29,7 @@ const ExampleWrapperComponent = ({
     );
 };
 
-const ExampleTabPanel = () => {
+export const ExampleTabPanel = () => {
     return (
         <Tabs>
             <TabList aria-label="tabs">
