@@ -68,9 +68,15 @@ export type Geopoint = {
     alt?: number;
 };
 
+export type Jokul_codeExample = {
+    _type: "jokul_codeExample";
+    showEditor?: boolean;
+    codeExample?: string;
+};
+
 export type Jokul_componentProps = {
-    _type: "jokul_component-props";
-    component_folder?: string;
+    _type: "jokul_componentProps";
+    componentFolder?: string;
 };
 
 export type Jokul_componentPage = {
@@ -149,6 +155,9 @@ export type Jokul_componentPage = {
         | ({
               _key: string;
           } & Jokul_componentProps)
+        | ({
+              _key: string;
+          } & Jokul_codeExample)
     >;
 };
 
@@ -221,6 +230,7 @@ export type AllSanitySchemaTypes =
     | SanityImageDimensions
     | SanityFileAsset
     | Geopoint
+    | Jokul_codeExample
     | Jokul_componentProps
     | Jokul_componentPage
     | SanityImageCrop
@@ -274,6 +284,9 @@ export type ComponentPageBySlugQueryResult = {
         _key: string;
     }>;
     content?: Array<
+        | ({
+              _key: string;
+          } & Jokul_codeExample)
         | ({
               _key: string;
           } & Jokul_componentProps)

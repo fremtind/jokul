@@ -6,7 +6,7 @@ import MissingTypesMessage from "./missing-types.mdx";
 import { Props } from "./Props";
 
 type PropsDocumentationSchema = {
-    component_folder: string;
+    componentFolder: string;
 };
 
 export const PropsDocumentation: FC<
@@ -19,7 +19,7 @@ export const PropsDocumentation: FC<
         "jokul",
         "src",
         "components",
-        value.component_folder,
+        value.componentFolder,
         "types.ts",
     );
 
