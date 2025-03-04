@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.56.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.55.1...@fremtind/jokul@0.56.0) (2025-03-04)
+
+### Features
+
+- la til komplett modal-story ([c758d5d](https://github.com/fremtind/jokul/commit/c758d5d405135a00c36baeed511ff9c802ada8f4))
+
 # [0.55.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.54.0...@fremtind/jokul@0.55.0) (2025-03-03)
 
 ### Features
