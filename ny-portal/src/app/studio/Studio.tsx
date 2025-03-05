@@ -1,18 +1,11 @@
 "use client";
 
 import { NextStudio } from "next-sanity/studio";
+import type { Config } from "sanity";
 import { getSanityConfig } from "sanity.config";
 
-interface StudioProps {
-    projectId: string;
-    dataset: string;
-}
+export default function Studio(config: Config) {
+    const sanityConfig = getSanityConfig(config);
 
-export default function Studio({ projectId, dataset }: StudioProps) {
-    const config = getSanityConfig({
-        projectId,
-        dataset,
-    });
-
-    return <NextStudio config={config} />;
+    return <NextStudio config={sanityConfig} />;
 }
