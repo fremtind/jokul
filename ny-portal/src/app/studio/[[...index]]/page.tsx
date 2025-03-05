@@ -1,8 +1,10 @@
-"use client";
+import Studio from "../Studio";
 
-import { NextStudio } from "next-sanity/studio";
-import config from "../../../../sanity.config";
-
-export default function Studio() {
-    return <NextStudio config={config} />;
+export default async function StudioPage() {
+    return (
+        <Studio
+            projectId={process.env.SANITY_PROJECT_ID || ""}
+            dataset={process.env.SANITY_DATASET || "test"}
+        />
+    );
 }
