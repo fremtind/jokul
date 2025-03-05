@@ -3,14 +3,21 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { schemaTypes } from "@/sanity/schemas";
 
-export default defineConfig({
-    name: "default",
-    basePath: "/studio",
-    title: "Jøkul Portal Studio",
-    projectId: process.env.NEXT_PUBLIC_SANITY_STUDIO_PROJECT_ID || "",
-    dataset: process.env.NEXT_PUBLIC_SANITY_STUDIO_DATASET || "test",
-    plugins: [structureTool(), visionTool()],
-    schema: {
-        types: schemaTypes,
-    },
-});
+type SanityConfig = {
+    projectId: string;
+    dataset: string;
+};
+
+export function getSanityConfig(config: SanityConfig) {
+    return defineConfig({
+        name: "default",
+        basePath: "/studio",
+        title: "Jøkul Portal Studio",
+        projectId: config.projectId,
+        dataset: config.dataset,
+        plugins: [structureTool(), visionTool()],
+        schema: {
+            types: schemaTypes,
+        },
+    });
+}
