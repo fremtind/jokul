@@ -7,6 +7,7 @@ import React, {
     MouseEvent,
     forwardRef,
     useCallback,
+    useEffect,
     useRef,
     useState,
 } from "react";
@@ -87,6 +88,9 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
 
         const calendarRef = useRef<HTMLDivElement>(null);
         const datepickerRef = useRef<HTMLDivElement>(null);
+        const [returnFocusTo, setReturnFocusTo] = useState<HTMLElement | null>(
+            null,
+        );
 
         /// Input events
 
@@ -180,6 +184,17 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             [onChange, setError, setDate, setShowCalendar, minDate, maxDate],
         );
 
+        const clickInput = useCallback(() => {
+            setShowCalendar((isOpen) => {
+                if (!isOpen) {
+                    window.requestAnimationFrame(() => {
+                        calendarRef.current?.focus();
+                    });
+                }
+                return !isOpen;
+            });
+        }, [setShowCalendar]);
+
         /// Calendar events
 
         const clickCalendar = useCallback(
@@ -249,6 +264,16 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             [setShowCalendar],
         );
 
+        useEffect(() => {
+            if (showCalendar) {
+                setReturnFocusTo(document.activeElement as HTMLElement);
+            } else {
+                window.requestAnimationFrame(() => {
+                    returnFocusTo?.focus();
+                });
+            }
+        }, [showCalendar]);
+
         return (
             <InputGroup
                 id={id}
@@ -277,6 +302,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                         type="text"
                         placeholder={placeholder}
                         width={width}
+                        onClick={clickInput}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
                         onChange={handleChange}
@@ -284,9 +310,18 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                             <Popover
                                 positionReference={inputRef}
                                 open={showCalendar}
-                                onOpenChange={() =>
-                                    setShowCalendar(!showCalendar)
-                                }
+                                onOpenChange={(open, event) => {
+                                    if (
+                                        event?.target &&
+                                        event.type === "click" &&
+                                        event.target === inputRef?.current
+                                    ) {
+                                        // We're toggling the open state on input
+                                        // clicks in a different event-handler.
+                                        return;
+                                    }
+                                    setShowCalendar(open);
+                                }}
                                 offset={8}
                             >
                                 <Popover.Trigger
@@ -307,8 +342,13 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                                         <CalendarIcon />
                                     </IconButton>
                                 </Popover.Trigger>
-                                <Popover.Content initialFocus={-1} padding={24}>
+                                <Popover.Content
+                                    initialFocus={-1}
+                                    padding={24}
+                                    returnFocus={false}
+                                >
                                     <Calendar
+                                        tabIndex={-1}
                                         ref={calendarRef}
                                         density={density}
                                         date={date}
