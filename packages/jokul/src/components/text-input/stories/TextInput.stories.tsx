@@ -37,6 +37,34 @@ export const TextInput: Story = {
                 },
             },
         },
+        disabled: {
+            control: "boolean",
+            table: {
+                defaultValue: {
+                    summary: undefined,
+                },
+            },
+        },
+        tip: {
+            control: "text",
+            if: {
+                arg: "disabled",
+                truthy: true,
+            },
+            table: {
+                defaultValue: {
+                    summary: "Dette feltet er utilgjengelig",
+                },
+            },
+        },
+        readOnly: {
+            control: "boolean",
+            table: {
+                defaultValue: {
+                    summary: undefined,
+                },
+            },
+        },
         value: {
             control: "text",
             description: "Verdien i feltet",
@@ -170,5 +198,43 @@ export const UnitAlign: Story = {
         maxLength: 20,
         placeholder: "50",
         unit: "kvadratmeter",
+    },
+};
+
+/**
+ * Dersom du trenger å vise et felt som kun kan leses kan du bruke
+ * readonly.
+ *
+ * Skjermlesere vil ikke hoppe over feltet, men lese at det er deaktivert
+ * til brukerne.
+ */
+export const ReadOnlyState: Story = {
+    name: "Read only state",
+    args: {
+        label: "Fødselsnummer",
+        maxLength: 12,
+        readOnly: true,
+        value: "12345 98765",
+        tip: "Du kan ikke endre ditt eget fødselsnummer",
+    },
+};
+
+/**
+ * Dersom du ønsker at et felt ikke skal kunne interageres med kan du bruke disabled.
+ * Vit at skjermlesere hopper over disse feltene.
+ *
+ * Et eksempel kan være når du oppretter et nytt tilbud på en kunde, og den automatisk blir satt til personen som lager tilbudet.
+ * Det er i dette tilfellet ikke relevant å sende med innholdet i feltet første gang, men for å unngå layout shift kan du
+ * vise det.
+ */
+export const DisabledState: Story = {
+    name: "Disabled state",
+    args: {
+        label: "Kundeansvarlig",
+        value: "Gro H. Brundtland",
+        disabled: true,
+        maxLength: 30,
+        tip: "Du blir automatisk satt som kundeansvarlig når du opprettet tilbudet.",
+        helpLabel: "Du kan endre ansvarlig etter du har opprettet tilbudet.",
     },
 };

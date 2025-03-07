@@ -15,6 +15,8 @@ export const textInputExampleKnobs: ExampleKnobsProps = {
         "Med handling",
         "Med benevnelse",
         "Inline",
+        "Disabled",
+        "Read only",
     ],
     choiceProps: [
         {
@@ -67,6 +69,9 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
         </IconButton>
     ) : undefined;
 
+    const isDisabled = boolValues?.["Disabled"];
+    const isReadOnly = boolValues?.["Read only"];
+
     if (inline) {
         return (
             <div>
@@ -102,6 +107,8 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
             unit={unit}
             align="right"
             width="min(10rem, 100%)"
+            disabled={isDisabled}
+            readOnly={isReadOnly}
         />
     );
 };

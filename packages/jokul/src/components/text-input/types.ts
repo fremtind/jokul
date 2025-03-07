@@ -8,11 +8,10 @@ import { Density } from "../../core/types.js";
 import { IconProps } from "../icon/types.js";
 import { InputGroupProps } from "../input-group/types.js";
 
-export interface BaseTextInputProps
-    extends Omit<
-        InputHTMLAttributes<HTMLInputElement>,
-        "children" | "maxLength"
-    > {
+export type BaseTextInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    "children" | "maxLength"
+> & {
     /**
      * Brukes til inputfelter hvor det brukes maskering, for formatering av store tall. Brukes typisk bare til valuta.
      * @default "left"
@@ -43,15 +42,25 @@ export interface BaseTextInputProps
      * å bruke input-feltet som en controlled input og selv begrense lengden på verdien.
      */
     maxLength?: number | undefined;
-}
+    /**
+     * Gjør at brukeren ikke kan manipulere verdien på input-feltet.
+     */
+    readOnly?: boolean;
+    /**
+     * Tooltip knyttet til feltet. Gjerne brukt ved readonly eller disabled states for å
+     * fortelle hvorfor input-feltet ikke kan brukes.
+     *
+     * Husk at tipset ikke vil bli lest av skjermlesere dersom feltet er disabled.
+     */
+    tip?: string;
+};
 
-export interface TextInputProps
-    extends Omit<InputGroupProps, "children">,
-        BaseTextInputProps {
-    "data-testautoid"?: string;
-    inline?: boolean;
-    inputClassName?: string;
-}
+export type TextInputProps = Omit<InputGroupProps, "children"> &
+    BaseTextInputProps & {
+        "data-testautoid"?: string;
+        inline?: boolean;
+        inputClassName?: string;
+    };
 
 interface ActionBaseProps
     extends Exclude<HTMLProps<HTMLButtonElement>, "disabled"> {

@@ -1265,6 +1265,7 @@ importers:
       '@fremtind/jkl-input-group-react': ^4.0.13
       '@fremtind/jkl-react-hooks': ^12.2.20
       '@fremtind/jkl-text-input': ^12.1.44
+      '@fremtind/jkl-tooltip-react': ^4.6.16
       classnames: ^2.5.1
       downshift: ^7.6.2
       match-sorter: ^6.3.4
@@ -1275,6 +1276,7 @@ importers:
       '@fremtind/jkl-input-group-react': link:../input-group-react
       '@fremtind/jkl-react-hooks': link:../react-hooks
       '@fremtind/jkl-text-input': link:../text-input
+      '@fremtind/jkl-tooltip-react': link:../tooltip-react
       classnames: 2.5.1
       downshift: 7.6.2
       match-sorter: 6.4.0
