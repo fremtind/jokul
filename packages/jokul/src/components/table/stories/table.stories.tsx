@@ -12,14 +12,6 @@ import React from "react";
 const meta = {
     title: "Komponenter/Table",
     component: Table,
-    subcomponents: {
-        TableBody,
-        TableCaption,
-        TableCell,
-        TableHead,
-        TableHeader,
-        TableRow,
-    },
     parameters: {
         layout: "centered",
     },
