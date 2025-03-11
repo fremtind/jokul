@@ -12,9 +12,7 @@ const meta = {
     },
     tags: ["autodocs"],
 } satisfies Meta<typeof Feedback>;
-
 export default meta;
-
 type Story = StoryObj<typeof meta>;
 
 export const Radio: Story = {
@@ -51,6 +49,39 @@ export const Smiley: Story = {
             label: "Er det noe mer du vil legge til?",
             helpLabel: "Hjelpetekst",
         },
+        successMessage: {
+            title: "Takk for tilbakemeldingen!",
+            children:
+                "Vi setter pris på at du tar deg tid til å gi oss tilbakemelding.",
+        },
+        onSubmit: console.info,
+    },
+    render: (args) => <Feedback {...args} />,
+};
+
+export const Toppoppgaver: Story = {
+    name: "Toppoppgaver",
+    args: {
+        type: "radio",
+        label: "Hva kom du for å gjøre i dag?",
+        options: [
+            {
+                label: "Betale en faktura",
+                value: "Betale en faktura",
+            },
+            {
+                label: "Se en avtale",
+                value: "Se en avtale",
+            },
+            {
+                label: "Kjøpe en ny forsikring",
+                value: "Kjøpe en ny forsikring",
+            },
+            {
+                label: "Melde en skade",
+                value: "Melde en skade",
+            },
+        ],
         successMessage: {
             title: "Takk for tilbakemeldingen!",
             children:
