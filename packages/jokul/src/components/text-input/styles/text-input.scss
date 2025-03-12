@@ -9,6 +9,9 @@
 }
 
 .jkl-text-input {
+    --color-text-disabled: color(
+        from #{jkl.$color-text-default} srgb r g b / 0.4
+    );
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -39,5 +42,25 @@
         display: inline-block;
         vertical-align: middle;
         margin: jkl.rem(-2px) jkl.rem(4px);
+    }
+
+    &:has(input[disabled], input[readonly]) {
+        .jkl-label {
+            &::before {
+                font-family: "Fremtind Material Symbols", Arial, Helvetica,
+                    sans-serif;
+                content: "lock" / "";
+                margin-inline-end: jkl.$spacing-xs;
+                vertical-align: text-bottom;
+                line-height: 23px; // Unngår layout shift mellom default og read only
+            }
+        }
+    }
+
+    &:has(input[disabled]) {
+        *,
+        ::placeholder {
+            color: var(--color-text-disabled);
+        }
     }
 }

@@ -95,6 +95,10 @@ $_text-input-selection-color--inverted: color.scale(
 }
 
 @mixin wrapper-styles {
+    --color-background-disabled: hsl(
+        from #{jkl.$color-text-default} h s l / 0.1
+    );
+
     border-radius: jkl.rem(3px);
     box-sizing: border-box;
     max-width: 100%;
@@ -178,6 +182,17 @@ $_text-input-selection-color--inverted: color.scale(
 
     @include jkl.forced-colors-mode {
         border: jkl.rem(2px) inset ButtonText;
+    }
+
+    &:has(input[disabled], input[readonly]) {
+        background-color: var(--color-background-disabled);
+        box-shadow: unset;
+    }
+
+    &:has(input[disabled]) {
+        input {
+            cursor: not-allowed;
+        }
     }
 }
 
