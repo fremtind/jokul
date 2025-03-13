@@ -104,7 +104,7 @@ const Form = () => {
     );
 };
 
-export function ToastUsageExample() {
+export function ToastFeedbackExample() {
     const { add } = useToast();
     return (
         <Button

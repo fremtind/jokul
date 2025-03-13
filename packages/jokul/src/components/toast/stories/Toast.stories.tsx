@@ -1,13 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react";
 import React from "react";
+import { Flex } from "../../flex/Flex.js";
+import { Toast as ToastComponent } from "../Toast.js";
 import "../styles/_index.scss";
-import "../../button/styles/_index.scss";
-import "../../radio-button/styles/_index.scss";
-import "../../text-area/styles/_index.scss";
-import { Feedback } from "../../feedback/Feedback.js";
-import { ToastProvider } from "../index.js";
-import { Toast } from "../Toast.js";
-import { ToastUsageExample } from "./FeedbackForm.js";
 
 const getKey = () => String(Date.now());
 
@@ -23,48 +18,87 @@ const mockState = {
 };
 
 const meta = {
-    title: "feedback/Toast",
-    component: Toast,
+    title: "komponenter/Toast",
+    component: ToastComponent,
     parameters: {
         layout: "centered",
     },
     args: {
         toast: {
             key: getKey(),
-            content: "",
+            content: "e",
+            variant: "warning",
         },
         state: mockState,
     },
     argTypes: {
-        toast: {
-            key: "",
-            content: "",
-            table: {
-                disable: true,
-            },
-        },
-        state: {
-            state: mockState,
-            table: {
-                disable: true,
-            },
-        },
         className: {
             table: {
                 disable: true,
             },
         },
+        state: {
+            table: {
+                defaultValue: {
+                    summary: undefined,
+                },
+            },
+        },
+        toast: {
+            table: {
+                defaultValue: {
+                    summary: undefined,
+                },
+            },
+        },
     },
     tags: ["autodocs"],
-} satisfies Meta<typeof Toast>;
-export default meta;
-type Story = StoryObj<typeof meta>;
+} satisfies Meta<typeof ToastComponent>;
 
-export const ToppoppgaverAvtale: Story = {
-    name: "Toppoppgaver (avtale)",
-    render: (args) => (
-        <ToastProvider placement="center" maxVisibleToasts={1}>
-            <ToastUsageExample />
-        </ToastProvider>
-    ),
+export default meta;
+type Story = StoryObj<typeof ToastComponent>;
+
+export const Toast: Story = {
+    name: "Toast",
+    args: {
+        toast: {
+            key: getKey(),
+            content: "En kortvarig varsling",
+        },
+        state: mockState,
+    },
+};
+
+export const ToastVariants: Story = {
+    name: "Varianter",
+    args: {
+        toast: {
+            key: getKey(),
+            content: "Test",
+        },
+        state: mockState,
+    },
+    render: (args) => {
+        return (
+            <Flex gap={24} direction="column">
+                <ToastComponent {...args} />
+                <ToastComponent
+                    {...args}
+                    toast={{ ...args.toast, variant: "info" }}
+                />
+                <ToastComponent
+                    {...args}
+                    toast={{ ...args.toast, variant: "error" }}
+                />
+                <ToastComponent
+                    {...args}
+                    toast={{ ...args.toast, variant: "success" }}
+                />
+                <ToastComponent
+                    {...args}
+                    toast={{ ...args.toast, variant: "warning" }}
+                />
+            </Flex>
+        );
+    },
 };
