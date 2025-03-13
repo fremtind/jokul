@@ -1,3 +1,5 @@
+"use client";
+
 import type {
     PortableTextComponentProps,
     PortableTextReactComponents,
@@ -6,6 +8,7 @@ import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import type { FC } from "react";
 import { CodeExample } from "./code-example";
+import { StorybookStory } from "./storybook-story/StorybookStory";
 import { PropsDocumentation } from "./props-documentation/PropsDocumentation";
 
 interface Props {
@@ -18,6 +21,7 @@ const portableTextComponents: Record<
 > = {
     jokul_componentProps: PropsDocumentation,
     jokul_codeExample: CodeExample,
+    jokul_storybookStory: StorybookStory,
 };
 
 export const baseComponentDefinition: Partial<PortableTextReactComponents> = {

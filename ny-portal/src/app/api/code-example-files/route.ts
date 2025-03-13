@@ -1,7 +1,6 @@
 import nodePath, { resolve } from "node:path";
 import { NextResponse } from "next/server";
 import glob from "tiny-glob";
-import { PATH_SEPARATOR } from "@/components/portable-text/code-example/CodeExample";
 
 export async function GET() {
     try {
@@ -15,7 +14,7 @@ export async function GET() {
                     examplePath.lastIndexOf(nodePath.sep) + 1,
                     examplePath.lastIndexOf("."),
                 ),
-                value: examplePath.replaceAll(nodePath.sep, PATH_SEPARATOR),
+                value: examplePath.replaceAll(nodePath.sep, "_"),
                 group: examplePath.split(nodePath.sep)[0],
             })),
             (examplePaths) => examplePaths.group,
