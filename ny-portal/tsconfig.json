@@ -26,9 +26,12 @@
       "@/*": [
         "./src/*"
       ],
-      "@payload-config": [
-        "./src/payload.config.ts"
-      ]
+      "@storybook-index": [
+        "../storybook-static/index.json"
+      ],
+      "@storybook-config/*": [
+        "../.storybook/*"
+      ],
     },
     "target": "ES2022",
   },

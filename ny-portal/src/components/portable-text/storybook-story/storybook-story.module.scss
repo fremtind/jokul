@@ -1,0 +1,50 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.storybookStory {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid jkl.$color-border-separator;
+    border-radius: jkl.rem(16px);
+    width: 100%;
+    max-width: jkl.rem(1000px);
+    overflow: hidden;
+    position: relative;
+
+    & .story {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: none;
+    }
+
+    & .controls {
+        flex-grow: 1;
+        display: flex;
+        gap: jkl.$spacing-32;
+        padding: jkl.$spacing-16 jkl.$spacing-16;
+        justify-content: space-between;
+        align-items: center;
+        border-block-start: 1px solid jkl.$color-border-separator;
+        background-color: jkl.$color-background-container-low;
+    }
+
+    & .code {
+        flex-grow: 1;
+        display: flex;
+        gap: jkl.$spacing-32;
+        padding: jkl.$spacing-8 jkl.$spacing-16;
+        justify-content: end;
+        border-block-start: 1px solid jkl.$color-border-separator;
+        background-color: jkl.$color-background-container-low;
+    }
+
+    & .backgroundOptions {
+        display: flex;
+        align-items: center;
+        gap: jkl.$spacing-16;
+    }
+
+    & .codeToggle {
+        align-self: center;
+        width: fit-content;
+    }
+}
