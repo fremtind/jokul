@@ -1,5 +1,6 @@
-import Link from "next/link";
 import { Navigation } from "@/components/Navigation";
+import { TabListener } from "@/components/TabListener";
+import Link from "next/link";
 import "./global.scss";
 import styles from "./layout.module.scss";
 
@@ -11,6 +12,7 @@ export default function PortalLayout({ children }: Props) {
     return (
         <html lang="no">
             <body className="jkl">
+                <TabListener />
                 <Link
                     id="content-skip-link"
                     className="jkl-body jkl-sr-only jkl-sr-only--focusable jkl-portal-skip-link"
