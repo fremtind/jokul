@@ -4,6 +4,12 @@ on:
     push:
         branches:
             - main
+        paths:
+            - "**/*.js"
+            - "**/*.scss"
+            - "**/*.ts"
+            - "**/*.tsx"
+            - "pnpm-lock.yaml"
 
 jobs:
     deploy:
@@ -14,23 +20,7 @@ jobs:
             contents: read
 
         steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-
-            - name: Check for changes
-              id: changes
-              uses: ./actions/paths-filter
-              with:
-                  filters: |
-                      deploy:
-                        - "**/*.js"
-                        - "**/*.scss"
-                        - "**/*.ts"
-                        - "**/*.tsx"
-                        - "pnpm-lock.yaml"
-
             - name: Trigger deploy
-              if: steps.changes.outputs.deploy == 'true'
               env:
                   DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
               run: |
