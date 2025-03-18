@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.56.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.56.3...@fremtind/jokul@0.56.4) (2025-03-18)
+
+### Bug Fixes
+
+- forslag på organisering ([76aca4f](https://github.com/fremtind/jokul/commit/76aca4f75ff9be2e63d911863cfa88190def658d))
+- midlertidig lineheights ([cc77cbc](https://github.com/fremtind/jokul/commit/cc77cbc8dfb61450c1f74074619e1ea8bfecd180))
+- strl gruppering ([f456457](https://github.com/fremtind/jokul/commit/f45645719dcac572e1682c9aa16b578a56b5cf0e))
+
 ## [0.56.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.56.0...@fremtind/jokul@0.56.1) (2025-03-04)
 
 ### Bug Fixes
