@@ -1,10 +1,10 @@
 import { codeExample } from "./codeExample";
-import { componentPage } from "./componentPage";
+import { component } from "./component";
 import { componentProps } from "./componentProps";
 import { storybook, storybookStory } from "./storybook";
 
 export const schemaTypes = [
-    componentPage,
+    component,
     componentProps,
     codeExample,
     storybook,

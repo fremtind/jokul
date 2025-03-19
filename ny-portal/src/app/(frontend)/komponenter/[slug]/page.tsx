@@ -1,6 +1,6 @@
 import { PortableText } from "@/components/portable-text/PortableText";
 import { client } from "@/sanity/client";
-import { componentPageBySlugQuery } from "@/sanity/queries/componentPage";
+import { componentBySlugQuery } from "@/sanity/queries/component";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -9,23 +9,25 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
     const slug = (await params).slug;
 
-    const data = await client.fetch(componentPageBySlugQuery, { slug });
+    const data = await client.fetch(componentBySlugQuery, { slug });
 
-    return { title: data?.title || "Jøkul" };
+    return { title: data?.name || "Jøkul" };
 }
 
 export default async function Page({ params }: Props) {
     const slug = (await params).slug;
 
-    const data = await client.fetch(componentPageBySlugQuery, { slug });
+    const data = await client.fetch(componentBySlugQuery, { slug });
 
     return (
         <>
-            <h1 className="jkl-title">{data?.title || "ikke i databasen"}</h1>
+            <h1 className="jkl-title">{data?.name || "ikke i databasen"}</h1>
 
-            {data?.lede && <PortableText blocks={data.lede} />}
+            {data?.short_description && <p>{data?.short_description}</p>}
 
-            {data?.content && <PortableText blocks={data.content} />}
+            {data?.documentation_article && (
+                <PortableText blocks={data.documentation_article} />
+            )}
         </>
     );
 }
