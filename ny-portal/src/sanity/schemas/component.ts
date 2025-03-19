@@ -2,9 +2,9 @@ import { defineField, defineType } from "sanity";
 
 const MAX_LENGTH = 70;
 
-export const componentPage = defineType({
-    name: "jokul_componentPage",
-    title: "Komponentside",
+export const component = defineType({
+    name: "jokul_component",
+    title: "Komponent",
     type: "document",
     fields: [
         defineField({
@@ -18,21 +18,20 @@ export const componentPage = defineType({
             validation: (Rule) => Rule.required(),
         }),
         defineField({
-            name: "title",
-            title: "Sidetittel",
+            name: "name",
+            title: "Navn",
             type: "string",
             validation: (Rule) => Rule.required(),
         }),
-
         defineField({
-            name: "lede",
-            title: "Ingress",
-            type: "array",
-            of: [{ type: "block" }],
+            name: "short_description",
+            title: "Kort beskrivelse",
+            type: "text",
+            rows: 2,
         }),
         defineField({
-            name: "content",
-            title: "Innhold",
+            name: "documentation_article",
+            title: "Dokumentasjon",
             type: "array",
             of: [
                 { type: "block" },

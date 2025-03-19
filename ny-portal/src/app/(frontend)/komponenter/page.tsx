@@ -1,7 +1,7 @@
 import { Flex } from "@fremtind/jokul/components/flex";
 import { Link } from "@fremtind/jokul/components/link";
 import { client } from "@/sanity/client";
-import { componentsQuery } from "@/sanity/queries/componentPage";
+import { componentsQuery } from "@/sanity/queries/component";
 import NextLink from "next/link";
 
 export default async function Components() {
@@ -15,7 +15,7 @@ export default async function Components() {
                         as={NextLink}
                         href={`/komponenter/${component.slug?.current}`}
                     >
-                        {component.title}
+                        {component.name}
                     </Link>
                 </li>
             ))}
