@@ -74,7 +74,7 @@
         "@commitlint/config-conventional": "^17.8.1",
         "@fremtind/browserslist-config-jkl": "^2.0.1",
         "@fremtind/stylelint-config-jkl": "^8.0.4",
-        "@playwright/test": "^1.49.1",
+        "@playwright/test": "^1.51.1",
         "@storybook/addon-essentials": "^8.5.3",
         "@storybook/addon-interactions": "^8.5.3",
         "@storybook/addon-onboarding": "^8.5.3",

@@ -32,7 +32,7 @@ importers:
       '@commitlint/config-conventional': ^17.8.1
       '@fremtind/browserslist-config-jkl': ^2.0.1
       '@fremtind/stylelint-config-jkl': ^8.0.4
-      '@playwright/test': ^1.49.1
+      '@playwright/test': ^1.51.1
       '@storybook/addon-essentials': ^8.5.3
       '@storybook/addon-interactions': ^8.5.3
       '@storybook/addon-onboarding': ^8.5.3
@@ -132,7 +132,7 @@ importers:
       '@commitlint/config-conventional': 17.8.1
       '@fremtind/browserslist-config-jkl': link:packages/browserslist-config-jkl
       '@fremtind/stylelint-config-jkl': link:packages/stylelint-config-jkl
-      '@playwright/test': 1.49.1
+      '@playwright/test': 1.51.1
       '@storybook/addon-essentials': 8.5.3_abmjijhxl4ysa6rn2l56cewuxu
       '@storybook/addon-interactions': 8.5.3_storybook@8.5.3
       '@storybook/addon-onboarding': 8.5.3_storybook@8.5.3
@@ -4544,11 +4544,11 @@ packages:
       ajv: 8.17.1
     dev: true
 
-  /@commitlint/config-validator/19.5.0:
-    resolution: {integrity: sha512-CHtj92H5rdhKt17RmgALhfQt95VayrUo2tSqY9g2w+laAXyk7K/Ef6uPm9tn5qSIwSmrLjKaXK9eiNuxmQrDBw==}
+  /@commitlint/config-validator/19.8.0:
+    resolution: {integrity: sha512-+r5ZvD/0hQC3w5VOHJhGcCooiAVdynFlCe2d6I9dU+PvXdV3O+fU4vipVg+6hyLbQUuCH82mz3HnT/cBQTYYuA==}
     engines: {node: '>=v18'}
     dependencies:
-      '@commitlint/types': 19.5.0
+      '@commitlint/types': 19.8.0
       ajv: 8.17.1
     dev: true
     optional: true
@@ -4570,8 +4570,8 @@ packages:
     engines: {node: '>=v14'}
     dev: true
 
-  /@commitlint/execute-rule/19.5.0:
-    resolution: {integrity: sha512-aqyGgytXhl2ejlk+/rfgtwpPexYyri4t8/n4ku6rRJoRhGZpLFMqrZ+YaubeGysCP6oz4mMA34YSTaSOKEeNrg==}
+  /@commitlint/execute-rule/19.8.0:
+    resolution: {integrity: sha512-fuLeI+EZ9x2v/+TXKAjplBJWI9CNrHnyi5nvUQGQt4WRkww/d95oVRsc9ajpt4xFrFmqMZkd/xBQHZDvALIY7A==}
     engines: {node: '>=v18'}
     dev: true
     optional: true
@@ -4625,15 +4625,15 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /@commitlint/load/19.6.1_czd4pp6vpq7ftcykqfuusek4eu:
-    resolution: {integrity: sha512-kE4mRKWWNju2QpsCWt428XBvUH55OET2N4QKQ0bF85qS/XbsRGG1MiTByDNlEVpEPceMkDr46LNH95DtRwcsfA==}
+  /@commitlint/load/19.8.0_czd4pp6vpq7ftcykqfuusek4eu:
+    resolution: {integrity: sha512-4rvmm3ff81Sfb+mcWT5WKlyOa+Hd33WSbirTVUer0wjS1Hv/Hzr07Uv1ULIV9DkimZKNyOwXn593c+h8lsDQPQ==}
     engines: {node: '>=v18'}
     requiresBuild: true
     dependencies:
-      '@commitlint/config-validator': 19.5.0
-      '@commitlint/execute-rule': 19.5.0
-      '@commitlint/resolve-extends': 19.5.0
-      '@commitlint/types': 19.5.0
+      '@commitlint/config-validator': 19.8.0
+      '@commitlint/execute-rule': 19.8.0
+      '@commitlint/resolve-extends': 19.8.0
+      '@commitlint/types': 19.8.0
       chalk: 5.3.0
       cosmiconfig: 9.0.0_typescript@5.7.2
       cosmiconfig-typescript-loader: 6.1.0_kz6vcwtapahdmmt24aoi24ktem
@@ -4683,12 +4683,12 @@ packages:
       resolve-global: 1.0.0
     dev: true
 
-  /@commitlint/resolve-extends/19.5.0:
-    resolution: {integrity: sha512-CU/GscZhCUsJwcKTJS9Ndh3AKGZTNFIOoQB2n8CmFnizE0VnEuJoum+COW+C1lNABEeqk6ssfc1Kkalm4bDklA==}
+  /@commitlint/resolve-extends/19.8.0:
+    resolution: {integrity: sha512-CLanRQwuG2LPfFVvrkTrBR/L/DMy3+ETsgBqW1OvRxmzp/bbVJW0Xw23LnnExgYcsaFtos967lul1CsbsnJlzQ==}
     engines: {node: '>=v18'}
     dependencies:
-      '@commitlint/config-validator': 19.5.0
-      '@commitlint/types': 19.5.0
+      '@commitlint/config-validator': 19.8.0
+      '@commitlint/types': 19.8.0
       global-directory: 4.0.1
       import-meta-resolve: 4.1.0
       lodash.mergewith: 4.6.2
@@ -4726,11 +4726,11 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@commitlint/types/19.5.0:
-    resolution: {integrity: sha512-DSHae2obMSMkAtTBSOulg5X7/z+rGLxcXQIkg3OmWvY6wifojge5uVMydfhUvs7yQj+V7jNmRZ2Xzl8GJyqRgg==}
+  /@commitlint/types/19.8.0:
+    resolution: {integrity: sha512-LRjP623jPyf3Poyfb0ohMj8I3ORyBDOwXAgxxVPbSD0unJuW2mJWeiRfaQinjtccMqC5Wy1HOMfa4btKjbNxbg==}
     engines: {node: '>=v18'}
     dependencies:
-      '@types/conventional-commits-parser': 5.0.0
+      '@types/conventional-commits-parser': 5.0.1
       chalk: 5.3.0
     dev: true
     optional: true
@@ -8482,12 +8482,12 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@playwright/test/1.49.1:
-    resolution: {integrity: sha512-Ky+BVzPz8pL6PQxHqNRW1k3mIyv933LML7HktS8uik0bUXNCdPhoS/kLihiO1tMf/egaJb4IutXd7UywvXEW+g==}
+  /@playwright/test/1.51.1:
+    resolution: {integrity: sha512-nM+kEaTSAoVlXmMPH10017vn3FSiFqr/bh4fKg9vmAdMfd9SDqRZNvPSiAHADc/itWak+qPvMPZQOPwCBW7k7Q==}
     engines: {node: '>=18'}
     hasBin: true
     dependencies:
-      playwright: 1.49.1
+      playwright: 1.51.1
     dev: true
 
   /@pmmmwh/react-refresh-webpack-plugin/0.5.10_xz4t3a55twfwx52ulpat4tyvpy:
@@ -11539,8 +11539,8 @@ packages:
       '@types/node': 22.10.2
     dev: true
 
-  /@types/conventional-commits-parser/5.0.0:
-    resolution: {integrity: sha512-loB369iXNmAZglwWATL+WRe+CRMmmBPtpolYzIebFaX4YA3x+BEfLqhUAV9WanycKI3TG1IMr5bMJDajDKLlUQ==}
+  /@types/conventional-commits-parser/5.0.1:
+    resolution: {integrity: sha512-7uz5EHdzz2TqoMfV7ee61Egf5y6NkcO4FB/1iCCQnbeiI1F3xzv3vK5dBCXUCLQgGYS+mUeigK1iKQzvED+QnQ==}
     dependencies:
       '@types/node': 18.19.71
     dev: true
@@ -12469,7 +12469,7 @@ packages:
       vite: ^4 || ^5 || ^6
     dependencies:
       '@swc/core': 1.10.9
-      vite: 5.4.14
+      vite: 5.4.14_wuqbsma3qgqk5tdosann5rauia
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -12485,7 +12485,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.25.9_@babel+core@7.26.0
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.4.14_sass-embedded@1.83.4
+      vite: 5.4.14_wuqbsma3qgqk5tdosann5rauia
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -16383,7 +16383,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      '@commitlint/load': 19.6.1_czd4pp6vpq7ftcykqfuusek4eu
+      '@commitlint/load': 19.8.0_czd4pp6vpq7ftcykqfuusek4eu
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -27999,18 +27999,18 @@ packages:
     resolution: {integrity: sha512-fnWVljUchTro6RiCFvCXBbNhJc2NijN7oIQxbwsyL0buWJPG85v81ehlHI9fXrJsMNgTofEoWIQeClKpgxFLrg==}
     dev: false
 
-  /playwright-core/1.49.1:
-    resolution: {integrity: sha512-BzmpVcs4kE2CH15rWfzpjzVGhWERJfmnXmniSyKeRZUs9Ws65m+RGIi7mjJK/euCegfn3i7jvqWeWyHe9y3Vgg==}
+  /playwright-core/1.51.1:
+    resolution: {integrity: sha512-/crRMj8+j/Nq5s8QcvegseuyeZPxpQCZb6HNk3Sos3BlZyAknRjoyJPFWkpNn8v0+P3WiwqFF8P+zQo4eqiNuw==}
     engines: {node: '>=18'}
     hasBin: true
     dev: true
 
-  /playwright/1.49.1:
-    resolution: {integrity: sha512-VYL8zLoNTBxVOrJBbDuRgDWa3i+mfQgDTrL8Ah9QXZ7ax4Dsj0MSq5bYgytRnDVVe+njoKnfsYkH3HzqVj5UZA==}
+  /playwright/1.51.1:
+    resolution: {integrity: sha512-kkx+MB2KQRkyxjYPc3a0wLZZoDczmppyGJIvQ43l+aZihkaVvmu/21kiyaHeHjiFxjxNNFnUncKmcGIyOojsaw==}
     engines: {node: '>=18'}
     hasBin: true
     dependencies:
-      playwright-core: 1.49.1
+      playwright-core: 1.51.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
