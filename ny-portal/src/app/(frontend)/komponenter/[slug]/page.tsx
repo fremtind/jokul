@@ -9,24 +9,32 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
     const slug = (await params).slug;
 
-    const data = await client.fetch(componentBySlugQuery, { slug });
+    const component = await client.fetch(componentBySlugQuery, { slug });
 
-    return { title: data?.name || "Jøkul" };
+    return { title: component?.name || "Jøkul" };
 }
 
 export default async function Page({ params }: Props) {
     const slug = (await params).slug;
 
-    const data = await client.fetch(componentBySlugQuery, { slug });
+    const component = await client.fetch(componentBySlugQuery, { slug });
+
+    if (!component) {
+        return <h1>Ikke i databasen</h1>;
+    }
 
     return (
         <>
-            <h1 className="jkl-title">{data?.name || "ikke i databasen"}</h1>
+            <h1 className="jkl-title">
+                {component?.name || "ikke i databasen"}
+            </h1>
 
-            {data?.short_description && <p>{data?.short_description}</p>}
+            {component.short_description && (
+                <p>{component?.short_description}</p>
+            )}
 
-            {data?.documentation_article && (
-                <PortableText blocks={data.documentation_article} />
+            {component.documentation_article && (
+                <PortableText blocks={component.documentation_article} />
             )}
         </>
     );
