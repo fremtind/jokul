@@ -62,7 +62,7 @@ jobs:
             - name: Find Playwright version
               shell: bash
               run: |
-                  PLAYWRIGHT_VERSION=$(npm ls --json @playwright/test | jq --raw-output '.dependencies["@playwright/test"].version')
+                  PLAYWRIGHT_VERSION=$(pnpm list "@playwright/test" --json | jq --raw-output '.[0].devDependencies["@playwright/test"].version')
                   echo "PLAYWRIGHT_VERSION=$PLAYWRIGHT_VERSION" >> $GITHUB_ENV
 
             - name: Playwright binary cache
