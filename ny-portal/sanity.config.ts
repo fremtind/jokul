@@ -16,3 +16,16 @@ export function getSanityConfig(config: Config) {
         ...config,
     });
 }
+
+// For at sanity typegen skal kunne generere typer så må defineConfig være default export.
+export default defineConfig({
+    projectId: process.env.SANITY_PROJECT_ID || "",
+    dataset: process.env.SANITY_DATASET || "test",
+    name: "default",
+    basePath: "/studio",
+    title: "Jøkul Portal Studio",
+    plugins: [structureTool(), visionTool()],
+    schema: {
+        types: schemaTypes,
+    },
+});

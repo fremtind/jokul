@@ -68,6 +68,21 @@ export type Geopoint = {
     alt?: number;
 };
 
+export type Jokul_storybookStory = {
+    _type: "jokul_storybookStory";
+    storyId?: string;
+    storyName?: string;
+};
+
+export type Jokul_storybook = {
+    _type: "jokul_storybook";
+    stories?: Array<
+        {
+            _key: string;
+        } & Jokul_storybookStory
+    >;
+};
+
 export type Jokul_codeExample = {
     _type: "jokul_codeExample";
     showEditor?: boolean;
@@ -79,41 +94,16 @@ export type Jokul_componentProps = {
     componentFolder?: string;
 };
 
-export type Jokul_componentPage = {
+export type Jokul_component = {
     _id: string;
-    _type: "jokul_componentPage";
+    _type: "jokul_component";
     _createdAt: string;
     _updatedAt: string;
     _rev: string;
     slug?: Slug;
-    title?: string;
-    lede?: Array<{
-        children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-        }>;
-        style?:
-            | "normal"
-            | "h1"
-            | "h2"
-            | "h3"
-            | "h4"
-            | "h5"
-            | "h6"
-            | "blockquote";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-            href?: string;
-            _type: "link";
-            _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-    }>;
-    content?: Array<
+    name?: string;
+    short_description?: string;
+    documentation_article?: Array<
         | {
               children?: Array<{
                   marks?: Array<string>;
@@ -158,6 +148,9 @@ export type Jokul_componentPage = {
         | ({
               _key: string;
           } & Jokul_codeExample)
+        | ({
+              _key: string;
+          } & Jokul_storybook)
     >;
 };
 
@@ -230,9 +223,11 @@ export type AllSanitySchemaTypes =
     | SanityImageDimensions
     | SanityFileAsset
     | Geopoint
+    | Jokul_storybookStory
+    | Jokul_storybook
     | Jokul_codeExample
     | Jokul_componentProps
-    | Jokul_componentPage
+    | Jokul_component
     | SanityImageCrop
     | SanityImageHotspot
     | SanityImageAsset
@@ -240,56 +235,34 @@ export type AllSanitySchemaTypes =
     | SanityImageMetadata
     | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./src/sanity/queries/componentPage.ts
+// Source: ./src/sanity/queries/component.ts
 // Variable: componentsQuery
-// Query: *[_type == "jokul_componentPage"]{title, slug}
+// Query: *[_type == "jokul_component"]{name, slug}
 export type ComponentsQueryResult = Array<{
-    title: string | null;
+    name: string | null;
     slug: Slug | null;
 }>;
-// Variable: componentPageBySlugQuery
-// Query: *[_type == "jokul_componentPage" && slug.current == $slug][0]
-export type ComponentPageBySlugQueryResult = {
+// Variable: componentBySlugQuery
+// Query: *[_type == "jokul_component" && slug.current == $slug][0]
+export type ComponentBySlugQueryResult = {
     _id: string;
-    _type: "jokul_componentPage";
+    _type: "jokul_component";
     _createdAt: string;
     _updatedAt: string;
     _rev: string;
     slug?: Slug;
-    title?: string;
-    lede?: Array<{
-        children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-        }>;
-        style?:
-            | "blockquote"
-            | "h1"
-            | "h2"
-            | "h3"
-            | "h4"
-            | "h5"
-            | "h6"
-            | "normal";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-            href?: string;
-            _type: "link";
-            _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-    }>;
-    content?: Array<
+    name?: string;
+    short_description?: string;
+    documentation_article?: Array<
         | ({
               _key: string;
           } & Jokul_codeExample)
         | ({
               _key: string;
           } & Jokul_componentProps)
+        | ({
+              _key: string;
+          } & Jokul_storybook)
         | {
               children?: Array<{
                   marks?: Array<string>;
@@ -335,7 +308,7 @@ export type ComponentPageBySlugQueryResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
     interface SanityQueries {
-        '*[_type == "jokul_componentPage"]{title, slug}': ComponentsQueryResult;
-        '*[_type == "jokul_componentPage" && slug.current == $slug][0]': ComponentPageBySlugQueryResult;
+        '*[_type == "jokul_component"]{name, slug}': ComponentsQueryResult;
+        '*[_type == "jokul_component" && slug.current == $slug][0]': ComponentBySlugQueryResult;
     }
 }
