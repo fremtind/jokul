@@ -54,12 +54,12 @@ export const NavigationMenuGroup: FC<NavigationMenuGroupProps> = ({
             >
                 <ul>
                     {items.map((item) => {
-                        const { slug, title } = item;
+                        const { slug, name } = item;
                         const isActive = pathname === getItemPath(slug);
 
                         return (
                             <NavigationMenuLink
-                                key={`${slug}-${title}`}
+                                key={`${slug}-${name}`}
                                 title={title ?? "Untitled"}
                                 path={slug}
                                 parentPath={parentPath}
