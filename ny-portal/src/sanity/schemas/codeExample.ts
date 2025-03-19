@@ -3,7 +3,7 @@ import { CodeExampleInput } from "../components/CodeExampleInput";
 
 export const codeExample = defineType({
     name: "jokul_codeExample",
-    title: "Kode Eksempel",
+    title: "Kodeeksempel",
     type: "object",
     fields: [
         defineField({

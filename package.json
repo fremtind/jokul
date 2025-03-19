@@ -79,6 +79,7 @@
         "@storybook/addon-interactions": "^8.5.3",
         "@storybook/addon-onboarding": "^8.5.3",
         "@storybook/blocks": "^8.5.3",
+        "@storybook/nextjs": "^8.6.4",
         "@storybook/react": "^8.5.3",
         "@storybook/react-vite": "^8.5.3",
         "@storybook/test": "^8.5.3",

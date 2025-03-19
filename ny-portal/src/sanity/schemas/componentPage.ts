@@ -39,6 +39,7 @@ export const componentPage = defineType({
                 { type: "image" },
                 { type: "jokul_componentProps" },
                 { type: "jokul_codeExample" },
+                { type: "jokul_storybook" },
             ],
         }),
     ],

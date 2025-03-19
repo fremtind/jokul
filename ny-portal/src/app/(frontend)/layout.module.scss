@@ -20,8 +20,10 @@
     }
 
     &__content {
+        padding: var(--jkl-spacing-32);
+
         grid-area: content;
-        background-color: var(--outline-color);
+        background-color: var(--jkl-color-background-page);
 
         @include jkl.screen-from(1512px) {
             margin: var(--jkl-spacing-16);
