@@ -10,13 +10,13 @@ import { NavigationMenuLink } from "./NavigationMenuLink";
 import { ComponentsQueryResult, Slug } from "@/sanity/types";
 
 type NavigationMenuGroupProps = {
-    title: string;
+    name: string;
     parentPath: string;
     items: ComponentsQueryResult;
 };
 
 export const NavigationMenuGroup: FC<NavigationMenuGroupProps> = ({
-    title,
+    name,
     parentPath,
     items,
 }) => {
@@ -40,7 +40,7 @@ export const NavigationMenuGroup: FC<NavigationMenuGroupProps> = ({
                 aria-controls={menuId}
                 data-is-open={isOpen}
             >
-                {title}
+                {name}
             </NavigationMenuButton>
             <div
                 className={clsx(
@@ -60,7 +60,7 @@ export const NavigationMenuGroup: FC<NavigationMenuGroupProps> = ({
                         return (
                             <NavigationMenuLink
                                 key={`${slug}-${name}`}
-                                title={title ?? "Untitled"}
+                                title={name ?? "Untitled"}
                                 path={slug}
                                 parentPath={parentPath}
                                 data-has-active-child={isActive}

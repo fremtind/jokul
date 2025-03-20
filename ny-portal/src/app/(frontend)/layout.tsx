@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation";
+import { Flex } from "@fremtind/jokul/components/flex";
 import { TabListener } from "@/components/TabListener";
 import Link from "next/link";
 import "./global.scss";
@@ -10,8 +10,8 @@ interface Props {
 
 export default function PortalLayout({ children }: Props) {
     return (
-        <html lang="no">
-            <body className="jkl">
+        <html lang="no" className="jkl">
+            <body className={styles.page}>
                 <TabListener />
                 <Link
                     id="content-skip-link"
@@ -20,47 +20,15 @@ export default function PortalLayout({ children }: Props) {
                 >
                     Hopp til innhold
                 </Link>
-                <div className={styles.layout}>
-                    <Navigation />
-                    <main
-                        className={styles.layout__content}
-                        style={
-                            {
-                                "--scrollbar-width": `${
-                                    /* scrollbarWidth */ 6
-                                }px`,
-                            } as React.CSSProperties
-                        }
+                <div className={styles.content}>
+                    <Flex
+                        gap={32}
+                        justifyContent="space-between"
+                        className={styles.header}
                     >
-                        {children}
-                    </main>
-                    <div className={styles.layout__footer}>
-                        {/* <Footer
-                heading="Jøkul er designsystemet til Fremtind Forsikring"
-                links={[
-                  {
-                    external: false,
-                    component: Cookies,
-                    title: 'Bruk av informasjonskapsler',
-                  },
-                  {
-                    external: true,
-                    href: 'https://www.fremtind.no/personvern/',
-                    title: 'Personvernserklæring',
-                  },
-                  {
-                    external: true,
-                    href: 'https://github.com/fremtind/jokul',
-                    title: 'Jøkul på GitHub',
-                  },
-                  {
-                    external: true,
-                    href: 'https://fremtind.no/karriere/',
-                    title: 'Jobb i Fremtind',
-                  },
-                ]}
-              /> */}
-                    </div>
+                        <p className={styles.logo}>Jøkul</p>
+                    </Flex>
+                    <main>{children}</main>
                 </div>
             </body>
         </html>
