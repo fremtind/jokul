@@ -9,7 +9,7 @@ export const NavigationMenu = async () => {
     return (
         <NavigationMenuList>
             <NavigationMenuGroup
-                title="Komponenter"
+                name="Komponenter"
                 parentPath="komponenter"
                 items={[
                     {

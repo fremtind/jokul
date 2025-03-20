@@ -1,7 +1,6 @@
 import { Flex } from "@fremtind/jokul/components/flex";
-import { Link } from "@fremtind/jokul/components/link";
 import NextLink from "next/link";
-import styles from "./page.module.scss";
+import styles from "./komponenter.module.scss";
 import { client } from "@/sanity/client";
 import { componentsQuery } from "@/sanity/queries/component";
 
