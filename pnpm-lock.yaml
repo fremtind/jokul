@@ -272,6 +272,7 @@ importers:
       '@types/react-dom': ^18.3.1
       clsx: ^2.1.1
       cross-env: ^7.0.3
+      dompurify: ^3.2.4
       eslint: ^9.16.0
       eslint-config-next: 15.1.0
       graphql: ^16.8.1
@@ -300,6 +301,7 @@ importers:
       '@types/mdx': 2.0.13
       clsx: 2.1.1
       cross-env: 7.0.3
+      dompurify: 3.2.4
       graphql: 16.10.0
       next: 15.1.0_nnrd3gsncyragczmpvfhocinkq
       next-sanity: 9.8.59_xvb6ymjlhcrrbjhol6y6cm4byq
@@ -11505,7 +11507,7 @@ packages:
       vite: ^4 || ^5 || ^6
     dependencies:
       '@swc/core': 1.10.9
-      vite: 5.4.14
+      vite: 5.4.14_wuqbsma3qgqk5tdosann5rauia
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -11521,7 +11523,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.25.9_@babel+core@7.26.0
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.4.14_sass-embedded@1.83.4
+      vite: 5.4.14_wuqbsma3qgqk5tdosann5rauia
     transitivePeerDependencies:
       - supports-color
     dev: true
