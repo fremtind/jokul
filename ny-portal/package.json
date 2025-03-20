@@ -29,6 +29,7 @@
         "@types/mdx": "^2.0.13",
         "clsx": "^2.1.1",
         "cross-env": "^7.0.3",
+        "dompurify": "^3.2.4",
         "graphql": "^16.8.1",
         "next": "15.1.0",
         "next-sanity": "^9.8.59",
