@@ -13,7 +13,7 @@ export const NavigationMenu = async () => {
                 parentPath="komponenter"
                 items={[
                     {
-                        title: "Oversikt",
+                        name: "Oversikt",
                         slug: {
                             current: "",
                             _type: "slug",
