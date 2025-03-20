@@ -1,0 +1,40 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.pageTitle {
+    @include jkl.text-style("title") {
+        font-size: clamp(2.25rem, 1.8673rem + 1.6327vw, 3.5rem);
+        line-height: 1.1;
+    }
+    margin-block-end: clamp(
+        var(--jkl-spacing-24),
+        0.7308rem + 3.0769vw,
+        var(--jkl-spacing-64)
+    );
+}
+
+.componentGallery {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(184px, 1fr));
+    gap: jkl.$spacing-24;
+
+    .component {
+        width: 100%;
+        text-decoration: none;
+        color: var(--color-text);
+
+        .name {
+            @include jkl.text-style("heading-4");
+        }
+
+        .image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: var(--jkl-spacing-16);
+            aspect-ratio: 1.6;
+        }
+    }
+}
