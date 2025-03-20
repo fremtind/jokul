@@ -30,6 +30,14 @@ export const component = defineType({
             rows: 2,
         }),
         defineField({
+            name: "image",
+            type: "image",
+            title: "Bilde",
+            options: {
+                hotspot: true,
+            },
+        }),
+        defineField({
             name: "documentation_article",
             title: "Dokumentasjon",
             type: "array",
