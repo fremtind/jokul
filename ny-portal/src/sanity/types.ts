@@ -103,6 +103,17 @@ export type Jokul_component = {
     slug?: Slug;
     name?: string;
     short_description?: string;
+    image?: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+    };
     documentation_article?: Array<
         | {
               children?: Array<{
@@ -237,10 +248,11 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/component.ts
 // Variable: componentsQuery
-// Query: *[_type == "jokul_component"]{name, slug}
+// Query: *[_type == "jokul_component"]{    name,    slug,    "imageUrl": image.asset->url    }
 export type ComponentsQueryResult = Array<{
     name: string | null;
     slug: Slug | null;
+    imageUrl: string | null;
 }>;
 // Variable: componentBySlugQuery
 // Query: *[_type == "jokul_component" && slug.current == $slug][0]
@@ -253,6 +265,17 @@ export type ComponentBySlugQueryResult = {
     slug?: Slug;
     name?: string;
     short_description?: string;
+    image?: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+    };
     documentation_article?: Array<
         | ({
               _key: string;
@@ -308,7 +331,7 @@ export type ComponentBySlugQueryResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
     interface SanityQueries {
-        '*[_type == "jokul_component"]{name, slug}': ComponentsQueryResult;
+        '*[_type == "jokul_component"]{\n    name,\n    slug,\n    "imageUrl": image.asset->url\n    }': ComponentsQueryResult;
         '*[_type == "jokul_component" && slug.current == $slug][0]': ComponentBySlugQueryResult;
     }
 }
