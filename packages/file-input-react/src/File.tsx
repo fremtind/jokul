@@ -1,16 +1,15 @@
-import type { WithOptionalChildren } from "@fremtind/jkl-core";
 import { formatBytes } from "@fremtind/jkl-formatters-util";
 import { IconButton } from "@fremtind/jkl-icon-button-react";
-import { TrashCanIcon, SuccessIcon } from "@fremtind/jkl-icons-react";
+import { SuccessIcon, TrashCanIcon } from "@fremtind/jkl-icons-react";
 import { SupportLabel } from "@fremtind/jkl-input-group-react";
 import { useId } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import React, { FC, MouseEvent } from "react";
+import React, { ComponentProps, FC, MouseEvent } from "react";
 import { useFileInputContext } from "./internal/fileInputContext";
 import { Thumbnail } from "./internal/Thumbnail";
 import { FileInputFileState } from "./types";
 
-export interface FileProps extends WithOptionalChildren {
+export interface FileProps {
     fileName: string;
     fileType: string;
     fileSize: number;
@@ -22,7 +21,7 @@ export interface FileProps extends WithOptionalChildren {
     onRemove?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const File: FC<FileProps> = (props) => {
+export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
     const {
         children,
         fileName,
