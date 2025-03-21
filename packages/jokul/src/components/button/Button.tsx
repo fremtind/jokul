@@ -1,6 +1,6 @@
 import cn from "clsx";
 import React, {
-    ButtonHTMLAttributes,
+    type ButtonHTMLAttributes,
     type TouchEvent,
     useCallback,
 } from "react";
@@ -18,6 +18,7 @@ export const Button = React.forwardRef(function Button<
         className,
         density,
         onTouchStart,
+        onAnimationEnd,
         loader,
         icon,
         iconPosition = "left",
@@ -41,37 +42,35 @@ export const Button = React.forwardRef(function Button<
         );
     }
 
-    const handleTouch = useCallback(
-        (event: TouchEvent<HTMLButtonElement>) => {
-            onTouchStart && onTouchStart(event);
+    const removeButtonAnimation = (element: HTMLElement) => {
+        if (element.classList.contains("jkl-button--pressed")) {
+            element.classList.remove("jkl-button--pressed");
+            element.style.removeProperty("--jkl-touch-xcoord");
+            element.style.removeProperty("--jkl-touch-ycoord");
+        }
+    };
 
-            const target = event.target as HTMLButtonElement;
-            if (target && !target.disabled && event.targetTouches.length) {
-                const Xcoord =
-                    event.targetTouches[0].clientX -
-                    target.getBoundingClientRect().x;
-                const Ycoord =
-                    event.targetTouches[0].clientY -
-                    target.getBoundingClientRect().y;
-                target.style.setProperty(
-                    "--jkl-touch-xcoord",
-                    Xcoord.toPrecision(4) + "px",
-                );
-                target.style.setProperty(
-                    "--jkl-touch-ycoord",
-                    Ycoord.toPrecision(4) + "px",
-                );
-                target.classList.add("jkl-button--pressed");
+    const handleTouch = useCallback((event: TouchEvent<HTMLButtonElement>) => {
+        const target = event.target as HTMLButtonElement;
 
-                setTimeout(() => {
-                    target.classList.remove("jkl-button--pressed");
-                    target.style.removeProperty("--jkl-touch-xcoord");
-                    target.style.removeProperty("--jkl-touch-ycoord");
-                }, 400);
-            }
-        },
-        [onTouchStart],
-    );
+        if (target && !target.disabled && event.targetTouches.length) {
+            const Xcoord =
+                event.targetTouches[0].clientX -
+                target.getBoundingClientRect().x;
+            const Ycoord =
+                event.targetTouches[0].clientY -
+                target.getBoundingClientRect().y;
+            target.style.setProperty(
+                "--jkl-touch-xcoord",
+                Xcoord.toFixed(1) + "px",
+            );
+            target.style.setProperty(
+                "--jkl-touch-ycoord",
+                Ycoord.toFixed(1) + "px",
+            );
+            target.classList.add("jkl-button--pressed");
+        }
+    }, []);
 
     const ariaLive = useAriaLiveRegion(loader?.showLoader);
     const showLoader = Boolean(children) && Boolean(loader?.showLoader);
@@ -83,7 +82,14 @@ export const Button = React.forwardRef(function Button<
             data-density={density}
             className={cn("jkl-button", "jkl-button--" + variant, className)}
             disabled={as === "button" ? loader?.showLoader : undefined}
-            onTouchStart={handleTouch}
+            onTouchStart={(event) => {
+                onTouchStart?.(event);
+                handleTouch(event);
+            }}
+            onAnimationEnd={(event) => {
+                onAnimationEnd?.(event);
+                removeButtonAnimation(event.target as HTMLElement);
+            }}
             {...rest}
             ref={ref}
         >
