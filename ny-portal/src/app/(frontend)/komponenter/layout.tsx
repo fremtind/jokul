@@ -1,6 +1,7 @@
 import { Flex } from "@fremtind/jokul/components/flex";
 import styles from "./komponenter.module.scss";
-import { NavigationMenu } from "@/components/Navigation";
+import { NavigationMenu } from "./navigation/NavigationMenu";
+import { NavigationMenuButton } from "./navigation/NavigationMenuButton";
 
 interface Props {
     children: React.ReactNode;
@@ -8,9 +9,9 @@ interface Props {
 
 export default function PortalLayout({ children }: Props) {
     return (
-        <Flex gap={24} className={styles.componentPage}>
+        <Flex gap={64}>
             <NavigationMenu />
-            <div>{children}</div>
+            <div className={styles.componentPage}>{children}</div>
         </Flex>
     );
 }

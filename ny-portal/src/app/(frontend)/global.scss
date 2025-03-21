@@ -1,5 +1,14 @@
-@use '@fremtind/jokul/styles/core';
-@use '@fremtind/jokul/styles/fonts' with (
-  $webfonts-dir: '../../src/fonts' // Dette er relativt til webfonts.sccs-fila i jokul-pakka
+@use "@fremtind/jokul/styles/core";
+@use "@fremtind/jokul/styles/fonts" with (
+    $webfonts-dir: "../../src/fonts"
+        // Dette er relativt til webfonts.sccs-fila i jokul-pakka
 );
-@use '@fremtind/jokul/styles';
+@use "@fremtind/jokul/styles";
+@use "@fremtind/jokul/styles/core/jkl";
+
+body:has(.global-menu-button[aria-expanded="true"]) {
+    @media (width <= calc(#{jkl.$breakpoint-large} - 1px)) {
+        height: 100vh;
+        overflow: hidden;
+    }
+}
