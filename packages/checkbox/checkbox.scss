@@ -73,10 +73,12 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
 
     &__input {
         // Hide native checkbox
-        opacity: 0;
         position: absolute;
-        // Position the hidden input so that Cypress can hit it without it being obscured by the visual checkbox
-        top: -6px;
+        opacity: 0;
+        // Make sure that when the browser scrolls here because of focus, the control
+        // is positioned below the label so that the label becomes visible.
+        top: var(--jkl-checkbox-box-size);
+        left: calc(-0.5 * var(--jkl-checkbox-box-size));
 
         &:checked {
             + .jkl-checkbox__label .jkl-checkbox__check-mark::after {

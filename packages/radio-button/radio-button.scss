@@ -92,8 +92,10 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         // hide default radio button
         position: absolute;
         opacity: 0;
-        // Position the hidden input so that Cypress can hit it without it being obscured by the visual checkbox
-        top: -6px;
+        // Make sure that when the browser scrolls here because of focus, the control
+        // is positioned below the label so that the label becomes visible.
+        top: var(--jkl-radio-button-size);
+        left: calc(-0.5 * var(--jkl-radio-button-size));
 
         // Checked state
         &:checked {
