@@ -2,6 +2,7 @@
 
 .storybook {
     display: flex;
+    z-index: -1;
     flex-direction: column;
     border: 1px solid jkl.$color-border-separator;
     border-radius: jkl.rem(16px);

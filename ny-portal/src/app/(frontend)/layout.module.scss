@@ -12,6 +12,9 @@
     }
 
     .header {
+        max-height: var(--jkl-spacing-40);
+        position: relative;
+        z-index: 2;
         margin-block-end: var(--jkl-spacing-24);
 
         .logo {
