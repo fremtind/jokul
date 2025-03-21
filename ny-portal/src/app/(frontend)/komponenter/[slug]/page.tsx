@@ -24,7 +24,7 @@ export default async function Page({ params }: Props) {
     }
 
     return (
-        <>
+        <div>
             <h1 className="jkl-title">
                 {component?.name || "ikke i databasen"}
             </h1>
@@ -36,6 +36,6 @@ export default async function Page({ params }: Props) {
             {component.documentation_article && (
                 <PortableText blocks={component.documentation_article} />
             )}
-        </>
+        </div>
     );
 }
