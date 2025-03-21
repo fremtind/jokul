@@ -1,16 +1,19 @@
 import clsx from "clsx";
-import React, { FC, MouseEvent } from "react";
+import React, {
+    type ComponentProps,
+    type FC,
+    type MouseEvent,
+    useId,
+} from "react";
 import { TrashCanIcon, SuccessIcon } from "../../components/icon/index.js";
 import { IconButton } from "../../components/icon-button/IconButton.js";
 import { SupportLabel } from "../../components/input-group/SupportLabel.js";
-import { type WithOptionalChildren } from "../../core/types.js";
-import { useId } from "../../hooks/useId/useId.js";
 import { formatBytes } from "../../utilities/formatters/bytes/formatBytes.js";
 import { useFileInputContext } from "./internal/fileInputContext.js";
 import { Thumbnail } from "./internal/Thumbnail.js";
-import { FileInputFileState } from "./types.js";
+import type { FileInputFileState } from "./types.js";
 
-export interface FileProps extends WithOptionalChildren {
+export type FileProps = {
     fileName: string;
     fileType: string;
     fileSize: number;
@@ -20,9 +23,9 @@ export interface FileProps extends WithOptionalChildren {
     supportLabelType?: "help" | "error" | "warning" | "success";
     state?: FileInputFileState;
     onRemove?: (e: MouseEvent<HTMLButtonElement>) => void;
-}
+};
 
-export const File: FC<FileProps> = (props) => {
+export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
     const {
         children,
         fileName,
@@ -36,7 +39,7 @@ export const File: FC<FileProps> = (props) => {
         onRemove,
     } = props;
 
-    const id = useId("jkl-file-preview");
+    const id = `jkl-file-preview-${useId()}`;
     const supportId = id + "-support";
 
     const context = useFileInputContext();
