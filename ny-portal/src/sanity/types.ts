@@ -248,7 +248,7 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/component.ts
 // Variable: componentsQuery
-// Query: *[_type == "jokul_component"]{    name,    slug,    "imageUrl": image.asset->url    }
+// Query: *[_type == "jokul_component"]{    name,    slug,    "imageUrl": image.asset->url    } | order(name)
 export type ComponentsQueryResult = Array<{
     name: string | null;
     slug: Slug | null;
@@ -331,7 +331,7 @@ export type ComponentBySlugQueryResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
     interface SanityQueries {
-        '*[_type == "jokul_component"]{\n    name,\n    slug,\n    "imageUrl": image.asset->url\n    }': ComponentsQueryResult;
+        '*[_type == "jokul_component"]{\n    name,\n    slug,\n    "imageUrl": image.asset->url\n    } | order(name)': ComponentsQueryResult;
         '*[_type == "jokul_component" && slug.current == $slug][0]': ComponentBySlugQueryResult;
     }
 }
