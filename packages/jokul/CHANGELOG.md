@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.57.0...@fremtind/jokul@0.57.1) (2025-03-24)
+
+### Bug Fixes
+
+- tabbing to radio/checkbox now scrolls it into view ([f3bd63b](https://github.com/fremtind/jokul/commit/f3bd63b8599ec9b6f111f5493ac2644317fcff47)), closes [#4649](https://github.com/fremtind/jokul/issues/4649)
+
 # [0.57.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.56.4...@fremtind/jokul@0.57.0) (2025-03-24)
 
 ### Bug Fixes
