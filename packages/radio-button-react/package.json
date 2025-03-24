@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-radio-button-react",
-    "version": "12.0.28",
+    "version": "12.0.29",
     "publishConfig": {
         "access": "public"
     },
@@ -41,7 +41,7 @@
     "dependencies": {
         "@fremtind/jkl-core": "^14.10.5",
         "@fremtind/jkl-input-group-react": "^4.0.13",
-        "@fremtind/jkl-radio-button": "^10.2.21",
+        "@fremtind/jkl-radio-button": "^10.2.22",
         "@fremtind/jkl-react-hooks": "^12.2.20",
         "classnames": "^2.5.1"
     },
