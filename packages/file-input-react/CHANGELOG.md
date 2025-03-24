@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.5.0 (2025-03-24)
+
+### Features
+
+- la File ta inn alle attributter fra div-elementet ([7e434f1](https://github.com/fremtind/jokul/commit/7e434f14f57e81d95ecadf8d15076c3f06233417))
+
 # [2.4.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.3.74...@fremtind/jkl-file-input-react@2.4.0) (2025-01-23)
 
 ### Features
