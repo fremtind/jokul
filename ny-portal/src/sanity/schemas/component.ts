@@ -30,6 +30,16 @@ export const component = defineType({
             rows: 2,
         }),
         defineField({
+            name: "github_link",
+            title: "GitHub lenke",
+            type: "url",
+        }),
+        defineField({
+            name: "figma_link",
+            title: "Figma lenke",
+            type: "url",
+        }),
+        defineField({
             name: "image",
             type: "image",
             title: "Bilde",
