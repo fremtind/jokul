@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.57.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.56.4...@fremtind/jokul@0.57.0) (2025-03-24)
+
+### Bug Fixes
+
+- legg til stilavhengigheter for file-input ([df54fb0](https://github.com/fremtind/jokul/commit/df54fb0ed3cb36ff1f8c311d77c609915228b254))
+
+### Features
+
+- la File ta inn alle attributter fra div-elementet ([7e434f1](https://github.com/fremtind/jokul/commit/7e434f14f57e81d95ecadf8d15076c3f06233417))
+
 ## [0.56.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.56.3...@fremtind/jokul@0.56.4) (2025-03-18)
 
 ### Bug Fixes
