@@ -1,48 +1,24 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
-.layout {
-    --outline-color: var(--jkl-color-background-container-high);
-    --jkl-bg-color: var(--jkl-color-background-page);
-    --bg-color: var(--jkl-color-background-page);
-    --header-height: #{jkl.rem(50px)};
+.page {
+    padding: var(--jkl-spacing-24) var(--jkl-spacing-16);
 
-    display: grid;
-    grid-template:
-        "nav" var(--header-height)
-        "content" minmax((calc(100vh - var(--header-height))), auto)
-        "footer" auto / 1fr;
-    background-color: var(--jkl-bg-color);
-
-    @include jkl.screen-from(1512px) {
-        grid-template:
-            "nav content" minmax(100vh, auto)
-            "nav footer" auto / minmax(350px, auto) 1fr;
+    @media (min-width: #{jkl.$breakpoint-medium}) {
+        padding-inline: var(--jkl-spacing-40);
     }
 
-    &__content {
-        padding: var(--jkl-spacing-32);
+    @media (min-width: #{jkl.$breakpoint-large}) {
+        padding-inline: var(--jkl-spacing-104);
+    }
 
-        grid-area: content;
-        background-color: var(--jkl-color-background-page);
+    .header {
+        max-height: var(--jkl-spacing-40);
+        position: relative;
+        z-index: 2;
+        margin-block-end: var(--jkl-spacing-24);
 
-        @include jkl.screen-from(1512px) {
-            margin: var(--jkl-spacing-16);
-            margin-inline-start: 0;
-            border-radius: jkl.rem(8px);
+        .logo {
+            @include jkl.text-style("heading-2");
         }
-    }
-
-    &__footer {
-        grid-area: footer;
-    }
-}
-
-.nav-card-container {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(280px, 1fr));
-    gap: #{jkl.$spacing-8};
-
-    @include jkl.small-device {
-        grid-template-columns: 1fr;
     }
 }
