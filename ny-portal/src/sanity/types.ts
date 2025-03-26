@@ -103,6 +103,8 @@ export type Jokul_component = {
     slug?: Slug;
     name?: string;
     short_description?: string;
+    github_link?: string;
+    figma_link?: string;
     image?: {
         asset?: {
             _ref: string;
@@ -265,6 +267,8 @@ export type ComponentBySlugQueryResult = {
     slug?: Slug;
     name?: string;
     short_description?: string;
+    github_link?: string;
+    figma_link?: string;
     image?: {
         asset?: {
             _ref: string;
