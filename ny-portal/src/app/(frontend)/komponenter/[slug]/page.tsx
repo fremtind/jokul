@@ -1,6 +1,6 @@
+import Component from "./component";
 import { client } from "@/sanity/client";
 import { componentBySlugQuery } from "@/sanity/queries/component";
-import Component from "./component";
 
 type Props = {
     params: Promise<{ slug: string }>;

@@ -12,3 +12,60 @@ body:has(.global-menu-button[aria-expanded="true"]) {
         overflow: hidden;
     }
 }
+
+.prose {
+    > * + * {
+        margin-block-start: 1.5rem;
+    }
+}
+
+p {
+    @include jkl.text-style("body");
+
+    &:empty {
+        display: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    &:not(:first-child) {
+        margin-block-start: var(--jkl-spacing-104);
+    }
+}
+
+h1 {
+    @include jkl.text-style("title");
+}
+
+h2 {
+    @include jkl.text-style("heading-2");
+}
+
+h3 {
+    @include jkl.text-style("heading-3");
+
+    &:not(:first-child) {
+        margin-block-start: var(--jkl-spacing-104);
+    }
+}
+
+h4 {
+    @include jkl.text-style("heading-4");
+
+    &:not(:first-child) {
+        margin-block-start: 6rem;
+    }
+}
+
+h5 {
+    @include jkl.text-style("heading-5");
+}
+
+code,
+samp {
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
+}
