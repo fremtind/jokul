@@ -24,6 +24,7 @@ export interface FileProps {
 export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
     const {
         children,
+        className,
         fileName,
         fileType,
         fileSize,
@@ -33,6 +34,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
         supportLabelType,
         state,
         onRemove,
+        ...rest
     } = props;
 
     const id = useId("jkl-file-preview");
@@ -70,7 +72,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
     };
 
     const fileComponent = (
-        <div id={id} className="jkl-file">
+        <div id={id} className={cn(className, "jkl-file")} {...rest}>
             <Component
                 className={cn("jkl-file__content", {
                     "jkl-file__content--error": supportLabelType === "error",
