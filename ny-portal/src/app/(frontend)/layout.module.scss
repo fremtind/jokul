@@ -11,6 +11,10 @@
         padding-inline: var(--jkl-spacing-104);
     }
 
+    .content {
+        max-width: calc(320px + 90ch); // max-lengde på navigasjonen + innhold
+    }
+
     .header {
         max-height: var(--jkl-spacing-40);
         position: relative;
