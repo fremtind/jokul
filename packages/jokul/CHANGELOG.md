@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.57.2...@fremtind/jokul@0.57.3) (2025-03-26)
+
+### Bug Fixes
+
+- la File-komponenten ta inn props for div-elementet ([166bfbe](https://github.com/fremtind/jokul/commit/166bfbe6800626f803211877a8c290be62326b59))
+
 ## [0.57.1](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.57.0...@fremtind/jokul@0.57.1) (2025-03-24)
 
 ### Bug Fixes

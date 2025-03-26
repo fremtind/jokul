@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.2](https://github.com/fremtind/jokul/compare/@fremtind/jkl-file-input-react@2.5.1...@fremtind/jkl-file-input-react@2.5.2) (2025-03-26)
+
+### Bug Fixes
+
+- la File-komponenten ta inn props for div-elementet ([166bfbe](https://github.com/fremtind/jokul/commit/166bfbe6800626f803211877a8c290be62326b59))
+
 # 2.5.0 (2025-03-24)
 
 ### Features
