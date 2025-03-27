@@ -101,6 +101,7 @@ export const component = defineType({
                 { type: "jokul_componentProps" },
                 { type: "jokul_codeExample" },
                 { type: "jokul_storybook" },
+                { type: "jokul_codeBlock" },
             ],
         }),
     ],
