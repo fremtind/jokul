@@ -83,6 +83,12 @@ export type Jokul_storybook = {
     >;
 };
 
+export type Jokul_codeBlock = {
+    _type: "jokul_codeBlock";
+    code?: string;
+    language?: "scss" | "typescript";
+};
+
 export type Jokul_codeExample = {
     _type: "jokul_codeExample";
     showEditor?: boolean;
@@ -164,6 +170,9 @@ export type Jokul_component = {
         | ({
               _key: string;
           } & Jokul_storybook)
+        | ({
+              _key: string;
+          } & Jokul_codeBlock)
     >;
 };
 
@@ -238,6 +247,7 @@ export type AllSanitySchemaTypes =
     | Geopoint
     | Jokul_storybookStory
     | Jokul_storybook
+    | Jokul_codeBlock
     | Jokul_codeExample
     | Jokul_componentProps
     | Jokul_component
@@ -281,6 +291,9 @@ export type ComponentBySlugQueryResult = {
         _type: "image";
     };
     documentation_article?: Array<
+        | ({
+              _key: string;
+          } & Jokul_codeBlock)
         | ({
               _key: string;
           } & Jokul_codeExample)

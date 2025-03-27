@@ -95,6 +95,7 @@
         padding-block: calc(var(--jkl-spacing-40) * 2) 0;
         padding-inline: var(--jkl-spacing-24);
         box-sizing: border-box;
+        z-index: #{jkl.$z-index--overlay};
 
         &::after {
             position: fixed;
