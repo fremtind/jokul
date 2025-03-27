@@ -23,14 +23,13 @@ export type PolymorphicProps<
 export type PolymorphicRef<As extends React.ElementType> =
     React.ComponentPropsWithRef<As>["ref"];
 
-// old utility with ref
 export type PolymorphicPropsWithRef<
     ElementType extends React.ElementType,
     // biome-ignore lint/complexity/noBannedTypes:
     Props = {},
 > = PolymorphicProps<ElementType, Props> & {
     ref?: PolymorphicRef<ElementType>;
-};
+} & ElementTypeProp<ElementType>;
 
 export type PolymorphicComponentPropWithRef<
     As extends React.ElementType,
