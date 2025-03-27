@@ -1,0 +1,10 @@
+@use '@fremtind/jokul/styles/core/jkl';
+
+.inlineCode {
+  display: inline-block;
+  background-color: var(--jkl-color-background-container-inverted);
+  font-size: 0.8em;
+  padding: 0 var(--jkl-spacing-8);
+  border-radius: jkl.rem(2px);
+  color: var(--jkl-color-text-inverted);
+}

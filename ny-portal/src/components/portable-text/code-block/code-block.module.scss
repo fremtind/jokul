@@ -1,0 +1,43 @@
+@use '@fremtind/jokul/styles/core/jkl';
+
+.codeBlock {
+    position: relative;
+    background-color: var(--jkl-color-background-page);
+    box-sizing: border-box;
+    border: 1px solid var(--jkl-color-border-separator);
+    border-radius: jkl.rem(2px);
+    width: 100%;
+    padding: var(--jkl-spacing-12);
+    max-width: min(#{jkl.rem(750px)}, 50vw);
+    @include jkl.text-style("small");
+
+    @include jkl.small-device {
+        width: calc(100% - var(--jkl-spacing-40));
+        max-width: 100%;
+        min-width: initial;
+    }
+
+    &[data-language]::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: var(--jkl-spacing-4);
+        background-color: var(--jkl-color-background-alert-neutral);
+        color: var(--jkl-color-brand-granitt);
+        text-transform: uppercase;
+        content: attr(data-language);
+        @include jkl.use-font-family("Fremtind Grotesk");
+        @include jkl.text-style("small");
+    }
+
+    html:not([data-mousenavigation]) &:focus-within {
+        box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-color-background-action);
+    }
+}
+
+.codeBlockCode {
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
+    display: block;
+    padding: var(jkl-spacing-24) var(--jkl-spacing-16);
+    overflow-x: auto;
+}
