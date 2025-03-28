@@ -1,10 +1,12 @@
 "use client";
 
+import { InfoMessage, InfoSystemMessage, Link } from "@fremtind/jokul";
 import { Button } from "@fremtind/jokul/components/button";
-import { PortableText } from "@/components/portable-text/PortableText";
 import { Flex } from "@fremtind/jokul/components/flex";
-import { ComponentBySlugQueryResult } from "@/sanity/types";
+import clsx from "clsx";
 import styles from "./component.module.scss";
+import { PortableText } from "@/components/portable-text/PortableText";
+import { ComponentBySlugQueryResult } from "@/sanity/types";
 
 type ComponentProps = {
     component: ComponentBySlugQueryResult;
@@ -16,9 +18,9 @@ const Component = ({ component }: ComponentProps) => {
     }
 
     return (
-        <>
+        <article>
             <Flex
-                as="section"
+                as="header"
                 className={styles.component}
                 justifyContent="space-between"
             >
@@ -78,10 +80,52 @@ const Component = ({ component }: ComponentProps) => {
                 </Flex>
             </Flex>
 
-            {component.documentation_article && (
-                <PortableText blocks={component.documentation_article} />
-            )}
-        </>
+            <div className={clsx("prose", styles.wrapper)}>
+                {component.documentation_article ? (
+                    <>
+                        <PortableText
+                            blocks={component.documentation_article}
+                        />
+                        <Flex
+                            as="footer"
+                            gap={24}
+                            wrap
+                            className={styles.footer}
+                        >
+                            <Link
+                                external
+                                href={`https://github.com/fremtind/jokul/issues/new?&template=dokumentasjon.yml&title=%5BBidra+med+innhold%5D%3A+${component.name}`}
+                            >
+                                Bidra med innhold
+                            </Link>
+                            <Link
+                                external
+                                href={`https://github.com/fremtind/jokul/issues/new?&template=innspill-komponent.yml&title=%5BInnspill+til+komponent%5D%3A+${component.name}`}
+                            >
+                                Innspill til {component.name}
+                            </Link>
+                        </Flex>
+                    </>
+                ) : (
+                    <InfoMessage title="Her mangler vi fortsatt innhold...">
+                        <Flex as="footer" gap={24} wrap>
+                            <Link
+                                external
+                                href={`https://github.com/fremtind/jokul/issues/new?&template=dokumentasjon.yml&title=%5BBidra+med+innhold%5D%3A+${component.name}`}
+                            >
+                                Bidra med innhold
+                            </Link>
+                            <Link
+                                external
+                                href={`https://github.com/fremtind/jokul/issues/new?&template=innspill-komponent.yml&title=%5BInnspill+til+komponent%5D%3A+${component.name}`}
+                            >
+                                Innspill til {component.name}
+                            </Link>
+                        </Flex>
+                    </InfoMessage>
+                )}
+            </div>
+        </article>
     );
 };
 
