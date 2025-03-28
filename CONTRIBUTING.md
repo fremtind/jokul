@@ -1,32 +1,31 @@
 # Bidragsguide
 
-## Bidra til Jøkul
-
 Jøkul er et fellesprosjekt for alle i Fremtind. Det vil si at det også er _ditt_. Om du oppdager en feil, eller har et ønske om å gjøre en endring eller legge noe til, så er det aller beste om _du_ sørger for å få det gjort. Jøkul-teamet er her for å hjelpe deg med det praktiske.
 
-Før du begynner bør du ha lest [Hvordan endre Jøkul](https://jokul.fremtind.no/guider/hvordan-endre-jokul). Guiden der forklarer den anbefalte fremgangsmåten for å foreslå en endring. Kort fortalt går det ut på å snakke med folk! 😄 Guiden forklarer hvor og hvordan vi pleier å samarbeide, noen tips og triks for å få til en god diskusjon, og veien videre når vi har blitt enige om noe.
+## 📚 Minstekrav til dokumentasjon
 
-Det er skrevet en [innføring for utviklere her](https://jokul.fremtind.no/guider/utvikling) som hjelper deg med å komme i gang med utvikling _for_ Jøkul, ikke bare _med_ Jøkul.
+Det viktigste du må gjøre er å endre dokumentasjonen der du gjør endringene.
 
-### 📚 Minstekrav til dokumentasjon
+### Portalen og kode
 
-Vi har blitt [enige om noen minimumskrav](https://github.com/fremtind/jokul/discussions/2500#discussioncomment-1645212) for dokumentasjon av [komponenter i portalen](https://jokul.fremtind.no/komponenter/accordion). Disse er:
+Vi bruker [Storybook](https://storybook.js.org/) for å utvikle komponentene lokalt, og henter informasjonen fra [stories](https://jokul-portal.app.devaws.fremtind.no/storybook) for å dokumentere komponentene.
 
--   Ingress med kort beskrivelse av komponenten
--   Første eksempel synlig uten å scrolle
--   Relevante eksempler på riktig og feil bruk
--   Live kodeeksempel (oppdateres med valgte egenskaper)
--   React-props for komponenten(e) i bunnen
+### Figma
 
-I tillegg er det noen føringer for dokumentasjon i hver pakke sin README:
+Hvis du gjør endringer på design bør disse endringene gjøres i [Figma](https://www.figma.com/files/784861794507029203/project/52944370/Designsystemet?fuid=1253605757836779042) også.
 
--   Lenke direkte til dokumentasjonen for komponenten i portalen
--   Beskrive hvordan installere pakken, med eksempelkommandoer for copy+paste
--   Eksempel på `import` av React- og CSS-kode for copy+paste
+Dersom du ikke har tilgang til design-mode må du enten få hjelp av en designer på teamet, eller gjøre oss oppmerksom på dette sånn at vi kan gjøre endringene selv.
 
-Sist, men ikke minst – om du gjør en _breaking change_ må det dokumenteres i pakken sin MIGRATION hvordan man migrerer fra forrige versjon til den nye:
+### Breaking changes
 
--   Opprett MIGRATION.md om den ikke finnes, i samme mappe som README
+Om du gjør en _breaking change_ må det dokumenteres i [MIGRATION.md](packages/jokul/MIGRATION.md) hvordan man migrerer fra forrige versjon til den nye:
+
 -   Den nye majorversjonen skal ha en egen heading. Bruk dagens versjon + 1.
 -   Beskriv alle steg som må tas dersom man skal oppgradere til den nye versjonen
 -   Bruk veldig gjerne `diff`-eksempler som demonstrerer endringen visuelt. Se f. eks [radio-button-react/MIGRATION.md](https://github.com/fremtind/jokul/blob/main/packages/radio-button-react/MIGRATION.md).
+
+## Hvordan endre bidragsguiden
+
+Vi har blitt [enige om disse kravene](https://github.com/fremtind/jokul/discussions/2500#discussioncomment-1645212) for dokumentasjon av komponenter i [portalen](https://jokul.fremtind.no).
+
+Dersom du mener denne guiden ikke fungerer godt nok kan du gjerne sende en pull request med endringer direkte, eller ta det opp med oss hvor enn du finner oss.
