@@ -3,12 +3,13 @@
 import { Button, Icon } from "@fremtind/jokul";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import styles from "../SiteHeader.module.scss";
 
 type Props = {
     menuId: string;
 };
 
-export const NavigationMenuButton = ({ menuId }: Props) => {
+export const HamburgerButton = ({ menuId }: Props) => {
     const [expanded, setExpanded] = useState(false);
     const pathname = usePathname();
 
@@ -18,7 +19,7 @@ export const NavigationMenuButton = ({ menuId }: Props) => {
 
     return (
         <Button
-            className={"global-menu-button"}
+            className={styles.menuButton}
             aria-expanded={expanded}
             aria-controls={menuId}
             id={`${menuId}-button`}

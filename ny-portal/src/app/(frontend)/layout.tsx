@@ -1,9 +1,8 @@
-import { Flex } from "@fremtind/jokul/components/flex";
 import Link from "next/link";
-import "./global.scss";
-import { NavigationMenuButton } from "./komponenter/navigation/NavigationMenuButton";
-import styles from "./layout.module.scss";
+import { SiteHeader } from "@/components/site-header/SiteHeader";
 import { TabListener } from "@/components/TabListener";
+
+import "./global.scss";
 
 interface Props {
     children: React.ReactNode;
@@ -12,7 +11,7 @@ interface Props {
 export default function PortalLayout({ children }: Props) {
     return (
         <html lang="no" className="jkl">
-            <body className={styles.page}>
+            <body>
                 <TabListener />
                 <Link
                     id="content-skip-link"
@@ -21,19 +20,8 @@ export default function PortalLayout({ children }: Props) {
                 >
                     Hopp til innhold
                 </Link>
-                <div className={styles.content}>
-                    <Flex
-                        as="header"
-                        gap={32}
-                        alignItems="center"
-                        justifyContent="space-between"
-                        className={styles.header}
-                    >
-                        <p className={styles.logo}>Jøkul</p>
-                        <NavigationMenuButton menuId="global-menu" />
-                    </Flex>
-                    <main>{children}</main>
-                </div>
+                <SiteHeader />
+                <main>{children}</main>
             </body>
         </html>
     );
