@@ -1,8 +1,10 @@
 "use client";
 
+import clsx from "clsx";
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 import React, { PropsWithChildren } from "react";
+import styles from "../SiteHeader.module.scss";
 
 const getLinkUrl = (href: LinkProps["href"], as?: LinkProps["as"]): string => {
     // Dynamic route will be matched via props.as
@@ -12,7 +14,7 @@ const getLinkUrl = (href: LinkProps["href"], as?: LinkProps["as"]): string => {
 };
 
 // Lagd etter next.js sitt eksempel på active link: https://github.com/vercel/next.js/tree/canary/examples/active-class-name
-const NavigationMenuLink = ({
+export const MenuItem = ({
     children,
     ...props
 }: PropsWithChildren<LinkProps>) => {
@@ -21,7 +23,7 @@ const NavigationMenuLink = ({
     if (pathname === getLinkUrl(props.href, props.as)) {
         return (
             <Link
-                className="global-menu-list-link global-menu-list-link--active"
+                className={clsx("jkl-link", styles.pageLink, styles.active)}
                 aria-current="page"
                 {...props}
             >
@@ -31,10 +33,8 @@ const NavigationMenuLink = ({
     }
 
     return (
-        <Link className="global-menu-list-link" {...props}>
+        <Link className={clsx("jkl-link", styles.pageLink)} {...props}>
             {children}
         </Link>
     );
 };
-
-export default NavigationMenuLink;

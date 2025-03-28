@@ -6,11 +6,38 @@
 @use "@fremtind/jokul/styles";
 @use "@fremtind/jokul/styles/core/jkl";
 
-body:has(.global-menu-button[aria-expanded="true"]) {
-    @media (width <= calc(#{jkl.$breakpoint-large} - 1px)) {
-        height: 100vh;
-        overflow: hidden;
+body {
+    // Disse brukes kun for utregninger, kalkulatoren brukt er:
+    // https://clamp.vittoretrivi.dev
+    --max-width: 1440px;
+    --min-width: 320px;
+
+    padding-inline: clamp(
+        var(--jkl-spacing-16),
+        0.1429rem + 4.2857vw,
+        var(--jkl-spacing-64)
+    );
+    display: flex;
+    gap: clamp(
+        var(--jkl-spacing-24),
+        0.4643rem + 3.9286vw,
+        var(--jkl-spacing-64)
+    );
+    flex-direction: column;
+    background-color: var(--jkl-color-background-page);
+
+    @media (min-width: #{jkl.$breakpoint-large}) {
+        flex-direction: row;
     }
+}
+
+main {
+    padding-block: clamp(
+            var(--jkl-spacing-24),
+            1.2143rem + 1.4286vw,
+            var(--jkl-spacing-40)
+        )
+        var(--jkl-spacing-64);
 }
 
 .prose {
