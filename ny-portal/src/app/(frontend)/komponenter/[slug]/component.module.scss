@@ -1,41 +1,74 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
-.component {
+.component,
+.wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    padding-inline: var(--jkl-spacing-16);
 
-  padding: var(--jkl-spacing-104);
-  border-radius: var(--jkl-spacing-16);
-  background: var(--jkl-color-background-container-low);
+    @media (min-width: #{jkl.$breakpoint-large}) {
+        padding-inline: var(--jkl-spacing-104);
+    }
+}
+
+.component {
+    border-radius: var(--jkl-spacing-16);
+    background: var(--jkl-color-background-container-low);
+
+    @media (min-width: #{jkl.$breakpoint-large}) {
+        padding: var(--jkl-spacing-104);
+    }
 
     .name {
-      @include jkl.text-style("heading-1") {
-        font-size: clamp(var(--jkl-typography-font-size-36), 1.8673rem + 1.6327vw, var(--jkl-typography-font-size-56));
-      }
+        @include jkl.text-style("heading-1") {
+            font-size: clamp(
+                var(--jkl-typography-font-size-36),
+                1.8673rem + 1.6327vw,
+                var(--jkl-typography-font-size-56)
+            );
+        }
     }
 
     .short_description {
-      margin-block: var(--jkl-spacing-24);
-      max-width: 60ch;
+        margin-block: var(--jkl-spacing-24);
+        max-width: 60ch;
 
-      @include jkl.text-style("body") {
-        font-size: clamp(var(--jkl-typography-font-size-16), 0.7308rem + 0.7692vw, var(--jkl-typography-font-size-20));
-        line-height: 1.6;
-      }
+        @include jkl.text-style("body") {
+            font-size: clamp(
+                var(--jkl-typography-font-size-16),
+                0.7308rem + 0.7692vw,
+                var(--jkl-typography-font-size-20)
+            );
+            line-height: 1.6;
+        }
     }
 
     .external_links {
-      align-items: start;
-      justify-self: end;
+        align-items: start;
+        justify-self: end;
     }
+}
 
-  }
+.wrapper {
+    margin-block-start: var(--jkl-spacing-40);
+}
 
-  @include jkl.small-device {
+.footer {
+    margin-block-start: var(--jkl-spacing-104);
+    border-block-start: 1px solid var(--jkl-color-border-separator);
+    padding-block-start: var(--jkl-spacing-24);
+}
+
+.feedbackCard {
+    max-width: 520px;
+}
+
+@include jkl.small-device {
     .component {
-      padding: var(--jkl-spacing-16);
-      flex-direction: column;
+        flex-direction: column;
 
-      .external_links {
-        align-self: end;
-      }
+        .external_links {
+            align-self: end;
+        }
     }
-  }
+}

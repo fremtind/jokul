@@ -1,6 +1,7 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
 .page {
+    background-color: var(--jkl-color-background-page);
     padding: var(--jkl-spacing-24) var(--jkl-spacing-16);
 
     @media (min-width: #{jkl.$breakpoint-medium}) {
@@ -12,7 +13,7 @@
     }
 
     .content {
-        max-width: calc(320px + 90ch); // max-lengde på navigasjonen + innhold
+        max-width: calc(320px + 112ch); // max-lengde på navigasjonen + innhold
     }
 
     .header {
