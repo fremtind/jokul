@@ -9,6 +9,10 @@ import type { TypedObject } from "@portabletext/types";
 import type { FC } from "react";
 // import { CodeExample } from "./code-example";
 import { Storybook } from "./storybook-story/Storybook";
+import { ListItem, OrderedList, UnorderedList } from "./list";
+import { Link } from "./link/Link";
+import { CodeBlock, InlineCode } from "./typography/Typography";
+
 // import { PropsDocumentation } from "./props-documentation/PropsDocumentation";
 
 interface Props {
@@ -22,10 +26,23 @@ const portableTextComponents: Record<
     // jokul_componentProps: PropsDocumentation,
     // jokul_codeExample: CodeExample,
     jokul_storybook: Storybook,
+    jokul_codeBlock: CodeBlock,
 };
 
 export const baseComponentDefinition: Partial<PortableTextReactComponents> = {
     types: portableTextComponents,
+    list: {
+        bullet: UnorderedList,
+        number: OrderedList,
+    },
+    listItem: {
+        bullet: ListItem,
+        number: ListItem,
+    },
+    marks: {
+        link: Link,
+        code: InlineCode,
+    },
 };
 
 export const PortableText: FC<Props> = (props) => {
