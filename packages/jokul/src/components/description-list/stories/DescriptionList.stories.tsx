@@ -1,15 +1,19 @@
 import { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import {
-    DescriptionDetail as DD,
     DescriptionList,
-    DescriptionTerm as DT,
+    DescriptionDetail,
+    DescriptionTerm,
 } from "../DescriptionList.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {
     title: "Komponenter/DescriptionList",
     component: DescriptionList,
+    subcomponents: {
+        DescriptionDetail,
+        DescriptionTerm,
+    },
     parameters: {
         layout: "centered",
     },
@@ -24,15 +28,15 @@ export const DescriptionListStory: Story = {
     name: "DescriptionList",
     render: () => (
         <DescriptionList>
-            <DT>Dekning</DT>
-            <DD>Kasko</DD>
+            <DescriptionTerm>Dekning</DescriptionTerm>
+            <DescriptionDetail>Kasko</DescriptionDetail>
 
-            <DT>Egenandel</DT>
-            <DD>2 000 kr for glass</DD>
-            <DD>6 000 kr for øvrige skader</DD>
+            <DescriptionTerm>Egenandel</DescriptionTerm>
+            <DescriptionDetail>2 000 kr for glass</DescriptionDetail>
+            <DescriptionDetail>6 000 kr for øvrige skader</DescriptionDetail>
 
-            <DT>Sjåfør under 23 år</DT>
-            <DD>Nei</DD>
+            <DescriptionTerm>Sjåfør under 23 år</DescriptionTerm>
+            <DescriptionDetail>Nei</DescriptionDetail>
         </DescriptionList>
     ),
 };

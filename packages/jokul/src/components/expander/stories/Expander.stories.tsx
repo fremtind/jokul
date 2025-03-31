@@ -6,7 +6,7 @@ import { Expander } from "../Expander.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {
-    title: "Komponenter/ExpandablePanel/Expander",
+    title: "Komponenter/Expander",
     component: ExpandablePanel,
     parameters: {
         layout: "padded",
@@ -18,6 +18,9 @@ export default meta;
 
 type StoryExpander = StoryObj<typeof Expander>;
 
+/**
+ * Expander brukes i ExpandablePanel, men kan også brukes alene dersom du ønsker et annet uttrykk.
+ */
 export const ExpanderStory: StoryExpander = {
     name: "Expander",
     args: {

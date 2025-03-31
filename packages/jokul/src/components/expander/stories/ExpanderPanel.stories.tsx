@@ -3,12 +3,14 @@ import React from "react";
 import { Flex } from "../../flex/Flex.js";
 import { GreenCheckIcon } from "../../icon/index.js";
 import { ExpandablePanel } from "../ExpandablePanel.js";
+import { ExpandablePanelContent } from "../ExpandablePanelContent.js";
 import { Expander } from "../Expander.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {
     title: "Komponenter/ExpandablePanel",
     component: ExpandablePanel,
+    subcomponents: { Expander, ExpandablePanelContent },
     parameters: {
         layout: "padded",
     },

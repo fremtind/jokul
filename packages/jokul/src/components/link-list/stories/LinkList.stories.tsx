@@ -4,7 +4,7 @@ import { LinkList } from "../LinkList.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {
-    title: "Komponenter/LinkList",
+    title: "Komponenter/List/LinkList",
     component: LinkList,
     parameters: {
         layout: "centered",
