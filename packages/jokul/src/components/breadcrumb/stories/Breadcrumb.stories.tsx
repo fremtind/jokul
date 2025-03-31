@@ -7,6 +7,7 @@ import React from "react";
 const meta = {
     title: "Komponenter/Breadcrumb/Breadcrumb",
     component: BreadcrumbComponent,
+    subcomponents: { BreadcrumbItem },
     parameters: {
         layout: "centered",
     },

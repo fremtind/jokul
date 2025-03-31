@@ -11,6 +11,11 @@ const meta = {
         layout: "centered",
     },
     tags: ["autodocs"],
+    argTypes: {
+        isLastElement: {
+            control: "boolean",
+        },
+    },
 } satisfies Meta<typeof BreadcrumbItemComponent>;
 
 export default meta;

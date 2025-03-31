@@ -3,7 +3,7 @@ import { BaseTextInput as TextInputComponent } from "../BaseTextInput.js";
 import "../styles/_index.scss";
 
 const meta = {
-    title: "Skjemaelementer/TextInput/BaseTextInput",
+    title: "Komponenter/TextInput/BaseTextInput",
     component: TextInputComponent,
     parameters: {
         controls: { expanded: true, sort: "alpha" },
