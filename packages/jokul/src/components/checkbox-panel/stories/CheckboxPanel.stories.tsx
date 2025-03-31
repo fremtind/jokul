@@ -13,6 +13,15 @@ const meta = {
         layout: "padded",
     },
     tags: ["autodocs"],
+    args: {
+        alwaysOpen: {
+            table: {
+                defaultValue: {
+                    summary: false,
+                },
+            },
+        },
+    },
 } satisfies Meta<typeof CheckboxPanelComponent>;
 
 export default meta;
