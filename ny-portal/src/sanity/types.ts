@@ -100,11 +100,14 @@ export type Jokul_component = {
     _createdAt: string;
     _updatedAt: string;
     _rev: string;
-    slug?: Slug;
     name?: string;
+    slug?: Slug;
     short_description?: string;
-    github_link?: string;
-    figma_link?: string;
+    external_links?: {
+        github_link?: string;
+        figma_link?: string;
+        storybook_link?: string;
+    };
     image?: {
         asset?: {
             _ref: string;
@@ -264,11 +267,14 @@ export type ComponentBySlugQueryResult = {
     _createdAt: string;
     _updatedAt: string;
     _rev: string;
-    slug?: Slug;
     name?: string;
+    slug?: Slug;
     short_description?: string;
-    github_link?: string;
-    figma_link?: string;
+    external_links?: {
+        github_link?: string;
+        figma_link?: string;
+        storybook_link?: string;
+    };
     image?: {
         asset?: {
             _ref: string;

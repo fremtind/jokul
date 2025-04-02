@@ -1,6 +1,6 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
-.component,
+.header,
 .wrapper {
     box-sizing: border-box;
     width: 100%;
@@ -11,9 +11,10 @@
     }
 }
 
-.component {
+.header {
     border-radius: var(--jkl-spacing-16);
     background: var(--jkl-color-background-container-low);
+    padding: var(--jkl-spacing-16);
 
     @media (min-width: #{jkl.$breakpoint-large}) {
         padding: var(--jkl-spacing-104);
@@ -64,7 +65,7 @@
 }
 
 @include jkl.small-device {
-    .component {
+    .header {
         flex-direction: column;
 
         .external_links {
