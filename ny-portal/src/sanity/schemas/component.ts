@@ -60,6 +60,30 @@ export const component = defineType({
             },
         }),
         defineField({
+            type: "object",
+            name: "figma_image",
+            title: "Illustrasjon fra Figma",
+            fields: [
+                defineField({
+                    type: "string",
+                    name: "light_mode",
+                    title: "Lys modus",
+                    description:
+                        "Lenke til frame i Figma for illustrasjon i lys modus",
+                    validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                    type: "string",
+                    name: "dark_mode",
+                    title: "Mørk modus",
+                    description:
+                        "Lenke til frame i Figma for illustrasjon i mørk modus",
+                    validation: (Rule) => Rule.required(),
+                }),
+            ],
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
             name: "image",
             type: "image",
             title: "Bilde",

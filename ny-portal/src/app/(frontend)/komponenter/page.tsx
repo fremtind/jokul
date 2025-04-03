@@ -1,8 +1,7 @@
-import { Flex } from "@fremtind/jokul/components/flex";
-import NextLink from "next/link";
-import styles from "./komponenter.module.scss";
 import { client } from "@/sanity/client";
 import { componentsQuery } from "@/sanity/queries/component";
+import { ComponentCard } from "./ComponentCard";
+import styles from "./komponenter.module.scss";
 
 export default async function Components() {
     const components = await client.fetch(componentsQuery);
@@ -22,22 +21,9 @@ export default async function Components() {
             <ul className={styles.componentGallery}>
                 {components.map((component) => (
                     <li key={component.slug?.current}>
-                        <Flex
-                            as={NextLink}
-                            href={`/komponenter/${component.slug?.current}`}
-                            gap={8}
-                            direction="column"
-                            className={styles.component}
-                        >
-                            <img
-                                src={component.imageUrl || ""}
-                                alt=""
-                                width={200}
-                                height={200}
-                                className={styles.image}
-                            />
-                            <p className={styles.name}>{component.name}</p>
-                        </Flex>
+                        <ComponentCard
+                            componentSlug={component.slug?.current || ""}
+                        />
                     </li>
                 ))}
             </ul>
