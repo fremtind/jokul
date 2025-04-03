@@ -8,19 +8,21 @@ export const component = defineType({
     type: "document",
     fields: [
         defineField({
+            name: "name",
+            title: "Navn",
+            type: "string",
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
             name: "slug",
             title: "Slug",
             type: "slug",
             options: {
-                source: "title",
+                source: "name",
                 maxLength: MAX_LENGTH,
+                slugify: (input) =>
+                    input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
             },
-            validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-            name: "name",
-            title: "Navn",
-            type: "string",
             validation: (Rule) => Rule.required(),
         }),
         defineField({
@@ -30,14 +32,32 @@ export const component = defineType({
             rows: 2,
         }),
         defineField({
-            name: "github_link",
-            title: "GitHub lenke",
-            type: "url",
-        }),
-        defineField({
-            name: "figma_link",
-            title: "Figma lenke",
-            type: "url",
+            type: "object",
+            name: "external_links",
+            fieldsets: [
+                { name: "external_links", title: "Ekstern dokumentasjon" },
+            ],
+            fields: [
+                {
+                    name: "github_link",
+                    title: "GitHub",
+                    type: "url",
+                },
+                {
+                    name: "figma_link",
+                    title: "Figma",
+                    type: "url",
+                },
+                {
+                    name: "storybook_link",
+                    title: "Storybook",
+                    type: "url",
+                },
+            ],
+            options: {
+                collapsible: true,
+                columns: 2,
+            },
         }),
         defineField({
             name: "image",
