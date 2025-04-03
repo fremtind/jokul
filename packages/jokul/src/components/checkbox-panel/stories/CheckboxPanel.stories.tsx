@@ -13,11 +13,11 @@ const meta = {
         layout: "padded",
     },
     tags: ["autodocs"],
-    args: {
+    argTypes: {
         alwaysOpen: {
             table: {
                 defaultValue: {
-                    summary: false,
+                    summary: undefined,
                 },
             },
         },
