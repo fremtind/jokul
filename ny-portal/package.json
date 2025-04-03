@@ -24,6 +24,7 @@
         "@sanity/client": "^6.28.1",
         "@sanity/icons": "^3.7.0",
         "@sanity/image-url": "^1.1.0",
+        "@sanity/locale-nb-no": "^1.1.19",
         "@sanity/ui": "^2.14.3",
         "@sanity/vision": "^3.76.3",
         "@types/mdx": "^2.0.13",

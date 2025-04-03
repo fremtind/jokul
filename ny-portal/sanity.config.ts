@@ -1,3 +1,4 @@
+import { nbNOLocale } from "@sanity/locale-nb-no";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import type { Config } from "sanity";
@@ -9,7 +10,7 @@ export function getSanityConfig(config: Config) {
         name: "default",
         basePath: "/studio",
         title: "Jøkul Portal Studio",
-        plugins: [structureTool(), visionTool()],
+        plugins: [structureTool(), visionTool(), nbNOLocale()],
         schema: {
             types: schemaTypes,
         },
