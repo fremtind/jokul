@@ -11,3 +11,11 @@ export const componentsQuery = defineQuery(
 export const componentBySlugQuery = defineQuery(
     `*[_type == "jokul_component" && slug.current == $slug][0]`,
 );
+
+export const componentCardQuery = defineQuery(
+    `*[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug]{
+    name,
+    "slug": slug.current,
+    figma_image,
+    }[0]`,
+);
