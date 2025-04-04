@@ -43,7 +43,7 @@ const Component = ({ component }: ComponentProps) => {
                     <Button
                         variant="secondary"
                         as="a"
-                        href={component.github_link || ""}
+                        href={component.external_links?.github_link || ""}
                         icon={
                             <svg
                                 className="jkl-icon"
@@ -64,7 +64,7 @@ const Component = ({ component }: ComponentProps) => {
                     <Button
                         variant="secondary"
                         as="a"
-                        href={component.figma_link || ""}
+                        href={component.external_links?.figma_link || ""}
                         icon={
                             <svg
                                 className="jkl-icon"
