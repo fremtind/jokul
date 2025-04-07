@@ -1,12 +1,13 @@
 "use client";
 
-import { InfoMessage, InfoSystemMessage, Link } from "@fremtind/jokul";
-import { Button } from "@fremtind/jokul/components/button";
-import { Flex } from "@fremtind/jokul/components/flex";
-import clsx from "clsx";
-import styles from "./component.module.scss";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { ComponentBySlugQueryResult } from "@/sanity/types";
+import { Button } from "@fremtind/jokul/components/button";
+import { Flex } from "@fremtind/jokul/components/flex";
+import { Link } from "@fremtind/jokul/components/link";
+import { InfoMessage } from "@fremtind/jokul/components/message";
+import clsx from "clsx";
+import styles from "./component.module.scss";
 
 type ComponentProps = {
     component: ComponentBySlugQueryResult;
