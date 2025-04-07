@@ -1,14 +1,14 @@
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import type { PullRequest } from "@octokit/webhooks-types";
-import jsyaml from "js-yaml";
+import { load } from "js-yaml";
 import micromatch from "micromatch";
 
 async function run(): Promise<void> {
     try {
         const token = core.getInput("token", { required: true });
         const filtersInput = core.getInput("filters", { required: true });
-        const filters = jsyaml.load(filtersInput) as Record<string, string[]>;
+        const filters = load(filtersInput) as Record<string, string[]>;
 
         const pr = github.context.payload.pull_request as PullRequest;
         const files = await findChangedFiles(token, pr);
