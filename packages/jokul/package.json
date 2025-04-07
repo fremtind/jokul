@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jokul",
-    "version": "0.57.7",
+    "version": "0.57.8",
     "type": "module",
     "publishConfig": {
         "access": "public"
