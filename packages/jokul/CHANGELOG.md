@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.57.7](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.57.6...@fremtind/jokul@0.57.7) (2025-04-07)
+
+### Bug Fixes
+
+- makes sure the aria-label on File's success icon is actually exposed to ATs ([201d554](https://github.com/fremtind/jokul/commit/201d55466a64ac41f9767d45aa0911073a6194a8)), closes [#4723](https://github.com/fremtind/jokul/issues/4723)
+
 ## [0.57.3](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.57.2...@fremtind/jokul@0.57.3) (2025-03-26)
 
 ### Bug Fixes
