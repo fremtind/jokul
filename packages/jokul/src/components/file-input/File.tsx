@@ -69,6 +69,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
                 <SuccessIcon
                     variant="small"
                     aria-label="Filen ble lastet opp uten feil"
+                    aria-hidden={false}
                 />
             );
 
