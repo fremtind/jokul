@@ -1,10 +1,13 @@
+"use client";
+
+import type { WithChildren } from "@fremtind/jokul/core";
+import { useBrowserPreferences } from "@fremtind/jokul/hooks";
 import React, { useEffect, useState } from "react";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import scss from "react-syntax-highlighter/dist/esm/languages/prism/scss";
 import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
 import fremtindTheme from "./fremtindTheme";
 import fremtindThemeDark from "./fremtindThemeDark";
-import { useBrowserPreferences, type WithChildren } from "@fremtind/jokul";
 
 import styles from "./code-block.module.scss";
 
