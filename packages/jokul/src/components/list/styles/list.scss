@@ -81,19 +81,19 @@
         }
 
         &--iconed {
+            display: flex;
             list-style: none;
             position: relative;
             padding-left: 0;
 
             &::before {
-                vertical-align: middle;
-                translate: 0 -0.07em;
                 text-indent: -9999px;
                 background-size: contain;
-                display: inline-block;
                 width: 1em;
                 height: 1em;
+                flex-shrink: 0;
                 margin-right: 0.5em;
+                margin-top: 0.2em; // Vertical offset (using em for font-size scaling) to align icon properly with the first line.
             }
         }
 
