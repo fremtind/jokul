@@ -22,8 +22,6 @@
     }
 
     &:focus-visible {
-        color: var(--jkl-color);
-
         @include jkl.focus-outline;
     }
 

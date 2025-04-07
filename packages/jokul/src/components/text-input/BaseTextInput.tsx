@@ -62,11 +62,9 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
                             "jkl-text-input-action-button",
                             actionButton.props.className,
                         ),
-                        "data-theme": ariaInvalid ? "light" : undefined,
                     })}
                 {action && !actionButton && (
                     <IconButton
-                        data-theme={ariaInvalid ? "light" : undefined}
                         density={density}
                         className={clsx(
                             "jkl-text-input-action-button",
