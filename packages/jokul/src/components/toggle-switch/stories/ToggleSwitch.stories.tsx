@@ -3,7 +3,7 @@ import { ToggleSwitch as ToggleSwitchComponent } from "../ToggleSwitch.js";
 import "../styles/_index.scss";
 
 const meta = {
-    title: "Komponenter/ToggleSwitch/ToggleSwitch",
+    title: "Komponenter/ToggleSwitch",
     component: ToggleSwitchComponent,
     parameters: {
         layout: "centered",
