@@ -90,6 +90,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
         <TextInput
             label="Boareal"
             name="boareal"
+            placeholder="Fyll ut boareal"
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             labelProps={{ variant }}

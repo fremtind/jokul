@@ -23,48 +23,6 @@ $_action-button-padding--compact: 0;
 $_action-button-focus-position: jkl.rem(6px);
 $_action-button-focus-position--compact: 0;
 
-$_text-input-focus-color: jkl.$color-granitt;
-$_text-input-selection-color: color.scale(
-    $color: $_text-input-focus-color,
-    $alpha: -80%,
-);
-
-$_text-input-focus-color--inverted: jkl.$color-snohvit;
-$_text-input-selection-color--inverted: color.scale(
-    $color: $_text-input-focus-color--inverted,
-    $alpha: -75%,
-);
-
-@include jkl.light-mode-variables {
-    --jkl-text-input-border-color: #{jkl.$color-stein};
-    --jkl-text-input-text-color: #{jkl.$color-granitt};
-    --jkl-text-input-placeholder-color: #{jkl.$color-stein};
-    --jkl-text-input-unit-color: #{jkl.$color-granitt};
-    --jkl-text-input-background-color: #{jkl.$color-hvit};
-    --jkl-text-input-focus-color: #{$_text-input-focus-color};
-    --jkl-text-input-error-background-color: #{jkl.$color-feil};
-    --jkl-text-input-error-text-color: #{jkl.$color-granitt};
-    --jkl-text-input-error-placeholder-color: #{jkl.$color-stein};
-    --jkl-text-input-selection-color: #{$_text-input-selection-color};
-    --jkl-text-input-error-selection-color: #{$_text-input-selection-color};
-    --jkl-text-area-counter-count-color: #{jkl.$color-stein};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-text-input-border-color: #{jkl.$color-svaberg};
-    --jkl-text-input-text-color: #{jkl.$color-snohvit};
-    --jkl-text-input-placeholder-color: #{jkl.$color-svaberg};
-    --jkl-text-input-unit-color: #{jkl.$color-snohvit};
-    --jkl-text-input-background-color: #{jkl.$color-skifer};
-    --jkl-text-input-focus-color: #{$_text-input-focus-color--inverted};
-    --jkl-text-input-selection-color: #{$_text-input-selection-color--inverted};
-    --jkl-text-input-error-background-color: #{jkl.$color-feil};
-    --jkl-text-input-error-text-color: #{jkl.$color-granitt};
-    --jkl-text-input-error-placeholder-color: #{jkl.$color-stein};
-    --jkl-text-input-error-selection-color: #{$_text-input-selection-color};
-    --jkl-text-area-counter-count-color: #{jkl.$color-svaberg};
-}
-
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-text-input", "body");
 
@@ -101,7 +59,7 @@ $_text-input-selection-color--inverted: color.scale(
 @mixin _shared-input-styles {
     background: none;
     -webkit-appearance: none;
-    color: var(--jkl-color);
+    color: inherit;
 
     @include jkl.use-font-variables("jkl-text-input");
     @include jkl.reset-outline;
@@ -119,55 +77,21 @@ $_text-input-selection-color--inverted: color.scale(
     // Placeholder text style
     &::placeholder {
         opacity: 1;
-        color: var(--jkl-text-input-placeholder-color);
+        color: var(--placeholder-color);
     }
 
     // Color of text selection
     &::selection {
-        background-color: var(--jkl-text-input-selection-color);
-
-        [data-theme="dark"] & {
-            background-color: var(--jkl-text-input-selection-color);
-        }
-    }
-
-    //  Invalid state
-    &[aria-invalid="true"] {
-        color: var(--jkl-text-input-error-text-color);
-
-        &::placeholder {
-            color: var(--jkl-text-input-error-placeholder-color);
-        }
-
-        // Color of text selection
-        &::selection {
-            background-color: var(--jkl-text-input-error-selection-color);
-        }
-
-        & ~ .jkl-text-input-action-button {
-            color: var(--jkl-color-text-on-alert);
-
-            &:hover {
-                color: var(--jkl-text-input-error-text-color);
-            }
-
-            &:focus {
-                @include jkl.keyboard-navigation {
-                    &::after {
-                        box-shadow: inset 0 0 0 jkl.rem(2px)
-                            var(--jkl-text-input-error-text-color);
-                    }
-                }
-            }
-        }
-
-        & ~ .jkl-text-input__unit {
-            color: var(--jkl-text-input-error-text-color);
-        }
+        background-color: color(from currentColor sRGB r g b / 0.25);
     }
 }
 
 .jkl-text-input-wrapper {
+    --text-color: var(--jkl-color-text-default);
+    --background-color: var(--jkl-color-background-input-base);
+    --border-color: var(--jkl-color-border-input);
+    --placeholder-color: var(--jkl-color-text-subdued);
+
     border-radius: jkl.rem(3px);
     box-sizing: border-box;
     max-width: 100%;
@@ -181,28 +105,32 @@ $_text-input-selection-color--inverted: color.scale(
     @include jkl.motion;
     transition-property: color, box-shadow, background-color;
 
-    color: var(--jkl-text-input-text-color);
-    box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-border-color),
+    background-color: var(--background-color);
+    color: var(--text-color);
+    box-shadow: inset 0 0 0 jkl.rem(1px) var(--border-color),
         0 0 0 jkl.rem(1px) transparent;
-    background-color: transparent;
 
-    &[data-invalid="true"] {
-        background-color: var(--jkl-text-input-error-background-color);
-        color: var(--jkl-text-input-error-text-color);
+    &:focus-within {
+        --background-color: var(--jkl-color-background-input-focus);
+    }
+
+    &[data-invalid="true"]:not(:focus-within) {
+        --background-color: var(--jkl-color-background-alert-error);
+        --text-color: var(--jkl-color-text-on-alert);
+        // Vi har ingen god måte å få tak i kun light mode-versjon av subdued
+        // så vi bruker tekstfargen med litt gjennomsiktighet
+        --placeholder-color: color(from currentColor sRGB r g b / 0.75);
     }
 
     &:hover {
-        box-shadow: inset 0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color),
-            0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
-        border-color: var(--jkl-text-input-focus-color);
+        --border-color: var(--jkl-color-border-input-focus);
+
+        box-shadow: inset 0 0 0 jkl.rem(1px) var(--border-color),
+            0 0 0 jkl.rem(1px) var(--border-color);
 
         @include jkl.forced-colors-mode {
             border: jkl.rem(2px) solid ButtonText;
         }
-    }
-
-    &:focus-within {
-        background-color: var(--jkl-text-input-background-color);
     }
 
     @include jkl.keyboard-navigation {
@@ -213,11 +141,11 @@ $_text-input-selection-color--inverted: color.scale(
     }
 
     > .jkl-icon-button:focus-visible {
-        @include jkl.forced-colors-mode {
-            --jkl-color-border-action: ButtonText;
-        }
-
         @include jkl.focus-outline($offset: -8px);
+
+        @include jkl.forced-colors-mode {
+            --border-color: ButtonText;
+        }
     }
 
     > .jkl-text-input-action-button {
@@ -241,7 +169,7 @@ $_text-input-selection-color--inverted: color.scale(
         }
 
         &:hover {
-            color: var(--jkl-text-input-focus-color);
+            color: var(--jkl-color-text-interactive-hover);
 
             @include jkl.forced-colors-mode {
                 border: jkl.rem(2px) inset ButtonText;
@@ -351,7 +279,7 @@ $_text-input-selection-color--inverted: color.scale(
 
             &-count {
                 padding: var(--jkl-text-input-padding);
-                color: var(--jkl-text-area-counter-count-color);
+                color: var(--text-color);
                 @include jkl.text-style("small");
             }
 
@@ -366,7 +294,7 @@ $_text-input-selection-color--inverted: color.scale(
                     width: var(--progress-width, 100%);
                     display: block;
                     height: $progress-bar-height;
-                    background-color: var(--jkl-color);
+                    background-color: var(--border-color);
                     transition-property: width;
                     @include jkl.motion("standard", "lazy");
                 }
@@ -378,10 +306,6 @@ $_text-input-selection-color--inverted: color.scale(
             transition-delay: jkl.timing(
                 "productive"
             ); // Vent med å fade inn til feltet er ekspandert
-        }
-
-        [aria-invalid="true"] ~ .jkl-text-area__counter {
-            color: var(--jkl-text-input-error-text-color);
         }
     }
 }
