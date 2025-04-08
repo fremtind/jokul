@@ -1,7 +1,7 @@
 "use client";
 
-import { Link } from "@fremtind/jokul";
 import { Flex } from "@fremtind/jokul/components/flex";
+import { Link } from "@fremtind/jokul/components/link";
 import styles from "../component.module.scss";
 
 type ComponentFooterProps = {

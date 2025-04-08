@@ -1,8 +1,12 @@
 "use client";
 
-import { Tooltip, TooltipContent, TooltipTrigger } from "@fremtind/jokul";
 import { Button } from "@fremtind/jokul/components/button";
-import { ReactElement, ReactNode } from "react";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@fremtind/jokul/components/tooltip";
+import { ReactElement } from "react";
 
 type ComponentHeaderLinkProps = {
     name: string;
