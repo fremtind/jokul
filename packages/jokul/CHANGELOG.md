@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.58.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.57.8...@fremtind/jokul@0.58.0) (2025-04-08)
+
+### Bug Fixes
+
+- sikre korrekt innrykk for tekst i checklistitem ([69ff5da](https://github.com/fremtind/jokul/commit/69ff5dafba60e83c4197529099d199a3d33c00b3)), closes [#4673](https://github.com/fremtind/jokul/issues/4673)
+
+### BREAKING CHANGES
+
+- Fikser opp i layout issue i CheckListItem-komponenten. Når tekst i et listepunkt gikk over flere
+linjer, startet de påfølgende linjene feilaktig helt til venstre (under ikonet).
+
 ## [0.57.7](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.57.6...@fremtind/jokul@0.57.7) (2025-04-07)
 
 ### Bug Fixes
