@@ -1,9 +1,8 @@
-import { client } from "@/sanity/client";
-import { componentCardQuery } from "@/sanity/queries/component";
 import { Flex } from "@fremtind/jokul/components/flex";
 import NextLink from "next/link";
-
 import styles from "./komponenter.module.scss";
+import { client } from "@/sanity/client";
+import { componentCardQuery } from "@/sanity/queries/component";
 
 type Props = {
     componentSlug: string;
