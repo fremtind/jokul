@@ -24,6 +24,7 @@ export default defineConfig({
                 "src/**/*.test.{ts,tsx}",
                 "src/**/*.spec.{ts,tsx}",
                 "src/components/**/development/*",
+                "src/components/**/stories/**",
             ],
             entryRoot: "./src",
             outDir: ["./build/es", "./build/cjs"],

@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
+import "../../input-group/styles/_index.scss";
+import "../../text-input/styles/text-input.scss";
 import { TextInput } from "../../text-input/TextInput.js";
-import { IconExample } from "../development/internal/IconExample.js";
-import { IconsExampleGrid } from "../development/internal/IconsExampleGrid.js";
 import { Icon } from "../Icon.js";
 import {
     ArrowDownIcon,
@@ -39,8 +39,8 @@ import {
     WarningIcon,
 } from "../index.js";
 import "../styles/_index.scss";
-import "../../text-input/styles/text-input.scss";
-import "../../input-group/styles/_index.scss";
+import { IconExample } from "./internal/IconExample.js";
+import { IconsExampleGrid } from "./internal/IconsExampleGrid.js";
 
 const meta: Meta = {
     title: "Komponenter/Ikoner",
