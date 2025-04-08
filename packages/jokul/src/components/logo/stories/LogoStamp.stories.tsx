@@ -21,4 +21,7 @@ export const LogoStamp: Story = {
         children: <FraSB1ogDNB />,
         title: "Fra SB1 og DNB",
     },
+    render: ({ ...args }) => (
+        <LogoStampComponent {...args} style={{ width: "100%" }} />
+    ),
 };
