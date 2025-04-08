@@ -17,6 +17,19 @@ import {
     expandButtonSizesExampleCode,
 } from "./ExpandButtonSizesExample";
 
+import { WarningTag } from "@fremtind/jkl-tag-react";
+import { Link } from "@fremtind/jkl-core";
+
+<div
+    style={{ display: "flex", flexDirection: "row", gap: 8, marginBottom: 16 }}
+>
+    <WarningTag lang="en">Deprecated</WarningTag>
+    <p>
+        Bruk heller Expander fra{" "}
+        <Link href="/komponenter/expandable">ExpandablePanel</Link>
+    </p>
+</div>
+
 <Ingress>
     Med en ExpandButton kan vi presentere mye innhold på liten plass. Knappen
     kan brukes frittstående, og styre ekspandering av innhold som ikke er
