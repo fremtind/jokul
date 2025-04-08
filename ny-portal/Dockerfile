@@ -30,7 +30,11 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
+ARG SANITY_PROJECT_ID
+ARG SANITY_DATASET
+ARG NEXT_PUBLIC_STORYBOOK_BASE_URL
 RUN \
+  --mount=type=secret,id=FIGMA_IMAGE_READ_TOKEN,env=FIGMA_IMAGE_READ_TOKEN \
   if [ -f yarn.lock ]; then yarn run build; \
   elif [ -f package-lock.json ]; then npm run build; \
   elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
