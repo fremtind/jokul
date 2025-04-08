@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-text-input",
-    "version": "12.1.44",
+    "version": "12.1.45",
     "publishConfig": {
         "access": "public"
     },
