@@ -5,9 +5,9 @@ import type {
 import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import type { FC } from "react";
-import { Storybook } from "./storybook-story/Storybook";
-import { ListItem, OrderedList, UnorderedList } from "./list";
 import { Link } from "./link/Link";
+import { ListItem, OrderedList, UnorderedList } from "./list";
+import { Storybook } from "./storybook-story/Storybook";
 import { CodeBlock, InlineCode } from "./typography/Typography";
 
 interface Props {

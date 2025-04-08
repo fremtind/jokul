@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import stories from "@storybook-index";
+import { NextResponse } from "next/server";
 
 export async function GET() {
     // hent ut id, name og title fra stories

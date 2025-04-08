@@ -1,12 +1,11 @@
-import type { FC } from "react";
 import {
     PortableTextComponentProps,
     PortableTextMarkComponentProps,
 } from "next-sanity";
+import type { FC } from "react";
 import { CodeBlock as FTCodeBlock } from "../code-block";
-import { Jokul_codeBlock } from "@/sanity/types";
-
 import styles from "./typography.module.scss";
+import { Jokul_codeBlock } from "@/sanity/types";
 
 type InlineCode = PortableTextMarkComponentProps<any>;
 
