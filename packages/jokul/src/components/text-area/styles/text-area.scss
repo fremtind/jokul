@@ -70,7 +70,7 @@
 
             &-count {
                 padding: var(--jkl-text-input-padding);
-                color: var(--jkl-text-area-counter-count-color);
+                color: var(--text-color);
                 @include jkl.text-style("small");
             }
 
@@ -85,7 +85,7 @@
                     width: var(--progress-width, 100%);
                     display: block;
                     height: $progress-bar-height;
-                    background-color: var(--jkl-color);
+                    background-color: var(--border-color);
                     transition-property: width;
                     @include jkl.motion("standard", "lazy");
                 }
@@ -97,10 +97,6 @@
             transition-delay: jkl.timing(
                 "productive"
             ); // Vent med å fade inn til feltet er ekspandert
-        }
-
-        [aria-invalid="true"] ~ .jkl-text-area__counter {
-            color: var(--jkl-text-input-error-text-color);
         }
     }
 }
