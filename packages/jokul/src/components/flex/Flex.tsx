@@ -151,7 +151,7 @@ export const Flex: FlexComponent = forwardRef(function Flex<
                 !text || `text-${text}`,
                 !wrap || `wrap-${wrap}`,
                 "flex",
-                "direction",
+                direction,
                 ...gaps,
                 ...layouts,
                 className,

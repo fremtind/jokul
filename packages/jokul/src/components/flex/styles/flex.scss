@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../core/jkl/" as jkl;
 
 :root {
     --container-md: 43.75rem;

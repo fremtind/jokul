@@ -1,6 +1,7 @@
 import { Meta, StoryObj, StoryFn } from "@storybook/react";
 import React from "react";
 import { Flex } from "../Flex.js";
+import "../styles/_index.scss";
 
 const meta = {
     title: "Komponenter/Flex",
@@ -166,6 +167,12 @@ const meta = {
             ],
             description: "Change `justify-content`",
         },
+        text: {
+            control: "inline-radio",
+            options: ["left", "center", "right"],
+            description: "Change `text-align`",
+            table: { defaultValue: { summary: "'left'" } },
+        },
         wrap: {
             control: "inline-radio",
             options: ["wrap", "nowrap", "reverse"],
@@ -208,18 +215,17 @@ export default meta;
 
 const decorators = [
     (Story: StoryFn) => (
-        <>
-            <div className="flex-decorator">
-                <style>{`
+        <div className="flex-decorator flex">
+            <style>{`
+            #storybook-root { width: 1400px }
             .sbdocs-preview > .docs-story > * { flex-direction: row }
             .sbdocs-preview > .docs-story > * > * { flex-grow: 1 }
             .sb-show-main.sb-main-padded { padding-inline: 0!important }
             :where(.flex-decorator div) { outline: 1px dashed rgba(0,0,0,.3) } /* Show grid columns */
             * { box-sizing: border-box }
             `}</style>
-                <Story />
-            </div>
-        </>
+            <Story />
+        </div>
     ),
 ];
 
@@ -239,114 +245,80 @@ export const Default: Story = {
                 <div>4</div>
                 <div>5</div>
                 <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+                <div>11</div>
+                <div>12</div>
             </Flex>
         );
     },
 };
 
-export const PredefinedLayouts: Story = {
-    decorators: decorators.concat([
-        (Story) => (
-            <Flex fill align="center" className="flexer">
-                <style>{`
-            .flexer { outline: 0 }
-            .flexer > * { width: calc(100% - 100px) }
-            .flexer > code { width: 50px; outline: 0; font-size: .875rem; padding-left: 1rem }
-          `}</style>
-                <Story />
-            </Flex>
-        ),
-    ]),
+export const Responsive: Story = {
+    decorators,
     render(args) {
         return (
-            <>
-                <code />
-                <p>
-                    Layouts with equal width is named to correlate with the
-                    count of items you want per row, as this gives a consistent
-                    experience when nesting:
-                </p>
-                <code>auto:</code>
-                <Flex {...args} layout="auto">
-                    <div>a</div>
+            <Flex as="main" direction="column" gap="xl">
+                <Flex
+                    {...args}
+                    layout={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 6 }}
+                    gap={{ xs: "none", sm: "sm", md: "md", lg: "xl" }}
+                >
+                    <div>Child 1</div>
+                    <div>Child 2</div>
+                    <div>Child 3</div>
+                    <div>Child 4</div>
+                    <div>Child 5</div>
+                    <div>Child 6</div>
                 </Flex>
-                <code>1:</code>
-                <Flex {...args} layout="1">
-                    <div>a</div>
+                <Flex
+                    {...args}
+                    layout={{ xs: 1, sm: 7.5, md: 8.4, lg: 2 }}
+                    gap={{ xs: "none", sm: "sm", md: "md", lg: "xl" }}
+                >
+                    <div>Child even and uneven widths 1</div>
+                    <div>Child even and uneven widths 2</div>
                 </Flex>
-                <code>2:</code>
-                <Flex {...args} layout="2">
-                    <div>a</div>
-                    <div>b</div>
+                <span>
+                    Resize browser to see how the layout changes, based on this
+                    setup:
+                    <pre>
+                        {`<Flex\n  layout={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 6 }}\n  gap={{ xs: 'none', sm: 'sm', md: 'md', lg: 'xl' }}\n>`}
+                    </pre>
+                </span>
+            </Flex>
+        );
+    },
+};
+
+export const Nested: Story = {
+    decorators,
+    render(args) {
+        return (
+            <Flex {...args} layout="4.8" gap="xl">
+                <div>
+                    Sidebar
+                    <Flex layout="2" gap="xl">
+                        <div>Child 1</div>
+                        <div>Child 2</div>
+                    </Flex>
+                </div>
+                <Flex {...args} layout="2" gap="none">
+                    <div>Child 1</div>
+                    <Flex {...args} layout="3">
+                        <div>Child 2-1</div>
+                        <div>Child 2-2</div>
+                        <div>Child 2-3</div>
+                        <div>Child 2-4</div>
+                        <div>Child 2-5</div>
+                        <div>Child 2-6</div>
+                    </Flex>
+                    <div>Child 3</div>
+                    <div>Child 4</div>
                 </Flex>
-                <code>3:</code>
-                <Flex {...args} layout="3">
-                    <div>a</div>
-                    <div>b</div>
-                    <div>c</div>
-                </Flex>
-                <code>4:</code>
-                <Flex {...args} layout="4">
-                    <div>a</div>
-                    <div>b</div>
-                    <div>c</div>
-                    <div>d</div>
-                </Flex>
-                <code>6:</code>
-                <Flex {...args} layout="6">
-                    <div>a</div>
-                    <div>b</div>
-                    <div>b</div>
-                    <div>c</div>
-                    <div>d</div>
-                    <div>e</div>
-                </Flex>
-                <code />
-                <p>
-                    Layouts with uneven width, is named based on a 12-column
-                    grid to correlate with how designers work in Figma:
-                </p>
-                <code>10.2:</code>
-                <Flex {...args} layout="10.2">
-                    <div>a</div>
-                    <div>b</div>
-                </Flex>
-                <code>9.3:</code>
-                <Flex {...args} layout="9.3">
-                    <div>a</div>
-                    <div>b</div>
-                </Flex>
-                <code>8.4:</code>
-                <Flex {...args} layout="8.4">
-                    <div>a</div>
-                    <div>b</div>
-                </Flex>
-                <code>7.5:</code>
-                <Flex {...args} layout="7.5">
-                    <div>a</div>
-                    <div>b</div>
-                </Flex>
-                <code>5.7:</code>
-                <Flex {...args} layout="5.7">
-                    <div>a</div>
-                    <div>b</div>
-                </Flex>
-                <code>4.8:</code>
-                <Flex {...args} layout="4.8">
-                    <div>a</div>
-                    <div>b</div>
-                </Flex>
-                <code>3.9:</code>
-                <Flex {...args} layout="3.9">
-                    <div>a</div>
-                    <div>b</div>
-                </Flex>
-                <code>2.10:</code>
-                <Flex {...args} layout="2.10">
-                    <div>a</div>
-                    <div>b</div>
-                </Flex>
-            </>
+            </Flex>
         );
     },
 };
