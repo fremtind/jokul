@@ -21,46 +21,39 @@ function generateFigmaImageRequestUrl(frameLink: string) {
     return `https://api.figma.com/v1/images/${fileId}?ids=${frameId}&format=svg&scale=4`;
 }
 
+const requestOptions: RequestInit = {
+    headers: [["X-FIGMA-TOKEN", process.env.FIGMA_IMAGE_READ_TOKEN || ""]],
+};
+
+function logFetchError(reason: any) {
+    console.error(`Feilet under henting av thumbnail fra Figma`, reason);
+
+    return undefined;
+}
+
+function fetchFigmaThumbnail(frameLink?: string) {
+    if (!frameLink) {
+        return new Promise(() => undefined);
+    }
+
+    return fetch(generateFigmaImageRequestUrl(frameLink), requestOptions)
+        .then((response) => response.json().then((data) => data.images[0]))
+        .catch(logFetchError);
+}
+
 async function getFigmaImageUrls(figma_image: {
     light_mode?: string;
     dark_mode?: string;
 }) {
-    if (!figma_image.light_mode && !figma_image.dark_mode) {
-        return [
-            "/component_placeholder_light.svg",
-            "/component_placeholder_dark.svg",
-        ];
-    }
+    const [lightThumb, darkThumb] = await Promise.all([
+        fetchFigmaThumbnail(figma_image.light_mode),
+        fetchFigmaThumbnail(figma_image.dark_mode),
+    ]);
 
-    const requestOptions: RequestInit = {
-        headers: [["X-FIGMA-TOKEN", process.env.FIGMA_IMAGE_READ_TOKEN || ""]],
-    };
-
-    const NO_IMAGE = {
-        images: {
-            none: "none.jpg",
-        },
-    };
-
-    const fetchLightImage = figma_image.light_mode
-        ? fetch(
-              generateFigmaImageRequestUrl(figma_image.light_mode),
-              requestOptions,
-          ).then((response) => response.json())
-        : new Promise(() => NO_IMAGE);
-
-    const fetchDarkImage = figma_image.dark_mode
-        ? fetch(
-              generateFigmaImageRequestUrl(figma_image.dark_mode),
-              requestOptions,
-          ).then((response) => response.json())
-        : new Promise(() => NO_IMAGE);
-
-    const responses = await Promise.all([fetchLightImage, fetchDarkImage]);
-
-    return responses.map(
-        (response) => Object.values(response.images)[0] as string,
-    );
+    return [
+        lightThumb || "/component_placeholder_light.svg",
+        darkThumb || "/component_placeholder_dark.svg",
+    ];
 }
 
 export const ComponentCard = async ({ componentSlug }: Props) => {
