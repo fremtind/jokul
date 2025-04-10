@@ -215,13 +215,10 @@ export default meta;
 
 const decorators = [
     (Story: StoryFn) => (
-        <div className="flex-decorator flex">
+        <div className="flex-decorator">
             <style>{`
-            #storybook-root { width: 1400px }
-            .sbdocs-preview > .docs-story > * { flex-direction: row }
-            .sbdocs-preview > .docs-story > * > * { flex-grow: 1 }
-            .sb-show-main.sb-main-padded { padding-inline: 0!important }
-            :where(.flex-decorator div) { outline: 1px dashed rgba(0,0,0,.3) } /* Show grid columns */
+            #storybook-root { width: 1900px }
+            .jkl-flex div:not(:only-child):not(.jkl-flex) { outline: 1px dashed rgba(0,0,0,.3) } /* Show grid columns */
             * { box-sizing: border-box }
             `}</style>
             <Story />
@@ -232,7 +229,7 @@ const decorators = [
 export const Default: Story = {
     decorators,
     args: {
-        center: true,
+        center: "md",
         layout: 6,
         gap: "xl",
     },
@@ -317,6 +314,107 @@ export const Nested: Story = {
                     </Flex>
                     <div>Child 3</div>
                     <div>Child 4</div>
+                </Flex>
+            </Flex>
+        );
+    },
+};
+
+export const Fill: Story = {
+    decorators,
+    render(args) {
+        return (
+            <>
+                <p>
+                    <strong>Without fill and layout=&apos;4&apos;:</strong>
+                </p>
+                <Flex {...args} layout="4">
+                    <div>a</div>
+                    <div>b</div>
+                    <div>
+                        Praesent elit lorem, fringilla non venenatis auctor,
+                        fermentum sed elit. Nulla bibendum posuere convallis.
+                        Proin scelerisque mattis pharetra.
+                    </div>
+                    <div>d</div>
+                    <div>e - notice this item follows layout</div>
+                    <div>f - notice this item follows layout</div>
+                </Flex>
+                <p>
+                    <strong>With fill and layout=&apos;4&apos;:</strong>
+                </p>
+                <Flex {...args} layout="4" fill>
+                    <div>a</div>
+                    <div>b</div>
+                    <div>
+                        Praesent elit
+                        lorem,fringillanonvenenatisauctor,fermentumsedelit.
+                        Nulla bibendum posuere convallis. Proin scelerisque
+                        mattis pharetra.
+                    </div>
+                    <div>d</div>
+                    <div>e - notice this item fills width</div>
+                    <div>f - notice this item fills width</div>
+                </Flex>
+            </>
+        );
+    },
+};
+
+export const Center: Story = {
+    decorators: decorators.concat([
+        (Story) => (
+            <>
+                <style>{`
+            /* Set same size for all items in 12 column example */
+            #example > * { flex-basis: 0 }
+            code { display: block }
+          `}</style>
+                <Story />
+            </>
+        ),
+    ]),
+    args: {
+        center: true,
+        gap: "lg",
+    },
+    render(args) {
+        return (
+            <Flex center>
+                <Flex {...args} id="example">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </Flex>
+                <Flex {...args} center="xxl">
+                    <div>
+                        <code>
+                            &lt;Flex center&gt; | &lt;Flex
+                            center=&apos;xxl&apos;&gt;
+                        </code>
+                        <small>= 12 units wide on xxl breakpoint</small>
+                    </div>
+                </Flex>
+                <Flex {...args} center="xl">
+                    <div>
+                        <code>&lt;Flex center=&apos;xl&apos;&gt;</code>
+                        <small>= 10 units wide on xxl breakpoint</small>
+                    </div>
+                </Flex>
+                <Flex {...args} center="lg">
+                    <div>
+                        <code>&lt;Flex center=&apos;lg&apos;&gt;</code>
+                        <small>= 8 units wide on xxl breakpoint</small>
+                    </div>
+                </Flex>
+                <Flex {...args} center="md">
+                    <div>
+                        <code>&lt;Flex center=&apos;md&apos;&gt;</code>
+                        <small>= 6 units wide on xxl breakpoint</small>
+                    </div>
                 </Flex>
             </Flex>
         );
