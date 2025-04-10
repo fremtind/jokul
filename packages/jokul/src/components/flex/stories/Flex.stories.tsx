@@ -218,7 +218,7 @@ const decorators = [
         <div className="flex-decorator">
             <style>{`
             #storybook-root { width: 1900px }
-            .jkl-flex div:not(:only-child):not(.jkl-flex) { outline: 1px dashed rgba(0,0,0,.3) } /* Show grid columns */
+            .flex-decorator div { outline: 1px dashed rgba(0,0,0,.3) } /* Show grid columns */
             * { box-sizing: border-box }
             `}</style>
             <Story />
@@ -367,7 +367,6 @@ export const Center: Story = {
             <>
                 <style>{`
             /* Set same size for all items in 12 column example */
-            #example > * { flex-basis: 0 }
             code { display: block }
           `}</style>
                 <Story />
@@ -377,11 +376,12 @@ export const Center: Story = {
     args: {
         center: true,
         gap: "lg",
+        layout: 1,
     },
     render(args) {
         return (
             <Flex center>
-                <Flex {...args} id="example">
+                <Flex {...args} id="example" layout="6">
                     <div>1</div>
                     <div>2</div>
                     <div>3</div>
