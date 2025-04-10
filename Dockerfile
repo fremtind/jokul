@@ -12,7 +12,6 @@ RUN microdnf install tar -y
 RUN microdnf install findutils -y
 
 FROM base AS dependencies
-ARG SANITY_PROJECT_ID
 
 WORKDIR /app
 COPY package.json .
@@ -27,7 +26,9 @@ RUN pnpm install --frozen-lockfile
 RUN find . -name 'node_modules' -print0 | tar -cf node_modules.tar --null --files-from -
 
 FROM base AS builder
-ARG SANITY_PROJECT_ID
+ARG SANITY_PROJECT_ID=rppnrdtw
+ARG SANITY_DATASET=test
+ARG NEXT_PUBLIC_STORYBOOK_BASE_URL=/storybook
 
 WORKDIR /app
 COPY --from=dependencies /app/node_modules.tar ./node_modules.tar
@@ -35,7 +36,13 @@ COPY . .
 RUN tar -xf node_modules.tar 
 RUN pnpm --filter "@fremtind/jokul" build
 RUN pnpm build-storybook
-RUN pnpm --filter "ny-portal" build
+
+ENV SANITY_PROJECT_ID=$SANITY_PROJECT_ID
+ENV SANITY_DATASET=$SANITY_DATASET
+ENV NEXT_PUBLIC_STORYBOOK_BASE_URL=$NEXT_PUBLIC_STORYBOOK_BASE_URL
+RUN \ 
+  --mount=type=secret,id=FIGMA_IMAGE_READ_TOKEN,env=FIGMA_IMAGE_READ_TOKEN \
+  pnpm --filter "ny-portal" build
 
 FROM base AS runner
 
