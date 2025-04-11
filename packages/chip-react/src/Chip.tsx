@@ -1,6 +1,6 @@
 import { CheckIcon, CloseIcon } from "@fremtind/jkl-icons-react";
 import cl from "classnames";
-import React, { forwardRef, HTMLAttributes } from "react";
+import React, { forwardRef, ButtonHTMLAttributes } from "react";
 
 type Size = "small" | "large";
 
@@ -16,7 +16,7 @@ export type ChipVariant =
           size?: Size;
       };
 
-export type ChipProps = ChipVariant & HTMLAttributes<HTMLButtonElement>;
+export type ChipProps = ChipVariant & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
     {
@@ -32,6 +32,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
 ) {
     return (
         <button
+            type="button"
             ref={ref}
             className={cl(
                 "jkl-chip",

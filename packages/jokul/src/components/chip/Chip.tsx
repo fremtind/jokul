@@ -18,6 +18,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
 ) {
     return (
         <button
+            type="button"
             ref={ref}
             className={clsx(
                 "jkl-chip",

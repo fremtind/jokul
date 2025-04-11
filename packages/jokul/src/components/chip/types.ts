@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 
 type Size = "small" | "large";
 
@@ -14,4 +14,4 @@ export type ChipVariant =
           size?: Size;
       };
 
-export type ChipProps = ChipVariant & HTMLAttributes<HTMLButtonElement>;
+export type ChipProps = ChipVariant & ButtonHTMLAttributes<HTMLButtonElement>;
