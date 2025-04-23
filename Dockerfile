@@ -1,4 +1,4 @@
-FROM docker.intern.sparebank1.no/base/cicd-container-base-images/node22-ubi9-minimal:latest AS base
+FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-images/node22-ubi9-minimal:latest AS base
 
 WORKDIR /app
 USER root
