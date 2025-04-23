@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.58.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.58.1...@fremtind/jokul@0.58.2) (2025-04-23)
+
+### Bug Fixes
+
+- sørg for at datepicker beholder omriss med åpen velger ([95d62e3](https://github.com/fremtind/jokul/commit/95d62e35026fd787febb32417cf5d31f6cfd0d4d))
+
 # [0.58.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.57.8...@fremtind/jokul@0.58.0) (2025-04-08)
 
 ### Bug Fixes
