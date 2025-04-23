@@ -26,7 +26,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Tooltip: Story = {
     args: {
-        children: <p>eee</p>,
+        children: <p>Klikk for å kopiere til utklippstavlen</p>,
         delay: 2000,
         initialOpen: false,
         placement: "top",
@@ -36,8 +36,10 @@ export const Tooltip: Story = {
         <p>
             Kontonummer:{" "}
             <TooltipComponent {...args}>
-                <TooltipTrigger>eeeeee</TooltipTrigger>
-                <TooltipContent>eee</TooltipContent>
+                <TooltipTrigger>602 44 54979</TooltipTrigger>
+                <TooltipContent>
+                    Klikk for å kopiere til utklippstavlen
+                </TooltipContent>
             </TooltipComponent>
         </p>
     ),
