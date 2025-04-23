@@ -99,6 +99,7 @@ export const component = defineType({
                 { type: "block" },
                 { type: "image" },
                 { type: "jokul_componentProps" },
+                { type: "jokul_componentKortFortalt" },
                 { type: "jokul_codeExample" },
                 { type: "jokul_storybook" },
                 { type: "jokul_codeBlock" },
