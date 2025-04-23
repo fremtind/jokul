@@ -36,7 +36,7 @@ export const Tooltip: Story = {
         <p>
             Kontonummer:{" "}
             <TooltipComponent {...args}>
-                <TooltipTrigger>602 44 54979</TooltipTrigger>
+                <TooltipTrigger>1602 44 54979</TooltipTrigger>
                 <TooltipContent>
                     Klikk for å kopiere til utklippstavlen
                 </TooltipContent>
