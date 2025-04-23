@@ -5,6 +5,7 @@ import type {
 import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import type { FC } from "react";
+import { KortFortalt } from "./kort-fortalt/KortFortalt";
 import { Link } from "./link/Link";
 import { ListItem, OrderedList, UnorderedList } from "./list";
 import { Storybook } from "./storybook-story/Storybook";
@@ -19,6 +20,7 @@ const portableTextComponents: Record<
     FC<PortableTextComponentProps<any>>
 > = {
     jokul_storybook: Storybook,
+    jokul_componentKortFortalt: KortFortalt,
     jokul_codeBlock: CodeBlock,
 };
 
@@ -34,6 +36,12 @@ export const baseComponentDefinition: Partial<PortableTextReactComponents> = {
     },
     marks: {
         link: Link,
+        internalLink: ({ value, children }) => {
+            const { slug = {} } = value;
+            const href = `/${slug.current}`;
+            console.log(value);
+            return <a href={href}>{children}</a>;
+        },
         code: InlineCode,
     },
 };
