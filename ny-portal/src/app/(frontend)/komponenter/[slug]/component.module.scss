@@ -5,6 +5,7 @@
     box-sizing: border-box;
     width: 100%;
     padding-inline: var(--jkl-spacing-16);
+    container-type: inline-size;
 
     @media (min-width: #{jkl.$breakpoint-large}) {
         padding-inline: var(--jkl-spacing-104);
@@ -15,6 +16,16 @@
     border-radius: var(--jkl-spacing-16);
     background: var(--jkl-color-background-container-low);
     padding: var(--jkl-spacing-16);
+    flex-direction: column;
+    gap: jkl.$spacing-24;
+
+    @container (min-width: 70rch) {
+        flex-direction: row;
+    }
+
+    @media (min-width: #{jkl.$breakpoint-medium}) {
+        padding: var(--jkl-spacing-40);
+    }
 
     @media (min-width: #{jkl.$breakpoint-large}) {
         padding: var(--jkl-spacing-104);
@@ -31,7 +42,7 @@
     }
 
     .short_description {
-        margin-block: var(--jkl-spacing-24);
+        margin-block-start: var(--jkl-spacing-24);
         max-width: 60ch;
 
         @include jkl.text-style("body") {
@@ -50,8 +61,24 @@
     }
 }
 
+.article {
+    container-type: inline-size;
+}
+
 .wrapper {
-    margin-block-start: var(--jkl-spacing-40);
+    margin-block-start: var(--jkl-spacing-64);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    > * {
+        grid-column: 1 / -1;
+    }
+
+    @container (min-width: 80rch) {
+        > *:is(p, h2, h3) {
+            grid-column: 1 / 11;
+        }
+    }
 }
 
 .footer {
@@ -62,14 +89,4 @@
 
 .feedbackCard {
     max-width: 520px;
-}
-
-@include jkl.small-device {
-    .header {
-        flex-direction: column;
-
-        .external_links {
-            align-self: end;
-        }
-    }
 }

@@ -18,33 +18,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--jkl-unit-30);
-    padding-inline: clamp(
-        var(--jkl-unit-20),
-        0.1429rem + 4.2857vw,
-        var(--jkl-unit-80)
-    );
-
+    padding: jkl.$spacing-16;
     max-width: var(--max-width);
-    margin-inline: auto;
-        
-    @media (min-width: #{jkl.$breakpoint-large}) {
+
+    @media (width >= 940px) {
         flex-direction: row;
     }
 }
 
 main {
-    padding-block: clamp(
-            var(--jkl-unit-30),
-            1.2143rem + 1.4286vw,
-            var(--jkl-unit-50)
-        )
-        var(--jkl-unit-80);
     flex-grow: 1;
-    
-    @media (min-width: #{jkl.$breakpoint-large}) {
-        max-width: 1000px; // Begrenser innholdets maksbredde for å skape luft mot navigasjonen (total layout = 1440px).
-        margin-left: auto;
-    }
 }
 
 .prose {
@@ -67,7 +50,13 @@ h3,
 h4,
 h5 {
     &:not(:first-child) {
-        margin-block-start: var(--jkl-unit-130);
+        margin-block-start: var(--jkl-unit-60);
+    }
+
+    @media (min-width: #{jkl.$breakpoint-large}) {
+        &:not(:first-child) {
+            margin-block-start: var(--jkl-unit-130);
+        }
     }
 }
 
