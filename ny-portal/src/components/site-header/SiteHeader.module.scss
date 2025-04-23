@@ -6,6 +6,7 @@
         1.2143rem + 1.4286vw,
         var(--jkl-spacing-40)
     );
+    padding-inline: var(--jkl-spacing-4);
 
     div.banner {
         width: 100%;
@@ -36,7 +37,7 @@
             padding-block-end: var(--jkl-spacing-64);
 
             li {
-                padding: 0;
+                padding: var(--jkl-spacing-4);
             }
 
             li.listHeading:first-of-type {
