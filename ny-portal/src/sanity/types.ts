@@ -68,6 +68,62 @@ export type Geopoint = {
     alt?: number;
 };
 
+export type Jokul_componentKortFortalt = {
+    _type: "jokul_componentKortFortalt";
+    bruk?: Array<{
+        bruk_punkt?: Array<{
+            children?: Array<{
+                marks?: Array<string>;
+                text?: string;
+                _type: "span";
+                _key: string;
+            }>;
+            style?: "normal";
+            listItem?: never;
+            markDefs?: Array<{
+                reference?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "jokul_component";
+                };
+                _type: "internalLink";
+                _key: string;
+            }>;
+            level?: number;
+            _type: "block";
+            _key: string;
+        }>;
+        _key: string;
+    }>;
+    ikke_bruk?: Array<{
+        ikke_bruk_punkt?: Array<{
+            children?: Array<{
+                marks?: Array<string>;
+                text?: string;
+                _type: "span";
+                _key: string;
+            }>;
+            style?: "normal";
+            listItem?: never;
+            markDefs?: Array<{
+                reference?: {
+                    _ref: string;
+                    _type: "reference";
+                    _weak?: boolean;
+                    [internalGroqTypeReferenceTo]?: "jokul_component";
+                };
+                _type: "internalLink";
+                _key: string;
+            }>;
+            level?: number;
+            _type: "block";
+            _key: string;
+        }>;
+        _key: string;
+    }>;
+};
+
 export type Jokul_storybookStory = {
     _type: "jokul_storybookStory";
     storyId?: string;
@@ -173,6 +229,9 @@ export type Jokul_component = {
           } & Jokul_componentProps)
         | ({
               _key: string;
+          } & Jokul_componentKortFortalt)
+        | ({
+              _key: string;
           } & Jokul_codeExample)
         | ({
               _key: string;
@@ -252,6 +311,7 @@ export type AllSanitySchemaTypes =
     | SanityImageDimensions
     | SanityFileAsset
     | Geopoint
+    | Jokul_componentKortFortalt
     | Jokul_storybookStory
     | Jokul_storybook
     | Jokul_codeBlock
@@ -311,6 +371,9 @@ export type ComponentBySlugQueryResult = {
         | ({
               _key: string;
           } & Jokul_codeExample)
+        | ({
+              _key: string;
+          } & Jokul_componentKortFortalt)
         | ({
               _key: string;
           } & Jokul_componentProps)

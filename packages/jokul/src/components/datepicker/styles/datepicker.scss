@@ -40,15 +40,6 @@
         z-index: jkl.$z-index--dropdown;
     }
 
-    &--open {
-        .jkl-text-input-wrapper {
-            box-shadow: inset 0 0 0 jkl.rem(1px)
-                    var(--jkl-text-input-focus-color),
-                0 0 0 jkl.rem(1px) var(--jkl-text-input-focus-color);
-            border-color: var(--jkl-text-input-focus-color);
-        }
-    }
-
     @include jkl.small-device {
         &__calendar-wrapper {
             left: -1.15rem;

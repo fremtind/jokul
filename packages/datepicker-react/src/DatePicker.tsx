@@ -252,9 +252,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         return (
             <InputGroup
                 id={id}
-                className={cn("jkl-datepicker", className, {
-                    "jkl-datepicker--open": showCalendar,
-                })}
+                className={cn("jkl-datepicker", className)}
                 {...rest}
                 ref={datepickerRef}
                 label={label}
@@ -266,6 +264,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                 tooltip={tooltip}
                 render={(inputProps) => (
                     <BaseTextInput
+                        data-focused={showCalendar ? "true" : undefined}
                         ref={unifiedInputRef}
                         data-testid="jkl-datepicker__input"
                         data-testautoid={testAutoId}
