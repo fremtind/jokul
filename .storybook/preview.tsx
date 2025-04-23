@@ -10,7 +10,7 @@ const preview: Preview = {
     },
     initialGlobals: {
         theme: themes[0], // Automatisk dark/light
-        backgrounds: { value: "Page variant" },
+        backgrounds: { value: "page" },
     },
     decorators: [themeDecorator],
     parameters: {
