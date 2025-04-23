@@ -40,8 +40,11 @@ main {
         )
         var(--jkl-unit-80);
     flex-grow: 1;
-    max-width: 1000px; // Begrenser innholdets maksbredde for å skape luft mot navigasjonen (total layout = 1440px).
-    margin-left: auto;
+    
+    @media (min-width: #{jkl.$breakpoint-large}) {
+        max-width: 1000px; // Begrenser innholdets maksbredde for å skape luft mot navigasjonen (total layout = 1440px).
+        margin-left: auto;
+    }
 }
 
 .prose {
