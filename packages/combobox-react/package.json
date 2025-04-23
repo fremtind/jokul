@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-combobox-react",
-    "version": "2.3.97",
+    "version": "2.3.98",
     "publishConfig": {
         "access": "public"
     },
@@ -36,7 +36,7 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-chip-react": "^1.0.16",
+        "@fremtind/jkl-chip-react": "^1.0.17",
         "@fremtind/jkl-combobox": "^2.2.40",
         "@fremtind/jkl-core": "^14.10.5",
         "@fremtind/jkl-icon-button-react": "^5.0.40",
