@@ -20,8 +20,10 @@ export default function PortalLayout({ children }: Props) {
                 >
                     Hopp til innhold
                 </Link>
-                <SiteHeader />
-                <main>{children}</main>
+                <div className="jkl-portal-layout">
+                    <SiteHeader />
+                    <main>{children}</main>
+                </div>
             </body>
         </html>
     );
