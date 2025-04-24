@@ -63,9 +63,13 @@ export const ComponentCard = async ({ componentSlug }: Props) => {
 
     if (!component) return null;
 
-    const [lightImage, darkImage] = await getFigmaImageUrls(
-        component.figma_image || {},
-    );
+    // Bruk placeholderbilde midlertidig, mens vi finner ut av problemene
+    // med å hente figma-bilder under bygging av applikasjonen.
+    // Bruk getFigmaImageUrls for å hente figma-bilder når det er fikset.
+    const [lightImage, darkImage] = [
+        "/component_placeholder_light.svg",
+        "/component_placeholder_dark.svg",
+    ];
 
     return (
         <Flex
