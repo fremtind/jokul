@@ -31,7 +31,7 @@
         "@types/mdx": "^2.0.13",
         "clsx": "^2.1.1",
         "cross-env": "^7.0.3",
-        "dompurify": "^3.2.4",
+        "dompurify": "^3.2.5",
         "graphql": "^16.8.1",
         "next": "15.2.4",
         "next-sanity": "^9.10.2",
@@ -40,18 +40,18 @@
         "react-live": "^4.1.8",
         "sanity": "^3.86.1",
         "sharp": "0.32.6",
-        "styled-components": "^6.1.15"
+        "styled-components": "^6.1.17"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.1",
         "@fremtind/browserslist-config-jkl": "^2.0.1",
-        "@types/node": "^22.5.4",
-        "@types/react": "^18.3.1",
-        "@types/react-dom": "^18.3.1",
-        "eslint": "^9.16.0",
+        "@types/node": "^22.14.1",
+        "@types/react": "^18.3.20",
+        "@types/react-dom": "^18.3.6",
+        "eslint": "^9.25.1",
         "eslint-config-next": "15.1.0",
-        "prettier": "^3.4.2",
-        "typescript": "^5.7.2"
+        "prettier": "^3.5.3",
+        "typescript": "^5.8.3"
     },
     "engines": {
         "node": ">=21.0.0"
