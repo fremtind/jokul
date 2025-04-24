@@ -26,6 +26,7 @@ export const ComponentHeaderLink = ({
                     variant="secondary"
                     as="a"
                     target="_blank"
+                    rel="noopener noreferrer"
                     href={href}
                     icon={icon}
                 />
