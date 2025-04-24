@@ -1,4 +1,5 @@
 import { ComponentCard } from "./ComponentCard";
+import { ComponentGallery } from "./ComponentGallery";
 import styles from "./komponenter.module.scss";
 import { client } from "@/sanity/client";
 import { componentsQuery } from "@/sanity/queries/component";
@@ -18,7 +19,7 @@ export default async function Components() {
     return (
         <>
             <h1 className={styles.pageTitle}>Komponent&shy;oversikt</h1>
-            <ul className={styles.componentGallery}>
+            <ComponentGallery>
                 {components.map((component) => (
                     <li key={component.slug?.current}>
                         <ComponentCard
@@ -26,7 +27,7 @@ export default async function Components() {
                         />
                     </li>
                 ))}
-            </ul>
+            </ComponentGallery>
         </>
     );
 }
