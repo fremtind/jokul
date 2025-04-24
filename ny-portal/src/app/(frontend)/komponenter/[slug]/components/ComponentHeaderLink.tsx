@@ -22,7 +22,14 @@ export const ComponentHeaderLink = ({
     return (
         <Tooltip>
             <TooltipTrigger>
-                <Button variant="secondary" as="a" href={href} icon={icon} />
+                <Button
+                    variant="secondary"
+                    as="a"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={href}
+                    icon={icon}
+                />
             </TooltipTrigger>
             <TooltipContent>{name}</TooltipContent>
         </Tooltip>
