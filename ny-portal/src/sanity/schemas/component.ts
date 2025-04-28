@@ -70,7 +70,8 @@ export const component = defineType({
                     title: "Lys modus",
                     description:
                         "Lenke til frame i Figma for illustrasjon i lys modus",
-                    validation: (Rule) => Rule.required(),
+                    // Endre tilbake når importen fra Figma fungerer
+                    // validation: (Rule) => Rule.required(),
                 }),
                 defineField({
                     type: "string",
@@ -78,15 +79,25 @@ export const component = defineType({
                     title: "Mørk modus",
                     description:
                         "Lenke til frame i Figma for illustrasjon i mørk modus",
-                    validation: (Rule) => Rule.required(),
+                    // Endre tilbake når importen fra Figma fungerer
+                    // validation: (Rule) => Rule.required(),
                 }),
             ],
-            validation: (Rule) => Rule.required(),
+            // Endre tilbake når importen fra Figma fungerer
+            // validation: (Rule) => Rule.required(),
         }),
         defineField({
             name: "image",
             type: "image",
-            title: "Bilde",
+            title: "Bilde til light mode",
+            options: {
+                hotspot: true,
+            },
+        }),
+        defineField({
+            name: "imageDark",
+            type: "image",
+            title: "Bilde til dark mode",
             options: {
                 hotspot: true,
             },
