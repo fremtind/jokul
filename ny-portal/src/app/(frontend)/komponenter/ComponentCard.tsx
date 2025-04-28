@@ -1,4 +1,3 @@
-import { Flex } from "@fremtind/jokul/components/flex";
 import NextLink from "next/link";
 import styles from "./komponenter.module.scss";
 import { client } from "@/sanity/client";
@@ -72,12 +71,11 @@ export const ComponentCard = async ({ componentSlug }: Props) => {
     ];
 
     return (
-        <Flex
-            as={NextLink}
+        <NextLink
             href={`/komponenter/${component.slug}`}
-            gap={8}
-            direction="column"
-            className={styles.component}
+            className={styles.componentCard}
+            aria-label={component.name || "Gå til komponent"}
+            aria-describedby={`${component.name}-description`}
         >
             <picture className={styles.image}>
                 <source
@@ -87,6 +85,12 @@ export const ComponentCard = async ({ componentSlug }: Props) => {
                 <img className={styles.image} src={lightImage} alt="" />
             </picture>
             <p className={styles.name}>{component.name}</p>
-        </Flex>
+            <p
+                className={styles.description}
+                id={`${component.name}-description`}
+            >
+                {component.short_description}
+            </p>
+        </NextLink>
     );
 };
