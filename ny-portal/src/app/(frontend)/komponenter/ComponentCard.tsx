@@ -1,3 +1,4 @@
+import imageUrlBuilder from "@sanity/image-url";
 import NextLink from "next/link";
 import styles from "./komponenter.module.scss";
 import { client } from "@/sanity/client";
@@ -62,13 +63,26 @@ export const ComponentCard = async ({ componentSlug }: Props) => {
 
     if (!component) return null;
 
+    const builder = imageUrlBuilder(client);
+
+    function urlFor(source?: { asset?: { _ref: string }; _type: string }) {
+        return source?.asset?._ref ? builder.image(source).url() : undefined;
+    }
+
     // Bruk placeholderbilde midlertidig, mens vi finner ut av problemene
     // med å hente figma-bilder under bygging av applikasjonen.
     // Bruk getFigmaImageUrls for å hente figma-bilder når det er fikset.
-    const [lightImage, darkImage] = [
+    const [fallbackLight, fallbackDark] = [
         "/component_placeholder_light.svg",
         "/component_placeholder_dark.svg",
     ];
+
+    const imageLightUrl = component.image
+        ? urlFor(component.image)
+        : fallbackLight;
+    const imageDarkUrl = component.imageDark
+        ? urlFor(component.imageDark)
+        : fallbackDark;
 
     return (
         <NextLink
@@ -80,9 +94,9 @@ export const ComponentCard = async ({ componentSlug }: Props) => {
             <picture className={styles.image}>
                 <source
                     media="(prefers-color-scheme: dark)"
-                    srcSet={darkImage}
+                    srcSet={imageDarkUrl}
                 />
-                <img className={styles.image} src={lightImage} alt="" />
+                <img className={styles.image} src={imageLightUrl} alt="" />
             </picture>
             <p className={styles.name}>{component.name}</p>
             <p

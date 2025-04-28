@@ -181,6 +181,19 @@ export type Jokul_component = {
             _weak?: boolean;
             [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
         };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+    };
+    imageDark?: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
@@ -219,6 +232,7 @@ export type Jokul_component = {
                   _weak?: boolean;
                   [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
               };
+              media?: unknown;
               hotspot?: SanityImageHotspot;
               crop?: SanityImageCrop;
               _type: "image";
@@ -367,6 +381,7 @@ export type ComponentsQueryResult = Array<{
                   _weak?: boolean;
                   [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
               };
+              media?: unknown;
               hotspot?: SanityImageHotspot;
               crop?: SanityImageCrop;
               _type: "image";
@@ -481,6 +496,19 @@ export type ComponentBySlugQueryResult = {
             _weak?: boolean;
             [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
         };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+    };
+    imageDark?: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
         hotspot?: SanityImageHotspot;
         crop?: SanityImageCrop;
         _type: "image";
@@ -534,6 +562,7 @@ export type ComponentBySlugQueryResult = {
                   _weak?: boolean;
                   [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
               };
+              media?: unknown;
               hotspot?: SanityImageHotspot;
               crop?: SanityImageCrop;
               _type: "image";
@@ -542,7 +571,7 @@ export type ComponentBySlugQueryResult = {
     >;
 } | null;
 // Variable: componentCardQuery
-// Query: *[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug]{    name,    short_description,    "slug": slug.current,    figma_image,    }[0]
+// Query: *[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug]{    name,    short_description,    "slug": slug.current,    figma_image,    image,    imageDark,    }[0]
 export type ComponentCardQueryResult = {
     name: string | null;
     short_description: string | null;
@@ -550,6 +579,30 @@ export type ComponentCardQueryResult = {
     figma_image: {
         light_mode?: string;
         dark_mode?: string;
+    } | null;
+    image: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+    } | null;
+    imageDark: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
     } | null;
 } | null;
 
@@ -559,6 +612,6 @@ declare module "@sanity/client" {
     interface SanityQueries {
         '*[_type == "jokul_component"]{\n    name,\n    slug,\n    "imageUrl": image.asset->url,\n    documentation_article[]{\n    ...,\n        ikke_bruk[]{\n        ...,\n            ikke_bruk_punkt[]{\n            ...,\n                markDefs[]{\n                    _type == "internalLink" => {\n                        "slug": @.reference->slug\n                        }\n                    }\n                }\n            }\n        }\n    } | order(name)': ComponentsQueryResult;
         '*[_type == "jokul_component" && slug.current == $slug][0]': ComponentBySlugQueryResult;
-        '*[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug]{\n    name,\n    short_description,\n    "slug": slug.current,\n    figma_image,\n    }[0]': ComponentCardQueryResult;
+        '*[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug]{\n    name,\n    short_description,\n    "slug": slug.current,\n    figma_image,\n    image,\n    imageDark,\n    }[0]': ComponentCardQueryResult;
     }
 }
