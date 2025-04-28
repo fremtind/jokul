@@ -327,11 +327,132 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/component.ts
 // Variable: componentsQuery
-// Query: *[_type == "jokul_component"]{    name,    slug,    "imageUrl": image.asset->url    } | order(name)
+// Query: *[_type == "jokul_component"]{    name,    slug,    "imageUrl": image.asset->url,    documentation_article[]{    ...,        ikke_bruk[]{        ...,            ikke_bruk_punkt[]{            ...,                markDefs[]{                    _type == "internalLink" => {                        "slug": @.reference->slug                        }                    }                }            }        }    } | order(name)
 export type ComponentsQueryResult = Array<{
     name: string | null;
     slug: Slug | null;
     imageUrl: string | null;
+    documentation_article: Array<
+        | {
+              children?: Array<{
+                  marks?: Array<string>;
+                  text?: string;
+                  _type: "span";
+                  _key: string;
+              }>;
+              style?:
+                  | "blockquote"
+                  | "h1"
+                  | "h2"
+                  | "h3"
+                  | "h4"
+                  | "h5"
+                  | "h6"
+                  | "normal";
+              listItem?: "bullet" | "number";
+              markDefs?: Array<{
+                  href?: string;
+                  _type: "link";
+                  _key: string;
+              }>;
+              level?: number;
+              _type: "block";
+              _key: string;
+              ikke_bruk: null;
+          }
+        | {
+              asset?: {
+                  _ref: string;
+                  _type: "reference";
+                  _weak?: boolean;
+                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+              };
+              hotspot?: SanityImageHotspot;
+              crop?: SanityImageCrop;
+              _type: "image";
+              _key: string;
+              ikke_bruk: null;
+          }
+        | {
+              _key: string;
+              _type: "jokul_codeBlock";
+              code?: string;
+              language?: "scss" | "typescript";
+              ikke_bruk: null;
+          }
+        | {
+              _key: string;
+              _type: "jokul_codeExample";
+              showEditor?: boolean;
+              codeExample?: string;
+              ikke_bruk: null;
+          }
+        | {
+              _key: string;
+              _type: "jokul_componentKortFortalt";
+              bruk?: Array<{
+                  bruk_punkt?: Array<{
+                      children?: Array<{
+                          marks?: Array<string>;
+                          text?: string;
+                          _type: "span";
+                          _key: string;
+                      }>;
+                      style?: "normal";
+                      listItem?: never;
+                      markDefs?: Array<{
+                          reference?: {
+                              _ref: string;
+                              _type: "reference";
+                              _weak?: boolean;
+                              [internalGroqTypeReferenceTo]?: "jokul_component";
+                          };
+                          _type: "internalLink";
+                          _key: string;
+                      }>;
+                      level?: number;
+                      _type: "block";
+                      _key: string;
+                  }>;
+                  _key: string;
+              }>;
+              ikke_bruk: Array<{
+                  ikke_bruk_punkt: Array<{
+                      children?: Array<{
+                          marks?: Array<string>;
+                          text?: string;
+                          _type: "span";
+                          _key: string;
+                      }>;
+                      style?: "normal";
+                      listItem?: never;
+                      markDefs: Array<{
+                          slug: Slug | null;
+                      }> | null;
+                      level?: number;
+                      _type: "block";
+                      _key: string;
+                  }> | null;
+                  _key: string;
+              }> | null;
+          }
+        | {
+              _key: string;
+              _type: "jokul_componentProps";
+              componentFolder?: string;
+              ikke_bruk: null;
+          }
+        | {
+              _key: string;
+              _type: "jokul_storybook";
+              stories?: Array<
+                  {
+                      _key: string;
+                  } & Jokul_storybookStory
+              >;
+              ikke_bruk: null;
+          }
+    > | null;
 }>;
 // Variable: componentBySlugQuery
 // Query: *[_type == "jokul_component" && slug.current == $slug][0]
@@ -436,7 +557,7 @@ export type ComponentCardQueryResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
     interface SanityQueries {
-        '*[_type == "jokul_component"]{\n    name,\n    slug,\n    "imageUrl": image.asset->url\n    } | order(name)': ComponentsQueryResult;
+        '*[_type == "jokul_component"]{\n    name,\n    slug,\n    "imageUrl": image.asset->url,\n    documentation_article[]{\n    ...,\n        ikke_bruk[]{\n        ...,\n            ikke_bruk_punkt[]{\n            ...,\n                markDefs[]{\n                    _type == "internalLink" => {\n                        "slug": @.reference->slug\n                        }\n                    }\n                }\n            }\n        }\n    } | order(name)': ComponentsQueryResult;
         '*[_type == "jokul_component" && slug.current == $slug][0]': ComponentBySlugQueryResult;
         '*[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug]{\n    name,\n    short_description,\n    "slug": slug.current,\n    figma_image,\n    }[0]': ComponentCardQueryResult;
     }
