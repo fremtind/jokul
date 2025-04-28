@@ -137,18 +137,14 @@
         }
     }
 
-    @media (min-width: #{jkl.$breakpoint-large}) {
-        min-width: 320px;
+    @media (width >= 940px) {
+        width: 250px;
         height: 100vh;
         position: sticky;
         top: 0;
         overflow-y: auto;
         box-sizing: border-box;
-        padding-block-start: clamp(
-            var(--jkl-spacing-24),
-            1.2143rem + 1.4286vw,
-            var(--jkl-spacing-40)
-        );
+        padding-block-start: 0;
 
         &:has(.menuButton[aria-expanded="true"]) {
             position: sticky;

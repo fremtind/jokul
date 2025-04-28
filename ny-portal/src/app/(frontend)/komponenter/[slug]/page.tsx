@@ -27,7 +27,7 @@ export default async function Page({ params }: Props) {
     if (!component) return null;
 
     return (
-        <article>
+        <article className={styles.article}>
             <ComponentHeader
                 name={component?.name}
                 description={component?.short_description}

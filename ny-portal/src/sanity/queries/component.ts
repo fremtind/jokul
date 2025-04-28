@@ -4,7 +4,21 @@ export const componentsQuery = defineQuery(
     `*[_type == "jokul_component"]{
     name,
     slug,
-    "imageUrl": image.asset->url
+    "imageUrl": image.asset->url,
+    documentation_article[]{
+    ...,
+        ikke_bruk[]{
+        ...,
+            ikke_bruk_punkt[]{
+            ...,
+                markDefs[]{
+                    _type == "internalLink" => {
+                        "slug": @.reference->slug
+                        }
+                    }
+                }
+            }
+        }
     } | order(name)`,
 );
 

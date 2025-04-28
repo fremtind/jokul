@@ -1,0 +1,37 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.kortFortalt {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-block-start: var(--jkl-unit-70);
+    gap: jkl.$spacing-32 jkl.$spacing-12;
+
+    h3 {
+        margin-block-end: jkl.$spacing-8;
+
+        @include jkl.text-style("body") {
+            font-weight: bold;
+        }
+    }
+
+    h3:not(:first-of-type) {
+        margin-block-start: 6ch;
+    }
+
+    @container (min-width: 80ch) {
+        grid-template-columns: repeat(12, 1fr);
+
+        > * {
+            grid-column: 5 / 11;
+        }
+
+        .kortFortaltTitle {
+            margin-block-start: 0;
+            grid-column: 1 / 4;
+        }
+    }
+
+    @media (min-width: #{jkl.$breakpoint-large}) {
+        margin-block-start: var(--jkl-unit-130);
+    }
+}
