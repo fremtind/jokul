@@ -1,7 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { PortableTextTypeComponentProps } from "next-sanity";
-import { FC } from "react";
 import { LivePreview } from "./LivePreview";
 
 export const PATH_SEPARATOR = "_";
@@ -14,9 +13,9 @@ type CodeExampleSchema = {
     showEditor: boolean;
 };
 
-export const CodeExample: FC<
-    PortableTextTypeComponentProps<CodeExampleSchema>
-> = async ({ value }) => {
+export const CodeExample = async ({
+    value,
+}: PortableTextTypeComponentProps<CodeExampleSchema>) => {
     const exampleFilePath = resolve(
         process.cwd(),
         "..",
