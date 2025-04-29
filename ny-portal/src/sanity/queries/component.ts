@@ -32,5 +32,7 @@ export const componentCardQuery = defineQuery(
     short_description,
     "slug": slug.current,
     figma_image,
+    image,
+    imageDark,
     }[0]`,
 );
