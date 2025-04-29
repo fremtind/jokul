@@ -1,3 +1,10 @@
+import PortalLayout from "./komponenter/layout";
+import Components from "./komponenter/page";
+
 export default function FrontPage() {
-    return <h1>Wheee!</h1>;
+    return (
+        <PortalLayout>
+            <Components />
+        </PortalLayout>
+    );
 }
