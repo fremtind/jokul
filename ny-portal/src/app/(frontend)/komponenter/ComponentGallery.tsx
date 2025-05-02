@@ -1,6 +1,8 @@
 "use client";
 
-import { Button } from "@fremtind/jokul";
+import { Button } from "@fremtind/jokul/components/button";
+import { useLocalStorage } from "@fremtind/jokul/hooks";
+import clsx from "clsx";
 import styles from "./komponenter.module.scss";
 
 type ComponentGalleryProps = {
@@ -8,11 +10,13 @@ type ComponentGalleryProps = {
 };
 
 export const ComponentGallery = ({ children }: ComponentGalleryProps) => {
+    const [viewMode, setViewMode] = useLocalStorage(
+        "componentGalleryViewMode",
+        "grid",
+    );
+
     const toggleGalleryView = () => {
-        const gallery = document?.querySelector(`.${styles.componentGallery}`);
-        if (gallery) {
-            gallery.classList.toggle(styles.listView);
-        }
+        setViewMode(viewMode === "grid" ? "list" : "grid");
     };
 
     return (
@@ -27,7 +31,12 @@ export const ComponentGallery = ({ children }: ComponentGalleryProps) => {
             >
                 Liste / Galleri
             </Button>
-            <ul aria-label="Komponenter" className={styles.componentGallery}>
+            <ul
+                aria-label="Komponenter"
+                className={clsx(styles.componentGallery, {
+                    [styles.listView]: viewMode === "list",
+                })}
+            >
                 {children}
             </ul>
         </>
