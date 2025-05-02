@@ -13,9 +13,7 @@
 }
 
 .header {
-    border-radius: var(--jkl-spacing-16);
-    background: var(--jkl-color-background-container-low);
-    padding: var(--jkl-spacing-16);
+    padding: var(--jkl-unit-50) var(--jkl-unit-30);
     flex-direction: column;
     gap: jkl.$spacing-24;
 
@@ -24,15 +22,15 @@
     }
 
     @media (min-width: #{jkl.$breakpoint-medium}) {
-        padding: var(--jkl-spacing-40);
+        padding: var(--jkl-unit-50);
     }
 
     @media (min-width: #{jkl.$breakpoint-large}) {
-        padding: var(--jkl-spacing-104);
+        padding: var(--jkl-unit-130);
     }
 
     .name {
-        @include jkl.text-style("heading-1") {
+        @include jkl.text-style("title") {
             font-size: clamp(
                 var(--jkl-typography-font-size-36),
                 1.8673rem + 1.6327vw,
