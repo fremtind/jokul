@@ -1,8 +1,9 @@
-import imageUrlBuilder from "@sanity/image-url";
-import NextLink from "next/link";
-import styles from "./komponenter.module.scss";
 import { client } from "@/sanity/client";
 import { componentCardQuery } from "@/sanity/queries/component";
+import imageUrlBuilder from "@sanity/image-url";
+import NextLink from "next/link";
+import { ComponentThumbnail } from "./ComponentThumbnail";
+import styles from "./komponenter.module.scss";
 
 type Props = {
     componentSlug: string;
@@ -91,13 +92,12 @@ export const ComponentCard = async ({ componentSlug }: Props) => {
             aria-label={component.name || "Gå til komponent"}
             aria-describedby={`${component.name}-description`}
         >
-            <picture className={styles.image}>
-                <source
-                    media="(prefers-color-scheme: dark)"
-                    srcSet={imageDarkUrl}
+            {imageDarkUrl && imageLightUrl ? (
+                <ComponentThumbnail
+                    darkImage={imageDarkUrl}
+                    lightImage={imageLightUrl}
                 />
-                <img className={styles.image} src={imageLightUrl} alt="" />
-            </picture>
+            ) : null}
             <p className={styles.name}>{component.name}</p>
             <p
                 className={styles.description}
