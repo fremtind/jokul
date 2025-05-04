@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
 @use "@fremtind/jokul/styles/core/jkl";
 
 .pageTitle {
@@ -5,11 +6,12 @@
         font-size: clamp(2.25rem, 1.8673rem + 1.6327vw, 3.5rem);
         line-height: 1.1;
     }
-    margin-block-end: clamp(
-        var(--jkl-spacing-24),
-        0.7308rem + 3.0769vw,
-        var(--jkl-spacing-64)
-    );
+
+    margin-block: var(--jkl-unit-20) var(--jkl-spacing-24);
+
+    @media (width >= 940px) {
+        margin-block: var(--jkl-unit-90) var(--jkl-unit-80);
+    }
 }
 
 .componentPage {
@@ -24,7 +26,17 @@
     margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: jkl.$spacing-24;
+    column-gap: clamp(
+        var(--jkl-unit-10),
+        0.4038rem + 0.3846vw,
+        var(--jkl-unit-15)
+    );
+
+    row-gap: clamp(
+        var(--jkl-unit-30),
+        1.1154rem + 1.5385vw,
+        var(--jkl-unit-50)
+    );
     container-type: inline-size;
 
     &.listView {
@@ -39,9 +51,12 @@
 }
 
 .componentCard {
+    --aspect-ratio: 1.5;
+
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--jkl-unit-30);
+    gap: clamp(var(--jkl-unit-10), 0.3077rem + 0.7692vw, var(--jkl-unit-20));
+    box-sizing: border-box;
     width: 100%;
     text-decoration: none;
     color: var(--color-text);
@@ -119,10 +134,11 @@
     }
 
     .image {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-radius: var(--jkl-spacing-16);
-        aspect-ratio: 1.6;
+        aspect-ratio: var(--aspect-ratio);
+
+        img {
+            object-fit: cover;
+            aspect-ratio: var(--aspect-ratio);
+        }
     }
 }
