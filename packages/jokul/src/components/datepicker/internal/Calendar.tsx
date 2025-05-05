@@ -8,6 +8,7 @@ import React, {
 import { flushSync } from "react-dom";
 import { Density } from "../../../core/types.js";
 import { useId } from "../../../hooks/useId/useId.js";
+import { Button } from "../../button/Button.js";
 import { ArrowLeftIcon } from "../../icon/icons/ArrowLeftIcon.js";
 import { ArrowRightIcon } from "../../icon/icons/ArrowRightIcon.js";
 import { ChevronDownIcon } from "../../icon/icons/ChevronDownIcon.js";
@@ -452,26 +453,22 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 >
                     <fieldset className="jkl-calendar-navigation">
                         <div>
-                            <button
+                            <Button
                                 {...getBackProps({
                                     calendars,
                                     onClick: handleGotoEdgeMonth,
                                 })}
-                                className="jkl-calendar-navigation__arrow"
-                                type="button"
-                            >
-                                <ArrowLeftIcon variant="medium" bold />
-                            </button>
-                            <button
+                                variant="ghost"
+                                icon={<ArrowLeftIcon variant="medium" bold />}
+                            />
+                            <Button
                                 {...getForwardProps({
                                     calendars,
                                     onClick: handleGotoEdgeMonth,
                                 })}
-                                className="jkl-calendar-navigation__arrow"
-                                type="button"
-                            >
-                                <ArrowRightIcon variant="medium" bold />
-                            </button>
+                                variant="ghost"
+                                icon={<ArrowRightIcon variant="medium" bold />}
+                            />
                         </div>
                         <div>
                             <div className="jkl-calendar-navigation-dropdown">
