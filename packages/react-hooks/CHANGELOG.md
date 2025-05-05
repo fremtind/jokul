@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.3.0 (2025-05-05)
+
+### Features
+
+- la useLocalStorage ta inn setStateAction ([9ad28d6](https://github.com/fremtind/jokul/commit/9ad28d6a758b7cfafd7bd029ff4082a98003d7d7))
+
 ## 12.2.13 (2025-01-08)
 
 ### Bug Fixes

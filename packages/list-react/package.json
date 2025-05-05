@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-list-react",
-    "version": "10.2.35",
+    "version": "10.2.36",
     "publishConfig": {
         "access": "public"
     },
@@ -41,7 +41,7 @@
     },
     "dependencies": {
         "@fremtind/jkl-core": "^14.10.5",
-        "@fremtind/jkl-icons-react": "^9.2.6",
+        "@fremtind/jkl-icons-react": "^9.2.7",
         "@fremtind/jkl-list": "^12.0.0",
         "classnames": "^2.5.1"
     },
