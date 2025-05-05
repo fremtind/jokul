@@ -3,8 +3,8 @@ import { useCallback, useState } from "react";
 export const useLocalStorage = <T>(
     key: string,
     defaultValue: T,
-): [T, (newValue: T) => void] => {
-    const [state, setState] = useState(() => {
+): [T, React.Dispatch<React.SetStateAction<T>>] => {
+    const [state, setState] = useState<T>(() => {
         if (typeof window === "undefined" || !localStorage) {
             return defaultValue;
         }
@@ -12,12 +12,20 @@ export const useLocalStorage = <T>(
         return storedValue || defaultValue;
     });
 
-    const updateState = useCallback(
-        (newValue: T) => {
-            setState(newValue);
-            if (typeof window !== "undefined" && localStorage) {
-                localStorage.setItem(key, JSON.stringify(newValue));
-            }
+    const updateState: React.Dispatch<React.SetStateAction<T>> = useCallback(
+        (setStateAction: React.SetStateAction<T>) => {
+            setState((previousValue) => {
+                const newValue =
+                    typeof setStateAction === "function"
+                        ? (setStateAction as (prevState: T) => T)(previousValue)
+                        : setStateAction;
+
+                if (typeof window !== "undefined" && localStorage) {
+                    localStorage.setItem(key, JSON.stringify(newValue));
+                }
+
+                return newValue;
+            });
         },
         [key],
     );
