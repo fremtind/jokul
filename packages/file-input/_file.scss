@@ -85,17 +85,15 @@
         }
     }
 
-    .jkl-icon-button {
+    &__delete.jkl-icon-button {
+        padding: 0 var(--jkl-spacing-24);
+        align-items: stretch;
+
         @include jkl.reset-outline;
 
         &:focus-visible {
             @include jkl.focus-outline($offset: 0);
         }
-    }
-
-    &__delete {
-        padding: 0 var(--jkl-spacing-24);
-        align-items: stretch;
 
         &:hover {
             background-color: var(--jkl-color-background-interactive-hover);
@@ -167,7 +165,7 @@
     &__description {
         display: flex;
         flex-wrap: nowrap;
-        gap: jkl.$spacing-12;
+        gap: var(--jkl-spacing-24);
         align-items: center;
         justify-content: flex-start;
     }
