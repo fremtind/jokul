@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.59.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.58.5...@fremtind/jokul@0.59.0) (2025-05-05)
+
+### Features
+
+- la useLocalStorage ta inn setStateAction ([9ad28d6](https://github.com/fremtind/jokul/commit/9ad28d6a758b7cfafd7bd029ff4082a98003d7d7))
+
 ## [0.58.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.58.1...@fremtind/jokul@0.58.2) (2025-04-23)
 
 ### Bug Fixes
