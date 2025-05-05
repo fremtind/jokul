@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.2.0](https://github.com/fremtind/jokul/compare/@fremtind/jkl-datepicker-react@16.1.26...@fremtind/jkl-datepicker-react@16.2.0) (2025-05-05)
+
+### Features
+
+- byttet ut buttons i calendar navigation til ghostbuttons ([27a4962](https://github.com/fremtind/jokul/commit/27a4962545cf5d1be0d2070758a741ae4e04d0b1))
+
 ## 16.1.25 (2025-04-23)
 
 ### Bug Fixes

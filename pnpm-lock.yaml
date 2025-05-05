@@ -736,7 +736,7 @@ importers:
     specifiers:
       '@fremtind/jkl-button-react': ^15.2.32
       '@fremtind/jkl-core': ^14.10.5
-      '@fremtind/jkl-file-input': ^2.1.23
+      '@fremtind/jkl-file-input': ^2.1.24
       '@fremtind/jkl-formatters-util': ^6.0.52
       '@fremtind/jkl-icon-button-react': ^5.0.41
       '@fremtind/jkl-icons-react': ^9.2.7
@@ -1389,11 +1389,11 @@ importers:
       '@fremtind/jkl-contextual-menu-react': ^3.8.28
       '@fremtind/jkl-cookie-consent-react': ^11.2.5
       '@fremtind/jkl-core': ^14.10.5
-      '@fremtind/jkl-datepicker-react': ^16.1.26
+      '@fremtind/jkl-datepicker-react': ^16.2.0
       '@fremtind/jkl-description-list-react': ^8.0.39
       '@fremtind/jkl-expand-button-react': ^7.1.12
       '@fremtind/jkl-feedback-react': ^18.2.53
-      '@fremtind/jkl-file-input-react': ^2.5.5
+      '@fremtind/jkl-file-input-react': ^2.5.6
       '@fremtind/jkl-footer-react': ^6.1.52
       '@fremtind/jkl-formatters-util': ^6.0.52
       '@fremtind/jkl-icon-button-react': ^5.0.41

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.60.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.59.0...@fremtind/jokul@0.60.0) (2025-05-05)
+
+### Features
+
+- byttet ut buttons i calendar navigation til ghostbuttons ([27a4962](https://github.com/fremtind/jokul/commit/27a4962545cf5d1be0d2070758a741ae4e04d0b1))
+
 # [0.59.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.58.5...@fremtind/jokul@0.59.0) (2025-05-05)
 
 ### Features
