@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.24 (2025-05-05)
+
+### Bug Fixes
+
+- fiks feil utseende på knapp i file-input ([2cc4b15](https://github.com/fremtind/jokul/commit/2cc4b152b28eba811bdcd2157dcbb1b62235f82e)), closes [#4712](https://github.com/fremtind/jokul/issues/4712)
+
 ## 2.1.18 (2025-01-14)
 
 ### Bug Fixes
