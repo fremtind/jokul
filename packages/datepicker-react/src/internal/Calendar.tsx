@@ -1,3 +1,4 @@
+import { Button } from "@fremtind/jkl-button-react";
 import { Density } from "@fremtind/jkl-core";
 import {
     ArrowLeftIcon,
@@ -454,26 +455,22 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 >
                     <fieldset className="jkl-calendar-navigation">
                         <div>
-                            <button
+                            <Button
                                 {...getBackProps({
                                     calendars,
                                     onClick: handleGotoEdgeMonth,
                                 })}
-                                className="jkl-calendar-navigation__arrow"
-                                type="button"
-                            >
-                                <ArrowLeftIcon variant="medium" bold />
-                            </button>
-                            <button
+                                variant="ghost"
+                                icon={<ArrowLeftIcon variant="medium" bold />}
+                            />
+                            <Button
                                 {...getForwardProps({
                                     calendars,
                                     onClick: handleGotoEdgeMonth,
                                 })}
-                                className="jkl-calendar-navigation__arrow"
-                                type="button"
-                            >
-                                <ArrowRightIcon variant="medium" bold />
-                            </button>
+                                variant="ghost"
+                                icon={<ArrowRightIcon variant="medium" bold />}
+                            />
                         </div>
                         <div>
                             <div className="jkl-calendar-navigation-dropdown">
