@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import { Table } from "../Table.js";
 import { TableBody } from "../TableBody.js";
 import { TableCaption } from "../TableCaption.js";
@@ -7,7 +8,6 @@ import { TableHead } from "../TableHead.js";
 import { TableHeader } from "../TableHeader.js";
 import { TableRow } from "../TableRow.js";
 import "../styles/_index.scss";
-import React from "react";
 
 const meta = {
     title: "Komponenter/Table",
@@ -58,37 +58,46 @@ const rows = [
 ];
 
 export const TableComponent: Story = {
-    render: (args) => (
-        <Table fullWidth>
+    args: {
+        caption: (
             <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
-            <TableHead>
-                <TableRow>
-                    {columns.map((column, index) => (
-                        <TableHeader key={index} bold>
-                            {column}
-                        </TableHeader>
-                    ))}
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                {rows.map((row, rowIndex) => (
-                    <TableRow key={rowIndex}>
-                        {row.map((cell, cellIndex) => (
-                            <TableCell
-                                key={cellIndex}
-                                data-th={columns[cellIndex]}
-                                align={
-                                    [1, 2].includes(cellIndex)
-                                        ? "right"
-                                        : "left"
-                                }
-                            >
-                                {cell}
-                            </TableCell>
+        ),
+        children: (
+            <>
+                <TableHead>
+                    <TableRow>
+                        {columns.map((column, index) => (
+                            <TableHeader key={index} bold>
+                                {column}
+                            </TableHeader>
                         ))}
                     </TableRow>
-                ))}
-            </TableBody>
+                </TableHead>
+                <TableBody>
+                    {rows.map((row, rowIndex) => (
+                        <TableRow key={rowIndex}>
+                            {row.map((cell, cellIndex) => (
+                                <TableCell
+                                    key={cellIndex}
+                                    data-th={columns[cellIndex]}
+                                    align={
+                                        [1, 2].includes(cellIndex)
+                                            ? "right"
+                                            : "left"
+                                    }
+                                >
+                                    {cell}
+                                </TableCell>
+                            ))}
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </>
+        ),
+    },
+    render: (args) => (
+        <Table caption={args.caption} fullWidth>
+            {args.children}
         </Table>
     ),
 };

@@ -4,6 +4,7 @@ import { ListItem, UnorderedList } from "@fremtind/jkl-list-react";
 import {
     Table,
     TableBody,
+    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
@@ -105,7 +106,14 @@ const PraktiskInfoUtviklere: FC = () => {
                 i prosjektet ditt etter egne behov.
             </Paragraph>
             <div className="jkl-portal-paragraph">
-                <Table fullWidth>
+                <Table
+                    caption={
+                        <TableCaption srOnly>
+                            Tabell med spacingverdier
+                        </TableCaption>
+                    }
+                    fullWidth
+                >
                     <TableHead>
                         <TableRow>
                             <TableHeader>Størrelse</TableHeader>

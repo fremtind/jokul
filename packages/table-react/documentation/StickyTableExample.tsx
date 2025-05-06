@@ -32,8 +32,15 @@ const StickyTableExample: FC<ExampleComponentProps> = ({
 
     return (
         <div style={{ maxHeight: 200, overflow: "auto", padding: "0 16px" }}>
-            <Table fullWidth {...props}>
-                <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
+            <Table
+                caption={
+                    <TableCaption srOnly>
+                        Overskrift for skjermlesere
+                    </TableCaption>
+                }
+                fullWidth
+                {...props}
+            >
                 <TableHead srOnly={headless} sticky>
                     <TableRow>
                         {columns.map((column, index) => (

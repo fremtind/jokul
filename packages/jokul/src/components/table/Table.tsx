@@ -7,6 +7,8 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
     (
         {
             className,
+            caption,
+            children,
             density,
             collapseToList = false,
             fullWidth = false,
@@ -32,7 +34,10 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                     tabIndex={hasStickyHead ? 0 : tabIndex}
                     ref={ref}
-                />
+                >
+                    {caption}
+                    {children}
+                </table>
             </TableContextProvider>
         );
     },

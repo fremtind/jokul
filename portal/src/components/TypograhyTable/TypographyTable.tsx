@@ -1,6 +1,7 @@
 import {
     Table,
     TableBody,
+    TableCaption,
     TableHead,
     TableHeader,
     TableRow,
@@ -23,7 +24,11 @@ const levels: TypographyLevels[] = [
 ];
 
 const VariantTable: FC<{ variant: "desktop" | "mobile" }> = ({ variant }) => (
-    <Table collapseToList fullWidth>
+    <Table
+        caption={<TableCaption srOnly>Tabell med typografi</TableCaption>}
+        collapseToList
+        fullWidth
+    >
         <TableHead>
             <TableRow>
                 <TableHeader srOnly>Illustrasjonstekst</TableHeader>
