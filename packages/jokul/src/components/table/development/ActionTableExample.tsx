@@ -50,8 +50,11 @@ const ActionTableExample: FC<ExampleComponentProps> = ({
             : {};
 
     return (
-        <Table fullWidth {...props}>
-            <TableCaption srOnly>Tabell med handlinger</TableCaption>
+        <Table
+            caption={<TableCaption srOnly>Tabell med handlinger</TableCaption>}
+            fullWidth
+            {...props}
+        >
             <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (

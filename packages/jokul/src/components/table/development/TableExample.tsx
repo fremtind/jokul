@@ -58,8 +58,13 @@ const TableExample: FC<ExampleComponentProps> = ({
             : {};
 
     return (
-        <Table fullWidth {...props}>
-            <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
+        <Table
+            caption={
+                <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
+            }
+            fullWidth
+            {...props}
+        >
             <TableHead srOnly={headless}>
                 <TableRow>
                     {columns.map((column, index) => (

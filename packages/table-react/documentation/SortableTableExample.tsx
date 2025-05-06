@@ -73,8 +73,13 @@ export const SortableTableExample: FC<ExampleComponentProps> = ({
     );
 
     return (
-        <Table fullWidth {...props}>
-            <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
+        <Table
+            caption={
+                <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
+            }
+            fullWidth
+            {...props}
+        >
             <TableHead srOnly={headless}>
                 <TableRow>
                     <TableHeader bold {...getSortProps("dato")}>
