@@ -1,46 +1,49 @@
-# Lokalt oppsett
+# Portal for dokumentasjon av designsystemet Jøkul
 
-Jøkul-portalen kan kjøres opp i lokalt utviklingsmiljø mot en lokal database på din egen maskin. Det vil si at du selv må legge inn data for at det skal vises fornuftig innhold i portalen utover det som er hardkodet. På sikt ønsker vi å få satt opp det lokale miljøet til å kunne hente data fra testmiljø eller liknende.
+![Skjermbilde 2025-05-08 kl  14 54 09](https://github.com/user-attachments/assets/47214e8c-049e-4c3c-b123-664603319755)
 
-## Installasjon av Postgres
+Portalen er knutepunktet for informasjon om Jøkul. Målet med tjenesten er å være en kilde for sannhet om designsystemets bestanddeler og hvordan man bruker dem, både hver for seg og sammen som en helhet.
 
-For å kunne kjøre opp portalen lokalt må du ha en PostgreSQL-database kjørende lokalt. Den enkleste måte å installere Postgres på utviklermaskinene er gjennom [Homebrew](https://brew.sh/):
+## Arkitektur
 
-```sh
-brew install postgresql@14
-```
+### CMS 
 
-Du kan nå sette opp Postgres som en `service` i Homebrew slik at den alltid kjører i bakgrunnen når maskinen er på:
+Mesteparten av innholdet som vises i Portalen ligger i CMSet Sanity. Innholdet er organisert etter hva det beskriver, ikke etter hvor i portalen det vises, slik at det er enklere å benytte det flere steder.
 
-```sh
-brew services start postgresql@14
-```
+Innholdet redigeres gjennom et web-grensesnitt som hostes sammen med selve portalen i både testmiljø og på nett. Dette grensesnittet kan også kjøres opp lokalt under utvikling.
 
-## Oppsett av database
+Konfigurasjonsfiler for grensesnittet, og definisjon av datatyper for portalen/designsystemet finnes i mappen [`src/sanity`](./src/sanity).
 
-Når Postgres kjører på maskinen din må du opprette en database som dataene i portalen skal lagres i. Dette gjør du gjennom verktøyet `psql` som blir installert med Postgres.
+### Webklient
 
-1. Koble deg på standard-databasen med kommandoen
+Selve portalen er bygget i Next.js med utstrakt bruk av serversiderendring (SSR). Grensesnittet til CMSet er bygget inn i denne applikasjonen.
 
-```sh
-psql postgres
-```
+### Eksempelkode for komponenter
 
-2. Opprett en ny database med følgende SQL-spørring (husk semikolon!):
+Dokumentasjonen inneholder utstrakt bruk av kjørbare eksempler for komponentene, både for seg selv og satt sammen i vanlige mønstre. Disse eksemplene er skrevet som Storybook stories, og ligger sammen med koden til hver enkelt komponent. Konfigurasjonen for Storybook ligger på rot i repoet.
 
-```sql
-CREATE DATABASE "jokul-portal"; -- Du kan kalle databasen hva du vil, men vi anbefaler jokul-portal
-```
+## Utviklingsmiljø
 
-3. Sjekk at databasen du opprettet er listet opp når du kjører kommandoen `\l`
+For å kjøre opp prosjektet lokalt for utvikling må du kjøre opp både portalen (som inkluderer grensesnittet for CMSet) og Storybook dersom du vil se eksemplene i portalen.
 
-## Oppsett av miljøvariabler
+1. kjør `pnpm storybook` på rot i repoet
+2. kjør `pnpm dev` i denne mappen
 
-For å kunne kjøres opp trenger portalen at det er definert to miljøvariabler i en `.env`-fil på rot i portal-mappen:
+Portalen vil være tilgjengelig på [`localhost:3000`](http://localhost:3000), og du kommer til grensesnittet for CMSet på [`localhost:3000/studio`](http://localhost:3000/studio)
+Du kan også gå rett til Storybook på [`localhost:6007`](http://localhost:6007)
 
-| Variabel         | Verdi                                   | Funksjon                        |
-| ---------------- | --------------------------------------- | ------------------------------- |
-| `PAYLOAD_SECRET` | Valgfri, tilfeldig verdi                | Brukes internt av Payload       |
-| `DATABASE_URI`   | `postgresql://localhost/<databasenavn>` | Tilkoblingsstreng for databasen |
+## Kodestruktur
 
-Du kan ta utgansgpunkt i filen `.env.example`, og erstatte verdiene der med dine egne hvis du har valgt et annet navn for databasen din.
+Portalen er bygget med Next.js sin [App Router](https://nextjs.org/docs/app), og bruker [React Server Components](https://react.dev/reference/rsc/server-components) for å hente ut data fra CMSet.
+
+Mappestrukturen i prosjektet er i stor grad diktert av konvensjonene fra Next.js, slik at navigasjonsstrukturen på siden er speilet i prosjektet under mappen [`src/app`](./src/app). Komponenter som er delt på tvers av applikasjonen ligger under [`src/components`](./src/components). Kode for å definere innholdsstruktur i Sanity CMS ligger under [`src/sanity`](./src/sanity).
+
+### Uthenting av data
+
+Uthenting av data fra CMSet og andre eksterne datakilder skjer i stor grad der dataene trengs, ved hjelp av Seact Server Components.
+Hvis du skal hente data fra Sanity må du først definere en spørring under [`src/sanity/queries`](.src/sanity/queries). Denne querien kan du sende inn til Sanity-klienten i komponenten der du trenger dataene. Spørringene dedupliseres automatisk dersom de brukes flere steder.
+
+## Test- og produksjonsmiljøer
+
+Portalen publiseres som et Docker-image som inneholder både portalen og Storybook, samt en liten Express-server som ruter trafikk mellom dem.
+Bygg og publisering til både test- og produksjonsmiljø skjer automatisk i et eget repo ved merge til `main`-branchen.
