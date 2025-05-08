@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.61.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.60.0...@fremtind/jokul@0.61.0) (2025-05-08)
+
+### Features
+
+- gjør navtab polymorf med støtte for egendefinert link-komponent ([5fb6c5b](https://github.com/fremtind/jokul/commit/5fb6c5b6fce56d9e2e6f061b1fd28980495e1fa8)), closes [#4801](https://github.com/fremtind/jokul/issues/4801)
+
+### BREAKING CHANGES
+
+- - component-propen er fjernet og erstattet med as, som gir bedre typesikkerhet og autocompletion
+basert på komponenten du sender inn
+- componentProps er fjernet. Bruk heller vanlige props
+direkte på NavTab når du bruker as.
+
 # [0.60.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.59.0...@fremtind/jokul@0.60.0) (2025-05-05)
 
 ### Features
