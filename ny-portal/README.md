@@ -24,7 +24,7 @@ Dokumentasjonen inneholder utstrakt bruk av kjørbare eksempler for komponentene
 
 ## Utviklingsmiljø
 
-For å kjøre opp prosjektet lokalt for utvikling må du kjøre opp både portalen (som inkluderer grensesnittet for CMSet) og Storybook dersom du vil se eksemplene i portalen.
+For å kjøre opp prosjektet lokalt for utvikling må du kjøre opp både portalen (som inkluderer grensesnittet for CMSet) og Storybook dersom du vil se eksemplene i portalen. Husk å sette opp en `.env`-fil med verdier for variablene som er satt opp i [`.env.example`](./.env.example)
 
 1. kjør `pnpm storybook` på rot i repoet
 2. kjør `pnpm dev` i denne mappen
