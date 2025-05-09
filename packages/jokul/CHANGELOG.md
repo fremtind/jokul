@@ -11,10 +11,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### BREAKING CHANGES
 
-- - component-propen er fjernet og erstattet med as, som gir bedre typesikkerhet og autocompletion
-basert på komponenten du sender inn
-- componentProps er fjernet. Bruk heller vanlige props
-direkte på NavTab når du bruker as.
+- `component`-propen er fjernet og erstattet med `as`-propen, som gir bedre typesikkerhet og autocompletion
+basert på komponenten du sender inn.
+- `componentProps` er fjernet. Istedenfor får du autocompletion for de propsene som er gyldige for akkurat den komponenten du har valgt med `as`-propen.
 
 # [0.60.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.59.0...@fremtind/jokul@0.60.0) (2025-05-05)
 
