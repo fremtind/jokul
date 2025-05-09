@@ -53,10 +53,14 @@ const MobileScrollTableExample: FC = () => {
                 overflowX: "scroll",
             }}
         >
-            <Table fullWidth>
-                <TableCaption srOnly>
-                    Tabell som scroller horisontalt på mobil
-                </TableCaption>
+            <Table
+                caption={
+                    <TableCaption srOnly>
+                        Tabell som scroller horisontalt på mobil
+                    </TableCaption>
+                }
+                fullWidth
+            >
                 <TableHead>
                     <TableRow>
                         {columns.map((column, index) => (

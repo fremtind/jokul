@@ -64,8 +64,13 @@ const HeadlessTableExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
             ? { "data-collapse": "true", collapseToList: true }
             : {};
     return (
-        <Table {...props} fullWidth>
-            <TableCaption srOnly>Tabell uten synlig header</TableCaption>
+        <Table
+            caption={
+                <TableCaption srOnly>Tabell uten synlig header</TableCaption>
+            }
+            {...props}
+            fullWidth
+        >
             <TableHead srOnly>
                 <TableRow>
                     {columns.map((column, index) => (

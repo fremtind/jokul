@@ -50,8 +50,13 @@ const ClickableTableExample: FC<ExampleComponentProps> = ({
             : {};
 
     return (
-        <Table fullWidth {...props}>
-            <TableCaption srOnly>Tabell med klikkbare rader</TableCaption>
+        <Table
+            caption={
+                <TableCaption srOnly>Tabell med klikkbare rader</TableCaption>
+            }
+            fullWidth
+            {...props}
+        >
             <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (

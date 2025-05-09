@@ -45,8 +45,15 @@ const ExpandableTableExample: FC<ExampleComponentProps> = ({
             : {};
 
     return (
-        <Table fullWidth {...props}>
-            <TableCaption srOnly>Tabell med ekspanderbare rader</TableCaption>
+        <Table
+            caption={
+                <TableCaption srOnly>
+                    Tabell med ekspanderbare rader
+                </TableCaption>
+            }
+            fullWidth
+            {...props}
+        >
             <TableHead srOnly={headless}>
                 <TableRow>
                     {headings.map((column) => (
@@ -71,7 +78,14 @@ const ExpandableTableExample: FC<ExampleComponentProps> = ({
                         }
                         onToggle={(isOpen) => console.log({ isOpen })}
                         expandedChildren={
-                            <Table fullWidth>
+                            <Table
+                                caption={
+                                    <TableCaption srOnly>
+                                        Tabell med ekspanderbare rader
+                                    </TableCaption>
+                                }
+                                fullWidth
+                            >
                                 <TableHead srOnly>
                                     <TableRow>
                                         <TableHeader>Cell 1</TableHeader>

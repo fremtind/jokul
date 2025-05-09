@@ -31,7 +31,13 @@ export const PaginatedTableExample: FC<ExampleComponentProps> = ({
     const visibleRows = rows.slice(startIndex, startIndex + rowsPerPage);
 
     return (
-        <Table fullWidth ref={ref}>
+        <Table
+            caption={
+                <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
+            }
+            fullWidth
+            ref={ref}
+        >
             <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
             <TableHead>
                 <TableRow>
