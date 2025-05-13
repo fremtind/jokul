@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 12.0.0 (2025-05-13)
+
+### Features
+
+- gjort caption required i Table ([82730b8](https://github.com/fremtind/jokul/commit/82730b82898d04fa68940b6dcc30e7e14496cd08))
+
+### BREAKING CHANGES
+
+- Required prop: caption in Table
+
 ## 11.4.74 (2025-02-04)
 
 ### Bug Fixes
