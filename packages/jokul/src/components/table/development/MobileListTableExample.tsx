@@ -62,10 +62,16 @@ const MobileListTableExample: FC<ExampleComponentProps> = ({
     const type = choiceValues?.["Mobilvisning"];
     const props = type === "Liste" ? { "data-collapse": "true" } : {};
     return (
-        <Table {...props} collapseToList fullWidth>
-            <TableCaption srOnly>
-                Tabell som vises som liste på mobil
-            </TableCaption>
+        <Table
+            caption={
+                <TableCaption srOnly>
+                    Tabell som vises som liste på mobil
+                </TableCaption>
+            }
+            {...props}
+            collapseToList
+            fullWidth
+        >
             <TableHead>
                 <TableRow>
                     {columns.map((column, index) => (

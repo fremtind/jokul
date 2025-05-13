@@ -29,8 +29,12 @@ const DataTable = forwardRef<HTMLTableElement, DataTableProps>(
         ref,
     ) => {
         return (
-            <Table fullWidth={true} {...rest} ref={ref}>
-                {caption && <TableCaption srOnly>{caption}</TableCaption>}
+            <Table
+                caption={<TableCaption srOnly>{caption}</TableCaption>}
+                fullWidth={true}
+                {...rest}
+                ref={ref}
+            >
                 <TableHead>
                     <TableRow>
                         {columns.map((column, index) => (

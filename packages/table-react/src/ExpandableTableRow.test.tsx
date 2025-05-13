@@ -22,8 +22,12 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
 }
 
 const TableUnderTest = () => (
-    <Table fullWidth>
-        <TableCaption srOnly>Tabell med ekspanderbare rader</TableCaption>
+    <Table
+        caption={
+            <TableCaption srOnly>Tabell med ekspanderbare rader</TableCaption>
+        }
+        fullWidth
+    >
         <TableHead>
             <TableRow>
                 <TableHeader>Header 1</TableHeader>
@@ -36,7 +40,14 @@ const TableUnderTest = () => (
         <TableBody>
             <ExpandableTableRow
                 expandedChildren={
-                    <Table fullWidth>
+                    <Table
+                        caption={
+                            <TableCaption srOnly>
+                                Tabell med ekspanderbare rader
+                            </TableCaption>
+                        }
+                        fullWidth
+                    >
                         <TableHead srOnly>
                             <TableRow>
                                 <TableHeader>Ekspandert 1</TableHeader>
@@ -99,10 +110,14 @@ describe("ExpandableTableRow", () => {
                     >
                         Toggle
                     </button>
-                    <Table fullWidth>
-                        <TableCaption srOnly>
-                            Tabell med ekspanderbare rader
-                        </TableCaption>
+                    <Table
+                        caption={
+                            <TableCaption srOnly>
+                                Tabell med ekspanderbare rader
+                            </TableCaption>
+                        }
+                        fullWidth
+                    >
                         <TableHead>
                             <TableRow>
                                 <TableHeader>Header 1</TableHeader>
@@ -116,7 +131,14 @@ describe("ExpandableTableRow", () => {
                             <ExpandableTableRow
                                 isOpen={isOpen}
                                 expandedChildren={
-                                    <Table fullWidth>
+                                    <Table
+                                        caption={
+                                            <TableCaption srOnly>
+                                                Tabell med ekspanderbare rader
+                                            </TableCaption>
+                                        }
+                                        fullWidth
+                                    >
                                         <TableHead srOnly>
                                             <TableRow>
                                                 <TableHeader>

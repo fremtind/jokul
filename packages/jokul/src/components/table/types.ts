@@ -3,6 +3,7 @@ import React, {
     ColgroupHTMLAttributes,
     ColHTMLAttributes,
     HTMLAttributes,
+    ReactNode,
     TableHTMLAttributes,
     TdHTMLAttributes,
     ThHTMLAttributes,
@@ -26,6 +27,8 @@ export interface DataTableProps extends TableHTMLAttributes<HTMLTableElement> {
 }
 
 export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
+    caption: ReactNode;
+    children: ReactNode;
     density?: Density;
     /** Bryt ned til en stablet listevisning på små skjermer. NB: husk å sette `data-th` på hver celle! */
     collapseToList?: boolean;
