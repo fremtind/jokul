@@ -174,9 +174,4 @@ $_action-button-focus-position--compact: 0;
         opacity: 1;
         color: var(--placeholder-color);
     }
-
-    // Color of text selection
-    &::selection {
-        background-color: color(from currentColor sRGB r g b / 0.25);
-    }
 }

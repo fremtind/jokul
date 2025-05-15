@@ -78,14 +78,6 @@
         box-sizing: border-box;
         padding: var(--jkl-select-search-input-padding);
         color: var(--jkl-color-text-subdued);
-
-        &::selection {
-            background-color: color-mix(
-                in oklab,
-                var(--jkl-color-text-subdued) 25%,
-                var(--jkl-color-background-container) 15%
-            );
-        }
     }
 
     &__search-input,
