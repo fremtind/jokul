@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-modal",
-    "version": "2.2.21",
+    "version": "2.2.22",
     "publishConfig": {
         "access": "public"
     },
