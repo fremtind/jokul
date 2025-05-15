@@ -18,18 +18,17 @@ type Story = StoryObj<typeof Select>;
 
 const baseArgs = {
     name: "Select",
-    args: {
-        id: "produsent",
-        name: "produsent",
-        label: "Hvilket merke er telefonen?",
-        helpLabel: undefined,
-        errorLabel: undefined,
-        items: undefined,
-        value: undefined,
-    },
+    label: "Hvilket merke er telefonen?",
+    items: [
+        { value: "Apple", label: "Apple" },
+        { value: "Samsung", label: "Samsung" },
+        { value: "Google", label: "Google" },
+        { value: "OnePlus", label: "OnePlus" },
+        { value: "Nokia", label: "Nokia" },
+    ],
 };
 
 export const SelectStory: Story = {
     args: baseArgs,
-    render: ({ ...props }) => <Select {...props}>WIP eksempel</Select>,
+    render: ({ ...props }) => <Select {...props} />,
 };
