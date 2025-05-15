@@ -8,12 +8,12 @@
     --jkl-modal-padding: #{jkl.$unit-50};
     --jkl-modal-min-width: #{jkl.rem(220px)};
     --jkl-modal-max-width: #{jkl.rem(660px)};
-    --jkl-modal-header-margin: 0 0 #{jkl.$unit-30};
+    --jkl-modal-header-margin: 0 0 #{jkl.$unit-20};
     --jkl-modal-actions-margin: #{jkl.$unit-50} 0 0 0;
 
     @include jkl.small-device {
         --jkl-modal-padding: #{jkl.$unit-40};
-        --jkl-modal-header-margin: 0 0 #{jkl.$unit-20};
+        --jkl-modal-header-margin: 0 0 #{jkl.$unit-15};
         --jkl-modal-actions-margin: #{jkl.$unit-40} 0 0 0;
     }
 }
@@ -23,7 +23,7 @@
     @include jkl.declare-font-variables("jkl-modal-title", "heading-4");
 
     --jkl-modal-padding: #{jkl.$unit-30};
-    --jkl-modal-header-margin: 0 0 #{jkl.$unit-15};
+    --jkl-modal-header-margin: 0 0 #{jkl.$unit-10};
     --jkl-modal-actions-margin: #{jkl.$unit-30} 0 0 0;
     --jkl-modal-min-width: #{jkl.rem(220px)};
 }
