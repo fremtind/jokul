@@ -285,10 +285,6 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         .jkl-combobox__wrapper {
             color: var(--jkl-combobox-error-text-color);
         }
-
-        .jkl-combobox__search-input::selection {
-            background-color: var(--jkl-combobox-search-input-selection-color);
-        }
     }
 
     &--menu-closed {
