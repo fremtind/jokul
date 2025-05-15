@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select",
-    "version": "11.1.41",
+    "version": "11.1.42",
     "publishConfig": {
         "access": "public"
     },

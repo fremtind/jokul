@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-select-react",
-    "version": "15.0.27",
+    "version": "15.0.28",
     "publishConfig": {
         "access": "public"
     },
@@ -43,7 +43,7 @@
         "@fremtind/jkl-icons-react": "^9.2.7",
         "@fremtind/jkl-input-group-react": "^4.0.14",
         "@fremtind/jkl-react-hooks": "^12.3.0",
-        "@fremtind/jkl-select": "^11.1.41",
+        "@fremtind/jkl-select": "^11.1.42",
         "classnames": "^2.5.1"
     },
     "devDependencies": {
