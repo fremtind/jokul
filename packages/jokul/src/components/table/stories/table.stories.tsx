@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import { Table } from "../Table.js";
 import { TableBody } from "../TableBody.js";
 import { TableCaption } from "../TableCaption.js";
@@ -7,7 +8,6 @@ import { TableHead } from "../TableHead.js";
 import { TableHeader } from "../TableHeader.js";
 import { TableRow } from "../TableRow.js";
 import "../styles/_index.scss";
-import React from "react";
 
 const meta = {
     title: "Komponenter/Table",

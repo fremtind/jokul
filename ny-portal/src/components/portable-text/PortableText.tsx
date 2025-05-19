@@ -1,9 +1,12 @@
+"use client";
+
 import type { PortableTextReactComponents } from "@portabletext/react";
 import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import type { FC } from "react";
 import { KortFortalt } from "./kort-fortalt/KortFortalt";
 import { Link } from "./link/Link";
+import { LinkCard } from "./link-card/LinkCard";
 import { ListItem, OrderedList, UnorderedList } from "./list";
 import { Storybook } from "./storybook-story/Storybook";
 import { CodeBlock, InlineCode } from "./typography/Typography";
@@ -16,6 +19,7 @@ const jokulBlockTypes: PortableTextReactComponents["types"] = {
     jokul_storybook: Storybook,
     jokul_componentKortFortalt: KortFortalt,
     jokul_codeBlock: CodeBlock,
+    jokul_linkCard: LinkCard,
 };
 
 export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
