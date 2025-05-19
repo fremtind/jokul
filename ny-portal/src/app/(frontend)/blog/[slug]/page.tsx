@@ -30,10 +30,6 @@ export default async function BlogPostPage({ params }: Props) {
                 name={blogPost.name}
                 description={blogPost.short_description}
             />
-
-            {/* {blogPost.external_links.map((link, index) => (
-                <BlogCard key={index} name={link.titel} url={link.url} />
-            ))} */}
             <div className={clsx("prose", styles.wrapper)}>
                 {blogPost.article ? (
                     <PortableText blocks={blogPost.article} />
