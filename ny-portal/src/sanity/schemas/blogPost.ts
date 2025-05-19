@@ -26,10 +26,21 @@ export const blogPost = defineType({
             validation: (Rule) => Rule.required(),
         }),
         defineField({
+            name: "short_description",
+            title: "Kort beskrivelse",
+            type: "text",
+            rows: 2,
+        }),
+
+        defineField({
             name: "article",
             title: "Artikkel",
             type: "array",
-            of: [{ type: "block" }, { type: "image" }],
+            of: [
+                { type: "block" },
+                { type: "jokul_linkCard" },
+                { type: "image" },
+            ],
         }),
     ],
 });
