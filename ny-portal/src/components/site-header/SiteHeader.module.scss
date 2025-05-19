@@ -40,8 +40,8 @@
                 padding: var(--jkl-spacing-4);
             }
 
-            li.listHeading:first-of-type {
-                a.pageLink {
+            li.hasChildren {
+                .pageLink {
                     padding-inline-start: var(--jkl-spacing-24);
                 }
             }
