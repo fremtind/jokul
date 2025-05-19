@@ -161,7 +161,10 @@
         "vite-plugin-dts": "^3.9.1"
     },
     "browserslist": [
-        "extends @fremtind/browserslist-config-jkl"
+        ">0.2% in no",
+        "not ie <= 11",
+        "not dead",
+        "not op_mini all"
     ],
     "lint-staged": {
         "*.{scss,css,html,json,md,mdx}": [
@@ -176,9 +179,6 @@
         "*.{ts,tsx,js,jsx}": [
             "eslint --fix"
         ]
-    },
-    "stylelint": {
-        "extends": "@fremtind/stylelint-config-jkl"
     },
     "eslintConfig": {
         "extends": [

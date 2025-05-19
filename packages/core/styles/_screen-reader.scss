@@ -1,9 +1,0 @@
-@use "../jkl";
-
-.jkl-sr-only {
-    @include jkl.screenreader-only;
-
-    &--focusable {
-        @include jkl.screenreader-only-focusable;
-    }
-}

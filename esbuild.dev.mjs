@@ -26,7 +26,12 @@ export async function build(options) {
             const buildOptions = {
                 bundle: true,
                 sourcemap: true,
-                loader: { ".woff": "file", ".woff2": "file", ".jpg": "file", ".png": "file" },
+                loader: {
+                    ".woff": "file",
+                    ".woff2": "file",
+                    ".jpg": "file",
+                    ".png": "file",
+                },
                 plugins: [
                     sassPlugin({
                         loadPaths: ["node_modules"],
