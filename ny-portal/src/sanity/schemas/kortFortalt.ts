@@ -17,9 +17,18 @@ export const kortFortalt = defineType({
             ikkebruk: "ikke_bruk",
         },
         prepare(select) {
-            return {
-                title: `${select.bruk.length} punkt på bruk, ${select.ikkebruk.length} punkter på ikke bruk`,
-            };
+            const { bruk, ikkebruk } = select;
+            if (bruk && ikkebruk) {
+                /* prettier-ignore */
+                return {
+                    title: "Kort fortalt",
+                    subtitle: `${select.bruk.length + select.ikkebruk.length} punkt(er)`,
+                };
+            } else {
+                return {
+                    title: "Kort fortalt",
+                };
+            }
         },
     },
     fields: [
