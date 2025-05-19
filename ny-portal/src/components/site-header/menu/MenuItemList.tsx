@@ -19,7 +19,11 @@ export const MenuItemList = async () => {
                 return (
                     <li
                         key={name}
-                        className={clsx("jkl-list__item", styles.listHeading)}
+                        className={clsx(
+                            "jkl-list__item",
+                            styles.listHeading,
+                            styles.hasChildren,
+                        )}
                     >
                         <MenuItem href={`/blog/${slug?.current}`}>
                             Kom i gang
@@ -28,7 +32,13 @@ export const MenuItemList = async () => {
                 );
             })}
 
-            <li className={clsx("jkl-list__item", styles.listHeading)}>
+            <li
+                className={clsx(
+                    "jkl-list__item",
+                    styles.listHeading,
+                    styles.hasChildren,
+                )}
+            >
                 <MenuItem href={"/komponenter"}>Komponenter</MenuItem>
             </li>
             {components.map((component) => {
