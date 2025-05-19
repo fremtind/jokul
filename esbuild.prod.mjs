@@ -3,7 +3,6 @@ import path from "path";
 import browserslist from "browserslist";
 import esbuild from "esbuild";
 import { esbuildPluginBrowserslist } from "esbuild-plugin-browserslist";
-import browserListConfig from "./packages/browserslist-config-jkl/index.js";
 
 /**
  *
@@ -20,9 +19,17 @@ const createConfig = (outbase, format) => {
             sourcemap: true,
             format,
             plugins: [
-                esbuildPluginBrowserslist(browserslist(browserListConfig), {
-                    printUnknownTargets: false,
-                }),
+                esbuildPluginBrowserslist(
+                    browserslist([
+                        ">0.2% in no",
+                        "not ie <= 11",
+                        "not dead",
+                        "not op_mini all",
+                    ]),
+                    {
+                        printUnknownTargets: false,
+                    },
+                ),
             ],
         },
     ];
