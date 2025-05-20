@@ -1,8 +1,9 @@
 import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
-import React, { FC } from "react";
-import { PrimaryButton } from "../../button/Button.js";
+import React, { FC, useState } from "react";
+import { PrimaryButton, SecondaryButton } from "../../button/Button.js";
 import { ToastContent, ToastProvider, useToast } from "../index.js";
 import { ToastOptions } from "../types.js";
+import { Flex } from "../../flex/Flex.js";
 
 export const toastExampleKnobs: ExampleKnobsProps = {
     boolProps: [],
@@ -54,17 +55,24 @@ const examples: Array<[ToastContent, ToastOptions]> = [
 ];
 
 function ToastUsageExample() {
-    const { add } = useToast();
+    const { add, close } = useToast();
+    const [keys, setKeys] = useState<string[]>([]);
+
     return (
-        <PrimaryButton
-            onClick={() => {
-                const [content, options] =
-                    examples[Math.floor(Math.random() * examples.length)];
-                add(content, options);
-            }}
-        >
-            Vis toast i kontekst
-        </PrimaryButton>
+        <Flex direction="column" rowGap={24}>
+            <PrimaryButton
+                onClick={() => {
+                    const [content, options] =
+                        examples[Math.floor(Math.random() * examples.length)];
+                    setKeys([...keys, add(content, options)]);
+                }}
+            >
+                Vis toast i kontekst
+            </PrimaryButton>
+            <SecondaryButton onClick={() => keys.forEach((key) => close(key))}>
+                Lukk alle åpne toasts
+            </SecondaryButton>
+        </Flex>
     );
 }
 

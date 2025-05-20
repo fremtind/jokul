@@ -16,6 +16,7 @@ export type ToastOptions = Omit<StatelyToastOptions, "timeout"> & {
 
 export type ToastContext = {
     add: (toast: ToastContent, options?: ToastOptions) => string;
+    close: (key: string) => void;
 };
 
 export type ToastContextProviderProps = WithChildren & {

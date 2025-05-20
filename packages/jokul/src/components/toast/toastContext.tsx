@@ -12,6 +12,7 @@ const context = createContext<ToastContext>({
     add: () => {
         return "missing-provider";
     },
+    close: () => {},
 });
 
 export const useToast = (): ToastContext => useContext(context);
@@ -31,6 +32,7 @@ export const ToastProvider: FC<ToastContextProviderProps> = ({
     return (
         <context.Provider
             value={{
+                close: queue.close.bind(queue),
                 add: (toast: ToastContent, options?: ToastOptions) => {
                     let timeout: number | undefined = 5000;
 
