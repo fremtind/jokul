@@ -1,0 +1,27 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.linkCardWrapper {
+    @media (max-width: #{jkl.$breakpoint-medium}) {
+        flex-wrap: wrap;
+
+        a {
+            width: 100%;
+        }
+    }
+}
+
+.linkCard {
+    display: flex;
+    flex-direction: column;
+    padding: var(--jkl-spacing-32);
+    gap: var(--jkl-spacing-8);
+
+    @media (max-width: #{jkl.$breakpoint-medium}) {
+        padding: var(--jkl-spacing-24);
+    }
+
+    div {
+        justify-content: space-between;
+        display: flex;
+    }
+}
