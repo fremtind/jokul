@@ -32,6 +32,15 @@ export const component = defineType({
             rows: 2,
         }),
         defineField({
+            name: "status",
+            title: "Status",
+            type: "array",
+            options: {
+                list: ["deprecated", "alpha", "beta", "stabil"],
+            },
+            of: [{ type: "string" }],
+        }),
+        defineField({
             type: "object",
             name: "external_links",
             fieldsets: [
