@@ -97,7 +97,7 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
                     bottom: -1,
                     width:
                         (activeRect?.width || 0) -
-                        (density === "compact" ? 32 : 38),
+                        (density === "compact" ? 24 : 38),
                 }}
             />
         </div>

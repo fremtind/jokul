@@ -36,18 +36,23 @@ export const TabsStory: Story = {
         children: <p></p>,
     },
     render: (args) => (
-        <Tabs {...args}>
-            <TabList aria-label="Avtale-filter">
-                <Tab>Alle avtaler</Tab>
-                <Tab>NICE</Tab>
-                <Tab>Prolife</Tab>
-            </TabList>
+        <div style={{ maxWidth: "300px" }}>
+            <Tabs {...args}>
+                <TabList aria-label="Avtale-filter">
+                    <Tab>Alle avtaler</Tab>
+                    <Tab>NICE</Tab>
+                    <Tab>Prolife</Tab>
+                    <Tab>Paris</Tab>
+                </TabList>
 
-            <TabPanel>Alle avtaler</TabPanel>
+                <TabPanel>Alle avtaler</TabPanel>
 
-            <TabPanel>NICE-avtaler</TabPanel>
+                <TabPanel>NICE-avtaler</TabPanel>
 
-            <TabPanel>Prolife-avtaler</TabPanel>
-        </Tabs>
+                <TabPanel>Prolife-avtaler</TabPanel>
+
+                <TabPanel>Paris-avtaler</TabPanel>
+            </Tabs>
+        </div>
     ),
 };
