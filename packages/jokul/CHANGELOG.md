@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.62.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.62.3...@fremtind/jokul@0.62.4) (2025-05-21)
+
+### Bug Fixes
+
+- sørg for at ikon for eksterne lenker henger sammen med siste ord ([17207d9](https://github.com/fremtind/jokul/commit/17207d9e0adf07f1a43e2de6fc095513fa83567b))
+
 # [0.62.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.61.0...@fremtind/jokul@0.62.0) (2025-05-13)
 
 ### Features
