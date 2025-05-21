@@ -1,4 +1,5 @@
 @use "../../../core/jkl";
+@use "../../icon/styles/base-styles" as icon;
 
 .jkl-link {
     --link-color: var(--jkl-color-text-default);
@@ -20,6 +21,23 @@
         margin-inline-start: 0.2em;
         margin-block-start: -0.1em;
         vertical-align: middle;
+    }
+
+    &--external::after,
+    &[target="_blank"]::after {
+        --jkl-icon-fill: 0;
+        --jkl-icon-size: #{jkl.rem(20px)};
+        --jkl-icon-opsz: 20;
+
+        content: "\feff\e89e";
+        margin-block-start: -0.1em;
+        padding-inline-start: 0.2em;
+        vertical-align: middle;
+
+        @include icon.base-styles;
+
+        // Trengs for at non breaking space skal ha effekt
+        display: inline;
     }
 
     &:hover:not(:focus) {
