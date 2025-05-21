@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.62.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.62.4...@fremtind/jokul@0.62.5) (2025-05-21)
+
+### Bug Fixes
+
+- fiks scroll i tab-list ([50e798d](https://github.com/fremtind/jokul/commit/50e798dd946a8bff19bcdf90168ee585a2707ed2)), closes [#4171](https://github.com/fremtind/jokul/issues/4171)
+
 ## [0.62.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.62.3...@fremtind/jokul@0.62.4) (2025-05-21)
 
 ### Bug Fixes
