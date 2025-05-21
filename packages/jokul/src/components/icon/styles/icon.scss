@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
+@use "./base-styles" as *;
 
 @include jkl.light-mode-variables {
     --jkl-icon-grade: 0;
@@ -12,19 +13,7 @@
 .jkl-icon {
     --jkl-icon-fill: 0;
 
-    font-family: "Fremtind Material Symbols", Arial, Helvetica, sans-serif;
-    font-variation-settings: "FILL" var(--jkl-icon-fill, 0),
-        "GRAD" var(--jkl-icon-grade, 0), "opsz" var(--jkl-icon-opsz, 24);
-    font-feature-settings: "liga";
-    -webkit-font-feature-settings: "liga";
-    font-size: var(--jkl-icon-size, #{jkl.rem(24px)});
-    font-weight: var(--jkl-icon-weight, 300);
-    line-height: 1;
-    display: inline-block;
-    -webkit-font-smoothing: antialiased;
-
-    @include jkl.motion("standard", "productive");
-    transition-property: font-variation-settings, transform;
+    @include base-styles;
 
     &--bold {
         --jkl-icon-weight: 500;
