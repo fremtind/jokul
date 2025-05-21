@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.4.0 (2025-05-21)
+
+### Features
+
+- adds option to programmatically close toasts ([9db6fe8](https://github.com/fremtind/jokul/commit/9db6fe8a03a2f2a9b2e09bf533d954539429d903)), closes [#4869](https://github.com/fremtind/jokul/issues/4869)
+
 ## 2.3.22 (2025-01-08)
 
 ### Bug Fixes

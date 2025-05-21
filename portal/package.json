@@ -2,7 +2,7 @@
     "name": "@fremtind/portal",
     "private": true,
     "description": "Documentation portal for Jøkul",
-    "version": "23.0.2",
+    "version": "23.0.3",
     "devDependencies": {
         "@jest/globals": "^29.7.0",
         "@types/mixpanel-browser": "^2.51.0",
@@ -51,7 +51,7 @@
         "@fremtind/jkl-tabs-react": "^7.0.0",
         "@fremtind/jkl-tag-react": "^6.0.16",
         "@fremtind/jkl-text-input-react": "^16.0.22",
-        "@fremtind/jkl-toast-react": "^2.3.33",
+        "@fremtind/jkl-toast-react": "^2.4.0",
         "@fremtind/jkl-toggle-switch-react": "^13.1.53",
         "@fremtind/jkl-tooltip-react": "^4.6.17",
         "@fremtind/jkl-validators-util": "^3.0.2",
