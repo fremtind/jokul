@@ -11,7 +11,8 @@ function copyJklFonts(destination) {
                 "..",
                 "..",
                 "packages",
-                "webfonts",
+                "jokul",
+                "src",
                 "fonts",
             );
             if (!existsSync(destination)) {

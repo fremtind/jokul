@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React, { FC } from "react";
 import { FieldGroup } from "../../input-group/FieldGroup.js";
 import { LabelVariant } from "../../input-group/types.js";

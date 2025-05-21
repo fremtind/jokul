@@ -1,8 +1,0 @@
-@use "@fremtind/jkl-core/jkl";
-
-.jkl-portal-cookie-consent {
-    background-color: transparent;
-    padding: 0;
-    cursor: pointer;
-    @include jkl.reset-outline;
-}

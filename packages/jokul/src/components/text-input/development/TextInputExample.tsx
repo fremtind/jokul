@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React, { ChangeEvent, FC, useState } from "react";
 import { CloseIcon } from "../../icon/index.js";
 import { IconButton } from "../../icon-button/IconButton.js";

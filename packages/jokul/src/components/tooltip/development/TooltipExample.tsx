@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React, { FC, useState } from "react";
 import { formatKontonummer } from "../../../utilities/formatters/kontonummer/formatKontonummer.js";
 import { Button } from "../../button/Button.js";
