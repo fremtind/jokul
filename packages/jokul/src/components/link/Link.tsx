@@ -1,7 +1,6 @@
 import { clsx } from "clsx";
 import React, { useId } from "react";
 import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
-import { OpenInNewIcon } from "../icon/icons/OpenInNewIcon.js";
 import { LinkProps } from "./types.js";
 
 type LinkComponent = <ElementType extends React.ElementType = "a">(
@@ -25,15 +24,14 @@ export const Link = React.forwardRef(function Link<
     return (
         <Component
             ref={ref}
-            className={clsx("jkl-link", className, {})}
+            className={clsx("jkl-link", className, {
+                "jkl-link--external": external,
+            })}
             aria-describedby={external ? srId : undefined}
             {...rest}
         >
             <span className="jkl-link__content">{children}</span>
             {(external || rest.target === "_blank") && (
-                <OpenInNewIcon variant="small" className="jkl-link__icon" />
-            )}
-            {external && (
                 <span hidden={true} id={srId}>
                     Ekstern lenke
                 </span>
