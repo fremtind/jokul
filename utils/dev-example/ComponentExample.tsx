@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { ExampleBase } from "./ExampleBase";
-import { ExampleComponentProps, ChoiceProp, BoolProp, CodeExample } from "./";
+import type { ExampleComponentProps, ChoiceProp, BoolProp, CodeExample } from "./";
 
 export interface Props {
     component: FC<ExampleComponentProps>;
@@ -22,11 +22,14 @@ export const ComponentExample: FC<Props> = ({ component, ...rest }) => {
     return (
         <ExampleBase
             component={({ boolValues, choiceValues, displayValues }) => (
-                <C
-                    boolValues={boolValues}
-                    choiceValues={choiceValues}
-                    displayValues={displayValues}
-                />
+                <>
+                    Linting?
+                    <C
+                        boolValues={boolValues}
+                        choiceValues={choiceValues}
+                        displayValues={displayValues}
+                    />
+                </>
             )}
             {...rest}
         />

@@ -32,7 +32,8 @@
         "integration:interactive": "playwright test --ui",
         "integration:axe": "playwright test -g axe",
         "storybook": "storybook dev -p 6007 --no-open",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "prepare": "husky"
     },
     "packageManager": "pnpm@7.32.2",
     "pnpm": {
@@ -64,6 +65,7 @@
     },
     "devDependencies": {
         "@axe-core/playwright": "^4.10.1",
+        "@biomejs/biome": "1.9.4",
         "@chromatic-com/storybook": "^3.2.4",
         "@commitlint/cli": "^17.8.1",
         "@commitlint/config-conventional": "^17.8.1",
@@ -120,7 +122,7 @@
         "express-http-proxy": "^2.1.1",
         "get-port": "^6.1.2",
         "gh-pages": "5.0.0",
-        "husky": "^8.0.3",
+        "husky": "^9.1.7",
         "jest": "^29.7.0",
         "jest-axe": "^7.0.1",
         "jest-canvas-mock": "^2.5.2",
@@ -154,22 +156,16 @@
         "not op_mini all"
     ],
     "lint-staged": {
-        "*.{scss,css,html,json,md,mdx}": [
-            "prettier --write"
+        "*.{scss,css,html,json,md,mdx,ts,tsx,js,jsx}": [
+            "pnpm biome format --write",
+            "pnpm biome lint --write"
         ],
-        "!(*integration).{png,jpg,jpeg}": [
-            "node scripts/preoptimize-images"
-        ],
+        "!(*integration).{png,jpg,jpeg}": ["node scripts/preoptimize-images"],
         "*.{scss,css}": [
             "stylelint --fix --config=packages/stylelint-config-jkl/index.js"
-        ],
-        "*.{ts,tsx,js,jsx}": [
-            "eslint --fix"
         ]
     },
     "eslintConfig": {
-        "extends": [
-            "plugin:storybook/recommended"
-        ]
+        "extends": ["plugin:storybook/recommended"]
     }
 }
