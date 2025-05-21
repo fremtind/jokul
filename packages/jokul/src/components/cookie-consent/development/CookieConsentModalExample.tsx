@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React, { FC, useEffect, useState } from "react";
 import { TertiaryButton } from "../../button/Button.js";
 import { CookieConsent } from "../CookieConsent.js";

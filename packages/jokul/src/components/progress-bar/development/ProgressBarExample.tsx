@@ -1,4 +1,4 @@
-import { ExampleKnobsProps } from "doc-utils/index.js";
+import { ExampleKnobsProps } from "utils/dev-example/index.js";
 import React, { FC, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "../../icon/index.js";
 import { IconButton } from "../../icon-button/IconButton.js";

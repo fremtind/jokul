@@ -1,9 +1,9 @@
+import React, { useState } from "react";
 import {
     CodeExample,
     ExampleComponentProps,
     ExampleKnobsProps,
-} from "doc-utils/index.js";
-import React, { useState } from "react";
+} from "utils/dev-example/index.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { Autosuggest } from "../Autosuggest.js";
 

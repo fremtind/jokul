@@ -1,4 +1,4 @@
-import { ExampleComponentProps } from "doc-utils/index.js";
+import { ExampleComponentProps } from "utils/dev-example/index.js";
 import React, { useState } from "react";
 import { Image } from "../Image.js";
 import "./style.scss";

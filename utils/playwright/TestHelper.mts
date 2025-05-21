@@ -1,11 +1,11 @@
-import { expect, type Page, test } from "@playwright/test";
-import react from "@vitejs/plugin-react-swc";
+import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { expect, type Page, test } from "@playwright/test";
+import react from "@vitejs/plugin-react-swc";
 import { createServer, type ViteDevServer } from "vite";
 /* @ts-ignore */
 import { copyJklFonts } from "../vite/copy-jkl-fonts.mjs";
-import { existsSync } from "node:fs";
 /* @ts-ignore */
 import { setupDev } from "../vite/setup-dev.mjs";
 
@@ -63,10 +63,9 @@ export class TestHelper {
             ],
             resolve: {
                 alias: {
-                    "doc-utils": resolve(
+                    utils: resolve(
                         fileURLToPath(new URL(".", import.meta.url)),
                         "..",
-                        "dev-example",
                     ),
                 },
             },

@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React, { FC, useId, useState } from "react";
 import { SecondaryButton } from "../../button/Button.js";
 import { TextInput } from "../../text-input/TextInput.js";

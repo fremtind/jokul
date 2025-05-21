@@ -21,5 +21,5 @@
         "skipLibCheck": true
     },
     "exclude": ["**/node_modules", "**/.*", "**/build", "**/dist"],
-    "include": ["./packages/**/*", "./jest/setupTests.ts", "portal", "./node_modules/jest"]
+    "include": ["./packages/**/*", "./node_modules/jest"]
 }

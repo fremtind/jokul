@@ -1,4 +1,4 @@
-import { DevExample } from "doc-utils/DevExample.js";
+import { DevExample } from "utils/dev-example/DevExample.js";
 import React from "react";
 import { FeedbackExample } from "./FeedbackExample.js";
 import { feedbackExampleProps } from "./feedbackExampleProps.js";

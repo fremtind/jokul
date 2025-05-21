@@ -1,9 +1,12 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
 import React, { FC, useState } from "react";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import { PrimaryButton, SecondaryButton } from "../../button/Button.js";
+import { Flex } from "../../flex/Flex.js";
 import { ToastContent, ToastProvider, useToast } from "../index.js";
 import { ToastOptions } from "../types.js";
-import { Flex } from "../../flex/Flex.js";
 
 export const toastExampleKnobs: ExampleKnobsProps = {
     boolProps: [],

@@ -1,4 +1,4 @@
-import { ExampleKnobsProps } from "doc-utils/index.js";
+import { ExampleKnobsProps } from "utils/dev-example/index.js";
 import React from "react";
 import { Breadcrumb } from "../Breadcrumb.js";
 import { BreadcrumbItem } from "../BreadcrumbItem.js";

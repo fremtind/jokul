@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React, { FC, useState } from "react";
 import { type LabelVariant } from "../../input-group/types.js";
 import { Combobox } from "../Combobox.js";

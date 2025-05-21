@@ -1,4 +1,4 @@
-import { ExampleComponentProps } from "doc-utils/index.js";
+import { ExampleComponentProps } from "utils/dev-example/index.js";
 import React, { FC } from "react";
 import { Tag, InfoTag, SuccessTag, WarningTag, ErrorTag } from "../Tag.js";
 

@@ -1,1 +1,0 @@
-export { DelayText } from "./DelayText";

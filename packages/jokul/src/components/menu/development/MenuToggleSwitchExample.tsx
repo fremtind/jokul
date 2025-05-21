@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React, { useCallback, useRef, useState, type FC } from "react";
 import { ColorScheme } from "../../../core/types.js";
 import { useBrowserPreferences } from "../../../hooks/useBrowserPreferences/useBrowserPreferences.js";

@@ -19,7 +19,7 @@ const QUALITY = 70;
 
 let files = process.argv.slice(2);
 if (files.length === 0) {
-    files = glob.sync(`+(packages|portal)/**/*.{png,jpg,jpeg}`);
+    files = glob.sync(`+(packages)/**/*.{png,jpg,jpeg}`);
 }
 
 Promise.all([

@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React, { ComponentPropsWithRef, FC, forwardRef } from "react";
 import { Button } from "../../button/Button.js";
 import { ChevronDownIcon, ErrorIcon } from "../../icon/index.js";

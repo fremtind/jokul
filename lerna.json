@@ -1,5 +1,7 @@
 {
-    "packages": ["packages/*", "portal"],
+    "packages": [
+        "packages/*"
+    ],
     "version": "independent",
     "npmClient": "pnpm",
     "command": {
@@ -8,7 +10,11 @@
             "registry": "https://registry.npmjs.org/",
             "access": "public",
             "npmClient": "pnpm",
-            "allowBranch": ["main", "release", "alpha-*"],
+            "allowBranch": [
+                "main",
+                "release",
+                "alpha-*"
+            ],
             "ignoreChanges": [
                 ".eslintrc",
                 ".prettierrc",

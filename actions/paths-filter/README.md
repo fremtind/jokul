@@ -25,8 +25,6 @@ Inspired by [dorny/paths-filter](https://github.com/dorny/paths-filter), but sim
             - "**/!(*.d|*.test).ts"
             - "**/!(*.test).tsx"
             - "pnpm-lock.yaml"
-          preview:
-            - "portal/src/texts/**"
 
 - name: Setup pnpm
   if: (steps.changes.outputs.visual == 'true' || steps.changes.outputs.testlint == 'true') && !contains(github.event.sender.login, 'fremtind-bot')

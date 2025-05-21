@@ -2,7 +2,7 @@ import {
     ExampleComponentProps,
     ExampleKnobsProps,
     useExampleContext,
-} from "doc-utils/index.js";
+} from "utils/dev-example/index.js";
 import React, { useEffect, type FC } from "react";
 import ReactDOM from "react-dom";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";

@@ -1,4 +1,4 @@
-import { ExampleComponentProps } from "doc-utils/index.js";
+import { ExampleComponentProps } from "utils/dev-example/index.js";
 import React from "react";
 import { InfoBlock, NavCard, NavCardProps } from "../../NavCard.js";
 import { mixedPadding } from "./cardExampleProps.js";

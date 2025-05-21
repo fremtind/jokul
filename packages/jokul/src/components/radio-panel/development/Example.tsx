@@ -1,4 +1,4 @@
-import { DevExample } from "doc-utils/index.js";
+import { DevExample } from "utils/dev-example/index.js";
 import React from "react";
 import {
     ControlledExample as RadioPanelControlledExample,
