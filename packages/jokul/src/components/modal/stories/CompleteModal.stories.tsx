@@ -40,6 +40,7 @@ export const CompleteModal: Story = {
             <ModalOverlay />
             <Modal role="document">
                 <ModalHeader>
+                    {/* biome-ignore lint/a11y/useSemanticElements: Dette fikser vi på en bedre måte ved refaktorering av komponenten */}
                     <ModalTitle aria-level={1} role="heading" id={""}>
                         Tittel
                     </ModalTitle>

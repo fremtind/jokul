@@ -118,6 +118,7 @@ describe("Button", () => {
                 <div>
                     <p>{counter}</p>
                     <button
+                        type="button"
                         onClick={() => {
                             setCount(counter + 1);
                         }}

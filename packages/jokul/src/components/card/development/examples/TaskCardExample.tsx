@@ -11,7 +11,7 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({
     choiceValues,
 }) => {
     const [selected, setSelected] = useState(false);
-    const [contentRef] = useAnimatedHeight<HTMLDivElement>(selected);
+    const [contentRef] = useAnimatedHeight<HTMLFieldSetElement>(selected);
 
     const paddingChoice =
         (choiceValues?.["Padding"] as "0" | "16" | "24" | "40" | "blandet") ||
@@ -38,10 +38,9 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({
                 Dekker veterinærutgifter og medisiner på resept, som ofte kan
                 bli dyrt.
             </p>
-            <div
+            <fieldset
                 id="expanded-content"
                 aria-labelledby="veterinar-checkbox"
-                role="group"
                 className="jkl-task-card-example__content"
                 hidden={!selected}
                 ref={contentRef}
@@ -70,7 +69,7 @@ export const TaskCardExample: React.FC<ExampleComponentProps> = ({
                     Dersom du ønsker ekstra forsikring av valpekull, må du ta
                     kontakt med en rådgiver.
                 </p>
-            </div>
+            </fieldset>
         </TaskCard>
     );
 };

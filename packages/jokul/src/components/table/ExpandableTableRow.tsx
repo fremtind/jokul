@@ -32,7 +32,7 @@ const ExpandableTableRow = forwardRef<
         setIsOpen(isOpenProp);
     }, [isOpenProp]);
 
-    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, {
+    const [animationRef] = useAnimatedHeight<HTMLFieldSetElement>(isOpen, {
         timing: "expressive",
     });
 
@@ -101,16 +101,15 @@ const ExpandableTableRow = forwardRef<
             */}
             <tr aria-hidden={!isOpen}>
                 <td colSpan={colSpan}>
-                    <div
+                    <fieldset
                         ref={animationRef}
                         className={childWrapperClassName}
                         id={tableRowId}
                         aria-labelledby={expandableTableRowControllerId}
                         hidden={!isOpen}
-                        role="group"
                     >
                         {expandedChildren}
-                    </div>
+                    </fieldset>
                 </td>
             </tr>
         </>

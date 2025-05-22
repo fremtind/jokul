@@ -16,6 +16,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({
 
     return (
         <div
+            tabIndex={0}
             className={`jkl-progress-bar ${className ?? ""}`}
             role="progressbar"
             title={title}

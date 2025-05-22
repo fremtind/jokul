@@ -582,6 +582,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             <div
                                 id={listId}
                                 ref={dropdownRef}
+                                // biome-ignore lint/a11y/useSemanticElements: Vi reimplementerer select
                                 role="listbox"
                                 className="jkl-select__options-menu"
                                 hidden={
@@ -611,6 +612,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                             aria-selected={
                                                 item.value === selectedValue
                                             }
+                                            // biome-ignore lint/a11y/useSemanticElements: Vi reimplementerer select
                                             role="option"
                                             value={item.value}
                                             data-testautoid={`jkl-select__option-${i}`}

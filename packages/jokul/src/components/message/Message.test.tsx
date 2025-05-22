@@ -64,6 +64,7 @@ describe("a11y", () => {
 
     it("should have a role equal to the given prop", async () => {
         render(
+            // biome-ignore lint/a11y/useValidAriaRole: Bare en test
             <InfoMessage title="info" role="none presentation">
                 Lorem Ipsum
             </InfoMessage>,

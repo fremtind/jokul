@@ -39,6 +39,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
             ref={detailsRef}
             id={id}
         >
+            {/* biome-ignore lint/a11y/useKeyWithClickEvents: Fungerer som forventet */}
             <summary
                 data-testid="jkl-accordion-item__title"
                 className="jkl-accordion-item__title"

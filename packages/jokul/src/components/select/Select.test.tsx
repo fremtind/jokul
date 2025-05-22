@@ -402,7 +402,7 @@ describe("Select", () => {
             ];
             return (
                 <>
-                    <button>OUTSIDE BUTTON</button>
+                    <button type="button">OUTSIDE BUTTON</button>
                     <Select
                         name="items"
                         label="List of items"
@@ -442,7 +442,7 @@ describe("Select", () => {
             ];
             return (
                 <>
-                    <button>OUTSIDE BUTTON</button>
+                    <button type="button">OUTSIDE BUTTON</button>
                     <Select
                         name="items"
                         label="List of items"
@@ -504,7 +504,10 @@ describe("Select", () => {
 
             return (
                 <>
-                    <button onClick={() => setValue(items[1].value)}>
+                    <button
+                        type="button"
+                        onClick={() => setValue(items[1].value)}
+                    >
                         Click
                     </button>
                     <Select
@@ -1004,7 +1007,7 @@ describe("Searchable select", () => {
             ];
             return (
                 <>
-                    <button>OUTSIDE BUTTON</button>
+                    <button type="button">OUTSIDE BUTTON</button>
                     <Select
                         name="items"
                         searchable
@@ -1047,7 +1050,7 @@ describe("Searchable select", () => {
             ];
             return (
                 <>
-                    <button>OUTSIDE BUTTON</button>
+                    <button type="button">OUTSIDE BUTTON</button>
                     <Select
                         name="items"
                         searchable

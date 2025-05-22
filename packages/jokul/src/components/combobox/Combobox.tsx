@@ -449,6 +449,7 @@ export const Combobox: FC<ComboboxProps> = ({
 
                     <div
                         className="jkl-combobox__menu"
+                        // biome-ignore lint/a11y/useSemanticElements: Dette er en reimplementering av en liste
                         role="listbox"
                         ref={dropdownRef}
                         id={listId}
@@ -465,6 +466,7 @@ export const Combobox: FC<ComboboxProps> = ({
                                 type="button"
                                 id={`${listId}__${option.value}`}
                                 aria-selected={isSelected(option)}
+                                // biome-ignore lint/a11y/useSemanticElements: Dette er en reimplementering av en liste
                                 role="option"
                                 value={option.value}
                                 onBlur={handleBlur}
@@ -522,7 +524,6 @@ export const Combobox: FC<ComboboxProps> = ({
                             },${label}`}
                             aria-expanded={showMenu}
                             aria-controls={listId}
-                            role="button"
                             onClick={() => setShowMenu((previous) => !previous)}
                             onMouseDown={(e) => {
                                 e.preventDefault();

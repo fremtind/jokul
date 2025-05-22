@@ -27,6 +27,7 @@ export const Image: FC<ImageProps> = ({
                 alt={alt}
                 src={placeholder || imageProperties.src}
             />
+            {/* biome-ignore lint/a11y/useAltText: Den har da vitterlig en alt-attributt? */}
             <img
                 alt={alt}
                 className="jkl-image__image"

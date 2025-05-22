@@ -107,6 +107,7 @@ export const ExampleBase: FC<Props> = ({
     return (
         <ExampleContextProvider state={{ theme, density }}>
             <button
+                type="button"
                 id="screenshot-mode-toggle"
                 hidden={true}
                 onClick={() => setScreenshotMode(!screenshotMode)}

@@ -334,7 +334,7 @@ describe("Datepicker", () => {
         const { getByLabelText } = render(
             <div>
                 <DatePicker onFocus={onFocus} />
-                <button>Click</button>
+                <button type="button">Click</button>
             </div>,
         );
 
@@ -353,7 +353,7 @@ describe("Datepicker", () => {
         render(
             <div>
                 <DatePicker onFocus={onFocus} />
-                <button>Click</button>
+                <button type="button">Click</button>
             </div>,
         );
 
@@ -370,7 +370,7 @@ describe("Datepicker", () => {
         const { getByLabelText, getByText } = render(
             <div>
                 <DatePicker onBlur={onBlur} />
-                <button>Click</button>
+                <button type="button">Click</button>
             </div>,
         );
 
@@ -390,7 +390,7 @@ describe("Datepicker", () => {
         const { getByTitle } = render(
             <div>
                 <DatePicker action={{ onFocus }} />
-                <button>Click</button>
+                <button type="button">Click</button>
             </div>,
         );
 
@@ -409,7 +409,7 @@ describe("Datepicker", () => {
         const { getByTitle, getByText } = render(
             <div>
                 <DatePicker action={{ onBlur }} />
-                <button>Click</button>
+                <button type="button">Click</button>
             </div>,
         );
 
@@ -459,7 +459,7 @@ describe("Datepicker", () => {
             const { getByLabelText, getByText } = render(
                 <div>
                     <DatePicker onBlur={onBlur} />
-                    <button>Click</button>
+                    <button type="button">Click</button>
                 </div>,
             );
 
@@ -481,7 +481,7 @@ describe("Datepicker", () => {
             const { getByLabelText, getByText } = render(
                 <div>
                     <DatePicker onBlur={onBlur} />
-                    <button>Click</button>
+                    <button type="button">Click</button>
                 </div>,
             );
 
@@ -517,7 +517,7 @@ describe("Datepicker", () => {
             const { getByLabelText, getByText } = render(
                 <div>
                     <DatePicker onBlur={onBlur} />
-                    <button>Click</button>
+                    <button type="button">Click</button>
                 </div>,
             );
 
