@@ -41,6 +41,12 @@ export const component = defineType({
             of: [{ type: "string" }],
         }),
         defineField({
+            name: "keywords",
+            title: "Stikkord",
+            type: "array",
+            of: [{ type: "string" }],
+        }),
+        defineField({
             type: "object",
             name: "external_links",
             fieldsets: [

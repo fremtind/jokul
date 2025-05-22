@@ -1,6 +1,5 @@
 import clsx from "clsx";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useTabsContext } from "./tabsContext.js";
+import React, { useCallback, useRef } from "react";
 import { TabListProps } from "./types.js";
 
 export interface InjectedProps {
@@ -19,22 +18,9 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
     // props injected by Tabs
     const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...rest } =
         injected as TabListProps & InjectedProps;
-    const { density } = useTabsContext();
-
-    const [tabsRect, setTabsRect] = useState<DOMRect>();
-    const [activeRect, setActiveRect] = useState<DOMRect>();
 
     const tabsRef = useRef<HTMLDivElement>(null);
     const activeRef = useRef<HTMLButtonElement>(null);
-
-    useEffect(() => {
-        if (tabsRef.current) {
-            setTabsRect(tabsRef.current.getBoundingClientRect());
-        }
-        if (activeRef.current) {
-            setActiveRect(activeRef.current.getBoundingClientRect());
-        }
-    }, [activeIndex, density]);
 
     const keyDownHandler = useCallback(
         (event: React.KeyboardEvent<HTMLButtonElement>) => {
@@ -89,17 +75,6 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
                       })
                     : null;
             })}
-
-            <span
-                className="jkl-tablist__indicator"
-                style={{
-                    left: (activeRect?.left || 0) - (tabsRect?.left || 0),
-                    bottom: -1,
-                    width:
-                        (activeRect?.width || 0) -
-                        (density === "compact" ? 24 : 38),
-                }}
-            />
         </div>
     );
 };
