@@ -28,8 +28,8 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
     const supportTextType = errorLabel
         ? "error"
         : helpLabel
-        ? "help"
-        : undefined;
+          ? "help"
+          : undefined;
 
     const describedBy = supportText ? supportId : undefined;
 
@@ -49,7 +49,7 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
                             <span style={{ whiteSpace: "normal" }}>
                                 {legend}
                             </span>
-                            {`\u00A0`}
+                            {"\u00A0"}
                             {tooltip}
                         </>
                     ) : (

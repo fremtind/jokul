@@ -2,7 +2,7 @@ import terser from "@rollup/plugin-terser";
 import react from "@vitejs/plugin-react-swc";
 import { globSync } from "glob";
 import { fileURLToPath } from "node:url";
-import { extname, relative, resolve } from "path";
+import { extname, relative, resolve } from "node:path";
 import nodeExternals from "rollup-plugin-node-externals";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";

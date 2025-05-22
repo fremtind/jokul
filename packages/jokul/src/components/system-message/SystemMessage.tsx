@@ -33,7 +33,7 @@ function systemFactory(
                 id={systemId}
                 className={clsx(
                     "jkl-system-message",
-                    "jkl-system-message--" + messageType,
+                    `jkl-system-message--${messageType}`,
                     className,
                     {
                         "jkl-system-message--dismissed": dismissed,

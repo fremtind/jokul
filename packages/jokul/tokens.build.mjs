@@ -28,13 +28,11 @@ StyleDictionary.registerFormat({
             ? { [prefix]: dictionary.tokens }
             : dictionary.tokens;
 
-        const output =
-            StyleDictionary.formatHelpers.fileHeader({ file }) +
-            `export default \n${JSON.stringify(
-                transformTokens(tokens),
-                null,
-                2,
-            )}\n`;
+        const output = `${StyleDictionary.formatHelpers.fileHeader({ file })}export default \n${JSON.stringify(
+            transformTokens(tokens),
+            null,
+            2,
+        )}\n`;
 
         // return prettified
         return format(output, {
@@ -60,13 +58,11 @@ const formatValueAsScssVar = (originalValue) => {
 StyleDictionary.registerFormat({
     name: "css/variables-ref-scss",
     formatter: ({ dictionary, file, platform }) => {
-        let output =
-            StyleDictionary.formatHelpers.fileHeader({ file }) +
-            `@use "../jkl";\n\n`;
+        let output = `${StyleDictionary.formatHelpers.fileHeader({ file })}@use "../jkl";\n\n`;
         const { prefix } = platform;
 
         // Light mode
-        output += `@include jkl.light-mode-variables {\n    `;
+        output += "@include jkl.light-mode-variables {\n    ";
         output += dictionary.allTokens
             .filter((token) => token.path.includes("light"))
             .map((token) => {
@@ -86,7 +82,7 @@ StyleDictionary.registerFormat({
         output += "\n}\n";
 
         // Dark mode
-        output += `@include jkl.dark-mode-variables {\n    `;
+        output += "@include jkl.dark-mode-variables {\n    ";
         output += dictionary.allTokens
             .filter((token) => token.path.includes("dark"))
             .map((token) => {
@@ -113,7 +109,7 @@ const { formattedVariables, fileHeader } = StyleDictionary.formatHelpers;
 const variableFormatter =
     (format = "sass") =>
     ({ dictionary, file }) => {
-        const variableDenotion = format == "sass" ? "$" : "@";
+        const variableDenotion = format === "sass" ? "$" : "@";
         const formatProperty = (token) => {
             const path = token.path
                 .filter((word) => !["light", "dark"].includes(word))
@@ -272,7 +268,7 @@ StyleDictionary.registerFormat({
 
         let output = StyleDictionary.formatHelpers.fileHeader({ file });
 
-        output += `const colors = {\n    `;
+        output += "const colors = {\n    ";
         output += dictionary.allTokens
             .filter((token) => token.path.includes("light"))
             .map((token) => {
@@ -293,7 +289,7 @@ StyleDictionary.registerFormat({
             })
             .join("\n    ");
         output += "\n};\n\n";
-        output += `export default colors;\n`;
+        output += "export default colors;\n";
 
         return output;
     },

@@ -55,7 +55,7 @@ function messageFactory(messageType: messageTypes) {
                 ref={ref}
                 className={clsx(
                     "jkl-message",
-                    "jkl-message--" + messageType,
+                    `jkl-message--${messageType}`,
                     className,
                     {
                         "jkl-message--full": fullWidth,

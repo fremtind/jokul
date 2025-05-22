@@ -39,7 +39,7 @@ describe("formatValuta", () => {
     });
 
     it("passes through strings that cannot be parsed as numbers", () => {
-        expect(formatValuta("hundreogtjuetre")).toEqual(`hundreogtjuetre`);
+        expect(formatValuta("hundreogtjuetre")).toEqual("hundreogtjuetre");
     });
 
     it("handles a sum of 0", () => {

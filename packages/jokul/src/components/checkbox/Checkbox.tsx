@@ -24,7 +24,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         } = props;
 
         const inputRef = useRef<HTMLInputElement>(null);
-        useImperativeHandle(ref, () => inputRef.current!, []);
+        useImperativeHandle(
+            ref,
+            () => inputRef.current as HTMLInputElement,
+            [],
+        );
 
         const inputId = useId(id || "jkl-checkbox", { generateSuffix: !id });
 

@@ -122,18 +122,18 @@ export const comboboxExampleCode = ({
     placeholder="Søk"
     variant="${choiceValues?.["Variant"]}"
     helpLabel=${
-        !!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`
+        !!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : "{undefined}"
     }
     errorLabel=${
-        !!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`
+        !!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : "{undefined}"
     }
     label="Velg sykdommer"
     noMatchingOption=${
         !!boolValues?.["Med empty state"]
             ? `"Ingen valg matcher søket"`
-            : `{undefined}`
+            : "{undefined}"
     }
-    hasTagHover=${!!boolValues?.["Med tagHover"] ? `{true}` : `{undefined}`}
+    hasTagHover=${!!boolValues?.["Med tagHover"] ? "{true}" : "{undefined}"}
     items={[
         { value: "a080", label: "A080 - Rotavirusenteritt", tagLabel: "A080" },
         { value: "a081", label: "A081 - Akutt gastroenteritt som skyldes norovirus", tagLabel: "A081" },

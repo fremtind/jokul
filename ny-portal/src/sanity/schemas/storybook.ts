@@ -35,7 +35,7 @@ export const storybook = defineType({
 
             return {
                 title: "Storybook-eksempel",
-                subtitle: hasMoreStories ? subtitle + " og flere" : subtitle,
+                subtitle: hasMoreStories ? `${subtitle} og flere` : subtitle,
             };
         },
     },

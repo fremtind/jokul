@@ -32,8 +32,8 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
         const supportTextType = errorLabel
             ? "error"
             : helpLabel
-            ? "help"
-            : undefined;
+              ? "help"
+              : undefined;
 
         const describedBy = supportText ? supportId : undefined;
 
@@ -81,7 +81,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                             <span style={{ whiteSpace: "normal" }}>
                                 {label}
                             </span>
-                            {`\u00A0`}
+                            {"\u00A0"}
                             {tooltip}
                         </>
                     ) : (

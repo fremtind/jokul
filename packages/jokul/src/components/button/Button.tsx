@@ -62,11 +62,11 @@ export const Button = React.forwardRef(function Button<
                 target.getBoundingClientRect().y;
             target.style.setProperty(
                 "--jkl-touch-xcoord",
-                Xcoord.toFixed(1) + "px",
+                `${Xcoord.toFixed(1)}px`,
             );
             target.style.setProperty(
                 "--jkl-touch-ycoord",
-                Ycoord.toFixed(1) + "px",
+                `${Ycoord.toFixed(1)}px`,
             );
             target.classList.add("jkl-button--pressed");
         }
@@ -80,7 +80,7 @@ export const Button = React.forwardRef(function Button<
             {...ariaLive}
             data-loading={showLoader}
             data-density={density}
-            className={cn("jkl-button", "jkl-button--" + variant, className)}
+            className={cn("jkl-button", `jkl-button--${variant}`, className)}
             disabled={as === "button" ? loader?.showLoader : undefined}
             onTouchStart={(event) => {
                 onTouchStart?.(event);

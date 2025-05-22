@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const InfoMessage: Story = {
     args: {
-        children: `Hei, jeg er en melding av typen info`,
+        children: "Hei, jeg er en melding av typen info",
         title: "Info",
         dismissAction: { handleDismiss() {} },
     },

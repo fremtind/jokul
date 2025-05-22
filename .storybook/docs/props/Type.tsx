@@ -8,8 +8,11 @@ type Props = {
 export const Type: FC<Props> = ({ details }) => {
     if (details.options) {
         return `'${details.options.join("' | '")}'`;
-    } else if (details.type?.name === "other") {
+    }
+
+    if (details.type?.name === "other") {
         return details.type?.value;
     }
+
     return details.type?.name;
 };

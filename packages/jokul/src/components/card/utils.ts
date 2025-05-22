@@ -9,9 +9,9 @@ function getSpacingIndex(
     const value = spacingStep || fallback;
     if (isOldSpacingStep(value)) {
         return SPACING_STEPS.indexOf(value);
-    } else {
-        return NEW_SPACING_STEPS.indexOf(value);
     }
+
+    return NEW_SPACING_STEPS.indexOf(value);
 }
 
 export function getPaddingStyles(

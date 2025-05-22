@@ -19,9 +19,12 @@ import type { TablePaginationProps } from "./types.js";
 function clamp(min: number, num: number, max: number): number {
     if (num < min) {
         return min;
-    } else if (num > max) {
+    }
+
+    if (num > max) {
         return max;
     }
+
     return num;
 }
 

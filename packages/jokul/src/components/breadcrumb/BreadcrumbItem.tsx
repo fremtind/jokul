@@ -22,9 +22,9 @@ export const BreadcrumbItem = ({
                         "aria-current": isLastElement ? "page" : undefined,
                         className: "jkl-link",
                     });
-                } else {
-                    return child;
                 }
+
+                return child;
             })}
         </li>
     );

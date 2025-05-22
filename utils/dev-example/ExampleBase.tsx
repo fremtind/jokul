@@ -110,7 +110,7 @@ export const ExampleBase: FC<Props> = ({
                 id="screenshot-mode-toggle"
                 hidden={true}
                 onClick={() => setScreenshotMode(!screenshotMode)}
-            ></button>
+            />
             <div className="mb-64">
                 <section
                     className={`jkl-portal-component-example ${
@@ -151,104 +151,92 @@ export const ExampleBase: FC<Props> = ({
                                     labelProps={{ variant: "medium" }}
                                     className="jkl-portal-component-example__example-options-header"
                                 >
-                                    {knobs?.boolProps && (
-                                        <>
-                                            {Object.entries(boolValues).map(
-                                                ([key, value]) => (
-                                                    <Checkbox
-                                                        key={`${uid}-${hyphenate(
+                                    {knobs?.boolProps &&
+                                        Object.entries(boolValues).map(
+                                            ([key, value]) => (
+                                                <Checkbox
+                                                    key={`${uid}-${hyphenate(
+                                                        key,
+                                                    )}`}
+                                                    name={`${uid}-${hyphenate(
+                                                        key,
+                                                    )}`}
+                                                    value={key}
+                                                    checked={value}
+                                                    onChange={(e) =>
+                                                        setBoolValue(
                                                             key,
-                                                        )}`}
+                                                            e.target.checked,
+                                                        )
+                                                    }
+                                                    data-testid={`bool-prop-${hyphenate(
+                                                        key,
+                                                    )}`}
+                                                >
+                                                    {key}
+                                                </Checkbox>
+                                            ),
+                                        )}
+                                    {knobs?.choiceProps &&
+                                        Object.entries(choiceValues).map(
+                                            ([key, value]) =>
+                                                choices[key].length < 4 ? (
+                                                    <RadioButtonGroup
+                                                        className="mt-8"
                                                         name={`${uid}-${hyphenate(
                                                             key,
                                                         )}`}
-                                                        value={key}
-                                                        checked={value}
-                                                        onChange={(e) =>
-                                                            setBoolValue(
-                                                                key,
-                                                                e.target
-                                                                    .checked,
-                                                            )
-                                                        }
-                                                        data-testid={`bool-prop-${hyphenate(
+                                                        key={`${uid}-${hyphenate(
                                                             key,
                                                         )}`}
+                                                        legend={key}
+                                                        value={value}
+                                                        labelProps={{
+                                                            variant: "small",
+                                                        }}
+                                                        onChange={(e) =>
+                                                            setChoiceValue(
+                                                                key,
+                                                                e.target.value,
+                                                            )
+                                                        }
                                                     >
-                                                        {key}
-                                                    </Checkbox>
+                                                        {choices[key]?.map(
+                                                            (choice) => (
+                                                                <RadioButton
+                                                                    key={choice}
+                                                                    value={
+                                                                        choice
+                                                                    }
+                                                                    data-testid={`choice-prop-${hyphenate(
+                                                                        choice,
+                                                                    )}`}
+                                                                >
+                                                                    {choice}
+                                                                </RadioButton>
+                                                            ),
+                                                        )}
+                                                    </RadioButtonGroup>
+                                                ) : (
+                                                    <Select
+                                                        className="mt-8"
+                                                        value={value}
+                                                        onChange={(e) =>
+                                                            setChoiceValue(
+                                                                key,
+                                                                e.target.value,
+                                                            )
+                                                        }
+                                                        label={key}
+                                                        width="100%"
+                                                        key={`${uid}-${hyphenate(
+                                                            key,
+                                                        )}`}
+                                                        name={key}
+                                                        items={choices[key]}
+                                                    />
                                                 ),
-                                            )}
-                                        </>
-                                    )}
-                                    {knobs?.choiceProps && (
-                                        <>
-                                            {Object.entries(choiceValues).map(
-                                                ([key, value]) =>
-                                                    choices[key].length < 4 ? (
-                                                        <RadioButtonGroup
-                                                            className="mt-8"
-                                                            name={`${uid}-${hyphenate(
-                                                                key,
-                                                            )}`}
-                                                            key={`${uid}-${hyphenate(
-                                                                key,
-                                                            )}`}
-                                                            legend={key}
-                                                            value={value}
-                                                            labelProps={{
-                                                                variant:
-                                                                    "small",
-                                                            }}
-                                                            onChange={(e) =>
-                                                                setChoiceValue(
-                                                                    key,
-                                                                    e.target
-                                                                        .value,
-                                                                )
-                                                            }
-                                                        >
-                                                            {choices[key]?.map(
-                                                                (choice) => (
-                                                                    <RadioButton
-                                                                        key={
-                                                                            choice
-                                                                        }
-                                                                        value={
-                                                                            choice
-                                                                        }
-                                                                        data-testid={`choice-prop-${hyphenate(
-                                                                            choice,
-                                                                        )}`}
-                                                                    >
-                                                                        {choice}
-                                                                    </RadioButton>
-                                                                ),
-                                                            )}
-                                                        </RadioButtonGroup>
-                                                    ) : (
-                                                        <Select
-                                                            className="mt-8"
-                                                            value={value}
-                                                            onChange={(e) =>
-                                                                setChoiceValue(
-                                                                    key,
-                                                                    e.target
-                                                                        .value,
-                                                                )
-                                                            }
-                                                            label={key}
-                                                            width="100%"
-                                                            key={`${uid}-${hyphenate(
-                                                                key,
-                                                            )}`}
-                                                            name={key}
-                                                            items={choices[key]}
-                                                        />
-                                                    ),
-                                            )}
-                                        </>
-                                    )}
+                                        )}
                                 </FieldGroup>
                             )}
                             <FieldGroup

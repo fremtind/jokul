@@ -1162,9 +1162,9 @@ describe("Searchable select", () => {
                 searchable={(filter, item) => {
                     if (typeof item === "object") {
                         return item.value === filter;
-                    } else {
-                        return item === filter;
                     }
+
+                    return item === filter;
                 }}
             />,
         );

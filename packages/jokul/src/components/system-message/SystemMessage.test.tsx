@@ -28,7 +28,7 @@ const types = [
 describe("System messages", () => {
     [messageWithStyles, messageWitoutStyles].forEach((messageStyleProps) => {
         types.map(([name, E]) => {
-            it(name + " should render message content", () => {
+            it(`${name} should render message content`, () => {
                 render(<E {...messageStyleProps}>content</E>);
                 screen.getByText("content");
             });
@@ -36,7 +36,7 @@ describe("System messages", () => {
     });
     [messageWithStyles].forEach((messageStyleProps) => {
         types.map(([name, E]) => {
-            it(name + " should take css properties", () => {
+            it(`${name} should take css properties`, () => {
                 render(<E {...messageStyleProps}>content</E>);
                 expect(
                     screen.getByTestId("system-message-content"),
@@ -51,16 +51,12 @@ describe("System messages", () => {
     });
     [messageWitoutStyles].forEach((messageStyleProps) => {
         types.map(([name, E]) => {
-            it(
-                name +
-                    " should not add style attribute if styles are undefined",
-                () => {
-                    render(<E {...messageStyleProps}>content</E>);
-                    expect(
-                        screen.getByTestId("system-message-content"),
-                    ).not.toHaveAttribute("style");
-                },
-            );
+            it(`${name} should not add style attribute if styles are undefined`, () => {
+                render(<E {...messageStyleProps}>content</E>);
+                expect(
+                    screen.getByTestId("system-message-content"),
+                ).not.toHaveAttribute("style");
+            });
         });
     });
 });

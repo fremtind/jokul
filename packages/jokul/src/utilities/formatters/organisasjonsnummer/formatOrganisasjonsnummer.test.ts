@@ -12,18 +12,18 @@ describe("formatOrganisasjonsnummer", () => {
     });
 
     it("does not format 10 digit numbers", () => {
-        expect(formatOrganisasjonsnummer("9156512322")).toEqual(`9156512322`);
+        expect(formatOrganisasjonsnummer("9156512322")).toEqual("9156512322");
     });
 
     it("does not format a string containing letters", () => {
-        expect(formatOrganisasjonsnummer("915651hei")).toEqual(`915651hei`);
+        expect(formatOrganisasjonsnummer("915651hei")).toEqual("915651hei");
     });
 });
 
 describe("formatOrganisasjonsnummer with partial option", () => {
     it("correctly formats numbers over 2 digits", () => {
         expect(formatOrganisasjonsnummer("915", { partial: true })).toEqual(
-            `915`,
+            "915",
         );
         expect(formatOrganisasjonsnummer("9156", { partial: true })).toEqual(
             `915${nbsp}6`,
@@ -47,7 +47,7 @@ describe("formatOrganisasjonsnummer with partial option", () => {
 
     it("ignores spaces in otherwise valid inputs", () => {
         expect(formatOrganisasjonsnummer("91 5 ", { partial: true })).toEqual(
-            `915`,
+            "915",
         );
         expect(
             formatOrganisasjonsnummer("9 15 65 1", { partial: true }),

@@ -31,7 +31,7 @@ export const MenuExample: FC<ExampleComponentProps> = ({
 
     /* Force a re-render whenever theme or density changes */
     const key =
-        displayValues?.theme || "none" + displayValues?.density || "none";
+        displayValues?.theme || `none${displayValues?.density}` || "none";
 
     const CustomLink = forwardRef<
         HTMLAnchorElement,

@@ -12,6 +12,7 @@ export function useKeyListener(
     fn: (event: KeyboardEvent) => void,
 ): void {
     if (typeof keys === "string") {
+        // biome-ignore lint/style/noParameterAssign: Dette er helt greit å forstå
         keys = [keys];
     }
     function handleKeyDown(event: KeyboardEvent) {

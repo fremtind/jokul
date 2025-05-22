@@ -3,7 +3,10 @@ import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ExpanderContext } from "./context.js";
 import { ExpandablePanelContent } from "./ExpandablePanelContent.js";
-import type { ExpandablePanelComponent, ExpandablePanelProps } from "./types.js";
+import type {
+    ExpandablePanelComponent,
+    ExpandablePanelProps,
+} from "./types.js";
 
 export const ExpandablePanel = Object.assign(
     React.forwardRef(function ExpandablePanel<
@@ -76,7 +79,7 @@ export const ExpandablePanel = Object.assign(
                     {...{ inert: "true" }}
                     className="jkl-expandable__focus-container"
                     style={{ height: expanderHeight }}
-                ></div>
+                />
                 <El
                     ref={internalRef}
                     data-testid={"jkl-expand-section"}

@@ -49,13 +49,15 @@ export function parseNumber(input: string | number) {
         return Number(
             replaceAllButLastOccurence(arrNumber, ".").replace(",", ""),
         );
-    } else if (decimalNotator === ",") {
+    }
+
+    if (decimalNotator === ",") {
         return Number(
             replaceAllButLastOccurence(arrNumber, ",")
                 .replace(".", "")
                 .replace(",", "."),
         );
-    } else {
-        return Number(arrNumber.join(""));
     }
+
+    return Number(arrNumber.join(""));
 }

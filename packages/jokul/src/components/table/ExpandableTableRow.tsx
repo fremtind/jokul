@@ -79,7 +79,7 @@ const ExpandableTableRow = forwardRef<
                         React.isValidElement<ExpandableTableRowControllerProps>(
                             child,
                         ) &&
-                        child.type == ExpandableTableRowController
+                        child.type === ExpandableTableRowController
                     ) {
                         return React.cloneElement<ExpandableTableRowControllerProps>(
                             child,
@@ -90,9 +90,9 @@ const ExpandableTableRow = forwardRef<
                                 id: expandableTableRowControllerId,
                             },
                         );
-                    } else {
-                        return child;
                     }
+
+                    return child;
                 })}
             </TableRow>
             {/*
