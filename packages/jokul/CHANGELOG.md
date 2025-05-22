@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.64.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.63.0...@fremtind/jokul@0.64.0) (2025-05-22)
+
+### Features
+
+- slett gammel portal relaterte filer ([c8b29da](https://github.com/fremtind/jokul/commit/c8b29dad90153fd0d1a72810edf28b895f436e6c))
+
 # [0.63.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.62.5...@fremtind/jokul@0.63.0) (2025-05-21)
 
 ### Features
