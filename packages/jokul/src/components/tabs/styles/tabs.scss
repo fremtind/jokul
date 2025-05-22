@@ -4,11 +4,13 @@
 @include jkl.comfortable-density-variables {
     --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-50) var(--jkl-unit-15)
         var(--jkl-unit-02);
+    --jkl-tab-padding-inline-end: var(--jkl-unit-50);
 
     @include jkl.declare-font-variables("jkl-tab", "body");
     @include jkl.small-device {
         --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-30)
             var(--jkl-unit-15) var(--jkl-unit-02);
+        --jkl-tab-padding-inline-end: var(--jkl-unit-30);
     }
 }
 
@@ -17,6 +19,7 @@
 
     --jkl-tab-padding: var(--jkl-unit-02) var(--jkl-unit-40) var(--jkl-unit-05)
         0;
+    --jkl-tab-padding-inline-end: var(--jkl-unit-40);
 }
 
 .jkl-tabs {
@@ -40,25 +43,30 @@
     width: fit-content;
     max-width: 100%;
 
-    &__indicator {
-        position: absolute;
-        height: 2px;
-        background-color: var(--indicator-color);
-        @include jkl.motion("standard", "lazy");
-        transition-property: left, width;
-        will-change: left, width;
-
-        @include jkl.forced-colors-mode {
-            background-color: Highlight;
-        }
-    }
-
     @include jkl.forced-colors-mode {
         border-color: GrayText;
     }
 
     &::-webkit-scrollbar {
         display: none;
+    }
+
+    @supports (position-anchor: --active-tab) {
+        &::after {
+            content: "";
+            position: absolute;
+            /* stylelint-disable */
+            position-anchor: --active-tab;
+            /* stylelint-enable */
+            height: 2px;
+            width: calc(
+                anchor-size(inline) - var(--jkl-tab-padding-inline-end)
+            );
+            inset-block-start: calc(anchor(end) - 2px);
+            inset-inline-start: calc(anchor(--active-tab start));
+            background-color: var(--indicator-color);
+            @include jkl.motion("standard", "lazy");
+        }
     }
 }
 
@@ -86,6 +94,22 @@
     }
 
     &[aria-selected="true"] {
+        anchor-name: --active-tab;
         @include jkl.no-grow-bold;
+
+        @supports not (position-anchor: --active-tab) {
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 2px;
+                width: calc(100% - var(--jkl-tab-padding-inline-end));
+                inset-block-end: 0;
+                inset-inline-start: 0;
+                background-color: var(--indicator-color);
+                @include jkl.motion("standard", "lazy");
+            }
+        }
     }
 }
