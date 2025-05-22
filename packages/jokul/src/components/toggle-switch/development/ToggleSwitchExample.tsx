@@ -1,8 +1,8 @@
+import React from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React from "react";
 import { ToggleSwitch } from "../ToggleSwitch.js";
 import type { ToggleChangeHandler } from "../types.js";
 

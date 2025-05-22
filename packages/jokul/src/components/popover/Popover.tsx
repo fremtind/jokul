@@ -1,10 +1,11 @@
 import {
-    autoUpdate,
-    flip,
     FloatingFocusManager,
     FloatingPortal,
-    offset,
     type ReferenceElement,
+    type VirtualElement,
+    autoUpdate,
+    flip,
+    offset,
     shift,
     useClick,
     useDismiss,
@@ -14,7 +15,6 @@ import {
     useInteractions,
     useMergeRefs,
     useRole,
-    type VirtualElement,
 } from "@floating-ui/react";
 import clsx from "clsx";
 import * as React from "react";

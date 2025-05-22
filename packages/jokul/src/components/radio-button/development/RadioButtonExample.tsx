@@ -1,8 +1,8 @@
+import React, { type FC } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC } from "react";
 import type { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { RadioButton } from "../RadioButton.js";

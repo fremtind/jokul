@@ -2,8 +2,8 @@ import React, { type JSXElementConstructor, type FC } from "react";
 import {
     CheckboxQuestion,
     RadioQuestion,
-    TextQuestion,
     SmileyQuestion,
+    TextQuestion,
 } from "./questions/index.js";
 import type { QuestionProps, QuestionType } from "./types.js";
 

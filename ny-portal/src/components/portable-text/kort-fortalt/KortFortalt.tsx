@@ -1,3 +1,4 @@
+import type { Jokul_componentKortFortalt } from "@/sanity/types";
 import {
     CheckListItem,
     CrossListItem,
@@ -7,7 +8,6 @@ import type { PortableTextTypeComponentProps } from "@portabletext/react";
 import type { FC } from "react";
 import { PortableText } from "../PortableText";
 import styles from "./kortFortalt.module.scss";
-import type { Jokul_componentKortFortalt } from "@/sanity/types";
 
 export const KortFortalt: FC<
     PortableTextTypeComponentProps<Jokul_componentKortFortalt>

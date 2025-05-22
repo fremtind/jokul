@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React, { type ForwardedRef } from "react";
 import type { Density, WithChildren } from "../../../core/types.js";
-import { ArrowVerticalAnimated } from "../../icon/icons/animated/ArrowVerticalAnimated.js";
 import { ScreenReaderOnly } from "../../ScreenReaderOnly.js";
+import { ArrowVerticalAnimated } from "../../icon/icons/animated/ArrowVerticalAnimated.js";
 
 export interface ExpanderProps extends WithChildren {
     as?: "summary" | "button";

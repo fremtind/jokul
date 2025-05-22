@@ -11,8 +11,8 @@ import React, {
     useState,
 } from "react";
 import { flushSync } from "react-dom";
-import { CalendarIcon } from "../icon/icons/CalendarIcon.js";
 import { IconButton } from "../icon-button/IconButton.js";
+import { CalendarIcon } from "../icon/icons/CalendarIcon.js";
 import { InputGroup } from "../input-group/InputGroup.js";
 import Popover from "../popover/Popover.js";
 import { BaseTextInput } from "../text-input/BaseTextInput.js";

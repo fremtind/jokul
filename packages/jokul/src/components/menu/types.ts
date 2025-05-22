@@ -1,5 +1,5 @@
 import type { Placement } from "@floating-ui/react";
-import type { HTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import type { DataTestAutoId, WithChildren } from "../../core/types.js";
 import type { SwipeChangeHandler } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";

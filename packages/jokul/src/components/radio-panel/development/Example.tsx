@@ -1,5 +1,5 @@
-import { DevExample } from "utils/dev-example/index.js";
 import React from "react";
+import { DevExample } from "utils/dev-example/index.js";
 import {
     ControlledExample as RadioPanelControlledExample,
     knobs as radioPanelControlledKnobs,

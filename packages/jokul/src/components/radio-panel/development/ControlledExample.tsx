@@ -1,9 +1,9 @@
+import React, { type FC } from "react";
+import { Controller, type SubmitHandler, useForm } from "react-hook-form";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC } from "react";
-import { Controller, type SubmitHandler, useForm } from "react-hook-form";
 import { PrimaryButton } from "../../button/Button.js";
 import { Flex } from "../../flex/index.js";
 import { SuccessTag } from "../../tag/index.js";

@@ -8,9 +8,9 @@ import React, {
     type MouseEventHandler,
 } from "react";
 import { useId } from "../../hooks/useId/useId.js";
+import { IconButton } from "../icon-button/IconButton.js";
 import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
-import { IconButton } from "../icon-button/IconButton.js";
 import { NativeSelect } from "../select/NativeSelect.js";
 import { TextInput } from "../text-input/TextInput.js";
 import { useTableContext } from "./tableContext.js";

@@ -1,5 +1,5 @@
-import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import React, { useState } from "react";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import { useAnimatedHeight } from "../../../../hooks/index.js";
 import { Checkbox } from "../../../checkbox/Checkbox.js";
 import { FieldGroup } from "../../../input-group/FieldGroup.js";

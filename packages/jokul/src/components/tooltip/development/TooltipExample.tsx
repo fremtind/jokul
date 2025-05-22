@@ -1,8 +1,8 @@
+import React, { type FC, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC, useState } from "react";
 import { formatKontonummer } from "../../../utilities/formatters/kontonummer/formatKontonummer.js";
 import { Button } from "../../button/Button.js";
 import { CopyIcon } from "../../icon/index.js";

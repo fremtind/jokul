@@ -1,8 +1,8 @@
+import React, { type FC } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC } from "react";
 import { Flex } from "../../flex/Flex.js";
 import { GreenCheckIcon } from "../../icon/index.js";
 import { ExpandablePanel } from "../ExpandablePanel.js";

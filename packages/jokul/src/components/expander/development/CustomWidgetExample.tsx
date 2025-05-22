@@ -1,8 +1,8 @@
+import React, { type FC, useId, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC, useId, useState } from "react";
 import { SecondaryButton } from "../../button/Button.js";
 import { TextInput } from "../../text-input/TextInput.js";
 import { ExpandablePanel } from "../ExpandablePanel.js";

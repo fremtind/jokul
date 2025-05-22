@@ -12,11 +12,11 @@ import {
 } from "../modal/Modal.js";
 import { useModal } from "../modal/useModal.js";
 import { useInternalState } from "./CookieConsentContext.js";
+import { RequirementCheckbox } from "./RequirementCheckbox.js";
 import {
     convertBooleanConsentObjectToConsentObject,
     setConsentCookie,
 } from "./cookieConsentUtils.js";
-import { RequirementCheckbox } from "./RequirementCheckbox.js";
 import type { AcceptConsentCallback, Consent } from "./types.js";
 
 export interface CookieConsentProps {

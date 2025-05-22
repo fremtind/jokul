@@ -1,8 +1,8 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import type { PortableTextTypeComponentProps } from "next-sanity";
-import MissingTypesMessage from "./missing-types.mdx";
 import { Props } from "./Props";
+import MissingTypesMessage from "./missing-types.mdx";
 
 type PropsDocumentationSchema = {
     componentFolder: string;

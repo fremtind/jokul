@@ -10,8 +10,8 @@ import { isValidEpost } from "../../../utilities/validators/isValidEpost/isValid
 import { isValidTelefonnummer } from "../../../utilities/validators/isValidTelefonnummer/isValidTelefonnummer.js";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
 import { TextInput } from "../../text-input/TextInput.js";
-import { useFeedbackContext } from "../feedbackContext.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
+import { useFeedbackContext } from "../feedbackContext.js";
 import type { ContactQuestionProps } from "../types.js";
 
 const validateEmail = (email?: string) => {

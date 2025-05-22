@@ -4,8 +4,8 @@ import {
     SecondaryButton,
     TertiaryButton,
 } from "../../button/Button.js";
-import { useFeedbackContext } from "../feedbackContext.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
+import { useFeedbackContext } from "../feedbackContext.js";
 import type { FollowupProps } from "../types.js";
 import { getQuestionFromType } from "../utils.js";
 import { FollowUpProvider } from "./followupContext.js";

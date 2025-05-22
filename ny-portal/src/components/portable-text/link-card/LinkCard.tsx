@@ -1,10 +1,10 @@
 "use client";
+import type { Jokul_linkCard } from "@/sanity/types";
 import { Card, OpenInNewIcon } from "@fremtind/jokul";
 import { Flex } from "@fremtind/jokul/components/flex";
-import { PortableTextTypeComponentProps } from "@portabletext/react";
-import { FC } from "react";
+import type { PortableTextTypeComponentProps } from "@portabletext/react";
+import type { FC } from "react";
 import styles from "./linkCard.module.scss";
-import { Jokul_linkCard } from "@/sanity/types";
 
 export const LinkCard: FC<PortableTextTypeComponentProps<Jokul_linkCard>> = ({
     value,

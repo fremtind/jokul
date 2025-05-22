@@ -1,7 +1,7 @@
 import { useOf } from "@storybook/blocks";
+import clsx from "clsx";
 import React, { type FC } from "react";
 import { Prop } from "./Prop";
-import clsx from "clsx";
 
 import styles from "./prop-docs.module.scss";
 

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import "../styles/_index.scss";
-import { Tag, InfoTag, WarningTag, ErrorTag, SuccessTag } from "../Tag.js";
+import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "../Tag.js";
 
 const meta = {
     title: "Komponenter/Tag",

@@ -1,8 +1,8 @@
+import React from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React from "react";
 import { LogoStamp } from "../LogoStamp.js";
 import * as logoStampTextPaths from "../text-paths/index.js";
 

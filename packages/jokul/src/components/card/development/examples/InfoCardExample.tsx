@@ -1,5 +1,5 @@
-import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import React from "react";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import { unicode } from "../../../../utilities/constants/index.js";
 import { InfoCard } from "../../InfoCard.js";
 import { mixedPadding } from "./cardExampleProps.js";

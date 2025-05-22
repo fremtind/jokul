@@ -1,8 +1,8 @@
+import React, { type FC } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC } from "react";
 import { Button } from "../../button/Button.js";
 import { Tab } from "../../tabs/Tab.js";
 import { TabList } from "../../tabs/TabList.js";

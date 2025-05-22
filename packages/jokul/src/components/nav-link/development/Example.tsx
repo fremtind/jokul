@@ -1,6 +1,6 @@
-import { DevExample } from "utils/dev-example/DevExample.js";
 import React from "react";
-import { knobs as navLinkKnobs, NavLinkExample } from "./NavLinkExample.js";
+import { DevExample } from "utils/dev-example/DevExample.js";
+import { NavLinkExample, knobs as navLinkKnobs } from "./NavLinkExample.js";
 
 export default function Example() {
     return (

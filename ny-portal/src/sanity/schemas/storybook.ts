@@ -1,5 +1,5 @@
 import { ComponentIcon } from "@sanity/icons";
-import { defineType, defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 import { StorybookInput } from "../components/StorybookStoryInput";
 export const storybook = defineType({
     name: "jokul_storybook",

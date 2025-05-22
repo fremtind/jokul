@@ -1,5 +1,5 @@
-import { defineType, defineField } from "sanity";
 import { ComponentFolderInput } from "@/sanity/components/ComponentFolderInput";
+import { defineField, defineType } from "sanity";
 
 export const componentProps = defineType({
     name: "jokul_componentProps",

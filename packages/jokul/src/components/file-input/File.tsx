@@ -5,12 +5,12 @@ import React, {
     type MouseEvent,
     useId,
 } from "react";
-import { TrashCanIcon, SuccessIcon } from "../../components/icon/index.js";
 import { IconButton } from "../../components/icon-button/IconButton.js";
+import { SuccessIcon, TrashCanIcon } from "../../components/icon/index.js";
 import { SupportLabel } from "../../components/input-group/SupportLabel.js";
 import { formatBytes } from "../../utilities/formatters/bytes/formatBytes.js";
-import { useFileInputContext } from "./internal/fileInputContext.js";
 import { Thumbnail } from "./internal/Thumbnail.js";
+import { useFileInputContext } from "./internal/fileInputContext.js";
 import type { FileInputFileState } from "./types.js";
 
 export type FileProps = {

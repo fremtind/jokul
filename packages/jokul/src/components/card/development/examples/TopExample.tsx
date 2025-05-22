@@ -1,5 +1,5 @@
-import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import React, { type FC } from "react";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import { InfoBlock, NavCard } from "../../NavCard.js";
 import { mixedPadding } from "./cardExampleProps.js";
 

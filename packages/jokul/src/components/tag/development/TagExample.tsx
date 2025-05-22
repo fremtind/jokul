@@ -1,6 +1,6 @@
-import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import React, { type FC } from "react";
-import { Tag, InfoTag, SuccessTag, WarningTag, ErrorTag } from "../Tag.js";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
+import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "../Tag.js";
 
 type TagType = "Info" | "Success" | "Warning" | "Error";
 

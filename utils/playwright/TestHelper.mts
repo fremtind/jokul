@@ -1,9 +1,9 @@
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { expect, type Page, test } from "@playwright/test";
+import { type Page, expect, test } from "@playwright/test";
 import react from "@vitejs/plugin-react-swc";
-import { createServer, type ViteDevServer } from "vite";
+import { type ViteDevServer, createServer } from "vite";
 /* @ts-ignore */
 import { copyJklFonts } from "../vite/copy-jkl-fonts.mjs";
 /* @ts-ignore */

@@ -6,10 +6,10 @@ import {
     removeMediaQueryListener,
 } from "../mediaQueryUtils.js";
 import {
-    type ScreenAction,
     ActionType,
-    reducer,
+    type ScreenAction,
     type ScreenState,
+    reducer,
 } from "./state.js";
 
 const { breakpoint } = tokens;

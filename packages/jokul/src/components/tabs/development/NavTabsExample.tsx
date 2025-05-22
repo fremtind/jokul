@@ -1,7 +1,3 @@
-import type {
-    ExampleComponentProps,
-    ExampleKnobsProps,
-} from "utils/dev-example/index.js";
 import React, {
     type FC,
     type MouseEvent,
@@ -9,6 +5,10 @@ import React, {
     useMemo,
     useState,
 } from "react";
+import type {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import { NavTab, NavTabs } from "../index.js";
 
 export const navTabsExampleKnobs: ExampleKnobsProps = {};

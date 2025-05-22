@@ -8,8 +8,8 @@ import React, {
 import { useAnimatedHeight } from "../../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
 import type { Feedback } from "../Feedback.js";
-import { useFeedbackContext } from "../feedbackContext.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
+import { useFeedbackContext } from "../feedbackContext.js";
 import { AddonQuestion } from "../questions/AddonQuestion.js";
 import type { FeedbackOption, FeedbackType } from "../types.js";
 import { getQuestionFromType } from "../utils.js";

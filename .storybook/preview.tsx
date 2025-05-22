@@ -1,7 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { backgroundOptions } from "./backgrounds.js";
+import { densities, densityDecorator, densityGlobal } from "./density.js";
 import { themeDecorator, themeGlobal, themes } from "./theme.js";
-import { densityDecorator, densityGlobal, densities } from "./density.js";
 import "../packages/jokul/src/components/card/styles/_index.scss";
 import "./global.scss";
 

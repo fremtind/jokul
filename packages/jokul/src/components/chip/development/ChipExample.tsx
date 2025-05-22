@@ -1,8 +1,8 @@
+import React, { type FC, useState, useEffect } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC, useState, useEffect } from "react";
 import { Chip } from "../Chip.js";
 
 type ChipVariant = "input" | "filter";

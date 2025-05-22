@@ -1,10 +1,10 @@
+import { mkdirSync } from "node:fs";
+import { readFile, writeFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import litePreset from "cssnano-preset-lite";
 import { glob } from "glob";
-import { writeFile, readFile } from "node:fs/promises";
-import { mkdirSync } from "node:fs";
-import { fileURLToPath } from "node:url";
 import postcss from "postcss";
 import * as sass from "sass-embedded";
 

@@ -1,8 +1,8 @@
+import React, { useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { useState } from "react";
 import { TextInput } from "../../text-input/TextInput.js";
 import {
     ArrowDownIcon,
