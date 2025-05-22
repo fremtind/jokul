@@ -2,8 +2,8 @@
  * Felles håndtering av vanlige plugins og loaders.
  * Importeres av de enkelte pakkenes byggscript.
  */
-import path from "path";
-import { fileURLToPath, pathToFileURL } from "url";
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import esbuild from "esbuild";
 import { sassPlugin } from "esbuild-sass-plugin";
 

@@ -447,7 +447,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     value={selectedValue}
                     onChange={noop} // React complains unless we give an onChange handler. This is technically a read-only field, but readOnly isn't an option here.
                 >
-                    <option value=""></option>{" "}
+                    <option value="" />{" "}
                     {/* Tom option må være et valg, ellers vil <select> alltid ha en value */}
                     {visibleItems.map((item) => (
                         <option

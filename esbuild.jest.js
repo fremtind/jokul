@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require("node:path");
 const { transformSync } = require("esbuild");
 
 const supported = ["tsx", "ts", "jsx", "js"];

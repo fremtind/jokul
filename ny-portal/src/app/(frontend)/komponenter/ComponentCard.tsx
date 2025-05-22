@@ -27,7 +27,7 @@ const requestOptions: RequestInit = {
 };
 
 function logFetchError(reason: any) {
-    console.error(`Feilet under henting av thumbnail fra Figma`, reason);
+    console.error("Feilet under henting av thumbnail fra Figma", reason);
 
     return undefined;
 }

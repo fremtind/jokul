@@ -8,9 +8,7 @@ import { ArrowRightIcon } from "../icon/icons/ArrowRightIcon.js";
 import type { ItemProps, LinkComponent, LinkListProps } from "./types.js";
 
 const Item: ItemProps = ({ className, ...rest }) => {
-    return (
-        <li className={clsx("jkl-link-list-item", className)} {...rest}></li>
-    );
+    return <li className={clsx("jkl-link-list-item", className)} {...rest} />;
 };
 
 const Link = React.forwardRef(function LinkListLink<

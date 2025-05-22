@@ -33,18 +33,18 @@ describe("formatTelefonnummer", () => {
     });
 
     it("does not format inputs with under 8 digits", () => {
-        expect(formatTelefonnummer("2243863")).toEqual(`2243863`);
-        expect(formatTelefonnummer("2 243 863")).toEqual(`2 243 863`);
+        expect(formatTelefonnummer("2243863")).toEqual("2243863");
+        expect(formatTelefonnummer("2 243 863")).toEqual("2 243 863");
     });
 
     it("does not format inputs with over 8 digits", () => {
-        expect(formatTelefonnummer("224386345")).toEqual(`224386345`);
-        expect(formatTelefonnummer("2 243 863 45")).toEqual(`2 243 863 45`);
+        expect(formatTelefonnummer("224386345")).toEqual("224386345");
+        expect(formatTelefonnummer("2 243 863 45")).toEqual("2 243 863 45");
     });
 
     it("does not format inputs with non-digit characters", () => {
-        expect(formatTelefonnummer("224386dsf5")).toEqual(`224386dsf5`);
-        expect(formatTelefonnummer("2 243 sdf 45")).toEqual(`2 243 sdf 45`);
+        expect(formatTelefonnummer("224386dsf5")).toEqual("224386dsf5");
+        expect(formatTelefonnummer("2 243 sdf 45")).toEqual("2 243 sdf 45");
     });
 
     it("formats number with country code", () => {

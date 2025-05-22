@@ -1,5 +1,5 @@
 // @ts-check
-import path from "path";
+import path from "node:path";
 import browserslist from "browserslist";
 import esbuild from "esbuild";
 import { esbuildPluginBrowserslist } from "esbuild-plugin-browserslist";

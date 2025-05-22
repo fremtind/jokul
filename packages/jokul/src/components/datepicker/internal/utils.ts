@@ -178,7 +178,8 @@ export function getMonthSelectOptions(
         }))
         .filter(
             ({ value }) =>
-                Number.parseInt(value) >= startMonth && Number.parseInt(value) <= endMonth,
+                Number.parseInt(value) >= startMonth &&
+                Number.parseInt(value) <= endMonth,
         );
 
     return filteredMonths;
@@ -635,13 +636,14 @@ function getNumDaysMonthYear(
     // Let Date handle the overflow of the month,
     // which should return the normalized month and year.
     const normalizedMonthYear = new Date(year, month, 1);
-    month = normalizedMonthYear.getMonth();
-    year = normalizedMonthYear.getFullYear();
+    const normalizedMonth = normalizedMonthYear.getMonth();
+    const normalizedYear = normalizedMonthYear.getFullYear();
     // Overflow the date to the next month, then subtract the difference
     // to get the number of days in the previous month.
     // This will also account for leap years!
-    const daysInMonth = 32 - new Date(year, month, 32).getDate();
-    return { daysInMonth, month, year };
+    const daysInMonth =
+        32 - new Date(normalizedYear, normalizedMonth, 32).getDate();
+    return { daysInMonth, month: normalizedMonth, year: normalizedYear };
 }
 
 /**
@@ -677,10 +679,10 @@ function isSelected(
     if (!selectedDates) {
         return false;
     }
-    selectedDates = Array.isArray(selectedDates)
+    const dates = Array.isArray(selectedDates)
         ? selectedDates
         : [selectedDates];
-    return selectedDates.some((selectedDate) => {
+    return dates.some((selectedDate) => {
         if (
             selectedDate instanceof Date &&
             startOfDay(selectedDate).getTime() === startOfDay(date).getTime()

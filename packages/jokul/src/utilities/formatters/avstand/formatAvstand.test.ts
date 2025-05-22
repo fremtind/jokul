@@ -23,7 +23,7 @@ describe("formatAvstand", () => {
 
     it("handles other locales", () => {
         expect(formatAvstand(12345, { unit: "foot", locale: "en-US" })).toEqual(
-            `12,345 ft`,
+            "12,345 ft",
         );
     });
 });

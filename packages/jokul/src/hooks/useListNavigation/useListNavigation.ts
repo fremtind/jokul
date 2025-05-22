@@ -182,6 +182,7 @@ function resetWhenIdle(search: KeyBuffer, timer: Timer) {
     }
     timer = setTimeout(
         () => {
+            // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
             search ? (search.keys = "") : (search = { keys: "" });
             timer = undefined;
         },

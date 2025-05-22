@@ -13,20 +13,20 @@ describe("formatKontonummer", () => {
 
     it("handles custom separators", () => {
         expect(formatKontonummer("16024454979", { separator: "." })).toEqual(
-            `1602.44.54979`,
+            "1602.44.54979",
         );
     });
 
     it("does not format 10 digit numbers", () => {
-        expect(formatKontonummer("1602445497")).toEqual(`1602445497`);
+        expect(formatKontonummer("1602445497")).toEqual("1602445497");
     });
 
     it("does not format 12 digit numbers", () => {
-        expect(formatKontonummer("160244549710")).toEqual(`160244549710`);
+        expect(formatKontonummer("160244549710")).toEqual("160244549710");
     });
 
     it("does not format a string containing letters", () => {
-        expect(formatKontonummer("1602heisann")).toEqual(`1602heisann`);
+        expect(formatKontonummer("1602heisann")).toEqual("1602heisann");
     });
 });
 

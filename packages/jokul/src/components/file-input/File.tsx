@@ -42,7 +42,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
     } = props;
 
     const id = `jkl-file-preview-${useId()}`;
-    const supportId = id + "-support";
+    const supportId = `${id}-support`;
 
     const context = useFileInputContext();
 

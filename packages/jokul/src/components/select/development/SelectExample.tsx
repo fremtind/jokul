@@ -113,9 +113,9 @@ export const SelectExample: FC<ExampleComponentProps> = ({
                     ? (filter, item) => {
                           if (typeof item === "object") {
                               return item.value.includes(filter);
-                          } else {
-                              return item.includes(item);
                           }
+
+                          return item.includes(item);
                       }
                     : undefined
             }

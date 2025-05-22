@@ -1,5 +1,5 @@
-const { execSync } = require("child_process");
-const { EOL } = require("os");
+const { execSync } = require("node:child_process");
+const { EOL } = require("node:os");
 
 const args = getChangedComponents()
     .map(

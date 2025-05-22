@@ -29,11 +29,13 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
         const [counterCurrent, setCounterCurrent] = useState(() => {
             if (typeof value === "undefined") {
                 return 0;
-            } else if (typeof value === "number") {
-                return String(value).length;
-            } else {
-                return value.length;
             }
+
+            if (typeof value === "number") {
+                return String(value).length;
+            }
+
+            return value.length;
         });
         const [textAreaFocused, setTextAreaFocused] = useState(false);
         const internalRef = useRef<HTMLTextAreaElement>(null);

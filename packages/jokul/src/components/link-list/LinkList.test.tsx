@@ -5,7 +5,7 @@ import { axe } from "vitest-axe";
 import { LinkList } from "./LinkList.js";
 
 describe("LinkList", () => {
-    it(`renders as expected`, () => {
+    it("renders as expected", () => {
         render(
             <LinkList variant="unordered">
                 <LinkList.Item>

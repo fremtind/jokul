@@ -113,22 +113,26 @@ export const SortableTableExample: FC<ExampleComponentProps> = ({
 
                             if (direction === "asc") {
                                 return timeA - timeB;
-                            } else {
-                                return timeB - timeA;
                             }
+
+                            return timeB - timeA;
                         }
+
                         if (sortBy === "sak") {
                             sorta = a[1];
                             sortb = b[1];
                         }
+
                         if (sortBy === "kunde") {
                             sorta = a[2];
                             sortb = b[2];
                         }
+
                         if (sortBy === "navn") {
                             sorta = a[3];
                             sortb = b[3];
                         }
+
                         if (sortBy === "behandler") {
                             sorta = a[4];
                             sortb = b[4];
@@ -137,19 +141,20 @@ export const SortableTableExample: FC<ExampleComponentProps> = ({
                         if (sorta === sortb) {
                             return 0;
                         }
+
                         if (sorta > sortb) {
                             if (direction === "desc") {
                                 return -1;
-                            } else {
-                                return 1;
                             }
-                        } else {
-                            if (direction === "desc") {
-                                return 1;
-                            } else {
-                                return -1;
-                            }
+
+                            return 1;
                         }
+
+                        if (direction === "desc") {
+                            return 1;
+                        }
+
+                        return -1;
                     })
                     .map((row, rowIndex) => (
                         <TableRow key={rowIndex}>

@@ -61,7 +61,7 @@ export const setConsentCookie = ({
     document.cookie = [
         `${name}=${JSON.stringify(consent)}`,
         `max-age=${maxAge}`,
-        `SameSite=Lax`,
+        "SameSite=Lax",
         !!domain && `domain=${domain}`,
         !!path && `path=${path}`,
     ]
@@ -78,27 +78,27 @@ export const shouldShowConsentDialog = (
         return Object.values(requirement).some(
             (requirementValue) => requirementValue,
         );
-    } else {
-        // convert to a map to ease accessing dynamic keys
-        const consentMap = new Map(Object.entries(consent));
+    }
 
-        // pls spare the CPU of converting to an entries array 3 times
-        const requirementEntries = Object.entries(requirement);
+    // convert to a map to ease accessing dynamic keys
+    const consentMap = new Map(Object.entries(consent));
 
-        for (const [name, required] of requirementEntries) {
-            // no need to check more if the value isn't required
-            if (!required) {
-                continue;
-            }
+    // pls spare the CPU of converting to an entries array 3 times
+    const requirementEntries = Object.entries(requirement);
 
-            // cancel and show consent if a value isn't decided
-            if (consentMap.get(name) === null) {
-                return true;
-            }
+    for (const [name, required] of requirementEntries) {
+        // no need to check more if the value isn't required
+        if (!required) {
+            continue;
         }
 
-        return false;
+        // cancel and show consent if a value isn't decided
+        if (consentMap.get(name) === null) {
+            return true;
+        }
     }
+
+    return false;
 };
 
 export const convertBooleanToConsentValue = (

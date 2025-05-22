@@ -15,7 +15,7 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
 
         const defaultId = useId();
 
-        const maxSizeDescriptionId = id + "-description";
+        const maxSizeDescriptionId = `${id}-description`;
         const descriptor = multiple ? "filer" : "fil";
 
         const context = useFileInputContext();

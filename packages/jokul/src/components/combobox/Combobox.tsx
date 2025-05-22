@@ -82,9 +82,9 @@ export const Combobox: FC<ComboboxProps> = ({
     const isSelected = (option: ValuePair) => {
         if (!selectedValue) {
             return false;
-        } else {
-            return selectedValue.some((value) => value.value === option.value);
         }
+
+        return selectedValue.some((value) => value.value === option.value);
     };
 
     // Fjerne ett eller flere valg
