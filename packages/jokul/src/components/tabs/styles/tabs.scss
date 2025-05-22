@@ -55,9 +55,7 @@
         &::after {
             content: "";
             position: absolute;
-            /* stylelint-disable */
             position-anchor: --active-tab;
-            /* stylelint-enable */
             height: 2px;
             width: calc(
                 anchor-size(inline) - var(--jkl-tab-padding-inline-end)
