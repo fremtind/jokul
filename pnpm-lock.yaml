@@ -222,7 +222,7 @@ importers:
       '@types/js-yaml': 4.0.9
       '@types/micromatch': 4.0.9
 
-  ny-portal:
+  portal:
     specifiers:
       '@eslint/eslintrc': ^3.3.1
       '@fremtind/jokul': workspace:*

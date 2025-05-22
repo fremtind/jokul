@@ -20,7 +20,7 @@ COPY server.js .
 COPY patches ./patches
 COPY .storybook ./.storybook
 COPY packages ./packages
-COPY ny-portal ./ny-portal
+COPY portal ./portal
 COPY pnpm-workspace.yaml .
 RUN pnpm install --frozen-lockfile
 RUN find . -name 'node_modules' -print0 | tar -cf node_modules.tar --null --files-from -
@@ -42,14 +42,14 @@ ENV SANITY_DATASET=$SANITY_DATASET
 ENV NEXT_PUBLIC_STORYBOOK_BASE_URL=$NEXT_PUBLIC_STORYBOOK_BASE_URL
 RUN \ 
   --mount=type=secret,id=FIGMA_IMAGE_READ_TOKEN,env=FIGMA_IMAGE_READ_TOKEN \
-  pnpm --filter "ny-portal" build
+  pnpm --filter "portal" build
 
 FROM base AS runner
 
 WORKDIR /app
 COPY --from=builder /app/package.json package.json
 COPY --from=builder /app/server.js server.js
-COPY --from=builder /app/ny-portal ./ny-portal
+COPY --from=builder /app/portal ./portal
 COPY --from=builder /app/packages/jokul ./packages/jokul
 COPY --from=builder /app/storybook-static ./storybook-static
 COPY --from=builder /app/node_modules ./node_modules
