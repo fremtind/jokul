@@ -16,16 +16,16 @@ describe("Card", () => {
         expect(screen.getByText("Hello world")).toBeInTheDocument();
     });
 
-    CARD_VARIANTS.forEach((variant) => {
+    for (const variant of CARD_VARIANTS) {
         it("setter riktig klasse for variant", () => {
             render(<Card variant={variant}>Hello, world</Card>);
             expect(screen.getByText("Hello, world")).toHaveClass(
                 `jkl-card--${variant}`,
             );
         });
-    });
+    }
 
-    CARD_PADDINGS.forEach((padding) => {
+    for (const padding of CARD_PADDINGS) {
         it("setter riktig attributt for padding", () => {
             render(<Card padding={padding}>Hello, world</Card>);
             expect(screen.getByText("Hello, world")).toHaveAttribute(
@@ -33,7 +33,7 @@ describe("Card", () => {
                 padding,
             );
         });
-    });
+    }
 
     it("setter riktig klasse for klikkbart kort", () => {
         render(<Card clickable>Hello, world</Card>);

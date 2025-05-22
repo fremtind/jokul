@@ -138,7 +138,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     setSelectedValue(instance.value);
                 }
             },
-            [selectRef, forwardedSelectRef],
+            [forwardedSelectRef],
         );
 
         const previousValue = usePreviousValue(value);
@@ -151,7 +151,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             } else {
                 setSelectedValue(value);
             }
-        }, [setSelectedValue, value, previousValue, valueIsInItems]);
+        }, [value, previousValue, valueIsInItems]);
 
         const selectOption = useCallback(
             (item: Option) => {
@@ -161,7 +161,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 toggleListVisibility();
                 buttonRef.current?.focus();
             },
-            [setSearchValue, setSelectedValue, toggleListVisibility],
+            [toggleListVisibility],
         );
 
         // La komponenten rendre <select> med den valgte verdien før onChange trigges, slik at
@@ -241,14 +241,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             }
             focusInsideRef.current = false;
             setShown(false);
-        }, [
-            onBlur,
-            setSearchValue,
-            setShown,
-            isSearchable,
-            name,
-            selectedValue,
-        ]);
+        }, [onBlur, isSearchable, name, selectedValue]);
 
         const handleBlur = useCallback(
             (e: FocusEvent<HTMLButtonElement | HTMLInputElement>) => {
@@ -257,8 +250,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 // https://github.com/facebook/react/issues/2011
                 // This might be fixed in react 17. Se issue above.
                 const nextFocusIsInsideComponent =
-                    componentRootElement &&
-                    componentRootElement.contains(e.relatedTarget as Node);
+                    componentRootElement?.contains(e.relatedTarget as Node);
                 if (!nextFocusIsInsideComponent) {
                     close();
                 }
@@ -298,8 +290,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 showSearchInputField ? searchField?.focus() : button?.focus();
             });
             select?.addEventListener("blur", function (this, ev) {
-                componentRootElement &&
-                    componentRootElement.contains(ev.relatedTarget as Node) &&
+                componentRootElement?.contains(ev.relatedTarget as Node) &&
                     ev.preventDefault();
             });
 
@@ -310,10 +301,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                         : button?.focus();
                 });
                 select?.removeEventListener("blur", function (this, ev) {
-                    componentRootElement &&
-                        componentRootElement.contains(
-                            ev.relatedTarget as Node,
-                        ) &&
+                    componentRootElement?.contains(ev.relatedTarget as Node) &&
                         ev.preventDefault();
                 });
             };
@@ -338,7 +326,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     setShown(false);
                 }
             },
-            [setShown, dropdownIsShown],
+            [dropdownIsShown],
         );
 
         // onKeyDown to stop ArrowDown from scrolling the page
@@ -376,13 +364,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     e.stopPropagation();
                 }
             },
-            [
-                setShown,
-                dropdownRef,
-                selectedValue,
-                isSearchable,
-                dropdownIsShown,
-            ],
+            [dropdownRef, selectedValue, isSearchable, dropdownIsShown],
         );
 
         // onKeyDown so this Tab listener isn't triggered by tabbing from search field to option
@@ -415,7 +397,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     }
                 }
             },
-            [setShown, dropdownRef],
+            [dropdownRef],
         );
 
         // Add support for closing the dropdown with Escape like native select. Unfortunately, Escape does not trigger the button onKeyDown.
@@ -433,7 +415,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     window.removeEventListener("keydown", handleEscape);
                 }
             };
-        }, [setShown, dropdownIsShown]);
+        }, [dropdownIsShown]);
 
         return (
             <>
@@ -491,7 +473,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     id={isSearchable ? searchInputId : buttonId}
                     style={
                         {
-                            ["--jkl-select-max-shown-options"]: maxShownOptions,
+                            "--jkl-select-max-shown-options": maxShownOptions,
                             ...style,
                         } as CSSProperties
                     }

@@ -31,6 +31,8 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
         [marketing, functional, statistics],
     );
 
+    /* Use timestamp as a dependency to be able to force re-reading of cookie */
+    // biome-ignore lint/correctness/useExhaustiveDependencies:
     const consentCookie = useMemo(() => {
         return (
             getConsentCookie({ adapter: cookieAdapter, name: cookieName }) ?? {
@@ -39,8 +41,6 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
                 statistics: null,
             }
         );
-        /* Use timestamp as a dependency to be ablet to force re-reading of cookie */
-        /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [cookieAdapter, cookieName, timestamp]);
 
     const [isOpen, setIsOpen] = useState(() => {

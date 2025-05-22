@@ -9,11 +9,11 @@ const applyDensity = (
     density: (typeof densities)[number],
 ) => {
     element.classList.add("jkl");
-    element.dataset["layoutDensity"] = density;
+    element.dataset.layoutDensity = density;
 };
 
 const clearDensity = (element: HTMLElement) => {
-    delete element.dataset["layoutDensity"];
+    element.dataset.layoutDensity = undefined;
 };
 
 export const densityGlobal = {
@@ -30,7 +30,7 @@ export const densityGlobal = {
     },
 };
 
-export const densityDecorator: DecoratorFunction<ReactRenderer, {}> = (
+export const densityDecorator: DecoratorFunction<ReactRenderer> = (
     Story,
     context,
 ) => {

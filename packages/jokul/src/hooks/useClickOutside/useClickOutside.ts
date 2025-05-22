@@ -17,11 +17,10 @@ export function useClickOutside(
 
     useEffect(() => {
         if (ref) {
-            document && document.addEventListener("click", handleClickOutside);
+            document?.addEventListener("click", handleClickOutside);
         }
         return () => {
-            document &&
-                document.removeEventListener("click", handleClickOutside);
+            document?.removeEventListener("click", handleClickOutside);
         };
     });
 }

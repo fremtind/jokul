@@ -118,7 +118,7 @@ function moveFocusTo(
 ) {
     const thisOption = current;
     switch (direction) {
-        case "prev":
+        case "prev": {
             const prevOption: HTMLButtonElement | null =
                 thisOption &&
                 (thisOption.previousElementSibling as HTMLButtonElement);
@@ -126,7 +126,8 @@ function moveFocusTo(
                 prevOption.focus();
             }
             break;
-        case "next":
+        }
+        case "next": {
             const nextOption: HTMLButtonElement | null =
                 thisOption &&
                 (thisOption.nextElementSibling as HTMLButtonElement);
@@ -134,20 +135,23 @@ function moveFocusTo(
                 nextOption.focus();
             }
             break;
-        case "first":
+        }
+        case "first": {
             const firstItem =
                 list.querySelector<HTMLButtonElement>(`[role="option"]`);
             if (firstItem) {
                 firstItem.focus();
             }
             break;
-        case "last":
+        }
+        case "last": {
             const listItems =
                 list.querySelectorAll<HTMLButtonElement>(`[role="option"]`);
             if (listItems.length) {
                 listItems[listItems.length - 1].focus();
             }
             break;
+        }
     }
 }
 

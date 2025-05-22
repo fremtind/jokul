@@ -1,4 +1,11 @@
-import React, { type ChangeEvent, type FC, useEffect, useRef, useState } from "react";
+import React, {
+    type ChangeEvent,
+    type FC,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import { isValidEpost } from "../../../utilities/validators/isValidEpost/isValidEpost.js";
 import { isValidTelefonnummer } from "../../../utilities/validators/isValidTelefonnummer/isValidTelefonnummer.js";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
@@ -56,12 +63,12 @@ export const ContactQuestion: FC<ContactQuestionProps> = ({
 
     const ChildrenWrapper = typeof children === "string" ? "p" : "div";
 
-    const validate = (email: string, phone: string) => {
+    const validate = useCallback((email: string, phone: string) => {
         const emailError = validateEmail(email);
         const phoneError = validatePhone(phone);
         setErrors({ email: emailError, phone: phoneError });
         return { emailError, phoneError };
-    };
+    }, []);
 
     useEffect(() => {
         if (shouldValidate) {
@@ -71,7 +78,7 @@ export const ContactQuestion: FC<ContactQuestionProps> = ({
                 setShouldValidate(false);
             }
         }
-    }, [email, phone, shouldValidate, withPhone]);
+    }, [email, phone, shouldValidate, withPhone, validate]);
 
     const handleChange =
         (consumer: (value: string) => void) =>

@@ -22,13 +22,14 @@ export const useScrollIntoView = ({
             ref.current.scrollIntoView(options);
         }
     };
+
+    // biome-ignore lint/correctness/useExhaustiveDependencies:
     useEffect(() => {
         if (!autoScroll) {
             return;
         }
         const scrollFn = setTimeout(scrollIntoView, timeout);
         return () => clearTimeout(scrollFn);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ref, timeout, autoScroll]);
 
     return [scrollIntoView];

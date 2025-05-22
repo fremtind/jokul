@@ -23,7 +23,7 @@ export function useKeyListener(
     }
 
     useEffect(() => {
-        const element = ref && ref.current;
+        const element = ref?.current;
         if (element) {
             element.addEventListener("keydown", handleKeyDown);
         }

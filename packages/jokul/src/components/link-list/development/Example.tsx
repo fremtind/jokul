@@ -9,8 +9,8 @@ import {
 export default function Example() {
     return (
         <>
-            <DevExample component={OrderedLinkListExample} knobs={knobs} />;
-            <DevExample component={UnorderedLinkListExample} knobs={knobs} />;
+            <DevExample component={OrderedLinkListExample} knobs={knobs} />
+            <DevExample component={UnorderedLinkListExample} knobs={knobs} />
         </>
     );
 }

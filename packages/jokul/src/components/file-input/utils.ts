@@ -41,9 +41,9 @@ export async function upload<T>(
 
             xhr.open("POST", url);
 
-            Object.entries(headers || {}).forEach(([header, value]) => {
+            for (const [header, value] of Object.entries(headers || {})) {
                 xhr.setRequestHeader(header, value);
-            });
+            }
 
             xhr.send(data);
         },

@@ -6,11 +6,11 @@ export const themes = [undefined, "light", "dark"] as const;
 
 const applyTheme = (element: HTMLElement, theme: (typeof themes)[number]) => {
     element.classList.add("jkl");
-    element.dataset["theme"] = theme;
+    element.dataset.theme = theme;
 };
 
 const clearTheme = (element: HTMLElement) => {
-    delete element.dataset["theme"];
+    element.dataset.theme = undefined;
 };
 
 export const themeGlobal = {
@@ -27,7 +27,7 @@ export const themeGlobal = {
     },
 };
 
-export const themeDecorator: DecoratorFunction<ReactRenderer, {}> = (
+export const themeDecorator: DecoratorFunction<ReactRenderer> = (
     Story,
     context,
 ) => {

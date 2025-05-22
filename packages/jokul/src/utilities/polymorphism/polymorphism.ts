@@ -14,7 +14,7 @@ type PropsToOmit<
 
 export type PolymorphicProps<
     ElementType extends React.ElementType,
-    Props = {},
+    Props = Record<string, never>,
 > = React.PropsWithChildren<Props & ElementTypeProp<ElementType>> &
     Omit<
         React.ComponentPropsWithoutRef<ElementType>,
@@ -27,7 +27,7 @@ export type PolymorphicRef<ElementType extends React.ElementType> =
 
 export type PolymorphicPropsWithRef<
     ElementType extends React.ElementType,
-    Props = {},
+    Props = Record<string, never>,
 > = PolymorphicProps<ElementType, Props> & {
     ref?: PolymorphicRef<ElementType>;
 } & ElementTypeProp<ElementType>;

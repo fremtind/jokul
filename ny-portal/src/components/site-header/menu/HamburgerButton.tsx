@@ -14,6 +14,7 @@ export const HamburgerButton = ({ menuId }: Props) => {
     const [expanded, setExpanded] = useState(false);
     const pathname = usePathname();
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: Vi trigger på pathname
     useEffect(() => {
         setExpanded(false);
     }, [pathname]);

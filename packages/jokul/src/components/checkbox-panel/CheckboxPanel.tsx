@@ -27,7 +27,7 @@ export const CheckboxPanel = forwardRef(function CheckboxPanel(
             onChange?.(e);
             setIsChecked(e.target.checked);
         },
-        [onChange, setIsChecked],
+        [onChange],
     );
 
     const isControlled = typeof checked !== "undefined";

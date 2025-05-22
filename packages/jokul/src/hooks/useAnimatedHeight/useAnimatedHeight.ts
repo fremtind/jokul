@@ -104,10 +104,12 @@ export function useAnimatedHeight<T extends HTMLElement>(
         }
     }, [isOpen, options, wasOpen, transition, prefersReducedMotion, display]);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: Vi trigger med isOpen
     useEffect(() => {
         runAnimation();
     }, [isOpen, runAnimation]);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies:
     useEffect(() => {
         const element = elementRef.current;
         if (element) {
@@ -122,7 +124,6 @@ export function useAnimatedHeight<T extends HTMLElement>(
                 );
             }
         };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen]);
 
     useEffect(() => {
@@ -132,7 +133,7 @@ export function useAnimatedHeight<T extends HTMLElement>(
             r1 && cancelAnimationFrame(r1);
             r2 && cancelAnimationFrame(r2);
         };
-    }, [raf1, raf2]);
+    }, []);
 
     return [elementRef, runAnimation];
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export function useDelayedRender(delayMilliseconds: number) {
     const [renderComponent, setRenderComponent] = useState(
-        delayMilliseconds === 0 ? true : false,
+        delayMilliseconds === 0,
     );
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export function useDelayedRender(delayMilliseconds: number) {
             delayMilliseconds,
         );
         return () => clearTimeout(timeout);
-    }, [delayMilliseconds, setRenderComponent]);
+    }, [delayMilliseconds]);
 
     return renderComponent;
 }

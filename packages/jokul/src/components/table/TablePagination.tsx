@@ -66,13 +66,13 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
         const onPageClick: MouseEventHandler<HTMLButtonElement> = useCallback(
             (e) => {
                 const toPage = Number.parseInt(
-                    e.currentTarget.dataset["number"] as string,
+                    e.currentTarget.dataset.number as string,
                 );
                 onChange(e, toPage, currentPage);
                 setCurrentPage(toPage);
                 setPagePickerValue(String(toPage + 1));
             },
-            [onChange, setCurrentPage, currentPage],
+            [onChange, currentPage],
         );
 
         const [pagePickerValue, setPagePickerValue] = useState(
@@ -95,13 +95,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                     return;
                 }
             },
-            [
-                onChange,
-                setPagePickerValue,
-                setCurrentPage,
-                currentPage,
-                numberOfPages,
-            ],
+            [onChange, currentPage, numberOfPages],
         );
 
         const onPrevious: MouseEventHandler<HTMLButtonElement> = useCallback(
@@ -116,7 +110,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                 setCurrentPage(toPage);
                 setPagePickerValue(String(toPage + 1));
             },
-            [onChange, setCurrentPage, currentPage],
+            [onChange, currentPage],
         );
 
         const onNext: MouseEventHandler<HTMLButtonElement> = useCallback(
@@ -131,7 +125,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                 setCurrentPage(toPage);
                 setPagePickerValue(String(toPage + 1));
             },
-            [onChange, setCurrentPage, numberOfPages, currentPage],
+            [onChange, numberOfPages, currentPage],
         );
 
         return (

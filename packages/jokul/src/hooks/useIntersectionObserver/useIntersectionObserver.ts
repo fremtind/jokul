@@ -1,4 +1,9 @@
-import { useEffect, useRef, type RefObject, type MutableRefObject } from "react";
+import {
+    useEffect,
+    useRef,
+    type RefObject,
+    type MutableRefObject,
+} from "react";
 
 type ValidElement = HTMLElement | SVGElement;
 type Target =
@@ -45,9 +50,13 @@ export const useIntersectionObserver = (
             observer = new IntersectionObserver(onIntersect, options);
 
             if (isNodeList(target)) {
-                target.forEach((element) => observer?.observe(element));
+                for (const element of target) {
+                    observer?.observe(element);
+                }
             } else if (target.current && isNodeList(target.current)) {
-                target.current.forEach((element) => observer?.observe(element));
+                for (const element of target.current) {
+                    observer?.observe(element);
+                }
             } else if (target.current) {
                 observer.observe(target.current);
             }

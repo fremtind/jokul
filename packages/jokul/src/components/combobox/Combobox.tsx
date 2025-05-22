@@ -114,7 +114,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 setMarked(false);
             }
         },
-        [removeOption, setSelectedValue, onChange, name, setMarked],
+        [removeOption, onChange, name],
     );
 
     // Håndtere valgt verdi i listen
@@ -135,7 +135,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 target: { name, value: option, selectedOptions: newValue },
             });
         },
-        [selectedValue, setSelectedValue, onChange, name, removeOption, items],
+        [selectedValue, onChange, name, removeOption, items],
     );
 
     // Funksjon for søk
@@ -186,7 +186,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 window.removeEventListener("keydown", handleEscape);
             }
         };
-    }, [setShowMenu, showMenu]);
+    }, [showMenu]);
 
     // Fokushåndtering
     const handleFocusPlacement = useCallback((isOpen: boolean) => {
@@ -234,9 +234,9 @@ export const Combobox: FC<ComboboxProps> = ({
             >,
         ) => {
             const componentRootElement = componentRootElementRef.current;
-            const nextFocusIsInsideComponent =
-                componentRootElement &&
-                componentRootElement.contains(e.relatedTarget as Node);
+            const nextFocusIsInsideComponent = componentRootElement?.contains(
+                e.relatedTarget as Node,
+            );
             if (!nextFocusIsInsideComponent) {
                 setSearchValue("");
 
@@ -349,7 +349,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 }
             }
         },
-        [setShowMenu, dropdownRef],
+        [dropdownRef],
     );
 
     const hasSelection = selectedValue.length >= 1;
