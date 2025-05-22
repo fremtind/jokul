@@ -1,6 +1,9 @@
 import type { ChangeEventHandler, InputHTMLAttributes, ReactNode } from "react";
 import type { Density } from "../../core/types.js";
-import type { FieldGroupProps, SupportLabelProps } from "../input-group/types.js";
+import type {
+    FieldGroupProps,
+    SupportLabelProps,
+} from "../input-group/types.js";
 
 export interface BaseRadioButtonProps extends RadioButtonProps {
     inline?: boolean;

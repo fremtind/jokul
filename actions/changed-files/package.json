@@ -13,11 +13,7 @@
         "type": "git",
         "url": "git+https://github.com/actions/typescript-action.git"
     },
-    "keywords": [
-        "actions",
-        "node",
-        "setup"
-    ],
+    "keywords": ["actions", "node", "setup"],
     "author": "",
     "license": "MIT",
     "dependencies": {

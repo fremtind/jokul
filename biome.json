@@ -41,7 +41,12 @@
             },
             "suspicious": { "noExplicitAny": "warn", "noArrayIndexKey": "warn" }
         },
-        "ignore": ["actions/", "scripts/", "ny-portal/src/sanity/types.ts"]
+        "ignore": [
+            "actions/",
+            "scripts/",
+            "ny-portal/src/sanity/types.ts",
+            "ny-portal/src/sanity/extract.json"
+        ]
     },
     "javascript": {
         "jsxRuntime": "reactClassic",

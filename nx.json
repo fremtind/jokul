@@ -3,10 +3,7 @@
         "default": {
             "runner": "nx/tasks-runners/default",
             "options": {
-                "cacheableOperations": [
-                    "build",
-                    "build:docs"
-                ],
+                "cacheableOperations": ["build", "build:docs"],
                 "cacheDirectory": ".nx"
             }
         }
@@ -16,19 +13,12 @@
             "{workspaceRoot}/packages/*/build/*",
             "{workspaceRoot}/packages/*/*.css"
         ],
-        "documentation": [
-            "{workspaceRoot}/packages/**/documentation/**/*"
-        ]
+        "documentation": ["{workspaceRoot}/packages/**/documentation/**/*"]
     },
     "targetDefaults": {
         "build": {
-            "dependsOn": [
-                "^build"
-            ],
-            "outputs": [
-                "{projectRoot}/build",
-                "{projectRoot}/*.css"
-            ]
+            "dependsOn": ["^build"],
+            "outputs": ["{projectRoot}/build", "{projectRoot}/*.css"]
         },
         "build:docs": {
             "inputs": [
@@ -41,9 +31,7 @@
                     "env": "MIXPANEL_PROJECT_ID"
                 }
             ],
-            "dependsOn": [
-                "build"
-            ]
+            "dependsOn": ["build"]
         }
     },
     "$schema": "./node_modules/nx/schemas/nx-schema.json"

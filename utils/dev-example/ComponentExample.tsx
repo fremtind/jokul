@@ -1,6 +1,11 @@
 import React, { type FC } from "react";
 import { ExampleBase } from "./ExampleBase";
-import type { ExampleComponentProps, ChoiceProp, BoolProp, CodeExample } from "./";
+import type {
+    ExampleComponentProps,
+    ChoiceProp,
+    BoolProp,
+    CodeExample,
+} from "./";
 
 export interface Props {
     component: FC<ExampleComponentProps>;

@@ -1,5 +1,9 @@
 import clsx from "clsx";
-import React, { type AnchorHTMLAttributes, type ElementType, type FC } from "react";
+import React, {
+    type AnchorHTMLAttributes,
+    type ElementType,
+    type FC,
+} from "react";
 import type { Density, WithChildren } from "../../core/types.js";
 import { Image } from "../image/Image.js";
 import type { ImageProps } from "../image/types.js";

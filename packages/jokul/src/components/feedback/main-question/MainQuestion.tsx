@@ -1,5 +1,10 @@
 import clsx from "clsx";
-import React, { type ComponentProps, type FC, type ReactNode, useEffect } from "react";
+import React, {
+    type ComponentProps,
+    type FC,
+    type ReactNode,
+    useEffect,
+} from "react";
 import { useAnimatedHeight } from "../../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
 import type { Feedback } from "../Feedback.js";

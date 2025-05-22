@@ -1,4 +1,7 @@
-import { formatNumber, type FormatNumberOptions } from "../util/formatNumber.js";
+import {
+    formatNumber,
+    type FormatNumberOptions,
+} from "../util/formatNumber.js";
 import { parseNumber } from "../util/parseNumber.js";
 
 export type LengthUnit =
