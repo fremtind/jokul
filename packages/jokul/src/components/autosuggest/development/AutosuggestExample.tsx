@@ -131,42 +131,42 @@ return (
             helpLabel="Velg et land fra listen eller skriv inn landet selv"`
                     : ""
             }${
-    boolValues?.["Med feil"]
-        ? `
+                boolValues?.["Med feil"]
+                    ? `
             errorLabel="Du må velge et land"`
-        : ""
-}${
-    boolValues?.["Med tooltip"]
-        ? `
+                    : ""
+            }${
+                boolValues?.["Med tooltip"]
+                    ? `
             tooltipProps={
                 <PopupTip content="Velg et land fra listen eller skriv inn landet selv." />
             }`
-        : ""
-}${
-    boolValues?.["Med placeholder"]
-        ? `
+                    : ""
+            }${
+                boolValues?.["Med placeholder"]
+                    ? `
             placeholder="Velg et land"`
-        : ""
-}
+                    : ""
+            }
             showDropdownControllerButton={${boolValues?.["Vis ikoner"]}}${
-    boolValues?.["Ingen treff"]
-        ? `
+                boolValues?.["Ingen treff"]
+                    ? `
             noHitsMessage="Fant ingen land, men du kan skrive ferdig"`
-        : ""
-}${
-    boolValues?.["Max antall treff"]
-        ? `
+                    : ""
+            }${
+                boolValues?.["Max antall treff"]
+                    ? `
             maxNumberOfHits={3}`
-        : ""
-}${
-    boolValues?.["Ingen treff med valg"]
-        ? `
+                    : ""
+            }${
+                boolValues?.["Ingen treff med valg"]
+                    ? `
             noHits={{
                 text: <p className="jkl-body">Fant ingen land. Vil du velge et av disse:</p>,
                 items: ["Norge", "Sverige", "Danmark"],
             }}`
-        : ""
-}
+                    : ""
+            }
             variant="${choiceValues?.Variant}"
         />
     </div>

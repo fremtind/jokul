@@ -12,10 +12,7 @@
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"
     },
-    "keywords": [
-        "actions",
-        "node"
-    ],
+    "keywords": ["actions", "node"],
     "author": "",
     "license": "MIT",
     "dependencies": {

@@ -25,8 +25,8 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
                         typeof checked !== "undefined"
                             ? checked
                             : typeof selectedValue !== "undefined"
-                            ? value === selectedValue
-                            : undefined
+                              ? value === selectedValue
+                              : undefined
                     }
                     value={value}
                     aria-describedby={helpLabel ? supportId : undefined}

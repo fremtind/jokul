@@ -7,7 +7,11 @@ import {
     useRef,
     useState,
 } from "react";
-import type { FeedbackAnswer, FeedbackOption, FollowupQuestion } from "../types.js";
+import type {
+    FeedbackAnswer,
+    FeedbackOption,
+    FollowupQuestion,
+} from "../types.js";
 
 type CurrentValue =
     | FeedbackOption<string | number>
