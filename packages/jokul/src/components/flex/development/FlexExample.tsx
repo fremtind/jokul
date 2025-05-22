@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React, { CSSProperties, FC } from "react";
 import tokens from "../../../core/tokens.js";
 import { Card } from "../../card/Card.js";

@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React, { FC } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "../index.js";
 

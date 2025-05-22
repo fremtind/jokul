@@ -2,7 +2,7 @@ import {
     CodeExample,
     ExampleComponentProps,
     ExampleKnobsProps,
-} from "doc-utils/index.js";
+} from "utils/dev-example/index.js";
 import React, { FC } from "react";
 import { File } from "../File.js";
 

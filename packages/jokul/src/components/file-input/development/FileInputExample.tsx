@@ -2,7 +2,7 @@ import {
     CodeExample,
     ExampleComponentProps,
     ExampleKnobsProps,
-} from "doc-utils/index.js";
+} from "utils/dev-example/index.js";
 import React, { FC, useEffect, useState } from "react";
 import type { SupportLabelType } from "../../../components/input-group/types.js";
 import { ProgressBar } from "../../../components/progress-bar/ProgressBar.js";

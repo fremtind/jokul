@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React from "react";
 import { formatValuta } from "../../../../utilities/formatters/valuta/formatValuta.js";
 import { ErrorTag } from "../../../tag/Tag.js";

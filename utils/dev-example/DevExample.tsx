@@ -4,7 +4,7 @@ import {
     Props as ComponentExampleProps,
 } from "./ComponentExample";
 
-import "../../packages/webfonts/webfonts.scss";
+import "../../packages/jokul/src/fonts/styles/webfonts.scss";
 import "../../packages/jokul/src/core/styles/core.scss";
 import "../../packages/jokul/src/vind/styles/vind.scss";
 import "../../packages/jokul/src/styles/styles.scss";

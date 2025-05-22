@@ -68,7 +68,6 @@ async function prepareMajor() {
         }
     }
 
-    await bumpMajor(path.join(__dirname, "..", "portal", "package.json"));
     await bumpMajor(path.join(__dirname, "..", "package.json"));
 
     console.log(

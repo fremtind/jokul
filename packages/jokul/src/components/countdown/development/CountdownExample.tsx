@@ -1,4 +1,4 @@
-import { ExampleKnobsProps } from "doc-utils/index.js";
+import { ExampleKnobsProps } from "utils/dev-example/index.js";
 import React, { FC, useState } from "react";
 import { PrimaryButton, TertiaryButton } from "../../button/index.js";
 import { Countdown } from "../Countdown.js";

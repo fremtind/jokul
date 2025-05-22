@@ -1,6 +1,5 @@
 packages:
     - "actions/*"
     - "packages/*"
-    - "portal"
     - "ny-portal"
     - "utils"

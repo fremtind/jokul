@@ -1,4 +1,7 @@
-import { ExampleComponentProps, ExampleKnobsProps } from "doc-utils/index.js";
+import {
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
 import React from "react";
 import { ToggleSwitch } from "../ToggleSwitch.js";
 import { ToggleChangeHandler } from "../types.js";

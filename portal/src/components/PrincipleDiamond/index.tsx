@@ -1,1 +1,0 @@
-export { PrincipleDiamond } from "./PrincipleDiamond";

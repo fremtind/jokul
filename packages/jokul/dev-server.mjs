@@ -1,8 +1,8 @@
+import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react-swc";
 import { Box, Text, render, useApp, useInput } from "ink";
 import SelectInput from "ink-select-input";
-import { resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import glob from "tiny-glob";
 import { createServer } from "vite";
@@ -98,12 +98,11 @@ export default function App() {
             ],
             resolve: {
                 alias: {
-                    "doc-utils": resolve(
+                    utils: resolve(
                         fileURLToPath(new URL(".", import.meta.url)),
                         "..",
                         "..",
                         "utils",
-                        "dev-example",
                     ),
                 },
             },
