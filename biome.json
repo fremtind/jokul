@@ -30,8 +30,18 @@
         "enabled": true,
         "rules": {
             "recommended": true,
-            "suspicious": { "noExplicitAny": "warn" }
-        }
+            "a11y": {
+                "noSvgWithoutTitle": "off"
+            },
+            "complexity": { "useLiteralKeys": "warn" },
+            "performance": { "noAccumulatingSpread": "warn" },
+            "style": {
+                "noImplicitBoolean": "off",
+                "noParameterAssign": "warn"
+            },
+            "suspicious": { "noExplicitAny": "warn", "noArrayIndexKey": "warn" }
+        },
+        "ignore": ["actions/", "scripts/", "ny-portal/src/sanity/types.ts"]
     },
     "javascript": {
         "jsxRuntime": "reactClassic",
