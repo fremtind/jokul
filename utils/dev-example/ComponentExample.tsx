@@ -27,14 +27,11 @@ export const ComponentExample: FC<Props> = ({ component, ...rest }) => {
     return (
         <ExampleBase
             component={({ boolValues, choiceValues, displayValues }) => (
-                <>
-                    Linting?
-                    <C
-                        boolValues={boolValues}
-                        choiceValues={choiceValues}
-                        displayValues={displayValues}
-                    />
-                </>
+                <C
+                    boolValues={boolValues}
+                    choiceValues={choiceValues}
+                    displayValues={displayValues}
+                />
             )}
             {...rest}
         />
