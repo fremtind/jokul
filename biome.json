@@ -22,7 +22,7 @@
             "**/tsconfig-for-declarations.json",
             "**/pnpm-lock.yaml",
             "packages/jokul/dev-server.js",
-            "ny-portal/src/app/(payload)/**/*"
+            "portal/src/app/(frontend)/**/*"
         ]
     },
     "organizeImports": { "enabled": true },
@@ -44,8 +44,8 @@
         "ignore": [
             "actions/",
             "scripts/",
-            "ny-portal/src/sanity/types.ts",
-            "ny-portal/src/sanity/extract.json"
+            "portal/src/sanity/types.ts",
+            "portal/src/sanity/extract.json"
         ]
     },
     "javascript": {
