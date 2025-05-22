@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Countdown as CountdownComponent } from "../Countdown.js";
 import "../styles/_index.scss";
-import React, { FC, useState } from "react";
-import { WithChildren } from "../../../core/types.js";
+import React, { type FC, useState } from "react";
+import type { WithChildren } from "../../../core/types.js";
 import { PrimaryButton } from "../../button/Button.js";
 import { Flex } from "../../flex/Flex.js";
 

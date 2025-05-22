@@ -1,4 +1,4 @@
-import { ExampleComponentProps } from "utils/dev-example/index.js";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import React from "react";
 import { mockProps } from "../mocks.js";
 import { SummaryTable } from "../SummaryTable.js";

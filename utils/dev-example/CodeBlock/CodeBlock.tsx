@@ -5,7 +5,7 @@ import sass from "react-syntax-highlighter/dist/esm/languages/prism/sass";
 import scss from "react-syntax-highlighter/dist/esm/languages/prism/scss";
 import shellSession from "react-syntax-highlighter/dist/esm/languages/prism/shell-session";
 import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
-import { WithChildren } from "../../../packages/jokul/src/core";
+import type { WithChildren } from "../../../packages/jokul/src/core";
 import { useBrowserPreferences } from "../../../packages/jokul/src/hooks";
 import fremtindTheme from "./fremtindTheme";
 import fremtindThemeDark from "./fremtindThemeDark";

@@ -6,7 +6,7 @@ import { TableCell } from "./TableCell.js";
 import { TableHead } from "./TableHead.js";
 import { TableHeader } from "./TableHeader.js";
 import { TableRow } from "./TableRow.js";
-import { DataTableProps } from "./types.js";
+import type { DataTableProps } from "./types.js";
 
 const DataTable = forwardRef<HTMLTableElement, DataTableProps>(
     (

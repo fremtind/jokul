@@ -1,8 +1,8 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { SkeletonAnimation } from "../skeletons/SkeletonAnimation.js";
 import { SkeletonButton } from "../skeletons/SkeletonButton.js";
 import { SkeletonCheckboxGroup } from "../skeletons/SkeletonCheckboxGroup.js";

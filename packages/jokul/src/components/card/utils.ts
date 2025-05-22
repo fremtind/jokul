@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import { NEW_SPACING_STEPS, SPACING_STEPS, isOldSpacingStep } from "./types.js";
 import type { BasePadding, PaddingShorthand, SpacingStep } from "./types.js";
 

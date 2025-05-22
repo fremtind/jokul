@@ -1,11 +1,11 @@
-import React, { JSXElementConstructor, FC } from "react";
+import React, { type JSXElementConstructor, type FC } from "react";
 import {
     CheckboxQuestion,
     RadioQuestion,
     TextQuestion,
     SmileyQuestion,
 } from "./questions/index.js";
-import { QuestionProps, QuestionType } from "./types.js";
+import type { QuestionProps, QuestionType } from "./types.js";
 
 export function getChildrenOfType<P>(
     ...allowedTypes: Array<string | JSXElementConstructor<P>>

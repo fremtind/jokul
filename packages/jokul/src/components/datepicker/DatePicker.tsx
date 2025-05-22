@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import { startOfDay } from "date-fns";
 import React, {
-    ChangeEvent,
-    FocusEvent,
-    KeyboardEvent,
-    MouseEvent,
+    type ChangeEvent,
+    type FocusEvent,
+    type KeyboardEvent,
+    type MouseEvent,
     forwardRef,
     useCallback,
     useRef,
@@ -17,8 +17,8 @@ import { InputGroup } from "../input-group/InputGroup.js";
 import Popover from "../popover/Popover.js";
 import { BaseTextInput } from "../text-input/BaseTextInput.js";
 import { Calendar } from "./internal/Calendar.js";
-import { DateInfo, getInitialDate } from "./internal/utils.js";
-import { DatePickerProps, DateValidationError } from "./types.js";
+import { type DateInfo, getInitialDate } from "./internal/utils.js";
+import type { DatePickerProps, DateValidationError } from "./types.js";
 import { formatInput, parseDateString } from "./utils.js";
 import { isWithinLowerBound, isWithinUpperBound } from "./validation.js";
 

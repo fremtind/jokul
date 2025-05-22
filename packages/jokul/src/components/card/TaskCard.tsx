@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import React, { FC } from "react";
-import { Density, WithChildren } from "../../core/types.js";
-import { PaddingOptions } from "./types.js";
+import React, { type FC } from "react";
+import type { Density, WithChildren } from "../../core/types.js";
+import type { PaddingOptions } from "./types.js";
 import { getPaddingStyles } from "./utils.js";
 
 export interface TaskCardProps extends PaddingOptions, WithChildren {

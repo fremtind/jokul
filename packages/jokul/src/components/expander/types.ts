@@ -1,5 +1,5 @@
-import { ComponentProps, FC, RefObject } from "react";
-import { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { ComponentProps, FC, RefObject } from "react";
+import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export type ExpandablePanelContentComponent = FC<ComponentProps<"div"> & {}>;
 

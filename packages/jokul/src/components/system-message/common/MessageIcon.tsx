@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { ErrorIcon } from "../../icon/icons/ErrorIcon.js";
 import { InfoIcon } from "../../icon/icons/InfoIcon.js";
 import { SuccessIcon } from "../../icon/icons/SuccessIcon.js";

@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { SkeletonAnimationProps } from "../types.js";
+import type { SkeletonAnimationProps } from "../types.js";
 import { useDelayedRender } from "../useDelayedRender.js";
 
 export const SkeletonAnimation = ({

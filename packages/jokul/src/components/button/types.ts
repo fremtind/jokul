@@ -1,5 +1,5 @@
-import { Density } from "../../core/types.js";
-import { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { Density } from "../../core/types.js";
+import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export const buttonVariants = [
     "primary",

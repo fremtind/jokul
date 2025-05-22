@@ -1,5 +1,5 @@
 import React, {
-    ChangeEventHandler,
+    type ChangeEventHandler,
     useEffect,
     useId,
     useMemo,
@@ -9,7 +9,7 @@ import { RadioButton } from "../../radio-button/RadioButton.js";
 import { RadioButtonGroup } from "../../radio-button/RadioButtonGroup.js";
 import { useFollowUpContext } from "../followup/followupContext.js";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
-import { QuestionProps } from "../types.js";
+import type { QuestionProps } from "../types.js";
 
 export const RadioQuestion: React.FC<QuestionProps> = ({
     label,

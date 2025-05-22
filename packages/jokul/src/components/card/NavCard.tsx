@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import React, { AnchorHTMLAttributes, ElementType, FC } from "react";
-import { Density, WithChildren } from "../../core/types.js";
+import React, { type AnchorHTMLAttributes, type ElementType, type FC } from "react";
+import type { Density, WithChildren } from "../../core/types.js";
 import { Image } from "../image/Image.js";
-import { ImageProps } from "../image/types.js";
+import type { ImageProps } from "../image/types.js";
 import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "../tag/Tag.js";
-import { TagProps } from "../tag/types.js";
-import { CardTag, PaddingOptions, TagType } from "./types.js";
+import type { TagProps } from "../tag/types.js";
+import type { CardTag, PaddingOptions, TagType } from "./types.js";
 import { getPaddingStyles } from "./utils.js";
 
 /**

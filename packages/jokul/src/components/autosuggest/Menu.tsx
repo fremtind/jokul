@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { PropGetters } from "downshift";
-import React, { ReactNode } from "react";
+import type { PropGetters } from "downshift";
+import React, { type ReactNode } from "react";
 
 interface MenuProps<T> {
     downshiftProps: Pick<PropGetters<T>, "getMenuProps" | "getItemProps">;
@@ -18,7 +18,7 @@ function Menu<T>({
     items,
     itemToString,
     noHitsMessage,
-    maxNumberOfHits = Infinity,
+    maxNumberOfHits = Number.POSITIVE_INFINITY,
     noHits,
 }: MenuProps<T>): JSX.Element | null {
     const visibleItems =

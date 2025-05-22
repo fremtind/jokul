@@ -4,7 +4,7 @@ import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeig
 import { useId } from "../../hooks/useId/useId.js";
 import { ExpandableTableRowController } from "./ExpandableTableRowController.js";
 import { TableRow } from "./TableRow.js";
-import {
+import type {
     ExpandableTableRowControllerProps,
     ExpandableTableRowProps,
 } from "./types.js";

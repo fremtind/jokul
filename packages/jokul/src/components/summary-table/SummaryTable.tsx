@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import React, { FC } from "react";
-import { SummaryTableProps } from "./types.js";
+import React, { type FC } from "react";
+import type { SummaryTableProps } from "./types.js";
 
 export const SummaryTable: FC<SummaryTableProps> = ({
     className,

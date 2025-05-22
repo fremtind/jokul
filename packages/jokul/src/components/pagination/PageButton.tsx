@@ -1,5 +1,5 @@
 import React, { clsx } from "clsx";
-import { FC, MouseEventHandler } from "react";
+import type { FC, MouseEventHandler } from "react";
 
 export const PageButton: FC<{
     isActive: boolean;

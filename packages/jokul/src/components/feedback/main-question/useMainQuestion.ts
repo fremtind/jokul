@@ -3,11 +3,11 @@ import {
     useRef,
     useCallback,
     useEffect,
-    SetStateAction,
-    Dispatch,
-    FormEventHandler,
+    type SetStateAction,
+    type Dispatch,
+    type FormEventHandler,
 } from "react";
-import { FeedbackType, FeedbackOption } from "../types.js";
+import type { FeedbackType, FeedbackOption } from "../types.js";
 
 type Value =
     | FeedbackOption<string | number>

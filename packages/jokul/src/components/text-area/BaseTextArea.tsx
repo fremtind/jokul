@@ -1,5 +1,5 @@
 import React, {
-    ChangeEvent,
+    type ChangeEvent,
     type FocusEvent,
     forwardRef,
     type RefObject,
@@ -7,7 +7,7 @@ import React, {
     useRef,
     useState,
 } from "react";
-import { BaseTextAreaProps } from "./types.js";
+import type { BaseTextAreaProps } from "./types.js";
 
 export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
     (props, ref) => {

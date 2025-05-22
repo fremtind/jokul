@@ -1,6 +1,6 @@
-import { ExampleComponentProps } from "utils/dev-example/index.js";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import React from "react";
-import { InfoBlock, NavCard, NavCardProps } from "../../NavCard.js";
+import { InfoBlock, NavCard, type NavCardProps } from "../../NavCard.js";
 import { mixedPadding } from "./cardExampleProps.js";
 import grass400 from "/img/grass-400.jpg";
 import grass800 from "/img/grass-800.jpg";

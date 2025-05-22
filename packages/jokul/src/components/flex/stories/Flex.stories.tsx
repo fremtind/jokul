@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from "@storybook/react";
-import React, { CSSProperties } from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import React, { type CSSProperties } from "react";
 import tokens from "../../../core/tokens.js";
 import { Flex } from "../Flex.js";
 

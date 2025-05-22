@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {
+import type {
     CodeExample,
     ExampleComponentProps,
     ExampleKnobsProps,

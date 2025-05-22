@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import React, { FC } from "react";
-import { ListProps } from "./types.js";
+import React, { type FC } from "react";
+import type { ListProps } from "./types.js";
 
 type ValidLists = "unordered" | "ordered";
 

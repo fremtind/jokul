@@ -1,5 +1,5 @@
-import { ComponentProps, FC } from "react";
-import { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { ComponentProps, FC } from "react";
+import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export type UnorderedLinkListProps = React.HTMLAttributes<HTMLUListElement> & {
     variant: "unordered";

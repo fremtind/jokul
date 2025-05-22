@@ -1,15 +1,15 @@
 import React, {
-    ChangeEventHandler,
-    ColgroupHTMLAttributes,
-    ColHTMLAttributes,
-    HTMLAttributes,
-    ReactNode,
-    TableHTMLAttributes,
-    TdHTMLAttributes,
-    ThHTMLAttributes,
+    type ChangeEventHandler,
+    type ColgroupHTMLAttributes,
+    type ColHTMLAttributes,
+    type HTMLAttributes,
+    type ReactNode,
+    type TableHTMLAttributes,
+    type TdHTMLAttributes,
+    type ThHTMLAttributes,
 } from "react";
-import { Density, WithChildren } from "../../core/types.js";
-import { TableSortProps } from "./utils.js";
+import type { Density, WithChildren } from "../../core/types.js";
+import type { TableSortProps } from "./utils.js";
 
 export interface DataTableProps extends TableHTMLAttributes<HTMLTableElement> {
     /** Beskrivelse av tabellen for skjermlesere */

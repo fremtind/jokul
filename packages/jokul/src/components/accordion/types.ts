@@ -1,4 +1,4 @@
-import { Density, WithChildren } from "../../core/types.js";
+import type { Density, WithChildren } from "../../core/types.js";
 
 export interface AccordionProps extends WithChildren {
     className?: string;

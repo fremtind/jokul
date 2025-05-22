@@ -1,4 +1,4 @@
-import { TableSortDirection } from "./TableHeader.js";
+import type { TableSortDirection } from "./TableHeader.js";
 
 export type TableSortProps = ReturnType<
     ReturnType<typeof useSortableTableHeader>["getSortProps"]

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from "react";
+import React, { type FC, useEffect, useMemo, useState } from "react";
 import { Checkbox } from "../../packages/jokul/src/components/checkbox";
 import { FieldGroup } from "../../packages/jokul/src/components/input-group";
 import {
@@ -6,13 +6,13 @@ import {
     RadioButtonGroup,
 } from "../../packages/jokul/src/components/radio-button";
 import { Select } from "../../packages/jokul/src/components/select";
-import { ColorScheme, Density } from "../../packages/jokul/src/core";
+import type { ColorScheme, Density } from "../../packages/jokul/src/core";
 import { useId, useLocalStorage } from "../../packages/jokul/src/hooks";
 import { CodeBlock } from "./CodeBlock";
 import { CodeSection } from "./CodeSection";
 import { ExampleContextProvider } from "./exampleContext";
 import { hyphenate } from "./internal/hypenate";
-import {
+import type {
     BoolProp,
     ChoiceProp,
     CodeExample,

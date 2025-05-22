@@ -1,6 +1,6 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React, { FC, useState } from "react";
+import React, { type FC, useState } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
 import { ExpandSection } from "./ExpandSection.js";

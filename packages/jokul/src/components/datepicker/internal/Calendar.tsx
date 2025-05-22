@@ -6,18 +6,18 @@ import React, {
     useRef,
 } from "react";
 import { flushSync } from "react-dom";
-import { Density } from "../../../core/types.js";
+import type { Density } from "../../../core/types.js";
 import { useId } from "../../../hooks/useId/useId.js";
 import { Button } from "../../button/Button.js";
 import { ArrowLeftIcon } from "../../icon/icons/ArrowLeftIcon.js";
 import { ArrowRightIcon } from "../../icon/icons/ArrowRightIcon.js";
 import { ChevronDownIcon } from "../../icon/icons/ChevronDownIcon.js";
-import { YearsToShow } from "../types.js";
+import type { YearsToShow } from "../types.js";
 import { calendarInitializer, calendarReducer } from "./calendarReducer.js";
-import { useCalendar, UseCalendarProps } from "./useCalendar.js";
+import { useCalendar, type UseCalendarProps } from "./useCalendar.js";
 import {
     addMonth,
-    DateInfo,
+    type DateInfo,
     DEFAULT_YEARS_TO_SHOW,
     getInitialDateShown,
     getMonthSelectOptions,

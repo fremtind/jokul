@@ -1,5 +1,5 @@
 import { type AriaToastProps, useToast } from "@react-aria/toast";
-import { QueuedToast, type ToastState } from "@react-stately/toast";
+import type { QueuedToast, ToastState } from "@react-stately/toast";
 import clsx from "clsx";
 import React, { useEffect, useRef } from "react";
 import { useBrowserPreferences } from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
@@ -10,7 +10,7 @@ import { InfoIcon } from "../icon/icons/InfoIcon.js";
 import { SuccessIcon } from "../icon/icons/SuccessIcon.js";
 import { WarningIcon } from "../icon/icons/WarningIcon.js";
 import { IconButton } from "../icon-button/IconButton.js";
-import { ToastContent, ToastOptions } from "./types.js";
+import type { ToastContent, ToastOptions } from "./types.js";
 
 interface ToastProps<T extends ToastContent> extends AriaToastProps<T> {
     className?: string;
@@ -38,8 +38,8 @@ export function Toast<T extends ToastContent>({
     state,
     ...props
 }: ToastProps<T>) {
-    let ref = useRef(null);
-    let { toastProps, titleProps } = useToast(props, state, ref);
+    const ref = useRef(null);
+    const { toastProps, titleProps } = useToast(props, state, ref);
 
     const content =
         typeof props.toast.content === "string"

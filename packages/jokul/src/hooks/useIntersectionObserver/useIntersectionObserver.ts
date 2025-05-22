@@ -1,4 +1,4 @@
-import { useEffect, useRef, RefObject, MutableRefObject } from "react";
+import { useEffect, useRef, type RefObject, type MutableRefObject } from "react";
 
 type ValidElement = HTMLElement | SVGElement;
 type Target =

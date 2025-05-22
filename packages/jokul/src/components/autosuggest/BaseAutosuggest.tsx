@@ -1,16 +1,16 @@
 import clsx from "clsx";
 import {
-    Callback,
+    type Callback,
     default as Downshift,
     type DownshiftProps,
-    PropGetters,
+    type PropGetters,
 } from "downshift";
 import React, { type ReactNode } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { InputGroup } from "../input-group/InputGroup.js";
 import ControllerButton from "./ControllerButton.js";
 import Menu from "./Menu.js";
-import { type CommonProps } from "./types.js";
+import type { CommonProps } from "./types.js";
 
 const KEY_ENTER = 13;
 

@@ -1,4 +1,4 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
@@ -9,8 +9,8 @@ import { Card } from "../../Card.js";
 import {
     CARD_PADDINGS,
     CARD_VARIANTS,
-    CardPadding,
-    CardVariant,
+    type CardPadding,
+    type CardVariant,
 } from "../../types.js";
 
 export const FakturainfoExample = ({

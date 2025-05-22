@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { useElementDimensions } from "../../hooks/useElementDimensions/useElementDimensions.js";
-import { ImageProps } from "./types.js";
+import type { ImageProps } from "./types.js";
 import { useImageLoadingStatus } from "./useImageLoadingStatus.js";
 
 export const Image: FC<ImageProps> = ({

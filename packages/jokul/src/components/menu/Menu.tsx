@@ -8,7 +8,7 @@ import {
     offset,
     safePolygon,
     shift,
-    Side,
+    type Side,
     useClick,
     useDismiss,
     useFloating,
@@ -28,10 +28,10 @@ import { isForwardRef } from "react-is";
 import { useBrowserPreferences } from "../../hooks/index.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
-import { MenuProps } from "./types.js";
+import type { MenuProps } from "./types.js";
 import { useMenuWideEvents } from "./useMenuWideEvents.js";
 
-function getTranslation(side: Side, value: number = 0) {
+function getTranslation(side: Side, value = 0) {
     switch (side) {
         case "top":
             return `0 ${value}px`;

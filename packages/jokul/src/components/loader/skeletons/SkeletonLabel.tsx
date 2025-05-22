@@ -1,5 +1,5 @@
 import React from "react";
-import { SkeletonLabelProps } from "../types.js";
+import type { SkeletonLabelProps } from "../types.js";
 import { SkeletonElement } from "./SkeletonElement.js";
 
 export const SkeletonLabel = ({ density, ...rest }: SkeletonLabelProps) => {

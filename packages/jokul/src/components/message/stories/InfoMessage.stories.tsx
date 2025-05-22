@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { InfoMessage as MessageComponent } from "../Message.js";
 import "../styles/_index.scss";
 

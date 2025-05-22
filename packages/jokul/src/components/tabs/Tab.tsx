@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { TabProps } from "./types.js";
+import type { TabProps } from "./types.js";
 
 /**
  * En Tab til bruk som element i TabList. Ikke funksjonell utenfor et TabList element.

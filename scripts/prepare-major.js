@@ -7,7 +7,7 @@ async function bumpMajor(packageJsonPath) {
     const packageJson = JSON.parse(packageJsonString);
 
     const currentMajor = packageJson.version.split(".")[0];
-    const nextMajor = parseInt(currentMajor, 10) + 1;
+    const nextMajor = Number.parseInt(currentMajor, 10) + 1;
     const nextVersion = `${nextMajor}.0.0-alpha.0`;
 
     packageJson.version = nextVersion;
@@ -20,7 +20,7 @@ async function bumpMajor(packageJsonPath) {
             if (name.includes("@fremtind/")) {
                 const versionNumber = version.replace("^", "").replace("~", "");
                 const currentMajor = versionNumber.split(".")[0];
-                const nextMajor = parseInt(currentMajor, 10) + 1;
+                const nextMajor = Number.parseInt(currentMajor, 10) + 1;
                 const nextVersion = `^${nextMajor}.0.0-alpha.0`;
                 packageJson.dependencies[name] = nextVersion;
             }
@@ -33,7 +33,7 @@ async function bumpMajor(packageJsonPath) {
             if (name.includes("@fremtind/")) {
                 const versionNumber = version.replace("^", "").replace("~", "");
                 const currentMajor = versionNumber.split(".")[0];
-                const nextMajor = parseInt(currentMajor, 10) + 1;
+                const nextMajor = Number.parseInt(currentMajor, 10) + 1;
                 const nextVersion = `^${nextMajor}.0.0-alpha.0`;
                 packageJson.devDependencies[name] = nextVersion;
             }

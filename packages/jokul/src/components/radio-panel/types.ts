@@ -1,5 +1,5 @@
-import { ComponentPropsWithRef } from "react";
-import { FieldGroupProps } from "../input-group/types.js";
+import type { ComponentPropsWithRef } from "react";
+import type { FieldGroupProps } from "../input-group/types.js";
 
 // aria-invalid has been deprecated for the "radio" role, it should go on the
 // parent radiogroup

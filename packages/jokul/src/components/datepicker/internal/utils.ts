@@ -30,7 +30,7 @@ import {
     startOfDay,
 } from "date-fns";
 import React from "react";
-import { ValuePair } from "../../../utilities/valuePair.js";
+import type { ValuePair } from "../../../utilities/valuePair.js";
 import type { YearsToShow } from "../types.js";
 import { parseDateString } from "../utils.js";
 
@@ -178,7 +178,7 @@ export function getMonthSelectOptions(
         }))
         .filter(
             ({ value }) =>
-                parseInt(value) >= startMonth && parseInt(value) <= endMonth,
+                Number.parseInt(value) >= startMonth && Number.parseInt(value) <= endMonth,
         );
 
     return filteredMonths;

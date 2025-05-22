@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { LogoStamp as LogoStampComponent } from "../LogoStamp.js";
 import { FraSB1ogDNB } from "../text-paths/FraSB1ogDNB.js";

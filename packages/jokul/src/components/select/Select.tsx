@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import React, {
-    CSSProperties,
-    FocusEvent,
+    type CSSProperties,
+    type FocusEvent,
     forwardRef,
-    KeyboardEvent,
-    MouseEvent,
-    RefObject,
+    type KeyboardEvent,
+    type MouseEvent,
+    type RefObject,
     useCallback,
     useEffect,
     useMemo,
@@ -16,12 +16,12 @@ import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeig
 import { useId } from "../../hooks/useId/useId.js";
 import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
 import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
-import { getValuePair, ValuePair } from "../../utilities/valuePair.js";
+import { getValuePair, type ValuePair } from "../../utilities/valuePair.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup } from "../input-group/InputGroup.js";
 import type { PopupTipProps } from "../tooltip/types.js";
 import { focusSelected, toLower } from "./select-utils.js";
-import { SelectProps } from "./types.js";
+import type { SelectProps } from "./types.js";
 
 const noop = () => {
     return;

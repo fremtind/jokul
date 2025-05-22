@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { SkeletonTextAreaProps } from "../types.js";
+import type { SkeletonTextAreaProps } from "../types.js";
 import { SkeletonElement } from "./SkeletonElement.js";
 import { SkeletonLabel } from "./SkeletonLabel.js";
 

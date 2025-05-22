@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { StrictInputType } from "storybook/internal/types";
+import type { FC } from "react";
+import type { StrictInputType } from "storybook/internal/types";
 
 type Props = {
     details: StrictInputType;

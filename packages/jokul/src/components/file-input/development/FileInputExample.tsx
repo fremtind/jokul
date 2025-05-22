@@ -1,9 +1,9 @@
-import {
+import type {
     CodeExample,
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC, useEffect, useState } from "react";
+import React, { type FC, useEffect, useState } from "react";
 import type { SupportLabelType } from "../../../components/input-group/types.js";
 import { ProgressBar } from "../../../components/progress-bar/ProgressBar.js";
 import { formatBytes } from "../../../utilities/formatters/bytes/formatBytes.js";
@@ -11,8 +11,8 @@ import { PrimaryButton } from "../../button/Button.js";
 import {
     File,
     FileInput,
-    FileInputFile,
-    FileInputFileState,
+    type FileInputFile,
+    type FileInputFileState,
 } from "../index.js";
 import iconBytes from "./iconBytes.js";
 

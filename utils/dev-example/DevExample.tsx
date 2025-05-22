@@ -1,7 +1,7 @@
-import React, { StrictMode, FC } from "react";
+import React, { StrictMode, type FC } from "react";
 import {
     ComponentExample,
-    Props as ComponentExampleProps,
+    type Props as ComponentExampleProps,
 } from "./ComponentExample";
 
 import "../../packages/jokul/src/fonts/styles/webfonts.scss";

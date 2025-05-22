@@ -4,7 +4,7 @@ import {
     getConsentCookie,
     shouldShowConsentDialog,
 } from "./cookieConsentUtils.js";
-import {
+import type {
     Consent,
     CookieConsentProviderProps,
     InternalContext,

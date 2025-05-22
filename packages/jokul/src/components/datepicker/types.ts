@@ -5,8 +5,8 @@ import type {
     FocusEvent,
     KeyboardEvent,
 } from "react";
-import { DataTestAutoId, Density } from "../../core/types.js";
-import { InputGroupProps, LabelProps } from "../input-group/types.js";
+import type { DataTestAutoId, Density } from "../../core/types.js";
+import type { InputGroupProps, LabelProps } from "../input-group/types.js";
 
 export type DateValidationError =
     | "WRONG_FORMAT"

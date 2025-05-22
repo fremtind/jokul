@@ -1,9 +1,9 @@
 import { clsx } from "clsx";
 import React from "react";
-import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ArrowRightIcon } from "../icon/icons/ArrowRightIcon.js";
 import { ArrowLeftIcon } from "../icon/index.js";
-import { NavLinkProps } from "./types.js";
+import type { NavLinkProps } from "./types.js";
 
 type LinkComponent = <ElementType extends React.ElementType = "a">(
     props: NavLinkProps<ElementType>,

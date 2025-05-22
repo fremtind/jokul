@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { TableCaptionProps } from "./types.js";
+import type { TableCaptionProps } from "./types.js";
 
 const TableCaption = forwardRef<HTMLTableCaptionElement, TableCaptionProps>(
     ({ srOnly = true, ...rest }, ref) => {

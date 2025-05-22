@@ -1,12 +1,12 @@
 import React, {
-    ChangeEvent,
-    ForwardedRef,
+    type ChangeEvent,
+    type ForwardedRef,
     forwardRef,
     useCallback,
     useState,
 } from "react";
 import { BasePanel } from "../../shared/input-panel/BasePanel.js";
-import { CheckboxPanelProps } from "./types.js";
+import type { CheckboxPanelProps } from "./types.js";
 
 export const CheckboxPanel = forwardRef(function CheckboxPanel(
     {

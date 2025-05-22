@@ -1,6 +1,6 @@
 import { SearchIcon } from "@fremtind/jokul/components/icon";
 import cn from "clsx";
-import { type MouseEventHandler } from "react";
+import type { MouseEventHandler } from "react";
 import { KeyboardShortcut } from "./KeyboardShortcut";
 import styles from "./search-trigger.module.scss";
 

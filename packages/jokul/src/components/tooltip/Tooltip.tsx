@@ -13,9 +13,9 @@ import {
     useInteractions,
     useRole,
 } from "@floating-ui/react";
-import React, { FC, createContext, useContext, useRef, useState } from "react";
-import { type WithChildren } from "../../core/types.js";
-import { TooltipProps } from "./types.js";
+import React, { type FC, createContext, useContext, useRef, useState } from "react";
+import type { WithChildren } from "../../core/types.js";
+import type { TooltipProps } from "./types.js";
 
 type UseTooltipReturn = {
     triggerOn: NonNullable<TooltipProps["triggerOn"]>;

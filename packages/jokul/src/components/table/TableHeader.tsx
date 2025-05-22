@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import React, { forwardRef, MouseEventHandler } from "react";
+import React, { forwardRef, type MouseEventHandler } from "react";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { useTableContext } from "./tableContext.js";
-import { TableHeaderProps } from "./types.js";
+import type { TableHeaderProps } from "./types.js";
 
 export type TableSortDirection = "asc" | "desc";
 

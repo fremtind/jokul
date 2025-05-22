@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { Label } from "./Label.js";
 import { SupportLabel } from "./SupportLabel.js";
-import { InputGroupProps, InputProps } from "./types.js";
+import type { InputGroupProps, InputProps } from "./types.js";
 
 export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
     (props, ref) => {

@@ -30,8 +30,8 @@ import {
     isBackDisabled,
     isForwardDisabled,
     getCalendars,
-    DateInfo,
-    CalendarMonth,
+    type DateInfo,
+    type CalendarMonth,
 } from "./utils.js";
 
 function isOffsetControlled(propOffset: number | undefined): boolean {

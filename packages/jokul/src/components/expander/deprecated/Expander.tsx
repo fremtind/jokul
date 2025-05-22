@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import React, { ForwardedRef } from "react";
-import { Density, WithChildren } from "../../../core/types.js";
+import React, { type ForwardedRef } from "react";
+import type { Density, WithChildren } from "../../../core/types.js";
 import { ArrowVerticalAnimated } from "../../icon/icons/animated/ArrowVerticalAnimated.js";
 import { ScreenReaderOnly } from "../../ScreenReaderOnly.js";
 

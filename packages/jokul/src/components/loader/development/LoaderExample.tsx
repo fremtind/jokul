@@ -1,10 +1,10 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { Loader } from "../Loader.js";
-import { LoaderVariant } from "../types.js";
+import type { LoaderVariant } from "../types.js";
 
 export const knobs: ExampleKnobsProps = {
     choiceProps: [

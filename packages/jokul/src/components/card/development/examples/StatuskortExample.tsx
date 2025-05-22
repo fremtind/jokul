@@ -1,4 +1,4 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
@@ -10,8 +10,8 @@ import { CardImage } from "../../CardImage.js";
 import {
     CARD_PADDINGS,
     CARD_VARIANTS,
-    CardPadding,
-    CardVariant,
+    type CardPadding,
+    type CardVariant,
 } from "../../types.js";
 import grass400 from "/img/grass-400.jpg";
 import grass800 from "/img/grass-800.jpg";

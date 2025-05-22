@@ -1,4 +1,4 @@
-import { act, render, RenderOptions } from "@testing-library/react";
+import { act, render, type RenderOptions } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";

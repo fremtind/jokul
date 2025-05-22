@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { type FC } from "react";
-import { IconVariant } from "../../types.js";
+import type { IconVariant } from "../../types.js";
 import { PlusIcon } from "../PlusIcon.js";
 
 export interface PlusRemoveAnimatedProps {

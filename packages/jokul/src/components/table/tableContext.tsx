@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { TableContext, TableContextProviderProps } from "./types.js";
+import type { TableContext, TableContextProviderProps } from "./types.js";
 
 const tableContext = createContext<TableContext>({
     density: undefined,

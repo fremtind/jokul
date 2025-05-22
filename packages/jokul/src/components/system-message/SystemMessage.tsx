@@ -3,7 +3,7 @@ import React from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { DismissButton } from "../message/DismissButton.js";
 import { MessageIcon } from "./common/MessageIcon.js";
-import { SystemMessageProps } from "./types.js";
+import type { SystemMessageProps } from "./types.js";
 
 type messageTypes = "info" | "error" | "success" | "warning";
 

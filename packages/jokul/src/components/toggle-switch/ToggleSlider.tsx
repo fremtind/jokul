@@ -1,14 +1,14 @@
 import clsx from "clsx";
 import React, {
-    FC,
+    type FC,
     Fragment,
-    MouseEventHandler,
+    type MouseEventHandler,
     useRef,
     useState,
 } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { useSwipeGesture } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
-import { ToggleChangeHandler, ToggleSliderProps } from "./types.js";
+import type { ToggleChangeHandler, ToggleSliderProps } from "./types.js";
 import { usePillStyles } from "./usePillStyles.js";
 
 export const ToggleSlider: FC<ToggleSliderProps> = ({

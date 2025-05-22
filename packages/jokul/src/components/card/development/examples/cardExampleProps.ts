@@ -1,5 +1,5 @@
-import { ExampleKnobsProps } from "utils/dev-example/index.js";
-import { PaddingShorthand } from "../../types.js";
+import type { ExampleKnobsProps } from "utils/dev-example/index.js";
+import type { PaddingShorthand } from "../../types.js";
 
 export const baseCardExampleProps = {
     choiceProps: [

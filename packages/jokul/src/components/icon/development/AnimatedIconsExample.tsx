@@ -1,4 +1,4 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
@@ -7,7 +7,7 @@ import { TextInput } from "../../text-input/TextInput.js";
 import { ArrowHorizontalAnimated } from "../icons/animated/ArrowHorizontalAnimated.js";
 import { ArrowVerticalAnimated } from "../icons/animated/ArrowVerticalAnimated.js";
 import { PlusRemoveAnimated } from "../icons/animated/PlusRemoveAnimated.js";
-import { IconVariant } from "../types.js";
+import type { IconVariant } from "../types.js";
 import { AnimatedIcon } from "./internal/AnimatedIcon.js";
 import { IconsExampleGrid } from "./internal/IconsExampleGrid.js";
 

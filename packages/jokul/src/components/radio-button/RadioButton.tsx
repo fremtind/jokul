@@ -3,7 +3,7 @@ import { useId } from "../../hooks/useId/useId.js";
 import { SupportLabel } from "../input-group/SupportLabel.js";
 import { BaseRadioButton } from "./BaseRadioButton.js";
 import { useRadioGroupContext } from "./radioGroupContext.js";
-import { RadioButtonProps } from "./types.js";
+import type { RadioButtonProps } from "./types.js";
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     (props, ref) => {

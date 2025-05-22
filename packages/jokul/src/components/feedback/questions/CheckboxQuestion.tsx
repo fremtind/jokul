@@ -1,9 +1,9 @@
-import React, { ChangeEventHandler, useEffect, useRef } from "react";
+import React, { type ChangeEventHandler, useEffect, useRef } from "react";
 import { Checkbox } from "../../checkbox/Checkbox.js";
 import { FieldGroup } from "../../input-group/FieldGroup.js";
 import { useFollowUpContext } from "../followup/followupContext.js";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
-import { FeedbackOption, QuestionProps } from "../types.js";
+import type { FeedbackOption, QuestionProps } from "../types.js";
 
 export const CheckboxQuestion: React.FC<QuestionProps> = ({
     label,

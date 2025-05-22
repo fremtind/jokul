@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { RefObject } from "react";
+import type { RefObject } from "react";
 import { beforeEach, expect, it, vi } from "vitest";
 import { useScrollIntoView } from "./useScrollIntoView.js";
 

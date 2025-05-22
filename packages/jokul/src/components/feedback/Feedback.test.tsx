@@ -6,7 +6,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
 import { Feedback } from "./Feedback.js";
 import { PRESETS } from "./presets.js";
-import { FollowupQuestion } from "./types.js";
+import type { FollowupQuestion } from "./types.js";
 
 // https://github.com/testing-library/user-event/issues/1146
 // @ts-ignore typecheck liker ikke at default muligens ikke finnes
