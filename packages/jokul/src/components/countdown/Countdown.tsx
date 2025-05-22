@@ -21,7 +21,7 @@ export const Countdown: FC<CountdownProps> = ({
                 setRemainingSeconds((sec) => sec - 1);
             }
         }, 1000);
-    }, [isPaused, from, remainingSeconds, setRemainingSeconds]);
+    }, [isPaused, remainingSeconds]);
 
     return (
         <div

@@ -21,7 +21,7 @@ export const CheckboxQuestion: React.FC<QuestionProps> = ({
         if (autoFocus && ref.current) {
             ref.current.focus();
         }
-    }, [autoFocus, ref]);
+    }, [autoFocus]);
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
         const { value } = event.target;

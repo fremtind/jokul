@@ -35,27 +35,24 @@ export const MenuToggleSwitchExample: FC<ExampleComponentProps> = ({
     const [colorScheme, setColorScheme] = useState(pref.prefersColorScheme);
 
     const bodyRef = useRef<HTMLDivElement>(null);
-    const handleSetColorScheme = useCallback(
-        (scheme: ColorScheme) => {
+    const handleSetColorScheme = useCallback((scheme: ColorScheme) => {
+        if (!bodyRef.current) {
+            return;
+        }
+        setColorScheme(scheme);
+        // @ts-ignore Ikke stabilt i alle nettlesere ennå: https://caniuse.com/view-transitions
+        if (!document.startViewTransition) {
+            bodyRef.current.dataset.theme = scheme;
+            return;
+        }
+        // @ts-ignore Ikke stabilt i alle nettlesere ennå: https://caniuse.com/view-transitions
+        document.startViewTransition(() => {
             if (!bodyRef.current) {
                 return;
             }
-            setColorScheme(scheme);
-            // @ts-ignore Ikke stabilt i alle nettlesere ennå: https://caniuse.com/view-transitions
-            if (!document.startViewTransition) {
-                bodyRef.current.dataset.theme = scheme;
-                return;
-            }
-            // @ts-ignore Ikke stabilt i alle nettlesere ennå: https://caniuse.com/view-transitions
-            document.startViewTransition(() => {
-                if (!bodyRef.current) {
-                    return;
-                }
-                bodyRef.current.dataset.theme = scheme;
-            });
-        },
-        [setColorScheme],
-    );
+            bodyRef.current.dataset.theme = scheme;
+        });
+    }, []);
 
     return (
         <div

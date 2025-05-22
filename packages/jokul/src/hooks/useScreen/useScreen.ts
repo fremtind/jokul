@@ -5,7 +5,12 @@ import {
     getInitialMediaQueryMatch,
     removeMediaQueryListener,
 } from "../mediaQueryUtils.js";
-import { type ScreenAction, ActionType, reducer, type ScreenState } from "./state.js";
+import {
+    type ScreenAction,
+    ActionType,
+    reducer,
+    type ScreenState,
+} from "./state.js";
 
 const { breakpoint } = tokens;
 
@@ -53,13 +58,15 @@ export const useScreen = (): ScreenState => {
 
     useEffect(() => {
         setHasMounted(true);
-        Object.entries(MEDIA_RULES)
-            .map(([key, rule]) => [key, getInitialMediaQueryMatch(rule)])
-            .forEach(([key, value]) => {
-                if (value) {
-                    deviceDispatch(createAction(key as keyof ScreenState));
-                }
-            });
+        const initialMatches = Object.entries(MEDIA_RULES).map(
+            ([key, rule]) => [key, getInitialMediaQueryMatch(rule)],
+        );
+
+        for (const [key, value] of initialMatches) {
+            if (value) {
+                deviceDispatch(createAction(key as keyof ScreenState));
+            }
+        }
     }, []);
 
     const createListener = useCallback(
@@ -81,17 +88,17 @@ export const useScreen = (): ScreenState => {
             [MediaQueryList, (e: MediaQueryListEvent) => void]
         > = [];
 
-        Object.entries(MEDIA_RULES).forEach(([key, rule]) => {
+        for (const [key, rule] of Object.entries(MEDIA_RULES)) {
             const queryList = window.matchMedia(rule);
             const listener = createListener(key as keyof ScreenState);
             eventListenerPairs.push([queryList, listener]);
             addMediaQueryListener(queryList, listener);
-        });
+        }
 
         return () => {
-            eventListenerPairs.forEach(([queryList, listener]) =>
-                removeMediaQueryListener(queryList, listener),
-            );
+            for (const [queryList, listener] of eventListenerPairs) {
+                removeMediaQueryListener(queryList, listener);
+            }
         };
     }, [createListener, hasMounted]);
 

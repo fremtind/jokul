@@ -1,12 +1,6 @@
 import clsx from "clsx";
-<<<<<<< HEAD
 import React, { useCallback, useRef } from "react";
-import { TabListProps } from "./types.js";
-=======
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useTabsContext } from "./tabsContext.js";
 import type { TabListProps } from "./types.js";
->>>>>>> b62a2899f (refactor: kjør linting på alle filer med Biome)
 
 export interface InjectedProps {
     activeIndex: number;

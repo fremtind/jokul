@@ -17,12 +17,10 @@ export function useFocusOutside(
 
     useEffect(() => {
         if (ref) {
-            document &&
-                document.addEventListener("focusin", handleFocusOutside);
+            document?.addEventListener("focusin", handleFocusOutside);
         }
         return () => {
-            document &&
-                document.removeEventListener("focusin", handleFocusOutside);
+            document?.removeEventListener("focusin", handleFocusOutside);
         };
     });
 }

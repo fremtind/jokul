@@ -148,7 +148,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 buttons.forEach((el, i) => {
                     const newNodeKey = i + offsetDiff;
 
-                    if (el == e) {
+                    if (el === e) {
                         if (
                             newNodeKey <= buttons.length - 1 &&
                             newNodeKey >= 0
@@ -225,14 +225,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                     }
                 });
             },
-            [
-                handleOffsetChanged,
-                calendarPaddingRef,
-                offset,
-                calendars,
-                maxDate,
-                minDate,
-            ],
+            [handleOffsetChanged, offset, calendars, maxDate, minDate],
         );
 
         const handleArrowNavigation = useCallback(

@@ -64,7 +64,7 @@ export const CookieConsentModalExample: FC<ExampleComponentProps> = ({
             name: "demo-consent-cookie",
         });
         setHasResetCookie(true);
-    }, [setHasResetCookie, boolValues]);
+    }, []);
 
     if (!hasResetCookie) {
         return null;

@@ -37,7 +37,7 @@ export const Expander = React.forwardRef(function Expander<
     } = useContext<ExpandableContext>(ExpanderContext);
 
     const internalRef = useRef<HTMLElement>();
-    useImperativeHandle(ref, () => internalRef.current, [internalRef]);
+    useImperativeHandle(ref, () => internalRef.current, []);
 
     const isOpen = controlledOpen || contextOpen;
 

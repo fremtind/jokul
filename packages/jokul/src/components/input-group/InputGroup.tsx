@@ -39,7 +39,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
 
         const inputProps: InputProps = {
             "aria-describedby": describedBy,
-            "aria-invalid": Boolean(errorLabel) ? true : undefined,
+            "aria-invalid": errorLabel ? true : undefined,
             id: uid,
         };
 

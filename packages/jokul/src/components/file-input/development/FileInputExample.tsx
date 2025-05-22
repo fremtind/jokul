@@ -44,7 +44,7 @@ const FakeProgressBar: FC = () => {
         setTimeout(() => {
             setProgress((p) => (p < 100 ? p + 1 : p));
         }, 20);
-    }, [progress, setProgress]);
+    }, []);
 
     const isTestMode =
         hasMounted && window.location.search === "?mode=e2e"
@@ -79,7 +79,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                 uploadProgress: 0,
             },
         ]);
-    }, [hasMounted, setFiles]);
+    }, [hasMounted]);
 
     const maxSizeBytes = 8_000_000;
 

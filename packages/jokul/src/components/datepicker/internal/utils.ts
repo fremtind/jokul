@@ -39,7 +39,7 @@ export function composeEventHandlers(
 ) {
     return (event: React.MouseEvent) =>
         fns.some((fn) => {
-            fn && fn(event);
+            fn?.(event);
             return event.defaultPrevented;
         });
 }

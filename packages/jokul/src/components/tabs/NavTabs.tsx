@@ -25,6 +25,7 @@ export const NavTabs = ({
         },
     );
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies:
     useEffect(() => {
         if (tablistRef.current) {
             setTabsRect(tablistRef.current.getBoundingClientRect());

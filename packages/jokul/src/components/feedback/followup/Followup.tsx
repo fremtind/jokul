@@ -38,7 +38,7 @@ export const Followup: FC<FollowupProps> = ({
         if (step.number === 0) {
             return;
         }
-        focusRef.current && focusRef.current.focus();
+        focusRef.current?.focus();
     }, [step]);
 
     useEffect(() => {

@@ -27,7 +27,9 @@ describe("Tabs", () => {
     it("should render", async () => {
         renderComponent();
 
-        ["Tab 1", "Tab 2", "Tab 3"].forEach((text) => screen.getByText(text));
+        for (const text of ["Tab 1", "Tab 2", "Tab 3"]) {
+            screen.getByText(text);
+        }
 
         screen.getByText("Tabpanel 1");
         expect(screen.queryByText("Tabpanel 2")).toBeNull();

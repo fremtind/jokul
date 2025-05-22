@@ -33,7 +33,7 @@ export const ExpandablePanel = Object.assign(
         const [expanderHeight, setExpanderHeight] = useState(0);
 
         const internalRef = useRef<HTMLDetailsElement>();
-        useImperativeHandle(ref, () => internalRef.current, [internalRef]);
+        useImperativeHandle(ref, () => internalRef.current, []);
 
         const El = as;
         const isControlled = typeof controlledOpen !== "undefined";
@@ -69,7 +69,7 @@ export const ExpandablePanel = Object.assign(
                     "toggle",
                     callback as EventListener,
                 );
-        }, [setContentIsVisible, setUncontrolledOpen]);
+        }, []);
 
         return (
             <div className="jkl-expandable__wrapper">

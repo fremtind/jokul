@@ -14,7 +14,7 @@ export type NavTabProps<ElementType extends React.ElementType> =
             onBeforeKeyboardNavigation?: (
                 from: HTMLAnchorElement,
                 to: HTMLAnchorElement,
-            ) => boolean | void;
+            ) => boolean | undefined;
         }
     >;
 

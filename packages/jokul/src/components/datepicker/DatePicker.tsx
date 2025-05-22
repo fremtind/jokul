@@ -105,7 +105,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                     }
                 }
             },
-            [inputRef, forwardedInputRef],
+            [forwardedInputRef],
         );
 
         const handleFocus = useCallback(
@@ -145,7 +145,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                     action.onKeyDown(e);
                 }
             },
-            [setShowCalendar, action],
+            [action],
         );
 
         const handleChange = useCallback(
@@ -177,7 +177,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                     });
                 }
             },
-            [onChange, setError, setDate, setShowCalendar, minDate, maxDate],
+            [onChange, minDate, maxDate],
         );
 
         /// Calendar events
@@ -196,13 +196,13 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                     ) as HTMLButtonElement);
                 // Make sure the popover-modal is correctly positioned before focusing a button
                 // so we avoid accidentally scrolling to the top of the page
-                window.requestAnimationFrame(() => button && button.focus());
+                window.requestAnimationFrame(() => button?.focus());
 
                 if (action?.onClick) {
                     action.onClick(e);
                 }
             },
-            [setShowCalendar, showCalendar, action, calendarRef],
+            [showCalendar, action],
         );
 
         const handleClickCalendarDay = useCallback(
@@ -237,17 +237,14 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                     }
                 }
             },
-            [setShowCalendar, setDate, onChange],
+            [onChange],
         );
 
-        const handleTabOutsideCalendar = useCallback(
-            (e: KeyboardEvent) => {
-                e.preventDefault();
-                setShowCalendar(false);
-                iconButtonRef.current && iconButtonRef.current.focus();
-            },
-            [setShowCalendar],
-        );
+        const handleTabOutsideCalendar = useCallback((e: KeyboardEvent) => {
+            e.preventDefault();
+            setShowCalendar(false);
+            iconButtonRef.current?.focus();
+        }, []);
 
         return (
             <InputGroup
