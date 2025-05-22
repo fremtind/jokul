@@ -1,6 +1,7 @@
 {
     "packages": [
-        "packages/*"
+        "packages/*",
+        "portal"
     ],
     "version": "independent",
     "npmClient": "pnpm",
