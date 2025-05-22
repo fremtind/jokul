@@ -12,8 +12,10 @@ function Test({ fn }: Props) {
     useFocusOutside(ref, fn);
     return (
         <div>
-            <button data-testid="withoutRef">Not with ref</button>
-            <button data-testid="withRef" ref={ref}>
+            <button type="button" data-testid="withoutRef">
+                Not with ref
+            </button>
+            <button type="button" data-testid="withRef" ref={ref}>
                 With ref
             </button>
         </div>

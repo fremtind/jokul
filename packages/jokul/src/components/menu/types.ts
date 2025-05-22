@@ -1,9 +1,5 @@
 import type { Placement } from "@floating-ui/react";
-import type {
-    HTMLAttributes,
-    ButtonHTMLAttributes,
-    ReactNode,
-} from "react";
+import type { HTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 import type { DataTestAutoId, WithChildren } from "../../core/types.js";
 import type { SwipeChangeHandler } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
@@ -30,7 +26,7 @@ export interface MenuProps
      */
     keepOpenOnClickOutside?: boolean;
     /**
-     * Elementet som fungerer som trigger for menyen. Dersom elementet ikke er en `<button>`
+     * Elementet som fungerer som trigger for menyen. Dersom elementet ikke er en `<button type="button">`
      * eller en `forwardRef<HTMLButtonElement>` vil det bli lagt inne i en knapp
      * med forhåndsdefinert stil. For å komme raskt i gang kan du bruke komponenten
      * `MenuTriggerButton` fra denne pakken.

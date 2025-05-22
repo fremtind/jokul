@@ -20,8 +20,9 @@ export const LoaderExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     return (
         <div className="jkl-loader-example">
             <div>
+                {/* biome-ignore lint/a11y/useValidAriaRole: Kun for eksempelet, ellers blir det mange alerts på siden */}
                 <Loader
-                    role="none presentation" // Kun for eksempelet, ellers blir det mange alerts på siden
+                    role="none presentation"
                     variant={
                         String(
                             choiceValues?.["Variant"],

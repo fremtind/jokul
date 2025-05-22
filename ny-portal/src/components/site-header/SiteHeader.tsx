@@ -28,11 +28,7 @@ export const SiteHeader = async () => {
                 <HamburgerButton menuId={menuId} />
             </Flex>
 
-            <nav
-                role="navigation"
-                aria-label="Hovednavigasjon"
-                className={styles.menu}
-            >
+            <nav aria-label="Hovednavigasjon" className={styles.menu}>
                 <MenuItemList />
             </nav>
         </Flex>

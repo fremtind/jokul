@@ -41,6 +41,7 @@ export const ImageExample: React.FC<ExampleComponentProps> = ({
                 , still inn komponenten og trykk på last bilde.
             </p>
             <button
+                type="button"
                 className="jkl-spacing-xl--bottom jkl-button jkl-button--secondary"
                 data-testid="load-image-button"
                 onClick={() => {

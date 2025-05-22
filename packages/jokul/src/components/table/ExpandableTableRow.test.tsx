@@ -110,6 +110,7 @@ describe("ExpandableTableRow", () => {
             return (
                 <>
                     <button
+                        type="button"
                         data-testid="controller"
                         onClick={() => setIsOpen((value) => !value)}
                     >

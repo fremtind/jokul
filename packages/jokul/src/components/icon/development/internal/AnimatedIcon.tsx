@@ -15,6 +15,7 @@ export const AnimatedIcon: React.FC<AnimatedIconProps> = ({
             <div title={iconName || renderIcon.name}>{renderIcon(state)}</div>
             <div style={{ textAlign: "right" }}>
                 <button
+                    type="button"
                     data-density="compact"
                     className="jkl-button jkl-button--tertiary jkl-spacing-2xl--left"
                     onClick={() => setState(!state)}
