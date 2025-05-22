@@ -2,7 +2,7 @@ import {
     act,
     fireEvent,
     render,
-    RenderOptions,
+    type RenderOptions,
     waitFor,
 } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";

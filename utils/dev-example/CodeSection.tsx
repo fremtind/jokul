@@ -1,9 +1,9 @@
-import React, { useState, FC } from "react";
+import React, { useState, type FC } from "react";
 import {
     ExpandablePanel,
     Expander,
 } from "../../packages/jokul/src/components/expander";
-import { WithChildren } from "../../packages/jokul/src/core";
+import type { WithChildren } from "../../packages/jokul/src/core";
 
 export interface CodeSectionProps extends WithChildren {
     className?: string;

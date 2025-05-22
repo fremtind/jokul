@@ -14,7 +14,7 @@ import { IconButton } from "../icon-button/IconButton.js";
 import { NativeSelect } from "../select/NativeSelect.js";
 import { TextInput } from "../text-input/TextInput.js";
 import { useTableContext } from "./tableContext.js";
-import { TablePaginationProps } from "./types.js";
+import type { TablePaginationProps } from "./types.js";
 
 function clamp(min: number, num: number, max: number): number {
     if (num < min) {

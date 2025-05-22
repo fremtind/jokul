@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { MenuItemCheckbox as MenuItemCheckboxComponent } from "../MenuItemCheckbox.js";
 import "../styles/_index.scss";
 

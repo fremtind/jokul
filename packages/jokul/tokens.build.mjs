@@ -22,7 +22,7 @@ const transformTokens = (token) => {
 
 StyleDictionary.registerFormat({
     name: "javascript/esm",
-    formatter: function ({ dictionary, file, platform = {} }) {
+    formatter: ({ dictionary, file, platform = {} }) => {
         const { prefix } = platform;
         const tokens = prefix
             ? { [prefix]: dictionary.tokens }
@@ -59,7 +59,7 @@ const formatValueAsScssVar = (originalValue) => {
 
 StyleDictionary.registerFormat({
     name: "css/variables-ref-scss",
-    formatter: function ({ dictionary, file, platform }) {
+    formatter: ({ dictionary, file, platform }) => {
         let output =
             StyleDictionary.formatHelpers.fileHeader({ file }) +
             `@use "../jkl";\n\n`;
@@ -157,7 +157,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFilter({
     name: "isBaseVariable",
-    matcher: function (token) {
+    matcher: (token) => {
         const baseCategories = [
             "brand",
             "functional",
@@ -171,7 +171,7 @@ StyleDictionary.registerFilter({
 
 StyleDictionary.registerFilter({
     name: "isNotBaseVariable",
-    matcher: function (token) {
+    matcher: (token) => {
         const baseCategories = ["brand", "functional", "spacing", "typography"];
         return !token.path.some((word) => baseCategories.includes(word));
     },
@@ -267,7 +267,7 @@ const lessStyleDictionary = StyleDictionary.extend({
 
 StyleDictionary.registerFormat({
     name: "tailwindcss/colors",
-    formatter: function ({ dictionary, file, platform }) {
+    formatter: ({ dictionary, file, platform }) => {
         const { prefix } = platform;
 
         let output = StyleDictionary.formatHelpers.fileHeader({ file });

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { GhostButton } from "../../button/Button.js";
 import { ChevronDownIcon, ErrorIcon } from "../../icon/index.js";

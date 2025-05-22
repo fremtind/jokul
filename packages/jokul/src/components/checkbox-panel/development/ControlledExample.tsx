@@ -1,9 +1,9 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import React, { type FC } from "react";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import { PrimaryButton } from "../../button/Button.js";
 import { Flex } from "../../flex/Flex.js";
 import { CheckboxPanel } from "../../index.js";

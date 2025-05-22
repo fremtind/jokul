@@ -1,10 +1,10 @@
-import React, { ReactElement, ReactNode, useState } from "react";
-import { BaseTextAreaProps } from "../text-area/types.js";
+import React, { type ReactElement, type ReactNode, useState } from "react";
+import type { BaseTextAreaProps } from "../text-area/types.js";
 import { FeedbackContextProvider } from "./feedbackContext.js";
 import { Followup } from "./followup/Followup.js";
 import { MainQuestion } from "./main-question/MainQuestion.js";
 import { ContactQuestion } from "./questions/ContactQuestion.js";
-import {
+import type {
     ContactQuestionProps,
     FeedbackOption,
     FeedbackType,

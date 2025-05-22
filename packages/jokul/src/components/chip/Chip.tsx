@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
-import { ChipProps } from "./types.js";
+import type { ChipProps } from "./types.js";
 
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
     {

@@ -1,6 +1,6 @@
-import { ReactRenderer } from "@storybook/react";
+import type { ReactRenderer } from "@storybook/react";
 import React, { useEffect } from "react";
-import { DecoratorFunction } from "storybook/internal/types";
+import type { DecoratorFunction } from "storybook/internal/types";
 
 export const themes = [undefined, "light", "dark"] as const;
 

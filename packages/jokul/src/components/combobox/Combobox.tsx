@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React, {
-    FC,
-    FocusEvent,
-    KeyboardEvent,
-    MouseEvent,
+    type FC,
+    type FocusEvent,
+    type KeyboardEvent,
+    type MouseEvent,
     useCallback,
     useEffect,
     useMemo,
@@ -13,7 +13,7 @@ import React, {
 import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
-import { ValuePair } from "../../utilities/valuePair.js";
+import type { ValuePair } from "../../utilities/valuePair.js";
 import { Chip } from "../chip/Chip.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
@@ -22,7 +22,7 @@ import { InputGroup } from "../input-group/InputGroup.js";
 import { Tooltip } from "../tooltip/Tooltip.js";
 import { TooltipContent } from "../tooltip/TooltipContent.js";
 import { TooltipTrigger } from "../tooltip/TooltipTrigger.js";
-import { ComboboxProps, ComboboxValuePair } from "./types.js";
+import type { ComboboxProps, ComboboxValuePair } from "./types.js";
 
 export function getComboboxValuePair(
     item: string | ComboboxValuePair,
@@ -102,7 +102,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 | React.KeyboardEvent<HTMLInputElement>,
             option: string,
         ) => {
-            let newValue = removeOption(option);
+            const newValue = removeOption(option);
             setSelectedValue(newValue);
             onChange({
                 type: "change",

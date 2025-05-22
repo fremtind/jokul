@@ -1,9 +1,9 @@
-import { render, RenderOptions } from "@testing-library/react";
+import { render, type RenderOptions } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
-import { File, FileInput, FileInputFile } from "./index.js";
+import { File, FileInput, type FileInputFile } from "./index.js";
 
 // https://github.com/testing-library/user-event/issues/1146
 // @ts-ignore typecheck liker ikke at default muligens ikke finnes

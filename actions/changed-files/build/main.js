@@ -1,4 +1,4 @@
-"use strict";
+
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -17,7 +17,7 @@ var __export = (target, all) => {
 };
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
+    for (const key of __getOwnPropNames(from))
       if (!__hasOwnProp.call(to, key) && key !== except)
         __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   }
@@ -36,7 +36,6 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // ../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/utils.js
 var require_utils = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/utils.js"(exports) {
-    "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.toCommandProperties = exports.toCommandValue = void 0;
     function toCommandValue(input) {
@@ -68,24 +67,21 @@ var require_utils = __commonJS({
 // ../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/command.js
 var require_command = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/command.js"(exports) {
-    "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+    var __createBinding = exports && exports.__createBinding || (Object.create ? ((o, m, k, k2) => {
       if (k2 === void 0)
         k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
-      } });
-    } : function(o, m, k, k2) {
+      Object.defineProperty(o, k2, { enumerable: true, get: () => m[k] });
+    }) : ((o, m, k, k2) => {
       if (k2 === void 0)
         k2 = k;
       o[k2] = m[k];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
+    }));
+    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? ((o, v) => {
       Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
+    }) : ((o, v) => {
       o["default"] = v;
-    });
-    var __importStar = exports && exports.__importStar || function(mod) {
+    }));
+    var __importStar = exports && exports.__importStar || ((mod) => {
       if (mod && mod.__esModule)
         return mod;
       var result = {};
@@ -96,7 +92,7 @@ var require_command = __commonJS({
       }
       __setModuleDefault(result, mod);
       return result;
-    };
+    });
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.issue = exports.issueCommand = void 0;
     var os = __importStar(require("os"));
@@ -276,17 +272,17 @@ function parse(uuid) {
   }
   let v;
   const arr = new Uint8Array(16);
-  arr[0] = (v = parseInt(uuid.slice(0, 8), 16)) >>> 24;
+  arr[0] = (v = Number.parseInt(uuid.slice(0, 8), 16)) >>> 24;
   arr[1] = v >>> 16 & 255;
   arr[2] = v >>> 8 & 255;
   arr[3] = v & 255;
-  arr[4] = (v = parseInt(uuid.slice(9, 13), 16)) >>> 8;
+  arr[4] = (v = Number.parseInt(uuid.slice(9, 13), 16)) >>> 8;
   arr[5] = v & 255;
-  arr[6] = (v = parseInt(uuid.slice(14, 18), 16)) >>> 8;
+  arr[6] = (v = Number.parseInt(uuid.slice(14, 18), 16)) >>> 8;
   arr[7] = v & 255;
-  arr[8] = (v = parseInt(uuid.slice(19, 23), 16)) >>> 8;
+  arr[8] = (v = Number.parseInt(uuid.slice(19, 23), 16)) >>> 8;
   arr[9] = v & 255;
-  arr[10] = (v = parseInt(uuid.slice(24, 36), 16)) / 1099511627776 & 255;
+  arr[10] = (v = Number.parseInt(uuid.slice(24, 36), 16)) / 1099511627776 & 255;
   arr[11] = v / 4294967296 & 255;
   arr[12] = v >>> 24 & 255;
   arr[13] = v >>> 16 & 255;
@@ -448,7 +444,7 @@ function version(uuid) {
   if (!validate_default(uuid)) {
     throw TypeError("Invalid UUID");
   }
-  return parseInt(uuid.substr(14, 1), 16);
+  return Number.parseInt(uuid.substr(14, 1), 16);
 }
 var version_default;
 var init_version = __esm({
@@ -488,24 +484,21 @@ var init_esm_node = __esm({
 // ../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/file-command.js
 var require_file_command = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/file-command.js"(exports) {
-    "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+    var __createBinding = exports && exports.__createBinding || (Object.create ? ((o, m, k, k2) => {
       if (k2 === void 0)
         k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
-      } });
-    } : function(o, m, k, k2) {
+      Object.defineProperty(o, k2, { enumerable: true, get: () => m[k] });
+    }) : ((o, m, k, k2) => {
       if (k2 === void 0)
         k2 = k;
       o[k2] = m[k];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
+    }));
+    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? ((o, v) => {
       Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
+    }) : ((o, v) => {
       o["default"] = v;
-    });
-    var __importStar = exports && exports.__importStar || function(mod) {
+    }));
+    var __importStar = exports && exports.__importStar || ((mod) => {
       if (mod && mod.__esModule)
         return mod;
       var result = {};
@@ -516,7 +509,7 @@ var require_file_command = __commonJS({
       }
       __setModuleDefault(result, mod);
       return result;
-    };
+    });
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.prepareKeyValueMessage = exports.issueFileCommand = void 0;
     var fs = __importStar(require("fs"));
@@ -554,7 +547,6 @@ var require_file_command = __commonJS({
 // ../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/proxy.js
 var require_proxy = __commonJS({
   "../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/proxy.js"(exports) {
-    "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.checkBypass = exports.getProxyUrl = void 0;
     function getProxyUrl(reqUrl) {
@@ -618,7 +610,6 @@ var require_proxy = __commonJS({
 // ../../node_modules/.pnpm/tunnel@0.0.6/node_modules/tunnel/lib/tunnel.js
 var require_tunnel = __commonJS({
   "../../node_modules/.pnpm/tunnel@0.0.6/node_modules/tunnel/lib/tunnel.js"(exports) {
-    "use strict";
     var net = require("net");
     var tls = require("tls");
     var http = require("http");
@@ -683,7 +674,7 @@ var require_tunnel = __commonJS({
         self.requests.push(options);
         return;
       }
-      self.createSocket(options, function(socket) {
+      self.createSocket(options, (socket) => {
         socket.on("free", onFree);
         socket.on("close", onCloseOrRemove);
         socket.on("agentRemove", onCloseOrRemove);
@@ -730,7 +721,7 @@ var require_tunnel = __commonJS({
         res.upgrade = true;
       }
       function onUpgrade(res, socket, head) {
-        process.nextTick(function() {
+        process.nextTick(() => {
           onConnect(res, socket, head);
         });
       }
@@ -783,21 +774,20 @@ var require_tunnel = __commonJS({
       this.sockets.splice(pos, 1);
       var pending = this.requests.shift();
       if (pending) {
-        this.createSocket(pending, function(socket2) {
+        this.createSocket(pending, (socket2) => {
           pending.request.onSocket(socket2);
         });
       }
     };
     function createSecureSocket(options, cb) {
-      var self = this;
-      TunnelingAgent.prototype.createSocket.call(self, options, function(socket) {
+      TunnelingAgent.prototype.createSocket.call(this, options, (socket) => {
         var hostHeader = options.request.getHeader("host");
-        var tlsOptions = mergeOptions({}, self.options, {
+        var tlsOptions = mergeOptions({}, this.options, {
           socket,
           servername: hostHeader ? hostHeader.replace(/:.*$/, "") : options.host
         });
         var secureSocket = tls.connect(0, tlsOptions);
-        self.sockets[self.sockets.indexOf(socket)] = secureSocket;
+        this.sockets[this.sockets.indexOf(socket)] = secureSocket;
         cb(secureSocket);
       });
     }
@@ -828,7 +818,7 @@ var require_tunnel = __commonJS({
     }
     var debug4;
     if (process.env.NODE_DEBUG && /\btunnel\b/.test(process.env.NODE_DEBUG)) {
-      debug4 = function() {
+      debug4 = () => {
         var args = Array.prototype.slice.call(arguments);
         if (typeof args[0] === "string") {
           args[0] = "TUNNEL: " + args[0];
@@ -838,7 +828,7 @@ var require_tunnel = __commonJS({
         console.error.apply(console, args);
       };
     } else {
-      debug4 = function() {
+      debug4 = () => {
       };
     }
     exports.debug = debug4;
@@ -855,24 +845,21 @@ var require_tunnel2 = __commonJS({
 // ../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/index.js
 var require_lib = __commonJS({
   "../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/index.js"(exports) {
-    "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+    var __createBinding = exports && exports.__createBinding || (Object.create ? ((o, m, k, k2) => {
       if (k2 === void 0)
         k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
-      } });
-    } : function(o, m, k, k2) {
+      Object.defineProperty(o, k2, { enumerable: true, get: () => m[k] });
+    }) : ((o, m, k, k2) => {
       if (k2 === void 0)
         k2 = k;
       o[k2] = m[k];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
+    }));
+    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? ((o, v) => {
       Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
+    }) : ((o, v) => {
       o["default"] = v;
-    });
-    var __importStar = exports && exports.__importStar || function(mod) {
+    }));
+    var __importStar = exports && exports.__importStar || ((mod) => {
       if (mod && mod.__esModule)
         return mod;
       var result = {};
@@ -883,14 +870,14 @@ var require_lib = __commonJS({
       }
       __setModuleDefault(result, mod);
       return result;
-    };
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+    });
+    var __awaiter = exports && exports.__awaiter || ((thisArg, _arguments, P, generator) => {
       function adopt(value) {
-        return value instanceof P ? value : new P(function(resolve) {
+        return value instanceof P ? value : new P((resolve) => {
           resolve(value);
         });
       }
-      return new (P || (P = Promise))(function(resolve, reject) {
+      return new (P || (P = Promise))((resolve, reject) => {
         function fulfilled(value) {
           try {
             step(generator.next(value));
@@ -910,7 +897,7 @@ var require_lib = __commonJS({
         }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
-    };
+    });
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.HttpClient = exports.isHttps = exports.HttpClientResponse = exports.HttpClientError = exports.getProxyUrl = exports.MediaTypes = exports.Headers = exports.HttpCodes = void 0;
     var http = __importStar(require("http"));
@@ -918,7 +905,7 @@ var require_lib = __commonJS({
     var pm = __importStar(require_proxy());
     var tunnel = __importStar(require_tunnel2());
     var HttpCodes;
-    (function(HttpCodes2) {
+    ((HttpCodes2) => {
       HttpCodes2[HttpCodes2["OK"] = 200] = "OK";
       HttpCodes2[HttpCodes2["MultipleChoices"] = 300] = "MultipleChoices";
       HttpCodes2[HttpCodes2["MovedPermanently"] = 301] = "MovedPermanently";
@@ -948,12 +935,12 @@ var require_lib = __commonJS({
       HttpCodes2[HttpCodes2["GatewayTimeout"] = 504] = "GatewayTimeout";
     })(HttpCodes = exports.HttpCodes || (exports.HttpCodes = {}));
     var Headers;
-    (function(Headers2) {
+    ((Headers2) => {
       Headers2["Accept"] = "accept";
       Headers2["ContentType"] = "content-type";
     })(Headers = exports.Headers || (exports.Headers = {}));
     var MediaTypes;
-    (function(MediaTypes2) {
+    ((MediaTypes2) => {
       MediaTypes2["ApplicationJson"] = "application/json";
     })(MediaTypes = exports.MediaTypes || (exports.MediaTypes = {}));
     function getProxyUrl(serverUrl) {
@@ -1254,14 +1241,14 @@ var require_lib = __commonJS({
           }
           handleResult(new Error(`Request timeout: ${info2.options.path}`));
         });
-        req.on("error", function(err) {
+        req.on("error", (err) => {
           handleResult(err);
         });
         if (data && typeof data === "string") {
           req.write(data, "utf8");
         }
         if (data && typeof data !== "string") {
-          data.on("close", function() {
+          data.on("close", () => {
             req.end();
           });
           data.pipe(req);
@@ -1286,7 +1273,7 @@ var require_lib = __commonJS({
         const defaultPort = usingSsl ? 443 : 80;
         info2.options = {};
         info2.options.host = info2.parsedUrl.hostname;
-        info2.options.port = info2.parsedUrl.port ? parseInt(info2.parsedUrl.port) : defaultPort;
+        info2.options.port = info2.parsedUrl.port ? Number.parseInt(info2.parsedUrl.port) : defaultPort;
         info2.options.path = (info2.parsedUrl.pathname || "") + (info2.parsedUrl.search || "");
         info2.options.method = method;
         info2.options.headers = this._mergeHeaders(headers);
@@ -1435,14 +1422,13 @@ var require_lib = __commonJS({
 // ../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/auth.js
 var require_auth = __commonJS({
   "../../node_modules/.pnpm/@actions+http-client@2.1.0/node_modules/@actions/http-client/lib/auth.js"(exports) {
-    "use strict";
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+    var __awaiter = exports && exports.__awaiter || ((thisArg, _arguments, P, generator) => {
       function adopt(value) {
-        return value instanceof P ? value : new P(function(resolve) {
+        return value instanceof P ? value : new P((resolve) => {
           resolve(value);
         });
       }
-      return new (P || (P = Promise))(function(resolve, reject) {
+      return new (P || (P = Promise))((resolve, reject) => {
         function fulfilled(value) {
           try {
             step(generator.next(value));
@@ -1462,7 +1448,7 @@ var require_auth = __commonJS({
         }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
-    };
+    });
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.PersonalAccessTokenCredentialHandler = exports.BearerCredentialHandler = exports.BasicCredentialHandler = void 0;
     var BasicCredentialHandler = class {
@@ -1539,14 +1525,13 @@ var require_auth = __commonJS({
 // ../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/oidc-utils.js
 var require_oidc_utils = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/oidc-utils.js"(exports) {
-    "use strict";
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+    var __awaiter = exports && exports.__awaiter || ((thisArg, _arguments, P, generator) => {
       function adopt(value) {
-        return value instanceof P ? value : new P(function(resolve) {
+        return value instanceof P ? value : new P((resolve) => {
           resolve(value);
         });
       }
-      return new (P || (P = Promise))(function(resolve, reject) {
+      return new (P || (P = Promise))((resolve, reject) => {
         function fulfilled(value) {
           try {
             step(generator.next(value));
@@ -1566,7 +1551,7 @@ var require_oidc_utils = __commonJS({
         }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
-    };
+    });
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.OidcClient = void 0;
     var http_client_1 = require_lib();
@@ -1637,14 +1622,13 @@ var require_oidc_utils = __commonJS({
 // ../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/summary.js
 var require_summary = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/summary.js"(exports) {
-    "use strict";
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+    var __awaiter = exports && exports.__awaiter || ((thisArg, _arguments, P, generator) => {
       function adopt(value) {
-        return value instanceof P ? value : new P(function(resolve) {
+        return value instanceof P ? value : new P((resolve) => {
           resolve(value);
         });
       }
-      return new (P || (P = Promise))(function(resolve, reject) {
+      return new (P || (P = Promise))((resolve, reject) => {
         function fulfilled(value) {
           try {
             step(generator.next(value));
@@ -1664,7 +1648,7 @@ var require_summary = __commonJS({
         }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
-    };
+    });
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.summary = exports.markdownSummary = exports.SUMMARY_DOCS_URL = exports.SUMMARY_ENV_VAR = void 0;
     var os_1 = require("os");
@@ -1931,24 +1915,21 @@ var require_summary = __commonJS({
 // ../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/path-utils.js
 var require_path_utils = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/path-utils.js"(exports) {
-    "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+    var __createBinding = exports && exports.__createBinding || (Object.create ? ((o, m, k, k2) => {
       if (k2 === void 0)
         k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
-      } });
-    } : function(o, m, k, k2) {
+      Object.defineProperty(o, k2, { enumerable: true, get: () => m[k] });
+    }) : ((o, m, k, k2) => {
       if (k2 === void 0)
         k2 = k;
       o[k2] = m[k];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
+    }));
+    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? ((o, v) => {
       Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
+    }) : ((o, v) => {
       o["default"] = v;
-    });
-    var __importStar = exports && exports.__importStar || function(mod) {
+    }));
+    var __importStar = exports && exports.__importStar || ((mod) => {
       if (mod && mod.__esModule)
         return mod;
       var result = {};
@@ -1959,7 +1940,7 @@ var require_path_utils = __commonJS({
       }
       __setModuleDefault(result, mod);
       return result;
-    };
+    });
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.toPlatformPath = exports.toWin32Path = exports.toPosixPath = void 0;
     var path = __importStar(require("path"));
@@ -1981,24 +1962,21 @@ var require_path_utils = __commonJS({
 // ../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/core.js
 var require_core = __commonJS({
   "../../node_modules/.pnpm/@actions+core@1.10.0/node_modules/@actions/core/lib/core.js"(exports) {
-    "use strict";
-    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+    var __createBinding = exports && exports.__createBinding || (Object.create ? ((o, m, k, k2) => {
       if (k2 === void 0)
         k2 = k;
-      Object.defineProperty(o, k2, { enumerable: true, get: function() {
-        return m[k];
-      } });
-    } : function(o, m, k, k2) {
+      Object.defineProperty(o, k2, { enumerable: true, get: () => m[k] });
+    }) : ((o, m, k, k2) => {
       if (k2 === void 0)
         k2 = k;
       o[k2] = m[k];
-    });
-    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
+    }));
+    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? ((o, v) => {
       Object.defineProperty(o, "default", { enumerable: true, value: v });
-    } : function(o, v) {
+    }) : ((o, v) => {
       o["default"] = v;
-    });
-    var __importStar = exports && exports.__importStar || function(mod) {
+    }));
+    var __importStar = exports && exports.__importStar || ((mod) => {
       if (mod && mod.__esModule)
         return mod;
       var result = {};
@@ -2009,14 +1987,14 @@ var require_core = __commonJS({
       }
       __setModuleDefault(result, mod);
       return result;
-    };
-    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+    });
+    var __awaiter = exports && exports.__awaiter || ((thisArg, _arguments, P, generator) => {
       function adopt(value) {
-        return value instanceof P ? value : new P(function(resolve) {
+        return value instanceof P ? value : new P((resolve) => {
           resolve(value);
         });
       }
-      return new (P || (P = Promise))(function(resolve, reject) {
+      return new (P || (P = Promise))((resolve, reject) => {
         function fulfilled(value) {
           try {
             step(generator.next(value));
@@ -2036,7 +2014,7 @@ var require_core = __commonJS({
         }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
-    };
+    });
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getIDToken = exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
     var command_1 = require_command();
@@ -2046,7 +2024,7 @@ var require_core = __commonJS({
     var path = __importStar(require("path"));
     var oidc_utils_1 = require_oidc_utils();
     var ExitCode;
-    (function(ExitCode2) {
+    ((ExitCode2) => {
       ExitCode2[ExitCode2["Success"] = 0] = "Success";
       ExitCode2[ExitCode2["Failure"] = 1] = "Failure";
     })(ExitCode = exports.ExitCode || (exports.ExitCode = {}));
@@ -2187,30 +2165,19 @@ Support boolean input list: \`true | True | TRUE | false | False | FALSE\``);
     }
     exports.getIDToken = getIDToken;
     var summary_1 = require_summary();
-    Object.defineProperty(exports, "summary", { enumerable: true, get: function() {
-      return summary_1.summary;
-    } });
+    Object.defineProperty(exports, "summary", { enumerable: true, get: () => summary_1.summary });
     var summary_2 = require_summary();
-    Object.defineProperty(exports, "markdownSummary", { enumerable: true, get: function() {
-      return summary_2.markdownSummary;
-    } });
+    Object.defineProperty(exports, "markdownSummary", { enumerable: true, get: () => summary_2.markdownSummary });
     var path_utils_1 = require_path_utils();
-    Object.defineProperty(exports, "toPosixPath", { enumerable: true, get: function() {
-      return path_utils_1.toPosixPath;
-    } });
-    Object.defineProperty(exports, "toWin32Path", { enumerable: true, get: function() {
-      return path_utils_1.toWin32Path;
-    } });
-    Object.defineProperty(exports, "toPlatformPath", { enumerable: true, get: function() {
-      return path_utils_1.toPlatformPath;
-    } });
+    Object.defineProperty(exports, "toPosixPath", { enumerable: true, get: () => path_utils_1.toPosixPath });
+    Object.defineProperty(exports, "toWin32Path", { enumerable: true, get: () => path_utils_1.toWin32Path });
+    Object.defineProperty(exports, "toPlatformPath", { enumerable: true, get: () => path_utils_1.toPlatformPath });
   }
 });
 
 // ../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/utils.js
 var require_utils2 = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/utils.js"(exports) {
-    "use strict";
     exports.isInteger = (num) => {
       if (typeof num === "number") {
         return Number.isInteger(num);
@@ -2229,7 +2196,7 @@ var require_utils2 = __commonJS({
       return (Number(max) - Number(min)) / Number(step) >= limit;
     };
     exports.escapeNode = (block, n = 0, type) => {
-      let node = block.nodes[n];
+      const node = block.nodes[n];
       if (!node)
         return;
       if (type && node.type === type || node.type === "open" || node.type === "close") {
@@ -2280,7 +2247,7 @@ var require_utils2 = __commonJS({
       const result = [];
       const flat = (arr) => {
         for (let i = 0; i < arr.length; i++) {
-          let ele = arr[i];
+          const ele = arr[i];
           Array.isArray(ele) ? flat(ele, result) : ele !== void 0 && result.push(ele);
         }
         return result;
@@ -2294,12 +2261,11 @@ var require_utils2 = __commonJS({
 // ../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/stringify.js
 var require_stringify = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/stringify.js"(exports, module2) {
-    "use strict";
     var utils = require_utils2();
     module2.exports = (ast, options = {}) => {
-      let stringify2 = (node, parent = {}) => {
-        let invalidBlock = options.escapeInvalid && utils.isInvalidBrace(parent);
-        let invalidNode = node.invalid === true && options.escapeInvalid === true;
+      const stringify2 = (node, parent = {}) => {
+        const invalidBlock = options.escapeInvalid && utils.isInvalidBrace(parent);
+        const invalidNode = node.invalid === true && options.escapeInvalid === true;
         let output = "";
         if (node.value) {
           if ((invalidBlock || invalidNode) && utils.isOpenOrClose(node)) {
@@ -2311,7 +2277,7 @@ var require_stringify = __commonJS({
           return node.value;
         }
         if (node.nodes) {
-          for (let child of node.nodes) {
+          for (const child of node.nodes) {
             output += stringify2(child);
           }
         }
@@ -2325,8 +2291,7 @@ var require_stringify = __commonJS({
 // ../../node_modules/.pnpm/is-number@7.0.0/node_modules/is-number/index.js
 var require_is_number = __commonJS({
   "../../node_modules/.pnpm/is-number@7.0.0/node_modules/is-number/index.js"(exports, module2) {
-    "use strict";
-    module2.exports = function(num) {
+    module2.exports = (num) => {
       if (typeof num === "number") {
         return num - num === 0;
       }
@@ -2341,7 +2306,6 @@ var require_is_number = __commonJS({
 // ../../node_modules/.pnpm/to-regex-range@5.0.1/node_modules/to-regex-range/index.js
 var require_to_regex_range = __commonJS({
   "../../node_modules/.pnpm/to-regex-range@5.0.1/node_modules/to-regex-range/index.js"(exports, module2) {
-    "use strict";
     var isNumber = require_is_number();
     var toRegexRange = (min, max, options) => {
       if (isNumber(min) === false) {
@@ -2353,22 +2317,22 @@ var require_to_regex_range = __commonJS({
       if (isNumber(max) === false) {
         throw new TypeError("toRegexRange: expected the second argument to be a number.");
       }
-      let opts = { relaxZeros: true, ...options };
+      const opts = { relaxZeros: true, ...options };
       if (typeof opts.strictZeros === "boolean") {
         opts.relaxZeros = opts.strictZeros === false;
       }
-      let relax = String(opts.relaxZeros);
-      let shorthand = String(opts.shorthand);
-      let capture = String(opts.capture);
-      let wrap = String(opts.wrap);
-      let cacheKey = min + ":" + max + "=" + relax + shorthand + capture + wrap;
+      const relax = String(opts.relaxZeros);
+      const shorthand = String(opts.shorthand);
+      const capture = String(opts.capture);
+      const wrap = String(opts.wrap);
+      const cacheKey = min + ":" + max + "=" + relax + shorthand + capture + wrap;
       if (toRegexRange.cache.hasOwnProperty(cacheKey)) {
         return toRegexRange.cache[cacheKey].result;
       }
       let a = Math.min(min, max);
-      let b = Math.max(min, max);
+      const b = Math.max(min, max);
       if (Math.abs(a - b) === 1) {
-        let result = min + "|" + max;
+        const result = min + "|" + max;
         if (opts.capture) {
           return `(${result})`;
         }
@@ -2377,8 +2341,8 @@ var require_to_regex_range = __commonJS({
         }
         return `(?:${result})`;
       }
-      let isPadded = hasPadding(min) || hasPadding(max);
-      let state = { min, max, a, b };
+      const isPadded = hasPadding(min) || hasPadding(max);
+      const state = { min, max, a, b };
       let positives = [];
       let negatives = [];
       if (isPadded) {
@@ -2386,7 +2350,7 @@ var require_to_regex_range = __commonJS({
         state.maxLen = String(state.max).length;
       }
       if (a < 0) {
-        let newMin = b < 0 ? Math.abs(b) : 1;
+        const newMin = b < 0 ? Math.abs(b) : 1;
         negatives = splitToPatterns(newMin, Math.abs(a), state, opts);
         a = state.a = 0;
       }
@@ -2405,10 +2369,10 @@ var require_to_regex_range = __commonJS({
       return state.result;
     };
     function collatePatterns(neg, pos, options) {
-      let onlyNegative = filterPatterns(neg, pos, "-", false, options) || [];
-      let onlyPositive = filterPatterns(pos, neg, "", false, options) || [];
-      let intersected = filterPatterns(neg, pos, "-?", true, options) || [];
-      let subpatterns = onlyNegative.concat(intersected).concat(onlyPositive);
+      const onlyNegative = filterPatterns(neg, pos, "-", false, options) || [];
+      const onlyPositive = filterPatterns(pos, neg, "", false, options) || [];
+      const intersected = filterPatterns(neg, pos, "-?", true, options) || [];
+      const subpatterns = onlyNegative.concat(intersected).concat(onlyPositive);
       return subpatterns.join("|");
     }
     function splitToRanges(min, max) {
@@ -2435,12 +2399,12 @@ var require_to_regex_range = __commonJS({
       if (start === stop) {
         return { pattern: start, count: [], digits: 0 };
       }
-      let zipped = zip(start, stop);
-      let digits = zipped.length;
+      const zipped = zip(start, stop);
+      const digits = zipped.length;
       let pattern = "";
       let count = 0;
       for (let i = 0; i < digits; i++) {
-        let [startDigit, stopDigit] = zipped[i];
+        const [startDigit, stopDigit] = zipped[i];
         if (startDigit === stopDigit) {
           pattern += startDigit;
         } else if (startDigit !== "0" || stopDigit !== "9") {
@@ -2455,13 +2419,13 @@ var require_to_regex_range = __commonJS({
       return { pattern, count: [count], digits };
     }
     function splitToPatterns(min, max, tok, options) {
-      let ranges = splitToRanges(min, max);
-      let tokens = [];
+      const ranges = splitToRanges(min, max);
+      const tokens = [];
       let start = min;
       let prev;
       for (let i = 0; i < ranges.length; i++) {
-        let max2 = ranges[i];
-        let obj = rangeToPattern(String(start), String(max2), options);
+        const max2 = ranges[i];
+        const obj = rangeToPattern(String(start), String(max2), options);
         let zeros = "";
         if (!tok.isPadded && prev && prev.pattern === obj.pattern) {
           if (prev.count.length > 1) {
@@ -2483,9 +2447,9 @@ var require_to_regex_range = __commonJS({
       return tokens;
     }
     function filterPatterns(arr, comparison, prefix, intersection, options) {
-      let result = [];
-      for (let ele of arr) {
-        let { string } = ele;
+      const result = [];
+      for (const ele of arr) {
+        const { string } = ele;
         if (!intersection && !contains(comparison, "string", string)) {
           result.push(prefix + string);
         }
@@ -2496,7 +2460,7 @@ var require_to_regex_range = __commonJS({
       return result;
     }
     function zip(a, b) {
-      let arr = [];
+      const arr = [];
       for (let i = 0; i < a.length; i++)
         arr.push([a[i], b[i]]);
       return arr;
@@ -2514,7 +2478,7 @@ var require_to_regex_range = __commonJS({
       return integer - integer % Math.pow(10, zeros);
     }
     function toQuantifier(digits) {
-      let [start = 0, stop = ""] = digits;
+      const [start = 0, stop = ""] = digits;
       if (stop || start > 1) {
         return `{${start + (stop ? "," + stop : "")}}`;
       }
@@ -2530,8 +2494,8 @@ var require_to_regex_range = __commonJS({
       if (!tok.isPadded) {
         return value;
       }
-      let diff = Math.abs(tok.maxLen - String(value).length);
-      let relax = options.relaxZeros !== false;
+      const diff = Math.abs(tok.maxLen - String(value).length);
+      const relax = options.relaxZeros !== false;
       switch (diff) {
         case 0:
           return "";
@@ -2553,7 +2517,6 @@ var require_to_regex_range = __commonJS({
 // ../../node_modules/.pnpm/fill-range@7.0.1/node_modules/fill-range/index.js
 var require_fill_range = __commonJS({
   "../../node_modules/.pnpm/fill-range@7.0.1/node_modules/fill-range/index.js"(exports, module2) {
-    "use strict";
     var util = require("util");
     var toRegexRange = require_to_regex_range();
     var isObject = (val) => val !== null && typeof val === "object" && !Array.isArray(val);
@@ -2583,7 +2546,7 @@ var require_fill_range = __commonJS({
     };
     var pad = (input, maxLength, toNumber2) => {
       if (maxLength > 0) {
-        let dash = input[0] === "-" ? "-" : "";
+        const dash = input[0] === "-" ? "-" : "";
         if (dash)
           input = input.slice(1);
         input = dash + input.padStart(dash ? maxLength - 1 : maxLength, "0");
@@ -2594,7 +2557,7 @@ var require_fill_range = __commonJS({
       return input;
     };
     var toMaxLen = (input, maxLength) => {
-      let negative = input[0] === "-" ? "-" : "";
+      const negative = input[0] === "-" ? "-" : "";
       if (negative) {
         input = input.slice(1);
         maxLength--;
@@ -2606,7 +2569,7 @@ var require_fill_range = __commonJS({
     var toSequence = (parts, options) => {
       parts.negatives.sort((a, b) => a < b ? -1 : a > b ? 1 : 0);
       parts.positives.sort((a, b) => a < b ? -1 : a > b ? 1 : 0);
-      let prefix = options.capture ? "" : "?:";
+      const prefix = options.capture ? "" : "?:";
       let positives = "";
       let negatives = "";
       let result;
@@ -2630,16 +2593,16 @@ var require_fill_range = __commonJS({
       if (isNumbers) {
         return toRegexRange(a, b, { wrap: false, ...options });
       }
-      let start = String.fromCharCode(a);
+      const start = String.fromCharCode(a);
       if (a === b)
         return start;
-      let stop = String.fromCharCode(b);
+      const stop = String.fromCharCode(b);
       return `[${start}-${stop}]`;
     };
     var toRegex = (start, end, options) => {
       if (Array.isArray(start)) {
-        let wrap = options.wrap === true;
-        let prefix = options.capture ? "" : "?:";
+        const wrap = options.wrap === true;
+        const prefix = options.capture ? "" : "?:";
         return wrap ? `(${prefix}${start.join("|")})` : start.join("|");
       }
       return toRegexRange(start, end, options);
@@ -2670,21 +2633,21 @@ var require_fill_range = __commonJS({
         a = 0;
       if (b === 0)
         b = 0;
-      let descending = a > b;
-      let startString = String(start);
-      let endString = String(end);
-      let stepString = String(step);
+      const descending = a > b;
+      const startString = String(start);
+      const endString = String(end);
+      const stepString = String(step);
       step = Math.max(Math.abs(step), 1);
-      let padded = zeros(startString) || zeros(endString) || zeros(stepString);
-      let maxLen = padded ? Math.max(startString.length, endString.length, stepString.length) : 0;
-      let toNumber2 = padded === false && stringify2(start, end, options) === false;
-      let format = options.transform || transform(toNumber2);
+      const padded = zeros(startString) || zeros(endString) || zeros(stepString);
+      const maxLen = padded ? Math.max(startString.length, endString.length, stepString.length) : 0;
+      const toNumber2 = padded === false && stringify2(start, end, options) === false;
+      const format = options.transform || transform(toNumber2);
       if (options.toRegex && step === 1) {
         return toRange(toMaxLen(start, maxLen), toMaxLen(end, maxLen), true, options);
       }
-      let parts = { negatives: [], positives: [] };
-      let push = (num) => parts[num < 0 ? "negatives" : "positives"].push(Math.abs(num));
-      let range = [];
+      const parts = { negatives: [], positives: [] };
+      const push = (num) => parts[num < 0 ? "negatives" : "positives"].push(Math.abs(num));
+      const range = [];
       let index = 0;
       while (descending ? a >= b : a <= b) {
         if (options.toRegex === true && step > 1) {
@@ -2704,16 +2667,16 @@ var require_fill_range = __commonJS({
       if (!isNumber(start) && start.length > 1 || !isNumber(end) && end.length > 1) {
         return invalidRange(start, end, options);
       }
-      let format = options.transform || ((val) => String.fromCharCode(val));
+      const format = options.transform || ((val) => String.fromCharCode(val));
       let a = `${start}`.charCodeAt(0);
-      let b = `${end}`.charCodeAt(0);
-      let descending = a > b;
-      let min = Math.min(a, b);
-      let max = Math.max(a, b);
+      const b = `${end}`.charCodeAt(0);
+      const descending = a > b;
+      const min = Math.min(a, b);
+      const max = Math.max(a, b);
       if (options.toRegex && step === 1) {
         return toRange(min, max, false, options);
       }
-      let range = [];
+      const range = [];
       let index = 0;
       while (descending ? a >= b : a <= b) {
         range.push(format(a, index));
@@ -2738,7 +2701,7 @@ var require_fill_range = __commonJS({
       if (isObject(step)) {
         return fill(start, end, 0, step);
       }
-      let opts = { ...options };
+      const opts = { ...options };
       if (opts.capture === true)
         opts.wrap = true;
       step = step || opts.step || 1;
@@ -2759,15 +2722,14 @@ var require_fill_range = __commonJS({
 // ../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/compile.js
 var require_compile = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/compile.js"(exports, module2) {
-    "use strict";
     var fill = require_fill_range();
     var utils = require_utils2();
     var compile = (ast, options = {}) => {
-      let walk = (node, parent = {}) => {
-        let invalidBlock = utils.isInvalidBrace(parent);
-        let invalidNode = node.invalid === true && options.escapeInvalid === true;
-        let invalid = invalidBlock === true || invalidNode === true;
-        let prefix = options.escapeInvalid === true ? "\\" : "";
+      const walk = (node, parent = {}) => {
+        const invalidBlock = utils.isInvalidBrace(parent);
+        const invalidNode = node.invalid === true && options.escapeInvalid === true;
+        const invalid = invalidBlock === true || invalidNode === true;
+        const prefix = options.escapeInvalid === true ? "\\" : "";
         let output = "";
         if (node.isOpen === true) {
           return prefix + node.value;
@@ -2788,14 +2750,14 @@ var require_compile = __commonJS({
           return node.value;
         }
         if (node.nodes && node.ranges > 0) {
-          let args = utils.reduce(node.nodes);
-          let range = fill(...args, { ...options, wrap: false, toRegex: true });
+          const args = utils.reduce(node.nodes);
+          const range = fill(...args, { ...options, wrap: false, toRegex: true });
           if (range.length !== 0) {
             return args.length > 1 && range.length > 1 ? `(${range})` : range;
           }
         }
         if (node.nodes) {
-          for (let child of node.nodes) {
+          for (const child of node.nodes) {
             output += walk(child, node);
           }
         }
@@ -2810,12 +2772,11 @@ var require_compile = __commonJS({
 // ../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/expand.js
 var require_expand = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/expand.js"(exports, module2) {
-    "use strict";
     var fill = require_fill_range();
     var stringify2 = require_stringify();
     var utils = require_utils2();
     var append2 = (queue = "", stash = "", enclose = false) => {
-      let result = [];
+      const result = [];
       queue = [].concat(queue);
       stash = [].concat(stash);
       if (!stash.length)
@@ -2823,9 +2784,9 @@ var require_expand = __commonJS({
       if (!queue.length) {
         return enclose ? utils.flatten(stash).map((ele) => `{${ele}}`) : stash;
       }
-      for (let item of queue) {
+      for (const item of queue) {
         if (Array.isArray(item)) {
-          for (let value of item) {
+          for (const value of item) {
             result.push(append2(value, stash, enclose));
           }
         } else {
@@ -2839,8 +2800,8 @@ var require_expand = __commonJS({
       return utils.flatten(result);
     };
     var expand = (ast, options = {}) => {
-      let rangeLimit = options.rangeLimit === void 0 ? 1e3 : options.rangeLimit;
-      let walk = (node, parent = {}) => {
+      const rangeLimit = options.rangeLimit === void 0 ? 1e3 : options.rangeLimit;
+      const walk = (node, parent = {}) => {
         node.queue = [];
         let p = parent;
         let q = parent.queue;
@@ -2857,7 +2818,7 @@ var require_expand = __commonJS({
           return;
         }
         if (node.nodes && node.ranges > 0) {
-          let args = utils.reduce(node.nodes);
+          const args = utils.reduce(node.nodes);
           if (utils.exceedsLimit(...args, options.step, rangeLimit)) {
             throw new RangeError("expanded array length exceeds range limit. Use options.rangeLimit to increase or disable the limit.");
           }
@@ -2869,7 +2830,7 @@ var require_expand = __commonJS({
           node.nodes = [];
           return;
         }
-        let enclose = utils.encloseBrace(node);
+        const enclose = utils.encloseBrace(node);
         let queue = node.queue;
         let block = node;
         while (block.type !== "brace" && block.type !== "root" && block.parent) {
@@ -2877,7 +2838,7 @@ var require_expand = __commonJS({
           queue = block.queue;
         }
         for (let i = 0; i < node.nodes.length; i++) {
-          let child = node.nodes[i];
+          const child = node.nodes[i];
           if (child.type === "comma" && node.type === "brace") {
             if (i === 1)
               queue.push("");
@@ -2907,7 +2868,6 @@ var require_expand = __commonJS({
 // ../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/constants.js
 var require_constants = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/constants.js"(exports, module2) {
-    "use strict";
     module2.exports = {
       MAX_LENGTH: 1024 * 64,
       // Digits
@@ -3008,7 +2968,6 @@ var require_constants = __commonJS({
 // ../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/parse.js
 var require_parse = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/lib/parse.js"(exports, module2) {
-    "use strict";
     var stringify2 = require_stringify();
     var {
       MAX_LENGTH,
@@ -3043,21 +3002,21 @@ var require_parse = __commonJS({
       if (typeof input !== "string") {
         throw new TypeError("Expected a string");
       }
-      let opts = options || {};
-      let max = typeof opts.maxLength === "number" ? Math.min(MAX_LENGTH, opts.maxLength) : MAX_LENGTH;
+      const opts = options || {};
+      const max = typeof opts.maxLength === "number" ? Math.min(MAX_LENGTH, opts.maxLength) : MAX_LENGTH;
       if (input.length > max) {
         throw new SyntaxError(`Input length (${input.length}), exceeds max characters (${max})`);
       }
-      let ast = { type: "root", input, nodes: [] };
-      let stack = [ast];
+      const ast = { type: "root", input, nodes: [] };
+      const stack = [ast];
       let block = ast;
       let prev = ast;
       let brackets = 0;
-      let length = input.length;
+      const length = input.length;
       let index = 0;
       let depth = 0;
       let value;
-      let memo = {};
+      const memo = {};
       const advance = () => input[index++];
       const push = (node) => {
         if (node.type === "text" && prev.type === "dot") {
@@ -3090,7 +3049,7 @@ var require_parse = __commonJS({
         }
         if (value === CHAR_LEFT_SQUARE_BRACKET) {
           brackets++;
-          let closed = true;
+          const closed = true;
           let next;
           while (index < length && (next = advance())) {
             value += next;
@@ -3129,7 +3088,7 @@ var require_parse = __commonJS({
           continue;
         }
         if (value === CHAR_DOUBLE_QUOTE || value === CHAR_SINGLE_QUOTE || value === CHAR_BACKTICK) {
-          let open = value;
+          const open = value;
           let next;
           if (options.keepQuotes !== true) {
             value = "";
@@ -3151,8 +3110,8 @@ var require_parse = __commonJS({
         }
         if (value === CHAR_LEFT_CURLY_BRACE) {
           depth++;
-          let dollar = prev.value && prev.value.slice(-1) === "$" || block.dollar === true;
-          let brace = {
+          const dollar = prev.value && prev.value.slice(-1) === "$" || block.dollar === true;
+          const brace = {
             type: "brace",
             open: true,
             close: false,
@@ -3172,7 +3131,7 @@ var require_parse = __commonJS({
             push({ type: "text", value });
             continue;
           }
-          let type = "close";
+          const type = "close";
           block = stack.pop();
           block.close = true;
           push({ type, value });
@@ -3183,7 +3142,7 @@ var require_parse = __commonJS({
         if (value === CHAR_COMMA && depth > 0) {
           if (block.ranges > 0) {
             block.ranges = 0;
-            let open = block.nodes.shift();
+            const open = block.nodes.shift();
             block.nodes = [open, { type: "text", value: stringify2(block) }];
           }
           push({ type: "comma", value });
@@ -3191,7 +3150,7 @@ var require_parse = __commonJS({
           continue;
         }
         if (value === CHAR_DOT && depth > 0 && block.commas === 0) {
-          let siblings = block.nodes;
+          const siblings = block.nodes;
           if (depth === 0 || siblings.length === 0) {
             push({ type: "text", value });
             continue;
@@ -3212,7 +3171,7 @@ var require_parse = __commonJS({
           }
           if (prev.type === "range") {
             siblings.pop();
-            let before = siblings[siblings.length - 1];
+            const before = siblings[siblings.length - 1];
             before.value += prev.value + value;
             prev = before;
             block.ranges--;
@@ -3237,8 +3196,8 @@ var require_parse = __commonJS({
               node.invalid = true;
             }
           });
-          let parent = stack[stack.length - 1];
-          let index2 = parent.nodes.indexOf(block);
+          const parent = stack[stack.length - 1];
+          const index2 = parent.nodes.indexOf(block);
           parent.nodes.splice(index2, 1, ...block.nodes);
         }
       } while (stack.length > 0);
@@ -3252,7 +3211,6 @@ var require_parse = __commonJS({
 // ../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/index.js
 var require_braces = __commonJS({
   "../../node_modules/.pnpm/braces@3.0.2/node_modules/braces/index.js"(exports, module2) {
-    "use strict";
     var stringify2 = require_stringify();
     var compile = require_compile();
     var expand = require_expand();
@@ -3260,8 +3218,8 @@ var require_braces = __commonJS({
     var braces = (input, options = {}) => {
       let output = [];
       if (Array.isArray(input)) {
-        for (let pattern of input) {
-          let result = braces.create(pattern, options);
+        for (const pattern of input) {
+          const result = braces.create(pattern, options);
           if (Array.isArray(result)) {
             output.push(...result);
           } else {
@@ -3315,7 +3273,6 @@ var require_braces = __commonJS({
 // ../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/constants.js
 var require_constants2 = __commonJS({
   "../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/constants.js"(exports, module2) {
-    "use strict";
     var path = require("path");
     var WIN_SLASH = "\\\\/";
     var WIN_NO_SLASH = `[^${WIN_SLASH}]`;
@@ -3512,7 +3469,6 @@ var require_constants2 = __commonJS({
 // ../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/utils.js
 var require_utils3 = __commonJS({
   "../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/utils.js"(exports) {
-    "use strict";
     var path = require("path");
     var win32 = process.platform === "win32";
     var {
@@ -3575,7 +3531,6 @@ var require_utils3 = __commonJS({
 // ../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/scan.js
 var require_scan = __commonJS({
   "../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/scan.js"(exports, module2) {
-    "use strict";
     var utils = require_utils3();
     var {
       CHAR_ASTERISK,
@@ -3614,7 +3569,7 @@ var require_scan = __commonJS({
     };
     var depth = (token) => {
       if (token.isPrefix !== true) {
-        token.depth = token.isGlobstar ? Infinity : 1;
+        token.depth = token.isGlobstar ? Number.POSITIVE_INFINITY : 1;
       }
     };
     var scan = (input, options) => {
@@ -3908,7 +3863,6 @@ var require_scan = __commonJS({
 // ../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js
 var require_parse2 = __commonJS({
   "../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/parse.js"(exports, module2) {
-    "use strict";
     var constants = require_constants2();
     var utils = require_utils3();
     var {
@@ -4689,7 +4643,6 @@ var require_parse2 = __commonJS({
 // ../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/picomatch.js
 var require_picomatch = __commonJS({
   "../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/lib/picomatch.js"(exports, module2) {
-    "use strict";
     var path = require("path");
     var scan = require_scan();
     var parse2 = require_parse2();
@@ -4833,7 +4786,6 @@ var require_picomatch = __commonJS({
 // ../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/index.js
 var require_picomatch2 = __commonJS({
   "../../node_modules/.pnpm/picomatch@2.3.1/node_modules/picomatch/index.js"(exports, module2) {
-    "use strict";
     module2.exports = require_picomatch();
   }
 });
@@ -4841,7 +4793,6 @@ var require_picomatch2 = __commonJS({
 // ../../node_modules/.pnpm/micromatch@4.0.5/node_modules/micromatch/index.js
 var require_micromatch = __commonJS({
   "../../node_modules/.pnpm/micromatch@4.0.5/node_modules/micromatch/index.js"(exports, module2) {
-    "use strict";
     var util = require("util");
     var braces = require_braces();
     var picomatch = require_picomatch2();
@@ -4850,24 +4801,24 @@ var require_micromatch = __commonJS({
     var micromatch2 = (list, patterns, options) => {
       patterns = [].concat(patterns);
       list = [].concat(list);
-      let omit = /* @__PURE__ */ new Set();
-      let keep = /* @__PURE__ */ new Set();
-      let items = /* @__PURE__ */ new Set();
+      const omit = /* @__PURE__ */ new Set();
+      const keep = /* @__PURE__ */ new Set();
+      const items = /* @__PURE__ */ new Set();
       let negatives = 0;
-      let onResult = (state) => {
+      const onResult = (state) => {
         items.add(state.output);
         if (options && options.onResult) {
           options.onResult(state);
         }
       };
       for (let i = 0; i < patterns.length; i++) {
-        let isMatch = picomatch(String(patterns[i]), { ...options, onResult }, true);
-        let negated = isMatch.state.negated || isMatch.state.negatedExtglob;
+        const isMatch = picomatch(String(patterns[i]), { ...options, onResult }, true);
+        const negated = isMatch.state.negated || isMatch.state.negatedExtglob;
         if (negated)
           negatives++;
-        for (let item of list) {
-          let matched = isMatch(item, true);
-          let match = negated ? !matched.isMatch : matched.isMatch;
+        for (const item of list) {
+          const matched = isMatch(item, true);
+          const match = negated ? !matched.isMatch : matched.isMatch;
           if (!match)
             continue;
           if (negated) {
@@ -4878,8 +4829,8 @@ var require_micromatch = __commonJS({
           }
         }
       }
-      let result = negatives === patterns.length ? [...items] : [...keep];
-      let matches = result.filter((item) => !omit.has(item));
+      const result = negatives === patterns.length ? [...items] : [...keep];
+      const matches = result.filter((item) => !omit.has(item));
       if (options && matches.length === 0) {
         if (options.failglob === true) {
           throw new Error(`No matches found for "${patterns.join(", ")}"`);
@@ -4896,15 +4847,15 @@ var require_micromatch = __commonJS({
     micromatch2.any = micromatch2.isMatch;
     micromatch2.not = (list, patterns, options = {}) => {
       patterns = [].concat(patterns).map(String);
-      let result = /* @__PURE__ */ new Set();
-      let items = [];
-      let onResult = (state) => {
+      const result = /* @__PURE__ */ new Set();
+      const items = [];
+      const onResult = (state) => {
         if (options.onResult)
           options.onResult(state);
         items.push(state.output);
       };
-      let matches = new Set(micromatch2(list, patterns, { ...options, onResult }));
-      for (let item of items) {
+      const matches = new Set(micromatch2(list, patterns, { ...options, onResult }));
+      for (const item of items) {
         if (!matches.has(item)) {
           result.add(item);
         }
@@ -4932,16 +4883,16 @@ var require_micromatch = __commonJS({
       if (!utils.isObject(obj)) {
         throw new TypeError("Expected the first argument to be an object");
       }
-      let keys = micromatch2(Object.keys(obj), patterns, options);
-      let res = {};
-      for (let key of keys)
+      const keys = micromatch2(Object.keys(obj), patterns, options);
+      const res = {};
+      for (const key of keys)
         res[key] = obj[key];
       return res;
     };
     micromatch2.some = (list, patterns, options) => {
-      let items = [].concat(list);
-      for (let pattern of [].concat(patterns)) {
-        let isMatch = picomatch(String(pattern), options);
+      const items = [].concat(list);
+      for (const pattern of [].concat(patterns)) {
+        const isMatch = picomatch(String(pattern), options);
         if (items.some((item) => isMatch(item))) {
           return true;
         }
@@ -4949,9 +4900,9 @@ var require_micromatch = __commonJS({
       return false;
     };
     micromatch2.every = (list, patterns, options) => {
-      let items = [].concat(list);
-      for (let pattern of [].concat(patterns)) {
-        let isMatch = picomatch(String(pattern), options);
+      const items = [].concat(list);
+      for (const pattern of [].concat(patterns)) {
+        const isMatch = picomatch(String(pattern), options);
         if (!items.every((item) => isMatch(item))) {
           return false;
         }
@@ -4965,9 +4916,9 @@ var require_micromatch = __commonJS({
       return [].concat(patterns).every((p) => picomatch(p, options)(str));
     };
     micromatch2.capture = (glob, input, options) => {
-      let posix = utils.isWindows(options);
-      let regex = picomatch.makeRe(String(glob), { ...options, capture: true });
-      let match = regex.exec(posix ? utils.toPosixSlashes(input) : input);
+      const posix = utils.isWindows(options);
+      const regex = picomatch.makeRe(String(glob), { ...options, capture: true });
+      const match = regex.exec(posix ? utils.toPosixSlashes(input) : input);
       if (match) {
         return match.slice(1).map((v) => v === void 0 ? "" : v);
       }
@@ -4975,9 +4926,9 @@ var require_micromatch = __commonJS({
     micromatch2.makeRe = (...args) => picomatch.makeRe(...args);
     micromatch2.scan = (...args) => picomatch.scan(...args);
     micromatch2.parse = (patterns, options) => {
-      let res = [];
-      for (let pattern of [].concat(patterns || [])) {
-        for (let str of braces(String(pattern), options)) {
+      const res = [];
+      for (const pattern of [].concat(patterns || [])) {
+        for (const str of braces(String(pattern), options)) {
           res.push(picomatch.parse(str, options));
         }
       }
@@ -5009,7 +4960,7 @@ var require_ms = __commonJS({
     var d = h * 24;
     var w = d * 7;
     var y = d * 365.25;
-    module2.exports = function(val, options) {
+    module2.exports = (val, options) => {
       options = options || {};
       var type = typeof val;
       if (type === "string" && val.length > 0) {
@@ -5032,7 +4983,7 @@ var require_ms = __commonJS({
       if (!match) {
         return;
       }
-      var n = parseFloat(match[1]);
+      var n = Number.parseFloat(match[1]);
       var type = (match[2] || "ms").toLowerCase();
       switch (type) {
         case "years":
@@ -5384,7 +5335,7 @@ var require_browser = __commonJS({
       return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || // Is firebug? http://stackoverflow.com/a/398120/376773
       typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || // Is firefox >= v31?
       // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-      typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || // Double check webkit in userAgent just in case we are in a worker
+      typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && Number.parseInt(RegExp.$1, 10) >= 31 || // Double check webkit in userAgent just in case we are in a worker
       typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
     }
     function formatArgs(args) {
@@ -5438,7 +5389,7 @@ var require_browser = __commonJS({
     }
     module2.exports = require_common()(exports);
     var { formatters } = module2.exports;
-    formatters.j = function(v) {
+    formatters.j = (v) => {
       try {
         return JSON.stringify(v);
       } catch (error) {
@@ -5451,7 +5402,6 @@ var require_browser = __commonJS({
 // ../../node_modules/.pnpm/has-flag@4.0.0/node_modules/has-flag/index.js
 var require_has_flag = __commonJS({
   "../../node_modules/.pnpm/has-flag@4.0.0/node_modules/has-flag/index.js"(exports, module2) {
-    "use strict";
     module2.exports = (flag, argv = process.argv) => {
       const prefix = flag.startsWith("-") ? "" : flag.length === 1 ? "-" : "--";
       const position = argv.indexOf(prefix + flag);
@@ -5464,7 +5414,6 @@ var require_has_flag = __commonJS({
 // ../../node_modules/.pnpm/supports-color@8.1.1/node_modules/supports-color/index.js
 var require_supports_color = __commonJS({
   "../../node_modules/.pnpm/supports-color@8.1.1/node_modules/supports-color/index.js"(exports, module2) {
-    "use strict";
     var os = require("os");
     var tty = require("tty");
     var hasFlag = require_has_flag();
@@ -5763,10 +5712,7 @@ var require_src = __commonJS({
 // ../../node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/src/index.js
 var require_src2 = __commonJS({
   "../../node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/src/index.js"(exports) {
-    "use strict";
-    var __importDefault = exports && exports.__importDefault || function(mod) {
-      return mod && mod.__esModule ? mod : { "default": mod };
-    };
+    var __importDefault = exports && exports.__importDefault || ((mod) => mod && mod.__esModule ? mod : { "default": mod });
     Object.defineProperty(exports, "__esModule", { value: true });
     var fs_1 = require("fs");
     var debug_1 = __importDefault(require_src());
@@ -5807,7 +5753,6 @@ var require_src2 = __commonJS({
 // ../../node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/index.js
 var require_dist = __commonJS({
   "../../node_modules/.pnpm/@kwsites+file-exists@1.1.1/node_modules/@kwsites/file-exists/dist/index.js"(exports) {
-    "use strict";
     function __export3(m) {
       for (var p in m)
         if (!exports.hasOwnProperty(p))
@@ -5821,7 +5766,6 @@ var require_dist = __commonJS({
 // ../../node_modules/.pnpm/@kwsites+promise-deferred@1.1.1/node_modules/@kwsites/promise-deferred/dist/index.js
 var require_dist2 = __commonJS({
   "../../node_modules/.pnpm/@kwsites+promise-deferred@1.1.1/node_modules/@kwsites/promise-deferred/dist/index.js"(exports) {
-    "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.createDeferred = exports.deferred = void 0;
     function deferred2() {
@@ -5907,7 +5851,7 @@ var __export2 = (target, all) => {
 };
 var __reExport = (target, module2, copyDefault, desc) => {
   if (module2 && typeof module2 === "object" || typeof module2 === "function") {
-    for (let key of __getOwnPropNames2(module2))
+    for (const key of __getOwnPropNames2(module2))
       if (!__hasOwnProp2.call(target, key) && (copyDefault || key !== "default"))
         __defProp2(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc2(module2, key)) || desc.enumerable });
   }
@@ -6061,7 +6005,7 @@ function asNumber(source, onNaN = 0) {
   if (source == null) {
     return onNaN;
   }
-  const num = parseInt(source, 10);
+  const num = Number.parseInt(source, 10);
   return isNaN(num) ? onNaN : num;
 }
 function prefixedArray(input, prefix) {
@@ -6551,8 +6495,8 @@ function isCleanOptionsArray(input) {
 }
 function getCleanOptions(input) {
   let cleanMode;
-  let options = [];
-  let valid = { cleanMode: false, options: true };
+  const options = [];
+  const valid = { cleanMode: false, options: true };
   input.replace(/[^a-z]i/g, "").split("").forEach((char) => {
     if (isCleanMode(char)) {
       cleanMode = char;
@@ -7336,13 +7280,13 @@ var init_parse_commit = __esm2({
         };
       }),
       new LineParser(/(\d+)[^,]*(?:,\s*(\d+)[^,]*)(?:,\s*(\d+))/g, (result, [changes, insertions, deletions]) => {
-        result.summary.changes = parseInt(changes, 10) || 0;
-        result.summary.insertions = parseInt(insertions, 10) || 0;
-        result.summary.deletions = parseInt(deletions, 10) || 0;
+        result.summary.changes = Number.parseInt(changes, 10) || 0;
+        result.summary.insertions = Number.parseInt(insertions, 10) || 0;
+        result.summary.deletions = Number.parseInt(deletions, 10) || 0;
       }),
       new LineParser(/^(\d+)[^,]*(?:,\s*(\d+)[^(]+\(([+-]))?/, (result, [changes, lines, direction]) => {
-        result.summary.changes = parseInt(changes, 10) || 0;
-        const count = parseInt(lines, 10) || 0;
+        result.summary.changes = Number.parseInt(changes, 10) || 0;
+        const count = Number.parseInt(lines, 10) || 0;
         if (direction === "-") {
           result.summary.deletions = count;
         } else if (direction === "+") {
@@ -7610,8 +7554,8 @@ function lineBuilder(tokens, fields) {
 }
 function createListLogSummaryParser(splitter = SPLITTER, fields = defaultFieldNames, logFormat = "") {
   const parseDiffResult = getDiffParser(logFormat);
-  return function(stdOut) {
-    const all = toLinesWithContent(stdOut, true, START_BOUNDARY).map(function(item) {
+  return (stdOut) => {
+    const all = toLinesWithContent(stdOut, true, START_BOUNDARY).map((item) => {
       const lineDetail = item.trim().split(COMMIT_BOUNDARY);
       const listLogLine = lineBuilder(lineDetail[0].trim().split(splitter), fields);
       if (lineDetail.length > 1 && !!lineDetail[1].trim()) {
@@ -8305,7 +8249,7 @@ var init_StatusSummary = __esm2({
         }
       ]
     ]);
-    parseStatusSummary = function(text) {
+    parseStatusSummary = (text) => {
       const lines = text.split(NULL);
       const status = new StatusSummary();
       for (let i = 0, l = lines.length; i < l; ) {
@@ -9070,7 +9014,7 @@ function trimmed(input) {
 }
 function toNumber(input) {
   if (typeof input === "string") {
-    return parseInt(input.replace(/^\D+/g, ""), 10) || 0;
+    return Number.parseInt(input.replace(/^\D+/g, ""), 10) || 0;
   }
   return 0;
 }
@@ -9084,10 +9028,10 @@ var init_TagList = __esm2({
         this.latest = latest;
       }
     };
-    parseTagList = function(data, customSort = false) {
+    parseTagList = (data, customSort = false) => {
       const tags = data.split("\n").map(trimmed).filter(Boolean);
       if (!customSort) {
-        tags.sort(function(tagA, tagB) {
+        tags.sort((tagA, tagB) => {
           const partsA = tagA.split(".");
           const partsB = tagB.split(".");
           if (partsA.length === 1 || partsB.length === 1) {
@@ -9232,10 +9176,9 @@ var require_git = __commonJS2({
       return this._runTask(moveTask2(from, to), trailingFunctionArgument2(arguments));
     };
     Git2.prototype.checkoutLatestTag = function(then) {
-      var git = this;
-      return this.pull(function() {
-        git.tags(function(err, tags) {
-          git.checkout(tags.latest, then);
+      return this.pull(() => {
+        this.tags((err, tags) => {
+          this.checkout(tags.latest, then);
         });
       });
     };
@@ -9557,7 +9500,7 @@ function completionDetectionPlugin({
         var _a2, _b;
         const events = createEvents();
         let deferClose = true;
-        let quickClose = () => void (deferClose = false);
+        const quickClose = () => void (deferClose = false);
         (_a2 = spawned.stdout) == null ? void 0 : _a2.on("data", quickClose);
         (_b = spawned.stderr) == null ? void 0 : _b.on("data", quickClose);
         spawned.on("error", quickClose);

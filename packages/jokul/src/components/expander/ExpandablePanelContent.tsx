@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { useContext } from "react";
 import { useAnimatedHeightBetween } from "../../hooks/useAnimatedHeight/useAnimatedHeightBetween.js";
 import { ExpanderContext } from "./context.js";
-import { ExpandablePanelContentComponent, ExpandableContext } from "./types.js";
+import type { ExpandablePanelContentComponent, ExpandableContext } from "./types.js";
 
 export const ExpandablePanelContent: ExpandablePanelContentComponent = ({
     className,

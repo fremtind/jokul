@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { forwardRef, useEffect, useRef } from "react";
 import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { ErrorMessage } from "./Message.js";
-import { FormErrorMessageProps } from "./types.js";
+import type { FormErrorMessageProps } from "./types.js";
 
 const defaultMessageProps = {
     title: "Feil og mangler i skjemaet",

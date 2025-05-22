@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { Label } from "./Label.js";
 import { SupportLabel } from "./SupportLabel.js";
-import { FieldGroupProps } from "./types.js";
+import type { FieldGroupProps } from "./types.js";
 
 export const FieldGroup: FC<FieldGroupProps> = (props) => {
     const {

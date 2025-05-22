@@ -3,11 +3,11 @@ import {
     CrossListItem,
     List,
 } from "@fremtind/jokul/components/list";
-import { PortableTextTypeComponentProps } from "@portabletext/react";
-import { FC } from "react";
+import type { PortableTextTypeComponentProps } from "@portabletext/react";
+import type { FC } from "react";
 import { PortableText } from "../PortableText";
 import styles from "./kortFortalt.module.scss";
-import { Jokul_componentKortFortalt } from "@/sanity/types";
+import type { Jokul_componentKortFortalt } from "@/sanity/types";
 
 export const KortFortalt: FC<
     PortableTextTypeComponentProps<Jokul_componentKortFortalt>

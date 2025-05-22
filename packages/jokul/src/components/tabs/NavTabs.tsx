@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
-import { NavTabsProps } from "./types.js";
+import type { NavTabsProps } from "./types.js";
 
 export const NavTabs = ({
     "aria-label": ariaLabel,

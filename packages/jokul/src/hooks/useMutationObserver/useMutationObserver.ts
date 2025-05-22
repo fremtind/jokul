@@ -1,4 +1,4 @@
-import { useEffect, useRef, RefObject } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 
 const hasWindowWithMutationObserver = () =>
     typeof window !== "undefined" && typeof MutationObserver !== "undefined";

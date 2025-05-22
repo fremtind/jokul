@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import React, { FC } from "react";
-import {
+import React, { type FC } from "react";
+import type {
     DescriptionDetailProps,
     DescriptionListProps,
     DescriptionTermProps,

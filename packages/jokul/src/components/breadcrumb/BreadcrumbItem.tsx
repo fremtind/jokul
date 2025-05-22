@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import React, { AnchorHTMLAttributes } from "react";
-import { BreadcrumbItemProps } from "./types.js";
+import React, { type AnchorHTMLAttributes } from "react";
+import type { BreadcrumbItemProps } from "./types.js";
 
 export const BreadcrumbItem = ({
     className,

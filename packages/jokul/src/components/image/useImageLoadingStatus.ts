@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef, useState } from "react";
+import { type RefObject, useEffect, useRef, useState } from "react";
 
 const doWhenImageLoaded = (image: HTMLImageElement, callback?: () => void) => {
     let timeout: number | undefined;

@@ -1,6 +1,6 @@
 import "@fremtind/jokul/styles/components/link/_index.scss";
-import { PortableTextTypeComponentProps } from "next-sanity";
-import { type FC } from "react";
+import type { PortableTextTypeComponentProps } from "next-sanity";
+import type { FC } from "react";
 import styles from "./storybook.module.scss";
 
 type StorybookSchema = {

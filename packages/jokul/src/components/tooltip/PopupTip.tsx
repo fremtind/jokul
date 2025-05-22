@@ -4,7 +4,7 @@ import { QuestionIcon } from "../icon/icons/QuestionIcon.js";
 import { Tooltip } from "./Tooltip.js";
 import { TooltipContent } from "./TooltipContent.js";
 import { TooltipTrigger } from "./TooltipTrigger.js";
-import { PopupTipProps } from "./types.js";
+import type { PopupTipProps } from "./types.js";
 
 export const PopupTip: FC<PopupTipProps> = ({
     content,

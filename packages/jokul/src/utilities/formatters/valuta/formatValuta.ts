@@ -1,5 +1,5 @@
 import { unicode } from "../../constants/index.js";
-import { formatNumber, FormatNumberOptions } from "../util/formatNumber.js";
+import { formatNumber, type FormatNumberOptions } from "../util/formatNumber.js";
 import { parseNumber } from "../util/parseNumber.js";
 
 interface FormatValutaOptions extends FormatNumberOptions {

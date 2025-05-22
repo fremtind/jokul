@@ -1,8 +1,8 @@
-import { ChangeEvent, SelectHTMLAttributes } from "react";
-import { DataTestAutoId, Density } from "../../core/types.js";
-import { ValuePair } from "../../utilities/valuePair.js";
-import { LabelProps } from "../input-group/types.js";
-import { type InputGroupProps } from "../input-group/types.js";
+import type { ChangeEvent, SelectHTMLAttributes } from "react";
+import type { DataTestAutoId, Density } from "../../core/types.js";
+import type { ValuePair } from "../../utilities/valuePair.js";
+import type { LabelProps } from "../input-group/types.js";
+import type { InputGroupProps } from "../input-group/types.js";
 
 export interface NativeSelectProps
     extends Omit<InputGroupProps, "children">,

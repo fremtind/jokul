@@ -1,8 +1,8 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { ComponentPropsWithRef, FC, forwardRef } from "react";
+import React, { type ComponentPropsWithRef, type FC, forwardRef } from "react";
 import { Button } from "../../button/Button.js";
 import { ChevronDownIcon, ErrorIcon } from "../../icon/index.js";
 import { Menu } from "../Menu.js";

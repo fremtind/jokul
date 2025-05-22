@@ -58,15 +58,15 @@ export function parseDateString(dateString?: string): Date | undefined {
         return undefined;
     }
 
-    const currentTwoDigitYear = parseInt(
+    const currentTwoDigitYear = Number.parseInt(
         new Date().toLocaleString("no-NB", { year: "2-digit" }),
     );
     const parseTwoDigitYear = (year: number) =>
         year > currentTwoDigitYear ? year + 1900 : year + 2000;
 
-    const day = parseInt(inputDateSegments[0], 10);
-    const month = parseInt(inputDateSegments[1], 10) - 1;
-    const yearIn = parseInt(inputDateSegments[2], 10);
+    const day = Number.parseInt(inputDateSegments[0], 10);
+    const month = Number.parseInt(inputDateSegments[1], 10) - 1;
+    const yearIn = Number.parseInt(inputDateSegments[2], 10);
     const year = yearIn > 99 ? yearIn : parseTwoDigitYear(yearIn);
 
     const generatedDate = new Date(year, month, day, 0, 0, 0);

@@ -1,7 +1,7 @@
 import type { StateChangeOptions } from "downshift";
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 import type { Density } from "../../core/types.js";
-import { LabelProps } from "../input-group/types.js";
+import type { LabelProps } from "../input-group/types.js";
 import type { SupportLabelProps } from "../input-group/types.js";
 
 export type CommonProps = (

@@ -1,4 +1,4 @@
-import { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export const SPACING_STEPS = [
     "0",

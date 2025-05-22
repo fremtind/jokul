@@ -1,6 +1,6 @@
 import React, {
-    ChangeEvent,
-    ForwardedRef,
+    type ChangeEvent,
+    type ForwardedRef,
     forwardRef,
     useCallback,
     useContext,
@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { BasePanel } from "../../shared/input-panel/BasePanel.js";
 import { context } from "./radioPanelContext.js";
-import { RadioPanelProps } from "./types.js";
+import type { RadioPanelProps } from "./types.js";
 
 export const RadioPanel = forwardRef(function RadioPanel(
     {

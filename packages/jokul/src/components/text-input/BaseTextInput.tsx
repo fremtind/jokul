@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { type CSSProperties, forwardRef } from "react";
 import { IconButton } from "../icon-button/IconButton.js";
-import { BaseTextInputProps } from "./types.js";
+import type { BaseTextInputProps } from "./types.js";
 
 function getWidthAsStyle(
     width?: string,

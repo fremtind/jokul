@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { IconButtonProps } from "./types.js";
+import type { IconButtonProps } from "./types.js";
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (props, ref) => {

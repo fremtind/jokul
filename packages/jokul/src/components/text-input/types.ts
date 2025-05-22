@@ -1,12 +1,12 @@
-import {
+import type {
     HTMLProps,
     InputHTMLAttributes,
     MouseEventHandler,
     ReactNode,
 } from "react";
-import { Density } from "../../core/types.js";
-import { IconProps } from "../icon/types.js";
-import { InputGroupProps } from "../input-group/types.js";
+import type { Density } from "../../core/types.js";
+import type { IconProps } from "../icon/types.js";
+import type { InputGroupProps } from "../input-group/types.js";
 
 export interface BaseTextInputProps
     extends Omit<

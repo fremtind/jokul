@@ -1,9 +1,9 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { ChangeEvent, FC, useState } from "react";
-import { LabelVariant } from "../../input-group/types.js";
+import React, { type ChangeEvent, type FC, useState } from "react";
+import type { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { TextArea } from "../TextArea.js";
 

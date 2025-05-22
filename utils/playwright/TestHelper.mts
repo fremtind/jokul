@@ -96,7 +96,7 @@ export class TestHelper {
         await this.server?.close();
     }
 
-    async open(path: string = "/") {
+    async open(path = "/") {
         await this._page.goto(
             `http://localhost:${this.server?.config.server.port}${path}`,
         );

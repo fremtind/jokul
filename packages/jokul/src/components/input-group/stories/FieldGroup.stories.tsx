@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { Checkbox } from "../../checkbox/Checkbox.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";

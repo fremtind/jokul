@@ -1,6 +1,6 @@
 import { act, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React, { ChangeEventHandler } from "react";
+import React, { type ChangeEventHandler } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
 import { RadioButton } from "./RadioButton.js";

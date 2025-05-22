@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { InputGroup } from "../input-group/InputGroup.js";
 import { BaseTextInput } from "./BaseTextInput.js";
-import { TextInputProps } from "./types.js";
+import type { TextInputProps } from "./types.js";
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     (props, ref) => {

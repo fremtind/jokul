@@ -1,12 +1,12 @@
 import clsx from "clsx";
-import React, { ComponentProps, FC, ReactNode, useEffect } from "react";
+import React, { type ComponentProps, type FC, type ReactNode, useEffect } from "react";
 import { useAnimatedHeight } from "../../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
-import { Feedback } from "../Feedback.js";
+import type { Feedback } from "../Feedback.js";
 import { useFeedbackContext } from "../feedbackContext.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
 import { AddonQuestion } from "../questions/AddonQuestion.js";
-import { FeedbackOption, FeedbackType } from "../types.js";
+import type { FeedbackOption, FeedbackType } from "../types.js";
 import { getQuestionFromType } from "../utils.js";
 import { MainQuestionContextProvider } from "./mainQuestionContext.js";
 import { useMainQuestion } from "./useMainQuestion.js";

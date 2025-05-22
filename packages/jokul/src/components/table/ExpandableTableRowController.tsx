@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import { Expander } from "../expander/Expander.js";
 import { TableCell } from "./TableCell.js";
 import { useTableContext } from "./tableContext.js";
-import { ExpandableTableRowControllerProps } from "./types.js";
+import type { ExpandableTableRowControllerProps } from "./types.js";
 
 const ExpandableTableRowController = forwardRef<
     HTMLTableCellElement,

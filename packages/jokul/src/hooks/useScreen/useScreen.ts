@@ -5,12 +5,12 @@ import {
     getInitialMediaQueryMatch,
     removeMediaQueryListener,
 } from "../mediaQueryUtils.js";
-import { ScreenAction, ActionType, reducer, ScreenState } from "./state.js";
+import { type ScreenAction, ActionType, reducer, type ScreenState } from "./state.js";
 
 const { breakpoint } = tokens;
 
 const breakpointsAsNumber = (breakpoint: string): number =>
-    parseInt(breakpoint.replace("px", ""));
+    Number.parseInt(breakpoint.replace("px", ""));
 
 const MEDIA_RULES: Record<keyof ScreenState, string> = {
     isSmallDevice: `(max-width: ${

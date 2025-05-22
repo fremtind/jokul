@@ -1,4 +1,4 @@
-import { FeedbackProps } from "./Feedback.js";
+import type { FeedbackProps } from "./Feedback.js";
 import { defaultOptions as smileyOptions } from "./questions/smileyUtils.js";
 
 export type PresetProperties = Pick<

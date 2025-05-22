@@ -2,9 +2,9 @@ import clsx from "clsx";
 import { nanoid } from "nanoid";
 import React, { useCallback, useEffect, useState } from "react";
 import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
-import { InjectedProps } from "./TabList.js";
+import type { InjectedProps } from "./TabList.js";
 import { TabsContextProvider } from "./tabsContext.js";
-import { TabListProps, TabPanelProps, TabsProps } from "./types.js";
+import type { TabListProps, TabPanelProps, TabsProps } from "./types.js";
 
 /**
  * Konteiner for et grensesnitt hvor man kan tabbe mellom innhold.

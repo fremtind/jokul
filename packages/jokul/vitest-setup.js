@@ -6,7 +6,7 @@ import * as axeMatchers from "vitest-axe/matchers";
 expect.extend(matchers);
 expect.extend(axeMatchers);
 
-let defaultResizeObserver = globalThis.ResizeObserver;
+const defaultResizeObserver = globalThis.ResizeObserver;
 
 beforeAll(() => {
     // Framer Motion og Floating UI bruker ResizeObserver i koden sin,

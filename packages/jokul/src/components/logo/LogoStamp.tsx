@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { useRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
-import { LogoStampProps } from "./types.js";
+import type { LogoStampProps } from "./types.js";
 import { useTextSpinner } from "./useTextSpinner.js";
 
 export const LogoStamp = ({

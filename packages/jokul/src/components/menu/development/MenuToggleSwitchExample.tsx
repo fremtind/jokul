@@ -1,9 +1,9 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
 import React, { useCallback, useRef, useState, type FC } from "react";
-import { ColorScheme } from "../../../core/types.js";
+import type { ColorScheme } from "../../../core/types.js";
 import { useBrowserPreferences } from "../../../hooks/useBrowserPreferences/useBrowserPreferences.js";
 import { DotsIcon } from "../../icon/index.js";
 import { IconButton } from "../../icon-button/IconButton.js";

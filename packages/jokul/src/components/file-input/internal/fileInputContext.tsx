@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from "react";
-import { WithChildren } from "../../../core/types.js";
-import { FileInputFile } from "../types.js";
+import type { WithChildren } from "../../../core/types.js";
+import type { FileInputFile } from "../types.js";
 
 type FileInputContext = {
     accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];

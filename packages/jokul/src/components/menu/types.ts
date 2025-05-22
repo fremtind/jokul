@@ -1,12 +1,12 @@
-import { type Placement } from "@floating-ui/react";
-import {
+import type { Placement } from "@floating-ui/react";
+import type {
     HTMLAttributes,
-    type ButtonHTMLAttributes,
-    type ReactNode,
+    ButtonHTMLAttributes,
+    ReactNode,
 } from "react";
-import { DataTestAutoId, WithChildren } from "../../core/types.js";
-import { SwipeChangeHandler } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
-import { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { DataTestAutoId, WithChildren } from "../../core/types.js";
+import type { SwipeChangeHandler } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
+import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export interface MenuProps
     extends DataTestAutoId,

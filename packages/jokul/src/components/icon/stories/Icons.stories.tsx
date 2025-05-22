@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
 import { TextInput } from "../../text-input/TextInput.js";
 import { IconExample } from "../development/internal/IconExample.js";

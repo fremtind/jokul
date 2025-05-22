@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { SkeletonCheckboxGroupProps } from "../types.js";
+import type { SkeletonCheckboxGroupProps } from "../types.js";
 import { SkeletonElement } from "./SkeletonElement.js";
 import { SkeletonLabel } from "./SkeletonLabel.js";
 

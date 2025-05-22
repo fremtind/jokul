@@ -1,8 +1,8 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "../index.js";
 
 export const tabsExampleKnobs: ExampleKnobsProps = {};

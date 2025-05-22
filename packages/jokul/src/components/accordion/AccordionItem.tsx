@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import React, { FC, useState } from "react";
+import React, { type FC, useState } from "react";
 import { useAnimatedDetails } from "../../hooks/useAnimatedDetails/useAnimatedDetails.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
-import { AccordionItemProps } from "./types.js";
+import type { AccordionItemProps } from "./types.js";
 
 /**
  * @deprecated Denne komponenten bør ikke brukes lenger, og vil ikke bli oppdatert.

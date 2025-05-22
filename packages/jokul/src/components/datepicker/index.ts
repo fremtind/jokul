@@ -6,14 +6,14 @@ export {
 } from "./validation.js";
 export { formatInput, parseDateString, isBlurTargetOutside } from "./utils.js";
 
-export {
-    type DatePickerProps,
-    type YearsToShow,
-    type DatePickerChangeEventHandler,
-    type DatePickerFocusEventHandler,
-    type DatePickerBlurEventHandler,
-    type DatePickerKeyDownEventHandler,
-    type DatePickerAction,
-    type ComparisonOptions,
-    type DatePickerMetadata,
+export type {
+    DatePickerProps,
+    YearsToShow,
+    DatePickerChangeEventHandler,
+    DatePickerFocusEventHandler,
+    DatePickerBlurEventHandler,
+    DatePickerKeyDownEventHandler,
+    DatePickerAction,
+    ComparisonOptions,
+    DatePickerMetadata,
 } from "./types.js";

@@ -1,6 +1,6 @@
 import { useA11yDialog } from "react-a11y-dialog";
 import { useId } from "../../hooks/useId/useId.js";
-import { ModalConfig, UseModalOptions } from "./types.js";
+import type { ModalConfig, UseModalOptions } from "./types.js";
 
 export type ModalInstance = ReturnType<typeof useModal>[0];
 

@@ -1,5 +1,5 @@
 import React, { type FC } from "react";
-import { ProgressBarProps } from "./types.js";
+import type { ProgressBarProps } from "./types.js";
 
 export const calculatePercentage = (current: number, total: number): number =>
     total === 0 ? 0 : (current * 100) / total;

@@ -5,11 +5,11 @@ import React, {
     type MouseEventHandler,
 } from "react";
 import {
-    SwipeChangeHandler,
+    type SwipeChangeHandler,
     useSwipeGesture,
 } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
-import { MenuItemCheckboxProps } from "./types.js";
+import type { MenuItemCheckboxProps } from "./types.js";
 
 export const MenuItemCheckbox = forwardRef<
     HTMLDivElement,

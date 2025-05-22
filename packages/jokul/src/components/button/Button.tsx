@@ -5,9 +5,9 @@ import React, {
     useCallback,
 } from "react";
 import { useAriaLiveRegion } from "../../hooks/useAriaLiveRegion/useAriaLiveRegion.js";
-import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { Loader } from "../loader/Loader.js";
-import { ButtonComponent, ButtonProps } from "./types.js";
+import type { ButtonComponent, ButtonProps } from "./types.js";
 
 export const Button = React.forwardRef(function Button<
     ElementType extends React.ElementType = "button",

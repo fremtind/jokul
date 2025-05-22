@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { Image } from "../Image.js";
-import { ImageProps } from "../types.js";
+import type { ImageProps } from "../types.js";
 import "../styles/_index.scss";
 import "./styles.scss";
 

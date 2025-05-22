@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import {
+import type {
     ColorScheme,
     Density,
     WithChildren,

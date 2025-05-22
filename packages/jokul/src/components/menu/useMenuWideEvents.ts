@@ -1,4 +1,4 @@
-import { FloatingTreeType } from "@floating-ui/react";
+import type { FloatingTreeType } from "@floating-ui/react";
 import { useEffect, useState } from "react";
 
 export const useMenuWideEvents = (

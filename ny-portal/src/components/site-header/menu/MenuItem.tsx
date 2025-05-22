@@ -1,9 +1,9 @@
 "use client";
 
 import clsx from "clsx";
-import Link, { LinkProps } from "next/link";
+import Link, { type LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
-import React, { PropsWithChildren } from "react";
+import React, { type PropsWithChildren } from "react";
 import styles from "../SiteHeader.module.scss";
 
 const getLinkUrl = (href: LinkProps["href"], as?: LinkProps["as"]): string => {

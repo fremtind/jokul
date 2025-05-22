@@ -1,5 +1,5 @@
 import React from "react";
-import { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../core/types.js";
 import { Checkbox } from "../checkbox/Checkbox.js";
 
 interface RequirementCheckboxProps extends WithChildren {

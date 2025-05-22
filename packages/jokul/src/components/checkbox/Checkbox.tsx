@@ -6,7 +6,7 @@ import React, {
     useRef,
 } from "react";
 import { useId } from "../../hooks/useId/useId.js";
-import { CheckboxProps } from "./types.js";
+import type { CheckboxProps } from "./types.js";
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     (props, ref) => {

@@ -1,8 +1,8 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { SearchIcon } from "../../icon/icons/SearchIcon.js";
 import { IconButton } from "../IconButton.js";
 

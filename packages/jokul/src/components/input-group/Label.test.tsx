@@ -3,7 +3,7 @@ import React from "react";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
 import { Label } from "./Label.js";
-import { LabelVariant } from "./types.js";
+import type { LabelVariant } from "./types.js";
 
 describe("Label", () => {
     const variants: LabelVariant[] = ["small", "medium", "large"];

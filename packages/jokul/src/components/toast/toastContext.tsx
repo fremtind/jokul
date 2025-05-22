@@ -1,7 +1,7 @@
 import { ToastQueue } from "@react-stately/toast";
 import React, { createContext, useContext, useState, type FC } from "react";
 import { ToastRegion } from "./ToastRegion.js";
-import {
+import type {
     ToastContent,
     ToastContext,
     ToastContextProviderProps,

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, useState } from "react";
 import { TableContextProvider } from "./tableContext.js";
-import { TableProps } from "./types.js";
+import type { TableProps } from "./types.js";
 
 const Table = forwardRef<HTMLTableElement, TableProps>(
     (

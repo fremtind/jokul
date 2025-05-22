@@ -1,5 +1,5 @@
 import React, { useState, type CSSProperties, type FC, useEffect } from "react";
-import { CountdownProps } from "./types.js";
+import type { CountdownProps } from "./types.js";
 
 export const Countdown: FC<CountdownProps> = ({
     className,

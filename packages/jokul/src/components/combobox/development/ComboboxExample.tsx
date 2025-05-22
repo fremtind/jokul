@@ -1,11 +1,11 @@
-import {
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC, useState } from "react";
-import { type LabelVariant } from "../../input-group/types.js";
+import React, { type FC, useState } from "react";
+import type { LabelVariant } from "../../input-group/types.js";
 import { Combobox } from "../Combobox.js";
-import { ComboboxValuePair } from "../types.js";
+import type { ComboboxValuePair } from "../types.js";
 
 export const comboboxExampleKnobs: ExampleKnobsProps = {
     boolProps: [

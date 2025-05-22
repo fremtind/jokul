@@ -1,5 +1,5 @@
 import React, { forwardRef, useId } from "react";
-import { FileInputFile } from "../types.js";
+import type { FileInputFile } from "../types.js";
 import { useFileInputContext } from "./fileInputContext.js";
 import { validateFile } from "./validateFile.js";
 

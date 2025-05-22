@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { ProgressBar as ProgressBarComponent } from "../ProgressBar.js";
 import "../styles/_index.scss";
 import React from "react";

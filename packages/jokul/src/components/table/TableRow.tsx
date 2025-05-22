@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { forwardRef, useEffect, useState } from "react";
 import { useTableContext } from "./tableContext.js";
 import { useTableSectionContext } from "./tableSectionContext.js";
-import { TableRowProps } from "./types.js";
+import type { TableRowProps } from "./types.js";
 
 const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
     ({ className, clickable, children, ...rest }, ref) => {
