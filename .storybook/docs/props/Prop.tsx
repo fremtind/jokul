@@ -1,9 +1,9 @@
 import React, { useId } from "react";
 import type { FC } from "react";
 
-import styles from "./prop-docs.module.scss";
 import type { StrictInputType } from "storybook/internal/types";
 import { Type } from "./Type";
+import styles from "./prop-docs.module.scss";
 
 type Props = {
     name: string;

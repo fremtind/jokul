@@ -1,6 +1,6 @@
 import { Link as JokulLink } from "@fremtind/jokul/components/link";
-import NextLink from "next/link";
 import type { PortableTextMarkComponentProps } from "next-sanity";
+import NextLink from "next/link";
 
 type LinkProps = PortableTextMarkComponentProps<any>;
 

@@ -1,4 +1,4 @@
-import { Select, Stack, Label } from "@sanity/ui";
+import { Label, Select, Stack } from "@sanity/ui";
 import React, { useEffect, useState, useCallback, useId } from "react";
 import { set, unset } from "sanity";
 import type { ObjectInputProps } from "sanity";

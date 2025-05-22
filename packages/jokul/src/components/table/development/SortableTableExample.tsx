@@ -1,9 +1,10 @@
+import React, { type FC, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC, useState } from "react";
 import { parseDateString } from "../../datepicker/utils.js";
+import type { TableSortDirection } from "../TableHeader.js";
 import {
     Table,
     TableBody,
@@ -14,7 +15,6 @@ import {
     TableRow,
     useSortableTableHeader,
 } from "../index.js";
-import type { TableSortDirection } from "../TableHeader.js";
 
 export const sortableTableExamplesProps: ExampleKnobsProps = {
     boolProps: [],

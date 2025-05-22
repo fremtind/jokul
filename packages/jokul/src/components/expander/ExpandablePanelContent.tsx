@@ -3,8 +3,8 @@ import React, { useContext } from "react";
 import { useAnimatedHeightBetween } from "../../hooks/useAnimatedHeight/useAnimatedHeightBetween.js";
 import { ExpanderContext } from "./context.js";
 import type {
-    ExpandablePanelContentComponent,
     ExpandableContext,
+    ExpandablePanelContentComponent,
 } from "./types.js";
 
 export const ExpandablePanelContent: ExpandablePanelContentComponent = ({

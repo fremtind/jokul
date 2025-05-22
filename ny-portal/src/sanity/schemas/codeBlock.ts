@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export const codeBlock = defineType({
     name: "jokul_codeBlock",

@@ -1,8 +1,8 @@
+import React, { type FC, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC, useState } from "react";
 import { ScreenReaderOnly } from "../../ScreenReaderOnly.js";
 import { TextInput } from "../../text-input/TextInput.js";
 import { Pagination } from "../Pagination.js";

@@ -1,8 +1,8 @@
+import React from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React from "react";
 import { formatValuta } from "../../../../utilities/formatters/valuta/formatValuta.js";
 import { ErrorTag } from "../../../tag/Tag.js";
 import { Card } from "../../Card.js";

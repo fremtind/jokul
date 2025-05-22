@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
-import { ExpanderContext } from "./context.js";
 import { ExpandablePanelContent } from "./ExpandablePanelContent.js";
+import { ExpanderContext } from "./context.js";
 import type {
     ExpandablePanelComponent,
     ExpandablePanelProps,

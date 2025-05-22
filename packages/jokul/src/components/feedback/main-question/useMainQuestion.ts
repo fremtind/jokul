@@ -1,13 +1,13 @@
 import {
-    useState,
-    useRef,
-    useCallback,
-    useEffect,
-    type SetStateAction,
     type Dispatch,
     type FormEventHandler,
+    type SetStateAction,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
 } from "react";
-import type { FeedbackType, FeedbackOption } from "../types.js";
+import type { FeedbackOption, FeedbackType } from "../types.js";
 
 type Value =
     | FeedbackOption<string | number>

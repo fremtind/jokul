@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React, { useEffect } from "react";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import { IconButton } from "../icon-button/IconButton.js";
 import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
-import { IconButton } from "../icon-button/IconButton.js";
 import { PageButton } from "./PageButton.js";
 import type { PaginationProps } from "./types.js";
 

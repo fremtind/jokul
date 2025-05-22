@@ -1,8 +1,8 @@
+import React, { type FC, useCallback, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC, useCallback, useState } from "react";
 import { CheckIcon, ChevronDownIcon, CloseIcon } from "../../icon/index.js";
 import { Button } from "../Button.js";
 import type { IconPosition } from "../types.js";

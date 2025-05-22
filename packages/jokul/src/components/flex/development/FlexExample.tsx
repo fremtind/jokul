@@ -1,8 +1,8 @@
+import React, { type CSSProperties, type FC } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type CSSProperties, type FC } from "react";
 import tokens from "../../../core/tokens.js";
 import { Card } from "../../card/Card.js";
 import { Flex } from "../Flex.js";

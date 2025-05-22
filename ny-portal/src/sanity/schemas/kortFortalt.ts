@@ -1,10 +1,10 @@
 import {
-    ListIcon,
     CheckmarkCircleIcon,
     CloseCircleIcon,
     LinkIcon,
+    ListIcon,
 } from "@sanity/icons";
-import { defineType, defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export const kortFortalt = defineType({
     name: "jokul_componentKortFortalt",
@@ -19,16 +19,15 @@ export const kortFortalt = defineType({
         prepare(select) {
             const { bruk, ikkebruk } = select;
             if (bruk && ikkebruk) {
-                /* prettier-ignore */
                 return {
                     title: "Kort fortalt",
                     subtitle: `${select.bruk.length + select.ikkebruk.length} punkt(er)`,
                 };
-            } else {
-                return {
-                    title: "Kort fortalt",
-                };
             }
+
+            return {
+                title: "Kort fortalt",
+            };
         },
     },
     fields: [

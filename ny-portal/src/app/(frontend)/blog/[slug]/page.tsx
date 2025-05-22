@@ -1,9 +1,9 @@
-import clsx from "clsx";
-import styles from "./blogpost.module.scss";
-import { BlogHeader } from "./components/BlogHeader";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { client } from "@/sanity/client";
 import { blogPostBySlugQuery } from "@/sanity/queries/blog";
+import clsx from "clsx";
+import styles from "./blogpost.module.scss";
+import { BlogHeader } from "./components/BlogHeader";
 
 type Props = {
     params: Promise<{ slug: string }>;

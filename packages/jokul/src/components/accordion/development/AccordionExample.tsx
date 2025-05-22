@@ -1,5 +1,5 @@
-import type { ExampleKnobsProps } from "utils/dev-example/index.js";
 import React, { useId } from "react";
+import type { ExampleKnobsProps } from "utils/dev-example/index.js";
 import { UnorderedList } from "../../list/List.js";
 import { ListItem } from "../../list/ListItem.js";
 import { Accordion } from "../Accordion.js";

@@ -14,11 +14,11 @@ import { ArrowRightIcon } from "../../icon/icons/ArrowRightIcon.js";
 import { ChevronDownIcon } from "../../icon/icons/ChevronDownIcon.js";
 import type { YearsToShow } from "../types.js";
 import { calendarInitializer, calendarReducer } from "./calendarReducer.js";
-import { useCalendar, type UseCalendarProps } from "./useCalendar.js";
+import { type UseCalendarProps, useCalendar } from "./useCalendar.js";
 import {
-    addMonth,
-    type DateInfo,
     DEFAULT_YEARS_TO_SHOW,
+    type DateInfo,
+    addMonth,
     getInitialDateShown,
     getMonthSelectOptions,
     getYearSelectOptions,

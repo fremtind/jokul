@@ -1,6 +1,6 @@
 import {
-    formatNumber,
     type FormatNumberOptions,
+    formatNumber,
 } from "../util/formatNumber.js";
 import { parseNumber } from "../util/parseNumber.js";
 

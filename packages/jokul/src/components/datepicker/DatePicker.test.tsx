@@ -2,12 +2,12 @@ import { cleanup, render, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React from "react";
 import {
+    type MockInstance,
     afterEach,
     beforeEach,
     describe,
     expect,
     it,
-    type MockInstance,
     vi,
 } from "vitest";
 import { axe } from "vitest-axe";

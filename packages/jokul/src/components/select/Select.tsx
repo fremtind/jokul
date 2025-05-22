@@ -16,7 +16,7 @@ import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeig
 import { useId } from "../../hooks/useId/useId.js";
 import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
 import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
-import { getValuePair, type ValuePair } from "../../utilities/valuePair.js";
+import { type ValuePair, getValuePair } from "../../utilities/valuePair.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup } from "../input-group/InputGroup.js";
 import type { PopupTipProps } from "../tooltip/types.js";

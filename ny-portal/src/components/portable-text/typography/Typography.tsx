@@ -1,3 +1,4 @@
+import type { Jokul_codeBlock } from "@/sanity/types";
 import type {
     PortableTextMarkComponentProps,
     PortableTextTypeComponentProps,
@@ -5,7 +6,6 @@ import type {
 import type { FC } from "react";
 import { CodeBlock as FTCodeBlock } from "../code-block";
 import styles from "./typography.module.scss";
-import type { Jokul_codeBlock } from "@/sanity/types";
 
 export const InlineCode: FC<PortableTextMarkComponentProps<any>> = ({
     children,

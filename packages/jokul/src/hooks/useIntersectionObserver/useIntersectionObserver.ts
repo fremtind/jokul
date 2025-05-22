@@ -1,8 +1,8 @@
 import {
+    type MutableRefObject,
+    type RefObject,
     useEffect,
     useRef,
-    type RefObject,
-    type MutableRefObject,
 } from "react";
 
 type ValidElement = HTMLElement | SVGElement;

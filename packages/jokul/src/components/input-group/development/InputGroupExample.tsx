@@ -1,8 +1,8 @@
+import React, { type FC } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC } from "react";
 import { Link } from "../../link/Link.js";
 import { BaseTextInput } from "../../text-input/BaseTextInput.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";

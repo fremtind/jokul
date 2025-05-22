@@ -1,7 +1,7 @@
 import {
     type MouseEventHandler,
-    type PointerEventHandler,
     type MutableRefObject,
+    type PointerEventHandler,
     useCallback,
     useRef,
 } from "react";

@@ -1,8 +1,8 @@
 import { type AriaToastRegionProps, useToastRegion } from "@react-aria/toast";
 import {
-    useToastQueue,
-    type ToastState,
     type ToastQueue,
+    type ToastState,
+    useToastQueue,
 } from "@react-stately/toast";
 import clsx from "clsx";
 import React from "react";

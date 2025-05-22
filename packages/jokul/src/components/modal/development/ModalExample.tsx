@@ -1,10 +1,10 @@
+import React, { useEffect, type FC } from "react";
+import ReactDOM from "react-dom";
 import {
     type ExampleComponentProps,
     type ExampleKnobsProps,
     useExampleContext,
 } from "utils/dev-example/index.js";
-import React, { useEffect, type FC } from "react";
-import ReactDOM from "react-dom";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
 import {
     Modal,

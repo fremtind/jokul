@@ -1,8 +1,8 @@
+import React, { type FC } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { type FC } from "react";
 import { List, OrderedList, UnorderedList } from "../List.js";
 import { CheckListItem, CrossListItem, ListItem } from "../ListItem.js";
 

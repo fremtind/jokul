@@ -1,5 +1,5 @@
-import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import React, { type FC } from "react";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import {
     Table,
     TableBody,

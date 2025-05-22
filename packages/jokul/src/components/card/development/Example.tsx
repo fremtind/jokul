@@ -1,10 +1,5 @@
-import { DevExample } from "utils/dev-example/DevExample.js";
 import React from "react";
-import {
-    infoCardExampleProps,
-    navCardExampleProps,
-    taskCardExampleProps,
-} from "./examples/cardExampleProps.js";
+import { DevExample } from "utils/dev-example/DevExample.js";
 import {
     FakturainfoExample,
     fakturainfoExampleProps,
@@ -16,6 +11,11 @@ import {
     statuskortExampleProps,
 } from "./examples/StatuskortExample.js";
 import { TaskCardExample } from "./examples/TaskCardExample.js";
+import {
+    infoCardExampleProps,
+    navCardExampleProps,
+    taskCardExampleProps,
+} from "./examples/cardExampleProps.js";
 
 import "./info-card-example.scss";
 import "./task-card-example.scss";

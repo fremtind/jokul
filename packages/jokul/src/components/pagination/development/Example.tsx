@@ -1,6 +1,6 @@
-import { DevExample } from "utils/dev-example/DevExample.js";
 import React from "react";
-import { knobs, PaginationExample } from "./PaginationExample.js";
+import { DevExample } from "utils/dev-example/DevExample.js";
+import { PaginationExample, knobs } from "./PaginationExample.js";
 
 import "./styles.scss";
 

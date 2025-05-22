@@ -1,12 +1,12 @@
+import React, { useCallback, useRef, useState, type FC } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { useCallback, useRef, useState, type FC } from "react";
 import type { ColorScheme } from "../../../core/types.js";
 import { useBrowserPreferences } from "../../../hooks/useBrowserPreferences/useBrowserPreferences.js";
-import { DotsIcon } from "../../icon/index.js";
 import { IconButton } from "../../icon-button/IconButton.js";
+import { DotsIcon } from "../../icon/index.js";
 import { Tooltip } from "../../tooltip/Tooltip.js";
 import { TooltipContent } from "../../tooltip/TooltipContent.js";
 import { TooltipTrigger } from "../../tooltip/TooltipTrigger.js";

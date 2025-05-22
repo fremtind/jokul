@@ -1,11 +1,11 @@
+import { PortableText } from "@/components/portable-text/PortableText";
+import { client } from "@/sanity/client";
+import { componentBySlugQuery } from "@/sanity/queries/component";
 import clsx from "clsx";
 import styles from "./component.module.scss";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentFooter } from "./components/ComponentFooter";
 import { ComponentHeader } from "./components/ComponentHeader";
-import { PortableText } from "@/components/portable-text/PortableText";
-import { client } from "@/sanity/client";
-import { componentBySlugQuery } from "@/sanity/queries/component";
 
 type Props = {
     params: Promise<{ slug: string }>;

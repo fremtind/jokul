@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { SiteHeader } from "@/components/site-header/SiteHeader";
 import { TabListener } from "@/components/TabListener";
+import { SiteHeader } from "@/components/site-header/SiteHeader";
+import Link from "next/link";
 
 import "./global.scss";
 

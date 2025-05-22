@@ -1,5 +1,5 @@
-import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import React, { type FC } from "react";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import { formatValuta } from "../../../utilities/formatters/valuta/formatValuta.js";
 import { PopupTip } from "../PopupTip.js";
 import type { TooltipPlacement } from "../types.js";

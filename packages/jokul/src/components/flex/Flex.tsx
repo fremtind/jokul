@@ -1,7 +1,7 @@
 import React, { type CSSProperties } from "react";
 import tokens from "../../core/tokens.js";
-import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { SlotComponent } from "../../utilities/polymorphism/SlotComponent.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import type { FlexComponent, FlexProps } from "./types.js";
 
 export const Flex = React.forwardRef(function Flex<

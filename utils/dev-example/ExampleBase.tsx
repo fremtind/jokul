@@ -8,10 +8,6 @@ import {
 import { Select } from "../../packages/jokul/src/components/select";
 import type { ColorScheme, Density } from "../../packages/jokul/src/core";
 import { useId, useLocalStorage } from "../../packages/jokul/src/hooks";
-import { CodeBlock } from "./CodeBlock";
-import { CodeSection } from "./CodeSection";
-import { ExampleContextProvider } from "./exampleContext";
-import { hyphenate } from "./internal/hypenate";
 import type {
     BoolProp,
     ChoiceProp,
@@ -19,6 +15,10 @@ import type {
     Dictionary,
     ExampleComponentProps,
 } from "./";
+import { CodeBlock } from "./CodeBlock";
+import { CodeSection } from "./CodeSection";
+import { ExampleContextProvider } from "./exampleContext";
+import { hyphenate } from "./internal/hypenate";
 
 export interface Props {
     component: FC<ExampleComponentProps>;
