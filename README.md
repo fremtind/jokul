@@ -29,12 +29,10 @@ Det finnes plugins for både [VSCode](https://marketplace.visualstudio.com/items
 #### Oppsett av Biome i VSCode
 
 Etter å ha installert plugin-en, åpne innstillingene og søk på `format`. Velg Biome under valget "Editor: Default Formatter". **NB!** vi anbefaler at du gjør dette under "Workspace", siden de fleste andre prosjekter bruker Prettier for formatering.
-
-`<sett inn bilde for valg av formaterer>`
+<img width="581" alt="Skjermbilde 2025-05-23 kl  10 08 09" src="https://github.com/user-attachments/assets/4f85b67b-5590-43f8-ab33-8549f3c92c40" />
 
 Deretter kan du søke etter `eslint` og fjerne avkrysningen ved "Eslint: Enable", for å unngå at Eslint krangler med Biome. Sørg også for at "Eslint > Format: Enable" er skrudd av. Disse endringene bør også gjøres under "Workspace".
-
-`<sett inn bilde for valg av linting>`
+<img width="374" alt="Skjermbilde 2025-05-23 kl  10 10 41" src="https://github.com/user-attachments/assets/ec33a8a7-f305-450b-b15f-33756de53527" />
 
 ### Tips under utvikling
 
